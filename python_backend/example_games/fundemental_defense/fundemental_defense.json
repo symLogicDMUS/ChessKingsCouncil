@@ -1,0 +1,35 @@
+{
+  "rooks_moved": {
+    "h1": false,
+    "a1": false,
+    "h8": true,
+    "a8": false
+  },
+  "kings_moved": {
+    "e1": false,
+    "e8": true
+  },
+  "pawn_histories": {
+    "a2": [ "a2" ],
+    "b2": [ "b2", "b4", "b5" ],
+    "c2": [ "c2" ],
+    "d2": [ "d2", "d4" ],
+    "e2": [ "e2", "e4" ],
+    "f2": [ "f2" ],
+    "g2": [ "g2" ],
+    "h2": [ "h2" ],
+    "a7": [ "a7", "a5" ],
+    "b7": [ "b7" ],
+    "c7": [ "c7" ],
+    "d7": [ "d7", "d5" ],
+    "e7": [ "e7", "e5" ],
+    "f7": [ "f7" ],
+    "g7": [ "g7" ],
+    "h7": [ "h7" ]
+  },
+  "last_pawn_move": "a5",
+  "num_consecutive_non_pawn_moves": 0,
+  "game_status":1,
+  "condition":"",
+  "winner":"-"
+}

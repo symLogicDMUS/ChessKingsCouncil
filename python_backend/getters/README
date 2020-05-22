@@ -1,0 +1,3 @@
+These getter functions are at the top of call-hierarchy for one of:
+    fenParser, pathsinfo, ranges, threatArea, pins, movePiece,
+or have no dependencies from any of these modules

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/fenParser/Fen.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/fenParser/Fen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_ranges.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_ranges.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/jsonRecords/JsonRecords.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/jsonRecords/JsonRecords.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/king.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/king.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_king_side_castle.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_king_side_castle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_queen_side_castle.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_queen_side_castle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/pawn_moved_once_2_sqrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/pawn_moved_once_2_sqrs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/valid_2_sqr_jump.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/valid_2_sqr_jump.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/chess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/Fen.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/Fen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/JsonRecords.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/JsonRecords.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/SpecialMoves.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/SpecialMoves.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getPieceType.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/getPieceType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getSqrCase.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/getSqrCase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/isPiece.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/isPiece.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/ply.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/ply.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bQM2arIw0EKrUzG8Zn6rkqJKks" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="ChessKingsCouncil" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="ChessKingsCouncil" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\main\web" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\front-end\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\JsonRecords" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs\test_files" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.test_dummy_game">
+    <configuration name="get_indent_groups" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/temp/pyToJs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp/pyToJs/get_indent_groups.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get_line_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/temp/pyToJs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp/pyToJs/get_line_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="play" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/play.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="surround_curly_braces" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/temp/pyToJs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp/pyToJs/surround_curly_braces.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_dummy_game" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.get_line_data" />
+      <item itemvalue="Python.get_indent_groups" />
+      <item itemvalue="Python.surround_curly_braces" />
+      <item itemvalue="Python.play" />
+      <item itemvalue="Python.test_dummy_game" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_dummy_game" />
+        <item itemvalue="Python.play" />
+        <item itemvalue="Python.surround_curly_braces" />
+        <item itemvalue="Python.get_indent_groups" />
+        <item itemvalue="Python.get_line_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="" />
+      <created>1588559657086</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588559657086</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main/terminal/test_moves.py</url>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python_backend/coordType/to_rankfile.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
