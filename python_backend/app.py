@@ -1,5 +1,7 @@
+from custom_except import *
+from print_args import print_args
 from flask import Flask, jsonify, request
-from getters.get_data import get_data
+from get_data import get_data
 from getters.get_pathdata_dict import get_pathdata_dict
 from getters.get_next_color import get_next_color
 from getters.get_ranges import get_ranges
@@ -11,32 +13,23 @@ from getters.get_pins import get_pins
 from getters.get_multithreat_restriction import get_multithreat_restriction
 from getters.get_final_ranges import get_final_ranges
 from JsonRecords.JsonRecords import JsonRecords
+from coordType.map_keys_rf import map_keys_rf
 from convert_dict_lists import convert_dict_lists
-import traceback
+from coordType.json_keys_to_rf import json_keys_to_rf
+from coordType.json_keys_to_xy import json_keys_to_xy
 import json
-import sys
-import os
+
 
 app = Flask(__name__)
-
-""" The javaScript equivalent of the following code is now implemented on the React end. it can be found in main.terminal.play:
-start, dest, board, captured, x = make_move(board, start, dest, color, final_ranges, special_moves)
-board, p_flag, = promote(board, start, dest, color, default=True)
-json_records.update_hist(board[dest], start, dest, p_flag)
-fen_obj.update_state(special_moves, json_records, start, dest, captured, color)
-json_records, x = fifty_move_draw(fen_obj.hm_clock, json_records, default=True)
-print_board(board, heading=colored(json_records.condition))
-color = get_next_color(color)
-"""
 
 
 @app.route('/start', methods=['POST'])
 def start():
-    """get data from game_name"""
+    """replicate behavior without api call"""
+    print("POST request, start()")
     game_name = request.get_data(as_text=True)
-    fen_obj, board, json_records = get_data(game_name, './python_backend')
+    fen_obj, board, json_records = get_data(game_name)
     color = fen_obj.turn.upper()
-    json_records = JsonRecords(None, None)
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
     k_loc = get_king_locs(board, color)
@@ -47,16 +40,22 @@ def start():
     mt_restricts = get_multithreat_restriction(board, npck, color)
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
     json_records.update_state(board, final_ranges, get_next_color(color), npck)
-    fen_data = fen_obj.get_data()
-    final_ranges = convert_dict_lists(final_ranges)
+    records = json_records.get_records()
     moves = special_moves.get_moves()
-    return jsonify({"fen_data": fen_data, "board": board, "records": json_records, "ranges":final_ranges, "moves":moves})
+    fen_data = fen_obj.get_data()
+    data = json_keys_to_rf({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
+                    "moves": moves})
+
+    return jsonify(data)
 
 
 @app.route('/update', methods=['POST'])
 def update():
     """update the ranges of pieces and the state of the game and return to React """
-    data = request.get_json()
+    print("POST request, update()""")
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    data = json_keys_to_xy(data)
     board, records, color = data['board'], data['records'], data['color']
     json_records = JsonRecords(None, None, j_records=records)
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
@@ -70,9 +69,9 @@ def update():
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
     json_records.update_state(board, final_ranges, get_next_color(color), npck)
     records = json_records.get_records()
-    final_ranges = convert_dict_lists(final_ranges)
     moves = special_moves.get_moves()
-    jsonify({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
+    data = json_keys_to_rf({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
+    return jsonify({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
 
 
 if __name__ == "__main__":

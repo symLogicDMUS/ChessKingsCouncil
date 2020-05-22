@@ -1,4 +1,4 @@
-
+from custom_except import *
 from threatArea.get_potential_pawn_threats import get_potential_pawn_threats
 from threatArea.get_actual_pawn_threats import get_actual_pawn_threats
 

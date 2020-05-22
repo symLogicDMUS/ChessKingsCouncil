@@ -1,4 +1,4 @@
-
+from custom_except import *
 from pins.is_pin import is_pin
 from pins.get_pin import _get_pin_info
 from getters.get_pathdata_dict import get_pathdata_dict

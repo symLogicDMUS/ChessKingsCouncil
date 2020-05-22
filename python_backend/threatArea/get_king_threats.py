@@ -1,4 +1,4 @@
-
+from custom_except import *
 from misc.formulas import dist
 from math import sqrt
 from getters.get_piece_type import get_piece_type

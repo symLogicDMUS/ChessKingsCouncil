@@ -2,7 +2,7 @@ import { isPiece } from "./isPiece";
 
 export function ply(board, start, dest) {
     /*move piece to new square, capturing piece there if there is**/
-    let captured = "_"
+    let captured = "-"
     if (isPiece(board[dest])) {
         captured = board[dest]
     }

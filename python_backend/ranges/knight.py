@@ -1,4 +1,4 @@
-
+from custom_except import *
 from threatArea.get_potential_knight_threats import get_potential_knight_threats as get_starting_jumps
 from ranges.filter_knight_jumps import filter_knight_jumps
 

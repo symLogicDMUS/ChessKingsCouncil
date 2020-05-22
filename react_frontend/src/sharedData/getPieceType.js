@@ -1,6 +1,6 @@
 
 export function getPieceType(id_) {
-    /*return 'Rook', 'Knight', 'Bishop', 'King', 'Queen', or 'Pawn'**/
+    /*return ['Rook', 'Knight', 'Bishop', 'King', 'Queen', or] 'Pawn'**/
     if (id_ === '#') {
         return 'Empty'
     }
@@ -27,5 +27,3 @@ export function getPieceType(id_) {
         return -1
     }
 }
-
-

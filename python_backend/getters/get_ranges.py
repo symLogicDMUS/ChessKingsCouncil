@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_piece_type import get_piece_type
 from ranges.get_range_func import get_range_func
 from ranges.specialMoves.SpecialMoves import SpecialMoves

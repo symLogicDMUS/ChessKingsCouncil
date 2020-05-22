@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.SpecialMoves import SpecialMoves
 from printers.print_board import print_board
 from movePiece.ply import ply

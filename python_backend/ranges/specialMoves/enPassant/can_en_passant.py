@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.enPassant.is_enp_black_att_r import is_enp_black_att_r
 from ranges.specialMoves.enPassant.is_enp_white_att_r import is_enp_white_att_r
 from ranges.specialMoves.enPassant.pawn_moved_once_2_sqrs import pawn_moved_once_2_sqrs

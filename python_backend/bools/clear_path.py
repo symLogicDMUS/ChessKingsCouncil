@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.is_piece import is_piece
 from itertools import product
 

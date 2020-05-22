@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.enPassant.en_passants import en_passants
 
 def get_t_sqr(color, align_key):

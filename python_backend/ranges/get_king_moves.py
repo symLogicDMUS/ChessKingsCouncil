@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_sqr_case import get_sqr_case
 from bools.sqr_under_attack import sqr_under_attack
 from misc.formulas import dist

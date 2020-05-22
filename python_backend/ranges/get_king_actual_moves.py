@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.sqr_under_attack import sqr_under_attack
 from getters.get_temp_boards import get_temp_boards
 from getters.get_board import get_board

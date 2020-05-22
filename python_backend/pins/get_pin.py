@@ -1,4 +1,4 @@
-
+from custom_except import *
 from pins.get_index_second_piece import _get_index_attacking_piece
 from pins.is_pin import is_pin
 from pathsInfo.get_sub_path import get_sub_path

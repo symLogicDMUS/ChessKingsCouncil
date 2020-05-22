@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def not_empty(list_):
     """returns true if the list contains at least 1 element, otherwise false"""

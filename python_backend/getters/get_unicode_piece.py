@@ -1,4 +1,4 @@
-
+from custom_except import *
 from misc.unicode_pieces import unicode_pieces
 from getters.get_piece_type import get_piece_type
 from getters.get_color import get_color

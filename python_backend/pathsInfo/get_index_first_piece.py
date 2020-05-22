@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_index_first_piece(ids):
     """take a list of ids and return the index of the first piece id"""

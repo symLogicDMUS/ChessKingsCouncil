@@ -1,4 +1,4 @@
-
+from custom_except import *
 from pathsInfo.get_coord_path import _get_coord_path
 from pathsInfo.get_path import _get_path 
 from pathsInfo.get_pieces_on_path import _get_pieces_on_path

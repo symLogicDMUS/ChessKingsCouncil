@@ -1,4 +1,4 @@
-
+from custom_except import *
 from fenParser.getFen.join_to_row import join_to_row
 
 

@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.bishop import bishop
 from ranges.knight import knight
 from ranges.queen import queen

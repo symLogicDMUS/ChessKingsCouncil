@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.get_potential_pawn_captures import get_potential_pawn_captures
 from ranges.get_actual_pawn_captures import get_actual_pawn_captures
 from ranges.get_pawn_potential_1_sqr_jumps import get_pawn_potential_1_sqr_jumps

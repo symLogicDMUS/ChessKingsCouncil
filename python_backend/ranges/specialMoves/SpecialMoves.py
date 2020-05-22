@@ -1,3 +1,4 @@
+from custom_except import *
 class SpecialMoves(object):
     """records the moves of current turn that are en-passant, castle, or pawn promotion"""
 

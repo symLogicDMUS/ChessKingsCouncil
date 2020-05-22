@@ -1,4 +1,4 @@
-
+from custom_except import *
 from misc.step_funcs import step_1sqr90d, step_1sqr180d, step_1sqr270d, step_1sqr0d
 from ranges.get_path import get_path
 from printers.print_board import print_board

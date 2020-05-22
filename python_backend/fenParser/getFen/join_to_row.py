@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def join_to_row(row):
     """getFen TASK 3.1, join the squares from a row on the board"""

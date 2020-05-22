@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.can_king_side_castle import can_king_side_castle
 from ranges.specialMoves.castle.can_queen_side_castle import can_queen_side_castle
 from ranges.get_king_initial_moves import get_king_initial_moves

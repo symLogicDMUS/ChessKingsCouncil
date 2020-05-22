@@ -1,4 +1,4 @@
-
+from custom_except import *
 from coordType import *
 
 def get_en_passant_alignment_key(sqr1, sqr2):

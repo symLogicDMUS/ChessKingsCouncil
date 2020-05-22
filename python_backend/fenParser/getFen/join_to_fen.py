@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def join_to_fen(rows):
     """getFen TASK 4, final step in getting the fen string. join each row-string together to get fen"""

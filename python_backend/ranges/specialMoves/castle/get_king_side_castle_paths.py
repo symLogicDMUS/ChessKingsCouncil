@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 from ranges.specialMoves.castle.king_side_castle_paths import king_side_castle_paths
 

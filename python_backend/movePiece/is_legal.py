@@ -1,4 +1,4 @@
-
+from custom_except import *
 from coordType.is_rankfile import is_rankfile
 from coordType.to_xy import to_xy
 from coordType.is_xy import is_xy

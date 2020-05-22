@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_unicode_piece import get_unicode_piece
 from misc.checker_board import checkerboard
 from termcolor import colored

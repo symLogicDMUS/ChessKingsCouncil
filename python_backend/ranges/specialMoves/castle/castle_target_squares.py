@@ -1,4 +1,4 @@
-
+from custom_except import *
 # squares to move the king to initiate a castle. First key = color, second is is
 # 'K' for king side and 'Q' for queen side
 

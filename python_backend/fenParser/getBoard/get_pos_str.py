@@ -1,4 +1,4 @@
-
+from custom_except import *
 import re
 
 def get_pos_str(fen):

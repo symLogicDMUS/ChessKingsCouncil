@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_digits(fen):
     """getFen TASK 5, replace consecutive '#' (empty squares) with the digit for how many"""

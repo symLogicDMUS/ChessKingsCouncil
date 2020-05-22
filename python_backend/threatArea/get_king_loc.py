@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_king_loc(board, color):
     """return the location of the king of specified color"""

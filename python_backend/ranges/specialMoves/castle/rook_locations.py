@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 # key = starting location of king, value = starting location of rook
 rook_locations =\

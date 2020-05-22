@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_trav_str(pos_str):
     """ fenParser task 1, change the pos_str into a string to traverse, and return"""

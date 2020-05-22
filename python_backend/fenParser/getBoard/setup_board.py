@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def setup_board(board, pos_list):
     """fenParser task 7, for each new key, get the next id in the list"""

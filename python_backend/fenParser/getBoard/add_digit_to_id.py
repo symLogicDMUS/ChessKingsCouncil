@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def add_digit_to_id(pos_list):
     """fenParser task 5, add a digit to each id in the pos_list. the digit is what number occurence of that id"""

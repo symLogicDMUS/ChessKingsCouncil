@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.sqr_under_attack import sqr_under_attack
 
 

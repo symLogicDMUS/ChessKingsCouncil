@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.SpecialMoves import SpecialMoves
 from ranges.specialMoves.castle.get_rook_start_and_dest import get_rook_start_and_dest
 from printers.print_board import print_board

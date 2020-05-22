@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 
 def pawn_moved_once_2_sqrs(pawn_hist, color):

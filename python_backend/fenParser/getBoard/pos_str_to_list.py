@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def pos_str_to_list(pos_str):
     """fenParser task 3, convert the pos string to a list and return"""

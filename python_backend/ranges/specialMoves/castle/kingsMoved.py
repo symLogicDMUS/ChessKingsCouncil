@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 class kingsMoved:
     def __init__(self):

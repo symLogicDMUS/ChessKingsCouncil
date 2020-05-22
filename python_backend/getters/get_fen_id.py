@@ -1,4 +1,4 @@
-
+from custom_except import *
 from fenParser.fen_ids import fen_ids
 from getters.get_piece_type import get_piece_type
 from bools.is_empty_sqr import is_empty_sqr

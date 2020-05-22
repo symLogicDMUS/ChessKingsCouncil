@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def _get_statuses(piece_list, color):
     """takes a list of piece ids, and returns list of 'f' for friend and 'e' for enemy"""

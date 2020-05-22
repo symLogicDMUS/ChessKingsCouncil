@@ -1,9 +1,9 @@
-
+from custom_except import *
 from main.terminal.play import play_game
 from misc.pick_name import pick_name
 from misc.create_data import create_data
 import os
-import pprint
+from pprint import pprint
 
 
 def start():

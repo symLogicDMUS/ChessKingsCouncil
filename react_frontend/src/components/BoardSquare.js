@@ -11,8 +11,8 @@ export default function BoardSquare({sqr_color: sqr_color, pos, children}) {
 
     const [{ isOver }, drop] = useDrop({
       accept: Object.values(ItemTypes),
-      drop: (item, monitor) => move(item, pos),
-      canDrop: (item, monitor) => isLegal(item, pos),
+      drop: (item, monitor) => move(item.pos, pos),
+      canDrop: (item, monitor) => isLegal(item.pos, pos),
       collect: monitor => ({
         isOver: !!monitor.isOver(),
         canDrop: !!monitor.canDrop(),

@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_sqr_case import get_sqr_case
 from getters.get_piece_type import get_piece_type
 from misc.step_funcs import step_1sqr0d, step_1sqr180d

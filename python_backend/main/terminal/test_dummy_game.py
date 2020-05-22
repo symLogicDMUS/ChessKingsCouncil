@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.game_over import game_over
 from misc.fifty_move_draw import fifty_move_draw
 from getters.get_data import get_data

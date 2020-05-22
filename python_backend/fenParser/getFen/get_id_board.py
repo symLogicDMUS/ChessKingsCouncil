@@ -1,4 +1,4 @@
-
+from custom_except import *
 from pprint import pprint
 
 def get_id_board(board):

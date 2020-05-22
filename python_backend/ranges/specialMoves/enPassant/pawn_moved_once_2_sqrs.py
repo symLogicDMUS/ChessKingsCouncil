@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.enPassant.pawn_2_sqr_first_moves import pawn_2_sqr_first_moves
 from JsonRecords.JsonRecords import JsonRecords
 from getters.get_piece_type import get_piece_type

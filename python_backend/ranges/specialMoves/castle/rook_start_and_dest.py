@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 rook_start_and_dest = {
     (3, 1): [(1, 1), (4, 1)],

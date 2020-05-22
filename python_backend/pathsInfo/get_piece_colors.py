@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def _get_piece_colors(piece_list):
     """

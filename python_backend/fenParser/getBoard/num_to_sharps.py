@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 from fenParser.getBoard.get_trav_str import get_trav_str
 

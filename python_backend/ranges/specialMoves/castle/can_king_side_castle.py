@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.get_king_side_castle_paths import get_king_side_castle_paths
 from bools.clear_path import clear_path
 from bools.safe_path import safe_path

@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Board from './components/Board'
-import { observe } from './Game'
+import { observe, waitData } from './Game'
 import 'semantic-ui-css/semantic.min.css'
 
-observe(board => 
-  ReactDOM.render(<Board board={board} />, document.getElementById('root')))
+waitData().then( ([data]) => {
+  observe(board => 
+    ReactDOM.render(<Board board={board} />, document.getElementById('root')))
+})

@@ -1,4 +1,4 @@
-
+from custom_except import *
 from printers.print_sqr_highlights import print_sqr_highlights
 from getters.get_unicode_board import get_unicode_board
 

@@ -1,4 +1,4 @@
-
+from custom_except import *
 en_passants = {
     'W': {
         'b5a5':(1, 6),

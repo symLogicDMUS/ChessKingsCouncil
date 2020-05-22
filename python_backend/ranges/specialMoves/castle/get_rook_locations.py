@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.rook_locations import rook_locations
 
 def get_rook_locations(king_loc):

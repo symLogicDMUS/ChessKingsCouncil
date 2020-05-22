@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def exit_(start, dest):
     """if start is 'X' and dest is 'X' then the player wants to exit the game so return True, else return False"""

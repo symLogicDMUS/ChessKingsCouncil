@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_piece_fen(id):
     """getFen TASK 2.1, take the game id of a piece and convert it a fen id"""

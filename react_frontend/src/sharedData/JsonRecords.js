@@ -1,29 +1,41 @@
 import { getPieceType } from "./getPieceType";
 import { getPieceTypes } from "./getPieceTypes";
-import {OVER, IN_PROGRESS} from "./gStatusTypes";
-
+import {OVER, IN_PROGRESS} from "./gStatusTypes"
 export class JsonRecords {
     /*contains info for new or saved game relevant to perfoming a castle or enPassant**/
     constructor(records) {
-        this.rooksMoved = records['rooksMoved']
-        this.kingsMoved = records['kingsMoved']
-        this.pawnHistories = records['pawnHistories']
-        this.lastPawnMove = records['lastPawnMove']
-        this.numConsecutiveNonPawnMoves = records['numConsecutiveNonPawnMoves']
-        this.gameStatus = records['gameStatus']
+        this.rooksMoved = records['rooks_moved']
+        this.kingsMoved = records['kings_moved']
+        this.pawnHistories = records['pawn_histories']
+        this.lastPawnMove = records['last_pawn_move']
+        this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
+        this.gameStatus = records['game_status']
         this.condition = records['condition']
         this.winner = records['winner']
     }
 
     update(records) {
-        this.rooksMoved = records['rooksMoved']
-        this.kingsMoved = records['kingsMoved']
-        this.pawnHistories = records['pawnHistories']
-        this.lastPawnMove = records['lastPawnMove']
-        this.numConsecutiveNonPawnMoves = records['numConsecutiveNonPawnMoves']
-        this.gameStatus = records['gameStatus']
+        this.rooksMoved = records['rooks_moved']
+        this.kingsMoved = records['kings_moved']
+        this.pawnHistories = records['pawn_histories']
+        this.lastPawnMove = records['last_pawn_move']
+        this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
+        this.gameStatus = records['game_status']
         this.condition = records['condition']
         this.winner = records['winner']
+    }
+
+    getRecords() {
+        return {
+            "rooks_moved": this.rooksMoved,
+            "kings_moved": this.kingsMoved,
+            "pawn_histories": this.pawnHistories,
+            "last_pawn_move": this.lastPawnMove,
+            "num_consecutive_non_pawn_moves":this.numConsecutiveNonPawnMoves,
+            "game_status": this.gameStatus,
+            "condition": this.condition,
+            "winner": this.winner
+        }
     }
 
     updateHist(id_, start, dest, promoFlag) {
@@ -55,31 +67,35 @@ export class JsonRecords {
          :param ranges: dict, ranges of pieces of color
          :param enemyColor: str, color of king
         */
-        if (! Object.values(ranges).some(range => {return range === true})) {
+
+        //if none of the pieces have any squares they can move to...
+        if (! Object.values(ranges).some(r => r != [])) {
+            
+            // ...then if there is at least one piece putting the king in check...
             if (npck > 0) {
+
+                //..then it's checkmate
+
                 this.condition = 'checkmate'
-                this.gameStatus = OVER 
+                this.gameStatus = OVER
                 this.winner = enemyColor
             }
             else {
-                this.condition = 'stalemate' 
+
+                //..it's a stalemate
+
+                this.condition = 'stalemate'
                 this.gameStatus = OVER
                 this.winner = '-'
             }
+
             return
         }
+
         let pieceTypes = getPieceTypes(board)
-        if (pieceTypes === ['King', 'King']) {
-            this.condition = 'stalemate'
-            this.gameStatus = OVER
-            this.winner = '-'
-        }
-        else if (pieceTypes === ['Bishop', 'King', 'King']) {
-            this.condition = 'stalemate'
-            this.gameStatus = OVER
-            this.winner = '-'
-        }
-        else if (pieceTypes === ['King', 'King', 'Knight']) {
+        if (pieceTypes === ['King', 'King'] 
+        || pieceTypes === ['Bishop', 'King', 'King'] 
+        || pieceTypes ===  ['King', 'King', 'Knight']) {
             this.condition = 'stalemate'
             this.gameStatus = OVER
             this.winner = '-'
@@ -94,6 +110,9 @@ export class JsonRecords {
             this.gameStatus = IN_PROGRESS
             this.winner = '-'
         }
+
+        return 
+
     }
     updateRooksMoved(sqr) {
         /*update rooksMoved because rook that start game at sqr has moved**/

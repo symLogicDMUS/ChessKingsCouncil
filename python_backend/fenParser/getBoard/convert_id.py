@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def convert_id(fen_id):
     """ fenParser task 4, convert fen id to a game id"""

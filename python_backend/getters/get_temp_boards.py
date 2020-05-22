@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_temp_board import get_temp_board
 
 

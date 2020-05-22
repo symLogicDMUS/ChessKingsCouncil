@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.game_over import game_over
 from getters.get_data import get_data
 from getters.get_pathdata_dict import get_pathdata_dict
@@ -24,7 +24,7 @@ from printers.print_board_highlight_sd import print_board_highlight_sd
 
 def play_game(game_name):
     """game loop located here"""
-    fen_obj, board, json_records = get_data(game_name, 'python_backend')
+    fen_obj, board, json_records = get_data(game_name)
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False
     start, dest = "", ""
@@ -58,4 +58,4 @@ def play_game(game_name):
 
 
 if __name__ == "__main__":
-    play_game('_initialBoard')
+    play_game('New')

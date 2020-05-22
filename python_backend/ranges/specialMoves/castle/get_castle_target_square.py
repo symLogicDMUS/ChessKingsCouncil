@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.castle_target_squares import castle_target_squares
 
 

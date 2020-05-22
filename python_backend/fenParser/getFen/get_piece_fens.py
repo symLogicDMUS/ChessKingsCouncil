@@ -1,4 +1,4 @@
-
+from custom_except import *
 from fenParser.getFen.get_piece_fen import get_piece_fen
 from bools.is_piece import is_piece
 

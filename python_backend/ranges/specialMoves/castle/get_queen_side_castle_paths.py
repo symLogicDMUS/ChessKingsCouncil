@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.queen_side_castle_paths import queen_side_castle_paths
 
 def get_queen_side_castle_paths(color):

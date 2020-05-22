@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.get_queen_side_castle_paths import get_queen_side_castle_paths
 from ranges.specialMoves.castle.king_start_pos import king_start_pos
 from printers.print_fen_board import print_fen_board

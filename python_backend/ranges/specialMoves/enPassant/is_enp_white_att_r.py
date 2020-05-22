@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.enPassant.en_passant_white_attack_rank import en_passant_white_attack_rank
 
 def is_enp_white_att_r(sqr):

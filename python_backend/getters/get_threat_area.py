@@ -1,4 +1,4 @@
-
+from custom_except import *
 from threatArea.get_path_threats import get_path_threats
 from threatArea.get_pawn_threats import get_pawn_threats
 from threatArea.get_knight_threats import get_knight_threats

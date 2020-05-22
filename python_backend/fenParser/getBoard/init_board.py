@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def init_board():
     """fenParser task 6, create empty board before know where the pieces are"""

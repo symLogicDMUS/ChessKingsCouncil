@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def get_sub_path(path, i):
     """get up to and including the index i in path"""

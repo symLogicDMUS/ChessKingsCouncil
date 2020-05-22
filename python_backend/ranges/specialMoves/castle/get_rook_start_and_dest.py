@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.specialMoves.castle.rook_start_and_dest import rook_start_and_dest
 
 #LEFT OFF HERE

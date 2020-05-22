@@ -1,4 +1,4 @@
-
+from custom_except import *
 
 def remove_captured(init_ranges, pins, mt_restricts, final_ranges, captured):
     """remove the records of any piece that was captured"""

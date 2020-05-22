@@ -1,7 +1,7 @@
 import { getSqrCase } from "./getSqrCase";
 import { getPieceType } from "./getPieceType";
 import {step1sqr0d, step1sqr180d} from "./stepFuncs";
-import {OOB, ENEMY, FRIEND, EMPTY} from "./sqrCases";
+import { OOB, EMPTY, FRIEND, ENEMY } from "./sqrCases";
 
 export function enPassantMove(board, start, dest, color, specialMoves) {
     /**
@@ -15,7 +15,9 @@ export function enPassantMove(board, start, dest, color, specialMoves) {
         return [board, 'None']
     }
     
-    var [rf] = step1sqr0d(start)  //  0
+    let captured = "-"
+
+    var rf = step1sqr0d(start)  //  0
     if (getSqrCase(board, rf, color) === ENEMY && getPieceType(board[rf]) === 'Pawn') {
         let captured = board[rf]
         board[rf] = '#'
@@ -24,7 +26,7 @@ export function enPassantMove(board, start, dest, color, specialMoves) {
 
     var [rf] = step1sqr180d(start)  //  180
     if (getSqrCase(board, rf, color) === ENEMY && getPieceType(board[rf]) === 'Pawn') {
-        let captured = board[rf]
+        captured = board[rf]
         board[rf] = '#'
         return [board, captured]
     }

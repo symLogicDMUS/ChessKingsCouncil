@@ -1,3 +1,4 @@
+from custom_except import *
 
 
 def save_bd(board_dict):

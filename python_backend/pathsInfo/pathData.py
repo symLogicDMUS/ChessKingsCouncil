@@ -1,4 +1,4 @@
-
+from custom_except import *
 class _PathData(object):
     """description of class"""
     def __init__(self, direction):

@@ -1,4 +1,4 @@
-
+from custom_except import *
 from bools.is_empty_sqr import is_empty_sqr
 from getters.get_unicode_piece import get_unicode_piece
 from getters.get_color import get_color

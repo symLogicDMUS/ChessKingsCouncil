@@ -1,8 +1,8 @@
-from coordType.to_xy import to_xy
-from coordType.to_rankfile import to_rankfile
+from custom_except import *
+from coordType.json_keys_to_xy import json_keys_to_xy
+from misc.g_status_types import *
 from getters.get_piece_type import get_piece_type
 from getters.get_piece_types import get_piece_types
-from misc.g_status_types import *
 from JsonRecords.JsonRecordError import JsonRecordError
 import json
 
@@ -17,6 +17,7 @@ class JsonRecords(object):
             json_data = f.read()
             records = json.loads(json_data)
             json.dumps(records, indent=4, sort_keys=False)
+            records = json_keys_to_xy(records)
             f.close()
         else:
             records = j_records
@@ -31,10 +32,7 @@ class JsonRecords(object):
         self.winner = records['winner']
 
         if j_records is None:
-            self._rankfile_to_tuple()
             self._init_pawn_ids(board, file=file)
-        else:
-            self._rankfile_to_tuple(j_records=True)
 
     def _init_pawn_ids(self, board, file=""):
         """exchange the sqr that pawn started the game with, with the id for that pawn"""
@@ -45,74 +43,16 @@ class JsonRecords(object):
             pawn_histories[id_] = hist
             if get_piece_type(id_) != 'Pawn':
                 print("ERROR: Pawn history not correct")
-                print(file)
-                print(sqr1)
-                print(id_)
                 raise JsonRecordError
         self.pawn_histories = pawn_histories
 
-    def _init_pawn_locs(self):
+    def _pawn_keys_to_current_rf(self):
         """swap the key of each pawn_history entry with the coordinate of its current location"""
         pawn_histories = {}
         for hist in self.pawn_histories.values():
             sqr = hist[-1]
             pawn_histories[sqr] = hist
         self.pawn_histories = pawn_histories
-
-    def _rankfile_to_tuple(self, j_records=False):
-        """convert the keys and ids for each type of record from a rankfile to a tuple"""
-        rooks_moved = {}
-        kings_moved = {}
-        pawn_histories = {}
-        last_pawn_move = None
-
-        for rf in self.rooks_moved.keys():
-            xy = to_xy(rf)
-            rooks_moved[xy] = self.rooks_moved[rf]
-        for rf in self.kings_moved.keys():
-            xy = to_xy(rf)
-            kings_moved[xy] = self.kings_moved[rf]
-        if not j_records:
-            for rf1 in self.pawn_histories.keys():
-                xy1 = to_xy(rf1)
-                pawn_histories[xy1] = []
-                for rf2 in self.pawn_histories[rf1]:
-                    xy2 = to_xy(rf2)
-                    pawn_histories[xy1].append(xy2)
-        else:
-            for id_ in self.pawn_histories.keys():
-                for rf in self.pawn_histories[id_]:
-                    xy = to_xy(rf)
-                    pawn_histories[id_].append(xy)
-        self.rooks_moved = rooks_moved
-        self.kings_moved = kings_moved
-        self.pawn_histories = pawn_histories
-        if self.last_pawn_move != 'None':
-            self.last_pawn_move = to_xy(self.last_pawn_move)
-
-    def _tuple_to_rankfile(self):
-        """convert the keys and ids for each type of record from a tuple to a rankfile"""
-        rooks_moved = {}
-        kings_moved = {}
-        pawn_histories = {}
-        self._init_pawn_locs()
-        for xy in self.rooks_moved.keys():
-            rf = to_rankfile(xy)
-            rooks_moved[rf] = self.rooks_moved[xy]
-        for xy in self.kings_moved.keys():
-            rf = to_rankfile(xy)
-            kings_moved[rf] = self.kings_moved[xy]
-        for xy1 in self.pawn_histories.keys():
-            rf1 = to_rankfile(xy1)
-            pawn_histories[rf1] = []
-            for xy2 in self.pawn_histories[xy1]:
-                rf2 = to_rankfile(xy2)
-                pawn_histories[rf1].append(rf2)
-        self.rooks_moved = rooks_moved
-        self.kings_moved = kings_moved
-        self.pawn_histories = pawn_histories
-        if self.last_pawn_move != 'None':
-            self.last_pawn_move = to_rankfile(self.last_pawn_move)
 
     def update_hist(self, id_, start, dest, promo_flag):
         """update json records depending on the piece type of id_ at location start"""
@@ -176,7 +116,6 @@ class JsonRecords(object):
 
     def get_records(self):
         """return the json records as one python dict"""
-        self._tuple_to_rankfile()
         return {'rooks_moved': self.rooks_moved, 'kings_moved': self.kings_moved,
                 'pawn_histories': self.pawn_histories, 'last_pawn_move': self.last_pawn_move,
                 'num_consecutive_non_pawn_moves': self.num_consecutive_non_pawn_moves,

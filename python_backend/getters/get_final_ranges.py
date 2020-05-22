@@ -1,4 +1,4 @@
-
+from custom_except import *
 from ranges.restriction import restriction
 from getters.get_piece_type import get_piece_type
 

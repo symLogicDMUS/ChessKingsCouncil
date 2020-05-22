@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_threat_area import get_threat_area
 from threatArea.get_king_threats import get_king_threats
 

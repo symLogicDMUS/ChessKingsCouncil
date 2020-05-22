@@ -1,4 +1,4 @@
-
+from custom_except import *
 import os
 import json
 import chess

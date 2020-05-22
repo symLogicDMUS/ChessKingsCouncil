@@ -1,4 +1,4 @@
-
+from custom_except import *
 from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
 from getters.get_color import get_color
 from getters.get_piece_type import get_piece_type

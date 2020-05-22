@@ -1,4 +1,4 @@
-
+from custom_except import *
 def _get_path_dir(step_func):
     """ return the path direction of the step function, in degrees"""
     if step_func.__name__ ==  'step_1sqr90d':

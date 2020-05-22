@@ -1,4 +1,4 @@
-
+from custom_except import *
 from misc.step_funcs import *
 from ranges.get_path import get_path
 from printers.print_board import print_board

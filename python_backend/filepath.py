@@ -1,4 +1,4 @@
-
+from custom_except import *
 import platform
 import os
 import re
@@ -22,6 +22,19 @@ def get_fullpath(dirname_):
     return fullpath
 
 
+def get_dir_containing_name(name):
+    """ """
+    if platform.system() == 'Windows':
+        root = os.listdir("C:\\")
+    else:
+        root = os.listdir('/')
+    dir_ = '.'
+    while name not in os.listdir(dir_):
+        if os.listdir(dir_) == root:
+            return "error: directory not found"
+        dir_ = '../' + dir_
+    return dir_
+
 def get_my_paths():
     """warning: only call from top level of application"""
     my_paths = []
@@ -40,7 +53,7 @@ def get_my_paths():
             if "example_games" in path or "saved_games" in path: # skip game records
                 continue
             my_paths.append(os.path.abspath(os.path.join(root, name)))
-    # my_paths = list(map(lambda path: path.replace("\\", "/"), my_paths))
+    my_paths = list(map(lambda path: path.replace("\\", "/"), my_paths))
     return my_paths
 
 
@@ -62,4 +75,4 @@ def add_first_line(first_line):
 
 
 if __name__ == "__main__":
-    print(get_fullpath('python_backend'))
+    add_first_line('from custom_except import *')
