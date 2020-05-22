@@ -7,12 +7,12 @@ import { isLegal } from '../Game';
 import { move } from '../Game';
 
 
-export default function BoardSquare({sqr_color: sqr_color, pos, children}) {
-
+export default function BoardSquare({sqr_color: sqr_color, pos, turn, children}) {
+  console.log(turn)
     const [{ isOver }, drop] = useDrop({
-      accept: Object.values(ItemTypes),
+      accept: ItemTypes,
       drop: (item, monitor) => move(item.pos, pos),
-      canDrop: (item, monitor) => isLegal(item.pos, pos),
+      canDrop: (item, monitor) => isLegal(item, pos, turn),
       collect: monitor => ({
         isOver: !!monitor.isOver(),
         canDrop: !!monitor.canDrop(),

@@ -5,6 +5,6 @@ import { observe, waitData } from './Game'
 import 'semantic-ui-css/semantic.min.css'
 
 waitData().then( ([data]) => {
-  observe(board => 
-    ReactDOM.render(<Board board={board} />, document.getElementById('root')))
+  observe((board, turn) => 
+    ReactDOM.render(<Board board={board} turn={turn} />, document.getElementById('root')))
 })

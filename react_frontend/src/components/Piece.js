@@ -2,11 +2,10 @@ import React from 'react';
 import { useDrag } from 'react-dnd'
 import "../index.css";
 import {getPieceImg} from "../helperFuncs/getPieceImg";
-import {getItemType} from "../helperFuncs/getItemType";
 
 export default function Piece({pos, id_}) {
   var img_ = getPieceImg(id_);
-  var iType = getItemType(id_);
+  var iType = id_.slice(0, 2)
   const [{isDragging}, drag] = useDrag({
     item: { type: iType, pos: pos, id_:id_},
 		collect: monitor => ({

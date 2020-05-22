@@ -5,13 +5,13 @@ import { SpecialMoves } from "./sharedData/SpecialMoves"
 export class Chess {
 
     constructor() {
-        this.color = "-"
-        this.captured = "-"
-        this.board = "-"
-        this.ranges = "-"
-        this.jsonRecords = "-"
-        this.fenObj = "-"
-        this.specialMoves = "-"
+        this.color = "W"
+        this.captured = false
+        this.board = {}
+        this.ranges = {}
+        this.jsonRecords = new JsonRecords()
+        this.fenObj = new Fen()
+        this.specialMoves = new SpecialMoves()
     }
 
     // TODO: add function to determine if pawn promotion is needed. moves
@@ -34,6 +34,18 @@ export class Chess {
         return this.color
     }
 
+    toggleColor() {
+        if (this.color === "W") {
+            this.color = "B"
+        }
+        else if (this.color === "B") {
+            this.color = "W"
+        }
+        else {
+            console.log("color error")
+        }
+    }
+
     api() {
         let body = JSON.stringify({"board":this.getBoard(), "records":this.jsonRecords.getRecords(), "color":this.getColor()})
         return fetch('/update', {
@@ -41,7 +53,6 @@ export class Chess {
             body: body
         }).then(response => response.json())
         .then(data => {
-            this.color = data['color']
             this.ranges = data['ranges']
             this.jsonRecords.update(data['records'])
             this.specialMoves.update(data['moves'])
@@ -50,7 +61,7 @@ export class Chess {
 
     update(start, dest) {
         /**called after a move is made. First update history and state and then get data for next move*/
-
+        this.toggleColor()
         let id_ = this.board[start]
         let p_flag = false
         if (this.specialMoves.promos.includes([start, dest])) {

@@ -17,9 +17,9 @@ function getData(game_name) {
             chess.color = data['color']
             chess.board = data['board']
             chess.ranges = data['ranges']
-            chess.fenObj = new Fen(data['fen_data'])
-            chess.specialMoves = new SpecialMoves(data['moves'])
-            chess.jsonRecords = new JsonRecords(data['records'])
+            chess.fenObj.set(data['fen_data'])
+            chess.specialMoves.update(data['moves'])
+            chess.jsonRecords.update(data['records'])
         })
 }
 
@@ -28,7 +28,7 @@ export function waitData() {
 }
 
 function emitChange() {
-  observer(chess.board)
+  observer(chess.board, chess.color)
   return;
 }
 
@@ -54,13 +54,19 @@ export function move(start, dest) {
   return
 }
 
-export function isLegal(start, dest) {
+export function isLegal(item, dest, turn) {
   /*return true if piece with id at location start can move to dest, otherwise false**/
 
-  let id_ = chess.board[start]
+  //if the color of the piece isnt current turn
+  if (item.type[0] !== turn) {
+    return false
+  }
+
+  let id_ = chess.board[item.pos]
 
   if (! chess.ranges[id_].includes(dest)) {
       return false
   }
+  
   return true
 }

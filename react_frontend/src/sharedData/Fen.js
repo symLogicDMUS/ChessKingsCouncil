@@ -1,7 +1,8 @@
 import { xyToRf } from "../helperFuncs/crdCnvrt";
 
 export class Fen {
-    constructor(fenData) {
+
+    set(fenData) {
         this.fen = fenData['fen']
         this.turn = fenData['turn']
         this.castleAvail = fenData['castle_avail']

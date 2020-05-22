@@ -45,7 +45,7 @@ export default class Board extends React.Component {
             if (id_ === '#') {
                 squares.push(
                     <div className={sqr_color}>
-                        <BoardSquare sqr_color={sqr_color} pos={rf}>
+                        <BoardSquare sqr_color={sqr_color} pos={rf} turn={this.props.turn} >
                             {null}
                         </BoardSquare>
                     </div>
@@ -54,7 +54,7 @@ export default class Board extends React.Component {
             else {
                 squares.push(
                     <div className={sqr_color}>
-                    <BoardSquare sqr_color={sqr_color} pos={rf}>
+                    <BoardSquare sqr_color={sqr_color} pos={rf} turn={this.props.turn}>
                         <Piece pos={rf} id_={id_}/>
                     </BoardSquare>
                     </div>

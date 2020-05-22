@@ -70,8 +70,8 @@ def update():
     json_records.update_state(board, final_ranges, get_next_color(color), npck)
     records = json_records.get_records()
     moves = special_moves.get_moves()
-    data = json_keys_to_rf({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
-    return jsonify({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
+    data = json_keys_to_rf({"ranges": final_ranges, "records": records, "moves": moves})
+    return jsonify({"ranges": final_ranges, "records": records, "moves": moves})
 
 
 if __name__ == "__main__":

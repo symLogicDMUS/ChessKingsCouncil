@@ -1,8 +1,9 @@
 import { ItemTypes } from '../components/Constants';
 
+
 export function getItemType(id_) {
-    var iType = "_";
-    switch(id_[1]) {
+    var type = id_.slice(0, 2) 
+    switch(type) {
         case "R":
             iType = "rook";
             break;
