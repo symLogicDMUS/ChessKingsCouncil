@@ -1,5 +1,4 @@
-from custom_except import *
-from coordType.is_rankfile import is_rankfile
+from coordType.rankfile.is_rankfile import is_rankfile
 
 
 def is_valid_input(str_):

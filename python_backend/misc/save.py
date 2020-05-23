@@ -1,5 +1,4 @@
-from custom_except import *
-from coordType.json_keys_to_rf import json_xy_to_rf
+from coordType.rankfile.json_keys_to_rf import json_xy_to_rf
 import os
 import json
 import chess

@@ -11,8 +11,8 @@ export function castleMove(chess, start, dest) {
     ..........
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
-
-    if (! chess.specialMoves.isCastle((start, dest))) {
+   let move = [start, dest]
+    if (! chess.specialMoves.isCastle(move)) {
         return
     }
     var [rStart, rDest] = getRookStartAndDest(dest)

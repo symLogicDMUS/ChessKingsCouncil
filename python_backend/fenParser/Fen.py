@@ -1,5 +1,4 @@
-from custom_except import *
-from coordType.to_rankfile import to_rankfile
+from coordType.rankfile.to_rankfile import to_rankfile
 
 
 class Fen:

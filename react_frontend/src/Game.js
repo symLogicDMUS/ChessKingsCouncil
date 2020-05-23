@@ -2,9 +2,6 @@ import {Chess} from "./chess"
 import {ply} from "./sharedData/ply"
 import {castleMove} from "./sharedData/castleMove"
 import {enPassantMove} from "./sharedData/enPassantMove"
-import { Fen } from "./sharedData/Fen"
-import { JsonRecords } from "./sharedData/JsonRecords"
-import { SpecialMoves } from "./sharedData/SpecialMoves"
 let observer = null;
 let chess = new Chess();
  
@@ -24,7 +21,7 @@ function getData(game_name) {
 }
 
 export function waitData() {
-  return Promise.all([getData("New")])
+  return Promise.all([getData("castle_test5")])
 }
 
 function emitChange() {

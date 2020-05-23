@@ -1,7 +1,3 @@
-from custom_except import *
-from coordType.to_xy import to_xy
-
-
 def get_input(turn=""):
     """start rankfiles for start and ending locations from user, and convert to (x, y)"""
     if turn != "":

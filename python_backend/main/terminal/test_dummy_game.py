@@ -1,4 +1,3 @@
-from custom_except import *
 from bools.game_over import game_over
 from misc.fifty_move_draw import fifty_move_draw
 from getters.get_data import get_data
@@ -16,7 +15,7 @@ from getters.get_random_move import get_random_move
 from printers.print_board import print_board
 from printers.print_board_highlight_sd import print_board_highlight_sd
 from fenParser.getFen.get_pos_str import get_pos_str
-from misc.promote import promote
+from ranges.specialMoves.pawn_promotion import promote
 from misc.save import save
 from movePiece.attempt_move import attempt_move
 from termcolor import colored
@@ -26,7 +25,7 @@ import os
 
 def test_dummy_game(game_name):
     """dummy walk through of a game where random dest is chosen from random piece's range and then moved upon"""
-    fen_obj, board, json_records = get_data(game_name, 'python_backend')
+    fen_obj, board, json_records = get_data(game_name)
     if json_records.winner != '-':
         json_records.winner = '-'
     color = fen_obj.turn.upper()

@@ -1,5 +1,4 @@
-from custom_except import *
-from coordType.json_keys_to_xy import json_keys_to_xy
+from coordType.xy.map_rf_to_xy import map_rf_to_xy
 from misc.g_status_types import *
 from getters.get_piece_type import get_piece_type
 from getters.get_piece_types import get_piece_types
@@ -17,7 +16,7 @@ class JsonRecords(object):
             json_data = f.read()
             records = json.loads(json_data)
             json.dumps(records, indent=4, sort_keys=False)
-            records = json_keys_to_xy(records)
+            records = map_rf_to_xy(records)
             f.close()
         else:
             records = j_records
@@ -53,9 +52,6 @@ class JsonRecords(object):
             sqr = hist[-1]
             pawn_histories[sqr] = hist
         self.pawn_histories = pawn_histories
-
-    def is_promo(self, start, dest):
-        """determine if the last move made was a pawn promotion"""
 
     def update_hist(self, id_, start, dest, promo_flag):
         """update json records depending on the piece type of id_ at location start"""

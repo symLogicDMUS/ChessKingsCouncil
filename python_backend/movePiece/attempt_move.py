@@ -1,10 +1,7 @@
-from custom_except import *
 from getters.get_color import get_color
 from bools.is_piece import is_piece
-from bools.is_valid_input import is_valid_input
 from movePiece.is_legal import is_legal
 from movePiece.move import move
-from coordType.to_xy import to_xy
 
 
 def attempt_move(board, start, dest, color, ranges, special_moves):

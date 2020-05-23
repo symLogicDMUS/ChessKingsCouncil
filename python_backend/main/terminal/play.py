@@ -1,4 +1,3 @@
-from custom_except import *
 from bools.game_over import game_over
 from getters.get_data import get_data
 from getters.get_pathdata_dict import get_pathdata_dict
@@ -11,15 +10,13 @@ from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
 from getters.get_pins import get_pins
 from getters.get_multithreat_restriction import get_multithreat_restriction
 from getters.get_final_ranges import get_final_ranges
-from getters.get_random_move import get_random_move
 from fenParser.getFen.get_pos_str import get_pos_str
 from misc.make_move import make_move
 from misc.fifty_move_draw import fifty_move_draw
-from misc.promote import promote
+from ranges.specialMoves.pawn_promotion.promote import promote
 from misc.save import save
 from printers.print_board import print_board
 from termcolor import colored
-from printers.print_board_highlight_sd import print_board_highlight_sd
 
 
 def play_game(game_name):

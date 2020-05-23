@@ -23,9 +23,9 @@ import os
 
 def mrd():
     """
-    m ove
-    r esults
-    d ict
+    m: move
+    r: results
+    d: dict
     """
     return \
         {(1, 1): False, (2, 1): False, (3, 1): False, (4, 1): False, (5, 1): False, (6, 1): False, (7, 1): False,
@@ -119,7 +119,7 @@ def test_game(game_name):
     f = open("log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_ = get_data(game_name, 'python_backend')
+    fen_, board_, json_records_ = get_data(game_name)
     uni_board = get_unicode_board(board_)
     results = run_tests(fen_, board_, json_records_, results)
     if results == -1:

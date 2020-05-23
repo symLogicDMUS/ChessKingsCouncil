@@ -1,11 +1,8 @@
-from custom_except import *
 from bools.is_valid_input import is_valid_input
 from bools.exit_ import exit_
-from coordType.to_xy import to_xy
+from coordType.xy.to_xy import to_xy
 from getters.get_input import get_input
-from getters.get_random_move import get_random_move
 from movePiece.attempt_move import attempt_move
-from termcolor import colored
 from printers.print_board import print_board
 
 
