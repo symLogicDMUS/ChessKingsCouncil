@@ -1,15 +1,16 @@
 import { isPiece } from "./isPiece";
+import { getPieceType } from "./getPieceType"
+import { JsonRecords } from "./JsonRecords";
 
-export function ply(board, start, dest) {
+export function ply(chess, start, dest) {
     /*move piece to new square, capturing piece there if there is**/
-    let captured = "-"
-    if (isPiece(board[dest])) {
-        captured = board[dest]
+    if (isPiece(chess.board[dest])) {
+        chess.captured = chess.board[dest]
     }
     else {
-        captured = 'None'
+        chess.captured = 'None'
     }
-    board[dest] = board[start]
-    board[start] = '#'
-    return [board, captured]
+    chess.board[dest] = chess.board[start]
+    chess.board[start] = '#'
+    chess.update(start, dest)
 }

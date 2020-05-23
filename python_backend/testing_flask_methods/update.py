@@ -1,5 +1,7 @@
 from custom_except import *
 from print_args import print_args
+from bools.is_promo import is_promo
+from fenParser.Fen import Fen
 from getters.get_pathdata_dict import get_pathdata_dict
 from getters.get_next_color import get_next_color
 from getters.get_ranges import get_ranges
@@ -11,8 +13,10 @@ from getters.get_pins import get_pins
 from getters.get_multithreat_restriction import get_multithreat_restriction
 from getters.get_final_ranges import get_final_ranges
 from JsonRecords.JsonRecords import JsonRecords
-from coordType.json_keys_to_rf import json_keys_to_rf
+from coordType.json_keys_to_rf import json_xy_to_rf
 from coordType.json_keys_to_xy import json_keys_to_xy
+from coordType.to_xy import to_xy
+from pprint import pprint
 import json
 
 
@@ -32,14 +36,13 @@ def update(data):
     npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
     mt_restricts = get_multithreat_restriction(board, npck, color)
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
-    json_records.update_state(board, final_ranges, get_next_color(color), npck)
-    records = json_records.get_records()
     moves = special_moves.get_moves()
-    data = json_keys_to_rf({"color": color, "ranges": final_ranges, "records": records, "moves": moves})
+    pprint(data)
+    data = json_xy_to_rf({"ranges": final_ranges, "moves": moves})
     return data
 
 
 if __name__ == "__main__":
-    f = open('./test_payload_1.txt')
+    f = open('./test_payload_3.txt')
     data = f.read()
     print_args(update(data))

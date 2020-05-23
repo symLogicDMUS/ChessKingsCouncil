@@ -53,7 +53,8 @@ class Fen:
 
     def get_data(self):
         """return the fen components as in an object that can be sent to React"""
-        return {"turn": self.turn, "castle_avail": self.castle_avail, "en_passant_avail": self.en_passant_avail,
+        return {"fen": self.fen, "turn": self.turn, "castle_avail": self.castle_avail,
+                "en_passant_avail": self.en_passant_avail,
                 "hm_clock": self.hm_clock, "fm_clock": self.fm_clock}
 
     def set_get_new_fen(self, pos):

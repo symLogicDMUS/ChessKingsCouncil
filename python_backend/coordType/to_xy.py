@@ -8,7 +8,7 @@ def to_xy(rankfile):
         return rankfile
     x = rankmap.index(rankfile[0])
     y = int(rankfile[1])
-    return (x, y)
+    return x, y
 
 
 if __name__ == "__main__":

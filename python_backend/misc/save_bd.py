@@ -12,7 +12,7 @@ def save_bd(board_dict):
             else:
                 board_str += ', '
         board_str += "\n"
-    f = open("bd.txt", "w")
+    f = open("bd._txt", "w")
     f.write(board_str)
 
 

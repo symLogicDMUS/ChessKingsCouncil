@@ -1,6 +1,8 @@
-import { Fen } from "./sharedData/Fen"
-import { JsonRecords } from "./sharedData/JsonRecords"
-import { SpecialMoves } from "./sharedData/SpecialMoves"
+import { Fen } from "./sharedData/Fen";
+import { JsonRecords } from "./sharedData/JsonRecords";
+import { SpecialMoves } from "./sharedData/SpecialMoves";
+import {getPieceType } from "./sharedData/getPieceType";
+import { isPiece } from "./sharedData/isPiece";
 
 export class Chess {
 
@@ -46,30 +48,48 @@ export class Chess {
         }
     }
 
-    api() {
-        let body = JSON.stringify({"board":this.getBoard(), "records":this.jsonRecords.getRecords(), "color":this.getColor()})
+    api(start, dest) {
+        let body = JSON.stringify({"board":this.getBoard(), 
+                                   "records":this.jsonRecords.getRecords(), 
+                                   "color":this.getColor()})
         return fetch('/update', {
             method: 'POST',
             body: body
         }).then(response => response.json())
         .then(data => {
             this.ranges = data['ranges']
-            this.jsonRecords.update(data['records'])
             this.specialMoves.update(data['moves'])
         });    
     }
 
     update(start, dest) {
-        /**called after a move is made. First update history and state and then get data for next move*/
-        this.toggleColor()
-        let id_ = this.board[start]
-        let p_flag = false
-        if (this.specialMoves.promos.includes([start, dest])) {
-          p_flag = true
-        }
-        this.jsonRecords.updateHist(id_, start, dest, p_flag)
-        // this.fenObj.updateState(this.specialMoves, this.jsonRecords, start, dest, this.captured, this.color)
 
-        return Promise.all([this.api()])
+
+        let pieceType = getPieceType(this.board[dest])
+
+        if (pieceType === 'King') {
+            this.jsonRecords.kingsMoved[start] = true
+        }
+    
+        else if (pieceType === 'Rook') {
+            this.jsonRecords.rooksMoved[start] = true
+        }
+    
+        else if (pieceType === 'Pawn') {
+            this.jsonRecords.pawnHistories[this.board[dest]].push(dest)
+        }
+    
+        if (isPiece(this.captured) && getPieceType(this.captured) === 'Pawn') {
+            delete this.jsonRecords.pawnHistories[this.board[this.captured]]
+        }
+
+        //TODO: update fenObject here
+
+        return 
+    }
+
+    updateBackend(start, dest) {
+        /**called after a move is made.*/
+        return Promise.all([this.api(start, dest)])
     }      
 }

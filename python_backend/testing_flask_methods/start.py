@@ -12,7 +12,7 @@ from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
 from getters.get_pins import get_pins
 from getters.get_multithreat_restriction import get_multithreat_restriction
 from getters.get_final_ranges import get_final_ranges
-from coordType.json_keys_to_rf import json_keys_to_rf
+from coordType.json_keys_to_rf import json_xy_to_rf
 
 
 def start(game_name):
@@ -33,7 +33,7 @@ def start(game_name):
     records = json_records.get_records()
     moves = special_moves.get_moves()
     fen_data = fen_obj.get_data()
-    data = json_keys_to_rf({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
+    data = json_xy_to_rf({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
                     "moves": moves})
     return data
 

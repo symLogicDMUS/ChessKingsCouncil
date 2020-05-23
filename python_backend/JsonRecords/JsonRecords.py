@@ -54,6 +54,9 @@ class JsonRecords(object):
             pawn_histories[sqr] = hist
         self.pawn_histories = pawn_histories
 
+    def is_promo(self, start, dest):
+        """determine if the last move made was a pawn promotion"""
+
     def update_hist(self, id_, start, dest, promo_flag):
         """update json records depending on the piece type of id_ at location start"""
         p_type = get_piece_type(id_)
@@ -109,6 +112,9 @@ class JsonRecords(object):
 
     def update_pawn_history(self, id_, new_loc, promo):
         """update location of pawn by appending its new location to its history"""
+        print("id", id_)
+        print("new_loc", new_loc)
+        print("promo", promo)
         if promo:
             del self.pawn_histories[id_]
         else:

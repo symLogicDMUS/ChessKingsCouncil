@@ -25,6 +25,7 @@ def can_king_side_castle(board, color, json_records):
 
     return True
 
+
 if __name__ == "__main__":
 
     # test castle_test1, W:

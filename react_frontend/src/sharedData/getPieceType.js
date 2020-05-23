@@ -1,6 +1,9 @@
 
-export function getPieceType(id_) {
+export function getPieceType(str) {
     /*return ['Rook', 'Knight', 'Bishop', 'King', 'Queen', or] 'Pawn'**/
+
+    let id_ = str;
+
     if (id_ === '#') {
         return 'Empty'
     }

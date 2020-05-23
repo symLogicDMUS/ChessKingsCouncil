@@ -87,7 +87,7 @@ def run_tests(fen_, board_, json_records_, results):
                             results[start][dest] = True
     except:
         print(colored("RUNTIME ERROR", 'red'))
-        f = open("log1.txt", "a")
+        f = open("log1._txt", "a")
         traceback.print_exc(file=f)
         f.write("({}, {}), ({}, {})\n\n".format(x1, y1, x2, y2))
         return -1
@@ -116,7 +116,7 @@ def print_results(results, uni_board, skip_empty=False, specific_type=None):
 
 
 def test_game(game_name):
-    f = open("log1.txt", "w").close()
+    f = open("log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
     fen_, board_, json_records_ = get_data(game_name, 'python_backend')

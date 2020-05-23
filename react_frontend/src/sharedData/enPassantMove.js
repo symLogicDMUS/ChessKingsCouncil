@@ -3,7 +3,7 @@ import { getPieceType } from "./getPieceType";
 import {step1sqr0d, step1sqr180d} from "./stepFuncs";
 import { OOB, EMPTY, FRIEND, ENEMY } from "./sqrCases";
 
-export function enPassantMove(board, start, dest, color, specialMoves) {
+export function enPassantMove(chess, start, dest, color) {
     /**
     start: start square of pawn capturing by en-passant
     dest: destination square of pawn capturing by en-passant
@@ -11,25 +11,23 @@ export function enPassantMove(board, start, dest, color, specialMoves) {
     x: x coordinate of square either directly left or directly right of start
     y: y coordinate unchanged, same as start. returned with x.
     */
-    if (! specialMoves.isEnPassant((start, dest))) {
-        return [board, 'None']
+    if (! chess.specialMoves.isEnPassant((start, dest))) {
+        return
     }
     
-    let captured = "-"
-
     var rf = step1sqr0d(start)  //  0
-    if (getSqrCase(board, rf, color) === ENEMY && getPieceType(board[rf]) === 'Pawn') {
-        let captured = board[rf]
-        board[rf] = '#'
-        return [board, captured]
+    if (getSqrCase(chess.board, rf, color) === ENEMY && getPieceType(chess.board[rf]) === 'Pawn') {
+        chess.captured = chess.board[rf]
+        chess.board[rf] = '#'
+        return
     }
 
-    var [rf] = step1sqr180d(start)  //  180
-    if (getSqrCase(board, rf, color) === ENEMY && getPieceType(board[rf]) === 'Pawn') {
-        captured = board[rf]
-        board[rf] = '#'
-        return [board, captured]
+    var rf = step1sqr180d(start)  //  180
+    if (getSqrCase(chess.board, rf, color) === ENEMY && getPieceType(chess.board[rf]) === 'Pawn') {
+        chess.captured = chess.board[rf]
+        chess.board[rf] = '#'
+        return
     }
+
     console.log("error: pawn not found")
-    return [board, 'None']
 }

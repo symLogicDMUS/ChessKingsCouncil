@@ -9,7 +9,7 @@ let observer = null;
 let chess = new Chess();
  
 function getData(game_name) {
-  return fetch('/start', {
+  return fetch('/first', {
           method:'POST',
           body:game_name
       }).then(response => response.json())
@@ -44,10 +44,11 @@ export function observe(o) {
 
 export function move(start, dest) {
   /* function to move a piece on board from start to dest **/
-  [chess.board, chess.captured] = ply(chess.board, start, dest)
-  [chess.board, chess.captured] = castleMove(chess.board, start, dest, chess.specialMoves)
-  [chess.board, chess.captured] = enPassantMove(chess.board, start, dest, chess.turn, chess.specialMoves)
-  chess.update(start, dest).then(([result]) => {
+  ply(chess, start, dest)
+  castleMove(chess, start, dest)
+  enPassantMove(chess, start, dest)
+  chess.toggleColor()
+  chess.updateBackend(start, dest).then(([result]) => {
     console.log(result)
     emitChange()
   })
