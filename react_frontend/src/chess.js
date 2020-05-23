@@ -64,27 +64,24 @@ export class Chess {
 
     update(start, dest) {
 
-
         let pieceType = getPieceType(this.board[dest])
 
-        if (pieceType === 'King') {
-            this.jsonRecords.kingsMoved[start] = true
-        }
-    
-        else if (pieceType === 'Rook') {
-            this.jsonRecords.rooksMoved[start] = true
-        }
-    
-        else if (pieceType === 'Pawn') {
+        if (pieceType === 'Pawn') {
             this.jsonRecords.pawnHistories[this.board[dest]].push(dest)
-        }
-    
-        if (isPiece(this.captured) && getPieceType(this.captured) === 'Pawn') {
-            delete this.jsonRecords.pawnHistories[this.board[this.captured]]
+            this.jsonRecords.numConsecutiveNonPawnMoves = 0
+            this.jsonRecords.lastPawnMove = dest
+            if (isPiece(this.captured))
+                delete this.jsonRecords.pawnHistories[this.board[this.captured]]
         }
 
+        else {
+            this.jsonRecords.numConsecutiveNonPawnMoves++;
+            if (pieceType === 'King')
+            this.jsonRecords.kingsMoved[start] = true
+            if (pieceType === 'Rook')
+                this.jsonRecords.rooksMoved[start] = true
+        }
         //TODO: update fenObject here
-
         return 
     }
 

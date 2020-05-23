@@ -21,7 +21,7 @@ function getData(game_name) {
 }
 
 export function waitData() {
-  return Promise.all([getData("castle_test5")])
+  return Promise.all([getData("New")])
 }
 
 function emitChange() {

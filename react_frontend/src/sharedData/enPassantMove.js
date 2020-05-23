@@ -19,6 +19,7 @@ export function enPassantMove(chess, start, dest, color) {
     if (getSqrCase(chess.board, rf, color) === ENEMY && getPieceType(chess.board[rf]) === 'Pawn') {
         chess.captured = chess.board[rf]
         chess.board[rf] = '#'
+        delete chess.jsonRecords.pawnHistories[chess.captured]
         return
     }
 
@@ -26,6 +27,7 @@ export function enPassantMove(chess, start, dest, color) {
     if (getSqrCase(chess.board, rf, color) === ENEMY && getPieceType(chess.board[rf]) === 'Pawn') {
         chess.captured = chess.board[rf]
         chess.board[rf] = '#'
+        delete chess.jsonRecords.pawnHistories[chess.captured]
         return
     }
 
