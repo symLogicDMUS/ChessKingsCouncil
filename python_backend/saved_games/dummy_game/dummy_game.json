@@ -12,64 +12,80 @@
     "pawn_histories": {
         "WP1": [
             "a2",
-            "a4"
+            "a4",
+            "a5",
+            "b6"
         ],
         "WP2": [
             "b2",
-            "b4",
-            "a5"
+            "b4"
         ],
         "WP3": [
-            "c2"
+            "c2",
+            "c3",
+            "c4",
+            "d5",
+            "e6",
+            "e7"
         ],
         "WP4": [
             "d2",
             "d3",
             "d4",
-            "c5"
+            "d5"
         ],
         "WP5": [
             "e2",
             "e3",
             "e4",
-            "d5",
-            "d6",
-            "d7"
+            "e5",
+            "d6"
         ],
         "WP6": [
             "f2",
-            "f4"
+            "f4",
+            "f5",
+            "f6",
+            "f7"
         ],
         "WP7": [
             "g2",
-            "g3",
             "g4"
         ],
         "WP8": [
             "h2",
-            "h3"
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "h7"
         ],
         "BP1": [
             "a7",
-            "a5"
+            "a6",
+            "a5",
+            "b4",
+            "b3",
+            "b2"
         ],
         "BP2": [
             "b7",
-            "b6",
             "b5"
         ],
         "BP3": [
             "c7",
-            "c5"
+            "c6",
+            "c5",
+            "b4",
+            "c3"
         ],
         "BP4": [
             "d7",
-            "d6",
             "d5"
         ],
         "BP5": [
             "e7",
-            "e6"
+            "d6"
         ],
         "BP6": [
             "f7",
@@ -81,21 +97,18 @@
         "BP7": [
             "g7",
             "g5",
-            "f4",
-            "f3",
-            "e2"
+            "g4",
+            "g3"
         ],
         "BP8": [
             "h7",
-            "h5",
-            "h4",
-            "h3",
-            "g2"
+            "h6",
+            "h5"
         ]
     },
-    "last_pawn_move": "d7",
-    "num_consecutive_non_pawn_moves": 237,
+    "last_pawn_move": "f7",
+    "num_consecutive_non_pawn_moves": 16,
     "game_status": 0,
-    "condition": "stalemate",
-    "winner": "-"
+    "condition": "checkmate",
+    "winner": "W"
 }

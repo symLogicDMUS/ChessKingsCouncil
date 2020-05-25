@@ -1,4 +1,4 @@
-from print_args import print_args
+from printers.print_args import print_args
 from flask import Flask, jsonify, request
 from get_data import get_data
 from getters.get_pathdata_dict import get_pathdata_dict
@@ -16,7 +16,6 @@ from coordType.xy.map_rf_to_xy import map_rf_to_xy
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from pprint import pprint
 import json
-
 
 app = Flask(__name__)
 
@@ -76,4 +75,4 @@ def update():
 
 
 if __name__ == "__main__":
-    pass # TODO: implent some kind of test
+    pass  # TODO: implent some kind of test

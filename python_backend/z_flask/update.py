@@ -1,4 +1,6 @@
-from print_args import print_args
+from get_data import get_data
+from printers.print_args import print_args
+from printers.print_board import print_board
 from getters.get_pathdata_dict import get_pathdata_dict
 from getters.get_ranges import get_ranges
 from getters.get_piece_dicts import get_piece_dicts
@@ -21,6 +23,8 @@ def update(data):
     data = json.loads(data)
     data = map_rf_to_xy(data)
     board, records, color = data['board'], data['records'], data['color']
+    print_board(board)
+    pprint(records)
     json_records = JsonRecords(None, None, j_records=records)
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
@@ -39,6 +43,8 @@ def update(data):
 
 
 if __name__ == "__main__":
-    f = open('./json_payloads/castle.txt')
+    # fen_obj, board, records = get_data('enpassant_test1')
+    # data = map_xy_to_rf({'records': records.get_records(), 'color': fen_obj.turn.upper(), 'board': board})
+    f = open('./json_strs/en_passant_test2.txt')
     data = f.read()
     print_args(update(data))

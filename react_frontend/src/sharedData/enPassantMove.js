@@ -11,7 +11,7 @@ export function enPassantMove(chess, start, dest, color) {
     x: x coordinate of square either directly left or directly right of start
     y: y coordinate unchanged, same as start. returned with x.
     */
-    if (! chess.specialMoves.isEnPassant((start, dest))) {
+    if (! chess.specialMoves.isEnPassant([start, dest])) {
         return
     }
     

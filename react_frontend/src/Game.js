@@ -1,4 +1,4 @@
-import {Chess} from "./chess"
+import {Chess} from "./Chess"
 import {ply} from "./sharedData/ply"
 import {castleMove} from "./sharedData/castleMove"
 import {enPassantMove} from "./sharedData/enPassantMove"

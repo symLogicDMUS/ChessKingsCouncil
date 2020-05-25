@@ -1,4 +1,4 @@
-from coordType.rankfile.json_keys_to_rf import json_xy_to_rf
+from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 import os
 import json
 import chess
@@ -14,7 +14,7 @@ def save(game_name, fen, json_records):
     f.close()
 
     records = json_records.get_records()
-    records = json_xy_to_rf(records)
+    records = map_xy_to_rf(records)
     with open('../../saved_games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
         json.dump(records, outfile, indent=4, sort_keys=False)
     outfile.close()

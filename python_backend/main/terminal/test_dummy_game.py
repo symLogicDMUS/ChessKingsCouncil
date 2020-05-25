@@ -15,7 +15,7 @@ from getters.get_random_move import get_random_move
 from printers.print_board import print_board
 from printers.print_board_highlight_sd import print_board_highlight_sd
 from fenParser.getFen.get_pos_str import get_pos_str
-from ranges.specialMoves.pawn_promotion import promote
+from ranges.specialMoves.pawn_promotion.promote import promote
 from misc.save import save
 from movePiece.attempt_move import attempt_move
 from termcolor import colored

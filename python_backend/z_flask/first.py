@@ -1,4 +1,4 @@
-from print_args import print_args
+from printers.print_args import print_args
 from get_data import get_data
 from getters.get_pathdata_dict import get_pathdata_dict
 from getters.get_next_color import get_next_color

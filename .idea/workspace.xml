@@ -3,10 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/log1._txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/misc/save.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/misc/save.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/print_args.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/print_args.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/first.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/first.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_payloads/castle.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_payloads/pawn_promo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/chess.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/chess.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/stepFuncs.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/stepFuncs.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,19 +59,19 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\xy" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\maps" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\mapping" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\main\web" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\front-end\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\printers" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\xy" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\maps" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\mapping" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -74,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.first">
+  <component name="RunManager" selected="Python.test_dummy_game">
     <configuration name="first" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -117,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rf_keys_to_xy (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_dummy_game" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -125,11 +137,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/coordType/xy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/coordType/xy/rf_keys_to_xy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,7 +150,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rf_keys_to_xy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="test_moves" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -146,11 +158,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/coordType/xy/nest_level" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\xy\rf_keys_to_xy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/test_moves.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,19 +193,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.rf_keys_to_xy" />
       <item itemvalue="Python.map_rf_to_xy" />
       <item itemvalue="Python.update" />
-      <item itemvalue="Python.rf_keys_to_xy (1)" />
       <item itemvalue="Python.first" />
+      <item itemvalue="Python.test_moves" />
+      <item itemvalue="Python.test_dummy_game" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_dummy_game" />
+        <item itemvalue="Python.test_moves" />
+        <item itemvalue="Python.update" />
         <item itemvalue="Python.first" />
         <item itemvalue="Python.map_rf_to_xy" />
-        <item itemvalue="Python.rf_keys_to_xy (1)" />
-        <item itemvalue="Python.update" />
-        <item itemvalue="Python.rf_keys_to_xy" />
       </list>
     </recent_temporary>
   </component>
@@ -234,6 +246,11 @@
           <url>file://$PROJECT_DIR$/python_backend/JsonRecords/JsonRecords.py</url>
           <line>51</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/python_backend/getters/get_piece_type.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

@@ -8,7 +8,7 @@ from getters.get_piece_type import get_piece_type
 from JsonRecords.JsonRecords import JsonRecords
 
 
-def can_enpassant(attacking, attacked, board, color, pawn_histories, ncnpm):
+def can_enpassant(attacking, attacked, board, color, pawn_histories, ncnpm, lpm):
     """return true if an en-passant can be performed given sqr1 and sqr2 are alignment, else false
     ncnpm: Number Consecutive Non Pawn Moves
     """
@@ -24,8 +24,11 @@ def can_enpassant(attacking, attacked, board, color, pawn_histories, ncnpm):
         return False
     if not pawn_moved_once_2_sqrs(pawn_histories, board[attacked]):
         return False
+    if attacked != lpm:
+        return False
 
     return True
+
 
 if __name__ == "__main__":
 
@@ -42,4 +45,4 @@ if __name__ == "__main__":
     (1, 1): 'WR1', (2, 1): 'WN1', (3, 1): 'WB1', (4, 1): 'WQ1', (5, 1): 'WK1', (6, 1): 'WB2', (7, 1): 'WN2', (8, 1): 'WR2'}
 
     json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/enpassant_test1/enpassant_test1.json", board)
-    print(can_enpassant((3, 5), (2, 5), board, 'W', json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves))
+    print(can_enpassant((3, 5), (2, 5), board, 'W', json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves, json_records.last_pawn_move))

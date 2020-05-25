@@ -34,7 +34,7 @@ def pawn(sqr, board, color, json_records, special_moves):
 
     # if can capture the pawn left of it by en-passant...
     if can_enpassant(sqr, step_1sqr180d(sqr[0], sqr[1]), board, color,
-                     json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves):  # 80d
+                     json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves, json_records.last_pawn_move):  # 80d
         # ..get the alignment key for the en-passant 
         align_key = get_en_passant_alignment_key(sqr, step_1sqr180d(sqr[0], sqr[1]))
         # get the target square for the en-passant
@@ -46,7 +46,7 @@ def pawn(sqr, board, color, json_records, special_moves):
 
     # else if can capture the pawn right of it by en-passant...
     elif can_enpassant(sqr, step_1sqr0d(sqr[0], sqr[1]), board, color,
-                       json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves):  # 0d
+                       json_records.pawn_histories, json_records.num_consecutive_non_pawn_moves, json_records.last_pawn_move):  # 0d
         # get the alignment key for the en-passant
         align_key = get_en_passant_alignment_key(sqr, step_1sqr0d(sqr[0], sqr[1]))
         # get the target square for the en-passant
