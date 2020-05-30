@@ -2,23 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/gen_react_arr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_f_str.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_grid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_items_w_coord.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_max_len.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_max_xy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/insert_at.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/insert_span.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_css.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_grid.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_items.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ChessKingsCouncil.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChessKingsCouncil.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/log1._txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/save.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/misc/save.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/print_args.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/print_args.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/first.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/first.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_payloads/castle.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_payloads/pawn_promo.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/update.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,8 +44,8 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Javascript/tutorials/social network/social-network" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -59,19 +56,19 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\printers" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\xy" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\maps" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\main\web" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\front-end\src" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\printers" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\xy" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\maps" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\coordType\rankfile\mapping" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -86,8 +83,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_dummy_game">
-    <configuration name="first" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.misc">
+    <configuration name="get_grid" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -95,11 +92,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/z_flask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend/gen_css" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/z_flask/first.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/get_grid.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,7 +105,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="map_rf_to_xy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="get_items_w_coord" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,11 +113,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/coordType/xy" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend/gen_css" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/coordType/xy/map_rf_to_xy.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/get_items_w_coord.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,7 +126,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_dummy_game" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="misc" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -137,11 +134,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src\count_nbsp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_moves" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="print_css" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -158,11 +155,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/main/terminal" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend/gen_css" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/main/terminal/test_moves.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/print_css.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,7 +168,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="update" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="print_items" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -179,11 +176,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/z_flask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend/gen_css" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/z_flask/update.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/print_items.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -193,19 +190,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.map_rf_to_xy" />
-      <item itemvalue="Python.update" />
-      <item itemvalue="Python.first" />
-      <item itemvalue="Python.test_moves" />
-      <item itemvalue="Python.test_dummy_game" />
+      <item itemvalue="Python.print_css" />
+      <item itemvalue="Python.print_items" />
+      <item itemvalue="Python.get_items_w_coord" />
+      <item itemvalue="Python.get_grid" />
+      <item itemvalue="Python.misc" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_dummy_game" />
-        <item itemvalue="Python.test_moves" />
-        <item itemvalue="Python.update" />
-        <item itemvalue="Python.first" />
-        <item itemvalue="Python.map_rf_to_xy" />
+        <item itemvalue="Python.misc" />
+        <item itemvalue="Python.print_css" />
+        <item itemvalue="Python.print_items" />
+        <item itemvalue="Python.get_grid" />
+        <item itemvalue="Python.get_items_w_coord" />
       </list>
     </recent_temporary>
   </component>
