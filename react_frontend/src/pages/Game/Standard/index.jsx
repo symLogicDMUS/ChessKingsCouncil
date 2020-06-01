@@ -1,54 +1,60 @@
-import { Fen } from "./sharedData/Fen";
-import { JsonRecords } from "./sharedData/JsonRecords";
-import { SpecialMoves } from "./sharedData/SpecialMoves";
-import {getPieceType } from "./sharedData/getPieceType";
-import { isPiece } from "./sharedData/isPiece";
+import React from "react";
+import {Board} from "./Board";
+import "./index.css";
+import {JsonRecords} from "./sharedData/JsonRecords";
+import {Fen} from "./sharedData/Fen";
+import {SpecialMoves} from "./Move/SpecialMoves"
+import {getGameData} from "../../../gameData";
+import {getPieceType} from "./sharedData/getPieceType";
+import {isPiece} from "./sharedData/isPiece";
 
-export class Chess {
 
-    constructor() {
-        this.color = "W"
-        this.captured = false
-        this.board = {}
-        this.ranges = {}
-        this.jsonRecords = new JsonRecords()
-        this.fenObj = new Fen()
-        this.specialMoves = new SpecialMoves()
+export class API extends React.Component {
+
+    constructor(props) {
+
+        super(props)
+
+        this.jsonRecords = new JsonRecords();
+        this.fenObj = new Fen();
+        this.specialMoves = new SpecialMoves();
+
+        let data = getGameData("New")
+        this.board = data['board']
+        this.turn = data['color']
+        this.ranges = data['ranges']
+        this.fenObj.set(data['fen_data'])
+        this.specialMoves.update(data['moves'])
+        this.jsonRecords.update(data['records'])
+
+        this.state = {board: data['board'] }
     }
 
-    // TODO: add function to determine if pawn promotion is needed. moves
-
-    /*
-        TODO: consider putting update in endDrag() in Pieces component. 
-        See react DnD documentation for more details
-        From React DnD:
-        drop(item, monitor): Optional. Called when a compatible item is dropped on the target. 
-        You may either return undefined, or a plain object. If you return an object, it is 
-        going to become the drop result and will be available to the drag source in its 
-        endDrag method as monitor.getDropResult()
-    */
+    emitChange() {
+      this.setState({board: this.board})
+    }
 
     getBoard() {
         return this.board
     }
 
     getColor() {
-        return this.color
+        return this.turn
     }
 
     toggleColor() {
-        if (this.color === "W") {
-            this.color = "B"
+        if (this.turn === "W") {
+            this.turn = "B"
         }
-        else if (this.color === "B") {
-            this.color = "W"
+        else if (this.turn === "B") {
+            this.turn = "W"
         }
         else {
             console.log("color error")
         }
     }
 
-    api(start, dest) {
+    callBackend(start, dest) {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getColor()})
@@ -62,7 +68,7 @@ export class Chess {
         });    
     }
 
-    update(start, dest) {
+    updateFrontend(start, dest) {
 
         let pieceType = getPieceType(this.board[dest])
 
@@ -87,6 +93,11 @@ export class Chess {
 
     updateBackend(start, dest) {
         /**called after a move is made.*/
-        return Promise.all([this.api(start, dest)])
-    }      
+        return Promise.all([this.callBackend(start, dest)])
+    }
+
+    render() {
+        return <Board data={this}/>
+    }
+
 }

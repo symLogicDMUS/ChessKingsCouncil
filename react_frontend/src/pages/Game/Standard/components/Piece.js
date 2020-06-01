@@ -3,7 +3,7 @@ import { useDrag } from 'react-dnd'
 import "../index.css";
 import {getPieceImg} from "../helperFuncs/getPieceImg";
 
-export default function Piece({pos, id_}) {
+export function Piece({pos, id_}) {
   var img_ = getPieceImg(id_);
   var iType = id_.slice(0, 2)
   const [{isDragging}, drag] = useDrag({

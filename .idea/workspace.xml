@@ -2,20 +2,151 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/gen_react_arr.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_f_str.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_grid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_items_w_coord.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_max_len.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/get_max_xy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/insert_at.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/insert_span.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_css.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_grid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/react_frontend/gen_css/print_items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ChessKingsCouncil.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChessKingsCouncil.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/z_flask/get_data_dict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/main/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/first.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/parse_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Game.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/chess.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/Board.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/BoardSquare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/Constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/Knight.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/Piece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/components/Square.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/helperFuncs/crdCnvrt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/helperFuncs/getItemType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/helperFuncs/getPieceImg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/helperFuncs/handleSquareClick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/BR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/King.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/Queen.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/WR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/bishop.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/knight.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/pawn.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/pieces.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/rook.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/start menu design ideas.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/images_of_pieces/wR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/AuthorsGitHub.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/ChessRules.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/CouncilRules.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/CreatePiece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/LoadGame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/MyPictures.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Options/NewGame.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/Items/Title.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/MainMenuComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Components/Menu/MenuComponents.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/blank grid square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/board.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/github logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/grid square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/author github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/chess rules.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/council rules.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/create piece.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/load game.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/my images.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/new game.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/main menu/title.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/bishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/bishop.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/king.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/king.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/knight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/knight.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/pawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/pawn.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/queen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/queen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/rook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/piece cutouts/rook.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/BlackRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhiteBishop.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhiteKing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhiteKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhitePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhiteQueen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Alpha/WhiteRook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/BR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Images/pieces/Classic/WR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/Temp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/main-menu/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/pages/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/Fen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/JsonRecords.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/SpecialMoves.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/castleMove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassantMove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/enPassants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/gStatusTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getPieceType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getPieceTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getRookStartAndDest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/getSqrCase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/isPiece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/oob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/ply.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/rookStartAndDest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/sqrCases.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/sharedData/stepFuncs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/temp.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +175,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Javascript/tutorials/social network/social-network" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -83,7 +214,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.misc">
+  <component name="RunManager" selected="Python.get_data_dict">
+    <configuration name="get_data_dict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessKingsCouncil" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/z_flask" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/z_flask/get_data_dict.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="get_grid" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,27 +249,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/get_grid.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="get_items_w_coord" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="ChessKingsCouncil" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/react_frontend/gen_css" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/react_frontend/gen_css/get_items_w_coord.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -192,17 +323,17 @@
     <list>
       <item itemvalue="Python.print_css" />
       <item itemvalue="Python.print_items" />
-      <item itemvalue="Python.get_items_w_coord" />
       <item itemvalue="Python.get_grid" />
       <item itemvalue="Python.misc" />
+      <item itemvalue="Python.get_data_dict" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_data_dict" />
         <item itemvalue="Python.misc" />
         <item itemvalue="Python.print_css" />
         <item itemvalue="Python.print_items" />
         <item itemvalue="Python.get_grid" />
-        <item itemvalue="Python.get_items_w_coord" />
       </list>
     </recent_temporary>
   </component>

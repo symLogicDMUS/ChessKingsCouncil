@@ -23,7 +23,7 @@ body {
     width: 100px;
     height: 100px;
   }
-  .sqr3 {
+  /* .sqr3 {
     float: left;
     z-index: 1;   
     background-color: red;
@@ -35,16 +35,16 @@ body {
     background-color: red;
     width: 800px;
     height: 800px;
-  }
+  } */
   .sqr1:hover { 
     background: #00CCFF;
   }
   .sqr2:hover { 
     background: #00CCFF;
   }
-  .sqr3:hover { 
+  /* .sqr3:hover { 
     background: rgb(224, 0, 206) ;
-  }    
+  }     */
 
   .center {
     margin: auto;

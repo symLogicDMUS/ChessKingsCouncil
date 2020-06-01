@@ -1,18 +1,16 @@
 import React from "react";
 import Square from './Square';
-import { canMovePiece, movePiece } from '../Game';
 import { ItemTypes } from './Constants';
 import { useDrop } from 'react-dnd';
-import { isLegal } from '../Game';
-import { move } from '../Game';
+import { isLegal } from '../Move/isLegal';
+import { move } from '../Move/move';
 
 
-export default function BoardSquare({sqr_color: sqr_color, pos, turn, children}) {
-  console.log(turn)
+export function BoardSquare({sqr_color: sqr_color, pos, data, children}) {
     const [{ isOver }, drop] = useDrop({
       accept: ItemTypes,
-      drop: (item, monitor) => move(item.pos, pos),
-      canDrop: (item, monitor) => isLegal(item, pos, turn),
+      drop: (item, monitor) => move(data, item.pos, pos),
+      canDrop: (item, monitor) => isLegal(data, item, pos),
       collect: monitor => ({
         isOver: !!monitor.isOver(),
         canDrop: !!monitor.canDrop(),

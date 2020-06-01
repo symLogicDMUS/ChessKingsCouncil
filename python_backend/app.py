@@ -14,39 +14,50 @@ from getters.get_final_ranges import get_final_ranges
 from JsonRecords.JsonRecords import JsonRecords
 from coordType.xy.map_rf_to_xy import map_rf_to_xy
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
+from z_flask.parse_data import parse_data
 from pprint import pprint
 import json
+import os
+
 
 app = Flask(__name__)
 
 
-@app.route('/first', methods=['POST'])
-def first():
+@app.route('/simple', methods=['GET'])
+def simple():
     """ """
-    print("POST request, first")
-    game_name = request.get_data(as_text=True)
-    fen_obj, board, json_records = get_data(game_name)
-    color = fen_obj.turn.upper()
-    init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
-    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
-    k_loc = get_king_locs(board, color)
-    threat_area = get_threat_area(k_loc, board, color)
-    pd_dict = get_pathdata_dict(k_loc, board, color)
-    pins = get_pins(k_loc, board, color, pd_dict, pins)
-    npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
-    mt_restricts = get_multithreat_restriction(board, npck, color)
-    final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
-    json_records.update_state(board, final_ranges, get_next_color(color), npck)
-    special_moves.set_promos(board, final_ranges, color)
-    records = json_records.get_records()
-    moves = special_moves.get_moves()
-    fen_data = fen_obj.get_data()
-    print_args({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-                "moves": moves}, pp=True)
-    data = map_xy_to_rf(
-        {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-         "moves": moves})
-    return jsonify(data)
+    print('in the SIMPLE method')
+    return "Done", 201
+
+
+# @app.route('/first', methods=['POST'])
+# def first():
+#     """ """
+#     print("POST request, first")
+#     game_name = request.get_data(as_text=True)
+#     fen_obj, board, json_records = get_data(game_name)
+#     color = fen_obj.turn.upper()
+#     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
+#     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
+#     k_loc = get_king_locs(board, color)
+#     threat_area = get_threat_area(k_loc, board, color)
+#     pd_dict = get_pathdata_dict(k_loc, board, color)
+#     pins = get_pins(k_loc, board, color, pd_dict, pins)
+#     npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
+#     mt_restricts = get_multithreat_restriction(board, npck, color)
+#     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
+#     json_records.update_state(board, final_ranges, get_next_color(color), npck)
+#     special_moves.set_promos(board, final_ranges, color)
+#     records = json_records.get_records()
+#     moves = special_moves.get_moves()
+#     fen_data = fen_obj.get_data()
+#     print_args({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
+#                 "moves": moves}, pp=True)
+#     data = map_xy_to_rf(
+#         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
+#          "moves": moves})
+#     print("!!!!! METHOD END !!!!!!")
+#     return jsonify(data)
 
 
 @app.route('/update', methods=['POST'])
@@ -72,6 +83,17 @@ def update():
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
     pprint(data)
     return jsonify({"ranges": final_ranges, "moves": moves})
+
+
+@app.route('/get_data_dict', methods=['GET'])
+def get_data_dict():
+    """get all the saved game data at the start of the game"""
+    print('GET request, getting data of all the games')
+    data_dict = {}
+    games = os.listdir('./example_games')
+    for game_name in games:
+        data_dict[game_name] = parse_data(game_name)
+    return jsonify(data_dict)
 
 
 if __name__ == "__main__":

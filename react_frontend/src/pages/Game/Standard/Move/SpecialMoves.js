@@ -14,7 +14,7 @@ export class SpecialMoves {
     }
     isCastle(move) {
         /*returns true if move is a currently available castle, otherwise false**/
-        if (JSON.stringify(this.castles).indexOf(JSON.stringify(move)) != -1) {
+        if (JSON.stringify(this.castles).indexOf(JSON.stringify(move)) !== -1) {
             return true
         }
         else {
@@ -23,7 +23,7 @@ export class SpecialMoves {
     }
     isPromo(move) {
         /*returns true if move is a currently available pawn promotion, otherwise false**/
-        if (JSON.stringify(this.promos).indexOf(JSON.stringify(move)) != -1) {
+        if (JSON.stringify(this.promos).indexOf(JSON.stringify(move)) !== -1) {
             return true
         }
         else {
@@ -32,7 +32,7 @@ export class SpecialMoves {
     }
     isEnPassant(move) {
         /*returns true if move is a currently available en-passant capture, otherwise false**/
-        if (JSON.stringify(this.enPassant).indexOf(JSON.stringify(move)) != -1) {
+        if (JSON.stringify(this.enPassant).indexOf(JSON.stringify(move)) !== -1) {
             return true
         }
         else {

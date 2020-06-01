@@ -14,9 +14,8 @@ from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from pprint import pprint
 
 
-def first(game_name):
+def parse_data(game_name):
     """replicate behavior without api call"""
-    print("POST request, start()")
     fen_obj, board, json_records = get_data(game_name)
     color = fen_obj.turn.upper()
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
@@ -36,9 +35,9 @@ def first(game_name):
     data = map_xy_to_rf(
         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
          "moves": moves})
-    pprint(data)
+    # pprint(data)
     return data
 
 
 if __name__ == "__main__":
-    print_args(first("castle_test5"))
+    print_args(get_data("castle_test5"))
