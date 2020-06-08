@@ -71,7 +71,7 @@ export class LoadGame extends React.Component {
     }
 
     else {
-      return <GameRoot data={this.dataEntry} pieceDefs={this.pieceDefs}  />
+      return <GameRoot dataEntry={this.dataEntry} pieceDefs={this.pieceDefs}  />
     }
 
   }

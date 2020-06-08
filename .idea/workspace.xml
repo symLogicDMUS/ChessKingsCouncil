@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="" />
+    <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/move.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

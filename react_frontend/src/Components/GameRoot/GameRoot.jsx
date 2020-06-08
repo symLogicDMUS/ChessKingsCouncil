@@ -16,13 +16,13 @@ export class GameRoot extends React.Component {
         this.jsonRecords = new JsonRecords();
         this.specialMoves = new SpecialMoves(); 
         this.fenObj = new Fen();
-        this.fenObj.set(this.props.data['fen_data'])
-        this.specialMoves.update(this.props.data['moves'])
-        this.jsonRecords.update(this.props.data['records'])
-        this.board = this.props.data['board']
-        this.state = {board: this.props.data['board'] }
-        this.turn = this.props.data['color']
-        this.ranges = this.props.data['ranges']
+        this.fenObj.set(this.props.dataEntry['fen_data'])
+        this.specialMoves.update(this.props.dataEntry['moves'])
+        this.jsonRecords.update(this.props.dataEntry['records'])
+        this.board = this.props.dataEntry['board']
+        this.state = {board: this.props.dataEntry['board'] }
+        this.turn = this.props.dataEntry['color']
+        this.ranges = this.props.dataEntry['ranges']
         this.pieceDefs = this.props.pieceDefs
         this.promo = false; //set true to alert need of promotion
     }
@@ -74,17 +74,17 @@ export class GameRoot extends React.Component {
         }
     }
 
-    callBackend(start, dest) {
+    callBackend() {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getColor()})
-        return fetch(`/${this.props.data.game_type}`, {
+        return fetch(`/${this.props.dataEntry.game_type}`, {
             method: 'POST',
             body: body
         }).then(response => response.json())
-        .then(data => {
-            this.ranges = data['ranges']
-            this.specialMoves.update(data['moves'])
+        .then(dataEntry => {
+            this.ranges = dataEntry['ranges']
+            this.specialMoves.update(dataEntry['moves'])
         });    
     }
 
@@ -111,9 +111,9 @@ export class GameRoot extends React.Component {
         return 
     }
 
-    updateBackend(start, dest) {
+    updateBackend() {
         /**called after a move is made.*/
-        return Promise.all([this.callBackend(start, dest)])
+        return Promise.all([this.callBackend()])
     }
 
 

@@ -11,8 +11,7 @@ export function move(data, start, dest) {
     enPassantMove(data, start, dest)
     promoMove(data, start, dest)
     data.toggleColor()
-    data.updateBackend(start, dest).then(([result]) => {
+    data.updateBackend().then(([result]) => {
       data.emitChange()
     })
-    return
 }

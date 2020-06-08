@@ -59,11 +59,11 @@ export class NewGame extends React.Component {
 
         else if (this.state.gameData === "none") {
             this.addRecord()
-            return <GameRoot data={this.dataDict[this.state.gameName]} />
+            return <GameRoot dataEntry={this.dataDict[this.state.gameName]} />
         }
 
         else {
-            return <GameRoot data={this.dataDict[this.state.gameName]} />
+            return <GameRoot dataEntry={this.dataDict[this.state.gameName]} />
         }
     }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export class PromoChoice extends React.Component {
 
     constructor(props) {
@@ -32,7 +31,9 @@ export class PromoChoice extends React.Component {
     }
 
     updateBoard() {
-        this.props.data.emitChange()
+        this.data.updateBackend().then(([result]) => {
+            this.data.emitChange()
+          })
     }
  
     promote() {
