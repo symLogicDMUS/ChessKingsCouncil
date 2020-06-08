@@ -16,7 +16,7 @@ from pprint import pprint
 
 def parse_data(game_name):
     """replicate behavior without api call"""
-    fen_obj, board, json_records = get_data(game_name)
+    fen_obj, board, json_records, game_type, def_names = get_data(game_name)
     color = fen_obj.turn.upper()
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
@@ -34,8 +34,9 @@ def parse_data(game_name):
     fen_data = fen_obj.get_data()
     data = map_xy_to_rf(
         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-         "moves": moves})
-    # pprint(data)
+         "moves": moves, "game_type": game_type})
+    data["def_names"] = def_names  # piece definition names
+
     return data
 
 

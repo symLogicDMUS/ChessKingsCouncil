@@ -1,0 +1,6 @@
+{
+  "Queen": {"image": {"W":"wQ.png", "B":"bQ.png"}, "gen_id": {"W": "WQ", "B": "BQ"} },
+  "Rook": {"image": {"W":"wR.png", "B":"bR.png"}, "gen_id": {"W": "WR", "B": "BR"} },
+  "Bishop": {"image": {"W":"wB.png", "B":"bB.png"}, "gen_id": {"W": "WB", "B": "BB"} },
+  "Knight": {"image": {"W":"wN.png", "B":"bN.png"}, "gen_id": {"W": "WN", "B": "BN"} }
+}

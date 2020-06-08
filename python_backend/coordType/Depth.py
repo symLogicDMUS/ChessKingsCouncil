@@ -35,3 +35,4 @@ if __name__ == "__main__":
     print(depth.get_new_depth([[((1, 2), (1, 3)), ((2, 2), (2, 3))], [((3, 4), (3, 5)), ((3, 6), (3, 7))]]))
     print(depth.get_new_depth((3, 3)))
     print(depth.get_new_depth(""))
+    print(depth.get_new_depth(["Queen", "Rook", "Knight", "Bishop"]))

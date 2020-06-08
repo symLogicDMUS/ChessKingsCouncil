@@ -1,0 +1,22 @@
+
+  .img-group {
+    cursor: pointer; /* Pointer/hand icon */
+    display: block;
+    float: left; /* Float the buttons side by side */
+    background-color: white;
+    border: 3px solid slateblue;
+    position: absolute; /*newly added*/
+    right: 40vw; /*newly added*/
+    top: 5vh;/*newly added*/
+    z-index: 1;
+  }
+  
+  /* Add a background color on hover */
+ .img-group :hover {
+    background-color: #3e8e41;
+  }
+
+  .inactive-board {
+    opacity: 0.6;
+    z-index: 0;
+  }

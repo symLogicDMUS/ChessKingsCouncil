@@ -1,39 +1,38 @@
-import React from "react"
+import React from "react";
 import { 
     BrowserRouter as Router, 
     Route, 
     Switch, 
     Link, 
     Redirect 
-} from "react-router-dom"
-
+} from "react-router-dom";
 
 //Pages
-import {MainPage} from "./pages/MainPage";
-import {API as Standard} from "./pages/Game/Standard";
+import {MainMenuComponent as MainPage} from "./Components/Home/PageComponent/Home";
+import {ComingSoonComponent as ComingSoon} from "./Components/ComingSoon/ComingSoonComponent";
+import {CouncilRules} from "./Components/CouncilRules/PageComponent/CouncilRules";
+import {CreatePiece} from "./Components/CreatePiece/PageComponents/CreatePiece";
+import {LoadGame} from "./Components/LoadGame/PageComponent/LoadGame";
+import {NewGame} from "./Components/NewGame/NewGame";
 
-
-/**All the routing happens inside the App.js component */
 export class App extends React.Component {
+
     constructor(props) {
         super(props);
-        this.dataDict = this.props.dataDict;
     }
+
     render() {
-        /**
-         * Like a container that takes all the routes to the different pages.
-         * each Route lists first a path, then the component that's rendered when that path is taken 
-         */
-        let dataDict = this.dataDict
         return (
-            <Router>
-                <Switch>
-                    <Route path="/" component={MainPage} />
-                </Switch>
-                <Switch>
-                    <Route path="/Standard" component={Standard} />
-                </Switch>
-            </Router>
-        );    
+        <Router>
+            <Switch>
+                <Route exact path="/" exact component={MainPage} />
+                <Route path="/NewGame" render={() => <NewGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
+                <Route path="/LoadGame" render={() => <LoadGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
+                <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.props.dataDict} defs={this.props.defs} /> } />
+                <Route exact path="/ComingSoon" exact component={ComingSoon} />
+                <Route exact path="/CouncilRules" exact component={CouncilRules} />
+            </Switch>
+        </Router>
+        );
     }
 }

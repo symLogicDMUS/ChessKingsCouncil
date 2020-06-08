@@ -1,0 +1,24 @@
+.div {
+    margin-top: 10%;
+    margin-left: 50%;   
+}
+
+.components {
+    margin-top: 1%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+input[type=text] {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 2px;
+    cursor: pointer;
+    font-family: Georgia;
+}

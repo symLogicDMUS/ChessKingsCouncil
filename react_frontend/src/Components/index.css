@@ -1,0 +1,21 @@
+
+.a {
+    clip-path:url(#b);
+}
+
+.b {
+   font-size:42.33px;
+   font-family:SitkaDisplay, Sitka Display;
+
+}
+
+.icon:hover {
+    fill: white;
+}
+
+body {
+    background-image: url("../Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}

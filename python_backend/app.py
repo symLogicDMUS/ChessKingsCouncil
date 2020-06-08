@@ -19,49 +19,21 @@ from pprint import pprint
 import json
 import os
 
-
 app = Flask(__name__)
 
 
-@app.route('/simple', methods=['GET'])
+@app.route('/simple', methods=['GET', 'POST'])
 def simple():
     """ """
     print('in the SIMPLE method')
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    pprint(data)
     return "Done", 201
 
 
-# @app.route('/first', methods=['POST'])
-# def first():
-#     """ """
-#     print("POST request, first")
-#     game_name = request.get_data(as_text=True)
-#     fen_obj, board, json_records = get_data(game_name)
-#     color = fen_obj.turn.upper()
-#     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
-#     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
-#     k_loc = get_king_locs(board, color)
-#     threat_area = get_threat_area(k_loc, board, color)
-#     pd_dict = get_pathdata_dict(k_loc, board, color)
-#     pins = get_pins(k_loc, board, color, pd_dict, pins)
-#     npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
-#     mt_restricts = get_multithreat_restriction(board, npck, color)
-#     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
-#     json_records.update_state(board, final_ranges, get_next_color(color), npck)
-#     special_moves.set_promos(board, final_ranges, color)
-#     records = json_records.get_records()
-#     moves = special_moves.get_moves()
-#     fen_data = fen_obj.get_data()
-#     print_args({"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-#                 "moves": moves}, pp=True)
-#     data = map_xy_to_rf(
-#         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-#          "moves": moves})
-#     print("!!!!! METHOD END !!!!!!")
-#     return jsonify(data)
-
-
-@app.route('/update', methods=['POST'])
-def update():
+@app.route('/standard', methods=['POST'])
+def standard():
     """update the ranges of pieces and the state of the game and return to React """
     print("POST request, update()""")
     data = request.get_data(as_text=True)
@@ -82,7 +54,19 @@ def update():
     moves = special_moves.get_moves()
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
     pprint(data)
-    return jsonify({"ranges": final_ranges, "moves": moves})
+    return jsonify({"ranges": final_ranges, "moves": moves, "game_type": "standard"})
+
+
+@app.route('/custom', methods=['GET'])
+def custom():
+    """ """
+    pass  # TODO: implement almost identical to standard except updated for game with custom pieces
+
+
+@app.route('/custom', methods=['GET'])
+def council():
+    """ """
+    pass  # TODO: implement almost identical to standard except updated for game with multiple kings
 
 
 @app.route('/get_data_dict', methods=['GET'])
@@ -94,6 +78,18 @@ def get_data_dict():
     for game_name in games:
         data_dict[game_name] = parse_data(game_name)
     return jsonify(data_dict)
+
+
+@app.route('/get_defs', methods=['GET'])
+def get_defs():
+    """get the JSON object inside defs.json"""
+    print('GET request, getting data from defs.json')
+    defs = {}
+    f = open("defs.json", 'r')
+    data = f.read()
+    defs = json.loads(data)
+    json.dumps(defs, indent=4, sort_keys=True)
+    return jsonify(defs)
 
 
 if __name__ == "__main__":
