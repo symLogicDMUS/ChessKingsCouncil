@@ -6,9 +6,10 @@ import {SpecialMoves} from "./Move/SpecialMoves";
 import {getPieceType} from "./sharedData/getPieceType";
 import {isPiece} from "./sharedData/isPiece";
 import { Promo } from "./components/Promo";
+import {InactiveBoard} from "./InactiveBoard";
+
 
 export class GameRoot extends React.Component {
-
 
     constructor(props) {
         super(props)
@@ -34,7 +35,7 @@ export class GameRoot extends React.Component {
             this.promo = false;
             return(
                 <Promo data={this} pawnLoc={this.specialMoves.currentDest}>
-                    <Board data={this} updateBoard={this.emitChange}/>
+                    <InactiveBoard board={this.board} />
                 </Promo>
             );      
         }

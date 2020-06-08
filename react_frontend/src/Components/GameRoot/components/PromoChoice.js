@@ -8,9 +8,6 @@ export class PromoChoice extends React.Component {
         this.data = this.props.data // reference GameRoot object
         this.updateBoard = this.updateBoard.bind(this);
         this.promote = this.promote.bind(this);
-        this.replacePawn = this.replacePawn.bind(this);
-        this.getIdNumber = this.getIdNumber.bind(this);
-        this.getNewId = this.getNewId.bind(this);
         this.color = this.data.getEnemyColor(); // color filped already, need previous
         this.pieceName = this.props.choiceName;
         this.genId = this.props.choiceData['gen_id'][this.color]; //piece ID without number
