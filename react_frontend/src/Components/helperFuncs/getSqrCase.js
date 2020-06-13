@@ -1,5 +1,5 @@
 import { outOfBounds } from "./oob";
-import { OOB, EMPTY, FRIEND, ENEMY } from "./sqrCases";
+import { OOB, EMPTY, FRIEND, ENEMY } from "../GameRoot/sharedData/sqrCases";
 export function getSqrCase(board, rf, color) {
     /*get the case of square at location x, y on the board. see sqrTypes.py**/
     if (outOfBounds(rf)) {

@@ -1,5 +1,3 @@
-import { ItemTypes } from '../components/Constants';
-
 
 export function getItemType(id_) {
     var type = id_.slice(0, 2) 

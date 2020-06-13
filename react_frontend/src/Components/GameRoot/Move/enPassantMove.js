@@ -1,6 +1,6 @@
 import { getSqrCase } from "../sharedData/getSqrCase";
 import { getPieceType } from "../sharedData/getPieceType";
-import {step1sqr0d, step1sqr180d} from "../sharedData/stepFuncs";
+import {step1sqr0d, step1sqr180d} from "../../helperFuncs/stepFuncs";
 import { OOB, EMPTY, FRIEND, ENEMY } from "../sharedData/sqrCases";
 
 export function enPassantMove(data, start, dest, color) {

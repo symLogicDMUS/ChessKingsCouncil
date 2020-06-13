@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/move.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/move.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/coordType/rankfile/map_xy_to_rf.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/coordType/rankfile/map_xy_to_rf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/CSS.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/enPassantMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/enPassantMove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/crdCnvrt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/getItemType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/getPieceImg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/handleSquareClick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/getSqrCase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/oob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/stepFuncs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/tests.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +83,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.add_file_type">
+  <component name="RunManager" selected="Python.map_xy_to_rf">
     <configuration name="Depth" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -139,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="get_data_dict" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="map_xy_to_rf" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -147,11 +155,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/z_flask" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/coordType/rankfile" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/z_flask/get_data_dict.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/coordType/rankfile/map_xy_to_rf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -182,19 +190,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.get_data_dict" />
       <item itemvalue="Python.parse" />
       <item itemvalue="Python.addFileType" />
       <item itemvalue="Python.Depth" />
       <item itemvalue="Python.add_file_type" />
+      <item itemvalue="Python.map_xy_to_rf" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.map_xy_to_rf" />
         <item itemvalue="Python.add_file_type" />
         <item itemvalue="Python.addFileType" />
         <item itemvalue="Python.Depth" />
         <item itemvalue="Python.parse" />
-        <item itemvalue="Python.get_data_dict" />
       </list>
     </recent_temporary>
   </component>

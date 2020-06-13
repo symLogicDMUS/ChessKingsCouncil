@@ -1,12 +1,11 @@
+// import React from "react"
+// import ReactDOM from "react-dom";
+// import {App} from "./App";
+// import {getData} from "./API";
 
-import React from "react"
-import ReactDOM from "react-dom";
-import {App} from "./App";
-import {getData} from "./API";
-import {tests} from "./tests";
+// getData().then( ([dataDict, defs]) => {
+//     ReactDOM.render(<App dataDict={dataDict} defs={defs} />, document.getElementById('root'))
+// });
 
-getData().then( ([dataDict, defs]) => {
-    ReactDOM.render(<App dataDict={dataDict} defs={defs} />, document.getElementById('root'))
-});
-
-//tests(1)
+import {test} from "./Components/CreatePiece/PageComponents/Range/Range";
+test();

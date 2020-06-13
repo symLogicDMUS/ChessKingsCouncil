@@ -1,4 +1,3 @@
-import { ItemTypes } from "../components/Constants";
 
 export function getPieceImg(id_) {
     var img = "_"

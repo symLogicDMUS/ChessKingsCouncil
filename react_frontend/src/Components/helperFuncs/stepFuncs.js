@@ -1,7 +1,7 @@
 /**
 methods are numbered by, and listed in order of, degrees counterclockwise from x axis.
 */
-import {rfToXy, xyToRf} from "../helperFuncs/crdCnvrt"
+import {rfToXy, xyToRf} from ""
 
 export function step1sqr0d(rf) {
     /*step 1 square 0 degrees**/
@@ -63,5 +63,16 @@ export function step1sqr315d(rf) {
     rf = xyToRf(x, y)
     return rf
 }
-export let stepFuncList = [step1sqr90d, step1sqr45d, step1sqr0d, step1sqr315d, step1sqr270d,
+export const stepFuncList = [step1sqr90d, step1sqr45d, step1sqr0d, step1sqr315d, step1sqr270d,
                            step1sqr225d, step1sqr180d, step1sqr135d]
+
+export const stepFuncDict = {
+    "90d" :step1sqr90d, 
+    "45d" :step1sqr45d, 
+    "0d"  :step1sqr0d, 
+    "315d":step1sqr315d, 
+    "270d":step1sqr270d, 
+    "225d":step1sqr225d, 
+    "180d":step1sqr180d, 
+    "135d":step1sqr135d
+}
