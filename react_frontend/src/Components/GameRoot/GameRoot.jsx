@@ -1,12 +1,12 @@
 import React from "react";
-import {Board} from "./Board";
+import {Board} from "./Components/Board";
 import {JsonRecords} from "./sharedData/JsonRecords";
 import {Fen} from "./sharedData/Fen";
 import {SpecialMoves} from "./Move/SpecialMoves";
-import {getPieceType} from "./sharedData/getPieceType";
-import {isPiece} from "./sharedData/isPiece";
-import { Promo } from "./components/Promo";
-import {InactiveBoard} from "./InactiveBoard";
+import {getPieceType} from "../helpers/getPieceType";
+import {isPiece} from "../helpers/isPiece";
+import { Promo } from "./Components/Promo";
+import {InactiveBoard} from "./Components/InactiveBoard";
 
 
 export class GameRoot extends React.Component {

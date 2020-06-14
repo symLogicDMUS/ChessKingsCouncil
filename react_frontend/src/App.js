@@ -8,11 +8,11 @@ import {
 } from "react-router-dom";
 
 //Pages
-import {MainMenuComponent as MainPage} from "./Components/Home/PageComponent/Home";
+import {MainMenuComponent as MainPage} from "./Components/Home/Home";
 import {ComingSoonComponent as ComingSoon} from "./Components/ComingSoon/ComingSoonComponent";
-import {CouncilRules} from "./Components/CouncilRules/PageComponent/CouncilRules";
-import {CreatePiece} from "./Components/CreatePiece/PageComponents/CreatePiece";
-import {LoadGame} from "./Components/LoadGame/PageComponent/LoadGame";
+import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
+import {CreatePiece} from "./Components/CreatePiece/CreatePiece";
+import {LoadGame} from "./Components/LoadGame/LoadGame";
 import {NewGame} from "./Components/NewGame/NewGame";
 
 export class App extends React.Component {

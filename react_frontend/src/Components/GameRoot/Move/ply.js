@@ -1,5 +1,5 @@
-import { isPiece } from "../sharedData/isPiece";
-import { getPieceType } from "../sharedData/getPieceType"
+import { isPiece } from "../../helpers/isPiece";
+import { getPieceType } from "../../helpers/getPieceType"
 import { JsonRecords } from "../sharedData/JsonRecords";
 
 export function ply(data, start, dest) {

@@ -1,0 +1,48 @@
+
+.green-sqr {
+  display: inline-block;
+  z-index: 0;       
+  width: 75px;
+  height: 75px;
+  background-color: #a9a9a9;
+}
+
+.green-sqr:hover {
+  background-color: #00CCFF;
+}
+
+.white-sqr {
+  display: inline-block;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  background-color: white;
+}
+
+.white-sqr:hover {
+  background-color: #00CCFF;
+}
+
+.activated-sqr {
+  display: inline-block;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  background-color: #EC2540;
+}
+
+.activated-sqr:hover {
+  background-color: #00CCFF;
+}
+
+.span-element {
+  display: inline-block;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  background-color: #EC2525;
+}
+
+.span-element:hover {
+  background-color: #00CCFF;
+}

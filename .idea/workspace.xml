@@ -3,19 +3,161 @@
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/coordType/rankfile/map_xy_to_rf.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/coordType/rankfile/map_xy_to_rf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/CSS.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CouncilRules/PageComponent/CouncilRules.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CouncilRules/PageComponent/CouncilRules.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CouncilRules/PageComponent/CouncilRules.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/Board.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/MyPiece.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/MySquare.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/blankBoard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/rankfiles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Board/sqrClass.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatPiece.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/CreatePiece.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Black.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Choose.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Icon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Icon.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/Upload.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Icon/White.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/Location.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/Location.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/Location.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/LocationButton.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/d4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/d5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/e4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Location/e5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Name/Name.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Name/Name.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Name/Name.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/ArrowButton.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/down.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/downLeft.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/downRight.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/left.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/right.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/up.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/upLeft.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/ArrowButton/upRight.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/Range.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/Range.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/Range/Range.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/UploadBlack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/board.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/e4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/PageComponents/e5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Board.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/InactiveBoard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/castleMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/castleMove.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/enPassantMove.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/enPassantMove.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/crdCnvrt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/getItemType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/getPieceImg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/helperFuncs/handleSquareClick.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/getSqrCase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/oob.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/stepFuncs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/ply.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Move/ply.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/BoardSquare.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/Constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/InactivePiece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/Piece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/Promo.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/Square.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/BR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/King.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/Queen.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WB.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WK.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WN.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WP.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WQ.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/WR.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/X.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/bishop.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/knight.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/pawn.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/pieces.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/rook.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wK.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wQ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/images_of_pieces/wR.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/Fen.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/Fen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/JsonRecords.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/JsonRecords.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/enPassants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/gStatusTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/getPieceType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/getPieceTypes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/getRookStartAndDest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/isPiece.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/rankfiles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/rookStartAndDest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/sqrCases.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/sharedData/sqrColors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/AuthorGithub.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/ChessRules.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/CouncilRules.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/CreatePiece.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/LoadGame.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/MyImages.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/NewGame.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/IconComponents/Title.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/Images/my images.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/PageComponent/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/Home/PageComponent/Home.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.xd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/SelectGame.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickName/Images/EnterName.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickName/Images/EnterName.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickName/PickName.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickName/PickName.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/IconComponents/Council.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/IconComponents/Custom.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/IconComponents/Standard.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/IconComponents/Title.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/PickType.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/PageComponents/PickType/PickType.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/crdCnvrt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/getItemType.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/getPieceImg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/getSqrCase.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/handleSquareClick.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/oob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helperFuncs/stepFuncs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/blackSquarePattern.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/board.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/disaproving corgi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/green.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/lion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/parchment.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Backgrounds/parchment2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Misc/blank grid square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Misc/github logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Misc/grid square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Misc/parchment button.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Images/Misc/parchment button2.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/tests.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

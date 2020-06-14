@@ -1,7 +1,7 @@
 
 import React from "react";
-import {PickType} from "./PageComponents/PickType/PickType";
-import {PickName} from "./PageComponents/PickName/PickName";
+import {PickType} from "./PickType/PickType";
+import {PickName} from "./PickName/PickName";
 import {GameRoot} from "../GameRoot/GameRoot";
 // import "./NewGame.css";
 

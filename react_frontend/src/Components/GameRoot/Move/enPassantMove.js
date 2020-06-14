@@ -1,7 +1,7 @@
-import { getSqrCase } from "../sharedData/getSqrCase";
-import { getPieceType } from "../sharedData/getPieceType";
-import {step1sqr0d, step1sqr180d} from "../../helperFuncs/stepFuncs";
-import { OOB, EMPTY, FRIEND, ENEMY } from "../sharedData/sqrCases";
+import { getSqrCase } from "../../helpers/getSqrCase";
+import { getPieceType } from "../../helpers/getPieceType";
+import {step1sqr0d, step1sqr180d} from "../../helpers/stepFuncs";
+import { OOB, EMPTY, FRIEND, ENEMY } from "../../helpers/sqrCases";
 
 export function enPassantMove(data, start, dest, color) {
     /**

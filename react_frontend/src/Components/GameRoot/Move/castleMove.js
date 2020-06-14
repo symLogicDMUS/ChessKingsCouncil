@@ -1,4 +1,4 @@
-import { getRookStartAndDest } from "../sharedData/getRookStartAndDest";
+import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
 import { ply } from "./ply";
 
 export function castleMove(data, start, dest) {
