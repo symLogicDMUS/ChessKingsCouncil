@@ -1,5 +1,6 @@
 .my-grid {
     position: absolute;
+    z-index: 0;
     left: 263px;
     top: 77px;
     width: 600px;

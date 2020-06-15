@@ -8,29 +8,31 @@ import {MyPiece} from "./MyPiece";
 import "../../helpers/stepFuncs";
 import "./Board.css";
 
+
 export class Board extends React.Component {
 
     constructor(props) {
         super(props);       
         this.board = blankBoard;
-        this.togleJump = this.togleJump.bind(this);
+        //this.togleJump = this.togleJump.bind(this);
     }
 
-    togleJump(rf) {
-        this.props.togleJump(rf)
-    }
+    // togleJump(rf) {
+    //     this.props.togleJump(rf)
+    // }
 
     getBoard() {
-        const squares = []
+        let squares = []
         for (var rf of rankfiles) {
-            if (this.board[rf] != '#') {
+            if (rf === this.props.pieceLoc) {
                 squares.push(
                 <MySquare 
-                id_={rf} 
+                rf={rf} 
                 isSpan={this.props.spanDisplays[rf]} 
-                togleJump={this.togleJump}
+                togleJump={this.props.togleJump}
                 isJump={this.props.jumps[rf]}
-                class_={sqrColorClass[rf]} 
+                pieceLoc={this.props.pieceLoc}
+                class_={sqrColorClass[rf]}
                 >
                     <MyPiece id_={this.props.pieceId} />
                 </MySquare>
@@ -39,10 +41,11 @@ export class Board extends React.Component {
             else {
                 squares.push(
                 <MySquare 
-                id_={rf} 
+                rf={rf} 
                 isSpan={this.props.spanDisplays[rf]} 
-                togleJump={this.togleJump}
+                togleJump={this.props.togleJump}
                 isJump={this.props.jumps[rf]}
+                pieceLoc={this.props.pieceLoc}                
                 class_={sqrColorClass[rf]} 
                 >
                     {null}

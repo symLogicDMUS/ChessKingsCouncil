@@ -1,6 +1,7 @@
 
+
 .green-sqr {
-  display: inline-block;
+  position: absolute;
   z-index: 0;       
   width: 75px;
   height: 75px;
@@ -12,7 +13,7 @@
 }
 
 .white-sqr {
-  display: inline-block;
+  position: absolute;
   z-index: 0;
   width: 75px;
   height: 75px;
@@ -24,11 +25,11 @@
 }
 
 .activated-sqr {
-  display: inline-block;
+  position: absolute;
   z-index: 0;
   width: 75px;
   height: 75px;
-  background-color: #EC2540;
+  background-color: darkred;
 }
 
 .activated-sqr:hover {
@@ -36,11 +37,12 @@
 }
 
 .span-element {
-  display: inline-block;
+  position: absolute;
   z-index: 0;
   width: 75px;
   height: 75px;
   background-color: #EC2525;
+  text-align: center;
 }
 
 .span-element:hover {

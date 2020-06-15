@@ -8,6 +8,7 @@ import {Board} from "./Board/Board";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import "./CreatePiece.css";
+import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
 
 export class CreatePiece extends React.Component {
 
@@ -59,11 +60,15 @@ export class CreatePiece extends React.Component {
         //to use for spans, update by Location:
         this.location = "d4"        
 
+        //jump offsets
+        this.offsets = [];
+
         // update to trigger render
         this.state = {
             binaryValue: 0
         };
 
+        //binds
         this.togleDisplaySpan = this.togleDisplaySpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setLoc = this.setLoc.bind(this);
@@ -77,53 +82,88 @@ export class CreatePiece extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
-    togleDisplaySpan(direction) {
-        this.spans[direction] = ! this.spans[direction];
-        const stepFunc = stepFuncDict[direction];
+    togleDisplaySpan(angle) {
+        this.spans[angle] = ! this.spans[angle];
+        const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
         while (! oob(rf) ) {
-            this.spanDisplays[rf] = this.spans[direction];
+            this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
         this.update()
     }
 
-    togleJump(rf) {
+    resetSpanDisplays() {
+        //turn off all displays
+        this.spanDisplays = Object.values(this.spanDisplays).map(isSpan => isSpan & false)
+    }
+
+    setSpan(angle) {
+        const stepFunc = stepFuncDict[angle];
+        let rf = stepFunc(this.location);
+        while (! oob(rf) ) {
+            this.spanDisplays[rf] = true;
+            rf = stepFunc(rf);
+        }
+    }
+
+    setSpans() {
+        Object.entries(this.spans).forEach(([angle, isActive]) => {
+            if(isActive) 
+                this.setSpan(angle)
+        })
+    }
+
+    togleJump(rf, offset) {
         this.jumps[rf] = ! this.jumps[rf]
+        if (this.offsets.includes(offset)) {
+            let i = this.offsets.indexOf(offset);
+            if (i > -1) 
+                this.offsets.splice(i, 1)
+        }
+        else 
+            this.offsets.push(offset);
         this.update()
+    }
+
+    resetJumpDisplays() {
+        this.jumps = Object.values(this.jumps).map(isJump => isJump & false)
+    }
+
+    setJumps() {
+        let [x1, y1] = rfToXy(this.location)
+        let [dx, dy] = [-1, -1]
+        this.offsets.forEach(xy => {
+            dx = x1 + xy[0]
+            dy = y1 + xy[1]
+            this.jumps[xyToRf(dx, dy)] = true;
+        })
     }
 
     setLoc(rf) {
         this.location = rf;
-        this.update()
-    }
-
-    getToolbar() {
-        return(
-            <div>
-                <Name name={this.name} />
-                <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
-                <Icon iconPath={this.iconPath} />
-                <Location locations={this.locations} activeLocation={this.location} setLoc={this.setLoc} />
-            </div>    
-        )
-    }
-
-    getBoard() {
-        return (<Board togleJump={this.togleJump} 
-                spanDisplays={this.spanDisplays} 
-                jumps={this.jumps} 
-                jumpElements={this.jumps} 
-                pieceLoc={""} 
-                pieceId={""} />)
+        this.resetSpanDisplays();
+        this.resetJumpDisplays();
+        this.setSpans();
+        this.setJumps();
+        this.update();
     }
 
     render() {
         
         return(
             <body>
-                {this.getBoard()}
-                {this.getToolbar()}
+                <Name name={this.name} />
+                <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
+                <Icon iconPath={this.iconPath} />
+                <Location activeLocation={this.location} setLoc={this.setLoc} />
+                <Board 
+                togleJump={this.togleJump} 
+                spanDisplays={this.spanDisplays} 
+                jumps={this.jumps}
+                pieceLoc={this.location} 
+                pieceId={"WJ"}
+                />
             </body>
         )
     }

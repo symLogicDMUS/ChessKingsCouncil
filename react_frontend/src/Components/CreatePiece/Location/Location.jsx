@@ -5,19 +5,21 @@ import { LocationButton } from "./LocationButton";
 
 export class Location extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+        this.state = {location: "d4"}
         this.changeLoc = this.changeLoc.bind(this);
         this.isSelected.bind(this);
     }
 
     isSelected(rf) {
-        if (rf === this.props.activeLocation)
+        if (rf === this.state.location)
             return true
         else
             return false
     }
 
     changeLoc(rf) {
+        this.setState({location: rf})
         this.props.setLoc(rf);
     }
 
