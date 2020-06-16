@@ -1,15 +1,14 @@
-from custom_except import *
-from getters.get_data import get_data
-from getters.get_pathdata_dict import get_pathdata_dict
-from getters.get_ranges import get_ranges
+from load_save.load import load
+from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
+from ranges.top.get_ranges import get_ranges
 from getters.get_piece_dicts import get_piece_dicts
 from getters.get_king_locs import get_king_locs
-from getters.get_threat_area import get_threat_area
+from threatArea.top.get_threat_area import get_threat_area
 from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
-from getters.get_pins import get_pins
+from pins.top.get_pins import get_pins
 from getters.get_multithreat_restriction import get_multithreat_restriction
 from getters.get_final_ranges import get_final_ranges
-from misc.unicode_pieces import unicode_pieces_rk
+from helpers.unicode_pieces import unicode_pieces_rk
 from movePiece.attempt_move import attempt_move
 from getters.get_color import get_color
 from getters.get_unicode_board import get_unicode_board
@@ -119,7 +118,7 @@ def test_game(game_name):
     f = open("log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_ = get_data(game_name)
+    fen_, board_, json_records_ = load(game_name)
     uni_board = get_unicode_board(board_)
     results = run_tests(fen_, board_, json_records_, results)
     if results == -1:

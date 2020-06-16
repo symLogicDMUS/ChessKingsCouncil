@@ -1,6 +1,6 @@
 from custom_except import *
 from getters.get_sqr_case import get_sqr_case
-from misc.sqr_cases import *
+from helpers.sqr_cases import *
 
 
 def filter_knight_jumps(board, start_jumps, color):

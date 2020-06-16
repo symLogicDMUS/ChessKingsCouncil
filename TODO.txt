@@ -1,0 +1,16 @@
+1. decided that standard and custom should use same Python code, modifiy copy of current backend then replace the original.
+3. edit API call of GameRoot (Make sure calls correct flask method)
+6. update fullmove and halfmove clocks when move is made. Will be for 50 move rule.
+7. add data that explains the ability of the piece to defs.json objects
+8. add alets for check, checkmate, stalemate
+9. add option to save game, quit, or resign, below the game board
+10. highlight squares that a piece can move to when it's being dragged
+....................................................................................
+0. pretend that already fetched images from server and stored in folder. implement the "Choose" component of Icon tool
+   vertical scroll bark menu in the Customize component. Choose which pieces and if to replace Queen, Bishop, or Knight,
+   or if a promotion choice.
+1. in CreatePiece, pop up window for Upload displayed on top of everything else (like was with piece promotion)
+2. install npm react-scroll and react vertical scroll
+3. do a React crop image tutorial
+4. install react-cookie
+5. learn how to fetch images from server and store in folder.

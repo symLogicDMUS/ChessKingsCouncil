@@ -14,7 +14,7 @@ export class LoadGame extends React.Component {
     this.state = {gameName: "none", ready:false, loaded:false}
     this.selected = false; //refrenced by child
     this.dataEntry = "-"; //Entry in game data dict
-    this.pieceDefs = "-"; //for pawn promotion
+    this.pieceDefs = "-"; 
     this.setGames();
   }
 
@@ -36,8 +36,11 @@ export class LoadGame extends React.Component {
     }    
   }
 
+  /**
+   * use names of pieces to get objects
+   * @param {*} dataEntry: Json from backend
+   */
   getPieceDefs(dataEntry) {
-    // for pawn promotion
     let pieceNames = dataEntry['def_names']
     let pieceDefs = [];
     for (var name of pieceNames) {
@@ -51,7 +54,9 @@ export class LoadGame extends React.Component {
   }
 
   load() {
+    //dataEntry is json from backend
     this.dataEntry = this.props.dataDict[this.state.gameName];
+    //piece defs are ojects defining id and range
     this.pieceDefs = this.getPieceDefs(this.dataEntry)
     this.setState({loaded: true})
   }

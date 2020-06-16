@@ -1,6 +1,6 @@
 from custom_except import *
 from fenParser.getBoard import *
-from misc.save_bd import save_bd
+from helpers.save_bd import save_bd
 
 
 def get_board(fen):

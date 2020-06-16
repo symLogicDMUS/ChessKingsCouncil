@@ -8,7 +8,7 @@ from printers.print_board import print_board
 from JsonRecords.JsonRecords import JsonRecords
 from ranges.specialMoves.enPassant.can_en_passant import can_enpassant
 from ranges.specialMoves.enPassant.get_en_passant_alignment_key import get_en_passant_alignment_key
-from misc.step_funcs import step_1sqr180d, step_1sqr0d
+from helpers.step_funcs import step_1sqr180d, step_1sqr0d
 from ranges.specialMoves.enPassant.get_t_sqr import get_t_sqr
 from ranges.pawn.valid_2_sqr_jump import valid_2_sqr_jump
 from ranges.pawn.get_2_sqr_jump import get_2_sqr_jump

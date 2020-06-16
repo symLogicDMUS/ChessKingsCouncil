@@ -1,5 +1,4 @@
-from custom_except import *
-from getters.get_pathdata_dict import get_pathdata_dict
+from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 
 
 def get_num_path_attackers(pd_dict):

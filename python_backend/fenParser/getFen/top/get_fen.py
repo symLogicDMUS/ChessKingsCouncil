@@ -2,7 +2,7 @@ from custom_except import *
 from fenParser.getFen import *
 
 
-def get_pos_str(board):
+def get_fen(board):
     """convert the board to a fen positon str and return"""
     pos = get_id_board(board)
     pos = get_piece_fens(pos)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
          (7, 1): 'WN2', (7, 2): 'WP7', (7, 3): '#', (7, 4): '#', (7, 5): '#', (7, 6): '#', (7, 7): 'BP7', (7, 8): 'BN2',
          (8, 1): 'WR2', (8, 2): 'WP8', (8, 3): '#', (8, 4): '#', (8, 5): '#', (8, 6): '#', (8, 7): 'BP8', (8, 8): 'BR2'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')
 
     # test #2, castle_test3, r3k2r/3q4/2nbbn2/pppppppp/PPPPPPPP/2NBBN2/3Q4/R3K2R w KQkq - 8 13
@@ -42,7 +42,7 @@ if __name__ == "__main__":
          (1, 7): '#', (2, 7): 'WP3', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#',
          (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')
 
     # test #3, castle_test1, r3k2r/1P6/5P2/p3n2p/3b1BpP/NBQb1q2/8/R3K2R
@@ -58,7 +58,7 @@ if __name__ == "__main__":
          (1, 7): '#', (2, 7): 'WP3', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#',
          (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')
 
     # test #4, check_example3, 3k3b/q2r2P1/3P1P2/8/q1QK1QBr/2NP4/3R1R2/b2q2q1
@@ -74,7 +74,7 @@ if __name__ == "__main__":
          (7, 1): 'BQ2', (7, 2): '#', (7, 3): '#', (7, 4): 'WB1', (7, 5): '#', (7, 6): '#', (7, 7): 'WP4', (7, 8): '#',
          (8, 1): '#', (8, 2): '#', (8, 3): '#', (8, 4): 'BR1', (8, 5): '#', (8, 6): '#', (8, 7): '#', (8, 8): 'BB2'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')
 
     # test 5, super_checkmate_impossible_example, 5rk1/3np1p1/r4K2/8/7b/8/8/q4r2:
@@ -89,7 +89,7 @@ if __name__ == "__main__":
          (1, 2): '#', (2, 2): '#', (3, 2): '#', (4, 2): '#', (5, 2): '#', (6, 2): '#', (7, 2): '#', (8, 2): '#',
          (1, 1): 'BQ1', (2, 1): '#', (3, 1): '#', (4, 1): '#', (5, 1): '#', (6, 1): 'BR1', (7, 1): '#', (8, 1): '#'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')
 
     # test 6, ranges_test,
@@ -106,5 +106,5 @@ if __name__ == "__main__":
          (1, 2): '#', (2, 2): '#', (3, 2): '#', (4, 2): '#', (5, 2): '#', (6, 2): '#', (7, 2): '#', (8, 2): '#',
          (1, 1): '#', (2, 1): 'WR1', (3, 1): 'WB1', (4, 1): 'WR2', (5, 1): 'WK1', (6, 1): '#', (7, 1): '#', (8, 1): '#'}
 
-    print(get_pos_str(board))
+    print(get_fen(board))
     print('\n')

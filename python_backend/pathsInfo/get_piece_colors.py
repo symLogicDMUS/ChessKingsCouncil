@@ -1,5 +1,6 @@
 from custom_except import *
 
+
 def _get_piece_colors(piece_list):
     """
     takes a list of piece ids, and returns a list of the color of each piece

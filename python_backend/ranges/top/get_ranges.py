@@ -1,13 +1,10 @@
-from custom_except import *
 from getters.get_piece_type import get_piece_type
 from ranges.get_range_func import get_range_func
 from ranges.specialMoves.SpecialMoves import SpecialMoves
 from JsonRecords.JsonRecords import JsonRecords
 from getters.get_piece_dicts import get_piece_dicts
-from getters.get_board import get_board
+from fenParser.getBoard.top.get_board import get_board
 from getters.get_color import get_color
-from getters.get_unicode_board import get_unicode_board
-from printers.print_sqr_highlights import print_sqr_highlights
 from pprint import pprint
 
 

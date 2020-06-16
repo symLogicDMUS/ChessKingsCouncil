@@ -1,5 +1,5 @@
 from custom_except import *
-from misc.step_funcs import step_1sqr45d, step_1sqr135d, step_1sqr225d, step_1sqr315d
+from helpers.step_funcs import step_1sqr45d, step_1sqr135d, step_1sqr225d, step_1sqr315d
 
 
 def get_potential_captures(sqr, board, color):

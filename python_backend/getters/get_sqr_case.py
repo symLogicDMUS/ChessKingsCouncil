@@ -1,5 +1,5 @@
 from custom_except import *
-from misc.sqr_cases import OOB, EMPTY, FRIEND, ENEMY
+from helpers.sqr_cases import OOB, EMPTY, FRIEND, ENEMY
 from bools.oob import out_of_bounds
 
 

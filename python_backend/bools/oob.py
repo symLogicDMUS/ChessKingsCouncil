@@ -1,4 +1,5 @@
 from custom_except import *
+
 def out_of_bounds(x, y):
     """return true if (x, y) is out of bounds, else false"""
     if x < 1 or x > 8 or y < 1 or y > 8:

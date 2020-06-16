@@ -1,13 +1,11 @@
-import os
-from custom_except import *
 from JsonRecords.JsonRecords import JsonRecords
-from getters.get_board import get_board
+from fenParser.getBoard.top.get_board import get_board
 from fenParser.Fen import Fen
 from getters.get_status import get_status
 from filepath import get_dir_containing_name
 
 
-def get_data(game_name):
+def load(game_name):
     """get the data saved in the files for a game_name
     WARNING: uses relative paths, should only be called from top level of application
     """
@@ -24,6 +22,6 @@ def get_data(game_name):
 
 
 if __name__ == "__main__":
-    fen, board, json_records = get_data('_initialBoard', 'terminal')
+    fen, board, json_records = load('_initialBoard', 'terminal')
     print("fen:", fen)
     print("json records:", json_records)

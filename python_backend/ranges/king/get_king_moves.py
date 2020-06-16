@@ -1,8 +1,8 @@
 from custom_except import *
 from getters.get_sqr_case import get_sqr_case
 from bools.sqr_under_attack import sqr_under_attack
-from misc.formulas import dist
-from misc.sqr_cases import *
+from helpers.formulas import dist
+from helpers.sqr_cases import *
 from printers.print_board import print_board
 from math import sqrt
 

@@ -1,7 +1,6 @@
-from custom_except import *
 from threatArea.get_knight_threats import get_knight_threats
 from threatArea.get_pawn_threats import get_pawn_threats
-from getters.get_pathdata_dict import get_pathdata_dict
+from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from getters.get_num_path_attackers import get_num_path_attackers
 
 

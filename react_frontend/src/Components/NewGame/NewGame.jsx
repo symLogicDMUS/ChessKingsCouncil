@@ -3,6 +3,7 @@ import React from "react";
 import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
 import {GameRoot} from "../GameRoot/GameRoot";
+import {Customize} from "./Customize/Customize"
 // import "./NewGame.css";
 
 
@@ -15,6 +16,7 @@ export class NewGame extends React.Component {
         this.setName = this.setName.bind(this)
         this.setData = this.setData.bind(this)
     }
+
     setType(type) {
         this.setState({gameType: type})
     }
@@ -24,47 +26,40 @@ export class NewGame extends React.Component {
     setData() {
         this.setState({gameData: this.dataDict[this.state.gameName]})
     }
-
-    addRecord() {
-        switch(this.state.gameType) {
-            case "standard":
-                this.dataDict[this.state.gameName] = this.dataDict["New"]
-                this.setData();
-                break;
-            case "custom":
-                this.dataDict[this.state.gameName] = this.dataDict["NewCustom"]
-                this.setData();
-                break;
-            case "council":
-                this.dataDict[this.state.gameName] = this.dataDict["NewCouncil"]
-                this.setData();
-                break;
-            default:
-                console.log("ERROR! invalid game type!")
-                break;
-        }
+    loadNewStandard() {
+        //"New" is static entry
+        this.dataDict[this.state.gameName] = this.dataDict["New"]
+        this.setData()
+    }
+    loadNewCustom(dataDict) {
+        this.dataDict[this.state.gameName] = dataDict;
+        this.setData()
     }
 
     render() {
 
-        if (this.state.gameType === "none") {
-            return(
-                <PickType setType={this.setType} />
-            );    
-        }
-
-        else if (this.state.gameName === "none") {
+        if (this.state.gameName === "none")
             return <PickName setName={this.setName} />
-        }
+
+        else if (this.state.gameType === "none")
+            return <PickType setType={this.setType} />
 
         else if (this.state.gameData === "none") {
-            this.addRecord()
-            return <GameRoot dataEntry={this.dataDict[this.state.gameName]} />
+
+                if (this.state.gameType === "standard")
+                    this.loadNewStandard()
+
+                else if (this.state.gameType === "custom")
+                    return <Customize defs={this.props.defs} loadNewCustom={this.loadNewCustom} standardNew={this.dataDict["new"]} />
+                    
+                else if (this.gameType === "council");
+                    this.loadNewStandard() //TODO: include warning that only playing regular chess until standard is implement
         }
 
-        else {
-            return <GameRoot dataEntry={this.dataDict[this.state.gameName]} />
-        }
+        else
+            return <GameRoot dataEntrty={this.dataDict[this.state.gameName]} />
+
+        
     }
 }
 

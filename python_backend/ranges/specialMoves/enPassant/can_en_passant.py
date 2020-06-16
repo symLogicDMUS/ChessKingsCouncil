@@ -3,7 +3,7 @@ from ranges.specialMoves.enPassant.is_enp_black_att_r import is_enp_black_att_r
 from ranges.specialMoves.enPassant.is_enp_white_att_r import is_enp_white_att_r
 from ranges.specialMoves.enPassant.pawn_moved_once_2_sqrs import pawn_moved_once_2_sqrs
 from getters.get_sqr_case import get_sqr_case
-from misc.sqr_cases import *
+from helpers.sqr_cases import *
 from getters.get_piece_type import get_piece_type
 from JsonRecords.JsonRecords import JsonRecords
 

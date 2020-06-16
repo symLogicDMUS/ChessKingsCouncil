@@ -5,7 +5,7 @@ from pathsInfo.get_pieces_on_path import _get_pieces_on_path
 from pathsInfo.get_statuses import _get_statuses
 from pathsInfo.get_piece_matches_path import _get_piece_matches_path
 from getters.get_piece_type import get_piece_type
-from misc.step_funcs import *
+from helpers.step_funcs import *
 
 
 def _get_path_data(sqr, board, step_func, path_type, color):

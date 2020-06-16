@@ -1,5 +1,5 @@
-from misc.step_funcs import *
-from ranges.path_pieces.get_path import get_path
+from helpers.step_funcs import *
+from ranges.get_path import get_path
 from printers.print_board import print_board
 
 

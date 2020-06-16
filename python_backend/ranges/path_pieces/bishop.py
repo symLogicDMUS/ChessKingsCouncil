@@ -1,8 +1,8 @@
-from ranges.path_pieces.get_path import get_path
-from misc.step_funcs import step_1sqr45d
-from misc.step_funcs import step_1sqr135d
-from misc.step_funcs import step_1sqr225d
-from misc.step_funcs import step_1sqr315d
+from ranges.get_path import get_path
+from helpers.step_funcs import step_1sqr45d
+from helpers.step_funcs import step_1sqr135d
+from helpers.step_funcs import step_1sqr225d
+from helpers.step_funcs import step_1sqr315d
 from printers.print_board import print_board
 
 

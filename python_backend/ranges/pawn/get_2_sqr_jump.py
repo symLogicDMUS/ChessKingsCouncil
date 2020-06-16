@@ -1,5 +1,5 @@
 from custom_except import *
-from misc.step_funcs import step_1sqr270d, step_1sqr90d
+from helpers.step_funcs import step_1sqr270d, step_1sqr90d
 
 
 def get_2_sqr_jump(sqr, color):

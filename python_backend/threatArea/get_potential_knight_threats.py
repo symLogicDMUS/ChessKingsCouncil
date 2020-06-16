@@ -1,6 +1,6 @@
 from custom_except import *
 from math import sqrt
-from misc.formulas import dist
+from helpers.formulas import dist
 
 
 def get_potential_knight_threats(sqr, board):

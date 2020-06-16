@@ -1,5 +1,5 @@
 from custom_except import *
-from misc.all_xy import all_xy
+from helpers.all_xy import all_xy
 
 
 def restriction(coord_list):

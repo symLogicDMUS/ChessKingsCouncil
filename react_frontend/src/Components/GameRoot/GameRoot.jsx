@@ -20,17 +20,24 @@ export class GameRoot extends React.Component {
         this.specialMoves.update(this.props.dataEntry['moves'])
         this.jsonRecords.update(this.props.dataEntry['records'])
         this.board = this.props.dataEntry['board']
-        this.state = {board: this.props.dataEntry['board'] }
+        this.state = {board: this.props.dataEntry['board'] } //see footnote 1
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
-        this.pieceDefs = this.props.pieceDefs
         this.promo = false; //set true to alert need of promotion
+
+        /*footnote 1: 2 different attributes for board so can make 
+          intermediate updates before triggering new render and 
+          because board is logical choice for state.*/ 
+
+        
     }
 
     BoardComponent() {
+
         if (! this.promo) {
-            return <Board data={this} />
+            return <Board data={this} idDict={this.props.idDict} />
         }
+
         else {
             this.promo = false;
             return(

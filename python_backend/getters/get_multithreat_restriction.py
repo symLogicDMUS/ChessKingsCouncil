@@ -1,8 +1,7 @@
-from custom_except import *
 from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
 from getters.get_color import get_color
 from getters.get_piece_type import get_piece_type
-from getters.get_pathdata_dict import get_pathdata_dict
+from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from pprint import pprint
 
 

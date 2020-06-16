@@ -1,5 +1,5 @@
 from coordType.xy.map_rf_to_xy import map_rf_to_xy
-from misc.g_status_types import *
+from helpers.g_status_types import *
 from getters.get_piece_type import get_piece_type
 from getters.get_piece_types import get_piece_types
 from JsonRecords.JsonRecordError import JsonRecordError

@@ -1,5 +1,4 @@
-from custom_except import *
-from getters.get_board import get_board
+from fenParser.getBoard.top.get_board import get_board
 from fenParser.Fen import Fen
 from JsonRecords.JsonRecords import JsonRecords
 from getters.get_status import get_status

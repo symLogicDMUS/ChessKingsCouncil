@@ -1,9 +1,9 @@
 from custom_except import *
-from misc.formulas import dist
+from helpers.formulas import dist
 from math import sqrt
 from getters.get_piece_type import get_piece_type
 from getters.get_sqr_case import get_sqr_case
-from misc.sqr_cases import *
+from helpers.sqr_cases import *
 
 
 def get_king_threats(sqr, board, color):

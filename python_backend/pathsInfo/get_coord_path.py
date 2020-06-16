@@ -1,5 +1,5 @@
 from custom_except import *
-from misc.step_funcs import *
+from helpers.step_funcs import *
 from bools.oob import out_of_bounds
 
 def _get_coord_path(x, y, take_step):
