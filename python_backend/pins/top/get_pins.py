@@ -2,9 +2,9 @@ from pins.is_pin import is_pin
 from pins.get_pin import _get_pin_info
 from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from pprint import pprint
-from getters.get_unicode_board import get_unicode_board
+from printers.get_unicode_board import get_unicode_board
 from printers.print_sqr_highlights import print_sqr_highlights
-from getters.get_piece_type import get_piece_type
+from piece_type.get_piece_type import get_piece_type
 
 
 def get_pins(sqr, board, color, pd_dict, pins):

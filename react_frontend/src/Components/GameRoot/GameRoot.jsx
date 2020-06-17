@@ -85,7 +85,7 @@ export class GameRoot extends React.Component {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getColor()})
-        return fetch(`/${this.props.dataEntry.game_type}`, {
+        return fetch(`/${this.props.dataEntry.flask_method}`, {
             method: 'POST',
             body: body
         }).then(response => response.json())

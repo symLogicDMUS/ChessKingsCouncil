@@ -10,7 +10,7 @@ export class Customize extends React.Component {
         this.customNew['color'] = 'w'
         this.customNew['fen_data'] = this.props.standardNew['fen_data']
         this.customNew['board'] = this.props.standardNew['board']
-        this.customNew['']
+        //this.customNew['']
     }
 
     loadNewCustom() {

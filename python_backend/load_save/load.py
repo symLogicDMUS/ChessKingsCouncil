@@ -1,7 +1,7 @@
 from JsonRecords.JsonRecords import JsonRecords
 from fenParser.getBoard.top.get_board import get_board
 from fenParser.Fen import Fen
-from getters.get_status import get_status
+from status.get_status import get_status
 from filepath import get_dir_containing_name
 
 

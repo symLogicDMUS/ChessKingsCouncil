@@ -1,7 +1,6 @@
-from custom_except import *
-from getters.get_color import get_color
-from getters.get_piece_type import get_piece_type
-from getters.get_fen_id import get_fen_id
+from color.get_color import get_color
+from piece_type.get_piece_type import get_piece_type
+from fenParser.get_fen_id import get_fen_id
 
 
 def print_fen_board(board):

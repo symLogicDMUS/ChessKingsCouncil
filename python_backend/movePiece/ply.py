@@ -1,5 +1,4 @@
-from custom_except import *
-from bools.is_piece import is_piece
+from piece_type.is_piece import is_piece
 from printers.print_board import print_board
 from coordType import *
 

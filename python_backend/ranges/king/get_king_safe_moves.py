@@ -1,5 +1,4 @@
-from custom_except import *
-from bools.sqr_under_attack import sqr_under_attack
+from threatArea.top.sqr_under_attack import sqr_under_attack
 
 
 def get_king_safe_moves(board, move_list, color):

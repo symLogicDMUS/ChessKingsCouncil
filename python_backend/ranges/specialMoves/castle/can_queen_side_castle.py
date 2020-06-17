@@ -1,10 +1,9 @@
-from custom_except import *
 from ranges.specialMoves.castle.get_queen_side_castle_paths import get_queen_side_castle_paths
 from ranges.specialMoves.castle.king_start_pos import king_start_pos
 from printers.print_fen_board import print_fen_board
-from bools.sqr_under_attack import sqr_under_attack
+from threatArea.top.sqr_under_attack import sqr_under_attack
 from bools.clear_path import clear_path
-from bools.safe_path import safe_path
+from ranges.specialMoves.castle.safe_path import safe_path
 from JsonRecords.JsonRecords import JsonRecords
 
 

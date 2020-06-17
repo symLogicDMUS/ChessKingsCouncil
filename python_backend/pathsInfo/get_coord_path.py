@@ -1,6 +1,5 @@
-from custom_except import *
-from helpers.step_funcs import *
-from bools.oob import out_of_bounds
+from step_funcs.step_funcs import *
+from sqr_case.oob import out_of_bounds
 
 def _get_coord_path(x, y, take_step):
     """

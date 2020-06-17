@@ -1,6 +1,5 @@
-from custom_except import *
-from bools.oob import out_of_bounds
-from helpers.step_funcs import *
+from sqr_case.oob import out_of_bounds
+from step_funcs.step_funcs import *
 
 
 def _get_pieces_on_path(board, x, y, take_step):

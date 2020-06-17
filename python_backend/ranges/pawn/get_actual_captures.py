@@ -1,6 +1,5 @@
-from custom_except import *
-from getters.get_sqr_case import get_sqr_case
-from helpers.sqr_cases import *
+from sqr_case.get_sqr_case import get_sqr_case
+from sqr_case.sqr_cases import *
 
 
 def get_actual_captures(board, potential_pawn_captures, color):

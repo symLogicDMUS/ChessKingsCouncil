@@ -1,5 +1,4 @@
-from custom_except import *
-from helpers.g_status_types import *
+from status.g_status_types import *
 
 
 def fifty_move_draw(hm_clock, json_records, default=False):

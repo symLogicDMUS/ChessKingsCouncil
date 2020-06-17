@@ -1,5 +1,0 @@
-1. watch tutorials on React Router and learn how to click events to redirect to another page
-   https://www.youtube.com/watch?v=Law7wfdg_ls
-2. make seperate section for custom Chess
-3. make logic for custom Chess in Python
-4. Learn more Adobe Xd and use its feature to export React components

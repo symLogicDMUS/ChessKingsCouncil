@@ -1,7 +1,6 @@
-from custom_except import *
-from getters.get_sqr_case import get_sqr_case
-from getters.get_piece_type import get_piece_type
-from helpers.sqr_cases import *
+from sqr_case.get_sqr_case import get_sqr_case
+from piece_type.get_piece_type import get_piece_type
+from sqr_case.sqr_cases import *
 
 
 def get_actual_pawn_threats(board, potential_pawn_threats, color):

@@ -1,4 +1,4 @@
-from bools.sqr_under_attack import sqr_under_attack
+from threatArea.top.sqr_under_attack import sqr_under_attack
 from getters.get_temp_boards import get_temp_boards
 from fenParser.getBoard.top.get_board import get_board
 from threatArea.get_king_loc import get_king_loc

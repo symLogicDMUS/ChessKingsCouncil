@@ -1,5 +1,5 @@
-from getters.get_color import get_color
-from bools.is_piece import is_piece
+from color.get_color import get_color
+from piece_type.is_piece import is_piece
 from movePiece.is_legal import is_legal
 from movePiece.move import move
 

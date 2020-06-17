@@ -1,10 +1,9 @@
-from custom_except import *
-from helpers.step_funcs import step_1sqr90d, step_1sqr270d
-from getters.get_sqr_case import get_sqr_case
-from helpers.sqr_cases import *
+from step_funcs.step_funcs import step_1sqr90d, step_1sqr270d
+from sqr_case.get_sqr_case import get_sqr_case
+from sqr_case.sqr_cases import *
 from JsonRecords.JsonRecords import JsonRecords
-from getters.get_piece_type import get_piece_type
-from getters.get_color import get_color
+from piece_type.get_piece_type import get_piece_type
+from color.get_color import get_color
 from pprint import pprint
 import traceback
 

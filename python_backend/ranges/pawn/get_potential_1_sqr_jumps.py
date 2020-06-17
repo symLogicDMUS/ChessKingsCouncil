@@ -1,6 +1,5 @@
-from custom_except import *
-from helpers.step_funcs import step_1sqr90d
-from helpers.step_funcs import step_1sqr270d
+from step_funcs.step_funcs import step_1sqr90d
+from step_funcs.step_funcs import step_1sqr270d
 
 
 def get_potential_1_sqr_jumps(sqr, board, color):

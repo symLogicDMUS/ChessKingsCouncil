@@ -2,89 +2,113 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="s">
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/filter_standards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/get_standard_ids.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/ids_for_rent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/rent_ids.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/special_defs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/standard_ids.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/sub_ids.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/custom/build_range_dict/top/build_range_dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/fenParser/getBoard/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/fenParser/getFen/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/helpers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/helpers/turn_insideout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/load_save/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/movePiece/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/movePiece/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/pathsInfo/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/pins/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/ranges/top/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/python_backend/threatArea/top/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/get_standard_ids.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/ids_for_rent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/rent_ids.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/standard_ids.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/sub_ids.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/top/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/id_assign_/top/id_assign.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/piece_type/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/get_range.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/jumps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/jumps/filter_init_jumps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/jumps/get_init_jumps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/jumps/get_jumps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/paths/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/paths/get_paths.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/ranges/special_defs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/restriction/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/sqr_case/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/status/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/step_funcs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/step_funcs/get_step_funcs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python_backend/z_flask/payloads/pawn_promo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/JsonRecords/JsonRecords.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/JsonRecords/JsonRecords.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/clear_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/bools/clear_path.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/bools/game_over.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/bools/game_over.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/bools/is_empty_sqr.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/bools/is_empty_sqr.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/bools/oob.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/bools/oob.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/bools/sqr_under_attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/bools/sqr_under_attack.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/fenParser/getFen/get_pos_str.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/fenParser/getFen/top/get_fen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/is_empty_sqr.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/sqr_case/is_empty_sqr.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/is_piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/piece_type/is_piece.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/oob.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/sqr_case/oob.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/safe_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/safe_path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/bools/sqr_under_attack.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/top/sqr_under_attack.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/filter_standards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/get_standard_ids.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/ids_for_rent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/rent_ids.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/special_defs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/standard_defs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/standard_ids.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/sub_ids.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/top/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/captured/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/custom/build_range_dict/top/build_range_dict.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/defs.json" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/defs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/fenParser/getFen/get_piece_fens.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/fenParser/getFen/get_piece_fens.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/get_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/get_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/fenParser/getBoard/top/get_board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/load_save/load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_defender_ranges.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_multithreat_restriction.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_multithreat_restriction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_num_path_attackers.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_num_path_attackers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_num_pieces_checking_king.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_num_pieces_checking_king.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_pathdata_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/top/get_pathdata_dict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_pins.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pins/top/get_pins.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_ranges.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/top/get_ranges.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_sqr_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_sqr_case.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_threat_area.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/top/get_threat_area.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_unicode_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_unicode_board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_unicode_piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_unicode_piece.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/color/get_color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_fen_id.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/fenParser/get_fen_id.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_final_ranges.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/top/get_final_ranges.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_king_locs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_king_locs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_multithreat_restriction.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/restriction/get_multithreat_restriction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_next_color.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/color/get_next_color.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_num_path_attackers.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/top/get_num_path_attackers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_num_pieces_checking_king.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/restriction/get_num_pieces_checking_king.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_piece_dicts.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_reset_piece_dicts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_piece_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/piece_type/get_piece_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_piece_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/piece_type/get_piece_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_sqr_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/sqr_case/get_sqr_case.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/status/get_status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_temp_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/getters/get_temp_board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_unicode_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/get_unicode_board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/getters/get_unicode_piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/get_unicode_piece.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/board_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/board_pattern.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/checker_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/checker_board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/fifty_move_draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/fifty_move_draw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/g_status_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/status/g_status_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/remove_captured.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/captured/remove_captured.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/sqr_cases.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/sqr_case/sqr_cases.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/step_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/step_funcs/step_funcs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/turn_insideout.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/id_assign_/filter_standard_defs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/helpers/unicode_pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/unicode_pieces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/load_save/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/load_save/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/log1._txt" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/log1._txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/play.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/play.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/start.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/test_dummy_game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/main/terminal/test_moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/main/terminal/test_moves.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/README" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/custom/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/all_xy.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/all_xy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/board_pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/board_pattern.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/checker_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/checker_board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/create_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/create_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/fifty_move_draw.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/fifty_move_draw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/formulas.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/formulas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/g_status_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/g_status_types.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/make_move.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/movePiece/top/make_move.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/pick_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/pick_name.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/remove_captured.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/remove_captured.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/save.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/load_save/save.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/save_bd.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/save_bd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/sort _by_len.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/sort _by_len.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/sqr_cases.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/sqr_cases.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/step_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/step_funcs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/misc/unicode_pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/helpers/unicode_pieces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/movePiece/attempt_move.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/movePiece/attempt_move.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/movePiece/en_passant_move.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/movePiece/en_passant_move.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/movePiece/ply.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/movePiece/ply.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_coord_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_coord_path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_index_first_piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_index_first_piece.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_path.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_path_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_path_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_piece_colors.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_piece_colors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_pieces_on_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_pieces_on_path.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/pathData.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/pathData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/pins/is_pin.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pins/is_pin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/get_statuses.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/get_statuses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/pathsInfo/top/get_pathdata_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pathsInfo/top/get_pathdata_dict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/pins/get_index_second_piece.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pins/get_index_second_piece.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/pins/top/get_pins.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/pins/top/get_pins.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/printers/print_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/print_board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/printers/print_board_highlight_sd.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/print_board_highlight_sd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/printers/print_fen_board.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/printers/print_fen_board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/get_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/paths/get_path.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/get_range_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/get_range_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/get_ranges_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/get_ranges_dict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/king/get_king_actual_moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/king/get_king_actual_moves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/king/get_king_initial_moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/king/get_king_initial_moves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/king/get_king_moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/king/get_king_moves.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/knight/filter_knight_jumps.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/knight/filter_knight_jumps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/bishop.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/path_pieces/bishop.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/get_path.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/get_path.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/queen.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/path_pieces/queen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/rook.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/path_pieces/rook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/king/get_king_safe_moves.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/king/get_king_safe_moves.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/knight/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/color/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/knight/filter_knight_jumps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/knight/knight.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/id_assign_/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/bishop.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/queen.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/path_pieces/rook.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/get_2_sqr_jump.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/get_2_sqr_jump.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/get_actual_captures.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/get_actual_captures.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/get_potential_1_sqr_jumps.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/get_potential_1_sqr_jumps.py" afterDir="false" />
@@ -92,26 +116,29 @@
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/is_actual_1_sqr_jumps.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/is_actual_1_sqr_jumps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/pawn.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/pawn/valid_2_sqr_jump.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/pawn/valid_2_sqr_jump.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/ranges/restriction.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/restriction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/range_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/range_funcs_special.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/restriction.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/restriction/restriction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_king_side_castle.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_king_side_castle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_queen_side_castle.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/castle/can_queen_side_castle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/can_en_passant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.fen" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/saved_games/dummy_game/dummy_game.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/pawn_moved_once_2_sqrs.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/enPassant/pawn_moved_once_2_sqrs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/pawn_promotion/get_pawn_tuples.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/pawn_promotion/get_pawn_tuples.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/specialMoves/pawn_promotion/is_promo.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/specialMoves/pawn_promotion/is_promo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/top/get_ranges.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/top/get_ranges.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_actual_knight_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_actual_knight_threats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_actual_pawn_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_actual_pawn_threats.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_king_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_king_threats.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_path_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_path_threats.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_potential_knight_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_potential_knight_threats.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python_backend/threatArea/get_potential_pawn_threats.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/threatArea/get_potential_pawn_threats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_strs/castle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/payloads/castle.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_strs/en_passant_test2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/json_strs/pawn_promo.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/z_flask/parse_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/parse_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python_backend/z_flask/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/update.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Piece.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Piece.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/API.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/API.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/LoadGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/LoadGame.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/Customize/Customize.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/Customize/Customize.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/helpers/handleSquareClick.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/helpers/handleSquareClick.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/TODO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +168,9 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="editorconfig.notification" value="lf;" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
@@ -154,19 +183,19 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\custom\build_range_dict\top" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\custom\build_range_dict" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\custom\ranges\non_defs" />
-      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\custom" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp\pyToJs" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\temp" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\src" />
       <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\main\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\id_assign_\top" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\ranges" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\assign_ids" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\ids\top" />
+      <recent name="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\custom_ids" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -181,8 +210,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.build_range_dict (1)">
-    <configuration name="build_range_dict (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.id_assign (2)">
+    <configuration name="assign_ids (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -190,11 +219,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/custom/build_range_dict" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/assign_ids/top" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\custom\build_range_dict\top\build_range_dict.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\assign_ids\assign_ids.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -203,7 +232,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="build_range_dict (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="id_assign (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -211,11 +240,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/custom/build_range_dict/top" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/id_assign_" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/custom/build_range_dict/top/build_range_dict.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\id_assign_\top\id_assign.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,7 +253,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="filter_standards" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="id_assign (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,11 +261,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/custom/build_range_dict" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/id_assign_/top" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/custom/build_range_dict/filter_standards.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/id_assign_/top/id_assign.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -245,7 +274,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rent_ids" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="id_assign" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -253,11 +282,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/custom/build_range_dict" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/id_assign" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/custom/build_range_dict/rent_ids.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/id_assign/id_assign.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,7 +295,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sub_ids" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="rent" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessKingsCouncil" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -274,11 +303,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/custom/build_range_dict" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python_backend/id_assign" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/custom/build_range_dict/sub_ids.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python_backend/id_assign/rent.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -288,19 +317,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.sub_ids" />
-      <item itemvalue="Python.rent_ids" />
-      <item itemvalue="Python.build_range_dict (1)" />
-      <item itemvalue="Python.build_range_dict (2)" />
-      <item itemvalue="Python.filter_standards" />
+      <item itemvalue="Python.assign_ids (2)" />
+      <item itemvalue="Python.id_assign" />
+      <item itemvalue="Python.rent" />
+      <item itemvalue="Python.id_assign (1)" />
+      <item itemvalue="Python.id_assign (2)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.build_range_dict (1)" />
-        <item itemvalue="Python.build_range_dict (2)" />
-        <item itemvalue="Python.rent_ids" />
-        <item itemvalue="Python.filter_standards" />
-        <item itemvalue="Python.sub_ids" />
+        <item itemvalue="Python.id_assign (2)" />
+        <item itemvalue="Python.id_assign (1)" />
+        <item itemvalue="Python.id_assign" />
+        <item itemvalue="Python.rent" />
+        <item itemvalue="Python.assign_ids (2)" />
       </list>
     </recent_temporary>
   </component>
