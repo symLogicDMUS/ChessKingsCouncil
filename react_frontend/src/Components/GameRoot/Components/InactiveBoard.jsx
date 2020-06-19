@@ -33,7 +33,7 @@ export class InactiveBoard extends React.Component {
                 squares.push(
                     <div className={sqr_color}>
                     <Square sqr_color={sqr_color} >
-                        <InactivePiece id_={id_} />
+                        <InactivePiece id_={id_} idDict={this.props.idDict} />
                     </Square>
                     </div>
                 );

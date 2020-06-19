@@ -1,6 +1,6 @@
-[
-    "Queen",
-    "Rook",
-    "Bishop",
-    "Knight"
-]
+{
+    "r": "Rook",
+    "b": "Bishop",
+    "q": "Queen",
+    "n": "Knight"
+}

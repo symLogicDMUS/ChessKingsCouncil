@@ -1,5 +1,5 @@
 import { getSqrCase } from "../../helpers/getSqrCase";
-import { getPieceType } from "../../helpers/getPieceType";
+import { isPawn } from "../../helpers/isPawn";
 import {step1sqr0d, step1sqr180d} from "../../helpers/stepFuncs";
 import { OOB, EMPTY, FRIEND, ENEMY } from "../../helpers/sqrCases";
 
@@ -16,7 +16,7 @@ export function enPassantMove(data, start, dest, color) {
     }
     
     var rf = step1sqr0d(start)  //  0
-    if (getSqrCase(data.board, rf, color) === ENEMY && getPieceType(data.board[rf]) === 'Pawn') {
+    if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
         data.captured = data.board[rf]
         data.board[rf] = '#'
         delete data.jsonRecords.pawnHistories[data.captured]
@@ -24,7 +24,7 @@ export function enPassantMove(data, start, dest, color) {
     }
 
     var rf = step1sqr180d(start)  //  180
-    if (getSqrCase(data.board, rf, color) === ENEMY && getPieceType(data.board[rf]) === 'Pawn') {
+    if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
         data.captured = data.board[rf]
         data.board[rf] = '#'
         delete data.jsonRecords.pawnHistories[data.captured]

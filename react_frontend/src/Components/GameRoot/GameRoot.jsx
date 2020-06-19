@@ -23,26 +23,26 @@ export class GameRoot extends React.Component {
         this.state = {board: this.props.dataEntry['board'] } //see footnote 1
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
+        this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
+        this.rangeDefs = this.props.rangeDefs;
         this.promo = false; //set true to alert need of promotion
 
-        /*footnote 1: 2 different attributes for board so can make 
+        /*footnote 1: 2 different attributes for board because can make 
           intermediate updates before triggering new render and 
           because board is logical choice for state.*/ 
-
-        
     }
 
     BoardComponent() {
 
         if (! this.promo) {
-            return <Board data={this} idDict={this.props.idDict} />
+            return <Board data={this} />
         }
 
         else {
             this.promo = false;
             return(
                 <Promo data={this} pawnLoc={this.specialMoves.currentDest}>
-                    <InactiveBoard board={this.board} />
+                    <InactiveBoard board={this.board} idDict={this.idDict} />
                 </Promo>
             );      
         }
@@ -84,7 +84,9 @@ export class GameRoot extends React.Component {
     callBackend() {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
-                                   "color":this.getColor()})
+                                   "color":this.getColor(),
+                                   "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
+                                })
         return fetch(`/${this.props.dataEntry.flask_method}`, {
             method: 'POST',
             body: body
@@ -97,9 +99,9 @@ export class GameRoot extends React.Component {
 
     updateFrontend(start, dest) {
 
-        let pieceType = getPieceType(this.board[dest])
+        let fenId = this.board[dest][1].toLowerCase();
 
-        if (pieceType === 'Pawn') {
+        if (fenId === 'p') {
             this.jsonRecords.pawnHistories[this.board[dest]].push(dest)
             this.jsonRecords.numConsecutiveNonPawnMoves = 0
             this.jsonRecords.lastPawnMove = dest
@@ -109,11 +111,12 @@ export class GameRoot extends React.Component {
 
         else {
             this.jsonRecords.numConsecutiveNonPawnMoves++;
-            if (pieceType === 'King')
+            if (fenId  === 'k')
                 this.jsonRecords.kingsMoved[start] = true
-            if (pieceType === 'Rook')
+            if ( fenId === 'r')
                 this.jsonRecords.rooksMoved[start] = true
         }
+
         //TODO: update fenObject here
         return 
     }

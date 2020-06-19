@@ -5,21 +5,34 @@ export class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.loadNewCustom = this.loadNewCustom.bind(this);
-        this.customNew = {}
-        this.customNew['records'] = this.props.standardNew['records']
-        this.customNew['color'] = 'w'
-        this.customNew['fen_data'] = this.props.standardNew['fen_data']
-        this.customNew['board'] = this.props.standardNew['board']
-        //this.customNew['']
+        //names and subs are hardcoded until implement ui for choosing piece:
+        this.names = [
+        "Jester",
+        "Duke",
+        "Joker",
+        "Morty"
+        ]
+        this.subs = {"Morty": "Queen", "Joker": "Bishop"}
+
     }
 
-    loadNewCustom() {
-        this.props.loadNewCustom(this.dataDict)
+    async assignIds() {
+        let response = await fetch('/assign_ids', {
+            method:'POST',
+            body:JSON.stringify({"names":this.names, "subs":this.subs})
+        });
+        let idDict = await response.json();
+        return idDict;
+    }
+
+    loadNewCustom(dataDict) {
+        return Promise.all([this.assignIds()]);
     }
 
     render() {
+        this.loadNewCustom().then( ([idDict]) => this.props.loadIdDict(idDict))
         return(
-            <div>Choose the Pieces from list of defined pieces and if they are a pawn promotion or replace one of Queen, Knight or Bishop</div>
+            <div>Loading...</div>
         )
     }
 }

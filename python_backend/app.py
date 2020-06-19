@@ -11,7 +11,8 @@ from ranges.top.get_final_ranges import get_final_ranges
 from JsonRecords.JsonRecords import JsonRecords
 from coordType.xy.map_rf_to_xy import map_rf_to_xy
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
-from z_flask.parse_data import parse_data
+from parse_data import parse_data
+from id_assign_.top.id_assign import id_assign
 from pprint import pprint
 import json
 import os
@@ -51,7 +52,7 @@ def update():
     moves = special_moves.get_moves()
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
     pprint(data)
-    return jsonify({"ranges": final_ranges, "moves": moves, "flask_method": "update"})
+    return jsonify({"ranges": final_ranges, "moves": moves})
 
 
 @app.route('/update_council', methods=['GET'])
@@ -64,18 +65,30 @@ def update_council():
 def assign_ids():
     """called by NewGame component on the front end.
     create id:piece-name arangement unique to new game. substitute custom-piece(s) for of Rook, Bishop, Knight, or Queen,
-    by assigning its usual id to the custom-piece name and custom-piece range-def. Return
+    by assigning its usual id to the custom-piece name and custom-piece range-def. add custom pieces selected to be a
+    pawn promotion choice.
     """
+    data = request.get_data()
+    data = json.loads(data)
+    pprint(data)
+    piece_names, subs = data['names'], data['subs']
+    piece_names = id_assign(piece_names, subs)
+
+    return jsonify(piece_names)
 
 
 @app.route('/get_data_dict', methods=['GET'])
 def get_data_dict():
     """get all the saved game data at the start of the game"""
     print('GET request, getting data of all the games')
-    data_dict = {}
+    f = open("./defs.json", "r")
+    data = f.read()
+    defs = json.loads(data)
+    json.dumps(defs, indent=4, sort_keys=False)
     games = os.listdir('./example_games')
+    data_dict = {}
     for game_name in games:
-        data_dict[game_name] = parse_data(game_name)
+        data_dict[game_name] = parse_data(game_name, defs)
     return jsonify(data_dict)
 
 

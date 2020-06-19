@@ -7,7 +7,6 @@ from pprint import pprint
 def id_assign(custom_piece_names, subs):
     """
     """
-    pass
     id_dict = sub_ids(subs)
     id_dict = rent_ids(id_dict, custom_piece_names, ignore=subs.keys())  # ignore because taken care of previous step.
     id_dict.update(get_standard_ids(exclude=subs.values())) # exclude standard pieces subed for.

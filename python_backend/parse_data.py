@@ -1,3 +1,4 @@
+import json
 from printers.print_args import print_args
 from get_data import get_data
 from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
@@ -13,12 +14,12 @@ from ranges.top.get_final_ranges import get_final_ranges
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 
 
-def parse_data(game_name):
+def parse_data(game_name, defs):
     """replicate behavior without api call"""
-    fen_obj, board, json_records, game_type, def_names = get_data(game_name)
+    fen_obj, board, json_records, update_method, defs_ = get_data(game_name, defs)
     color = fen_obj.turn.upper()
     init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
+    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
     k_loc = get_king_locs(board, color)
     threat_area = get_threat_area(k_loc, board, color)
     pd_dict = get_pathdata_dict(k_loc, board, color)
@@ -33,11 +34,15 @@ def parse_data(game_name):
     fen_data = fen_obj.get_data()
     data = map_xy_to_rf(
         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
-         "moves": moves, "game_type": game_type})
-    data["def_names"] = def_names  # piece definition names
+         "moves": moves, "flask_method": update_method})
+    data["id_dict"] = defs_['id_dict']  # piece definition names
 
     return data
 
 
 if __name__ == "__main__":
-    print_args(get_data("castle_test5"))
+    f = open("./defs.json", "r")
+    data = f.read()
+    defs = json.loads(data)
+    json.dumps(defs, indent=4, sort_keys=False)
+    print_args(parse_data("castle_test5", defs), pp=True)

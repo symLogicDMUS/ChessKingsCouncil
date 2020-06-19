@@ -45,7 +45,7 @@ export class PromoChoice extends React.Component {
 
     render() {
         return (
-                <img src={require(`../pieceImages/${this.pieceImageName}`)} onClick={this.promote} />
+                <img src={require(`../../MyPieces/Images/${this.pieceImageName}`)} onClick={this.promote} />
         );
     }
 

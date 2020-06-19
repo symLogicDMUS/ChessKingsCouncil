@@ -16,11 +16,12 @@ def get_ranges(board, color, ranges, json_records, defs_):
     the ranges of special pieces Rook and Pawn (who's ranges cannot be fully defined by the defs format)
     are resolved first, then for the Knight, Queen, Bishop, Rook, and any assign_ids defined pieces.
 
-    defs[assign_ids] dict is a dict withs keys the non-special assign_ids, and values the names they're representing
-    defs_[ranges] is a subset of defs.json
+    defs[id_dict] dict is a dict withs keys the non-special assigned ids, and values the names they're representing
+    defs_[range_defs] is a subset of defs.json
     """
-    id_defs = defs_['ids']
-    range_defs = defs_['ranges']
+    print(defs_)
+    id_dict = defs_['id_dict']
+    range_defs = defs_['range_defs']
     special_moves = SpecialMoves()
     for sqr, id_ in board.items():
         if id_ == '#':
@@ -37,7 +38,7 @@ def get_ranges(board, color, ranges, json_records, defs_):
             piece_range, special_moves = range_func(sqr, board, color, json_records, special_moves)
             ranges[id_].extend(piece_range)
         else:
-            piece_range = get_range(id_defs, range_defs, board, sqr, color)
+            piece_range = get_range(id_dict, range_defs, board, sqr, color)
             ranges[id_].extend(piece_range)
 
     return ranges, special_moves
@@ -87,7 +88,7 @@ if __name__ == "__main__":
          'q': 'Jester',
          'y': 'Morty'}
 
-    range_defs = \
+    name_defs = \
         {'Duke': {'offsets': [[1, 1], [2, 1], [3, 1]],
                   'spans': ["step_1sqr90d",
                             "step_1sqr45d",
@@ -129,4 +130,4 @@ if __name__ == "__main__":
                              step_1sqr45d]}
          }
 
-    pprint(get_ranges(board, 'W', ranges, json_records, id_defs, range_defs))
+    pprint(get_ranges(board, 'W', ranges, json_records, {"id_defs": id_defs, "name_defs": name_defs}))

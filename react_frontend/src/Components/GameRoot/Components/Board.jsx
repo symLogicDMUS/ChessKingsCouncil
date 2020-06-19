@@ -27,14 +27,14 @@ export class Board extends React.Component {
                             {null}
                         </BoardSquare>
                     </div>
-                );                        
+                );    
             }
 
             else {
                 squares.push(
                     <div className={sqr_color}>
                     <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
-                        <Piece pos={rf} id_={id_}/>
+                        <Piece pos={rf} id_={id_} idDict={this.props.data.idDict} />
                     </BoardSquare>
                     </div>
                 );

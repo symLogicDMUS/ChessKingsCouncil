@@ -1,15 +1,15 @@
 import React from 'react';
 import "../GameRoot.css";
-import {getPieceImg} from "../../helpers/getPieceImg";
+import {getPieceImg} from "../../MyPieces/getPieceImg";
 
 /**for use during pawn promotion */
-export function InactivePiece({id_}) {
+export function InactivePiece({id_, idDict}) {
 
-  var img_ = getPieceImg(id_);
+  let img_ = getPieceImg(id_, idDict);
 
   return (
     <div>
-      <img src={ require(`../pieceImages/${img_}`)} className={"piece"} />
+      <img src={ require(`../../MyPieces/Images/${img_}`)} className={"piece"} />
     </div>
   );
 }

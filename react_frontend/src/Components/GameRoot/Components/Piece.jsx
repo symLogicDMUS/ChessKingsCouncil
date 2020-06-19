@@ -1,11 +1,11 @@
 import React from 'react';
 import { useDrag } from 'react-dnd'
 import "../GameRoot.css";
-import {getPieceImg} from "../../helpers/getPieceImg";
+import {getPieceImg} from "../../MyPieces/getPieceImg";
 
 export function Piece({pos, id_, idDict}) {
-  var img_ = getPieceImg(id_, idDict);
-  var iType = id_.slice(0, 2)
+  let img_ = getPieceImg(id_, idDict);
+  let iType = id_.slice(0, 2);
   const [{isDragging}, drag] = useDrag({
     item: { type: iType, pos: pos, id_:id_},
 		collect: monitor => ({
@@ -21,7 +21,9 @@ export function Piece({pos, id_, idDict}) {
       cursor: 'move'
     }}
   >
-      <img src={ require(`../pieceImages/${img_}`)} className={"piece"} />
+      <img src={ require(`../../MyPieces/Images/${img_}`)} className={"piece"} />
   </div>
   );
 }
+
+
