@@ -22,14 +22,7 @@ export function BoardSquare({sqr_color: sqr_color, pos, data, children}) {
     sqr_color = adjustSqrColor(sqr_color, canDrop)
 
     return (
-        <div
-          ref={drop}
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-          }}
-        >
+        <div ref={drop}>
           <Square class_={sqr_color}>{children}</Square>
         </div>
       );

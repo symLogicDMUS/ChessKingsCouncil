@@ -1,4 +1,4 @@
-import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
+import {rfToXy} from "../../helpers/crdCnvrt";
 
 
 export function getPxPos (rf) {

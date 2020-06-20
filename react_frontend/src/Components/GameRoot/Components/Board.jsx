@@ -5,6 +5,7 @@ import {BoardSquare} from "./BoardSquare";
 import {Piece} from "./Piece";
 import {rankfiles} from "../../helpers/rankfiles"
 import {sqrColors} from "../../helpers/sqrColors";
+import {getPosPx} from "../helpers/getPosPx";
 import "../GameRoot.css";
 
 export class Board extends React.Component {
@@ -20,9 +21,10 @@ export class Board extends React.Component {
         for (var rf of rankfiles) {
             sqr_color = sqrColors[rf];
             id_ = this.props.data.board[rf];
+
             if (id_ === '#') {
                 squares.push(
-                    <div className={sqr_color}>
+                    <div className={sqr_color} style={getPosPx(rf)}>
                         <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
                             {null}
                         </BoardSquare>
@@ -32,7 +34,7 @@ export class Board extends React.Component {
 
             else {
                 squares.push(
-                    <div className={sqr_color}>
+                    <div className={sqr_color} style={getPosPx(rf)}>
                     <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
                         <Piece pos={rf} id_={id_} idDict={this.props.data.idDict} />
                     </BoardSquare>

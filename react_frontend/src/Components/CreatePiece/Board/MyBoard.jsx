@@ -6,10 +6,10 @@ import {blankBoard} from "./blankBoard";
 import {MySquare} from "./MySquare";
 import {MyPiece} from "./MyPiece";
 import "../../helpers/stepFuncs";
-import "./Board.css";
+import "./MyBoard.css";
 
 
-export class Board extends React.Component {
+export class MyBoard extends React.Component {
 
     constructor(props) {
         super(props);       
@@ -66,7 +66,7 @@ export class Board extends React.Component {
 }
 
 export let test = () => ReactDOM.render(
-    <Board 
+    <MyBoard 
         spanDisplays={{ 
         'a1': false, 'a2': false, 'a3': false, 'a4': false, 'a5': false, 'a6': false, 'a7': false, 'a8': false,
         'b1': false, 'b2': false, 'b3': false, 'b4': false, 'b5': false, 'b6': false, 'b7': false, 'b8': false,

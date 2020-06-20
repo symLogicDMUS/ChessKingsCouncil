@@ -4,7 +4,7 @@ import {Name} from "./Name/Name";
 import {Range} from "./Range/Range";
 import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
-import {Board} from "./Board/Board";
+import {MyBoard} from "./Board/MyBoard";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import "./CreatePiece.css";
@@ -157,7 +157,7 @@ export class CreatePiece extends React.Component {
                 <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
                 <Icon iconPath={this.iconPath} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
-                <Board 
+                <MyBoard 
                 togleJump={this.togleJump} 
                 spanDisplays={this.spanDisplays} 
                 jumps={this.jumps}
