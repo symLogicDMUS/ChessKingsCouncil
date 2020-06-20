@@ -2,8 +2,7 @@
 6. update fullmove and halfmove clocks when move is made. Will be for 50 move rule.
 8. add visual alets for check, checkmate, stalemate
 9. add option to save game, quit, or resign, below the game board
-10. highlight squares that a piece can move to when it's being dragged. View React DnD tutorial
-11. add a back button, and menu bar to every page. 
+10. add a back button, and menu bar to every page. 
 ....................................................................................
 0. pretend that already fetched images from server and stored in folder. implement the "Choose" component of Icon tool
 1. pop up window displayed on top of everything else for croping image (like was with piece promotion)
@@ -12,14 +11,16 @@
 4. install react-cookie
 5. learn how to fetch images from server and store in folder.
 ....................................................................................
-1. CreatePiece sends the defs.json Json object to backend.
-2. A piece-name:image-path dict for all pieces nees to be stored on backend.
-....................................................................................
 CreatePiece:
-1. the name a user inputs for piece is checked to make sure it is unique.
-2. The piece-name the user inputs in CreatePiece is common-key of name:image-path and name:range_def dicts.
+1. The piece-name the user inputs in CreatePiece is common-key of name:image-path and name:range_def dicts.
+2. the name a user inputs for piece is checked to make sure it is unique, if not it "asks there is already a piece named ___. do
+   you want to replace it?"
+   2a. if they select yes then entries from the name:image-path and name:range_def dicts are deleted.
 3. Each game has it's own id:piece-name arangement. This is created when game is created in NewGame component.
-4. The id:piece-name dict needs to be stored along with the other game data in game-name folder
+4. The id:piece-name dict needs to be stored along with the other game data in game-name folder.
+5. Each game has it's own subset of the defs.json object unique to that game, so that when a piece is deleted in defs.json or its
+   name is changed, that piece's data isnt lost for game in progress.
+6.
 ...............................................................
 Eventually want to fetch images from backend, but for now pretend like this step is already completed and use a
 piece-name:frontend-image-path dict stored on the backend to resolve image loctions on frontend. this dict is 

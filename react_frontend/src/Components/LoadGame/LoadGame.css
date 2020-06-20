@@ -44,3 +44,11 @@
     margin: 5px;
     font-family: Georgia;    
   }
+
+  .load-game-body {
+    background-image: url("../../Images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+  
+  }

@@ -3,8 +3,7 @@ import {Board} from "./Components/Board";
 import {JsonRecords} from "./sharedData/JsonRecords";
 import {Fen} from "./sharedData/Fen";
 import {SpecialMoves} from "./Move/SpecialMoves";
-import {getPieceType} from "../helpers/getPieceType";
-import {isPiece} from "../helpers/isPiece";
+import {isPiece} from "./helpers/isPiece";
 import { Promo } from "./Components/Promo";
 import {InactiveBoard} from "./Components/InactiveBoard";
 
@@ -30,6 +29,10 @@ export class GameRoot extends React.Component {
         /*footnote 1: 2 different attributes for board because can make 
           intermediate updates before triggering new render and 
           because board is logical choice for state.*/ 
+    }
+
+    componentDidMount() {
+        document.body.className = "game-root-body";
     }
 
     BoardComponent() {

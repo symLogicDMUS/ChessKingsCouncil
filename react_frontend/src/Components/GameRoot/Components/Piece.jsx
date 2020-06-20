@@ -25,5 +25,3 @@ export function Piece({pos, id_, idDict}) {
   </div>
   );
 }
-
-

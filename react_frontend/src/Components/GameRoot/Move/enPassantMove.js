@@ -1,5 +1,5 @@
 import { getSqrCase } from "../../helpers/getSqrCase";
-import { isPawn } from "../../helpers/isPawn";
+import { isPawn } from "../helpers/isPawn";
 import {step1sqr0d, step1sqr180d} from "../../helpers/stepFuncs";
 import { OOB, EMPTY, FRIEND, ENEMY } from "../../helpers/sqrCases";
 

@@ -30,7 +30,7 @@ export class Customize extends React.Component {
     }
 
     render() {
-        this.loadNewCustom().then( ([idDict]) => this.props.loadIdDict(idDict))
+        this.loadNewCustom().then( ([idDict]) => this.props.loadNewCustom(idDict))
         return(
             <div>Loading...</div>
         )

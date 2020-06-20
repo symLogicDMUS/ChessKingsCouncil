@@ -26,17 +26,16 @@ def get_data(game_name, defs):
     flask_method = f.readline()
     f.close()
 
-    f = open("{}/example_games/{}/{}.defs".format(dir_, game_name, game_name), 'r')
+    f = open("{}/example_games/{}/{}.ids".format(dir_, game_name, game_name), 'r')
     data = f.read()
     id_dict = json.loads(data)
     json.dumps(id_dict)
 
-    # id_defs is id:piece-name, name_defs is piece-name:range_def from defs.json
-    defs_ = {"id_dict": id_dict, "range_defs": {}}
-    for id_ in id_dict.keys():
-        name = id_dict[id_]
-        defs_["range_defs"][name] = defs[name]
-        defs_["range_defs"][name]["spans"] = defs[name]["spans"]
-        defs_["range_defs"][name]["offsets"] = defs[name]["offsets"]
+    f = open("{}/example_games/{}/{}.defs".format(dir_, game_name, game_name), 'r')
+    data = f.read()
+    range_defs = json.loads(data)
+    json.dumps(range_defs)
+
+    defs_ = {"id_dict": id_dict, "range_defs": range_defs}
 
     return fen_obj, board, json_records, flask_method, defs_

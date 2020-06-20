@@ -1,10 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Components",
-    "\\Components\\LoadGame\\PageComponent",
-    "\\Components\\NewGame",
-    "\\Components\\NewGame\\PageComponents"
+    ""
   ],
   "SelectedNode": "\\App.js",
   "PreviewInSolutionExplorer": false

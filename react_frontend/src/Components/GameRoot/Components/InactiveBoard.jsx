@@ -22,7 +22,7 @@ export class InactiveBoard extends React.Component {
             if (id_ === '#') {
                 squares.push(
                     <div className={sqr_color}>
-                        <Square sqr_color={sqr_color} >
+                        <Square class_={sqr_color} >
                             {null}
                         </Square>
                     </div>
@@ -32,7 +32,7 @@ export class InactiveBoard extends React.Component {
             else {
                 squares.push(
                     <div className={sqr_color}>
-                    <Square sqr_color={sqr_color} >
+                    <Square class_={sqr_color} >
                         <InactivePiece id_={id_} idDict={this.props.idDict} />
                     </Square>
                     </div>

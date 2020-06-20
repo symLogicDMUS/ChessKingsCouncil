@@ -9,22 +9,39 @@
   .sqr1 {
     display: inline-block;
     z-index: 0;       
-    background-color: green;
+    background-color: #008000;
     width: 100px;
     height: 100px;
+  } .sqr1:hover { 
+    background: #00CCFF;
   }
+
   .sqr2 {
     display: inline-block;
     z-index: 0;
-    background-color: white;
+    background-color: #ffffff;
     width: 100px;
     height: 100px;
-  }
-  .sqr1:hover { 
+  } .sqr2:hover { 
     background: #00CCFF;
   }
-  .sqr2:hover { 
-    background: #00CCFF;
+
+  .sqr1-in-range {
+    display: inline-block;
+    z-index: 0;
+    background-color: rgb(221, 255, 0);
+    opacity: 60%;
+    width: 100px;
+    height: 100px;  
+  }
+
+  .sqr2-in-range {
+    display: inline-block;
+    z-index: 0;
+    background-color: rgb(253, 253, 53);
+    opacity: 60%;
+    width: 100px;
+    height: 100px;  
   }
 
   .center {
@@ -51,4 +68,11 @@
   
   h4 {
     margin-top: 0px;
+  }
+
+  .game-root-body {
+    background-image: url("../../Images/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
   }

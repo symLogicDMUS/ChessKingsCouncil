@@ -18,6 +18,10 @@ export class LoadGame extends React.Component {
     this.setGames();
   }
 
+  componentDidMount() {
+    document.body.className = "load-game-body";
+  }
+
   changeName(name) {
     if (name == "choose") {
       this.selected = false; //refrenced by child
