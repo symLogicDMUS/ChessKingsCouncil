@@ -19,6 +19,13 @@ export class App extends React.Component {
 
     constructor(props) {
         super(props);
+        this.defs = this.props.defs;
+        this.dataDict = this.props.dataDict;
+        this.state = {binaryValue: true}
+    }
+
+    updateDefs(defs) {
+        this.defs = defs;
     }
 
     render() {
@@ -26,9 +33,9 @@ export class App extends React.Component {
         <Router>
             <Switch>
                 <Route exact path="/" exact component={MainPage} />
-                <Route path="/NewGame" render={() => <NewGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
-                <Route path="/LoadGame" render={() => <LoadGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
-                <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.props.dataDict} defs={this.props.defs} /> } />
+                <Route path="/NewGame" render={() => <NewGame dataDict={this.dataDict} defs={this.defs} /> } />
+                <Route path="/LoadGame" render={() => <LoadGame dataDict={this.dataDict} defs={this.defs} /> } />
+                <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.dataDict} defs={this.defs} /> } />
                 <Route exact path="/ComingSoon" exact component={ComingSoon} />
                 <Route exact path="/CouncilRules" exact component={CouncilRules} />
             </Switch>

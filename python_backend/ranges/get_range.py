@@ -1,16 +1,17 @@
 from ranges.paths.get_paths import get_paths
 from ranges.jumps.get_jumps import get_jumps
 from printers.print_board import print_board
+from pprint import pprint
 
 
-def get_range(id_defs, range_defs, board, sqr, color):
+def get_range(id_dict, range_defs, board, sqr, color):
     """ """
     id_ = board[sqr]
     fen_id = id_[1].lower()
-    name = id_defs[fen_id]
+    name = id_dict[fen_id]
     def_ = range_defs[name]
-    offsets = def_['offsets']
-    step_funcs = def_['spans']
+    offsets = def_[color]['offsets']
+    step_funcs = def_[color]['spans']
     paths = get_paths(step_funcs, board, sqr, color)
     jumps = get_jumps(offsets, board, sqr, color)
     paths.extend(jumps)
@@ -52,47 +53,113 @@ if __name__ == "__main__":
          'WR4': []}
 
     id_defs = \
-        {'b': 'Duke',
-         'f': 'Joker',
+        {'b': 'Bishop',
          'k': 'King',
          'n': 'Knight',
          'p': 'Pawn',
-         'q': 'Jester',
-         'r': 'Rook',
-         'y': 'Morty'}
+         'q': 'Queen',
+         'r': 'Rook'}
 
     range_defs = \
-        {'Duke': {'offsets': [[1, 1], [2, 1], [3, 1]],
-                  'spans': ["step_1sqr90d",
-                            "step_1sqr45d",
-                            "step_1sqr0d",
-                            "step_1sqr315d",
-                            "step_1sqr270d",
-                            "step_1sqr225d",
-                            "step_1sqr180d",
-                            "step_1sqr135d"]},
-         'Jester': {'offsets': [],
-                    'spans': ["step_1sqr45d",
-                              "step_1sqr315d"]},
-         'Joker': {'offsets': [[1, 3], [1, -3]],
-                   'spans': ["step_1sqr315d",
-                             "step_1sqr270d",
-                             "step_1sqr225d"]},
-         'King': "king",
-         'Knight': {'offsets': [[1, 2],
-                                [-1, 2],
-                                [1, -2],
-                                [-1, -2],
-                                [2, 1],
-                                [-2, 1],
-                                [2, -1],
-                                [-2, -1]],
-                    'spans': []},
-         'Morty': {'offsets': [[2, 1], [2, -2]],
-                   'spans': ["step_1sqr90d",
-                             "step_1sqr0d",
-                             "step_1sqr45d"]},
-         'Pawn': "pawn"}
+        {
+            "Rook": {
+                "W": {
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ],
+                    "offsets": []
+                },
+                "B": {
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ],
+                    "offsets": []
+                }
+            },
+
+            "Bishop": {
+                "W": {
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ],
+                    "offsets": []
+                },
+                "B": {
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ],
+                    "offsets": []
+                }
+            },
+
+            "Queen": {
+                "W": {
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ],
+                    "offsets": []
+                },
+                "B": {
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "offsets": []
+            },
+
+            "Knight": {
+                "W": {
+                    "spans": [],
+                    "offsets": [
+                        [1, 2],
+                        [1, -2],
+                        [-1, 2],
+                        [-1, -2],
+                        [2, 1],
+                        [2, -1],
+                        [-2, 1],
+                        [-2, -1]]
+                },
+                "B": {
+                    "spans": [],
+                    "offsets": [
+                        [-1, -2],
+                        [-1, 2],
+                        [1, -2],
+                        [1, 2],
+                        [-2, -1],
+                        [-2, 1],
+                        [2, -1],
+                        [2, 1]]
+                }
+            }
+        }
 
     piece_range = get_range(id_defs, range_defs, board, (3, 3), 'W')
     print_board(board, heading="c3", highlights=piece_range)

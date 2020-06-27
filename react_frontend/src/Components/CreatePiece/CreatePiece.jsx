@@ -5,16 +5,26 @@ import {Range} from "./Range/Range";
 import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
 import {MyBoard} from "./Board/MyBoard";
+import {NameLabel} from "./NameLabel/NameLabel";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
+import {xyToRf, rfToXy} from "../helpers/crdCnvrt"
+import {pieceImgDict} from "../MyPieces/pieceImgDict";
+import {getRotations} from "./getRotations";
+import {flipOffsets} from "./flipOffsets";
+import {getStepFuncNames} from "./getStepFuncNames"
+import {Save} from "./Save/Save";
 import "./CreatePiece.css";
-import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
+
 
 export class CreatePiece extends React.Component {
 
     constructor(props) {
 
         super(props);
+
+        // definitions for piece ranges
+        this.defs = this.props.defs;
 
         //to put in json later:
         this.spans = {
@@ -54,8 +64,8 @@ export class CreatePiece extends React.Component {
         };
 
         //to put in json later:
-        this.name = ""
-        this.iconPath = ""
+        this.name = "";
+        this.pieceImg = {"white":null, "black":null}
         
         //to use for spans, update by Location:
         this.location = "d4"        
@@ -65,21 +75,83 @@ export class CreatePiece extends React.Component {
 
         // update to trigger render
         this.state = {
-            binaryValue: 0
+            binaryValue: 0,
         };
 
+        //flag to displaying progress in saving piece, if any
+        this.saveStatus = "none";
+
         //binds
+        this.updateName = this.updateName.bind(this);
+        this.setSaveStatus = this.setSaveStatus.bind(this);
         this.togleDisplaySpan = this.togleDisplaySpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setLoc = this.setLoc.bind(this);
+        this.setPieceImg = this.setPieceImg.bind(this);
+        this.save = this.save.bind(this);
+        this.update = this.update.bind(this);
     }
 
     componentDidMount() {
-        document.body.className="create-piece-body"
+        document.body.className="create-piece-body";
     }
 
     update() {
-        this.setState({binaryValue: ! this.state.binaryValue})
+        this.setState({binaryValue: ! this.state.binaryValue});
+    }
+
+    async toApi() {
+        return await fetch('/save_defs', {
+            method:"POST",
+            body: JSON.stringify(this.defs)  
+        })
+    }
+
+    save() {
+
+        /**TODO: add guards against bad user input for name */
+
+        pieceImgDict[this.name] = this.name;
+
+        this.defs[this.name] = { 
+            "W":{"spans":null, "offsets":null}, 
+            "B":{"spans":null, "offsets": null} 
+        }
+
+        this.spans = Object.keys(this.spans).filter(s => this.spans[s])
+
+        this.defs[this.name]['W']['spans'] = this.spans;
+        this.defs[this.name]['W']["offsets"] = this.offsets;
+        this.defs[this.name]['B']['spans'] = getRotations(this.spans, 180);
+        this.defs[this.name]['B']["offsets"] = flipOffsets(this.offsets);
+
+        this.defs[this.name]['W']['spans'] = getStepFuncNames(this.defs[this.name]['W']['spans']);
+        this.defs[this.name]['B']['spans'] = getStepFuncNames(this.defs[this.name]['B']['spans']);
+
+        const saveApi = () => {
+            return Promise.all([this.toApi()])
+        }
+
+        saveApi().then(([response]) => {
+            // this.props.updateDefs(this.defs)
+            this.setSaveStatus("success");
+        })
+    }
+
+    setSaveStatus(value) {
+        this.saveStatus = value;
+        this.update();
+    }
+
+    updateName(input) {
+        this.name = input;
+        this.update();
+    }
+
+
+    setPieceImg(imgDict, color) {
+        this.pieceImg[color] = imgDict[color];
+        this.update();
     }
 
     togleDisplaySpan(angle) {
@@ -90,7 +162,7 @@ export class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.update()
+        this.update();
     }
 
     resetSpanDisplays() {
@@ -153,20 +225,52 @@ export class CreatePiece extends React.Component {
         
         return(
             <body>
-                <Name name={this.name} />
+                <Name name={this.name} updateName={this.updateName} />
+                <NameLabel name={this.name} />
                 <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
-                <Icon iconPath={this.iconPath} />
+                <Icon iconPath={this.pieceImg} setPieceImg={this.setPieceImg} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
+                <Save 
+                 save={this.save} 
+                 status={this.saveStatus} 
+                 saveStatus={this.setSaveStatus} 
+                 name={this.name}
+                 existing={Object.keys(this.defs)} />
                 <MyBoard 
-                togleJump={this.togleJump} 
-                spanDisplays={this.spanDisplays} 
-                jumps={this.jumps}
-                pieceLoc={this.location} 
-                pieceId={"WJ"}
+                 togleJump={this.togleJump} 
+                 spanDisplays={this.spanDisplays} 
+                 jumps={this.jumps}
+                 pieceLoc={this.location} 
+                 pieceImg={this.pieceImg["white"]} //white used to develop range and black mirrors it
                 />
             </body>
         )
     }
 }
 
-export let test = () => ReactDOM.render(<CreatePiece />, document.getElementById('root'));
+/*test*/
+let defs = {
+    "Rook":{  "W":{
+                "spans":["step_1sqr0d", "step_1sqr90d", "step_1sqr180d", "step_1sqr270d"],
+                "offsets":[]},
+              "B":{
+                "spans":["step_1sqr180d", "step_1sqr270d", "step_1sqr0d", "step_1sqr90d"],
+                "offsets":[]}
+         },
+    "Bishop:":{ "W":{"spans":["step_1sqr45d", "step_1sqr135d", "step_1sqr225d", "step_1sqr315d"],
+                     "offsets":[]},
+                "B":{"spans":["step_1sqr225d", "step_1sqr315d", "step_1sqr45d", "step_1sqr135d"],
+                     "offsets":[]}
+            },
+    "Queen":{ "W":{"spans":["step_1sqr0d", "step_1sqr45d", "step_1sqr90d", "step_1sqr135d", "step_1sqr180d", "step_1sqr225d",
+                         "step_1sqr270d", "step_1sqr315d"],
+                "offsets":[]},
+              "B":{"spans":["step_1sqr180d", "step_1sqr225d", "step_1sqr270d", "step_1sqr315d", "step_1sqr0d", "step_1sqr90d",
+                          "step_1sqr45d", "step_1sqr135d"]},
+                   "offsets":[]},
+    "Knight": {"W": {"spans": [], "offsets": [[1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]]},
+               "B": {"spans": [], "offsets": [[-1, -2], [-1, 2], [1, -2], [1, 2], [-2, -1], [-2, 1], [2, -1], [2, 1]]}
+           }
+  }
+
+export let test = () => ReactDOM.render(<CreatePiece defs={defs} />, document.getElementById('root'));

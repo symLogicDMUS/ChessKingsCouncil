@@ -10,11 +10,11 @@ export class Range extends React.Component {
         super(props)
         this.state = {userInput: ""}
         this.vectors = {
-            "135d":  <img src={require("./ArrowButton/upLeft.svg")}   className="vector" />,   
+            "135d": <img src={require("./ArrowButton/upLeft.svg")}   className="vector" />,   
             "90d":  <img src={require("./ArrowButton/up.svg")}        className="vector" />,
-            "45d":   <img src={require("./ArrowButton/upRight.svg")}  className="vector" />,
+            "45d":  <img src={require("./ArrowButton/upRight.svg")}  className="vector" />,
             "180d": <img src={require("./ArrowButton/left.svg")}      className="vector" />,
-            "0d": <img src={require("./ArrowButton/right.svg")}       className="vector" />,
+            "0d":   <img src={require("./ArrowButton/right.svg")}       className="vector" />,
             "225d": <img src={require("./ArrowButton/downLeft.svg")}  className="vector" />,
             "270d": <img src={require("./ArrowButton/down.svg")}      className="vector" />,
             "315d": <img src={require("./ArrowButton/downRight.svg")} className="vector"  />
@@ -29,7 +29,7 @@ export class Range extends React.Component {
             "270d":{position: "absolute",    top: "70px", left:"35px"},
             "315d":{position: "absolute",    top: "70px", left:"70px"}
         }
-        this.arrowButtons = []
+        this.arrowButtons = [];
         Object.entries(this.vectors).forEach( ([angle, svg]) => {
             this.arrowButtons.push(<ArrowButton 
                 id_={angle} 

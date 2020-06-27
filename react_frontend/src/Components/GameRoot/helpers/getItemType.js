@@ -1,6 +1,6 @@
 
 export function getItemType(id_) {
-    var type = id_.slice(0, 2) 
+    var itype = id_.slice(0, 2) 
     switch(type) {
         case "R":
             iType = "rook";

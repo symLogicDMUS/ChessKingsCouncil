@@ -3,21 +3,25 @@ import {PromoChoice} from "./PromoChoice";
 import "./Promo.css";
 
 export class Promo extends React.Component {
+
     constructor(props) {
+
         super(props)
-        this.pieceDefs = this.props.data.pieceDefs //info on promo choices
         this.promoChoices = [] //array of objects
-        this.boardComponent = this.props.children // Board is child
+        this.boardComponent = this.props.children // InactiveBoard is child
+
         //appending piece data objects
-        for (var [pieceName, pieceData] of Object.entries(this.pieceDefs)) {
-            //choice name, data seperate props because need specify
+        let ids = Object.keys(this.props.data.idDict).filter(id_ => this.props.data.idDict[id_] != "Pawn")
+        if (! this.props.data.isCouncil)
+            ids = ids.filter(id_ => this.props.data.idDict[id_] != "King")
+
+        ids.forEach( id_ => {
             this.promoChoices.push(<PromoChoice  
-                                      data={this.props.data} 
-                                      choiceName={pieceName}
-                                      choiceData={pieceData}
-                                      pawnLoc={this.props.pawnLoc}
-                                      />)
-        }
+                promoId={id_}
+                data={this.props.data}
+                pawnLoc={this.props.pawnLoc}
+                />)
+        })
     }
 
     render() {

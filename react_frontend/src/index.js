@@ -7,5 +7,6 @@ getData().then( ([dataDict, defs]) => {
     ReactDOM.render(<App dataDict={dataDict} defs={defs} />, document.getElementById('root'))
 });
 
-//import {test} from "./Components/CreatePiece/CreatePiece";
-//test();
+/*tests*/
+// import {test} from "./Components/CreatePiece/CreatePiece";
+// test()

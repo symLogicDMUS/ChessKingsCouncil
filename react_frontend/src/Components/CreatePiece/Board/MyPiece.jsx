@@ -9,8 +9,6 @@ export class MyPiece extends React.Component {
     }
 
     render() {
-        return <img src={require(`../../MyPieces/Images/${this.props.id_}.svg`)} className="my-piece" />
-    }
-       
+        return <div className="my-piece">{this.props.pieceImg}</div>
+    }      
 }
-

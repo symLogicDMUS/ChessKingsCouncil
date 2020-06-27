@@ -40,28 +40,12 @@ export class LoadGame extends React.Component {
     }    
   }
 
-  /**
-   * use names of pieces to get objects
-   * @param {*} dataEntry: Json from backend
-   */
-  getPieceDefs(dataEntry) {
-    let pieceNames = dataEntry['def_names']
-    let pieceDefs = [];
-    for (var name of pieceNames) {
-      pieceDefs.push(this.props.defs[name])
-    }
-    return pieceDefs;
-  }
-
   setReady() {
     this.setState({ready: true})
   }
 
   load() {
-    //dataEntry is json from backend
     this.dataEntry = this.props.dataDict[this.state.gameName];
-    //piece defs are ojects defining id and range
-    this.pieceDefs = this.getPieceDefs(this.dataEntry)
     this.setState({loaded: true})
   }
 
@@ -78,10 +62,13 @@ export class LoadGame extends React.Component {
       this.load()
       return <div>Loading...</div>
     }
-
+    //need "isCouncil" flag.
     else {
-      return <GameRoot dataEntry={this.dataEntry} pieceDefs={this.pieceDefs}  />
+      return <GameRoot dataEntry={this.dataEntry} rangeDefs={this.dataEntry['range_defs']}  />
     }
+
+    //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
+    //because rangeDefs is not the same for every new game data, it is defined by the user.   
 
   }
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import "../GameRoot.css";
+import "../css/piece.css";
 import {getPieceImg} from "../../MyPieces/getPieceImg";
 
 /**for use during pawn promotion */

@@ -6,7 +6,6 @@
 ....................................................................................
 0. pretend that already fetched images from server and stored in folder. implement the "Choose" component of Icon tool
 1. pop up window displayed on top of everything else for croping image (like was with piece promotion)
-2. install npm react-scroll and react vertical scroll
 3. do a React crop image tutorial
 4. install react-cookie
 5. learn how to fetch images from server and store in folder.

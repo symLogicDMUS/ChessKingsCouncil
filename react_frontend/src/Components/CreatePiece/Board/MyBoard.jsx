@@ -14,12 +14,7 @@ export class MyBoard extends React.Component {
     constructor(props) {
         super(props);       
         this.board = blankBoard;
-        //this.togleJump = this.togleJump.bind(this);
     }
-
-    // togleJump(rf) {
-    //     this.props.togleJump(rf)
-    // }
 
     getBoard() {
         let squares = []
@@ -27,14 +22,14 @@ export class MyBoard extends React.Component {
             if (rf === this.props.pieceLoc) {
                 squares.push(
                 <MySquare 
-                rf={rf} 
+                rf={rf}
                 isSpan={this.props.spanDisplays[rf]} 
                 togleJump={this.props.togleJump}
                 isJump={this.props.jumps[rf]}
                 pieceLoc={this.props.pieceLoc}
                 class_={sqrColorClass[rf]}
                 >
-                    <MyPiece id_={this.props.pieceId} />
+                    <MyPiece pieceImg={this.props.pieceImg} />
                 </MySquare>
                 ); 
             }

@@ -7,8 +7,8 @@ from printers.print_board import print_board
 def get_paths(func_names, board, sqr, color):
     """ """
     paths = []
-    while len(func_names) > 0:
-        step_func = step_func_dict[func_names.pop(0)]
+    for func_name in func_names:
+        step_func = step_func_dict[func_name]
         paths.extend(get_path(sqr, board, color, step_func))
     return paths
 

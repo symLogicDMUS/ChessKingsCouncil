@@ -1,5 +1,6 @@
 .location-tool {
     position: absolute;
+    z-index: 0;
     width: 400px;
     height: 84px;
     top: 476px;
@@ -11,12 +12,14 @@
 
 .location-tool .location-title {
     position: absolute;
+    z-index: 0;
     left: 10px;
     top: 10px;
 }
 
 .location-tool .location-button-normal {
     position: absolute;
+    z-index: 0;
     width: 30px;
     height: 30px;
     top: 38px;
@@ -32,6 +35,7 @@
 
 .location-tool .location-button-selected {
         position: absolute;
+        z-index: 0;
         width: 30px;
         height: 30px;
         top: 38px;
@@ -43,12 +47,22 @@
 
 .location-button-normal .location-button-label {
     position: absolute;
+    z-index: 0;
     top: 8px;
     left: 6px;
 }
 
 .location-button-selected .location-button-label {
     position: absolute;
+    z-index: 0;
     top: 8px;
     left: 6px;
 }
+
+/* .location-tool .display-on {
+    display: initial;
+}
+
+.location-tool .display-off {
+    display: none;
+} */

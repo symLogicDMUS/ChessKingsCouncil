@@ -18,67 +18,303 @@ def add_data(folder, data, extention):
 
 
 if __name__ == "__main__":
-    add_file_type("example_games", "ids")
-    add_file_type("saved_games", "ids")
+    # add_file_type("example_games", "ids")
+    # add_file_type("saved_games", "ids")
 
-    add_data("example_games", {"Knight": {"offsets": [[1, 2],
-                                                      [-1, 2],
-                                                      [1, -2],
-                                                      [-1, -2],
-                                                      [2, 1],
-                                                      [-2, 1],
-                                                      [2, -1],
-                                                      [-2, -1]],
-                                          "spans": []},
-                               "Rook": {"offsets": [],
-                                        "spans": ["step_1sqr0d",
-                                                  "step_1sqr90d",
-                                                  "step_1sqr180d",
-                                                  "step_1sqr270d"]},
-                               "Bishop": {"offsets": [],
-                                          "spans": ["step_1sqr45d",
-                                                    "step_1sqr135d",
-                                                    "step_1sqr225d",
-                                                    "step_1sqr315d"]},
-                               "Queen": {"offsets": [],
-                                         "spans": ["step_1sqr0d",
-                                                   "step_1sqr90d",
-                                                   "step_1sqr180d",
-                                                   "step_1sqr270d",
-                                                   "step_1sqr45d",
-                                                   "step_1sqr135d",
-                                                   "step_1sqr225d",
-                                                   "step_1sqr315d"]}
-                               }, "defs")
-    add_data("saved_games", {"Knight": {"offsets": [[1, 2],
-                                                    [-1, 2],
-                                                    [1, -2],
-                                                    [-1, -2],
-                                                    [2, 1],
-                                                    [-2, 1],
-                                                    [2, -1],
-                                                    [-2, -1]],
-                                        "spans": []},
-                             "Rook": {"offsets": [],
-                                      "spans": ["step_1sqr0d",
-                                                "step_1sqr90d",
-                                                "step_1sqr180d",
-                                                "step_1sqr270d"]},
-                             "Bishop": {"offsets": [],
-                                        "spans": ["step_1sqr45d",
-                                                  "step_1sqr135d",
-                                                  "step_1sqr225d",
-                                                  "step_1sqr315d"]},
-                             "Queen": {"offsets": [],
-                                       "spans": ["step_1sqr0d",
-                                                 "step_1sqr90d",
-                                                 "step_1sqr180d",
-                                                 "step_1sqr270d",
-                                                 "step_1sqr45d",
-                                                 "step_1sqr135d",
-                                                 "step_1sqr225d",
-                                                 "step_1sqr315d"]}
-                             }, "defs")
+    add_data("example_games", {
+        "Rook": {
+            "W": {
+                "spans": [
+                    "step_1sqr0d",
+                    "step_1sqr90d",
+                    "step_1sqr180d",
+                    "step_1sqr270d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr180d",
+                    "step_1sqr270d",
+                    "step_1sqr0d",
+                    "step_1sqr90d"
+                ],
+                "offsets": []
+            }
+        },
+        "Bishop": {
+            "W": {
+                "spans": [
+                    "step_1sqr45d",
+                    "step_1sqr135d",
+                    "step_1sqr225d",
+                    "step_1sqr315d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr225d",
+                    "step_1sqr315d",
+                    "step_1sqr45d",
+                    "step_1sqr135d"
+                ],
+                "offsets": []
+            }
+        },
+        "Queen": {
+            "W": {
+                "spans": [
+                    "step_1sqr0d",
+                    "step_1sqr45d",
+                    "step_1sqr90d",
+                    "step_1sqr135d",
+                    "step_1sqr180d",
+                    "step_1sqr225d",
+                    "step_1sqr270d",
+                    "step_1sqr315d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr180d",
+                    "step_1sqr225d",
+                    "step_1sqr270d",
+                    "step_1sqr315d",
+                    "step_1sqr0d",
+                    "step_1sqr90d",
+                    "step_1sqr45d",
+                    "step_1sqr135d"
+                ],
+                "offsets": []
+            },
 
-    add_data("example_games", {"k": "King", "q": "Queen", "r": "Rook", "b": "Bishop", "n": "Knight", "p": "Pawn"}, "ids")
-    add_data("saved_games", {"k": "King", "q": "Queen", "r": "Rook", "b": "Bishop", "n": "Knight", "p": "Pawn"}, "ids")
+        },
+        "Knight": {
+            "W": {
+                "spans": [],
+                "offsets": [
+                    [
+                        1,
+                        2
+                    ],
+                    [
+                        1,
+                        -2
+                    ],
+                    [
+                        -1,
+                        2
+                    ],
+                    [
+                        -1,
+                        -2
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        2,
+                        -1
+                    ],
+                    [
+                        -2,
+                        1
+                    ],
+                    [
+                        -2,
+                        -1
+                    ]
+                ]
+            },
+            "B": {
+                "spans": [],
+                "offsets": [
+                    [
+                        -1,
+                        -2
+                    ],
+                    [
+                        -1,
+                        2
+                    ],
+                    [
+                        1,
+                        -2
+                    ],
+                    [
+                        1,
+                        2
+                    ],
+                    [
+                        -2,
+                        -1
+                    ],
+                    [
+                        -2,
+                        1
+                    ],
+                    [
+                        2,
+                        -1
+                    ],
+                    [
+                        2,
+                        1
+                    ]
+                ]
+            }
+        }
+    }, "defs")
+    add_data("saved_games", {
+        "Rook": {
+            "W": {
+                "spans": [
+                    "step_1sqr0d",
+                    "step_1sqr90d",
+                    "step_1sqr180d",
+                    "step_1sqr270d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr180d",
+                    "step_1sqr270d",
+                    "step_1sqr0d",
+                    "step_1sqr90d"
+                ],
+                "offsets": []
+            }
+        },
+        "Bishop": {
+            "W": {
+                "spans": [
+                    "step_1sqr45d",
+                    "step_1sqr135d",
+                    "step_1sqr225d",
+                    "step_1sqr315d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr225d",
+                    "step_1sqr315d",
+                    "step_1sqr45d",
+                    "step_1sqr135d"
+                ],
+                "offsets": []
+            }
+        },
+        "Queen": {
+            "W": {
+                "spans": [
+                    "step_1sqr0d",
+                    "step_1sqr45d",
+                    "step_1sqr90d",
+                    "step_1sqr135d",
+                    "step_1sqr180d",
+                    "step_1sqr225d",
+                    "step_1sqr270d",
+                    "step_1sqr315d"
+                ],
+                "offsets": []
+            },
+            "B": {
+                "spans": [
+                    "step_1sqr180d",
+                    "step_1sqr225d",
+                    "step_1sqr270d",
+                    "step_1sqr315d",
+                    "step_1sqr0d",
+                    "step_1sqr90d",
+                    "step_1sqr45d",
+                    "step_1sqr135d"
+                ],
+                "offsets": []
+            },
+
+        },
+        "Knight": {
+            "W": {
+                "spans": [],
+                "offsets": [
+                    [
+                        1,
+                        2
+                    ],
+                    [
+                        1,
+                        -2
+                    ],
+                    [
+                        -1,
+                        2
+                    ],
+                    [
+                        -1,
+                        -2
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        2,
+                        -1
+                    ],
+                    [
+                        -2,
+                        1
+                    ],
+                    [
+                        -2,
+                        -1
+                    ]
+                ]
+            },
+            "B": {
+                "spans": [],
+                "offsets": [
+                    [
+                        -1,
+                        -2
+                    ],
+                    [
+                        -1,
+                        2
+                    ],
+                    [
+                        1,
+                        -2
+                    ],
+                    [
+                        1,
+                        2
+                    ],
+                    [
+                        -2,
+                        -1
+                    ],
+                    [
+                        -2,
+                        1
+                    ],
+                    [
+                        2,
+                        -1
+                    ],
+                    [
+                        2,
+                        1
+                    ]
+                ]
+            }
+        }
+    }, "defs")
+
+    # add_data("example_games", {"k": "King", "q": "Queen", "r": "Rook", "b": "Bishop", "n": "Knight", "p": "Pawn"},"ids")
+    # add_data("saved_games", {"k": "King", "q": "Queen", "r": "Rook", "b": "Bishop", "n": "Knight", "p": "Pawn"},"ids")

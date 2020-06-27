@@ -1,25 +1,41 @@
 import React from "react";
-import Backend from 'react-dnd-html5-backend'
-import { DndProvider } from 'react-dnd'
+import Backend from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 import {BoardSquare} from "./BoardSquare";
+import {Square} from "./Square";
 import {Piece} from "./Piece";
 import {rankfiles} from "../../helpers/rankfiles"
-import {sqrColors} from "../../helpers/sqrColors";
+import {sqrClasses} from "../helpers/sqrClasses";
+import {sqrColors} from "../helpers/sqrColors";
 import {getPosPx} from "../helpers/getPosPx";
-import "../GameRoot.css";
+import "../css/interactiveSqr.css";
+import "../css/displaySqr.css";
+import "../css/piece.css";
+import "../css/grids.css";
 
 export class Board extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.displaySqrs = [];
+        for (var rf of rankfiles) {
+            this.displaySqrs.push(
+                <div className={sqrColors[rf]} style={getPosPx(rf)}>
+
+                </div>
+            );
+        }
     }
 
-    update() {
+    getInteractiveBoard() {
+
         let squares = [];
         var sqr_color="_";
         var id_ = "_";
+
         for (var rf of rankfiles) {
-            sqr_color = sqrColors[rf];
+
+            sqr_color = sqrClasses[rf];
             id_ = this.props.data.board[rf];
 
             if (id_ === '#') {
@@ -46,17 +62,26 @@ export class Board extends React.Component {
         return squares;
     }
 
+    getDisplayBoard() {
+        return this.displaySqrs;
+    }
+
     componentDidUpdate() {
         console.log("updated")
     }
 
     render() {
         return (
-            <DndProvider backend={Backend}>
-                <div className="grid">
-                    {this.update()}
+            <>
+                <DndProvider backend={Backend}>
+                    <div className="interactive-grid">
+                        {this.getInteractiveBoard()}
+                    </div>
+                </DndProvider>
+                <div className="display-grid">
+                    {this.getDisplayBoard()}
                 </div>
-            </DndProvider>
+            </>
         );
     }
 }

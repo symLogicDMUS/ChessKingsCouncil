@@ -37,3 +37,35 @@ if __name__ == "__main__":
     i_ranges, pins, mt_res, f_ranges = get_reset_piece_dicts(board, 'W')
     print("init_ranges:{}\n\n pins:{}\n\n mt-res:{}\n\n final_ranges:{}\n".format(i_ranges, pins, mt_res, f_ranges))
     print('\n')
+
+    board = \
+        {(1, 1): '#', (2, 1): '#', (3, 1): '#', (4, 1): 'BR1', (5, 1): '#', (6, 1): 'WB1', (7, 1): '#', (8, 1): 'WR1',
+         (1, 2): '#', (2, 2): 'BN1', (3, 2): 'BB1', (4, 2): '#', (5, 2): '#', (6, 2): '#', (7, 2): '#', (8, 2): '#',
+         (1, 3): '#', (2, 3): '#', (3, 3): '#', (4, 3): '#', (5, 3): '#', (6, 3): '#', (7, 3): '#', (8, 3): 'BQ1',
+         (1, 4): '#', (2, 4): '#', (3, 4): 'BK1', (4, 4): '#', (5, 4): 'WP1', (6, 4): '#', (7, 4): '#', (8, 4): '#',
+         (1, 5): '#', (2, 5): '#', (3, 5): '#', (4, 5): 'BP1', (5, 5): 'WK1', (6, 5): '#', (7, 5): '#', (8, 5): '#',
+         (1, 6): '#', (2, 6): '#', (3, 6): '#', (4, 6): '#', (5, 6): '#', (6, 6): '#', (7, 6): 'WN1', (8, 6): '#',
+         (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#',
+         (1, 8): '#', (2, 8): 'BN2', (3, 8): '#', (4, 8): '#', (5, 8): '#', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
+
+    print('test 2:')
+    i_ranges, pins, mt_res, f_ranges = get_reset_piece_dicts(board, 'W')
+    print("init_ranges:{}\n\n pins:{}\n\n mt-res:{}\n\n final_ranges:{}\n".format(i_ranges, pins, mt_res, f_ranges))
+    print('\n')
+    i_ranges, pins, mt_res, f_ranges = get_reset_piece_dicts(board, 'B')
+    print("init_ranges:{}\n\n pins:{}\n\n mt-res:{}\n\n final_ranges:{}\n".format(i_ranges, pins, mt_res, f_ranges))
+    print('\n')
+
+var = {'WB1': [],
+       'WR1': [],
+       'WP1': [],
+       'WK1': [],
+       'WN1': [],
+       'BR1': [],
+       'BN1': [],
+       'BB1': [],
+       'BQ1': [],
+       'BK1': [],
+       'BP1': [],
+       'BN2': [],
+       'BR2': []}

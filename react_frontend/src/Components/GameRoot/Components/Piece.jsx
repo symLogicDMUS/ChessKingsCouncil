@@ -1,7 +1,7 @@
 import React from 'react';
 import { DragPreviewImage, useDrag } from 'react-dnd'
 import {getPieceImg} from "../../MyPieces/getPieceImg";
-import "../GameRoot.css";
+import "../css/piece.css";
 
 export function Piece({pos, id_, idDict}) {
   let img_ = getPieceImg(id_, idDict);
@@ -14,8 +14,10 @@ export function Piece({pos, id_, idDict}) {
   })
   
   return (
+    <>
       <div ref={drag} style={{ opacity: isDragging ? 0 : 1, cursor: 'move'}}>
           <img src={ require(`../../MyPieces/Images/${img_}`)} className={"piece"} />
-      </div>  
+      </div>
+    </>
   );
 }

@@ -5,7 +5,8 @@ import { useDrop } from 'react-dnd';
 import { isLegal } from '../Move/isLegal';
 import { move } from '../Move/move';
 import {adjustSqrColor} from "../helpers/adjustSqrColor";
-import "../GameRoot.css";
+import "../css/interactiveSqr.css";
+import "../css/displaySqr.css";
 
 export function BoardSquare({sqr_color: sqr_color, pos, data, children}) {
 

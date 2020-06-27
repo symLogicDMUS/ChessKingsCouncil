@@ -51,7 +51,7 @@ def update():
     special_moves.set_promos(board, final_ranges, color)
     moves = special_moves.get_moves()
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
-    pprint(data)
+    pprint(final_ranges)
     return jsonify({"ranges": final_ranges, "moves": moves})
 
 
@@ -70,7 +70,6 @@ def assign_ids():
     """
     data = request.get_data()
     data = json.loads(data)
-    pprint(data)
     piece_names, subs = data['names'], data['subs']
     piece_names = id_assign(piece_names, subs)
 
@@ -88,6 +87,7 @@ def get_data_dict():
     games = os.listdir('./example_games')
     data_dict = {}
     for game_name in games:
+        print(game_name)
         data_dict[game_name] = parse_data(game_name, defs)
     return jsonify(data_dict)
 
@@ -102,6 +102,18 @@ def get_defs():
     defs = json.loads(data)
     json.dumps(defs, indent=4, sort_keys=True)
     return jsonify(defs)
+
+
+@app.route('/save_defs', methods=['POST'])
+def save_defs():
+    """save the definitions object of piece ranges to defs.json"""
+    print("saving piece range definitions")
+    data = request.get_data(as_text=True)
+    defs = json.loads(data)
+    with open("./defs.json", "w") as outfile:
+        json.dump(defs, outfile, indent=4, sort_keys=False)
+    outfile.close()
+    return "Done", 201
 
 
 if __name__ == "__main__":

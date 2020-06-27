@@ -1,5 +1,6 @@
 import React from "react";
-import "../GameRoot.css";
+import "../css/displaySqr.css";
+import "../css/interactiveSqr.css";
 
 export function Square({class_, children}) {
 

@@ -6,7 +6,7 @@ import {SpecialMoves} from "./Move/SpecialMoves";
 import {isPiece} from "./helpers/isPiece";
 import { Promo } from "./Components/Promo";
 import {InactiveBoard} from "./Components/InactiveBoard";
-
+import "./GameRoot.css";
 
 export class GameRoot extends React.Component {
 

@@ -1,26 +1,77 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {UploadModal} from "./Upload/Upload";
+import {ChooseModal} from "./Choose/ChooseModal";
+import {ChooseButton} from "./Choose/ChooseButton";
+import {UploadButton} from "./Upload/UploadButton";
 import "./Icon.css"
+
 
 export class Icon extends React.Component {
     
     constructor(props) {
         super(props);
+        this.state = {upload: false, choose: false};
+        this.pieceImg = {'white': null, 'black': null}
+        this.showChoose = this.showChoose.bind(this);
+        this.closeChoose = this.closeChoose.bind(this);
+        this.showUpload = this.showUpload.bind(this);
+        this.closeUpload = this.closeUpload.bind(this);
+        this.setImg = this.setImg.bind(this);
+    }
+    
+    setImg(color, imgName) {
+        this.pieceImg[color] = <img src={ require(`../../MyPieces/Images/${imgName}`) } width="75px" height="75px" />
+        this.props.setPieceImg(this.pieceImg, color);
+    }
+
+    showChoose(color) {
+        this.color = color;
+        this.setState({choose: true});
+    }
+
+    closeChoose() {
+        this.setState({choose: false});
+    }
+
+    showUpload(color) {
+        this.color = color;
+        this.setState({upload: true})
+    }
+    
+    closeUpload() {
+        this.setState({upload: false});
     }
 
     render() {
         return(
-            <div className="icon-tool">
-                <img src={require("./Icon.svg")} className="icon-title" />
-                <img src={require("./White.svg")} className="white-title" />
-                <img src={require("./Black.svg")} className="black-title" />
-                <button className="black-upload"><img src={require("./Upload.svg")} style={{textAlign: "center", left:"21px", top:"7px"}} /></button>
-                <button className="black-choose"><img src={require("./Choose.svg")} style={{textAlign: "center", left:"21px", top:"7px"}} /></button>
-                <button className="white-upload"><img src={require("./Upload.svg")} style={{textAlign: "center", left:"21px", top:"7px"}} /></button>
-                <button className="white-choose"><img src={require("./Choose.svg")} style={{textAlign: "center", left:"21px", top:"7px"}} /></button>
-                <div className="white-window"></div>
-                <div className="black-window"></div>
-            </div>
+            <>
+                <div className="icon-tool">
+
+                    <img src={require("./Icon.svg")} className="icon-title" />
+                    <img src={require("./Labels/White.svg")} className="white-title" />
+                    <img src={require("./Labels/Black.svg")} className="black-title" />
+
+                    {/*Buttons open Modals*/}
+                    <UploadButton showUpload={this.showUpload} color="white" />
+                    <UploadButton showUpload={this.showUpload} color="black" />
+                    <ChooseButton showChoose={this.showChoose} color="white" />
+                    <ChooseButton showChoose={this.showChoose} color="black" />
+
+                    <div className="white-window">
+                        <div>{this.pieceImg['white']}</div>
+                    </div>
+                    <div className="black-window">
+                        <div>{this.pieceImg['black']}</div>
+                    </div>
+
+                </div>
+
+                {/*Modals close themselves using parent method prop*/}
+                <UploadModal show={this.state.upload} hideUpload={this.closeUpload} color={this.color} />
+                <ChooseModal show={this.state.choose} closeChoose={this.closeChoose} setImg={this.setImg} color={this.color} />
+            </>
+            
         );
     }
 }

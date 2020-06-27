@@ -36,7 +36,7 @@ def parse_data(game_name, defs):
         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
          "moves": moves, "flask_method": update_method})
     data["id_dict"] = defs_['id_dict']  # piece definition names
-
+    data['range_defs'] = defs_['range_defs']
     return data
 
 

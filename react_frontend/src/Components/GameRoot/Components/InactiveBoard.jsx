@@ -1,9 +1,13 @@
 import React from "react";
 import {InactivePiece} from "./InactivePiece";
-import {Square} from "./Square";
+// import {Square} from "./Square";
 import {rankfiles} from "../../helpers/rankfiles"
-import {sqrColors} from "../../helpers/sqrColors";
+import {sqrColors} from "../helpers/sqrColors";
+import {getPosPx} from "../helpers/getPosPx";
+import "../css/grids.css";
+import "../css/piece.css";
 import "../GameRoot.css";
+import "../css/displaySqr.css";
 
 /**for use during pawn promotion */
 export class InactiveBoard extends React.Component {
@@ -21,20 +25,16 @@ export class InactiveBoard extends React.Component {
             id_ = this.props.board[rf];
             if (id_ === '#') {
                 squares.push(
-                    <div className={sqr_color}>
-                        <Square class_={sqr_color} >
+                    <div className={sqr_color} style={getPosPx(rf)} >
                             {null}
-                        </Square>
                     </div>
                 );                        
             }
 
             else {
                 squares.push(
-                    <div className={sqr_color}>
-                    <Square class_={sqr_color} >
+                    <div className={sqr_color} style={getPosPx(rf)}>
                         <InactivePiece id_={id_} idDict={this.props.idDict} />
-                    </Square>
                     </div>
                 );
             }
@@ -45,7 +45,7 @@ export class InactiveBoard extends React.Component {
 
     render() {
         return (
-        <div className="grid">
+        <div className="display-grid">
             {this.update()}
         </div>
         );

@@ -1,5 +1,6 @@
 .idea/
 .vscode/
+testing/
 node_modules/
 build
 .DS_Store

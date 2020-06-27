@@ -1,4 +1,4 @@
-export const sqrColors = 
+export const sqrClasses = 
 {'a8': 'sqr2', 'b8': 'sqr1', 'c8': 'sqr2', 'd8': 'sqr1', 'e8': 'sqr2', 'f8': 'sqr1', 'g8': 'sqr2', 'h8': 'sqr1', 
 'a7': 'sqr1', 'b7': 'sqr2', 'c7': 'sqr1', 'd7': 'sqr2', 'e7': 'sqr1', 'f7': 'sqr2', 'g7': 'sqr1', 'h7': 'sqr2', 
 'a6': 'sqr2', 'b6': 'sqr1', 'c6': 'sqr2', 'd6': 'sqr1', 'e6': 'sqr2', 'f6': 'sqr1', 'g6': 'sqr2', 'h6': 'sqr1', 

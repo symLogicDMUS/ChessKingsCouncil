@@ -1,0 +1,23 @@
+.icon-tool .white-upload {
+    z-index: 0;
+    position: absolute;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 10px;
+    top: 62px;
+    width: 98px;
+    height: 32px;
+}
+
+.icon-tool .black-upload {
+    z-index: 0;
+    position: absolute;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 207px;
+    top: 62px;
+    width: 98px;
+    height: 32px;
+}

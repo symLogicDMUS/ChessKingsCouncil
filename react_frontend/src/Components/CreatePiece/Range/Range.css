@@ -1,5 +1,6 @@
 .range-tool {
     position: absolute;
+    z-index: 0;
     width: 400px;
     height: 151px;
     top: 315px;
@@ -11,12 +12,14 @@
 
 .range-tool .range-title {
     position: absolute;
+    z-index: 0;
     left: 10px;
     top: 10px;
 }
 
 .range-tool .display-window {
     position: absolute;
+    z-index: 0;
     left: 10px;
     top: 41px;
     width: 241px;
@@ -30,6 +33,7 @@
 
 .range-tool .direction-pad {
     position: absolute;
+    z-index: 0;
     size: 100px;
     left: 290px;
     top: 41px;
@@ -37,6 +41,7 @@
 
 .direction-pad .button-selected {
     position: absolute;
+    z-index: 0;
     width: 30px;
     height: 30px;
     background-color: #EC2525;
@@ -47,6 +52,7 @@
 
 .direction-pad .button-normal {
     position: absolute;
+    z-index: 0;
     width: 30px;
     height: 30px;
     background-color: #515151;
@@ -57,6 +63,7 @@
 
 .button-selected .vector {
     position: absolute;
+    z-index: 0;
     width: 20px;
     height: 20px;
     left: 5px;
@@ -65,8 +72,17 @@
 
 .button-normal .vector {
     position: absolute;
+    z-index: 0;
     width: 20px;
     height: 20px;
     left: 5px;
     top: 5px;
 }
+
+/* .range-tool .display-on {
+    display: initial;
+}
+
+.range-tool .display-off {
+    display: none;
+} */

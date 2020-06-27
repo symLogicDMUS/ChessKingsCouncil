@@ -1,0 +1,18 @@
+.choose-main .close {
+    position: absolute;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    left: 1575px;
+  } .close:hover {
+    z-index: 1;
+    background-color: red;
+  } .close .x {
+      position: absolute;
+      z-index: 1;
+      top: 4px;
+      left: 3px;
+      right: 5px;
+      bottom: 5px;
+      max-width: 20px;
+    }
