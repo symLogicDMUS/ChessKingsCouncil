@@ -19,17 +19,6 @@ export class App extends React.Component {
 
     constructor(props) {
         super(props);
-<<<<<<< Updated upstream
-=======
-        this.defs = this.props.defs;
-        this.dataDict = this.props.dataDict;
-        this.state = {binaryValue: true};
-        this.updateDefs = this.updateDefs.bind(this);
-    }
-
-    updateDefs(defs) {
-        this.defs = defs;
->>>>>>> Stashed changes
     }
 
     render() {
@@ -37,15 +26,9 @@ export class App extends React.Component {
         <Router>
             <Switch>
                 <Route exact path="/" exact component={MainPage} />
-<<<<<<< Updated upstream
                 <Route path="/NewGame" render={() => <NewGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
                 <Route path="/LoadGame" render={() => <LoadGame dataDict={this.props.dataDict} defs={this.props.defs} /> } />
                 <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.props.dataDict} defs={this.props.defs} /> } />
-=======
-                <Route path="/NewGame" render={() => <NewGame dataDict={this.dataDict} defs={this.defs} /> } />
-                <Route path="/LoadGame" render={() => <LoadGame dataDict={this.dataDict} defs={this.defs} /> } />
-                <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.dataDict} defs={this.defs} updateDefs={this.updateDefs} /> } />
->>>>>>> Stashed changes
                 <Route exact path="/ComingSoon" exact component={ComingSoon} />
                 <Route exact path="/CouncilRules" exact component={CouncilRules} />
             </Switch>
