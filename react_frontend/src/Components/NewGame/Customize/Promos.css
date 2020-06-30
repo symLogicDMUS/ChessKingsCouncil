@@ -1,0 +1,22 @@
+.bottom-bar .promo-label {
+    grid-column: 3;
+    grid-row: 1 / 2;
+    color: white;
+     text-align: center;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 25px;
+     /* border: 1px dashed white; */
+    /* border-bottom: 1px solid #969696; */
+}
+
+.bottom-bar .promo-list {
+    grid-column: 3;
+    grid-row: 2 / 6;
+    /* border: 1px dashed white; */
+    color: white;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

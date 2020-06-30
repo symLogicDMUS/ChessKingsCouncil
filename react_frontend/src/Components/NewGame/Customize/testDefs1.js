@@ -1,10 +1,5 @@
+export let defs =
 {
-<<<<<<< Updated upstream
-  "Queen": {"image": {"W":"wQ.png", "B":"bQ.png"}, "gen_id": {"W": "WQ", "B": "BQ"} },
-  "Rook": {"image": {"W":"wR.png", "B":"bR.png"}, "gen_id": {"W": "WR", "B": "BR"} },
-  "Bishop": {"image": {"W":"wB.png", "B":"bB.png"}, "gen_id": {"W": "WB", "B": "BB"} },
-  "Knight": {"image": {"W":"wN.png", "B":"bN.png"}, "gen_id": {"W": "WN", "B": "BN"} }
-=======
     "Bishop": {
         "B": {
             "offsets": [],
@@ -13,8 +8,7 @@
                 "step_1sqr315d",
                 "step_1sqr45d",
                 "step_1sqr135d"
-            ],
-            "img":"BB.svg"
+            ]
         },
         "W": {
             "offsets": [],
@@ -23,8 +17,7 @@
                 "step_1sqr135d",
                 "step_1sqr225d",
                 "step_1sqr315d"
-            ],
-            "img": "WB.svg"
+            ]
         }
     },
     "Brian": {
@@ -335,8 +328,7 @@
                     1
                 ]
             ],
-            "spans": [],
-            "img": "BN.svg"
+            "spans": []
         },
         "W": {
             "offsets": [
@@ -373,13 +365,11 @@
                     -1
                 ]
             ],
-            "spans": [],
-            "img": "WN.svg"
+            "spans": []
         }
     },
     "Queen": {
         "B": {
-            "offsets": [],
             "spans": [
                 "step_1sqr180d",
                 "step_1sqr225d",
@@ -389,8 +379,7 @@
                 "step_1sqr90d",
                 "step_1sqr45d",
                 "step_1sqr135d"
-            ],
-            "img": "BQ.svg"
+            ]
         },
         "W": {
             "offsets": [],
@@ -403,9 +392,9 @@
                 "step_1sqr225d",
                 "step_1sqr270d",
                 "step_1sqr315d"
-            ],
-            "img":"WQ.svg"
-        }
+            ]
+        },
+        "offsets": []
     },
     "Rook": {
         "B": {
@@ -415,8 +404,7 @@
                 "step_1sqr270d",
                 "step_1sqr0d",
                 "step_1sqr90d"
-            ],
-            "img": "BR.svg"
+            ]
         },
         "W": {
             "offsets": [],
@@ -425,8 +413,7 @@
                 "step_1sqr90d",
                 "step_1sqr180d",
                 "step_1sqr270d"
-            ],
-            "img":"WR.svg"
+            ]
         }
     },
     "x_wing": {
@@ -667,5 +654,4 @@
             "img": "evil_morty_red.svg"
         }
     }
->>>>>>> Stashed changes
 }

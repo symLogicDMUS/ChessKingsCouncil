@@ -9,4 +9,10 @@ getData().then( ([dataDict, defs]) => {
     ReactDOM.render(<App dataDict={dataDict} defs={defs} />, document.getElementById('root'))
 });
 
+<<<<<<< Updated upstream
 //tests(1)
+=======
+//tests:
+// import {test} from "./Components/NewGame/Customize/ProfileItem/ProfileItem";
+// test();
+>>>>>>> Stashed changes
