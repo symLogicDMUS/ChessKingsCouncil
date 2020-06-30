@@ -24,7 +24,7 @@ def update(data):
     data = map_rf_to_xy(data)
     board, records, color = data['board'], data['records'], data['color']
     print_board(board)
-    pprint(records)
+    # pprint(records)
     json_records = JsonRecords(None, None, j_records=records)
     init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
@@ -38,7 +38,7 @@ def update(data):
     special_moves.set_promos(board, final_ranges, color)
     moves = special_moves.get_moves()
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
-    pprint(data)
+    # pprint(data)
     return data
 
 

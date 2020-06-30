@@ -1,0 +1,43 @@
+1. update and update_council flask methods return their name, and this is used as prop for what flask method to call 
+6. update fullmove and halfmove clocks when move is made. Will be for 50 move rule.
+8. add visual alets for check, checkmate, stalemate
+9. add option to save game, quit, or resign, below the game board
+10. add a back button, and menu bar to every page. 
+....................................................................................
+0. pretend that already fetched images from server and stored in folder. implement the "Choose" component of Icon tool
+1. pop up window displayed on top of everything else for croping image (like was with piece promotion)
+3. do a React crop image tutorial
+4. install react-cookie
+5. learn how to fetch images from server and store in folder.
+....................................................................................
+CreatePiece:
+1. The piece-name the user inputs in CreatePiece is common-key of name:image-path and name:range_def dicts.
+2. the name a user inputs for piece is checked to make sure it is unique, if not it "asks there is already a piece named ___. do
+   you want to replace it?"
+   2a. if they select yes then entries from the name:image-path and name:range_def dicts are deleted.
+3. Each game has it's own id:piece-name arangement. This is created when game is created in NewGame component.
+4. The id:piece-name dict needs to be stored along with the other game data in game-name folder.
+5. Each game has it's own subset of the defs.json object unique to that game, so that when a piece is deleted in defs.json or its
+   name is changed, that piece's data isnt lost for game in progress.
+6.
+...............................................................
+Eventually want to fetch images from backend, but for now pretend like this step is already completed and use a
+piece-name:frontend-image-path dict stored on the backend to resolve image loctions on frontend. this dict is 
+fetched in the starting api call.
+...............................................................
+starting in NewGame:
+   1. iterate over list of names.
+   2. send name:image-path and name:range_def to each component
+   3. info from #2 is displayed
+   4. state.sub is one of "Queen", "Bishop", "Knight", "Rook", or "None" for each component.
+   5. when select finish-button, all checkmarked piece's names and sub are selected and saved to dicts.
+   6. list of piece names sent to backend.
+   7. the backend assigns id to each piece-name, and the id:piece-name dict is returned to front-end.
+>>>8. ------> id:piece-name and piece-name:image-path dicts are props to Piece component <------- 
+   9. the id:piece-name dict is used to resolve piece-name:image-path dict when Piece functional component rendered. (id is a prop to Piece)
+   10. id:piece-name and piece-name:image-path are first fetched from backend then travel NewGame > GameRoot > Board > Piece.
+   previously created id:piece-name and piece-name:image-path are included in starting fetch and travel App > LoadGame > GameRoot > Board > Piece  
+................................................................
+1. guard against bad input for names of pieces and new games.
+    
+   

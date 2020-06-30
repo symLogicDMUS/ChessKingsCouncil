@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/GameRoot.jsx" afterDir="false" />
@@ -8,6 +9,43 @@
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/components/PromoChoice.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/LoadGame/PageComponent/LoadGame.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/NewGame.jsx" afterDir="false" />
+=======
+    <list default="true" id="213e69a8-22c7-4ffe-a92d-9182e00488ae" name="Default Changelist" comment="s">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/defs.json" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/defs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/ranges/get_range.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/ranges/get_range.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python_backend/z_flask/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/python_backend/z_flask/update.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/CreatePiece.css" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/CreatePiece.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/CreatePiece.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/CreatePiece.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Choose/ChooseModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Choose/ChooseModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Choose/profiles.css" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Choose/profiles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Icon.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Icon/Icon.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Name/Name.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Name/Name.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Range/ArrowButton/ArrowButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Range/ArrowButton/ArrowButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Range/Range.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Range/Range.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/ConfirmOverwrite.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/ConfirmOverwrite.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/No.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/Yes.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/confirmBox.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/confirmLabel1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/confirmLabel2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/confirmModal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/ConfirmOverwrite/ynButton.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/Save.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/Save.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/Success/Success.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/CreatePiece/Save/Success/Success.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Board.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Board.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Piece.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/Components/Piece.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/css/piece.css" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/GameRoot/css/piece.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/getPieceImg.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/getPieceImg.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/imgNames.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/imgNames.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/pieceImgDict.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/MyPieces/pieceImgDict.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/Customize/Customize.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/Components/NewGame/Customize/Customize.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react_frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/react_frontend/src/index.js" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -1,0 +1,6 @@
+.success-message {
+    display: block;
+    margin: auto;
+    font-size: 100px;
+    color: green;
+}

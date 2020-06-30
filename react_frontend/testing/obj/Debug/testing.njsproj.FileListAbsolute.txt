@@ -1,0 +1,3 @@
+C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\testing\obj\Debug\testing.njsprojAssemblyReference.cache
+C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\testing\obj\Debug\testing.njsproj.CoreCompileInputs.cache
+C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\react_frontend\testing\bin\Microsoft.NodejsTools.WebRole.dll
