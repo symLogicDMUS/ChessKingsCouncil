@@ -1,10 +1,9 @@
-from custom_except import *
 from printers.print_sqr_highlights import print_sqr_highlights
-from getters.get_unicode_board import get_unicode_board
+from printers.get_unicode_board import get_unicode_board
 
 
 def _get_index_attacking_piece(piece_ids, all_ids):
-    """get the second piece id and then get its location in the list of all ids"""
+    """get the second piece id and then get its location in the list of all assign_ids"""
     try:
         piece_id = piece_ids[1]
         i = all_ids.index(piece_id)

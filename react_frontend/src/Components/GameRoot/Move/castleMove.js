@@ -1,4 +1,4 @@
-import { getRookStartAndDest } from "../sharedData/getRookStartAndDest";
+import { getRookStartAndDest } from "../helpers/getRookStartAndDest";
 import { ply } from "./ply";
 
 export function castleMove(data, start, dest) {
@@ -11,10 +11,10 @@ export function castleMove(data, start, dest) {
     ..........
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
-   let move = [start, dest]
+   let move = [start, dest];
     if (! data.specialMoves.isCastle(move)) {
-        return
+        return;
     }
-    var [rStart, rDest] = getRookStartAndDest(dest)
-    ply(data, rStart, rDest)
+    var [rStart, rDest] = getRookStartAndDest(dest);
+    ply(data, rStart, rDest);
 }

@@ -1,11 +1,10 @@
-from custom_except import *
-from misc.step_funcs import *
-from bools.oob import out_of_bounds
+from step_funcs.step_funcs import *
+from sqr_case.oob import out_of_bounds
 
 
 def _get_path(board, x, y, take_step):
     """
-    travel a path starting at location (x, y) until step out of bounds. add ids
+    travel a path starting at location (x, y) until step out of bounds. add assign_ids
     to list. direction moving depends on which step function take_step is
     """
     x, y = take_step(x, y)

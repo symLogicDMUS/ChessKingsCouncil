@@ -1,22 +1,22 @@
 from bools.game_over import game_over
-from misc.fifty_move_draw import fifty_move_draw
-from getters.get_data import get_data
-from getters.get_pathdata_dict import get_pathdata_dict
-from getters.get_next_color import get_next_color
-from getters.get_ranges import get_ranges
-from getters.get_piece_dicts import get_piece_dicts
+from helpers.fifty_move_draw import fifty_move_draw
+from load_save.load import load
+from pathsInfo.top.get_pathdata_dict import get_pathdata_dict
+from color.get_next_color import get_next_color
+from ranges.top.get_ranges import get_ranges
+from getters.get_reset_piece_dicts import get_reset_piece_dicts
 from getters.get_king_locs import get_king_locs
-from getters.get_threat_area import get_threat_area
-from getters.get_num_pieces_checking_king import get_num_pieces_checking_king
-from getters.get_pins import get_pins
-from getters.get_multithreat_restriction import get_multithreat_restriction
-from getters.get_final_ranges import get_final_ranges
+from threatArea.top.get_threat_area import get_threat_area
+from restriction.get_num_pieces_checking_king import get_num_pieces_checking_king
+from pins.top.get_pins import get_pins
+from restriction.get_multithreat_restriction import get_multithreat_restriction
+from ranges.top.get_final_ranges import get_final_ranges
 from getters.get_random_move import get_random_move
 from printers.print_board import print_board
 from printers.print_board_highlight_sd import print_board_highlight_sd
-from fenParser.getFen.get_pos_str import get_pos_str
+from fenParser.getFen.top.get_fen import get_fen
 from ranges.specialMoves.pawn_promotion.promote import promote
-from misc.save import save
+from load_save.save import save
 from movePiece.attempt_move import attempt_move
 from termcolor import colored
 from pprint import pprint
@@ -25,14 +25,14 @@ import os
 
 def test_dummy_game(game_name):
     """dummy walk through of a game where random dest is chosen from random piece's range and then moved upon"""
-    fen_obj, board, json_records = get_data(game_name)
+    fen_obj, board, json_records = load(game_name)
     if json_records.winner != '-':
         json_records.winner = '-'
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False
     start, dest = "", ""
     while not x:
-        init_ranges, pins, mt_restricts, final_ranges = get_piece_dicts(board, color)
+        init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
         init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
         k_loc = get_king_locs(board, color)
         threat_area = get_threat_area(k_loc, board, color)
@@ -56,7 +56,7 @@ def test_dummy_game(game_name):
 
     print_board(board, heading=colored(json_records.condition, 'red'), highlights=dest)
     print("Game Over. Winner: {}".format(json_records.winner))
-    pos_str = get_pos_str(board)
+    pos_str = get_fen(board)
     fen = fen_obj.set_get_new_fen(pos_str)
     save('dummy_game', fen, json_records)
 

@@ -1,13 +1,11 @@
 import React from "react";
-import {Board} from "./Board";
+import {Board} from "./Components/Board";
 import {JsonRecords} from "./sharedData/JsonRecords";
 import {Fen} from "./sharedData/Fen";
 import {SpecialMoves} from "./Move/SpecialMoves";
-import {getPieceType} from "./sharedData/getPieceType";
-import {isPiece} from "./sharedData/isPiece";
-import { Promo } from "./components/Promo";
-import {InactiveBoard} from "./InactiveBoard";
-
+import {isPiece} from "./helpers/isPiece";
+import { Promo } from "./Components/Promo";
+import "./GameRoot.css";
 
 export class GameRoot extends React.Component {
 
@@ -20,22 +18,33 @@ export class GameRoot extends React.Component {
         this.specialMoves.update(this.props.dataEntry['moves'])
         this.jsonRecords.update(this.props.dataEntry['records'])
         this.board = this.props.dataEntry['board']
-        this.state = {board: this.props.dataEntry['board'] }
+        this.state = {board: this.props.dataEntry['board'] } //see footnote 1
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
-        this.pieceDefs = this.props.pieceDefs
+        this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
+        this.rangeDefs = this.props.rangeDefs;
         this.promo = false; //set true to alert need of promotion
+
+        /*footnote 1: 2 different attributes for board because can make 
+          intermediate updates before triggering new render and 
+          because board is logical choice for state.*/ 
+    }
+
+    componentDidMount() {
+        document.body.className = "game-root-body";
     }
 
     BoardComponent() {
+
         if (! this.promo) {
             return <Board data={this} />
         }
+
         else {
             this.promo = false;
             return(
                 <Promo data={this} pawnLoc={this.specialMoves.currentDest}>
-                    <InactiveBoard board={this.board} />
+                    {/* <InactiveBoard board={this.board} idDict={this.idDict} /> */}
                 </Promo>
             );      
         }
@@ -77,8 +86,10 @@ export class GameRoot extends React.Component {
     callBackend() {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
-                                   "color":this.getColor()})
-        return fetch(`/${this.props.dataEntry.game_type}`, {
+                                   "color":this.getColor(),
+                                   "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
+                                })
+        return fetch(`/${this.props.dataEntry.flask_method}`, {
             method: 'POST',
             body: body
         }).then(response => response.json())
@@ -90,9 +101,9 @@ export class GameRoot extends React.Component {
 
     updateFrontend(start, dest) {
 
-        let pieceType = getPieceType(this.board[dest])
+        let fenId = this.board[dest][1].toLowerCase();
 
-        if (pieceType === 'Pawn') {
+        if (fenId === 'p') {
             this.jsonRecords.pawnHistories[this.board[dest]].push(dest)
             this.jsonRecords.numConsecutiveNonPawnMoves = 0
             this.jsonRecords.lastPawnMove = dest
@@ -102,11 +113,12 @@ export class GameRoot extends React.Component {
 
         else {
             this.jsonRecords.numConsecutiveNonPawnMoves++;
-            if (pieceType === 'King')
+            if (fenId  === 'k')
                 this.jsonRecords.kingsMoved[start] = true
-            if (pieceType === 'Rook')
+            if ( fenId === 'r')
                 this.jsonRecords.rooksMoved[start] = true
         }
+
         //TODO: update fenObject here
         return 
     }

@@ -1,7 +1,7 @@
 from custom_except import *
 
 def _get_statuses(piece_list, color):
-    """takes a list of piece ids, and returns list of 'f' for friend and 'e' for enemy"""
+    """takes a list of piece assign_ids, and returns list of 'f' for friend and 'e' for enemy"""
     statuses = []
     for piece in piece_list:
         if piece[0] == color:

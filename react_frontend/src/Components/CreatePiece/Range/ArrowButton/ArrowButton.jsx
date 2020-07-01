@@ -8,24 +8,18 @@ export class ArrowButton extends React.Component {
         super(props);
         this.id = this.props.id_;
         this.pos = this.props.pos;
-        // this.state = {selected: false}
+        this.state = {selected: false}
         this.class_ = "button-normal";
         this.togleSpan = this.togleSpan.bind(this);
     }
 
     togleSpan() {
-        // this.setState({selected: ! this.state.selected })
-        //this.class_ = this.state.selected ? "button-normal" : "button-selected";
-        this.props.togleDisplaySpan(this.id);
+        this.setState({selected: ! this.state.selected })
+        this.class_ = this.state.selected ? "button-normal" : "button-selected";
+        this.props.togleDisplaySpan(this.id)
     }
 
     render() {
-
-            if (this.props.isActive)
-                this.class_ = "button-selected";
-            else
-                this.class_ = "button-normal";
-
             return (
                 <div onClick={this.togleSpan} style={this.pos} className={this.class_}>
                     {this.props.image}

@@ -17,7 +17,7 @@ export class Icon extends React.Component {
         this.showUpload = this.showUpload.bind(this);
         this.closeUpload = this.closeUpload.bind(this);
     }
-    
+
     showChoose(color) {
         this.color = color;
         this.setState({choose: true});
@@ -62,7 +62,7 @@ export class Icon extends React.Component {
 
                 {/*Modals close themselves using parent method prop*/}
                 <UploadModal show={this.state.upload} hideUpload={this.closeUpload} color={this.color} />
-                <ChooseModal show={this.state.choose} closeChoose={this.closeChoose} setPieceImg={this.props.setPieceImg} color={this.color} />
+                <ChooseModal show={this.state.choose} closeChoose={this.closeChoose} setImg={this.props.setImg} color={this.color} />
             </>
             
         );

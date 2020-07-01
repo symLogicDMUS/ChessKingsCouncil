@@ -1,9 +1,8 @@
-from custom_except import *
-from bools.is_empty_sqr import is_empty_sqr
-from getters.get_unicode_piece import get_unicode_piece
-from getters.get_color import get_color
+from sqr_case.is_empty_sqr import is_empty_sqr
+from printers.get_unicode_piece import get_unicode_piece
+from color.get_color import get_color
 from termcolor import colored
-from misc.checker_board import checkerboard
+from printers.checker_board import checkerboard
 
 
 def print_board_highlight_sd(board_dict, start, dest, heading=""):

@@ -1,0 +1,22 @@
+.icon-tool .white-choose {
+    position: absolute;
+    z-index: 0;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 10px;
+    top:  105px;
+    width: 98px;
+    height: 32px;
+}
+.icon-tool .black-choose {
+    position: absolute;
+    z-index: 0;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 207px;
+    top: 105px;
+    width: 98px;
+    height: 32px;
+}

@@ -1,0 +1,15 @@
+.choose-main .title-div {
+    position: absolute;
+    z-index: 1;
+    width: 1600px;
+    height: 80px;
+    top: 23px;
+    font: normal 20px Tahoma;
+    text-align: center;
+  } .title-div .title {
+      z-index: 1;
+      margin: auto;
+      width: 50%;
+      height: 85%;
+      fill: white;
+    }

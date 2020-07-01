@@ -1,10 +1,9 @@
-from custom_except import *
 from ranges.specialMoves.enPassant.is_enp_black_att_r import is_enp_black_att_r
 from ranges.specialMoves.enPassant.is_enp_white_att_r import is_enp_white_att_r
 from ranges.specialMoves.enPassant.pawn_moved_once_2_sqrs import pawn_moved_once_2_sqrs
-from getters.get_sqr_case import get_sqr_case
-from misc.sqr_cases import *
-from getters.get_piece_type import get_piece_type
+from sqr_case.get_sqr_case import get_sqr_case
+from sqr_case.sqr_cases import *
+from piece_type.get_piece_type import get_piece_type
 from JsonRecords.JsonRecords import JsonRecords
 
 

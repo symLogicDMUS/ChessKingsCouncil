@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.activated-sqr {
+  position: absolute;
+    width: 75px;
+    height: 75px;
+}
+
+.offset-label {
+ display: block;
+ height: 15px;
+ width: 30px;
+ margin-left: auto;
+ margin-right: auto;
+ 
+}
+
+.x-offset {
+ display: block;
+ height: 20px;
+ width: 40px;
+ margin-left: auto;
+ margin-right: auto;
+ /* margin-top: 2px; */
+
+}
+
+.divider {
+ display: block;
+ width: 60px;
+ height: 2px;
+ margin-left: auto;
+ margin-right: auto;
+ margin-top: 1px;
+ /* margin-bottom: 1px; */
+}
+
+.y-offset {
+ display: block;
+ width: 40px;
+ height: 20px;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 10px;
+
+}
+
+.integer {
+max-width:100%;
+max-height:100%;
+object-fit: cover;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="activated-sqr">
+  <div class="offset-label">
+    <svg viewBox="0 0 30 20">
+      <text x="0" y="20"  font-size="10px" textLength="30px">offsets</text>
+    </svg>
+  </div>
+  <div class="x-offset">
+    <svg viewBox="0 0 40 20">
+      <text x="0" y="20" textLength="40px">x - 5</text>
+    </svg>
+  </div>
+  <div class="divider"></div>
+  <div class="y-offset">
+    <svg viewBox="0 0 40 30" >
+      <text x="0" y="20" textLength="40px">y + 2</text>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>

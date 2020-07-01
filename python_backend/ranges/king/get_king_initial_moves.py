@@ -1,7 +1,6 @@
-from custom_except import *
-from getters.get_sqr_case import get_sqr_case
-from misc.sqr_cases import *
-from misc.formulas import dist
+from sqr_case.get_sqr_case import get_sqr_case
+from sqr_case.sqr_cases import *
+from helpers.formulas import dist
 from printers.print_board import print_board
 from math import sqrt
 

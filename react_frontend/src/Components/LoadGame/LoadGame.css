@@ -1,0 +1,54 @@
+.container { 
+    height: 200px;
+    position: relative;
+    vertical-align: top;
+  }
+  
+  .loadGame {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+        
+  }
+
+  .buttonOptions {
+    margin: 0;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .buttonOptions button {
+    position: relative;
+    background-color: black; /* Green background */
+    border: 1px solid white; /* Green border */
+    color: white; /* White text */
+    padding: 5px 15px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    margin: 5px;
+    font-family: Georgia;
+  }
+
+  .buttonOptions select {
+    position: relative;
+    background-color: black; /* Green background */
+    border: 1px solid white; /* Green border */
+    color: white; /* White text */
+    padding: 5px 15px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    margin: 5px;
+    font-family: Georgia;    
+  }
+
+  .load-game-body {
+    background-image: url("../../Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+  
+  }

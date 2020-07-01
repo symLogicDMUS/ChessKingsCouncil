@@ -1,0 +1,28 @@
+.bottom-bar {
+    position: absolute;
+    z-index: 1;
+    bottom: 0px;
+    left: 50px;
+    width: 1502px;
+    height: 68px;
+}
+
+.bottom-bar .ok {
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    bottom: 10px;
+    width: 120px;
+    height: 48px;
+    border: 1px solid white;
+    background-color: #515151;
+    color: white;
+    text-align: center;
+    font: normal 25px tahoma;
+}
+.ok-text {
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    left: 45px;
+}

@@ -30,7 +30,7 @@ export class ChooseModal  extends React.Component {
     }
 
     submitChoice() {
-        this.props.setPieceImg(this.props.color, this.state.choice)
+        this.props.setImg(this.props.color, this.state.choice)
     }
 
     getImages() {

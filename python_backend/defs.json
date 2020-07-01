@@ -1,100 +1,40 @@
 {
-<<<<<<< Updated upstream
-  "Queen": {"image": {"W":"wQ.png", "B":"bQ.png"}, "gen_id": {"W": "WQ", "B": "BQ"} },
-  "Rook": {"image": {"W":"wR.png", "B":"bR.png"}, "gen_id": {"W": "WR", "B": "BR"} },
-  "Bishop": {"image": {"W":"wB.png", "B":"bB.png"}, "gen_id": {"W": "WB", "B": "BB"} },
-  "Knight": {"image": {"W":"wN.png", "B":"bN.png"}, "gen_id": {"W": "WN", "B": "BN"} }
-=======
     "Bishop": {
         "B": {
+            "img": "BB.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr225d",
                 "step_1sqr315d",
                 "step_1sqr45d",
                 "step_1sqr135d"
-            ],
-            "img":"BB.svg"
+            ]
         },
         "W": {
+            "img": "WB.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr45d",
                 "step_1sqr135d",
                 "step_1sqr225d",
                 "step_1sqr315d"
-            ],
-            "img": "WB.svg"
+            ]
         }
     },
     "Brian": {
-        "B": {
-            "img": "black_brian.svg",
-            "offsets": [
-                [
-                    1,
-                    1
-                ],
-                [
-                    0,
-                    1
-                ],
-                [
-                    -1,
-                    1
-                ],
-                [
-                    -1,
-                    0
-                ],
-                [
-                    -1,
-                    -1
-                ],
-                [
-                    0,
-                    -1
-                ],
-                [
-                    1,
-                    -1
-                ],
-                [
-                    1,
-                    0
-                ],
-                [
-                    0,
-                    -2
-                ],
-                [
-                    0,
-                    2
-                ]
-            ],
-            "spans": []
-        },
         "W": {
-            "img": "white_brian.svg",
+            "spans": [],
             "offsets": [
                 [
-                    -1,
-                    -1
-                ],
-                [
-                    0,
-                    -1
-                ],
-                [
-                    1,
-                    -1
-                ],
-                [
-                    1,
+                    -2,
                     0
                 ],
                 [
-                    1,
+                    -1,
+                    0
+                ],
+                [
+                    -1,
                     1
                 ],
                 [
@@ -102,12 +42,78 @@
                     1
                 ],
                 [
-                    -1,
+                    0,
+                    2
+                ],
+                [
+                    1,
                     1
+                ],
+                [
+                    1,
+                    0
+                ],
+                [
+                    2,
+                    0
+                ],
+                [
+                    1,
+                    -1
+                ],
+                [
+                    0,
+                    -2
+                ],
+                [
+                    0,
+                    -1
+                ],
+                [
+                    -1,
+                    -1
+                ]
+            ],
+            "img": "white_brian.svg"
+        },
+        "B": {
+            "spans": [],
+            "offsets": [
+                [
+                    2,
+                    0
+                ],
+                [
+                    1,
+                    0
+                ],
+                [
+                    1,
+                    -1
+                ],
+                [
+                    0,
+                    -1
+                ],
+                [
+                    0,
+                    -2
+                ],
+                [
+                    -1,
+                    -1
                 ],
                 [
                     -1,
                     0
+                ],
+                [
+                    -2,
+                    0
+                ],
+                [
+                    -1,
+                    1
                 ],
                 [
                     0,
@@ -115,78 +121,178 @@
                 ],
                 [
                     0,
-                    -2
+                    1
+                ],
+                [
+                    1,
+                    1
                 ]
             ],
-            "spans": []
+            "img": "black_brian.svg"
         }
     },
-    "Firelord": {
+    "EvilMorty": {
         "B": {
-            "img": "BJ.svg",
+            "img": "evil_morty_red.svg",
             "offsets": [
                 [
-                    -3,
-                    1
-                ],
-                [
-                    3,
-                    1
+                    2,
+                    -1
                 ],
                 [
                     1,
-                    -1
+                    -2
                 ],
                 [
                     -1,
+                    -2
+                ],
+                [
+                    -2,
                     -1
                 ],
                 [
-                    0,
-                    -3
+                    -2,
+                    1
                 ],
                 [
-                    0,
-                    -2
+                    -1,
+                    2
+                ],
+                [
+                    1,
+                    2
+                ],
+                [
+                    2,
+                    1
                 ]
             ],
             "spans": [
+                "step_1sqr270d",
+                "step_1sqr225d",
+                "step_1sqr180d",
+                "step_1sqr135d",
+                "step_1sqr90d",
                 "step_1sqr45d",
-                "step_1sqr135d"
+                "step_1sqr0d",
+                "step_1sqr315d"
             ]
         },
         "W": {
-            "img": "white_firehat.svg",
+            "img": "evil_morty_white.svg",
             "offsets": [
                 [
-                    3,
+                    -2,
+                    1
+                ],
+                [
+                    -1,
+                    2
+                ],
+                [
+                    1,
+                    2
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    2,
                     -1
                 ],
                 [
-                    -3,
-                    -1
+                    1,
+                    -2
                 ],
+                [
+                    -1,
+                    -2
+                ],
+                [
+                    -2,
+                    -1
+                ]
+            ],
+            "spans": [
+                "step_1sqr90d",
+                "step_1sqr45d",
+                "step_1sqr0d",
+                "step_1sqr315d",
+                "step_1sqr270d",
+                "step_1sqr225d",
+                "step_1sqr180d",
+                "step_1sqr135d"
+            ]
+        }
+    },
+    "Firelord": {
+        "W": {
+            "spans": [
+                "step_1sqr225d",
+                "step_1sqr315d"
+            ],
+            "offsets": [
                 [
                     -1,
                     1
                 ],
                 [
-                    1,
-                    1
+                    0,
+                    2
                 ],
                 [
                     0,
                     3
                 ],
                 [
-                    0,
-                    2
+                    1,
+                    1
+                ],
+                [
+                    3,
+                    -1
+                ],
+                [
+                    -3,
+                    -1
                 ]
             ],
+            "img": "white_firehat.svg"
+        },
+        "B": {
             "spans": [
-                "step_1sqr225d",
-                "step_1sqr315d"
-            ]
+                "step_1sqr45d",
+                "step_1sqr135d"
+            ],
+            "offsets": [
+                [
+                    1,
+                    -1
+                ],
+                [
+                    0,
+                    -2
+                ],
+                [
+                    0,
+                    -3
+                ],
+                [
+                    -1,
+                    -1
+                ],
+                [
+                    -3,
+                    1
+                ],
+                [
+                    3,
+                    1
+                ]
+            ],
+            "img": "black_firehat.svg"
         }
     },
     "Jester": {
@@ -301,6 +407,7 @@
     },
     "Knight": {
         "B": {
+            "img": "BN.svg",
             "offsets": [
                 [
                     -1,
@@ -335,10 +442,10 @@
                     1
                 ]
             ],
-            "spans": [],
-            "img": "BN.svg"
+            "spans": []
         },
         "W": {
+            "img": "WN.svg",
             "offsets": [
                 [
                     1,
@@ -373,12 +480,12 @@
                     -1
                 ]
             ],
-            "spans": [],
-            "img": "WN.svg"
+            "spans": []
         }
     },
     "Queen": {
         "B": {
+            "img": "BQ.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr180d",
@@ -389,10 +496,10 @@
                 "step_1sqr90d",
                 "step_1sqr45d",
                 "step_1sqr135d"
-            ],
-            "img": "BQ.svg"
+            ]
         },
         "W": {
+            "img": "WQ.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr0d",
@@ -403,30 +510,29 @@
                 "step_1sqr225d",
                 "step_1sqr270d",
                 "step_1sqr315d"
-            ],
-            "img":"WQ.svg"
+            ]
         }
     },
     "Rook": {
         "B": {
+            "img": "BR.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr180d",
                 "step_1sqr270d",
                 "step_1sqr0d",
                 "step_1sqr90d"
-            ],
-            "img": "BR.svg"
+            ]
         },
         "W": {
+            "img": "WR.svg",
             "offsets": [],
             "spans": [
                 "step_1sqr0d",
                 "step_1sqr90d",
                 "step_1sqr180d",
                 "step_1sqr270d"
-            ],
-            "img":"WR.svg"
+            ]
         }
     },
     "x_wing": {
@@ -570,102 +676,5 @@
             ],
             "spans": []
         }
-    },
-    "EvilMorty": {
-        "W": {
-            "spans": [
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d",
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d"
-            ],
-            "offsets": [
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -1,
-                    2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    1,
-                    -2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -2,
-                    -1
-                ]
-            ],
-            "img": "evil_morty_white.svg"
-        },
-        "B": {
-            "spans": [
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d",
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d"
-            ],
-            "offsets": [
-                [
-                    2,
-                    -1
-                ],
-                [
-                    1,
-                    -2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -1,
-                    2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    2,
-                    1
-                ]
-            ],
-            "img": "evil_morty_red.svg"
-        }
     }
->>>>>>> Stashed changes
 }

@@ -1,6 +1,4 @@
-import { isPiece } from "../sharedData/isPiece";
-import { getPieceType } from "../sharedData/getPieceType"
-import { JsonRecords } from "../sharedData/JsonRecords";
+import { isPiece } from "../helpers/isPiece";
 
 export function ply(data, start, dest) {
     /*move piece to new square, capturing piece there if there is**/

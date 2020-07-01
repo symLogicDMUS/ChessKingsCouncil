@@ -1,0 +1,32 @@
+
+  .sqr1 {
+    display: inline-block;
+    z-index: 1;
+    width: 100px;
+    height: 100px;  
+  }
+
+  .sqr2 {
+    display: inline-block;
+    z-index: 1;
+    width: 100px;
+    height: 100px;  
+  }
+
+  .sqr1-in-range {
+    display: inline-block;
+    z-index: 1;
+    background-color: rgb(221, 255, 0);
+    opacity: 60%;
+    width: 100px;
+    height: 100px;  
+  }
+
+  .sqr2-in-range {
+    display: inline-block;
+    z-index: 1;
+    background-color: rgb(253, 253, 53);
+    opacity: 60%;
+    width: 100px;
+    height: 100px;  
+  }

@@ -1,0 +1,12 @@
+.name-label {
+    position: absolute;
+    z-index: 0;
+    left: 263px;
+    top: 45px;
+    width: 600px;
+    height: 22px;
+    color: ivory;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

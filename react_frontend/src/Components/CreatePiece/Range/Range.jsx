@@ -42,20 +42,6 @@ export class Range extends React.Component {
     }
 
 
-    getArrowButtons() {
-        let arrowButtons = [];
-        Object.entries(this.vectors).forEach( ([angle, svg]) => {
-            arrowButtons.push(<ArrowButton 
-                id_={angle} 
-                pos={this.buttonPos[angle]} 
-                image={svg}
-                isActive={this.props.spans[angle]}
-                togleDisplaySpan={this.props.togleDisplaySpan} 
-                />)
-            })
-        return arrowButtons;
-    }
-
     render() {
 
         //note: because using absolute positioning with exact px coordinates, order in div shouldn't matter
@@ -66,7 +52,7 @@ export class Range extends React.Component {
                     {/**TODO: make Component for croping image in display window */}
                 </div>
                 <div class="direction-pad">
-                    {this.getArrowButtons()}
+                    {this.arrowButtons}
                     <div className="middle" style={{position: "absolute", top:"35px", left:"35px"}} />
                 </div>
             </div>

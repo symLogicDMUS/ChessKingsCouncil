@@ -132,7 +132,7 @@ export class Customize extends React.Component {
         let profiles = []
         for (var pieceName of Object.keys(this.defs)) {
             profiles.push(
-                <Profile pieceName={this.pieceName}  
+                <Profile 
                   newReplacement={this.newReplacement} 
                   newReplaced={this.newReplaced} 
                   togleSub={this.togleSub} 

@@ -1,10 +1,12 @@
 import React from "react";
-import "../GameRoot.css";
+import "../css/displaySqr.css";
+import "../css/interactiveSqr.css";
 
-export function Square({sqr_color, children}) {
+export function Square({class_, children}) {
+
     return (
     <div>
-        <div className={sqr_color}>
+        <div className={class_}>
             {children}
         </div>
     </div>

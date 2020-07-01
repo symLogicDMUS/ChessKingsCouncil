@@ -1,4 +1,4 @@
-import { xyToRf } from "../helperFuncs/crdCnvrt";
+import { xyToRf } from "../../helpers/crdCnvrt";
 
 export class Fen {
 

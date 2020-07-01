@@ -1,10 +1,12 @@
 import React from 'react';
-import { DragPreviewImage, useDrag } from 'react-dnd';
+import { DragPreviewImage, useDrag } from 'react-dnd'
+import {getPieceImg} from "../../MyPieces/getPieceImg";
 import "../css/piece.css";
 
-export function Piece({pos, id_, img_}) {
+export function Piece({pos, id_, idDict}) {
+  let img_ = getPieceImg(id_, idDict);
   let iType = id_.slice(0, 2);
-  const [{isDragging}, drag] = useDrag({
+  const [{isDragging}, drag, preview] = useDrag({
     item: { type: iType, pos: pos, id_:id_},
 		collect: monitor => ({
 			isDragging: !!monitor.isDragging(),

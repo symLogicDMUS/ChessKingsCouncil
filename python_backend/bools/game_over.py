@@ -1,5 +1,4 @@
-from custom_except import *
-from misc.g_status_types import *
+from status.g_status_types import *
 
 
 def game_over(game_status):

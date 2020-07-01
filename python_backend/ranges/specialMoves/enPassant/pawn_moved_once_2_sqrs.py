@@ -1,7 +1,6 @@
-from custom_except import *
 from ranges.specialMoves.enPassant.pawn_2_sqr_first_moves import pawn_2_sqr_first_moves
 from JsonRecords.JsonRecords import JsonRecords
-from getters.get_piece_type import get_piece_type
+from piece_type.get_piece_type import get_piece_type
 
 def pawn_moved_once_2_sqrs(pawn_histories, id):
     if pawn_histories[id] in pawn_2_sqr_first_moves:

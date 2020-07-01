@@ -1,5 +1,5 @@
-from getters.get_piece_type import get_piece_type
-from getters.get_color import get_color
+from piece_type.get_piece_type import get_piece_type
+from color.get_color import get_color
 from pprint import pprint
 
 

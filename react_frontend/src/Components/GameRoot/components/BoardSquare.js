@@ -1,13 +1,15 @@
 import React from "react";
 import Square from './Square';
-import { ItemTypes } from './Constants';
+import { ItemTypes } from "../../helpers/constants";
 import { useDrop } from 'react-dnd';
 import { isLegal } from '../Move/isLegal';
 import { move } from '../Move/move';
-
-
+import {adjustSqrColor} from "../helpers/adjustSqrColor";
+import "../css/interactiveSqr.css";
+import "../css/displaySqr.css";
 export function BoardSquare({sqr_color: sqr_color, pos, data, children}) {
-    const [{ isOver }, drop] = useDrop({
+
+    const [{ isOver, canDrop }, drop] = useDrop({
       accept: ItemTypes,
       drop: (item, monitor) => move(data, item.pos, pos),
       canDrop: (item, monitor) => isLegal(data, item, pos),
@@ -15,17 +17,13 @@ export function BoardSquare({sqr_color: sqr_color, pos, data, children}) {
         isOver: !!monitor.isOver(),
         canDrop: !!monitor.canDrop(),
       })
-    })    
+    })
+
+    sqr_color = adjustSqrColor(sqr_color, canDrop)
+
     return (
-        <div
-          ref={drop}
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Square sqr_color={sqr_color}>{children}</Square>  
+        <div ref={drop}>
+          <Square class_={sqr_color}>{children}</Square>
         </div>
       );
 }

@@ -1,6 +1,3 @@
-import { getPieceType } from "./getPieceType";
-import { getPieceTypes } from "./getPieceTypes";
-import {OVER, IN_PROGRESS} from "./gStatusTypes";
 
 export class JsonRecords {
     /*contains info for new or saved game relevant to perfoming a castle or enPassant**/

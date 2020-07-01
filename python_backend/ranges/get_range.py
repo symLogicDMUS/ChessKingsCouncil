@@ -10,7 +10,6 @@ def get_range(id_dict, range_defs, board, sqr, color):
     fen_id = id_[1].lower()
     name = id_dict[fen_id]
     def_ = range_defs[name]
-    print(def_)
     offsets = def_[color]['offsets']
     step_funcs = def_[color]['spans']
     paths = get_paths(step_funcs, board, sqr, color)

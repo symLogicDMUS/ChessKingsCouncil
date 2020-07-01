@@ -6,6 +6,7 @@ export class Name extends React.Component {
     
     constructor(props) {
         super(props);
+        // this.state = {userInput: ""};
         this.userInput = "";
         this.handleUserInput = this.handleUserInput.bind(this);
     }
@@ -21,7 +22,7 @@ export class Name extends React.Component {
         return (
             <div className="name-component1">
                 <img src={require("./Name.svg")} className="name" />
-                <input type="text" value={this.props.name} onChange={this.handleUserInput} className="form1" placeholder="enter name of piece..." />
+                <input type="text" value={this.userInput} onChange={this.handleUserInput} className="form1" placeholder="enter name of piece..." />
             </div>
         );
     }
