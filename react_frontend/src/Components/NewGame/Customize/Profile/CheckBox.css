@@ -1,7 +1,7 @@
 .checkbox {
-    width: 30px;
-    height: 30px;
-    margin-top: 15px;
+    width: 18px; 
+    height: 18px; 
+    margin-top: 9px; 
     background-color: #515151;
     border: 2px solid #969696;
     border-radius: 5px;
@@ -10,8 +10,8 @@
 }
 .checkbox .checkmark {
     position: absolute;
-    max-height: 25px;
-    max-width: 25px;
-    padding: 5px;
+    max-height: 18px; 
+    max-width: 18px; 
+    padding: 1px;
     object-fit: contain;
 }

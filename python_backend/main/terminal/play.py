@@ -18,9 +18,11 @@ from load_save.save import save
 from printers.print_board import print_board
 from termcolor import colored
 
+# TODO: refactor get_ranges to take a piece definition object as seen in app.py
+
 
 def play_game(game_name):
-    """game loop located here"""
+    """game loop located here/ WARNING: need to refactor get_ranges"""
     fen_obj, board, json_records = load(game_name)
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False

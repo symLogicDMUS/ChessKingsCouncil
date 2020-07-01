@@ -12,6 +12,7 @@ import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
 import "../css/piece.css";
 import "../css/grids.css";
+import { getPieceImg } from "../../MyPieces/getPieceImg";
 
 export class Board extends React.Component {
 
@@ -32,7 +33,6 @@ export class Board extends React.Component {
         let squares = [];
         var sqr_color="_";
         var id_ = "_";
-
         for (var rf of rankfiles) {
 
             sqr_color = sqrClasses[rf];
@@ -52,7 +52,7 @@ export class Board extends React.Component {
                 squares.push(
                     <div className={sqr_color} style={getPosPx(rf)}>
                     <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
-                        <Piece pos={rf} id_={id_} idDict={this.props.data.idDict} />
+                        <Piece pos={rf} id_={id_} img_={getPieceImg(id_, this.props.data.idDict, this.props.data.rangeDefs)} />
                     </BoardSquare>
                     </div>
                 );

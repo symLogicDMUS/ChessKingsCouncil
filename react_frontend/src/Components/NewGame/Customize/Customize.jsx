@@ -61,7 +61,8 @@ export class Customize extends React.Component {
 
     getModals() {
         if (this.expandPiece != null && this.expandValue != null && this.expandColor != null)
-            return <ExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} list={this.defs[this.expandPiece][this.expandColor][this.expandValue]} expand={this.expand} />
+            return <ExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} 
+                    list={this.defs[this.expandPiece][this.expandColor][this.expandValue]} expand={this.expand} />
         else
             return <div>{null}</div>
     }
@@ -167,8 +168,8 @@ export class Customize extends React.Component {
                         <div className="promo-label">Pawn Promotions:</div>
                         <div className="promo-list">{this.getPromos()}</div>
                     </div>
-                {/* <Ok accept={this.accept} /> */}
                 </div>
+            <Ok accept={this.accept} />
             {this.getModals()}
             </>
 

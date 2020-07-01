@@ -8,12 +8,8 @@ export function getPieceImg(id_, idDict, defs) {
     let img = null;
 
     if (Object.keys(specialPieceImg).includes(name))
-        img = specialPieceImg[name][color];
-    else
-        img = defs[name][color]["img"];
+        return specialPieceImg[name][color];
     
-    console.log(`${id}, ${name}, ${img}`);
-
-    return img;
+    return defs[name][color]["img"];
 
 }

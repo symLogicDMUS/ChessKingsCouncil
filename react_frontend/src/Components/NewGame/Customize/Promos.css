@@ -5,8 +5,8 @@
      text-align: center;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
      font-size: 25px;
+     border-bottom: 1px solid #969696;
      /* border: 1px dashed white; */
-    /* border-bottom: 1px solid #969696; */
 }
 
 .bottom-bar .promo-list {
@@ -19,4 +19,5 @@
     font-size: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-bottom: 1px solid #a9a9a9;
 }

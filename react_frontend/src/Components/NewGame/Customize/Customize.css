@@ -4,10 +4,10 @@
     left: 50%;
     z-index: 1;
     background-color: #515151;
-    height: 1070px;
-    width: 1020px;
-    left: 500px;
-    bottom: 8%;
+    height: 1100px; /**/
+    width: 1020px; /**/
+    left: 300px; /**/
+    bottom: 5%;
     border: 1px solid #969696;
 }
 

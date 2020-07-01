@@ -19,9 +19,9 @@
 
         .w-or-b-profile .img-window img {
             z-index: inherit;
-            width: 180px;
-            height: 180px;
-            padding-bottom: 30px;
+            width: 108px; 
+            height: 108px; 
+            padding-bottom: 18px; 
             /* border-radius: 5px; */
         }
 
@@ -30,11 +30,11 @@
         grid-row: 1;
         grid-column: 2;
         color: white;
-        font-size: 20px;
+        font-size: 12px; 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding-bottom: 10px;
+        padding-bottom: 6px; 
         /*border: 1px dashed white;*/
-        margin-bottom: 10px;
+        margin-bottom: 6px; 
     }
 
     .w-or-b-profile .color-value {
@@ -44,11 +44,11 @@
         color: white;
         text-align: left;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 20px;
+        font-size: 12px; 
         overflow: hidden;
         text-overflow: ellipsis;
         /*border: 1px dashed white;*/
-        margin-bottom: 10px;
+        margin-bottom: 12px; 
     }
 
     .w-or-b-profile .spans-label {
@@ -56,9 +56,9 @@
         grid-row: 2;
         grid-column: 2;
         color: white;
-        font-size: 20px;
+        font-size: 12px; 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin-bottom: 10px;
+        margin-bottom: 6px; 
         /*border: 1px dashed white;*/
     }
 
@@ -69,10 +69,10 @@
         color: white;
         text-align: left;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 20px;
+        font-size: 12px; 
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-bottom: 10px;
+        margin-bottom: 6px; 
         /*border: 1px dashed white;*/
     }
 
@@ -81,9 +81,9 @@
         grid-row: 3;
         grid-column: 2;
         color: white;
-        font-size: 20px;
+        font-size: 12px; 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 20px;
+        font-size: 12px; 
 
         /*border: 1px dashed white;*/
     }
@@ -95,7 +95,7 @@
         color: white;
         text-align: left;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 20px;
+        font-size: 12px; 
         overflow: hidden;
         text-overflow: ellipsis;
 
