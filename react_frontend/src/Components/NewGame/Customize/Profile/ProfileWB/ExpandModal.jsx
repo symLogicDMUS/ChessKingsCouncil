@@ -27,6 +27,9 @@ export class ExpandModal extends React.Component {
             <div className="expand-modal">
                 <div className="modal-box">
                     <img src={require("./unexpand.svg")} onClick={this.unexpand} className="unexpand" />
+                    <div className="title">
+                        {this.props.piece} {this.props.color} {this.props.value}
+                    </div>
                     <div className="list">
                         {this.getList()}
                     </div>

@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns:  1fr;
     background-color: #515151;
-    border-top: 2px solid #969696;
+    border-top: 1px solid black;
     height: 800px;
     width: 1020px;
     overflow: scroll;
@@ -15,7 +15,7 @@
 .profile {
     z-index: inherit;
     height: 480px;
-    border-bottom: 1px solid #969696;
+    border-bottom: 1px solid black;
 }
 
     /*container for w-or-b-profile*/
@@ -41,12 +41,12 @@
             z-index: inherit;
             grid-row: 1;
             grid-column: 1;
-            padding-top: 16px; /**/
-            padding-left: 9px; /**/
-            padding-bottom: 3px; /**/
-            border-radius: 3px; /**/
+            padding-top: 16px; 
+            padding-left: 9px; 
+            padding-bottom: 3px; 
+            border-radius: 3px; 
             color: white;
-            font-size: 20px; /**/
+            font-size: 20px; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -59,8 +59,8 @@
         display: grid;
         grid-row: 1;
         grid-column: 2;
-        grid-template-columns: 108px 60px; /**/
-        grid-template-rows: 36px; /**/
+        grid-template-columns: 108px 60px; 
+        grid-template-rows: 36px; 
         text-align: left;
         /*border: 1px dashed white;*/
     }
@@ -71,7 +71,7 @@
             text-align: left;
             padding-top: 16px; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 20px; /**/
+            font-size: 20px; 
             color: white;
             /*border: 1px dashed white;*/
         }
@@ -99,20 +99,20 @@
             grid-row: 1;
             color: white;
             text-align: left;
-            margin-left: 6px; /**/
-            padding-top: 17px; /**/
+            margin-left: 6px; 
+            padding-top: 17px; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 20px; /**/
+            font-size: 20px; 
             /*border: 1px dashed white;*/
         }
 
         .substitute .sub-dropdown {
             z-index: inherit;
             grid-column: 2;
-            width: 180px; /**/
+            width: 180px; 
             grid-row: 1;
-            margin-top: 11px; /**/
-            margin-left: 6px; /**/
+            margin-top: 11px; 
+            margin-left: 6px; 
             /*border: 1px dashed white;*/
         }
 

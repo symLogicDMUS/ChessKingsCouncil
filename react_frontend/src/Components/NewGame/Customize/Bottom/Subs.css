@@ -6,7 +6,7 @@
     font-size: 25px;
     padding-left: 85px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 1px solid #969696;
+    border-bottom: 1px solid black;
     /*border: 1px dashed white;*/
 }
 
@@ -87,7 +87,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     padding-left: 10px;
-    border-bottom: 1px solid #969696;
+    border-bottom: 1px solid black;
     /*border: 1px dashed white;*/
 }
 .queen-value {
@@ -98,6 +98,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-left: 10px;
     grid-row: 5;
-    border-bottom: 1px solid #969696;
+    border-bottom: 1px solid black;
     /*border: 1px dashed white;*/
 }

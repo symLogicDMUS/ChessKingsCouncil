@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Profile } from "./Profile/Profile";
-import {defs} from "./testDefs1";
+import {defs} from "./tests/testDefs1";
 import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
-import {Ok} from "./Ok";
+import {Ok} from "./Bottom/Ok";
 import "./Profile/Profile.css";
 import "./Profile/ProfileWB/ProfileWB.css";
 import "./Customize.css";
-import "./BottomBar.css";
-import "./Promos.css";
-import "./Subs.css";
+import "./Bottom/Bottom.css";
+import "./Bottom/Promos.css";
+import "./Bottom/Subs.css";
 
 
 export class Customize extends React.Component {
