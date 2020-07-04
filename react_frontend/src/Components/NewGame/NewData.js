@@ -50,3 +50,187 @@ export const newData = {"color": 'W',
                     "winner":"-"
                   },
                  "flask_method": "update"}
+
+export const ranges =         
+{'WB1': [],
+'WR1': [],
+'WB2': [],
+'WR2': [],
+'WK1': [],
+'WQ1': [],
+'WP1': ["a2", "a4"],
+'WP2': ["b2", "b4"],
+'WP3': ["c2", "c4"],
+'WP4': ["d2", "d4"],
+'WP5': ["e2", "e4"],
+'WP6': ["f2", "f4"],
+'WP7': ["g2", "g4"],
+'WP8': ["h2", "h4"],
+'WN1': ["a3", "c3"],
+'WN2': ["f3", "h3"]}
+
+export const moves = {"en_passant":[], "castles":[], "promos":[] };
+
+export const range_defs = {
+  "Rook": {
+      "W": {
+          "spans": [
+              "step_1sqr0d",
+              "step_1sqr90d",
+              "step_1sqr180d",
+              "step_1sqr270d"
+          ],
+          "offsets": [],
+          "img":"WR.svg"
+      },
+      "B": {
+          "spans": [
+              "step_1sqr180d",
+              "step_1sqr270d",
+              "step_1sqr0d",
+              "step_1sqr90d"
+          ],
+          "offsets": [],
+          "img":"BR.svg"
+      }
+  },
+  "Bishop": {
+      "W": {
+          "spans": [
+              "step_1sqr45d",
+              "step_1sqr135d",
+              "step_1sqr225d",
+              "step_1sqr315d"
+          ],
+          "offsets": [],
+          "img":"WB.svg"
+      },
+      "B": {
+          "spans": [
+              "step_1sqr225d",
+              "step_1sqr315d",
+              "step_1sqr45d",
+              "step_1sqr135d"
+          ],
+          "offsets": [],
+          "img":"BB.svg"
+      }
+  },
+  "Queen": {
+      "W": {
+          "spans": [
+              "step_1sqr0d",
+              "step_1sqr45d",
+              "step_1sqr90d",
+              "step_1sqr135d",
+              "step_1sqr180d",
+              "step_1sqr225d",
+              "step_1sqr270d",
+              "step_1sqr315d"
+          ],
+          "offsets": [],
+          "img":"WQ.svg"
+      },
+      "B": {
+          "spans": [
+              "step_1sqr180d",
+              "step_1sqr225d",
+              "step_1sqr270d",
+              "step_1sqr315d",
+              "step_1sqr0d",
+              "step_1sqr90d",
+              "step_1sqr45d",
+              "step_1sqr135d"
+          ],
+          "offsets": [],
+          "img": "BQ.svg"
+      }
+  },
+  "Knight": {
+      "W": {
+          "spans": [],
+          "offsets": [
+              [
+                  1,
+                  2
+              ],
+              [
+                  1,
+                  -2
+              ],
+              [
+                  -1,
+                  2
+              ],
+              [
+                  -1,
+                  -2
+              ],
+              [
+                  2,
+                  1
+              ],
+              [
+                  2,
+                  -1
+              ],
+              [
+                  -2,
+                  1
+              ],
+              [
+                  -2,
+                  -1
+              ]
+          ],
+          "img":"WN.svg"
+      },
+      "B": {
+          "spans": [],
+          "offsets": [
+              [
+                  -1,
+                  -2
+              ],
+              [
+                  -1,
+                  2
+              ],
+              [
+                  1,
+                  -2
+              ],
+              [
+                  1,
+                  2
+              ],
+              [
+                  -2,
+                  -1
+              ],
+              [
+                  -2,
+                  1
+              ],
+              [
+                  2,
+                  -1
+              ],
+              [
+                  2,
+                  1
+              ]
+          ],
+          "img":"BN.svg"
+      }
+  }
+}
+
+export const id_dict = {
+  "k": "King",
+  "q": "Queen",
+  "r": "Rook",
+  "b": "Bishop",
+  "n": "Knight",
+  "p": "Pawn"
+}

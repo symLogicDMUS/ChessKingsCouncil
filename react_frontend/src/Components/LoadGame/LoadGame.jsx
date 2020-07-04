@@ -2,7 +2,8 @@ import React from "react";
 import "../../../Images/Misc/parchment button.svg";
 import "./LoadGame.css";
 import {SelectGame} from "./SelectGame";
-import {GameRoot} from "../GameRoot/GameRoot";
+import GameRoot from "../GameRoot/GameRoot";
+import { Redirect, Link } from "react-router-dom";
 
 
 export class LoadGame extends React.Component {
@@ -63,7 +64,13 @@ export class LoadGame extends React.Component {
 
     //need "isCouncil" flag.
     else {
-      return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
+      //return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
+      return (<Redirect to={{
+                pathname:"/LoadGame/Play",
+                state: {gameName: this.gameName, 
+                        dataEntry:this.dataDict[this.gameName], 
+                        isCouncil:false}
+        }} />);
     }
 
     //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop

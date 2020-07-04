@@ -13,20 +13,21 @@ import "./GameRoot.css";
 export class GameRoot extends React.Component {
 
     constructor(props) {
-        super(props)
+        super(props);
+        this.dataEntry = this.props.location.state.dataEntry;
         this.jsonRecords = new JsonRecords();
         this.specialMoves = new SpecialMoves(); 
         this.fenObj = new Fen();
-        this.fenObj.set(this.props.dataEntry['fen_data'])
-        this.specialMoves.update(this.props.dataEntry['moves'])
-        this.jsonRecords.update(this.props.dataEntry['records'])
-        this.board = this.props.dataEntry['board']
-        this.state = {board: this.props.dataEntry['board'], bValue:true} //see footnote 1.
-        this.turn = this.props.dataEntry['color']
-        this.ranges = this.props.dataEntry['ranges']
-        this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
-        this.rangeDefs = this.props.dataEntry['defs'];
-        this.promoChoices = this.props.dataEntry['promo_choices'];
+        this.fenObj.set(this.dataEntry['fen_data'])
+        this.specialMoves.update(this.dataEntry['moves'])
+        this.jsonRecords.update(this.dataEntry['records'])
+        this.board = this.dataEntry['board']
+        this.state = {board: this.dataEntry['board'], bValue:true} //see footnote 1.
+        this.turn = this.dataEntry['color']
+        this.ranges = this.dataEntry['ranges']
+        this.idDict = this.dataEntry['id_dict'] // id:piece-name dict
+        this.rangeDefs = this.dataEntry['defs'];
+        this.promoChoices = this.dataEntry['promo_choices'];
         this.promo = false; //set true to alert need of promotion
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
@@ -92,7 +93,7 @@ export class GameRoot extends React.Component {
                                    "color":this.getTurn(),
                                    "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
                                 })
-        return fetch(`/${this.props.dataEntry.flask_method}`, {
+        return fetch(`/${this.dataEntry.flask_method}`, {
             method: 'POST',
             body: body
         }).then(response => response.json())

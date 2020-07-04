@@ -1,9 +1,10 @@
 import React from "react";
 import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
-import {GameRoot} from "../GameRoot/GameRoot";
+import GameRoot from "../GameRoot/GameRoot";
 import {Customize} from "./Customize/Customize";
-import {newData} from "./NewData";
+import {newData, ranges, moves, id_dict, range_defs} from "./NewData";
+import { Redirect, Link } from "react-router-dom";
 import "./NewGame.css";
 
 /**
@@ -43,13 +44,22 @@ export class NewGame extends React.Component {
     }
 
     loadNewStandard() {
-        this.dataDict[this.gameName] = this.dataDict["New"];
+        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
+        this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
+        this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
         this.setState({step: this.state.step + 1});
     }
 
     loadNewCouncil() {
-        this.dataDict[this.gameName] = this.dataDict["NewCouncil"];
-        this.setState({step: this.state.step + 1});        
+        /**Not yet implemented to be different */
+        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
+        this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
+        this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
+        this.setState({step: this.state.step + 1});
     }
 
     loadNewCustom(idDict, promos) {
@@ -123,7 +133,13 @@ export class NewGame extends React.Component {
                 this.createGame();
                 break;
             case 3:
-                this.comp = <GameRoot gameName={this.gameName} dataEntry={this.dataDict[this.gameName]} isCouncil={this.council} />
+                //this.comp = <GameRoot gameName={this.gameName} dataEntry={this.dataDict[this.gameName]} isCouncil={this.council} />
+                this.comp = <Redirect to={{
+                             pathname:"/NewGame/Play",
+                             state: {gameName: this.gameName, 
+                                     dataEntry:this.dataDict[this.gameName], 
+                                     isCouncil:this.council}
+                            }} />
                 break;
             default:
                 this.comp = <div>Error in NewGame</div>

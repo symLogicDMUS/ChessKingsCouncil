@@ -14,7 +14,7 @@ import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import {CreatePiece} from "./Components/CreatePiece/CreatePiece";
 import {LoadGame} from "./Components/LoadGame/LoadGame";
 import {NewGame} from "./Components/NewGame/NewGame";
-
+import {GameRoot} from "./Components/GameRoot/GameRoot";
 export class App extends React.Component {
 
     constructor(props) {
@@ -30,6 +30,9 @@ export class App extends React.Component {
         this.updateDataDict = this.updateDataDict.bind(this);
         this.getGameNames = this.getGameNames.bind(this);
         this.getGame = this.getGame.bind(this);
+        this.setCurrentGame = this.setCurrentGame.bind(this);
+        this.setCurrentGameData = this.setCurrentGameData.bind(this);
+        this.setCouncilCase = this.setCouncilCase.bind(this);
     }
 
     updateDefs(defs) {
@@ -51,16 +54,30 @@ export class App extends React.Component {
         return this.dataDict[name];
     }
 
+    setCurrentGame(currentGameName) {
+        this.currentGameName = currentGameName;
+    }
+
+    setCurrentGameData(currentGameData) {
+        this.currentGameData = currentGameData;
+    }
+
+    setCouncilCase(councilCase) {
+        this.councilCase = councilCase;
+    }
+
     render() {
         return (
         <Router>
             <Switch>
                 <Route exact path="/" exact component={MainPage} />
-                <Route path="/NewGame" render={() => <NewGame dataDict={this.dataDict} updateDataDict={this.updateDataDict} defs={this.defs} /> } />
-                <Route path="/LoadGame" render={() => <LoadGame gameNames={this.getGameNames()} getGame={this.getGame} defs={this.defs} /> } />
-                <Route path="/CreatePiece" render={() => <CreatePiece defs={this.defs} updateDefs={this.updateDefs} /> } />
-                <Route exact path="/ComingSoon" exact component={ComingSoon} />
-                <Route exact path="/CouncilRules" exact component={CouncilRules} />
+                <Route exact path="/NewGame" exact strict render={() => <NewGame dataDict={this.dataDict} defs={this.defs} updateDataDict={this.updateDataDict} /> } />
+                <Route exact path="/LoadGame" exact strict render={() => <LoadGame gameNames={this.getGameNames()} defs={this.defs} getGame={this.getGame}  /> } />
+                <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
+                <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
+                <Route exact path="/CreatePiece" exact strict render={() => <CreatePiece defs={this.defs} updateDefs={this.updateDefs} /> } />
+                <Route exact path="/CouncilRules" exact strict exact component={CouncilRules} />
+                <Route exact path="/ComingSoon" exact strict exact component={ComingSoon} />
             </Switch>
         </Router>
         );
