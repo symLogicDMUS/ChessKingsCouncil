@@ -21,8 +21,15 @@ export class App extends React.Component {
         super(props);
         this.defs = this.props.defs;
         this.dataDict = this.props.dataDict;
+        this.gamesNames = []; //list included so can sort by order added to dataDict
+        Object.keys(this.dataDict).forEach(gameName => {
+            this.gamesNames.unshift(gameName);
+        })
         this.state = {binaryValue: true};
         this.updateDefs = this.updateDefs.bind(this);
+        this.updateDataDict = this.updateDataDict.bind(this);
+        this.getGameNames = this.getGameNames.bind(this);
+        this.getGame = this.getGame.bind(this);
     }
 
     updateDefs(defs) {
@@ -30,14 +37,28 @@ export class App extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
+    updateDataDict(dataDict, newName) {
+        this.dataDict = dataDict;
+        this.gamesNames.unshift(newName);
+    }
+
+    getGameNames() {
+        return this.gamesNames;
+    }
+
+    getGame(name) {
+
+        return this.dataDict[name];
+    }
+
     render() {
         return (
         <Router>
             <Switch>
                 <Route exact path="/" exact component={MainPage} />
-                <Route path="/NewGame" render={() => <NewGame dataDict={this.dataDict} defs={this.defs} /> } />
-                <Route path="/LoadGame" render={() => <LoadGame dataDict={this.dataDict} defs={this.defs} /> } />
-                <Route path="/CreatePiece" render={() => <CreatePiece dataDict={this.dataDict} defs={this.defs} updateDefs={this.updateDefs} /> } />
+                <Route path="/NewGame" render={() => <NewGame dataDict={this.dataDict} updateDataDict={this.updateDataDict} defs={this.defs} /> } />
+                <Route path="/LoadGame" render={() => <LoadGame gameNames={this.getGameNames()} getGame={this.getGame} defs={this.defs} /> } />
+                <Route path="/CreatePiece" render={() => <CreatePiece defs={this.defs} updateDefs={this.updateDefs} /> } />
                 <Route exact path="/ComingSoon" exact component={ComingSoon} />
                 <Route exact path="/CouncilRules" exact component={CouncilRules} />
             </Switch>

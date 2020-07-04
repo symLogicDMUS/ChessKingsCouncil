@@ -36,7 +36,7 @@ def parse_data(game_name):
         {"color": color, "fen_data": fen_data, "board": board, "records": records, "ranges": final_ranges,
          "moves": moves, "flask_method": update_method})
     data["id_dict"] = defs_['id_dict']  # piece definition names
-    data['range_defs'] = defs_['range_defs']
+    data['defs'] = defs_['range_defs']
     return data
 
 
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     data = f.read()
     defs = json.loads(data)
     json.dumps(defs, indent=4, sort_keys=False)
-    print_args(parse_data("castle_test5", defs), pp=True)
+    print_args(parse_data("castle_test5"), pp=True)

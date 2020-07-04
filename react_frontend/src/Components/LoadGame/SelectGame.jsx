@@ -6,20 +6,15 @@ export class SelectGame extends React.Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this);
-        this.setReady = this.props.setReady.bind(this)
     }
     
     handleChange(e) {
         const name = e.target.value;
-        this.props.onChange(name)
-    }
-
-    setReady() {
-      this.props.setReady(true)
+        this.props.handleChange(name)
     }
 
     render() {
-        if (this.props.selected === true) {
+        if (this.props.selected) {
           return (
             <div>
               <div className="container">
@@ -32,7 +27,7 @@ export class SelectGame extends React.Component {
                   <select id="games" onChange={this.handleChange}>
                     {this.props.games}
                   </select>
-                  <button onClick={this.setReady}>Play</button>
+                  <button onClick={this.props.load}>Play</button>
                 </div>
               </div>
             </div>

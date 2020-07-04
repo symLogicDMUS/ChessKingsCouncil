@@ -1,13 +1,13 @@
 {
     "rooks_moved": {
         "h1": false,
-        "a1": true,
+        "a1": false,
         "h8": false,
-        "a8": true
+        "a8": false
     },
     "kings_moved": {
-        "e1": true,
-        "e8": true
+        "e1": false,
+        "e8": false
     },
     "pawn_histories": {
         "a2": [
@@ -60,7 +60,7 @@
         ]
     },
     "last_pawn_move": "None",
-    "num_consecutive_non_pawn_moves": 14,
+    "num_consecutive_non_pawn_moves": 2,
     "game_status": 1,
     "condition": "",
     "winner": "-"

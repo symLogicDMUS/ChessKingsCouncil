@@ -10,6 +10,7 @@ export class PickType extends React.Component {
         super(props);
         this.setType = this.setType.bind(this)
     }
+
     setType(gameType) {
         this.props.setType(gameType)
     }

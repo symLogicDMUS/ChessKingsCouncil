@@ -4,6 +4,7 @@ import {PickName} from "./PickName/PickName";
 import {GameRoot} from "../GameRoot/GameRoot";
 import {Customize} from "./Customize/Customize";
 import {newData} from "./NewData";
+import "./NewGame.css";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
@@ -14,7 +15,7 @@ import {newData} from "./NewData";
 export class NewGame extends React.Component {
     constructor(props) {
         super(props);
-        this.dataDict = this.props.dataDict;
+        this.dataDict = JSON.parse(JSON.stringify(this.props.dataDict));
         this.state = {step: 0};
         this.gameName = "none";
         this.gameType = "none";
@@ -59,7 +60,7 @@ export class NewGame extends React.Component {
          */
         
         //set data that is same for any new game: 
-        this.dataDict[this.gameName] = newData;
+        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
 
         //set data that is unique to this new game:
         this.dataDict[this.gameName]['id_dict'] = idDict;
@@ -78,6 +79,7 @@ export class NewGame extends React.Component {
         .then(dataEntry => {
             this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
             this.dataDict[this.gameName]['moves'] = dataEntry['moves'];  
+            this.props.updateDataDict(this.dataDict, this.gameName);
             this.setState({step: this.state.step + 1});
         });
     }
@@ -88,22 +90,6 @@ export class NewGame extends React.Component {
                  "records":this.dataDict[this.gameName]['records'],
                  "defs":{"range_defs":this.dataDict[this.gameName]['defs'], 
                          "id_dict":this.dataDict[this.gameName]['id_dict'] } }
-    }
-
-    // getRangesFromBackend() {
-    //     /**called after a move is made.*/
-    //     return Promise.all([this.callBackend("update")])
-    // }
-
-    callBackend(update_method) {
-        return fetch(`/${update_method}`, {
-            method: 'POST',
-            body: JSON.stringify(newData)
-        }).then(response => response.json())
-        .then(dataEntry => {
-            this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
-            this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
-        });
     }
 
     createGame() {

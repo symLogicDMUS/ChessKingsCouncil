@@ -9,12 +9,12 @@ export class LoadGame extends React.Component {
 
   constructor(props) {
     super(props)
-    this.changeName = this.changeName.bind(this)
-    this.setReady = this.setReady.bind(this)
-    this.state = {gameName: "none", ready:false, loaded:false}
+    this.state = {gameName: "none", loaded:false, reload: 0}
     this.selected = false; //refrenced by child
     this.dataEntry = "-"; //Entry in game data dict
-    this.pieceDefs = "-"; 
+    this.pieceDefs = "-";
+    this.changeName = this.changeName.bind(this);
+    this.load = this.load.bind(this);
     this.setGames();
   }
 
@@ -22,49 +22,48 @@ export class LoadGame extends React.Component {
     document.body.className = "load-game-body";
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.gameNames !== prevProps.gameNames) {
+      this.setGames();
+      this.setState({gameName: "none", loaded: false, reload: ! this.state.reload})
+    }
+  }
+
   changeName(name) {
-    if (name == "choose") {
+    if (name === "choose") {
       this.selected = false; //refrenced by child
       this.setState({gameName: "none"})
     }
     else {
       this.selected = true; //referenced by child
-      this.setState({gameName: name})
+      this.setState({gameName: name});
     }
   }
 
   setGames() {
-    this.games = [<option value="choose">Choose...</option>]
-    for (var gameName of Object.keys(this.props.dataDict)) {
-      this.games.push(<option value={gameName}>{gameName}</option>)
-    }    
-  }
-
-  setReady() {
-    this.setState({ready: true})
+    this.games = [<option value="choose">Choose...</option>];
+    this.props.gameNames.forEach(name => {
+      this.games.push(<option value={name}>{name}</option>)
+    })
   }
 
   load() {
-    this.dataEntry = this.props.dataDict[this.state.gameName];
-    this.setState({loaded: true})
+    this.dataEntry = this.props.getGame(this.state.gameName);
+    this.setState({loaded: true});
   }
 
   render() {
 
-    if (this.state.ready === false) {
-      return <SelectGame onChange={this.changeName} 
+    if (this.state.loaded === false) {
+      return <SelectGame handleChange={this.changeName} 
                          games={this.games} 
                          selected={this.selected} 
-                         setReady={this.setReady} />
+                         load={this.load} />
     }
 
-    else if (this.state.loaded === false) {
-      this.load()
-      return <div>Loading...</div>
-    }
     //need "isCouncil" flag.
     else {
-      return <GameRoot gameName={this.gameName} dataEntry={this.dataEntry} rangeDefs={this.dataEntry['range_defs']}  />
+      return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
     }
 
     //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop

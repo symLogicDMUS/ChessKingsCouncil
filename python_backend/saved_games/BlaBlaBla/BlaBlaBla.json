@@ -23,11 +23,8 @@
             "d2",
             "d4"
         ],
-        "f6": [
-            "e2",
-            "e4",
-            "e5",
-            "f6"
+        "e2": [
+            "e2"
         ],
         "f2": [
             "f2"
@@ -54,6 +51,9 @@
         "e7": [
             "e7"
         ],
+        "f7": [
+            "f7"
+        ],
         "g7": [
             "g7"
         ],
@@ -61,8 +61,8 @@
             "h7"
         ]
     },
-    "last_pawn_move": "f6",
-    "num_consecutive_non_pawn_moves": 0,
+    "last_pawn_move": "d5",
+    "num_consecutive_non_pawn_moves": 8,
     "game_status": 1,
     "condition": "",
     "winner": "-"
