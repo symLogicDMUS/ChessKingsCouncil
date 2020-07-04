@@ -1,6 +1,6 @@
 import React from 'react';
 import { DragPreviewImage, useDrag } from 'react-dnd';
-import "../css/piece.css";
+import "../css/Piece.css";
 
 export function Piece({pos, id_, img_}) {
   let iType = id_.slice(0, 2);

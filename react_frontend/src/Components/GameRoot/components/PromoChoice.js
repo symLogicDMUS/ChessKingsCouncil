@@ -32,7 +32,8 @@ export class PromoChoice extends React.Component {
 
     updateBoard() {
         this.data.updateBackend().then(([result]) => {
-            this.data.emitChange()
+            this.props.data.emitChange()
+            this.props.data.updateSpecialCase("none")
           })
     }
  

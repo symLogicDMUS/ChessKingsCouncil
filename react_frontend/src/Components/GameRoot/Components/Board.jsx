@@ -10,8 +10,8 @@ import {sqrColors} from "../helpers/sqrColors";
 import {getPosPx} from "../helpers/getPosPx";
 import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
-import "../css/piece.css";
-import "../css/grids.css";
+import "../css/Piece.css";
+import "../css/Board.css";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 
 export class Board extends React.Component {
@@ -74,11 +74,11 @@ export class Board extends React.Component {
         return (
             <>
                 <DndProvider backend={Backend}>
-                    <div className="interactive-grid">
+                    <div className="interactive-board">
                         {this.getInteractiveBoard()}
                     </div>
                 </DndProvider>
-                <div className="display-grid">
+                <div className="display-board">
                     {this.getDisplayBoard()}
                 </div>
             </>

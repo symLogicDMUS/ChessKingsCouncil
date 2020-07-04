@@ -1,0 +1,8 @@
+{
+    "b": "Bishop",
+    "k": "King",
+    "n": "Knight",
+    "p": "Pawn",
+    "q": "EvilMorty",
+    "r": "x_wing"
+}

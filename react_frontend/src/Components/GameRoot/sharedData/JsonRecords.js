@@ -23,6 +23,6 @@ export class JsonRecords {
             "game_status": this.gameStatus,
             "condition": this.condition,
             "winner": this.winner
-        }
+        };
     }
 }

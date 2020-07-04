@@ -12,6 +12,7 @@ from JsonRecords.JsonRecords import JsonRecords
 from coordType.xy.map_rf_to_xy import map_rf_to_xy
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from parse_data import parse_data
+from fenParser.getFen.top.get_fen import get_fen
 from id_assign_.top.id_assign import id_assign
 from pprint import pprint
 import json
@@ -53,6 +54,61 @@ def update():
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
     pprint(final_ranges)
     return jsonify({"ranges": final_ranges, "moves": moves})
+
+
+@app.route('/save', methods=["POST"])
+def save():
+    """save information about game in its designated folder
+    game_name: name of the game being saved.
+    board: data describing game board.
+    json_records: data for special moves and other things
+    id_dict: key is id for piece, name is name of piece.
+    range_defs: describes how each piece can move
+    success or failure integer and message to backend.
+    """
+    print("POST request, save()""")
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    game_name = data['game_name']
+    board = data['board']
+    json_records = data['json_records']
+    id_dict = data['id_dict']
+    range_defs = data['range_defs']
+
+    # create game folder:
+    os.mkdir('./saved_games/{}'.format(game_name))
+
+    # saving fen
+    fen = get_fen(map_rf_to_xy(board))
+    f = open('./saved_games/{}/{}.fen'.format(game_name, game_name), 'w')
+    f.write(fen)
+    f.close()
+
+    # save json_records
+    with open('./saved_games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
+        json.dump(json_records, outfile, indent=4, sort_keys=False)
+    outfile.close()
+
+    # save id_dict
+    with open('./saved_games/{}/{}.ids'.format(game_name, game_name), 'w') as outfile:
+        json.dump(id_dict, outfile, indent=4, sort_keys=True)
+
+    # save range_defs
+    with open('./saved_games/{}/{}.defs'.format(game_name, game_name), 'w') as outfile:
+        json.dump(range_defs, outfile, indent=4, sort_keys=True)
+
+    print("Save Successful!")
+    return "Save Successfull", 201
+
+    # save image
+    # f = open('../../saved_games/{}/{}.svg'.format(game_name, game_name), 'w') # create
+    # board = chess.Board(fen)
+    # board_image = chess.svg.board(board=board)
+    # f.write(board_image)
+    # f.close()
+    # drawing = svg2rlg('../../saved_games/{}/{}.svg'.format(game_name, game_name))
+    # renderPM.drawToFile(drawing, '../../saved_games/{}/{}.png'.format(game_name, game_name), fmt="PNG")
+    # os.remove('../../saved_games/{}/{}.svg'.format(game_name, game_name))
 
 
 @app.route('/update_council', methods=['GET'])

@@ -102,7 +102,7 @@ export class NewGame extends React.Component {
                 this.setRangeDefs();
                 break;
             case 4:
-                this.comp = <GameRoot dataEntry={this.dataDict[this.gameName]} rangeDefs={this.rangeDefs} isCouncil={this.council} />
+                this.comp = <GameRoot gameName={this.gameName} dataEntry={this.dataDict[this.gameName]} rangeDefs={this.rangeDefs} isCouncil={this.council} />
                 break;
             default:
                 this.comp = <div>Error in NewGame</div>

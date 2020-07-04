@@ -64,7 +64,7 @@ export class LoadGame extends React.Component {
     }
     //need "isCouncil" flag.
     else {
-      return <GameRoot dataEntry={this.dataEntry} rangeDefs={this.dataEntry['range_defs']}  />
+      return <GameRoot gameName={this.gameName} dataEntry={this.dataEntry} rangeDefs={this.dataEntry['range_defs']}  />
     }
 
     //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop

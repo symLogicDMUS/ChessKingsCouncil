@@ -4,7 +4,10 @@ import {JsonRecords} from "./sharedData/JsonRecords";
 import {Fen} from "./sharedData/Fen";
 import {SpecialMoves} from "./Move/SpecialMoves";
 import {isPiece} from "./helpers/isPiece";
-import { Promo } from "./Components/Promo";
+import { Promo } from "./Modals/Promo";
+import {Saving} from "./Modals/Saving";
+import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
+import { SaveButton } from "./Components/SaveButton";
 import "./GameRoot.css";
 
 export class GameRoot extends React.Component {
@@ -18,16 +21,22 @@ export class GameRoot extends React.Component {
         this.specialMoves.update(this.props.dataEntry['moves'])
         this.jsonRecords.update(this.props.dataEntry['records'])
         this.board = this.props.dataEntry['board']
-        this.state = {board: this.props.dataEntry['board'] } //see footnote 1
+        this.state = {board: this.props.dataEntry['board'], specialCase:"none"} //see footnote 1.
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
         this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
         this.rangeDefs = this.props.rangeDefs;
         this.promo = false; //set true to alert need of promotion
+        this.save = this.save.bind(this);
+        this.updateSpecialCase = this.updateSpecialCase.bind(this);
+
 
         /*footnote 1: 2 different attributes for board because can make 
           intermediate updates before triggering new render and 
-          because board is logical choice for state.*/ 
+          because board is logical choice for state. The state also has specialCase
+          for pop up messages "saving...", "save successfull!", and the pop-up modal
+          for promoting a pawn
+        */ 
     }
 
     componentDidMount() {
@@ -36,18 +45,6 @@ export class GameRoot extends React.Component {
 
     BoardComponent() {
 
-        if (! this.promo) {
-            return <Board data={this} />
-        }
-
-        else {
-            this.promo = false;
-            return(
-                <Promo data={this} pawnLoc={this.specialMoves.currentDest}>
-                    {/* <InactiveBoard board={this.board} idDict={this.idDict} /> */}
-                </Promo>
-            );      
-        }
     }
 
     emitChange() {
@@ -55,11 +52,11 @@ export class GameRoot extends React.Component {
     }
 
     getBoard() {
-        return this.board
+        return this.board;
     }
 
     getColor() {
-        return this.turn
+        return this.turn;
     }
 
     getEnemyColor() {
@@ -83,6 +80,10 @@ export class GameRoot extends React.Component {
         }
     }
 
+    updateSpecialCase(case_) {
+        this.setState({specialCase: case_});
+    }
+
     callBackend() {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
@@ -97,6 +98,11 @@ export class GameRoot extends React.Component {
             this.ranges = dataEntry['ranges']
             this.specialMoves.update(dataEntry['moves'])
         });    
+    }
+
+    updateBackend() {
+        /**called after a move is made.*/
+        return Promise.all([this.callBackend()])
     }
 
     updateFrontend(start, dest) {
@@ -123,14 +129,36 @@ export class GameRoot extends React.Component {
         return 
     }
 
-    updateBackend() {
-        /**called after a move is made.*/
-        return Promise.all([this.callBackend()])
+    saveGame() {
+        return fetch('/save', {
+            method:"POST",
+            body:JSON.stringify({
+                game_name: this.props.gameName,
+                board:this.getBoard(),
+                json_records: this.jsonRecords.getRecords(),
+                id_dict: this.idDict,
+                range_defs: this.rangeDefs
+            })
+        })
+    }
+
+    save() {
+        /**save the game in progress */
+        return Promise.all([this.saveGame()])
     }
 
 
     render() {
-        return this.BoardComponent()
+        return (
+            <>        
+                <Board data={this} />
+                {this.state.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
+                {this.state.specialCase === "saving" && (<Saving />)}
+                {this.state.specialCase === "save-success" && (<SaveSuccessfull updateSpecialCase={this.updateSpecialCase} />)}
+                <SaveButton save={this.save} updateSpecialCase={this.updateSpecialCase} />
+            </>
+
+        )
     }
 
 }

@@ -286,7 +286,7 @@ export class CreatePiece extends React.Component {
                  spanDisplays={this.spanDisplays} 
                  jumps={this.jumps}
                  pieceLoc={this.location} 
-                 pieceImg={this.pieceImg["white"]} //white used to develop range and black mirrors it
+                 pieceImg={this.pieceImg["white"]}
                 />
             </body>
         )
