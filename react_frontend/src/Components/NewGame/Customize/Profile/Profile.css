@@ -4,7 +4,7 @@
     z-index: inherit;
     top: 50px;
     display: grid;
-    grid-template-columns:  1fr;
+    grid-template-columns: 1fr;
     background-color: #515151;
     border-top: 1px solid black;
     height: 800px;
@@ -31,7 +31,7 @@
         z-index: inherit;
         width: 900px;
         grid-template-rows: 60px;
-        grid-template-columns: 180px 240px 260px;
+        grid-template-columns: 180px 100px 240px 260px;
         margin-bottom: 10px;
         /*border: 1px dashed white;*/
         /* column-gap: 10px; */
@@ -53,66 +53,83 @@
             /*border: 1px dashed white;*/
         }
 
-
-    .profile-header .promotion {
-        z-index: inherit;
-        display: grid;
-        grid-row: 1;
-        grid-column: 2;
-        grid-template-columns: 108px 60px; 
-        grid-template-rows: 36px; 
-        text-align: left;
-        /*border: 1px dashed white;*/
-    }
-
-        .promotion .promotion-label {
-            z-index: inherit;
-            grid-column: 1;
-            text-align: left;
-            padding-top: 16px; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 20px; 
-            color: white;
-            /*border: 1px dashed white;*/
-        }
-
-        .promotion .promotion-checkbox {
-            z-index: inherit;
-            margin-top: 10px;
-            margin-left: 8px;
+        .profile-header .spacer {
+            grid-row: 1;
             grid-column: 2;
             /*border: 1px dashed white;*/
         }
 
-    .profile-header .substitute {
-        z-index: inherit;
-        display: grid;
-        grid-template-columns: 60px 24px; 
-        grid-row: 1;
-        grid-column: 3;
-        /*border: 1px dashed white;*/
-    }
-
-        .substitute .sub-label {
+        .profile-header .promotion {
             z-index: inherit;
-            grid-column: 1;
+            display: grid;
             grid-row: 1;
-            color: white;
+            grid-column: 3;
+            grid-template-columns: 108px 60px; 
+            grid-template-rows: 36px; 
             text-align: left;
-            margin-left: 6px; 
-            padding-top: 17px; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 20px; 
             /*border: 1px dashed white;*/
         }
 
-        .substitute .sub-dropdown {
+            .promotion .promotion-label {
+                z-index: inherit;
+                grid-column: 1;
+                text-align: left;
+                padding-top: 16px; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 20px; 
+                color: white;
+                /*border: 1px dashed white;*/
+            }
+
+            .promotion .promotion-checkbox {
+                z-index: inherit;
+                margin-top: 10px;
+                margin-left: 8px;
+                grid-column: 2;
+                /*border: 1px dashed white;*/
+            }
+
+        .profile-header .substitute {
             z-index: inherit;
-            grid-column: 2;
-            width: 180px; 
+            display: grid;
+            grid-template-columns: 60px 24px; 
             grid-row: 1;
-            margin-top: 11px; 
-            margin-left: 6px; 
+            grid-column: 4;
             /*border: 1px dashed white;*/
         }
 
+            .substitute .sub-label {
+                z-index: inherit;
+                grid-column: 1;
+                grid-row: 1;
+                color: white;
+                text-align: left;
+                margin-left: 6px; 
+                padding-top: 17px; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 20px; 
+                /*border: 1px dashed white;*/
+            }
+
+            .substitute .sub-dropdown {
+                z-index: inherit;
+                grid-column: 2;
+                width: 180px; 
+                grid-row: 1;
+                margin-top: 11px; 
+                margin-left: 6px; 
+                /*border: 1px dashed white;*/
+            }
+
+.name-tooltip {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    word-wrap: break-word;
+    color: white;
+    background-color: #515151;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}

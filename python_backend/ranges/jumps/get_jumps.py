@@ -6,6 +6,7 @@ from ranges.jumps.filter_init_jumps import filter_init_jumps
 
 def get_jumps(offsets, board, sqr, color):
     """jumps are square that can be reached through a piece jumping"""
+    print(offsets)
     jumps = get_init_jumps(offsets, board, sqr, color)
     jumps = filter_init_jumps(jumps, board, color)
     return jumps

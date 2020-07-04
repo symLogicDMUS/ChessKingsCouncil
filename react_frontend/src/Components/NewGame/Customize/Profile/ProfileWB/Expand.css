@@ -1,15 +1,32 @@
+.color-expand {
+    z-index: inherit;
+    grid-column: 4;
+    grid-row: 1;
+    height: 12px;
+    width: 12px;
+    padding-top: 15px;
+} .color-expand:hover {
+    cursor: pointer;
+}
+
 .span-expand {
+    z-index: inherit;
     grid-column: 4;
     grid-row: 2;
     height: 12px;
     width: 12px;
+    padding-top: 15px;
 } .span-expand:hover {
     cursor: pointer;
 }
 
 .offsets-expand {
+    z-index: inherit;
     grid-column: 4;
     grid-row: 3;
     height: 12px;
     width: 12px;
+    padding-top: 15px;
+} .offsets-expand:hover {
+    cursor: pointer;
 }

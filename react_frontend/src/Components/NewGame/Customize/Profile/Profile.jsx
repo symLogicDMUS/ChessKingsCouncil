@@ -1,6 +1,7 @@
 import React from "react";
 import {CheckBox} from "./CheckBox";
 import {SubDropdown} from "./SubDropdown";
+import {PieceNameLabel} from "./PieceNameLabel";
 import {ProfileWB} from "./ProfileWB/ProfileWB";
 import "./Profile.css";
 import "./ProfileWB/ProfileWB.css";
@@ -26,9 +27,7 @@ export class Profile extends React.Component {
         return (
             <div className="profile">
                 <div className="profile-header">
-                    <div className="name-of-piece">
-                        {this.props.pieceName}
-                    </div>
+                    <PieceNameLabel pieceName={this.props.pieceName} nameTooltip={this.props.nameTooltip} />
                     <div className="substitute">
                         <div className="sub-label">
                             Sub:
@@ -49,8 +48,8 @@ export class Profile extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="profile-item"><ProfileWB def={this.props.defs[this.props.pieceName]["W"]} piece={this.props.pieceName} color="W" expand={this.props.expand} returnExpand={this.returnExpand} /></div>
-                <div className="profile-item"><ProfileWB def={this.props.defs[this.props.pieceName]["B"]} piece={this.props.pieceName} color="B" expand={this.props.expand} returnExpand={this.returnExpand} /></div>
+                <div className="profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["W"]} piece={this.props.pieceName} color="W" expand={this.props.expand} /></div>
+                <div className="profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["B"]} piece={this.props.pieceName} color="B" expand={this.props.expand} /></div>
             </div>
         );    
     }

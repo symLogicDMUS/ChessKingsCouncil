@@ -27,5 +27,6 @@ export const imgNames =
  'x_wing_white.svg',
  'x_wing_black.svg',
  'white_brian.svg',
- 'black_brian.svg'
+ 'black_brian.svg',
+ 'x.svg'
 ];
