@@ -17,4 +17,5 @@ export function castleMove(data, start, dest) {
     }
     var [rStart, rDest] = getRookStartAndDest(dest);
     ply(data, rStart, rDest);
+    data.specialMoves.removeCastle([start, dest]);
 }

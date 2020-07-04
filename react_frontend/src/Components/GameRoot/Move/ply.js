@@ -10,5 +10,5 @@ export function ply(data, start, dest) {
     }
     data.board[dest] = data.board[start]
     data.board[start] = '#'
-    data.updateFrontend(start, dest)
+    data.updateJsonRecords(start, dest)
 }

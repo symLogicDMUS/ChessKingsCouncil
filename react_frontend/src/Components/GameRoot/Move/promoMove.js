@@ -8,7 +8,5 @@ export function promoMove(data, start, dest) {
 
     data.promo = true;
     data.specialMoves.currentDest = dest;
-    let loc = data.specialMoves.promos.indexOf([start, dest])
-    data.specialMoves.promos.splice(loc, 1);
-    
+    data.specialMoves.removePromo([start, dest]);
 }

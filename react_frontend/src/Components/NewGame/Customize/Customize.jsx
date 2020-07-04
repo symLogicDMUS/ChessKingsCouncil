@@ -152,8 +152,7 @@ export class Customize extends React.Component {
     }
 
     accept() {
-        
-        this.loadNewCustom().then( ([idDict]) => this.props.loadNewCustom(idDict));
+        this.loadNewCustom().then( ([idDict]) => this.props.loadNewCustom(idDict, this.promos));
         this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
         this.setState({binaryValue: ! this.state.binaryValue})
     }

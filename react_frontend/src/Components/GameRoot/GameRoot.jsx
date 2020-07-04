@@ -25,7 +25,8 @@ export class GameRoot extends React.Component {
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
         this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
-        this.rangeDefs = this.props.rangeDefs;
+        this.rangeDefs = this.props.dataEntry['defs'];
+        this.promoChoices = this.props.dataEntry['promo_choices'];
         this.promo = false; //set true to alert need of promotion
         this.save = this.save.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
@@ -55,20 +56,11 @@ export class GameRoot extends React.Component {
         return this.board;
     }
 
-    getColor() {
+    getTurn() {
         return this.turn;
     }
 
-    getEnemyColor() {
-        if (this.turn === "W") {
-            return "B"
-        }
-        else {
-            return "W"
-        }
-    }
-
-    toggleColor() {
+    toggleTurn() {
         if (this.turn === "W") {
             this.turn = "B"
         }
@@ -80,6 +72,15 @@ export class GameRoot extends React.Component {
         }
     }
 
+    getEnemyColor() {
+        if (this.turn === "W") {
+            return "B"
+        }
+        else {
+            return "W"
+        }
+    }
+
     updateSpecialCase(case_) {
         this.setState({specialCase: case_});
     }
@@ -87,7 +88,7 @@ export class GameRoot extends React.Component {
     callBackend() {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
-                                   "color":this.getColor(),
+                                   "color":this.getTurn(),
                                    "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
                                 })
         return fetch(`/${this.props.dataEntry.flask_method}`, {
@@ -105,28 +106,31 @@ export class GameRoot extends React.Component {
         return Promise.all([this.callBackend()])
     }
 
-    updateFrontend(start, dest) {
+    updateJsonRecords(start, dest) {
 
         let fenId = this.board[dest][1].toLowerCase();
 
         if (fenId === 'p') {
-            this.jsonRecords.pawnHistories[this.board[dest]].push(dest)
-            this.jsonRecords.numConsecutiveNonPawnMoves = 0
-            this.jsonRecords.lastPawnMove = dest
-            if (isPiece(this.captured))
-                delete this.jsonRecords.pawnHistories[this.board[this.captured]]
+            this.jsonRecords.pawnHistories[this.board[dest]].push(dest);
+            this.jsonRecords.numConsecutiveNonPawnMoves = 0;
+            this.jsonRecords.lastPawnMove = dest;
+            if (isPiece(this.captured));
+                delete this.jsonRecords.pawnHistories[this.board[this.captured]];
         }
 
         else {
             this.jsonRecords.numConsecutiveNonPawnMoves++;
             if (fenId  === 'k')
-                this.jsonRecords.kingsMoved[start] = true
-            if ( fenId === 'r')
-                this.jsonRecords.rooksMoved[start] = true
+                this.jsonRecords.kingsMoved[start] = true;
+            if (fenId === 'r')
+                this.jsonRecords.rooksMoved[start] = true;
         }
 
-        //TODO: update fenObject here
         return 
+    }
+
+    updateFen(start, dest) {
+        this.fenObj.update(this.specialMoves, this.jsonRecords, start, dest, this.captured, this.turn)
     }
 
     saveGame() {
@@ -136,6 +140,7 @@ export class GameRoot extends React.Component {
                 game_name: this.props.gameName,
                 board:this.getBoard(),
                 json_records: this.jsonRecords.getRecords(),
+                fen_obj: this.fenObj.getData(),
                 id_dict: this.idDict,
                 range_defs: this.rangeDefs
             })

@@ -14,6 +14,8 @@ from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from parse_data import parse_data
 from fenParser.getFen.top.get_fen import get_fen
 from id_assign_.top.id_assign import id_assign
+from z_flask.gen_fen_str import get_fen_str
+from z_flask.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
 from pprint import pprint
 import json
 import os
@@ -61,7 +63,7 @@ def save():
     """save information about game in its designated folder
     game_name: name of the game being saved.
     board: data describing game board.
-    json_records: data for special moves and other things
+    json_records: data for special moves and other things (the dict, not the object)
     id_dict: key is id for piece, name is name of piece.
     range_defs: describes how each piece can move
     success or failure integer and message to backend.
@@ -72,19 +74,24 @@ def save():
     game_name = data['game_name']
     board = data['board']
     json_records = data['json_records']
+    fen_obj = data['fen_obj']
     id_dict = data['id_dict']
     range_defs = data['range_defs']
 
     # create game folder:
-    os.mkdir('./saved_games/{}'.format(game_name))
+    if not os.path.isdir('./saved_games/{}'.format(game_name)):
+        os.mkdir('./saved_games/{}'.format(game_name))
 
     # saving fen
     fen = get_fen(map_rf_to_xy(board))
+    fen = get_fen_str(fen, fen_obj)
+    print(fen)
     f = open('./saved_games/{}/{}.fen'.format(game_name, game_name), 'w')
     f.write(fen)
     f.close()
 
     # save json_records
+    json_records["pawn_histories"] = replace_pawn_id_with_rankfile(json_records["pawn_histories"])
     with open('./saved_games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
         json.dump(json_records, outfile, indent=4, sort_keys=False)
     outfile.close()
@@ -136,15 +143,11 @@ def assign_ids():
 def get_data_dict():
     """get all the saved game data at the start of the game"""
     print('GET request, getting data of all the games')
-    f = open("./defs.json", "r")
-    data = f.read()
-    defs = json.loads(data)
-    json.dumps(defs, indent=4, sort_keys=False)
     games = os.listdir('./example_games')
     data_dict = {}
     for game_name in games:
         print(game_name)
-        data_dict[game_name] = parse_data(game_name, defs)
+        data_dict[game_name] = parse_data(game_name)
     return jsonify(data_dict)
 
 

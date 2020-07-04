@@ -7,7 +7,7 @@ from pprint import pprint
 import json
 
 
-def get_data(game_name, defs):
+def get_data(game_name):
     """get the data saved in the files for a game_name
     WARNING: uses relative paths, should only be called from top level of application
     """

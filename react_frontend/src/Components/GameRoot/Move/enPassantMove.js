@@ -19,7 +19,8 @@ export function enPassantMove(data, start, dest, color) {
     if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
         data.captured = data.board[rf]
         data.board[rf] = '#'
-        delete data.jsonRecords.pawnHistories[data.captured]
+        delete data.jsonRecords.pawnHistories[data.captured];
+        data.specialMoves.removeEnpassant([start, dest]);
         return
     }
 
@@ -27,7 +28,8 @@ export function enPassantMove(data, start, dest, color) {
     if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
         data.captured = data.board[rf]
         data.board[rf] = '#'
-        delete data.jsonRecords.pawnHistories[data.captured]
+        delete data.jsonRecords.pawnHistories[data.captured];
+        data.specialMoves.removeEnpassant([start, dest]);
         return
     }
 

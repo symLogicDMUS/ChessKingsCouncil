@@ -10,7 +10,11 @@ class JsonRecords(object):
     """contains info for new or saved game relevant to performing a castle or en_passant"""
 
     def __init__(self, file, board, j_records=None):
-
+        """new instance of object created for every update to piece final_ranges i.e. @app.update()
+        :param file: json record file for a particular game
+        :param board: dict discribing the game board
+        :param j_records: contains the records of a game in progress
+        """
         if j_records is None:
             f = open(file, "r")
             json_data = f.read()

@@ -14,9 +14,9 @@ from ranges.top.get_final_ranges import get_final_ranges
 from coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 
 
-def parse_data(game_name, defs):
+def parse_data(game_name):
     """replicate behavior without api call"""
-    fen_obj, board, json_records, update_method, defs_ = get_data(game_name, defs)
+    fen_obj, board, json_records, update_method, defs_ = get_data(game_name)
     color = fen_obj.turn.upper()
     init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
