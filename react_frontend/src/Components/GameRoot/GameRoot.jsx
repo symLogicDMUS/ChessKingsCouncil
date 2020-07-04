@@ -21,7 +21,7 @@ export class GameRoot extends React.Component {
         this.specialMoves.update(this.props.dataEntry['moves'])
         this.jsonRecords.update(this.props.dataEntry['records'])
         this.board = this.props.dataEntry['board']
-        this.state = {board: this.props.dataEntry['board'], specialCase:"none"} //see footnote 1.
+        this.state = {board: this.props.dataEntry['board'], bValue:true} //see footnote 1.
         this.turn = this.props.dataEntry['color']
         this.ranges = this.props.dataEntry['ranges']
         this.idDict = this.props.dataEntry['id_dict'] // id:piece-name dict
@@ -29,6 +29,7 @@ export class GameRoot extends React.Component {
         this.promoChoices = this.props.dataEntry['promo_choices'];
         this.promo = false; //set true to alert need of promotion
         this.save = this.save.bind(this);
+        this.update = this.update.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
 
 
@@ -42,10 +43,6 @@ export class GameRoot extends React.Component {
 
     componentDidMount() {
         document.body.className = "game-root-body";
-    }
-
-    BoardComponent() {
-
     }
 
     emitChange() {
@@ -81,8 +78,12 @@ export class GameRoot extends React.Component {
         }
     }
 
+    update() {
+        this.setState({bValue: ! this.state.bValue});
+    }
+
     updateSpecialCase(case_) {
-        this.setState({specialCase: case_});
+        this.specialCase = case_;
     }
 
     callBackend() {
@@ -157,10 +158,10 @@ export class GameRoot extends React.Component {
         return (
             <>        
                 <Board data={this} />
-                {this.state.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
-                {this.state.specialCase === "saving" && (<Saving />)}
-                {this.state.specialCase === "save-success" && (<SaveSuccessfull updateSpecialCase={this.updateSpecialCase} />)}
-                <SaveButton save={this.save} updateSpecialCase={this.updateSpecialCase} />
+                {this.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
+                {this.specialCase === "saving" && (<Saving />)}
+                {this.specialCase === "save-success" && (<SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />)}
+                <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
             </>
 
         )

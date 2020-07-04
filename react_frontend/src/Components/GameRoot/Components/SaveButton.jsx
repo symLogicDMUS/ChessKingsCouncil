@@ -9,9 +9,11 @@ export class SaveButton extends React.Component {
     }
  
     save() {
-        this.props.updateSpecialCase("saving")
+        this.props.updateSpecialCase("saving");
+        this.props.update();
         this.props.save();
         this.props.updateSpecialCase("save-success");
+        this.props.update();
     }
 
     render() {

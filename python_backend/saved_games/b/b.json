@@ -19,9 +19,8 @@
         "c2": [
             "c2"
         ],
-        "d3": [
-            "d2",
-            "d3"
+        "d2": [
+            "d2"
         ],
         "e2": [
             "e2"
@@ -44,9 +43,8 @@
         "c7": [
             "c7"
         ],
-        "d5": [
-            "d7",
-            "d5"
+        "d7": [
+            "d7"
         ],
         "e7": [
             "e7"
@@ -61,7 +59,7 @@
             "h7"
         ]
     },
-    "last_pawn_move": "d5",
+    "last_pawn_move": "None",
     "num_consecutive_non_pawn_moves": 2,
     "game_status": 1,
     "condition": "",

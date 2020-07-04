@@ -6,7 +6,7 @@ export function promoMove(data, start, dest) {
         return 
     }
 
-    data.promo = true;
+    data.specialCase = "promo";
     data.specialMoves.currentDest = dest;
     data.specialMoves.removePromo([start, dest]);
 }

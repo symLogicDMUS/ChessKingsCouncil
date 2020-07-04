@@ -1,10 +1,12 @@
 {
     "b": "Bishop",
+    "f": "Firelord",
+    "g": "x_wing",
     "k": "King",
-    "n": "Jester",
+    "n": "Knight",
     "p": "Pawn",
-    "q": "EvilMorty",
-    "r": "x_wing",
-    "w": "Firelord",
-    "x": "Brian"
+    "q": "Brian",
+    "r": "Rook",
+    "s": "Jester",
+    "w": "EvilMorty"
 }

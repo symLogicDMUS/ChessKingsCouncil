@@ -1,17 +1,17 @@
 import React from "react";
 import {imgNames} from  "../../MyPieces/imgNames";
-
+import {pieceImgDict} from "../../MyPieces/pieceImgDict"
 export class PromoChoice extends React.Component {
 
     constructor(props) {
         super(props);
-        this.data = this.props.data
+        this.data = this.props.data;
         this.updateBoard = this.updateBoard.bind(this);
         this.promote = this.promote.bind(this);
         this.color = this.data.getEnemyColor(); // color filped since move already occured. need previous
         this.genId = this.color + this.props.promoId.toUpperCase();
         this.pieceName = this.data.idDict[this.props.promoId];
-        this.pieceImageNames = imgNames[this.pieceName] //2 names, one W other B
+        this.def = this.data.rangeDefs[this.pieceName][this.color];
         this.pawnLoc = this.props.pawnLoc;
     }
 
@@ -41,7 +41,9 @@ export class PromoChoice extends React.Component {
 
     updateBoard() {
         this.data.updateBackend().then(([result]) => {
-            this.data.emitChange()
+            this.data.emitChange();
+            this.props.data.updateSpecialCase("none");
+            this.props.data.update();
           })
     }
  
@@ -49,12 +51,12 @@ export class PromoChoice extends React.Component {
         let idNumber = this.getIdNumber()
         let newId = this.getNewId(idNumber)
         this.replacePawn(this.pawnLoc, newId)
-        this.updateBoard()
+        this.updateBoard();
     }
 
     render() {
         return (
-                <img src={require(`../../MyPieces/Images/${this.pieceImageNames[this.color]}`)} onClick={this.promote} />
+                <img src={require(`../../MyPieces/Images/${this.def["img"]}`)} onClick={this.promote} />
         );
     }
 

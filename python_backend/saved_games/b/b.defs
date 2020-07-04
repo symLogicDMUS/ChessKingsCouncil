@@ -405,6 +405,106 @@
             "spans": []
         }
     },
+    "Knight": {
+        "B": {
+            "img": "BN.svg",
+            "offsets": [
+                [
+                    -1,
+                    -2
+                ],
+                [
+                    -1,
+                    2
+                ],
+                [
+                    1,
+                    -2
+                ],
+                [
+                    1,
+                    2
+                ],
+                [
+                    -2,
+                    -1
+                ],
+                [
+                    -2,
+                    1
+                ],
+                [
+                    2,
+                    -1
+                ],
+                [
+                    2,
+                    1
+                ]
+            ],
+            "spans": []
+        },
+        "W": {
+            "img": "WN.svg",
+            "offsets": [
+                [
+                    1,
+                    2
+                ],
+                [
+                    1,
+                    -2
+                ],
+                [
+                    -1,
+                    2
+                ],
+                [
+                    -1,
+                    -2
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    2,
+                    -1
+                ],
+                [
+                    -2,
+                    1
+                ],
+                [
+                    -2,
+                    -1
+                ]
+            ],
+            "spans": []
+        }
+    },
+    "Rook": {
+        "B": {
+            "img": "BR.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr180d",
+                "step_1sqr270d",
+                "step_1sqr0d",
+                "step_1sqr90d"
+            ]
+        },
+        "W": {
+            "img": "WR.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr0d",
+                "step_1sqr90d",
+                "step_1sqr180d",
+                "step_1sqr270d"
+            ]
+        }
+    },
     "x_wing": {
         "B": {
             "img": "x_wing_black.svg",

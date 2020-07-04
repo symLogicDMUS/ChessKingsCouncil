@@ -25,8 +25,10 @@ export class Promo extends React.Component {
 
     render() {
         return (
-            <div className="img-group">
-                {this.promoChoices}
+            <div className="promo-modal">
+                <div className="img-group">
+                    {this.promoChoices}
+                </div>
             </div>
         );
     }
