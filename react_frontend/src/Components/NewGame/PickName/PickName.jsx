@@ -1,5 +1,4 @@
 import React from "react";
-import {Button} from "semantic-ui-react";
 import "./PickName.css";
 
 export class PickName extends React.Component {
@@ -21,13 +20,13 @@ export class PickName extends React.Component {
 
   render() {
     return (
-      <div class="div">
-        <img src={require("./Images/EnterName.svg")} className="components" />
-        <form onSubmit={this.setName}>
-          <input type="text" id="gname" value={this.state.userInput} onChange={this.handleUserInput} className="components"/>
-          <input type="submit" value="Submit" className="components"/>
-        </form>
-      </div>
+        <div class="div">
+          <img src={require("./Images/EnterName.svg")} className="components" />
+          <form onSubmit={this.setName}>
+            <input type="text" id="gname" value={this.state.userInput} onChange={this.handleUserInput} className="components"/>
+            <input type="submit" value="Submit" className="components"/>
+          </form>
+        </div>
     );
   }
 }

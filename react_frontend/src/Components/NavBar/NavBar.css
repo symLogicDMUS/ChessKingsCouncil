@@ -1,0 +1,79 @@
+.nav-bar {
+    position: absolute;
+    display: grid;
+    z-index: 5;
+    width: 505px;
+    height: 50px;
+    left:320px;
+    top: 10px;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 50px;
+    column-gap: 15px;
+    /*border: 1px dashed white;*/
+}
+
+.grid-item {
+    opacity: 80%;
+    border-radius: 10px;
+}
+
+.home {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 1;
+    /*border: 1px dashed white;*/
+}
+
+.new-game {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 2;
+    /*border: 1px dashed white;*/
+}
+
+.load-game {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 3;
+    /*border: 1px dashed white;*/
+}
+
+.create-piece {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 4;
+    /*border: 1px dashed white;*/
+}
+
+.chess-rules {
+    grid-row: 1;
+    grid-column: 5;
+    /*border: 1px dashed white;*/
+}
+
+.council-rules {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 7;
+    /*border: 1px dashed white;*/
+}
+
+.my-pieces {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 6;
+    /*border: 1px dashed white;*/
+}
+
+.author-github {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 8;
+    /*border: 1px dashed white;*/
+}
+
+.link-icon:hover {
+    fill: white;
+    box-shadow: 0px 0px 10px white;
+}
+

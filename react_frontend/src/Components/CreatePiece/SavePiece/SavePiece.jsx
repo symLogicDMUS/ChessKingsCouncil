@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ConfirmOverwrite } from "./Modals/ConfirmOverwrite/ConfirmOverwrite";
 import {Success} from "./Modals/Success/Success";
-import "./Save.css";
+import "./SavePiece.css";
 import { InvalidName } from "./Modals/InvalidName/InvalidName";
 
 export class Save extends React.Component {
@@ -18,19 +18,19 @@ export class Save extends React.Component {
         switch(this.props.status) {
             case "saving":
                 this.modal = 
-                <div className="save-modal">
+                <div className="save-piece-modal">
                     <div className="saving-ellipsis">Saving...</div>;
                 </div>
                 break;
             case "confirm-overwrite":
                 this.modal =                 
-                <div className="save-modal">
+                <div className="save-piece-modal">
                     <ConfirmOverwrite  respond={this.ynOverwrite} name={this.props.name} />
                 </div>
                 break;
             case "success":
                 this.modal = 
-                <div className="save-modal">
+                <div className="save-piece-modal">
                     <Success saveStatus={this.props.saveStatus} />
                 </div>
                 break;
@@ -75,7 +75,7 @@ export class Save extends React.Component {
 
         return(
             <>
-                <img src={require("./floppyd.svg")} className="save-button" onClick={this.save} />
+                <img src={require("./floppyd.svg")} className="save-piece-button" onClick={this.save} />
                 {this.modal}
             </>
         );

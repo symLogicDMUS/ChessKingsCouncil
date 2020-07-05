@@ -14,7 +14,8 @@ import {pieceImgDict} from "../MyPieces/pieceImgDict";
 import {getRotations} from "./getRotations";
 import {flipOffsets} from "./flipOffsets";
 import {getStepFuncNames} from "./getStepFuncNames"
-import {Save} from "./Save/Save";
+import {NavBar} from "../NavBar/NavBar";
+import {Save} from "./SavePiece/SavePiece";
 import "./CreatePiece.css";
 
 
@@ -268,7 +269,8 @@ export class CreatePiece extends React.Component {
     render() {
         
         return(
-            <body>
+            <div>
+                <NavBar />
                 <Name name={this.name} updateName={this.updateName} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
@@ -288,7 +290,7 @@ export class CreatePiece extends React.Component {
                  pieceLoc={this.location} 
                  pieceImg={this.pieceImg["white"]}
                 />
-            </body>
+            </div>
         )
     }
 }

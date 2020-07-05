@@ -2,17 +2,16 @@ import React from "react";
 import Backend from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 import {BoardSquare} from "./BoardSquare";
-import {Square} from "./Square";
 import {Piece} from "./Piece";
 import {rankfiles} from "../../helpers/rankfiles"
 import {sqrClasses} from "../helpers/sqrClasses";
 import {sqrColors} from "../helpers/sqrColors";
 import {getPosPx} from "../helpers/getPosPx";
+import { getPieceImg } from "../../MyPieces/getPieceImg";
 import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
 import "../css/Piece.css";
 import "../css/Board.css";
-import { getPieceImg } from "../../MyPieces/getPieceImg";
 
 export class Board extends React.Component {
 

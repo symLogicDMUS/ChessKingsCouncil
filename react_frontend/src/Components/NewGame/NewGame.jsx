@@ -62,6 +62,8 @@ export class NewGame extends React.Component {
         this.setState({step: this.state.step + 1});
     }
 
+    
+
     loadNewCustom(idDict, promos) {
         /**
          * load the data for new-game but then change the idDict to
@@ -133,12 +135,11 @@ export class NewGame extends React.Component {
                 this.createGame();
                 break;
             case 3:
-                //this.comp = <GameRoot gameName={this.gameName} dataEntry={this.dataDict[this.gameName]} isCouncil={this.council} />
                 this.comp = <Redirect to={{
                              pathname:"/NewGame/Play",
-                             state: {gameName: this.gameName, 
-                                     dataEntry:this.dataDict[this.gameName], 
-                                     isCouncil:this.council}
+                             state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
+                                     dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])), 
+                                     isCouncil:JSON.parse(JSON.stringify(this.council))}
                             }} />
                 break;
             default:
