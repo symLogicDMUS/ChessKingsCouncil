@@ -1,5 +1,0 @@
-1. finish implementing get_case.py
-2. run more test and insert try...except temporarily, where necessary, to find bugs. use except *ErrorType* for the type
-   of error thrown
-3. write documentation for all the different variables, dicts, lists, and other data structures you created.
-4. start learning how to use Python API with React

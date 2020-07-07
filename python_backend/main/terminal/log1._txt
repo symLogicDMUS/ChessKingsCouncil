@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/python_backend/main/terminal/test_moves.py", line 76, in run_tests
-    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
-TypeError: get_ranges() missing 1 required positional argument: 'defs_'
-(6, 8), (1, 8)
-

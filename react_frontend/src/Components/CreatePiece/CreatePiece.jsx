@@ -6,14 +6,14 @@ import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
 import {MyBoard} from "./Board/MyBoard";
 import {NameLabel} from "./NameLabel/NameLabel";
+import {pieceImgDict} from "../MyPieces/pieceImgDict";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {isIndentifier} from "../helpers/isIdentifier";
 import {xyToRf, rfToXy} from "../helpers/crdCnvrt"
-import {pieceImgDict} from "../MyPieces/pieceImgDict";
-import {getRotations} from "./getRotations";
-import {flipOffsets} from "./flipOffsets";
-import {getStepFuncNames} from "./getStepFuncNames"
+import {getRotations} from "./helpers/getRotations";
+import {flipOffsets} from "./helpers/flipOffsets";
+import {getStepFuncNames} from "./helpers/getStepFuncNames"
 import {NavBar} from "../NavBar/NavBar";
 import {Save} from "./SavePiece/SavePiece";
 import {defs} from "../tests/defs1";
@@ -89,7 +89,7 @@ export class CreatePiece extends React.Component {
         //binds
         this.updateName = this.updateName.bind(this);
         this.setSaveStatus = this.setSaveStatus.bind(this);
-        this.togleDisplaySpan = this.togleDisplaySpan.bind(this);
+        this.togleSpan = this.togleSpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setLoc = this.setLoc.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
@@ -115,7 +115,8 @@ export class CreatePiece extends React.Component {
 
     save() {
 
-        /**TODO: add guards against bad user input for name */
+        /**TODO: add guards against all possible bad user input for name */
+
         let namecase = this.getNameCase();
         if (namecase != "valid") {
             this.setSaveStatus(namecase);
@@ -129,16 +130,16 @@ export class CreatePiece extends React.Component {
             "B":{"spans":null, "offsets": null, "img": null}
         }
 
-        this.spans = Object.keys(this.spans).filter(s => this.spans[s])
+        const angles = [];
+        for (var s of Object.keys(this.spans)) {
+            if (this.spans[s])
+                angles.push(s);
+        }
 
-        this.defs[this.name]['W']['spans'] = this.spans;
+        this.defs[this.name]['W']['spans'] = getStepFuncNames(angles);
+        this.defs[this.name]['B']['spans'] = getStepFuncNames(getRotations(angles, 180));
         this.defs[this.name]['W']["offsets"] = this.offsets;
-        this.defs[this.name]['B']['spans'] = getRotations(this.spans, 180);
         this.defs[this.name]['B']["offsets"] = flipOffsets(this.offsets);
-
-        this.defs[this.name]['W']['spans'] = getStepFuncNames(this.defs[this.name]['W']['spans']);
-        this.defs[this.name]['B']['spans'] = getStepFuncNames(this.defs[this.name]['B']['spans']);
-
         this.defs[this.name]['W']['img'] = this.imgName['white'];
         this.defs[this.name]['B']['img'] = this.imgName['black'];
 
@@ -158,18 +159,6 @@ export class CreatePiece extends React.Component {
         this.update();
     }
 
-    reset() {
-        Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
-        Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
-        Object.keys(this.jumps).forEach(rf => {this.jumps[rf] = false});
-        this.name = ""; 
-        this.pieceImg = {"white":null, "black":null};
-        this.location = "d4"; 
-        this.offsets = []; 
-        this.saveStatus = "none";
-        this.update();
-    }
-
     updateName(input) {
         this.name = input;
         this.update();
@@ -181,7 +170,7 @@ export class CreatePiece extends React.Component {
         this.update();
     }
 
-    togleDisplaySpan(angle) {
+    togleSpan(angle) {
         this.spans[angle] = ! this.spans[angle];
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
@@ -190,11 +179,6 @@ export class CreatePiece extends React.Component {
             rf = stepFunc(rf);
         }
         this.update();
-    }
-
-    resetSpanDisplays() {
-        //turn off all displays
-        this.spanDisplays = Object.values(this.spanDisplays).map(isSpan => isSpan & false)
     }
 
     setSpan(angle) {
@@ -211,6 +195,11 @@ export class CreatePiece extends React.Component {
             if(isActive) 
                 this.setSpan(angle)
         })
+    }
+
+    resetSpanDisplays() {
+        //turn off all displays
+        this.spanDisplays = Object.values(this.spanDisplays).map(isSpan => isSpan & false)
     }
 
     togleJump(rf, offset) {
@@ -267,6 +256,18 @@ export class CreatePiece extends React.Component {
 
     }
 
+    reset() {
+        Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
+        Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
+        Object.keys(this.jumps).forEach(rf => {this.jumps[rf] = false});
+        this.name = ""; 
+        this.pieceImg = {"white":null, "black":null};
+        this.location = "d4"; 
+        this.offsets = []; 
+        this.saveStatus = "none";
+        this.update();
+    }
+
     render() {
         
         return(
@@ -274,7 +275,7 @@ export class CreatePiece extends React.Component {
                 <NavBar />
                 <Name name={this.name} updateName={this.updateName} />
                 <NameLabel name={this.name} />
-                <Range spans={this.spans} togleDisplaySpan={this.togleDisplaySpan} />
+                <Range spans={this.spans} togleSpan={this.togleSpan} />
                 <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
                 <Save 
