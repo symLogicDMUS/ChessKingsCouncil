@@ -169,8 +169,7 @@ export class Customize extends React.Component {
             if (this.expandValue === "color") {
                 return <ExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} expand={this.expand}
                         list={[`color: ${getColorName(this.expandColor)}`, 
-                               <img src={
-                                require(`../../MyPieces/Images/${this.defs[this.expandPiece][this.expandColor]["img"]}`)}
+                               <img src={`/Images/Pieces/${this.defs[this.expandPiece][this.expandColor]["img"]}`}
                                 style={{width: "280px", height: "280px"}} />]} 
                                 />
             }

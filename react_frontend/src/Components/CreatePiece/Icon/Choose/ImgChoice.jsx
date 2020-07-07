@@ -1,5 +1,5 @@
 import React from "react";
-import "./profiles.css";
+import "./ImgChoice.css";
 
 export class ImgChoice extends React.Component {
     
@@ -20,7 +20,7 @@ export class ImgChoice extends React.Component {
 
         return(
             <div className={class_} onClick={this.setChoice}>
-                <img src={require(`../../../MyPieces/Images/${this.props.name}`)} className="image" />
+                <img src={`/Images/Pieces/${this.props.name}`} className="image" />
                 <br />
                 {this.props.name}
             </div>

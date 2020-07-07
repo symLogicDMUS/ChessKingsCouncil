@@ -1,9 +1,7 @@
 import React from "react";
-import "../../../Images/Misc/parchment button.svg";
-import "./LoadGame.css";
 import {SelectGame} from "./SelectGame";
-import GameRoot from "../GameRoot/GameRoot";
 import { Redirect, Link } from "react-router-dom";
+import "./LoadGame.css";
 
 
 export class LoadGame extends React.Component {

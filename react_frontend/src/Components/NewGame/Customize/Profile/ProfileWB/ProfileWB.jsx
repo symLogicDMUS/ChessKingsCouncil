@@ -29,7 +29,7 @@ export class ProfileWB extends React.Component {
         return(
             <div className="w-or-b-profile">
                 <div className="img-window">
-                    <img src={require(`../../../../MyPieces/Images/${this.props.def.img}`)} style={{maxHeight:"159px"}}/>
+                    <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
                 </div>
                 <div className="color-label">Color: </div>
                 <Expand 

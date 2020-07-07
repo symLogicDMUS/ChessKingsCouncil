@@ -1,7 +1,6 @@
 
     .create-piece-body {
-      /* z-index: 0; */
-      background-image: url("../../Images/y-so-serious.png");
+      background-image: url("/Images/Backgrounds/y-so-serious.png");
       background-repeat: repeat;
       object-fit: none;
     }

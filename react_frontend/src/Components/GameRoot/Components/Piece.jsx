@@ -14,7 +14,7 @@ export function Piece({pos, id_, img_}) {
   return (
     <>
       <div ref={drag} style={{ opacity: isDragging ? 0 : 1, cursor: 'move'}}>
-          <img src={ require(`../../MyPieces/Images/${img_}`)} className={"piece"} />
+          <img src={`/Images/Pieces/${img_}`} className={"piece"} />
       </div>
     </>
   );
