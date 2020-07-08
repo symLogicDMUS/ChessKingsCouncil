@@ -1,4 +1,5 @@
 from game_logic.sqr_case.oob import out_of_bounds
+from game_logic.step_funcs.step_funcs import *
 
 
 def _get_pieces_on_path(board, x, y, take_step):

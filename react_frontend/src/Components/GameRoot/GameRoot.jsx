@@ -1,13 +1,15 @@
 import React from "react";
 import {Board} from "./Components/Board";
 import {JsonRecords} from "./sharedData/JsonRecords";
-import {Fen} from "./sharedData/Fen";
 import {SpecialMoves} from "./Move/SpecialMoves";
-import {isPiece} from "./helpers/isPiece";
 import { Promo } from "./Modals/Promo";
+import {Fen} from "./sharedData/Fen";
+import {isPiece} from "./helpers/isPiece";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import { SaveButton } from "./Components/SaveButton";
+import {RangeLayer} from "./Components/RangeDisplay/RangeLayer";
+import {RangeSelect} from "./Components/RangeDisplay/RangeSelect"
 import "./GameRoot.css";
 
 export class GameRoot extends React.Component {
@@ -29,8 +31,10 @@ export class GameRoot extends React.Component {
         this.rangeDefs = this.dataEntry['defs'];
         this.promoChoices = this.dataEntry['promo_choices'];
         this.promo = false; //set true to alert need of promotion
+        this.pieceRangeHighlight = "none"; // piece id
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
+        this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
 
 
@@ -85,6 +89,10 @@ export class GameRoot extends React.Component {
 
     updateSpecialCase(case_) {
         this.specialCase = case_;
+    }
+
+    updatePrh(pieceRangeHighlight) {
+        this.pieceRangeHighlight = pieceRangeHighlight;
     }
 
     callBackend() {
@@ -159,10 +167,12 @@ export class GameRoot extends React.Component {
         return (
             <>        
                 <Board data={this} />
+                <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} ranges={this.ranges}  />
+                <RangeSelect updatePrh={this.updatePrh} update={this.update} ranges={this.ranges} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
+                <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
                 {this.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
                 {this.specialCase === "saving" && (<Saving />)}
                 {this.specialCase === "save-success" && (<SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />)}
-                <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
             </>
 
         )

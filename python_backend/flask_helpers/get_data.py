@@ -3,6 +3,8 @@ from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.fenParser.getBoard.top.get_board import get_board
 from flask_helpers.tests.filepath import get_dir_containing_name
 from game_logic.status.get_status import get_status
+from game_logic.printers.print_board import print_board
+from pprint import pprint
 import json
 
 
@@ -39,3 +41,7 @@ def get_data(game_name):
     defs_ = {"id_dict": id_dict, "range_defs": range_defs}
 
     return fen_obj, board, json_records, flask_method, defs_
+
+
+if __name__ == "__main__":
+    pprint(get_data("fundemental_defense"))

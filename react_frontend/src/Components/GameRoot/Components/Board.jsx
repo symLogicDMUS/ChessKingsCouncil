@@ -19,19 +19,15 @@ export class Board extends React.Component {
         super(props);
         this.displaySqrs = [];
         for (var rf of rankfiles) {
-            this.displaySqrs.push(
-                <div className={sqrColors[rf]} style={getPosPx(rf)}>
-
-                </div>
-            );
+            this.displaySqrs.push(<div className={sqrColors[rf]} style={getPosPx(rf)}></div>);
         }
     }
 
     getInteractiveBoard() {
 
         let squares = [];
-        var sqr_color="_";
-        var id_ = "_";
+        var sqr_color= null;
+        var id_ = null;
         for (var rf of rankfiles) {
 
             sqr_color = sqrClasses[rf];

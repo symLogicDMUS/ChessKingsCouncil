@@ -4,10 +4,10 @@ from game_logic.printers.print_fen_board import print_fen_board
 from game_logic.threatArea.top.sqr_under_attack import sqr_under_attack
 from game_logic.ranges.specialMoves.castle.safe_path import safe_path
 from game_logic.bools.clear_path import clear_path
-from game_logic.JsonRecords import JsonRecords
+from game_logic.JsonRecords.JsonRecords import JsonRecords
 
 
-def can_queen_side_castle(board, color, json_records):
+def can_queen_side_castle(board, color, json_records, range_defs, id_dict):
     """return true if the queen side castle of the given color can be performed, else false"""
 
     if json_records.has_king_moved(color):
@@ -21,15 +21,181 @@ def can_queen_side_castle(board, color, json_records):
     if not clear_path(board, castle_path):
         return False
 
-    if not safe_path(board, castle_path, color):
+    if not safe_path(board, castle_path, color, range_defs, id_dict):
         return False
 
-    if sqr_under_attack(king_start_pos[color], board, color):
+    if sqr_under_attack(board, king_start_pos[color], color, range_defs, id_dict):
         return False
 
     return True
 
+
 if __name__ == "__main__":
+
+    range_defs = \
+        {
+            "Bishop": {
+                "B": {
+                    "img": "BB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Knight": {
+                "B": {
+                    "img": "BN.svg",
+                    "offsets": [
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            -2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "spans": []
+                },
+                "W": {
+                    "img": "WN.svg",
+                    "offsets": [
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            -2,
+                            -1
+                        ]
+                    ],
+                    "spans": []
+                }
+            },
+            "Queen": {
+                "B": {
+                    "img": "BQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Rook": {
+                "B": {
+                    "img": "BR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ]
+                },
+                "W": {
+                    "img": "WR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ]
+                }
+            }
+        }
+    id_dict = \
+        {
+            "k": "King",
+            "q": "Queen",
+            "r": "Rook",
+            "b": "Bishop",
+            "n": "Knight",
+            "p": "Pawn"
+        }
 
     # test castle_test1, W:
     print('test 1, W:')
@@ -43,11 +209,10 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): 'WP3', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test1/castle_test1.json", board)
-    
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test1/castle_test1.json", board)
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'W', json_records))
+    print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test2, W:
@@ -62,12 +227,12 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): '#', (2, 8): 'BQ1', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): '#'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test2/castle_test2.json", board)
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test2/castle_test2.json", board)
     
 
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'W', json_records))
+    print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test3, W:
@@ -82,12 +247,12 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): 'BQ1', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test3/castle_test3.json", board)
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test3/castle_test3.json", board)
     
 
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'W', json_records))
+    print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test4, W:
@@ -102,12 +267,12 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): 'BQ1', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test4/castle_test4.json", board)
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test4/castle_test4.json", board)
     
 
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'W', json_records))
+    print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test1, B:
@@ -122,11 +287,11 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): 'WP3', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test1/castle_test1.json", board)
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test1/castle_test1.json", board)
     
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'B', json_records))
+    print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test2, B:
@@ -141,12 +306,10 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): '#', (2, 8): 'BQ1', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): '#'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test2/castle_test2.json", board)
-    
-
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test2/castle_test2.json", board)
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'B', json_records))
+    print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test3, B:
@@ -161,12 +324,10 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): 'BQ1', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test3/castle_test3.json", board)
-    
-
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json", board)
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'B', json_records))
+    print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
     # test castle_test4, B:
@@ -181,12 +342,10 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): '#', (3, 7): '#', (4, 7): '#', (5, 7): '#', (6, 7): '#', (7, 7): '#', (8, 7): '#', 
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): 'BQ1', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
-    json_records = JsonRecords("C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/castle_test4/castle_test4.json", board)
-    
-
+    json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test4/castle_test4.json", board)
 
     print_fen_board(board)
-    print(can_queen_side_castle(board, 'B', json_records))
+    print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
 

@@ -2,9 +2,9 @@ from game_logic.threatArea.get_potential_pawn_threats import get_potential_pawn_
 from game_logic.threatArea.get_actual_pawn_threats import get_actual_pawn_threats
 
 
-def get_pawn_threats(sqr, board, color):
+def get_pawn_threats(board, sqr, color):
     """return list of squares containing a pawn putting the king in check"""
-    potential_pawn_threats = get_potential_pawn_threats(sqr, board, color)
+    potential_pawn_threats = get_potential_pawn_threats(board, sqr, color)
     actual_pawn_threats = get_actual_pawn_threats(board, potential_pawn_threats, color)
 
     return actual_pawn_threats
@@ -25,9 +25,9 @@ if __name__ == "__main__":
 
     # test 1:
     print('test 1:')
-    print(get_pawn_threats((6, 3), board, 'W'))
+    print(get_pawn_threats(board, (6, 3), 'W'))
     print('\n')
 
     # test 2:
     print('test 2:')
-    print(get_pawn_threats((3, 5), board, 'B'))
+    print(get_pawn_threats(board, (3, 5), 'B'))

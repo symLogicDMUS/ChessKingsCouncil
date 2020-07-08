@@ -7,7 +7,7 @@ from game_logic.piece_type.get_piece_type import get_piece_type
 from pprint import pprint
 
 
-def get_pins(sqr, board, color, pd_dict, pins):
+def get_pins(pd_dict, pins):
     """get dict, key = piece_id, value = coord_list
        piece_id: a pinned piece 
        coord_list: path the piece is pinned to.
@@ -22,6 +22,172 @@ def get_pins(sqr, board, color, pd_dict, pins):
 
 
 if __name__ == "__main__":
+
+    range_defs = \
+        {
+            "Bishop": {
+                "B": {
+                    "img": "BB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Knight": {
+                "B": {
+                    "img": "BN.svg",
+                    "offsets": [
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            -2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "spans": []
+                },
+                "W": {
+                    "img": "WN.svg",
+                    "offsets": [
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            -2,
+                            -1
+                        ]
+                    ],
+                    "spans": []
+                }
+            },
+            "Queen": {
+                "B": {
+                    "img": "BQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Rook": {
+                "B": {
+                    "img": "BR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ]
+                },
+                "W": {
+                    "img": "WR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ]
+                }
+            }
+        }
+    id_dict = \
+        {
+            "k": "King",
+            "q": "Queen",
+            "r": "Rook",
+            "b": "Bishop",
+            "n": "Knight",
+            "p": "Pawn"
+        }
+
     board = \
         {(1, 1): 'BB1', (1, 2): '#', (1, 3): '#', (1, 4): 'BQ3', (1, 5): '#', (1, 6): '#', (1, 7): 'BQ4', (1, 8): '#',
          (2, 1): '#', (2, 2): '#', (2, 3): '#', (2, 4): '#', (2, 5): '#', (2, 6): '#', (2, 7): '#', (2, 8): '#',
@@ -47,10 +213,10 @@ if __name__ == "__main__":
          'WR2': []}
 
     print('test 1:')
-    pd_dict = get_pathdata_dict((4, 4), board, 'W')
+    pd_dict = get_pathdata_dict(board, (4, 4), 'W', range_defs, id_dict)
     for pd in pd_dict.values():
         print(pd)
-    pins = get_pins((4, 4), board, 'W', pd_dict, pins)
+    pins = get_pins(pd_dict, pins)
     pprint(pins)
     uni_board = get_unicode_board(board)
     for piece_id, coord_path in pins.items():

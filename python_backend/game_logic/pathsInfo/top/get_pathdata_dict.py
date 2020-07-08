@@ -2,9 +2,10 @@ from game_logic.pathsInfo.get_path_dir import _get_path_dir
 from game_logic.pathsInfo.PathData import PathData
 from game_logic.pathsInfo.get_path_data import _get_path_data
 from game_logic.step_funcs.step_funcs import step_func_list
+from game_logic.printers.print_board import print_board
 
 
-def get_pathdata_dict(sqr, board, color):
+def get_pathdata_dict(board, sqr, color, range_defs, id_dict):
     """get data about every path stemming from sqr, and record in dict"""
 
     pd_dict = {}
@@ -12,11 +13,13 @@ def get_pathdata_dict(sqr, board, color):
         # get direction of path
         path_dir = _get_path_dir(step_func)
 
-        # initialize class
+        # initialize class for given direction
         pd_dict[path_dir] = PathData(path_dir)
 
-        # get path data
-        path_data = _get_path_data(sqr, board, step_func, path_dir, color)
+        # get path data for given direction
+        path_data = _get_path_data(board, sqr, color, range_defs, id_dict, step_func)
+
+        # initialize class attributes to path data results
         pd_dict[path_dir].coord_path = path_data[0]
         pd_dict[path_dir].path = path_data[1]
         pd_dict[path_dir].pieces = path_data[2]
@@ -39,9 +42,174 @@ if __name__ == "__main__":
          (7, 1): 'BQ2', (7, 2): '#', (7, 3): '#', (7, 4): 'WB1', (7, 5): '#', (7, 6): '#', (7, 7): 'WP4', (7, 8): '#',
          (8, 1): '#', (8, 2): '#', (8, 3): '#', (8, 4): 'BR1', (8, 5): '#', (8, 6): '#', (8, 7): '#', (8, 8): 'BB2'}
 
+    range_defs = \
+        {
+            "Bishop": {
+                "B": {
+                    "img": "BB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Knight": {
+                "B": {
+                    "img": "BN.svg",
+                    "offsets": [
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            -2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "spans": []
+                },
+                "W": {
+                    "img": "WN.svg",
+                    "offsets": [
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            -2,
+                            -1
+                        ]
+                    ],
+                    "spans": []
+                }
+            },
+            "Queen": {
+                "B": {
+                    "img": "BQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Rook": {
+                "B": {
+                    "img": "BR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ]
+                },
+                "W": {
+                    "img": "WR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ]
+                }
+            }
+        }
+    id_dict = \
+        {
+            "k": "King",
+            "q": "Queen",
+            "r": "Rook",
+            "b": "Bishop",
+            "n": "Knight",
+            "p": "Pawn"
+        }
+
     # test 1:
-    pd_dict = get_pathdata_dict((4, 4), board, 'W')
+    pd_dict = get_pathdata_dict(board, (4, 4), 'W', range_defs, id_dict)
     print('test 1:')
     for path in pd_dict.values():
-        print(path)
-    print('\n')
+        print_board(board, heading=str(path), highlights=path.coord_path, highlights3=[(4, 4)])
+        print("")

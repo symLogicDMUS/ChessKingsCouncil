@@ -2,7 +2,7 @@ from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.status.g_status_types import *
 from game_logic.piece_type.get_piece_type import get_piece_type
 from game_logic.piece_type.get_piece_types import get_piece_types
-from game_logic.JsonRecords import JsonRecordError
+from game_logic.JsonRecords.JsonRecordError import JsonRecordError
 import json
 
 

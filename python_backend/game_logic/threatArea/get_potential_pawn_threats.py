@@ -1,8 +1,9 @@
-from game_logic.helpers.formulas import dist
 from math import sqrt
+from game_logic.helpers.formulas import dist
+from game_logic.printers.print_board import print_board
 
 
-def get_potential_pawn_threats(sqr, board, color):
+def get_potential_pawn_threats(board, sqr, color):
     """ return list of locations that might be pawn attacking king """
 
     if color == 'W':  # >
@@ -29,9 +30,9 @@ if __name__ == "__main__":
 
     # test 1:
     print('test 1:')
-    print(get_potential_pawn_threats(board, (6, 3), 'W'))
+    print_board(board, highlights=get_potential_pawn_threats(board, (6, 3), 'W'))
     print('\n')
 
     # test 2:
     print('test 2:')
-    print(get_potential_pawn_threats(board, (3, 5), 'B'))
+    print_board(board, highlights=get_potential_pawn_threats(board, (3, 5), 'B'))

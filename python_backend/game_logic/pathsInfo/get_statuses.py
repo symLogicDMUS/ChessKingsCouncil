@@ -1,7 +1,7 @@
-def _get_statuses(piece_list, color):
+def _get_statuses(piece_ids, color):
     """takes a list of piece assign_ids, and returns list of 'f' for friend and 'e' for enemy"""
     statuses = []
-    for piece in piece_list:
+    for piece in piece_ids:
         if piece[0] == color:
             statuses.append('f')
         else:

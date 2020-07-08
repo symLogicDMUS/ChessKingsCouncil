@@ -1,18 +1,185 @@
-from game_logic.threatArea.get_knight_threats import get_knight_threats
+from game_logic.threatArea.get_offset_threats import get_offset_threats
 from game_logic.threatArea.get_pawn_threats import get_pawn_threats
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from game_logic.pathsInfo.top.get_num_path_attackers import get_num_path_attackers
+from game_logic.printers.print_board import print_board
 
 
-def get_num_pieces_checking_king(sqr, board, color, pd_dict):
+def get_num_pieces_checking_king(board, sqr, color, range_defs, id_dict, pd_dict):
     """get the number of pieces checking the king of current turn"""
-    knight_threats = get_knight_threats(sqr, board, color)
-    pawn_threats = get_pawn_threats(sqr, board, color)
+    offset_threats = get_offset_threats(board, sqr, color, range_defs, id_dict)
+    pawn_threats = get_pawn_threats(board, sqr, color)
     num_path_attackers = get_num_path_attackers(pd_dict)
-    return len(knight_threats) + len(pawn_threats) + num_path_attackers
+    return len(offset_threats) + len(pawn_threats) + num_path_attackers
 
 
 if __name__ == "__main__":
+
+    range_defs = \
+        {
+            "Bishop": {
+                "B": {
+                    "img": "BB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Knight": {
+                "B": {
+                    "img": "BN.svg",
+                    "offsets": [
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            -2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "spans": []
+                },
+                "W": {
+                    "img": "WN.svg",
+                    "offsets": [
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            -2,
+                            -1
+                        ]
+                    ],
+                    "spans": []
+                }
+            },
+            "Queen": {
+                "B": {
+                    "img": "BQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Rook": {
+                "B": {
+                    "img": "BR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ]
+                },
+                "W": {
+                    "img": "WR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ]
+                }
+            }
+        }
+    id_dict = \
+        {
+            "k": "King",
+            "q": "Queen",
+            "r": "Rook",
+            "b": "Bishop",
+            "n": "Knight",
+            "p": "Pawn"
+        }
+
     # test #1, check_example3, 3k3b/q2r2P1/3P1P2/8/q1QK1QBr/2NP4/3R1R2/b2q2q1
     print('test 1:')
     board = \
@@ -26,8 +193,9 @@ if __name__ == "__main__":
          (7, 1): 'BQ2', (7, 2): '#', (7, 3): '#', (7, 4): 'WB1', (7, 5): '#', (7, 6): '#', (7, 7): 'WP4', (7, 8): '#',
          (8, 1): '#', (8, 2): '#', (8, 3): '#', (8, 4): 'BR1', (8, 5): '#', (8, 6): '#', (8, 7): '#', (8, 8): 'BB2'}
 
-    pd_dict = get_pathdata_dict((4, 4), board, 'W')
-    print(get_num_pieces_checking_king((4, 4), board, 'W', pd_dict))
+    pd_dict = get_pathdata_dict(board, (4, 4), 'W', range_defs, id_dict)
+    print(get_num_pieces_checking_king(board, (4, 4), 'W', range_defs, id_dict, pd_dict))
+    print_board(board)
     print('\n')
 
     # test 5, super_checkmate_impossible_example, 5rk1/3np1p1/r4K2/8/7b/8/8/q4r2:
@@ -42,6 +210,7 @@ if __name__ == "__main__":
          (1, 2): '#', (2, 2): '#', (3, 2): '#', (4, 2): '#', (5, 2): '#', (6, 2): '#', (7, 2): '#', (8, 2): '#',
          (1, 1): 'BQ1', (2, 1): '#', (3, 1): '#', (4, 1): '#', (5, 1): '#', (6, 1): 'BR1', (7, 1): '#', (8, 1): '#'}
 
-    pd_dict = get_pathdata_dict((6, 6), board, 'W')
-    print(get_num_pieces_checking_king((6, 6), board, 'W', pd_dict))
+    pd_dict = get_pathdata_dict(board, (6, 6), 'W', range_defs, id_dict)
+    print(get_num_pieces_checking_king(board, (6, 6), 'W', range_defs, id_dict, pd_dict))
+    print_board(board)
     print('\n')

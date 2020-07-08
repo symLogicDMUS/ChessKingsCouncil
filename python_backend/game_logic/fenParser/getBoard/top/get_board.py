@@ -7,6 +7,7 @@ from game_logic.fenParser.getBoard.convert_id import convert_ids
 from game_logic.fenParser.getBoard.add_digit_to_id import add_digit_to_id
 from game_logic.fenParser.getBoard.init_board import init_board
 from game_logic.fenParser.getBoard.setup_board import setup_board
+from game_logic.printers.print_board import print_board
 
 
 def get_board(fen):
@@ -51,118 +52,145 @@ if __name__ == "__main__":
     print('test 2:')
     board = get_board('8/8/3k4/rnbq1bnr/8/RNBQ1BNR/8/1RBRK3 w - - 0 1')
     print(board)
+    print_board(board)
     print("\n")
 
     # test 3, check_example3:
     print('test 3:')
     board = get_board('3k3b/q2r2P1/3P1P2/8/q1QK1QBr/2NP4/3R1R2/b2q2q1 w - - 0 1')
     print(board)
+    print_board(board)
     print("\n")
 
     # test 4, knight_threat1:
     print('test 4:')
     board = get_board('r4rk1/1pp1qppp/3bbn2/pP1pp3/4P3/2NBBN2/P1n1QPPP/R3K2R w KQ a6 0 10')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 5, pawn_threat1:
     print('test 5:')
     board = get_board('rnbq1bnr/8/8/2k5/1P4p1/5K2/8/RNBQ1BNR w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 6:
     print('test 6:')
     board = get_board('5rk1/3np1p1/r4K2/8/7b/8/8/q4r2 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 7, middle_cluster:
     print('test 7:')
     board = get_board('8/8/3Qq3/2RbBr2/3Nn3/3kK3/8/8 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 8:
     print('test 8:')
     board = get_board('8/8/8/3k4/5KkK/2k4K/5pKK/8 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 9:
     print('test 9:')
     board = get_board('r3k2r/2P5/5P2/p3n2p/3b1BpP/NBQb1q2/8/R3K2R w KQkq - 1 25')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 10, castle_test1:
     print('test 10, castle_test1:')
     board = get_board('r3k2r/1P6/5P2/p3n2p/3b1BpP/NBQb1q2/8/R3K2R w KQkq - 1 25')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 11, castle_test2:
     print('test 11, castle_test2:')
     board = get_board('1q2k3/8/8/8/8/8/8/R3K2R w K - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 12, castle_test3:
     print('test 12, castle_test3:')
     board = get_board('r3k2r/3q4/2nbbn2/pppppppp/PPPPPPPP/2NBBN2/3Q4/R3K2R w KQkq - 8 13')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 13, castle_test4:
     print('test 13, castle_test4:')
     board = get_board('r2qk2r/8/2nbbn2/pppppppp/PPPPPPPP/2NBBN2/8/R2QK2R w KQkq - 8 13')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 14:
     print('test 14:')
     board = get_board('r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 15, pawn_range:
     print('test 15, pawn_range')
     board = get_board('r1bqkbnr/p1p2pp1/1p6/n2pp1Pp/1PP1P3/N7/P2P1P1P/R1BQKBNR w KQkq h6 0 7')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 16, en_passant test 1:
     print('test 16, en_passant test 1:')
     board = get_board('rnbqkb1r/p1pppppp/5n2/1pP5/8/8/PP1PPPPP/RNBQKBNR w KQkq b6 0 3')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 17, king_range_test:
     print('test 17, king_range_test:')
     board = get_board('4k3/6pp/8/8/3Pp3/2bK4/4B3/8 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 18, check_example_3
     print('test 18, check_example_3')
     board = get_board('3k3b/q2r2P1/3P1P2/8/q1QK1QBr/2NP4/3R1R2/b2q2q1 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 19, pawn_promo
     print('test 19, pawn promo')
     board = get_board('r1bqkbnr/1P1p2p1/2n5/4pp1p/P3P1P1/N3B3/2p2P1P/R2QKBNR b KQkq - 1 11')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 20, super_checkmate_impossible_example
     print('test 20, super_checkmate_impossible_example')
     board = get_board('5rk1/3np1p1/r4K2/8/7b/8/8/q4r2 w - - 0 1')
     print(board)
+    print_board(board)
     print('\n')
 
     # test 21, check_example1
     print('test 21, check_example1')
     board = get_board("1n5r/8/6N1/3pK3/2k1P3/7q/1nb5/3r1B1R w - - 0 1")
     print(board)
+    print_board(board)
+    print('\n')
+
+    # test 22, knight_threat2
+    print('test 21, knight_threat2')
+    board = get_board("r4rk1/1pp1Nppp/3bbn1N/pP1pp3/4P3/3NBn2/P1n1QPNP/R3K2R w KQ a6 0 10")
+    print(board)
+    print_board(board)
     print('\n')

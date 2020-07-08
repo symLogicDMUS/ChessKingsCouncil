@@ -1,7 +1,7 @@
 class PathData(object):
     """description of class"""
     def __init__(self, direction):
-        """information about a path stemming from specific square"""
+        """information about a path stemming from a specific square"""
         self.direction = direction
         self.path = []
         self.coord_path = []
@@ -31,9 +31,6 @@ class PathData(object):
             if n >= 360:
                 n = n % 360
             return str(n) + 'd'
-
-
-
 
     def __str__(self):
         return '==================== direction: {} ==================== \n path:{}\n coord_path:{}\n pieces:{}\n statuses:{}\n piece_can_attack:{}'\

@@ -1,6 +1,6 @@
-from game_logic.color import get_color
+from game_logic.color.get_color import get_color
 from game_logic.piece_type.get_piece_type import get_piece_type
-from game_logic.fenParser import get_fen_id
+from game_logic.fenParser.get_fen_id import get_fen_id
 
 
 def print_fen_board(board):

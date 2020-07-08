@@ -1,8 +1,9 @@
 from game_logic.piece_type.get_piece_type import get_piece_type
-from game_logic.ranges.get_range_func import get_range_func
+from game_logic.ranges.pawn.top.pawn import pawn
+from game_logic.ranges.king.top.king import king
 from game_logic.ranges.specialMoves.SpecialMoves import SpecialMoves
 from game_logic.ranges.get_range import get_range
-from game_logic.JsonRecords import JsonRecords
+from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.color.get_color import get_color
 from pprint import pprint
 
@@ -28,12 +29,10 @@ def get_ranges(board, color, ranges, json_records, defs_):
             continue
         piece_type = get_piece_type(id_)
         if piece_type == 'Pawn':
-            range_func = get_range_func(piece_type)
-            piece_range, special_moves = range_func(sqr, board, color, json_records, special_moves)
+            piece_range, special_moves = pawn(board, sqr, color, json_records, special_moves)
             ranges[id_].extend(piece_range)
         elif piece_type == 'King':
-            range_func = get_range_func(piece_type)
-            piece_range, special_moves = range_func(sqr, board, color, json_records, special_moves)
+            piece_range, special_moves = king(board, sqr, color, json_records, special_moves, range_defs, id_dict)
             ranges[id_].extend(piece_range)
         else:
             piece_range = get_range(id_dict, range_defs, board, sqr, color)
@@ -68,7 +67,7 @@ if __name__ == "__main__":
          'BN2': [],
          'BR2': []}
 
-    json_records = JsonRecords("../../example_games/check_example1/check_example1.json", board, j_records=None)
+    json_records = JsonRecords("../../../example_games/check_example1/check_example1.json", board, j_records=None)
 
     id_dict = {
         "k": "King",

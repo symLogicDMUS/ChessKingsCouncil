@@ -11,11 +11,11 @@ from game_logic.ranges.pawn.get_2_sqr_jump import get_2_sqr_jump
 from game_logic.piece_type.get_piece_type import get_piece_type
 from game_logic.ranges.specialMoves.enPassant.get_t_sqr import get_t_sqr
 from game_logic.printers.print_board import print_board
-from game_logic.JsonRecords import JsonRecords
-from game_logic.color import get_color
+from game_logic.JsonRecords.JsonRecords import JsonRecords
+from game_logic.color.get_color import get_color
 
 
-def pawn(sqr, board, color, json_records, special_moves):
+def pawn(board, sqr, color, json_records, special_moves):
     """get the range of pawn at location sqr and of the given color"""
     range = []
     potential_1_sqr = get_potential_1_sqr_jumps(sqr, board, color)
@@ -68,12 +68,10 @@ if __name__ == "__main__":
 
     # example_games/pawn_range 
     board = \
-        {(1, 8): 'BR1', (2, 8): '#', (3, 8): 'BB1', (4, 8): 'BQ1', (5, 8): 'BK1', (6, 8): 'BB2', (7, 8): 'BN2',
-         (8, 8): 'BR2',
+        {(1, 8): 'BR1', (2, 8): '#', (3, 8): 'BB1', (4, 8): 'BQ1', (5, 8): 'BK1', (6, 8): 'BB2', (7, 8): 'BN2', (8, 8): 'BR2',
          (1, 7): 'BP5', (2, 7): '#', (3, 7): 'BP6', (4, 7): '#', (5, 7): '#', (6, 7): 'BP7', (7, 7): 'BP8', (8, 7): '#',
          (1, 6): '#', (2, 6): 'BP4', (3, 6): '#', (4, 6): '#', (5, 6): '#', (6, 6): '#', (7, 6): '#', (8, 6): '#',
-         (1, 5): 'BN1', (2, 5): '#', (3, 5): '#', (4, 5): 'BP1', (5, 5): 'BP2', (6, 5): '#', (7, 5): 'WP8',
-         (8, 5): 'BP3',
+         (1, 5): 'BN1', (2, 5): '#', (3, 5): '#', (4, 5): 'BP1', (5, 5): 'BP2', (6, 5): '#', (7, 5): 'WP8', (8, 5): 'BP3',
          (1, 4): '#', (2, 4): 'WP5', (3, 4): 'WP6', (4, 4): '#', (5, 4): 'WP7', (6, 4): '#', (7, 4): '#', (8, 4): '#',
          (1, 3): 'WN2', (2, 3): '#', (3, 3): '#', (4, 3): '#', (5, 3): '#', (6, 3): '#', (7, 3): '#', (8, 3): '#',
          (1, 2): 'WP1', (2, 2): '#', (3, 2): '#', (4, 2): 'WP2', (5, 2): '#', (6, 2): 'WP3', (7, 2): '#', (8, 2): 'WP4',
@@ -86,12 +84,12 @@ if __name__ == "__main__":
     special_moves = SpecialMoves()
 
     result = []
-    for sqr, id in board.items():
-        if id == '#':
+    for sqr, id_ in board.items():
+        if id_ == '#':
             continue
-        if get_piece_type(id) == 'Pawn':
-            if get_color(id) == 'W':
-                range, special_moves = pawn(sqr, board, 'W', json_records, special_moves)
+        if get_piece_type(id_) == 'Pawn':
+            if get_color(id_) == 'W':
+                range, special_moves = pawn(board, sqr, 'W', json_records, special_moves)
             else:
-                range, special_moves = pawn(sqr, board, 'B', json_records, special_moves)
+                range, special_moves = pawn(board, sqr, 'B', json_records, special_moves)
             print_board(board, heading=sqr, highlights=range)

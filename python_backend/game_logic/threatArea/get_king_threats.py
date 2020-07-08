@@ -3,9 +3,10 @@ from game_logic.helpers.formulas import dist
 from game_logic.piece_type.get_piece_type import get_piece_type
 from game_logic.sqr_case.get_sqr_case import get_sqr_case
 from game_logic.sqr_case.sqr_cases import *
+from game_logic.printers.print_board import print_board
 
 
-def get_king_threats(sqr, board, color):
+def get_king_threats(board, sqr, color):
     """for a square not containg the king, get list of kings threatening that square"""
     return list(filter(lambda sqr2:
                        (dist(sqr, sqr2) == 1 or dist(sqr, sqr2) == sqrt(2))
@@ -27,10 +28,10 @@ if __name__ == "__main__":
 
     # test 1:
     print('test 1:')
-    print(get_king_threats((4, 4), board, 'W'))
+    print_board(board, highlights=get_king_threats(board, (4, 4), 'W'))
     print('\n')
 
     # test 2:
     print('test 2:')
-    print(get_king_threats((7, 3), board, 'B'))
+    print_board(board, highlights=get_king_threats(board, (7, 3), 'B'))
     print('\n')

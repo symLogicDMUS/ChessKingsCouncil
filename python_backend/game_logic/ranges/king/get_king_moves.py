@@ -6,12 +6,12 @@ from game_logic.printers.print_board import print_board
 from math import sqrt
 
 
-def get_king_moves(board, sqr, color):
+def get_king_moves(board, sqr, color, range_defs, id_dict):
     """get every 1 king distance away that is not out of bounds or a friendly piece"""
     king_moves = list(filter(lambda sqr2: dist(sqr, sqr2) == sqrt(2) or dist(sqr, sqr2) == 1, board.keys()))
     king_moves = list(filter(lambda sqr: get_sqr_case(board, sqr[0], sqr[1], color) != OOB, king_moves))
     king_moves = list(filter(lambda sqr: get_sqr_case(board, sqr[0], sqr[1], color) != FRIEND, king_moves))
-    king_moves = list(filter(lambda sqr: not sqr_under_attack(sqr, board, color), king_moves))
+    king_moves = list(filter(lambda sqr: not sqr_under_attack(board, sqr, color, range_defs, id_dict), king_moves))
     return king_moves
 
 
@@ -26,8 +26,173 @@ if __name__ == "__main__":
     (1, 2): '#', (2, 2): '#', (3, 2): '#', (4, 2): '#', (5, 2): 'WB1', (6, 2): '#', (7, 2): '#', (8, 2): '#', 
     (1, 1): '#', (2, 1): '#', (3, 1): '#', (4, 1): '#', (5, 1): '#', (6, 1): '#', (7, 1): '#', (8, 1): '#'}
 
-    king_moves = get_king_moves(board, (4, 3), 'W')
+    range_defs = \
+        {
+            "Bishop": {
+                "B": {
+                    "img": "BB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr225d",
+                        "step_1sqr315d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WB.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr45d",
+                        "step_1sqr135d",
+                        "step_1sqr225d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Knight": {
+                "B": {
+                    "img": "BN.svg",
+                    "offsets": [
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            -2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            2,
+                            1
+                        ]
+                    ],
+                    "spans": []
+                },
+                "W": {
+                    "img": "WN.svg",
+                    "offsets": [
+                        [
+                            1,
+                            2
+                        ],
+                        [
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2
+                        ],
+                        [
+                            -1,
+                            -2
+                        ],
+                        [
+                            2,
+                            1
+                        ],
+                        [
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1
+                        ],
+                        [
+                            -2,
+                            -1
+                        ]
+                    ],
+                    "spans": []
+                }
+            },
+            "Queen": {
+                "B": {
+                    "img": "BQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d",
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr45d",
+                        "step_1sqr135d"
+                    ]
+                },
+                "W": {
+                    "img": "WQ.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr45d",
+                        "step_1sqr90d",
+                        "step_1sqr135d",
+                        "step_1sqr180d",
+                        "step_1sqr225d",
+                        "step_1sqr270d",
+                        "step_1sqr315d"
+                    ]
+                }
+            },
+            "Rook": {
+                "B": {
+                    "img": "BR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr180d",
+                        "step_1sqr270d",
+                        "step_1sqr0d",
+                        "step_1sqr90d"
+                    ]
+                },
+                "W": {
+                    "img": "WR.svg",
+                    "offsets": [],
+                    "spans": [
+                        "step_1sqr0d",
+                        "step_1sqr90d",
+                        "step_1sqr180d",
+                        "step_1sqr270d"
+                    ]
+                }
+            }
+        }
+    id_dict = \
+        {
+            "k": "King",
+            "q": "Queen",
+            "r": "Rook",
+            "b": "Bishop",
+            "n": "Knight",
+            "p": "Pawn"
+        }
+
+    king_moves = get_king_moves(board, (4, 3), 'W', range_defs, id_dict)
     print_board(board, heading="test 1, white", highlights=king_moves)
 
-    king_moves = get_king_moves(board, (5, 8), 'B')
+    king_moves = get_king_moves(board, (5, 8), 'B', range_defs, id_dict)
     print_board(board, heading='test 2, black', highlights=king_moves)

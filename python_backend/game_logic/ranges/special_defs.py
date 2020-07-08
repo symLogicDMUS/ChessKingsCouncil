@@ -1,5 +1,5 @@
-from game_logic.ranges.pawn.pawn import pawn
-from game_logic.ranges.king.king import king
+from game_logic.ranges.pawn.top.pawn import pawn
+from game_logic.ranges.king.top.king import king
 
 __doc__ = \
     """

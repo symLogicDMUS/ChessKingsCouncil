@@ -66,7 +66,7 @@ export class LoadGame extends React.Component {
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
                 state: {gameName: this.gameName, 
-                        dataEntry:this.dataDict[this.gameName], 
+                        dataEntry:this.dataEntry, 
                         isCouncil:false}
         }} />);
     }

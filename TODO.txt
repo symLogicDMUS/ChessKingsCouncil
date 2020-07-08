@@ -39,5 +39,10 @@ starting in NewGame:
    previously created id:piece-name and piece-name:image-path are included in starting fetch and travel App > LoadGame > GameRoot > Board > Piece  
 ................................................................
 1. guard against bad input for names of pieces and new games.
-    
+................................................................
+1. get coordinates of already invisible board
+2. look at drop downs in Customise
+3. absolute positioning of dropdowns
+4. look at how invisible board implemented
+
    

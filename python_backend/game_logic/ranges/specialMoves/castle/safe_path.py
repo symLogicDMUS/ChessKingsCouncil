@@ -2,10 +2,10 @@ from game_logic.threatArea.top.sqr_under_attack import sqr_under_attack
 from itertools import product
 
 
-def safe_path(board, path, color):
+def safe_path(board, path, color, range_defs, id_dict):
     """ return true if every square on path is not under attack, else return false"""
     for sqr in path:
-        if sqr_under_attack(sqr, board, color):
+        if sqr_under_attack(board, sqr, color, range_defs, id_dict):
             break
     else:
         return True
