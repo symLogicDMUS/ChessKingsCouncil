@@ -169,8 +169,8 @@ export class GameRoot extends React.Component {
         return (
             <>        
                 <Board data={this} />
-                <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} ranges={this.ranges}  />
-                <RangeSelect updatePrh={this.updatePrh} update={this.update} ranges={this.ranges} enemyRanges={this.enemyRanges} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
+                <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} allRanges={{...this.ranges, ...this.enemyRanges}}  />
+                <RangeSelect updatePrh={this.updatePrh} update={this.update} allRanges={{...this.ranges, ...this.enemyRanges}} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
                 <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
                 {this.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
                 {this.specialCase === "saving" && (<Saving />)}

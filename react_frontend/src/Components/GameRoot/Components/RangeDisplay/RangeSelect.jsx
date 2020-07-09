@@ -10,13 +10,6 @@ export class RangeSelect extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidUpdate(prevProps) {
-        /*reset after new move.*/
-        if (this.props.range !== prevProps.range) {
-            this.selectedItem = "none";
-        }
-    }
-
     handleChange(e) {
         this.selectedItem = e.target.value;
         this.props.updatePrh(this.selectedItem);
@@ -24,21 +17,13 @@ export class RangeSelect extends React.Component {
     }
 
     getPieceOptions() {
-        let basicId  = null;
+
         let pieceName = null;
-        let color = null;
-        let img_ = null;
         let pieceOptions = [];
-        pieceOptions.push(<option value="none">None</option>)
-        for (var pieceId of Object.keys(this.props.ranges)) {
-            pieceName=this.props.idDict[pieceId[1].toLowerCase()]
-            pieceOptions.push(
-                <option value={pieceId}>
-                    {pieceId} {pieceName}
-                </option>
-            );
-        }
-        for (var pieceId of Object.keys(this.props.enemyRanges)) {
+
+        pieceOptions.push(<option value="none">None</option>);
+
+        for (var pieceId of Object.keys(this.props.allRanges)) {
             pieceName=this.props.idDict[pieceId[1].toLowerCase()];
             pieceOptions.push(
                 <option value={pieceId}>
@@ -46,6 +31,7 @@ export class RangeSelect extends React.Component {
                 </option>
             )
         }
+
         return pieceOptions;
     }
 

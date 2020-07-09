@@ -11,14 +11,17 @@
   .img-group {
     display: block;
     z-index: inherit;
+    width: 500px;
+    height: 100px;
     cursor: pointer; 
     float: left; 
     background-color: white;
     border: 3px solid slateblue;
     position: absolute; 
     right: 40vw; 
-    top: 5vh; 
-    z-index: 1;
+    top: 5vh;
+    overflow: scroll;
+    /* z-index: 1; */
   }
   
   /* Add a background color on hover */

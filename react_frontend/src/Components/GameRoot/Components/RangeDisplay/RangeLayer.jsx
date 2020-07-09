@@ -10,6 +10,7 @@ export class RangeLayer extends React.Component {
         super(props);
     }
     
+
     getHighlightImg(rf) {
         if (this.props.board[rf] === this.props.pieceRangeHighlight)
             return "/Images/range-sqr-full.svg";
@@ -22,10 +23,10 @@ export class RangeLayer extends React.Component {
         if (this.props.pieceRangeHighlight === "none")
             return false
 
-        if (! Object.keys(this.props.ranges).includes(this.props.pieceRangeHighlight)) 
+        if (! Object.keys(this.props.allRanges).includes(this.props.pieceRangeHighlight)) 
             return false
 
-        if (this.props.ranges[this.props.pieceRangeHighlight].includes(rf))
+        if (this.props.allRanges[this.props.pieceRangeHighlight].includes(rf))
             return true;
 
         if (this.props.board[rf] === this.props.pieceRangeHighlight)

@@ -1,4 +1,5 @@
 import React from "react";
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {PromoChoice} from "../Components/PromoChoice";
 import "../css/Promo.css";
 

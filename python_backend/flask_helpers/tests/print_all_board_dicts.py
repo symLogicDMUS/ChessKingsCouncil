@@ -1,5 +1,4 @@
 import os
-from pprint import pprint
 from game_logic.fenParser.getBoard.top.get_board import get_board
 
 
