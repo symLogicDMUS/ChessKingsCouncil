@@ -52,7 +52,8 @@ export const newData = {"color": 'W',
                  "flask_method": "update"}
 
 export const ranges =         
-{'WB1':[],
+{
+'WB1':[],
 'WR1': [],
 'WB2': [],
 'WR2': [],
@@ -67,7 +68,29 @@ export const ranges =
 'WP7': ["g3", "g4"],
 'WP8': ["h3", "h4"],
 'WN1': ["a3", "c3"],
-'WN2': ["f3", "h3"]}
+'WN2': ["f3", "h3"]
+}
+
+export const enemyRanges =         
+{    
+'BB1':[],
+'BR1': [],
+'BB2': [],
+'BR2': [],
+'BK1': [],
+'BQ1': [],
+'BP1': ["a6", "a5"],
+'BP2': ["b6", "b5"],
+'BP3': ["c6", "c5"],
+'BP4': ["d6", "d5"],
+'BP5': ["e6", "e5"],
+'BP6': ["f6", "f5"],
+'BP7': ["g6", "g5"],
+'BP8': ["h6", "h5"],
+'BN1': ["a6", "c6"],
+'BN2': ["f6", "h6"]
+}
+
 
 export const moves = {"en_passant":[], "castles":[], "promos":[] };
 

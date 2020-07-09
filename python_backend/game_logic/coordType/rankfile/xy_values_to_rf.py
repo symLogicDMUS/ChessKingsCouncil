@@ -1,5 +1,5 @@
 from game_logic.coordType.rankfile.nest_level.funcs import funcs
-from game_logic.coordType import Depth
+from game_logic.coordType.Depth import Depth
 from pprint import pprint
 
 

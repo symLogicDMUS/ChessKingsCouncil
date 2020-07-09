@@ -11,7 +11,7 @@ def get_king_threats(board, sqr, color):
     return list(filter(lambda sqr2:
                        (dist(sqr, sqr2) == 1 or dist(sqr, sqr2) == sqrt(2))
                        and get_sqr_case(board, sqr2[0], sqr2[1], color) == ENEMY
-                       and get_piece_type(board[sqr2]) == 'King',
+                       and board[sqr2][1] == 'K',
                        board.keys()))
 
 

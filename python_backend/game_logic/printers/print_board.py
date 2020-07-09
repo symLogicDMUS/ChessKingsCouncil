@@ -4,7 +4,7 @@ from termcolor import colored
 from game_logic.piece_type.is_piece import is_piece
 
 
-def print_board(board, heading="", highlights=[], highlights2=[], highlights3=[]):
+def print_board(board, heading="", highlights=[], highlights2=[], highlights3=[], highlights4=[]):
     """print board_dict in increasing order of x, decreasing order of y (how 2d board normally displayed)"""
     print(heading)
     for y in range(8, 0, -1):
@@ -20,6 +20,8 @@ def print_board(board, heading="", highlights=[], highlights2=[], highlights3=[]
                 print(colored(char, 'green'), end="")
             elif highlights3 and (x, y) in highlights3:
                 print(colored(char, 'blue'), end="")
+            elif highlights4 and (x, y) in highlights4:
+                print(colored(char, 'yellow'), end="")
             else:
                 print(char, end="")
         print("")

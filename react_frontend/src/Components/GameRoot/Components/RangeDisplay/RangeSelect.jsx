@@ -38,6 +38,14 @@ export class RangeSelect extends React.Component {
                 </option>
             );
         }
+        for (var pieceId of Object.keys(this.props.enemyRanges)) {
+            pieceName=this.props.idDict[pieceId[1].toLowerCase()];
+            pieceOptions.push(
+                <option value={pieceId}>
+                    {pieceId} {pieceName}
+                </option>
+            )
+        }
         return pieceOptions;
     }
 

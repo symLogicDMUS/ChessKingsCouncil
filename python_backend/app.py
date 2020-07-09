@@ -1,36 +1,18 @@
 from flask import Flask, jsonify, request
-from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
-from game_logic.getters.get_reset_piece_dicts import get_reset_piece_dicts
-from game_logic.ranges.top.get_ranges import get_ranges
-from game_logic.threatArea.get_king_locs import get_king_locs
-from game_logic.threatArea.top.get_threat_area import get_threat_area
-from game_logic.restriction.get_num_pieces_checking_king import get_num_pieces_checking_king
-from game_logic.restriction.get_multithreat_restriction import get_multithreat_restriction
-from game_logic.pins.top.get_pins import get_pins
-from game_logic.ranges.top.get_final_ranges import get_final_ranges
 from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
-from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from game_logic.fenParser.getFen.top.get_fen import get_fen
 from flask_helpers.parse_data import parse_data
 from flask_helpers.id_assign_.top.id_assign import id_assign
 from flask_helpers.tests.gen_fen_str import get_fen_str
 from flask_helpers.tests.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
-from pprint import pprint
+from game_logic.color.get_next_color import get_next_color as get_enemy_color
+from flask_helpers.new_data import new_data
 import json
 import os
 
+
 app = Flask(__name__)
-
-
-@app.route('/simple', methods=['GET', 'POST'])
-def simple():
-    """ """
-    print('in the SIMPLE method')
-    data = request.get_data(as_text=True)
-    data = json.loads(data)
-    pprint(data)
-    return "Done", 201
 
 
 @app.route('/update', methods=['POST'])
@@ -40,22 +22,11 @@ def update():
     data = request.get_data(as_text=True)
     data = json.loads(data)
     reformated = map_rf_to_xy({'board': data['board'], 'records': data['records'], 'color': data['color']})
-    board, records, color, defs_ = reformated['board'], reformated['records'], reformated['color'], data['defs'],
+    board, records, color, defs_ = reformated['board'], reformated['records'], reformated['color'], data['defs']
     json_records = JsonRecords(None, None, j_records=records)
-    init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
-    k_loc = get_king_locs(board, color)
-    threat_area = get_threat_area(board, k_loc, color, defs_["range_defs"], defs_["id_dict"])
-    pd_dict = get_pathdata_dict(board, k_loc, color, defs_["range_defs"], defs_["id_dict"])
-    pins = get_pins(pd_dict, pins)
-    npck = get_num_pieces_checking_king(board, k_loc, color, defs_["range_defs"], defs_["id_dict"], pd_dict)
-    mt_restricts = get_multithreat_restriction(board, npck, color)
-    final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
-    special_moves.set_promos(board, final_ranges, color)
-    moves = special_moves.get_moves()
-    data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
-    pprint(final_ranges)
-    return jsonify({"ranges": final_ranges, "moves": moves})
+    data = new_data(board, color, defs_, json_records)
+    enemy_data = new_data(board, get_enemy_color(color), defs_, json_records)
+    return jsonify({'ranges': data['ranges'], 'moves': data['moves'], 'enemy_ranges': enemy_data['ranges']})
 
 
 @app.route('/save', methods=["POST"])

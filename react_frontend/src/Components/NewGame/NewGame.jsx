@@ -3,7 +3,7 @@ import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
 import GameRoot from "../GameRoot/GameRoot";
 import {Customize} from "./Customize/Customize";
-import {newData, ranges, moves, id_dict, range_defs} from "./NewData";
+import {newData, ranges, enemyRanges, moves, id_dict, range_defs} from "./NewData";
 import { Redirect, Link } from "react-router-dom";
 import "./NewGame.css";
 
@@ -47,6 +47,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
         this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
         this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
         this.setState({step: this.state.step + 1});
@@ -57,6 +58,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
         this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
         this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
         this.setState({step: this.state.step + 1});
@@ -90,6 +92,7 @@ export class NewGame extends React.Component {
         }).then(response => response.json())
         .then(dataEntry => {
             this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
+            this.dataDict[this.gameName]['enemy_ranges'] = dataEntry['enemy_ranges'];
             this.dataDict[this.gameName]['moves'] = dataEntry['moves'];  
             this.props.updateDataDict(this.dataDict, this.gameName);
             this.setState({step: this.state.step + 1});

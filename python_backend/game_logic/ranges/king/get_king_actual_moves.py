@@ -1,196 +1,34 @@
 from game_logic.threatArea.top.sqr_under_attack import sqr_under_attack
-from game_logic.ranges.king.get_king_initial_moves import get_king_initial_moves
-from game_logic.getters.get_temp_boards import get_temp_boards
-from game_logic.fenParser.getBoard.top.get_board import get_board
+from game_logic.threatArea.get_hypo_boards import get_hypo_boards
+from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
+from game_logic.test_objects.sample_board_dicts import sample_board_dicts
 from game_logic.printers.print_board import print_board
-from game_logic.threatArea.get_king_loc import get_king_loc
-from termcolor import colored
 
 
 def get_king_actual_moves(board, king_loc, init_range, color, range_defs, id_dict):
     """filter the king's initial moves to get the actual ones"""
-    boards = get_temp_boards(board, king_loc, init_range, color)
-    return list(filter(lambda sqr: not sqr_under_attack(board, sqr, color, range_defs, id_dict), boards.keys()))
+    boards = get_hypo_boards(board, king_loc, init_range, color)
+    actual_moves = []
+    for hypo_k_loc, hypo_board in boards.items():
+        if not sqr_under_attack(hypo_board, hypo_k_loc, color, range_defs, id_dict):
+            actual_moves.append(hypo_k_loc)
+    return actual_moves
 
 
 if __name__ == "__main__":
+    range_defs = get_standard_range_defs()
+    id_dict = get_standard_id_dict()
 
-    range_defs = \
-        {
-            "Bishop": {
-                "B": {
-                    "img": "BB.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr225d",
-                        "step_1sqr315d",
-                        "step_1sqr45d",
-                        "step_1sqr135d"
-                    ]
-                },
-                "W": {
-                    "img": "WB.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr45d",
-                        "step_1sqr135d",
-                        "step_1sqr225d",
-                        "step_1sqr315d"
-                    ]
-                }
-            },
-            "Knight": {
-                "B": {
-                    "img": "BN.svg",
-                    "offsets": [
-                        [
-                            -1,
-                            -2
-                        ],
-                        [
-                            -1,
-                            2
-                        ],
-                        [
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            2
-                        ],
-                        [
-                            -2,
-                            -1
-                        ],
-                        [
-                            -2,
-                            1
-                        ],
-                        [
-                            2,
-                            -1
-                        ],
-                        [
-                            2,
-                            1
-                        ]
-                    ],
-                    "spans": []
-                },
-                "W": {
-                    "img": "WN.svg",
-                    "offsets": [
-                        [
-                            1,
-                            2
-                        ],
-                        [
-                            1,
-                            -2
-                        ],
-                        [
-                            -1,
-                            2
-                        ],
-                        [
-                            -1,
-                            -2
-                        ],
-                        [
-                            2,
-                            1
-                        ],
-                        [
-                            2,
-                            -1
-                        ],
-                        [
-                            -2,
-                            1
-                        ],
-                        [
-                            -2,
-                            -1
-                        ]
-                    ],
-                    "spans": []
-                }
-            },
-            "Queen": {
-                "B": {
-                    "img": "BQ.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr180d",
-                        "step_1sqr225d",
-                        "step_1sqr270d",
-                        "step_1sqr315d",
-                        "step_1sqr0d",
-                        "step_1sqr90d",
-                        "step_1sqr45d",
-                        "step_1sqr135d"
-                    ]
-                },
-                "W": {
-                    "img": "WQ.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr0d",
-                        "step_1sqr45d",
-                        "step_1sqr90d",
-                        "step_1sqr135d",
-                        "step_1sqr180d",
-                        "step_1sqr225d",
-                        "step_1sqr270d",
-                        "step_1sqr315d"
-                    ]
-                }
-            },
-            "Rook": {
-                "B": {
-                    "img": "BR.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr180d",
-                        "step_1sqr270d",
-                        "step_1sqr0d",
-                        "step_1sqr90d"
-                    ]
-                },
-                "W": {
-                    "img": "WR.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr0d",
-                        "step_1sqr90d",
-                        "step_1sqr180d",
-                        "step_1sqr270d"
-                    ]
-                }
-            }
-        }
-    id_dict = \
-        {
-            "k": "King",
-            "q": "Queen",
-            "r": "Rook",
-            "b": "Bishop",
-            "n": "Knight",
-            "p": "Pawn"
-        }
+    board = sample_board_dicts['super_checkmate_impossible_example']
+    actual_moves = get_king_actual_moves(board, (6, 6), [(5, 5), (6, 5), (7, 5), (5, 6), (7, 6), (5, 7), (6, 7), (7, 7)],
+                                         "W", range_defs, id_dict)
+    print_board(board, heading="super_checkmate_impossible_example", highlights=actual_moves)
+    print('')
 
-    f = open("../../../saved_games/dummy_game/dummy_game.fen")
-    print(colored("dummy_game", 'red'))
-    fen = f.readline()
-    board = get_board(fen)
-    # W:
-    king_loc = get_king_loc(board, 'W')
-    init_range = get_king_initial_moves(board, king_loc, 'W')
-    final_range = get_king_actual_moves(board, king_loc, init_range, 'W', range_defs, id_dict)
-    print_board(board, heading='W', highlights=final_range)
-    # B:
-    king_loc = get_king_loc(board, 'B')
-    init_range = get_king_initial_moves(board, king_loc, 'B')
-    final_range = get_king_actual_moves(board, king_loc, init_range, 'B', range_defs, id_dict)
-    print_board(board, heading='W', highlights=final_range)
+    board = sample_board_dicts['king_range_test']
+    actual_moves = get_king_actual_moves(board, (4, 3), [(3, 2), (4, 2), (3, 3), (5, 3), (3, 4), (5, 4)],
+                                         "W", range_defs, id_dict)
+    print_board(board, heading="king_range_test", highlights=actual_moves)
+    print('')
+

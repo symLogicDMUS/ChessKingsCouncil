@@ -18,7 +18,7 @@ export class GameRoot extends React.Component {
         super(props);
         this.dataEntry = this.props.location.state.dataEntry;
         this.jsonRecords = new JsonRecords();
-        this.specialMoves = new SpecialMoves(); 
+        this.specialMoves = new SpecialMoves();
         this.fenObj = new Fen();
         this.fenObj.set(this.dataEntry['fen_data'])
         this.specialMoves.update(this.dataEntry['moves'])
@@ -26,10 +26,11 @@ export class GameRoot extends React.Component {
         this.board = this.dataEntry['board']
         this.state = {board: this.dataEntry['board'], bValue:true} //see footnote 1.
         this.turn = this.dataEntry['color']
-        this.ranges = this.dataEntry['ranges']
-        this.idDict = this.dataEntry['id_dict'] // id:piece-name dict
+        this.ranges = this.dataEntry['ranges'];
+        this.enemyRanges = this.dataEntry['enemy_ranges'];
+        this.idDict = this.dataEntry['id_dict']; // id:piece-name dict
         this.rangeDefs = this.dataEntry['defs'];
-        this.promoChoices = this.dataEntry['promo_choices'];
+        this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
         this.promo = false; //set true to alert need of promotion
         this.pieceRangeHighlight = "none"; // piece id
         this.save = this.save.bind(this);
@@ -107,7 +108,8 @@ export class GameRoot extends React.Component {
         }).then(response => response.json())
         .then(dataEntry => {
             this.ranges = dataEntry['ranges']
-            this.specialMoves.update(dataEntry['moves'])
+            this.enemyRanges = dataEntry['enemy_ranges'];
+            this.specialMoves.update(dataEntry['moves']);
         });    
     }
 
@@ -168,7 +170,7 @@ export class GameRoot extends React.Component {
             <>        
                 <Board data={this} />
                 <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} ranges={this.ranges}  />
-                <RangeSelect updatePrh={this.updatePrh} update={this.update} ranges={this.ranges} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
+                <RangeSelect updatePrh={this.updatePrh} update={this.update} ranges={this.ranges} enemyRanges={this.enemyRanges} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
                 <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
                 {this.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
                 {this.specialCase === "saving" && (<Saving />)}

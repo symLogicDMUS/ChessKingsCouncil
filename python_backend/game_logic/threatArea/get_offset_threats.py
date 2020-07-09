@@ -1,194 +1,39 @@
 from game_logic.printers.print_board import print_board
 from game_logic.color.get_piece_color import get_piece_color
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
+from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 
 
-def get_offset_threats(board, sqr, color, range_defs, id_dict):
+def get_offset_threats(board, king_loc, color, range_defs, id_dict):
     """ """
     board_filter1 = {}
-    for sqr_ in board.keys():
-        if board[sqr_] != '#':
-            board_filter1[sqr_] = board[sqr_]
+    for sqr in board.keys():
+        if board[sqr] != '#':
+            board_filter1[sqr] = board[sqr]
     board_filter2 = {}
-    for sqr_ in board_filter1.keys():
-        if get_piece_color(board_filter1[sqr_]) != color:
-            board_filter2[sqr_] = board_filter1[sqr_]
+    for sqr in board_filter1.keys():
+        if get_piece_color(board_filter1[sqr]) != color:
+            board_filter2[sqr] = board_filter1[sqr]
     board_filter3 = {}
-    for sqr_ in board_filter2.keys():
-        id_ = board[sqr_]
+    for sqr in board_filter2.keys():
+        id_ = board[sqr]
         piece_name = id_dict[id_[1].lower()]
         if piece_name != "King" and piece_name != "Pawn":
-            offset = [(sqr_[0] - sqr[0]) * -1, (sqr_[1] - sqr[1]) * -1]
-            if offset in range_defs[piece_name][get_enemy_color(color)]["offsets"]:
-                board_filter3[sqr_] = board_filter2[sqr_]
-    return list(board_filter3.keys())
+            board_filter3[sqr] = board_filter2[sqr]
+    board_filter4 = {}
+    for sqr in board_filter3.keys():
+        id_ = board[sqr]
+        piece_name = id_dict[id_[1].lower()]
+        offset = [king_loc[0] - sqr[0], king_loc[1] - sqr[1]]
+        if offset in range_defs[piece_name][get_enemy_color(color)]["offsets"]:
+            board_filter4[sqr] = board_filter3[sqr]
+    return list(board_filter4.keys())
 
 
 if __name__ == "__main__":
-    range_defs = \
-        {
-            "Bishop": {
-                "B": {
-                    "img": "BB.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr225d",
-                        "step_1sqr315d",
-                        "step_1sqr45d",
-                        "step_1sqr135d"
-                    ]
-                },
-                "W": {
-                    "img": "WB.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr45d",
-                        "step_1sqr135d",
-                        "step_1sqr225d",
-                        "step_1sqr315d"
-                    ]
-                }
-            },
-            "Knight": {
-                "B": {
-                    "img": "BN.svg",
-                    "offsets": [
-                        [
-                            -1,
-                            -2
-                        ],
-                        [
-                            -1,
-                            2
-                        ],
-                        [
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            2
-                        ],
-                        [
-                            -2,
-                            -1
-                        ],
-                        [
-                            -2,
-                            1
-                        ],
-                        [
-                            2,
-                            -1
-                        ],
-                        [
-                            2,
-                            1
-                        ]
-                    ],
-                    "spans": []
-                },
-                "W": {
-                    "img": "WN.svg",
-                    "offsets": [
-                        [
-                            1,
-                            2
-                        ],
-                        [
-                            1,
-                            -2
-                        ],
-                        [
-                            -1,
-                            2
-                        ],
-                        [
-                            -1,
-                            -2
-                        ],
-                        [
-                            2,
-                            1
-                        ],
-                        [
-                            2,
-                            -1
-                        ],
-                        [
-                            -2,
-                            1
-                        ],
-                        [
-                            -2,
-                            -1
-                        ]
-                    ],
-                    "spans": []
-                }
-            },
-            "Queen": {
-                "B": {
-                    "img": "BQ.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr180d",
-                        "step_1sqr225d",
-                        "step_1sqr270d",
-                        "step_1sqr315d",
-                        "step_1sqr0d",
-                        "step_1sqr90d",
-                        "step_1sqr45d",
-                        "step_1sqr135d"
-                    ]
-                },
-                "W": {
-                    "img": "WQ.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr0d",
-                        "step_1sqr45d",
-                        "step_1sqr90d",
-                        "step_1sqr135d",
-                        "step_1sqr180d",
-                        "step_1sqr225d",
-                        "step_1sqr270d",
-                        "step_1sqr315d"
-                    ]
-                }
-            },
-            "Rook": {
-                "B": {
-                    "img": "BR.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr180d",
-                        "step_1sqr270d",
-                        "step_1sqr0d",
-                        "step_1sqr90d"
-                    ]
-                },
-                "W": {
-                    "img": "WR.svg",
-                    "offsets": [],
-                    "spans": [
-                        "step_1sqr0d",
-                        "step_1sqr90d",
-                        "step_1sqr180d",
-                        "step_1sqr270d"
-                    ]
-                }
-            }
-        }
-    id_dict = \
-        {
-            "k": "King",
-            "q": "Queen",
-            "r": "Rook",
-            "b": "Bishop",
-            "n": "Knight",
-            "p": "Pawn"
-        }
+    range_defs = get_standard_range_defs()
+    id_dict = get_standard_id_dict()
 
     board =\
     {(1, 1): 'WR1', (2, 1): '#', (3, 1): '#', (4, 1): '#', (5, 1): 'WK1', (6, 1): '#', (7, 1): '#', (8, 1): 'WR2',

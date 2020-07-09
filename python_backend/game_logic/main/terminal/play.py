@@ -1,3 +1,4 @@
+from flask_helpers.get_data import get_data
 from game_logic.bools.game_over import game_over
 from game_logic.load_save.load import load
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
@@ -23,21 +24,21 @@ from termcolor import colored
 
 def play_game(game_name):
     """game loop located here/ WARNING: need to refactor get_ranges"""
-    fen_obj, board, json_records = load(game_name)
+    fen_obj, board, json_records, flask_method, defs_ = get_data(game_name)
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False
     start, dest = "", ""
     print_board(board)
     while not x:
         init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
+        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
         k_loc = get_king_locs(board, color)
-        threat_area = get_threat_area(k_loc, board, color)
-        pd_dict = get_pathdata_dict(k_loc, board, color)
-        pins = get_pins(k_loc, board, color, pd_dict, pins)
-        npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
+        threat_area = get_threat_area(board, k_loc, color, defs_['range_defs'], defs_['id_dict'])
+        pd_dict = get_pathdata_dict(board, k_loc, color, defs_['range_defs'], defs_['id_dict'])
+        pins = get_pins(pd_dict, pins)
+        npck = get_num_pieces_checking_king(board, k_loc, color, defs_['range_defs'], defs_['id_dict'], pd_dict)
         mt_restricts = get_multithreat_restriction(board, npck, color)
-        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
+        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
         json_records.update_state(board, final_ranges, get_next_color(color), npck)
         if game_over(json_records.game_status):
             break

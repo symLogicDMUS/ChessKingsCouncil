@@ -40,5 +40,3 @@ if __name__ == "__main__":
     new_pos_str = num_to_sharps('b2q2q13R1R22NP4q1QK1QBr83P1P2q2r2P13k3b')
     print(new_pos_str)
     print("\n")
-
-    

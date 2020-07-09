@@ -40,7 +40,7 @@ def test_dummy_game(game_name):
         pins = get_pins(k_loc, board, color, pd_dict, pins)
         npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
         mt_restricts = get_multithreat_restriction(board, npck, color)
-        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
+        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
         json_records.update_state(board, final_ranges, get_next_color(color), npck)
         if game_over(json_records.game_status):
             break

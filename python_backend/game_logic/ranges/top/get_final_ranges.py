@@ -2,14 +2,13 @@ from game_logic.restriction.restriction import restriction
 from game_logic.piece_type.get_piece_type import get_piece_type
 
 
-def get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restriction, color):
+def get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restriction):
     """the final range is the intersection of the initial range, pin, threat area, and multi-threat restriction
     :param init_ranges:
     :param pins:
     :param threat_area:
     :param final_ranges:
     :param mt_restriction:
-    :param color:
     :return:
     """
     for id_ in final_ranges.keys():

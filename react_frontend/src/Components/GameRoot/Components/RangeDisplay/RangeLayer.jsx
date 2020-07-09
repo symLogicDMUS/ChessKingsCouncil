@@ -10,6 +10,13 @@ export class RangeLayer extends React.Component {
         super(props);
     }
     
+    getHighlightImg(rf) {
+        if (this.props.board[rf] === this.props.pieceRangeHighlight)
+            return "/Images/range-sqr-full.svg";
+        else
+            return "/Images/range-sqr.svg";
+    }
+
     isHighlight(rf) {
 
         if (this.props.pieceRangeHighlight === "none")
@@ -34,15 +41,9 @@ export class RangeLayer extends React.Component {
         for (var rf of rankfiles) {
 
             if (this.isHighlight(rf)) {
-
-                if (this.props.board[rf] === this.props.pieceRangeHighlight)
-                    img_ = "/Images/range-sqr-full.svg"
-                else
-                    img_ = "/Images/range-sqr.svg"
-
                 squares.push(
                     <div className="range-layer-sqr" style={getPosPx(rf)} >
-                        <img src={img_} style={{maxHeight:"100px", maxWidth:"100px"}} />
+                        <img src={this.getHighlightImg(rf)} style={{maxHeight:"100px", maxWidth:"100px"}} />
                     </div>
                 );
             }

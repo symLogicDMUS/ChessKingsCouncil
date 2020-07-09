@@ -1,23 +1,32 @@
-from game_logic.load_save.load import load
+from flask_helpers.get_data import get_data
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from game_logic.ranges.top.get_ranges import get_ranges
 from game_logic.getters.get_reset_piece_dicts import get_reset_piece_dicts
 from game_logic.threatArea.get_king_locs import get_king_locs
 from game_logic.threatArea.top.get_threat_area import get_threat_area
-from game_logic.restriction import get_num_pieces_checking_king
+from game_logic.restriction.get_num_pieces_checking_king import get_num_pieces_checking_king
+from game_logic.restriction.get_multithreat_restriction import get_multithreat_restriction
 from game_logic.pins.top.get_pins import get_pins
-from game_logic.restriction import get_multithreat_restriction
 from game_logic.ranges.top.get_final_ranges import get_final_ranges
 from game_logic.printers.unicode_pieces import unicode_pieces_rk
-from game_logic.movePiece import attempt_move
-from game_logic.color import get_color
+from game_logic.movePiece.attempt_move import attempt_move
+from game_logic.color.get_color import get_color
 from game_logic.printers.get_unicode_board import get_unicode_board
+from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 from termcolor import colored
 from time import perf_counter
 from pprint import pprint
 import traceback
 import copy
 import os
+
+__doc__ = \
+    """
+    pick from an example game or pick to run all example games. For every square try to move to every other square.
+    64 x 64 = 4,096 cases. Print a board for each start square. Every square that is a successful move from start square
+    is highlighted in red. An option to skip attempts to 'move' empty squares is available
+    """
 
 
 def mrd():
@@ -54,33 +63,37 @@ def get_result_board():
          (8, 8): mrd()}
 
 
-def run_tests(fen_, board_, json_records_, results):
-    """for every piece on board, try to move it to every square on the board, and show the result for every piece"""
-    # note: 4,096 iterations
+def run_tests(fen_, board_, json_records_, defs_, results):
+    """
+    for every square on board (including empty squares), try to move to every other square on the board.
+    successes are highlighted in red. total of 4,096 iterations!
+    """
+    range_defs = defs_['range_defs']
+    id_dict = defs_['id_dict']
+    defs_ = {'range_defs': range_defs, 'id_dict': id_dict}
     try:
         for y1 in range(8, 0, -1):
             for x1 in range(1, 9):
                 for y2 in range(8, 0, -1):
                     for x2 in range(1, 9):
                         fen_obj, board, json_records = copy.deepcopy(fen_), copy.deepcopy(board_), copy.deepcopy(
-                          json_records_)  # reset
+                            json_records_)  # reset
                         start = (x1, y1)
                         dest = (x2, y2)
                         id_ = board[start]
                         if board[start] == '#':
                             continue
-                            # color = 'W'  # arbitrary choice of color, need color to attempt to 'move' empty square
                         else:
                             color = get_color(board[start])
                         init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-                        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records)
+                        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
                         k_loc = get_king_locs(board, color)
-                        threat_area = get_threat_area(k_loc, board, color)
-                        pd_dict = get_pathdata_dict(k_loc, board, color)
-                        pins = get_pins(k_loc, board, color, pd_dict, pins)
-                        npck = get_num_pieces_checking_king(k_loc, board, color, pd_dict)
+                        threat_area = get_threat_area(board, k_loc, color, range_defs, id_dict)
+                        pd_dict = get_pathdata_dict(board, k_loc, color, range_defs, id_dict)
+                        pins = get_pins(pd_dict, pins)
+                        npck = get_num_pieces_checking_king(board, k_loc, color, range_defs, id_dict, pd_dict)
                         mt_restricts = get_multithreat_restriction(board, npck, color)
-                        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts, color)
+                        final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
                         board, captured, moved = attempt_move(board, start, dest, color, final_ranges, special_moves)
                         if moved:
                             results[start][dest] = True
@@ -115,12 +128,12 @@ def print_results(results, uni_board, skip_empty=False, specific_type=None):
 
 
 def test_game(game_name):
-    f = open("log1._txt", "w").close()
+    f = open("./test_output/log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_ = load(game_name)
+    fen_, board_, json_records_, flask_method, defs_ = get_data(game_name)
     uni_board = get_unicode_board(board_)
-    results = run_tests(fen_, board_, json_records_, results)
+    results = run_tests(fen_, board_, json_records_, defs_, results)
     if results == -1:
         return
     print_results(results, uni_board, skip_empty=True)
@@ -128,7 +141,7 @@ def test_game(game_name):
 
 def test_all():
     """attempt every move for every example game"""
-    for game_name in os.listdir('../../example_games'):
+    for game_name in os.listdir('../../../example_games'):
         t1 = perf_counter()
         test_game(game_name)
         t2 = perf_counter()
@@ -142,7 +155,7 @@ def test_menu():
     games["X"] = "Quit"
     games["ALL"] = "Test all examples"
     print("pick number of game to run all move attempts on, 'ALL' to test all examples, or 'X' to quit:")
-    for game in os.listdir("../../example_games"):
+    for game in os.listdir("../../../example_games"):
         games[str(i)] = game
         i += 1
     pprint(games)
@@ -159,7 +172,7 @@ def test_menu():
         test_menu()
     else:
         game_name = games[c]
-        test_game(game_name)
+        test_game(game_name)  # test selected game
         test_menu()
 
 
