@@ -37,7 +37,7 @@ export class GameRoot extends React.Component {
         this.update = this.update.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
-
+        this.emitSpecialChange = this.emitSpecialChange.bind(this);
 
         /*footnote 1: 2 different attributes for board because can make 
           intermediate updates before triggering new render and 
@@ -53,6 +53,13 @@ export class GameRoot extends React.Component {
 
     emitChange() {
       this.setState({board: this.board})
+    }
+
+    emitSpecialChange(board) {
+        /**emit change of special case where board needs to be modified by source other than piece DnD.
+         * called by Pawn promotion
+         */
+        this.setState({board: board})
     }
 
     getBoard() {
@@ -172,7 +179,7 @@ export class GameRoot extends React.Component {
                 <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} allRanges={{...this.ranges, ...this.enemyRanges}}  />
                 <RangeSelect updatePrh={this.updatePrh} update={this.update} allRanges={{...this.ranges, ...this.enemyRanges}} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
                 <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
-                {this.specialCase === "promo" && (<Promo data={this} pawnLoc={this.specialMoves.currentDest} />)}
+                {this.specialCase === "promo" && (<Promo data={this} color={this.getEnemyColor()} pawnLoc={this.specialMoves.currentDest} />)}
                 {this.specialCase === "saving" && (<Saving />)}
                 {this.specialCase === "save-success" && (<SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />)}
             </>

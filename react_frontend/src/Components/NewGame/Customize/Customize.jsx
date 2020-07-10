@@ -5,6 +5,7 @@ import {defs} from "./tests/testDefs1";
 import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
 import {getColorName} from "../../helpers/getColorName";
 import {NameTooltip} from "./Profile/NameTooltip";
+import {PromoAll} from "./PromoAll";
 import {Ok} from "./Bottom/Ok";
 import "./Profile/Profile.css";
 import "./Profile/ProfileWB/ProfileWB.css";
@@ -52,10 +53,11 @@ export class Customize extends React.Component {
             "Knight":null
         }
         this.accept = this.accept.bind(this);
+        this.expand = this.expand.bind(this);
         this.togleSub = this.togleSub.bind(this);
         this.toglePromo = this.toglePromo.bind(this);
+        this.toglePromoAll = this.toglePromoAll.bind(this);
         this.loadNewCustom = this.loadNewCustom.bind(this);
-        this.expand = this.expand.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
     }
 
@@ -213,12 +215,25 @@ export class Customize extends React.Component {
     
     toglePromo(pieceName) {
         if (this.promos.includes(pieceName)) {
-            const index = this.promos.indexOf(pieceName)
+            const index = this.promos.indexOf(pieceName);
             if (index > -1)
                 this.promos.splice(index, 1)
         }
         else
             this.promos.push(pieceName);
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
+    toglePromoAll() {
+        if (this.promos.length > 0) {
+            this.promos = [];
+        }
+        else {
+            this.promos = [];
+            Object.keys(this.defs).forEach(pieceName => {
+                this.promos.push(pieceName);
+            });
+        }
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
@@ -254,8 +269,9 @@ export class Customize extends React.Component {
                   nameTooltip={this.nameTooltip}
                   togleSub={this.togleSub} 
                   toglePromo={this.toglePromo} 
-                  pieceName={pieceName}
                   expand={this.expand}
+                  pieceName={pieceName}
+                  promos={this.promos}
                   displayDefs={this.displayDefs}
                 />
             );
@@ -268,6 +284,7 @@ export class Customize extends React.Component {
         return(
             <>
                 <div className="customise-window">
+                    <PromoAll toglePromoAll={this.toglePromoAll} />
                     <div className="piece-profiles">
                         {this.getProfiles()}
                     </div>

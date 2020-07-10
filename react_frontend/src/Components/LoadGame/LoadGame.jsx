@@ -65,10 +65,11 @@ export class LoadGame extends React.Component {
       //return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
-                state: {gameName: this.gameName, 
-                        dataEntry:this.dataEntry, 
-                        isCouncil:false}
-        }} />);
+                pathname:"/NewGame/Play",
+                state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
+                        dataEntry:JSON.parse(JSON.stringify(this.dataEntry)), 
+                        isCouncil:JSON.parse(JSON.stringify(this.council))}
+      }} />);
     }
 
     //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop

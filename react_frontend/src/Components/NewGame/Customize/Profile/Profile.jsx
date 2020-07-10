@@ -44,7 +44,7 @@ export class Profile extends React.Component {
                             Promotion:
                         </div>
                         <div className="promotion-checkbox">
-                            <CheckBox togle={this.props.toglePromo} piece={this.props.pieceName} />
+                            <CheckBox toglePromo={this.props.toglePromo} pieceName={this.props.pieceName} promos={this.props.promos} />
                         </div>
                     </div>
                 </div>
