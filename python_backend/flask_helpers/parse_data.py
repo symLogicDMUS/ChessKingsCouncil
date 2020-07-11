@@ -8,23 +8,24 @@ from game_logic.color.get_next_color import get_next_color as get_enemy_color
 
 def parse_data(game_name):
     """replicate behavior without api call"""
-    fen_obj, board, json_records, update_method, defs_ = get_data(game_name)
-    color = fen_obj.turn.upper()
+    fen_obj, board, json_records, game_status, update_method, defs_ = get_data(game_name)
+    fen_data = fen_obj.get_data()
+    color = fen_data['turn'].upper()
     data = new_data(board, color, defs_, json_records)
     enemy_data = new_data(board, get_enemy_color(color), defs_, json_records)
-    final_ranges = data['ranges']
-    enemy_final_ranges = enemy_data['ranges']
-    moves = data['moves']
-    fen_data = fen_obj.get_data()
-    data = map_xy_to_rf(
+    payload = ({
+        'ranges': data['ranges'],
+        'enemy_ranges': enemy_data['ranges'],
+        'status': data['status'],
+        'moves': data['moves'],
+        'id_dict': defs_['id_dict'],
+        'defs': defs_['range_defs']
+    })
+    payload.update(map_xy_to_rf(
         {"color": color, "fen_data": fen_data, "board": board, "records": json_records.get_records(),
-         "flask_method": update_method})
-    data['ranges'] = final_ranges
-    data['enemy_ranges'] = enemy_final_ranges
-    data['moves'] = moves
-    data["id_dict"] = defs_['id_dict']
-    data['defs'] = defs_['range_defs']
-    return data
+         "flask_method": update_method}))
+
+    return payload
 
 
 if __name__ == "__main__":

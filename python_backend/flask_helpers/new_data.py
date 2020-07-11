@@ -8,6 +8,8 @@ from game_logic.restriction.get_multithreat_restriction import get_multithreat_r
 from game_logic.ranges.top.get_final_ranges import get_final_ranges
 from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from game_logic.pins.top.get_pins import get_pins
+from game_logic.GameStatus.get_status import get_status
+from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from pprint import pprint
 
 
@@ -23,6 +25,8 @@ def new_data(board, color, defs_, json_records):
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
     special_moves.set_promos(board, final_ranges, color)
     moves = special_moves.get_moves()
+    status = get_status(board, final_ranges, get_enemy_color(color), npck)
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
     pprint(data['ranges'])
+    data['status'] = status
     return data

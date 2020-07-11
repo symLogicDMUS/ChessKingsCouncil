@@ -30,11 +30,11 @@ if __name__ == "__main__":
     json_records = JsonRecords(
         "C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/pawn_range/pawn_range.json", board)
 
-    for id in board.values():
-        if id == '#':
+    for id_ in board.values():
+        if id_ == '#':
             continue
-        if get_piece_type(id) == 'Pawn':
-            print("id:{} moved once, 2 squares:{}".format(id, pawn_moved_once_2_sqrs(json_records.pawn_histories, id)))
+        if get_piece_type(id_) == 'P':
+            print("id:{} moved once, 2 squares:{}".format(id_, pawn_moved_once_2_sqrs(json_records.pawn_histories, id_)))
     print('\n')
 
     # test 2:
@@ -52,9 +52,9 @@ if __name__ == "__main__":
     json_records = JsonRecords(
         "C:/Users/bjrat/source/repos/Python/ChessKingsCouncil/example_games/_initialBoard/dummy_game.json", board)
 
-    for id in board.values():
-        if id == '#':
+    for id_ in board.values():
+        if id_ == '#':
             continue
-        if get_piece_type(id) == 'Pawn':
-            print("id:{} moved once, 2 squares:{}".format(id, pawn_moved_once_2_sqrs(json_records.pawn_histories, id)))
+        if get_piece_type(id_) == 'P':
+            print("id:{} moved once, 2 squares:{}".format(id_, pawn_moved_once_2_sqrs(json_records.pawn_histories, id_)))
     print('\n')

@@ -1,6 +1,5 @@
 from math import sqrt
 from game_logic.helpers.formulas import dist
-from game_logic.piece_type.get_piece_type import get_piece_type
 from game_logic.sqr_case.get_sqr_case import get_sqr_case
 from game_logic.sqr_case.sqr_cases import *
 from game_logic.printers.print_board import print_board

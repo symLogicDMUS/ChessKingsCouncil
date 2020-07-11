@@ -2,7 +2,7 @@ from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.fenParser.getBoard.top.get_board import get_board
 from game_logic.fenParser.Fen import Fen
 from game_logic.status.get_status import get_status
-from flask_helpers.tests.filepath import get_dir_containing_name
+from flask_helpers.helpers.filepath import get_dir_containing_name
 
 
 def load(game_name):

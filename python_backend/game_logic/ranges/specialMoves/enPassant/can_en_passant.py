@@ -17,7 +17,7 @@ def can_enpassant(attacking, attacked, board, color, pawn_histories, ncnpm, lpm)
         return False
     if get_sqr_case(board, attacked[0], attacked[1], color) != ENEMY:
         return False
-    if get_piece_type(board[attacked]) != 'Pawn':
+    if get_piece_type(board[attacked]) != 'P':
         return False
     if ncnpm != 0:
         return False

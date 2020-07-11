@@ -28,10 +28,10 @@ def get_ranges(board, color, ranges, json_records, defs_):
         if get_color(id_) != color:
             continue
         piece_type = get_piece_type(id_)
-        if piece_type == 'Pawn':
+        if piece_type == 'P':
             piece_range, special_moves = pawn(board, sqr, color, json_records, special_moves)
             ranges[id_].extend(piece_range)
-        elif piece_type == 'King':
+        elif piece_type == 'K':
             piece_range, special_moves = king(board, sqr, color, json_records, special_moves, range_defs, id_dict)
             ranges[id_].extend(piece_range)
         else:

@@ -1,6 +1,5 @@
 from flask_helpers.get_data import get_data
 from game_logic.bools.game_over import game_over
-from game_logic.load_save.load import load
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from game_logic.color.get_next_color import get_next_color
 from game_logic.ranges.top.get_ranges import get_ranges
@@ -24,7 +23,7 @@ from termcolor import colored
 
 def play_game(game_name):
     """game loop located here/ WARNING: need to refactor get_ranges"""
-    fen_obj, board, json_records, flask_method, defs_ = get_data(game_name)
+    fen_obj, board, json_records, game_status, flask_method, defs_ = get_data(game_name)
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False
     start, dest = "", ""
@@ -39,12 +38,12 @@ def play_game(game_name):
         npck = get_num_pieces_checking_king(board, k_loc, color, defs_['range_defs'], defs_['id_dict'], pd_dict)
         mt_restricts = get_multithreat_restriction(board, npck, color)
         final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
-        json_records.update_state(board, final_ranges, get_next_color(color), npck)
-        if game_over(json_records.game_status):
+        game_status.update(board, final_ranges, get_next_color(color), npck)
+        if game_over(game_status.game_status):
             break
         start, dest, board, captured, x = make_move(board, start, dest, color, final_ranges, special_moves)
         board, p_flag, = promote(board, start, dest, color, default=True)
-        json_records.update_hist(board[dest], start, dest, p_flag)
+        json_records.update(board[dest], start, dest, p_flag)
         fen_obj.update_state(special_moves, json_records, start, dest, captured, color)
         json_records, x = fifty_move_draw(fen_obj.hm_clock, json_records, default=True)
         print_board(board, heading=colored(json_records.condition))
@@ -58,4 +57,4 @@ def play_game(game_name):
 
 
 if __name__ == "__main__":
-    play_game('New')
+    play_game('stalemate_exp1')

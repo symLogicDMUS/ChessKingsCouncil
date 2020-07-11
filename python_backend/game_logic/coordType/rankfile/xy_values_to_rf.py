@@ -1,5 +1,6 @@
 from game_logic.coordType.rankfile.nest_level.funcs import funcs
 from game_logic.coordType.Depth import Depth
+from game_logic.test_objects.sample_board_dicts import sample_board_dicts
 from pprint import pprint
 
 
@@ -135,3 +136,4 @@ if __name__ == "__main__":
                      'winner': '-'}
          }
     pprint(xy_values_to_rf(json_obj, Depth()))
+    pprint(xy_values_to_rf(sample_board_dicts['new'], Depth()))

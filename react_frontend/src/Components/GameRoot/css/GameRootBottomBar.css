@@ -1,0 +1,11 @@
+.game-root-bottom-bar {
+    position: absolute;
+    z-index: 2;
+    top: 715px;
+    left: 835px;
+    display: grid;
+    grid-template-columns: 160px 50px;
+    grid-template-rows: 60px;
+    column-gap: 20px;
+    /* border: 1px dashed black; */
+}

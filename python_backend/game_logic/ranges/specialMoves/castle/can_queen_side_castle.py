@@ -1,12 +1,12 @@
 from game_logic.ranges.specialMoves.castle.get_queen_side_castle_paths import get_queen_side_castle_paths
 from game_logic.ranges.specialMoves.castle.king_start_pos import king_start_pos
-from game_logic.printers.print_fen_board import print_fen_board
 from game_logic.threatArea.top.sqr_under_attack import sqr_under_attack
 from game_logic.ranges.specialMoves.castle.safe_path import safe_path
 from game_logic.bools.clear_path import clear_path
 from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
+from game_logic.printers.print_board import print_board
 
 
 def can_queen_side_castle(board, color, json_records, range_defs, id_dict):
@@ -51,7 +51,7 @@ if __name__ == "__main__":
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test1/castle_test1.json", board)
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     
 
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
@@ -88,10 +88,8 @@ if __name__ == "__main__":
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test3/castle_test3.json", board)
-    
 
-
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
@@ -108,10 +106,8 @@ if __name__ == "__main__":
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): 'BQ1', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test4/castle_test4.json", board)
-    
 
-
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'W', json_records, range_defs, id_dict))
     print('\n')
 
@@ -128,9 +124,8 @@ if __name__ == "__main__":
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): 'BK1', (6, 8): '#', (7, 8): '#', (8, 8): 'BR2'}
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test1/castle_test1.json", board)
-    
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
@@ -148,7 +143,7 @@ if __name__ == "__main__":
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test2/castle_test2.json", board)
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
@@ -166,7 +161,7 @@ if __name__ == "__main__":
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json", board)
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 
@@ -184,7 +179,7 @@ if __name__ == "__main__":
 
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json/castle_test4/castle_test4.json", board)
 
-    print_fen_board(board)
+    print_board(board)
     print(can_queen_side_castle(board, 'B', json_records, range_defs, id_dict))
     print('\n')
 

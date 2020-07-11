@@ -17,20 +17,20 @@ from game_logic.color.get_color import get_color
 
 def pawn(board, sqr, color, json_records, special_moves):
     """get the range of pawn at location sqr and of the given color"""
-    range = []
+    range_ = []
     potential_1_sqr = get_potential_1_sqr_jumps(sqr, board, color)
 
     # if potential 1 square jump is an actual 1 square jump...
     if is_actual_1_sqr_jumps(board, potential_1_sqr, color):
         # ..add jump to the range
-        range.append(potential_1_sqr)
+        range_.append(potential_1_sqr)
 
     # if there is a 2 sqr jump availible..
     if valid_2_sqr_jump(sqr, board, color, json_records.pawn_histories):
         # ..get the 2 sqr jump
         two_sqr_jump = get_2_sqr_jump(sqr, color)
         # add the 2 square jump to range
-        range.append(two_sqr_jump)
+        range_.append(two_sqr_jump)
 
     # if can capture the pawn left of it by en-passant...
     if can_enpassant(sqr, step_1sqr180d(sqr[0], sqr[1]), board, color,
@@ -40,7 +40,7 @@ def pawn(board, sqr, color, json_records, special_moves):
         # get the target square for the en-passant
         t_sqr = get_t_sqr(color, align_key)
         # add target square to range
-        range.append(t_sqr)
+        range_.append(t_sqr)
         # add target square to special_moves enPassant list
         special_moves.add_en_passant((sqr, t_sqr))
 
@@ -52,16 +52,16 @@ def pawn(board, sqr, color, json_records, special_moves):
         # get the target square for the en-passant
         t_sqr = get_t_sqr(color, align_key)
         # add target square to range
-        range.append(t_sqr)
+        range_.append(t_sqr)
         # add target square to special_moves enPassant list
         special_moves.add_en_passant((sqr, t_sqr))
 
     # get the squares this pawn could potentially capture piece if moved there
     potential_captures = get_potential_captures(sqr, board, color)
     # get the squares this pawn would actually be capturing piece if moved there, and add to range
-    range.extend(get_actual_captures(board, potential_captures, color))
+    range_.extend(get_actual_captures(board, potential_captures, color))
 
-    return range, special_moves
+    return range_, special_moves
 
 
 if __name__ == "__main__":

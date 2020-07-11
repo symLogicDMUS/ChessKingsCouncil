@@ -5,7 +5,7 @@ from game_logic.color.get_color import get_color
 
 def get_king_locs(board, color):
     """get the location of the king of given color NOTE: in the modified chess can return list instead of single item"""
-    locs = list(filter(lambda s: get_piece_type(board[s]) == 'King' and get_color(board[s]) == color, board.keys()))
+    locs = list(filter(lambda s: get_piece_type(board[s]) == 'K' and get_color(board[s]) == color, board.keys()))
     if len(locs) == 1:
         return locs[0]
     else:

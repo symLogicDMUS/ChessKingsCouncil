@@ -2,15 +2,20 @@
 export class JsonRecords {
     /*contains info for new or saved game relevant to perfoming a castle or enPassant**/
 
+    constructor(records) {
+        this.rooksMoved = records['rooks_moved']
+        this.kingsMoved = records['kings_moved']
+        this.pawnHistories = records['pawn_histories']
+        this.lastPawnMove = records['last_pawn_move']
+        this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
+    }
+
     update(records) {
         this.rooksMoved = records['rooks_moved']
         this.kingsMoved = records['kings_moved']
         this.pawnHistories = records['pawn_histories']
         this.lastPawnMove = records['last_pawn_move']
         this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
-        this.gameStatus = records['game_status']
-        this.condition = records['condition']
-        this.winner = records['winner']
     }
 
     getRecords() {
@@ -20,9 +25,6 @@ export class JsonRecords {
             "pawn_histories": this.pawnHistories,
             "last_pawn_move": this.lastPawnMove,
             "num_consecutive_non_pawn_moves":this.numConsecutiveNonPawnMoves,
-            "game_status": this.gameStatus,
-            "condition": this.condition,
-            "winner": this.winner
         };
     }
 }

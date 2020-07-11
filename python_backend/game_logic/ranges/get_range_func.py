@@ -2,7 +2,7 @@ from game_logic.ranges.special_defs import _special_defs
 
 
 def get_range_func(piece_type):
-    """return the function that gets the range for piece_type """
+    """return the function that gets the range for game_data """
     return _special_defs[piece_type]
 
 

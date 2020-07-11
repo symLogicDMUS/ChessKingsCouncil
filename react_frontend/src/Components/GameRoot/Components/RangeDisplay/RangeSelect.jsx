@@ -1,5 +1,5 @@
 import React from "react";
-import "./RangeDisplay.css";
+import "../../css/RangeSelect.css";
 
 export class RangeSelect extends React.Component {
 
@@ -38,9 +38,16 @@ export class RangeSelect extends React.Component {
     render() {
 
         return (
-            <select id="range-select" className="range-select-dropdown" onChange={this.handleChange} value={this.selectedItem}>
-                {this.getPieceOptions()}
-            </select>
+            <div className="range-select">
+                <div className="label-container">
+                    Show available moves
+                </div>
+                <div className="dropdown-container">
+                    <select id="range-select-dropdown" className="range-select-dropdown" onChange={this.handleChange} value={this.selectedItem}>
+                        {this.getPieceOptions()}
+                    </select>              
+                </div>
+            </div>
         );
     }
 

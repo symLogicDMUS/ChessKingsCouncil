@@ -2,7 +2,7 @@ from game_logic.sqr_case.is_empty_sqr import is_empty_sqr
 from game_logic.printers.get_unicode_piece import get_unicode_piece
 from game_logic.color import get_color
 from termcolor import colored
-from game_logic.printers import checkerboard
+from game_logic.printers.checker_board import checkerboard
 
 
 def print_board_highlight_sd(board_dict, start, dest, heading=""):

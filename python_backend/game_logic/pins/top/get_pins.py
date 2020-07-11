@@ -17,7 +17,7 @@ def get_pins(pd_dict, pins):
     for path in pd_dict.values():
         if is_pin(path):
             piece_id, coord_path = get_pin(path)
-            if get_piece_type(piece_id) == 'King':
+            if get_piece_type(piece_id) == 'K':
                 continue
             pins[piece_id] = coord_path
     return pins

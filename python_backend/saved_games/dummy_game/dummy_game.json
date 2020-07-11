@@ -1,117 +1,64 @@
 {
     "rooks_moved": {
-        "h1": true,
-        "a1": true,
-        "h8": true,
-        "a8": true
+        "h1": false,
+        "a1": false,
+        "h8": false,
+        "a8": false
     },
     "kings_moved": {
-        "e1": true,
-        "e8": true
+        "e1": false,
+        "e8": false
     },
     "pawn_histories": {
-        "WP1": [
-            "a2",
-            "b3",
-            "b4"
+        "a2": [
+            "a2"
         ],
-        "WP2": [
-            "b2",
-            "b4"
+        "b2": [
+            "b2"
         ],
-        "WP3": [
-            "c2",
-            "c3",
-            "c4",
-            "c5",
-            "c6",
-            "c7"
+        "c2": [
+            "c2"
         ],
-        "WP4": [
-            "d2",
-            "d3",
-            "d4",
-            "d5",
-            "d6",
-            "e7"
-        ],
-        "WP5": [
-            "e2",
-            "e4"
-        ],
-        "WP6": [
-            "f2",
-            "f4"
-        ],
-        "WP7": [
-            "g2",
-            "g3",
-            "f4",
-            "e5",
-            "f6",
-            "f7"
-        ],
-        "WP8": [
-            "h2",
-            "h4",
-            "h5",
-            "h6",
-            "h7"
-        ],
-        "BP1": [
-            "a7",
-            "a5",
-            "b4",
-            "b3"
-        ],
-        "BP2": [
-            "b7",
-            "b6",
-            "b5"
-        ],
-        "BP3": [
-            "c7",
-            "c5",
-            "b4"
-        ],
-        "BP4": [
-            "d7",
-            "d6",
-            "d5",
-            "e4",
-            "e3",
+        "d2": [
             "d2"
         ],
-        "BP5": [
-            "e7",
-            "e6",
-            "e5",
-            "f4"
+        "e2": [
+            "e2"
         ],
-        "BP6": [
-            "f7",
-            "f6",
-            "f5",
-            "f4",
-            "f3",
+        "f2": [
             "f2"
         ],
-        "BP7": [
-            "g7",
-            "g6",
-            "g5",
-            "g4",
-            "g3",
+        "g2": [
             "g2"
         ],
-        "BP8": [
-            "h7",
-            "h6"
+        "h2": [
+            "h2"
+        ],
+        "a7": [
+            "a7"
+        ],
+        "b7": [
+            "b7"
+        ],
+        "c7": [
+            "c7"
+        ],
+        "d7": [
+            "d7"
+        ],
+        "e7": [
+            "e7"
+        ],
+        "f7": [
+            "f7"
+        ],
+        "g7": [
+            "g7"
+        ],
+        "h7": [
+            "h7"
         ]
     },
-    "last_pawn_move": "h7",
-    "num_consecutive_non_pawn_moves": 89,
-    "game_status": 0,
-    "condition": "stalemate",
-    "winner": "-"
+    "last_pawn_move": "None",
+    "num_consecutive_non_pawn_moves": 0
 }

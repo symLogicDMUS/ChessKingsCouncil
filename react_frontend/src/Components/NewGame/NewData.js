@@ -1,3 +1,6 @@
+
+const [OVER, IN_PROGRESS] = [0, 1]
+
 /**data for the start of a new game*/
 export const newData = {"color": 'W', 
                  "fen_data": {"turn": "w", 
@@ -51,7 +54,7 @@ export const newData = {"color": 'W',
                   },
                  "flask_method": "update"}
 
-export const ranges =         
+export const ranges =
 {
 'WB1':[],
 'WR1': [],
@@ -91,8 +94,9 @@ export const enemyRanges =
 'BN2': ["f6", "h6"]
 }
 
-
 export const moves = {"en_passant":[], "castles":[], "promos":[] };
+
+export const status = {'condition':'', 'game_status':IN_PROGRESS, 'winner':'-'};
 
 export const range_defs = {
   "Rook": {

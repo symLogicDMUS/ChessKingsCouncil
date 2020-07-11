@@ -1,11 +1,11 @@
 
 export class SpecialMoves {
     /*records the moves of current turn that are en-passant, castle, or pawn promotion**/
-    constructor() {
+    constructor(moves) {
         /*list form.includes(elements) of (start, dest) where start and dest are (x, y)**/
-        this.enPassant = []
-        this.castles = []
-        this.promos = []
+        this.enPassant = moves['en_passant'];
+        this.castles = moves['castles'];
+        this.promos = moves['promos'];
         this.currentDest = "none"
     }
 

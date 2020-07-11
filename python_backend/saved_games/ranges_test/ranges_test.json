@@ -1,18 +1,15 @@
 {
-  "rooks_moved": {
-    "h1": true,
-    "a1": true,
-    "h8": true,
-    "a8": true
-  },
-  "kings_moved": {
-    "e1": true,
-    "e8": true
-  },
-  "pawn_histories": {
-  },
-  "last_pawn_move": "f7",
-  "num_consecutive_non_pawn_moves": 15,
-  "game_status":1,
-  "winner":"-"
+    "rooks_moved": {
+        "h1": true,
+        "a1": true,
+        "h8": true,
+        "a8": true
+    },
+    "kings_moved": {
+        "e1": true,
+        "e8": true
+    },
+    "pawn_histories": {},
+    "last_pawn_move": "f7",
+    "num_consecutive_non_pawn_moves": 15
 }

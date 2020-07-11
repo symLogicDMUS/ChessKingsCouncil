@@ -12,7 +12,6 @@ import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
 import "../css/Piece.css";
 import "../css/Board.css";
-
 export class Board extends React.Component {
 
     constructor(props) {
@@ -35,21 +34,17 @@ export class Board extends React.Component {
 
             if (id_ === '#') {
                 squares.push(
-                    <div className={sqr_color} style={getPosPx(rf)}>
-                        <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
-                            {null}
-                        </BoardSquare>
-                    </div>
+                    <BoardSquare rf={rf} sqr_color={sqr_color} pos={rf} data={this.props.data} >
+                        {null}
+                    </BoardSquare>
                 );    
             }
 
             else {
                 squares.push(
-                    <div className={sqr_color} style={getPosPx(rf)}>
-                    <BoardSquare sqr_color={sqr_color} pos={rf} data={this.props.data} >
-                        <Piece pos={rf} id_={id_} img_={getPieceImg(id_, this.props.data.idDict, this.props.data.rangeDefs)} />
-                    </BoardSquare>
-                    </div>
+                <BoardSquare rf={rf} sqr_color={sqr_color} pos={rf} data={this.props.data} >
+                    <Piece pos={rf} id_={id_} img_={getPieceImg(id_, this.props.data.idDict, this.props.data.rangeDefs)} />
+                </BoardSquare>
                 );
             }
         }

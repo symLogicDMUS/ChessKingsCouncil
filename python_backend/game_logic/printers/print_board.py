@@ -1,7 +1,7 @@
 from game_logic.printers.get_unicode_piece import get_unicode_piece
 from game_logic.printers.checker_board import checkerboard
-from termcolor import colored
 from game_logic.piece_type.is_piece import is_piece
+from termcolor import colored
 
 
 def print_board(board, heading="", highlights=[], highlights2=[], highlights3=[], highlights4=[]):

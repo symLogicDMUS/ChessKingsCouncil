@@ -2,15 +2,15 @@
   .sqr1 {
     display: inline-block;
     z-index: 2;
-    width: 100px;
-    height: 100px;  
+    width: 75px;
+    height: 75px;  
   }
 
   .sqr2 {
     display: inline-block;
     z-index: 2;
-    width: 100px;
-    height: 100px;  
+    width: 75px;
+    height: 75px;  
   }
 
   .sqr1-in-range {
@@ -18,8 +18,8 @@
     z-index: 2;
     background-color: rgb(221, 255, 0);
     opacity: 60%;
-    width: 100px;
-    height: 100px;  
+    width: 75px;
+    height: 75px;  
   }
 
   .sqr2-in-range {
@@ -27,6 +27,6 @@
     z-index: 2;
     background-color: rgb(253, 253, 53);
     opacity: 60%;
-    width: 100px;
-    height: 100px;  
+    width: 75px;
+    height: 75px;  
   }

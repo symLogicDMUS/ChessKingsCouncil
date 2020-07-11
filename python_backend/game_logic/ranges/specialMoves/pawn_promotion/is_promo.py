@@ -6,9 +6,9 @@ def is_promo(start, dest, id_):
     """return True if start and dest are potential alignment of a pawn promotion and id is a pawn, else false
         is_promo is not concerned doing any filtering that is the job of the range
     """
-    if get_piece_type(id_) == 'Pawn' and get_color(id_) == 'W' and start[1] == 7 and dest[1] == 8:
+    if get_piece_type(id_) == 'P' and get_color(id_) == 'W' and start[1] == 7 and dest[1] == 8:
         return True
-    elif get_piece_type(id_) == 'Pawn' and get_color(id_) == 'B' and start[1] == 2 and dest[1] == 1:
+    elif get_piece_type(id_) == 'P' and get_color(id_) == 'B' and start[1] == 2 and dest[1] == 1:
         return True
     else:
         return False

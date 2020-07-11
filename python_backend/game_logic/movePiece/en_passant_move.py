@@ -19,13 +19,13 @@ def en_passant_move(board, start, dest, color, special_moves):
         return board, 'None'
 
     x, y = step_1sqr0d(start[0], start[1])  # 0
-    if get_sqr_case(board, x, y, color) == ENEMY and get_piece_type(board[x, y]) == 'Pawn':
+    if get_sqr_case(board, x, y, color) == ENEMY and get_piece_type(board[x, y]) == 'P':
         captured = board[x, y]
         board[x, y] = '#'
         return board, captured
 
     x, y = step_1sqr180d(start[0], start[1])  # 180
-    if get_sqr_case(board, x, y, color) == ENEMY and get_piece_type(board[x, y]) == 'Pawn':
+    if get_sqr_case(board, x, y, color) == ENEMY and get_piece_type(board[x, y]) == 'P':
         captured = board[x, y]
         board[x, y] = '#'
         return board, captured

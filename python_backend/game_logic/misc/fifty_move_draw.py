@@ -1,4 +1,4 @@
-from game_logic.misc.g_status_types import *
+from game_logic.GameStatus.g_status_types import *
 
 
 def fifty_move_draw(hm_clock, json_records, default=False):

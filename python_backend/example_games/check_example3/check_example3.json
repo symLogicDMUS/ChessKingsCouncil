@@ -1,25 +1,40 @@
-
 {
-  "rooks_moved": {
-    "h1": true,
-    "a1": true,
-    "h8": true,
-    "a8": true
-  },
-  "kings_moved": {
-    "e1": true,
-    "e8": true
-  },
-  "pawn_histories": {
-    "c2": [ "c2", "c3", "c4", "c5", "d6"],
-    "d2": [ "d2", "d3"],
-    "f2": [ "f2", "f4", "f5", "f6" ],
-    "g2": [ "g2", "g4", "g5", "g6", "g7" ]
-  },
-  "last_pawn_move": "None",
-  "num_consecutive_non_pawn_moves": 0,
-  "game_status": 1,
-  "condition":"check",
-  "winner": "-"
-
+    "rooks_moved": {
+        "h1": true,
+        "a1": true,
+        "h8": true,
+        "a8": true
+    },
+    "kings_moved": {
+        "e1": true,
+        "e8": true
+    },
+    "pawn_histories": {
+        "c2": [
+            "c2",
+            "c3",
+            "c4",
+            "c5",
+            "d6"
+        ],
+        "d2": [
+            "d2",
+            "d3"
+        ],
+        "f2": [
+            "f2",
+            "f4",
+            "f5",
+            "f6"
+        ],
+        "g2": [
+            "g2",
+            "g4",
+            "g5",
+            "g6",
+            "g7"
+        ]
+    },
+    "last_pawn_move": "None",
+    "num_consecutive_non_pawn_moves": 0
 }

@@ -20,7 +20,7 @@ def get_multithreat_restriction(board, num_pieces_checking_king, color):
                 continue
             if get_color(id_) != color:
                 continue
-            if get_piece_type(id_) == 'King':
+            if get_piece_type(id_) == 'K':
                 continue
             multithreat_restriction[id_] = sqr
     else:
@@ -29,7 +29,7 @@ def get_multithreat_restriction(board, num_pieces_checking_king, color):
                 continue
             if get_color(id_) != color:
                 continue
-            if get_piece_type(id_) == 'King':
+            if get_piece_type(id_) == 'K':
                 continue
             multithreat_restriction[id_] = []
 

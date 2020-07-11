@@ -2,7 +2,7 @@ import { xyToRf } from "../../helpers/crdCnvrt";
 
 export class Fen {
 
-    set(fenData) {
+    constructor(fenData) {
         this.turn = fenData['turn']
         this.castleAvail = fenData['castle_avail']
         this.enPassantAvail = fenData['en_passant_avail']
@@ -10,15 +10,6 @@ export class Fen {
         this.fmClock = Number.parseInt(fenData['fm_clock'])
     }
 
-    getData() {
-        return {
-            'turn':this.turn,
-            'castle_avail':this.castleAvail,
-            'en_passant_avail':this.enPassantAvail,
-            'hm_clock':this.hmClock,
-            'fm_clock':this.fmClock
-        }
-    }
     update(specialMoves, jsonRecords, start, dest, captured, color) {
         /*update the non piece-position attributes of the fen: turn, castle avail, en-passant avail, and clocks**/
         this.turn = color.toLowerCase();
@@ -71,6 +62,16 @@ export class Fen {
         this.castleAvail = K + Q + k + q
         if (this.castleAvail === '') {
             this.castleAvail = '-'
+        }
+    }
+
+    getData() {
+        return {
+            'turn':this.turn,
+            'castle_avail':this.castleAvail,
+            'en_passant_avail':this.enPassantAvail,
+            'hm_clock':this.hmClock,
+            'fm_clock':this.fmClock
         }
     }
 }

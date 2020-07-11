@@ -7,4 +7,3 @@ def get_piece_types(board):
     piece_types = list(map(lambda id_: get_piece_type(id_), piece_ids))
     piece_types.sort()
     return piece_types
-

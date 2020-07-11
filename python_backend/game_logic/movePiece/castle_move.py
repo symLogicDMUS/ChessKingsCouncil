@@ -23,7 +23,7 @@ def castle_move(board, start, dest, special_moves):
 
 
 if __name__ == "__main__":
-    # ? NOTE: only the Rook should move in these tests, not the King. castle_move is for the
+    # ? NOTE: only the Rook should move in these helpers, not the King. castle_move is for the
     # ? Rook part of the castle
 
     print("test 1. castle_test3, queen side:")

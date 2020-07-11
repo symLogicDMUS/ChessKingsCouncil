@@ -4,13 +4,12 @@ from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.fenParser.getFen.top.get_fen import get_fen
 from flask_helpers.parse_data import parse_data
 from flask_helpers.id_assign_.top.id_assign import id_assign
-from flask_helpers.tests.gen_fen_str import get_fen_str
-from flask_helpers.tests.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
+from flask_helpers.gen_fen_str import get_fen_str
+from flask_helpers.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from flask_helpers.new_data import new_data
 import json
 import os
-
 
 app = Flask(__name__)
 
@@ -26,7 +25,8 @@ def update():
     json_records = JsonRecords(None, None, j_records=records)
     data = new_data(board, color, defs_, json_records)
     enemy_data = new_data(board, get_enemy_color(color), defs_, json_records)
-    return jsonify({'ranges': data['ranges'], 'moves': data['moves'], 'enemy_ranges': enemy_data['ranges']})
+    return jsonify({'ranges': data['ranges'], 'enemy_ranges': enemy_data['ranges'],
+                    'moves': data['moves'], 'status': data['status']})
 
 
 @app.route('/save', methods=["POST"])
@@ -78,15 +78,7 @@ def save():
     print("Save Successful!")
     return "Save Successfull", 201
 
-    # save image
-    # f = open('../../saved_games/{}/{}.svg'.format(game_name, game_name), 'w') # create
-    # board = chess.Board(fen)
-    # board_image = chess.svg.board(board=board)
-    # f.write(board_image)
-    # f.close()
-    # drawing = svg2rlg('../../saved_games/{}/{}.svg'.format(game_name, game_name))
-    # renderPM.drawToFile(drawing, '../../saved_games/{}/{}.png'.format(game_name, game_name), fmt="PNG")
-    # os.remove('../../saved_games/{}/{}.svg'.format(game_name, game_name))
+    # TODO: save image of board to file
 
 
 @app.route('/update_council', methods=['GET'])

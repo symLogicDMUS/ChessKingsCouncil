@@ -2,7 +2,7 @@ import React from "react";
 import { rankfiles } from "../../../helpers/rankfiles";
 import { getPosPx } from "../../helpers/getPosPx";
 import {Square} from "../Square";
-import "./RangeDisplay.css";
+import "../../css/RangeLayer.css";
 
 export class RangeLayer extends React.Component {
 

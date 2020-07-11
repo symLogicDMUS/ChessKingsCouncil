@@ -1,4 +1,3 @@
-from game_logic.coordType import *
 from game_logic.coordType.xy.to_xy import to_xy
 from game_logic.piece_type.is_piece import is_piece
 from game_logic.printers.print_board import print_board

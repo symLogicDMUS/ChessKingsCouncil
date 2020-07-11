@@ -8,7 +8,7 @@ from game_logic.sqr_case.sqr_cases import *
 def get_actual_pawn_threats(board, potential_pawn_threats, color):
     """filter the list of potential pawn threats to get list of actual pawn threats"""
     return list(filter(lambda sqr: get_sqr_case(board, sqr[0], sqr[1], color) == ENEMY \
-                                   and get_piece_type(board[sqr]) == 'Pawn', potential_pawn_threats))
+                                   and get_piece_type(board[sqr]) == 'P', potential_pawn_threats))
 
 
 if __name__ == "__main__":

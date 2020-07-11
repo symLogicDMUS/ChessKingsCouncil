@@ -5,7 +5,7 @@ from pprint import pprint
 
 def get_pawn_tuples(board, color):
     """ """
-    return list(filter(lambda item: get_piece_type(item[1]) == 'Pawn' and get_color(item[1]) == color,  board.items()))
+    return list(filter(lambda item: get_piece_type(item[1]) == 'P' and get_color(item[1]) == color,  board.items()))
 
 
 if __name__ == "__main__":

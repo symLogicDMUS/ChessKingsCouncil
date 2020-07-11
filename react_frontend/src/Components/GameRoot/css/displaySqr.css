@@ -1,8 +1,8 @@
 .dark {
     position: absolute;
     z-index: 0;
-    width: 100px;
-    height: 100px;  
+    width: 75px;
+    height: 75px;  
     background-color: #008000;
   } 
   
@@ -13,8 +13,8 @@
   .light {
     position: absolute;
     z-index: 0;       
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     background-color: #ffffff;
   } 
   .light:hover { 

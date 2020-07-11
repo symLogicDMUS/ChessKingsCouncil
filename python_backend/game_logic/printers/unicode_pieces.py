@@ -1,5 +1,5 @@
-unicode_pieces = {'W': {'Rook': '♜', 'Queen': '♛', 'King': '♚', 'Bishop': '♝', 'Knight': '♞', 'Pawn': '♟'},
-                  'B': {'Rook': '♖', 'Queen': '♕', 'King': '♔', 'Bishop': '♗', 'Knight': '♘', 'Pawn': '♙'}}
+unicode_pieces = {'W': {'R': '♜', 'Q': '♛', 'K': '♚', 'B': '♝', 'N': '♞', 'P': '♟'},
+                  'B': {'R': '♖', 'Q': '♕', 'K': '♔', 'B': '♗', 'N': '♘', 'P': '♙'}}
 # reverse key of above 'W' and 'B' dicts
 unicode_pieces_rk = \
     {

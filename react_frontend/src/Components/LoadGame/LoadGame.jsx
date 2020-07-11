@@ -9,6 +9,7 @@ export class LoadGame extends React.Component {
   constructor(props) {
     super(props)
     this.state = {gameName: "none", loaded:false, reload: 0}
+    this.council = false;
     this.selected = false; //refrenced by child
     this.dataEntry = "-"; //Entry in game data dict
     this.pieceDefs = "-";
@@ -65,8 +66,7 @@ export class LoadGame extends React.Component {
       //return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
-                pathname:"/NewGame/Play",
-                state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
+                state: {gameName:JSON.parse(JSON.stringify(this.state.gameName)), 
                         dataEntry:JSON.parse(JSON.stringify(this.dataEntry)), 
                         isCouncil:JSON.parse(JSON.stringify(this.council))}
       }} />);

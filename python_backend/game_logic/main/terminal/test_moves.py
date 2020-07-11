@@ -12,8 +12,6 @@ from game_logic.printers.unicode_pieces import unicode_pieces_rk
 from game_logic.movePiece.attempt_move import attempt_move
 from game_logic.color.get_color import get_color
 from game_logic.printers.get_unicode_board import get_unicode_board
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
-from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 from termcolor import colored
 from time import perf_counter
 from pprint import pprint
@@ -131,7 +129,7 @@ def test_game(game_name):
     f = open("./test_output/log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_, flask_method, defs_ = get_data(game_name)
+    fen_, board_, json_records_, game_status, flask_method, defs_ = get_data(game_name)
     uni_board = get_unicode_board(board_)
     results = run_tests(fen_, board_, json_records_, defs_, results)
     if results == -1:

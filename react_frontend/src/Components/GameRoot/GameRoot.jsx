@@ -1,49 +1,47 @@
 import React from "react";
 import {Board} from "./Components/Board";
+import {GameRootHeader as Header} from "./Components/GameRootHeader";
 import {JsonRecords} from "./sharedData/JsonRecords";
+import {GameStatus} from "./sharedData/GameStatus";
 import {SpecialMoves} from "./Move/SpecialMoves";
 import { Promo } from "./Modals/Promo";
 import {Fen} from "./sharedData/Fen";
 import {isPiece} from "./helpers/isPiece";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
-import { SaveButton } from "./Components/SaveButton";
 import {RangeLayer} from "./Components/RangeDisplay/RangeLayer";
-import {RangeSelect} from "./Components/RangeDisplay/RangeSelect"
-import "./GameRoot.css";
+import {GameRootBottomBar as BottomBar} from "./Components/GameRootBottomBar";
+import "./css/GameRoot.css";
 
 export class GameRoot extends React.Component {
 
     constructor(props) {
         super(props);
         this.dataEntry = this.props.location.state.dataEntry;
-        this.jsonRecords = new JsonRecords();
-        this.specialMoves = new SpecialMoves();
-        this.fenObj = new Fen();
-        this.fenObj.set(this.dataEntry['fen_data'])
-        this.specialMoves.update(this.dataEntry['moves'])
-        this.jsonRecords.update(this.dataEntry['records'])
-        this.board = this.dataEntry['board']
-        this.state = {board: this.dataEntry['board'], bValue:true} //see footnote 1.
+        this.state = {board: this.dataEntry['board'], bValue:true} // state of component.
+        this.board = this.dataEntry['board'] //see footnote 1.
+        this.jsonRecords = new JsonRecords(this.dataEntry['records']);
+        this.gameStatus = new GameStatus(this.dataEntry['status']);
+        this.specialMoves = new SpecialMoves(this.dataEntry['moves']);
+        this.fenObj = new Fen(this.dataEntry['fen_data']);
         this.turn = this.dataEntry['color']
         this.ranges = this.dataEntry['ranges'];
         this.enemyRanges = this.dataEntry['enemy_ranges'];
         this.idDict = this.dataEntry['id_dict']; // id:piece-name dict
-        this.rangeDefs = this.dataEntry['defs'];
+        this.rangeDefs = this.dataEntry['defs']; 
         this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
         this.promo = false; //set true to alert need of promotion
-        this.pieceRangeHighlight = "none"; // piece id
+        this.pieceRangeHighlight = "none"; // is a piece id
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.emitSpecialChange = this.emitSpecialChange.bind(this);
 
-        /*footnote 1: 2 different attributes for board because can make 
-          intermediate updates before triggering new render and 
-          because board is logical choice for state. The state also has specialCase
-          for pop up messages "saving...", "save successfull!", and the pop-up modal
-          for promoting a pawn
+        /*footnote 1: have this.board in addition to this.state.board because
+          board is a logical choice for state but also want to make updates to
+          before triggering new render. State is set to this.board once all
+          updates have been made.
         */ 
     }
 
@@ -117,7 +115,8 @@ export class GameRoot extends React.Component {
             this.ranges = dataEntry['ranges']
             this.enemyRanges = dataEntry['enemy_ranges'];
             this.specialMoves.update(dataEntry['moves']);
-        });    
+            this.gameStatus.update(dataEntry['status'])
+        });
     }
 
     updateBackend() {
@@ -174,14 +173,31 @@ export class GameRoot extends React.Component {
 
     render() {
         return (
-            <>        
+            <>
                 <Board data={this} />
-                <RangeLayer board={this.board} pieceRangeHighlight={this.pieceRangeHighlight} allRanges={{...this.ranges, ...this.enemyRanges}}  />
-                <RangeSelect updatePrh={this.updatePrh} update={this.update} allRanges={{...this.ranges, ...this.enemyRanges}} rangeDefs={this.rangeDefs} idDict={this.idDict}/>
-                <SaveButton save={this.save} update={this.update} updateSpecialCase={this.updateSpecialCase} />
-                {this.specialCase === "promo" && (<Promo data={this} color={this.getEnemyColor()} pawnLoc={this.specialMoves.currentDest} />)}
-                {this.specialCase === "saving" && (<Saving />)}
-                {this.specialCase === "save-success" && (<SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />)}
+                <Header turn={this.turn} 
+                        condition={this.gameStatus.condition} 
+                        winner={this.gameStatus.winner} />
+                <RangeLayer board={this.board} 
+                            pieceRangeHighlight={this.pieceRangeHighlight} a
+                            allRanges={{...this.ranges, ...this.enemyRanges}}  />
+                {this.specialCase === "promo" && (
+                    <Promo data={this} 
+                            color={this.getEnemyColor()} 
+                            pawnLoc={this.specialMoves.currentDest} />)}
+                {this.specialCase === "saving" && (
+                    <Saving />)}
+                {this.specialCase === "save-success" && (
+                    <SaveSuccessfull update={this.update} 
+                                     updateSpecialCase={this.updateSpecialCase} />)}
+                <BottomBar updatePrh={this.updatePrh} 
+                           update={this.update} 
+                           save={this.save} 
+                           updateSpecialCase={this.updateSpecialCase}
+                           allRanges={{...this.ranges, ...this.enemyRanges}} 
+                           rangeDefs={this.rangeDefs} 
+                           idDict={this.idDict}
+                />
             </>
 
         )

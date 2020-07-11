@@ -19,7 +19,7 @@ def _get_coord_path(x, y, take_step):
 
 if __name__ == "__main__":
     
-    # all tests passed
+    # all helpers passed
 
     board = sample_board_dicts['check_example3']
 

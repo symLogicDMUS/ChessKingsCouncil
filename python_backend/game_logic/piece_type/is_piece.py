@@ -3,7 +3,7 @@ from re import fullmatch
 
 def is_piece(id_):
     """return True if id matches piece id pattern, otherwise return False """
-    if fullmatch(r'(W|B)(K|Q|B|N|R|P)[1-9]', id_) is not None:
+    if fullmatch(r'(W|B)[A-Z][1-9]', id_) is not None:
         return True
     else:
         return False
