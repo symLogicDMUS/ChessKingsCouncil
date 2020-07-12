@@ -1,7 +1,7 @@
 import { getRookStartAndDest } from "../helpers/getRookStartAndDest";
 import { ply } from "./ply";
 
-export function castleMove(data, start, dest) {
+export function castleMove(gameroot, start, dest) {
     /**if castle move, then move the rook as part of castle
     parameters
     ..........
@@ -12,10 +12,10 @@ export function castleMove(data, start, dest) {
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
    let move = [start, dest];
-    if (! data.specialMoves.isCastle(move)) {
+    if (! gameroot.specialMoves.isCastle(move)) {
         return;
     }
     var [rStart, rDest] = getRookStartAndDest(dest);
-    ply(data, rStart, rDest);
-    data.specialMoves.removeCastle([start, dest]);
+    ply(gameroot, rStart, rDest);
+    gameroot.specialMoves.removeCastle([start, dest]);
 }

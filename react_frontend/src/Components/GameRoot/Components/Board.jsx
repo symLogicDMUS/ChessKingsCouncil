@@ -1,7 +1,7 @@
 import React from "react";
 import Backend from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
-import {BoardSquare} from "./BoardSquare";
+import {Square} from "./Square";
 import {Piece} from "./Piece";
 import {rankfiles} from "../../helpers/rankfiles"
 import {sqrClasses} from "../helpers/sqrClasses";
@@ -12,6 +12,7 @@ import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
 import "../css/Piece.css";
 import "../css/Board.css";
+
 export class Board extends React.Component {
 
     constructor(props) {
@@ -25,26 +26,23 @@ export class Board extends React.Component {
     getInteractiveBoard() {
 
         let squares = [];
-        var sqr_color= null;
-        var id_ = null;
+        let imgName = null;
         for (var rf of rankfiles) {
 
-            sqr_color = sqrClasses[rf];
-            id_ = this.props.data.board[rf];
-
-            if (id_ === '#') {
+            if (this.props.gameroot.board[rf] === '#') {
                 squares.push(
-                    <BoardSquare rf={rf} sqr_color={sqr_color} pos={rf} data={this.props.data} >
+                    <Square rf={rf} sqr_color={sqrClasses[rf]} pos={rf} gameroot={this.props.gameroot} >
                         {null}
-                    </BoardSquare>
+                    </Square>
                 );    
             }
 
             else {
+                imgName = getPieceImg(this.props.gameroot.board[rf], this.props.gameroot.idDict, this.props.gameroot.rangeDefs);
                 squares.push(
-                <BoardSquare rf={rf} sqr_color={sqr_color} pos={rf} data={this.props.data} >
-                    <Piece pos={rf} id_={id_} img_={getPieceImg(id_, this.props.data.idDict, this.props.data.rangeDefs)} />
-                </BoardSquare>
+                    <Square sqr_color={sqrClasses[rf]} pos={rf} gameroot={this.props.gameroot} >
+                        <Piece pos={rf} id_={this.props.gameroot.board[rf]} img_={imgName} />
+                    </Square>
                 );
             }
         }

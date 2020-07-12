@@ -1,0 +1,10 @@
+.range-display-colapsed {
+    position: absolute;
+    z-index: 1;
+    left: 1088px;
+    top: 210px;
+    width: 200px;
+    height: 35px;
+    background-color: green;
+    border-radius: 10px;
+}

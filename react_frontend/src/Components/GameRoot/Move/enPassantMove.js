@@ -3,7 +3,7 @@ import { isPawn } from "../helpers/isPawn";
 import {step1sqr0d, step1sqr180d} from "../../helpers/stepFuncs";
 import { OOB, EMPTY, FRIEND, ENEMY } from "../../helpers/sqrCases";
 
-export function enPassantMove(data, start, dest, color) {
+export function enPassantMove(gameroot, start, dest, color) {
     /**
     start: start square of pawn capturing by en-passant
     dest: destination square of pawn capturing by en-passant
@@ -11,25 +11,25 @@ export function enPassantMove(data, start, dest, color) {
     x: x coordinate of square either directly left or directly right of start
     y: y coordinate unchanged, same as start. returned with x.
     */
-    if (! data.specialMoves.isEnPassant([start, dest])) {
+    if (! gameroot.specialMoves.isEnPassant([start, dest])) {
         return
     }
     
     var rf = step1sqr0d(start)  //  0
-    if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
-        data.captured = data.board[rf]
-        data.board[rf] = '#'
-        delete data.jsonRecords.pawnHistories[data.captured];
-        data.specialMoves.removeEnpassant([start, dest]);
+    if (getSqrCase(gameroot.board, rf, color) === ENEMY && isPawn(gameroot.board[rf])) {
+        gameroot.captured = gameroot.board[rf]
+        gameroot.board[rf] = '#'
+        delete gameroot.jsonRecords.pawnHistories[gameroot.captured];
+        gameroot.specialMoves.removeEnpassant([start, dest]);
         return
     }
 
     var rf = step1sqr180d(start)  //  180
-    if (getSqrCase(data.board, rf, color) === ENEMY && isPawn(data.board[rf])) {
-        data.captured = data.board[rf]
-        data.board[rf] = '#'
-        delete data.jsonRecords.pawnHistories[data.captured];
-        data.specialMoves.removeEnpassant([start, dest]);
+    if (getSqrCase(gameroot.board, rf, color) === ENEMY && isPawn(gameroot.board[rf])) {
+        gameroot.captured = gameroot.board[rf]
+        gameroot.board[rf] = '#'
+        delete gameroot.jsonRecords.pawnHistories[gameroot.captured];
+        gameroot.specialMoves.removeEnpassant([start, dest]);
         return
     }
 

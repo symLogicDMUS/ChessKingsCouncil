@@ -25,23 +25,23 @@ export class Promo extends React.Component {
     }
 
     filterPawn() {
-        return Object.keys(this.props.data.idDict).filter(id_ => this.props.data.idDict[id_] != "Pawn");
+        return Object.keys(this.props.gameroot.idDict).filter(id_ => this.props.gameroot.idDict[id_] != "Pawn");
     }
 
     filterKing(ids) {
-        return ids.filter(id_ => this.props.data.idDict[id_] != "King");
+        return ids.filter(id_ => this.props.gameroot.idDict[id_] != "King");
     }
 
     getPromoChoices() {
         let ids = this.filterPawn();
-        if (! this.props.data.isCouncil)
+        if (! this.props.gameroot.isCouncil)
             ids = this.filterKing(ids);
         let pieceName = null;
         let imgName = null;
         let promoChoices = [];
         ids.forEach( id_ => {
-            pieceName = this.props.data.idDict[id_];
-            imgName = this.props.data.rangeDefs[pieceName][this.props.color]["img"];
+            pieceName = this.props.gameroot.idDict[id_];
+            imgName = this.props.gameroot.rangeDefs[pieceName][this.props.color]["img"];
             promoChoices.push(<PromoChoice  
                 key={id_}
                 imgName={imgName}
@@ -57,7 +57,7 @@ export class Promo extends React.Component {
          * idNumber is how many of that piece for that color 
          * there is now
          **/
-        let matches = Object.values(this.props.data.board).filter(pieceId => 
+        let matches = Object.values(this.props.gameroot.board).filter(pieceId => 
             pieceId.startsWith( this.props.color + this.state.selected.toUpperCase()))
         let idNumber = matches.length + 1;
         return idNumber;
@@ -69,14 +69,14 @@ export class Promo extends React.Component {
     }
 
     replacePawn(pawnLoc, newId) {
-        this.props.data.board[pawnLoc] = newId;
+        this.props.gameroot.board[pawnLoc] = newId;
         return;
     }
 
     updateGameRoot() {
-        this.props.data.updateBackend().then(([result]) => {
-            this.props.data.updateSpecialCase("none");
-            this.props.data.emitSpecialChange();
+        this.props.gameroot.updateBackend().then(([result]) => {
+            this.props.gameroot.updateSpecialCase("none");
+            this.props.gameroot.emitSpecialChange();
           });
     }
  
@@ -85,7 +85,7 @@ export class Promo extends React.Component {
         let newId = this.getNewId(idNumber);
         this.replacePawn(this.pawnLoc, newId);
         this.updateGameRoot();
-        this.props.data.update();
+        this.props.gameroot.update();
     }
 
     onSelect(key) {

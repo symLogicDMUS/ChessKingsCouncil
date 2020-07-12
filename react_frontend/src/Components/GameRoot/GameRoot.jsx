@@ -9,9 +9,10 @@ import {Fen} from "./sharedData/Fen";
 import {isPiece} from "./helpers/isPiece";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
-import {RangeLayer} from "./Components/RangeDisplay/RangeLayer";
-import {GameRootBottomBar as BottomBar} from "./Components/GameRootBottomBar";
+import {RangeDisplayTool} from "./Components/RangeDisplayTool";
 import "./css/GameRoot.css";
+import { SaveResignTool } from "./Components/SaveResignTool";
+
 
 export class GameRoot extends React.Component {
 
@@ -174,29 +175,30 @@ export class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <Board data={this} />
+                <Board gameroot={this} />
                 <Header turn={this.turn} 
                         condition={this.gameStatus.condition} 
                         winner={this.gameStatus.winner} />
-                <RangeLayer board={this.board} 
-                            pieceRangeHighlight={this.pieceRangeHighlight} a
-                            allRanges={{...this.ranges, ...this.enemyRanges}}  />
                 {this.specialCase === "promo" && (
-                    <Promo data={this} 
-                            color={this.getEnemyColor()} 
-                            pawnLoc={this.specialMoves.currentDest} />)}
+                    <Promo gameroot={this} 
+                           color={this.getEnemyColor()} 
+                           pawnLoc={this.specialMoves.currentDest} />)}
                 {this.specialCase === "saving" && (
                     <Saving />)}
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} 
                                      updateSpecialCase={this.updateSpecialCase} />)}
-                <BottomBar updatePrh={this.updatePrh} 
-                           update={this.update} 
-                           save={this.save} 
-                           updateSpecialCase={this.updateSpecialCase}
-                           allRanges={{...this.ranges, ...this.enemyRanges}} 
-                           rangeDefs={this.rangeDefs} 
-                           idDict={this.idDict}
+                
+                <RangeDisplayTool board={this.board}
+                            allRanges={{...this.ranges, ...this.enemyRanges}}
+                            rangeDefs={this.rangeDefs} 
+                            idDict={this.idDict}
+                            update={this.update} 
+                            updatePrh={this.updatePrh}
+                />
+                <SaveResignTool save={this.save} 
+                                update={this.update}
+                                updateSpecialCase={this.updateSpecialCase}
                 />
             </>
 

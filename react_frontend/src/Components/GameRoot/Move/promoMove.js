@@ -1,12 +1,12 @@
 
 
-export function promoMove(data, start, dest) {
+export function promoMove(gameroot, start, dest) {
 
-    if (! data.specialMoves.isPromo(start, dest)) {
+    if (! gameroot.specialMoves.isPromo(start, dest)) {
         return 
     }
 
-    data.updateSpecialCase("promo");
-    data.specialMoves.currentDest = dest;
-    data.specialMoves.removePromo([start, dest]);
+    gameroot.updateSpecialCase("promo");
+    gameroot.specialMoves.currentDest = dest;
+    gameroot.specialMoves.removePromo([start, dest]);
 }

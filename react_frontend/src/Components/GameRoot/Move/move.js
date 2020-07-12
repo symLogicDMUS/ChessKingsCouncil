@@ -4,15 +4,15 @@ import {enPassantMove} from "./enPassantMove";
 import {promoMove} from "./promoMove";
 import "../../helpers/getColorName"
 
-export function move(data, start, dest) {
+export function move(gameroot, start, dest) {
     /* function to move a piece on board from start to dest **/
-    ply(data, start, dest);
-    castleMove(data, start, dest);
-    enPassantMove(data, start, dest);
-    promoMove(data, start, dest);
-    data.toggleTurn();
-    data.updateFen(start, dest);
-    data.updateBackend().then(([result]) => {
-      data.emitChange()
+    ply(gameroot, start, dest);
+    castleMove(gameroot, start, dest);
+    enPassantMove(gameroot, start, dest);
+    promoMove(gameroot, start, dest);
+    gameroot.toggleTurn();
+    gameroot.updateFen(start, dest);
+    gameroot.updateBackend().then(([result]) => {
+      gameroot.emitChange()
     })
 }

@@ -1,0 +1,8 @@
+.range-display-tool {
+    position: absolute;
+    z-index: 1;
+    height:218px;
+    width: 200px;
+    left: 1088px;
+    top: 210px;
+}
