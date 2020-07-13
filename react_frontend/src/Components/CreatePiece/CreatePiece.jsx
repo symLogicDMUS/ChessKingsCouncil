@@ -15,7 +15,7 @@ import {getRotations} from "./helpers/getRotations";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
 import {NavBar} from "../NavBar/NavBar";
-import {Save} from "./SavePiece/SavePiece";
+import {Options} from "./Options/Options";
 import {defs} from "../tests/defs1";
 import "./CreatePiece.css";
 
@@ -278,7 +278,7 @@ export class CreatePiece extends React.Component {
                 <Range spans={this.spans} togleSpan={this.togleSpan} />
                 <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
-                <Save 
+                <Options 
                  save={this.save}
                  reset={this.reset}
                  status={this.saveStatus} 

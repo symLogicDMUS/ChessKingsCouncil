@@ -1,17 +1,5 @@
-.choose-main .pieces-profiles {
-    position: absolute;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    top: 100px;
-    left: 50px;
-    bottom: 150px;
-    width: 1500px;
-    height: 630px;
-    background-color: #515151;
-    border: 1px solid #a9a9a9;
-    overflow-y: scroll;
-  } .pieces-profiles .profile {
+
+  .pieces-profiles .profile {
       z-index: 1;
       height: 200px;
       margin: 12px;

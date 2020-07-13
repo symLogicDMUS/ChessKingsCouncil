@@ -34,10 +34,10 @@
      inkscape:cx="19.951751"
      inkscape:zoom="3.959798"
      inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      borderopacity="1.0"
      bordercolor="#666666"
-     pagecolor="#ffffff"
+     pagecolor="#707070"
      id="base" />
   <metadata
      id="metadata5">
@@ -56,13 +56,6 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
-    <rect
-       y="2.8348215"
-       x="-0.047247019"
-       height="19.999998"
-       width="19.999998"
-       id="rect833"
-       style="opacity:1;fill:#008000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none" />
     <rect
        y="11.953497"
        x="2.3623512"

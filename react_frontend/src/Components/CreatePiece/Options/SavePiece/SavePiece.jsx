@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ConfirmOverwrite } from "./Modals/ConfirmOverwrite/ConfirmOverwrite";
 import {Success} from "./Modals/Success/Success";
-import "./SavePiece.css";
 import { InvalidName } from "./Modals/InvalidName/InvalidName";
+import "./SavePiece.css";
+import "../Options.css";
 
-export class Save extends React.Component {
+export class SavePiece extends React.Component {
     
     constructor(props) {
         super(props);
@@ -75,10 +76,12 @@ export class Save extends React.Component {
 
         return(
             <>
-                <img src={require("./floppyd.svg")} className="save-piece-button" onClick={this.save} />
+                <div className="option save-option">
+                    <img src="/Images/save-grey.svg" style={{width: 55, height: 75}} onClick={this.save} />
+                </div>
                 {this.modal}
             </>
         );
     }
 }
-export let test = () => ReactDOM.render(<Save />, document.getElementById('root'))
+export let test = () => ReactDOM.render(<SavePiece />, document.getElementById('root'))

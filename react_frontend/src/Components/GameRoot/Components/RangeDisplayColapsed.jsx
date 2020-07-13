@@ -20,7 +20,7 @@ export class RangeDisplayColapsed extends React.Component {
             return (
                 <div className="range-display-colapsed">
                     <div className="show-moves-label">
-                        Show available moves
+                        <img src="/Images/range-display.svg" style={{height:16}}/>
                     </div>
                     <ExpandColapseWidget imgName={"/Images/range-display-expand.svg"} togleExpand={this.togleExpand}/>
     

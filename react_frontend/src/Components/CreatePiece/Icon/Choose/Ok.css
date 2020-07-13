@@ -1,17 +1,7 @@
-.bottom-bar {
-    position: absolute;
-    z-index: 1;
-    bottom: 0px;
-    left: 50px;
-    width: 1502px;
-    height: 68px;
-}
-
 .bottom-bar .ok {
     position: absolute;
     z-index: 1;
-    top: 10px;
-    bottom: 10px;
+    top:   12px;
     width: 120px;
     height: 48px;
     border: 1px solid white;
@@ -26,3 +16,4 @@
     top: 8px;
     left: 45px;
 }
+

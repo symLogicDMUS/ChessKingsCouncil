@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import {imgNames} from "../../../MyPieces/imgNames";
 import {ImgChoice} from "./ImgChoice.jsx";
 import {Ok} from "./Ok";
-import "./Modal.css";
-import "./title.css";
-import "./close.css";
-import "./bottom.css";
+import "./ChooseModal.css";
 
 export class ChooseModal  extends React.Component {
 
@@ -45,7 +42,7 @@ export class ChooseModal  extends React.Component {
         
         return (
             <div className={this.showHideClassName}>
-                <div className={`choose-main`}>
+                <div className="choose-main">
                     <div className="close" onClick={this.closeChoose}>
                         <img src={require(`./close.svg`)} className="x"/>
                     </div>

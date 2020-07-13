@@ -1,5 +1,5 @@
 import React from "react";
-import "./bottom.css";
+import "./Ok.css";
 
 export class Ok extends React.Component {
     
