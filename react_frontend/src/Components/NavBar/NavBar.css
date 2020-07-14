@@ -7,7 +7,7 @@
     left:320px;
     top: 10px;
     grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
-    grid-template-rows: 50px;
+    grid-template-rows: 68px;
     column-gap: 15px;
     /*border: 1px dashed white;*/
 }
@@ -15,6 +15,21 @@
 .grid-item {
     opacity: 80%;
     border-radius: 10px;
+}
+
+.link-icon {
+    height: 67px;
+    width: 50px;
+    font-size:57px;
+    font-family:Tahoma;
+    max-width: 50px;
+    max-height: 67px;
+    stroke: 0.5px;
+    stroke: #515151;
+    stroke-width: 6px;
+}
+.link-icon:hover {
+    stroke: #00CCFF;
 }
 
 .home {
@@ -70,10 +85,5 @@
     grid-row: 1;
     grid-column: 8;
     /*border: 1px dashed white;*/
-}
-
-.link-icon:hover {
-    fill: white;
-    box-shadow: 0px 0px 10px white;
 }
 

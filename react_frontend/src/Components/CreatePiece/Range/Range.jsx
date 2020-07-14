@@ -10,14 +10,14 @@ export class Range extends React.Component {
         super(props)
         this.state = {userInput: ""}
         this.vectors = {
-            "135d": <img src={require("./ArrowButton/upLeft.svg")}    className="vector" />,   
-            "90d":  <img src={require("./ArrowButton/up.svg")}        className="vector" />,
-            "45d":  <img src={require("./ArrowButton/upRight.svg")}   className="vector" />,
-            "180d": <img src={require("./ArrowButton/left.svg")}      className="vector" />,
-            "0d":   <img src={require("./ArrowButton/right.svg")}     className="vector" />,
-            "225d": <img src={require("./ArrowButton/downLeft.svg")}  className="vector" />,
-            "270d": <img src={require("./ArrowButton/down.svg")}      className="vector" />,
-            "315d": <img src={require("./ArrowButton/downRight.svg")} className="vector" />
+            "135d": "upLeft.svg",      
+            "90d":  "up.svg",
+            "45d":  "upRight.svg",  
+            "180d": "left.svg",     
+            "0d":   "right.svg",   
+            "225d": "downLeft.svg", 
+            "270d": "down.svg",
+            "315d": "downRight.svg",
         }
         this.buttonPos = {
             "135d":{position: "absolute",    top: "0px",  left:"0px" },

@@ -1,5 +1,5 @@
 import React from "react"
-import "./Tool.css";
+import "./ChooseButton.css";
 
 export class ChooseButton extends React.Component {
 
@@ -15,7 +15,7 @@ export class ChooseButton extends React.Component {
     render() {
         return(
             <button className={`${this.props.color}-choose`} onClick={this.showChoose}>
-                <img src={require("./Choose.svg")} style={{textAlign: "center", left:"21px", top:"7px"}} />
+                Choose...
             </button>
         );
     }

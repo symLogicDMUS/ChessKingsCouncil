@@ -1,33 +1,37 @@
 .options-div {
     position: absolute;
-    top: 650px;
+    top: 640px;
     left: 876px;
-    height: 75px;
-    width: 395px;
+    height: 100px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: #515151;
 }
 
 .option {
     position: absolute;
     width: 55px;
     height: 75px;
+    top: 12px;
+    cursor: pointer;
 }
 
 .save-option {
-    left: 0;
+    left: 10px;
 }
 
 .load-option {
-    left: 85px;
+    left: 95px;
 }
 
 .reset-option {
-    left: 170px;
+    left: 180px;
 }
 
 .blank-option {
-    left: 255px;
+    left: 265px;
 }
 
 .theme-option {
-    left: 340px;
+    left: 338px;
 }

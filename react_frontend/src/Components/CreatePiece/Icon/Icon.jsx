@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {UploadModal} from "./Upload/Upload";
+import {UploadModal} from "./Upload/UploadModal";
 import {ChooseModal} from "./Choose/ChooseModal";
 import {ChooseButton} from "./Choose/ChooseButton";
 import {UploadButton} from "./Upload/UploadButton";

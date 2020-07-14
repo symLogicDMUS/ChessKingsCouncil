@@ -1,6 +1,6 @@
 import React from "react";
-import "./Tool.css";
-import "./Modal.css"
+import "./UploadButton.css";
+import "./UploadModal.css";
 
 
 export class UploadModal extends React.Component {

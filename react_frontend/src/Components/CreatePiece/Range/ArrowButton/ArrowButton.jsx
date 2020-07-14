@@ -15,7 +15,6 @@ export class ArrowButton extends React.Component {
     togleSpan() {
         this.props.togleSpan(this.id);
     }
-
     render() {
 
             if (this.props.isActive)
@@ -24,8 +23,8 @@ export class ArrowButton extends React.Component {
                 this.class_ = "button-normal";
 
             return (
-                <div onClick={this.togleSpan} style={this.pos} className={this.class_}>
-                    {this.props.image}
+                <div onClick={this.togleSpan} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff} style={this.pos} className={this.class_}>
+                    <img src={require(`./${this.props.image}`)} className="vector" />
                 </div>
             );
     }
@@ -34,7 +33,7 @@ export class ArrowButton extends React.Component {
 export let test = () => ReactDOM.render(<ArrowButton 
     id_={"135d"}  
     pos={{position:"absolute", top: "0px", left:"0px"}} 
-    image={<img src={require("./upLeft.svg")} className="vector" />} 
+    image="upLeft.svg" 
     />, 
     document.getElementById('root') 
 )
