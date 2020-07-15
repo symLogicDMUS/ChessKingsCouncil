@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./Home.css";
-import {ChessRules   }  from "./LinkComponents/ChessRules";
-import {CouncilRules }  from "./LinkComponents/CouncilRules";
-import {CreatePiece  }  from "./LinkComponents/CreatePiece";
-import {NewGame      }  from "./LinkComponents/NewGame";
-import {LoadGame     }  from "./LinkComponents/LoadGame";
-import {MyPictures   }  from "./LinkComponents/MyPieces";
-import {AuthorsGithub}  from "./LinkComponents/AuthorGithub";
-import {Title        }  from "./LinkComponents/Title";
+import {ChessRules   }  from "./LinkComponents/ChessRulesMainMenuLink";
+import {CouncilRules }  from "./LinkComponents/CouncilRulesMainMenuLink";
+import {CreatePiece  }  from "./LinkComponents/CreatePieceMainMenuLink";
+import {NewGame      }  from "./LinkComponents/NewGameMainMenuLink";
+import {LoadGame     }  from "./LinkComponents/LoadGameMainMenuLink";
+import {MyPictures   }  from "./LinkComponents/MyPiecesMainMenuLink";
+import {AuthorsGithub}  from "./LinkComponents/AuthorGithubMainMenuLink";
+import {Title        }  from "./LinkComponents/MainMenuTitle";
 
 
 export class MainMenuComponent extends React.Component {

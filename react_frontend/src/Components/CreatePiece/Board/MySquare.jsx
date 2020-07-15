@@ -21,17 +21,27 @@ export class MySquare extends React.Component {
     render() {
 
         if (this.props.isSpan) {
+
+            let spanLabel = null;
+            if (this.props.showSpanText)
+                spanLabel = getSpanLabel();
+
             return(
                 <div className="span-element" style={this.pxPos}>
-                    {getSpanLabel()}
+                    {spanLabel}
                 </div>
             );
         }
 
         if (this.props.isJump) {
+
+            let offsetLabel = null;
+            if (this.props.showOffsetText)
+                offsetLabel =  getOffsetLabel( getOffset(this.props.rf, this.props.pieceLoc) )
+
             return (
-                <div className="activated-sqr" style={this.pxPos} onClick={this.toglejumpElement} >
-                    {getOffsetLabel( getOffset(this.props.rf, this.props.pieceLoc) )}
+                <div className="jump-element" style={this.pxPos} onClick={this.toglejumpElement} >
+                    {offsetLabel}
                 </div>
             );
         }

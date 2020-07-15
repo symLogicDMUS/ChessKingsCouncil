@@ -36,7 +36,6 @@
     text-align: right;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 1px dashed red;
 }
 
 .board-header-grid .condition {
@@ -49,5 +48,4 @@
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: 1px dashed red;
 }

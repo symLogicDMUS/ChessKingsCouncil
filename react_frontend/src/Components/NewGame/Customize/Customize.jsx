@@ -6,6 +6,8 @@ import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
 import {getColorName} from "../../helpers/getColorName";
 import {NameTooltip} from "./Profile/NameTooltip";
 import {PromoAll} from "./PromoAll";
+import {spanToText} from "../../helpers/spanToText";
+import {offsetToText} from "../../helpers/offsetToText";
 import {Ok} from "./Bottom/Ok";
 import "./Profile/Profile.css";
 import "./Profile/ProfileWB/ProfileWB.css";
@@ -69,51 +71,12 @@ export class Customize extends React.Component {
 
         let spanStrings = [];
         for (var span of def.spans) {
-            spanStrings.push(this.getSpan(span))
+            spanStrings.push(spanToText(span))
         }
-        spanStrings[spanStrings.length - 1] = spanStrings[spanStrings.length - 1].split(",")[0]
+        //spanStrings[spanStrings.length - 1] = spanStrings[spanStrings.length - 1].split("")[0]
         return spanStrings;
     }
-    
-    getSpan(step_func) {
-
-        const reInt = /([0-9]+)d/;
-        let integer = Number(step_func.match(reInt)[1]);
-        let span = null;
-        switch(integer) {
-            case 0:
-                span = "right, "
-                break;
-            case 45:
-                span = "upper-right, "
-                break;
-            case 90:
-                span = "up, "
-                break;
-            case 135:
-                span = "upper-left, "
-                break;
-            case 180:
-                span = "left, "
-                break;
-            case 225:
-                span = "lower-left, "
-                break;
-            case 270:
-                span = "down, "
-                break;
-            case 315:
-                span = "lower-right, "
-                break;
-            default:
-                console.log("no match");
-                break;
-        }
-    
-        return span;
-    
-    }
-    
+        
     getOffsets(def) {
 
         if (def.offsets.length === 0) {
@@ -122,24 +85,10 @@ export class Customize extends React.Component {
 
         let offsetStrings = []
         def.offsets.forEach(offset => {
-            offsetStrings.push(this.xOffset(offset[0]) + this.yOffset(offset[1]));
+            offsetStrings.push(offsetToText(offset));
         })
-        offsetStrings[offsetStrings.length - 1] = offsetStrings[offsetStrings.length - 1].split(",")[0]
+        //offsetStrings[offsetStrings.length - 1] = offsetStrings[offsetStrings.length - 1].split("")[0]
         return offsetStrings;
-    }
-
-    xOffset(x) {
-        if (x < 0)
-            return `left ${Math.abs(Math.abs(x))} `
-        else
-            return `right ${x} `
-    }
-
-    yOffset(y) {
-        if (y < 0)
-            return `down ${Math.abs(y)}, `
-        else
-            return `up ${y}, `
     }
 
     nameTooltip(e, isTooltip, name) {

@@ -11,14 +11,14 @@ export class ProfileWB extends React.Component {
     }
 
     getSpans() {
-        let spanString = this.props.def.spans.join();
+        let spanString = this.props.def.spans.join(", ");
         if (spanString.length === 0)
             return "none";
         return spanString;
     }
 
     getOffsets() {
-        let offsetString = this.props.def.offsets.join();
+        let offsetString = this.props.def.offsets.join(", ");
         if (offsetString.length === 0)
             return "none";
         return offsetString;

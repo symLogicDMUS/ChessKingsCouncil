@@ -18,7 +18,7 @@
 .blank-name-box {
     position: absolute;
     z-index: inherit;
-    left: 30%;
+    left: 40%;
     top: 50%;
     width: 598px;
     height: 302px;
@@ -30,12 +30,13 @@
 .blank-name-heading {
     position: absolute;
     z-index: inherit;
-    left: 47px;
     top: 39px;
+    width: 598px;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     text-align: center;
+    word-wrap: break-word;
 }
 
 .blank-name-button {

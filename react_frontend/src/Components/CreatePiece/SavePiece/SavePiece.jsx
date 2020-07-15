@@ -48,13 +48,13 @@ export class SavePiece extends React.Component {
                 </div>
                 break;
             case "blank-name":
-                this.modal = <InvalidName header="You must give a piece name before saving" saveStatus={this.props.saveStatus} />;
+                this.modal = <InvalidName header="You must give a piece name before saving." saveStatus={this.props.saveStatus} />;
                 break;
             case "invalid-character":
-                this.modal = <InvalidName header="Piece names may only contain characters a-z, A-Z, 0-9, and _" saveStatus={this.props.saveStatus} />
+                this.modal = <InvalidName header="Piece names may only contain characters a-z, A-Z, 0-9, or _" saveStatus={this.props.saveStatus} />
                 break;
             case "leading-digit":
-                this.modal= <InvalidName header="Piece names cannot start with a digit" saveStatus={this.props.saveStatus} />;
+                this.modal = <InvalidName header="Piece names cannot start with a digit." saveStatus={this.props.saveStatus} />;
                 break;
             case "reset":
                 this.modal = null;

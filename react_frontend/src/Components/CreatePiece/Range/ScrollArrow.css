@@ -1,0 +1,27 @@
+
+.scroll {
+    z-index: 1;
+    width: 240px;
+    height: 7px;
+    background-color: #515151;
+
+    cursor: pointer;
+}
+
+.scroll-up {
+    position: absolute;
+    top: 17px;
+}
+
+.scroll-down {
+    position: absolute;
+    top: 89px;
+}
+
+.scroll-arrow {
+    position: absolute;
+    left: 117px;
+    top: 1px;
+    width: 6px;
+    height: 5px;
+}

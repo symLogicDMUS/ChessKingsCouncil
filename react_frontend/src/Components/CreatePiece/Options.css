@@ -1,5 +1,6 @@
-.options-div {
+.options-tool {
     position: absolute;
+    z-index: 0;
     top: 640px;
     left: 876px;
     height: 100px;
@@ -9,29 +10,30 @@
 }
 
 .option {
+    z-index: 1;
     position: absolute;
     width: 55px;
     height: 75px;
-    top: 12px;
+    top: 654px;
     cursor: pointer;
 }
 
 .save-option {
-    left: 10px;
+    left: 886px;
 }
 
 .load-option {
-    left: 95px;
+    left: 981px;
 }
 
 .reset-option {
-    left: 180px;
+    left: 1056px;
 }
 
 .blank-option {
-    left: 265px;
+    left: 1131px;
 }
 
 .theme-option {
-    left: 338px;
+    left: 1206px;
 }

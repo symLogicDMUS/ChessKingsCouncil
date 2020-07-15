@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {ArrowButton} from "./ArrowButton/ArrowButton";
+import {RangeDisplayWindow} from "./RangeDisplayWindow";
 import "./Range.css";
 
 
@@ -46,14 +47,29 @@ export class Range extends React.Component {
         return arrowButtons;
     }    
 
-    render() {
+    getSpans() {
+        let spans = []
+        for (var angle of Object.keys(this.props.spans)) {
+            if (this.props.spans[angle]) {
+                spans.push("step_1sqr" + angle);
+            }
+        }
+        return spans;
+    }
+    
+    getOffsets() {
+        let offsets = JSON.parse(JSON.stringify(this.props.offsets));
+        return offsets;
+    }
 
+    render() {
         return(
             <div className="range-tool">
                 <img src={require("./Range.svg")} className="range-title" />
-                <div className="display-window">
-                    {/**TODO: make Component for croping image in display window */}
-                </div>
+                <RangeDisplayWindow spans={this.getSpans()} 
+                                    offsets={this.getOffsets()} 
+                                    togleSpanText={this.props.togleSpanText} 
+                                    togleOffsetText={this.props.togleOffsetText} />
                 <div class="direction-pad">
                     {this.getArrowButtons()}
                     <div className="middle" style={{position: "absolute", top:"35px", left:"35px"}} />

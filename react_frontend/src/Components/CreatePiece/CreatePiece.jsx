@@ -15,7 +15,11 @@ import {getRotations} from "./helpers/getRotations";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
 import {NavBar} from "../NavBar/NavBar";
-import {Options} from "./Options/Options";
+import {SavePiece} from "./SavePiece/SavePiece";
+import {LoadPiece} from "./LoadPiece/LoadPiece";
+import {BlankPiece} from "./BlankPiece/BlankPiece";
+import {ThemePiece} from "./ThemePiece/ThemePiece";
+import {ResetPiece} from "./ResetPiece/ResetPiece";
 import {defs} from "../tests/defs1";
 import "./CreatePiece.css";
 
@@ -29,7 +33,6 @@ export class CreatePiece extends React.Component {
         // definitions for piece ranges
         this.defs = this.props.defs;
 
-        //to put in json later:
         this.spans = {
             "90d" :false,
             "45d" :false,
@@ -41,7 +44,7 @@ export class CreatePiece extends React.Component {
             "135d":false
         }
 
-        //true values rendered highlight color (currently purple) as part of span.
+        //true values rendered highlight color (currently red) as part of span.
         this.spanDisplays = { 
             'a1': false, 'a2': false, 'a3': false, 'a4': false, 'a5': false, 'a6': false, 'a7': false, 'a8': false,
             'b1': false, 'b2': false, 'b3': false, 'b4': false, 'b5': false, 'b6': false, 'b7': false, 'b8': false,
@@ -54,7 +57,7 @@ export class CreatePiece extends React.Component {
         };
 
 
-        //true values rendered highlight color (currently red) and calculate jump offsets
+        //true values rendered highlight color (currently dark red) and calculate jump offsets
         this.jumps = { 
             'a1': false, 'a2': false, 'a3': false, 'a4': false, 'a5': false, 'a6': false, 'a7': false, 'a8': false,
             'b1': false, 'b2': false, 'b3': false, 'b4': false, 'b5': false, 'b6': false, 'b7': false, 'b8': false,
@@ -86,6 +89,11 @@ export class CreatePiece extends React.Component {
         //flag to displaying progress in saving piece, if any
         this.saveStatus = "none";
 
+        //attributes for various displays
+        this.mouseOver = null;
+        this.showSpanText = true;
+        this.showOffsetText = true;
+
         //binds
         this.updateName = this.updateName.bind(this);
         this.setSaveStatus = this.setSaveStatus.bind(this);
@@ -96,6 +104,9 @@ export class CreatePiece extends React.Component {
         this.save = this.save.bind(this);
         this.reset = this.reset.bind(this);
         this.update = this.update.bind(this);
+        this.hoverResponse = this.hoverResponse.bind(this);
+        this.togleSpanText = this.togleSpanText.bind(this);
+        this.togleOffsetText = this.togleOffsetText.bind(this);
     }
 
     componentDidMount() {
@@ -197,6 +208,11 @@ export class CreatePiece extends React.Component {
         })
     }
 
+    togleSpanText() {
+        this.showSpanText = ! this.showSpanText;
+        this.update();
+    }
+
     resetSpanDisplays() {
         //turn off all displays
         this.spanDisplays = Object.values(this.spanDisplays).map(isSpan => isSpan & false)
@@ -204,14 +220,14 @@ export class CreatePiece extends React.Component {
 
     togleJump(rf, offset) {
         this.jumps[rf] = ! this.jumps[rf]
-        if (this.offsets.includes(offset)) {
-            let i = this.offsets.indexOf(offset);
-            if (i > -1) 
-                this.offsets.splice(i, 1)
+        let offsetStrs = this.offsets.map(o => JSON.stringify(o))
+        if (offsetStrs.includes(JSON.stringify(offset))) {
+            let i = offsetStrs.indexOf(JSON.stringify(offset))
+            this.offsets.splice(i, 1)
         }
         else 
             this.offsets.push(offset);
-        this.update()
+        this.update();
     }
 
     resetJumpDisplays() {
@@ -226,6 +242,11 @@ export class CreatePiece extends React.Component {
             dy = y1 + xy[1]
             this.jumps[xyToRf(dx, dy)] = true;
         })
+    }
+
+    togleOffsetText() {
+        this.showOffsetText = ! this.showOffsetText;
+        this.update();
     }
 
     setLoc(rf) {
@@ -256,6 +277,11 @@ export class CreatePiece extends React.Component {
 
     }
 
+    hoverResponse(optionName) {
+        this.mouseOver =  optionName;
+        this.setState({binaryValue: ! this.state.binaryValue});
+    }
+
     reset() {
         Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
         Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
@@ -275,23 +301,37 @@ export class CreatePiece extends React.Component {
                 <NavBar />
                 <Name name={this.name} updateName={this.updateName} />
                 <NameLabel name={this.name} />
-                <Range spans={this.spans} togleSpan={this.togleSpan} />
+                <Range spans={this.spans} 
+                       offsets={this.offsets} 
+                       togleSpan={this.togleSpan} 
+                       togleOffsetText={this.togleOffsetText} 
+                       togleSpanText={this.togleSpanText} />
                 <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
-                <Options 
-                 save={this.save}
-                 reset={this.reset}
-                 status={this.saveStatus} 
-                 saveStatus={this.setSaveStatus} 
-                 name={this.name}
-                 existing={Object.keys(this.defs)} />
-                <MyBoard 
+                <SavePiece save={this.save}
+                           reset={this.reset}
+                           status={this.saveStatus} 
+                           saveStatus={this.setSaveStatus} 
+                           name={this.props.name}
+                           existing={Object.keys(this.defs)}
+                           hoverResponse={this.hoverResponse}
+                           mouseOver={this.mouseOver}
+                />
+                <div className="options-tool"/>
+                <LoadPiece  hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
+                <ResetPiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
+                <BlankPiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
+                <ThemePiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
+                <MyBoard
                  togleJump={this.togleJump} 
                  spanDisplays={this.spanDisplays} 
                  jumps={this.jumps}
                  pieceLoc={this.location} 
                  pieceImg={this.pieceImg["white"]}
+                 showSpanText={this.showSpanText}
+                 showOffsetText={this.showOffsetText}
                 />
+                {this.modal}
             </div>
         )
     }

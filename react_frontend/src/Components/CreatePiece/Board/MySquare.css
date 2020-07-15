@@ -24,7 +24,7 @@
   background-color: #00CCFF;
 }
 
-.activated-sqr {
+.jump-element {
   position: absolute;
   z-index: 0;
   width: 75px;
@@ -32,7 +32,7 @@
   background-color: darkred;
 }
 
-.activated-sqr:hover {
+.jump-element:hover {
   background-color: #00CCFF;
 }
 
