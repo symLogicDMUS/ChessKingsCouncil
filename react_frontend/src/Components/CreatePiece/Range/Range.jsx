@@ -41,7 +41,8 @@ export class Range extends React.Component {
                 image={svg}
                 pos={this.buttonPos[angle]} 
                 isActive={this.props.spans[angle]}
-                togleSpan={this.props.togleSpan} 
+                togleSpan={this.props.togleSpan}
+                update={this.props.update}
                 />)
             });
         return arrowButtons;

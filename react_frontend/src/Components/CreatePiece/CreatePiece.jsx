@@ -12,15 +12,18 @@ import {outOfBounds as oob} from "../helpers/oob";
 import {isIndentifier} from "../helpers/isIdentifier";
 import {xyToRf, rfToXy} from "../helpers/crdCnvrt"
 import {getRotations} from "./helpers/getRotations";
+import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
 import {NavBar} from "../NavBar/NavBar";
-import {SavePiece} from "./SavePiece/SavePiece";
-import {LoadPiece} from "./LoadPiece/LoadPiece";
-import {BlankPiece} from "./BlankPiece/BlankPiece";
-import {ThemePiece} from "./ThemePiece/ThemePiece";
-import {ResetPiece} from "./ResetPiece/ResetPiece";
+import {SaveDef} from "./Options/SaveDef/SaveDef";
+import {LoadDef} from "./Options/LoadDef/LoadDef";
+import {ResetDef} from "./Options/ResetDef/ResetDef";
+import {BlankDef} from "./Options/BlankDef/BlankDef";
+import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
+import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import {defs} from "../tests/defs1";
+
 import "./CreatePiece.css";
 
 
@@ -31,8 +34,10 @@ export class CreatePiece extends React.Component {
         super(props);
 
         // definitions for piece ranges
-        this.defs = this.props.defs;
+        this.defs = JSON.parse(JSON.stringify(this.props.defs))
 
+        //used to record in defs object at the end:
+        this.name = "";
         this.spans = {
             "90d" :false,
             "45d" :false,
@@ -43,6 +48,14 @@ export class CreatePiece extends React.Component {
             "180d":false,
             "135d":false
         }
+        this.offsets = [];
+        this.imgNames = {"white":null, "black":null};
+
+        //static copies so can reset if want to:
+        this.loadedName = null;
+        this.loadedSpans = null; 
+        this.loadedOffsets = null;
+        this.loadedImgNames = null;
 
         //true values rendered highlight color (currently red) as part of span.
         this.spanDisplays = { 
@@ -58,7 +71,7 @@ export class CreatePiece extends React.Component {
 
 
         //true values rendered highlight color (currently dark red) and calculate jump offsets
-        this.jumps = { 
+        this.jumpDisplays = { 
             'a1': false, 'a2': false, 'a3': false, 'a4': false, 'a5': false, 'a6': false, 'a7': false, 'a8': false,
             'b1': false, 'b2': false, 'b3': false, 'b4': false, 'b5': false, 'b6': false, 'b7': false, 'b8': false,
             'c1': false, 'c2': false, 'c3': false, 'c4': false, 'c5': false, 'c6': false, 'c7': false, 'c8': false,
@@ -69,17 +82,11 @@ export class CreatePiece extends React.Component {
             'h1': false, 'h2': false, 'h3': false, 'h4': false, 'h5': false, 'h6': false, 'h7': false, 'h8': false
         };
 
-        //to put in json later:
-        this.name = "";
-        this.imgName = {"white":null, "black":null};
         this.pieceImg = {"white":null, "black":null}
         
 
         //to use for spans, update by Location:
         this.location = "d4"        
-
-        //jump offsets
-        this.offsets = [];
 
         // update to trigger render
         this.state = {
@@ -93,6 +100,7 @@ export class CreatePiece extends React.Component {
         this.mouseOver = null;
         this.showSpanText = true;
         this.showOffsetText = true;
+        this.isLoadModal = false;
 
         //binds
         this.updateName = this.updateName.bind(this);
@@ -102,11 +110,14 @@ export class CreatePiece extends React.Component {
         this.setLoc = this.setLoc.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
         this.save = this.save.bind(this);
+        this.load = this.load.bind(this);
         this.reset = this.reset.bind(this);
+        this.clear = this.clear.bind(this);
         this.update = this.update.bind(this);
         this.hoverResponse = this.hoverResponse.bind(this);
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
+        this.togleLoadModal = this.togleLoadModal.bind(this);
     }
 
     componentDidMount() {
@@ -122,6 +133,34 @@ export class CreatePiece extends React.Component {
             method:"POST",
             body: JSON.stringify(this.defs)  
         })
+    }
+
+    load(pieceName) {
+
+        this.name = pieceName;
+        this.spans = getSpansDict(this.defs[pieceName]['W']['spans']);
+        this.offsets = this.defs[pieceName]['W']['offsets'];
+        this.imgNames = { "white": this.defs[pieceName]['W']['img'],
+                          "black": this.defs[pieceName]['B']['img']}
+        
+        // provide static copy so that can reset if want to:
+        this.loadedName = JSON.parse(JSON.stringify(this.name));
+        this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
+        this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
+        this.loadedImgNames = JSON.parse(JSON.stringify(this.imgNames));
+        
+        this.pieceImg['white'] = <img src={`/Images/Pieces/${this.imgNames['white']}`} width="75px" height="75px" />
+        this.pieceImg['black'] = <img src={`/Images/Pieces/${this.imgNames['black']}`} width="75px" height="75px" />
+        
+        this.setLoc("d4");
+        
+        this.update();
+
+    }
+
+    togleLoadModal(value) {
+        this.isLoadModal = value;
+        this.update();
     }
 
     save() {
@@ -151,8 +190,8 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['B']['spans'] = getStepFuncNames(getRotations(angles, 180));
         this.defs[this.name]['W']["offsets"] = this.offsets;
         this.defs[this.name]['B']["offsets"] = flipOffsets(this.offsets);
-        this.defs[this.name]['W']['img'] = this.imgName['white'];
-        this.defs[this.name]['B']['img'] = this.imgName['black'];
+        this.defs[this.name]['W']['img'] = this.imgNames['white'];
+        this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
 
         const saveApi = () => {
@@ -176,7 +215,7 @@ export class CreatePiece extends React.Component {
     }
 
     setPieceImg(color, imgName) {
-        this.imgName[color] = imgName;
+        this.imgNames[color] = imgName;
         this.pieceImg[color] = <img src={`/Images/Pieces/${imgName}`} width="75px" height="75px" />
         this.update();
     }
@@ -189,10 +228,10 @@ export class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.update();
+        // this.update();
     }
 
-    setSpan(angle) {
+    setDisplaySpan(angle) {
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
         while (! oob(rf) ) {
@@ -201,10 +240,10 @@ export class CreatePiece extends React.Component {
         }
     }
 
-    setSpans() {
+    setDisplaySpans() {
         Object.entries(this.spans).forEach(([angle, isActive]) => {
             if(isActive) 
-                this.setSpan(angle)
+                this.setDisplaySpan(angle)
         })
     }
 
@@ -219,7 +258,7 @@ export class CreatePiece extends React.Component {
     }
 
     togleJump(rf, offset) {
-        this.jumps[rf] = ! this.jumps[rf]
+        this.jumpDisplays[rf] = ! this.jumpDisplays[rf]
         let offsetStrs = this.offsets.map(o => JSON.stringify(o))
         if (offsetStrs.includes(JSON.stringify(offset))) {
             let i = offsetStrs.indexOf(JSON.stringify(offset))
@@ -227,20 +266,20 @@ export class CreatePiece extends React.Component {
         }
         else 
             this.offsets.push(offset);
-        this.update();
+        // this.update();
     }
 
     resetJumpDisplays() {
-        this.jumps = Object.values(this.jumps).map(isJump => isJump & false)
+        this.jumpDisplays = Object.values(this.jumpDisplays).map(isJump => isJump & false)
     }
 
-    setJumps() {
+    setJumpDisplays() {
         let [x1, y1] = rfToXy(this.location)
         let [dx, dy] = [-1, -1]
         this.offsets.forEach(xy => {
             dx = x1 + xy[0]
             dy = y1 + xy[1]
-            this.jumps[xyToRf(dx, dy)] = true;
+            this.jumpDisplays[xyToRf(dx, dy)] = true;
         })
     }
 
@@ -253,8 +292,8 @@ export class CreatePiece extends React.Component {
         this.location = rf;
         this.resetSpanDisplays();
         this.resetJumpDisplays();
-        this.setSpans();
-        this.setJumps();
+        this.setDisplaySpans();
+        this.setJumpDisplays();
         this.update();
     }
 
@@ -282,16 +321,29 @@ export class CreatePiece extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue});
     }
 
-    reset() {
+    clear() {
         Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
         Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
-        Object.keys(this.jumps).forEach(rf => {this.jumps[rf] = false});
+        Object.keys(this.jumpDisplays).forEach(rf => {this.jumpDisplays[rf] = false});
         this.name = ""; 
         this.pieceImg = {"white":null, "black":null};
         this.location = "d4"; 
         this.offsets = []; 
         this.saveStatus = "none";
         this.update();
+    }
+
+    reset() {
+
+        if (this.loadedName === null)
+            this.clear()
+        else {
+            this.name = JSON.parse(JSON.stringify(this.loadedName));
+            this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
+            this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
+            this.imgNames = JSON.parse(JSON.stringify(this.loadedImgNames));
+            this.update()
+         }           
     }
 
     render() {
@@ -303,13 +355,15 @@ export class CreatePiece extends React.Component {
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
                        offsets={this.offsets} 
-                       togleSpan={this.togleSpan} 
+                       togleSpan={this.togleSpan}
+                       update={this.update}
                        togleOffsetText={this.togleOffsetText} 
                        togleSpanText={this.togleSpanText} />
                 <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
-                <SavePiece save={this.save}
-                           reset={this.reset}
+                <div className="options-tool"/>
+                <SaveDef   save={this.save}
+                           clear={this.clear}
                            status={this.saveStatus} 
                            saveStatus={this.setSaveStatus} 
                            name={this.props.name}
@@ -317,21 +371,21 @@ export class CreatePiece extends React.Component {
                            hoverResponse={this.hoverResponse}
                            mouseOver={this.mouseOver}
                 />
-                <div className="options-tool"/>
-                <LoadPiece  hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
-                <ResetPiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
-                <BlankPiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
-                <ThemePiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
+                <LoadDef  hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} togleLoadModal={this.togleLoadModal} />
+                <ResetDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} reset={this.reset} />
+                <BlankDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} clear={this.clear} />
+                <ThemeCreatePiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
                 <MyBoard
-                 togleJump={this.togleJump} 
+                 togleJump={this.togleJump}
+                 update={this.update}
                  spanDisplays={this.spanDisplays} 
-                 jumps={this.jumps}
+                 jumps={this.jumpDisplays}
                  pieceLoc={this.location} 
                  pieceImg={this.pieceImg["white"]}
                  showSpanText={this.showSpanText}
                  showOffsetText={this.showOffsetText}
                 />
-                {this.modal}
+                {this.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
             </div>
         )
     }

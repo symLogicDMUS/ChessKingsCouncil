@@ -14,6 +14,7 @@ export class ArrowButton extends React.Component {
 
     togleSpan() {
         this.props.togleSpan(this.id);
+        this.props.update();
     }
     render() {
 

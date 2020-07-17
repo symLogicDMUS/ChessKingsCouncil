@@ -1,34 +1,4 @@
 {
-    "A": {
-        "W": {
-            "spans": [
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d",
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d"
-            ],
-            "offsets": [],
-            "img": "BB.svg"
-        },
-        "B": {
-            "spans": [
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d",
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d"
-            ],
-            "offsets": [],
-            "img": "WB.svg"
-        }
-    },
     "Bishop": {
         "B": {
             "img": "BB.svg",
@@ -315,118 +285,6 @@
             ]
         }
     },
-    "FireQueen": {
-        "B": {
-            "img": "black_firehat.svg",
-            "offsets": [
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -1,
-                    2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    1,
-                    -2
-                ]
-            ],
-            "spans": [
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d",
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d"
-            ]
-        },
-        "W": {
-            "img": "WJ.svg",
-            "offsets": [
-                [
-                    1,
-                    2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    1,
-                    -2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -1,
-                    2
-                ]
-            ],
-            "spans": [
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d",
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d"
-            ]
-        }
-    },
     "Firelord": {
         "B": {
             "img": "black_firehat.svg",
@@ -493,18 +351,6 @@
                 "step_1sqr225d",
                 "step_1sqr315d"
             ]
-        }
-    },
-    "Firelord2": {
-        "B": {
-            "img": "BJ.svg",
-            "offsets": [],
-            "spans": []
-        },
-        "W": {
-            "img": "WJ.svg",
-            "offsets": [],
-            "spans": []
         }
     },
     "Jester": {
@@ -748,36 +594,6 @@
                 "step_1sqr225d",
                 "step_1sqr270d",
                 "step_1sqr315d"
-            ]
-        }
-    },
-    "Queen2": {
-        "B": {
-            "img": "BT.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d",
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d"
-            ]
-        },
-        "W": {
-            "img": "white_jester.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr0d",
-                "step_1sqr315d",
-                "step_1sqr270d",
-                "step_1sqr225d",
-                "step_1sqr180d",
-                "step_1sqr135d"
             ]
         }
     },

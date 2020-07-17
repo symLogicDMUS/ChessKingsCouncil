@@ -1,4 +1,5 @@
 import React from "react";
+import "./NameTooltip.css";
 
 export const NameTooltip = ({clientX, clientY, name}) => {
 

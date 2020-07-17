@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Expand } from "./Expand";
-import "./ProfileWB.css";
+import { CreatePieceExpand } from "./CreatePieceExpand";
+import "./CreatePieceProfileWB.css";
 
-export class ProfileWB extends React.Component {
+export class CreatePieceProfileWB extends React.Component {
 
     constructor(props) {
         super(props);
@@ -31,7 +31,7 @@ export class ProfileWB extends React.Component {
                     <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
                 </div>
                 <div className="color-label">Color: </div>
-                <Expand 
+                <CreatePieceExpand 
                     def={this.props.def} 
                     piece={this.props.piece} 
                     color={this.props.color} 
@@ -39,7 +39,7 @@ export class ProfileWB extends React.Component {
                     value="color" 
                 />
                 <div className="spans-label">Spans: </div>
-                <Expand 
+                <CreatePieceExpand 
                     def={this.props.def} 
                     piece={this.props.piece} 
                     color={this.props.color} 
@@ -47,7 +47,7 @@ export class ProfileWB extends React.Component {
                     value="spans" 
                 />
                 <div className="offsets-label">Offsets: </div>
-                <Expand 
+                <CreatePieceExpand 
                     def={this.props.def} 
                     piece={this.props.piece} 
                     color={this.props.color} 
@@ -56,9 +56,7 @@ export class ProfileWB extends React.Component {
                 />
                 <div className="color-value">{this.props.color}</div>
                 <div className="spans-value">{this.getSpans()}</div>
-
                 <div className="offsets-value">{this.getOffsets()}</div>
-
             </div>
         )
     }
@@ -78,4 +76,4 @@ let def = {
     ],
     "img": "white_brian.svg"
 }
-export let test = () => ReactDOM.render(<div className="profile-item"><ProfileWB def={def} color="W" /></div>, document.getElementById('root'));
+export let test = () => ReactDOM.render(<div className="profile-item"><CreatePieceProfileWB def={def} color="W" /></div>, document.getElementById('root'));

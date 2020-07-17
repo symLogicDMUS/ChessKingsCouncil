@@ -1,7 +1,7 @@
 import React from "react";
-import "./Expand.css";
+import "./CreatePieceExpand.css";
 
-export class Expand extends React.Component {
+export class CreatePieceExpand extends React.Component {
 
     constructor(props) {
         super(props);

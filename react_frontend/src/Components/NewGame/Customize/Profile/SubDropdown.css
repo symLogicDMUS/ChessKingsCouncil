@@ -1,4 +1,6 @@
 .sub-dropdown {
+    position: relative;
+    top: 12px;
     width: 120px;
     height: 18px;
     color: white;

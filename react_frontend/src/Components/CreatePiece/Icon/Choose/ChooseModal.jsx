@@ -44,7 +44,7 @@ export class ChooseModal  extends React.Component {
             <div className={this.showHideClassName}>
                 <div className="choose-main">
                     <div className="close" onClick={this.closeChoose}>
-                        <img src={require(`./close.svg`)} className="x"/>
+                        <img src="/Images/close.svg" className="x"/>
                     </div>
                     <div className="title-div">
                         <img src={require("./title.svg")} className="title" />

@@ -9,12 +9,7 @@ import {PromoAll} from "./PromoAll";
 import {spanToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
 import {Ok} from "./Bottom/Ok";
-import "./Profile/Profile.css";
-import "./Profile/ProfileWB/ProfileWB.css";
 import "./Customize.css";
-import "./Bottom/Bottom.css";
-import "./Bottom/Promos.css";
-import "./Bottom/Subs.css";
 
 
 export class Customize extends React.Component {
@@ -73,7 +68,6 @@ export class Customize extends React.Component {
         for (var span of def.spans) {
             spanStrings.push(spanToText(span))
         }
-        //spanStrings[spanStrings.length - 1] = spanStrings[spanStrings.length - 1].split("")[0]
         return spanStrings;
     }
         
@@ -87,7 +81,6 @@ export class Customize extends React.Component {
         def.offsets.forEach(offset => {
             offsetStrings.push(offsetToText(offset));
         })
-        //offsetStrings[offsetStrings.length - 1] = offsetStrings[offsetStrings.length - 1].split("")[0]
         return offsetStrings;
     }
 

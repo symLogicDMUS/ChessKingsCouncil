@@ -1,9 +1,0 @@
-.bottom-bar {
-    position: absolute;
-    left: 0px;
-    top: 850px;
-    display: grid;
-    grid-template-columns: 85px 455px 480px;
-    grid-template-rows: 36px 36px 36px 36px 36px;
-    row-gap: 5px;
-}

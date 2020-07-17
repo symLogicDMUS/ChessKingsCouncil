@@ -25,6 +25,7 @@ export class MyBoard extends React.Component {
                 rf={rf}
                 isSpan={this.props.spanDisplays[rf]} 
                 togleJump={this.props.togleJump}
+                update={this.props.update}
                 isJump={this.props.jumps[rf]}
                 pieceLoc={this.props.pieceLoc}
                 class_={sqrColorClass[rf]}
@@ -41,6 +42,7 @@ export class MyBoard extends React.Component {
                 rf={rf} 
                 isSpan={this.props.spanDisplays[rf]} 
                 togleJump={this.props.togleJump}
+                update={this.props.update}
                 isJump={this.props.jumps[rf]}
                 pieceLoc={this.props.pieceLoc}                
                 class_={sqrColorClass[rf]}

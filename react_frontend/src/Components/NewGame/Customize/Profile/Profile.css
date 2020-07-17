@@ -1,17 +1,4 @@
 
-.piece-profiles {
-    position: absolute;
-    z-index: inherit;
-    top: 50px;
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #515151;
-    border-top: 1px solid black;
-    height: 800px;
-    width: 1020px;
-    overflow: scroll;
-}
-
 .profile {
     z-index: inherit;
     height: 480px;
@@ -19,14 +6,14 @@
 }
 
     /*container for w-or-b-profile*/
-    .profile-item {
+    .profile .profile-item {
         z-index: inherit;
         height: 180px;
         background-color: #515151;
         margin-bottom: 20px;
     }
 
-    .profile-header {
+    .profile .profile-header {
         display: grid;
         z-index: inherit;
         width: 900px;
@@ -37,7 +24,7 @@
         /* column-gap: 10px; */
     }
 
-        .profile-header .name-of-piece {
+        .profile .profile-header .name-of-piece {
             z-index: inherit;
             grid-row: 1;
             grid-column: 1;
@@ -53,13 +40,13 @@
             /*border: 1px dashed white;*/
         }
 
-        .profile-header .spacer {
+        .profile .profile-header .spacer {
             grid-row: 1;
             grid-column: 2;
             /*border: 1px dashed white;*/
         }
 
-        .profile-header .promotion {
+        .profile .profile-header .promotion {
             z-index: inherit;
             display: grid;
             grid-row: 1;
@@ -89,6 +76,7 @@
                 /*border: 1px dashed white;*/
             }
 
+
         .profile-header .substitute {
             z-index: inherit;
             display: grid;
@@ -111,25 +99,11 @@
                 /*border: 1px dashed white;*/
             }
 
-            .substitute .sub-dropdown {
+            .substitute .sub-dropdown-container {
                 z-index: inherit;
                 grid-column: 2;
                 width: 180px; 
                 grid-row: 1;
                 margin-top: 11px; 
                 margin-left: 6px; 
-                /*border: 1px dashed white;*/
             }
-
-.name-tooltip {
-    position: absolute;
-    display: block;
-    left: 50%;
-    top: 50%;
-    z-index: 3;
-    word-wrap: break-word;
-    color: white;
-    background-color: #515151;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 5px;
-}

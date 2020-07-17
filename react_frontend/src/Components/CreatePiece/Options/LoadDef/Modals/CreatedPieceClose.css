@@ -1,0 +1,15 @@
+.created-piece-close {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 2;
+    background-color: #515151;
+} .created-piece-close .close-button {
+    position: relative;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #515151;
+    cursor: pointer;
+} .created-piece-close .close-button:hover {
+    background-color: #EC2525;
+}

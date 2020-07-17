@@ -15,7 +15,8 @@ export class MySquare extends React.Component {
     }
 
     toglejumpElement() {
-        this.props.togleJump(this.props.rf, getOffset(this.props.rf, this.props.pieceLoc))
+        this.props.togleJump(this.props.rf, getOffset(this.props.rf, this.props.pieceLoc));
+        this.props.update()
     }
 
     render() {

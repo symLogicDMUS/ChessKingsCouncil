@@ -3,10 +3,8 @@ import {CheckBox} from "./CheckBox";
 import {SubDropdown} from "./SubDropdown";
 import {PieceNameLabel} from "./PieceNameLabel";
 import {ProfileWB} from "./ProfileWB/ProfileWB";
-import "./Profile.css";
 import "./ProfileWB/ProfileWB.css";
-import "./CheckBox.css";
-import "./SubDropdown.css";
+import "./Profile.css";
 
 export class Profile extends React.Component {
     
@@ -32,7 +30,7 @@ export class Profile extends React.Component {
                         <div className="sub-label">
                             Sub:
                         </div>
-                        <div className="sub-dropdown">
+                        <div className="sub-dropdown-container">
                             <SubDropdown piece={this.props.pieceName} 
                              newReplacement={this.props.newReplacement} 
                              newReplaced={this.props.newReplaced} 
