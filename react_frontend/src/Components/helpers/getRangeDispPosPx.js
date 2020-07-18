@@ -1,4 +1,4 @@
-import {rfToXy} from "../../helpers/crdCnvrt";
+import {rfToXy} from "./crdCnvrt";
 
 export function getRangeDispPosPx (rf) {
     let [x, y] = rfToXy(rf);

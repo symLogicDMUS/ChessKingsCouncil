@@ -4,9 +4,9 @@ import { DndProvider } from 'react-dnd';
 import {Square} from "./Square";
 import {Piece} from "./Piece";
 import {rankfiles} from "../../helpers/rankfiles"
-import {sqrClasses} from "../helpers/sqrClasses";
-import {sqrColors} from "../helpers/sqrColors";
-import {getPosPx} from "../helpers/getPosPx";
+import {sqrClasses} from "../../helpers/sqrClasses";
+import {sqrColors} from "../gameRootHelpers/sqrColors";
+import {getPosPx} from "../gameRootHelpers/getPosPx";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";

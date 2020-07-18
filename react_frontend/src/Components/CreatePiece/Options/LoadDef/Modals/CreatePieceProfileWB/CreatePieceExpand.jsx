@@ -22,7 +22,7 @@ export class CreatePieceExpand extends React.Component {
     render() {
 
         return (
-                <img src={require("./expand.svg")} onClick={this.expand} className={this.class_} onClick={this.expand}/>
+                <img src="/Images/expand.svg" onClick={this.expand} className={this.class_} onClick={this.expand}/>
         )
     }
 }

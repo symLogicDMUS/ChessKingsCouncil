@@ -6,16 +6,16 @@ export class InvalidName extends React.Component {
 
     constructor(props) {
         super(props);
-        this.class_ = "blank-name-modal visible";
+        this.class_ = "invalid-name-modal visible";
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick() {
-        if (this.class_ === "blank-name-modal visible") {
-            this.class_ = "blank-name-modal invisible";
+        if (this.class_ === "invalid-name-modal visible") {
+            this.class_ = "invalid-name-modal invisible";
         }
         else {
-            this.class_ = "blank-name-modal visible";
+            this.class_ = "invalid-name-modal visible";
         }
         this.props.saveStatus("none")
     }
@@ -23,10 +23,10 @@ export class InvalidName extends React.Component {
     render() {
         return (
             <div className={this.class_}>
-                <div className="blank-name-box">
-                    <div className="blank-name-heading">{this.props.header}</div>
-                    <button className="blank-name-button" onClick={this.handleClick}>
-                        <div className="ok"><img src={require("./Ok.svg") } style={{maxWidth:"31px"}} /> </div>
+                <div className="invalid-name-window">
+                    <div className="invalid-name-heading">{this.props.header}</div>
+                    <button className="invalid-name-button" onClick={this.handleClick}>
+                        Ok
                     </button>
                 </div>
             </div>

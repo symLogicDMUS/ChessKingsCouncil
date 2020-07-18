@@ -4,9 +4,9 @@ import {getOffset} from "../../helpers/getOffset";
 import {getOffsetLabel} from "./RangeLabelComponents/getOffsetLabel";
 import {getSpanLabel} from "./RangeLabelComponents/getSpanLabel";
 import {getPxPos} from "./pxPos";
-import "./MySquare.css";
+import "./CreatePieceSquare.css";
 
-export class MySquare extends React.Component {
+export class CreatePieceSquare extends React.Component {
 
     constructor(props) {
         super(props);
@@ -56,4 +56,4 @@ export class MySquare extends React.Component {
     }
 }
 
-export let test = () => ReactDOM.render(<MySquare />, document.getElementById('root'))
+export let test = () => ReactDOM.render(<CreatePieceSquare />, document.getElementById('root'))

@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 import {rankfiles} from "./rankfiles";
 import {sqrColorClass} from "./sqrColorClass";
 import {blankBoard} from "./blankBoard";
-import {MySquare} from "./MySquare";
-import {MyPiece} from "./MyPiece";
+import {CreatePieceSquare as Square} from "./CreatePieceSquare";
+import {CreatePiecePiece as Piece} from "./CreatePiecePiece";
 import "../../helpers/stepFuncs";
-import "./MyBoard.css";
+import "./CreatePieceBoard.css";
 
-
-export class MyBoard extends React.Component {
+export class CreatePieceBoard extends React.Component {
 
     constructor(props) {
         super(props);       
@@ -21,7 +20,7 @@ export class MyBoard extends React.Component {
         for (var rf of rankfiles) {
             if (rf === this.props.pieceLoc) {
                 squares.push(
-                <MySquare 
+                <Square 
                 rf={rf}
                 isSpan={this.props.spanDisplays[rf]} 
                 togleJump={this.props.togleJump}
@@ -32,13 +31,13 @@ export class MyBoard extends React.Component {
                 showSpanText={this.props.showSpanText}
                 showOffsetText={this.props.showOffsetText}
                 >
-                    <MyPiece pieceImg={this.props.pieceImg} />
-                </MySquare>
+                    <Piece pieceImg={this.props.pieceImg} />
+                </Square>
                 ); 
             }
             else {
                 squares.push(
-                <MySquare 
+                <Square 
                 rf={rf} 
                 isSpan={this.props.spanDisplays[rf]} 
                 togleJump={this.props.togleJump}
@@ -50,7 +49,7 @@ export class MyBoard extends React.Component {
                 showOffsetText={this.props.showOffsetText}
                 >
                     {null}
-                </MySquare>
+                </Square>
                 );
             }
         }
@@ -67,7 +66,7 @@ export class MyBoard extends React.Component {
 }
 
 export let test = () => ReactDOM.render(
-    <MyBoard 
+    <CreatePieceBoard 
         spanDisplays={{ 
         'a1': false, 'a2': false, 'a3': false, 'a4': false, 'a5': false, 'a6': false, 'a7': false, 'a8': false,
         'b1': false, 'b2': false, 'b3': false, 'b4': false, 'b5': false, 'b6': false, 'b7': false, 'b8': false,

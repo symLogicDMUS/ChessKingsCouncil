@@ -79,6 +79,4 @@ export class LoadGame extends React.Component {
   
 }
 
-
-
 export default LoadGame;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./RangeTable.css";
-import { getByLabelText } from "@testing-library/react";
+
 
 export function RangeTable({displayList}) {
 
@@ -11,6 +11,7 @@ export function RangeTable({displayList}) {
             return "Span: "
         return "Offset: "
     }
+    
     return (
         <div className="range-table">
             <div className="range-table-item table-item1">{getLabel(displayList[0])}{displayList[0]}</div>

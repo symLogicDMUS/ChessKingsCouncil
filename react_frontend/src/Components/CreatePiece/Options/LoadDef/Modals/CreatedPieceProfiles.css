@@ -16,7 +16,7 @@
     width: 1020px;
     height: 920px;
     display: grid;
-    grid-template-columns: 1020;
+    grid-template-columns: 1020px;
     grid-template-rows: 60px 800px 60px;
     border: 1px solid #a9a9a9;
 }

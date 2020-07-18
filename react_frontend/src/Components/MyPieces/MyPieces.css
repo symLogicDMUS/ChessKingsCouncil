@@ -1,0 +1,53 @@
+.my-pieces-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.my-pieces {
+    position: relative;
+    z-index: inherit;
+    top: 10%;
+    left: 30%;
+    width: 1020px;
+    height: 860px;
+    display: grid;
+    grid-template-columns: 1020px;
+    grid-template-rows: 60px 800px 60px;
+    border: 1px solid #a9a9a9;
+
+}
+
+.my-pieces .top-bar {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 980px 60px;
+    grid-template-rows: 60px;
+    background-color: #515151;
+    /* border: 2px dashed gold; */
+}
+
+.my-pieces .top-bar .title {
+    grid-row: 1;
+    grid-column: 1;
+    color: #a9a9a9;
+    font-size: 36px;
+    padding-top: 10px;
+    font-family: Tahoma;
+    text-align: center;
+    /* border: 2px dashed white; */
+}
+
+.profiles {
+    position: relative;
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #515151;
+
+    overflow: scroll;
+}

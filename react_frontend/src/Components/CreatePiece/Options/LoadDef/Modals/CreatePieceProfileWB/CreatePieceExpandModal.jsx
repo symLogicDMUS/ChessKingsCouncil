@@ -45,7 +45,7 @@ export class CreatePieceExpandModal extends React.Component {
         return (
             <div className="created-piece-expand-modal">
                 <div className="created-piece-modal-box">
-                    <img src={require("./unexpand.svg")} onClick={this.unexpand} className="created-piece-unexpand" />
+                    <img src="/Images/unexpand.svg" onClick={this.unexpand} className="created-piece-unexpand" />
                     <div className="created-piece-title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
                         {this.getTitle()}
                     </div>

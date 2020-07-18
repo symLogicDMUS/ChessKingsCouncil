@@ -6,12 +6,12 @@ import {GameStatus} from "./sharedData/GameStatus";
 import {SpecialMoves} from "./Move/SpecialMoves";
 import { Promo } from "./Modals/Promo";
 import {Fen} from "./sharedData/Fen";
-import {isPiece} from "./helpers/isPiece";
+import {isPiece} from "./gameRootHelpers/isPiece";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import {RangeDisplayTool} from "./Components/RangeDisplayTool";
-import "./css/GameRoot.css";
 import { SaveResignTool } from "./Components/SaveResignTool";
+import "./css/GameRoot.css";
 
 
 export class GameRoot extends React.Component {

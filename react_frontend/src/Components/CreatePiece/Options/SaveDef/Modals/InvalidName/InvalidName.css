@@ -1,4 +1,4 @@
-.blank-name-modal {
+.invalid-name-modal {
  position: fixed;
  z-index: 3;
  width: 100%;
@@ -15,7 +15,7 @@
 }
 
 
-.blank-name-box {
+.invalid-name-window {
     position: absolute;
     z-index: inherit;
     left: 40%;
@@ -27,7 +27,7 @@
     border-radius: 10px;
 }
 
-.blank-name-heading {
+.invalid-name-heading {
     position: absolute;
     z-index: inherit;
     top: 39px;
@@ -39,23 +39,24 @@
     word-wrap: break-word;
 }
 
-.blank-name-button {
+.invalid-name-button {
     position: absolute;
     z-index: inherit;
     left: 246px;
     top: 218px;
-    height: 41px;
-    width: 123px;
+    height: 40px;
+    width: 125px;
+    font-size: 30px;
+    font-family: Tahoma;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
     background-color: #515151;
     border: 1px solid white;
     border-radius: 5px;
-} .blank-name-button:hover {
     cursor: pointer;
-}
-
-.blank-name-button .ok {
-    position: absolute;
-    z-index: inherit;
-    left: 47px;
-    top: 25%;
+} .invalid-name-button:hover {
+    color: #515151;
+    background-color: white;
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import {rankfiles} from "../../helpers/rankfiles";
 import {RangePiece} from "./RangePiece";
-import { sqrClasses } from "../helpers/sqrClasses";
+import { sqrClasses } from "../../helpers/sqrClasses";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
-import {getRangeDispPosPx} from "../helpers/getRangeDispPosPx";
+import {getRangeDispPosPx} from "../../helpers/getRangeDispPosPx";
 import "../css/RangeBoard.css";
 
 export class RangeBoard extends React.Component {

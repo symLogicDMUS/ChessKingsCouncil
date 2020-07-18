@@ -46,7 +46,7 @@ export class CreatedPieceProfiles extends React.Component {
         this.props.togleLoadModal(false);
     }
 
-    getModals() {
+    getExpandModals() {
         if (this.expandPiece != null && this.expandValue != null && this.expandColor != null) {
 
             if (this.expandValue === "color") {
@@ -129,7 +129,7 @@ export class CreatedPieceProfiles extends React.Component {
                         </div>
                     </div>
                 </div>
-                {this.getModals()}
+                {this.getExpandModals()}
             </>
         )
     }

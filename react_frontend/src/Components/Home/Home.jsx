@@ -1,24 +1,23 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import {ChessRulesIcon   }  from "./LinkComponents/ChessRulesMainMenuLink";
+import {CouncilRulesIcon }  from "./LinkComponents/CouncilRulesMainMenuLink";
+import {CreatePieceIcon  }  from "./LinkComponents/CreatePieceMainMenuLink";
+import {NewGameIcon      }  from "./LinkComponents/NewGameMainMenuLink";
+import {LoadGameIcon     }  from "./LinkComponents/LoadGameMainMenuLink";
+import {MyPiecesIcon     }  from "./LinkComponents/MyPiecesMainMenuLink";
+import {AuthorsGithubIcon}  from "./LinkComponents/AuthorGithubMainMenuLink";
+import {Title}  from "./LinkComponents/MainMenuTitle";
 import "./Home.css";
-import {ChessRules   }  from "./LinkComponents/ChessRulesMainMenuLink";
-import {CouncilRules }  from "./LinkComponents/CouncilRulesMainMenuLink";
-import {CreatePiece  }  from "./LinkComponents/CreatePieceMainMenuLink";
-import {NewGame      }  from "./LinkComponents/NewGameMainMenuLink";
-import {LoadGame     }  from "./LinkComponents/LoadGameMainMenuLink";
-import {MyPictures   }  from "./LinkComponents/MyPiecesMainMenuLink";
-import {AuthorsGithub}  from "./LinkComponents/AuthorGithubMainMenuLink";
-import {Title        }  from "./LinkComponents/MainMenuTitle";
 
 
-export class MainMenuComponent extends React.Component {
+export class Home extends React.Component {
 
     componentDidMount() {
         document.body.className = "main-menu-background";
     }
 
-    render()
-    {
+    render() {
+
         return (
             <svg viewBox="0 0 1920 1080">
                 <defs>
@@ -27,18 +26,18 @@ export class MainMenuComponent extends React.Component {
                     </clipPath>
                 </defs>
                 <g id="a" className="a">
-                    <ChessRules />
-                    <CouncilRules />
-                    <CreatePiece />
-                    <NewGame /> 
-                    <LoadGame />
-                    <MyPictures />
-                    <a href="https://github.com/symLogicDMUS"><AuthorsGithub /></a>
                     <Title />
+                    <ChessRulesIcon />
+                    <CouncilRulesIcon />
+                    <CreatePieceIcon />
+                    <NewGameIcon /> 
+                    <LoadGameIcon />
+                    <MyPiecesIcon />
+                    <a href="https://github.com/symLogicDMUS"><AuthorsGithubIcon /></a>
                 </g>
             </svg>
         );
     }
 };
 
-export default MainMenuComponent;
+export default Home;

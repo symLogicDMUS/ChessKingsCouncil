@@ -39,48 +39,48 @@
     /*border: 1px dashed white;*/
 }
 
-.new-game {
+.new-game-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 2;
     /*border: 1px dashed white;*/
 }
 
-.load-game {
+.load-game-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 3;
     /*border: 1px dashed white;*/
 }
 
-.create-piece {
+.create-piece-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 4;
     /*border: 1px dashed white;*/
 }
 
-.chess-rules {
+.chess-rules-link {
     grid-row: 1;
     grid-column: 5;
     /*border: 1px dashed white;*/
 }
 
-.council-rules {
+.council-rules-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 7;
     /*border: 1px dashed white;*/
 }
 
-.my-pieces {
+.my-pieces-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 6;
     /*border: 1px dashed white;*/
 }
 
-.author-github {
+.author-github-link {
     z-index: inherit;
     grid-row: 1;
     grid-column: 8;

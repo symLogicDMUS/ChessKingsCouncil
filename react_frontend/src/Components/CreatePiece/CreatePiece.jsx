@@ -4,7 +4,7 @@ import {Name} from "./Name/Name";
 import {Range} from "./Range/Range";
 import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
-import {MyBoard} from "./Board/MyBoard";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import {NameLabel} from "./NameLabel/NameLabel";
 import {pieceImgDict} from "../MyPieces/pieceImgDict";
 import {stepFuncDict} from "../helpers/stepFuncs";
@@ -23,7 +23,6 @@ import {BlankDef} from "./Options/BlankDef/BlankDef";
 import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import {defs} from "../tests/defs1";
-
 import "./CreatePiece.css";
 
 
@@ -33,8 +32,7 @@ export class CreatePiece extends React.Component {
 
         super(props);
 
-        // definitions for piece ranges
-        this.defs = JSON.parse(JSON.stringify(this.props.defs))
+        this.defs = JSON.parse(JSON.stringify(this.props.defs));
 
         //used to record in defs object at the end:
         this.name = "";
@@ -118,6 +116,10 @@ export class CreatePiece extends React.Component {
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
+
+        if (this.props.defaultPiece != null)
+            this.load(this.props.defaultPiece)
+
     }
 
     componentDidMount() {
@@ -336,13 +338,13 @@ export class CreatePiece extends React.Component {
     reset() {
 
         if (this.loadedName === null)
-            this.clear()
+            this.clear();
         else {
             this.name = JSON.parse(JSON.stringify(this.loadedName));
             this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
             this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
             this.imgNames = JSON.parse(JSON.stringify(this.loadedImgNames));
-            this.update()
+            this.setLoc(this.location);
          }           
     }
 
@@ -363,10 +365,10 @@ export class CreatePiece extends React.Component {
                 <Location activeLocation={this.location} setLoc={this.setLoc} />
                 <div className="options-tool"/>
                 <SaveDef   save={this.save}
+                           name={this.name}
                            clear={this.clear}
                            status={this.saveStatus} 
                            saveStatus={this.setSaveStatus} 
-                           name={this.props.name}
                            existing={Object.keys(this.defs)}
                            hoverResponse={this.hoverResponse}
                            mouseOver={this.mouseOver}
@@ -375,7 +377,7 @@ export class CreatePiece extends React.Component {
                 <ResetDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} reset={this.reset} />
                 <BlankDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} clear={this.clear} />
                 <ThemeCreatePiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
-                <MyBoard
+                <Board
                  togleJump={this.togleJump}
                  update={this.update}
                  spanDisplays={this.spanDisplays} 

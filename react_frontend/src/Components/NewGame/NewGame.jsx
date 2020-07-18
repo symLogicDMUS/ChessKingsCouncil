@@ -1,7 +1,6 @@
 import React from "react";
 import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
-import GameRoot from "../GameRoot/GameRoot";
 import {Customize} from "./Customize/Customize";
 import {newData, ranges, enemyRanges, moves, status, id_dict, range_defs} from "./NewData";
 import { Redirect } from "react-router-dom";
