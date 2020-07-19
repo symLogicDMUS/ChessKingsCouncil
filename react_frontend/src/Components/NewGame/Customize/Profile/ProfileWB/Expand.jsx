@@ -8,11 +8,11 @@ export class Expand extends React.Component {
         this.style = {}
         this.expand = this.expand.bind(this);
         if (this.props.value === "spans")
-            this.class_ = "span-expand"
+            this.class_ = "new-game-span-expand"
         if (this.props.value === "offsets")
-            this.class_ = "offsets-expand"
+            this.class_ = "new-game-offsets-expand"
         if (this.props.value === "color")
-            this.class_ = "color-expand"
+            this.class_ = "new-game-color-expand"
     }
 
     expand() {

@@ -1,4 +1,4 @@
-.promo-all {
+.new-game-promo-all {
     position: absolute;
     display: grid;
     left: 280px;
@@ -9,7 +9,7 @@
     /* border: 1px dashed white; */
 }
 
-.promo-all-label {
+.new-game-promo-all-label {
     grid-column: 1;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -17,22 +17,22 @@
     /* border: 1px dashed white; */
 }
 
-.promo-all-checkbox-container {
+.new-game-promo-all-checkbox-container {
     grid-column: 2;
     /* border: 1px dashed white; */
 }
 
-.promo-all-checkbox {
+.new-game-promo-all-checkbox {
     width: 18px; 
     height: 18px; 
     background-color: #515151;
     border: 2px solid #969696;
     border-radius: 5px;
-} .promo-all-checkbox:hover {
+} .new-game-promo-all-checkbox:hover {
     cursor: pointer;
 }
 
-.checked {
+.new-game-checked {
     position: absolute;
     max-height: 18px; 
     max-width: 18px; 

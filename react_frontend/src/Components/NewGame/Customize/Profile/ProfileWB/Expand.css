@@ -1,32 +1,33 @@
-.color-expand {
+.new-game-color-expand {
     z-index: inherit;
     grid-column: 4;
     grid-row: 1;
     height: 12px;
     width: 12px;
     padding-top: 15px;
-} .color-expand:hover {
+} .new-game-color-expand:hover {
     cursor: pointer;
 }
 
-.span-expand {
+.new-game-span-expand {
     z-index: inherit;
     grid-column: 4;
     grid-row: 2;
     height: 12px;
     width: 12px;
     padding-top: 15px;
-} .span-expand:hover {
+} .new-game-span-expand:hover {
     cursor: pointer;
 }
 
-.offsets-expand {
+.new-game-offsets-expand {
     z-index: inherit;
     grid-column: 4;
     grid-row: 3;
     height: 12px;
     width: 12px;
     padding-top: 15px;
-} .offsets-expand:hover {
+} .new-game-offsets-expand:hover {
     cursor: pointer;
 }
+

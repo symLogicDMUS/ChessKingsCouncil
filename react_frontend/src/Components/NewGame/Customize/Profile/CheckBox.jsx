@@ -16,7 +16,7 @@ export class CheckBox extends React.Component {
     
     getCheckmark() {
         if (this.checkmark)
-            return <img src="/Images/checkmark.svg" className="checkmark" />
+            return <img src="/Images/checkmark.svg" className="new-game-promotion-checkbox-checkmark" />
         else
             return null;
     }
@@ -28,7 +28,7 @@ export class CheckBox extends React.Component {
             this.checkmark = true;
 
         return(
-            <div className="checkbox" onClick={this.togleCheckmark}>
+            <div className="new-game-promotion-checkbox" onClick={this.togleCheckmark}>
                 {this.getCheckmark()}
             </div>
         )

@@ -26,11 +26,11 @@ export class ProfileWB extends React.Component {
     render() {
 
         return(
-            <div className="w-or-b-profile">
-                <div className="img-window">
+            <div className="new-game-w-or-b-profile">
+                <div className="new-game-w-or-b-profile-img-window">
                     <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
                 </div>
-                <div className="color-label">Color: </div>
+                <div className="new-game-w-or-b-profile-color-label">Color: </div>
                 <Expand 
                     def={this.props.def} 
                     piece={this.props.piece} 
@@ -38,7 +38,7 @@ export class ProfileWB extends React.Component {
                     expand={this.props.expand} 
                     value="color" 
                 />
-                <div className="spans-label">Spans: </div>
+                <div className="new-game-w-or-b-profile-spans-label">Spans: </div>
                 <Expand 
                     def={this.props.def} 
                     piece={this.props.piece} 
@@ -46,7 +46,7 @@ export class ProfileWB extends React.Component {
                     expand={this.props.expand} 
                     value="spans" 
                 />
-                <div className="offsets-label">Offsets: </div>
+                <div className="new-game-w-or-b-profile-offsets-label">Offsets: </div>
                 <Expand 
                     def={this.props.def} 
                     piece={this.props.piece} 
@@ -54,10 +54,10 @@ export class ProfileWB extends React.Component {
                     expand={this.props.expand} 
                     value="offsets" 
                 />
-                <div className="color-value">{this.props.color}</div>
-                <div className="spans-value">{this.getSpans()}</div>
+                <div className="new-game-w-or-b-profile-color-value">{this.props.color}</div>
+                <div className="new-game-w-or-b-profile-spans-value">{this.getSpans()}</div>
 
-                <div className="offsets-value">{this.getOffsets()}</div>
+                <div className="new-game-w-or-b-profile-offsets-value">{this.getOffsets()}</div>
 
             </div>
         )

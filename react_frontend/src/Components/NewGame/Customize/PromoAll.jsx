@@ -16,19 +16,19 @@ export class PromoAll extends React.Component {
 
     getCheckmark() {
         if (this.state.checkmark)
-            return <img src="/Images/checkmark.svg" className="checked" />
+            return <img src="/Images/checkmark.svg" className="new-game-checked" />
         else
             return null;
     }
 
     render() {
         return(
-            <div className="promo-all">
-                <div className="promo-all-label">
+            <div className="new-game-promo-all">
+                <div className="new-game-promo-all-label">
                     Promo All:
                 </div>
-                <div className="promo-all-checkbox-container">
-                    <div className="promo-all-checkbox" onClick={this.togleCheck}>
+                <div className="new-game-promo-all-checkbox-container">
+                    <div className="new-game-promo-all-checkbox" onClick={this.togleCheck}>
                         {this.getCheckmark()}
                     </div>
                 </div>

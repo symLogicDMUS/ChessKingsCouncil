@@ -1,18 +1,18 @@
 
-.profile {
+.new-game-profile {
     z-index: inherit;
     height: 480px;
 }
 
     /*container for w-or-b-profile*/
-    .profile .profile-item {
+    .new-game-profile-item {
         z-index: inherit;
         height: 180px;
         background-color: #515151;
         margin-bottom: 20px;
     }
 
-    .profile .profile-header {
+    .new-game-profile-header {
         display: grid;
         z-index: inherit;
         width: 900px;
@@ -23,7 +23,7 @@
         /* column-gap: 10px; */
     }
 
-        .profile .profile-header .name-of-piece {
+        .new-game-name-of-piece {
             z-index: inherit;
             grid-row: 1;
             grid-column: 1;
@@ -39,13 +39,13 @@
             /*border: 1px dashed white;*/
         }
 
-        .profile .profile-header .spacer {
+        .new-game-spacer {
             grid-row: 1;
             grid-column: 2;
             /*border: 1px dashed white;*/
         }
 
-        .profile .profile-header .promotion {
+        .new-game-promotion {
             z-index: inherit;
             display: grid;
             grid-row: 1;
@@ -56,7 +56,7 @@
             /*border: 1px dashed white;*/
         }
 
-            .promotion .promotion-label {
+            .new-game-promotion-label {
                 z-index: inherit;
                 grid-column: 1;
                 text-align: left;
@@ -67,7 +67,7 @@
                 /*border: 1px dashed white;*/
             }
 
-            .promotion .promotion-checkbox {
+            .new-game-promotion-checkbox {
                 z-index: inherit;
                 margin-top: 10px;
                 margin-left: 8px;
@@ -76,7 +76,7 @@
             }
 
 
-        .profile-header .substitute {
+        .new-game-substitute {
             z-index: inherit;
             display: grid;
             grid-template-columns: 60px 24px; 
@@ -85,7 +85,7 @@
             /*border: 1px dashed white;*/
         }
 
-            .substitute .sub-label {
+            .new-game-sub-label {
                 z-index: inherit;
                 grid-column: 1;
                 grid-row: 1;
@@ -98,7 +98,7 @@
                 /*border: 1px dashed white;*/
             }
 
-            .substitute .sub-dropdown-container {
+            .new-game-sub-dropdown-container {
                 z-index: inherit;
                 grid-column: 2;
                 width: 180px; 

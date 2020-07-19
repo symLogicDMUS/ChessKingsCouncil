@@ -20,34 +20,34 @@ export class Profile extends React.Component {
     returnExpand() {
         return {piece:this.piece, color:this.color, value:this.value};
     }
-
+    
     render() {
         return (
-            <div className="profile">
-                <div className="profile-header">
+            <div className="new-game-profile">
+                <div className="new-game-profile-header">
                     <PieceNameLabel pieceName={this.props.pieceName} nameTooltip={this.props.nameTooltip} />
-                    <div className="substitute">
-                        <div className="sub-label">
+                    <div className="new-game-substitute">
+                        <div className="new-game-sub-label">
                             Sub:
                         </div>
-                        <div className="sub-dropdown-container">
+                        <div className="new-game-sub-dropdown-container">
                             <SubDropdown piece={this.props.pieceName} 
                              newReplacement={this.props.newReplacement} 
                              newReplaced={this.props.newReplaced} 
                              togleSub={this.props.togleSub} />
                         </div>               
                     </div>
-                    <div className="promotion">
-                        <div className="promotion-label">
+                    <div className="new-game-promotion">
+                        <div className="new-game-promotion-label">
                             Promotion:
                         </div>
-                        <div className="promotion-checkbox">
+                        <div className="new-game-promotion-checkbox">
                             <CheckBox toglePromo={this.props.toglePromo} pieceName={this.props.pieceName} promos={this.props.promos} />
                         </div>
                     </div>
                 </div>
-                <div className="profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["W"]} piece={this.props.pieceName} color="W" expand={this.props.expand} /></div>
-                <div className="profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["B"]} piece={this.props.pieceName} color="B" expand={this.props.expand} /></div>
+                <div className="new-game-profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["W"]} piece={this.props.pieceName} color="W" expand={this.props.expand} /></div>
+                <div className="new-game-profile-item"><ProfileWB def={this.props.displayDefs[this.props.pieceName]["B"]} piece={this.props.pieceName} color="B" expand={this.props.expand} /></div>
             </div>
         );    
     }

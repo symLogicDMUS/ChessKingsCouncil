@@ -19,7 +19,7 @@ export class PieceNameLabel extends React.Component {
 
     render() {
         return (
-            <div className="name-of-piece" onMouseEnter={this.showTooltip} 
+            <div className="new-game-name-of-piece" onMouseEnter={this.showTooltip} 
                                            onMouseLeave={this.hideTooltip} >
                 {this.props.pieceName}
             </div>

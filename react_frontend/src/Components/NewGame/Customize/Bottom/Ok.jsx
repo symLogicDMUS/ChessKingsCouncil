@@ -9,7 +9,7 @@ export class Ok extends React.Component {
 
     render() {
         return (
-            <button className="accept-customization" onClick={this.props.accept}>
+            <button className="new-game-accept-customization" onClick={this.props.accept}>
                 Ok
             </button>
         )

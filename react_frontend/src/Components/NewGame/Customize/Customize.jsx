@@ -225,23 +225,23 @@ export class Customize extends React.Component {
 
         return(
             <>
-                <div className="customise-window">
+                <div className="new-game-customise-window">
                     <PromoAll toglePromoAll={this.toglePromoAll} />
-                    <div className="piece-profiles">
+                    <div className="new-game-piece-profiles">
                         {this.getProfiles()}
                     </div>
-                    <div className="bottom-bar">
-                        <div className="subs-header">Subs</div>
-                        <div className="rook-label">Rook: </div>
-                        <div className="rook-value">{this.subs["Rook"]}</div>
-                        <div className="bishop-label">Bishop: </div>
-                        <div className="bishop-value">{this.subs["Bishop"]}</div>
-                        <div className="knight-label">Knight: </div>
-                        <div className="knight-value">{this.subs["Knight"]}</div>
-                        <div className="queen-label">Queen: </div>
-                        <div className="queen-value">{this.subs["Queen"]}</div>
-                        <div className="promo-label">Pawn Promotions:</div>
-                        <div className="promo-list">{this.getPromos()}</div>
+                    <div className="new-game-bottom-bar">
+                        <div className="new-game-subs-header">Subs</div>
+                        <div className="new-game-rook-label">Rook: </div>
+                        <div className="new-game-rook-value">{this.subs["Rook"]}</div>
+                        <div className="new-game-bishop-label">Bishop: </div>
+                        <div className="new-game-bishop-value">{this.subs["Bishop"]}</div>
+                        <div className="new-game-knight-label">Knight: </div>
+                        <div className="new-game-knight-value">{this.subs["Knight"]}</div>
+                        <div className="new-game-queen-label">Queen: </div>
+                        <div className="new-game-queen-value">{this.subs["Queen"]}</div>
+                        <div className="new-game-promo-label">Pawn Promotions:</div>
+                        <div className="new-game-promo-list">{this.getPromos()}</div>
                     </div>
                 </div>
                 {this.isTooltip && (<NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />) }

@@ -4,7 +4,7 @@ import "./NameTooltip.css";
 export const NameTooltip = ({clientX, clientY, name}) => {
 
     return (
-        <div className="name-tooltip" style={{position:"absolute", 
+        <div className="new-game-name-tooltip" style={{position:"absolute", 
         left:Math.floor(clientX), 
         top:Math.floor(clientY), 
         color:"white", 

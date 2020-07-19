@@ -1,14 +1,14 @@
-.promotion-checkbox .checkbox {
+.new-game-promotion-checkbox {
     width: 18px; 
     height: 18px; 
     margin-top: 9px; 
     background-color: #515151;
     border: 2px solid #969696;
     border-radius: 5px;
-} .promotion-checkbox .checkbox:hover {
+} .new-game-promotion-checkbox:hover {
     cursor: pointer;
 }
-.promotion-checkbox .checkbox .checkmark {
+.new-game-promotion-checkbox-checkmark {
     position: absolute;
     max-height: 18px; 
     max-width: 18px; 

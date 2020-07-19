@@ -1,6 +1,6 @@
 
 
-.w-or-b-profile {
+.new-game-w-or-b-profile {
     z-index: inherit;
     display: grid;
     grid-template-columns: 180px 100px 650px 50px;
@@ -9,7 +9,7 @@
     text-overflow: ellipsis;
 }
 
-    .w-or-b-profile .img-window {
+    .new-game-w-or-b-profile-img-window {
         z-index: inherit;
         grid-row: 1 / 4;
         grid-column: 1;
@@ -17,7 +17,7 @@
         /*border: 1px dashed white;*/
     }
 
-        .w-or-b-profile .img-window img {
+        .new-game-w-or-b-profile-img-window img {
             z-index: inherit;
             width: 108px; 
             height: 108px; 
@@ -25,7 +25,7 @@
             /* border-radius: 5px; */
         }
 
-    .w-or-b-profile .color-label {
+    .new-game-w-or-b-profile-color-label {
         z-index: inherit;
         grid-row: 1;
         grid-column: 2;
@@ -37,7 +37,7 @@
         margin-bottom: 6px; 
     }
 
-    .w-or-b-profile .color-value {
+    .new-game-w-or-b-profile-color-value {
         z-index: inherit;
         grid-column: 3;
         grid-row: 1;
@@ -51,7 +51,7 @@
         margin-bottom: 12px; 
     }
 
-    .w-or-b-profile .spans-label {
+    .new-game-w-or-b-profile-spans-label {
         z-index: inherit;
         grid-row: 2;
         grid-column: 2;
@@ -62,7 +62,7 @@
         /*border: 1px dashed white;*/
     }
 
-    .w-or-b-profile .spans-value {
+    .new-game-w-or-b-profile-spans-value {
         z-index: inherit;
         grid-column: 3;
         grid-row: 2;
@@ -76,7 +76,7 @@
         /*border: 1px dashed white;*/
     }
 
-    .w-or-b-profile .offsets-label {
+    .new-game-w-or-b-profile-offsets-label {
         z-index: inherit;
         grid-row: 3;
         grid-column: 2;
@@ -88,7 +88,7 @@
         /*border: 1px dashed white;*/
     }
 
-    .w-or-b-profile .offsets-value {
+    .new-game-w-or-b-profile-offsets-value {
         z-index: inherit;
         grid-column: 3;
         grid-row: 3;

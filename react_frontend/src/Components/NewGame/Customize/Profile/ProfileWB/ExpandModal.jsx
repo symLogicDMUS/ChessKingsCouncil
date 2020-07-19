@@ -18,12 +18,12 @@ export class ExpandModal extends React.Component {
     getList() {
 
         if (this.props.value === "color") {
-        return <div className="value2">{this.props.list}</div>
+        return <div className="new-game-expand-modal-list-value2">{this.props.list}</div>
         }
 
         let listValues = []
         this.props.list.forEach(value => {
-            listValues.push(<div className="value">{value}</div>)
+            listValues.push(<div className="new-game-expand-modal-list-value">{value}</div>)
         });
         return listValues;
     }
@@ -43,18 +43,18 @@ export class ExpandModal extends React.Component {
     render() {
 
         return (
-            <div className="expand-modal">
-                <div className="modal-box">
-                    <img src="/Images/unexpand.svg" onClick={this.unexpand} className="unexpand" />
-                    <div className="title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
+            <div className="new-game-expand-modal">
+                <div className="new-game-expand-modal-window">
+                    <img src="/Images/unexpand.svg" onClick={this.unexpand} className="new-game-modal-window-unexpand" />
+                    <div className="new-game-expand-modal-window-title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
                         {this.getTitle()}
                     </div>
-                    <div className="list">
+                    <div className="new-game-expand-modal-list">
                         {this.getList()}
                     </div>
                 </div>
                 {this.state.tooltip && 
-                      (<div className="tooltip">{this.props.piece} {this.props.color} {this.props.value}</div>)
+                      (<div className="new-game-tooltip">{this.props.piece} {this.props.color} {this.props.value}</div>)
                 }
             </div>
         )

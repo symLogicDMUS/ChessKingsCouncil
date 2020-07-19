@@ -1,4 +1,4 @@
-.accept-customization {
+.new-game-accept-customization {
     position: absolute;
     z-index: 2;
     width: 60px; 
@@ -12,6 +12,6 @@
     border: 1px solid #a9a9a9;
     border-radius: 2px;
 }
-.accept-customization:hover {
+.new-game-accept-customization:hover {
     background-color: #6a6a6a;
 }

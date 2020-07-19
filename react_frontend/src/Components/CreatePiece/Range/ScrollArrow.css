@@ -1,24 +1,23 @@
 
-.scroll {
+.create-piece-scroll {
     z-index: 1;
     width: 240px;
     height: 7px;
     background-color: #515151;
-
     cursor: pointer;
 }
 
-.scroll-up {
+.create-piece-scroll-up {
     position: absolute;
     top: 17px;
 }
 
-.scroll-down {
+.create-piece-scroll-down {
     position: absolute;
     top: 89px;
 }
 
-.scroll-arrow {
+.create-piece-scroll-arrow {
     position: absolute;
     left: 117px;
     top: 1px;

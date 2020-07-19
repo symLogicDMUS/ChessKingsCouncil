@@ -31,7 +31,7 @@ export class SubDropdown extends React.Component {
               this.selectedPiece = <option value="None">None</option>;
 
         return (
-            <select id="subs" onChange={this.handleChange} className="sub-dropdown" value={this.selectedPiece}>
+            <select id="subs" onChange={this.handleChange} className="new-game-sub-dropdown" value={this.selectedPiece}>
                 {this.subs}
             </select>
         );
