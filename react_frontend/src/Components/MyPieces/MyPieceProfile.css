@@ -8,7 +8,7 @@
     position: relative;
     z-index: inherit;
     display: grid;
-    grid-template-columns: 765px 95px 95px;
+    grid-template-columns: 805px 95px 95px;
     column-gap: 20px;
     width: 1000px;
     height: 40px;
@@ -21,9 +21,10 @@
     grid-column: 1;
     color: #a9a9a9;
     font-size: 25px;
-    padding-top: 2px;
+    padding-top: 8px;
     font-family: Tahoma;
     text-align: left;
+    padding-left: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

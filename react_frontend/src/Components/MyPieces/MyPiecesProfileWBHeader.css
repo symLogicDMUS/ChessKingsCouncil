@@ -13,7 +13,7 @@
     grid-column: 3;
     display: grid;
     grid-template-rows: 30px;
-    grid-template-columns: 380px 20px;
+    grid-template-columns: 370px 30px;
     column-gap: 20px;
     border: 1px solid #707070;
 }
@@ -26,6 +26,7 @@
         padding-top: 6px;
         color: #a9a9a9;
         text-align: center;
+        padding-left: 50px;
         overflow: hidden;
         text-overflow: ellipsis;
 

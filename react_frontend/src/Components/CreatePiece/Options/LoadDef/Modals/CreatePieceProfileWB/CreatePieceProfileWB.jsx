@@ -1,62 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { CreatePieceExpand } from "./CreatePieceExpand";
+import {getColorName} from "../../../../../helpers/getColorName";
+import {CreatePieceRangeTable} from "./CreatePieceRangeTable";
+import {CreatePieceProfileWBHeader} from "./CreatePieceProfileWBHeader";
 import "./CreatePieceProfileWB.css";
 
 export class CreatePieceProfileWB extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-
-    getSpans() {
-        let spanString = this.props.def.spans.join(", ");
-        if (spanString.length === 0)
-            return "none";
-        return spanString;
-    }
-
-    getOffsets() {
-        let offsetString = this.props.def.offsets.join(", ");
-        if (offsetString.length === 0)
-            return "none";
-        return offsetString;
+        this.spans = this.props.def.spans
+        this.offsets = this.props.def.offsets;
+        this.color = getColorName(this.props.color);
     }
 
     render() {
 
         return(
-            <div className="w-or-b-profile">
-                <div className="img-window">
+            <div className="create-piece-w-or-b-profile">
+                <div className="create-piece-w-or-b-profile-img-label"> {this.color} Image </div>
+                <div className="create-piece-w-or-b-profile-img-window">
                     <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
                 </div>
-                <div className="color-label">Color: </div>
-                <CreatePieceExpand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="color" 
+                <CreatePieceProfileWBHeader class_="create-piece-spans-header"
+                                        expand={this.props.expand}
+                                        pieceName={this.props.pieceName} 
+                                        color={this.props.color} 
+                                        rangeType="spans" />
+                <CreatePieceRangeTable ranges={this.spans} upArrow="create-piece-spans-up-arrow" 
+                                                        table="create-piece-spans-table"
+                                                        downArrow="create-piece-spans-down-arrow" 
                 />
-                <div className="spans-label">Spans: </div>
-                <CreatePieceExpand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="spans" 
-                />
-                <div className="offsets-label">Offsets: </div>
-                <CreatePieceExpand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="offsets" 
-                />
-                <div className="color-value">{this.props.color}</div>
-                <div className="spans-value">{this.getSpans()}</div>
-                <div className="offsets-value">{this.getOffsets()}</div>
+                <CreatePieceProfileWBHeader class_="create-piece-offsets-header" 
+                                        expand={this.props.expand}
+                                        pieceName={this.props.pieceName} 
+                                        color={this.props.color} 
+                                        rangeType="offsets" 
+                                        />
+                <CreatePieceRangeTable ranges={this.offsets} upArrow="create-piece-offsets-up-arrow" 
+                                                          table="create-piece-offsets-table" 
+                                                          downArrow="create-piece-offsets-down-arrow" />
+
             </div>
         )
     }

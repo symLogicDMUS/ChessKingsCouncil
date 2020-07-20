@@ -13,7 +13,7 @@
     width: 1020px;
     height: 860px;
     display: grid;
-    grid-template-columns: 1020px;
+    grid-template-columns: 1065px;
     grid-template-rows: 60px 800px 60px;
     border: 1px solid #a9a9a9;
 
@@ -23,9 +23,10 @@
     grid-column: 1;
     grid-row: 1;
     display: grid;
-    grid-template-columns: 980px 60px;
+    grid-template-columns: 1020px 100px;
     grid-template-rows: 60px;
     background-color: #515151;
+    border-bottom: 1px solid #707070;
     /* border: 2px dashed gold; */
 }
 
@@ -48,6 +49,6 @@
     display: grid;
     grid-template-columns: 1fr;
     background-color: #515151;
-
+    width: 1065px;
     overflow: scroll;
 }

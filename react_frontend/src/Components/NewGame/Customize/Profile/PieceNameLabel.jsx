@@ -1,5 +1,5 @@
 import React from "react";
-import "./Profile.css";
+import "./PieceNameLabel.css";
 
 export class PieceNameLabel extends React.Component {
     

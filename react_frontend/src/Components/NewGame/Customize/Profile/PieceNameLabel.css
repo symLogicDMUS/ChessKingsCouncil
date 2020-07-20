@@ -1,0 +1,14 @@
+.new-game-name-of-piece {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 1 / 3;
+    padding-top: 3px;
+    padding-left: 9px; 
+    padding-bottom: 3px; 
+    border-radius: 3px; 
+    color: #a9a9a9;
+    font-size: 21px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

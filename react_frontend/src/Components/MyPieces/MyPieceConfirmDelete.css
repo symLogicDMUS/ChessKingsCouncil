@@ -25,7 +25,7 @@
        z-index: inherit;
        top: 40px;
        width: 600px;
-       color: white;
+       color: #a9a9a9;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        font-size: 20px;
        text-align: center;
@@ -42,14 +42,14 @@
        font-size: 35px;
        padding-top: 5px;
        text-align: center;
-       color: white;
+       color: #a9a9a9;
        background-color: #515151;
        border: 1px solid white;
        border-radius: 10px;
        cursor: pointer;
    } .my-piece-confirm-delete-window .button:hover {
         color: #515151;
-        background-color: white;
+        background-color: #a9a9a9;
    }
 
    .my-piece-confirm-delete-window .button .yes-button {

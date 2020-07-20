@@ -31,13 +31,16 @@ export class CreatedPieceProfiles extends React.Component {
     }
 
     select(pieceName) {
-        this.setState({selected: pieceName});
+        if (this.state.selected === pieceName)
+            this.setState({selected: null})
+        else
+            this.setState({selected: pieceName});
     }
 
     expand(piece, color, value) {
-        this.expandPiece = piece;
-        this.expandValue = value;
-        this.expandColor = color;
+        this.pieceName = piece;
+        this.rangeType = value;
+        this.color = color;
         this.setState({binaryValue: ! this.state.binaryValue});
     }
 
@@ -47,19 +50,15 @@ export class CreatedPieceProfiles extends React.Component {
     }
 
     getExpandModals() {
-        if (this.expandPiece != null && this.expandValue != null && this.expandColor != null) {
+        if (this.pieceName != null && this.rangeType != null && this.color != null) {
+            return ( <CreatePieceExpandModal def={this.defs[this.pieceName][this.color]}
+                                    pieceName={this.pieceName}
+                                    rangeType={this.rangeType}
+                                    color={this.color}
+                                    expand={this.expand}
+                                    location="d4" />
+            );
 
-            if (this.expandValue === "color") {
-                return <CreatePieceExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} expand={this.expand}
-                        list={[`color: ${getColorName(this.expandColor)}`, 
-                               <img src={`/Images/Pieces/${this.displayDefs[this.expandPiece][this.expandColor]["img"]}`}
-                                style={{width: "280px", height: "280px"}} />]} 
-                                />
-            }
-            else {
-                return <CreatePieceExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} 
-                        list={this.displayDefs[this.expandPiece][this.expandColor][this.expandValue]} expand={this.expand} />
-            }
         }
         else
             return <div>{null}</div>
@@ -125,7 +124,7 @@ export class CreatedPieceProfiles extends React.Component {
                             {this.getProfiles()}
                         </div>
                         <div className="created-piece-bottom-bar">
-                            <CreatedPieceLoadButton accept={this.accept} />
+                            <CreatedPieceLoadButton accept={this.accept} selected={this.state.selected} />
                         </div>
                     </div>
                 </div>

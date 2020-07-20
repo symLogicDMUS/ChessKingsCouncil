@@ -1,0 +1,19 @@
+
+.promo-list-up-arrow {
+    grid-column: 1;
+    grid-row: 1;
+    cursor: pointer;
+}
+
+.promo-list-down-arrow {
+    grid-column: 1;
+    grid-row: 7;
+    cursor: pointer;
+}
+
+.promo-list-scroll-arrow {
+    position: absolute;
+    margin-top: 3px;
+    width: 7px;
+    height: 6px;
+}

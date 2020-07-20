@@ -1,12 +1,15 @@
 
 import React from "react";
+import { CreatePieceDisplayBoard } from "./CreatePieceDisplayBoard/CreatePieceDisplayBoard";
+import {getColorName} from "../../../../../helpers/getColorName";
 import "./CreatePieceExpandModal.css";
+
 
 export class CreatePieceExpandModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {tooltip: false};
+        this.state = {tooltip: false}
         this.togleTooltip = this.togleTooltip.bind(this);
         this.unexpand = this.unexpand.bind(this);
     }
@@ -15,24 +18,11 @@ export class CreatePieceExpandModal extends React.Component {
         this.props.expand(null, null, null);
     }
 
-    getList() {
-
-        if (this.props.value === "color") {
-            return <div className="created-piece-value2">{this.props.list}</div>
-        }
-
-        let listValues = []
-        this.props.list.forEach(value => {
-            listValues.push(<div className="created-piece-value">{value}</div>)
-        });
-        return listValues;
-    }
-
     getTitle() {
-        if (this.props.value === "color")
-            return this.props.piece
+        if (this.props.rangeType === "color")
+            return this.props.pieceName
         else
-            return this.props.piece +  " " + this.props.color + " " + this.props.value;
+            return getColorName(this.props.color) + " " + this.props.pieceName +  " " + this.props.rangeType;
 
     }
 
@@ -43,18 +33,22 @@ export class CreatePieceExpandModal extends React.Component {
     render() {
 
         return (
-            <div className="created-piece-expand-modal">
-                <div className="created-piece-modal-box">
-                    <img src="/Images/unexpand.svg" onClick={this.unexpand} className="created-piece-unexpand" />
-                    <div className="created-piece-title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
+            <div className="create-piece-expand-modal">
+                <div className="create-piece-expand-modal-window">
+                    <img src="/Images/unexpand.svg" className="create-piece-modal-window-unexpand" onClick={this.unexpand} />
+                    <div className="create-piece-expand-modal-window-title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
                         {this.getTitle()}
                     </div>
-                    <div className="created-piece-list">
-                        {this.getList()}
-                    </div>
+                    <CreatePieceDisplayBoard def={this.props.def} 
+                                             rangeType={this.props.rangeType} 
+                                             color={this.props.color} 
+                                             pieceName={this.props.pieceName} 
+                                             location={this.props.location}
+                    />
+
                 </div>
                 {this.state.tooltip && 
-                      (<div className="created-piece-tooltip">{this.props.piece} {this.props.color} {this.props.value}</div>)
+                      (<div className="create-piece-tooltip">{getColorName(this.props.color)} {this.props.pieceName} {this.props.rangeType}</div>)
                 }
             </div>
         )

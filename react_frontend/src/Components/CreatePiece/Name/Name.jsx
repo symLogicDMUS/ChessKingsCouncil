@@ -6,8 +6,7 @@ export class Name extends React.Component {
     
     constructor(props) {
         super(props);
-        // this.state = {userInput: ""};
-        this.userInput = "";
+        this.userInput = this.props.name;
         this.handleUserInput = this.handleUserInput.bind(this);
     }
 

@@ -1,63 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Expand } from "./Expand";
+import {getColorName} from "../../../../helpers/getColorName";
+import {NewGameRangeTable} from "./NewGameRangeTable";
+import {NewGameProfileWBHeader} from "./NewGameProfileWBHeader";
 import "./ProfileWB.css";
 
 export class ProfileWB extends React.Component {
 
     constructor(props) {
         super(props);
-    }
-
-    getSpans() {
-        let spanString = this.props.def.spans.join(", ");
-        if (spanString.length === 0)
-            return "none";
-        return spanString;
-    }
-
-    getOffsets() {
-        let offsetString = this.props.def.offsets.join(", ");
-        if (offsetString.length === 0)
-            return "none";
-        return offsetString;
+        this.spans = this.props.def.spans
+        this.offsets = this.props.def.offsets;
+        this.color = getColorName(this.props.color);
     }
 
     render() {
 
         return(
             <div className="new-game-w-or-b-profile">
+                <div className="new-game-w-or-b-profile-img-label"> {this.color} Image </div>
                 <div className="new-game-w-or-b-profile-img-window">
                     <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
                 </div>
-                <div className="new-game-w-or-b-profile-color-label">Color: </div>
-                <Expand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="color" 
+                <NewGameProfileWBHeader class_="new-game-spans-header"
+                                        expand={this.props.expand}
+                                        pieceName={this.props.pieceName} 
+                                        color={this.props.color} 
+                                        rangeType="spans" />
+                <NewGameRangeTable ranges={this.spans} upArrow="new-game-spans-up-arrow" 
+                                                        table="new-game-spans-table"
+                                                        downArrow="new-game-spans-down-arrow" 
                 />
-                <div className="new-game-w-or-b-profile-spans-label">Spans: </div>
-                <Expand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="spans" 
-                />
-                <div className="new-game-w-or-b-profile-offsets-label">Offsets: </div>
-                <Expand 
-                    def={this.props.def} 
-                    piece={this.props.piece} 
-                    color={this.props.color} 
-                    expand={this.props.expand} 
-                    value="offsets" 
-                />
-                <div className="new-game-w-or-b-profile-color-value">{this.props.color}</div>
-                <div className="new-game-w-or-b-profile-spans-value">{this.getSpans()}</div>
-
-                <div className="new-game-w-or-b-profile-offsets-value">{this.getOffsets()}</div>
+                <NewGameProfileWBHeader class_="new-game-offsets-header" 
+                                        expand={this.props.expand}
+                                        pieceName={this.props.pieceName} 
+                                        color={this.props.color} 
+                                        rangeType="offsets" 
+                                        />
+                <NewGameRangeTable ranges={this.offsets} upArrow="new-game-offsets-up-arrow" 
+                                                          table="new-game-offsets-table" 
+                                                          downArrow="new-game-offsets-down-arrow" />
 
             </div>
         )

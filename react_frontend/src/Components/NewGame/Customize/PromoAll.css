@@ -6,20 +6,18 @@
     grid-template-columns: 108px 60px; 
     grid-template-rows: 36px; 
     text-align: left;
-    /* border: 1px dashed white; */
 }
 
 .new-game-promo-all-label {
     grid-column: 1;
     font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: #a9a9a9;
     /* border: 1px dashed white; */
 }
 
 .new-game-promo-all-checkbox-container {
     grid-column: 2;
-    /* border: 1px dashed white; */
 }
 
 .new-game-promo-all-checkbox {
@@ -28,9 +26,8 @@
     background-color: #515151;
     border: 2px solid #969696;
     border-radius: 5px;
-} .new-game-promo-all-checkbox:hover {
     cursor: pointer;
-}
+} 
 
 .new-game-checked {
     position: absolute;

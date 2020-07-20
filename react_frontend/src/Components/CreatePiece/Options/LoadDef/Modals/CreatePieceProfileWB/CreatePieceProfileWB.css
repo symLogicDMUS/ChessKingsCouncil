@@ -1,103 +1,51 @@
 
 
-.w-or-b-profile {
+.create-piece-w-or-b-profile {
     z-index: inherit;
     display: grid;
-    grid-template-columns: 180px 100px 650px 50px;
-    grid-template-rows: 60px 60px 60px;
+    height: 180px;
+    grid-template-columns: 150px 420px 420px;
+    grid-template-rows: 30px 150px;
+    margin-top: 20px;
+    background-color: #515151;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-    .w-or-b-profile .img-window {
-        z-index: inherit;
-        grid-row: 1 / 4;
-        grid-column: 1;
-        object-fit: cover;
-        /*border: 1px dashed white;*/
+    
+    .create-piece-w-or-b-profile-img-label {
+        grid-column:1;
+        grid-row: 1;
+        font-size: 15px;
+        font-family: Tahoma;
+        text-align: center;
+        padding-top: 6px;
+        color: #a9a9a9;
+        border: 1px solid #707070;
     }
 
-        .w-or-b-profile .img-window img {
+    .create-piece-w-or-b-profile-img-window {
+        z-index: inherit;
+        grid-column: 1;
+        grid-row: 2;
+        object-fit: cover;
+        border: 1px solid #707070;
+    }
+
+        .create-piece-w-or-b-profile-img-window img {
             z-index: inherit;
-            width: 108px; 
-            height: 108px; 
-            padding-bottom: 18px; 
-            /* border-radius: 5px; */
+            width: 150px; 
+            height: 150px;
+            border-radius: 5px;
         }
 
-    .w-or-b-profile .color-label {
-        z-index: inherit;
-        grid-row: 1;
+    .create-piece-w-or-b-profile-spans-label {
         grid-column: 2;
-        color: white;
-        font-size: 12px; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding-bottom: 6px; 
-        /*border: 1px dashed white;*/
-        margin-bottom: 6px; 
+        grid-row: 1;
+        
     }
 
-    .w-or-b-profile .color-value {
-        z-index: inherit;
+    .create-piece-w-or-b-profile-offsets-label {
         grid-column: 3;
         grid-row: 1;
-        color: white;
-        text-align: left;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 12px; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        /*border: 1px dashed white;*/
-        margin-bottom: 12px; 
-    }
-
-    .w-or-b-profile .spans-label {
-        z-index: inherit;
-        grid-row: 2;
-        grid-column: 2;
-        color: white;
-        font-size: 12px; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin-bottom: 6px; 
-        /*border: 1px dashed white;*/
-    }
-
-    .w-or-b-profile .spans-value {
-        z-index: inherit;
-        grid-column: 3;
-        grid-row: 2;
-        color: white;
-        text-align: left;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 12px; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: 6px; 
-        /*border: 1px dashed white;*/
-    }
-
-    .w-or-b-profile .offsets-label {
-        z-index: inherit;
-        grid-row: 3;
-        grid-column: 2;
-        color: white;
-        font-size: 12px; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 12px; 
-
-        /*border: 1px dashed white;*/
-    }
-
-    .w-or-b-profile .offsets-value {
-        z-index: inherit;
-        grid-column: 3;
-        grid-row: 3;
-        color: white;
-        text-align: left;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 12px; 
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        /*border: 1px dashed white;*/
+        
     }

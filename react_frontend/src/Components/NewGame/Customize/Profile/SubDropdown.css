@@ -1,8 +1,8 @@
 .new-game-sub-dropdown {
     position: relative;
-    top: 12px;
-    width: 120px;
+    top: 6px;
+    width: 140px;
     height: 18px;
-    color: white;
+    color: #a9a9a9;
     background-color: #515151;
 }

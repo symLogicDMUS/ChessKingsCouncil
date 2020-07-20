@@ -1,5 +1,5 @@
 import React from "react";
-import "./Ok.css";
+import "./CustomiseOk.css";
 
 export class Ok extends React.Component {
 

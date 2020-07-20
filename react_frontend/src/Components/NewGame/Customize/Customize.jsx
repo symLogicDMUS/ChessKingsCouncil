@@ -5,10 +5,11 @@ import {defs} from "./tests/testDefs1";
 import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
 import {getColorName} from "../../helpers/getColorName";
 import {NameTooltip} from "./Profile/NameTooltip";
+import {PromoList} from "./Bottom/PromoList";
 import {PromoAll} from "./PromoAll";
 import {spanToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
-import {Ok} from "./Bottom/Ok";
+import {Ok} from "./Bottom/CustomiseOk";
 import "./Customize.css";
 
 
@@ -19,9 +20,9 @@ export class Customize extends React.Component {
         this.state = {binaryValue: true}
         this.promos = [];
         this.expandModals = [];
-        this.expandPiece = null;
-        this.expandValue = null;
-        this.expandColor = null;
+        this.pieceName = null; //for expand modal
+        this.rangeType = null; //for expand modal
+        this.color = null; //for expand modal
         this.newReplacement = null;
         this.newReplaced = null;
         this.show = true;
@@ -101,26 +102,22 @@ export class Customize extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
-    expand(piece, color, value) {
-        this.expandPiece = piece;
-        this.expandValue = value;
-        this.expandColor = color;
+    expand(pieceName, color, rangeType) {
+        this.pieceName = pieceName;
+        this.rangeType = rangeType;
+        this.color = color;
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
     getModals() {
-        if (this.expandPiece != null && this.expandValue != null && this.expandColor != null) {
-            if (this.expandValue === "color") {
-                return <ExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} expand={this.expand}
-                        list={[`color: ${getColorName(this.expandColor)}`, 
-                               <img src={`/Images/Pieces/${this.defs[this.expandPiece][this.expandColor]["img"]}`}
-                                style={{width: "280px", height: "280px"}} />]} 
-                                />
-            }
-            else {
-                return <ExpandModal piece={this.expandPiece} color={this.expandColor} value={this.expandValue} 
-                list={this.defs[this.expandPiece][this.expandColor][this.expandValue]} expand={this.expand} />
-            }
+        if (this.pieceName != null && this.rangeType != null && this.color != null) {
+                return <ExpandModal def={this.defs[this.pieceName][this.color]}
+                                    pieceName={this.pieceName} 
+                                    rangeType={this.rangeType} 
+                                    color={this.color} 
+                                    expand={this.expand} 
+                                    location="d4"
+                                    />
         }
         else
             return <div>{null}</div>
@@ -192,14 +189,6 @@ export class Customize extends React.Component {
         let [names, subs] = this.preparePayload();
         return Promise.all([this.assignIds(names, subs)]);
     }
-
-    getPromos() {
-        let promoDisplays = []
-        for (var pieceName of this.promos) {
-            promoDisplays.push(<div>{pieceName}<br /></div>)
-        }
-        return promoDisplays;
-    }
     
     getProfiles() {
         let profiles = []
@@ -224,24 +213,26 @@ export class Customize extends React.Component {
     render() {
 
         return(
-            <>
+            <>  
                 <div className="new-game-customise-window">
-                    <PromoAll toglePromoAll={this.toglePromoAll} />
+                    <div className="new-game-top-bar">
+                        <PromoAll toglePromoAll={this.toglePromoAll} />
+                    </div>
                     <div className="new-game-piece-profiles">
                         {this.getProfiles()}
                     </div>
                     <div className="new-game-bottom-bar">
                         <div className="new-game-subs-header">Subs</div>
-                        <div className="new-game-rook-label">Rook: </div>
+                        <div className="new-game-rook-label">Rook </div>
                         <div className="new-game-rook-value">{this.subs["Rook"]}</div>
-                        <div className="new-game-bishop-label">Bishop: </div>
+                        <div className="new-game-bishop-label">Bishop </div>
                         <div className="new-game-bishop-value">{this.subs["Bishop"]}</div>
-                        <div className="new-game-knight-label">Knight: </div>
+                        <div className="new-game-knight-label">Knight </div>
                         <div className="new-game-knight-value">{this.subs["Knight"]}</div>
-                        <div className="new-game-queen-label">Queen: </div>
+                        <div className="new-game-queen-label">Queen </div>
                         <div className="new-game-queen-value">{this.subs["Queen"]}</div>
-                        <div className="new-game-promo-label">Pawn Promotions:</div>
-                        <div className="new-game-promo-list">{this.getPromos()}</div>
+                        <div className="new-game-promo-label">Pawn Promotions</div>
+                        <div className="new-game-promo-list-container"><PromoList promos={this.promos}/></div>
                     </div>
                 </div>
                 {this.isTooltip && (<NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />) }

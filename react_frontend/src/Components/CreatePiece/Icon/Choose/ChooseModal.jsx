@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {imgNames} from "../../../MyPieces/imgNames";
 import {ImgChoice} from "./ImgChoice.jsx";
-import {Ok} from "./Ok";
+import {Ok} from "./IconChooseOk";
 import "./ChooseModal.css";
 
 export class ChooseModal  extends React.Component {
