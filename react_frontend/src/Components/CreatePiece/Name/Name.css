@@ -15,8 +15,9 @@
     position: absolute;
     z-index: 0;
     font-family: Tahoma;
-    color: #707070;
-    font-size: medium;
+    font-size: 16px;
+    font-family: Tahoma;
+    color: #a9a9a9;
     top: 10px;
     left:10px;
 }
@@ -35,18 +36,3 @@
     border: 1px solid #A9A9A9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* .name-component1 .enter-button {
-    position: absolute;
-    z-index: 0;
-    top: 38px;
-    left: 372px;
-    width: 10px;
-    height: 21px;
-    border-radius: 5px;
-    fill: black;
-    color: #A9A9A9;
-    background-color: #515151;
-    border: 1px solid #A9A9A9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} */

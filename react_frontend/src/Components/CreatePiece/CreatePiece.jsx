@@ -15,14 +15,17 @@ import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
-import {NavBar} from "../NavBar/NavBar";
+import {NavBar} from "../NavBar/NavBar2";
 import {SaveDef} from "./Options/SaveDef/SaveDef";
 import {LoadDef} from "./Options/LoadDef/LoadDef";
 import {ResetDef} from "./Options/ResetDef/ResetDef";
 import {BlankDef} from "./Options/BlankDef/BlankDef";
 import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
+import { HelpComponent } from "../Help/HelpComponent";
+import {HelpModal} from "../Help/HelpModal";
 import {defs} from "../tests/defs1";
+import {helpParagraph} from "./NameLabel/helpParagraph";
 import "./CreatePiece.css";
 
 
@@ -31,6 +34,8 @@ export class CreatePiece extends React.Component {
     constructor(props) {
 
         super(props);
+
+        this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false };
 
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
 
@@ -80,16 +85,11 @@ export class CreatePiece extends React.Component {
             'h1': false, 'h2': false, 'h3': false, 'h4': false, 'h5': false, 'h6': false, 'h7': false, 'h8': false
         };
 
+        // will be set to a <img src=""" /> jsx
         this.pieceImg = {"white":null, "black":null}
         
-
         //to use for spans, update by Location:
         this.location = "d4"        
-
-        // update to trigger render
-        this.state = {
-            binaryValue: 0,
-        };
 
         //flag to displaying progress in saving piece, if any
         this.saveStatus = "none";
@@ -98,7 +98,8 @@ export class CreatePiece extends React.Component {
         this.mouseOver = null;
         this.showSpanText = true;
         this.showOffsetText = true;
-        this.isLoadModal = false;
+        this.helpTitle = "";
+        this.helpParagraph = "";
 
         //binds
         this.updateName = this.updateName.bind(this);
@@ -112,11 +113,12 @@ export class CreatePiece extends React.Component {
         this.reset = this.reset.bind(this);
         this.clear = this.clear.bind(this);
         this.update = this.update.bind(this);
-        this.hoverResponse = this.hoverResponse.bind(this);
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
+        this.setHelpText = this.setHelpText.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
-
+        this.togleHelpModal = this.togleHelpModal.bind(this);
+        
         if (this.props.defaultPiece != null)
             this.load(this.props.defaultPiece)
 
@@ -154,15 +156,18 @@ export class CreatePiece extends React.Component {
         this.pieceImg['white'] = <img src={`/Images/Pieces/${this.imgNames['white']}`} width="75px" height="75px" />
         this.pieceImg['black'] = <img src={`/Images/Pieces/${this.imgNames['black']}`} width="75px" height="75px" />
         
+        //reminder: calls this.update() at end
         this.setLoc("d4");
         
-        this.update();
+    }
+
+    togleLoadModal(boolVal) {
+        this.setState({isLoadModal: boolVal})
 
     }
 
-    togleLoadModal(value) {
-        this.isLoadModal = value;
-        this.update();
+    togleHelpModal(boolVal) {
+        this.setState({isHelpModal: boolVal})
     }
 
     save() {
@@ -268,7 +273,7 @@ export class CreatePiece extends React.Component {
         }
         else 
             this.offsets.push(offset);
-        // this.update();
+
     }
 
     resetJumpDisplays() {
@@ -318,9 +323,9 @@ export class CreatePiece extends React.Component {
 
     }
 
-    hoverResponse(optionName) {
-        this.mouseOver =  optionName;
-        this.setState({binaryValue: ! this.state.binaryValue});
+    setHelpText(helpTitle, helpParagraph) {
+        this.helpTitle = helpTitle;
+        this.helpParagraph = helpParagraph;
     }
 
     clear() {
@@ -352,42 +357,54 @@ export class CreatePiece extends React.Component {
         
         return(
             <div>
-                <NavBar />
-                <Name name={this.name} updateName={this.updateName} />
+                <NavBar navBarPosLeft={320} />
+                <Name name={this.name} updateName={this.updateName} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
                        offsets={this.offsets} 
                        togleSpan={this.togleSpan}
                        update={this.update}
                        togleOffsetText={this.togleOffsetText} 
-                       togleSpanText={this.togleSpanText} />
-                <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} />
-                <Location activeLocation={this.location} setLoc={this.setLoc} />
+                       togleSpanText={this.togleSpanText} 
+                       setHelpText={this.setHelpText}
+                       togleHelpModal={this.togleHelpModal}
+                       />
+                <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
+                <Location activeLocation={this.location} setLoc={this.setLoc} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <div className="options-tool"/>
-                <SaveDef   save={this.save}
-                           name={this.name}
-                           clear={this.clear}
-                           status={this.saveStatus} 
-                           saveStatus={this.setSaveStatus} 
-                           existing={Object.keys(this.defs)}
-                           hoverResponse={this.hoverResponse}
-                           mouseOver={this.mouseOver}
+                <div className="options-title">Options</div>
+                <SaveDef save={this.save}
+                         name={this.name}
+                         clear={this.clear}
+                         status={this.saveStatus} 
+                         saveStatus={this.setSaveStatus} 
+                         existing={Object.keys(this.defs)}
+                         highlighted="/Images/save-0cc.svg"
+                         normal="/Images/save-a9a9a9.svg"
                 />
-                <LoadDef  hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} togleLoadModal={this.togleLoadModal} />
-                <ResetDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} reset={this.reset} />
-                <BlankDef hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} clear={this.clear} />
-                <ThemeCreatePiece hoverResponse={this.hoverResponse} mouseOver={this.mouseOver} />
-                <Board
-                 togleJump={this.togleJump}
-                 update={this.update}
-                 spanDisplays={this.spanDisplays} 
-                 jumps={this.jumpDisplays}
-                 pieceLoc={this.location} 
-                 pieceImg={this.pieceImg["white"]}
-                 showSpanText={this.showSpanText}
-                 showOffsetText={this.showOffsetText}
+                <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-0cc.svg" togleLoadModal={this.togleLoadModal} />
+                <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-0cc.svg" reset={this.reset} />
+                <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-0cc.svg" clear={this.clear} />
+                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-0cc.svg" />
+                <HelpComponent helpTitle="Location of Piece When Creating it"
+                               helpParagraph={helpParagraph}
+                               togleHelpModal={this.togleHelpModal} 
+                               setHelpText={this.setHelpText} 
+                               style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
+                               normal="/Images/question-mark-a9a9a9.svg"
+                               highlighted="/Images/question-mark-0cc.svg"
+                />                 
+                <Board update={this.update} 
+                       togleJump={this.togleJump} 
+                       spanDisplays={this.spanDisplays} 
+                       jumps={this.jumpDisplays} 
+                       pieceLoc={this.location}  
+                       pieceImg={this.pieceImg["white"]} 
+                       showSpanText={this.showSpanText} 
+                       showOffsetText={this.showOffsetText}
                 />
-                {this.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
+                {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
+                {this.state.isHelpModal && <HelpModal helpTitle={this.helpTitle} helpParagraph={this.helpParagraph} togleHelpModal={this.togleHelpModal} />}
             </div>
         )
     }

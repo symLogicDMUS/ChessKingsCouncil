@@ -4,3 +4,13 @@
       background-repeat: repeat;
       object-fit: none;
     }
+
+    .options-title {
+      position: absolute;
+      z-index: 0;
+      left: 886px;
+      top: 650px;
+      font-size: 16px;
+      font-family: Tahoma;
+      color: #a9a9a9;
+  }

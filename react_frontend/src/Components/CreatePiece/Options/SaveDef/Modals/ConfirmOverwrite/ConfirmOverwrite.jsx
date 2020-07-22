@@ -22,15 +22,11 @@ export class ConfirmOverwrite extends React.Component {
         return(
 
             <div className="confirm-box">
-                <img src={require("./confirmLabel1.svg")} className="label1" />
+                <div className="label1">A piece named</div>
                 <div className="piece-name">"{this.props.name}"</div>
-                <img src={require("./confirmLabel2.svg")} className="label2" />
-                <div className="yes-button" onClick={this.accept}>
-                    <img className="yes" src={require("./Yes.svg")} />
-                </div>
-                <div className="no-button" onClick={this.reject}>
-                    <img className="no" src={require("./No.svg")} />
-                </div>
+                <div className="label2">already exists. do you want to replace it?</div>
+                <div className="yes-button" onClick={this.accept}>Yes</div>
+                <div className="no-button" onClick={this.reject}>No</div>
             </div>
         )
     }

@@ -1,19 +1,40 @@
-.bottom-bar .ok {
+.bottom-bar .ok-inactive {
     position: absolute;
-    z-index: 1;
-    top:   12px;
-    width: 120px;
-    height: 48px;
-    border: 1px solid white;
-    background-color: #515151;
-    color: white;
+    z-index: 2;
+    top: 12px;
+    width: 96px;
+    height: 34px;
+    font-size: 18px;
+    font-family: Tahoma;
     text-align: center;
-    font: normal 25px tahoma;
+    padding-top: 1px;
+    opacity: 60%; 
+    color:#a9a9a9;
+    background-color: #4f4f4f;
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    cursor: not-allowed; 
 }
-.ok-text {
+
+.bottom-bar .ok-active {
     position: absolute;
-    z-index: 1;
-    top: 8px;
-    left: 45px;
+    z-index: 2;
+    top: 12px;
+    width: 96px;
+    height: 34px;
+    font-size: 18px;
+    font-family: Tahoma;
+    text-align: center;
+    padding-top: 1px;
+    opacity: 100%; 
+    color:#a9a9a9;
+    background-color: #4f4f4f;
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    cursor: pointer; 
+} .bottom-bar .ok-active:hover {
+    color: #4f4f4f;
+    background-color: #a9a9a9;
 }
+
 

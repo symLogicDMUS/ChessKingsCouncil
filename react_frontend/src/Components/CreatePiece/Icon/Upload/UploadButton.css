@@ -1,8 +1,8 @@
 .icon-tool .white-upload {
     z-index: 0;
     position: absolute;
-    color: #a9a9a9;
-    background-color: #515151;
+    color: #bbbbbb;
+    background-color: #515151;    
     border: solid 1px #a9a9a9;
     border-radius: 5px;
     cursor: pointer;
@@ -20,8 +20,8 @@
 .icon-tool .black-upload {
     z-index: 0;
     position: absolute;
-    color: #a9a9a9;
-    background-color: #515151;
+    color: #bbbbbb;
+    background-color: #515151;    
     border: solid 1px #a9a9a9;
     border-radius: 5px;
     cursor: pointer;

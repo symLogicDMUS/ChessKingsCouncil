@@ -10,21 +10,22 @@ export class SaveDef extends React.Component {
     
     constructor(props) {
         super(props);
+        this.state = {highlighted: false};
+        this.src = this.props.normal;
         this.modal = null;
         this.name = "Save";
-        this.strokeColor = "#a9a9a9";
         this.save = this.save.bind(this);
         this.ynOverwrite = this.ynOverwrite.bind(this);
         this.hoverOn = this.hoverOn.bind(this);
         this.hoverOff = this.hoverOff.bind(this);
     }
-
+    
     hoverOn() {
-        this.props.hoverResponse(this.name)
+        this.setState({highlighted: true});
     }
-  
+
     hoverOff() {
-        this.props.hoverResponse(null);
+        this.setState({highlighted: false});
     }
 
     setModal() {
@@ -86,25 +87,15 @@ export class SaveDef extends React.Component {
         
         this.setModal();
 
-        this.strokeColor = "#a9a9a9";
-        if (this.props.mouseOver === this.name)
-            this.strokeColor = "#00CCFF";
+        if (this.state.highlighted)
+            this.src = this.props.highlighted
+        else
+            this.src = this.props.normal
 
         return (
             <>
                 <div className="option save-option" onClick={this.save} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                    <svg viewBox="0 0 13.684 19.764">
-                        <g transform="translate(-28.183 -58.828)" fill="none" stroke={this.strokeColor} strokeWidth="0.3px" fontSize="5.06px">
-                            <path
-                             d="M30.9,63.86v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0v.01Zm0-.764v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0v.01Zm0-.835v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0Zm.086-.806v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0Zm0-.849v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0Zm-.049-.722v.01h0c1.712,0,6.849-.01,8.561-.01-1.712,0-6.849-.01-8.561-.01h0Zm-.8-.785H40.169a.247.247,0,0,1,.248.248v5.325a.247.247,0,0,1-.248.248H30.133a.247.247,0,0,1-.248-.248V59.346A.247.247,0,0,1,30.133,59.1Zm.709,7.005v6.122h8.269V66.1Zm.651.755h1.958v3.765H31.493Zm-3.178-7.9V70.821l1.564,1.547H41.735V58.96Z"
-                            />
-                            <text  transform="translate(35.082 77.592)" stroke="none" fill={this.strokeColor} fontSize="5.06px" fontFamily="Tahoma" >
-                            <tspan x={-5.287} y={1}>
-                                {"Save"}
-                            </tspan>
-                            </text>
-                        </g>
-                    </svg>
+                    <img src={this.src} style={{position:"absolute", width:49, height:68}} />
                 </div>
                 {this.modal}
             </>

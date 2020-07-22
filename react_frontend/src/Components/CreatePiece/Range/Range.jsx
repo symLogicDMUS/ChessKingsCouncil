@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {ArrowButton} from "./ArrowButton/ArrowButton";
 import {RangeDisplayWindow} from "./RangeDisplayWindow";
+import {HelpComponent} from "../../Help/HelpComponent";
+import {helpParagraph} from "./helpParagraph";
 import "./Range.css";
 
 
@@ -62,11 +64,19 @@ export class Range extends React.Component {
         let offsets = JSON.parse(JSON.stringify(this.props.offsets));
         return offsets;
     }
-
+    
     render() {
         return(
             <div className="range-tool">
-                <img src={require("./Range.svg")} className="range-title" />
+                <div className="range-title">Range</div>
+                <HelpComponent helpTitle="Creating the Range of a Piece"
+                               helpParagraph={helpParagraph}
+                               togleHelpModal={this.props.togleHelpModal} 
+                               setHelpText={this.props.setHelpText} 
+                               style={{left:63, top:16, zIndex:"inherit", width:10, height:10}}
+                               normal="/Images/question-mark-a9a9a9.svg"
+                               highlighted="/Images/question-mark-0cc.svg"
+                               />
                 <RangeDisplayWindow spans={this.getSpans()} 
                                     offsets={this.getOffsets()} 
                                     togleSpanText={this.props.togleSpanText} 

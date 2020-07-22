@@ -3,12 +3,12 @@
     position: absolute;
     display: block;
     z-index: 3;
-    left: 50%;
-    top: 50%;
-    width: 596px;
+    left: 470px;
+    top: 227px;
+    width: 595px;
     height: 299px;
     background-color: #515151;
-    border: 2px solid white;
+    border: 2px solid #b6b6b6;
     border-radius: 10px;
 }
 
@@ -17,25 +17,21 @@
     z-index: inherit;
     left: 138px;
     top: 228px;
-    width: 136px;
-    height: 45px;
-    color: white;
+    width: 110px;
+    height: 30px;
+    color: #b6b6b6;
     background-color: #515151;
-    border: 1px solid white;
-    border-radius: 10px;
-} .yes {
-    position: absolute;
-    z-index: inherit;
-    color: white;
-    font-size: 25px;
-    left: 50px;
-    top: 13px;
-    width: 35px;
-    height: 17px;
+    border: 1px solid #b6b6b6;
+    border-radius: 7px;
     font-family: Tahoma;
-}
+    font-size: 20px;
+    padding-top: 8px;
+    text-align: center;
+    cursor: pointer;
+} 
   .yes-button:hover {
-    background-color: red;
+    background-color: #b6b6b6;
+    color: #515151;
   }
 
 .no-button {
@@ -43,59 +39,62 @@
     z-index: inherit;
     left: 326px;
     top: 228px;
-    width: 136px;
-    height: 45px;
+    width: 110px;
+    height: 30px;
+    color: #b6b6b6;
     background-color: #515151;
-    border: 1px solid white;
-    border-radius: 10px;
-}  .no {
-        position: absolute;
-        z-index: inherit;
-        color: white;
-        font-size: 25px;
-        left: 58px;
-        top: 13px;
-        width: 28px;
-        height: 17px;
-        font-family: Tahoma;
-  }
+    border: 1px solid #b6b6b6;
+    border-radius: 7px;
+    font-family: Tahoma;
+    font-size: 20px;
+    padding-top: 8px;
+    text-align: center;
+    cursor: pointer;
+}  
     .no-button:hover {
-      background-color: red;
+      background-color: #b6b6b6;
+      color: #515151;  
     }
 
 .label1 {
     position: absolute;
     z-index: inherit;
-    left: 244px;
     top: 47px;
-    max-width: 128px;
-    max-height: 19px;
-    color: white;
+    width: 595px;
+    height: 20px;
+    color: #b6b6b6;
+    font-family: Tahoma;
+    font-size: 20px;
+    padding-top: 8px;
     text-align: center;
+    /* border: 1px dashed white; */
 }
 
 .label2 {
     position: absolute;
     z-index: inherit;
-    left: 129px;
     top: 125px;
-    max-width: 382px;
-    max-height: 19px;
-    color: white;
+    width: 595px;
+    height: 20px;
+    color: #b6b6b6;
+    font-family: Tahoma;
+    font-size: 20px;
+    padding-top: 8px;
     text-align: center;
+    /* border: 1px dashed white; */
 }
 
 .piece-name {
   position: absolute;
   z-index: inherit;
-  left: 129px;
-  top: 82px;
-  width: 382px;
-  height: 25px;
+  top: 95px;
+  width: 595px;
+  height: 24px;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: white;
+  color: #b6b6b6;
   font-size: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Tahoma;
+  /* border: 1px dashed white; */
 }

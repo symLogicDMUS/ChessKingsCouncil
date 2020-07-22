@@ -9,17 +9,18 @@ import {MyPiecesLink} from "./Components/MyPiecesLink";
 import {AuthorGithubLink} from "./Components/AuthorGithubLink";
 import "./NavBar.css";
 
-export function NavBar() {
-        return(
-            <div className="nav-bar">
-                <HomeLink />
-                <NewGameLink />
-                <LoadGameLink />
-                <CreatePieceLink />
-                <ChessRulesLink />
-                <CouncilRulesLink />
-                <MyPiecesLink />
-                <AuthorGithubLink />
-            </div>
-        )
+export function NavBar ({navBarPosLeft}) {
+
+    return (
+        <div className="nav-bar" style={{left:navBarPosLeft}}>
+            <HomeLink />
+            <NewGameLink />
+            <LoadGameLink />
+            <CreatePieceLink />
+            <ChessRulesLink />
+            <CouncilRulesLink />
+            <MyPiecesLink />
+            <AuthorGithubLink />
+        </div>
+    )
 }

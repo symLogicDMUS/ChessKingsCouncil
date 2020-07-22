@@ -2,10 +2,12 @@
     position: absolute;
     z-index: 0;
     left: 263px;
-    top: 115px;
+    top: 108px;
     width: 600px;
-    height: 22px;
-    color: ivory;
+    height: 28px;
+    color: #0CC;
+    font-family: Tahoma;
+    font-size: 25px;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;

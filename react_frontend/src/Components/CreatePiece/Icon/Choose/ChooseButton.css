@@ -1,8 +1,8 @@
 .icon-tool .white-choose {
     position: absolute;
     z-index: 0;
-    color: #a9a9a9;
-    background-color: #515151;
+    color: #bbbbbb;
+    background-color: #515151;    
     border: solid 1px #a9a9a9;
     border-radius: 5px;
     cursor: pointer;
@@ -20,8 +20,8 @@
 .icon-tool .black-choose {
     position: absolute;
     z-index: 0;
-    color: #a9a9a9;
-    background-color: #515151;
+    color: #bbbbbb;
+    background-color: #515151;    
     border: solid 1px #a9a9a9;
     border-radius: 5px;
     cursor: pointer;

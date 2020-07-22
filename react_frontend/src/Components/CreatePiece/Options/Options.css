@@ -3,7 +3,7 @@
     z-index: 0;
     top: 640px;
     left: 876px;
-    height: 100px;
+    height: 109px;
     width: 400px;
     border-radius: 10px;
     background-color: #515151;
@@ -12,9 +12,9 @@
 .option {
     z-index: 1;
     position: absolute;
-    width: 55px;
-    height: 75px;
-    top: 654px;
+    width: 49px;
+    height: 68px;
+    top: 678px;
     cursor: pointer;
 }
 
@@ -23,17 +23,17 @@
 }
 
 .load-option {
-    left: 981px;
+    left: 970px;
 }
 
 .reset-option {
-    left: 1056px;
+    left: 1054px;
 }
 
 .blank-option {
-    left: 1131px;
+    left: 1138px;
 }
 
 .theme-option {
-    left: 1206px;
+    left: 1222px;
 }

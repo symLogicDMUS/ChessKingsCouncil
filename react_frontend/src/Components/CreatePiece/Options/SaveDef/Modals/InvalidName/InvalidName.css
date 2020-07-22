@@ -18,24 +18,25 @@
 .invalid-name-window {
     position: absolute;
     z-index: inherit;
-    left: 40%;
-    top: 50%;
+    left: 469px;
+    top: 226px;
     width: 598px;
     height: 302px;
     background-color: #515151;
-    border: 2px solid white;
+    border: 1px solid #b6b6b6;
     border-radius: 10px;
 }
 
 .invalid-name-heading {
     position: absolute;
     z-index: inherit;
-    top: 39px;
+    top: 40px;
     width: 598px;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #b6b6b6;
+    font-family: Tahoma;
     font-size: 20px;
     text-align: center;
+    /* border: 1px dashed white; */
     word-wrap: break-word;
 }
 
@@ -43,20 +44,20 @@
     position: absolute;
     z-index: inherit;
     left: 246px;
-    top: 218px;
-    height: 40px;
-    width: 125px;
-    font-size: 30px;
+    top: 258px;
+    height: 30px;
+    width: 90px;
+    font-size: 18px;
     font-family: Tahoma;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
+    padding-top: 3px;
+    color: #b6b6b6;
     background-color: #515151;
-    border: 1px solid white;
+    border: 1px solid #b6b6b6;
     border-radius: 5px;
     cursor: pointer;
 } .invalid-name-button:hover {
     color: #515151;
-    background-color: white;
+    background-color: #b6b6b6;
 }
+

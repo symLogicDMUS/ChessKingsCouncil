@@ -11,6 +11,7 @@
     border: 1px solid #7e7e7e;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 6px;
+    cursor: pointer;
 }
 .new-game-accept-customization:hover {
     color: #606060;
