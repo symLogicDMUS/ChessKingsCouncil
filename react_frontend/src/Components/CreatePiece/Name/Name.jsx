@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {HelpComponent} from "../../Help/HelpComponent";
-import {helpParagraph} from "./helpParagraph";
+import {HelpText} from "./HelpText";
 import "./Name.css";
 
 export class Name extends React.Component {
@@ -24,7 +24,8 @@ export class Name extends React.Component {
             <div className="name-component1">
                 <div className="name" >Name</div>
                 <HelpComponent helpTitle="Picking the Name of Your Piece"
-                               helpParagraph={helpParagraph}
+                               hmChild="none"
+                               helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 
                                style={{left:59, top:16, zIndex:"inherit", width:10, height:10}}

@@ -24,8 +24,9 @@ import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
+import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {defs} from "../tests/defs1";
-import {helpParagraph} from "./NameLabel/helpParagraph";
+import {HelpText as OptionsText} from "./Options/HelpText";
 import "./CreatePiece.css";
 
 
@@ -99,7 +100,11 @@ export class CreatePiece extends React.Component {
         this.showSpanText = true;
         this.showOffsetText = true;
         this.helpTitle = "";
-        this.helpParagraph = "";
+        this.helpText = "";
+        this.hmChildName = null; //Name of the HelpModal child if there is one.
+
+        //Dictionary of Extra windows to display for help modals. More may be added.
+        this.hmChildren = {"none":null, "Range":<RangeHelpTextExtraModal />} 
 
         //binds
         this.updateName = this.updateName.bind(this);
@@ -170,12 +175,16 @@ export class CreatePiece extends React.Component {
         this.setState({isHelpModal: boolVal})
     }
 
+    getHelpModalChild() {
+        return this.hmChildren[this.hmChildName]
+    }
+
     save() {
 
         /**TODO: add guards against all possible bad user input for name */
 
         let namecase = this.getNameCase();
-        if (namecase != "valid") {
+        if (namecase !== "valid") {
             this.setSaveStatus(namecase);
             return
         }
@@ -323,9 +332,10 @@ export class CreatePiece extends React.Component {
 
     }
 
-    setHelpText(helpTitle, helpParagraph) {
+    setHelpText(helpTitle, helpText, hmChildName) {
         this.helpTitle = helpTitle;
-        this.helpParagraph = helpParagraph;
+        this.helpText = helpText;
+        this.hmChildName = hmChildName;
     }
 
     clear() {
@@ -385,15 +395,16 @@ export class CreatePiece extends React.Component {
                 <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-0cc.svg" togleLoadModal={this.togleLoadModal} />
                 <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-0cc.svg" reset={this.reset} />
                 <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-0cc.svg" clear={this.clear} />
-                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-0cc.svg" />
-                <HelpComponent helpTitle="Location of Piece When Creating it"
-                               helpParagraph={helpParagraph}
+                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-0cc.svg" />                
+                <HelpComponent helpTitle="Options"
+                               hmChild="none"
+                               helpText={OptionsText}
                                togleHelpModal={this.togleHelpModal} 
                                setHelpText={this.setHelpText} 
                                style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
                                normal="/Images/question-mark-a9a9a9.svg"
                                highlighted="/Images/question-mark-0cc.svg"
-                />                 
+                />       
                 <Board update={this.update} 
                        togleJump={this.togleJump} 
                        spanDisplays={this.spanDisplays} 
@@ -404,7 +415,10 @@ export class CreatePiece extends React.Component {
                        showOffsetText={this.showOffsetText}
                 />
                 {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
-                {this.state.isHelpModal && <HelpModal helpTitle={this.helpTitle} helpParagraph={this.helpParagraph} togleHelpModal={this.togleHelpModal} />}
+                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} helpText={this.helpText} togleHelpModal={this.togleHelpModal}>
+                                                {this.getHelpModalChild()}
+                                            </HelpModal>
+                )}
             </div>
         )
     }

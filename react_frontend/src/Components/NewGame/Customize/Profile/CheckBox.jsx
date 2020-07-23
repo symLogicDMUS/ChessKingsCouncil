@@ -23,9 +23,15 @@ export class CheckBox extends React.Component {
 
     render() {
 
-        this.checkmark = false;
-        if (this.props.promos.includes(this.props.pieceName))
+        if (this.props.promoAll) {
             this.checkmark = true;
+        }
+        else if (this.props.promos.includes(this.props.pieceName)) {
+            this.checkmark = true;
+        }   
+        else {
+            this.checkmark = false;
+        }   
 
         return(
             <div className="new-game-promotion-checkbox" onClick={this.togleCheckmark}>

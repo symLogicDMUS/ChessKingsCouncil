@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Profile } from "./Profile/Profile";
 import {defs} from "./tests/testDefs1";
 import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
-import {getColorName} from "../../helpers/getColorName";
 import {NameTooltip} from "./Profile/NameTooltip";
 import {PromoList} from "./Bottom/PromoList";
 import {PromoAll} from "./PromoAll";
@@ -20,6 +19,7 @@ export class Customize extends React.Component {
         this.state = {binaryValue: true}
         this.promos = [];
         this.expandModals = [];
+        this.promoAll = false;
         this.pieceName = null; //for expand modal
         this.rangeType = null; //for expand modal
         this.color = null; //for expand modal
@@ -127,7 +127,7 @@ export class Customize extends React.Component {
         this.subs[standardPiece] = sub;
         Object.keys(this.subs).forEach( pieceName => {
 
-            if (pieceName != standardPiece && this.subs[pieceName] === sub)
+            if (pieceName !== standardPiece && this.subs[pieceName] === sub)
                 this.subs[pieceName] = null;
 
         });
@@ -164,14 +164,19 @@ export class Customize extends React.Component {
     }
 
     toglePromoAll() {
-        if (this.promos.length > 0) {
+
+        if (this.promoAll) {
             this.promos = [];
+            this.promoAll = false;
         }
+
         else {
-            this.promos = [];
-            Object.keys(this.defs).forEach(pieceName => {
-                this.promos.push(pieceName);
-            });
+            for (var pieceName of Object.keys(this.defs)) {
+                if (! this.promos.includes(pieceName)) {
+                    this.promos.push(pieceName);
+                }
+            }
+            this.promoAll = true;
         }
         this.setState({binaryValue: ! this.state.binaryValue})
     }
@@ -203,6 +208,7 @@ export class Customize extends React.Component {
                   expand={this.expand}
                   pieceName={pieceName}
                   promos={this.promos}
+                  promoAll={this.promoAll}
                   displayDefs={this.displayDefs}
                 />
             );

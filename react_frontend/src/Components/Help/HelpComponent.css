@@ -4,13 +4,6 @@
 }
 
 /* https://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip_right */
-
-/* .help-tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-  }   
-*/
   
   .help-component .help-tooltiptext {
     visibility: hidden;

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { LocationButton } from "./LocationButton";
 import {HelpComponent} from "../../Help/HelpComponent";
-import {helpParagraph} from "./helpParagraph";
+import {HelpText} from "./HelpText";
 import "./Location.css";
 
 export class Location extends React.Component {
@@ -30,7 +30,8 @@ export class Location extends React.Component {
             <div className="location-tool">
                 <div className="location-title">Location</div>
                 <HelpComponent helpTitle="Location of Piece When Creating it"
-                               helpParagraph={helpParagraph}
+                               hmChild="none"
+                               helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 
                                style={{left:77, top:16, zIndex:"inherit", width:10, height:10}}

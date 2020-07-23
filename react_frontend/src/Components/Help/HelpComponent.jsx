@@ -21,7 +21,7 @@ export class HelpComponent extends React.Component {
   }
 
   openHelpModal() {
-    this.props.setHelpText(this.props.helpTitle, this.props.helpParagraph);
+    this.props.setHelpText(this.props.helpTitle, this.props.helpText, this.props.hmChild);
     this.props.togleHelpModal(true);
   }
 
@@ -32,7 +32,6 @@ export class HelpComponent extends React.Component {
   unhighlight() {
     this.setState({highlighted: false})
   }
-
 
   render() {
 

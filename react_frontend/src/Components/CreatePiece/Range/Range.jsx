@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {ArrowButton} from "./ArrowButton/ArrowButton";
 import {RangeDisplayWindow} from "./RangeDisplayWindow";
 import {HelpComponent} from "../../Help/HelpComponent";
-import {helpParagraph} from "./helpParagraph";
+import {HelpText} from "./HelpText";
 import "./Range.css";
 
 
@@ -70,7 +70,8 @@ export class Range extends React.Component {
             <div className="range-tool">
                 <div className="range-title">Range</div>
                 <HelpComponent helpTitle="Creating the Range of a Piece"
-                               helpParagraph={helpParagraph}
+                               hmChild="Range"
+                               helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 
                                style={{left:63, top:16, zIndex:"inherit", width:10, height:10}}

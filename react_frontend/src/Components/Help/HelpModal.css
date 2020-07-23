@@ -1,4 +1,4 @@
-help-modal {
+.help-modal {
     position: fixed;
     z-index: 5;
     left: 0;
@@ -11,14 +11,14 @@ help-modal {
 .help-modal-window {
     position: relative;
     z-index: 6;
-    width: 50vw;
-    left: 25vw;
-    top: 10vh;
+    width: 768px;
+    left: 384px;
+    top: 75px;
     display: grid;
-    grid-template-rows: 4vh 47vh 6vh;
-    grid-template-columns: 50vw;
-    border-radius: 2vh;
-    border: 0.6vh solid #707070;
+    grid-template-rows: 30px 354px 45px;
+    grid-template-columns: 768px;
+    border-radius: 15px;
+    border: 5px solid #707070;
     background-color: #515151;
 }
 
@@ -27,12 +27,11 @@ help-modal {
     grid-row: 1;
     grid-column: 1;
     background-color: #515151;
-    border-top-left-radius: 0.9vh;
-    border-top-right-radius: 0.9vh;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     display: grid;
-    grid-template-rows: 4vh;
-    grid-template-columns: 48vw 1vw;
-    column-gap: 1vw;
+    grid-template-rows: 30px;
+    grid-template-columns: 752px 8px;
 }
 
     .help-modal-window-title {
@@ -40,18 +39,19 @@ help-modal {
         grid-column: 1;
         text-align: center;
         font-family: Tahoma;
-        font-size: 2.6vh;
+        font-size: 20px;
         color: #b6b6b6;
         background-color: #515151;
-
+        /* border: 1px dashed white; */
     }
 
     .help-modal-window-close {
         grid-row: 1;
         grid-column: 2;
-        width:1vw; 
-        height:1vw;
+        width:15px; 
+        height:15px;
         cursor: pointer;
+        /* border: 1px dashed white; */
     }
       .help-modal-window-close:hover {
         background-color: #EC2525;
@@ -63,39 +63,39 @@ help-modal {
     color: #b6b6b6;
     background-color: #515151;
     font-family: Tahoma;
-    font-size: 1vw;
-    padding-left: 1.5vw;
-    padding-right: 1.5vw;
-    padding-top: 1vh;
-    padding-bottom: 1.5vh;
-    border-bottom-left-radius:0.9vh;
-    border-bottom-right-radius:0.9vh;
-
-
+    font-size: 15px;
+    padding-left: 23px;
+    padding-right: 23px;
+    padding-top: 8px;
+    padding-bottom: 23px;
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
     word-wrap: break-word;
     overflow-y: scroll;
+    /* border: 1px dashed white; */
 }
 
 .help-modal-window-bottom {
     grid-row: 3;
     grid-column: 1;
     background-color: #515151;
+    /* border: 1px dashed white; */
 }
 
 .help-modal-window-bottom-button 
 {   position:relative;
-    width:8vh; 
-    height:3.3vh; 
-    left:23vw;
-    top: 1vh; 
+    width:60px; 
+    height:25px; 
+    left:353px;
+    top: 8px; 
     text-align:center; 
-    padding-top:0.3vh; 
-    font-size:1.7vh;
+    padding-top:2px; 
+    font-size:13px;
     font-family:Tahoma;
     color:#b6b6b6;
     background-color:#707070;
     border:#707070;
-    border-radius: 0.5vh;
+    border-radius: 4px;
     cursor: pointer;
 } .help-modal-window-bottom-button:hover {
     background-color: #b6b6b6;

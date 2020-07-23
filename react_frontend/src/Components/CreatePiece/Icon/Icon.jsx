@@ -5,7 +5,7 @@ import {ChooseModal} from "./Choose/ChooseModal";
 import {ChooseButton} from "./Choose/ChooseButton";
 import {UploadButton} from "./Upload/UploadButton";
 import {HelpComponent} from "../../Help/HelpComponent";
-import {helpParagraph} from "./helpParagraph";
+import {HelpText} from "./HelpText";
 import "./Icon.css"
 
 
@@ -48,12 +48,13 @@ export class Icon extends React.Component {
                     <div className="black-title" >Black</div>
 
                     <HelpComponent helpTitle="Picking an Icon for Your Piece"
-                               helpParagraph={helpParagraph}
-                               togleHelpModal={this.props.togleHelpModal} 
-                               setHelpText={this.props.setHelpText} 
-                               style={{left:51, top:16, zIndex:"inherit", width:10, height:10}}
-                               normal="/Images/question-mark-a9a9a9.svg"
-                               highlighted="/Images/question-mark-0cc.svg"
+                                   hmChild="none"
+                                   helpText={HelpText}
+                                   togleHelpModal={this.props.togleHelpModal} 
+                                   setHelpText={this.props.setHelpText} 
+                                   style={{left:51, top:16, zIndex:"inherit", width:10, height:10}}
+                                   normal="/Images/question-mark-a9a9a9.svg"
+                                   highlighted="/Images/question-mark-0cc.svg"
                                />
 
                     {/*Buttons open Modals*/}

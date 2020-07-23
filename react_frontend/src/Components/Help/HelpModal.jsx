@@ -12,6 +12,10 @@ export class HelpModal extends React.Component {
         this.props.togleHelpModal(false);
     }
 
+    getExtraModal() {
+        return this.props.extraModal;
+    }
+
     render() {
         return (
             <div className="help-modal">
@@ -21,16 +25,17 @@ export class HelpModal extends React.Component {
                         {this.props.helpTitle}
                         </div>
                         <div className="help-modal-window-close" onClick={this.closeHelpModal}>
-                            <img src="/Images/close.svg" style={{ width:"1vw", height:"1vw"}}  />
+                            <img src="/Images/close.svg" style={{ width:"15px", height:"15px"}} alt="X symbol to close window"  />
                         </div>
                     </div>
                     <div className="help-modal-window-text-area">
-                        {this.props.helpParagraph}
+                        {this.props.helpText}
                     </div>
                     <div className="help-modal-window-bottom">
                         <button onClick={this.closeHelpModal} className="help-modal-window-bottom-button" >Ok</button>
                     </div>
                 </div>
+                {this.props.children !== undefined && (this.props.children)}
             </div>
         )
     }
