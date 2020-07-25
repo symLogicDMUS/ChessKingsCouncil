@@ -2,7 +2,7 @@ import re
 
 
 def parse_status_str(status_str):
-    """break the status string into its components and return"""
+    """break the status part of the fen string into its components and return"""
     turn = re.search(r'(w|b)', status_str).group()
     status_str = status_str.replace(turn, '', 1)
     castle_avail = re.search(r'(KQkq|KQk|KQq|KQ|Qkq|Qk|Qq|Q|Kkq|Kk|Kq|K|kq|k|q|-)', status_str).group()

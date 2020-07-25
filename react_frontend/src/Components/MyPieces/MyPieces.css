@@ -20,25 +20,32 @@
 }
 
 .my-pieces .top-bar {
-    grid-column: 1;
-    grid-row: 1;
-    display: grid;
-    grid-template-columns: 1020px 100px;
-    grid-template-rows: 60px;
+    display: relative;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    width: 1065px;
     background-color: #515151;
     border-bottom: 1px solid #707070;
-    /* border: 2px dashed gold; */
 }
 
 .my-pieces .top-bar .title {
-    grid-row: 1;
-    grid-column: 1;
+    position: relative;
+    height: 40px;
+    width: 200px;
     color: #a9a9a9;
-    font-size: 36px;
-    padding-top: 10px;
+    font-size: 40px;
     font-family: Tahoma;
     text-align: center;
-    /* border: 2px dashed white; */
+    margin-top: 4px;
+}
+
+.my-pieces-question-mark {
+    position: absolute;
+    top: 10px;
+    left: 202px;
+    width: 30px;
+    height: 30px;
 }
 
 .profiles {

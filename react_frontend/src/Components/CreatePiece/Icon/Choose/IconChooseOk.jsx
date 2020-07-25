@@ -5,13 +5,15 @@ export class Ok extends React.Component {
     
     constructor(props) {
         super(props);
-        this.class_ = "ok-active";
+        this.class_ = "ok-inactive";
         this.submitChoice = this.submitChoice.bind(this);
     }
 
     submitChoice() {
-        this.props.submitChoice();
-        this.props.closeChoose();
+        if (this.class_ === "ok-active") {
+            this.props.submitChoice();
+            this.props.closeChoose();    
+        }
     }
     
     render() {

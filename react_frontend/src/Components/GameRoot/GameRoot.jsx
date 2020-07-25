@@ -11,6 +11,7 @@ import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import {RangeDisplayTool} from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
+import { OVER, IN_PROGRESS } from "../helpers/gStatusTypes";
 import "./css/GameRoot.css";
 
 
@@ -19,7 +20,8 @@ export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
         this.dataEntry = this.props.location.state.dataEntry;
-        this.state = {board: this.dataEntry['board'], bValue:true} // state of component.
+        this.gameName = this.props.location.state.gameName;
+        this.state = {board: this.dataEntry['board'], bValue:true} 
         this.board = this.dataEntry['board'] //see footnote 1.
         this.jsonRecords = new JsonRecords(this.dataEntry['records']);
         this.gameStatus = new GameStatus(this.dataEntry['status']);
@@ -35,6 +37,7 @@ export class GameRoot extends React.Component {
         this.pieceRangeHighlight = "none"; // is a piece id
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
+        this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.emitSpecialChange = this.emitSpecialChange.bind(this);
@@ -156,21 +159,26 @@ export class GameRoot extends React.Component {
         return fetch('/save', {
             method:"POST",
             body:JSON.stringify({
-                game_name: this.props.gameName,
+                game_name: this.gameName,
                 board:this.getBoard(),
                 json_records: this.jsonRecords.getRecords(),
                 fen_obj: this.fenObj.getData(),
                 id_dict: this.idDict,
-                range_defs: this.rangeDefs
+                range_defs: this.rangeDefs,
+                status_obj:this.gameStatus.getStatus()
             })
         })
     }
 
     save() {
-        /**save the game in progress */
         return Promise.all([this.saveGame()])
     }
 
+    resign() {
+        this.gameStatus.update({"game_status":OVER, "condition":"resigned", "winner":this.getEnemyColor() });
+        this.save();
+        this.update();
+    }
 
     render() {
         return (
@@ -198,6 +206,7 @@ export class GameRoot extends React.Component {
                 />
                 <SaveResignTool save={this.save} 
                                 update={this.update}
+                                resign={this.resign}
                                 updateSpecialCase={this.updateSpecialCase}
                 />
             </>

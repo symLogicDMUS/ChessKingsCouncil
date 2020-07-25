@@ -15,7 +15,7 @@ export class CreatedPieceClose extends React.Component {
     render() {
         return (
             <div className="created-piece-close" onClick={this.closeLoadModal}>
-                <div className="close-button"><img src="/Images/close.svg" style={{width:"30px", height:"30px"}} /></div>
+                <div className="close-button"><img src="/Images/close.svg" style={{width:21, height:21}} alt="close window" /></div>
             </div>
         )
     }

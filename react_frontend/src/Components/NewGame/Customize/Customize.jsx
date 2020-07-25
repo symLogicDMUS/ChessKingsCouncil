@@ -9,6 +9,10 @@ import {PromoAll} from "./PromoAll";
 import {spanToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
 import {Ok} from "./Bottom/CustomiseOk";
+import {HelpComponent} from "../../Help/HelpComponent";
+import {HelpModal} from "../../Help/HelpModal";
+import {HelpText} from "./HelpText";
+import { SearchBar } from "./SearchBar";
 import "./Customize.css";
 
 
@@ -16,7 +20,7 @@ export class Customize extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = {binaryValue: true}
+        this.state = {binaryValue: true, isHelpModal: false}
         this.promos = [];
         this.expandModals = [];
         this.promoAll = false;
@@ -26,6 +30,11 @@ export class Customize extends React.Component {
         this.newReplacement = null;
         this.newReplaced = null;
         this.show = true;
+        this.helpTitle = null;
+        this.helpText = null;
+        this.hmChildName = "none";
+        this.hmChildren = {"none":null};
+        this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
         this.clientX = 0;
@@ -42,8 +51,6 @@ export class Customize extends React.Component {
             this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
             this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])
         })
-        console.log(this.defs)
-        console.log(this.displayDefs)
         this.subs = {
             "Rook":null,
             "Bishop":null,
@@ -57,6 +64,9 @@ export class Customize extends React.Component {
         this.toglePromoAll = this.toglePromoAll.bind(this);
         this.loadNewCustom = this.loadNewCustom.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
+        this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.setHelpText = this.setHelpText.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     getSpans(def) {
@@ -195,9 +205,36 @@ export class Customize extends React.Component {
         return Promise.all([this.assignIds(names, subs)]);
     }
     
+    getHelpModalChild() {
+        return this.hmChildren[this.hmChildName];
+    }
+
+    togleHelpModal(boolVal) {
+        this.setState({isHelpModal: boolVal})
+    }
+
+    setHelpText(helpTitle, helpText, hmChildName) {
+        this.helpTitle = helpTitle;
+        this.helpText = helpText;
+        this.hmChildName = hmChildName;        
+    }
+
+    updateSearch(searchText) {
+        this.searchText = searchText;
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
+    applySearchFilter() {
+        if (this.searchText !== "")
+            return Object.keys(this.defs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
+        else
+            return Object.keys(this.defs);
+    }
+
     getProfiles() {
-        let profiles = []
-        for (var pieceName of Object.keys(this.defs)) {
+        let pieceNames = this.applySearchFilter();
+        let profiles = [];
+        for (var pieceName of pieceNames) {
             profiles.push(
                 <Profile 
                   newReplacement={this.newReplacement} 
@@ -220,8 +257,26 @@ export class Customize extends React.Component {
 
         return(
             <>  
-                <div className="new-game-customise-window">
-                    <div className="new-game-top-bar">
+                <div className="new-game-customize-window">
+                    <div className="new-game-customize-top-bar">
+                        <div className="new-game-customize-top-bar-title">
+                            Customize
+                        </div>
+                        <HelpComponent togleHelpModal={this.togleHelpModal} 
+                                       setHelpText={this.setHelpText}
+                                       helpTitle="Customizing a New Game" 
+                                       helpText={HelpText}
+                                       hmChildName="none"
+                                       style={{ position:"absolute",
+                                                height:15,
+                                                width:15,
+                                                left:200,
+                                                top:22
+                                       }}
+                                       highlighted="/Images/question-mark-0cc.svg"
+                                       normal="/Images/question-mark-a9a9a9.svg"
+                        />
+                        <SearchBar updateSearch={this.updateSearch} />
                         <PromoAll toglePromoAll={this.toglePromoAll} />
                     </div>
                     <div className="new-game-piece-profiles">
@@ -244,6 +299,11 @@ export class Customize extends React.Component {
                 {this.isTooltip && (<NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />) }
                 <Ok accept={this.accept} />
                 {this.getModals()}
+                {this.state.isHelpModal && (
+                    <HelpModal helpTitle={this.helpTitle} helpText={this.helpText} togleHelpModal={this.togleHelpModal}>
+                        {this.getHelpModalChild()}
+                    </HelpModal> 
+                )}
             </>
 
         )

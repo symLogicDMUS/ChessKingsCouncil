@@ -158,8 +158,8 @@ export class CreatePiece extends React.Component {
         this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
         this.loadedImgNames = JSON.parse(JSON.stringify(this.imgNames));
         
-        this.pieceImg['white'] = <img src={`/Images/Pieces/${this.imgNames['white']}`} width="75px" height="75px" />
-        this.pieceImg['black'] = <img src={`/Images/Pieces/${this.imgNames['black']}`} width="75px" height="75px" />
+        this.pieceImg['white'] = <img src={`/Images/Pieces/${this.imgNames['white']}`} width="75px" height="75px" alt="icon of a white piece" />
+        this.pieceImg['black'] = <img src={`/Images/Pieces/${this.imgNames['black']}`} width="75px" height="75px" alt="icon of a black piece" />
         
         //reminder: calls this.update() at end
         this.setLoc("d4");

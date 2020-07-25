@@ -11,25 +11,18 @@
       font-family: Tahoma;
       cursor: pointer;
   }
-     .profile:hover {
-        z-index: 2;
-        opacity: 100%;
-        color: white;
-        border: 1px solid white;
-      }
-      .profile .image {
-        z-index: 2;
-        max-height: 160px;
-        height: 100%;
-        object-fit: cover;
-      }
+  .profile .image {
+    z-index: 2;
+    max-height: 160px;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .pieces-profiles .selected-profile {
     z-index: 2;
     height: 160px;
     margin: 10px;
     margin-bottom: 32px;
-    border: 1px solid white;
     border-radius: 3px;
     box-shadow: 0px 0px 16px white;
     color: white;

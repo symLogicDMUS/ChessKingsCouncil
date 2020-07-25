@@ -5,8 +5,14 @@ export class SaveResignTool extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {saveHighlighted: false, resignHighlighted: false};
+        this.saveImg = null;
+        this.resignImg = null;
         this.save = this.save.bind(this);
-        this.resign = this.resign.bind(this);
+        this.highlightSaveIcon = this.highlightSaveIcon.bind(this)
+        this.unhighlightSaveIcon  = this.unhighlightSaveIcon.bind(this)
+        this.highlightResignIcon  = this.highlightResignIcon.bind(this)
+        this.unhighlightResignIcon = this.unhighlightResignIcon.bind(this)
     }
 
     save() {
@@ -17,19 +23,43 @@ export class SaveResignTool extends React.Component {
         this.props.update();
     }
 
-    resign() {
-        console.log("not yet implemented");
-        return;
+    highlightSaveIcon() {
+        this.setState({saveHighlighted: true})
     }
 
+    unhighlightSaveIcon() {
+        this.setState({saveHighlighted: false})
+    }
+
+
+    highlightResignIcon() {
+        this.setState({resignHighlighted: true})
+    }
+
+    unhighlightResignIcon() {
+        this.setState({resignHighlighted: false})
+    }
+
+
     render() {
+
+        if (this.state.saveHighlighted)
+            this.saveImg = "/Images/save-00ccff.svg";
+        else
+            this.saveImg = "/Images/save-ffffff.svg";
+
+        if (this.state.resignHighlighted)
+            this.resignImg = "/Images/resign-game-00ccff.svg";
+        else
+            this.resignImg = "/Images/resign-game-ffffff.svg";
+
         return (
             <div className="save-resign-tool">
                 <div className="save-game-container">
-                    <img src="/Images/save-game.svg" className="save-resign-img" onClick={this.save} />
+                    <img src={this.saveImg} className="save-resign-img" onClick={this.save} onMouseEnter={this.highlightSaveIcon} onMouseLeave={this.unhighlightSaveIcon} alt="save icon" />
                 </div>
                 <div className="resign-container">
-                    <img src="/Images/resign-game.svg" className="save-resign-img" onClick={this.resign}  />
+                    <img src={this.resignImg} className="save-resign-img" onClick={this.props.resign} onMouseEnter={this.highlightResignIcon} onMouseLeave={this.unhighlightResignIcon} alt="resign icon"  />
                 </div>
             </div>
         );

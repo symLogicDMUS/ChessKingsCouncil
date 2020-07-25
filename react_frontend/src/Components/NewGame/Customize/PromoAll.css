@@ -1,9 +1,9 @@
 .new-game-promo-all {
     position: absolute;
     display: grid;
-    left: 280px;
+    left: 880px;
     top: 10px;
-    grid-template-columns: 108px 60px; 
+    grid-template-columns: 98px 25px; 
     grid-template-rows: 36px; 
     text-align: left;
 }
@@ -11,6 +11,7 @@
 .new-game-promo-all-label {
     grid-column: 1;
     font-size: 20px;
+    padding-top: 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #a9a9a9;
     /* border: 1px dashed white; */
@@ -18,9 +19,12 @@
 
 .new-game-promo-all-checkbox-container {
     grid-column: 2;
+    /* border: 1px dashed white;  */
 }
 
 .new-game-promo-all-checkbox {
+    position: relative;
+    top: 9px;
     width: 18px; 
     height: 18px; 
     background-color: #515151;

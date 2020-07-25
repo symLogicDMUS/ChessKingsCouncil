@@ -1,5 +1,6 @@
 import React from "react";
 import {getColorName} from "../../helpers/getColorName";
+import { getOppositeColorName } from "../../helpers/getOppositeColorName";
 import "../css/Header.css";
 
 export class GameRootHeader extends React.Component {
@@ -22,13 +23,16 @@ export class GameRootHeader extends React.Component {
 
         switch (this.props.condition) {
             case "checkmate":
-                text = `${getColorName(this.props.winner)} wins!`;
+                text = `${getColorName(this.props.winner)} wins!`;   
                 break;
             case "stalemate":
                 text = "Tie game!";
                 break;
             case "check":
                 text = `${getColorName(this.props.turn)}'s turn.`;
+                break;
+            case "resigned":
+                text = `${getOppositeColorName(this.props.turn)} wins. ${getColorName(this.props.turn)}`;
                 break;
             case "":
                 text = `${getColorName(this.props.turn)}'s turn.`;

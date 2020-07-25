@@ -9,9 +9,11 @@ export class ExpandModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {tooltip: false}
+        this.state = {tooltip: false, src: "/Images/unexpand.svg"}
         this.togleTooltip = this.togleTooltip.bind(this);
         this.unexpand = this.unexpand.bind(this);
+        this.hoverOn = this.hoverOn.bind(this);
+        this.hoverOff = this.hoverOff.bind(this);
     }
 
     unexpand() {
@@ -30,12 +32,20 @@ export class ExpandModal extends React.Component {
         this.setState({tooltip: value})
     }
 
+    hoverOn() {
+        this.setState({src: "/Images/unexpand-0cc.svg"})
+    }
+
+    hoverOff() {
+        this.setState({src: "/Images/unexpand.svg"})
+    }
+
     render() {
 
         return (
             <div className="new-game-expand-modal">
                 <div className="new-game-expand-modal-window">
-                    <img src="/Images/unexpand.svg" className="new-game-modal-window-unexpand" onClick={this.unexpand} />
+                    <img src={this.state.src} className="new-game-modal-window-unexpand" onClick={this.unexpand} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff} alt="unexpand the display-board modal"/>
                     <div className="new-game-expand-modal-window-title" onMouseEnter={() => this.togleTooltip(true)} onMouseLeave={() => this.togleTooltip(false)} >
                         {this.getTitle()}
                     </div>

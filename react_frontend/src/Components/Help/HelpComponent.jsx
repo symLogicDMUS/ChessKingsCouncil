@@ -21,7 +21,7 @@ export class HelpComponent extends React.Component {
   }
 
   openHelpModal() {
-    this.props.setHelpText(this.props.helpTitle, this.props.helpText, this.props.hmChild);
+    this.props.setHelpText(this.props.helpTitle, this.props.helpText, this.props.hmChildName);
     this.props.togleHelpModal(true);
   }
 
@@ -42,8 +42,8 @@ export class HelpComponent extends React.Component {
 
     return (
         <div className="help-component" style={this.props.style} onClick={this.openHelpModal} onMouseEnter={this.highlight} onMouseLeave={this.unhighlight}>
-            <img src={this.src} style={{ position:"absolute", width: this.props.style.width, height:this.props.style.height }} />
-            <span class="help-tooltiptext">Help</span>
+            <img src={this.src} style={{ position:"absolute", width: this.props.style.width, height:this.props.style.height }} alt="question mark, click for help" />
+            <span class="help-tooltiptext" style={{fontSize:this.props.style.height}}>Help</span>
         </div>
     );
   }

@@ -60,6 +60,7 @@ export class SaveDef extends React.Component {
             case "reset":
                 this.modal = null;
                 this.props.clear();
+                break;
             case "none":
                 this.modal = null;
                 break;
@@ -95,7 +96,7 @@ export class SaveDef extends React.Component {
         return (
             <>
                 <div className="option save-option" onClick={this.save} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                    <img src={this.src} style={{position:"absolute", width:49, height:68}} />
+                    <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="floppy disk icon for saving a piece" />
                 </div>
                 {this.modal}
             </>

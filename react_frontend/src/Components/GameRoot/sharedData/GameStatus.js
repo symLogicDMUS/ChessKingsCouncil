@@ -26,6 +26,10 @@ export class GameStatus {
         this.winner = status['winner']
     }
 
+    updateGameStatus(gameStatus) {
+        this.gameStatus = gameStatus;
+    }
+
     getStatus() {
         return {
             'condition': this.condition,

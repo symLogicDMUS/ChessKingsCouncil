@@ -1,5 +1,5 @@
 
-.new-game-customise-window {
+.new-game-customize-window {
     position: relative;
     left: 50%;
     z-index: 1;
@@ -11,16 +11,29 @@
     border: 1px solid #969696;
 }
 
-.new-game-top-bar {
+.new-game-customize-top-bar {
     position: absolute;
     z-index: inherit;
     top: 0px;
     left: 0px;
     height: 48px;
     width: 1020px;
-    /* border: 1px dashed gold; */
+    /* border: 1px dashed magenta; */
     border-bottom: 1px solid #707070;
 }
+
+.new-game-customize-top-bar-title {
+    position: absolute;
+    left: 10px;
+    top: -1px;
+    color: #b6b6b6;
+    font-size: 40px;
+    font-family: Tahoma;
+    text-align: center;
+    padding-top: -4px;
+
+}
+
 
 .new-game-piece-profiles {
     position: absolute;

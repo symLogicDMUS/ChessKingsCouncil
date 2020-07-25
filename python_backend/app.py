@@ -48,6 +48,7 @@ def save():
     fen_obj = data['fen_obj']
     id_dict = data['id_dict']
     range_defs = data['range_defs']
+    status_obj = data['status_obj']
 
     # create game folder:
     if not os.path.isdir('./saved_games/{}'.format(game_name)):
@@ -74,6 +75,10 @@ def save():
     # save range_defs
     with open('./saved_games/{}/{}.defs'.format(game_name, game_name), 'w') as outfile:
         json.dump(range_defs, outfile, indent=4, sort_keys=True)
+
+    # save game status
+    with open('./saved_games/{}/{}.status'.format(game_name, game_name), 'w') as outfile:
+        json.dump(status_obj, outfile, indent=4, sort_keys=True)
 
     print("Save Successful!")
     return "Save Successfull", 201

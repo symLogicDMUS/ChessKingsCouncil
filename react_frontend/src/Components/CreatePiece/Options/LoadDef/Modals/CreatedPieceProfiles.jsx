@@ -2,16 +2,18 @@ import React from "react";
 import {CreatedPieceProfile} from "./CreatedPieceProfile";
 import {offsetToText} from "../../../../helpers/offsetToText";
 import {spanToText} from "../../../../helpers/spanToText";
-import {getColorName} from "../../../../helpers/getColorName";
+// import {getColorName} from "../../../../helpers/getColorName";
 import {CreatePieceExpandModal} from "./CreatePieceProfileWB/CreatePieceExpandModal"
 import {CreatedPieceLoadButton} from "./CreatedPieceLoadButton";
 import {CreatedPieceClose} from "./CreatedPieceClose";
+import {SearchBar} from "./SearchBar";
 import "./CreatedPieceProfiles.css";
 
 export class CreatedPieceProfiles extends React.Component {
 
     constructor(props) {
         super(props);
+        this.searchText = "";
         this.state = {binaryValue: true, selected: null};
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
@@ -28,6 +30,7 @@ export class CreatedPieceProfiles extends React.Component {
         this.select = this.select.bind(this);
         this.expand = this.expand.bind(this);
         this.accept = this.accept.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
     }
 
     select(pieceName) {
@@ -91,10 +94,22 @@ export class CreatedPieceProfiles extends React.Component {
         return offsetStrings;
     }
 
+    updateSearch(searchText) {
+        this.searchText = searchText;
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
+    applySearchFilter() {
+        if (this.searchText !== "")
+            return Object.keys(this.defs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
+        else
+            return Object.keys(this.defs);
+    }
 
     getProfiles() {
+        let pieceNames = this.applySearchFilter();
         let profiles = [];
-        for (var pieceName of Object.keys(this.defs)) {
+        for (var pieceName of pieceNames) {
             profiles.push(
                 <CreatedPieceProfile 
                   expand={this.expand}
@@ -113,12 +128,12 @@ export class CreatedPieceProfiles extends React.Component {
             <>
                 <div className="load-profile-modal">
                     <div className="created-piece-load-window">
-
                         <div className="created-piece-load-window-top-bar">
                             <div className="created-piece-load-window-title">
                                 Created Pieces
                             </div>
                             <CreatedPieceClose togleLoadModal={this.props.togleLoadModal} />
+                            <SearchBar updateSearch={this.updateSearch}/>
                         </div>
                         <div className="created-piece-profiles">
                             {this.getProfiles()}

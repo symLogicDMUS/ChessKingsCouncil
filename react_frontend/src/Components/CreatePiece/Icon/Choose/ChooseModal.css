@@ -41,8 +41,8 @@
       } .title-div .title {
           z-index: 1;
           margin: auto;
-          width: 50%;
-          height: 85%;
+          width: 40%;
+          height: 75%;
           fill: white;
         }
         .choose-main .close {

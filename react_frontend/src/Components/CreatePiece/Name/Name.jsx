@@ -13,7 +13,6 @@ export class Name extends React.Component {
     }
 
     handleUserInput(e) {
-        // this.setState({userInput: e.target.value});
         this.userInput = e.target.value;
         this.props.updateName(this.userInput);
     }

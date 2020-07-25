@@ -4,15 +4,18 @@ import {spanToText} from "../helpers/spanToText";
 import {MyPieceProfile} from "./MyPieceProfile";
 import {MyPieceConfirmDelete} from "./MyPieceConfirmDelete";
 import { MyPiecesDisplayBoardModal } from "./MyPiecesDisplayBoardModal";
-import "./MyPieces.css";
-import { Redirect } from "react-router-dom";
 import { CreatePiece } from "../CreatePiece/CreatePiece";
+import {HelpText} from "./HelpText";
+import {HelpModal} from "../Help/HelpModal";
+import {HelpComponent} from "../Help/HelpComponent";
+import {SearchBar} from "./SearchBar";
+import "./MyPieces.css";
 
 export class MyPieces extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {binaryValue: true, selectedPiece: null, redirect: false};
+        this.state = {binaryValue: true, selectedPiece: null, redirect: false, isHelpModal:false};
         this.deleteModal = false;
         this.displayBoard = null;
         this.pieceName = null;
@@ -31,12 +34,21 @@ export class MyPieces extends React.Component {
             this.displayDefs[pieceName]["B"]["spans"] = this.getSpansText(this.displayDefs[pieceName]["B"])
             this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsetsText(this.displayDefs[pieceName]["B"])
         });
+        this.searchText = "";
+        this.helpTitle = null;
+        this.helpText = null;
+        this.hmChildName = "none";
+        this.hmChildren = {"none":null}; 
         this.update = this.update.bind(this);
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
         this.setPiece = this.setPiece.bind(this);
         this.expand = this.expand.bind(this);        
         this.togleConfirmDeleteModal = this.togleConfirmDeleteModal.bind(this);
+        this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.setHelpText = this.setHelpText.bind(this);
+        this.updateSearch = this.updateSearch.bind(this)
+        this.applySearchFilter = this.applySearchFilter.bind(this);
     }
 
     componentDidMount() {
@@ -63,6 +75,20 @@ export class MyPieces extends React.Component {
         delete this.defs[pieceName];
         this.deleteDef(pieceName);
         this.update();
+    }
+
+    togleHelpModal(boolVal) {
+        this.setState({isHelpModal: boolVal})
+    }
+
+    setHelpText(helpTitle, helpText, hmChildName) {
+        this.helpTitle = helpTitle;
+        this.helpText = helpText;
+        this.hmChildName = hmChildName;
+    }
+
+    getHelpModalChild() {
+        return this.hmChildren[this.hmChildName]
     }
 
     expand(piece, color, rangeType) {
@@ -107,14 +133,28 @@ export class MyPieces extends React.Component {
                                                     pieceName={this.pieceName} 
                                                     expand={this.expand}
                                                     location="d4"
-                                />
+                    />
         else    
             return null;
     }
 
+    updateSearch(searchText) {
+        this.searchText = searchText;
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
+    applySearchFilter() {
+        if (this.searchText !== "")
+            return Object.keys(this.defs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
+        else
+            return Object.keys(this.defs);
+    }
+
     getProfiles() {
+
         let profiles = [];
-        for (var pieceName of Object.keys(this.defs)) {
+        let pieceNames = this.applySearchFilter();
+        for (var pieceName of pieceNames) {
             profiles.push(
                 <MyPieceProfile 
                 load={this.load}
@@ -142,24 +182,44 @@ export class MyPieces extends React.Component {
         
         return (
             <>
-              <div className="my-pieces">
-                  <div className="top-bar">
-                      <div className="title">
-                          My Pieces
-                      </div>
-                  </div>
-                  <div className="profiles">
+                <div className="my-pieces">
+                    <div className="top-bar">
+                        <div className="title">
+                            My Pieces
+                        </div>
+                        <HelpComponent helpTitle="My Pieces Page"
+                                       helpText={HelpText} 
+                                       hmChildName="none"
+                                       togleHelpModal={this.togleHelpModal}
+                                       setHelpText={this.setHelpText}
+                                       normal="/Images/question-mark-a9a9a9.svg"
+                                       highlighted="/Images/question-mark-0cc.svg"
+                                       style={{position: "absolute",
+                                                   top: 25,
+                                                   left: 202,
+                                                   width: 16,
+                                                   height: 16
+                                            }}
+                        />
+                        <SearchBar updateSearch={this.updateSearch} />
+                    </div>
+                    <div className="profiles">
                       {this.getProfiles()}
-                  </div>
-              </div>
-              {this.deleteModal && (
+                    </div>
+                </div>
+                {this.deleteModal && (
                 <MyPieceConfirmDelete 
                   delete={this.delete} 
                   setPiece={this.setPiece}
                   pieceName={this.state.selectedPiece}
                   togleConfirmDeleteModal={this.togleConfirmDeleteModal} 
-              />)}
-              {this.getDisplayBoard()}
+                />)}
+                {this.getDisplayBoard()}
+                {this.state.isHelpModal && (<HelpModal togleHelpModal={this.togleHelpModal} 
+                                                       helpTitle={this.helpTitle}
+                                                       helpText={this.helpText}>
+                    {this.getHelpModalChild()}
+                </HelpModal>)}
             </>
         )
     }

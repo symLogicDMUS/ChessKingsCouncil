@@ -34,7 +34,7 @@ export class LoadDef extends React.Component {
 
         return (
             <div className="option load-option" onClick={this.openLoadModal} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                <img src={this.src} style={{position:"absolute", width:49, height:68}} />
+                <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="Icon for loading piece" />
             </div>
         );
     }

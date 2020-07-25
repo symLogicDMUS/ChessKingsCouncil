@@ -2,6 +2,9 @@ import React from "react";
 import {ExpandColapseWidget} from "./ExpandColapseWidget";
 import "../css/RangeDisplayColapsed.css";
 import "../css/ShowMovesLabel.css";
+import {HelpText} from "./HelpText";
+import {HelpComponent} from "../../Help/HelpComponent";
+
 
 export class RangeDisplayColapsed extends React.Component {
 
@@ -11,26 +14,31 @@ export class RangeDisplayColapsed extends React.Component {
     }
 
     togleExpand() {
-        this.props.togleExpand();
+        this.props.togleExpand(true);
     }
 
     render() {
-
-        if (! this.props.expanded) {
-            return (
-                <div className="range-display-colapsed">
-                    <div className="show-moves-label">
-                        <img src="/Images/range-display.svg" style={{height:16}}/>
-                    </div>
-                    <ExpandColapseWidget imgName={"/Images/range-display-expand.svg"} togleExpand={this.togleExpand}/>
-    
+        return (
+            <div className="range-display-colapsed">
+                <div className="show-moves-label">
+                    <img src="/Images/range-display.svg" style={{height:16}}/>
                 </div>
-            )    
-        }
-        
-        else {
-            return null;
-        }
-
+                <ExpandColapseWidget imgName={"/Images/range-display-expand.svg"} togleExpand={this.togleExpand}/>
+                <HelpComponent setHelpText={this.props.setHelpText}
+                               togleHelpModal={this.props.togleHelpModal}
+                               helpTitle="Range Display Tool"
+                               helpText={HelpText}
+                               hmChildName="none"
+                               style={{position:"absolute",
+                                    left: 125,
+                                    top: 16,
+                                    width: 10,
+                                    height: 10,
+                                }}
+                               highlighted="/Images/question-mark-0cc.svg"
+                               normal="/Images/question-mark-ffffff.svg"
+                />
+            </div>
+        )    
     }
 }

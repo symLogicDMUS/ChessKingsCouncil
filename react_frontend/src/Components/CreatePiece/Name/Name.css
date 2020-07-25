@@ -20,6 +20,8 @@
     color: #a9a9a9;
     top: 10px;
     left:10px;
+} .name:focus {
+    border: 1px solid #5C9FD2;;
 }
 
 .name-component1 .form1 {

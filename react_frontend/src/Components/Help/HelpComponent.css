@@ -7,7 +7,7 @@
   
   .help-component .help-tooltiptext {
     visibility: hidden;
-    width: 45px;
+    /* width: 45px; */
     color: #0cc;
     font-family: Tahoma;
     text-align: center;
@@ -17,7 +17,7 @@
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    top: -10px;
+    top: -6px;
     left: 105%;
     
   }
