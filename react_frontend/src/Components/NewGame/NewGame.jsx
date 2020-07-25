@@ -2,8 +2,9 @@ import React from "react";
 import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
 import {Customize} from "./Customize/Customize";
-import {newData, ranges, enemyRanges, moves, status, id_dict, range_defs} from "./NewData";
 import { Redirect } from "react-router-dom";
+import { PlayAs } from "./PlayAs/PlayAs";
+import {newData, ranges, enemyRanges, moves, status, id_dict, range_defs} from "./NewData";
 import "./NewGame.css";
 
 /**
@@ -19,12 +20,14 @@ export class NewGame extends React.Component {
         this.state = {step: 0};
         this.gameName = "none";
         this.gameType = "none";
+        this.playerType = "none"; //either the color W or B, or 'test' 
         this.rangeDefs = {};
         this.comp = null;
         this.council = false;
         this.turn = null;
         this.setType = this.setType.bind(this);
         this.setName = this.setName.bind(this);
+        this.setPlayer = this.setPlayer.bind(this);
         this.loadNewCustom = this.loadNewCustom.bind(this);
     }
 
@@ -33,13 +36,18 @@ export class NewGame extends React.Component {
     }
 
     setType(type) {
-        this.gameType = type
-        this.setState({step: this.state.step + 1})
+        this.gameType = type;
+        this.setState({step: this.state.step + 1});
     }
 
     setName(name) {
-        this.gameName = name
-        this.setState({step: this.state.step + 1})
+        this.gameName = name;
+        this.setState({step: this.state.step + 1});
+    }
+
+    setPlayer(playerType) {
+        this.playerType = playerType;
+        this.setState({step: this.state.step + 1});
     }
 
     loadNewStandard() {
@@ -50,7 +58,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        this.setState({step: this.state.step + 1});
+        // this.setState({step: this.state.step + 1});
     }
 
     loadNewCouncil() {
@@ -62,7 +70,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        this.setState({step: this.state.step + 1});
+        // this.setState({step: this.state.step + 1});
     }
 
     
@@ -113,14 +121,14 @@ export class NewGame extends React.Component {
         switch(this.gameType) {
             case "standard":
                 this.loadNewStandard();
-                this.comp = <div>If reading this than the program is paused or setState didn't trigger render</div>
+                this.comp = <PlayAs setPlayer={this.setPlayer} />
                 break;
             case "custom":
                 this.comp = <Customize defs={this.props.defs} loadNewCustom={this.loadNewCustom} />
                 break;
             case "council":
                 this.loadNewCouncil();
-                this.comp = <div>If reading this than the program is paused or setState didn't trigger render</div>
+                this.comp = <PlayAs setPlayer={this.setPlayer} />
                 break;
             default:
                 this.comp = <div>Invalid Game Type</div>
@@ -143,7 +151,8 @@ export class NewGame extends React.Component {
                 this.comp = <Redirect to={{
                              pathname:"/NewGame/Play",
                              state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
-                                     dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])), 
+                                     dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
+                                     playerType:JSON.parse(JSON.stringify(this.playerType)),
                                      isCouncil:JSON.parse(JSON.stringify(this.council))}
                             }} />
                 break;

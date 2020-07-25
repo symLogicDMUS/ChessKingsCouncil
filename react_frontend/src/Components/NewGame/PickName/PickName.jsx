@@ -21,7 +21,7 @@ export class PickName extends React.Component {
   render() {
     return (
         <div class="div">
-          <img src={require("./Images/EnterName.svg")} className="components" />
+          <img src="/Images/enter-name.svg" className="components" alt="title to enter name" />
           <form onSubmit={this.setName}>
             <input type="text" id="gname" value={this.state.userInput} onChange={this.handleUserInput} className="components"/>
             <input type="submit" value="Submit" className="components"/>

@@ -10,6 +10,6 @@ getData().then( ([dataDict, defs]) => {
 
 
 //tests:
-// import {test} from "./Components/CreatePiece/Range/ScrollMenu";
+// import {test} from "./Components/NewGame/PlayAs/PlayAs";
 // test();
 

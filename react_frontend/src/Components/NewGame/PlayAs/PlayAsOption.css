@@ -1,0 +1,20 @@
+.play-as-option {
+    position: absolute;
+    left: 0px;
+    width: 251px;
+    height: 68px;
+
+}
+
+.play-as-option-checkebox {
+    position: absolute;
+    height: 48px;
+    width: 48px;
+    top: 10px;
+    left: 5px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
