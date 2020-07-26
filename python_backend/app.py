@@ -7,7 +7,9 @@ from flask_helpers.id_assign_.top.id_assign import id_assign
 from flask_helpers.gen_fen_str import get_fen_str
 from flask_helpers.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
+from game_logic.color.get_ai_color import get_ai_color
 from flask_helpers.new_data import new_data
+from pprint import pprint
 import json
 import os
 
@@ -21,12 +23,14 @@ def update():
     data = request.get_data(as_text=True)
     data = json.loads(data)
     reformated = map_rf_to_xy({'board': data['board'], 'records': data['records'], 'color': data['color']})
-    board, records, color, ai_color, defs_ = reformated['board'], reformated['records'], reformated['color'], data['ai_color'], data['defs']
+    board, records, color, player_type, defs_ = reformated['board'], reformated['records'], reformated['color'], data['player_type'], data['defs']
+    ai_color = get_ai_color(player_type)
     json_records = JsonRecords(None, None, j_records=records)
     data = new_data(board, color, ai_color, defs_, json_records)
-    enemy_data = new_data(board, get_enemy_color(color), defs_, json_records)
-    return jsonify({'ranges': data['ranges'], 'enemy_ranges': enemy_data['ranges'],
-                    'moves': data['moves'], 'status': data['status']})
+    enemy_data = new_data(board, get_enemy_color(color), ai_color, defs_, json_records)
+    data.update({'enemy_ranges': enemy_data['ranges']})
+    pprint(data)
+    return jsonify(data)
 
 
 @app.route('/save', methods=["POST"])

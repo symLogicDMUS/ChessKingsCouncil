@@ -12,7 +12,7 @@ export class PiecesBoard extends React.Component {
     getBoard() {
         let squares = [];
         for (var rf of rankfiles) {
-            if (rf === "#") {
+            if (this.props.board[rf] === "#") {
                 squares.push(
                     <Square pxPos={getPosPx(rf, 75, 600)}>
                         {null}

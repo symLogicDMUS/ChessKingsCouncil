@@ -46,7 +46,7 @@ export class NewGame extends React.Component {
     }
 
     setPlayer(playerType) {
-        this.playerType = playerType;
+        this.dataDict[this.gameName]['player_type'] = playerType;
         this.setState({step: this.state.step + 1});
     }
 
@@ -110,9 +110,9 @@ export class NewGame extends React.Component {
     }
 
     getPayload() {
-        return { "color":"W",
-                 "board":this.dataDict[this.gameName]['board'], 
+        return { "board":this.dataDict[this.gameName]['board'], 
                  "records":this.dataDict[this.gameName]['records'],
+                 "color":"W",
                  "defs":{"range_defs":this.dataDict[this.gameName]['defs'], 
                          "id_dict":this.dataDict[this.gameName]['id_dict'] } }
     }

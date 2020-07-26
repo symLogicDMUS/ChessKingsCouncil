@@ -110,7 +110,7 @@ if __name__ == "__main__":
          'records': {'condition': '',
                      'game_status': 1,
                      'kings_moved': {(5, 1): False, (5, 8): False},
-                     'last_pawn_move': 'c2',
+                     'last_pawn_move': (3, 2),
                      'num_consecutive_non_pawn_moves': 0,
                      'pawn_histories': {'BP1': [(2, 7), (2, 5), (2, 4), (2, 3), (3, 2)],
                                         'BP2': [(5, 7), (5, 5)],
@@ -133,7 +133,9 @@ if __name__ == "__main__":
                                      (1, 8): False,
                                      (8, 1): False,
                                      (8, 8): False},
-                     'winner': '-'}
+                     'winner': '-',
+                     },
+         'ai_capture': False
          }
     pprint(xy_values_to_rf(json_obj, Depth()))
     pprint(xy_values_to_rf(sample_board_dicts['new'], Depth()))

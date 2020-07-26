@@ -19,7 +19,7 @@ export class SelectGame extends React.Component {
             <div>
               <div className="container">
                 <div>
-                  <img src={require("./Images/LoadGame.svg")} className="loadGame" />
+                  <img src={require("./Images/LoadGame.svg")} className="loadGame" alt="title for loading game" />
                 </div>
                 <div className="buttonOptions">
                   <br />

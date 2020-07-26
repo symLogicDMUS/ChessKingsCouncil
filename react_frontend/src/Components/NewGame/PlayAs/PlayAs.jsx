@@ -41,8 +41,8 @@ export class PlayAs extends React.Component {
                 </div>
                 <div className="play-as-options">
                     <PlayAsOption update={this.update} optionName="test"  top={0}   selected={this.state.option}/>
-                    <PlayAsOption update={this.update} optionName="white" top={78}  selected={this.state.option}/>
-                    <PlayAsOption update={this.update} optionName="black" top={156} selected={this.state.option}/>
+                    <PlayAsOption update={this.update} optionName="W" top={78}  selected={this.state.option}/>
+                    <PlayAsOption update={this.update} optionName="B" top={156} selected={this.state.option}/>
                 </div>
                 <PlayAsButton selected={this.state.option} accept={this.accept} />
             </>

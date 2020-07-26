@@ -16,9 +16,9 @@ def ai_move(board, ranges, color, special_moves):
     piece_id = random.choice(list(ai_ranges.keys()))
     start, dest = get_move_simplest(response_board, piece_id, ai_ranges)
     response_board, captured = move(response_board, start, dest, color, special_moves)
-    if captured is None:
+    if captured == "None":
         captured = False
-    return response_board, captured, start, dest
+    return captured, start, dest
 
 
 if __name__ == "__main__":
@@ -39,6 +39,6 @@ if __name__ == "__main__":
               'BR1': [],
               'BR2': []}
 
-    print_board(sample_board_dicts['single_move'], heading="before")
-    response_board, captured, start, dest = ai_move(sample_board_dicts['single_move'], ranges, 'B', SpecialMoves())
-    print_board(response_board, heading="after", highlights=[start, dest])
+    captured, start, dest = ai_move(sample_board_dicts['single_move'], ranges, 'B', SpecialMoves())
+    pprint([captured, start, dest])
+    print_board(sample_board_dicts['single_move'], highlights=[start, dest])

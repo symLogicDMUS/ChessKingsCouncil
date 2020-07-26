@@ -11,10 +11,10 @@ from game_logic.pins.top.get_pins import get_pins
 from game_logic.GameStatus.get_status import get_status
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from flask_helpers.ai_move import ai_move
-from pprint import pprint
 
 
 def new_data(board, color, ai_color, defs_, json_records):
+    """ """
     init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
     k_loc = get_king_locs(board, color)
@@ -25,13 +25,14 @@ def new_data(board, color, ai_color, defs_, json_records):
     mt_restricts = get_multithreat_restriction(board, npck, color)
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
     special_moves.set_promos(board, final_ranges, color)
-    moves = special_moves.get_moves()
-    status = get_status(board, final_ranges, get_enemy_color(color), npck)
-    data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
-    data['status'] = status
+    data = {'status': get_status(board, final_ranges, get_enemy_color(color), npck)}
     if color == ai_color:
-        data['response_board'], data['ai_capture'], data['ai_start'], data['ai_dest'] = ai_move(board, final_ranges, ai_color, special_moves)
+        ai_capture, ai_start, ai_dest = ai_move(board, final_ranges, ai_color, special_moves)
     else:
-        data['response_board'], data['ai_capture'], data['ai_start'], data['ai_dest'] =  False, False, False, False
-    pprint(data['ranges'])
+        ai_capture, ai_start, ai_dest = False, False, False
+    data.update(map_xy_to_rf({"ranges": final_ranges,
+                              "moves": special_moves.get_moves(),
+                              "ai_start": ai_start,
+                              "ai_dest": ai_dest,
+                              "ai_capture": ai_capture}))
     return data

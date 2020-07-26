@@ -1,5 +1,6 @@
 import React from "react";
 import "./PlayAsOption.css";
+import {getColorName} from "../../helpers/getColorName";
 
 export class PlayAsOption extends React.Component {
 
@@ -21,13 +22,19 @@ export class PlayAsOption extends React.Component {
 
     render() {
 
+        let optionText = null;
+        if (this.props.optionName === "test")
+            optionText = "test"
+        else
+            optionText = getColorName(this.props.optionName)
+
         return (
             <div className="play-as-option" style={{top:this.props.top}}>
                 <div className="play-as-option-checkebox" onClick={this.update}>
                     {this.getCheckmark()}
                 </div>
                 <div className="play-as-option-name">
-                    <img src={`/Images/${this.props.optionName}.svg`} style={{position:"absolute", left:68, top:10, height:48}} alt="title for checkbox" />
+                    <img src={`/Images/${optionText}.svg`} style={{position:"absolute", left:68, top:10, height:48}} alt="title for checkbox" />
                 </div>
             </div>
         )

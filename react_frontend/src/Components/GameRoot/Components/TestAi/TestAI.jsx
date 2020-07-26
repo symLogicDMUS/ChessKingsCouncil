@@ -12,18 +12,24 @@ export class TestAi extends React.Component {
     constructor(props) {
         super(props);
         this.state = {aiDisplay: true};
-        this.aiStart = this.props.response['ai_start']
+        this.board = this.props.board;
+        this.aiStart = this.props.response['ai_start'];
         this.aiDest = this.props.response['ai_dest'];
         this.responseBoard = this.props.response['response_board'];
         this.updateAiDisplay = this.updateAiDisplay.bind(this);
+        this.updateBoard = this.updateBoard.bind(this);
     }
 
     componentDidMount() {
-        document.body.className = "test-ai-body"
+        document.body.className = "test-ai-body";
     }
 
     updateAiDisplay(boolVal) {
         this.setState({aiDisplay: boolVal})
+    }
+
+    updateBoard() {
+        this.board = this.responseBoard;
     }
 
     render() {
@@ -33,8 +39,12 @@ export class TestAi extends React.Component {
 
         return (
             <div>
-                {this.state.aiDisplay && (<AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} updateAiDisplay={this.updateAiDisplay} />)}
-                <PiecesBoard  board={this.responseBoard} idDict={id_dict} rangeDefs={range_defs}/>
+                {this.state.aiDisplay && (<AiDisplay aiStart={this.aiStart} 
+                                                     aiDest={this.aiDest} 
+                                                     updateAiDisplay={this.updateAiDisplay} 
+                                                     updateBoard={this.updateBoard} 
+                />)}
+                <PiecesBoard  board={this.board} idDict={id_dict} rangeDefs={range_defs}/>
                 <DisplayBoard />
             </div>
         )
@@ -51,7 +61,7 @@ async function callBackend() {
                                                      "defs":{"id_dict":id_dict, "range_defs":range_defs}
         })
     })
-    let json_response = await response.json()
+    let json_response = await response.json();
     return json_response;
 }
 
@@ -60,6 +70,6 @@ function setAiMove() {
 }
 
 export let test = () => setAiMove().then(([json_response]) => {
-    ReactDOM.render(<TestAi response={json_response} />, document.getElementById('root'));
+    ReactDOM.render(<TestAi board={oneMove['board']} response={json_response} />, document.getElementById('root'));
 })
 

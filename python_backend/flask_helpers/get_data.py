@@ -28,6 +28,10 @@ def get_data(game_name):
     flask_method = f.readline()
     f.close()
 
+    f = open("{}/example_games/{}/{}.pt".format(dir_, game_name, game_name), 'r')
+    player_type = f.read()
+    f.close()
+
     f = open("{}/example_games/{}/{}.status".format(dir_, game_name, game_name), 'r')
     data = f.read()
     status = json.loads(data)
@@ -49,7 +53,7 @@ def get_data(game_name):
 
     defs_ = {"id_dict": id_dict, "range_defs": range_defs}
 
-    return fen_obj, board, json_records, game_status, flask_method, defs_
+    return fen_obj, board, json_records, game_status, flask_method, player_type, defs_
 
 
 if __name__ == "__main__":

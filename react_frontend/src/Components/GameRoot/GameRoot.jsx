@@ -11,7 +11,9 @@ import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import {RangeDisplayTool} from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
-import { OVER, IN_PROGRESS } from "../helpers/gStatusTypes";
+import {AiDisplay} from "./Components/AiDisplay";
+import {makeMove} from "./Move/makeMove";
+import { OVER } from "../helpers/gStatusTypes";
 import "./css/GameRoot.css";
 
 
@@ -21,7 +23,8 @@ export class GameRoot extends React.Component {
         super(props);
         this.dataEntry = this.props.location.state.dataEntry;
         this.gameName = this.props.location.state.gameName;
-        this.state = {board: this.dataEntry['board'], bValue:true} 
+        this.state = {board: this.dataEntry['board'], bValue:true}
+        this.aiDisplay = false;
         this.board = this.dataEntry['board'] //see footnote 1.
         this.jsonRecords = new JsonRecords(this.dataEntry['records']);
         this.gameStatus = new GameStatus(this.dataEntry['status']);
@@ -33,6 +36,8 @@ export class GameRoot extends React.Component {
         this.idDict = this.dataEntry['id_dict']; // id:piece-name dict
         this.rangeDefs = this.dataEntry['defs']; 
         this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
+        this.playerType = this.dataEntry['player_type'];
+        this.aiColor = this.setAiColor();
         this.promo = false; //set true to alert need of promotion
         this.pieceRangeHighlight = "none"; // is a piece id
         this.save = this.save.bind(this);
@@ -41,6 +46,8 @@ export class GameRoot extends React.Component {
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.emitSpecialChange = this.emitSpecialChange.bind(this);
+        this.aiDisplayMove = this.aiDisplayMove.bind(this);
+        this.aiMakeMove = this.aiMakeMove.bind(this);
 
         /*footnote 1: have this.board in addition to this.state.board because
           board is a logical choice for state but also want to make updates to
@@ -62,6 +69,30 @@ export class GameRoot extends React.Component {
          * called by Pawn promotion
          */
         this.setState({board: board})
+    }
+
+    setAiColor() {
+        if (this.playerType === "test")
+            return "none";
+        if (this.playerType === "W")
+            return "B"
+        if (this.playerType === "B")
+            return "W"
+    }   
+
+    aiDisplayMove() {
+        this.aiDisplay = true;
+        this.setState({bValue: ! this.state.bValue});
+    }
+
+    aiMakeMove() {
+        this.aiDisplay = false;
+        makeMove(this, this.aiStart, this.aiDest)
+        this.toggleTurn();
+        this.emitChange();
+        this.updateBackend().then(([result]) => {
+            this.emitChange();
+        });
     }
 
     getBoard() {
@@ -109,6 +140,7 @@ export class GameRoot extends React.Component {
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getTurn(),
+                                   "player_type":this.playerType,
                                    "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
                                 })
         return fetch(`/${this.dataEntry.flask_method}`, {
@@ -119,7 +151,9 @@ export class GameRoot extends React.Component {
             this.ranges = response['ranges']
             this.enemyRanges = response['enemy_ranges'];
             this.specialMoves.update(response['moves']);
-            this.gameStatus.update(response['status'])
+            this.gameStatus.update(response['status']);
+            this.aiStart = response['ai_start'];
+            this.aiDest = response['ai_dest'];
         });
     }
 
@@ -209,6 +243,7 @@ export class GameRoot extends React.Component {
                                 resign={this.resign}
                                 updateSpecialCase={this.updateSpecialCase}
                 />
+                {this.aiDisplay && (<AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} aiMakeMove={this.aiMakeMove} />)}
             </>
 
         )
