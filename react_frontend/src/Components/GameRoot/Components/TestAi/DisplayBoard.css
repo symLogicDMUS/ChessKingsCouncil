@@ -1,0 +1,26 @@
+
+  .test-ai-display-board {
+    position: absolute;
+    z-index: 0;
+    width: 600px;
+    height: 600px;
+    left: 468px;
+    top: 100px;
+    line-height: 0;  
+  }
+
+  .test-ai-sqr1 {
+    position: absolute;
+    z-index: 0;       
+    width: 75px;
+    height: 75px;
+    background-color: #008000;
+  } 
+
+  .test-ai-sqr2 {
+    position: absolute;
+    z-index: 0;
+    width: 75px;
+    height: 75px;  
+    background-color: #ffffff;
+  }

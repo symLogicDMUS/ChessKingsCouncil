@@ -62,7 +62,7 @@ def get_result_board():
 
 
 def run_tests(fen_, board_, json_records_, defs_, results):
-    """
+    """ The ultimate test for bugs in game logic
     for every square on board (including empty squares), try to move to every other square on the board.
     successes are highlighted in red. total of 4,096 iterations!
     """

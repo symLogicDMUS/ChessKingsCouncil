@@ -132,7 +132,7 @@ if __name__ == "__main__":
                                      (8, 8): False},
                      'winner': '-'}
          }
-    pprint(map_xy_to_rf(json_obj))
-
-    pprint(map_xy_to_rf(sample_board_dicts['super_checkmate_impossible_example']))
-    pprint(map_xy_to_rf(sample_board_dicts['stalemate_exp1']))
+    # pprint(map_xy_to_rf(json_obj))
+    pprint(map_xy_to_rf(sample_board_dicts['new']))
+    # pprint(map_xy_to_rf(sample_board_dicts['super_checkmate_impossible_example']))
+    # pprint(map_xy_to_rf(sample_board_dicts['stalemate_exp1']))

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DragPreviewImage, useDrag } from 'react-dnd';
+import { useDrag } from 'react-dnd';
 import "../css/Piece.css";
 
 export function Piece({pos, id_, img_}) {
@@ -14,7 +14,7 @@ export function Piece({pos, id_, img_}) {
   return (
     <>
       <div ref={drag} style={{ opacity: isDragging ? 0 : 1, cursor: 'move'}}>
-          <img src={`/Images/Pieces/${img_}`} className={"piece"} />
+          <img src={`/Images/Pieces/${img_}`} className={"piece"} alt="icon of piece" />
       </div>
     </>
   );

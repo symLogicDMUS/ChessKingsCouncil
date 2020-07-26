@@ -21,9 +21,9 @@ def update():
     data = request.get_data(as_text=True)
     data = json.loads(data)
     reformated = map_rf_to_xy({'board': data['board'], 'records': data['records'], 'color': data['color']})
-    board, records, color, defs_ = reformated['board'], reformated['records'], reformated['color'], data['defs']
+    board, records, color, ai_color, defs_ = reformated['board'], reformated['records'], reformated['color'], data['ai_color'], data['defs']
     json_records = JsonRecords(None, None, j_records=records)
-    data = new_data(board, color, defs_, json_records)
+    data = new_data(board, color, ai_color, defs_, json_records)
     enemy_data = new_data(board, get_enemy_color(color), defs_, json_records)
     return jsonify({'ranges': data['ranges'], 'enemy_ranges': enemy_data['ranges'],
                     'moves': data['moves'], 'status': data['status']})

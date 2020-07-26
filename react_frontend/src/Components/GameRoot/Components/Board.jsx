@@ -54,10 +54,6 @@ export class Board extends React.Component {
         return this.displaySqrs;
     }
 
-    componentDidUpdate() {
-        console.log("updated")
-    }
-
     render() {
         return (
             <>

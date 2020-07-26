@@ -10,10 +10,11 @@ from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from game_logic.pins.top.get_pins import get_pins
 from game_logic.GameStatus.get_status import get_status
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
+from flask_helpers.ai_move import ai_move
 from pprint import pprint
 
 
-def new_data(board, color, defs_, json_records):
+def new_data(board, color, ai_color, defs_, json_records):
     init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
     init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
     k_loc = get_king_locs(board, color)
@@ -27,6 +28,10 @@ def new_data(board, color, defs_, json_records):
     moves = special_moves.get_moves()
     status = get_status(board, final_ranges, get_enemy_color(color), npck)
     data = map_xy_to_rf({"ranges": final_ranges, "moves": moves})
-    pprint(data['ranges'])
     data['status'] = status
+    if color == ai_color:
+        data['response_board'], data['ai_capture'], data['ai_start'], data['ai_dest'] = ai_move(board, final_ranges, ai_color, special_moves)
+    else:
+        data['response_board'], data['ai_capture'], data['ai_start'], data['ai_dest'] =  False, False, False, False
+    pprint(data['ranges'])
     return data

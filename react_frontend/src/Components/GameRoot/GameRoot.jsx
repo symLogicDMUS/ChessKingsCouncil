@@ -115,11 +115,11 @@ export class GameRoot extends React.Component {
             method: 'POST',
             body: body
         }).then(response => response.json())
-        .then(dataEntry => {
-            this.ranges = dataEntry['ranges']
-            this.enemyRanges = dataEntry['enemy_ranges'];
-            this.specialMoves.update(dataEntry['moves']);
-            this.gameStatus.update(dataEntry['status'])
+        .then(response => {
+            this.ranges = response['ranges']
+            this.enemyRanges = response['enemy_ranges'];
+            this.specialMoves.update(response['moves']);
+            this.gameStatus.update(response['status'])
         });
     }
 

@@ -8,6 +8,9 @@
 ................................................................
 1. guard against all bad input for names of new games and pieces.
 ................................................................
-1. added search boxes everywhere aplicable
-2. implement simplest a.i.
-3. implement option for playing as white, black, or test (against self)
+................................................................
+For testing AI:
+1. remove all of test board dependency on gameRoot
+2. Implement a test parent for: displayBoard, PiecesBoard, and AiBoard. AiBoard has timer and is displayed until timer is up.
+3. invisible full-page 'modal' wall, which has hightest z-index, blocks user from interacting with game until Ai finished moving.
+4. implement picking of random move and returning response board, start, and dest, on the python end.

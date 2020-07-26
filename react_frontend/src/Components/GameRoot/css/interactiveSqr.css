@@ -16,7 +16,7 @@
   .sqr1-in-range {
     display: inline-block;
     z-index: 2;
-    background-color: rgb(221, 255, 0);
+    background-color: #ddff00;
     opacity: 60%;
     width: 75px;
     height: 75px;  
@@ -25,7 +25,7 @@
   .sqr2-in-range {
     display: inline-block;
     z-index: 2;
-    background-color: rgb(253, 253, 53);
+    background-color: #fdfd35;
     opacity: 60%;
     width: 75px;
     height: 75px;  
