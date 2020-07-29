@@ -10,7 +10,9 @@ from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from game_logic.pins.top.get_pins import get_pins
 from game_logic.GameStatus.get_status import get_status
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
+from game_logic.status.is_checkmate import is_checkmate as checkmate
 from flask_helpers.ai_move import ai_move
+from game_logic.status.g_status_types import *
 
 
 def new_data(board, color, ai_color, defs_, json_records):
@@ -26,7 +28,7 @@ def new_data(board, color, ai_color, defs_, json_records):
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
     special_moves.set_promos(board, final_ranges, color)
     data = {'status': get_status(board, final_ranges, get_enemy_color(color), npck)}
-    if color == ai_color:
+    if color == ai_color and not checkmate(final_ranges):
         ai_capture, ai_start, ai_dest = ai_move(board, final_ranges, ai_color, special_moves)
     else:
         ai_capture, ai_start, ai_dest = False, False, False

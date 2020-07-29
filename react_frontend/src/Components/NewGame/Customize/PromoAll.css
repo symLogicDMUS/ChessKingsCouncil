@@ -1,8 +1,9 @@
 .new-game-promo-all {
     position: absolute;
+    z-index: 3;
     display: grid;
-    left: 880px;
-    top: 10px;
+    left: 572px;
+    top: 6px;
     grid-template-columns: 98px 25px; 
     grid-template-rows: 36px; 
     text-align: left;
@@ -23,6 +24,18 @@
 }
 
 .new-game-promo-all-checkbox {
+    position: relative;
+    top: 9px;
+    width: 18px; 
+    height: 18px; 
+    background-color: #515151;
+    border: 2px solid #707070;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+
+.new-game-promo-all-checkbox-selected {
     position: relative;
     top: 9px;
     width: 18px; 

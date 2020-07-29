@@ -5,7 +5,7 @@ def filter_empty_ranges(ranges):
     """ """
     ai_ranges = {}
     for piece_id in ranges.keys():
-        if ranges[piece_id] != []:
+        if ranges[piece_id]:
             ai_ranges[piece_id] = ranges[piece_id]
     return ai_ranges
 
@@ -24,6 +24,23 @@ if __name__ == "__main__":
                                 'BP6': [(6, 6), (6, 5)],
                                 'BP7': [(7, 6), (7, 5)],
                                 'BP8': [(8, 6), (8, 5)],
+                                'BQ1': [],
+                                'BR1': [],
+                                'BR2': []}))
+
+    pprint(filter_empty_ranges({'BB1': [],
+                                'BB2': [],
+                                'BK1': [],
+                                'BN1': [],
+                                'BN2': [],
+                                'BP1': [],
+                                'BP2': [],
+                                'BP3': [],
+                                'BP4': [],
+                                'BP5': [],
+                                'BP6': [],
+                                'BP7': [],
+                                'BP8': [],
                                 'BQ1': [],
                                 'BR1': [],
                                 'BR2': []}))

@@ -3,7 +3,7 @@ import {AiBoard} from "./AiBoard";
 
 export function AiDisplay({aiStart, aiDest, aiMakeMove}) {
 
-    const [seconds, setSeconds] = useState(2);
+    const [seconds, setSeconds] = useState(1);
 
     useEffect(() => {
       const interval = setInterval(() => {

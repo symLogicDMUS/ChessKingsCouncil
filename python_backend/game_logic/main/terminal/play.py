@@ -23,7 +23,7 @@ from termcolor import colored
 
 def play_game(game_name):
     """game loop located here/ WARNING: need to refactor get_ranges"""
-    fen_obj, board, json_records, game_status, flask_method, defs_ = get_data(game_name)
+    fen_obj, board, json_records, status, flask_method, defs_ = get_data(game_name)
     color = fen_obj.turn.upper()
     moved, x, p_flag = False, False, False
     start, dest = "", ""
@@ -38,8 +38,8 @@ def play_game(game_name):
         npck = get_num_pieces_checking_king(board, k_loc, color, defs_['range_defs'], defs_['id_dict'], pd_dict)
         mt_restricts = get_multithreat_restriction(board, npck, color)
         final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
-        game_status.update(board, final_ranges, get_next_color(color), npck)
-        if game_over(game_status.game_status):
+        status.update(board, final_ranges, get_next_color(color), npck)
+        if game_over(status.status):
             break
         start, dest, board, captured, x = make_move(board, start, dest, color, final_ranges, special_moves)
         board, p_flag, = promote(board, start, dest, color, default=True)

@@ -129,7 +129,7 @@ def test_game(game_name):
     f = open("./test_output/log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_, game_status, flask_method, defs_ = get_data(game_name)
+    fen_, board_, json_records_, status, flask_method, defs_ = get_data(game_name)
     uni_board = get_unicode_board(board_)
     results = run_tests(fen_, board_, json_records_, defs_, results)
     if results == -1:

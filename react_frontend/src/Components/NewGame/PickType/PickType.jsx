@@ -12,7 +12,8 @@ export class PickType extends React.Component {
     }
 
     setType(gameType) {
-        this.props.setType(gameType)
+        this.props.setType(gameType);
+        this.props.nextStep();
     }
 
     render() {

@@ -5,6 +5,7 @@ import {defs} from "./tests/testDefs1";
 import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
 import {NameTooltip} from "./Profile/NameTooltip";
 import {PromoList} from "./Bottom/PromoList";
+import {SubList} from "./Bottom/SubList";
 import {PromoAll} from "./PromoAll";
 import {spanToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
@@ -12,6 +13,7 @@ import {Ok} from "./Bottom/CustomiseOk";
 import {HelpComponent} from "../../Help/HelpComponent";
 import {HelpModal} from "../../Help/HelpModal";
 import {HelpText} from "./HelpText";
+import {NewGamePlayerType as PlayerType} from "./NewGamePlayerType";
 import { SearchBar } from "./SearchBar";
 import "./Customize.css";
 
@@ -22,8 +24,12 @@ export class Customize extends React.Component {
         super(props);
         this.state = {binaryValue: true, isHelpModal: false}
         this.promos = [];
+        this.aboveView = [];
+        this.inView = [];
+        this.belowView = [];
+        this.promoListUpdate = false;
         this.expandModals = [];
-        this.promoAll = false;
+        this.playerType = "test";
         this.pieceName = null; //for expand modal
         this.rangeType = null; //for expand modal
         this.color = null; //for expand modal
@@ -67,6 +73,7 @@ export class Customize extends React.Component {
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
+        this.setPlayerType = this.setPlayerType.bind(this);
     }
 
     getSpans(def) {
@@ -106,10 +113,42 @@ export class Customize extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
+    async assignIds(names, subs) {
+        let response = await fetch('/assign_ids', {
+            method:'POST',
+            body:JSON.stringify({"names":names, "subs":subs})
+        });
+        let idDict = await response.json();
+        return idDict;
+    }
+
+    preparePayload() {
+        let names = [];
+        let subs = {};
+        Object.entries(this.subs).forEach( ([standard, sub]) => {
+            if (sub != null)
+                subs[sub] = standard;
+        });
+        for (var p of this.promos) 
+            names.push(p)
+        for (var s of Object.keys(subs)) {
+            if (! names.includes(s)) 
+                names.push(s)
+        }
+        return [names, subs];
+    }
+
+    loadNewCustom() {
+        let [names, subs] = this.preparePayload();
+        return Promise.all([this.assignIds(names, subs)]);
+    }
+
     accept() {
-        this.loadNewCustom().then( ([idDict]) => this.props.loadNewCustom(idDict, this.promos));
-        this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
-        this.setState({binaryValue: ! this.state.binaryValue})
+        this.loadNewCustom().then( ([idDict]) => {
+            this.props.loadNewCustom(idDict, this.promos);
+            this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
+            this.setState({binaryValue: ! this.state.binaryValue});
+        });
     }
 
     expand(pieceName, color, rangeType) {
@@ -145,22 +184,6 @@ export class Customize extends React.Component {
         this.newReplaced = standardPiece; 
         this.setState({binaryValue: ! this.state.binaryValue})
     }
-
-    preparePayload() {
-        let names = [];
-        let subs = {};
-        Object.entries(this.subs).forEach( ([standard, sub]) => {
-            if (sub != null)
-                subs[sub] = standard;
-        });
-        for (var p of this.promos) 
-            names.push(p)
-        for (var s of Object.keys(subs)) {
-            if (! names.includes(s)) 
-                names.push(s)
-        }
-        return [names, subs];
-    }
     
     toglePromo(pieceName) {
         if (this.promos.includes(pieceName)) {
@@ -170,39 +193,52 @@ export class Customize extends React.Component {
         }
         else
             this.promos.push(pieceName);
+        this.promoListUpdate = true;
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
-    toglePromoAll() {
+    toglePromoAll(promoAll) {
 
-        if (this.promoAll) {
-            this.promos = [];
-            this.promoAll = false;
-        }
-
-        else {
+        if (promoAll) {
             for (var pieceName of Object.keys(this.defs)) {
                 if (! this.promos.includes(pieceName)) {
                     this.promos.push(pieceName);
                 }
             }
-            this.promoAll = true;
         }
+
+        else {
+            this.promos = [];
+        }
+        this.promoListUpdate = true;
         this.setState({binaryValue: ! this.state.binaryValue})
     }
+    
+    divideList() {
+        this.aboveView = [];
+        this.inView = [];
+        this.belowView = [];
+        let remaining = 0;
+        if (this.promos.length > 5) {
+            remaining = this.promos.length - 5;
+            let lenTop = Math.floor(remaining / 2);
+            for (let i = 0; i < lenTop; i++) {
+                this.aboveView.push(this.promos[i])
+            }
+            let current = lenTop;
+            for (let i = 0; i < 5; i++) {
+                this.inView.push(this.promos[current]);
+                current++;
+            }
+            for (let i = current; i < this.promos.length; i++) {
+                this.belowView.push(this.promos[i]);       
+            }
+        }
+        else 
+            this.inView = this.promos;
 
-    async assignIds(names, subs) {
-        let response = await fetch('/assign_ids', {
-            method:'POST',
-            body:JSON.stringify({"names":names, "subs":subs})
-        });
-        let idDict = await response.json();
-        return idDict;
-    }
+        this.promoListUpdate = false; 
 
-    loadNewCustom() {
-        let [names, subs] = this.preparePayload();
-        return Promise.all([this.assignIds(names, subs)]);
     }
     
     getHelpModalChild() {
@@ -231,6 +267,11 @@ export class Customize extends React.Component {
             return Object.keys(this.defs);
     }
 
+     setPlayerType(playerType) {
+        this.props.setPlayer(playerType);
+        this.setState({binaryValue: ! this.state.binaryValue});
+    }
+
     getProfiles() {
         let pieceNames = this.applySearchFilter();
         let profiles = [];
@@ -245,7 +286,6 @@ export class Customize extends React.Component {
                   expand={this.expand}
                   pieceName={pieceName}
                   promos={this.promos}
-                  promoAll={this.promoAll}
                   displayDefs={this.displayDefs}
                 />
             );
@@ -254,6 +294,9 @@ export class Customize extends React.Component {
     }
 
     render() {
+
+        if (this.promoListUpdate)
+            this.divideList();
 
         return(
             <>  
@@ -271,11 +314,12 @@ export class Customize extends React.Component {
                                                 height:15,
                                                 width:15,
                                                 left:200,
-                                                top:22
+                                                top:18
                                        }}
                                        highlighted="/Images/question-mark-0cc.svg"
                                        normal="/Images/question-mark-a9a9a9.svg"
                         />
+                        <PlayerType setPlayerType={this.setPlayerType} />
                         <SearchBar updateSearch={this.updateSearch} />
                         <PromoAll toglePromoAll={this.toglePromoAll} />
                     </div>
@@ -283,17 +327,15 @@ export class Customize extends React.Component {
                         {this.getProfiles()}
                     </div>
                     <div className="new-game-bottom-bar">
-                        <div className="new-game-subs-header">Subs</div>
-                        <div className="new-game-rook-label">Rook </div>
-                        <div className="new-game-rook-value">{this.subs["Rook"]}</div>
-                        <div className="new-game-bishop-label">Bishop </div>
-                        <div className="new-game-bishop-value">{this.subs["Bishop"]}</div>
-                        <div className="new-game-knight-label">Knight </div>
-                        <div className="new-game-knight-value">{this.subs["Knight"]}</div>
-                        <div className="new-game-queen-label">Queen </div>
-                        <div className="new-game-queen-value">{this.subs["Queen"]}</div>
+                        <SubList subs={this.subs} />
                         <div className="new-game-promo-label">Pawn Promotions</div>
-                        <div className="new-game-promo-list-container"><PromoList promos={this.promos}/></div>
+                        <div className="new-game-promo-list-container">
+                            <PromoList promos={this.promos}
+                                       aboveView={this.aboveView} 
+                                       inView={this.inView}
+                                       belowView={this.belowView}
+                            />
+                        </div>
                     </div>
                 </div>
                 {this.isTooltip && (<NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />) }

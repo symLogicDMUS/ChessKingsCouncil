@@ -26,7 +26,7 @@
                               "WP8":["h2"]},
             "last_pawn_move":"None",
             "num_consecutive_non_pawn_moves":0,
-            "game_status":1,
+            "status":1,
             "condition":"",
             "winner":"-"},
  "defs":{

@@ -36,7 +36,7 @@ def get_data(game_name):
     data = f.read()
     status = json.loads(data)
     json.dumps(status)
-    game_status = GameStatus(status)
+    status = GameStatus(status)
     f.close()
 
     f = open("{}/example_games/{}/{}.ids".format(dir_, game_name, game_name), 'r')
@@ -53,7 +53,7 @@ def get_data(game_name):
 
     defs_ = {"id_dict": id_dict, "range_defs": range_defs}
 
-    return fen_obj, board, json_records, game_status, flask_method, player_type, defs_
+    return fen_obj, board, json_records, status, flask_method, player_type, defs_
 
 
 if __name__ == "__main__":

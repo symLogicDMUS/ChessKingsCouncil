@@ -103,7 +103,7 @@ if __name__ == "__main__":
                     'BR1': ['b8', 'a4', 'a5', 'a6', 'a7'],
                     'BR2': ['h6', 'h7']},
          'records': {'condition': '',
-                     'game_status': 1,
+                     'status': 1,
                      'kings_moved': {'e1': False, 'e8': False},
                      'last_pawn_move': 'c2',
                      'num_consecutive_non_pawn_moves': 0,

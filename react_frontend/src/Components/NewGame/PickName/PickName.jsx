@@ -15,7 +15,8 @@ export class PickName extends React.Component {
   }
 
   setName() {
-      this.props.setName(this.state.userInput)
+      this.props.setName(this.state.userInput);
+      this.props.nextStep();
   }
 
   render() {

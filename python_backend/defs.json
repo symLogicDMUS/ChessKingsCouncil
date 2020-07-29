@@ -621,7 +621,7 @@
     },
     "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels": {
         "B": {
-            "img": "x.svg",
+            "img": "BlackGem.svg",
             "offsets": [
                 [
                     3,
@@ -887,7 +887,7 @@
             "spans": []
         },
         "W": {
-            "img": "x.svg",
+            "img": "WhiteGem.svg",
             "offsets": [
                 [
                     -3,

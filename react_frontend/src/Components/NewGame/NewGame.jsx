@@ -20,16 +20,23 @@ export class NewGame extends React.Component {
         this.state = {step: 0};
         this.gameName = "none";
         this.gameType = "none";
-        this.playerType = "none"; //either the color W or B, or 'test' 
+        this.playerType = "test"; //either the color W or B, or 'test' 
         this.rangeDefs = {};
         this.comp = null;
         this.council = false;
         this.turn = null;
+        this.nextStep = this.nextStep.bind(this);
         this.setType = this.setType.bind(this);
         this.setName = this.setName.bind(this);
         this.setPlayer = this.setPlayer.bind(this);
+        this.loadNewStandard = this.loadNewStandard.bind(this);
         this.loadNewCustom = this.loadNewCustom.bind(this);
+        this.loadNewCouncil = this.loadNewCouncil.bind(this);
     }
+
+    nextStep() {
+        this.setState({step: this.state.step + 1});
+    } 
 
     componentDidMount() {
         document.body.className = "new-game-body";
@@ -37,17 +44,14 @@ export class NewGame extends React.Component {
 
     setType(type) {
         this.gameType = type;
-        this.setState({step: this.state.step + 1});
     }
 
     setName(name) {
         this.gameName = name;
-        this.setState({step: this.state.step + 1});
     }
 
     setPlayer(playerType) {
-        this.dataDict[this.gameName]['player_type'] = playerType;
-        this.setState({step: this.state.step + 1});
+        this.playerType = playerType;
     }
 
     loadNewStandard() {
@@ -58,7 +62,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        // this.setState({step: this.state.step + 1});
+        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
     }
 
     loadNewCouncil() {
@@ -70,7 +74,7 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
         this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        // this.setState({step: this.state.step + 1});
+        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
     }
 
     
@@ -80,22 +84,22 @@ export class NewGame extends React.Component {
          * load the data for new-game but then change the idDict to
          * one chosen by customise. note: unlike loadNewCouncil and 
          * loadNewStandard,loadNewCustom is called from child.
+         * 
+         * 1. set data that is same for any new game
+         * 2. set what the player will play as: W, B, or test
+         * 3. set data that is unique to this game.
+         * 4. get the starting ranges for our custom new game from the backend, then update state
          */
-        
-        //set data that is same for any new game: 
-        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
-
-        //set data that is unique to this new game:
-        this.dataDict[this.gameName]['id_dict'] = idDict;
-        this.dataDict[this.gameName]['promo_choices'] = promos;
-        this.dataDict[this.gameName]['defs'] = {};
+        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData)); //1.
+        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType)); //2.
+        this.dataDict[this.gameName]['id_dict'] = idDict; //3.
+        this.dataDict[this.gameName]['promo_choices'] = promos; //3.
+        this.dataDict[this.gameName]['defs'] = {}; //3.
         for (var name of Object.values(idDict)) {
-            this.dataDict[this.gameName]['defs'][name] = this.props.defs[name];
+            this.dataDict[this.gameName]['defs'][name] = this.props.defs[name]; //3.
         }
-
-        //get the starting ranges for our custom new game from the backend, then update state:
-        let payload = this.getPayload();
-        fetch('/update', {
+        let payload = this.getPayload(); //4.
+        fetch('/update', { //4.
             method: 'POST',
             body: JSON.stringify(payload)
         }).then(response => response.json())
@@ -105,7 +109,7 @@ export class NewGame extends React.Component {
             this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
             this.dataDict[this.gameName]['status'] = dataEntry['status'];
             this.props.updateDataDict(this.dataDict, this.gameName);
-            this.setState({step: this.state.step + 1});
+            this.nextStep();
         });
     }
 
@@ -113,42 +117,52 @@ export class NewGame extends React.Component {
         return { "board":this.dataDict[this.gameName]['board'], 
                  "records":this.dataDict[this.gameName]['records'],
                  "color":"W",
+                 "player_type":this.dataDict[this.gameName]['player_type'],
                  "defs":{"range_defs":this.dataDict[this.gameName]['defs'], 
                          "id_dict":this.dataDict[this.gameName]['id_dict'] } }
     }
 
-    createGame() {
-        switch(this.gameType) {
-            case "standard":
-                this.loadNewStandard();
-                this.comp = <PlayAs setPlayer={this.setPlayer} />
-                break;
-            case "custom":
-                this.comp = <Customize defs={this.props.defs} loadNewCustom={this.loadNewCustom} />
-                break;
-            case "council":
-                this.loadNewCouncil();
-                this.comp = <PlayAs setPlayer={this.setPlayer} />
-                break;
-            default:
-                this.comp = <div>Invalid Game Type</div>
-                break;
-        }
-    }
+    getComponent() {
 
-    render() {
+        let comp = null;
+
         switch(this.state.step) {
             case 0:
-                this.comp = <PickType setType={this.setType} />
+                comp = <PickType setType={this.setType} 
+                                 nextStep={this.nextStep} />
                 break;
             case 1:
-                this.comp = <PickName setName={this.setName} />
+                comp = <PickName setName={this.setName} 
+                                 nextStep={this.nextStep} />
                 break;
             case 2:
-                this.createGame();
+                switch(this.gameType) {
+                    case "standard":
+                        comp = <PlayAs setPlayer={this.setPlayer} 
+                                       nextStep={this.nextStep}
+                                       loadNew={this.loadNewStandard}
+                                />
+                        break;
+                    case "custom":
+                        comp = <Customize defs={this.props.defs} 
+                                          loadNewCustom={this.loadNewCustom} 
+                                          setPlayer={this.setPlayer} 
+                                          nextStep={this.nextStep}  
+                                />
+                        break;
+                    case "council":
+                        comp = <PlayAs setPlayer={this.setPlayer} 
+                                       nextStep={this.nextStep}
+                                       loadNew={this.loadNewCouncil}
+                                />
+                        break;
+                    default:
+                        comp = <div>Invalid Game Type</div>
+                        break;
+                }
                 break;
             case 3:
-                this.comp = <Redirect to={{
+                comp = <Redirect to={{
                              pathname:"/NewGame/Play",
                              state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
                                      dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
@@ -157,9 +171,17 @@ export class NewGame extends React.Component {
                             }} />
                 break;
             default:
-                this.comp = <div>Error in NewGame</div>
-                break
+                comp = <div>Error in NewGame</div>
+                break;
         }
+
+        return comp;
+
+    }
+
+    render() {
+
+        this.comp = this.getComponent();
 
         return this.comp;
     }

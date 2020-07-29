@@ -12,14 +12,14 @@ def move_json_status_attrib():
         json.dumps(records, indent=4, sort_keys=False)
         f.close()
 
-        game_status = {'game_status': records['game_status'], 'condition': records['condition'],
+        status = {'status': records['status'], 'condition': records['condition'],
                        'winner': records['winner']}
 
         with open('../../example_games/{}/{}.status'.format(game_name, game_name), 'w') as outfile:
-            json.dump(game_status, outfile, indent=4, sort_keys=False)
+            json.dump(status, outfile, indent=4, sort_keys=False)
         outfile.close()
 
-        del records['game_status']
+        del records['status']
         del records['condition']
         del records['winner']
 

@@ -3,7 +3,7 @@ var getPieceTypes = require("../../../helpers/tests/getPieceTypes")
 
 class GameStatus {
     constructor(status) {
-        this.gameStatus = status['game_status']
+        this.gameStatus = status['status']
         this.condition = status['condition']
         this.winner = status['winner']
     }
@@ -65,7 +65,7 @@ module.exports = GameStatus;
 
 if (require.main === module) {
 
-    gameStatus = new GameStatus({game_status:IN_PROGRESS, condition:'', winner:'-'});
+    let gameStatus = new GameStatus({status:IN_PROGRESS, condition:'', winner:'-'});
 
     /*test 1*/
     let board =  {'a1': 'BQ1','a2': '#','a3': '#','a4': '#','a5': '#','a6': 'BR2','a7': '#','a8': '#',

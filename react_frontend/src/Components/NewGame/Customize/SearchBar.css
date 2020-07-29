@@ -1,9 +1,9 @@
 .new-game-customize-top-bar-search {
     position: absolute;
     z-index: inherit;
-    width: 420px;
+    width: 280px;
     height: 26px;
-    left: 440px;
+    left: 720px;
     top: 10px;
     font-family: Tahoma;
     background-color: #515151;
@@ -22,7 +22,7 @@
     left: 21px;
     top: 0px;
     height: 24px;
-    width: 380px;
+    width: 253px;
     font-family: Tahoma;
     color: #c4c4c4;
     /* color: #5c9fd2; */
@@ -31,3 +31,4 @@
     border-radius: 9px;
     outline: none;
 }
+

@@ -13,14 +13,14 @@ def get_status(board, ranges, enemy_color, npck):
      :param enemy_color: str, color of king
     """
     piece_types = get_piece_types(board)
-    condition, game_status, winner = '', IN_PROGRESS, '-'
+    condition, status, winner = '', IN_PROGRESS, '-'
     if not any(ranges.values()):
         if npck > 0:
-            condition, game_status, winner = 'checkmate', OVER, enemy_color
+            condition, status, winner = 'checkmate', OVER, enemy_color
         else:
-            condition, game_status, winner = 'stalemate', OVER, '-'
+            condition, status, winner = 'stalemate', OVER, '-'
     elif piece_types == ['K', 'K']:
-        condition, game_status, winner = 'stalemate', OVER, '-'
+        condition, status, winner = 'stalemate', OVER, '-'
     elif npck > 0:
-        condition, game_status, winner = 'check', IN_PROGRESS, '-'
-    return {'condition': condition, 'game_status': game_status, 'winner': winner}
+        condition, status, winner = 'check', IN_PROGRESS, '-'
+    return {'condition': condition, 'status': status, 'winner': winner}

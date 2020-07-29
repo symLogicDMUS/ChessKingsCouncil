@@ -10,7 +10,7 @@ class JsonRecords(object):
 
     def __init__(self, file, board, j_records=None):
         """new instance of object created for every update to piece final_ranges i.e. @app.update()
-        consider seperating game_status, condition, and winner into seperate game_status object.
+        consider seperating status, condition, and winner into seperate status object.
         :param file: json record file for a particular game
         :param board: dict discribing the game board
         :param j_records: contains the records of a game in progress

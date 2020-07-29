@@ -21,11 +21,11 @@ export class GameRoot extends React.Component {
 
     constructor(props) {
         super(props);
-        this.dataEntry = this.props.location.state.dataEntry;
         this.gameName = this.props.location.state.gameName;
-        this.state = {board: this.dataEntry['board'], bValue:true}
+        this.dataEntry = this.props.location.state.dataEntry;
+        this.state = {bValue:true}
+        this.board = this.dataEntry['board'] 
         this.aiDisplay = false;
-        this.board = this.dataEntry['board'] //see footnote 1.
         this.jsonRecords = new JsonRecords(this.dataEntry['records']);
         this.gameStatus = new GameStatus(this.dataEntry['status']);
         this.specialMoves = new SpecialMoves(this.dataEntry['moves']);
@@ -39,36 +39,28 @@ export class GameRoot extends React.Component {
         this.playerType = this.dataEntry['player_type'];
         this.aiColor = this.setAiColor();
         this.promo = false; //set true to alert need of promotion
+        this.first = true;
         this.pieceRangeHighlight = "none"; // is a piece id
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
-        this.emitSpecialChange = this.emitSpecialChange.bind(this);
         this.aiDisplayMove = this.aiDisplayMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
-
-        /*footnote 1: have this.board in addition to this.state.board because
-          board is a logical choice for state but also want to make updates to
-          before triggering new render. State is set to this.board once all
-          updates have been made.
-        */ 
     }
 
     componentDidMount() {
         document.body.className = "game-root-body";
-    }
-
-    emitChange() {
-      this.setState({board: this.board})
-    }
-
-    emitSpecialChange(board) {
-        /**emit change of special case where board needs to be modified by source other than piece DnD.
-         * called by Pawn promotion
-         */
-        this.setState({board: board})
+        if (this.first) {
+            this.first = false;
+            if (this.turn === this.aiColor) {
+                this.updateBackend().then(([result]) => { 
+                    this.aiDisplayMove();
+                    this.update();
+                });
+            }
+        }
     }
 
     setAiColor() {
@@ -89,9 +81,8 @@ export class GameRoot extends React.Component {
         this.aiDisplay = false;
         makeMove(this, this.aiStart, this.aiDest)
         this.toggleTurn();
-        this.emitChange();
         this.updateBackend().then(([result]) => {
-            this.emitChange();
+            this.update();
         });
     }
 
@@ -209,7 +200,7 @@ export class GameRoot extends React.Component {
     }
 
     resign() {
-        this.gameStatus.update({"game_status":OVER, "condition":"resigned", "winner":this.getEnemyColor() });
+        this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getEnemyColor() });
         this.save();
         this.update();
     }
@@ -225,6 +216,10 @@ export class GameRoot extends React.Component {
                     <Promo gameroot={this} 
                            color={this.getEnemyColor()} 
                            pawnLoc={this.specialMoves.currentDest} />)}
+                {(this.aiDisplay && this.specialCase !== "promo") && (
+                    <AiDisplay aiStart={this.aiStart} 
+                               aiDest={this.aiDest} 
+                               aiMakeMove={this.aiMakeMove} />)}
                 {this.specialCase === "saving" && (
                     <Saving />)}
                 {this.specialCase === "save-success" && (
@@ -243,7 +238,7 @@ export class GameRoot extends React.Component {
                                 resign={this.resign}
                                 updateSpecialCase={this.updateSpecialCase}
                 />
-                {this.aiDisplay && (<AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} aiMakeMove={this.aiMakeMove} />)}
+                
             </>
 
         )

@@ -26,7 +26,7 @@ export class SubDropdown extends React.Component {
     render() {
 
         if (this.props.newReplacement != null 
-         && this.props.piece != this.props.newReplacement 
+         && this.props.piece !== this.props.newReplacement 
          && this.props.newReplaced === this.selectedPiece)
               this.selectedPiece = <option value="None">None</option>;
 

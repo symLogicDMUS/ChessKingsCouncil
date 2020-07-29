@@ -48,7 +48,7 @@ export const newData = {"color": 'W',
                     },
                     "last_pawn_move": "None",
                     "num_consecutive_non_pawn_moves": 0,
-                    "game_status":1,
+                    "status":1,
                     "condition": "",
                     "winner":"-"
                   },
@@ -96,7 +96,7 @@ export const enemyRanges =
 
 export const moves = {"en_passant":[], "castles":[], "promos":[] };
 
-export const status = {'condition':'', 'game_status':IN_PROGRESS, 'winner':'-'};
+export const status = {'condition':'', 'status':IN_PROGRESS, 'winner':'-'};
 
 export const range_defs = {
   "Rook": {

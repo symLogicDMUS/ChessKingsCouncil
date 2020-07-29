@@ -16,17 +16,21 @@ export class CheckBox extends React.Component {
     
     getCheckmark() {
         if (this.checkmark)
-            return <img src="/Images/checkmark.svg" className="new-game-promotion-checkbox-checkmark" />
+            return <img src="/Images/checkmark.svg" className="new-game-promotion-checkbox-checkmark" alt="promotion choice checkmark" />
         else
             return null;
     }
 
+    getCheckbox() {
+        if (this.checkmark)
+            return "new-game-promotion-checkbox-selected"
+        else
+            return "new-game-promotion-checkbox"
+    }
+
     render() {
 
-        if (this.props.promoAll) {
-            this.checkmark = true;
-        }
-        else if (this.props.promos.includes(this.props.pieceName)) {
+        if (this.props.promos.includes(this.props.pieceName)) {
             this.checkmark = true;
         }   
         else {
@@ -34,7 +38,7 @@ export class CheckBox extends React.Component {
         }   
 
         return(
-            <div className="new-game-promotion-checkbox" onClick={this.togleCheckmark}>
+            <div className={this.getCheckbox()} onClick={this.togleCheckmark}>
                 {this.getCheckmark()}
             </div>
         )

@@ -5,12 +5,15 @@ export class PromoAll extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {checkmark: false}
+        this.state = {checkmark: false};
         this.togleCheck = this.togleCheck.bind(this);
     }
 
     togleCheck() {
-        this.props.toglePromoAll()
+        if (this.state.checkmark)
+            this.props.toglePromoAll(false);
+        else
+            this.props.toglePromoAll(true);
         this.setState({checkmark: ! this.state.checkmark})
     }
 
@@ -21,14 +24,21 @@ export class PromoAll extends React.Component {
             return null;
     }
 
+    getCheckbox() {
+        if (this.state.checkmark)
+            return "new-game-promo-all-checkbox-selected";
+        else
+            return "new-game-promo-all-checkbox";
+    }
+
     render() {
         return(
             <div className="new-game-promo-all">
                 <div className="new-game-promo-all-label">
-                    Promo All:
+                    Promo All
                 </div>
                 <div className="new-game-promo-all-checkbox-container">
-                    <div className="new-game-promo-all-checkbox" onClick={this.togleCheck}>
+                    <div className={this.getCheckbox()} onClick={this.togleCheck}>
                         {this.getCheckmark()}
                     </div>
                 </div>

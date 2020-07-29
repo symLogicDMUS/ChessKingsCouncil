@@ -1,5 +1,3 @@
-import {OVER, IN_PROGRESS} from "../../helpers/gStatusTypes";
-import {getPieceTypes} from "../../helpers/getPieceTypes";
 
 export class GameStatus {
     /**
@@ -15,13 +13,13 @@ export class GameStatus {
      * 
      */
     constructor(status) {
-        this.gameStatus = status['game_status']
+        this.gameStatus = status['status']
         this.condition = status['condition']
         this.winner = status['winner']
     }
 
     update(status) {
-        this.gameStatus = status['game_status']
+        this.gameStatus = status['status']
         this.condition = status['condition']
         this.winner = status['winner']
     }
@@ -33,7 +31,7 @@ export class GameStatus {
     getStatus() {
         return {
             'condition': this.condition,
-            'game_status':this.gameStatus,
+            'status':this.gameStatus,
             'winner':this.winner,
         }
     }

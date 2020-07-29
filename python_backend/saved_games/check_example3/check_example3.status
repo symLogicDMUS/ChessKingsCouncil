@@ -1,5 +1,5 @@
 {
     "condition": "resigned",
-    "game_status": 0,
+    "status": 0,
     "winner": "B"
 }

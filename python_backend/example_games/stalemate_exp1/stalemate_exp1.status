@@ -1,5 +1,5 @@
 {
-    "game_status": 0,
+    "status": 0,
     "condition": "stalemate",
     "winner": "X"
 }

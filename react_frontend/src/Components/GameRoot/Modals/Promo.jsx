@@ -25,11 +25,11 @@ export class Promo extends React.Component {
     }
 
     filterPawn() {
-        return Object.keys(this.props.gameroot.idDict).filter(id_ => this.props.gameroot.idDict[id_] != "Pawn");
+        return Object.keys(this.props.gameroot.idDict).filter(id_ => this.props.gameroot.idDict[id_] !== "Pawn");
     }
 
     filterKing(ids) {
-        return ids.filter(id_ => this.props.gameroot.idDict[id_] != "King");
+        return ids.filter(id_ => this.props.gameroot.idDict[id_] !== "King");
     }
 
     getPromoChoices() {
@@ -76,7 +76,7 @@ export class Promo extends React.Component {
     updateGameRoot() {
         this.props.gameroot.updateBackend().then(([result]) => {
             this.props.gameroot.updateSpecialCase("none");
-            this.props.gameroot.emitSpecialChange();
+            this.props.gameroot.update();
           });
     }
  

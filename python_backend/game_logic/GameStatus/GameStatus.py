@@ -4,7 +4,7 @@ from game_logic.piece_type.get_piece_types import get_piece_types
 
 class GameStatus:
     def __init__(self, status):
-        self.game_status = status['game_status']
+        self.status = status['status']
         self.condition = status['condition']
         self.winner = status['winner']
 
@@ -21,19 +21,19 @@ class GameStatus:
 
         if not any(ranges.values()):
             if npck > 0:
-                self.condition, self.game_status, self.winner = 'checkmate', OVER, enemy_color
+                self.condition, self.status, self.winner = 'checkmate', OVER, enemy_color
             else:
-                self.condition, self.game_status, self.winner = 'stalemate', OVER, '-'
+                self.condition, self.status, self.winner = 'stalemate', OVER, '-'
             return
 
         piece_types = get_piece_types(board)
         if piece_types == ['K', 'K']:
-            self.condition, self.game_status, self.winner = 'stalemate', OVER, '-'
+            self.condition, self.status, self.winner = 'stalemate', OVER, '-'
         elif piece_types == ['Bishop', 'King', 'King']:
-            self.condition, self.game_status, self.winner = 'stalemate', OVER, '-'
+            self.condition, self.status, self.winner = 'stalemate', OVER, '-'
         elif piece_types == ['King', 'King', 'Knight']:
-            self.condition, self.game_status, self.winner = 'stalemate', OVER, '-'
+            self.condition, self.status, self.winner = 'stalemate', OVER, '-'
         elif npck > 0:
-            self.condition, self.game_status, self.winner = 'check', IN_PROGRESS, '-'
+            self.condition, self.status, self.winner = 'check', IN_PROGRESS, '-'
         else:
-            self.condition, self.game_status, self.winner = '', IN_PROGRESS, '-'
+            self.condition, self.status, self.winner = '', IN_PROGRESS, '-'

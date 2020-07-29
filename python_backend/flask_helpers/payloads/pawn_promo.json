@@ -22,7 +22,7 @@
                                 "BP4": ["h7", "h5"]},
                                 "last_pawn_move": "c2",
                                 "num_consecutive_non_pawn_moves": 0,
-                                "game_status": 1,
+                                "status": 1,
                                 "condition": "",
                                 "winner": "-"},
   "color": "B",

@@ -26,6 +26,8 @@ export class PlayAs extends React.Component {
 
     accept() {
         this.props.setPlayer(this.state.option);
+        this.props.loadNew()
+        this.props.nextStep();
     }
 
     render() {

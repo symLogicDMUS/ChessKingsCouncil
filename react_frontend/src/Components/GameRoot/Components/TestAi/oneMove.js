@@ -47,7 +47,7 @@ export const oneMove = {
                     },
                     "last_pawn_move": "e4",
                     "num_consecutive_non_pawn_moves": 0,
-                    "game_status":1,
+                    "status":1,
                     "condition": "",
                     "winner":"-"
                   },
