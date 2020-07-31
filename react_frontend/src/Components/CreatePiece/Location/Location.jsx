@@ -30,7 +30,7 @@ export class Location extends React.Component {
             <div className="location-tool">
                 <div className="location-title">Location</div>
                 <HelpComponent helpTitle="Location of Piece When Creating it"
-                               hmChild="none"
+                               hmChildName="none"
                                helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 

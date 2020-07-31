@@ -14,7 +14,7 @@ export function LoadGameLink ({iconLabelPosLeft}) {
     return (
         <Link to="/LoadGame">
             <div className="load-game-link">
-                <img src="/Images/Navbar/load-game-invert.svg" className="link-icon" />
+                <img src="/Images/Navbar/load-game-invert.svg" className="link-icon" alt="icon for the load game page" />
                 <span class="navbar-load-game-tooltiptext" >Load Game</span>
             </div>
         </Link>

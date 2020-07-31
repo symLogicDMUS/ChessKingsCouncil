@@ -15,7 +15,6 @@ import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
-//import {NavBar} from "../NavBar/NavBar2";
 import {SaveDef} from "./Options/SaveDef/SaveDef";
 import {LoadDef} from "./Options/LoadDef/LoadDef";
 import {ResetDef} from "./Options/ResetDef/ResetDef";
@@ -242,7 +241,7 @@ export class CreatePiece extends React.Component {
 
     setPieceImg(color, imgName) {
         this.imgNames[color] = imgName;
-        this.pieceImg[color] = <img src={`/Images/Pieces/${imgName}`} width="75px" height="75px" />
+        this.pieceImg[color] = <img src={`/Images/Pieces/${imgName}`} width="75px" height="75px" alt="icon of a piece" />
         this.update();
     }
 
@@ -407,7 +406,7 @@ export class CreatePiece extends React.Component {
                 <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-72e2ff.svg" clear={this.clear} />
                 <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-72e2ff.svg" />                
                 <HelpComponent helpTitle="Options"
-                               hmChild="none"
+                               hmChildName="none"
                                helpText={OptionsText}
                                togleHelpModal={this.togleHelpModal} 
                                setHelpText={this.setHelpText} 

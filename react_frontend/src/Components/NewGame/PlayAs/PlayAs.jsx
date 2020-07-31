@@ -5,6 +5,9 @@ import { PlayAsButton } from "./PlayAsButton";
 import {NavBar} from "../../NavBar/NavBarRegular";
 import {NavExpand} from "../../NavBar/NavExpand";
 import {NavColapse} from "../../NavBar/NavColapse";
+import {HelpComponent} from "../../Help/HelpComponent";
+import {HelpText} from "./HelpText";
+import {HelpModal} from "../../Help/HelpModal";
 import "./PlayAs.css";
 
 export class PlayAs extends React.Component {
@@ -16,6 +19,8 @@ export class PlayAs extends React.Component {
         this.update = this.update.bind(this);
         this.accept = this.accept.bind(this);
         this.togleNav = this.togleNav.bind(this);
+        this.setHelpText = this.setHelpText.bind(this);
+        this.togleHelpModal = this.togleHelpModal.bind(this);
     }
 
     componentDidMount() {
@@ -38,6 +43,16 @@ export class PlayAs extends React.Component {
     togleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({bValue: ! this.state.bValue});
+    }
+
+    togleHelpModal(boolVal) {
+        this.setState({isHelpModal: boolVal})
+    }
+
+    setHelpText(helpTitle, helpText, hmChildName) {
+        this.helpTitle = helpTitle;
+        this.helpText = helpText;
+        this.hmChildName = hmChildName;
     }
 
     render() {
@@ -71,14 +86,33 @@ export class PlayAs extends React.Component {
                                             iconColor="b6b6b6" 
                                             border="1px solid #515151" />)}
                 {! this.navExpanded && (<NavExpand left={1080}  
-                                             top={-1} 
+                                             top={-1}
                                              togleNav={this.togleNav} 
                                              backgroundColor="#000000" 
                                              iconColor="b6b6b6" 
                                              border="1px solid #515151" />)}
+                <HelpComponent helpTitle="Choices for Playing the Game"
+                               helpText={HelpText}
+                               hmChildName="none"
+                               setHelpText={this.setHelpText}
+                               togleHelpModal={this.togleHelpModal}
+                               highlighted="/Images/question-mark-000000.svg"
+                               normal="/Images/question-mark-000000.svg" 
+                               style={{width:16, height:16, left:910, top:135}} 
+                />
+                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle}
+                                                       helpText={this.helpText}
+                                                       hmChildName={this.hmChildName}
+                                                       extraModal={null}
+                                                       togleHelpModal={this.togleHelpModal}/>)}                                             
             </>
         )
     }
 }
+
+
+
+
+
 
 export let test = () => ReactDOM.render(<PlayAs />, document.getElementById('root'));

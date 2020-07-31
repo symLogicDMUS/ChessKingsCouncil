@@ -56,7 +56,7 @@ export class PickName extends React.Component {
                                             backgroundColor="black" 
                                             iconColor="b6b6b6" 
                                             border="1px solid #515151" />)}
-          {! this.navExpanded && (<NavExpand left={1075}  
+          {! this.navExpanded && (<NavExpand left={1075}
                                              top={-1} 
                                              togleNav={this.togleNav} 
                                              backgroundColor="black" 

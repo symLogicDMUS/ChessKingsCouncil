@@ -48,7 +48,7 @@ export class Icon extends React.Component {
                     <div className="black-title" >Black</div>
 
                     <HelpComponent helpTitle="Picking an Icon for Your Piece"
-                                   hmChild="none"
+                                   hmChildName="none"
                                    helpText={HelpText}
                                    togleHelpModal={this.props.togleHelpModal} 
                                    setHelpText={this.props.setHelpText} 

@@ -70,7 +70,7 @@ export class Range extends React.Component {
             <div className="range-tool">
                 <div className="range-title">Range</div>
                 <HelpComponent helpTitle="Creating the Range of a Piece"
-                               hmChild="Range"
+                               hmChildName="Range"
                                helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 

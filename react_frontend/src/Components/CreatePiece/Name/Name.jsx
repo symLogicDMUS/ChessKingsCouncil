@@ -23,7 +23,7 @@ export class Name extends React.Component {
             <div className="name-component1">
                 <div className="name" >Name</div>
                 <HelpComponent helpTitle="Picking the Name of Your Piece"
-                               hmChild="none"
+                               hmChildName="none"
                                helpText={HelpText}
                                togleHelpModal={this.props.togleHelpModal} 
                                setHelpText={this.props.setHelpText} 

@@ -20,7 +20,7 @@ export class ImgChoice extends React.Component {
 
         return(
             <div className={class_} onClick={this.setChoice}>
-                <img src={`/Images/Pieces/${this.props.name}`} className="image" />
+                <img src={`/Images/Pieces/${this.props.name}`} className="image" alt="list of icons that can be used as pieces" />
                 <br />
                 {this.props.name}
             </div>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {imgNames} from "../../../MyPieces/imgNames";
 import {ImgChoice} from "./ImgChoice.jsx";
 import {Ok} from "./IconChooseOk";

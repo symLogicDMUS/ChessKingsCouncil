@@ -1,7 +1,7 @@
 .choose-icon-search {
     position: absolute;
     z-index: inherit;
-    width: 320px;
+    width: 380px;
     height: 26px;
     left: 860px;
     top: 25px;
@@ -20,9 +20,9 @@
 .choose-icon-search-box {
     position: absolute;
     left: 21px;
-    top: 0px;
-    height: 24px;
-    width: 292px;
+    top: 1px;
+    height: 22px;
+    width: 340px;
     font-family: Tahoma;
     color: #c4c4c4;
     background-color: #515151;

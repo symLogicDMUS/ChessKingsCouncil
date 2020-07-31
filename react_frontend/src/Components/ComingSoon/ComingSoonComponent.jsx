@@ -1,15 +1,9 @@
-/**
- *
- * This file was generated with Adobe XD React Exporter
- * Exporter for Adobe XD is written by: Johannes Pichler <j.pichler@webpixels.at>
- *
- **/
-
 import React from "react";
 import {NavBar} from "../NavBar/NavBarRegular";
 import {NavExpand} from "../NavBar/NavExpand";
 import {NavColapse} from "../NavBar/NavColapse";
 import "./ComingSoon.css";
+
 
 export class ComingSoonComponent extends React.Component {
 
