@@ -43,7 +43,7 @@ export class HelpComponent extends React.Component {
     return (
         <div className="help-component" style={this.props.style} onClick={this.openHelpModal} onMouseEnter={this.highlight} onMouseLeave={this.unhighlight}>
             <img src={this.src} style={{ position:"absolute", width: this.props.style.width, height:this.props.style.height }} alt="question mark, click for help" />
-            <span class="help-tooltiptext" style={{fontSize:this.props.style.height}}>Help</span>
+            <span class="help-tooltiptext" style={{fontSize:this.props.style.height, color:this.props.color}}>Help</span>
         </div>
     );
   }

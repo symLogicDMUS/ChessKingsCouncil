@@ -15,7 +15,7 @@ import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames"
-import {NavBar} from "../NavBar/NavBar2";
+//import {NavBar} from "../NavBar/NavBar2";
 import {SaveDef} from "./Options/SaveDef/SaveDef";
 import {LoadDef} from "./Options/LoadDef/LoadDef";
 import {ResetDef} from "./Options/ResetDef/ResetDef";
@@ -24,9 +24,12 @@ import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
+import {NavBar} from "../NavBar/NavBarRegular";
+import {NavExpand} from "../NavBar/NavExpand";
+import {NavColapse} from "../NavBar/NavColapse";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
-import {defs} from "../tests/defs1";
 import {HelpText as OptionsText} from "./Options/HelpText";
+import {defs} from "../tests/defs1";
 import "./CreatePiece.css";
 
 
@@ -102,6 +105,7 @@ export class CreatePiece extends React.Component {
         this.helpTitle = "";
         this.helpText = "";
         this.hmChildName = null; //Name of the HelpModal child if there is one.
+        this.navExpanded = true;
 
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.hmChildren = {"none":null, "Range":<RangeHelpTextExtraModal />} 
@@ -109,6 +113,7 @@ export class CreatePiece extends React.Component {
         //binds
         this.updateName = this.updateName.bind(this);
         this.setSaveStatus = this.setSaveStatus.bind(this);
+        this.togleNav = this.togleNav.bind(this);
         this.togleSpan = this.togleSpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setLoc = this.setLoc.bind(this);
@@ -164,6 +169,11 @@ export class CreatePiece extends React.Component {
         //reminder: calls this.update() at end
         this.setLoc("d4");
         
+    }
+
+    togleNav(boolVal) {
+        this.navExpanded = boolVal;
+        this.setState({bValue: ! this.state.bValue});
     }
 
     togleLoadModal(boolVal) {
@@ -367,7 +377,7 @@ export class CreatePiece extends React.Component {
         
         return(
             <div>
-                <NavBar navBarPosLeft={320} />
+                
                 <Name name={this.name} updateName={this.updateName} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
@@ -389,13 +399,13 @@ export class CreatePiece extends React.Component {
                          status={this.saveStatus} 
                          saveStatus={this.setSaveStatus} 
                          existing={Object.keys(this.defs)}
-                         highlighted="/Images/save-0cc.svg"
+                         highlighted="/Images/save-72e2ff.svg"
                          normal="/Images/save-a9a9a9.svg"
                 />
-                <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-0cc.svg" togleLoadModal={this.togleLoadModal} />
-                <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-0cc.svg" reset={this.reset} />
-                <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-0cc.svg" clear={this.clear} />
-                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-0cc.svg" />                
+                <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-72e2ff.svg" togleLoadModal={this.togleLoadModal} />
+                <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-72e2ff.svg" reset={this.reset} />
+                <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-72e2ff.svg" clear={this.clear} />
+                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-72e2ff.svg" />                
                 <HelpComponent helpTitle="Options"
                                hmChild="none"
                                helpText={OptionsText}
@@ -403,7 +413,8 @@ export class CreatePiece extends React.Component {
                                setHelpText={this.setHelpText} 
                                style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
                                normal="/Images/question-mark-a9a9a9.svg"
-                               highlighted="/Images/question-mark-0cc.svg"
+                               highlighted="/Images/question-mark-72e2ff.svg"
+                               color="#72e2ff"
                 />       
                 <Board update={this.update} 
                        togleJump={this.togleJump} 
@@ -419,9 +430,29 @@ export class CreatePiece extends React.Component {
                                                 {this.getHelpModalChild()}
                                             </HelpModal>
                 )}
+                {this.navExpanded && (<NavBar navBarPosTop={0} 
+                                              navBarPosLeft={263} 
+                                              backgroundColor="#515151" 
+                                              iconColor="969696" 
+                                              iconColorHover="72e2ff" 
+                                              backgroundColorSelected="#3d3d3d" 
+                                              border="1px solid #515151" />)}
+                {this.navExpanded && (<NavColapse left={863}  
+                                                  top={-1} 
+                                                  togleNav={this.togleNav} 
+                                                  backgroundColor="#515151" 
+                                                  iconColor="b6b6b6" 
+                                                  border="1px solid #515151" />)}
+                {! this.navExpanded && (<NavExpand left={863}  
+                                                   top={-1} 
+                                                   togleNav={this.togleNav} 
+                                                   backgroundColor="#515151" 
+                                                   iconColor="b6b6b6" 
+                                                   border="1px solid #515151" />)}
+
             </div>
         )
     }
-}
+} 
 
 export let test = () => ReactDOM.render(<CreatePiece defs={defs} />, document.getElementById('root'));

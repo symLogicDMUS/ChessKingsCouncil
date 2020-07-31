@@ -44,14 +44,14 @@ export class SaveResignTool extends React.Component {
     render() {
 
         if (this.state.saveHighlighted)
-            this.saveImg = "/Images/save-00ccff.svg";
+            this.saveImg = "/Images/save-72e2ff.svg";
         else
-            this.saveImg = "/Images/save-ffffff.svg";
+            this.saveImg = "/Images/save-b1faae.svg";
 
         if (this.state.resignHighlighted)
-            this.resignImg = "/Images/resign-game-00ccff.svg";
+            this.resignImg = "/Images/resign-game-72e2ff.svg";
         else
-            this.resignImg = "/Images/resign-game-ffffff.svg";
+            this.resignImg = "/Images/resign-game-b1faae.svg";
 
         return (
             <div className="save-resign-tool">

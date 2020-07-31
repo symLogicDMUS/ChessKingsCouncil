@@ -11,7 +11,7 @@ import "../NavBar2.css";
 import "./MyPiecesLink.css";
 
 export const MyPiecesLink = ({iconLabelPosLeft}) => (
-  <Link to="/ComingSoon">
+  <Link to="/MyPieces">
     <div className="my-pieces2-link">
       <svg viewBox="0 0 150 185.543">
         <g transform="translate(-42.335 -34.998)" className="link-icon2">

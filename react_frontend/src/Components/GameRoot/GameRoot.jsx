@@ -13,6 +13,9 @@ import {RangeDisplayTool} from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
 import {AiDisplay} from "./Components/AiDisplay";
 import {makeMove} from "./Move/makeMove";
+import {NavBar} from "../NavBar/NavBarRegular";
+import {NavExpand} from "../NavBar/NavExpand";
+import {NavColapse} from "../NavBar/NavColapse";
 import { OVER } from "../helpers/gStatusTypes";
 import "./css/GameRoot.css";
 
@@ -39,8 +42,10 @@ export class GameRoot extends React.Component {
         this.playerType = this.dataEntry['player_type'];
         this.aiColor = this.setAiColor();
         this.promo = false; //set true to alert need of promotion
+        this.navExpanded = true;
         this.first = true;
         this.pieceRangeHighlight = "none"; // is a piece id
+        this.togleNav = this.togleNav.bind(this);
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
@@ -104,6 +109,11 @@ export class GameRoot extends React.Component {
         else {
             console.log("color error")
         }
+    }
+
+    togleNav(boolVal) {
+        this.navExpanded = boolVal;
+        this.setState({bValue: ! this.state.bValue});
     }
 
     getEnemyColor() {
@@ -220,8 +230,7 @@ export class GameRoot extends React.Component {
                     <AiDisplay aiStart={this.aiStart} 
                                aiDest={this.aiDest} 
                                aiMakeMove={this.aiMakeMove} />)}
-                {this.specialCase === "saving" && (
-                    <Saving />)}
+                {this.specialCase === "saving" && (<Saving />)}
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} 
                                      updateSpecialCase={this.updateSpecialCase} />)}
@@ -238,10 +247,11 @@ export class GameRoot extends React.Component {
                                 resign={this.resign}
                                 updateSpecialCase={this.updateSpecialCase}
                 />
-                
+                {this.navExpanded && (<NavBar navBarPosTop={0} navBarPosLeft={368} iconColor="b1faae" iconColorHover="b1faae" backgroundColor="green" backgroundColorSelected="darkgreen" border="1px solid darkgreen" />)}
+                {this.navExpanded && (<NavColapse left={968}  top={-1} togleNav={this.togleNav} backgroundColor="green" iconColor="b1faae" border="1px solid darkgreen" />)}
+                {! this.navExpanded && (<NavExpand left={968}  top={-1} togleNav={this.togleNav} backgroundColor="green" iconColor="b1faae" border="1px solid darkgreen" />)}
             </>
 
         )
     }
-
 }

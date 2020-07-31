@@ -13,7 +13,7 @@ export function AuthorGithubLink ({iconLabelPosLeft}) {
     return (
       <a href="https://github.com/symLogicDMUS">
           <div className="author-github-link">
-              <img src="/Images/Navbar/author-github-invert.svg" className="link-icon" />
+              <img src="/Images/Navbar/author-github-invert.svg" className="link-icon" alt="" />
               <span class="navbar-author-github-tooltiptext" >Author Github</span>
           </div>
       </a>

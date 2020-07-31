@@ -3,8 +3,8 @@
     z-index: 2;
     width: 600px;
     height: 600px;
-    left: 468px;
-    top: 100px;
+    left: 368px;
+    top: 110px;
     line-height: 0;
 }
 .display-board {
@@ -12,8 +12,8 @@
     z-index: 0;
     width: 600px;
     height: 600px;
-    left: 468px;
-    top: 100px;
+    left: 368px;
+    top: 110px;
     line-height: 0;
-    box-shadow: 0px 0px 20px white;
+    box-shadow: 0px 0px 25px white;
 }

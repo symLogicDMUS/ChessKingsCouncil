@@ -9,7 +9,11 @@ import {HelpText} from "./HelpText";
 import {HelpModal} from "../Help/HelpModal";
 import {HelpComponent} from "../Help/HelpComponent";
 import {SearchBar} from "./SearchBar";
+import {NavBar} from "../NavBar/NavBarRegular2";
+import {NavExpand} from "../NavBar/NavExpand";
+import {NavColapse} from "../NavBar/NavColapse";
 import "./MyPieces.css";
+
 
 export class MyPieces extends React.Component {
 
@@ -21,6 +25,7 @@ export class MyPieces extends React.Component {
         this.pieceName = null;
         this.color = null;
         this.rangeType = null;
+        this.navExpanded = true;
         this.deleteDef = this.props.deleteDef;
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
@@ -43,7 +48,8 @@ export class MyPieces extends React.Component {
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
         this.setPiece = this.setPiece.bind(this);
-        this.expand = this.expand.bind(this);        
+        this.expand = this.expand.bind(this);
+        this.togleNav = this.togleNav.bind(this);
         this.togleConfirmDeleteModal = this.togleConfirmDeleteModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
@@ -56,6 +62,11 @@ export class MyPieces extends React.Component {
     }
 
     update() {
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
+    togleNav(boolVal) {
+        this.navExpanded = boolVal;
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
@@ -193,12 +204,13 @@ export class MyPieces extends React.Component {
                                        togleHelpModal={this.togleHelpModal}
                                        setHelpText={this.setHelpText}
                                        normal="/Images/question-mark-a9a9a9.svg"
-                                       highlighted="/Images/question-mark-0cc.svg"
+                                       highlighted="/Images/question-mark-72e2ff.svg"
+                                       color="#72e2ff"                                       
                                        style={{position: "absolute",
-                                                   top: 25,
-                                                   left: 202,
-                                                   width: 16,
-                                                   height: 16
+                                               top: 25,
+                                               left: 202,
+                                               width: 16,
+                                               height: 16
                                             }}
                         />
                         <SearchBar updateSearch={this.updateSearch} />
@@ -220,6 +232,9 @@ export class MyPieces extends React.Component {
                                                        helpText={this.helpText}>
                     {this.getHelpModalChild()}
                 </HelpModal>)}
+                {this.navExpanded && (<NavBar navBarPosTop={0} navBarPosLeft={250} backgroundColor="#515151" iconColor="b6b6b6" backgroundColorSelected="#3d3d3d" />)}
+                {this.navExpanded && (<NavColapse  left={1268}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
+                {! this.navExpanded && (<NavExpand left={1268}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
             </>
         )
     }

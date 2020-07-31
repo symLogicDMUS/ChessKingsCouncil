@@ -122,68 +122,39 @@ export class NewGame extends React.Component {
                          "id_dict":this.dataDict[this.gameName]['id_dict'] } }
     }
 
-    getComponent() {
 
-        let comp = null;
+    getGameSetup() {
 
-        switch(this.state.step) {
-            case 0:
-                comp = <PickType setType={this.setType} 
-                                 nextStep={this.nextStep} />
-                break;
-            case 1:
-                comp = <PickName setName={this.setName} 
-                                 nextStep={this.nextStep} />
-                break;
-            case 2:
-                switch(this.gameType) {
-                    case "standard":
-                        comp = <PlayAs setPlayer={this.setPlayer} 
-                                       nextStep={this.nextStep}
-                                       loadNew={this.loadNewStandard}
-                                />
-                        break;
-                    case "custom":
-                        comp = <Customize defs={this.props.defs} 
-                                          loadNewCustom={this.loadNewCustom} 
-                                          setPlayer={this.setPlayer} 
-                                          nextStep={this.nextStep}  
-                                />
-                        break;
-                    case "council":
-                        comp = <PlayAs setPlayer={this.setPlayer} 
-                                       nextStep={this.nextStep}
-                                       loadNew={this.loadNewCouncil}
-                                />
-                        break;
-                    default:
-                        comp = <div>Invalid Game Type</div>
-                        break;
-                }
-                break;
-            case 3:
-                comp = <Redirect to={{
-                             pathname:"/NewGame/Play",
-                             state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
-                                     dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
-                                     playerType:JSON.parse(JSON.stringify(this.playerType)),
-                                     isCouncil:JSON.parse(JSON.stringify(this.council))}
-                            }} />
-                break;
-            default:
-                comp = <div>Error in NewGame</div>
-                break;
-        }
+        if (this.gameType === "standard")
+            return <PlayAs setPlayer={this.setPlayer} nextStep={this.nextStep} loadNew={this.loadNewStandard}/>
 
-        return comp;
+        if (this.gameType === "custom")
+            return <Customize defs={this.props.defs} loadNewCustom={this.loadNewCustom} setPlayer={this.setPlayer} nextStep={this.nextStep} />
+
+        if (this.gameType === "council")
+            return <PlayAs setPlayer={this.setPlayer} nextStep={this.nextStep} loadNew={this.loadNewCouncil}/>
 
     }
 
+    play() {
+        return <Redirect to={{ pathname:"/NewGame/Play",
+                               state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
+                                       dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
+                                       playerType:JSON.parse(JSON.stringify(this.playerType)),
+                                       isCouncil:JSON.parse(JSON.stringify(this.council))}
+                            }} />        
+    }
+
     render() {
+        return (
+        <>
+            {this.state.step === 0 && (<PickType setType={this.setType} nextStep={this.nextStep} />)}
+            {this.state.step === 1 && (<PickName setName={this.setName} nextStep={this.nextStep} />)}
+            {this.state.step === 2 && (this.getGameSetup())}
+            {this.state.step === 3 && (this.play())}    
+        </>
+        )
 
-        this.comp = this.getComponent();
-
-        return this.comp;
     }
 }
 

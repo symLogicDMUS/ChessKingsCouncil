@@ -54,8 +54,9 @@ export class Icon extends React.Component {
                                    setHelpText={this.props.setHelpText} 
                                    style={{left:51, top:16, zIndex:"inherit", width:10, height:10}}
                                    normal="/Images/question-mark-a9a9a9.svg"
-                                   highlighted="/Images/question-mark-0cc.svg"
-                               />
+                                   highlighted="/Images/question-mark-72e2ff.svg"
+                                   color="#72e2ff"                               
+                    />
 
                     {/*Buttons open Modals*/}
                     <UploadButton showUpload={this.showUpload} color="white" />

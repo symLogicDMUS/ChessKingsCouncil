@@ -8,7 +8,6 @@
   .help-component .help-tooltiptext {
     visibility: hidden;
     /* width: 45px; */
-    color: #0cc;
     font-family: Tahoma;
     text-align: center;
     border-radius: 6px;

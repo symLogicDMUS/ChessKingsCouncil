@@ -61,9 +61,7 @@ export class LoadGame extends React.Component {
                          load={this.load} />
     }
 
-    //need "isCouncil" flag.
     else {
-      //return <GameRoot gameName={this.state.gameName} dataEntry={this.dataEntry} />
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
                 state: {gameName:JSON.parse(JSON.stringify(this.state.gameName)), 
@@ -71,10 +69,10 @@ export class LoadGame extends React.Component {
                         isCouncil:JSON.parse(JSON.stringify(this.council))}
       }} />);
     }
-
-    //note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
-    //because rangeDefs is not the same for every new game data, it is defined by the user.   
-
+    /** 
+     * note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
+     * because rangeDefs is not the same for every new game data, it is defined by the user.   
+     */
   }
   
 }

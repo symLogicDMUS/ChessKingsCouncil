@@ -6,10 +6,10 @@
 }
 
 .my-pieces {
-    position: relative;
+    position: absolute;
     z-index: inherit;
-    top: 10%;
-    left: 30%;
+    top: 150px;
+    left: 231px;
     width: 1020px;
     height: 860px;
     display: grid;

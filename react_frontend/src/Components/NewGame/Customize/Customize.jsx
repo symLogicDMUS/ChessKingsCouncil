@@ -15,6 +15,9 @@ import {HelpModal} from "../../Help/HelpModal";
 import {HelpText} from "./HelpText";
 import {NewGamePlayerType as PlayerType} from "./NewGamePlayerType";
 import { SearchBar } from "./SearchBar";
+import {NavBar} from "../../NavBar/NavBarRegular2";
+import {NavExpand} from "../../NavBar/NavExpand";
+import {NavColapse} from "../../NavBar/NavColapse";
 import "./Customize.css";
 
 
@@ -43,6 +46,7 @@ export class Customize extends React.Component {
         this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
+        this.navExpanded = true;
         this.clientX = 0;
         this.clientY = 0;
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
@@ -65,6 +69,7 @@ export class Customize extends React.Component {
         }
         this.accept = this.accept.bind(this);
         this.expand = this.expand.bind(this);
+        this.togleNav = this.togleNav.bind(this);
         this.togleSub = this.togleSub.bind(this);
         this.toglePromo = this.toglePromo.bind(this);
         this.toglePromoAll = this.toglePromoAll.bind(this);
@@ -214,6 +219,11 @@ export class Customize extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
     
+    togleNav(boolVal) {
+        this.navExpanded = boolVal;
+        this.setState({binaryValue: ! this.state.binaryValue})
+    }
+
     divideList() {
         this.aboveView = [];
         this.inView = [];
@@ -316,8 +326,9 @@ export class Customize extends React.Component {
                                                 left:200,
                                                 top:18
                                        }}
-                                       highlighted="/Images/question-mark-0cc.svg"
                                        normal="/Images/question-mark-a9a9a9.svg"
+                                       highlighted="/Images/question-mark-72e2ff.svg"
+                                       color="#72e2ff"                        
                         />
                         <PlayerType setPlayerType={this.setPlayerType} />
                         <SearchBar updateSearch={this.updateSearch} />
@@ -346,6 +357,11 @@ export class Customize extends React.Component {
                         {this.getHelpModalChild()}
                     </HelpModal> 
                 )}
+                
+                {this.navExpanded && (<NavBar navBarPosTop={0} navBarPosLeft={258} backgroundColor="#515151" iconColor="b6b6b6" backgroundColorSelected="#3d3d3d" border="1px solid #707070" />)}
+                {this.navExpanded && (<NavColapse  left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
+                {! this.navExpanded && (<NavExpand left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
+
             </>
 
         )

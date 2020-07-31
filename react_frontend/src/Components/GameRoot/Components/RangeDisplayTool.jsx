@@ -1,8 +1,6 @@
 import React from "react";
 import { RangeDisplayColapsed } from "./RangeDisplayColapsed";
 import { RangeDisplayExpanded } from "./RangeDisplayExpanded";
-import {HelpText} from "./HelpText";
-import {HelpComponent} from "../../Help/HelpComponent";
 import {HelpModal} from "../../Help/HelpModal";
 
 

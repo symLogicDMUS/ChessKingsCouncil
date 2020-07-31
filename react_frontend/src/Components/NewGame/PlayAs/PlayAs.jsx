@@ -2,15 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {PlayAsOption} from "./PlayAsOption";
 import { PlayAsButton } from "./PlayAsButton";
+import {NavBar} from "../../NavBar/NavBarRegular";
+import {NavExpand} from "../../NavBar/NavExpand";
+import {NavColapse} from "../../NavBar/NavColapse";
 import "./PlayAs.css";
 
 export class PlayAs extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {option: null};
+        this.state = {option: null, bValue: true};
+        this.navExpanded = true;
         this.update = this.update.bind(this);
         this.accept = this.accept.bind(this);
+        this.togleNav = this.togleNav.bind(this);
     }
 
     componentDidMount() {
@@ -30,6 +35,11 @@ export class PlayAs extends React.Component {
         this.props.nextStep();
     }
 
+    togleNav(boolVal) {
+        this.navExpanded = boolVal;
+        this.setState({bValue: ! this.state.bValue});
+    }
+
     render() {
 
         if (this.state.accepted) {
@@ -47,6 +57,25 @@ export class PlayAs extends React.Component {
                     <PlayAsOption update={this.update} optionName="B" top={156} selected={this.state.option}/>
                 </div>
                 <PlayAsButton selected={this.state.option} accept={this.accept} />
+                {this.navExpanded && (<NavBar navBarPosTop={0} 
+                                        navBarPosLeft={480} 
+                                        backgroundColor="#000000" 
+                                        iconColor="969696" 
+                                        iconColorHover="ffffff" 
+                                        backgroundColorSelected="#3d3d3d" 
+                                        border="1px solid #515151" />)}
+                {this.navExpanded && (<NavColapse left={1080}  
+                                            top={-1} 
+                                            togleNav={this.togleNav} 
+                                            backgroundColor="#000000" 
+                                            iconColor="b6b6b6" 
+                                            border="1px solid #515151" />)}
+                {! this.navExpanded && (<NavExpand left={1080}  
+                                             top={-1} 
+                                             togleNav={this.togleNav} 
+                                             backgroundColor="#000000" 
+                                             iconColor="b6b6b6" 
+                                             border="1px solid #515151" />)}
             </>
         )
     }

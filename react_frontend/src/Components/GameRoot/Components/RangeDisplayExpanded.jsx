@@ -21,9 +21,9 @@ export class RangeDisplayExpanded extends React.Component {
         return (
             <div className="range-display-expanded">
                 <div className="show-moves-label">
-                    <img src="/Images/range-display.svg" style={{height:"16px"}} />
+                    <img src="/Images/range-display.svg" style={{height:"16px"}} alt="expand icon" />
                 </div>
-                <ExpandColapseWidget togleExpand={this.togleExpand} imgName={"/Images/range-display-colapse.svg"}/>
+                <ExpandColapseWidget togleExpand={this.togleExpand} imgName={"/Images/range-display-colapse-b1faae.svg"}/>
                 <HelpComponent setHelpText={this.props.setHelpText}
                                togleHelpModal={this.props.togleHelpModal}
                                helpTitle="Range Display Tool"
@@ -35,8 +35,9 @@ export class RangeDisplayExpanded extends React.Component {
                                     width: 10,
                                     height: 10,
                                 }}
-                               highlighted="/Images/question-mark-0cc.svg"
-                               normal="/Images/question-mark-ffffff.svg"
+                               highlighted="/Images/question-mark-72e2ff.svg"
+                               normal="/Images/question-mark-b1faae.svg"
+                               color="#72e2ff"
                 />
                 <RangeBoard 
                             board={this.props.board}

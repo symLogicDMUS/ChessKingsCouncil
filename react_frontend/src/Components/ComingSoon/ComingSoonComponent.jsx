@@ -6,14 +6,27 @@
  **/
 
 import React from "react";
-import {NavBar} from "../NavBar/NavBar";
+import {NavBar} from "../NavBar/NavBarRegular";
+import {NavExpand} from "../NavBar/NavExpand";
+import {NavColapse} from "../NavBar/NavColapse";
 import "./ComingSoon.css";
 
 export class ComingSoonComponent extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {bValue: true};
+    this.navExpanded = true;
+    this.togleNav = this.togleNav.bind(this);
+  }
 
   componentDidMount() {
     document.body.className="coming-soon-body";
+  }
+
+  togleNav(boolVal) {
+    this.navExpanded = boolVal;
+    this.setState({bValue: ! this.state.bValue});
   }
 
   render() {
@@ -27,7 +40,25 @@ export class ComingSoonComponent extends React.Component {
             />
           </g>
         </svg>
-        <NavBar navBarPosLeft="520px"/>
+        {this.navExpanded && (<NavBar navBarPosTop={0} 
+                                        navBarPosLeft={475} 
+                                        backgroundColor="black" 
+                                        iconColor="969696" 
+                                        iconColorHover="ffffff" 
+                                        backgroundColorSelected="#3d3d3d" 
+                                        border="1px solid black" />)}
+          {this.navExpanded && (<NavColapse left={1075}  
+                                            top={-1} 
+                                            togleNav={this.togleNav} 
+                                            backgroundColor="black" 
+                                            iconColor="b6b6b6" 
+                                            border="1px solid #515151" />)}
+          {! this.navExpanded && (<NavExpand left={1075}  
+                                             top={-1} 
+                                             togleNav={this.togleNav} 
+                                             backgroundColor="black" 
+                                             iconColor="b6b6b6" 
+                                             border="1px solid #515151" />)}
       </div>
     );  
   }
