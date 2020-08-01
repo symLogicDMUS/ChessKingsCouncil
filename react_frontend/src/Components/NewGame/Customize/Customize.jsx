@@ -16,8 +16,8 @@ import {HelpText} from "./HelpText";
 import {NewGamePlayerType as PlayerType} from "./NewGamePlayerType";
 import { SearchBar } from "./SearchBar";
 import {NavBar} from "../../NavBar/NavBarRegular2";
-import {NavExpand} from "../../NavBar/NavExpand";
-import {NavColapse} from "../../NavBar/NavColapse";
+import {NavExpand} from "../../NavBar/NavExpand2";
+import {NavColapse} from "../../NavBar/NavColapse2";
 import "./Customize.css";
 
 
@@ -33,9 +33,9 @@ export class Customize extends React.Component {
         this.promoListUpdate = false;
         this.expandModals = [];
         this.playerType = "test";
-        this.pieceName = null; //for expand modal
-        this.rangeType = null; //for expand modal
-        this.color = null; //for expand modal
+        this.pieceName = null; 
+        this.rangeType = null;
+        this.color = null;
         this.newReplacement = null;
         this.newReplaced = null;
         this.show = true;

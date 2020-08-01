@@ -2,10 +2,10 @@ import React from "react";
 import "./NavColapse.css";
 
 export class NavColapse extends React.Component {
-    
+
     constructor(props) {
         super(props);
-        this.colapseNav = this.colapseNav.bind(this);
+        this.colapseNav = this.colapseNav.bind(this)
     }
 
     colapseNav() {
@@ -13,23 +13,19 @@ export class NavColapse extends React.Component {
     }
 
     render() {
+
+        let height = 30;
+        let top = 0;
+        if (this.props.styles.border === "none") {
+            height = 31.5;
+            top = 0;
+        }
+
         return (
-            <div className="nav-colapse"
-                 onClick={this.colapseNav}
-                 style={{position:"absolute",
-                         left: this.props.left, 
-                         top: this.props.top, 
-                         backgroundColor:this.props.backgroundColor,
-                         border:this.props.border
-                        }} 
-            >
-                <img src={`/Images/nav-colapse-${this.props.iconColor}.svg`} 
-                     style={{position:"absolute",
-                             top:11,
-                             height:8
-                            }}
-                     alt="widget for expanding nav bar"
-                />
+            <div className="nav-colapse">
+                <div style={{backgroundColor:this.props.styles.backgroundColor, border:this.props.styles.border, top:top, height:height, width:10, borderRadius:"2px"}} onClick={this.colapseNav}>
+                    <img src={`/Images/nav-colapse-${this.props.styles.iconColor}.svg`}  style={{position:"absolute", top:11.5, left:2, width:8, height:5.6}} alt="colapse navbar" />
+                </div>
             </div>
         )
     }

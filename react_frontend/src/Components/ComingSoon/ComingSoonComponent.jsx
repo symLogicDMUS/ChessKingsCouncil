@@ -1,7 +1,5 @@
 import React from "react";
-import {NavBar} from "../NavBar/NavBarRegular";
-import {NavExpand} from "../NavBar/NavExpand";
-import {NavColapse} from "../NavBar/NavColapse";
+import {NavBar} from "../NavBar/NavBarRegular3";
 import "./ComingSoon.css";
 
 
@@ -11,21 +9,17 @@ export class ComingSoonComponent extends React.Component {
     super(props);
     this.state = {bValue: true};
     this.navExpanded = true;
-    this.togleNav = this.togleNav.bind(this);
+
   }
 
   componentDidMount() {
     document.body.className="coming-soon-body";
   }
 
-  togleNav(boolVal) {
-    this.navExpanded = boolVal;
-    this.setState({bValue: ! this.state.bValue});
-  }
-
   render() {
     return (
       <div>
+        <NavBar navBarPos="relative" navBarPosTop={0} navBarPosLeft="22.2vw" expandColapseColor="000000"/>
         <svg viewBox="0 0 1706.988 502.028" transform="translate(-0.613 65)">
           <g transform="translate(-0.613 150)">
             <path 
@@ -34,25 +28,6 @@ export class ComingSoonComponent extends React.Component {
             />
           </g>
         </svg>
-        {this.navExpanded && (<NavBar navBarPosTop={0} 
-                                        navBarPosLeft={475} 
-                                        backgroundColor="black" 
-                                        iconColor="969696" 
-                                        iconColorHover="ffffff" 
-                                        backgroundColorSelected="#3d3d3d" 
-                                        border="1px solid black" />)}
-          {this.navExpanded && (<NavColapse left={1075}  
-                                            top={-1} 
-                                            togleNav={this.togleNav} 
-                                            backgroundColor="black" 
-                                            iconColor="b6b6b6" 
-                                            border="1px solid #515151" />)}
-          {! this.navExpanded && (<NavExpand left={1075}  
-                                             top={-1} 
-                                             togleNav={this.togleNav} 
-                                             backgroundColor="black" 
-                                             iconColor="b6b6b6" 
-                                             border="1px solid #515151" />)}
       </div>
     );  
   }

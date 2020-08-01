@@ -13,22 +13,21 @@ export class NavExpand extends React.Component {
     }
 
     render() {
+
+        let height = 30;
+        let top = 0;
+        if (this.props.styles.border === "none") {
+            height = 31.5;
+            top = 0;
+        }
+
         return (
-            <div className="nav-expand"
-                 onClick={this.expandNav}
-                 style={{left: this.props.left, 
-                         top: this.props.top, 
-                         backgroundColor:this.props.backgroundColor,
-                         border:this.props.border
-                        }}>
-                <img src={`/Images/nav-expand-${this.props.iconColor}.svg`}  
-                     style={{position:"absolute",
-                            top:11,
-                            height:8
-                     }}
-                     alt="widget for expanding nav bar"
-                />
+            <div className="nav-expand" style={{backgroundColor:this.props.styles.backgroundColor, border: this.props.styles.border}} onClick={this.expandNav}>
+                <div style={{backgroundColor:this.props.styles.backgroundColor, border:this.props.styles.border, top:top, height:height, width:10, borderRadius:"2px"}} onClick={this.expandNav}>
+                    <img src={`/Images/nav-expand-${this.props.styles.iconColor}.svg`}  style={{position:"absolute", top:11.5, left:2, width:8, height:5.6}} alt="expand navbar" />
+                </div>
             </div>
         )
     }
 }
+

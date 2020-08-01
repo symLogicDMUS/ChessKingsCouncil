@@ -17,18 +17,19 @@ export class ChessRulesLink extends React.Component {
         this.select = this.select.bind(this);
         this.unselect = this.unselect.bind(this);
     }  
-
+    
     getBackgroundColor() {
         if (this.state.selected)
-            return this.props.backgroundColorSelected;
+            return this.props.styles.backgroundColorSelected;
         else
-            return this.props.backgroundColor;
+            return this.props.styles.backgroundColor;
     }
+    
     getIconColor() {
         if (this.state.selected)
-          return this.props.iconColorHover
+          return this.props.styles.iconColorHover
         else
-          return this.props.iconColor
+          return this.props.styles.iconColor
       }
     
     unselect() {
@@ -43,7 +44,7 @@ export class ChessRulesLink extends React.Component {
         return (
             <a href="https://www.chess.com/learn-how-to-play-chess" style={{ textDecoration: 'none' }} >
                 <div className="chess-rules-regular-link" 
-                     style={{borderRight:this.props.border, backgroundColor:this.getBackgroundColor()}} 
+                     style={{borderRight:this.props.styles.border, backgroundColor:this.getBackgroundColor()}} 
                      onMouseEnter={this.select} 
                      onMouseLeave={this.unselect}
                 >

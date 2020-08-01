@@ -234,24 +234,24 @@ export class GameRoot extends React.Component {
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} 
                                      updateSpecialCase={this.updateSpecialCase} />)}
-                
                 <RangeDisplayTool board={this.board}
-                            allRanges={{...this.ranges, ...this.enemyRanges}}
-                            rangeDefs={this.rangeDefs} 
-                            idDict={this.idDict}
-                            update={this.update} 
-                            updatePrh={this.updatePrh}
-                />
+                                  allRanges={{...this.ranges, ...this.enemyRanges}}
+                                  rangeDefs={this.rangeDefs} 
+                                  idDict={this.idDict}
+                                  update={this.update} 
+                                  updatePrh={this.updatePrh} />
                 <SaveResignTool save={this.save} 
                                 update={this.update}
                                 resign={this.resign}
-                                updateSpecialCase={this.updateSpecialCase}
-                />
-                {this.navExpanded && (<NavBar navBarPosTop={0} navBarPosLeft={368} iconColor="b1faae" iconColorHover="b1faae" backgroundColor="green" backgroundColorSelected="darkgreen" border="1px solid darkgreen" />)}
-                {this.navExpanded && (<NavColapse left={968}  top={-1} togleNav={this.togleNav} backgroundColor="green" iconColor="b1faae" border="1px solid darkgreen" />)}
-                {! this.navExpanded && (<NavExpand left={968}  top={-1} togleNav={this.togleNav} backgroundColor="green" iconColor="b1faae" border="1px solid darkgreen" />)}
+                                updateSpecialCase={this.updateSpecialCase} />
+                {this.navExpanded && (<NavBar navBarPosTop={0} 
+                                              navBarPosLeft={368} 
+                                              iconColor="b1faae" 
+                                              iconColorHover="b1faae" 
+                                              backgroundColor="green" 
+                                              backgroundColorSelected="darkgreen" 
+                                              border="1px solid darkgreen" />)}
             </>
-
         )
     }
 }

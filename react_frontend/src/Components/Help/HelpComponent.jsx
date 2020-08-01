@@ -14,10 +14,10 @@ export class HelpComponent extends React.Component {
   constructor(props) {
     super(props);
     this.src = this.props.normal;
-    this.state = {highlighted: false}
+    this.state = {highlighted: false};
     this.openHelpModal = this.openHelpModal.bind(this);
-    this.highlight = this.highlight.bind(this)
-    this.unhighlight = this.unhighlight.bind(this)
+    this.highlight = this.highlight.bind(this);
+    this.unhighlight = this.unhighlight.bind(this);
   }
 
   openHelpModal() {

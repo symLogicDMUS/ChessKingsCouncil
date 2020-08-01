@@ -38,7 +38,7 @@ export class CreatePiece extends React.Component {
 
         super(props);
 
-        this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false };
+        this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false};
 
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
 
@@ -103,8 +103,10 @@ export class CreatePiece extends React.Component {
         this.showOffsetText = true;
         this.helpTitle = "";
         this.helpText = "";
-        this.hmChildName = null; //Name of the HelpModal child if there is one.
+        this.hmChildName = null; //Name of HelpModal child
         this.navExpanded = true;
+        this.navBorder = "1.5px solid rgba(114, 226, 255, 0)";
+
 
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.hmChildren = {"none":null, "Range":<RangeHelpTextExtraModal />} 
@@ -112,7 +114,6 @@ export class CreatePiece extends React.Component {
         //binds
         this.updateName = this.updateName.bind(this);
         this.setSaveStatus = this.setSaveStatus.bind(this);
-        this.togleNav = this.togleNav.bind(this);
         this.togleSpan = this.togleSpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setLoc = this.setLoc.bind(this);
@@ -127,7 +128,6 @@ export class CreatePiece extends React.Component {
         this.setHelpText = this.setHelpText.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        
         if (this.props.defaultPiece != null)
             this.load(this.props.defaultPiece)
 
@@ -168,11 +168,6 @@ export class CreatePiece extends React.Component {
         //reminder: calls this.update() at end
         this.setLoc("d4");
         
-    }
-
-    togleNav(boolVal) {
-        this.navExpanded = boolVal;
-        this.setState({bValue: ! this.state.bValue});
     }
 
     togleLoadModal(boolVal) {
@@ -376,7 +371,6 @@ export class CreatePiece extends React.Component {
         
         return(
             <div>
-                
                 <Name name={this.name} updateName={this.updateName} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
@@ -386,8 +380,7 @@ export class CreatePiece extends React.Component {
                        togleOffsetText={this.togleOffsetText} 
                        togleSpanText={this.togleSpanText} 
                        setHelpText={this.setHelpText}
-                       togleHelpModal={this.togleHelpModal}
-                       />
+                       togleHelpModal={this.togleHelpModal} />
                 <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <Location activeLocation={this.location} setLoc={this.setLoc} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
                 <div className="options-tool"/>
@@ -399,8 +392,7 @@ export class CreatePiece extends React.Component {
                          saveStatus={this.setSaveStatus} 
                          existing={Object.keys(this.defs)}
                          highlighted="/Images/save-72e2ff.svg"
-                         normal="/Images/save-a9a9a9.svg"
-                />
+                         normal="/Images/save-a9a9a9.svg" />
                 <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-72e2ff.svg" togleLoadModal={this.togleLoadModal} />
                 <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-72e2ff.svg" reset={this.reset} />
                 <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-72e2ff.svg" clear={this.clear} />
@@ -413,8 +405,7 @@ export class CreatePiece extends React.Component {
                                style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
                                normal="/Images/question-mark-a9a9a9.svg"
                                highlighted="/Images/question-mark-72e2ff.svg"
-                               color="#72e2ff"
-                />       
+                               color="#72e2ff" />       
                 <Board update={this.update} 
                        togleJump={this.togleJump} 
                        spanDisplays={this.spanDisplays} 
@@ -422,33 +413,19 @@ export class CreatePiece extends React.Component {
                        pieceLoc={this.location}  
                        pieceImg={this.pieceImg["white"]} 
                        showSpanText={this.showSpanText} 
-                       showOffsetText={this.showOffsetText}
-                />
+                       showOffsetText={this.showOffsetText} />
                 {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
                 {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} helpText={this.helpText} togleHelpModal={this.togleHelpModal}>
                                                 {this.getHelpModalChild()}
-                                            </HelpModal>
-                )}
+                                            </HelpModal> )}
                 {this.navExpanded && (<NavBar navBarPosTop={0} 
                                               navBarPosLeft={263} 
                                               backgroundColor="#515151" 
                                               iconColor="969696" 
-                                              iconColorHover="72e2ff" 
-                                              backgroundColorSelected="#3d3d3d" 
-                                              border="1px solid #515151" />)}
-                {this.navExpanded && (<NavColapse left={863}  
-                                                  top={-1} 
-                                                  togleNav={this.togleNav} 
-                                                  backgroundColor="#515151" 
-                                                  iconColor="b6b6b6" 
-                                                  border="1px solid #515151" />)}
-                {! this.navExpanded && (<NavExpand left={863}  
-                                                   top={-1} 
-                                                   togleNav={this.togleNav} 
-                                                   backgroundColor="#515151" 
-                                                   iconColor="b6b6b6" 
-                                                   border="1px solid #515151" />)}
-
+                                              iconColorHover="969696" 
+                                              backgroundColorSelected="#3d3d3d"
+                                              border="none"
+                                              navBorder={true} />)}
             </div>
         )
     }
