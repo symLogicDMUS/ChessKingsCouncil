@@ -87,19 +87,20 @@ export class NewGame extends React.Component {
          * 
          * 1. set data that is same for any new game
          * 2. set what the player will play as: W, B, or test
-         * 3. set data that is unique to this game.
-         * 4. get the starting ranges for our custom new game from the backend, then update state
+         * 4. set data that is unique to this game.
+         * 5. get the starting ranges for our custom new game from the backend, then update state
          */
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData)); //1.
         this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType)); //2.
-        this.dataDict[this.gameName]['id_dict'] = idDict; //3.
-        this.dataDict[this.gameName]['promo_choices'] = promos; //3.
-        this.dataDict[this.gameName]['defs'] = {}; //3.
+        this.dataDict[this.gameName]['game_type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.dataDict[this.gameName]['id_dict'] = idDict; //4.
+        this.dataDict[this.gameName]['promo_choices'] = promos; //4.
+        this.dataDict[this.gameName]['defs'] = {}; //4.
         for (var name of Object.values(idDict)) {
-            this.dataDict[this.gameName]['defs'][name] = this.props.defs[name]; //3.
+            this.dataDict[this.gameName]['defs'][name] = this.props.defs[name]; //4.
         }
-        let payload = this.getPayload(); //4.
-        fetch('/update', { //4.
+        let payload = this.getPayload(); //5.
+        fetch('/update', { //5.
             method: 'POST',
             body: JSON.stringify(payload)
         }).then(response => response.json())
@@ -108,7 +109,7 @@ export class NewGame extends React.Component {
             this.dataDict[this.gameName]['enemy_ranges'] = dataEntry['enemy_ranges'];
             this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
             this.dataDict[this.gameName]['status'] = dataEntry['status'];
-            this.props.updateDataDict(this.dataDict, this.gameName);
+            this.props.updateDataDict(this.dataDict);
             this.nextStep();
         });
     }
@@ -138,10 +139,12 @@ export class NewGame extends React.Component {
 
     play() {
         return <Redirect to={{ pathname:"/NewGame/Play",
-                               state: {gameName:JSON.parse(JSON.stringify(this.gameName)), 
-                                       dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
+                               state: {currentPage:"/NewGame/Play",
+                                       gameName:JSON.parse(JSON.stringify(this.gameName)),
+                                       gameType:JSON.parse(JSON.stringify(this.gameType)),
                                        playerType:JSON.parse(JSON.stringify(this.playerType)),
-                                       isCouncil:JSON.parse(JSON.stringify(this.council))}
+                                       dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
+                                       }
                             }} />        
     }
 

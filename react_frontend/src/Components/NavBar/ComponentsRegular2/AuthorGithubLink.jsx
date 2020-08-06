@@ -13,7 +13,7 @@ export class AuthorGithubLink extends React.Component {
       
   constructor(props) {
     super(props);
-    this.state = {selected: false};
+    this.state = {selected: false, modal: false};
     this.select = this.select.bind(this);
     this.unselect = this.unselect.bind(this);
   }  
@@ -34,6 +34,7 @@ export class AuthorGithubLink extends React.Component {
   }
 
   render() {
+
     return (
       <a href="https://github.com/symLogicDMUS" style={{ textDecoration: 'none' }} >
       <div className="author-github-regular-link2"

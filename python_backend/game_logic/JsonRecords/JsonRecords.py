@@ -2,6 +2,7 @@ from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.piece_type.get_piece_type import get_piece_type
 from game_logic.JsonRecords.JsonRecordError import JsonRecordError
 from game_logic.test_objects.sample_board_dicts import sample_board_dicts
+from pprint import pprint
 import json
 
 
@@ -24,7 +25,8 @@ class JsonRecords(object):
             f.close()
         else:
             records = j_records
-
+        pprint(board)
+        pprint(records)
         self.rooks_moved = records['rooks_moved']
         self.kings_moved = records['kings_moved']
         self.pawn_histories = records['pawn_histories']
@@ -42,7 +44,7 @@ class JsonRecords(object):
             id_ = board[sqr1]
             pawn_histories[id_] = hist
             if get_piece_type(id_) != 'P':
-                print("ERROR: Pawn history not correct")
+                print("ERROR: there is no pawn at {}".format(sqr1))
                 raise JsonRecordError
         self.pawn_histories = pawn_histories
 
@@ -127,7 +129,6 @@ class JsonRecords(object):
 
     def queen_side_rook_moved(self, color):
         """return true if the queen side rook of the given color has moved, otherwise false"""
-
         if color == 'W':
             return self.rooks_moved[(1, 1)]
         elif color == 'B':
@@ -135,7 +136,6 @@ class JsonRecords(object):
 
     def king_side_rook_moved(self, color):
         """return true if the king side rook of the given color has moved, otherwise false"""
-
         if color == 'W':
             return self.rooks_moved[(8, 1)]
         elif color == 'B':

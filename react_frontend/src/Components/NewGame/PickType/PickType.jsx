@@ -50,7 +50,12 @@ export class PickType extends React.Component {
     render() {
         return(
             <>
-                <NavBar navBarPos="relative" navBarPosTop={0} navBarPosLeft="22.2vw" expandColapseColor="000000"/>
+                <NavBar currentPage="/NewGame" 
+                        setHelpText={this.setHelpText} 
+                        togleHelpModal={this.togleHelpModal} 
+                        navBarPos="relative" navBarPosTop={0} 
+                        navBarPosLeft="22.2vw" 
+                        expandColapseColor="000000" />
                 <svg viewBox="0 0 1920 1080">
                     <defs>
                         <clipPath id="b">

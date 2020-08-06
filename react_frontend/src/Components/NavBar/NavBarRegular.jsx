@@ -41,12 +41,12 @@ export class NavBar extends React.Component {
         return ( 
             <div className={this.class_} style={{top: this.props.navBarPosTop, left: this.props.navBarPosLeft}}>
                 {this.state.navExpanded && (<HomeLink styles={styles} />)}
-                {this.state.navExpanded && (<NewGameLink styles={styles} />)}
-                {this.state.navExpanded && (<LoadGameLink styles={styles} />)}
-                {this.state.navExpanded && (<CreatePieceLink styles={styles} />)}
+                {this.state.navExpanded && (<NewGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
+                {this.state.navExpanded && (<LoadGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
+                {this.state.navExpanded && (<CreatePieceLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
                 {this.state.navExpanded && (<ChessRulesLink styles={styles} />)}
-                {this.state.navExpanded && (<CouncilRulesLink styles={styles} />)}
-                {this.state.navExpanded && (<MyPiecesLink styles={styles} />)}
+                {this.state.navExpanded && (<CouncilRulesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
+                {this.state.navExpanded && (<MyPiecesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
                 {this.state.navExpanded && (<AuthorGithubLink styles={styles} />)}
                 {this.state.navExpanded && (<NavColapse  styles={styles} togleNav={this.togleNav} /> )}
                 {! this.state.navExpanded && (<NavExpand styles={styles} togleNav={this.togleNav} /> )}

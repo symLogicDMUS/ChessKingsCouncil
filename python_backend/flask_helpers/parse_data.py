@@ -9,7 +9,7 @@ from game_logic.color.get_next_color import get_next_color as get_enemy_color
 
 def parse_data(game_name):
     """replicate behavior without api call"""
-    fen_obj, board, json_records, status, update_method, player_type, defs_ = get_data(game_name)
+    fen_obj, board, json_records, status, game_type, player_type, defs_ = get_data(game_name)
     ai_color = get_ai_color(player_type)
     fen_data = fen_obj.get_data()
     color = fen_data['turn'].upper()
@@ -25,7 +25,7 @@ def parse_data(game_name):
     })
     payload.update(map_xy_to_rf(
         {"color": color, "fen_data": fen_data, "board": board, "records": json_records.get_records(),
-         "flask_method": update_method, "player_type": player_type}))
+         "game_type": game_type, "player_type": player_type}))
 
     return payload
 

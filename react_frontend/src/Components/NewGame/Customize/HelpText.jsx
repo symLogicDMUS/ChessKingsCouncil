@@ -17,6 +17,6 @@ export let HelpText =
     <li>Black: Play against the computer as black</li>
     <li>White: Play against computer as white</li>    
   </ol>
-  <p>Note: at date of writing the computer is still extremely easy to beat for anyone with moderate Chess experience. Check that this notice is updated when AI is implemented further.</p>
+  <p>Note: at date of writing the computer is still extremely easy to beat for anyone with moderate Chess experience. Check that this notice is removed when AI is implemented further.</p>
 
 </div>

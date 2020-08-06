@@ -13,10 +13,12 @@ export class BlankDef extends React.Component {
     }
 
     hoverOn() {
+        this.props.togleOptionTool(false);
         this.setState({highlighted: true});
     }
 
     hoverOff() {
+        this.props.togleOptionTool(true);
         this.setState({highlighted: false});
     }
 

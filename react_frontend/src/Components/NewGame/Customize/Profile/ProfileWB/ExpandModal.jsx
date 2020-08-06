@@ -33,7 +33,7 @@ export class ExpandModal extends React.Component {
     }
 
     hoverOn() {
-        this.setState({src: "/Images/unexpand-0cc.svg"})
+        this.setState({src: "/Images/unexpand-72e2ff.svg"})
     }
 
     hoverOff() {

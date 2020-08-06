@@ -1,5 +1,5 @@
 {
-    "condition": "resigned",
+    "condition": "checkmate",
     "status": 0,
-    "winner": "B"
+    "winner": "W"
 }

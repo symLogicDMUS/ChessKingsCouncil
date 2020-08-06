@@ -14,6 +14,7 @@ import {LoadGame} from "./Components/LoadGame/LoadGame";
 import {NewGame} from "./Components/NewGame/NewGame";
 import {GameRoot} from "./Components/GameRoot/GameRoot";
 import {MyPieces} from "./Components/MyPieces/MyPieces";
+import {getDataDict, getData} from "./API";
 
 export class App extends React.Component {
 
@@ -22,20 +23,16 @@ export class App extends React.Component {
         this.state = {binaryValue: true};
         this.defs = this.props.defs;
         this.dataDict = this.props.dataDict;
-        this.gamesNames = []; //list included so can sort by order added to dataDict
-        Object.keys(this.dataDict).forEach(gameName => {
-            this.gamesNames.unshift(gameName);
-        })
+        this.gamesNames = [];
         this.update = this.update.bind(this);
         this.updateDefs = this.updateDefs.bind(this);
         this.deleteDef = this.deleteDef.bind(this);
         this.updateDataDict = this.updateDataDict.bind(this);
-        this.getGameNames = this.getGameNames.bind(this);
+        this.getDataDict = this.getDataDict.bind(this);
         this.getGame = this.getGame.bind(this);
         this.setCurrentGame = this.setCurrentGame.bind(this);
         this.setCurrentGameData = this.setCurrentGameData.bind(this);
         this.setCouncilCase = this.setCouncilCase.bind(this);
-
     }
 
     update() {
@@ -52,17 +49,17 @@ export class App extends React.Component {
         this.update();
     }
 
-    updateDataDict(dataDict, newName) {
+    updateDataDict(dataDict) {
         this.dataDict = dataDict;
-        this.gamesNames.unshift(newName);
+        this.update();
     }
 
-    getGameNames() {
-        return this.gamesNames;
+    getDataDict() {
+        return Promise.all([getDataDict()])
     }
 
-    getGame(name) {
-        return this.dataDict[name];
+    getGame(gameName) {
+        return this.dataDict[gameName];
     }
 
     setCurrentGame(currentGameName) {
@@ -86,9 +83,10 @@ export class App extends React.Component {
                 <Route exact path="/NewGame" exact strict render={() => <NewGame dataDict={this.dataDict} 
                                                                                  defs={this.defs} 
                                                                                  updateDataDict={this.updateDataDict} /> } />
-                <Route exact path="/LoadGame" exact strict render={() => <LoadGame gameNames={this.getGameNames()} 
-                                                                                   defs={this.defs} 
-                                                                                   getGame={this.getGame}  /> } />
+                <Route exact path="/LoadGame" exact strict render={() => <LoadGame getDataDict={this.getDataDict}
+                                                                                   updateDataDict={this.updateDataDict}
+                                                                                   getGame={this.getGame}                                                                         
+                                                                                   defs={this.defs} /> } />
                 <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
                 <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
                 <Route exact path="/CreatePiece" exact strict render={() => <CreatePiece defs={this.defs} 

@@ -12,8 +12,11 @@ export class PlayAs extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {option: null, bValue: true};
+        this.state = {option: null, bValue: true, isHelpModal:false};
         this.navExpanded = true;
+        this.helpTitle = null;
+        this.helpText = null;
+        this.hmChildName = null;
         this.update = this.update.bind(this);
         this.accept = this.accept.bind(this);
         this.togleNav = this.togleNav.bind(this);
@@ -61,7 +64,12 @@ export class PlayAs extends React.Component {
 
         return (
             <>
-                <NavBar navBarPos="relative"  navBarPosTop={0} navBarPosLeft="22.2vw" expandColapseColor="000000"/>
+                <NavBar currentPage="/NewGame" 
+                        setHelpText={this.setHelpText} 
+                        togleHelpModal={this.togleHelpModal} 
+                        navBarPos="relative" navBarPosTop={0} 
+                        navBarPosLeft="22.2vw" 
+                        expandColapseColor="000000" />
                 <div className="play-as-title">
                     <img src="/Images/play-as.svg" alt="title for picking to play as white, black, or test" style={{position:"absolute", height:75, width:251}} />
                 </div>

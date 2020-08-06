@@ -2,7 +2,8 @@ import React from "react";
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {PromoChoice} from "../Components/PromoChoice";
 import {AcceptPromo} from "../Components/AcceptPromo";
-import "../css/Promo.css";
+import {shuffle} from "../../helpers/shuffleArray";
+import "../css/AcceptPromo.css";
 
 const Arrow = ({ text, className }) => {
     return (
@@ -20,6 +21,7 @@ export class Promo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {selected: null};
+        this.aiPromoComplete = false;
         this.onSelect = this.onSelect.bind(this);
         this.promote = this.promote.bind(this);
     }
@@ -52,20 +54,25 @@ export class Promo extends React.Component {
     }
 
 
-    getIdNumber() {
+    getIdNumber(idChoice) {
         /**Pawn promotion means we are adding another piece, 
          * idNumber is how many of that piece for that color 
          * there is now
          **/
         let matches = Object.values(this.props.gameroot.board).filter(pieceId => 
-            pieceId.startsWith( this.props.color + this.state.selected.toUpperCase()))
+            pieceId.startsWith( this.props.color + idChoice.toUpperCase()))
         let idNumber = matches.length + 1;
         return idNumber;
     }
 
-    getNewId(idNumber) {
+    getNewId(idNumber, idChoice) {
         //note: don't use GameRoot turn attribute because color already switched after pawn move.
-        return this.props.color + this.state.selected.toUpperCase() + idNumber;
+        return this.props.color + idChoice.toUpperCase() + idNumber;
+    }
+
+    removeHistory() {
+        let pawnId = this.props.gameroot.board[this.pawnLoc];
+        delete this.props.gameroot.jsonRecords.pawnHistories[pawnId];
     }
 
     replacePawn(pawnLoc, newId) {
@@ -81,15 +88,30 @@ export class Promo extends React.Component {
     }
  
     promote() {
-        let idNumber = this.getIdNumber();
-        let newId = this.getNewId(idNumber);
+        let idNumber = this.getIdNumber(this.state.selected);
+        let newId = this.getNewId(idNumber, this.state.selected);
+        this.removeHistory();
         this.replacePawn(this.pawnLoc, newId);
         this.updateGameRoot();
         this.props.gameroot.update();
     }
 
+    aiPromote() {
+        let ids = this.filterPawn();
+        if (! this.props.gameroot.isCouncil)
+            ids = this.filterKing(ids);
+        ids = shuffle(ids);
+        let idType = ids[0];
+        let idNumber = this.getIdNumber(idType);
+        let newId = this.getNewId(idNumber, idType);
+        this.replacePawn(this.pawnLoc, newId);
+        this.updateGameRoot();
+        this.aiPromoComplete = true;
+        this.props.gameroot.update();
+    }
+
     onSelect(key) {
-        this.setState({selected: key})
+        this.setState({selected: key});
     }
 
     render() {
@@ -109,6 +131,7 @@ export class Promo extends React.Component {
                     />
                 </div>
                 <AcceptPromo promote={this.promote} selected={this.state.selected} />
+                {this.props.color === this.props.gameroot.aiColor && ! this.aiPromoComplete && (this.aiPromote())}
             </div>
         );
     }

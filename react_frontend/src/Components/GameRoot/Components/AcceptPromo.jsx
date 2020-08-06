@@ -1,22 +1,12 @@
 import React from "react";
-import "../css/Promo.css";
+import "../css/AcceptPromo.css";
 
 
-export class AcceptPromo extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-
-        this.class_ = "accept-promo promo-unselected";
-        if (this.props.selected != null)
-            this.class_ = "accept-promo promo-selected";
+export function AcceptPromo({selected, promote}) {
+    
+    if (selected!= null)
+        return <button className="accept-promo promo-selected" onClick={promote}>Ok</button>
+    else
+        return <button className="accept-promo promo-unselected">Ok</button>;
         
-        return (
-            <button className={this.class_} onClick={this.props.promote}>Ok</button>
-        );
-    }
-
 }

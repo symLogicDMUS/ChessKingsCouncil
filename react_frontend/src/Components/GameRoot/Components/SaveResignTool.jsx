@@ -1,18 +1,21 @@
 import React from "react";
+import { getColorName } from "../../helpers/getColorName";
+import { HelpComponent } from "../../Help/HelpComponent";
 import "../css/SaveResignTool.css";
 
 export class SaveResignTool extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {saveHighlighted: false, resignHighlighted: false};
+        this.state = {saveHighlighted: false, resignHighlighted: false, isHelpModal: false};
         this.saveImg = null;
         this.resignImg = null;
+        this.gameDescriptionHelpText = "In order: The name of the game, and in parentheses the type of game, and what the player is playing as.";
         this.save = this.save.bind(this);
-        this.highlightSaveIcon = this.highlightSaveIcon.bind(this)
-        this.unhighlightSaveIcon  = this.unhighlightSaveIcon.bind(this)
-        this.highlightResignIcon  = this.highlightResignIcon.bind(this)
-        this.unhighlightResignIcon = this.unhighlightResignIcon.bind(this)
+        this.highlightSaveIcon = this.highlightSaveIcon.bind(this);
+        this.unhighlightSaveIcon  = this.unhighlightSaveIcon.bind(this);
+        this.highlightResignIcon  = this.highlightResignIcon.bind(this);
+        this.unhighlightResignIcon = this.unhighlightResignIcon.bind(this);
     }
 
     save() {
@@ -40,7 +43,6 @@ export class SaveResignTool extends React.Component {
         this.setState({resignHighlighted: false})
     }
 
-
     render() {
 
         if (this.state.saveHighlighted)
@@ -55,6 +57,28 @@ export class SaveResignTool extends React.Component {
 
         return (
             <div className="save-resign-tool">
+                <div className="game-description">
+                    <div className="game-name">
+                        {this.props.gameName}
+                    </div> 
+                    <div className="gen-info">
+                        ({this.props.gameType}, {getColorName(this.props.playerType)})
+                    </div> 
+                    {<HelpComponent helpTitle="Game Description" 
+                                    helpText={this.gameDescriptionHelpText} 
+                                    hmChildName="none" 
+                                    setHelpText={this.props.setHelpText} 
+                                    togleHelpModal={this.props.togleHelpModal} 
+                                    style={{position:"absolute",
+                                            left: 185,
+                                            top: 5,
+                                            width: 8,
+                                            height: 8}}
+                                    highlighted="/Images/question-mark-72e2ff.svg"
+                                    normal="/Images/question-mark-b1faae.svg"
+                                    color="#72e2ff"
+                                />}
+                </div>
                 <div className="save-game-container">
                     <img src={this.saveImg} className="save-resign-img" onClick={this.save} onMouseEnter={this.highlightSaveIcon} onMouseLeave={this.unhighlightSaveIcon} alt="save icon" />
                 </div>

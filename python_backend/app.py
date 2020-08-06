@@ -47,6 +47,8 @@ def save():
     data = request.get_data(as_text=True)
     data = json.loads(data)
     game_name = data['game_name']
+    game_type = data['game_type']
+    player_type = data['player_type']
     board = data['board']
     json_records = data['json_records']
     fen_obj = data['fen_obj']
@@ -64,6 +66,16 @@ def save():
     print(fen)
     f = open('./saved_games/{}/{}.fen'.format(game_name, game_name), 'w')
     f.write(fen)
+    f.close()
+
+    # saving game type
+    f = open('./saved_games/{}/{}.type'.format(game_name, game_name), 'w')
+    f.write(game_type)
+    f.close()
+
+    # saving player type
+    f = open('./saved_games/{}/{}.pt'.format(game_name, game_name), 'w')
+    f.write(player_type)
     f.close()
 
     # save json_records
@@ -115,7 +127,7 @@ def assign_ids():
 def get_data_dict():
     """get all the saved game data at the start of the game"""
     print('GET request, getting data of all the games')
-    games = os.listdir('./example_games')
+    games = os.listdir('./saved_games')
     data_dict = {}
     for game_name in games:
         data_dict[game_name] = parse_data(game_name)

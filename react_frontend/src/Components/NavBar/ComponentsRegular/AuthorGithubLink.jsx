@@ -13,6 +13,7 @@ export class AuthorGithubLink extends React.Component {
       
   constructor(props) {
     super(props);
+    this.path = "";
     this.state = {selected: false};
     this.select = this.select.bind(this);
     this.unselect = this.unselect.bind(this);

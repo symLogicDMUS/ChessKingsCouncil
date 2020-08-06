@@ -6,7 +6,7 @@ import {GameStatus} from "./sharedData/GameStatus";
 import {SpecialMoves} from "./Move/SpecialMoves";
 import { Promo } from "./Modals/Promo";
 import {Fen} from "./sharedData/Fen";
-import {isPiece} from "./gameRootHelpers/isPiece";
+import {isPawn} from "./gameRootHelpers/isPawn";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import {RangeDisplayTool} from "./Components/RangeDisplayTool";
@@ -14,8 +14,7 @@ import { SaveResignTool } from "./Components/SaveResignTool";
 import {AiDisplay} from "./Components/AiDisplay";
 import {makeMove} from "./Move/makeMove";
 import {NavBar} from "../NavBar/NavBarRegular";
-import {NavExpand} from "../NavBar/NavExpand";
-import {NavColapse} from "../NavBar/NavColapse";
+import {HelpModal} from "../Help/HelpModal";
 import { OVER } from "../helpers/gStatusTypes";
 import "./css/GameRoot.css";
 
@@ -24,9 +23,12 @@ export class GameRoot extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {bValue:true, isHelpModal:false};
         this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
+        this.currentPage = this.props.location.state.currentPage;
         this.dataEntry = this.props.location.state.dataEntry;
-        this.state = {bValue:true}
         this.board = this.dataEntry['board'] 
         this.aiDisplay = false;
         this.jsonRecords = new JsonRecords(this.dataEntry['records']);
@@ -36,36 +38,50 @@ export class GameRoot extends React.Component {
         this.turn = this.dataEntry['color']
         this.ranges = this.dataEntry['ranges'];
         this.enemyRanges = this.dataEntry['enemy_ranges'];
-        this.idDict = this.dataEntry['id_dict']; // id:piece-name dict
+        this.idDict = this.dataEntry['id_dict'];
         this.rangeDefs = this.dataEntry['defs']; 
         this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
         this.playerType = this.dataEntry['player_type'];
         this.aiColor = this.setAiColor();
-        this.promo = false; //set true to alert need of promotion
+        this.promo = false;
         this.navExpanded = true;
         this.first = true;
-        this.pieceRangeHighlight = "none"; // is a piece id
-        this.togleNav = this.togleNav.bind(this);
+        this.pieceRangeHighlight = "none";
+        this.helpTitle = null;
+        this.helpText = null;
+        this.hmChildName = null;
+        this.hmChildren = {"none":null}
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
-        this.aiDisplayMove = this.aiDisplayMove.bind(this);
+        this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
+        this.togleNav = this.togleNav.bind(this);
+        this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.setHelpText = this.setHelpText.bind(this);
     }
 
     componentDidMount() {
         document.body.className = "game-root-body";
         if (this.first) {
             this.first = false;
-            if (this.turn === this.aiColor) {
+            if (this.turn === this.aiColor && ! this.isGameOver()) {
                 this.updateBackend().then(([result]) => { 
-                    this.aiDisplayMove();
+                    this.prepareAiMove();
                     this.update();
                 });
             }
         }
+    }
+
+    isGameOver() {
+        if (this.gameStatus.gameStatus === OVER)
+            return true
+        if (this.aiStart === false || this.aiDest === false)
+            return true
+        return false
     }
 
     setAiColor() {
@@ -77,15 +93,16 @@ export class GameRoot extends React.Component {
             return "W"
     }   
 
-    aiDisplayMove() {
+    prepareAiMove() {
         this.aiDisplay = true;
         this.setState({bValue: ! this.state.bValue});
     }
 
     aiMakeMove() {
         this.aiDisplay = false;
-        makeMove(this, this.aiStart, this.aiDest)
+        makeMove(this, this.aiStart, this.aiDest);
         this.toggleTurn();
+        this.updateFen(this.aiStart, this.aiDest);
         this.updateBackend().then(([result]) => {
             this.update();
         });
@@ -116,7 +133,21 @@ export class GameRoot extends React.Component {
         this.setState({bValue: ! this.state.bValue});
     }
 
-    getEnemyColor() {
+    togleHelpModal(boolVal) {
+        this.setState({isHelpModal: boolVal})
+    }
+
+    getHelpModalChild() {
+        return this.hmChildren[this.hmChildName]
+    }
+
+    setHelpText(helpTitle, helpText, hmChildName) {
+        this.helpTitle = helpTitle;
+        this.helpText = helpText;
+        this.hmChildName = hmChildName;
+    }
+
+    getColorLastMove() {
         if (this.turn === "W") {
             return "B"
         }
@@ -138,13 +169,19 @@ export class GameRoot extends React.Component {
     }
 
     callBackend() {
+
+        let flask_method = "update"
+        if (this.gameType === "council")
+            flask_method = "update_council"
+
+
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getTurn(),
                                    "player_type":this.playerType,
                                    "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
                                 })
-        return fetch(`/${this.dataEntry.flask_method}`, {
+        return fetch(`/${flask_method}`, {
             method: 'POST',
             body: body
         }).then(response => response.json())
@@ -165,14 +202,16 @@ export class GameRoot extends React.Component {
 
     updateJsonRecords(start, dest) {
 
-        let fenId = this.board[dest][1].toLowerCase();
+        let pieceId = this.board[dest];
+        let fenId = pieceId[1].toLowerCase();
 
         if (fenId === 'p') {
-            this.jsonRecords.pawnHistories[this.board[dest]].push(dest);
+            this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
             this.jsonRecords.lastPawnMove = dest;
-            if (isPiece(this.captured));
-                delete this.jsonRecords.pawnHistories[this.board[this.captured]];
+            if (isPawn(this.captured)) {
+                delete this.jsonRecords.pawnHistories[this.captured];
+            }
         }
 
         else {
@@ -187,7 +226,7 @@ export class GameRoot extends React.Component {
     }
 
     updateFen(start, dest) {
-        this.fenObj.update(this.specialMoves, this.jsonRecords, start, dest, this.captured, this.turn)
+        this.fenObj.update(this.specialMoves, this.jsonRecords, start, dest, this.captured, this.turn);
     }
 
     saveGame() {
@@ -195,6 +234,8 @@ export class GameRoot extends React.Component {
             method:"POST",
             body:JSON.stringify({
                 game_name: this.gameName,
+                game_type:this.gameType,
+                player_type:this.playerType,
                 board:this.getBoard(),
                 json_records: this.jsonRecords.getRecords(),
                 fen_obj: this.fenObj.getData(),
@@ -210,9 +251,10 @@ export class GameRoot extends React.Component {
     }
 
     resign() {
-        this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getEnemyColor() });
-        this.save();
-        this.update();
+        if (! this.isGameOver()) {
+            this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getColorLastMove() });
+            this.update();
+        }
     }
 
     render() {
@@ -224,7 +266,7 @@ export class GameRoot extends React.Component {
                         winner={this.gameStatus.winner} />
                 {this.specialCase === "promo" && (
                     <Promo gameroot={this} 
-                           color={this.getEnemyColor()} 
+                           color={this.getColorLastMove()} 
                            pawnLoc={this.specialMoves.currentDest} />)}
                 {(this.aiDisplay && this.specialCase !== "promo") && (
                     <AiDisplay aiStart={this.aiStart} 
@@ -239,18 +281,34 @@ export class GameRoot extends React.Component {
                                   rangeDefs={this.rangeDefs} 
                                   idDict={this.idDict}
                                   update={this.update} 
-                                  updatePrh={this.updatePrh} />
-                <SaveResignTool save={this.save} 
+                                  updatePrh={this.updatePrh}
+                                  togleHelpModal={this.togleHelpModal}
+                                  setHelpText={this.setHelpText} />
+                <SaveResignTool gameName={this.gameName}
+                                gameType={this.gameType}
+                                playerType={this.playerType}
+                                save={this.save} 
                                 update={this.update}
                                 resign={this.resign}
-                                updateSpecialCase={this.updateSpecialCase} />
+                                updateSpecialCase={this.updateSpecialCase} 
+                                togleHelpModal={this.togleHelpModal}
+                                setHelpText={this.setHelpText}/>
                 {this.navExpanded && (<NavBar navBarPosTop={0} 
                                               navBarPosLeft={368} 
                                               iconColor="b1faae" 
                                               iconColorHover="b1faae" 
                                               backgroundColor="green" 
                                               backgroundColorSelected="darkgreen" 
-                                              border="1px solid darkgreen" />)}
+                                              border="1px solid darkgreen"
+                                              navBorder={false}
+                                              currentPage={this.currentPage}
+                                              togleHelpModal={this.togleHelpModal}
+                                              setHelpText={this.setHelpText} />)}
+                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} 
+                                                       helpText={this.helpText} 
+                                                       togleHelpModal={this.togleHelpModal}>
+                                                {this.getHelpModalChild()}
+                                            </HelpModal> )}
             </>
         )
     }

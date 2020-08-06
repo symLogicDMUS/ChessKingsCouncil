@@ -24,8 +24,7 @@ import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfi
 import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
 import {NavBar} from "../NavBar/NavBarRegular";
-import {NavExpand} from "../NavBar/NavExpand";
-import {NavColapse} from "../NavBar/NavColapse";
+import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {HelpText as OptionsText} from "./Options/HelpText";
 import {defs} from "../tests/defs1";
@@ -106,6 +105,7 @@ export class CreatePiece extends React.Component {
         this.hmChildName = null; //Name of HelpModal child
         this.navExpanded = true;
         this.navBorder = "1.5px solid rgba(114, 226, 255, 0)";
+        this.optionTool = true;
 
 
         //Dictionary of Extra windows to display for help modals. More may be added.
@@ -125,6 +125,7 @@ export class CreatePiece extends React.Component {
         this.update = this.update.bind(this);
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
+        this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
@@ -172,7 +173,6 @@ export class CreatePiece extends React.Component {
 
     togleLoadModal(boolVal) {
         this.setState({isLoadModal: boolVal})
-
     }
 
     togleHelpModal(boolVal) {
@@ -308,6 +308,11 @@ export class CreatePiece extends React.Component {
         this.update();
     }
 
+    togleOptionTool(boolVal) {
+        this.optionTool = boolVal;
+        this.update();
+    }
+
     setLoc(rf) {
         this.location = rf;
         this.resetSpanDisplays();
@@ -371,7 +376,10 @@ export class CreatePiece extends React.Component {
         
         return(
             <div>
-                <Name name={this.name} updateName={this.updateName} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
+                <Name name={this.name} 
+                      updateName={this.updateName} 
+                      setHelpText={this.setHelpText} 
+                      togleHelpModal={this.togleHelpModal} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
                        offsets={this.offsets} 
@@ -381,31 +389,50 @@ export class CreatePiece extends React.Component {
                        togleSpanText={this.togleSpanText} 
                        setHelpText={this.setHelpText}
                        togleHelpModal={this.togleHelpModal} />
-                <Icon pieceImg={this.pieceImg} setImg={this.setPieceImg} updateParent={this.update} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
-                <Location activeLocation={this.location} setLoc={this.setLoc} setHelpText={this.setHelpText} togleHelpModal={this.togleHelpModal} />
-                <div className="options-tool"/>
+                <Icon pieceImg={this.pieceImg} 
+                      setImg={this.setPieceImg} 
+                      updateParent={this.update} 
+                      setHelpText={this.setHelpText} 
+                      togleHelpModal={this.togleHelpModal} />
+                <Location activeLocation={this.location} 
+                          setLoc={this.setLoc} 
+                          setHelpText={this.setHelpText} 
+                          togleHelpModal={this.togleHelpModal} />
+                {this.optionTool && (<OptionsTool togleOptionTool={this.togleOptionTool} />)}
                 <div className="options-title">Options</div>
-                <SaveDef save={this.save}
+                <SaveDef normal="/Images/save-a9a9a9.svg"             
+                         highlighted="/Images/save-72e2ff.svg"
+                         existing={Object.keys(this.defs)}
+                         save={this.save}
                          name={this.name}
                          clear={this.clear}
                          status={this.saveStatus} 
                          saveStatus={this.setSaveStatus} 
-                         existing={Object.keys(this.defs)}
-                         highlighted="/Images/save-72e2ff.svg"
-                         normal="/Images/save-a9a9a9.svg" />
-                <LoadDef  normal="/Images/load-piece-a9a9a9.svg" highlighted="/Images/load-piece-72e2ff.svg" togleLoadModal={this.togleLoadModal} />
-                <ResetDef normal="/Images/reset-range-a9a9a9.svg" highlighted="/Images/reset-range-72e2ff.svg" reset={this.reset} />
-                <BlankDef normal="/Images/erase-range-a9a9a9.svg" highlighted="/Images/erase-range-72e2ff.svg" clear={this.clear} />
-                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" highlighted="/Images/theme-create-piece-72e2ff.svg" />                
+                         togleOptionTool={this.togleOptionTool} />
+                <LoadDef  normal="/Images/load-piece-a9a9a9.svg" 
+                          highlighted="/Images/load-piece-72e2ff.svg" 
+                          togleLoadModal={this.togleLoadModal} 
+                          togleOptionTool={this.togleOptionTool} />
+                <ResetDef normal="/Images/reset-range-a9a9a9.svg" 
+                          highlighted="/Images/reset-range-72e2ff.svg" 
+                          reset={this.reset} 
+                          togleOptionTool={this.togleOptionTool} />
+                <BlankDef normal="/Images/erase-range-a9a9a9.svg" 
+                          highlighted="/Images/erase-range-72e2ff.svg" 
+                          clear={this.clear} 
+                          togleOptionTool={this.togleOptionTool}/>
+                <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" 
+                                  highlighted="/Images/theme-create-piece-72e2ff.svg" 
+                                  togleOptionTool={this.togleOptionTool} />                
                 <HelpComponent helpTitle="Options"
+                               normal="/Images/question-mark-a9a9a9.svg"
+                               highlighted="/Images/question-mark-72e2ff.svg"
+                               style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
+                               color="#72e2ff"
                                hmChildName="none"
                                helpText={OptionsText}
                                togleHelpModal={this.togleHelpModal} 
-                               setHelpText={this.setHelpText} 
-                               style={{left:948, top:655, zIndex:"inherit", width:10, height:10}}
-                               normal="/Images/question-mark-a9a9a9.svg"
-                               highlighted="/Images/question-mark-72e2ff.svg"
-                               color="#72e2ff" />       
+                               setHelpText={this.setHelpText} />       
                 <Board update={this.update} 
                        togleJump={this.togleJump} 
                        spanDisplays={this.spanDisplays} 
@@ -414,18 +441,25 @@ export class CreatePiece extends React.Component {
                        pieceImg={this.pieceImg["white"]} 
                        showSpanText={this.showSpanText} 
                        showOffsetText={this.showOffsetText} />
-                {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} load={this.load} togleLoadModal={this.togleLoadModal} />)}
-                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} helpText={this.helpText} togleHelpModal={this.togleHelpModal}>
+                {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} 
+                                                                  load={this.load} 
+                                                                  togleLoadModal={this.togleLoadModal} />)}
+                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} 
+                                                       helpText={this.helpText} 
+                                                       togleHelpModal={this.togleHelpModal}>
                                                 {this.getHelpModalChild()}
                                             </HelpModal> )}
-                {this.navExpanded && (<NavBar navBarPosTop={0} 
+                {this.navExpanded && (<NavBar currentPage="/CreatePiece"
+                                              togleHelpModal={this.togleHelpModal}
+                                              setHelpText={this.setHelpText}
+                                              navBarPosTop={0} 
                                               navBarPosLeft={263} 
                                               backgroundColor="#515151" 
                                               iconColor="969696" 
                                               iconColorHover="969696" 
                                               backgroundColorSelected="#3d3d3d"
                                               border="none"
-                                              navBorder={true} />)}
+                                              navBorder={false} />)}
             </div>
         )
     }

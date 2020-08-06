@@ -1,7 +1,5 @@
 import React from "react";
-import {NavBar} from "../NavBar/NavBarRegular";
-import {NavExpand} from "../NavBar/NavExpand";
-import {NavColapse} from "../NavBar/NavColapse";
+import {NavBar} from "../NavBar/NavBarRegular3";
 import "./LoadGame.css";
 
 export class SelectGame extends React.Component {
@@ -28,11 +26,12 @@ export class SelectGame extends React.Component {
         if (this.props.selected) {
           return (
             <div>
+              <NavBar navBarPos="relative" navBarPosTop={0} navBarPosLeft="22.2vw" expandColapseColor="000000"/>
               <div className="container">
                 <div>
-                  <img src={require("./Images/LoadGame.svg")} className="loadGame" alt="title for loading game" />
+                  <img src={require("./Images/LoadGame.svg")} className="load-game" alt="title for loading game" />
                 </div>
-                <div className="buttonOptions">
+                <div className="button-options">
                   <br />
                   <br />
                   <select id="games" onChange={this.handleChange}>
@@ -47,11 +46,12 @@ export class SelectGame extends React.Component {
         else {
           return (
             <div>
+              <NavBar navBarPos="relative" navBarPosTop={0} navBarPosLeft="22.2vw" expandColapseColor="000000"/>
               <div className="container">
                 <div>
-                  <img src={require("./Images/LoadGame.svg")} className="loadGame" alt="text that reads 'Load Game'" />
+                  <img src={require("./Images/LoadGame.svg")} className="load-game" alt="text that reads 'Load Game'" />
                 </div>
-                <div className="buttonOptions">
+                <div className="button-options">
                   <br />
                   <br />
                   <select id="games" onChange={this.handleChange}>
@@ -60,25 +60,6 @@ export class SelectGame extends React.Component {
                   <button style={{backgroundColor: "grey", opacity: "0.6", color: "dark-grey", cursor:"not-allowed"}}>Play</button>
                 </div>
               </div>
-              {this.navExpanded && (<NavBar navBarPosTop={0} 
-                                            navBarPosLeft={480} 
-                                            backgroundColor="#000000" 
-                                            iconColor="969696" 
-                                            iconColorHover="ffffff" 
-                                            backgroundColorSelected="#3d3d3d" 
-                                            border="1px solid #515151" />)}
-                {this.navExpanded && (<NavColapse left={1080}  
-                                                  top={-1} 
-                                                  togleNav={this.togleNav} 
-                                                  backgroundColor="#000000" 
-                                                  iconColor="b6b6b6" 
-                                                  border="1px solid #515151" />)}
-                {! this.navExpanded && (<NavExpand left={1080}  
-                                                   top={-1} 
-                                                   togleNav={this.togleNav} 
-                                                   backgroundColor="#000000" 
-                                                   iconColor="b6b6b6" 
-                                                   border="1px solid #515151" />)}              
             </div>
           );
         }

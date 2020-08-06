@@ -1,7 +1,6 @@
 import React from "react";
 import { RangeDisplayColapsed } from "./RangeDisplayColapsed";
 import { RangeDisplayExpanded } from "./RangeDisplayExpanded";
-import {HelpModal} from "../../Help/HelpModal";
 
 
 export class RangeDisplayTool extends React.Component {
@@ -14,8 +13,6 @@ export class RangeDisplayTool extends React.Component {
         this.hmChildName = "none";
         this.hmChildren = {"none": null};
         this.togleExpand = this.togleExpand.bind(this);
-        this.setHelpText = this.setHelpText.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleExpand = this.togleExpand.bind(this);
 
     }
@@ -24,15 +21,9 @@ export class RangeDisplayTool extends React.Component {
         this.setState({expanded: boolVal})
     }
 
-    togleHelpModal(boolVal) {
-        this.setState({isHelpModal: boolVal})
-    }
 
-    setHelpText(helpTitle, helpText, hmChildName) {
-        this.helpTitle = helpTitle;
-        this.helpText = helpText;
-        this.hmChildName = hmChildName;
-    }
+
+
 
     getHelpModalChild() {
         return this.hmChildren[this.hmChildName];
@@ -43,8 +34,8 @@ export class RangeDisplayTool extends React.Component {
             <>
                 {this.state.expanded && (<RangeDisplayExpanded 
                                            togleExpand={this.togleExpand}
-                                           togleHelpModal={this.togleHelpModal}
-                                           setHelpText={this.setHelpText}
+                                           togleHelpModal={this.props.togleHelpModal}
+                                           setHelpText={this.props.setHelpText}
                                            board={this.props.board}
                                            allRanges={this.props.allRanges}
                                            rangeDefs={this.props.rangeDefs} 
@@ -53,16 +44,9 @@ export class RangeDisplayTool extends React.Component {
                                            updatePrh={this.props.updatePrh}
                 />)}
                 {! this.state.expanded && (<RangeDisplayColapsed togleExpand={this.togleExpand} 
-                                                                 togleHelpModal={this.togleHelpModal} 
-                                                                 setHelpText={this.setHelpText} 
+                                                                 togleHelpModal={this.props.togleHelpModal} 
+                                                                 setHelpText={this.props.setHelpText} 
                 />)}
-                {this.state.isHelpModal && (
-                    <HelpModal helpTitle={this.helpTitle} 
-                               helpText={this.helpText} 
-                               togleHelpModal={this.togleHelpModal}>
-                        {this.getHelpModalChild()}
-                    </HelpModal>
-                )}
             </>
         )
     }

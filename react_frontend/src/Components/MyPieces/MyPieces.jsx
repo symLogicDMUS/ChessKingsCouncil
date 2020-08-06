@@ -10,8 +10,8 @@ import {HelpModal} from "../Help/HelpModal";
 import {HelpComponent} from "../Help/HelpComponent";
 import {SearchBar} from "./SearchBar";
 import {NavBar} from "../NavBar/NavBarRegular2";
-import {NavExpand} from "../NavBar/NavExpand";
-import {NavColapse} from "../NavBar/NavColapse";
+import {NavExpand} from "../NavBar/NavExpand2";
+import {NavColapse} from "../NavBar/NavColapse2";
 import "./MyPieces.css";
 
 
@@ -186,7 +186,7 @@ export class MyPieces extends React.Component {
         if (this.state.redirect) {
             return (
                 <CreatePiece defs={this.defs} 
-                             updateDefs={this.updateDefs} 
+                             updateDefs={this.props.updateDefs} 
                              defaultPiece={this.state.selectedPiece} />
             )
         }
@@ -232,9 +232,10 @@ export class MyPieces extends React.Component {
                                                        helpText={this.helpText}>
                     {this.getHelpModalChild()}
                 </HelpModal>)}
-                {this.navExpanded && (<NavBar navBarPosTop={0} navBarPosLeft={250} backgroundColor="#515151" iconColor="b6b6b6" backgroundColorSelected="#3d3d3d" />)}
-                {this.navExpanded && (<NavColapse  left={1268}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
-                {! this.navExpanded && (<NavExpand left={1268}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
+                {this.navExpanded && (<NavBar currentPage="/NewGame" togleHelpModal={this.togleHelpModal} setHelpText={this.setHelpText} 
+                                              navBarPosTop={0} navBarPosLeft={258} backgroundColor="#515151" iconColor="b6b6b6" backgroundColorSelected="#3d3d3d" border="1px solid #707070" />)}
+                {this.navExpanded && (<NavColapse  left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
+                {! this.navExpanded && (<NavExpand left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
             </>
         )
     }

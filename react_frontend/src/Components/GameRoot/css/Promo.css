@@ -19,7 +19,10 @@
     float: left; 
     background-color: white;
     border: 3px solid slateblue;
+    border-bottom: none;
     border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
     position: absolute; 
   }
   
@@ -36,28 +39,3 @@
     height: 75px;
     background-color: #00CCFF;;
   }
-
-  /*the ok button*/
-  .accept-promo {
-    position: absolute;
-    top: 420px;
-    left: 580;
-    width: 100px;
-    height: 30px;
-    background-color: white;
-    border: 2px solid slateblue;
-    border-radius: 5px;
-    color: slateblue;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
-  }
-
-  .promo-selected {
-    cursor: pointer;
-  }
-
-  .promo-unselected {
-    opacity: 80%;
-    cursor: not-allowed;
-  }
-

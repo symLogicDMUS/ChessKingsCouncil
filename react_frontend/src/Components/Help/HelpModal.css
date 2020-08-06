@@ -1,6 +1,6 @@
 .help-modal {
     position: fixed;
-    z-index: 5;
+    z-index: 9;
     left: 0;
     top: 0;
     width: 100%;
@@ -10,7 +10,7 @@
 
 .help-modal-window {
     position: relative;
-    z-index: 6;
+    z-index: 10;
     width: 768px;
     left: 384px;
     top: 75px;

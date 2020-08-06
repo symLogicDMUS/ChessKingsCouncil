@@ -18,7 +18,7 @@ export class  NewGameProfileWBHeader extends React.Component  {
     }
 
     hoverOn() {
-        this.setState({src: "/Images/expand-0cc.svg"})
+        this.setState({src: "/Images/expand-72e2ff.svg"})
     }
 
     hoverOff() {
@@ -31,7 +31,7 @@ export class  NewGameProfileWBHeader extends React.Component  {
                 <div className="new-game-piece-wb-piece-name">
                     {this.color} {this.props.rangeType}
                 </div>
-                <div class_="new-game-piece-expand-modal" onClick={this.expand} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+                <div className="new-game-piece-expand-modal" onClick={this.expand} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
                     <img src={this.state.src}
                          alt="view board diagram of spans or offsets" 
                          style={{width: 16, height: 16, marginTop: 7, marginLeft: 7, cursor:"pointer"}} 

@@ -28,14 +28,37 @@ export class NavBar extends React.Component {
     render() {
         return (
             <div className="nav-bar-regular3" style={{position:this.props.navBarPos, top: this.props.navBarPosTop, left: this.props.navBarPosLeft}}>
-                {this.navExpanded && (<HomeLink srcNormal="/Images/Navbar/home-reg-000000.svg" srcSelected="/Images/Navbar/home-reg-ffffff.svg" />)}
-                {this.navExpanded && (<NewGameLink  srcNormal="/Images/Navbar/new-game-reg-000000.svg" srcSelected="/Images/Navbar/new-game-reg-ffffff.svg" />)}
-                {this.navExpanded && (<LoadGameLink  srcNormal="/Images/Navbar/load-game-reg-000000.svg" srcSelected="/Images/Navbar/load-game-reg-ffffff.svg" />)}
-                {this.navExpanded && (<CreatePieceLink  srcNormal="/Images/Navbar/create-piece-reg-000000.svg" srcSelected="/Images/Navbar/create-piece-reg-ffffff.svg" />)}
-                {this.navExpanded && (<ChessRulesLink  srcNormal="/Images/Navbar/chess-rules-reg-000000.svg" srcSelected="/Images/Navbar/chess-rules-reg-ffffff.svg" />)}
-                {this.navExpanded && (<CouncilRulesLink  srcNormal="/Images/Navbar/council-rules-reg-000000.svg" srcSelected="/Images/Navbar/council-rules-reg-ffffff.svg" />)}
-                {this.navExpanded && (<MyPiecesLink  srcNormal="/Images/Navbar/my-pieces-reg-000000.svg" srcSelected="/Images/Navbar/my-pieces-reg-ffffff.svg" />)}
-                {this.navExpanded && (<AuthorGithubLink  srcNormal="/Images/Navbar/author-github-reg-000000.svg" srcSelected="/Images/Navbar/author-github-reg-ffffff.svg" />)}
+                {this.navExpanded && (<HomeLink srcNormal="/Images/Navbar/home-reg-000000.svg" 
+                                                srcSelected="/Images/Navbar/home-reg-ffffff.svg" />)}
+                {this.navExpanded && (<NewGameLink currentPage={this.props.currentPage} 
+                                                   setHelpText={this.props.setHelpText} 
+                                                   togleHelpModal={this.props.togleHelpModal}
+                                                   srcNormal="/Images/Navbar/new-game-reg-000000.svg" 
+                                                   srcSelected="/Images/Navbar/new-game-reg-ffffff.svg" />)}
+                {this.navExpanded && (<LoadGameLink currentPage={this.props.currentPage} 
+                                                    setHelpText={this.props.setHelpText} 
+                                                    togleHelpModal={this.props.togleHelpModal}
+                                                    srcNormal="/Images/Navbar/load-game-reg-000000.svg" 
+                                                    srcSelected="/Images/Navbar/load-game-reg-ffffff.svg" />)}
+                {this.navExpanded && (<CreatePieceLink currentPage={this.props.currentPage} 
+                                                       setHelpText={this.props.setHelpText} 
+                                                       togleHelpModal={this.props.togleHelpModal}
+                                                       srcNormal="/Images/Navbar/create-piece-reg-000000.svg" 
+                                                       srcSelected="/Images/Navbar/create-piece-reg-ffffff.svg" />)}
+                {this.navExpanded && (<ChessRulesLink  srcNormal="/Images/Navbar/chess-rules-reg-000000.svg" 
+                                                       srcSelected="/Images/Navbar/chess-rules-reg-ffffff.svg" />)}
+                {this.navExpanded && (<CouncilRulesLink currentPage={this.props.currentPage} 
+                                                        setHelpText={this.props.setHelpText} 
+                                                        togleHelpModal={this.props.togleHelpModal}
+                                                        srcNormal="/Images/Navbar/council-rules-reg-000000.svg" 
+                                                        srcSelected="/Images/Navbar/council-rules-reg-ffffff.svg" />)}
+                {this.navExpanded && (<MyPiecesLink currentPage={this.props.currentPage} 
+                                                    setHelpText={this.props.setHelpText} 
+                                                    togleHelpModal={this.props.togleHelpModal}
+                                                    srcNormal="/Images/Navbar/my-pieces-reg-000000.svg" 
+                                                    srcSelected="/Images/Navbar/my-pieces-reg-ffffff.svg" />)}
+                {this.navExpanded && (<AuthorGithubLink  srcNormal="/Images/Navbar/author-github-reg-000000.svg" 
+                                                         srcSelected="/Images/Navbar/author-github-reg-ffffff.svg" />)}
                 {this.navExpanded && (<NavColapseLarge color={this.props.expandColapseColor} togleNav={this.togleNav} />)}
                 {! this.navExpanded && (<NavExpandLarge color={this.props.expandColapseColor} togleNav={this.togleNav} />)}
             </div>

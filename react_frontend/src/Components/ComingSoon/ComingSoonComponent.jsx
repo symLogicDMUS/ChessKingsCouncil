@@ -9,7 +9,6 @@ export class ComingSoonComponent extends React.Component {
     super(props);
     this.state = {bValue: true};
     this.navExpanded = true;
-
   }
 
   componentDidMount() {
@@ -33,5 +32,3 @@ export class ComingSoonComponent extends React.Component {
   }
 
 };
-
-export default ComingSoonComponent;

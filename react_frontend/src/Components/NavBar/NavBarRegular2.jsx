@@ -9,17 +9,22 @@ import {MyPiecesLink} from "./ComponentsRegular2/MyPiecesLink";
 import {AuthorGithubLink} from "./ComponentsRegular2/AuthorGithubLink";
 import "./NavBarRegular2.css";
 
-export function NavBar ({navBarPosTop, navBarPosLeft, backgroundColor, iconColor, backgroundColorSelected, border}) {
+export function NavBar ({currentPage, togleHelpModal, setHelpText, navBarPosTop, navBarPosLeft, backgroundColor, iconColor, backgroundColorSelected, border}) {
 
     return (
         <div className="nav-bar-regular2" style={{top: navBarPosTop, left: navBarPosLeft}}>
             <HomeLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border}/>
-            <NewGameLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected} border={border}  />
-            <LoadGameLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
-            <CreatePieceLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
+            <NewGameLink currentPage={currentPage} togleHelpModal={togleHelpModal} setHelpText={setHelpText}
+                         backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected} border={border}  />
+            <LoadGameLink currentPage={currentPage} togleHelpModal={togleHelpModal} setHelpText={setHelpText}
+                          backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
+            <CreatePieceLink currentPage={currentPage} togleHelpModal={togleHelpModal} setHelpText={setHelpText}
+                             backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
             <ChessRulesLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
-            <CouncilRulesLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected} border={border}  />
-            <MyPiecesLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
+            <CouncilRulesLink currentPage={currentPage} togleHelpModal={togleHelpModal} setHelpText={setHelpText}
+                              backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected} border={border}  />
+            <MyPiecesLink currentPage={currentPage} togleHelpModal={togleHelpModal} setHelpText={setHelpText}
+                          backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected}  border={border} />
             <AuthorGithubLink backgroundColor={backgroundColor} iconColor={iconColor} backgroundColorSelected={backgroundColorSelected} border={border}  />
         </div>
     )

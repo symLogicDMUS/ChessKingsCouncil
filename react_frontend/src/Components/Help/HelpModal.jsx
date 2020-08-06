@@ -12,10 +12,6 @@ export class HelpModal extends React.Component {
         this.props.togleHelpModal(false);
     }
 
-    getExtraModal() {
-        return this.props.extraModal;
-    }
-
     render() {
         return (
             <div className="help-modal">

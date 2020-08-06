@@ -13,10 +13,12 @@ export class ThemeCreatePiece extends React.Component {
     }
 
     hoverOn() {
+        this.props.togleOptionTool(false);
         this.setState({highlighted: true});
     }
 
     hoverOff() {
+        this.props.togleOptionTool(true);
         this.setState({highlighted: false});
     }
 
@@ -29,7 +31,7 @@ export class ThemeCreatePiece extends React.Component {
 
         return (
             <div className="option theme-option" onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                <img src={this.src} style={{position:"absolute", width:49, height:68}} />
+                <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="icon for changing theme of page" />
             </div>
         )
     }

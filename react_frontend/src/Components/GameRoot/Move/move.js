@@ -1,5 +1,4 @@
 import {makeMove} from "./makeMove";
-import {OVER} from "../../helpers/gStatusTypes";
 import "../../helpers/getColorName";
 
 export function move(gameroot, start, dest) {
@@ -9,7 +8,7 @@ export function move(gameroot, start, dest) {
     gameroot.updateFen(start, dest);
     gameroot.updateBackend().then(([result]) => {
         gameroot.update();
-        if (gameroot.aiColor === gameroot.turn && gameroot.gameStatus.gameStatus !== OVER )
-            gameroot.aiDisplayMove();
+        if (gameroot.aiColor === gameroot.turn && ! gameroot.isGameOver())
+            gameroot.prepareAiMove();
     })
 }

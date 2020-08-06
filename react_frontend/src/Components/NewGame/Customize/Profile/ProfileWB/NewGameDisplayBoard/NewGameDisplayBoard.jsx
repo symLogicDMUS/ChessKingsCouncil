@@ -56,7 +56,6 @@ export class NewGameDisplayBoard extends React.Component {
     }
 
     setSpan(stepFunc) {
-        let span = [];
         let rf = this.props.location;
         rf = stepFunc(rf);
         while (! outOfBounds(rf) ) {

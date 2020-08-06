@@ -33,7 +33,7 @@ export class RangeDisplayColapsed extends React.Component {
                                     left: 125,
                                     top: 16,
                                     width: 10,
-                                    height: 10,
+                                    height: 10
                                 }}
                                highlighted="/Images/question-mark-72e2ff.svg"
                                normal="/Images/question-mark-b1faae.svg"

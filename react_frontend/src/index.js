@@ -9,6 +9,7 @@ getData().then( ([dataDict, defs]) => {
 });
 
 
+
 // tests:
 // import {test} from "./Components/GameRoot/Components/TestAi/TestAI";
 // test();
