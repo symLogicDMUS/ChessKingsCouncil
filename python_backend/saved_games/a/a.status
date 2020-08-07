@@ -1,5 +1,5 @@
 {
-    "condition": "",
-    "status": 1,
-    "winner": "-"
+    "condition": "checkmate",
+    "status": 0,
+    "winner": "W"
 }

@@ -1,8 +1,11 @@
 {
-    "b": "Bishop",
+    "a": "Jester",
+    "b": "Firelord",
+    "h": "Duke",
+    "i": "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels",
     "k": "King",
-    "n": "Knight",
+    "n": "Tux",
     "p": "Pawn",
-    "q": "Queen",
-    "r": "Rook"
+    "q": "EvilMorty",
+    "r": "X_Wing"
 }

@@ -4,7 +4,6 @@ from game_logic.GameStatus.GameStatus import GameStatus
 from game_logic.fenParser.getBoard.top.get_board import get_board
 from game_logic.status.get_status import get_status
 from flask_helpers.helpers.filepath import get_dir_containing_name
-from game_logic.printers.print_board import print_board
 from pprint import pprint
 import json
 

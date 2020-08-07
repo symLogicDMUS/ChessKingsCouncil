@@ -25,6 +25,8 @@ class JsonRecords(object):
             f.close()
         else:
             records = j_records
+        pprint(board)
+        pprint(records)
         self.rooks_moved = records['rooks_moved']
         self.kings_moved = records['kings_moved']
         self.pawn_histories = records['pawn_histories']

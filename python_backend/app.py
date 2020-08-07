@@ -22,7 +22,6 @@ def update():
     print("POST request, update()""")
     data = request.get_data(as_text=True)
     data = json.loads(data)
-    pprint(data['records']['pawn_histories'])
     reformated = map_rf_to_xy({'board': data['board'], 'records': data['records'], 'color': data['color']})
     board, records, color, player_type, defs_ = reformated['board'], reformated['records'], reformated['color'], data['player_type'], data['defs']
     ai_color = get_ai_color(player_type)
@@ -30,6 +29,7 @@ def update():
     data = new_data(board, color, ai_color, defs_, json_records)
     enemy_data = new_data(board, get_enemy_color(color), ai_color, defs_, json_records)
     data.update({'enemy_ranges': enemy_data['ranges']})
+    pprint(data)
     return jsonify(data)
 
 
@@ -63,9 +63,7 @@ def save():
     # saving fen
     fen = get_fen(map_rf_to_xy(board))
     fen = get_fen_str(fen, fen_obj)
-    print("▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮")
     print(fen)
-    print("▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮")
     f = open('./saved_games/{}/{}.fen'.format(game_name, game_name), 'w')
     f.write(fen)
     f.close()
