@@ -205,15 +205,15 @@ export class GameRoot extends React.Component {
         let pieceId = this.board[dest];
         let fenId = pieceId[1].toLowerCase();
 
+        if (isPawn(this.captured)) {
+            delete this.jsonRecords.pawnHistories[this.captured];
+        }
+
         if (fenId === 'p') {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
             this.jsonRecords.lastPawnMove = dest;
-            if (isPawn(this.captured)) {
-                delete this.jsonRecords.pawnHistories[this.captured];
-            }
         }
-
         else {
             this.jsonRecords.numConsecutiveNonPawnMoves++;
             if (fenId  === 'k')
