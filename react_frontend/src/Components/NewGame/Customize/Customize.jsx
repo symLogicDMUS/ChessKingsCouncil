@@ -350,7 +350,6 @@ export class Customize extends React.Component {
                     </div>
                 </div>
                 {this.isTooltip && (<NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />) }
-                <Ok accept={this.accept} />
                 {this.getModals()}
                 {this.state.isHelpModal && (
                     <HelpModal helpTitle={this.helpTitle} helpText={this.helpText} togleHelpModal={this.togleHelpModal}>
@@ -362,7 +361,7 @@ export class Customize extends React.Component {
                                               navBarPosTop={0} navBarPosLeft={258} backgroundColor="#515151" iconColor="b6b6b6" backgroundColorSelected="#3d3d3d" border="1px solid #707070" />)}
                 {this.navExpanded && (<NavColapse  left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
                 {! this.navExpanded && (<NavExpand left={1276}  top={0} togleNav={this.togleNav} backgroundColor="#515151" iconColor="b6b6b6" border="1px solid #707070" />)}
-
+                <Ok accept={this.accept} />
             </>
 
         )

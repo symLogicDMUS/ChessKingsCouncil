@@ -12,7 +12,7 @@ from game_logic.GameStatus.get_status import get_status
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from game_logic.status.is_checkmate import is_checkmate as checkmate
 from flask_helpers.ai_move import ai_move
-from game_logic.status.g_status_types import *
+from pprint import pprint
 
 
 def new_data(board, color, ai_color, defs_, json_records):

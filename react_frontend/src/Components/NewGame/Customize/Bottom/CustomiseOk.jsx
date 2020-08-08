@@ -1,17 +1,12 @@
 import React from "react";
 import "./CustomiseOk.css";
 
-export class Ok extends React.Component {
+export function Ok({accept}) {
 
-    constructor(props) {
-        super(props);
-    }
+    return (
+        <button className="new-game-accept-customization" onClick={accept}>
+            Ok
+        </button>
+    )
 
-    render() {
-        return (
-            <button className="new-game-accept-customization" onClick={this.props.accept}>
-                Ok
-            </button>
-        )
-    }
 }

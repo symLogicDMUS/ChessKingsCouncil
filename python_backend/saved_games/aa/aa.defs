@@ -21,136 +21,6 @@
             ]
         }
     },
-    "Knight": {
-        "B": {
-            "img": "BN.svg",
-            "offsets": [
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    -1,
-                    2
-                ],
-                [
-                    1,
-                    -2
-                ],
-                [
-                    1,
-                    2
-                ],
-                [
-                    -2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    2,
-                    1
-                ]
-            ],
-            "spans": []
-        },
-        "W": {
-            "img": "WN.svg",
-            "offsets": [
-                [
-                    1,
-                    2
-                ],
-                [
-                    1,
-                    -2
-                ],
-                [
-                    -1,
-                    2
-                ],
-                [
-                    -1,
-                    -2
-                ],
-                [
-                    2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -2,
-                    -1
-                ]
-            ],
-            "spans": []
-        }
-    },
-    "Queen": {
-        "B": {
-            "img": "BQ.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr180d",
-                "step_1sqr225d",
-                "step_1sqr270d",
-                "step_1sqr315d",
-                "step_1sqr0d",
-                "step_1sqr90d",
-                "step_1sqr45d",
-                "step_1sqr135d"
-            ]
-        },
-        "W": {
-            "img": "WQ.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr0d",
-                "step_1sqr45d",
-                "step_1sqr90d",
-                "step_1sqr135d",
-                "step_1sqr180d",
-                "step_1sqr225d",
-                "step_1sqr270d",
-                "step_1sqr315d"
-            ]
-        }
-    },
-    "Rook": {
-        "B": {
-            "img": "BR.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr180d",
-                "step_1sqr270d",
-                "step_1sqr0d",
-                "step_1sqr90d"
-            ]
-        },
-        "W": {
-            "img": "WR.svg",
-            "offsets": [],
-            "spans": [
-                "step_1sqr0d",
-                "step_1sqr90d",
-                "step_1sqr180d",
-                "step_1sqr270d"
-            ]
-        }
-    },
     "Duke": {
         "B": {
             "img": "black_blue_devil.svg",
@@ -374,35 +244,10 @@
         }
     },
     "Jester": {
-        "W": {
-            "spans": [
-                "step_1sqr90d",
-                "step_1sqr0d",
-                "step_1sqr270d",
-                "step_1sqr180d"
-            ],
+        "B": {
+            "img": "black_jester.svg",
             "offsets": [
                 [
-                    1,
-                    2
-                ],
-                [
-                    2,
-                    2
-                ],
-                [
-                    2,
-                    1
-                ],
-                [
-                    2,
-                    -1
-                ],
-                [
-                    2,
-                    -2
-                ],
-                [
                     -1,
                     -2
                 ],
@@ -423,54 +268,127 @@
                     2
                 ],
                 [
-                    -1,
+                    1,
                     2
+                ],
+                [
+                    2,
+                    2
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    2,
+                    -1
+                ],
+                [
+                    2,
+                    -2
                 ],
                 [
                     1,
                     -2
+                ],
+                [
+                    -1,
+                    2
                 ]
             ],
-            "img": "white_jester.svg"
-        },
-        "B": {
             "spans": [
                 "step_1sqr270d",
                 "step_1sqr180d",
                 "step_1sqr90d",
                 "step_1sqr0d"
+            ]
+        },
+        "W": {
+            "img": "white_jester.svg",
+            "offsets": [
+                [
+                    1,
+                    2
+                ],
+                [
+                    2,
+                    2
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    2,
+                    -1
+                ],
+                [
+                    2,
+                    -2
+                ],
+                [
+                    -1,
+                    -2
+                ],
+                [
+                    -2,
+                    -2
+                ],
+                [
+                    -2,
+                    -1
+                ],
+                [
+                    -2,
+                    1
+                ],
+                [
+                    -2,
+                    2
+                ],
+                [
+                    -1,
+                    2
+                ],
+                [
+                    1,
+                    -2
+                ]
             ],
+            "spans": [
+                "step_1sqr90d",
+                "step_1sqr0d",
+                "step_1sqr270d",
+                "step_1sqr180d"
+            ]
+        }
+    },
+    "Knight": {
+        "B": {
+            "img": "BN.svg",
             "offsets": [
                 [
                     -1,
                     -2
                 ],
                 [
-                    -2,
-                    -2
-                ],
-                [
-                    -2,
-                    -1
-                ],
-                [
-                    -2,
-                    1
-                ],
-                [
-                    -2,
+                    -1,
                     2
+                ],
+                [
+                    1,
+                    -2
                 ],
                 [
                     1,
                     2
                 ],
                 [
-                    2,
-                    2
+                    -2,
+                    -1
                 ],
                 [
-                    2,
+                    -2,
                     1
                 ],
                 [
@@ -479,7 +397,17 @@
                 ],
                 [
                     2,
-                    -2
+                    1
+                ]
+            ],
+            "spans": []
+        },
+        "W": {
+            "img": "WN.svg",
+            "offsets": [
+                [
+                    1,
+                    2
                 ],
                 [
                     1,
@@ -488,9 +416,81 @@
                 [
                     -1,
                     2
+                ],
+                [
+                    -1,
+                    -2
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    2,
+                    -1
+                ],
+                [
+                    -2,
+                    1
+                ],
+                [
+                    -2,
+                    -1
                 ]
             ],
-            "img": "black_jester.svg"
+            "spans": []
+        }
+    },
+    "Queen": {
+        "B": {
+            "img": "BQ.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr180d",
+                "step_1sqr225d",
+                "step_1sqr270d",
+                "step_1sqr315d",
+                "step_1sqr0d",
+                "step_1sqr90d",
+                "step_1sqr45d",
+                "step_1sqr135d"
+            ]
+        },
+        "W": {
+            "img": "WQ.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr0d",
+                "step_1sqr45d",
+                "step_1sqr90d",
+                "step_1sqr135d",
+                "step_1sqr180d",
+                "step_1sqr225d",
+                "step_1sqr270d",
+                "step_1sqr315d"
+            ]
+        }
+    },
+    "Rook": {
+        "B": {
+            "img": "BR.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr180d",
+                "step_1sqr270d",
+                "step_1sqr0d",
+                "step_1sqr90d"
+            ]
+        },
+        "W": {
+            "img": "WR.svg",
+            "offsets": [],
+            "spans": [
+                "step_1sqr0d",
+                "step_1sqr90d",
+                "step_1sqr180d",
+                "step_1sqr270d"
+            ]
         }
     },
     "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels": {

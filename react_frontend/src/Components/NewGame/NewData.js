@@ -2,7 +2,8 @@
 const [OVER, IN_PROGRESS] = [0, 1]
 
 /**data for the start of a new game*/
-export const newData = {"color": 'W', 
+export const newData = {
+                 "color": 'W', 
                  "fen_data": {"turn": "w", 
                               "castle_avail":"KQkq",
                               "en_passant_avail": "-",

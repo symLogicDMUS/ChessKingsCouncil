@@ -205,13 +205,14 @@ export class GameRoot extends React.Component {
         let pieceId = this.board[dest];
         let fenId = pieceId[1].toLowerCase();
 
+        if (isPawn(this.captured)) {
+            delete this.jsonRecords.pawnHistories[this.captured];
+        }
+
         if (fenId === 'p') {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
             this.jsonRecords.lastPawnMove = dest;
-            if (isPawn(this.captured)) {
-                delete this.jsonRecords.pawnHistories[this.captured];
-            }
         }
 
         else {
@@ -268,7 +269,7 @@ export class GameRoot extends React.Component {
                     <Promo gameroot={this} 
                            color={this.getColorLastMove()} 
                            pawnLoc={this.specialMoves.currentDest} />)}
-                {(this.aiDisplay && this.specialCase !== "promo") && (
+                {(this.aiDisplay && this.specialCase !== "promo" && ! this.isGameOver()) && (
                     <AiDisplay aiStart={this.aiStart} 
                                aiDest={this.aiDest} 
                                aiMakeMove={this.aiMakeMove} />)}

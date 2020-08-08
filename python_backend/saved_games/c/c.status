@@ -1,5 +1,5 @@
 {
-    "condition": "",
-    "status": 1,
+    "condition": "stalemate",
+    "status": 0,
     "winner": "-"
 }

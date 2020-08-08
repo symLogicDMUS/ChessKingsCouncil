@@ -8,7 +8,7 @@ export function move(gameroot, start, dest) {
     gameroot.updateFen(start, dest);
     gameroot.updateBackend().then(([result]) => {
         gameroot.update();
-        if (gameroot.aiColor === gameroot.turn && ! gameroot.isGameOver())
+        if (gameroot.aiColor === gameroot.turn)
             gameroot.prepareAiMove();
     })
 }

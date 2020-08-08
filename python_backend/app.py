@@ -118,6 +118,8 @@ def assign_ids():
     data = request.get_data()
     data = json.loads(data)
     piece_names, subs = data['names'], data['subs']
+    print(piece_names)
+    print(subs)
     piece_names = id_assign(piece_names, subs)
 
     return jsonify(piece_names)
