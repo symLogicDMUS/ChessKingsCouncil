@@ -6,7 +6,9 @@ from pprint import pprint
 
 # TODO: add restricton against more than 20 ids
 def rent_ids(id_dict, custom_names, ignore=[]):
-    """extend id_dict by rentring available assign_ids for custom_names"""
+    """for custom pieces not subbing in for a standard (these are pawn promotion options), pick id from the 20 alphabet
+       characters not used by a standard piece.
+    """
     ids = copy.deepcopy(_ids_for_rent)
     random.shuffle(ids)
     for name in custom_names:

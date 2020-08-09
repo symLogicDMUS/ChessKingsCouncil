@@ -33,6 +33,73 @@ def update():
     return jsonify(data)
 
 
+@app.route('/update_council', methods=['GET'])
+def update_council():
+    """ """
+    pass  # TODO: implement same as update except updated for game with multiple kings
+
+
+@app.route('/assign_ids', methods=['POST'])
+def assign_ids():
+    """called by NewGame component on the front end.
+    create id:piece-name arangement unique to new game. substitute custom-piece(s) for of Rook, Bishop, Knight, or Queen,
+    by assigning its usual id to the custom-piece name and custom-piece range-def. add custom pieces selected to be a
+    pawn promotion choice.
+    """
+    data = request.get_data()
+    data = json.loads(data)
+    piece_names, subs = data['names'], data['subs']
+    print(piece_names)
+    print(subs)
+    piece_names = id_assign(piece_names, subs)
+
+    return jsonify(piece_names)
+
+
+@app.route('/get_data_dict', methods=['GET'])
+def get_data_dict():
+    """get all the saved game data at the start of the game"""
+    print('GET request, getting data of all the games')
+    games = os.listdir('./saved games')
+    data_dict = {}
+    for game_name in games:
+        data_dict[game_name] = parse_data(game_name)
+    return jsonify(data_dict)
+
+
+@app.route('/get_defs', methods=['GET'])
+def get_defs():
+    """get the JSON object inside defs.json"""
+    print('GET request, getting data from defs.json')
+    defs = {}
+    f = open("defs.json", 'r')
+    data = f.read()
+    defs = json.loads(data)
+    json.dumps(defs, indent=4, sort_keys=True)
+    return jsonify(defs)
+
+
+@app.route('/save_defs', methods=['POST'])
+def save_defs():
+    """save the definitions object of piece ranges to defs.json"""
+    print("saving piece range definitions")
+    data = request.get_data(as_text=True)
+    defs = json.loads(data)
+    with open("./defs.json", "w") as outfile:
+        json.dump(defs, outfile, indent=4, sort_keys=False)
+    outfile.close()
+    return "Done", 201
+
+
+@app.route('/save_games', methods=['POST'])
+def save_games():
+    """ """
+    print("POST method, saving all games")
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    return "All games saved successfully!", 201
+
+
 @app.route('/save', methods=["POST"])
 def save():
     """save information about game in its designated folder
@@ -100,64 +167,6 @@ def save():
     return "Save Successfull", 201
 
     # TODO: save image of board to file
-
-
-@app.route('/update_council', methods=['GET'])
-def update_council():
-    """ """
-    pass  # TODO: implement same as update except updated for game with multiple kings
-
-
-@app.route('/assign_ids', methods=['POST'])
-def assign_ids():
-    """called by NewGame component on the front end.
-    create id:piece-name arangement unique to new game. substitute custom-piece(s) for of Rook, Bishop, Knight, or Queen,
-    by assigning its usual id to the custom-piece name and custom-piece range-def. add custom pieces selected to be a
-    pawn promotion choice.
-    """
-    data = request.get_data()
-    data = json.loads(data)
-    piece_names, subs = data['names'], data['subs']
-    print(piece_names)
-    print(subs)
-    piece_names = id_assign(piece_names, subs)
-
-    return jsonify(piece_names)
-
-
-@app.route('/get_data_dict', methods=['GET'])
-def get_data_dict():
-    """get all the saved game data at the start of the game"""
-    print('GET request, getting data of all the games')
-    games = os.listdir('./saved_games')
-    data_dict = {}
-    for game_name in games:
-        data_dict[game_name] = parse_data(game_name)
-    return jsonify(data_dict)
-
-
-@app.route('/get_defs', methods=['GET'])
-def get_defs():
-    """get the JSON object inside defs.json"""
-    print('GET request, getting data from defs.json')
-    defs = {}
-    f = open("defs.json", 'r')
-    data = f.read()
-    defs = json.loads(data)
-    json.dumps(defs, indent=4, sort_keys=True)
-    return jsonify(defs)
-
-
-@app.route('/save_defs', methods=['POST'])
-def save_defs():
-    """save the definitions object of piece ranges to defs.json"""
-    print("saving piece range definitions")
-    data = request.get_data(as_text=True)
-    defs = json.loads(data)
-    with open("./defs.json", "w") as outfile:
-        json.dump(defs, outfile, indent=4, sort_keys=False)
-    outfile.close()
-    return "Done", 201
 
 
 if __name__ == "__main__":

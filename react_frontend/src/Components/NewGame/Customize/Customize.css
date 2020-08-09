@@ -56,9 +56,9 @@
 
 .new-game-bottom-bar {
     position: absolute;
+    display: grid;
     left: 0px;
     top: 850px;
-    display: grid;
     grid-template-columns: 85px 455px 480px;
     grid-template-rows: 38px 38px 38px 38px 38px;
     /* row-gap: 5px; */

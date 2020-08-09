@@ -6,10 +6,14 @@ from pprint import pprint
 
 def id_assign(custom_piece_names, subs):
     """
+    assign custom piece names to standard piece ids, therefore "subbing" for those standard pieces. Standard ids not subed
+    for keep their standard piece assignments. For custom pieces not subed but that are pawn promotion options, rent from
+    1 of 20 non-standard ids.
     """
     id_dict = sub_ids(subs)
-    id_dict = rent_ids(id_dict, custom_piece_names, ignore=subs.keys())  # ignore because taken care of previous step.
-    id_dict.update(get_standard_ids(exclude=subs.values())) # exclude standard pieces subed for.
+    id_dict = rent_ids(id_dict, custom_piece_names, ignore=subs.keys())  # "ignore" subs because just did that
+    id_dict.update(get_standard_ids(exclude=subs.values()))  # get ids the of standard pieces not subbing for.
+
     return id_dict
 
 

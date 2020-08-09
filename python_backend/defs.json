@@ -1382,17 +1382,5 @@
             ],
             "spans": []
         }
-    },
-    "a": {
-        "W": {
-            "spans": [],
-            "offsets": [],
-            "img": null
-        },
-        "B": {
-            "spans": [],
-            "offsets": [],
-            "img": null
-        }
     }
 }

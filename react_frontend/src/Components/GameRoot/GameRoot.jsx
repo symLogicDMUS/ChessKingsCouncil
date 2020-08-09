@@ -40,7 +40,7 @@ export class GameRoot extends React.Component {
         this.enemyRanges = this.dataEntry['enemy_ranges'];
         this.idDict = this.dataEntry['id_dict'];
         this.rangeDefs = this.dataEntry['defs']; 
-        this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
+        this.promoChoices = this.dataEntry['promo_choices'];
         this.playerType = this.dataEntry['player_type'];
         this.unsaved = false;
         this.aiDisplay = false;
@@ -60,6 +60,7 @@ export class GameRoot extends React.Component {
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
+        this.updateBackend = this.updateBackend.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
@@ -283,8 +284,17 @@ export class GameRoot extends React.Component {
                         condition={this.gameStatus.condition} 
                         winner={this.gameStatus.winner} />
                 {this.specialCase === "promo" && (
-                    <Promo gameroot={this} 
+                    <Promo promoChoices={this.promoChoices}
+                           board={this.board}
+                           jsonRecords={this.jsonRecords}
+                           idDict={this.idDict}
+                           rangeDefs={this.rangeDefs}
+                           isCouncil={this.isCouncil}
+                           updateBackend={this.updateBackend}
+                           updateSpecialCase={this.updateSpecialCase}
+                           update={this.update}
                            color={this.getColorLastMove()} 
+                           aiColor={this.aiColor}
                            pawnLoc={this.specialMoves.currentDest} />)}
                 {(this.aiDisplay && this.specialCase !== "promo" && ! this.isGameOver()) && (
                     <AiDisplay aiStart={this.aiStart} 

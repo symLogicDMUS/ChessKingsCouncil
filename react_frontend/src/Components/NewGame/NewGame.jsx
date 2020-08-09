@@ -4,7 +4,7 @@ import {PickName} from "./PickName/PickName";
 import {Customize} from "./Customize/Customize";
 import { Redirect } from "react-router-dom";
 import { PlayAs } from "./PlayAs/PlayAs";
-import {newData, ranges, enemyRanges, moves, status, id_dict, range_defs} from "./NewData";
+import {newData, ranges, enemyRanges, moves, status, id_dict, range_defs, standard_promo_ids} from "./NewData";
 import "./NewGame.css";
 
 /**
@@ -55,35 +55,45 @@ export class NewGame extends React.Component {
     }
 
     loadNewStandard() {
+        /**Not yet implemented to be different */
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
+        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
+        this.dataDict[this.gameName]['game_type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.dataDict[this.gameName]['promo_choices'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
+        
         this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
         this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
         this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
-        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
-        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
     }
 
     loadNewCouncil() {
         /**Not yet implemented to be different */
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
+        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
+        this.dataDict[this.gameName]['game_type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.dataDict[this.gameName]['promo_choices'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
+
         this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
         this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
         this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
         this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
-        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
-        this.dataDict[this.gameName]['defs'] = JSON.parse(JSON.stringify(range_defs));
-        this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType));
+
     }
 
     
 
     loadNewCustom(idDict, promos) {
         /**
+         * first declare the data we don't need backend for, then get rest of data from backend.
+         * 
          * load the data for new-game but then change the idDict to
          * one chosen by customise. note: unlike loadNewCouncil and 
-         * loadNewStandard,loadNewCustom is called from child.
+         * loadNewStandard, loadNewCustom is called from child.
          * 
          * 1. set data that is same for any new game
          * 2. set what the player will play as: W, B, or test
@@ -93,28 +103,30 @@ export class NewGame extends React.Component {
         this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData)); //1.
         this.dataDict[this.gameName]['player_type'] = JSON.parse(JSON.stringify(this.playerType)); //2.
         this.dataDict[this.gameName]['game_type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.dataDict[this.gameName]['id_dict'] = idDict; //4.
         this.dataDict[this.gameName]['promo_choices'] = promos; //4.
+        this.dataDict[this.gameName]['id_dict'] = idDict; //4.
         this.dataDict[this.gameName]['defs'] = {}; //4.
         for (var name of Object.values(idDict)) {
             this.dataDict[this.gameName]['defs'][name] = this.props.defs[name]; //4.
         }
-        let payload = this.getPayload(); //5.
+        let payload = this.formatDataAsObject(); //5.
         fetch('/update', { //5.
             method: 'POST',
             body: JSON.stringify(payload)
         }).then(response => response.json())
         .then(dataEntry => {
+            this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
             this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
             this.dataDict[this.gameName]['enemy_ranges'] = dataEntry['enemy_ranges'];
-            this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
             this.dataDict[this.gameName]['status'] = dataEntry['status'];
-            this.props.updateDataDict(this.dataDict);
-            this.nextStep();
+            this.props.updateDataDict(this.dataDict).then( ([response]) => {
+                this.nextStep();
+            });
         });
     }
 
-    getPayload() {
+    formatDataAsObject() {
+        /**return data that created form new game, together as an object.  */
         return { "board":this.dataDict[this.gameName]['board'], 
                  "records":this.dataDict[this.gameName]['records'],
                  "color":"W",

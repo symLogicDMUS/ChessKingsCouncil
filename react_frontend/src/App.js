@@ -14,7 +14,7 @@ import {LoadGame} from "./Components/LoadGame/LoadGame";
 import {NewGame} from "./Components/NewGame/NewGame";
 import {GameRoot} from "./Components/GameRoot/GameRoot";
 import {MyPieces} from "./Components/MyPieces/MyPieces";
-import {getDataDict, getData} from "./API";
+import {getDataDict} from "./API";
 
 export class App extends React.Component {
 
@@ -39,19 +39,34 @@ export class App extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
+
+    async saveGamesToApi() {
+        return await fetch('/save_games', {
+            method:'POST',
+            body: JSON.stringify(this.dataDict)
+        })
+    }
+
+    async savesDefsToApi() {
+        return await fetch('/save_defs', {
+            method:"POST",
+            body: JSON.stringify(this.defs)  
+        })
+    }
+
     updateDefs(defs) {
         this.defs = defs;
-        this.update();
+        return Promise.all([this.savesDefsToApi()]);
     }
 
     deleteDef(pieceName) {
         delete this.defs[pieceName];
-        this.update();
+        return Promise.all([this.savesDefsToApi()]);
     }
 
     updateDataDict(dataDict) {
         this.dataDict = dataDict;
-        this.update();
+        return Promise.all([this.saveGamesToApi()]);
     }
 
     getDataDict() {

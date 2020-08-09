@@ -26,7 +26,6 @@ export class MyPieces extends React.Component {
         this.color = null;
         this.rangeType = null;
         this.navExpanded = true;
-        this.deleteDef = this.props.deleteDef;
         this.defs = JSON.parse(JSON.stringify(this.props.defs));
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         for (var name of this.standards) {
@@ -84,8 +83,9 @@ export class MyPieces extends React.Component {
 
     delete(pieceName) {
         delete this.defs[pieceName];
-        this.deleteDef(pieceName);
-        this.update();
+        this.props.deleteDef(pieceName).then( ([response]) => {
+            this.update();
+        } )
     }
 
     togleHelpModal(boolVal) {

@@ -14,3 +14,4 @@ if __name__ == "__main__":
         for x in range(1, 9):
             print(checkerboard[x, y], end="")
         print("")
+# '▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯ ▮ ▯'

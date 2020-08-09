@@ -147,13 +147,6 @@ export class CreatePiece extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue});
     }
 
-    async toApi() {
-        return await fetch('/save_defs', {
-            method:"POST",
-            body: JSON.stringify(this.defs)  
-        })
-    }
-
     load(pieceName) {
 
         this.name = pieceName;
@@ -218,15 +211,9 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['W']['img'] = this.imgNames['white'];
         this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
-
-        const saveApi = () => {
-            return Promise.all([this.toApi()])
-        }
-
-        saveApi().then(([response]) => {
-            this.props.updateDefs(this.defs);
+        this.props.updateDefs(this.defs).then(([response]) => {
             this.setSaveStatus("success");
-        })
+        });
     }
  
     setSaveStatus(value) {
@@ -257,7 +244,6 @@ export class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        // this.update();
     }
 
     setDisplaySpan(angle) {

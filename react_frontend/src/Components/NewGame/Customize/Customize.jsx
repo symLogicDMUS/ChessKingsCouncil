@@ -128,7 +128,11 @@ export class Customize extends React.Component {
     }
 
     preparePayload() {
+        //names will be a list of names of all pieces.
         let names = [];
+        // subs is this.subs with key:value pairs reversed. 
+        //frontend uses standard:sub dict, and backend uses
+        //sub:standard dict:
         let subs = {};
         Object.entries(this.subs).forEach( ([standard, sub]) => {
             if (sub != null)

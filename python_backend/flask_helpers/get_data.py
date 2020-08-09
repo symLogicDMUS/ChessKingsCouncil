@@ -13,39 +13,39 @@ def get_data(game_name):
     WARNING: uses relative paths, should only be called from top level of application
     """
     # TODO: change ./saved_games to  ./saved_games when comfortable that games working correctly
-    dir_ = get_dir_containing_name('saved_games')
+    dir_ = get_dir_containing_name('saved games')
 
-    f = open("{}/saved_games/{}/{}.fen".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.fen".format(dir_, game_name, game_name), 'r')
     fen = f.readline()
     f.close()
 
     board = get_board(fen)
     turn, castle_avail, en_passant_avail, hm_num, fm_num = get_status(fen)
     fen_obj = Fen(fen, turn, castle_avail, en_passant_avail, hm_num, fm_num)
-    json_records = JsonRecords("{}/saved_games/{}/{}.json".format(dir_, game_name, game_name), board)
+    json_records = JsonRecords("{}/saved games/{}/{}.json".format(dir_, game_name, game_name), board)
 
-    f = open("{}/saved_games/{}/{}.type".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.type".format(dir_, game_name, game_name), 'r')
     game_type = f.readline()
     f.close()
 
-    f = open("{}/saved_games/{}/{}.pt".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.pt".format(dir_, game_name, game_name), 'r')
     player_type = f.read()
     f.close()
 
-    f = open("{}/saved_games/{}/{}.status".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.status".format(dir_, game_name, game_name), 'r')
     data = f.read()
     status = json.loads(data)
     json.dumps(status)
     status = GameStatus(status)
     f.close()
 
-    f = open("{}/saved_games/{}/{}.ids".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.ids".format(dir_, game_name, game_name), 'r')
     data = f.read()
     id_dict = json.loads(data)
     json.dumps(id_dict)
     f.close()
 
-    f = open("{}/saved_games/{}/{}.defs".format(dir_, game_name, game_name), 'r')
+    f = open("{}/saved games/{}/{}.defs".format(dir_, game_name, game_name), 'r')
     data = f.read()
     range_defs = json.loads(data)
     json.dumps(range_defs)
@@ -57,4 +57,4 @@ def get_data(game_name):
 
 
 if __name__ == "__main__":
-    pprint(get_data("fundemental_defense"))
+    pprint(get_data("fundemental defense"))

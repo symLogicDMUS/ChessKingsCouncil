@@ -262,3 +262,27 @@ export const id_dict = {
   "n": "Knight",
   "p": "Pawn"
 }
+
+export const name_dict = {
+    "King": "k",
+    "Queen": "q",
+    "Rook": "r",
+    "Bishop": "b",
+    "Knight": "n",
+    "Pawn": "p"
+}
+
+export const standard_promo_ids = [
+"q",
+"r",
+"b",
+"n"
+];
+
+export const standard_promo_names = [
+    "Queen",
+    "Rook",
+    "Bishop",
+    "Knight"
+];
+
