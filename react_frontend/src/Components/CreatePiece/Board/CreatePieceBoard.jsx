@@ -30,6 +30,7 @@ export class CreatePieceBoard extends React.Component {
                 class_={sqrColorClass[rf]}
                 showSpanText={this.props.showSpanText}
                 showOffsetText={this.props.showOffsetText}
+                setUnsaved={this.props.setUnsaved}
                 >
                     <Piece pieceImg={this.props.pieceImg} />
                 </Square>
@@ -47,6 +48,7 @@ export class CreatePieceBoard extends React.Component {
                 class_={sqrColorClass[rf]}
                 showSpanText={this.props.showSpanText}
                 showOffsetText={this.props.showOffsetText}
+                setUnsaved={this.props.setUnsaved}
                 >
                     {null}
                 </Square>

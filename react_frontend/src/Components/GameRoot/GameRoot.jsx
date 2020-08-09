@@ -14,6 +14,7 @@ import { SaveResignTool } from "./Components/SaveResignTool";
 import {AiDisplay} from "./Components/AiDisplay";
 import {makeMove} from "./Move/makeMove";
 import {NavBar} from "../NavBar/NavBarRegular";
+import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import {HelpModal} from "../Help/HelpModal";
 import { OVER } from "../helpers/gStatusTypes";
 import "./css/GameRoot.css";
@@ -29,8 +30,7 @@ export class GameRoot extends React.Component {
         this.playerType = this.props.location.state.playerType;
         this.currentPage = this.props.location.state.currentPage;
         this.dataEntry = this.props.location.state.dataEntry;
-        this.board = this.dataEntry['board'] 
-        this.aiDisplay = false;
+        this.board = this.dataEntry['board']
         this.jsonRecords = new JsonRecords(this.dataEntry['records']);
         this.gameStatus = new GameStatus(this.dataEntry['status']);
         this.specialMoves = new SpecialMoves(this.dataEntry['moves']);
@@ -42,15 +42,20 @@ export class GameRoot extends React.Component {
         this.rangeDefs = this.dataEntry['defs']; 
         this.promoChoices = this.dataEntry['promo_choices']; //is undefined to start, bug?
         this.playerType = this.dataEntry['player_type'];
+        this.unsaved = false;
+        this.aiDisplay = false;
         this.aiColor = this.setAiColor();
         this.promo = false;
         this.navExpanded = true;
-        this.first = true;
         this.pieceRangeHighlight = "none";
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = null;
-        this.hmChildren = {"none":null}
+        this.hmChildren = {"none":null};
+        this.confirmRedirectModal = false;
+        this.redirectPath = null;
+        this.redirectMessage = "The game has changed since you last saved. If you leave the page you will lose your progress. Do you want to continue?"
+        this.first = true;
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
@@ -61,6 +66,7 @@ export class GameRoot extends React.Component {
         this.togleNav = this.togleNav.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
+        this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
     }
 
     componentDidMount() {
@@ -248,6 +254,7 @@ export class GameRoot extends React.Component {
     }
 
     save() {
+        this.setUnsavedProgress(false);
         return Promise.all([this.saveGame()])
     }
 
@@ -256,6 +263,16 @@ export class GameRoot extends React.Component {
             this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getColorLastMove() });
             this.update();
         }
+    }
+
+    setConfirmRedirect(boolVal, path) {
+        this.confirmRedirectModal = boolVal;
+        this.redirectPath = path;
+        this.update();
+    }
+
+    setUnsavedProgress(boolVal) {
+        this.unsaved = boolVal;
     }
 
     render() {
@@ -273,10 +290,6 @@ export class GameRoot extends React.Component {
                     <AiDisplay aiStart={this.aiStart} 
                                aiDest={this.aiDest} 
                                aiMakeMove={this.aiMakeMove} />)}
-                {this.specialCase === "saving" && (<Saving />)}
-                {this.specialCase === "save-success" && (
-                    <SaveSuccessfull update={this.update} 
-                                     updateSpecialCase={this.updateSpecialCase} />)}
                 <RangeDisplayTool board={this.board}
                                   allRanges={{...this.ranges, ...this.enemyRanges}}
                                   rangeDefs={this.rangeDefs} 
@@ -294,6 +307,10 @@ export class GameRoot extends React.Component {
                                 updateSpecialCase={this.updateSpecialCase} 
                                 togleHelpModal={this.togleHelpModal}
                                 setHelpText={this.setHelpText}/>
+                {this.specialCase === "saving" && (<Saving />)}
+                {this.specialCase === "save-success" && (
+                    <SaveSuccessfull update={this.update} 
+                                     updateSpecialCase={this.updateSpecialCase} />)}
                 {this.navExpanded && (<NavBar navBarPosTop={0} 
                                               navBarPosLeft={368} 
                                               iconColor="b1faae" 
@@ -301,10 +318,14 @@ export class GameRoot extends React.Component {
                                               backgroundColor="green" 
                                               backgroundColorSelected="darkgreen" 
                                               border="1px solid darkgreen"
-                                              navBorder={false}
                                               currentPage={this.currentPage}
+                                              unsavedProgress={this.unsaved}
+                                              setConfirmRedirect={this.setConfirmRedirect}
                                               togleHelpModal={this.togleHelpModal}
                                               setHelpText={this.setHelpText} />)}
+                {this.confirmRedirectModal && (<ConfirmRedirect path={this.redirectPath} 
+                                                                message={this.redirectMessage} 
+                                                                setConfirmRedirect={this.setConfirmRedirect} />)}
                 {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} 
                                                        helpText={this.helpText} 
                                                        togleHelpModal={this.togleHelpModal}>

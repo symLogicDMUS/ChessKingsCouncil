@@ -39,10 +39,10 @@ export class Location extends React.Component {
                                highlighted="/Images/question-mark-72e2ff.svg"
                                color="#72e2ff"                               
                 />
-                <LocationButton changeLoc={this.changeLoc} rf="d4"  left="10px" selected={this.isSelected("d4")}  />
-                <LocationButton changeLoc={this.changeLoc} rf="d5"  left="50px" selected={this.isSelected("d5")}  />
-                <LocationButton changeLoc={this.changeLoc} rf="e4"  left="90px" selected={this.isSelected("e4")}  />
-                <LocationButton changeLoc={this.changeLoc} rf="e5"  left="130px" selected={this.isSelected("e5")}  />
+                <LocationButton changeLoc={this.changeLoc} rf="d4"  left="10px"  selected={this.isSelected("d4")} setUnsaved={this.props.setUnsaved}  />
+                <LocationButton changeLoc={this.changeLoc} rf="d5"  left="50px"  selected={this.isSelected("d5")} setUnsaved={this.props.setUnsaved}  />
+                <LocationButton changeLoc={this.changeLoc} rf="e4"  left="90px"  selected={this.isSelected("e4")} setUnsaved={this.props.setUnsaved}  />
+                <LocationButton changeLoc={this.changeLoc} rf="e5"  left="130px" selected={this.isSelected("e5")} setUnsaved={this.props.setUnsaved}  />
             </div>
         );
     }

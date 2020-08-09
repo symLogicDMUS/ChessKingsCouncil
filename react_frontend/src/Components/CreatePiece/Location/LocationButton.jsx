@@ -14,6 +14,7 @@ export class LocationButton extends React.Component {
     }
 
     select() {
+        this.props.setUnsaved(true);
         this.props.changeLoc(this.rf);
     }
 
@@ -30,7 +31,7 @@ export class LocationButton extends React.Component {
         let class_ = this.props.selected ? "location-button-selected" : "location-button-normal"
         return(
             <div className={class_} style={{left: this.props.left}} onClick={this.select} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}> 
-                <img src={require(`./${this.state.dir}/${this.rf}.svg`)} className="location-button-label" />
+                <img src={require(`./${this.state.dir}/${this.rf}.svg`)} className="location-button-label" alt="button to change location of piece that creating" />
             </div>
         )
     }

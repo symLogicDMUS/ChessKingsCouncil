@@ -18,7 +18,6 @@ export class NavBar extends React.Component {
         super(props);
         this.state = {navExpanded: true};
         this.togleNav = this.togleNav.bind(this);
-        this.class_ = "nav-bar-regular";
     }
 
     togleNav(boolVal) {
@@ -32,24 +31,19 @@ export class NavBar extends React.Component {
                        backgroundColor: this.props.backgroundColor, 
                        backgroundColorSelected: this.props.backgroundColorSelected, 
                        border: this.props.border }
-
-        if (this.props.navBorder) 
-            this.class_ = "nav-bar-regular-wb";
-        else
-            this.class_ = "nav-bar-regular";
-
+            
         return ( 
-            <div className={this.class_} style={{top: this.props.navBarPosTop, left: this.props.navBarPosLeft}}>
-                {this.state.navExpanded && (<HomeLink styles={styles} />)}
-                {this.state.navExpanded && (<NewGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
-                {this.state.navExpanded && (<LoadGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
-                {this.state.navExpanded && (<CreatePieceLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
-                {this.state.navExpanded && (<ChessRulesLink styles={styles} />)}
-                {this.state.navExpanded && (<CouncilRulesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
-                {this.state.navExpanded && (<MyPiecesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} />)}
-                {this.state.navExpanded && (<AuthorGithubLink styles={styles} />)}
-                {this.state.navExpanded && (<NavColapse  styles={styles} togleNav={this.togleNav} /> )}
-                {! this.state.navExpanded && (<NavExpand styles={styles} togleNav={this.togleNav} /> )}
+            <div className="nav-bar-regular" style={{top: this.props.navBarPosTop, left: this.props.navBarPosLeft}}>
+                {this.state.navExpanded && (<HomeLink styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<NewGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<LoadGameLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<CreatePieceLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<ChessRulesLink styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<CouncilRulesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<MyPiecesLink currentPage={this.props.currentPage} setHelpText={this.props.setHelpText} togleHelpModal={this.props.togleHelpModal} styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<AuthorGithubLink styles={styles} unsavedProgress={this.props.unsavedProgress} setConfirmRedirect={this.props.setConfirmRedirect} />)}
+                {this.state.navExpanded && (<NavColapse  styles={styles} togleNav={this.togleNav} unsavedProgress={this.props.unsavedProgress} /> )}
+                {! this.state.navExpanded && (<NavExpand styles={styles} togleNav={this.togleNav} unsavedProgress={this.props.unsavedProgress} /> )}
             </div>
         )
     }

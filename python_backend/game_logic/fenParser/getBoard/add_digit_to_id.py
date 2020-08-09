@@ -1,21 +1,22 @@
 def add_digit_to_id(pos_list):
     """fenParser task 5, add a digit to each id in the pos_list. the digit is what number occurence of that id"""
 
-    id_counters = {'BR': 0, 'BN': 0, 'BB': 0, 'BQ': 0, 'BK': 0, 'BP': 0, 'WP': 0, 'WR': 0,
-                   'WN': 0, 'WB': 0, 'WQ': 0, 'WK': 0}
+    id_counters = {}
 
     for i in range(len(pos_list)):
-        if pos_list[i] in id_counters.keys():
-            id_counters[pos_list[i]] += 1
+        if pos_list[i] != '#':
+            if pos_list[i] in id_counters.keys():
+                id_counters[pos_list[i]] += 1
+            else:
+                id_counters[pos_list[i]] = 1
             pos_list[i] = pos_list[i] + str(id_counters[pos_list[i]])
-
     return pos_list
 
 
 if __name__ == "__main__":
     # test 1
     print("test 1:")
-    pos_list = add_digit_to_id(['WR', 'WN', 'WB', 'WQ', 'WK', 'WB', 'WN', 'WR', 'WP',
+    pos_list = add_digit_to_id(['WR', 'WN', 'WB', 'WQ', 'WC', 'WV', 'WN', 'WR', 'WP',
                                 'WP', 'WP', 'WP', 'WP', 'WP', 'WP', 'WP', '#', '#',
                                 '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
                                 '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',

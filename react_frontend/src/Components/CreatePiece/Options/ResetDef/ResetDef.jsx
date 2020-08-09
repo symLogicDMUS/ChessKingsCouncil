@@ -10,6 +10,7 @@ export class ResetDef extends React.Component {
         this.name = "Reset";
         this.hoverOn = this.hoverOn.bind(this);
         this.hoverOff = this.hoverOff.bind(this);
+        this.reset = this.reset.bind(this);
     }
     
     hoverOn() {
@@ -22,6 +23,11 @@ export class ResetDef extends React.Component {
         this.setState({highlighted: false});
     }
 
+    reset() {
+        this.props.setUnsaved(true);
+        this.props.reset()
+    }
+
     render() {
 
         if (this.state.highlighted)
@@ -30,8 +36,8 @@ export class ResetDef extends React.Component {
             this.src = this.props.normal
 
         return (
-            <div className="option reset-option" onClick={this.props.reset} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                <img src={this.src} style={{position:"absolute", width:49, height:68}} />
+            <div className="option reset-option" onClick={this.reset} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+                <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="icon to reset piece ranges/icon" />
             </div>
         );
     }

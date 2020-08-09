@@ -35,7 +35,8 @@ export class ChooseModal  extends React.Component {
     }
 
     submitChoice() {
-        this.props.setImg(this.props.color, this.state.choice)
+        this.props.setUnsaved(true);
+        this.props.setImg(this.props.color, this.state.choice);
     }
 
     applySearchFilter() {

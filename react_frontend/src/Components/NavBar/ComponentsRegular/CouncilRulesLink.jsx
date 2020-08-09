@@ -41,32 +41,61 @@ export class CouncilRulesLink extends React.Component {
       this.props.setHelpText("", this.helpText, "none")
       this.props.togleHelpModal(true);
     }
+    else if (this.props.unsavedProgress) {
+      this.props.setConfirmRedirect(true, this.path);
+    }
   }
 
   render() {
+
+    if (this.props.unsavedProgress) {
+      return (
+          <div className="council-rules-regular-link" 
+               style={{ borderRight: this.props.styles.border, backgroundColor: this.getBackgroundColor(), cursor:"pointer"}}
+               onMouseEnter={this.select}
+               onMouseLeave={this.unselect}
+               onClick={this.checkDest}>
+              <div className="nav-bar-button-icon-container">
+                  <img src={`/Images/Navbar/council-rules-invert-${this.getIconColor()}.svg`}
+                      style={{
+                          position: "relative",
+                          top: -3,
+                          width: 20,
+                          height: 20
+                      }}
+                      alt=""
+                  />
+              </div>
+              <div className="nav-bar-button-text-container" style={{ color: "#" + this.getIconColor() }}>
+                  Council Rules
+              </div>
+          </div>
+      )
+    }
+
     return (
-      <Link to="/CouncilRules" style={{ textDecoration: 'none' }} >
-      <div className="council-rules-regular-link" 
-           style={{borderRight:this.props.styles.border, backgroundColor:this.getBackgroundColor()}} 
-           onMouseEnter={this.select} 
-           onMouseLeave={this.unselect}
-           onClick={this.checkDest}>
-        <div className="nav-bar-button-icon-container">
-          <img src={`/Images/Navbar/council-rules-invert-${this.getIconColor()}.svg`} 
-              style={{position:"relative", 
-                     top:-3,
-                     width:20, 
-                      height:20}} 
-              alt="" 
-          />      
+      <Link to="/CouncilRules" style={{textDecoration: 'none' }} >
+        <div className="council-rules-regular-link" 
+              style={{borderRight:this.props.styles.border, backgroundColor:this.getBackgroundColor()}} 
+              onMouseEnter={this.select} 
+              onMouseLeave={this.unselect}
+              onClick={this.checkDest}>
+          <div className="nav-bar-button-icon-container">
+            <img src={`/Images/Navbar/council-rules-invert-${this.getIconColor()}.svg`} 
+                style={{position:"relative", 
+                      top:-3,
+                      width:20, 
+                        height:20}} 
+                alt="" 
+            />      
+          </div>
+          <div className="nav-bar-button-text-container" style={{color: "#" + this.getIconColor()}}>
+            Council Rules
+          </div>
         </div>
-        <div className="nav-bar-button-text-container" style={{color: "#" + this.getIconColor()}}>
-          Council Rules
-        </div>
-      </div>
-    </Link>
-        
-    )
+      </Link>
+    )      
+
   }
 
 };

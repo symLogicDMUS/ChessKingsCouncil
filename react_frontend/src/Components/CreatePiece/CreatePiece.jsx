@@ -24,6 +24,7 @@ import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfi
 import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
 import {NavBar} from "../NavBar/NavBarRegular";
+import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {HelpText as OptionsText} from "./Options/HelpText";
@@ -97,38 +98,42 @@ export class CreatePiece extends React.Component {
         this.saveStatus = "none";
 
         //attributes for various displays
-        this.mouseOver = null;
+        this.unsaved = false;
         this.showSpanText = true;
         this.showOffsetText = true;
         this.helpTitle = "";
         this.helpText = "";
         this.hmChildName = null; //Name of HelpModal child
         this.navExpanded = true;
-        this.navBorder = "1.5px solid rgba(114, 226, 255, 0)";
         this.optionTool = true;
+        this.confirmRedirectModal = false;
+        this.redirectPath = null;
+        this.redirectMessage = "There are unsaved changes to your piece. If you leave the page without saving you will lose your changes. Do you still want to continue?"
 
 
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.hmChildren = {"none":null, "Range":<RangeHelpTextExtraModal />} 
 
         //binds
-        this.updateName = this.updateName.bind(this);
-        this.setSaveStatus = this.setSaveStatus.bind(this);
-        this.togleSpan = this.togleSpan.bind(this);
-        this.togleJump = this.togleJump.bind(this);
-        this.setLoc = this.setLoc.bind(this);
-        this.setPieceImg = this.setPieceImg.bind(this);
         this.save = this.save.bind(this);
         this.load = this.load.bind(this);
         this.reset = this.reset.bind(this);
         this.clear = this.clear.bind(this);
         this.update = this.update.bind(this);
+        this.setLoc = this.setLoc.bind(this);
+        this.updateName = this.updateName.bind(this);
+        this.setSaveStatus = this.setSaveStatus.bind(this);
+        this.togleSpan = this.togleSpan.bind(this);
+        this.togleJump = this.togleJump.bind(this);
+        this.setPieceImg = this.setPieceImg.bind(this);
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
+        this.setUnsaved = this.setUnsaved.bind(this);
         if (this.props.defaultPiece != null)
             this.load(this.props.defaultPiece)
 
@@ -227,6 +232,10 @@ export class CreatePiece extends React.Component {
     setSaveStatus(value) {
         this.saveStatus = value;
         this.update();
+    }
+
+    setUnsaved(boolVal) {
+        this.unsaved = boolVal;
     }
 
     updateName(input) {
@@ -347,6 +356,12 @@ export class CreatePiece extends React.Component {
         this.hmChildName = hmChildName;
     }
 
+    setConfirmRedirect(boolVal, path) {
+        this.confirmRedirectModal = boolVal;
+        this.redirectPath = path;
+        this.update();
+    }
+
     clear() {
         Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
         Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
@@ -371,7 +386,7 @@ export class CreatePiece extends React.Component {
             this.setLoc(this.location);
          }           
     }
-
+    
     render() {
         
         return(
@@ -379,7 +394,8 @@ export class CreatePiece extends React.Component {
                 <Name name={this.name} 
                       updateName={this.updateName} 
                       setHelpText={this.setHelpText} 
-                      togleHelpModal={this.togleHelpModal} />
+                      togleHelpModal={this.togleHelpModal}
+                      setUnsaved={this.setUnsaved} />
                 <NameLabel name={this.name} />
                 <Range spans={this.spans} 
                        offsets={this.offsets} 
@@ -388,16 +404,19 @@ export class CreatePiece extends React.Component {
                        togleOffsetText={this.togleOffsetText} 
                        togleSpanText={this.togleSpanText} 
                        setHelpText={this.setHelpText}
-                       togleHelpModal={this.togleHelpModal} />
+                       togleHelpModal={this.togleHelpModal} 
+                       setUnsaved={this.setUnsaved} />
                 <Icon pieceImg={this.pieceImg} 
                       setImg={this.setPieceImg} 
                       updateParent={this.update} 
                       setHelpText={this.setHelpText} 
-                      togleHelpModal={this.togleHelpModal} />
+                      togleHelpModal={this.togleHelpModal}
+                      setUnsaved={this.setUnsaved} />
                 <Location activeLocation={this.location} 
                           setLoc={this.setLoc} 
                           setHelpText={this.setHelpText} 
-                          togleHelpModal={this.togleHelpModal} />
+                          togleHelpModal={this.togleHelpModal}
+                          setUnsaved={this.setUnsaved} />
                 {this.optionTool && (<OptionsTool togleOptionTool={this.togleOptionTool} />)}
                 <div className="options-title">Options</div>
                 <SaveDef normal="/Images/save-a9a9a9.svg"             
@@ -408,7 +427,8 @@ export class CreatePiece extends React.Component {
                          clear={this.clear}
                          status={this.saveStatus} 
                          saveStatus={this.setSaveStatus} 
-                         togleOptionTool={this.togleOptionTool} />
+                         togleOptionTool={this.togleOptionTool} 
+                         setUnsaved={this.setUnsaved} />
                 <LoadDef  normal="/Images/load-piece-a9a9a9.svg" 
                           highlighted="/Images/load-piece-72e2ff.svg" 
                           togleLoadModal={this.togleLoadModal} 
@@ -416,11 +436,13 @@ export class CreatePiece extends React.Component {
                 <ResetDef normal="/Images/reset-range-a9a9a9.svg" 
                           highlighted="/Images/reset-range-72e2ff.svg" 
                           reset={this.reset} 
-                          togleOptionTool={this.togleOptionTool} />
+                          togleOptionTool={this.togleOptionTool}
+                          setUnsaved={this.setUnsaved} />
                 <BlankDef normal="/Images/erase-range-a9a9a9.svg" 
                           highlighted="/Images/erase-range-72e2ff.svg" 
                           clear={this.clear} 
-                          togleOptionTool={this.togleOptionTool}/>
+                          togleOptionTool={this.togleOptionTool}
+                          setUnsaved={this.setUnsaved}/>
                 <ThemeCreatePiece normal="/Images/theme-create-piece-a9a9a9.svg" 
                                   highlighted="/Images/theme-create-piece-72e2ff.svg" 
                                   togleOptionTool={this.togleOptionTool} />                
@@ -440,10 +462,12 @@ export class CreatePiece extends React.Component {
                        pieceLoc={this.location}  
                        pieceImg={this.pieceImg["white"]} 
                        showSpanText={this.showSpanText} 
-                       showOffsetText={this.showOffsetText} />
+                       showOffsetText={this.showOffsetText} 
+                       setUnsaved={this.setUnsaved} />
                 {this.state.isLoadModal && (<CreatedPieceProfiles defs={this.defs} 
                                                                   load={this.load} 
-                                                                  togleLoadModal={this.togleLoadModal} />)}
+                                                                  togleLoadModal={this.togleLoadModal} 
+                                                                  setUnsaved={this.setUnsaved} />)}
                 {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle} 
                                                        helpText={this.helpText} 
                                                        togleHelpModal={this.togleHelpModal}>
@@ -452,14 +476,18 @@ export class CreatePiece extends React.Component {
                 {this.navExpanded && (<NavBar currentPage="/CreatePiece"
                                               togleHelpModal={this.togleHelpModal}
                                               setHelpText={this.setHelpText}
+                                              setConfirmRedirect={this.setConfirmRedirect}
+                                              unsavedProgress={this.unsaved}
                                               navBarPosTop={0} 
                                               navBarPosLeft={263} 
                                               backgroundColor="#515151" 
                                               iconColor="969696" 
                                               iconColorHover="969696" 
                                               backgroundColorSelected="#3d3d3d"
-                                              border="none"
-                                              navBorder={false} />)}
+                                              border="none" />)}
+                {this.confirmRedirectModal && (<ConfirmRedirect path={this.redirectPath} 
+                                                message={this.redirectMessage} 
+                                                setConfirmRedirect={this.setConfirmRedirect} />)}
             </div>
         )
     }

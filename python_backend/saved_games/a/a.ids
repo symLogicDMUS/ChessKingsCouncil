@@ -1,11 +1,14 @@
 {
-    "b": "Firelord",
-    "d": "Jester",
-    "f": "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels",
+    "b": "Bishop",
+    "d": "Tux",
+    "f": "Jester",
     "k": "King",
-    "n": "Tux",
+    "l": "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels",
+    "m": "X_Wing",
+    "n": "Knight",
     "p": "Pawn",
     "q": "EvilMorty",
-    "r": "X_Wing",
-    "w": "Duke"
+    "r": "Rook",
+    "v": "Firelord",
+    "y": "Duke"
 }

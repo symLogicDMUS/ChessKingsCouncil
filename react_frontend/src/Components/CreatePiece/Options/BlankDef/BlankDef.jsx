@@ -10,6 +10,7 @@ export class BlankDef extends React.Component {
         this.name = "Erase";
         this.hoverOn = this.hoverOn.bind(this);
         this.hoverOff = this.hoverOff.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     hoverOn() {
@@ -22,6 +23,11 @@ export class BlankDef extends React.Component {
         this.setState({highlighted: false});
     }
 
+    clear() {
+        this.props.setUnsaved(true);
+        this.props.clear();
+    }
+
     render() {
 
         if (this.state.highlighted)
@@ -30,8 +36,8 @@ export class BlankDef extends React.Component {
             this.src = this.props.normal
 
         return (
-            <div className="option blank-option" onClick={this.props.clear} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                <img src={this.src} style={{position:"absolute", width:49, height:68}} />
+            <div className="option blank-option" onClick={this.clear} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+                <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="Icon when clicked erases features added to piece" />
             </div>
         );
     }

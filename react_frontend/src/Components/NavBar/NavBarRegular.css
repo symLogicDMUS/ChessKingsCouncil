@@ -7,19 +7,7 @@
     grid-template-columns: 75px 75px 75px 75px 75px 75px 75px 75px 10px;
     grid-template-rows: 31px;
 } 
-.nav-bar-regular-wb {
-    position: absolute;
-    display: grid;
-    z-index: 0;
-    width: 610px;
-    height: 32px;
-    grid-template-columns: 75px 75px 75px 75px 75px 75px 75px 75px 10px;
-    grid-template-rows: 31px;
-    border: 1px solid rgba(114, 226, 255, 0);
-}
-.nav-bar-regular-wb:hover {
-    border: 1px solid rgba(114, 226, 255, 1);
-}
+
 
 .nav-bar-button-icon-container {
     position: relative;

@@ -3,7 +3,7 @@ import re
 
 def get_pos_str(fen):
     """fenParser task 0, return the position part of the fen string"""
-    res = re.search(r'(((r|n|b|q|k|p|R|N|B|Q|K|P|[1-8])){1,8}/){7}((r|n|b|q|k|p|R|N|B|Q|K|P|[1-8]){1,8})', fen)
+    res = re.search(r'([a-zA-Z0-8]+/){7}([a-zA-Z0-8]+)', fen)
 
     if res is not None:
         pos_str = res.group(0)

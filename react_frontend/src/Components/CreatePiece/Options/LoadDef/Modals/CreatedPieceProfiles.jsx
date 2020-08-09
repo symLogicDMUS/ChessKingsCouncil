@@ -48,6 +48,7 @@ export class CreatedPieceProfiles extends React.Component {
     }
 
     accept() {
+        this.props.setUnsaved(false);
         this.props.load(this.state.selected);
         this.props.togleLoadModal(false);
     }

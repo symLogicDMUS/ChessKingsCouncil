@@ -73,17 +73,23 @@ export class SaveDef extends React.Component {
     }
 
     save() {
-        if (this.props.existing.includes(this.props.name))
+        if (this.props.existing.includes(this.props.name)) {
             this.props.saveStatus("confirm-overwrite");
-        else
-            this.props.save();        
+        }
+        else {
+            this.props.setUnsaved(false);
+            this.props.save();
+        }
     }
     
     ynOverwrite(response) {
-        if (response === "yes")
-            this.props.save(); 
-        else
-            this.props.saveStatus("none")
+        if (response === "yes") {
+            this.props.setUnsaved(false);
+            this.props.save();
+        }
+        else {
+            this.props.saveStatus("none");
+        }
     }
 
     render() {

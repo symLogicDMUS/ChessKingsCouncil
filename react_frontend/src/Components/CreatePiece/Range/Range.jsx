@@ -44,6 +44,7 @@ export class Range extends React.Component {
                 pos={this.buttonPos[angle]} 
                 isActive={this.props.spans[angle]}
                 togleSpan={this.props.togleSpan}
+                setUnsaved={this.props.setUnsaved}
                 update={this.props.update}
                 />)
             });
