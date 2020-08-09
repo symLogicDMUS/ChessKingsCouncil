@@ -26,7 +26,7 @@ def add_data_json(folder, data, extention):
 
 
 if __name__ == "__main__":
-    # add_file_type("example_games", "pt")
-    # add_file_type("saved_games", "pt")
-    add_data("example_games", "standard", "type")
-    # add_data("saved_games", "W", "type")
+    add_file_type("example_games", "promos")
+    add_file_type("saved games", "promos")
+    add_data_json("example_games", ["Queen", "Rook", "Bishop", "Knight"], "promos")
+    add_data_json("saved games", ["Queen", "Rook", "Bishop", "Knight"], "promos")

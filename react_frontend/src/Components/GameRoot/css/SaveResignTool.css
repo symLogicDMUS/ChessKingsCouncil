@@ -12,21 +12,33 @@
 .save-game-container {
     position: absolute;
     z-index: 1;
-    left: 12px;
-    top: 27px;
-    width: 66px;
-    height: 74px;
+    top: 28px;
+    width: 55px;
+    height: 75px;
     cursor: pointer;
+    /* outline: 1px dashed gold; */
+}
+
+.save-as-container {
+    position: absolute;
+    z-index: 1;
+    left: 68px;
+    top: 28px;
+    width: 55px;
+    height: 75px;
+    cursor: pointer;
+    /* outline: 1px dashed gold; */
 }
 
 .resign-container {
     position: absolute;
     z-index: 1;
-    left: 122px;
-    top: 27px;
-    width: 66px;
-    height: 74px;
+    left: 135px;
+    top: 30px;
+    width: 55px;
+    height: 75px;
     cursor: pointer;
+    /* outline: 1px dashed gold; */
 }
 
 .save-resign-img {

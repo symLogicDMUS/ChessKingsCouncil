@@ -128,12 +128,11 @@ export class Promo extends React.Component {
 
     aiPromote() {
         let ids = this.aiPromoChoices();
-        if (! this.props.isCouncil)
-            ids = this.filterKing(ids);
         ids = shuffle(ids);
         let idType = ids[0];
         let idNumber = this.getIdNumber(idType);
         let newId = this.getNewId(idNumber, idType);
+        this.removeHistory();
         this.replacePawn(this.pawnLoc, newId);
         this.updateGameRoot();
         this.aiPromoComplete = true;

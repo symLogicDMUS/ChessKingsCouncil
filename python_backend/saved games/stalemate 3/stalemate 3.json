@@ -1,0 +1,20 @@
+{
+    "rooks_moved": {
+        "a1": true,
+        "a8": true,
+        "h1": true,
+        "h8": true,
+        "a5": true,
+        "a3": true
+    },
+    "kings_moved": {
+        "e1": true,
+        "e8": true,
+        "d6": true,
+        "c6": true,
+        "c7": true
+    },
+    "pawn_histories": {},
+    "last_pawn_move": "f7",
+    "num_consecutive_non_pawn_moves": 32
+}

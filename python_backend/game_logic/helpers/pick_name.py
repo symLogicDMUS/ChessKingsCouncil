@@ -7,12 +7,12 @@ def pick_name():
     while not name.isidentifier() or name == '_initialBoard':
         print("name must consist of characters A-Z, a-flask_helpers, or '_' and can not be and the starting game board")
         name = input("enter name:")
-    if name in os.listdir("../saved_games"):
+    if name in os.listdir("../saved games"):
         yn = input("a game named {} already exists. Would you like to overwrite it? (Y/N)")
         while yn != 'Y' and yn != 'N':
             yn = input("a game named {} already exists. Would you like to overwrite it? (Y/N)")
         if yn == 'Y':
-            os.rmdir('../saved_games/{}'.format(name))
+            os.rmdir('../saved games/{}'.format(name))
         else:
             name = pick_name()
     return name

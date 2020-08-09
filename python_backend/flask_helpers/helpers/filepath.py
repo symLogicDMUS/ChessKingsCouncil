@@ -42,14 +42,14 @@ def get_my_paths():
             path = os.path.abspath(os.path.join(root, name))
             if re.search("__(.*?)__", path) is not None:  # skip magic methods
                 continue
-            if "example_games" in path or "saved_games" in path: # skip game records
+            if "example_games" in path or "saved games" in path: # skip game records
                 continue
             my_paths.append(os.path.abspath(os.path.join(root, name)))
         for name in dirs:
             path = os.path.abspath(os.path.join(root, name))
             if re.search("__(.*?)__", path) is not None:  # skip magic methods
                 continue
-            if "example_games" in path or "saved_games" in path: # skip game records
+            if "example_games" in path or "saved games" in path: # skip game records
                 continue
             my_paths.append(os.path.abspath(os.path.join(root, name)))
     my_paths = list(map(lambda path: path.replace("\\", "/"), my_paths))

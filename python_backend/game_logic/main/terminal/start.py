@@ -7,7 +7,7 @@ import os
 
 def start():
     """First function of the Python execution. Load a game or start a new one"""
-    games = os.listdir('../saved_games')
+    games = os.listdir('../saved games')
     print("Welcome to Chess")
     print("New Game:  N")
     print("Load Game: L")

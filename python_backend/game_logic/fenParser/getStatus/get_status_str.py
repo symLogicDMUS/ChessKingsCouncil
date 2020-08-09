@@ -10,9 +10,9 @@ def get_status_str(fen):
 
 
 if __name__ == "__main__":
-    saved_games = os.listdir('../../saved_games')
+    saved_games = os.listdir('../../saved games')
     for game in saved_games:
-        f = open('../../saved_games/{}/{}.fen'.format(game, game), 'r')
+        f = open('../../saved games/{}/{}.fen'.format(game, game), 'r')
         fen = f.readline()
         print(get_status_str(fen))
 

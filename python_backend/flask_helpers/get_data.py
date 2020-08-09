@@ -9,10 +9,10 @@ import json
 
 
 def get_data(game_name):
-    """get the data saved in the files for a game_name
-    WARNING: uses relative paths, should only be called from top level of application
-    """
-    # TODO: change ./saved_games to  ./saved_games when comfortable that games working correctly
+    """get the data saved in the files for a game_name"""
+
+    print(game_name)
+
     dir_ = get_dir_containing_name('saved games')
 
     f = open("{}/saved games/{}/{}.fen".format(dir_, game_name, game_name), 'r')
@@ -51,9 +51,15 @@ def get_data(game_name):
     json.dumps(range_defs)
     f.close()
 
+    f = open("{}/saved games/{}/{}.promos".format(dir_, game_name, game_name), 'r')
+    data = f.read()
+    promo_choices = json.loads(data)
+    json.dumps(promo_choices)
+    f.close()
+
     defs_ = {"id_dict": id_dict, "range_defs": range_defs}
 
-    return fen_obj, board, json_records, status, game_type, player_type, defs_
+    return fen_obj, board, json_records, status, game_type, player_type, promo_choices, defs_
 
 
 if __name__ == "__main__":

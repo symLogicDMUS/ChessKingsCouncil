@@ -58,10 +58,10 @@ export class PickName extends React.Component {
             </form>
           </div>
           {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle}
-                                                       helpText={this.helpText}
-                                                       hmChildName={this.hmChildName}
-                                                       extraModal={null}
-                                                       togleHelpModal={this.togleHelpModal}/>)}
+                                                 helpText={this.helpText}
+                                                 hmChildName={this.hmChildName}
+                                                 extraModal={null}
+                                                 togleHelpModal={this.togleHelpModal}/>)}
         </>
     );
   }

@@ -11,4 +11,4 @@ def travel_and_print(dir):
 
 
 if __name__ == "__main__":
-    travel_and_print("../../saved_games/")
+    travel_and_print("../../saved games/")

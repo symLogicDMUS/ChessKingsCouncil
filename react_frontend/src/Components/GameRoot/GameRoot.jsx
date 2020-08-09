@@ -7,6 +7,7 @@ import {SpecialMoves} from "./Move/SpecialMoves";
 import { Promo } from "./Modals/Promo";
 import {Fen} from "./sharedData/Fen";
 import {isPawn} from "./gameRootHelpers/isPawn";
+import {SaveAs} from "./Modals/SaveAs";
 import {Saving} from "./Modals/Saving";
 import {SaveSuccessfull} from "./Modals/SaveSuccessfull";
 import {RangeDisplayTool} from "./Components/RangeDisplayTool";
@@ -68,6 +69,8 @@ export class GameRoot extends React.Component {
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
+        this.togleSaveAs = this.togleSaveAs.bind(this);
+        this.changeName = this.changeName.bind(this);
     }
 
     componentDidMount() {
@@ -86,9 +89,8 @@ export class GameRoot extends React.Component {
     isGameOver() {
         if (this.gameStatus.gameStatus === OVER)
             return true
-        if (this.aiStart === false || this.aiDest === false)
-            return true
-        return false
+        else
+            return false
     }
 
     setAiColor() {
@@ -246,10 +248,11 @@ export class GameRoot extends React.Component {
                 player_type:this.playerType,
                 board:this.getBoard(),
                 json_records: this.jsonRecords.getRecords(),
+                status_obj:this.gameStatus.getStatus(),
                 fen_obj: this.fenObj.getData(),
                 id_dict: this.idDict,
                 range_defs: this.rangeDefs,
-                status_obj:this.gameStatus.getStatus()
+                promos:this.promoChoices
             })
         })
     }
@@ -264,6 +267,14 @@ export class GameRoot extends React.Component {
             this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getColorLastMove() });
             this.update();
         }
+    }
+
+    togleSaveAs(boolVal) {
+        this.saveAsModal = boolVal;
+    }
+
+    changeName(newName) {
+        this.gameName = newName;
     }
 
     setConfirmRedirect(boolVal, path) {
@@ -316,7 +327,12 @@ export class GameRoot extends React.Component {
                                 resign={this.resign}
                                 updateSpecialCase={this.updateSpecialCase} 
                                 togleHelpModal={this.togleHelpModal}
+                                togleSaveAs={this.togleSaveAs}
                                 setHelpText={this.setHelpText}/>
+                {this.saveAsModal && (<SaveAs togleSaveAs={this.togleSaveAs} 
+                                              changeName={this.changeName} 
+                                              update={this.update} 
+                                              save={this.save} />)}
                 {this.specialCase === "saving" && (<Saving />)}
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} 

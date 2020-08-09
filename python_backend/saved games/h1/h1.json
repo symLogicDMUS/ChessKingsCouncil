@@ -1,0 +1,57 @@
+{
+    "rooks_moved": {
+        "a1": false,
+        "a8": false,
+        "h1": true,
+        "h8": true,
+        "f8": true
+    },
+    "kings_moved": {
+        "e1": true,
+        "e8": true,
+        "g8": true,
+        "h8": true,
+        "g7": true,
+        "f6": true,
+        "e7": true
+    },
+    "pawn_histories": {
+        "a4": [
+            "a7",
+            "a5",
+            "a4"
+        ],
+        "c7": [
+            "c7"
+        ],
+        "f7": [
+            "f7"
+        ],
+        "g5": [
+            "g7",
+            "g6",
+            "g5"
+        ],
+        "h6": [
+            "h7",
+            "h6"
+        ],
+        "a2": [
+            "a2"
+        ],
+        "c2": [
+            "c2"
+        ],
+        "f2": [
+            "f2"
+        ],
+        "g2": [
+            "g2"
+        ],
+        "h2": [
+            "h2"
+        ]
+    },
+    "last_pawn_move": "a4",
+    "num_consecutive_non_pawn_moves": 11
+}

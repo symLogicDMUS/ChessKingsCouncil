@@ -91,15 +91,6 @@ def save_defs():
     return "Done", 201
 
 
-@app.route('/save_games', methods=['POST'])
-def save_games():
-    """ """
-    print("POST method, saving all games")
-    data = request.get_data(as_text=True)
-    data = json.loads(data)
-    return "All games saved successfully!", 201
-
-
 @app.route('/save', methods=["POST"])
 def save():
     """save information about game in its designated folder
@@ -122,45 +113,50 @@ def save():
     id_dict = data['id_dict']
     range_defs = data['range_defs']
     status_obj = data['status_obj']
+    promos = data['promos']
 
     # create game folder:
-    if not os.path.isdir('./saved_games/{}'.format(game_name)):
-        os.mkdir('./saved_games/{}'.format(game_name))
+    if not os.path.isdir('./saved games/{}'.format(game_name)):
+        os.mkdir('./saved games/{}'.format(game_name))
 
     # saving fen
     fen = get_fen(map_rf_to_xy(board))
     fen = get_fen_str(fen, fen_obj)
     print(fen)
-    f = open('./saved_games/{}/{}.fen'.format(game_name, game_name), 'w')
+    f = open('./saved games/{}/{}.fen'.format(game_name, game_name), 'w')
     f.write(fen)
     f.close()
 
     # saving game type
-    f = open('./saved_games/{}/{}.type'.format(game_name, game_name), 'w')
+    f = open('./saved games/{}/{}.type'.format(game_name, game_name), 'w')
     f.write(game_type)
     f.close()
 
     # saving player type
-    f = open('./saved_games/{}/{}.pt'.format(game_name, game_name), 'w')
+    f = open('./saved games/{}/{}.pt'.format(game_name, game_name), 'w')
     f.write(player_type)
     f.close()
 
     # save json_records
     json_records["pawn_histories"] = replace_pawn_id_with_rankfile(json_records["pawn_histories"])
-    with open('./saved_games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
+    with open('./saved games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
         json.dump(json_records, outfile, indent=4, sort_keys=False)
     outfile.close()
 
     # save id_dict
-    with open('./saved_games/{}/{}.ids'.format(game_name, game_name), 'w') as outfile:
+    with open('./saved games/{}/{}.ids'.format(game_name, game_name), 'w') as outfile:
         json.dump(id_dict, outfile, indent=4, sort_keys=True)
 
     # save range_defs
-    with open('./saved_games/{}/{}.defs'.format(game_name, game_name), 'w') as outfile:
+    with open('./saved games/{}/{}.defs'.format(game_name, game_name), 'w') as outfile:
         json.dump(range_defs, outfile, indent=4, sort_keys=True)
 
+    # save pawn promotion choices (piece names)
+    with open('./saved games/{}/{}.promos'.format(game_name, game_name), 'w') as outfile:
+        json.dump(promos, outfile, indent=4, sort_keys=True)
+
     # save game status
-    with open('./saved_games/{}/{}.status'.format(game_name, game_name), 'w') as outfile:
+    with open('./saved games/{}/{}.status'.format(game_name, game_name), 'w') as outfile:
         json.dump(status_obj, outfile, indent=4, sort_keys=True)
 
     print("Save Successful!")
