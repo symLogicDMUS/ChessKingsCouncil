@@ -17,7 +17,7 @@ export class InvalidName extends React.Component {
         else {
             this.class_ = "invalid-name-modal visible";
         }
-        this.props.saveStatus("none")
+        this.props.setSaveStatus("none")
     }
 
     render() {

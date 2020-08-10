@@ -119,9 +119,7 @@ export class NewGame extends React.Component {
             this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
             this.dataDict[this.gameName]['enemy_ranges'] = dataEntry['enemy_ranges'];
             this.dataDict[this.gameName]['status'] = dataEntry['status'];
-            this.props.updateDataDict(this.dataDict).then( ([response]) => {
-                this.nextStep();
-            });
+            this.nextStep();
         });
     }
 

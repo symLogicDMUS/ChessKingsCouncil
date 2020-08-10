@@ -43,6 +43,7 @@ export class GameRoot extends React.Component {
         this.rangeDefs = this.dataEntry['defs']; 
         this.promoChoices = this.dataEntry['promo_choices'];
         this.playerType = this.dataEntry['player_type'];
+        this.resigned = this.gameStatus.hasResigned();
         this.unsaved = false;
         this.aiDisplay = false;
         this.aiColor = this.setAiColor();
@@ -154,6 +155,13 @@ export class GameRoot extends React.Component {
         this.helpTitle = helpTitle;
         this.helpText = helpText;
         this.hmChildName = hmChildName;
+    }
+
+    getCondition() {
+        if (this.resigned)
+            return "resigned"
+        else
+            return this.gameStatus.condition;
     }
 
     getColorLastMove() {
@@ -292,7 +300,7 @@ export class GameRoot extends React.Component {
             <>
                 <Board gameroot={this} />
                 <Header turn={this.turn} 
-                        condition={this.gameStatus.condition} 
+                        condition={this.getCondition()} 
                         winner={this.gameStatus.winner} />
                 {this.specialCase === "promo" && (
                     <Promo promoChoices={this.promoChoices}

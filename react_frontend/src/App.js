@@ -27,8 +27,8 @@ export class App extends React.Component {
         this.update = this.update.bind(this);
         this.updateDefs = this.updateDefs.bind(this);
         this.deleteDef = this.deleteDef.bind(this);
-        this.updateDataDict = this.updateDataDict.bind(this);
         this.getDataDict = this.getDataDict.bind(this);
+        this.setDataDict = this.setDataDict.bind(this);
         this.getGame = this.getGame.bind(this);
         this.setCurrentGame = this.setCurrentGame.bind(this);
         this.setCurrentGameData = this.setCurrentGameData.bind(this);
@@ -37,14 +37,6 @@ export class App extends React.Component {
 
     update() {
         this.setState({binaryValue: ! this.state.binaryValue})
-    }
-
-
-    async saveGamesToApi() {
-        return await fetch('/save_games', {
-            method:'POST',
-            body: JSON.stringify(this.dataDict)
-        })
     }
 
     async savesDefsToApi() {
@@ -64,9 +56,8 @@ export class App extends React.Component {
         return Promise.all([this.savesDefsToApi()]);
     }
 
-    updateDataDict(dataDict) {
-        this.dataDict = dataDict;
-        return Promise.all([this.saveGamesToApi()]);
+    setDataDict(dataDict) {
+         this.dataDict = dataDict;
     }
 
     getDataDict() {
@@ -96,10 +87,9 @@ export class App extends React.Component {
                 <Route exact path="/" exact strict render={() => <Home defs={this.defs} 
                                                                        updateDefs={this.updateDefs} />} />
                 <Route exact path="/NewGame" exact strict render={() => <NewGame dataDict={this.dataDict} 
-                                                                                 defs={this.defs} 
-                                                                                 updateDataDict={this.updateDataDict} /> } />
+                                                                                 defs={this.defs} /> } />
                 <Route exact path="/LoadGame" exact strict render={() => <LoadGame getDataDict={this.getDataDict}
-                                                                                   updateDataDict={this.updateDataDict}
+                                                                                   setDataDict={this.setDataDict}
                                                                                    getGame={this.getGame}                                                                         
                                                                                    defs={this.defs} /> } />
                 <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />

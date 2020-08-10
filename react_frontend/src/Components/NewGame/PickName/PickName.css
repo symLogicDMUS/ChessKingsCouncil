@@ -4,23 +4,23 @@
     object-fit: none;
 }
 
-.div {
+.enter-game-name {
     margin-top: 10%;
     margin-left: 50%;   
 }
 
-.components {
+.game-name-form {
     margin-top: 1%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 50%;
 }
 
-input[type=text] {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-input[type=submit] {
+.game-name-accept-button {
+    margin-top: 1%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
     background-color: black;
     color: white;
     border: 1px solid white;

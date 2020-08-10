@@ -20,6 +20,8 @@ export class Name extends React.Component {
 
     render()
     {
+        this.userInput = this.props.name;
+        
         return (
             <div className="name-component1">
                 <div className="name" >Name</div>

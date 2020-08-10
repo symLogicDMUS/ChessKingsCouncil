@@ -184,11 +184,9 @@ export class MyPieces extends React.Component {
     render() {
         
         if (this.state.redirect) {
-            return (
-                <CreatePiece defs={this.defs} 
-                             updateDefs={this.props.updateDefs} 
-                             defaultPiece={this.state.selectedPiece} />
-            )
+            return (<CreatePiece defs={this.defs} 
+                                 updateDefs={this.props.updateDefs} 
+                                 defaultPiece={this.state.selectedPiece} />)
         }
         
         return (

@@ -139,11 +139,26 @@ export class Promo extends React.Component {
         this.props.update();
     }
 
+
+    noStandardPieces() {
+        for (var pieceName of Object.values(this.props.idDict)) {
+            if (this.standardPromoNames.includes(pieceName)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     onSelect(key) {
         this.setState({selected: key});
     }
 
     render() {
+
+        if (this.props.promoChoices.length === 0 && this.noStandardPieces()) {
+            this.props.updateSpecialCase("none");
+            this.props.update();
+        }
 
         this.pawnLoc = this.props.pawnLoc;
         let promoChoices = this.getPromoChoices();

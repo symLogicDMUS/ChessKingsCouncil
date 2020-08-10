@@ -36,7 +36,6 @@ def get_data(game_name):
     data = f.read()
     status = json.loads(data)
     json.dumps(status)
-    status = GameStatus(status)
     f.close()
 
     f = open("{}/saved games/{}/{}.ids".format(dir_, game_name, game_name), 'r')

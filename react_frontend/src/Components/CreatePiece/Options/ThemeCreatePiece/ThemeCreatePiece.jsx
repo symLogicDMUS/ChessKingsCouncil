@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "../Options.css";
 
 export class ThemeCreatePiece extends React.Component {
@@ -30,9 +31,11 @@ export class ThemeCreatePiece extends React.Component {
             this.src = this.props.normal;
 
         return (
-            <div className="option theme-option" onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="icon for changing theme of page" />
-            </div>
+            <Link to="/ComingSoon">
+                <div className="option theme-option" onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+                    <img src={this.src} style={{position:"absolute", width:49, height:68}} alt="icon for changing theme of page" />
+                </div>
+            </Link>
         )
     }
 }

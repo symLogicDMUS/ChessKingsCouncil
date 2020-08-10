@@ -18,7 +18,7 @@ def parse_data(game_name):
     payload = ({
         'ranges': data['ranges'],
         'enemy_ranges': enemy_data['ranges'],
-        'status': data['status'],
+        'status': status,
         'moves': data['moves'],
         'promo_choices': promo_choices,
         'id_dict': defs_['id_dict'],
@@ -36,4 +36,4 @@ if __name__ == "__main__":
     data = f.read()
     defs = json.loads(data)
     json.dumps(defs, indent=4, sort_keys=False)
-    print_args(parse_data("dummy_game"), pp=True)
+    print_args(parse_data("promo_test"), pp=True)

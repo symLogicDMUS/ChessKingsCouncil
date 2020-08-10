@@ -6,7 +6,7 @@ import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
 import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import {NameLabel} from "./NameLabel/NameLabel";
-import {pieceImgDict} from "../MyPieces/pieceImgDict";
+//import {pieceImgDict} from "../MyPieces/pieceImgDict";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {isIndentifier} from "../helpers/isIdentifier";
@@ -190,8 +190,13 @@ export class CreatePiece extends React.Component {
             this.setSaveStatus(namecase);
             return
         }
-            
-        pieceImgDict[this.name] = this.name;
+        
+        if (this.imgNames['white'] === null || this.imgNames['black'] === null) {
+            this.setSaveStatus('no-icon');
+            return
+        }        
+
+        //pieceImgDict[this.name] = this.name;
 
         this.defs[this.name] = { 
             "W":{"spans":null, "offsets":null, "img": null}, 
@@ -352,7 +357,8 @@ export class CreatePiece extends React.Component {
         Object.keys(this.spans).forEach(rf => {this.spans[rf] = false});
         Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
         Object.keys(this.jumpDisplays).forEach(rf => {this.jumpDisplays[rf] = false});
-        this.name = ""; 
+        this.name = "";
+        this.imgNames = {"white":null, "black":null};
         this.pieceImg = {"white":null, "black":null};
         this.location = "d4"; 
         this.offsets = []; 
@@ -412,7 +418,7 @@ export class CreatePiece extends React.Component {
                          name={this.name}
                          clear={this.clear}
                          status={this.saveStatus} 
-                         saveStatus={this.setSaveStatus} 
+                         setSaveStatus={this.setSaveStatus} 
                          togleOptionTool={this.togleOptionTool} 
                          setUnsaved={this.setUnsaved} />
                 <LoadDef  normal="/Images/load-piece-a9a9a9.svg" 

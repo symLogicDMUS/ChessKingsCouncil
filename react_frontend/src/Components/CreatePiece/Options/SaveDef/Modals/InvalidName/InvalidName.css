@@ -34,7 +34,7 @@
     width: 598px;
     color: #b6b6b6;
     font-family: Tahoma;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     /* border: 1px dashed white; */
     word-wrap: break-word;
@@ -47,17 +47,17 @@
     top: 258px;
     height: 30px;
     width: 90px;
-    font-size: 18px;
+    font-size: 16px;
     font-family: Tahoma;
     text-align: center;
     padding-top: 3px;
     color: #b6b6b6;
-    background-color: #515151;
-    border: 1px solid #b6b6b6;
+    background-color: #606060;
+    border: 1px solid #606060;
     border-radius: 5px;
     cursor: pointer;
 } .invalid-name-button:hover {
-    color: #515151;
+    color: #606060;
     background-color: #b6b6b6;
 }
 

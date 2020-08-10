@@ -1,16 +1,5 @@
-1. update fullmove and halfmove clocks when move is made. Will be for 50 move rule.
-2. add top navigation bar to every page. 
-....................................................................................
-1. pop up window displayed on top of everything else for croping image (like was with piece promotion)
+1. guard against all bad input for names of new games.
+2. find out the diference between Firebase and Firestore, and which to implement.
 3. do a React crop image tutorial
-4. install react-cookie
-5. learn how to fetch images from server and store in folder.
-................................................................
-1. guard against all bad input for names of new games and pieces.
-................................................................
-................................................................
-For testing AI:
-1. remove all of test board dependency on gameRoot
-2. Implement a test parent for: displayBoard, PiecesBoard, and AiBoard. AiBoard has timer and is displayed until timer is up.
-3. invisible full-page 'modal' wall, which has hightest z-index, blocks user from interacting with game until Ai finished moving.
-4. implement picking of random move and returning response board, start, and dest, on the python end.
+4. add image upload in CreatePiece with required image cropping.
+5. install react-cookie.

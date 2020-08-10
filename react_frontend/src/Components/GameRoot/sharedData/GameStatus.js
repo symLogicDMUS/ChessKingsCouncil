@@ -36,6 +36,13 @@ export class GameStatus {
         }
     }
 
+    hasResigned() {
+        if (this.condition === "resigned")
+            return true
+        else
+            return false
+    }
+
     noRanges(ranges) {
         for (var range of Object.values(ranges)) {
             if (range.length > 0)

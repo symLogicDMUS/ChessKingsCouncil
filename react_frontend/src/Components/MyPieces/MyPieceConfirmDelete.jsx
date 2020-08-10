@@ -25,12 +25,12 @@ export class MyPieceConfirmDelete extends React.Component {
             <div className="my-piece-confirm-delete-modal">
                 <div className="my-piece-confirm-delete-window">
                     <div className="my-piece-confirm-delete-heading">
-                        You are asking to delete piece {this.props.pieceName}. Games in progress will not be effected but the piece's record for new games will be destroyed. This action cannot be undone. Are you sure you want to delete piece {this.props.pieceName}?
+                        You are asking to delete piece "{this.props.pieceName}". Games in progress will not be effected but the piece's record for new games will be destroyed. This action cannot be undone. Are you sure you want to delete piece "{this.props.pieceName}"?
                     </div>
-                    <div className="button yes-button" onClick={this.confirm}>
+                    <div className="my-piece-confirm-delete-button" onClick={this.confirm} style={{left:138}}>
                         Yes
                     </div>
-                    <div className="button no-button" onClick={this.deny}>
+                    <div className="my-piece-confirm-delete-button" onClick={this.deny} style={{left:326}}>
                         No
                     </div>
                 </div>

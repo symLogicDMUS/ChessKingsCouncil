@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
 
-export function Success({saveStatus}) {
+export function Success({setSaveStatus}) {
 
   const [seconds, setSeconds] = useState(1);
 
@@ -14,7 +14,7 @@ export function Success({saveStatus}) {
   }, []);
 
   if (seconds === 0)
-    saveStatus("reset");
+    setSaveStatus("reset");
 
   return (<div style={{
     position: "absolute",
@@ -27,7 +27,7 @@ export function Success({saveStatus}) {
             zIndex:"3", 
             fontSize:"50px",
             fontFamily:"Tahoma",
-            color:"green", 
+            color:"#72e2ff", 
             left: "20%", 
             top:"40%"}}>Piece saved successfully!</div>
           </div>)

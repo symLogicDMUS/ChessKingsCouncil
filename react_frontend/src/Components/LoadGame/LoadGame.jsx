@@ -15,24 +15,22 @@ export class LoadGame extends React.Component {
         this.pieceDefs = null;
         this.changeName = this.changeName.bind(this);
         this.load = this.load.bind(this);
-        this.setGames();
     }
 
   componentDidMount() {
+
     document.body.className = "load-game-body";
 
-  }
+    this.games = [<option value="choose">Choose...</option>];
+    this.props.getDataDict().then( ([dataDict]) => {
+        this.props.setDataDict(dataDict);
+        Object.keys(dataDict).forEach(name => {
+            this.games.push(<option value={name}>{name}</option>)
+        });
+        this.setState({gameName: "none", loaded: false, reload: ! this.state.reload});
+    });
 
-    setGames() {
-        this.games = [<option value="choose">Choose...</option>];
-        this.props.getDataDict().then( ([dataDict]) => {
-            this.props.updateDataDict(dataDict);
-            Object.keys(dataDict).forEach(name => {
-                this.games.push(<option value={name}>{name}</option>)
-            });
-            this.setState({gameName: "none", loaded: false, reload: ! this.state.reload});
-        })
-    }
+  }
 
   changeName(name) {
         if (name === "choose") {
