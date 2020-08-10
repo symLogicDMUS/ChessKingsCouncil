@@ -138,8 +138,14 @@ export class Customize extends React.Component {
             if (sub != null)
                 subs[sub] = standard;
         });
-        for (var p of this.promos) 
-            names.push(p)
+        if (this.promos.length > 20) { 
+            for (let i = 0; i < 20; i++)
+                names.push(this.promos[i])
+        }
+        else {
+            for (var p of this.promos) 
+                names.push(p)
+        }
         for (var s of Object.keys(subs)) {
             if (! names.includes(s)) 
                 names.push(s)

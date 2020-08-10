@@ -8,8 +8,8 @@ from game_logic.JsonRecords import JsonRecords
 
 
 def can_enpassant(attacking, attacked, board, color, pawn_histories, ncnpm, lpm):
-    """return true if an en-passant can be performed given sqr1 and sqr2 are alignment, else false
-    ncnpm: Number Consecutive Non Pawn Moves
+    """return true if an en-passant can be performed given sqr1 and sqr2 alignment, else false
+       ncnpm: Number Consecutive Non Pawn Moves
     """
     if color == 'W' and not is_enp_white_att_r(attacking):
         return False

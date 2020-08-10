@@ -229,7 +229,7 @@ export class GameRoot extends React.Component {
         if (fenId === 'p') {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
-            this.jsonRecords.lastPawnMove = dest;
+            //this.jsonRecords.lastPawnMove = dest;
         }
 
         else {

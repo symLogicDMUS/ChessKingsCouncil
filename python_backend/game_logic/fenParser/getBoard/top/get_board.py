@@ -189,8 +189,16 @@ if __name__ == "__main__":
     print('\n')
 
     # test 22, knight_threat2
-    print('test 21, knight_threat2')
+    print('test 22, knight_threat2')
     board = get_board("r4rk1/1pp1Nppp/3bbn1N/pP1pp3/4P3/3NBn2/P1n1QPNP/R3K2R w KQ a6 0 10")
     print(board)
     print_board(board)
     print('\n')
+
+    # test 23, en-passant-test
+    print('test 21, en-passant-test')
+    board = get_board("rnbqkb1r/1p1ppppp/5n2/pPp5/8/8/PBPPPPPP/RN1QKBNR w KQkq - 0 4")
+    print(board)
+    print_board(board)
+    print('\n')
+

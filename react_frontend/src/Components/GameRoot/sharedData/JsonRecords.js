@@ -28,4 +28,13 @@ export class JsonRecords {
             "num_consecutive_non_pawn_moves":this.numConsecutiveNonPawnMoves,
         };
     }
+
+    isLastPawnMove(rf) {
+        if (rf === this.lastPawnMove) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 }
