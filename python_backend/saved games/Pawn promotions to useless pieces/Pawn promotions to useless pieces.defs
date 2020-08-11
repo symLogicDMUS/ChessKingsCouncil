@@ -1682,5 +1682,149 @@
             ],
             "spans": []
         }
+    },
+    "a1": {
+        "B": {
+            "img": "1.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "1.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a10": {
+        "B": {
+            "img": "10.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "10.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a11": {
+        "B": {
+            "img": "11.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "11.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a12": {
+        "B": {
+            "img": "12.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "12.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a13": {
+        "B": {
+            "img": "13.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "13.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a14": {
+        "B": {
+            "img": "14.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "14.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a15": {
+        "B": {
+            "img": "15.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "15.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a16": {
+        "B": {
+            "img": "16.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "16.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a17": {
+        "B": {
+            "img": "17.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "17.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a19": {
+        "B": {
+            "img": "19.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "19.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a2": {
+        "B": {
+            "img": "2.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "2.svg",
+            "offsets": [],
+            "spans": []
+        }
+    },
+    "a20": {
+        "B": {
+            "img": "20.svg",
+            "offsets": [],
+            "spans": []
+        },
+        "W": {
+            "img": "20.svg",
+            "offsets": [],
+            "spans": []
+        }
     }
 }

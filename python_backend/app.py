@@ -79,12 +79,36 @@ def get_defs():
     return jsonify(defs)
 
 
-@app.route('/save_defs', methods=['POST'])
-def save_defs():
-    """save the definitions object of piece ranges to defs.json"""
-    print("saving piece range definitions")
+@app.route('/save_def', methods=['POST'])
+def save_def():
+    """save a piece definition to defs.json"""
+    print("saving piece definition to defs.json")
     data = request.get_data(as_text=True)
-    defs = json.loads(data)
+    data = json.loads(data)
+    f = open("./defs.json", "r")
+    defs_data = f.read()
+    defs = json.loads(defs_data)
+    json.dumps(defs)
+    f.close()
+    defs[data['piece_name']] = data['piece_def']
+    with open("./defs.json", "w") as outfile:
+        json.dump(defs, outfile, indent=4, sort_keys=False)
+    outfile.close()
+    return "Done", 201
+
+
+@app.route('/delete_def', methods=['POST'])
+def delete_def():
+    """deleting a piece definition from defs.json"""
+    print('deleting a piece definition from defs.json')
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    f = open("./defs.json", "r")
+    defs_data = f.read()
+    defs = json.loads(defs_data)
+    json.dumps(defs)
+    f.close()
+    del defs[data['piece_name']]
     with open("./defs.json", "w") as outfile:
         json.dump(defs, outfile, indent=4, sort_keys=False)
     outfile.close()

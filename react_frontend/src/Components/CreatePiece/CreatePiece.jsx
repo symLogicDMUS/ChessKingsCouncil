@@ -216,7 +216,7 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['W']['img'] = this.imgNames['white'];
         this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
-        this.props.updateDefs(this.defs).then(([response]) => {
+        this.props.updateDefs(this.name, this.defs[this.name]).then(([response]) => {
             this.setSaveStatus("success");
         });
     }

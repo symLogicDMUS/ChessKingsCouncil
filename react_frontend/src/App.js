@@ -39,21 +39,28 @@ export class App extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
-    async savesDefsToApi() {
-        return await fetch('/save_defs', {
+    async savesDefApi(pieceName, pieceDef) {
+        return await fetch('/save_def', {
             method:"POST",
-            body: JSON.stringify(this.defs)  
+            body: JSON.stringify({'piece_name':pieceName, 'piece_def':pieceDef})  
         })
     }
 
-    updateDefs(defs) {
-        this.defs = defs;
-        return Promise.all([this.savesDefsToApi()]);
+    async deleteDefApi(pieceName) {
+        return await fetch('/delete_def', {
+            method:"POST",
+            body: JSON.stringify({'piece_name':pieceName})  
+        })
+    }
+
+    updateDefs(pieceName, pieceDef) {
+        this.defs[pieceName] = pieceDef;
+        return Promise.all([this.savesDefApi(pieceName, pieceDef)]);
     }
 
     deleteDef(pieceName) {
         delete this.defs[pieceName];
-        return Promise.all([this.savesDefsToApi()]);
+        return Promise.all([this.deleteDefApi(pieceName)]);
     }
 
     setDataDict(dataDict) {
