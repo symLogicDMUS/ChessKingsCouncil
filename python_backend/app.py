@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template, send_from_directory
 from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.fenParser.getFen.top.get_fen import get_fen
@@ -13,7 +13,12 @@ from pprint import pprint
 import json
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="build/static", template_folder="build")
+
+
+@app.route("/")
+def index():
+    return render_template('index.html')
 
 
 @app.route('/update', methods=['POST'])
@@ -189,5 +194,5 @@ def save():
     # TODO: save image of board to file
 
 
-if __name__ == "__main__":
-    pass  # TODO: implent some kind of test
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)

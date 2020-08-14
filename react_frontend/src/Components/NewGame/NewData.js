@@ -48,10 +48,7 @@ export const newData = {
                       "BP8": [ "h7" ]
                     },
                     "last_pawn_move": "None",
-                    "num_consecutive_non_pawn_moves": 0,
-                    "status":1,
-                    "condition": "",
-                    "winner":"-"
+                    "num_consecutive_non_pawn_moves": 0
                   },
                  "flask_method": "update"}
 
