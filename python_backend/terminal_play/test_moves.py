@@ -1,4 +1,4 @@
-from flask_helpers.get_data import get_data
+from terminal_play.get_data import get_data
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from game_logic.ranges.top.get_ranges import get_ranges
 from game_logic.getters.get_reset_piece_dicts import get_reset_piece_dicts
@@ -129,9 +129,9 @@ def test_game(game_name):
     f = open("./test_output/log1._txt", "w").close()
     print(colored(game_name.upper(), 'red'))
     results = get_result_board()
-    fen_, board_, json_records_, status, flask_method, defs_ = get_data(game_name)
+    fen_obj, board_, json_records_, status, game_type, player_type, promo_choices, defs_ = get_data(game_name)
     uni_board = get_unicode_board(board_)
-    results = run_tests(fen_, board_, json_records_, defs_, results)
+    results = run_tests(fen_obj, board_, json_records_, defs_, results)
     if results == -1:
         return
     print_results(results, uni_board, skip_empty=True)
@@ -139,7 +139,7 @@ def test_game(game_name):
 
 def test_all():
     """attempt every move for every example game"""
-    for game_name in os.listdir('../../../example_games'):
+    for game_name in os.listdir('../example_games'):
         t1 = perf_counter()
         test_game(game_name)
         t2 = perf_counter()
@@ -153,7 +153,7 @@ def test_menu():
     games["X"] = "Quit"
     games["ALL"] = "Test all examples"
     print("pick number of game to run all move attempts on, 'ALL' to test all examples, or 'X' to quit:")
-    for game in os.listdir("../../../example_games"):
+    for game in os.listdir("../example_games"):
         games[str(i)] = game
         i += 1
     pprint(games)

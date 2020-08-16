@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "C:\Users\bjrat\source\repos\Python\ChessKingsCouncil\python_backend\game_logic\ranges\pawn\valid_2_sqr_jump.py", line 15, in valid_2_sqr_jump
-    if len(pawn_hist[id_]) != 1:
-KeyError: 'WP1'

@@ -37,3 +37,7 @@ class GameStatus:
             self.condition, self.status, self.winner = 'check', IN_PROGRESS, '-'
         else:
             self.condition, self.status, self.winner = '', IN_PROGRESS, '-'
+
+    def get_status(self):
+        """ """
+        return {'status': self.status, 'condition': self.condition, 'winner': self.winner}

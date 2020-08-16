@@ -1,9 +1,5 @@
 import os
 import json
-import chess
-import chess.svg
-from svglib.svglib import svg2rlg
-from reportlab.graphics import renderPM
 from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 
 
@@ -18,15 +14,6 @@ def save(game_name, fen, json_records):
     with open('../../saved games/{}/{}.json'.format(game_name, game_name), 'w') as outfile:
         json.dump(records, outfile, indent=4, sort_keys=False)
     outfile.close()
-
-    f = open('../../saved games/{}/{}.svg'.format(game_name, game_name), 'w')
-    board = chess.Board(fen)
-    board_image = chess.svg.board(board=board)
-    f.write(board_image)
-    f.close()
-    drawing = svg2rlg('../../saved_games/{}/{}.svg'.format(game_name, game_name))
-    renderPM.drawToFile(drawing, '../../saved games/{}/{}.png'.format(game_name, game_name), fmt="PNG")
-    os.remove('../../saved games/{}/{}.svg'.format(game_name, game_name))
 
 
 if __name__ == "__main__":

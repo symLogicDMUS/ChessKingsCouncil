@@ -1,4 +1,4 @@
-from game_logic.main.terminal.play import play_game
+from terminal_play import play_game
 from game_logic.helpers.pick_name import pick_name
 from game_logic.helpers.create_data import create_data
 from pprint import pprint

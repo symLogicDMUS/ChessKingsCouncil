@@ -34,6 +34,7 @@ def get_dir_containing_name(name):
         dir_ = '../' + dir_
     return dir_
 
+
 def get_my_paths():
     """warning: only call from top level of application"""
     my_paths = []
