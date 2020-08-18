@@ -1,5 +1,5 @@
-from flask_helpers.filter_empy_ranges import filter_empty_ranges
-from flask_helpers.get_move_simplest import get_move_simplest
+from api_helpers.filter_empy_ranges import filter_empty_ranges
+from api_helpers.get_move_simplest import get_move_simplest
 import random
 
 

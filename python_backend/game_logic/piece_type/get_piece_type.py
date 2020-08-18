@@ -1,6 +1,6 @@
 import os
 import json
-from flask_helpers.helpers.filepath import get_dir_containing_name
+from api_helpers.helpers.filepath import get_dir_containing_name
 
 
 def get_piece_type(id_):

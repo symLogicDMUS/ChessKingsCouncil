@@ -10,7 +10,7 @@ import {getPosPx} from "../gameRootHelpers/getPosPx";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import "../css/interactiveSqr.css";
 import "../css/displaySqr.css";
-import "../css/Piece.css";
+import "../css/piece.css";
 import "../css/Board.css";
 
 export class Board extends React.Component {

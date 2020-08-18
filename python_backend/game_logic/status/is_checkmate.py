@@ -1,4 +1,4 @@
-from flask_helpers.filter_empy_ranges import filter_empty_ranges
+from api_helpers.filter_empy_ranges import filter_empty_ranges
 
 
 def is_checkmate(ranges):

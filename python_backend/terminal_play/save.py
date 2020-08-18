@@ -2,7 +2,7 @@ import os
 import json
 from game_logic.coordType.rankfile.map_xy_to_rf import map_xy_to_rf
 from game_logic.JsonRecords.JsonRecords import JsonRecords
-from flask_helpers.helpers.filepath import get_dir_containing_name
+from api_helpers.helpers.filepath import get_dir_containing_name
 
 
 def save(game_name, game_type, player_type, fen, records, status_obj, id_dict, range_defs, promos):
