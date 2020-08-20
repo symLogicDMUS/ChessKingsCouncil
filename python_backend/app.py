@@ -4,11 +4,11 @@ from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.fenParser.getFen.top.get_fen import get_fen
 from api_helpers.parse_data import parse_data
 from api_helpers.id_assign_.top.id_assign import id_assign
-from game_logic.fenParser.gen_fen_str import get_fen_str
+from game_logic.fenParser.get_full_fen import get_full_fen
 from api_helpers.replace_pawn_id_with_rankfile import replace_pawn_id_with_rankfile
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from game_logic.color.get_ai_color import get_ai_color
-from api_helpers.new_data import new_data
+from api_helpers.turn_data import turn_data
 from pprint import pprint
 import json
 import os
@@ -31,8 +31,8 @@ def update():
     board, records, color, player_type, defs_ = reformated['board'], reformated['records'], reformated['color'], data['player_type'], data['defs']
     ai_color = get_ai_color(player_type)
     json_records = JsonRecords(None, None, j_records=records)
-    data = new_data(board, color, ai_color, defs_, json_records)
-    enemy_data = new_data(board, get_enemy_color(color), ai_color, defs_, json_records)
+    data = turn_data(board, color, ai_color, defs_, json_records)
+    enemy_data = turn_data(board, get_enemy_color(color), ai_color, defs_, json_records)
     data.update({'enemy_ranges': enemy_data['ranges']})
     pprint(data)
     return jsonify(data)
@@ -152,7 +152,7 @@ def save():
 
     # saving fen
     fen = get_fen(map_rf_to_xy(board))
-    fen = get_fen_str(fen, fen_obj)
+    fen = get_full_fen(fen, fen_obj)
     print(fen)
     f = open('./saved games/{}/{}.fen'.format(game_name, game_name), 'w')
     f.write(fen)

@@ -1,8 +1,8 @@
-from game_logic.GameStatus.g_status_types import *
 from game_logic.piece_type.get_piece_types import get_piece_types
+from game_logic.fenParser.GameStatus.g_status_types import *
 
 
-def get_status(board, ranges, enemy_color, npck):
+def status_update(board, ranges, enemy_color, npck):
     """
      update the status of the game: OVER or IN_PROGRESS
      update the winner of the game: 'w', 'b', or '-' (neither)

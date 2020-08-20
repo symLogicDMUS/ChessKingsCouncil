@@ -7,7 +7,7 @@ from game_logic.test_objects.sample_board_dicts import sample_board_dicts
 
 
 def get_fen(board):
-    """convert the board to a fen positon str and return"""
+    """convert a board dict to a fen position string and return"""
     pos = get_id_board(board)
     pos = get_piece_fens(pos)
     pos = join_to_rows(pos)

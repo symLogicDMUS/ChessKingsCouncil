@@ -60,6 +60,7 @@ export class LoadGame extends React.Component {
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
                 state: {currentPage:"/LoadGame/Play",
+                        username:JSON.parse(JSON.stringify(this.props.username)),
                         gameName:JSON.parse(JSON.stringify(this.state.gameName)),
                         gameType:JSON.parse(JSON.stringify(this.dataEntry['game_type'])),
                         playerType:JSON.parse(JSON.stringify(this.dataEntry['player_type'])),

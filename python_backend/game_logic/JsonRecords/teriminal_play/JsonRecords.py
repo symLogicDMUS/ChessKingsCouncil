@@ -9,13 +9,36 @@ import json
 class JsonRecords(object):
     """contains info for new or saved game relevant to performing a castle or en_passant"""
 
-    def __init__(self, records):
-        """new instance of object created for every update to piece final_ranges i.e. @app.update()"""
+    def __init__(self, file, board):
+        """new instance of object created for every update to piece final_ranges i.e. @app.update()
+        consider seperating status, condition, and winner into seperate status object.
+        :param file: json record file for a particular game
+        :param board: dict discribing the game board
+        """
+        f = open(file, "r")
+        json_data = f.read()
+        records = json.loads(json_data)
+        json.dumps(records, indent=4, sort_keys=False)
+        records = map_rf_to_xy(records)
+        f.close()
         self.rooks_moved = records['rooks_moved']
         self.kings_moved = records['kings_moved']
         self.pawn_histories = records['pawn_histories']
         self.last_pawn_move = records['last_pawn_move']
         self.num_consecutive_non_pawn_moves = records['num_consecutive_non_pawn_moves']
+        self._init_pawn_ids(board, file=file)
+
+    def _init_pawn_ids(self, board, file=""):
+        """exchange the sqr that pawn started the game with, with the id for that pawn"""
+        pawn_histories = {}
+        for hist in self.pawn_histories.values():
+            sqr1 = hist[-1]
+            id_ = board[sqr1]
+            pawn_histories[id_] = hist
+            if get_piece_type(id_) != 'P':
+                print("ERROR: there is no pawn at {}".format(sqr1))
+                raise JsonRecordError
+        self.pawn_histories = pawn_histories
 
     def _pawn_keys_to_current_rf(self):
         """swap the key of each pawn_history entry with the coordinate of its current location"""
@@ -150,3 +173,10 @@ class JsonRecords(object):
         str_ += ',\n'
 
         return str_
+
+
+if __name__ == "__main__":
+    board = sample_board_dicts['pawn_range']
+    json_records = JsonRecords("../../example_games/pawn_range/pawn_range.json", board)
+    print(json_records)
+

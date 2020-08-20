@@ -1,5 +1,6 @@
 from game_logic.printers.print_board import print_board
 from game_logic.sqr_case.get_sqr_case import get_sqr_case
+from game_logic.step_funcs.step_funcs import *
 from game_logic.sqr_case.sqr_cases import *
 
 
@@ -31,8 +32,6 @@ def get_path(sqr, board, color, take_step):
 
 
 if __name__ == "__main__":
-    # test 1:
-    print("test  1:")
     board = \
         {(1, 1): '#', (1, 2): '#', (1, 3): 'WR3', (1, 4): '#', (1, 5): 'BR1', (1, 6): '#', (1, 7): '#', (1, 8): '#',
          (2, 1): 'WR1', (2, 2): '#', (2, 3): 'WN1', (2, 4): '#', (2, 5): 'BN1', (2, 6): '#', (2, 7): '#', (2, 8): '#',

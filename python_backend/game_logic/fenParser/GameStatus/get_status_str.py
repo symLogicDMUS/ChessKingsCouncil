@@ -4,7 +4,7 @@ import os
 
 def get_status_str(fen):
     """method to strip the piece positions part of fen string, and return the remaining data"""
-    status_str = re.sub(r'([rnkqbpRNKQBP1-8]+/*){8}', '', fen)
+    status_str = re.sub(r'([a-zA-Z1-8]+/*){8}', '', fen)
     status_str.strip()
     return status_str
 

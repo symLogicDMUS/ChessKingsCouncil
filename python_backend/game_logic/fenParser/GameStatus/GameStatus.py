@@ -1,5 +1,5 @@
-from game_logic.status.g_status_types import *
 from game_logic.piece_type.get_piece_types import get_piece_types
+from game_logic.fenParser.GameStatus.g_status_types import OVER, IN_PROGRESS
 
 
 class GameStatus:

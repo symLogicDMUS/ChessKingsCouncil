@@ -1,8 +1,8 @@
 from game_logic.fenParser.Fen import Fen
-from game_logic.JsonRecords.JsonRecords import JsonRecords
-from game_logic.GameStatus.GameStatus import GameStatus
+from game_logic.JsonRecords.teriminal_play.JsonRecords import JsonRecords
+from game_logic.fenParser.GameStatus.GameStatus import GameStatus
+from game_logic.fenParser.GameStatus.get_fen_data import get_fen_data
 from game_logic.fenParser.getBoard.top.get_board import get_board
-from game_logic.status.get_status import get_status
 from api_helpers.helpers.filepath import get_dir_containing_name
 from api_helpers.map_defs import map_defs
 from pprint import pprint
@@ -21,7 +21,7 @@ def get_data(game_name):
     f.close()
 
     board = get_board(fen)
-    turn, castle_avail, en_passant_avail, hm_num, fm_num = get_status(fen)
+    turn, castle_avail, en_passant_avail, hm_num, fm_num = get_fen_data(fen)
     fen_obj = Fen(fen, turn, castle_avail, en_passant_avail, hm_num, fm_num)
     json_records = JsonRecords("{}/example_games/{}/{}.json".format(dir_, game_name, game_name), board)
 

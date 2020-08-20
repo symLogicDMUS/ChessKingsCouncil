@@ -1,6 +1,3 @@
-from game_logic.status.g_status_types import *
-
-
 def game_over(status):
     """returns true if json_records indicates the game is over, else false """
     if status == OVER:

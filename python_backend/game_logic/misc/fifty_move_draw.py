@@ -1,6 +1,3 @@
-from game_logic.GameStatus.g_status_types import *
-
-
 def fifty_move_draw(hm_clock, json_records, default=False):
     """ """
     if hm_clock >= 50:

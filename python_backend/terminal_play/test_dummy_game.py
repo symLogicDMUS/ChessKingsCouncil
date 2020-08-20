@@ -61,7 +61,7 @@ def test_dummy_game(game_name):
          player_type,
          fen,
          json_records.get_records(),
-         status.get_status(),
+         status.status_update(),
          defs_['id_dict'],
          defs_['range_defs'],
          promo_choices

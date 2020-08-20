@@ -42,14 +42,14 @@ export class App extends React.Component {
     async savesDefApi(pieceName, pieceDef) {
         return await fetch('/save_def', {
             method:"POST",
-            body: JSON.stringify({'piece_name':pieceName, 'piece_def':pieceDef})  
+            body: JSON.stringify({'user':this.props.username, 'piece_name':pieceName, 'piece_def':pieceDef})  
         })
     }
 
     async deleteDefApi(pieceName) {
         return await fetch('/delete_def', {
             method:"POST",
-            body: JSON.stringify({'piece_name':pieceName})  
+            body: JSON.stringify({'user':this.props.username, 'piece_name':pieceName})  
         })
     }
 
@@ -94,9 +94,11 @@ export class App extends React.Component {
                 <Route exact path="/" exact strict render={() => <Home defs={this.defs} 
                                                                        updateDefs={this.updateDefs} />} />
                 <Route exact path="/NewGame" exact strict render={() => <NewGame dataDict={this.dataDict} 
-                                                                                 defs={this.defs} /> } />
+                                                                                 defs={this.defs}
+                                                                                 username={this.props.username}/> } />
                 <Route exact path="/LoadGame" exact strict render={() => <LoadGame getDataDict={this.getDataDict}
                                                                                    setDataDict={this.setDataDict}
+                                                                                   username={this.props.username}
                                                                                    getGame={this.getGame}                                                                         
                                                                                    defs={this.defs} /> } />
                 <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />

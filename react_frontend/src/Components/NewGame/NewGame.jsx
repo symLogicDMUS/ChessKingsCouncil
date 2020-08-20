@@ -125,7 +125,8 @@ export class NewGame extends React.Component {
 
     formatDataAsObject() {
         /**return data that created form new game, together as an object.  */
-        return { "board":this.dataDict[this.gameName]['board'], 
+        return { "user":this.props.username,
+                 "board":this.dataDict[this.gameName]['board'], 
                  "records":this.dataDict[this.gameName]['records'],
                  "color":"W",
                  "player_type":this.dataDict[this.gameName]['player_type'],
@@ -150,6 +151,7 @@ export class NewGame extends React.Component {
     play() {
         return <Redirect to={{ pathname:"/NewGame/Play",
                                state: {currentPage:"/NewGame/Play",
+                                       username:JSON.parse(JSON.stringify(this.props.username)),
                                        gameName:JSON.parse(JSON.stringify(this.gameName)),
                                        gameType:JSON.parse(JSON.stringify(this.gameType)),
                                        playerType:JSON.parse(JSON.stringify(this.playerType)),

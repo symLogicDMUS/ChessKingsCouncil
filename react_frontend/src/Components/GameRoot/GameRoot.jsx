@@ -26,6 +26,7 @@ export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
         this.state = {bValue:true, isHelpModal:false};
+        this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
@@ -229,7 +230,6 @@ export class GameRoot extends React.Component {
         if (fenId === 'p') {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
-            //this.jsonRecords.lastPawnMove = dest;
         }
 
         else {
@@ -251,6 +251,7 @@ export class GameRoot extends React.Component {
         return fetch('/save', {
             method:"POST",
             body:JSON.stringify({
+                username:this.username,
                 game_name: this.gameName,
                 game_type:this.gameType,
                 player_type:this.playerType,

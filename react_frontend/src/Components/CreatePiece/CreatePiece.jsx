@@ -6,7 +6,6 @@ import {Icon} from "./Icon/Icon";
 import {Location} from "./Location/Location";
 import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import {NameLabel} from "./NameLabel/NameLabel";
-//import {pieceImgDict} from "../MyPieces/pieceImgDict";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {isIndentifier} from "../helpers/isIdentifier";
