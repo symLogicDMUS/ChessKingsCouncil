@@ -1,6 +1,7 @@
 import React from "react";
 import {Board} from "./Components/Board";
 import {GameRootHeader as Header} from "./Components/GameRootHeader";
+import {rook_starting_rf, king_starting_rf} from "./sharedData/castleRankfiles";
 import {JsonRecords} from "./sharedData/JsonRecords";
 import {GameStatus} from "./sharedData/GameStatus";
 import {SpecialMoves} from "./Move/SpecialMoves";
@@ -41,9 +42,9 @@ export class GameRoot extends React.Component {
         this.ranges = this.dataEntry['ranges'];
         this.enemyRanges = this.dataEntry['enemy_ranges'];
         this.idDict = this.dataEntry['id_dict'];
-        this.rangeDefs = this.dataEntry['defs']; 
-        this.promoChoices = this.dataEntry['promo_choices'];
-        this.playerType = this.dataEntry['player_type'];
+        this.pieceDefs = this.dataEntry['piece_defs']; 
+        this.promoChoices = this.dataEntry['promos'];
+        this.playerType = this.dataEntry['pt'];
         this.resigned = this.gameStatus.hasResigned();
         this.unsaved = false;
         this.aiDisplay = false;
@@ -188,19 +189,20 @@ export class GameRoot extends React.Component {
 
     callBackend() {
 
-        let flask_method = "update"
+        let backend_method = "update"
         if (this.gameType === "council")
-            flask_method = "update_council"
+            backend_method = "update_council"
 
 
         let body = JSON.stringify({"board":this.getBoard(), 
                                    "records":this.jsonRecords.getRecords(), 
                                    "color":this.getTurn(),
-                                   "player_type":this.playerType,
-                                   "defs":{"id_dict":this.idDict, "range_defs":this.rangeDefs}
+                                   "pt":this.playerType,
+                                   "piece_defs":this.pieceDefs,
+                                   "id_dict":this.idDict
                                 })
-        return fetch(`/${flask_method}`, {
-            method: 'POST',
+        return fetch(`/${backend_method}`, {
+            method: "POST",
             body: body
         }).then(response => response.json())
         .then(response => {
@@ -234,9 +236,9 @@ export class GameRoot extends React.Component {
 
         else {
             this.jsonRecords.numConsecutiveNonPawnMoves++;
-            if (fenId  === 'k')
+            if (fenId  === 'k' && king_starting_rf.includes(start))
                 this.jsonRecords.kingsMoved[start] = true;
-            if (fenId === 'r')
+            if (fenId === 'r' && rook_starting_rf.includes(start))
                 this.jsonRecords.rooksMoved[start] = true;
         }
 
@@ -251,17 +253,17 @@ export class GameRoot extends React.Component {
         return fetch('/save', {
             method:"POST",
             body:JSON.stringify({
-                username:this.username,
-                game_name: this.gameName,
-                game_type:this.gameType,
-                player_type:this.playerType,
-                board:this.getBoard(),
-                json_records: this.jsonRecords.getRecords(),
-                status_obj:this.gameStatus.getStatus(),
-                fen_obj: this.fenObj.getData(),
-                id_dict: this.idDict,
-                range_defs: this.rangeDefs,
-                promos:this.promoChoices
+                "board":this.getBoard(),
+                "fen_obj": this.fenObj.getData(),
+                "user":this.username,
+                "game_name": this.gameName,
+                "game_type":this.gameType,
+                "player_type":this.playerType,
+                "status":this.gameStatus.getStatus(),
+                "promos":this.promoChoices,
+                "json_records": this.jsonRecords.getRecords(),
+                "piece_defs": this.pieceDefs,
+                "id_dict": this.idDict
             })
         })
     }
@@ -308,7 +310,7 @@ export class GameRoot extends React.Component {
                            board={this.board}
                            jsonRecords={this.jsonRecords}
                            idDict={this.idDict}
-                           rangeDefs={this.rangeDefs}
+                           pieceDefs={this.pieceDefs}
                            isCouncil={this.isCouncil}
                            updateBackend={this.updateBackend}
                            updateSpecialCase={this.updateSpecialCase}
@@ -322,7 +324,7 @@ export class GameRoot extends React.Component {
                                aiMakeMove={this.aiMakeMove} />)}
                 <RangeDisplayTool board={this.board}
                                   allRanges={{...this.ranges, ...this.enemyRanges}}
-                                  rangeDefs={this.rangeDefs} 
+                                  pieceDefs={this.pieceDefs} 
                                   idDict={this.idDict}
                                   update={this.update} 
                                   updatePrh={this.updatePrh}

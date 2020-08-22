@@ -54,7 +54,7 @@ export const oneMove = {
                  "flask_method": "update"
 }
 
-export const range_defs = {
+export const piece_defs = {
   "Rook": {
       "W": {
           "spans": [

@@ -96,7 +96,7 @@ export const moves = {"en_passant":[], "castles":[], "promos":[] };
 
 export const status = {'condition':'', 'status':IN_PROGRESS, 'winner':'-'};
 
-export const range_defs = {
+export const piece_defs = {
   "Rook": {
       "W": {
           "spans": [

@@ -73,8 +73,8 @@ class SpecialMoves(object):
 
 if __name__ == "__main__":
     special_moves = SpecialMoves()
-
-    # note: ranges are supposed to be for player who's turn it currently is, but combined white and black for testing puprposes
+    # note: ranges are supposed to be for player who's turn it currently is, but combined white and black for testing
+    # purposes
     ranges = \
         {'WB1': [(7, 2), (8, 3), (5, 2), (4, 3), (3, 4), (2, 5), (1, 6)],
          'WB2': [(6, 4), (7, 5), (8, 6), (4, 4), (3, 5), (2, 6), (1, 7), (4, 2), (3, 1)],

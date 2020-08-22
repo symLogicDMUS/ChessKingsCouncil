@@ -6,7 +6,7 @@ export const imgNames =
  'white_firehat.svg',
  'white_jester.svg',
  'Tux_red.svg',
- 'Tux_White.svg',
+ 'Tux_white.svg',
  'Timberwolf_black.png',
  'Timberwolf_white.png',
  'x-wing-white.svg',

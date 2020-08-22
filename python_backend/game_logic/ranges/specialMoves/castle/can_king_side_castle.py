@@ -3,11 +3,11 @@ from game_logic.ranges.specialMoves.castle.safe_path import safe_path
 from game_logic.bools.clear_path import clear_path
 from game_logic.printers.print_board import print_board
 from game_logic.JsonRecords.JsonRecords import JsonRecords
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_piece_defs import get_standard_piece_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 
 
-def can_king_side_castle(board, color, json_records, range_defs, id_dict):
+def can_king_side_castle(board, color, json_records, piece_defs, id_dict):
     """return true if the king side castle of the given color can be performed, else false"""
 
     if json_records.has_king_moved(color):
@@ -21,7 +21,7 @@ def can_king_side_castle(board, color, json_records, range_defs, id_dict):
     if not clear_path(board, castle_path):
         return False
 
-    if not safe_path(board, castle_path, color, range_defs, id_dict):
+    if not safe_path(board, castle_path, color, piece_defs, id_dict):
         return False
 
     return True
@@ -29,7 +29,7 @@ def can_king_side_castle(board, color, json_records, range_defs, id_dict):
 
 if __name__ == "__main__":
 
-    range_defs = get_standard_range_defs()
+    piece_defs = get_standard_piece_defs()
     id_dict = get_standard_id_dict()
 
     # test castle_test1, W:
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test1/castle_test1.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'W', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'W', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test2, W:
@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
 
     print_board(board)
-    print(can_king_side_castle(board, 'W', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'W', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test3, W:
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'W', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'W', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test4, W:
@@ -103,7 +103,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test4/castle_test4.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'W', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'W', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test1, B:
@@ -121,7 +121,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test1/castle_test1.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'B', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'B', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test2, B:
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test2/castle_test2.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'B', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'B', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test3, B:
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test3/castle_test3.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'B', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'B', json_records, piece_defs, id_dict))
     print('\n')
 
     # test castle_test4, B:
@@ -175,5 +175,5 @@ if __name__ == "__main__":
     json_records = JsonRecords("../../../../example_games/castle_test4/castle_test4.json", board)
 
     print_board(board)
-    print(can_king_side_castle(board, 'B', json_records, range_defs, id_dict))
+    print(can_king_side_castle(board, 'B', json_records, piece_defs, id_dict))
     print('\n')

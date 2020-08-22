@@ -7,3 +7,6 @@ export const sqrColors =
 'a3': 'sqr1', 'b3': 'sqr2', 'c3': 'sqr1', 'd3': 'sqr2', 'e3': 'sqr1', 'f3': 'sqr2', 'g3': 'sqr1', 'h3': 'sqr2', 
 'a2': 'sqr2', 'b2': 'sqr1', 'c2': 'sqr2', 'd2': 'sqr1', 'e2': 'sqr2', 'f2': 'sqr1', 'g2': 'sqr2', 'h2': 'sqr1', 
 'a1': 'sqr1', 'b1': 'sqr2', 'c1': 'sqr1', 'd1': 'sqr2', 'e1': 'sqr1', 'f1': 'sqr2', 'g1': 'sqr1', 'h1': 'sqr2'};
+Object.preventExtensions(sqrColors);
+Object.seal(sqrColors);
+Object.freeze(sqrColors);

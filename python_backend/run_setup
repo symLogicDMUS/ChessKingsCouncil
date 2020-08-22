@@ -1,0 +1,2 @@
+export GOOGLE_APPLICATION_CREDENTIALS="/home/brian/ChessKingsCouncil/Chess King Council-10297b2460f1.json"
+python3 ./db_setup.py

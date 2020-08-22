@@ -62,15 +62,15 @@ export class LoadGame extends React.Component {
                 state: {currentPage:"/LoadGame/Play",
                         username:JSON.parse(JSON.stringify(this.props.username)),
                         gameName:JSON.parse(JSON.stringify(this.state.gameName)),
-                        gameType:JSON.parse(JSON.stringify(this.dataEntry['game_type'])),
-                        playerType:JSON.parse(JSON.stringify(this.dataEntry['player_type'])),
+                        gameType:JSON.parse(JSON.stringify(this.dataEntry['type'])),
+                        playerType:JSON.parse(JSON.stringify(this.dataEntry['pt'])),
                         dataEntry:JSON.parse(JSON.stringify(this.dataEntry))
                       }     
               }}/>);
     }
     /** 
-     * note: the rangeDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
-     * because rangeDefs is not the same for every new game data, it is defined by the user.   
+     * note: the pieceDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
+     * because pieceDefs is not the same for every new game data, it is defined by the user.   
      */
   }
   

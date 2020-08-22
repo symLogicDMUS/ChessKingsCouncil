@@ -44,7 +44,7 @@ export class Promo extends React.Component {
         for (var id_ of Object.keys(this.props.idDict)) {
             pieceName = this.props.idDict[id_];
             if (this.props.promoChoices.includes(pieceName)) {
-                imgName = this.props.rangeDefs[pieceName][this.props.color]["img"];
+                imgName = this.props.pieceDefs[pieceName][this.props.color]["img"];
                 promoChoices.push(<PromoChoice  
                     key={id_}
                     imgName={imgName}
@@ -55,7 +55,7 @@ export class Promo extends React.Component {
 
         for (var standardName of this.standardPromoNames) {
             if (Object.values(this.props.idDict).includes(standardName)) {
-                imgName = this.props.rangeDefs[standardName][this.props.color]["img"];
+                imgName = this.props.pieceDefs[standardName][this.props.color]["img"];
                 promoChoices.push(<PromoChoice  
                     key={this.standardPromoNameDict[standardName]}
                     imgName={imgName}

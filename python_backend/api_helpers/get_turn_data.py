@@ -14,7 +14,7 @@ from game_logic.fenParser.GameStatus.is_checkmate import is_checkmate as checkma
 from api_helpers.ai_move import ai_move
 
 
-def turn_data(board, color, ai_color, defs_, json_records):
+def get_turn_data(board, color, ai_color, json_records, piece_defs, id_dict):
     """data for player who's turn it is now, at current point in the game
     calculations:
     ............
@@ -25,12 +25,12 @@ def turn_data(board, color, ai_color, defs_, json_records):
     ............
     """
     init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
+    init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, piece_defs, id_dict)
     k_loc = get_king_locs(board, color)
-    threat_area = get_threat_area(board, k_loc, color, defs_["range_defs"], defs_["id_dict"])
-    pd_dict = get_pathdata_dict(board, k_loc, color, defs_["range_defs"], defs_["id_dict"])
+    threat_area = get_threat_area(board, k_loc, color, piece_defs, id_dict)
+    pd_dict = get_pathdata_dict(board, k_loc, color, piece_defs, id_dict)
     pins = get_pins(pd_dict, pins)
-    npck = get_num_pieces_checking_king(board, k_loc, color, defs_["range_defs"], defs_["id_dict"], pd_dict)
+    npck = get_num_pieces_checking_king(board, k_loc, color, pd_dict, piece_defs, id_dict)
     mt_restricts = get_multithreat_restriction(board, npck, color)
     final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
     special_moves.set_promos(board, final_ranges, color)

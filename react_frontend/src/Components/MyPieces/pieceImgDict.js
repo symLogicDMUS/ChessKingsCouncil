@@ -11,5 +11,4 @@ export const pieceImgDict = {
     "Joker": {"W": "white_firehat.svg", "B": "black_firehat.svg"},
     "Morty": {"W": "evil_morty_white.svg", "B": "evil_morty_red.svg"},
     "X_Wing": {"W": "x_Wing_white.svg", "B":"x_wing_black.svg"},
-    "Brian": {"W": "white_brian.svg", "B": "black_brian.svg"}
 }

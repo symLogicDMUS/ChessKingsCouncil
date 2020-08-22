@@ -5,7 +5,7 @@ from game_logic.printers.get_unicode_board import get_unicode_board
 from game_logic.printers.print_sqr_highlights import print_sqr_highlights
 from game_logic.piece_type.get_piece_type import get_piece_type
 from pprint import pprint
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_piece_defs import get_standard_piece_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 
 
@@ -25,7 +25,7 @@ def get_pins(pd_dict, pins):
 
 if __name__ == "__main__":
 
-    range_defs = get_standard_range_defs()
+    range_defs = get_standard_piece_defs()
     id_dict = get_standard_id_dict()
 
     board = \

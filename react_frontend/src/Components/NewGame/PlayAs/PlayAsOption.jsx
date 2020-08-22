@@ -1,6 +1,6 @@
 import React from "react";
 import "./PlayAsOption.css";
-import {getColorName} from "../../helpers/getColorName";
+import {getColorNameLc} from "../../helpers/getColorNameLc";
 
 export class PlayAsOption extends React.Component {
 
@@ -26,7 +26,7 @@ export class PlayAsOption extends React.Component {
         if (this.props.optionName === "test")
             optionText = "test"
         else
-            optionText = getColorName(this.props.optionName)
+            optionText = getColorNameLc(this.props.optionName)
 
         return (
             <div className="play-as-option" style={{top:this.props.top}}>

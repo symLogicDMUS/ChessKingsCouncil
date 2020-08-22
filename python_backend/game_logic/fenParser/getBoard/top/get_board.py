@@ -202,3 +202,10 @@ if __name__ == "__main__":
     print_board(board)
     print('\n')
 
+    # test 24
+    print('test 24')
+    board = get_board("rnbqkbnr/8/8/pppppppp/PPPPPPPP/8/8/RNBQKBNR w KQkq - 0 1")
+    print(board)
+    print_board(board)
+    print('\n')
+

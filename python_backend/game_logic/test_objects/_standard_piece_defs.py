@@ -1,4 +1,4 @@
-range_defs = \
+piece_defs = \
     {
         "Bishop": {
             "B": {

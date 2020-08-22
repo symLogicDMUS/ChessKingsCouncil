@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import {AiDisplay} from "./AiDisplay";
 import {DisplayBoard} from "./DisplayBoard";
 import {PiecesBoard} from "./PiecesBoard";
-import {oneMove, range_defs, id_dict} from "./oneMove";
+import {oneMove, piece_defs, id_dict} from "./oneMove";
 import "./TestAi.css";
 
 
@@ -44,7 +44,7 @@ export class TestAi extends React.Component {
                                                      updateAiDisplay={this.updateAiDisplay} 
                                                      updateBoard={this.updateBoard} 
                 />)}
-                <PiecesBoard  board={this.board} idDict={id_dict} rangeDefs={range_defs}/>
+                <PiecesBoard  board={this.board} idDict={id_dict} pieceDefs={piece_defs}/>
                 <DisplayBoard />
             </div>
         )
@@ -58,7 +58,7 @@ async function callBackend() {
                                                      "records":oneMove['records'],
                                                      "color":oneMove['color'],
                                                      "ai_color":"B",
-                                                     "defs":{"id_dict":id_dict, "range_defs":range_defs}
+                                                     "defs":{"id_dict":id_dict, "piece_defs":piece_defs}
         })
     })
     let json_response = await response.json();

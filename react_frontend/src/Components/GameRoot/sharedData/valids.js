@@ -61,4 +61,7 @@ export const valids = [
     "8",
     "9",
     "0",
-    "_" ]
+    "_" ];
+Object.preventExtensions(valids);
+Object.seal(valids);
+Object.freeze(valids);

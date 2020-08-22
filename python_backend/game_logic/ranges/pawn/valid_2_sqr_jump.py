@@ -35,7 +35,6 @@ def valid_2_sqr_jump(sqr, board, color, pawn_hist):
     except KeyError:
         f = open("_runtime_error._txt", "w")
         traceback.print_exc(file=f)
-        pprint(pawn_hist)
 
 
 if __name__ == "__main__":

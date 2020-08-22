@@ -42,7 +42,7 @@ export class RangeDisplayExpanded extends React.Component {
                 <RangeBoard 
                             board={this.props.board}
                             allRanges={this.props.allRanges}
-                            rangeDefs={this.props.rangeDefs} 
+                            pieceDefs={this.props.pieceDefs} 
                             idDict={this.props.idDict}
                             update={this.props.update} 
                             updatePrh={this.props.updatePrh}

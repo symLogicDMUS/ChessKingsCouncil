@@ -38,7 +38,7 @@ export class RangeDisplayTool extends React.Component {
                                            setHelpText={this.props.setHelpText}
                                            board={this.props.board}
                                            allRanges={this.props.allRanges}
-                                           rangeDefs={this.props.rangeDefs} 
+                                           pieceDefs={this.props.pieceDefs} 
                                            idDict={this.props.idDict}
                                            update={this.props.update} 
                                            updatePrh={this.props.updatePrh}

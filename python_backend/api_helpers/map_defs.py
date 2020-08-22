@@ -1,13 +1,13 @@
 import json
 from pprint import pprint
-from api_helpers.convert_offset_strs import convert_offset_strs
+from api_helpers.convert_offset_strs_to_pairs import convert_offset_strs_to_pairs
 
 
 def map_defs(defs):
     """ """
     for piece_name in defs.keys():
         for color in ['W', 'B']:
-            defs[piece_name][color]['offsets'] = convert_offset_strs(defs[piece_name][color]['offsets'])
+            defs[piece_name][color]['offsets'] = convert_offset_strs_to_pairs(defs[piece_name][color]['offsets'])
     return defs
 
 

@@ -4,7 +4,7 @@ from game_logic.helpers.formulas import dist
 from game_logic.sqr_case.sqr_cases import *
 from game_logic.printers.print_board import print_board
 from game_logic.test_objects.sample_board_dicts import sample_board_dicts
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_piece_defs import get_standard_piece_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 from math import sqrt
 
@@ -20,7 +20,7 @@ def get_king_moves(board, sqr, color, range_defs, id_dict):
 
 if __name__ == "__main__":
 
-    range_defs = get_standard_range_defs()
+    range_defs = get_standard_piece_defs()
     id_dict = get_standard_id_dict()
 
     board = sample_board_dicts["king_range_test"]

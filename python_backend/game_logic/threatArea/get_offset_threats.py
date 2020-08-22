@@ -1,11 +1,11 @@
 from game_logic.printers.print_board import print_board
 from game_logic.color.get_piece_color import get_piece_color
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_piece_defs import get_standard_piece_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 
 
-def get_offset_threats(board, king_loc, color, range_defs, id_dict):
+def get_offset_threats(board, king_loc, color, piece_defs, id_dict):
     """ """
     board_filter1 = {}
     for sqr in board.keys():
@@ -26,13 +26,13 @@ def get_offset_threats(board, king_loc, color, range_defs, id_dict):
         id_ = board[sqr]
         piece_name = id_dict[id_[1].lower()]
         offset = [king_loc[0] - sqr[0], king_loc[1] - sqr[1]]
-        if offset in range_defs[piece_name][get_enemy_color(color)]["offsets"]:
+        if offset in piece_defs[piece_name][get_enemy_color(color)]["offsets"]:
             board_filter4[sqr] = board_filter3[sqr]
     return list(board_filter4.keys())
 
 
 if __name__ == "__main__":
-    range_defs = get_standard_range_defs()
+    piece_defs = get_standard_piece_defs()
     id_dict = get_standard_id_dict()
 
     board =\
@@ -45,6 +45,6 @@ if __name__ == "__main__":
      (1, 7): '#', (2, 7): 'BP4', (3, 7): 'BP5', (4, 7): '#', (5, 7): 'WN4', (6, 7): 'BP6', (7, 7): 'BP7', (8, 7): 'BP8',
      (1, 8): 'BR1', (2, 8): '#', (3, 8): '#', (4, 8): '#', (5, 8): '#', (6, 8): 'BR2', (7, 8): 'BK1', (8, 8): '#'}
 
-    print_board(board, heading="knight_threat2, W", highlights=get_offset_threats(board, (5, 1), "W", range_defs, id_dict))
+    print_board(board, heading="knight_threat2, W", highlights=get_offset_threats(board, (5, 1), "W", piece_defs, id_dict))
     print("")
-    print_board(board, heading="knight_threat2, B", highlights=get_offset_threats(board, (7, 8), "B", range_defs, id_dict))
+    print_board(board, heading="knight_threat2, B", highlights=get_offset_threats(board, (7, 8), "B", piece_defs, id_dict))

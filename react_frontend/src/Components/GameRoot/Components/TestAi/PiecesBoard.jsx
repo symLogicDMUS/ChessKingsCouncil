@@ -22,7 +22,7 @@ export class PiecesBoard extends React.Component {
             else {
                 squares.push(
                     <Square pxPos={getPosPx(rf, 75, 600)}>
-                        <Piece imgName={getPieceImg(this.props.board[rf], this.props.idDict, this.props.rangeDefs)} />
+                        <Piece imgName={getPieceImg(this.props.board[rf], this.props.idDict, this.props.pieceDefs)} />
                     </Square>
                 )
             }

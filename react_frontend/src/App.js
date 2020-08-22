@@ -68,7 +68,7 @@ export class App extends React.Component {
     }
 
     getDataDict() {
-        return Promise.all([getDataDict()])
+        return Promise.all([getDataDict(this.props.username)])
     }
 
     getGame(gameName) {

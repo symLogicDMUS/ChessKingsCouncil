@@ -1,14 +1,14 @@
 from game_logic.pathsInfo.top.get_pathdata_dict import get_pathdata_dict
 from game_logic.pathsInfo.get_index_first_piece import get_index_first_piece
-from game_logic.test_objects.get_standard_range_defs import get_standard_range_defs
+from game_logic.test_objects.get_standard_piece_defs import get_standard_piece_defs
 from game_logic.test_objects.get_standard_id_dict import get_standard_id_dict
 from game_logic.printers.print_board import print_board
 
 
-def get_path_threats(board, sqr, color, range_defs, id_dict):
+def get_path_threats(board, sqr, color, piece_defs, id_dict):
     """get all squares that are path threats to sqr"""
 
-    path_dict = get_pathdata_dict(board, sqr, color, range_defs, id_dict)
+    path_dict = get_pathdata_dict(board, sqr, color, piece_defs, id_dict)
     path_threats = []
     for direction in path_dict.keys():
         if len(path_dict[direction].pieces) == 0:
@@ -35,9 +35,9 @@ if __name__ == "__main__":
          (7, 1): 'BQ2', (7, 2): '#', (7, 3): '#', (7, 4): 'WB1', (7, 5): '#', (7, 6): '#', (7, 7): 'WP4', (7, 8): '#',
          (8, 1): '#', (8, 2): '#', (8, 3): '#', (8, 4): 'BR1', (8, 5): '#', (8, 6): '#', (8, 7): '#', (8, 8): 'BB2'}
 
-    range_defs = get_standard_range_defs()
+    piece_defs = get_standard_piece_defs()
     id_dict = get_standard_id_dict()
 
     print('test 1:')
-    print_board(board, highlights=get_path_threats(board, (4, 4), 'W', range_defs, id_dict))
+    print_board(board, highlights=get_path_threats(board, (4, 4), 'W', piece_defs, id_dict))
     print('\n')

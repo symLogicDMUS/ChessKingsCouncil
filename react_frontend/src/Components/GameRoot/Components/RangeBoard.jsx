@@ -75,7 +75,7 @@ export class RangeBoard extends React.Component {
             }
 
             else {
-                imgName = getPieceImg(this.props.board[rf], this.props.idDict, this.props.rangeDefs);
+                imgName = getPieceImg(this.props.board[rf], this.props.idDict, this.props.pieceDefs);
                 squares.push(
                     <div className={this.getSqrClass(rf)} style={getRangeDispPosPx(rf)}>
                         <RangePiece id_={this.props.board[rf]} imgName={imgName} updatePrh={this.updatePrh} />
