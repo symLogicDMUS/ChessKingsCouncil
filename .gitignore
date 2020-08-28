@@ -125,7 +125,7 @@ dmypy.json
 .pyre/
 
 # key
-Chess King Council-10297b2460f1.json
+ckc-firebase-admin-sdk.json
 
 #other
 python_backend/db_setup.py

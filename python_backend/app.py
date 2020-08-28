@@ -3,7 +3,7 @@ import json
 import pprint
 import firebase_admin
 from firebase_admin import credentials, db
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.fenParser.getFen.top.get_fen import get_fen
@@ -20,12 +20,18 @@ from api_helpers.id_assign_.top.id_assign import id_assign
 from api_helpers.get_turn_data import get_turn_data
 from api_helpers.parse_data import parse_data
 
-cred = credentials.Certificate('../Chess King Council-10297b2460f1.json')
+# cred = credentials.Certificate('../ckc-firebase-admin-sdk.json')
+cred = credentials.ApplicationDefault()
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://chess-king-council.firebaseio.com/",
 })
 
-app = Flask(__name__, static_folder="build/static", template_folder="build")
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/update', methods=['POST', 'GET'])
