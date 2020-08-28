@@ -1,45 +1,21 @@
-FROM node:13.12.0-alpine as build
-RUN pwd
-RUN ls .
-WORKDIR /app/react_frontend
-RUN pwd
-RUN ls .
+FROM node:13.12.0-alpine as react-build
+WORKDIR /ChessKingsCouncil/react_frontend
 COPY ./react_frontend/package.json ./
-RUN pwd
-RUN ls .
 COPY ./react_frontend/package-lock.json ./
-RUN pwd
-RUN ls .
+RUN mkdir public src
+COPY ./react_frontend/public ./public
+COPY ./react_frontend/src ./src
 RUN npm install
-RUN pwd
-RUN ls .
-COPY ./react_frontend ./
-RUN npm build
-RUN pwd
-RUN ls .
+RUN npm run-script build
 
-FROM python:3.7
-RUN pwd
-RUN ls .
-WORKDIR /app/python_backend
-RUN pwd
-RUN ls .
+
+FROM python:3.8.2
+WORKDIR /ChessKingsCouncil/python_backend
 ENV PYTHONPATH "${PYTHONPATH}:/app"
-RUN pwd
-RUN ls .
-RUN pip install Flask gunicorn
-RUN pwd
-RUN ls .
+RUN pip install Flask
+RUN pip install firebase-admin
+RUN pip install gunicorn
+RUN pip install termcolor
 ENV PORT 8080
-RUN pwd
-RUN ls .
 COPY ./python_backend ./
-RUN pwd
-RUN ls .
-COPY --from=build /app/react_frontend/src/ ./static/
-RUN pwd
-RUN ls .
-CMD exec guicorn --bind :$PORT --workers 1 --threads 8 app:app
-RUN pwd
-RUN ls .
-CMD python3 app/python_backend/app.py
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 app:app

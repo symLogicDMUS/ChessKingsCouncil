@@ -9,7 +9,6 @@ from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.fenParser.getFen.top.get_fen import get_fen
 from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.color.get_ai_color import get_ai_color
-from game_logic.test_objects.write_json import write_json
 from game_logic.fenParser.get_full_fen import get_full_fen
 from api_helpers.offset_strs_to_list import offset_strs_to_list
 from api_helpers.game_defs_offset_lists_to_strs import game_defs_offset_lists_to_strs as offsets_to_strs
@@ -20,12 +19,18 @@ from api_helpers.id_assign_.top.id_assign import id_assign
 from api_helpers.get_turn_data import get_turn_data
 from api_helpers.parse_data import parse_data
 
-cred = credentials.Certificate('../Chess King Council-10297b2460f1.json')
+cred = credentials.Certificate('../ckc-firebase-admin-sdk.json')
+# cred = credentials.ApplicationDefault()
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://chess-king-council.firebaseio.com/",
 })
 
-app = Flask(__name__, static_folder="build/static", template_folder="build")
+app = Flask(__name__, static_folder='../react_frontend/build', static_url_path='/')
+
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 
 @app.route('/update', methods=['POST', 'GET'])
