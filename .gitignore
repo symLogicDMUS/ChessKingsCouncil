@@ -128,9 +128,11 @@ dmypy.json
 Chess King Council-10297b2460f1.json
 
 #other
+.vs
 python_backend/db_setup.py
 python_backend/run_setup
 git-list
 gcloud-steps
 docker_rmi.py
-.vs
+deploy-steps
+node_modules

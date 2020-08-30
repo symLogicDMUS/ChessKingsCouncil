@@ -24,14 +24,14 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://chess-king-council.firebaseio.com/",
 })
 
-app = Flask(__name__, static_folder="../react_frontend/build",
-                      template_folder="../react_frontend/build")
+app = Flask(__name__, static_folder='../react_frontend/build')
 
 
+# Serve React App
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-    """Serve React App
+    """
     https://stackoverflow.com/questions/44209978/serving-a-front-end-created-with-create-react-app-with-flask
     """
     if path != "" and os.path.exists(app.static_folder + '/' + path):
@@ -152,4 +152,4 @@ def save():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

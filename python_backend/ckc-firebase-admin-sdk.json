@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "chess-king-council",
+  "private_key_id": "854931d7dc740063fac3f78327b261bd3fcfa777",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLjLmT68f5Bg/Q\n6Uvg7JSCeB4RN/l7Q5QpnhoD72ZrLDZqq3mgABZWq8IHm/CY1GETAGqyV7Rvx2H/\nNTLvLIElHWTdaXqcjWk2xHdVlP33/fvjukLSXuHMepQkYHjYBj9QX8cM4YJanFll\nm08ltJtAJxmYFqrzqguyXciQ5/39Cw7F2UfowimrLS65WqHOYpBOLmUOCbyKITPO\nwfWRU7gG9JlTuupNJFNYH00Q+roTbHl/KO0cmOltrSrf5HlFAKBLiJy4F/PvNqyV\nNyZjKja7zP2Mx42GysRALy9cnABAu0gRCItiG1gO7zldOTc0nSCCuv+SHuyO37qd\nUqXVSAfvAgMBAAECggEAE6/EIRjcSer6q59svc/T2zyH1+18fR3/nfjTFk9YrgPk\nLXPxOvbXMkHBbd/4qKddzisrpp0R7/+uLDM2fmhlAzRxFXMGr06D/w6IZigXWh1f\n99oDbXpMx2yRmGUWOvp7tCfXRhkndOELSmb3hDOQEmfVs1554UAwimtEozM03vy/\nGTWbmdDfEOAa+AIokewotCz/cKR8+OukyJiHZ6htG77DZm7BP4COe2UbgUJ1/TgW\n48QaND0j8xIsvuMr/WYPm8Jg2Y5I3p6RMjoWgwgr1DNgFCZpipdC7u3EhoeL4BZZ\nZ7k0u1guhEdW5uTFKwjtzDiHKaY9mpfQj6C+7MPXvQKBgQDuuT9nwvrHLGW8wV8D\nsdI/lYsybFEkPbhcsFvyaaY7IbWttaiW9Puclu29rY0jXaayVxqkAoyUWAHZbyMi\ncfaq22skWxscRwG/r5oI9xgnz1nP9AaOYrVQ31fvt+B1lASeNb3VgzX7TxYMZboK\nB+Wd14O8QvyfYC95gUuXXGtmGwKBgQDaR9JoCVOYyX17DSlLHFpAMGFMxwCP10JX\nmpRMDEf7V/5aqBoNdmrpHt7EvxcblGN9NjEkRjLa4cP2V7KfZiFdBT+sqyIae6lF\nUJcguqiMzF+eddGMTBiexIKyrU/pR0UNVF7yWY7gdOTSANwgj68YpNyd1PbAvU1b\nmzzZ8mtSvQKBgQCKCRWvot+tIW/meA2/rie7WnY1fspgYUvkVJmmDw7urCxIOH02\nZIvE3MS1Y8/zfihwgMtHwK2W7ViMaKXxOeJ+owdN61w+upQ5SYmQ24fdJRlylFDi\nLhNXov1PAIzKj/8nmD2fYxJosS83le6/9BcCcOacikNWyKBK6sdRyz/StwKBgFPP\n+A5SZnLoCvJQn2ZjwJOc//9G+gRBFwwkIoUAwjLUGqocmcRJj8trOwY4iVrho0HU\nqRHQkn5Q6bmQ+tkRkgXxmf1myHV6vggLZbv/b/CAGMbzXj6MiXeM5NJOkbx0zSLN\nHpfXo3Cz8ZhhFCS8hvLjeoJv3z8qcKWX+cmFt4fRAoGBAKHKEb+i2rpihLmqGHah\nLn0LHLh91nPLZeCFhkyhK5Gl891aXhrpRE1NECbIB0k85NfwhZWegD5PT+Myf0VQ\nJsCYWjTGxgkrTUtQ2Dwc7tbsvsR8zKIEZ/T6g+zc1Ak3twLK43sJmnFT6I2De9+t\nmiicdYioV+BDGAdHLcIcfugA\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-nyqga@chess-king-council.iam.gserviceaccount.com",
+  "client_id": "100362302438433745178",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-nyqga%40chess-king-council.iam.gserviceaccount.com"
+}

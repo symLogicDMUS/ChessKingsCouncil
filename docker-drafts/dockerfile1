@@ -16,5 +16,6 @@ RUN pip install Flask
 RUN pip install firebase-admin
 RUN pip install gunicorn
 RUN pip install termcolor
+ENV PORT 8080
 COPY ./python_backend ./
-CMD gunicorn --bind 0.0.0.0:8080 --workers 1 --threads 8 app:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 app:app
