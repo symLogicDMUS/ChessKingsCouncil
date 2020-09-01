@@ -4,7 +4,7 @@ import firebase_admin
 from firebase_admin import db, credentials
 from pprint import pprint
 
-cred = credentials.Certificate('/home/brian/ChessKingsCouncil/Chess King Council-10297b2460f1.json')
+cred = credentials.Certificate('/home/brian/ChessKingsCouncil/python_backend/ckc-firebase-admin-sdk.json')
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://chess-king-council.firebaseio.com/",
 })
@@ -82,6 +82,13 @@ def set_defs():
     db.reference().child('defs').set({'symLogicDMUS': defs})
 
 
+def set_game_names():
+    """ """
+    data_dict = db.reference().child('games').child('symLogicDMUS').get()
+    game_names = list(data_dict.keys())
+    db.reference().child('game names').set({'symLogicDMUS': game_names})
+
+
 def count_castle_record_errors():
     """ """
     errors = 0
@@ -94,7 +101,6 @@ def count_castle_record_errors():
             print(game_name, "kings_moved error")
             errors += 1
     print("errors: ", errors)
-
 
 
 def set_games():
@@ -110,4 +116,5 @@ def set_games():
 if __name__ == "__main__":
     # set_games()
     # set_defs()
-    count_castle_record_errors()
+    # count_castle_record_errors()
+    set_game_names()

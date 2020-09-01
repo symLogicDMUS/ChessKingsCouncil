@@ -1,4 +1,0 @@
-gcloud init
-gcloud builds submit --tag gcr.io/chess-king-council/council-kings
-gcloud run deploy --image gcr.io/chess-king-council/council-kings
-firebase deploy --only hosting

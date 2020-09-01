@@ -1,9 +1,9 @@
 import os
 import json
-import pprint
+from pprint import pprint
 import firebase_admin
 from firebase_admin import credentials, db
-from flask import Flask, jsonify, request, render_template, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from game_logic.JsonRecords.JsonRecords import JsonRecords
 from game_logic.fenParser.getFen.top.get_fen import get_fen
@@ -24,8 +24,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://chess-king-council.firebaseio.com/",
 })
 
-app = Flask(__name__, static_folder="../react_frontend/build",
-                      template_folder="../react_frontend/build")
+app = Flask(__name__, static_folder="../react_frontend/build", template_folder="../react_frontend/build")
 
 
 @app.route('/', defaults={'path': ''})
@@ -135,7 +134,7 @@ def save():
     print("POST request, save()""")
     data = request.get_data(as_text=True)
     data = json.loads(data)
-    pprint.pprint(data)
+    pprint(data)
     fen = get_fen(map_rf_to_xy(data['board']))
     fen = get_full_fen(fen, data['fen_obj'])
     db.reference().child('games').child('{}'.format(data['user'])).update({data['game_name']: {
@@ -151,5 +150,28 @@ def save():
     return "SUCCESSFULLY SAVED GAME!", 200
 
 
+@app.route('/get_game_names', methods=['POST'])
+def get_game_names():
+    """ """
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    user = data['user']
+    game_names = db.reference().child('game names').child('{}'.format(user)).get()
+    return jsonify(game_names)
+
+
+@app.route('/get_game', methods=['POST'])
+def get_game():
+    """ """
+    data = request.get_data(as_text=True)
+    data = json.loads(data)
+    user, game_name = data['user'], data['game_name']
+    game_data = db.reference().child('games').child('{}'.format(user)).child('{}'.format(game_name)).get()
+    game_data['defs'] = init_empty_ranges(game_data['defs'])
+    game_data['defs'] = offset_strs_to_list(game_data['defs'])
+    game_data = parse_data(game_data)
+    return jsonify(game_data)
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))

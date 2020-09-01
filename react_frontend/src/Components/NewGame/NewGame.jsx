@@ -16,7 +16,6 @@ import "./NewGame.css";
 export class NewGame extends React.Component {
     constructor(props) {
         super(props);
-        this.dataDict = JSON.parse(JSON.stringify(this.props.dataDict));
         this.state = {step: 0};
         this.gameName = "none";
         this.gameType = "none";
@@ -40,6 +39,7 @@ export class NewGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "new-game-body";
+        
     }
 
     setGameType(type) {
@@ -55,36 +55,35 @@ export class NewGame extends React.Component {
     }
     
     loadNewStandard() {
-        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
-        this.dataDict[this.gameName]['pt'] = JSON.parse(JSON.stringify(this.playerType));
-        this.dataDict[this.gameName]['type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.dataDict[this.gameName]['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
-        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
-        this.dataDict[this.gameName]['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
-
-        this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
-        this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
-        this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
-        this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
+        this.gameData = JSON.parse(JSON.stringify(newData));
+        this.gameData['game_name'] = this.gameName;
+        this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType));
+        this.gameData['type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.gameData['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.gameData['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
+        this.gameData['moves'] = JSON.parse(JSON.stringify(moves));
+        this.gameData['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.gameData['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
+        this.gameData['status'] = JSON.parse(JSON.stringify(status));
     }
 
     loadNewCouncil() {
         /**Not yet implemented to be different */
-        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData));
-        this.dataDict[this.gameName]['pt'] = JSON.parse(JSON.stringify(this.playerType));
-        this.dataDict[this.gameName]['type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.dataDict[this.gameName]['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
-        this.dataDict[this.gameName]['id_dict'] = JSON.parse(JSON.stringify(id_dict));
-        this.dataDict[this.gameName]['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
-
-        this.dataDict[this.gameName]['moves'] = JSON.parse(JSON.stringify(moves));
-        this.dataDict[this.gameName]['ranges'] = JSON.parse(JSON.stringify(ranges));
-        this.dataDict[this.gameName]['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
-        this.dataDict[this.gameName]['status'] = JSON.parse(JSON.stringify(status));
-
+        this.gameData = JSON.parse(JSON.stringify(newData));
+        this.gameData['game_name'] = this.gameName;
+        this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType));
+        this.gameData['type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.gameData['id_dict'] = JSON.parse(JSON.stringify(id_dict));
+        this.gameData['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
+        this.gameData['moves'] = JSON.parse(JSON.stringify(moves));
+        this.gameData['ranges'] = JSON.parse(JSON.stringify(ranges));
+        this.gameData['enemy_ranges'] = JSON.parse(JSON.stringify(enemyRanges));
+        this.gameData['status'] = JSON.parse(JSON.stringify(status));
     }
 
-    loadNewCustom(idDict, promos) {
+    loadNewCustom(idDict, defs, promos) {
         /**
          * first declare the data we don't need then backend for, then get rest of data from backend.
          * 
@@ -98,14 +97,15 @@ export class NewGame extends React.Component {
          * 5. format the data that backend needs together into an object.
          * 6. get the starting ranges for our custom new game from the backend, then update state
          */
-        this.dataDict[this.gameName] = JSON.parse(JSON.stringify(newData)); //1.
-        this.dataDict[this.gameName]['pt'] = JSON.parse(JSON.stringify(this.playerType)); //2.
-        this.dataDict[this.gameName]['type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.dataDict[this.gameName]['promos'] = promos; //4.
-        this.dataDict[this.gameName]['id_dict'] = idDict; //4.
-        this.dataDict[this.gameName]['piece_defs'] = {}; //4.
+        this.gameData = JSON.parse(JSON.stringify(newData)); //1.
+        this.gameData['game_name'] = this.gameName;
+        this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType)); //2.
+        this.gameData['type'] = JSON.parse(JSON.stringify(this.gameType));
+        this.gameData['promos'] = promos; //4.
+        this.gameData['id_dict'] = idDict; //4.
+        this.gameData['piece_defs'] = {}; //4.
         for (var name of Object.values(idDict)) {
-            this.dataDict[this.gameName]['piece_defs'][name] = this.props.defs[name]; //4.
+            this.gameData['piece_defs'][name] = defs[name] //4.
         }
         let payload = this.formatPayloadAsObject(); //5.
         fetch('/update', { //6.
@@ -113,10 +113,10 @@ export class NewGame extends React.Component {
             body: JSON.stringify(payload)
         }).then(response => response.json())
         .then(dataEntry => {
-            this.dataDict[this.gameName]['moves'] = dataEntry['moves'];
-            this.dataDict[this.gameName]['ranges'] = dataEntry['ranges'];
-            this.dataDict[this.gameName]['enemy_ranges'] = dataEntry['enemy_ranges'];
-            this.dataDict[this.gameName]['status'] = dataEntry['status'];
+            this.gameData['moves'] = dataEntry['moves'];
+            this.gameData['ranges'] = dataEntry['ranges'];
+            this.gameData['enemy_ranges'] = dataEntry['enemy_ranges'];
+            this.gameData['status'] = dataEntry['status'];
             this.nextStep();
         });
     }
@@ -125,11 +125,11 @@ export class NewGame extends React.Component {
         /**return data that the backend needs to get more information on this game, together as an object*/
         return { "user":this.props.username,
                  "color":"W",
-                 "board":this.dataDict[this.gameName]['board'], 
-                 "records":this.dataDict[this.gameName]['records'],
-                 "pt":this.dataDict[this.gameName]['pt'],
-                 "id_dict":this.dataDict[this.gameName]['id_dict'],
-                 "piece_defs":this.dataDict[this.gameName]['piece_defs']
+                 "board":this.gameData['board'], 
+                 "records":this.gameData['records'],
+                 "pt":this.gameData['pt'],
+                 "id_dict":this.gameData['id_dict'],
+                 "piece_defs":this.gameData['piece_defs']
                 } 
     }
 
@@ -140,11 +140,10 @@ export class NewGame extends React.Component {
             return <PlayAs setPlayer={this.setPlayerType} nextStep={this.nextStep} loadNew={this.loadNewStandard}/>
 
         if (this.gameType === "custom")
-            return <Customize defs={this.props.defs} loadNewCustom={this.loadNewCustom} setPlayer={this.setPlayerType} nextStep={this.nextStep} />
+            return <Customize username={this.props.username} loadNewCustom={this.loadNewCustom} setPlayer={this.setPlayerType} nextStep={this.nextStep} />
 
         if (this.gameType === "council")
             return <PlayAs setPlayer={this.setPlayerType} nextStep={this.nextStep} loadNew={this.loadNewCouncil}/>
-
     }
 
     play() {
@@ -154,7 +153,7 @@ export class NewGame extends React.Component {
                                        gameName:JSON.parse(JSON.stringify(this.gameName)),
                                        gameType:JSON.parse(JSON.stringify(this.gameType)),
                                        playerType:JSON.parse(JSON.stringify(this.playerType)),
-                                       dataEntry:JSON.parse(JSON.stringify(this.dataDict[this.gameName])),
+                                       gameData:JSON.parse(JSON.stringify(this.gameData)),
                                        }
                             }} />        
     }

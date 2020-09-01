@@ -12,6 +12,7 @@ import {SearchBar} from "./SearchBar";
 import {NavBar} from "../NavBar/NavBarRegular2";
 import {NavExpand} from "../NavBar/NavExpand2";
 import {NavColapse} from "../NavBar/NavColapse2";
+import {getDefs} from "../../API/getDefs";
 import "./MyPieces.css";
 
 
@@ -26,18 +27,8 @@ export class MyPieces extends React.Component {
         this.color = null;
         this.rangeType = null;
         this.navExpanded = true;
-        this.defs = JSON.parse(JSON.stringify(this.props.defs));
+        this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        for (var name of this.standards) {
-            delete this.defs[name];
-        }
-        this.displayDefs = JSON.parse(JSON.stringify(this.defs));
-        Object.keys(this.displayDefs).forEach(pieceName => {
-            this.displayDefs[pieceName]["W"]["spans"] = this.getSpansText(this.displayDefs[pieceName]["W"])
-            this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsetsText(this.displayDefs[pieceName]["W"])
-            this.displayDefs[pieceName]["B"]["spans"] = this.getSpansText(this.displayDefs[pieceName]["B"])
-            this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsetsText(this.displayDefs[pieceName]["B"])
-        });
         this.searchText = "";
         this.helpTitle = null;
         this.helpText = null;
@@ -57,8 +48,26 @@ export class MyPieces extends React.Component {
     }
 
     componentDidMount() {
+
         document.body.className="my-pieces-body";
+
+        getDefs(this.props.username).then( ([defs]) => {
+            this.defs = defs;
+            for (var name of this.standards) {
+                delete this.defs[name]
+            }
+            this.displayDefs = JSON.parse(JSON.stringify(this.defs));
+            Object.keys(this.displayDefs).forEach(pieceName => {
+                this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])
+                this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"])
+                this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
+                this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])
+            });
+            this.setState({binaryValue: ! this.state.binaryValue});
+        });
+        
     }
+
 
     update() {
         this.setState({binaryValue: ! this.state.binaryValue})
@@ -109,7 +118,7 @@ export class MyPieces extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue});
     }
 
-    getSpansText(def) {
+    getSpans(def) {
 
         if (def.spans.length === 0) {
             return Array(0);
@@ -122,7 +131,7 @@ export class MyPieces extends React.Component {
         return spanStrings;
     }
         
-    getOffsetsText(def) {
+    getOffsets(def) {
 
         if (def.offsets.length === 0) {
             return Array(0);
@@ -184,9 +193,7 @@ export class MyPieces extends React.Component {
     render() {
         
         if (this.state.redirect) {
-            return (<CreatePiece defs={this.defs} 
-                                 updateDefs={this.props.updateDefs} 
-                                 defaultPiece={this.state.selectedPiece} />)
+            return (<CreatePiece username={this.props.username} defaultPiece={this.state.selectedPiece} />)
         }
         
         return (

@@ -27,6 +27,8 @@ import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {HelpText as OptionsText} from "./Options/HelpText";
+import {updateDefs} from "../../API/updateDefs";
+import {getDefs} from "../../API/getDefs";
 import {defs} from "../tests/defs1";
 import "./CreatePiece.css";
 
@@ -39,7 +41,7 @@ export class CreatePiece extends React.Component {
 
         this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false};
 
-        this.defs = JSON.parse(JSON.stringify(this.props.defs));
+        this.defs = {}
 
         //used to record in defs object at the end:
         this.name = "";
@@ -133,13 +135,17 @@ export class CreatePiece extends React.Component {
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.setUnsaved = this.setUnsaved.bind(this);
-        if (this.props.defaultPiece != null)
-            this.load(this.props.defaultPiece)
-
     }
 
     componentDidMount() {
         document.body.className="create-piece-body";
+        getDefs(this.props.username).then(([defs]) => {
+            this.defs = defs;
+            if (this.props.defaultPiece != null) {
+                this.load(this.props.defaultPiece);
+            }
+            this.setState({binaryValue: ! this.state.binaryValue});
+        });
     }
 
     update() {
@@ -215,7 +221,7 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['W']['img'] = this.imgNames['white'];
         this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
-        this.props.updateDefs(this.name, this.defs[this.name]).then(([response]) => {
+        updateDefs(this.props.username, this.name, this.defs[this.name]).then(([response]) => {
             this.setSaveStatus("success");
         });
     }

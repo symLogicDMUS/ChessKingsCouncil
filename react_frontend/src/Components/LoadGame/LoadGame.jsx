@@ -1,6 +1,8 @@
 import React from "react";
 import {SelectGame} from "./SelectGame";
 import { Redirect } from "react-router-dom";
+import {getGameNames} from "../../API/getGameNames";
+import {getGame} from "../../API/getGame";
 import "./LoadGame.css";
 
 
@@ -13,8 +15,10 @@ export class LoadGame extends React.Component {
         this.selected = false;
         this.dataEntry = null; 
         this.pieceDefs = null;
-        this.changeName = this.changeName.bind(this);
+        this.games = [<option value="choose">Loading...</option>];
         this.load = this.load.bind(this);
+        this.changeName = this.changeName.bind(this);
+
     }
 
   componentDidMount() {
@@ -22,11 +26,10 @@ export class LoadGame extends React.Component {
     document.body.className = "load-game-body";
 
     this.games = [<option value="choose">Choose...</option>];
-    this.props.getDataDict().then( ([dataDict]) => {
-        this.props.setDataDict(dataDict);
-        Object.keys(dataDict).forEach(name => {
-            this.games.push(<option value={name}>{name}</option>)
-        });
+    getGameNames(this.props.username).then( ([gameNames]) => {
+        for (var name of gameNames) {
+          this.games.push(<option value={name}>{name}</option>)
+        }
         this.setState({gameName: "none", loaded: false, reload: ! this.state.reload});
     });
 
@@ -44,8 +47,10 @@ export class LoadGame extends React.Component {
   }
 
     load() {
-        this.dataEntry = this.props.getGame(this.state.gameName);
-        this.setState({loaded: true});
+        getGame(this.props.username, this.state.gameName).then( ([gameData]) => {
+          this.gameData = gameData;
+          this.setState({loaded: true});
+        })
     }
 
   render() {
@@ -62,9 +67,9 @@ export class LoadGame extends React.Component {
                 state: {currentPage:"/LoadGame/Play",
                         username:JSON.parse(JSON.stringify(this.props.username)),
                         gameName:JSON.parse(JSON.stringify(this.state.gameName)),
-                        gameType:JSON.parse(JSON.stringify(this.dataEntry['type'])),
-                        playerType:JSON.parse(JSON.stringify(this.dataEntry['pt'])),
-                        dataEntry:JSON.parse(JSON.stringify(this.dataEntry))
+                        gameType:JSON.parse(JSON.stringify(this.gameData['type'])),
+                        playerType:JSON.parse(JSON.stringify(this.gameData['pt'])),
+                        gameData:JSON.parse(JSON.stringify(this.gameData))
                       }     
               }}/>);
     }

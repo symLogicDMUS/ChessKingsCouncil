@@ -20,7 +20,7 @@
     height: 10px;
     text-align: left;
     font-size: 8px;
-    font-family: Tahoma;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
     color: #a9a9a9;
     /* border: 1px dashed white; */
 }
@@ -33,7 +33,7 @@
     height: 10px;
     text-align: left;
     font-size: 8px;
-    font-family: Tahoma;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
     color: #a9a9a9;
 
 }

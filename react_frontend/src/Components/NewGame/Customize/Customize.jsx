@@ -18,6 +18,7 @@ import { SearchBar } from "./SearchBar";
 import {NavBar} from "../../NavBar/NavBarRegular2";
 import {NavExpand} from "../../NavBar/NavExpand2";
 import {NavColapse} from "../../NavBar/NavColapse2";
+import {getDefs} from "../../../API/getDefs";
 import "./Customize.css";
 
 
@@ -25,7 +26,9 @@ export class Customize extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state = {binaryValue: true, isHelpModal: false}
+        this.state = {binaryValue: true, isHelpModal: false};
+        this.defs = {};
+        this.displayDefs = {};
         this.promos = [];
         this.aboveView = [];
         this.inView = [];
@@ -49,18 +52,8 @@ export class Customize extends React.Component {
         this.navExpanded = true;
         this.clientX = 0;
         this.clientY = 0;
-        this.defs = JSON.parse(JSON.stringify(this.props.defs));
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        for (var name of this.standards) {
-            delete this.defs[name]
-        }
-        this.displayDefs = JSON.parse(JSON.stringify(this.defs));
-        Object.keys(this.displayDefs).forEach(pieceName => {
-            this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])
-            this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"])
-            this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
-            this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])
-        })
+        //content inside  componentDidMount() could also go here.
         this.subs = {
             "Rook":null,
             "Bishop":null,
@@ -79,6 +72,25 @@ export class Customize extends React.Component {
         this.setHelpText = this.setHelpText.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.setPlayerType = this.setPlayerType.bind(this);
+    }
+
+    componentDidMount() {
+
+        getDefs(this.props.username).then( ([defs]) => {
+            this.defs = defs;
+            for (var name of this.standards) {
+                delete this.defs[name];
+            }
+            this.displayDefs = JSON.parse(JSON.stringify(this.defs));
+            Object.keys(this.displayDefs).forEach(pieceName => {
+                this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])
+                this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"])
+                this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
+                this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])
+            });
+            this.setState({binaryValue: ! this.state.binaryValue});
+        });
+        
     }
 
     getSpans(def) {
@@ -160,7 +172,7 @@ export class Customize extends React.Component {
 
     accept() {
         this.loadNewCustom().then( ([idDict]) => {
-            this.props.loadNewCustom(idDict, this.promos);
+            this.props.loadNewCustom(idDict, this.defs, this.promos);
             this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
             this.setState({binaryValue: ! this.state.binaryValue});
         });
