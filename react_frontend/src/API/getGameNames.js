@@ -11,4 +11,3 @@ export async function gameNamesApiCall(username) {
 export function getGameNames(username) {
     return Promise.all([gameNamesApiCall(username)]);
 }
-//

@@ -11,4 +11,3 @@ export async function defsApiCall(username) {
 export function getDefs(username) {
     return Promise.all([defsApiCall(username)])
 }
-//

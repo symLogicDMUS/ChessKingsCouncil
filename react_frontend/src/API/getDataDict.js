@@ -11,4 +11,3 @@ export async function dataDictApiCall(username) {
 export function getDataDict(username) {
     return Promise.all([getDataDict(username)]);
 }
-//

@@ -13,4 +13,3 @@ export async function updateApiDefs(username, pieceName, pieceDef) {
 export function updateDefs(username, pieceName, pieceDef) {
     return Promise.all([updateApiDefs(username, pieceName, pieceDef)])
 }
-//
