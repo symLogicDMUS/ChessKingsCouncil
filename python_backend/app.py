@@ -155,8 +155,7 @@ def get_game_names():
     """ """
     data = request.get_data(as_text=True)
     data = json.loads(data)
-    user = data['user']
-    game_names = db.reference().child('game names').child('{}'.format(user)).get()
+    game_names = db.reference().child('game names').child('{}'.format(data['user'])).get()
     return jsonify(game_names)
 
 
