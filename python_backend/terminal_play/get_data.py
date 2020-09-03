@@ -58,10 +58,8 @@ def get_data(game_name):
     json.dumps(promo_choices)
     f.close()
 
-    defs_ = {"id_dict": id_dict, "range_defs": map_defs(range_defs)}
-
-    return fen_obj, board, json_records, status, game_type, player_type, promo_choices, defs_
+    return fen_obj, board, json_records, status, game_type, player_type, promo_choices, range_defs,  id_dict
 
 
 if __name__ == "__main__":
-    pprint(get_data("fundemental defense"))
+    pprint(get_data("fundemental_defense"))

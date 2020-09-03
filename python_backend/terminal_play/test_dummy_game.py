@@ -24,7 +24,7 @@ import os
 
 def test_dummy_game(game_name):
     """dummy walk through of a game where random dest is chosen from random piece's range and then moved upon"""
-    fen_obj, board, json_records, status, game_type, player_type, promo_choices, defs_ = get_data(game_name)
+    fen_obj, board, json_records, status, game_type, player_type, promo_choices, piece_defs,  id_dict, = get_data(game_name)
     if status.winner != '-':
         status.winner = '-'
     color = fen_obj.turn.upper()
@@ -32,12 +32,12 @@ def test_dummy_game(game_name):
     start, dest = "", ""
     while not x:
         init_ranges, pins, mt_restricts, final_ranges = get_reset_piece_dicts(board, color)
-        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, defs_)
+        init_ranges, special_moves = get_ranges(board, color, init_ranges, json_records, piece_defs,  id_dict)
         k_loc = get_king_locs(board, color)
-        threat_area = get_threat_area(board, k_loc, color, defs_['range_defs'], defs_['id_dict'])
-        pd_dict = get_pathdata_dict(board, k_loc, color, defs_['range_defs'], defs_['id_dict'])
+        threat_area = get_threat_area(board, k_loc, color, piece_defs,  id_dict)
+        pd_dict = get_pathdata_dict(board, k_loc, color, piece_defs,  id_dict)
         pins = get_pins(pd_dict, pins)
-        npck = get_num_pieces_checking_king(board, k_loc, color, defs_['range_defs'], defs_['id_dict'], pd_dict)
+        npck = get_num_pieces_checking_king(board, k_loc, color, pd_dict, piece_defs, id_dict)
         mt_restricts = get_multithreat_restriction(board, npck, color)
         final_ranges = get_final_ranges(init_ranges, pins, threat_area, final_ranges, mt_restricts)
         status.update(board, final_ranges, get_next_color(color), npck)
@@ -49,10 +49,10 @@ def test_dummy_game(game_name):
         json_records.update(board[dest], start, dest, p_flag)
         fen_obj.update_state(special_moves, json_records, start, dest, captured, color)
         json_records, x = fifty_move_draw(fen_obj.hm_clock, json_records, default=True)
-        print_board(board, heading=colored(status.condition))
+        print_board(board, heading=colored(status.condition), highlights4=[start], highlights=[dest])
         color = get_next_color(color)
 
-    print_board(board, heading=colored(status.condition, 'red'), highlights=dest)
+    print_board(board, heading=colored(status.condition, 'red'), highlights4=[start], highlights=[dest])
     print("Game Over. Winner: {}".format(status.winner))
     pos_str = get_fen(board)
     fen = fen_obj.set_get_new_fen(pos_str)
@@ -61,9 +61,9 @@ def test_dummy_game(game_name):
          player_type,
          fen,
          json_records.get_records(),
-         status.status_update(),
-         defs_['id_dict'],
-         defs_['range_defs'],
+         status.get_status(),
+         id_dict,
+         piece_defs,
          promo_choices
          )
 
