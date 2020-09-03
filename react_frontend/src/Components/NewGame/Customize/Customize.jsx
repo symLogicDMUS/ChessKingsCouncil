@@ -75,22 +75,23 @@ export class Customize extends React.Component {
     }
 
     componentDidMount() {
-
+        
         getDefs(this.props.username).then( ([defs]) => {
             this.defs = defs;
-            for (var name of this.standards) {
-                delete this.defs[name];
-            }
-            this.displayDefs = JSON.parse(JSON.stringify(this.defs));
-            Object.keys(this.displayDefs).forEach(pieceName => {
-                this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])
-                this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"])
-                this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
-                this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])
+            this.displayDefs = JSON.parse(JSON.stringify(this.defs))
+            Object.keys(this.defs).forEach(pieceName => {
+                if (this.standards.includes(pieceName)) {
+                    delete this.displayDefs[pieceName]
+                }
+                else {
+                    this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])
+                    this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"])
+                    this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"])
+                    this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"])                    
+                }
             });
             this.setState({binaryValue: ! this.state.binaryValue});
         });
-        
     }
 
     getSpans(def) {
@@ -294,9 +295,9 @@ export class Customize extends React.Component {
 
     applySearchFilter() {
         if (this.searchText !== "")
-            return Object.keys(this.defs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
+            return Object.keys(this.displayDefs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
         else
-            return Object.keys(this.defs);
+            return Object.keys(this.displayDefs);
     }
 
      setPlayerType(playerType) {

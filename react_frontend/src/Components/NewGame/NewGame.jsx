@@ -38,8 +38,7 @@ export class NewGame extends React.Component {
     } 
 
     componentDidMount() {
-        document.body.className = "new-game-body";
-        
+        document.body.className = "new-game-body"; 
     }
 
     setGameType(type) {
