@@ -6,7 +6,7 @@ COPY package-lock.json .
 RUN mkdir src public
 COPY public ./public
 COPY src ./src
-# COPY ./.vscode .
+
 
 RUN npm install
 
