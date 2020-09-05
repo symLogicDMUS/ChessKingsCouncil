@@ -1,9 +1,9 @@
 version: "3"
 services:
   frontend:
-    container_name: frontend
+    container_name: react_frontend
     build:
-      context: ./frontend
+      context: ./react_frontend
       dockerfile: Dockerfile
     ports:
       - 80:80
@@ -13,8 +13,8 @@ services:
 
   backend:
     restart: always
-    container_name: backend
-    build: ./backend
+    container_name: python_backend
+    build: ./python_backend
     expose:
       - 5000
     volumes:
