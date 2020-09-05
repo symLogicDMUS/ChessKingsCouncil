@@ -1,5 +1,0 @@
-1. guard against all bad input for names of new games.
-2. find out the diference between Firebase and Firestore, and which to implement.
-3. do a React crop image tutorial
-4. add image upload in CreatePiece with required image cropping.
-5. install react-cookie.
