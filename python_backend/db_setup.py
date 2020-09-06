@@ -103,6 +103,18 @@ def count_castle_record_errors():
     print("errors: ", errors)
 
 
+def get_games():
+    """ """
+    data_dict = {}
+    for game_name in os.listdir('/home/brian/ChessKingsCouncil/python_backend/saved games'):
+        data_dict[game_name] = get_data('saved games', game_name)
+    for game_name in os.listdir('/home/brian/ChessKingsCouncil/python_backend/example_games'):
+        data_dict[game_name] = get_data('example_games', game_name)
+    with open("./test_dd.json", 'w') as outfile:
+        json.dump(data_dict, outfile, indent=4, sort_keys=False)
+    outfile.close()
+    return data_dict
+
 def set_games():
     """ """
     data_dict = {}
@@ -117,4 +129,4 @@ if __name__ == "__main__":
     # set_games()
     # set_defs()
     # count_castle_record_errors()
-    set_game_names()
+    pprint(get_games())
