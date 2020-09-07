@@ -1,68 +1,41 @@
 # import os
 import json
-# import firebase_admin
+import firebase_admin
 from pprint import pprint
-# from firebase_admin import credentials, db
+from firebase_admin import credentials, db
 from flask import Flask, jsonify, request, send_from_directory
-from storage import delete_calculation, insert_calculation, get_calculations
 from game_logic.color.get_next_color import get_next_color as get_enemy_color
 from game_logic.JsonRecords.JsonRecords import JsonRecords
-# from game_logic.fenParser.getFen.top.get_fen import get_fen
+from game_logic.fenParser.getFen.top.get_fen import get_fen
 from game_logic.coordType.xy.map_rf_to_xy import map_rf_to_xy
 from game_logic.color.get_ai_color import get_ai_color
-# from game_logic.fenParser.get_full_fen import get_full_fen
-# from api_helpers.offset_strs_to_list import offset_strs_to_list
-# from api_helpers.game_defs_offset_lists_to_strs import game_defs_offset_lists_to_strs as offsets_to_strs
-# from api_helpers.dd_offset_strs_to_list import dd_offset_strs_to_list
-# from api_helpers.init_empty_ranges import init_empty_ranges
-# from api_helpers.init_dd_empty_lists import init_dd_empty_lists
+from game_logic.fenParser.get_full_fen import get_full_fen
+from api_helpers.offset_strs_to_list import offset_strs_to_list
+from api_helpers.game_defs_offset_lists_to_strs import game_defs_offset_lists_to_strs as offsets_to_strs
+from api_helpers.dd_offset_strs_to_list import dd_offset_strs_to_list
+from api_helpers.init_empty_ranges import init_empty_ranges
+from api_helpers.init_dd_empty_lists import init_dd_empty_lists
 from api_helpers.id_assign_.top.id_assign import id_assign
 from api_helpers.get_turn_data import get_turn_data
-
 # from api_helpers.parse_data import parse_data
 
 app = Flask(__name__)
 
-# cred = credentials.Certificate('/home/ckc-firebase-admin-sdk.json')
+cred = credentials.Certificate('/home/ckc-firebase-admin-sdk.json')
 # cred = credentials.ApplicationDefault()
-# firebase_admin.initialize_app(cred, {
-#     'databaseURL': "https://chess-king-council.firebaseio.com/",
-# })
+firebase_admin.initialize_app(cred, {
+    'databaseURL': "https://chess-king-council.firebaseio.com/",
+})
 
 
 @app.route('/')
 def index():
-    return "Chess Kings Council", 200
+    return "Chess King's Council"
 
 
-@app.route('/health')
-def health():
-    return '', 200
-
-
-@app.route('/ready')
-def ready():
-    return '', 200
-
-
-@app.route('/data', methods=['GET', 'POST'])
-def data():
-    """
-        Function used to get calculations history
-        from Postgres database and return to fetch call in frontend.
-    :return: Json format of either collected calculations or error message
-    """
-
-    calculations_history = []
-
-    try:
-        calculations = get_calculations()
-        for key, value in calculations.items():
-            calculations_history.append(value)
-
-        return jsonify({'calculations': calculations_history}), 200
-    except:
-        return jsonify({'error': 'error fetching calculations history'}), 500
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')
 
 
 @app.route('/update', methods=['POST', 'GET'])
@@ -2737,7 +2710,7 @@ def save():
     return "SUCCESSFULLY SAVED GAME!", 200
 
 
-@app.route('/get_game_names', methods=["POST", "GET"])
+@app.route('/', methods=["POST", "GET"])  # route should really be /get_game_names
 def get_game_names():
     # """ """
     # data = request.get_data(as_text=True)
