@@ -7,11 +7,10 @@ import {getNumPiecesCheckingKing} from "../game_logic/restriction/getNumPiecesCh
 import {getMultithreatRestriction} from "../game_logic/restriction/getMultithreatRestriction";
 import {getFinalRanges} from "../game_logic/ranges/top/getFinalRanges";
 import {getPins} from "../game_logic/pins/top/getPins";
-import {pieceDefs} from "../game_logic/testObjects/standardPieceDefs";
-import {printBoard} from "../game_logic/printers/printBoard";
-// import {mapXyToRf} from "../game_logic/coordType/rankfile/mapXyToRf";
-// import {statusUpdate} from "../game_logic/fenParser/GameStatus/statusUpdate";
-// import {aiMove} from "./aiMove";
+import { mapDictListXyToRf } from "../game_logic/coordType/mapDictListXyToRf";
+import {isCheckmate} from "../../../node.js/fenParser/GameStatus/isCheckmate";
+import {aiMove} from "./aiMove";
+import { getAiSqr } from "./getAiSqr";
 
 
 export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict) {
@@ -35,24 +34,23 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts);
     specialMoves.setPromos(board, finalRanges, color);
 
-    return [finalRanges, specialMoves]
+    var aiCapture, aiStart, aiDest;
+    if (color === aiColor && ! isCheckmate(finalRanges)) {
+        [aiCapture, aiStart, aiDest] = aiMove(board, finalRanges, aiColor, specialMoves);
+    }
+    else {
+        [aiCapture, aiStart, aiDest] = [false, false, false]
+    }
 
-    // var aiCapture, aiStart, aiDest;
-    // if (color === aiColor && ! checkmate(finalRanges)) {
-    //     var [aiCapture, aiStart, aiDest] = aiMove(board, finalRanges, aiColor, specialMoves);
-    // }
-    // else {
-    //     var [aiCapture, aiStart, aiDest] = [false, false, false]
-    // }
+    return {
+        ranges: mapDictListXyToRf(finalRanges),
+        special_moves: specialMoves,
+        aiStart: getAiSqr(aiStart),
+        aiDest: getAiSqr(aiDest),
+        aiCapture: getAiSqr(aiCapture),
+        npck: npck,
+    };
 
-    // let data = {'status': statusUpdate(board, finalRanges, getEnemyColor(color), npck)}
-
-    // data.update(mapXyToRf({   "ranges": finalRanges,
-    //                           "moves": specialMoves.getMoves(),
-    //                           "aiStart": aiStart,
-    //                           "aiDest": aiDest,
-    //                           "aiCapture": aiCapture}))
-    // return data;
 }
 
 // module.exports = getTurnData;
@@ -69,7 +67,9 @@ if (require.main === module) {
     import {JsonRecords} from "../JsonRecords/JsonRecords";
     import {getPieceLoc} from "../helpers/getPieceLoc"
     import {dataDict} from "../testObjects/dataDicts/dd1";
-
+    import {pieceDefs} from "../game_logic/testObjects/standardPieceDefs";
+    import {printBoard} from "../game_logic/printers/printBoard";
+    
     dataDict = initDDEmptyLists(dataDict)
     const pieceDefs = initEmptyRanges(getStandardPieceDefs())
     const idDict = getStandardIdDict()

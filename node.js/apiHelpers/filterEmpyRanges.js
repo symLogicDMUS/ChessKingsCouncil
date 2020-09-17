@@ -1,8 +1,8 @@
 
 
-function filterEmptyRanges(ranges) {
+export function filterEmptyRanges(ranges) {
     /* **/
-    let aiRanges = {}
+    var aiRanges = {}
     for (var pieceId of Object.keys(ranges)) {
         if (ranges[pieceId]) {
             aiRanges[pieceId] = ranges[pieceId]
@@ -11,8 +11,9 @@ function filterEmptyRanges(ranges) {
     return aiRanges
 }
 
-module.exports = filterEmptyRanges;
+// module.exports = filterEmptyRanges;
 
+/* for Node.js
 if (require.main === module) {
     console.log(filterEmptyRanges({'BB1': [],
                                 'BB2': [],
@@ -47,3 +48,4 @@ if (require.main === module) {
                                 'BR1': [],
                                 'BR2': []}))
 }
+*/

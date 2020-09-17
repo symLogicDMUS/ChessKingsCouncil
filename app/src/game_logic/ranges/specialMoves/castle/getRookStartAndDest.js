@@ -4,7 +4,7 @@ import {getRookLocations} from "./getRookLocations";
 
 export function getRookStartAndDest(kingPos) {
     /*get the start &&  dest of a particular rook during a castle**/
-    let [rStart, rDest] = rookStartAndDest[kingPos]
+    var [rStart, rDest] = rookStartAndDest[kingPos]
     return rStart, rDest 
 }
 

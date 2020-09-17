@@ -5,7 +5,9 @@ import {Customize} from "./Customize/Customize";
 import { Redirect } from "react-router-dom";
 import { PlayAs } from "./PlayAs/PlayAs";
 import {newData, ranges, enemyRanges, moves, status, id_dict, piece_defs, standard_promo_ids} from "./NewData";
+import {firstUpdate} from "../../apiHelpers/firstUpdate"
 import "./NewGame.css";
+
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
@@ -96,6 +98,7 @@ export class NewGame extends React.Component {
          * 5. format the data that backend needs together into an object.
          * 6. get the starting ranges for our custom new game from the backend, then update state
          */
+        
         this.gameData = JSON.parse(JSON.stringify(newData)); //1.
         this.gameData['game_name'] = this.gameName;
         this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType)); //2.
@@ -103,35 +106,27 @@ export class NewGame extends React.Component {
         this.gameData['promos'] = promos; //4.
         this.gameData['id_dict'] = idDict; //4.
         this.gameData['piece_defs'] = {}; //4.
+
         for (var name of Object.values(idDict)) {
             this.gameData['piece_defs'][name] = defs[name] //4.
         }
-        let payload = this.formatPayloadAsObject(); //5.
-        fetch('/update', { //6.
-            method: 'POST',
-            body: JSON.stringify(payload)
-        }).then(response => response.json())
-        .then(dataEntry => {
-            this.gameData['moves'] = dataEntry['moves'];
-            this.gameData['ranges'] = dataEntry['ranges'];
-            this.gameData['enemy_ranges'] = dataEntry['enemy_ranges'];
-            this.gameData['status'] = dataEntry['status'];
-            this.nextStep();
-        });
-    }
+        
+        var dataEntry = firstUpdate(
+          this.gameData["board"],
+          this.gameData["records"],
+          "W",
+          this.gameData["pt"],
+          this.gameData["piece_defs"],
+          this.gameData["id_dict"]
+        );
 
-    formatPayloadAsObject() {
-        /**return data that the backend needs to get more information on this game, together as an object*/
-        return { "user":this.props.username,
-                 "color":"W",
-                 "board":this.gameData['board'], 
-                 "records":this.gameData['records'],
-                 "pt":this.gameData['pt'],
-                 "id_dict":this.gameData['id_dict'],
-                 "piece_defs":this.gameData['piece_defs']
-                } 
-    }
+        this.gameData['moves'] = dataEntry['moves'];
+        this.gameData['ranges'] = dataEntry['ranges'];
+        this.gameData['enemy_ranges'] = dataEntry['enemy_ranges'];
+        this.gameData['status'] = dataEntry['status'];
+        this.nextStep();
 
+    }
 
     getGameSetup() {
 
@@ -154,7 +149,7 @@ export class NewGame extends React.Component {
                                        playerType:JSON.parse(JSON.stringify(this.playerType)),
                                        gameData:JSON.parse(JSON.stringify(this.gameData)),
                                        }
-                            }} />        
+                            }} />
     }
 
     render() {

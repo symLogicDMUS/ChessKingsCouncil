@@ -2,7 +2,8 @@ import React from "react";
 import {Board} from "./Components/Board";
 import {GameRootHeader as Header} from "./Components/GameRootHeader";
 import {rook_starting_rf, king_starting_rf} from "./sharedData/castleRankfiles";
-import {JsonRecords} from "./sharedData/JsonRecords";
+import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
+import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
 import {GameStatus} from "./sharedData/GameStatus";
 import {SpecialMoves} from "./Move/SpecialMoves";
 import { Promo } from "./Modals/Promo";
@@ -17,8 +18,11 @@ import {AiDisplay} from "./Components/AiDisplay";
 import {makeMove} from "./Move/makeMove";
 import {NavBar} from "../NavBar/NavBarRegular";
 import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
+import {gamePageRedirectMessage} from "./sharedData/gamePageRedirectMessage"
 import {HelpModal} from "../Help/HelpModal";
 import { OVER } from "../helpers/gStatusTypes";
+import {update} from "../../apiHelpers/update";
+import {updateCouncil} from "../../apiHelpers/updateCouncil";
 import "./css/GameRoot.css";
 
 
@@ -34,7 +38,7 @@ export class GameRoot extends React.Component {
         this.currentPage = this.props.location.state.currentPage;
         this.gameData = this.props.location.state.gameData;
         this.board = this.gameData['board']
-        this.jsonRecords = new JsonRecords(this.gameData['records']);
+        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['records'], board));
         this.gameStatus = new GameStatus(this.gameData['status']);
         this.specialMoves = new SpecialMoves(this.gameData['moves']);
         this.fenObj = new Fen(this.gameData['fen_data']);
@@ -48,6 +52,7 @@ export class GameRoot extends React.Component {
         this.resigned = this.gameStatus.hasResigned();
         this.unsaved = false;
         this.aiDisplay = false;
+        this.first = true;
         this.aiColor = this.setAiColor();
         this.promo = false;
         this.navExpanded = true;
@@ -58,13 +63,12 @@ export class GameRoot extends React.Component {
         this.hmChildren = {"none":null};
         this.confirmRedirectModal = false;
         this.redirectPath = null;
-        this.redirectMessage = "The game has changed since you last saved. If you leave the page you will lose your progress. Do you want to continue?"
-        this.first = true;
+        this.redirectMessage = gamePageRedirectMessage;
         this.save = this.save.bind(this);
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
-        this.updateBackend = this.updateBackend.bind(this);
+        this.updateBackend = this.updateTurnData.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
@@ -81,7 +85,7 @@ export class GameRoot extends React.Component {
         if (this.first) {
             this.first = false;
             if (this.turn === this.aiColor && ! this.isGameOver()) {
-                this.updateBackend().then(([result]) => { 
+                this.updateTurnData().then(([result]) => { 
                     this.prepareAiMove();
                     this.update();
                 });
@@ -115,7 +119,7 @@ export class GameRoot extends React.Component {
         makeMove(this, this.aiStart, this.aiDest);
         this.toggleTurn();
         this.updateFen(this.aiStart, this.aiDest);
-        this.updateBackend().then(([result]) => {
+        this.updateTurnData().then(([result]) => {
             this.update();
         });
     }
@@ -187,37 +191,22 @@ export class GameRoot extends React.Component {
         this.pieceRangeHighlight = pieceRangeHighlight;
     }
 
-    callBackend() {
-
-        let backend_method = "update"
-        if (this.gameType === "council")
-            backend_method = "update_council"
-
-
-        let body = JSON.stringify({"board":this.getBoard(), 
-                                   "records":this.jsonRecords.getRecords(), 
-                                   "color":this.getTurn(),
-                                   "pt":this.playerType,
-                                   "piece_defs":this.pieceDefs,
-                                   "id_dict":this.idDict
-                                })
-        return fetch(`/${backend_method}`, {
-            method: "POST",
-            body: body
-        }).then(response => response.json())
-        .then(response => {
-            this.ranges = response['ranges']
-            this.enemyRanges = response['enemy_ranges'];
-            this.specialMoves.update(response['moves']);
-            this.gameStatus.update(response['status']);
-            this.aiStart = response['ai_start'];
-            this.aiDest = response['ai_dest'];
-        });
-    }
-
-    updateBackend() {
+    updateTurnData() {
         /**called after a move is made.*/
-        return Promise.all([this.callBackend()])
+
+        var turnData;
+
+        if (this.gameType === "council") 
+            turnData = updateCouncil(this.board, this.jsonRecords, this.turn, aiColor, this.playerType, this.pieceDefs, this.idDict)
+        else
+            turnData = update(this.board, this.jsonRecords, this.turn, aiColor, this.playerType, this.pieceDefs, this.idDict);
+
+        this.ranges = turnData['ranges']
+        this.enemyRanges = turnData['enemy_ranges'];
+        this.specialMoves = turnData['special_moves'];
+        this.aiStart = turnData['ai_start'];
+        this.aiDest = turnData['ai_dest'];
+        this.gameStatus.update(this.board, this.ranges, this.getColorLastMove(), turnData['npck']);
     }
 
     updateJsonRecords(start, dest) {
@@ -275,7 +264,7 @@ export class GameRoot extends React.Component {
 
     resign() {
         if (! this.isGameOver()) {
-            this.gameStatus.update({"status":OVER, "condition":"resigned", "winner":this.getColorLastMove() });
+            this.gameStatus.updateByObj({"status":OVER, "condition":"resigned", "winner":this.getColorLastMove()});
             this.update();
         }
     }
@@ -312,7 +301,7 @@ export class GameRoot extends React.Component {
                            idDict={this.idDict}
                            pieceDefs={this.pieceDefs}
                            isCouncil={this.isCouncil}
-                           updateBackend={this.updateBackend}
+                           updateBackend={this.updateTurnData}
                            updateSpecialCase={this.updateSpecialCase}
                            update={this.update}
                            color={this.getColorLastMove()} 

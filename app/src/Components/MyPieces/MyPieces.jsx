@@ -13,6 +13,7 @@ import {NavBar} from "../NavBar/NavBarRegular2";
 import {NavExpand} from "../NavBar/NavExpand2";
 import {NavColapse} from "../NavBar/NavColapse2";
 import {getDefs} from "../../API/getDefs";
+import {deleteDef} from "../../API/deleteDef";
 import "./MyPieces.css";
 
 
@@ -92,9 +93,9 @@ export class MyPieces extends React.Component {
 
     delete(pieceName) {
         delete this.defs[pieceName];
-        this.props.deleteDef(pieceName).then( ([response]) => {
+        deleteDef(this.props.username, pieceName).then( ([response]) => {
             this.update();
-        } )
+        });
     }
 
     togleHelpModal(boolVal) {

@@ -27,7 +27,7 @@ import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {HelpText as OptionsText} from "./Options/HelpText";
-import {updateDefs} from "../../API/updateDefs";
+import {saveDef} from "../../API/saveDef";
 import {getDefs} from "../../API/getDefs";
 import {defs} from "../tests/defs1";
 import "./CreatePiece.css";
@@ -221,7 +221,7 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['W']['img'] = this.imgNames['white'];
         this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
-        updateDefs(this.props.username, this.name, this.defs[this.name]).then(([response]) => {
+        saveDef(this.props.username, this.name, this.defs[this.name]).then(([response]) => {
             this.setSaveStatus("success");
         });
     }

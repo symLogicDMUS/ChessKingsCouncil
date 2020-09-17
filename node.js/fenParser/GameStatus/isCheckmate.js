@@ -1,7 +1,7 @@
-var  filterEmptyRanges  = require("apiHelpers/filterEmptyRanges");
+import {filterEmptyRanges} from "../../apiHelpers/filterEmpyRanges";
 
 
-function isCheckmate(ranges) {
+export function isCheckmate(ranges) {
     if (isEmptyObject(filterEmptyRanges(ranges))) {
         return true
     }
@@ -10,4 +10,4 @@ function isCheckmate(ranges) {
     }
 }
 
-module.exports = isCheckmate;
+// module.exports = isCheckmate;
