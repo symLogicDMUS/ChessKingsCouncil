@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50"
+   height="68"
+   viewBox="0 0 13.229167 17.991667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="load-piece.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect917"
+       is_visible="true"
+       lpeversion="1"
+       offset_points="0,0.1322915"
+       sort_points="true"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       scale_width="1"
+       end_linecap_type="zerowidth" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#333333"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.7321153"
+     inkscape:cx="22.035487"
+     inkscape:cy="-0.87914889"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:lockguides="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     units="px"
+     showguides="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g914"
+       transform="matrix(0.24815322,0,0,0.24421972,-0.09346947,-0.848373)">
+      <path
+         d="m 46.150155,27.47137 a 18.301003,7.1646652 0 0 1 -8.982807,6.254109 18.301003,7.1646652 0 0 1 -18.326596,0.06954 18.301003,7.1646652 0 0 1 -9.2907676,-6.184771 M 46.150155,49.04225 A 18.301003,7.1646652 0 0 1 37.167348,55.29636 18.301003,7.1646652 0 0 1 18.840752,55.3659 18.301003,7.1646652 0 0 1 9.5499844,49.181129 M 46.150155,41.851958 a 18.301003,7.1646652 0 0 1 -8.982807,6.25411 18.301003,7.1646652 0 0 1 -18.326596,0.06954 18.301003,7.1646652 0 0 1 -9.2907676,-6.18477 M 46.150155,34.661664 a 18.301003,7.1646652 0 0 1 -8.982807,6.25411 18.301003,7.1646652 0 0 1 -18.326596,0.06954 18.301003,7.1646652 0 0 1 -9.2907676,-6.18477 M 46.150155,20.281076 a 18.301003,7.1646652 0 0 1 -8.982807,6.25411 18.301003,7.1646652 0 0 1 -18.326596,0.06954 18.301003,7.1646652 0 0 1 -9.2907676,-6.18477 M 46.200378,13.678468 A 18.395773,7.1643157 0 0 1 27.804604,20.842785 18.395773,7.1643157 0 0 1 9.4088315,13.678468 18.395773,7.1643157 0 0 1 27.804604,6.5141521 18.395773,7.1643157 0 0 1 46.200378,13.678468 M 9.5697749,14.878675 v 34.573184 h 0.021985 A 18.268948,7.1378202 0 0 0 27.857518,56.45821 18.268948,7.1378202 0 0 0 46.123277,49.451859 h 0.02506 V 14.878675 h -0.228601 a 18.147047,6.492819 0 0 1 -9.257917,5.027384 18.147047,6.492819 0 0 1 -24.651128,-2.519704 18.147047,6.492819 0 0 1 -2.2015908,-2.50768 z"
+         style="fill:none;fill-opacity:1;stroke:#a9a9a9;stroke-width:1.5875;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path1037-8-8-3-5" />
+    </g>
+    <text
+       id="text1483"
+       y="18.569313"
+       x="6.4410191"
+       style="font-size:4.52699px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;stroke-width:0.230062"
+       xml:space="preserve"
+       transform="scale(1.0352753,0.96592668)"><tspan
+         style="font-size:4.52699px;fill:#a9a9a9;fill-opacity:1;stroke-width:0.230062"
+         y="18.569313"
+         x="6.4410195"
+         id="tspan1481"
+         sodipodi:role="line">Load</tspan></text>
+  </g>
+</svg>

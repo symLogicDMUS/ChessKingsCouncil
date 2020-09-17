@@ -1,0 +1,26 @@
+.my-pieces2-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 6;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar2-my-pieces2-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: #0CC;
+        font-family: Georgia;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+        left: 395px;         
+    }
+
+    .my-pieces2-link:hover .navbar2-my-pieces2-tooltiptext {
+        visibility: visible;
+    }

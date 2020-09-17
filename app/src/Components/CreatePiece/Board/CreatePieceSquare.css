@@ -1,0 +1,53 @@
+
+
+.green-sqr {
+  position: absolute;
+  z-index: 0;       
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: #a9a9a9;
+}
+
+.green-sqr:hover {
+  background-color: #00CCFF;
+}
+
+.white-sqr {
+  position: absolute;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.white-sqr:hover {
+  background-color: #00CCFF;
+}
+
+.jump-element {
+  position: absolute;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  background-color: darkred;
+}
+
+.jump-element:hover {
+  background-color: #00CCFF;
+}
+
+.span-element {
+  position: absolute;
+  z-index: 0;
+  width: 75px;
+  height: 75px;
+  background-color: #EC2525;
+  text-align: center;
+}
+
+.span-element:hover {
+  background-color: #00CCFF;
+}

@@ -1,0 +1,11 @@
+.my-pieces-regular-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 6;
+    font-size:24px;
+    font-family:Tahoma;
+    padding-top: 2px;
+    text-decoration: none;
+    
+}
+

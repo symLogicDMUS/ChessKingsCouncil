@@ -1,0 +1,41 @@
+  .promo-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.4);
+  }
+
+  .img-group {
+    display: block;
+    z-index: inherit;
+    width: 375px;
+    height: 75px;
+    left: 580px; 
+    top: 340px;
+    cursor: pointer; 
+    float: left; 
+    background-color: white;
+    border: 3px solid slateblue;
+    border-bottom: none;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    position: absolute; 
+  }
+  
+  .img-group .promo-choice {
+    width: 75px;
+    height: 75px;
+  }
+  .promo-choice:hover {
+    background-color: slateblue;
+  }
+
+  .img-group .promo-choice-selected {
+    width: 75px;
+    height: 75px;
+    background-color: #00CCFF;;
+  }

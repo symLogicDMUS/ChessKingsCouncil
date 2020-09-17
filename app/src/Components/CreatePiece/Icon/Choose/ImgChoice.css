@@ -1,0 +1,41 @@
+
+  .pieces-profiles .profile {
+      z-index: 2;
+      height: 160px;
+      margin: 10px;
+      margin-bottom: 32px;
+      border: 1px solid #8c8c8c;
+      border-radius: 3px;
+      opacity: 30%;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+      cursor: pointer;
+  } .profile:hover {
+    opacity: 100%;
+  }
+  .profile .image {
+    z-index: 2;
+    max-height: 160px;
+    height: 100%;
+    object-fit: cover;
+  } 
+  .pieces-profiles .selected-profile {
+    z-index: 2;
+    height: 160px;
+    margin: 10px;
+    margin-bottom: 32px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 16px white;
+    color: white;
+    opacity: 100%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+  } 
+  .selected-profile .image {
+    z-index: 2;
+    max-height: 160px;
+    height: 100%;
+    object-fit: cover;  
+  } .selected-profile:hover {
+    opacity: 100%;
+  }

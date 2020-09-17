@@ -1,0 +1,9 @@
+.test-ai-pieces-board {
+    position: absolute;
+    z-index: 1;
+    width: 600px;
+    height: 600px;
+    left: 468px;
+    top: 100px;
+    line-height: 0;
+}

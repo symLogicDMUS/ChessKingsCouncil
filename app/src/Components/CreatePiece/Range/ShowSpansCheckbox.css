@@ -1,0 +1,18 @@
+
+.show-spans-checkbox {
+    position: absolute;
+    left: 67px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: #515151;
+    border: 1px solid #a9a9a9;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.range-checkmark {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    object-fit: contain;
+}

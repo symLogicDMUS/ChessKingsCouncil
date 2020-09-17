@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="lg.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg2100"
+   version="1.1"
+   viewBox="0 0 150 256"
+   height="256mm"
+   width="150mm">
+  <defs
+     id="defs2094" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:window-height="1001"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="531.21114"
+     inkscape:cx="730.40444"
+     inkscape:zoom="0.41610621"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#663a3a"
+     id="base" />
+  <metadata
+     id="metadata2097">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <path
+       transform="scale(0.26458333)"
+       d="M 324.89844 93.369141 C 317.93066 93.331376 309.24411 93.655672 299.5293 93.730469 L 250.95312 94.105469 L 250.95312 114.96289 C 250.95313 132.65237 248.24478 135.82227 233.12891 135.82227 C 218.07784 135.82227 215.30469 132.63011 215.30469 115.30469 C 215.30469 94.994977 214.90965 94.787109 176.09375 94.787109 L 136.88086 94.787109 L 136.81641 137.53125 C 136.75676 177.19899 138.36678 181.54791 159.19922 197.97461 L 181.64648 215.67578 L 174.76172 302.8418 C 170.97427 350.78308 164.72993 392.05802 160.88672 394.56445 C 128.05273 415.9785 124.15423 421.69984 119.29688 455.57812 L 114.1543 491.44922 L 293.30469 491.44922 L 472.45703 491.44922 L 467.54102 455.54492 C 462.90251 421.66667 458.83005 415.60399 426.57031 394.56445 C 422.72706 392.05802 416.48274 350.78308 412.69531 302.8418 L 405.81055 215.67578 L 428.25586 197.97461 C 449.08835 181.54791 450.70072 177.19899 450.64062 137.53125 L 450.57617 94.787109 L 411.36328 94.787109 C 372.54747 94.787109 372.15234 94.994969 372.15234 115.30469 C 372.15234 132.48078 369.32765 135.82227 354.80273 135.82227 C 341.17527 135.82227 344.55321 129.36184 342.78125 114.58984 C 341.71342 105.68782 343.76109 97.623301 338.06641 94.876953 C 335.21915 93.503779 331.86625 93.406936 324.89844 93.369141 z "
+       style="fill:#808080;stroke:#fbfbfb;stroke-width:2.32034;stroke-linejoin:round;stroke-opacity:0.6"
+       id="rect1639" />
+    <text
+       id="text1651"
+       y="151.75885"
+       x="76.933792"
+       style="font-size:19.2019px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;stroke-width:0.960093;fill:#999999;"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.960093;fill:#999999;"
+         y="151.75885"
+         x="76.933792"
+         id="tspan1649"
+         sodipodi:role="line">Load Game</tspan></text>
+  </g>
+</svg>

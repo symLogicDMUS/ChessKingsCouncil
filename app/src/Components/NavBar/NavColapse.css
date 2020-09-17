@@ -1,0 +1,6 @@
+.nav-colapse {
+    position: absolute;
+    grid-column: 9;
+    grid-row: 1;
+    cursor: pointer; 
+}

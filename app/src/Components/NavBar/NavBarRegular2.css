@@ -1,0 +1,11 @@
+.nav-bar-regular2 {
+    position: absolute;
+    display: grid;
+    z-index: 0;
+    width: 1020px;
+    height: 31px;
+    grid-template-columns: 127px 127px 127px 127px 127px 127px 127px 129px;
+    grid-template-rows: 31px;
+    box-shadow: 0px 0px 20px white;
+    border: 1px solid #707070;
+}

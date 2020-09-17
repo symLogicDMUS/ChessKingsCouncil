@@ -1,0 +1,39 @@
+.options-tool {
+    position: absolute;
+    z-index: 0;
+    top: 640px;
+    left: 876px;
+    height: 109px;
+    width: 400px;
+    border-radius: 10px;
+    background-color: #515151;
+} 
+
+.option {
+    z-index: 1;
+    position: absolute;
+    width: 49px;
+    height: 68px;
+    top: 678px;
+    cursor: pointer;
+}
+
+.save-option {
+    left: 886px;
+}
+
+.load-option {
+    left: 970px;
+}
+
+.reset-option {
+    left: 1054px;
+}
+
+.blank-option {
+    left: 1138px;
+}
+
+.theme-option {
+    left: 1222px;
+}

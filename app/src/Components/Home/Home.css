@@ -1,0 +1,19 @@
+.main-menu-background {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.alt-background {
+    background-image: url("/Images/Backgrounds/y-so-serious.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.icon {
+    cursor: pointer;
+} .icon:hover {
+    fill: white;
+}

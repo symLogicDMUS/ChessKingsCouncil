@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="council rules.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg869"
+   version="1.1"
+   viewBox="0 0 151 257"
+   height="257mm"
+   width="151mm">
+  <defs
+     id="defs863" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:window-height="1001"
+     inkscape:window-width="1920"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="786.75897"
+     inkscape:cx="1037.4997"
+     inkscape:zoom="0.44602144"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata866">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       transform="translate(-24.870843,-34.395849)"
+       id="g75">
+      <path
+         id="rect1655"
+         style="fill:#000000;stroke-width:0.177374"
+         d="m 25.806626,35.47623 v 150 H 175.80663 v -150 z m 72.847721,8.450567 c 2.720473,0 4.080823,1.359899 4.080823,4.080373 0,2.720468 1.35989,4.080816 4.08037,4.080816 2.26707,0 4.08081,1.360421 4.08081,3.060722 0,1.700294 -1.81374,3.060281 -4.08081,3.060281 -6.18691,0 -5.45902,10.678366 1.18043,17.317805 l 5.26123,5.261235 6.71165,-4.148205 c 17.35014,-10.722986 41.8526,1.583217 45.2867,22.745093 1.59343,9.819243 -5.94828,26.248153 -17.45876,38.032393 l -8.61134,8.81616 2.17804,10.15777 c 4.24773,19.80639 8.2276,18.11812 -42.709143,18.11812 -42.431661,0 -44.887642,-0.20784 -44.887642,-3.80201 0,-2.09123 0.870164,-8.39234 1.934036,-14.00206 l 1.93448,-10.19961 -8.875607,-9.53057 C 26.935901,113.54007 26.517062,91.448109 47.62456,77.082483 56.437087,71.084721 69.586317,70.924017 76.959739,76.72395 l 5.380598,4.232332 6.003842,-4.742377 c 7.490451,-5.916661 8.932844,-18.004916 2.148537,-18.004916 -2.267058,0 -4.080373,-1.359987 -4.080373,-3.060281 0,-1.700301 1.813315,-3.060722 4.080373,-3.060722 2.720471,0 4.080815,-1.360348 4.080815,-4.080816 0,-2.720474 1.360341,-4.080373 4.080816,-4.080373 z" />
+      <text
+         xml:space="preserve"
+         style="font-size:42.3333px;line-height:1.25;font-family:Garamond;-inkscape-font-specification:Garamond;stroke-width:0.264583"
+         x="100.69246"
+         y="236.62004"
+         id="text1672"><tspan
+           sodipodi:role="line"
+           id="tspan1670"
+           x="100.69246"
+           y="236.62004"
+           style="font-size:42.3333px;text-align:center;text-anchor:middle;stroke-width:0.264583">Council</tspan><tspan
+           sodipodi:role="line"
+           x="100.69246"
+           y="289.53668"
+           style="font-size:42.3333px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           id="tspan1674">Rules</tspan></text>
+    </g>
+  </g>
+</svg>
