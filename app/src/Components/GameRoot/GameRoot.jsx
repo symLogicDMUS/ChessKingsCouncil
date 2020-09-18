@@ -23,6 +23,7 @@ import {HelpModal} from "../Help/HelpModal";
 import { OVER } from "../helpers/gStatusTypes";
 import {update} from "../../apiHelpers/update";
 import {updateCouncil} from "../../apiHelpers/updateCouncil";
+import { saveGame } from "../../API/saveGame";
 import "./css/GameRoot.css";
 
 
@@ -242,28 +243,21 @@ export class GameRoot extends React.Component {
         this.fenObj.update(this.specialMoves, this.jsonRecords, start, dest, this.captured, this.turn);
     }
 
-    saveGame() {
-        return fetch('/save', {
-            method:"POST",
-            body:JSON.stringify({
-                "board":this.getBoard(),
-                "fen_obj": this.fenObj.getData(),
-                "user":this.username,
-                "game_name": this.gameName,
-                "game_type":this.gameType,
-                "player_type":this.playerType,
-                "status":this.gameStatus.getStatus(),
-                "promos":this.promoChoices,
-                "json_records": this.jsonRecords.getRecords(),
-                "piece_defs": this.pieceDefs,
-                "id_dict": this.idDict
-            })
-        })
-    }
-
     save() {
         this.setUnsavedProgress(false);
-        return Promise.all([this.saveGame()])
+        saveGame({
+            user: this.username,
+            game_name: this.gameName,
+            board: this.getBoard(),
+            fen_obj: this.fenObj.getData(),
+            game_type: this.gameType,
+            player_type: this.playerType,
+            status: this.gameStatus.getStatus(),
+            promos: this.promoChoices,
+            json_records: this.jsonRecords.getRecords(),
+            piece_defs: this.pieceDefs,
+            id_dict: this.idDict,
+        });
     }
 
     resign() {

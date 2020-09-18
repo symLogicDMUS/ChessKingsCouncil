@@ -89,7 +89,7 @@ export class JsonRecords {
             kings_moved: this.kingsMoved,
             pawn_histories: this.pawnHistories,
             last_pawn_move: this.lastPawnMove,
-            num_consecutive_non_Pawn_moves: this.numConsecutiveNonPawnMoves,
+            num_consecutive_non_pawn_moves: this.numConsecutiveNonPawnMoves,
         };
     }
 

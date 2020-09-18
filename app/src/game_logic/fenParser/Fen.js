@@ -3,13 +3,13 @@ import {strfind} from "../helpers/strfind";
 
 export class Fen {
 
-    constructor(fen, turn, castleAvail, enPassantAvail, hmClock, fmClock) {
-        this.fen = fen
-        this.turn = turn
-        this.castleAvail = castleAvail
-        this.enPassantAvail = enPassantAvail
-        this.hmClock = parseInt(hmClock, 10)
-        this.fmClock = parseInt(fmClock, 10)
+    constructor(data) {
+        this.fen = data["fen"]
+        this.turn = data["turn"]
+        this.castleAvail = data["castle_avail"]
+        this.enPassantAvail = data["en_passant_avail"]
+        this.hmClock = parseInt(data["hm_clock"], 10)
+        this.fmClock = parseInt(data["fm_clock"], 10)
     }
 
     update(specialMoves, jsonRecords, start, dest, captured, color) {
@@ -76,9 +76,9 @@ export class Fen {
 
     getData() {
         /*return the fen components an.includes(as) object that can be sent to React**/
-        return {"fen": this.fen, "turn": this.turn, "castleAvail": this.castleAvail,
-                "enPassantAvail": this.enPassantAvail,
-                "hmClock": this.hmClock, "fmClock": this.fmClock}
+        return {"fen": this.fen, "turn": this.turn, "castle_avail": this.castleAvail,
+                "en_passant_avail": this.enPassantAvail,
+                "hm_clock": this.hmClock, "fm_clock": this.fmClock}
     }
 
     setGetNewFen(pos) {

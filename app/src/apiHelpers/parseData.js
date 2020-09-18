@@ -2,6 +2,7 @@
 
 import {getTurnData} from "./getTurnData";
 import {Fen} from "../game_logic/fenParser/Fen";
+import {getFenDict} from "../game_logic/fenParser/getFenDict";
 import {getBoard} from "../game_logic/fenParser/getBoard/top/getBoard";
 import {getFenData} from "../game_logic/fenParser/GameStatus/getFenData";
 import {JsonRecords} from "../game_logic/JsonRecords/JsonRecords";
@@ -16,7 +17,7 @@ export function parseData(data) {
     var board = getBoard(fen)
     var jsonRecords = new JsonRecords(initPawnIds(records, board))
     var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen)
-    var fenObj = new Fen(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum)
+    var fenObj = new Fen(getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum));
     var color = fenObj.turn.toUpperCase()
     var aiColor = getAiColor(playerColor)
     var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict)

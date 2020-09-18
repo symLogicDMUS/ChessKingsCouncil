@@ -3,7 +3,6 @@ import {getPieceFens} from "../getPieceFens";
 import {joinToRows} from "../joinToRows";
 import {joinToFen} from "../joinToFen";
 import {getDigits} from "../getDigits";
-import {sampleBoardDicts} from "../../../testObjects/sampleBoardDicts";
 
 
 export function getFen(board) {
