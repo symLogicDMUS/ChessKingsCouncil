@@ -1,20 +1,24 @@
+import { mapListXyToRf } from "../../coordType/mapListXyToRf";
+import { mapListListXyToRf } from "../../coordType/mapListListXyToRf";
 import {strfind} from "../../helpers/strfind";
 import {replacePawnIdWithRankfile} from "../../JsonRecords/replacePawnIdWithRankfile";
 import {filterNonMatchingRows} from "./pawnPromotion/filterNonMatchingRows";
 import {getPawnIds} from "./pawnPromotion/getPawnIds";
 import {getPawnRanges} from "./pawnPromotion/getPawnRanges";
 import {getPromos} from "./pawnPromotion/getPromos"
+import { isPromoRows } from "./pawnPromotion/isPromoRows";
+import { xyToRf } from "../../coordType/crdCnvrt";
 
 
 export class SpecialMoves {
     /*records the moves of current turn that are en-passant, castle, || pawn promotion**/
 
     constructor(moves) {
-        /*list form.includes(elements) of (start, dest) where start &&  dest are (x, y)**/
+        /* **/
         if (moves) {
             this.enPassant = moves['en_passant']
             this.castles = moves['castles']
-            this.promos = moves['promos']            
+            this.promos = moves['promos']
         }
         else {
             this.enPassant = []
@@ -22,6 +26,22 @@ export class SpecialMoves {
             this.promos = []
         }
 
+        //will be the location of a pawn that reached the back row and is about to be poromoted
+        this.pendingPromo = null;
+
+    }
+
+    update(moves) {
+        this.enPassant = moves['en_passant']
+        this.castles = moves['castles']
+        this.promos = moves['promos']
+    }
+
+    convertToRf() {
+        this.enPassant = mapListXyToRf(this.enPassant)
+        this.castles = mapListListXyToRf(this.castles)
+        this.promos = mapListListXyToRf(this.promos)
+        return
     }
 
     isCastle(move) {
@@ -89,8 +109,17 @@ export class SpecialMoves {
         return this.promos
     }
 
+    setPromos(board, pawnLoc, pawnRange) {
+        for (var dest of pawnRange) {
+            if ( isPromoRows(pawnLoc, dest, board[xyToRf(...pawnLoc)]) ) {
+                this.promos.push([pawnLoc, dest])
+            }
+        }
+    }
+
+    /*
     setPromos(board, ranges, color) {
-        /*use the ranges &&  board to determine potential pawn promotions**/
+        // use the ranges &&  board to determine potential pawn promotions
 
         ///getPawnIds
         var pawnIds = getPawnIds(ranges, color)
@@ -109,21 +138,40 @@ export class SpecialMoves {
 
         return
     }
-
+    */
+   
     removeCastle(move) {
-        let index = JSON.stringify(this.castles).indexOf(JSON.stringify(move));
-        if (index > -1)
+        let index = -1;
+        for (let i = 0; i < this.castles.length; i++) {
+            if (this.castles[i][0] === move[0] && this.castles[i][1] === move[1]) {
+                index = i;
+                break;
+            }
+        }
+        if (index > -1) {
             this.castles.splice(index, 1)
+        }
+        return
     }
+
     removePromo(move) {
-        let index = JSON.stringify(this.promos).indexOf(JSON.stringify(move))
-        if (index > -1)
-            this.promos.splice(index, 1)   
+        let index = -1;
+        for (let i = 0; i < this.promos.length; i++) {
+            if (this.promos[i][0] === move[0] && this.promos[i][1] == move[1]) {
+                index = i;
+                break;
+            }
+        }
+        if (index > -1) {
+            this.promos.splice(index, 1)
+        }
+        return
     }
+
     removeEnpassant(move) {
-        let index = JSON.stringify(this.enPassant).indexOf(JSON.stringify(move))
-        if (index > -1)
-            this.enPassant.splice(index, 1)
+        if (move === this.enPassant[0]) {
+            this.enPassant = []
+        }
     }
 }
 
@@ -138,6 +186,8 @@ if (require.main === module) {
     import {printBoard} from "../../printers/printBoard";
 
     var specialMoves;
+
+    //THIS NEED TO BE CHANGED TO RANKFILE FORMAT RANGES AS specialMoves.setPromos() is called after getFinal Ranges!
     var ranges =
         {'WB1': [[7, 2], [8, 3], [5, 2], [4, 3], [3, 4], [2, 5], [1, 6]],
          'WB2': [[6, 4], [7, 5], [8, 6], [4, 4], [3, 5], [2, 6], [1, 7], [4, 2], [3, 1]],

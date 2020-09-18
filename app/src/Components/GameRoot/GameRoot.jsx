@@ -68,7 +68,7 @@ export class GameRoot extends React.Component {
         this.update = this.update.bind(this);
         this.resign = this.resign.bind(this);
         this.updatePrh = this.updatePrh.bind(this);
-        this.updateBackend = this.updateTurnData.bind(this);
+        this.updateTurnData = this.updateTurnData.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
@@ -85,19 +85,21 @@ export class GameRoot extends React.Component {
         if (this.first) {
             this.first = false;
             if (this.turn === this.aiColor && ! this.isGameOver()) {
-                this.updateTurnData().then(([result]) => { 
-                    this.prepareAiMove();
-                    this.update();
-                });
+                this.updateTurnData();
+                this.prepareAiMove();
+                this.update();
             }
         }
     }
 
     isGameOver() {
-        if (this.gameStatus.gameStatus === OVER)
+        if (this.gameStatus.status === OVER) {
             return true
-        else
+        }
+
+        else {
             return false
+        }
     }
 
     setAiColor() {
@@ -110,6 +112,7 @@ export class GameRoot extends React.Component {
     }   
 
     prepareAiMove() {
+        /**NOTE: if game over, conditional in render() will prevent the component rendering that makes ai move. */
         this.aiDisplay = true;
         this.setState({bValue: ! this.state.bValue});
     }
@@ -195,14 +198,16 @@ export class GameRoot extends React.Component {
 
         var turnData;
 
-        if (this.gameType === "council") 
+        if (this.gameType === "council") {
             turnData = updateCouncil(this.board, this.jsonRecords, this.turn, this.playerType, this.pieceDefs, this.idDict)
-        else
+        }
+        else {
             turnData = update(this.board, this.jsonRecords, this.turn, this.playerType, this.pieceDefs, this.idDict);
+        }
 
         this.ranges = turnData['ranges']
         this.enemyRanges = turnData['enemy_ranges'];
-        this.specialMoves = turnData['special_moves'];
+        this.specialMoves.update(turnData['special_moves'])
         this.aiStart = turnData['ai_start'];
         this.aiDest = turnData['ai_dest'];
         this.gameStatus.update(this.board, this.ranges, this.getColorLastMove(), turnData['npck']);
@@ -210,8 +215,8 @@ export class GameRoot extends React.Component {
 
     updateJsonRecords(start, dest) {
 
-        let pieceId = this.board[dest];
-        let fenId = pieceId[1].toLowerCase();
+        var pieceId = this.board[dest];
+        var fenId = pieceId[1].toLowerCase();
 
         if (isPawn(this.captured)) {
             delete this.jsonRecords.pawnHistories[this.captured];
@@ -300,12 +305,12 @@ export class GameRoot extends React.Component {
                            idDict={this.idDict}
                            pieceDefs={this.pieceDefs}
                            isCouncil={this.isCouncil}
-                           updateBackend={this.updateTurnData}
+                           updateTurnData={this.updateTurnData}
                            updateSpecialCase={this.updateSpecialCase}
                            update={this.update}
                            color={this.getColorLastMove()} 
                            aiColor={this.aiColor}
-                           pawnLoc={this.specialMoves.currentDest} />)}
+                           pawnLoc={this.specialMoves.pendingPromo} />)}
                 {(this.aiDisplay && this.specialCase !== "promo" && ! this.isGameOver()) && (
                     <AiDisplay aiStart={this.aiStart} 
                                aiDest={this.aiDest} 

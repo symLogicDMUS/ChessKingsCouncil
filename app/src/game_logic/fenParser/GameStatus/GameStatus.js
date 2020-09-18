@@ -1,6 +1,6 @@
-import {isEmptyRanges} from "../../helpers/isEmptyRanges";
+import {noRanges} from "./noRanges";
 import {OVER, IN_PROGRESS} from "./gStatusTypes";
-import {getPieceTypes} from "../../pieceType/getPieceTypes";
+import {getPieceTypeInstances} from "../../pieceType/getPieceTypeInstances";
 
 
 export class GameStatus {
@@ -17,7 +17,7 @@ export class GameStatus {
      * 
      */
     constructor(status) {
-        this.gameStatus = status['status']
+        this.status = status['status']
         this.condition = status['condition']
         this.winner = status['winner']
     }
@@ -32,7 +32,7 @@ export class GameStatus {
          :param ranges: dict, ranges of pieces of color
          :param enemyColor: str, color of king
         */
-        if (isEmptyRanges(ranges)) {
+        if (this.noRanges(ranges)) {
             if (npck > 0) {
                 this.condition = 'checkmate'
                 this.status = OVER
@@ -46,9 +46,9 @@ export class GameStatus {
             return
         }
 
-        let pieceTypes = getPieceTypes(board);
+        var pieceTypeInstances = getPieceTypeInstances(board);
 
-        if (pieceTypes === ['K', 'K']) {
+        if (pieceTypeInstances.toString() === ['K', 'K'].toString()) {
             this.condition = 'stalemate';
             this.status = OVER;
             this.winner = '-';
@@ -67,15 +67,17 @@ export class GameStatus {
         }
     }
 
-    updateByObj(gameStatus) {
+    updateByObj(status) {
         /**update the game status directly by passing a status object */
-        this.gameStatus = gameStatus;
+        this.status = status['status']
+        this.condition = status['condition']
+        this.winner = status['winner']
     }
 
     getStatus() {
         return {
             'condition': this.condition,
-            'status':this.gameStatus,
+            'status':this.status,
             'winner':this.winner,
         }
     }

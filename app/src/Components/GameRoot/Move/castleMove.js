@@ -11,10 +11,11 @@ export function castleMove(gameroot, start, dest) {
     ..........
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
-   let move = [start, dest];
-    if (! gameroot.specialMoves.isCastle(move)) {
+    
+    if (! gameroot.specialMoves.isCastle([start, dest])) {
         return;
     }
+
     var [rStart, rDest] = getRookStartAndDest(dest);
     ply(gameroot, rStart, rDest);
     gameroot.specialMoves.removeCastle([start, dest]);

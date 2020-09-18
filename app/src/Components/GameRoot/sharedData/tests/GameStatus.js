@@ -3,7 +3,7 @@ var getPieceTypes = require("../../../helpers/tests/getPieceTypes")
 
 class GameStatus {
     constructor(status) {
-        this.gameStatus = status['status']
+        this.status = status['status']
         this.condition = status['condition']
         this.winner = status['winner']
     }
@@ -33,28 +33,28 @@ class GameStatus {
         if (this.noRanges(ranges)) {
             if (npck > 0) {
                 this.condition = 'checkmate'
-                this.gameStatus = OVER;
+                this.status = OVER;
                 this.winner = enemyColor;
             }
             else {
                 this.condition = 'stalemate';
-                this.gameStatus = OVER;
+                this.status = OVER;
                 this.winner = '-';
             }
         }
         else if (getPieceTypes(board) === ['K', 'K']) {
             this.condition = 'stalemate';
-            this.gameStatus = OVER;
+            this.status = OVER;
             this.winner = '-';
         }
         else if (npck > 0) {
             this.condition = 'check';
-            this.gameStatus = IN_PROGRESS;
+            this.status = IN_PROGRESS;
             this.winner = '-';
         }
         else {
             this.condition = '';
-            this.gameStatus = IN_PROGRESS;
+            this.status = IN_PROGRESS;
             this.winner = '-';
         }
     }

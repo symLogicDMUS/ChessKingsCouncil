@@ -32,8 +32,8 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     var npck = getNumPiecesCheckingKing(board, kLoc, color, pdDict, pieceDefs, idDict);
     var mtRestricts = getMultithreatRestriction(board, npck, color);
     [initRanges, pins, threatArea, mtRestricts] = convertToRf(initRanges, pins, threatArea, mtRestricts)
-    finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); //mapped to rf
-    specialMoves.setPromos(board, finalRanges, color);
+    finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); // finalRanges in rf format
+    // specialMoves.setPromos(board, finalRanges, color);
 
     var aiCapture, aiStart, aiDest;
     if (color === aiColor && ! noRanges(finalRanges)) {
@@ -43,9 +43,11 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
         [aiCapture, aiStart, aiDest] = [false, false, false]
     }
 
+    specialMoves.convertToRf()
+
     return {
         ranges: finalRanges,
-        special_moves: specialMoves,
+        special_moves: specialMoves.getMoves(),
         ai_start: aiStart,
         ai_dest: aiDest,
         ai_capture: aiCapture,

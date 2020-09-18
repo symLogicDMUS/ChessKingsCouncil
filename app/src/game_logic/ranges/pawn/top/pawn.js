@@ -11,7 +11,7 @@ import {step_1sqr0d, step_1sqr180d} from "../../../helpers/stepFuncs";
 
 
 export function pawn(board, sqr, color, jsonRecords, specialMoves) {
-    /*get the range of pawn at location sqr &&  of the given color**/
+    /*get the range of pawn at location sqr and of the given color**/
 
     var range = [];
     var twoSqrJump, alignKey, tSqr, twoSqrJump, potentialCaptures;
@@ -62,6 +62,8 @@ export function pawn(board, sqr, color, jsonRecords, specialMoves) {
 
     potentialCaptures = getPotentialCaptures(sqr, color);
     range.push(...getActualCaptures(board,potentialCaptures, color));
+
+    specialMoves.setPromos(board, sqr, range)
 
     return [range, specialMoves];
 }

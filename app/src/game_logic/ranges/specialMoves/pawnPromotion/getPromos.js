@@ -5,7 +5,7 @@ export function getPromos(promosDict) {
     var promos = []
     for (var rf of Object.keys(promosDict)) {
         for (var dest of promosDict[rf]) {
-            promos.push([rfToXy(rf), dest])
+            promos.push([rf, dest])
         }
     }
     return promos;

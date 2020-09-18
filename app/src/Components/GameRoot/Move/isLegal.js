@@ -9,13 +9,13 @@ export function isLegal(gameroot, item, dest) {
         return false
 
     //if the game is over
-    if (gameroot.gameStatus.gameStatus === OVER)
+    if (gameroot.gameStatus.status === OVER)
         return false
 
 
-    let id_ = gameroot.board[item.pos]
+    let id = gameroot.board[item.pos]
 
-    if (! gameroot.ranges[id_].includes(dest)) {
+    if (! gameroot.ranges[id].includes(dest)) {
         return false
     }
 

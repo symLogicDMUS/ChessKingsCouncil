@@ -111,10 +111,9 @@ export class Promo extends React.Component {
     }
 
     updateGameRoot() {
-        this.props.updateBackend().then(([result]) => {
-            this.props.updateSpecialCase("none");
-            this.props.update();
-          });
+        this.props.updateTurnData()
+        this.props.updateSpecialCase("none");
+        this.props.update();
     }
  
     promote() {
