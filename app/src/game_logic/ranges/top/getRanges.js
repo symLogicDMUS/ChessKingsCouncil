@@ -20,9 +20,11 @@ export function getRanges(board, color, ranges, jsonRecords, pieceDefs, idDict) 
     */
 
     var pieceType, pieceRange;
-    var specialMoves = new SpecialMoves();
+    var specialMoves = new SpecialMoves(null);
 
     for (var [rf, id] of Object.entries(board)) {
+
+        console.log(rf)
 
         if (id === '#') {
             continue

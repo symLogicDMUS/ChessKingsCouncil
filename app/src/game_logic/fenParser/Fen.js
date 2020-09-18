@@ -2,18 +2,19 @@ import {strfind} from "../helpers/strfind";
 
 
 export class Fen {
+
     constructor(fen, turn, castleAvail, enPassantAvail, hmClock, fmClock) {
         this.fen = fen
         this.turn = turn
         this.castleAvail = castleAvail
         this.enPassantAvail = enPassantAvail
-        this.hmClock = hmClock.toNumber();
-        this.fmClock = fmClock.toNumber();
+        this.hmClock = parseInt(hmClock, 10)
+        this.fmClock = parseInt(fmClock, 10)
     }
 
-    updateState(specialMoves, jsonRecords, start, dest, captured, color) {
+    update(specialMoves, jsonRecords, start, dest, captured, color) {
         /*update the non piece-position attributes of the fen: turn, castle avail, en-passant avail, &&  clocks**/
-        this.turn = color.lower()
+        this.turn = color.toLowerCase()
         this.UpdateCastleAvail(jsonRecords)
         this.updateEnPassantAvail(dest, specialMoves, start)
         this.UpdateClocks(captured, color, jsonRecords)

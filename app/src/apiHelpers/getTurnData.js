@@ -7,10 +7,10 @@ import {getNumPiecesCheckingKing} from "../game_logic/restriction/getNumPiecesCh
 import {getMultithreatRestriction} from "../game_logic/restriction/getMultithreatRestriction";
 import {getFinalRanges} from "../game_logic/ranges/top/getFinalRanges";
 import {getPins} from "../game_logic/pins/top/getPins";
-import { mapDictListXyToRf } from "../game_logic/coordType/mapDictListXyToRf";
-import {isCheckmate} from "../game_logic/fenParser/GameStatus/isCheckmate";
+import {convertToRf} from "../game_logic/coordType/convertToRf"
+import { isEmptyRanges } from "../game_logic/helpers/isEmptyRanges";
+import { noRanges } from "../game_logic/fenParser/GameStatus/noRanges";
 import {aiMove} from "./aiMove";
-import { getAiSqr } from "./getAiSqr";
 
 
 export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict) {
@@ -31,11 +31,12 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     var pins = getPins(pdDict, pins);
     var npck = getNumPiecesCheckingKing(board, kLoc, color, pdDict, pieceDefs, idDict);
     var mtRestricts = getMultithreatRestriction(board, npck, color);
-    finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts);
+    [initRanges, pins, threatArea, mtRestricts] = convertToRf(initRanges, pins, threatArea, mtRestricts)
+    finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); //mapped to rf
     specialMoves.setPromos(board, finalRanges, color);
 
     var aiCapture, aiStart, aiDest;
-    if (color === aiColor && ! isCheckmate(finalRanges)) {
+    if (color === aiColor && ! noRanges(finalRanges)) {
         [aiCapture, aiStart, aiDest] = aiMove(board, finalRanges, aiColor, specialMoves);
     }
     else {
@@ -43,11 +44,11 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     }
 
     return {
-        ranges: mapDictListXyToRf(finalRanges),
+        ranges: finalRanges,
         special_moves: specialMoves,
-        aiStart: getAiSqr(aiStart),
-        aiDest: getAiSqr(aiDest),
-        aiCapture: getAiSqr(aiCapture),
+        ai_start: aiStart,
+        ai_dest: aiDest,
+        ai_capture: aiCapture,
         npck: npck,
     };
 

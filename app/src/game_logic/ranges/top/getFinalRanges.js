@@ -15,11 +15,6 @@ export function getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRest
     :return:
     */
 
-    initRanges = mapDictListXyToRf(initRanges);
-    pins = mapDictListXyToRf(pins);
-    threatArea = mapListXyToRf(threatArea);
-    mtRestriction = mapDictListXyToRf(mtRestriction);
-
     var a, b, c, d, e, f, g;
 
     for (var id of Object.keys(finalRanges)) {

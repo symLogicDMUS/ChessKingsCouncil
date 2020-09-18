@@ -1,6 +1,6 @@
 //squares between the king &&  king-side their.includes(rook) starting positions 
 
-let kingSideCastlePaths = {
+export const kingSideCastlePaths = {
     'W': ["g1", "f1"],
     'B': ["g8", "f8"]
 }

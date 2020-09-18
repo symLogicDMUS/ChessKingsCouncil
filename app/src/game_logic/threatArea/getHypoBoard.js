@@ -1,5 +1,5 @@
 import {xyToRf} from "../coordType/crdCnvrt";
-import {ply} from "../aiMove/ply";
+import {ply} from "../helpers/ply";
 
 
 export function getHypoBoard(board, start, dest) {

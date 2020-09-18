@@ -1,6 +1,6 @@
 import {getMoveSimplest} from "./getMoveSimplest";
 import {filterEmptyRanges} from "./filterEmpyRanges";
-import {move} from "../game_logic/aiMove/move";
+import {aiMakeMove} from "../game_logic/aiMove/aiMakeMove";
 import {shuffle} from "../Components/helpers/shuffleArray"
 
 
@@ -11,7 +11,7 @@ export function aiMove(board, ranges, color, specialMoves) {
     var ids = shuffle(Object.keys(aiRanges))
     var pieceId = ids[0]
     var [start, dest] = getMoveSimplest(responseBoard, pieceId, aiRanges)
-    var [responseBoard, captured] = move(responseBoard, start, dest, color, specialMoves)
+    var [responseBoard, captured] = aiMakeMove(responseBoard, start, dest, color, specialMoves)
     
     return [captured, start, dest]
 }

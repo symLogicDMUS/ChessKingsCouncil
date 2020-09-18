@@ -4,7 +4,7 @@ export function filterEmptyRanges(ranges) {
     /* **/
     var aiRanges = {}
     for (var pieceId of Object.keys(ranges)) {
-        if (ranges[pieceId]) {
+        if (ranges[pieceId].length > 0) {
             aiRanges[pieceId] = ranges[pieceId]
         }
     }

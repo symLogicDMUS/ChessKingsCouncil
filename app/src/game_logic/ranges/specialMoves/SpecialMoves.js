@@ -9,11 +9,19 @@ import {getPromos} from "./pawnPromotion/getPromos"
 export class SpecialMoves {
     /*records the moves of current turn that are en-passant, castle, || pawn promotion**/
 
-    constructor() {
+    constructor(moves) {
         /*list form.includes(elements) of (start, dest) where start &&  dest are (x, y)**/
-        this.enPassant = []
-        this.castles = []
-        this.promos = []
+        if (moves) {
+            this.enPassant = moves['en_passant']
+            this.castles = moves['castles']
+            this.promos = moves['promos']            
+        }
+        else {
+            this.enPassant = []
+            this.castles = []
+            this.promos = []
+        }
+
     }
 
     isCastle(move) {
@@ -63,7 +71,7 @@ export class SpecialMoves {
 
     getMoves() {
         /*return castle, enPassant, &&  pawn promotion lists, as a dict**/
-        return {'castles': this.castles, 'enPassant': this.enPassant, 'promos': this.promos}
+        return {'castles': this.castles, 'en_passant': this.enPassant, 'promos': this.promos}
     }
 
     getCastles() {
@@ -100,6 +108,22 @@ export class SpecialMoves {
         this.promos = getPromos(promosDict);
 
         return
+    }
+
+    removeCastle(move) {
+        let index = JSON.stringify(this.castles).indexOf(JSON.stringify(move));
+        if (index > -1)
+            this.castles.splice(index, 1)
+    }
+    removePromo(move) {
+        let index = JSON.stringify(this.promos).indexOf(JSON.stringify(move))
+        if (index > -1)
+            this.promos.splice(index, 1)   
+    }
+    removeEnpassant(move) {
+        let index = JSON.stringify(this.enPassant).indexOf(JSON.stringify(move))
+        if (index > -1)
+            this.enPassant.splice(index, 1)
     }
 }
 

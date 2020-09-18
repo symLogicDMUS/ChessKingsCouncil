@@ -6,10 +6,9 @@ export function move(gameroot, start, dest) {
     makeMove(gameroot, start, dest);
     gameroot.toggleTurn();
     gameroot.updateFen(start, dest);
-    gameroot.updateBackend().then(([result]) => {
-        gameroot.setUnsavedProgress(true);
-        gameroot.update();
-        if (gameroot.aiColor === gameroot.turn)
-            gameroot.prepareAiMove();
-    })
+    gameroot.updateTurnData();
+    gameroot.setUnsavedProgress(true);
+    gameroot.update();
+    if (gameroot.aiColor === gameroot.turn)
+        gameroot.prepareAiMove();
 }

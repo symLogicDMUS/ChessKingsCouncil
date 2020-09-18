@@ -17,28 +17,28 @@ export function parseData(data) {
     var jsonRecords = new JsonRecords(initPawnIds(records, board))
     var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen)
     var fenObj = new Fen(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum)
-    var color = fenObj.turn.upper()
+    var color = fenObj.turn.toUpperCase()
     var aiColor = getAiColor(playerColor)
     var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict)
     var enemyTurnData = getTurnData(board, getEnemyColor(color), aiColor, jsonRecords,  pieceDefs, idDict)
-    var payload = {
-               'color': color,
-               'board': board,
-               'records': jsonRecords.getMapRecords(),
-               'fenData': fenObj.getData(),
-               'pieceDefs': pieceDefs,
-               'idDict': idDict,
-               'moves': turnData['moves'],
-               'ranges': turnData['ranges'],
-               'enemyRanges': enemyTurnData['ranges'],
-               'aiStart': turnData['aiStart'],
-               'aiDest': turnData['aiDest'],
-               'aiCapture': turnData['aiCapture'],
-               'status': data['status'],
-               'promos': data['promos'],
-               'type': data['type'],
-               'pt': playerColor }
-    return payload
+    return {
+            'color': color,
+            'board': board,
+            'records': jsonRecords.getMapRecords(),
+            'special_moves': turnData['special_moves'].getMoves(),
+            'fen_data': fenObj.getData(),
+            'piece_defs': pieceDefs,
+            'id_dict': idDict,
+            'ranges': turnData['ranges'],
+            'enemy_ranges': enemyTurnData['ranges'],
+            'ai_start': turnData['ai_start'],
+            'ai_dest': turnData['ai_dest'],
+            'ai_capture': turnData['ai_capture'],
+            'status': data['status'],
+            'promos': data['promos'],
+            'type': data['type'],
+            'pt': playerColor 
+    }
 }
 
 // module.exports = parseData;

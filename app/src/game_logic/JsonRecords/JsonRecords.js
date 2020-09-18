@@ -78,7 +78,7 @@ export class JsonRecords {
     getMapRecords() {
         /**convert pawnHistories and last_pawn_move to rankfile format, than return all records */
         this.pawnHistories = mapDictListXyToRf(this.pawnHistories)
-        this.lastPawnMove = xyToRf(this.lastPawnMove)
+        this.lastPawnMove = xyToRf(...this.lastPawnMove)
         return this.getRecords()
     }
 

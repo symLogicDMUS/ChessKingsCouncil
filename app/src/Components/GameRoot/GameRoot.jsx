@@ -2,12 +2,12 @@ import React from "react";
 import {Board} from "./Components/Board";
 import {GameRootHeader as Header} from "./Components/GameRootHeader";
 import {rook_starting_rf, king_starting_rf} from "./sharedData/castleRankfiles";
+import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import {GameStatus} from "./sharedData/GameStatus";
-import {SpecialMoves} from "./Move/SpecialMoves";
+import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
+import { Fen } from "../../game_logic/fenParser/Fen";
 import { Promo } from "./Modals/Promo";
-import {Fen} from "./sharedData/Fen";
 import {isPawn} from "./gameRootHelpers/isPawn";
 import {SaveAs} from "./Modals/SaveAs";
 import {Saving} from "./Modals/Saving";
@@ -40,7 +40,7 @@ export class GameRoot extends React.Component {
         this.board = this.gameData['board']
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['records'], this.board));
         this.gameStatus = new GameStatus(this.gameData['status']);
-        this.specialMoves = new SpecialMoves(this.gameData['moves']);
+        this.specialMoves = new SpecialMoves(this.gameData['special_moves'])
         this.fenObj = new Fen(this.gameData['fen_data']);
         this.turn = this.gameData['color']
         this.ranges = this.gameData['ranges'];
@@ -119,9 +119,8 @@ export class GameRoot extends React.Component {
         makeMove(this, this.aiStart, this.aiDest);
         this.toggleTurn();
         this.updateFen(this.aiStart, this.aiDest);
-        this.updateTurnData().then(([result]) => {
-            this.update();
-        });
+        this.updateTurnData();
+        this.update();
     }
 
     getBoard() {
@@ -197,9 +196,9 @@ export class GameRoot extends React.Component {
         var turnData;
 
         if (this.gameType === "council") 
-            turnData = updateCouncil(this.board, this.jsonRecords, this.turn, this.playerType, this.playerType, this.pieceDefs, this.idDict)
+            turnData = updateCouncil(this.board, this.jsonRecords, this.turn, this.playerType, this.pieceDefs, this.idDict)
         else
-            turnData = update(this.board, this.jsonRecords, this.turn, this.playerType, this.playerType, this.pieceDefs, this.idDict);
+            turnData = update(this.board, this.jsonRecords, this.turn, this.playerType, this.pieceDefs, this.idDict);
 
         this.ranges = turnData['ranges']
         this.enemyRanges = turnData['enemy_ranges'];

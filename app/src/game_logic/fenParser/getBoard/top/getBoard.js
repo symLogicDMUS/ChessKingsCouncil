@@ -11,14 +11,14 @@ import {printBoard} from "../../../printers/printBoard";
 
 export function getBoard(fen) {
     /*takes a fen string as input, &&  returns a board dict **/
-    let str_ = getPosStr(fen)
-    str_ = getTravStr(str_)
-    str_ = numToSharps(str_)
-    let list_ = posStrToList(str_)
-    list_ = convertIds(list_)
-    list_ = addDigitToId(list_)
-    let board = initBoard()
-    board = setupBoard(board, list_)
+    let str = getPosStr(fen)
+    str = getTravStr(str)
+    str = numToSharps(str)
+    let list = posStrToList(str)
+    list = convertIds(list)
+    list = addDigitToId(list)
+    var board = initBoard()
+    board = setupBoard(board, list)
     return board
 }
 
