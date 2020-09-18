@@ -1,3 +1,4 @@
+import {strfind} from "../helpers/strfind";
 
 
 export class Fen {
@@ -6,8 +7,8 @@ export class Fen {
         this.turn = turn
         this.castleAvail = castleAvail
         this.enPassantAvail = enPassantAvail
-        this.hmClock = hmClock.toNunber();
-        this.fmClock = fmClock.toNunber();
+        this.hmClock = hmClock.toNumber();
+        this.fmClock = fmClock.toNumber();
     }
 
     updateState(specialMoves, jsonRecords, start, dest, captured, color) {
@@ -37,14 +38,17 @@ export class Fen {
     }
 
     UpdateCastleAvail(jsonRecords) {
+
+        var K, Q, k, q;
+
         if (! jsonRecords.kingsMoved["e1"] && ! jsonRecords.rooksMoved["h1"]) {
-            let K = 'K'
+            K = 'K'
         }
         else {
             K = ''
         }
         if (! jsonRecords.kingsMoved["e1"] && ! jsonRecords.rooksMoved["a1"]) {
-            let Q = 'Q'
+            Q = 'Q'
         }
         else {
             Q = ''
@@ -56,7 +60,7 @@ export class Fen {
             k = ''
         }
         if (! jsonRecords.kingsMoved["e8"] && ! jsonRecords.rooksMoved["h8"]) {
-            let q = 'q'
+            q = 'q'
         }
         else {
             q = ''
@@ -78,7 +82,7 @@ export class Fen {
 
     setGetNewFen(pos) {
         /*join the position string with the status attributes updated throughout the game, then return**/
-        this.fen = " ".join([pos, this.turn, this.castleAvail, this.enPassantAvail, str(this.hmClock), str(this.fmClock)]);
+        this.fen = " ".join([pos, this.turn, this.castleAvail, this.enPassantAvail, this.hmClock.toSring(), this.fmClock.toString() ]);
         return this.fen;
     }
 }

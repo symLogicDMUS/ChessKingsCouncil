@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {getDataDict} from "./API/getDataDict";
-// import {App} from "./App";
+import {App} from "./App";
 
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -21,16 +20,5 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-// getDataDict('symLogicDMUS').then(([gameNames]) => {
-//     ReactDOM.render(<div>{gameNames}</div>, document.getElementById('root'))
-// })
 
-
-// firebase.database().ref().child('game names').child('symLogicDMUS').once('value').then(function(snapshot) {
-//     var gameNames = (snapshot.val())
-//     ReactDOM.render(<div>{gameNames}</div>, document.getElementById('root'))
-// })
-
-
-
-// ReactDOM.render(<App username="symLogicDMUS"/>, document.getElementById('root'))
+ReactDOM.render(<App username="symLogicDMUS"/>, document.getElementById('root'))

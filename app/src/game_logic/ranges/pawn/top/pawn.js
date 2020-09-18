@@ -1,20 +1,13 @@
 import {getEnPassantAlignmentKey} from "../../../ranges/specialMoves/enPassant/getEnPassantAlignmentKey";
-import {getPotential1SqrJumps} from "../getPotential1SqrJump"
+import {getPotential1SqrJump} from "../getPotential1SqrJump"
 import {canEnpassant} from "../../specialMoves/enPassant/canEnPassant";
 import {getPotentialCaptures} from "../getPotentialCaptures";
-import {isActual1SqrJumps} from "../isActual1SqrJump";
+import {isActual1SqrJump} from "../isActual1SqrJump";
 import {getActualCaptures} from "../getActualCaptures";
-import {SpecialMoves} from "../../specialMoves/SpecialMoves";
 import {valid2SqrJump} from "../valid2SqrJump";
 import {get2SqrJump} from "../get2SqrJump";
 import {getTSqr} from "../../specialMoves/enPassant/getTSqr";
-import {printBoard} from "../../../printers/printBoard";
-import {sampleBoardDicts} from "../../../testObjects/sampleBoardDicts";
 import {step_1sqr0d, step_1sqr180d} from "../../../helpers/stepFuncs";
-import {rfToXy, xyToRf} from "../../../coordType/crdCnvrt";
-import {JsonRecords} from "../../../JsonRecords/JsonRecords";
-import {initPawnIds} from "../../../JsonRecords/initPawnIds";
-import {mapListXyToRf} from "../../../coordType/mapListXyToRf";
 
 
 export function pawn(board, sqr, color, jsonRecords, specialMoves) {
@@ -22,9 +15,9 @@ export function pawn(board, sqr, color, jsonRecords, specialMoves) {
 
     var range = [];
     var twoSqrJump, alignKey, tSqr, twoSqrJump, potentialCaptures;
-    let potential1Sqr = getPotential1SqrJumps(sqr, color);
+    let potential1Sqr = getPotential1SqrJump(sqr, color);
 
-    if (isActual1SqrJumps(board, potential1Sqr, color)) {
+    if (isActual1SqrJump(board, potential1Sqr, color)) {
         range.push(potential1Sqr);
     }
 

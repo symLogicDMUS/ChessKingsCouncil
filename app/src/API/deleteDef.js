@@ -8,5 +8,5 @@ async function deletePieceDefFromDb(username, pieceName) {
 
 
 export function deleteDef(username, pieceName) {
-    return Promise.all([deleteDefFromDb(username, pieceName)])
+    return Promise.all([deletePieceDefFromDb(username, pieceName)])
 }

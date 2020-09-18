@@ -1,9 +1,8 @@
 import {getPieceColor} from "../color/getPieceColor";
-import {getEnemyColor} from "../color/getNextColor";
+import {getNextColor as getEnemyColor} from "../color/getNextColor";
 import {strfind} from "../helpers/strfind";
 import {rfToXy} from "../coordType/crdCnvrt";
 import {mapListRfToXy} from "../coordType/mapListRfToXy";
-import {mapListXyToRf} from "../coordType/mapListXyToRf";
 
 export function getOffsetThreats(board, kingLoc, color, pieceDefs, idDict) {
     /* **/

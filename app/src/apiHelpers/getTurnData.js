@@ -8,7 +8,7 @@ import {getMultithreatRestriction} from "../game_logic/restriction/getMultithrea
 import {getFinalRanges} from "../game_logic/ranges/top/getFinalRanges";
 import {getPins} from "../game_logic/pins/top/getPins";
 import { mapDictListXyToRf } from "../game_logic/coordType/mapDictListXyToRf";
-import {isCheckmate} from "../../../node.js/fenParser/GameStatus/isCheckmate";
+import {isCheckmate} from "../game_logic/fenParser/GameStatus/isCheckmate";
 import {aiMove} from "./aiMove";
 import { getAiSqr } from "./getAiSqr";
 

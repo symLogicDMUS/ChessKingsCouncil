@@ -1,13 +1,14 @@
 import {xyToRf} from "../coordType/crdCnvrt";
-import {ply} from "../helpers/ply";
+import {ply} from "../aiMove/ply";
 
 
 export function getHypoBoard(board, start, dest) {
     /**get a temporary board where a move from start to dest has taken place. used to evaluate the would-be for that
         scenenario
     */
-    var tempBoard = JSON.parse(JSON.stringify(board));
-    var [tempBoard, captured] = ply(tempBoard, start, dest);
+    var tempBoard, captured;
+    tempBoard = JSON.parse(JSON.stringify(board));
+    [tempBoard, captured] = ply(tempBoard, start, dest);
     return tempBoard;
 }
 

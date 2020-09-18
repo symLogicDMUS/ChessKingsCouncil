@@ -1,35 +1,30 @@
 
 
 import {getTurnData} from "./getTurnData";
-import {ddOffsetStrsToList} from "./ddOffsetStrsToList";
-import {initDdEmptyLists} from "./initDdEmptyLists";
 import {Fen} from "../game_logic/fenParser/Fen";
 import {getBoard} from "../game_logic/fenParser/getBoard/top/getBoard";
 import {getFenData} from "../game_logic/fenParser/GameStatus/getFenData";
 import {JsonRecords} from "../game_logic/JsonRecords/JsonRecords";
 import {initPawnIds} from "../game_logic/JsonRecords/initPawnIds";
 import {getAiColor} from "../game_logic/color/getAiColor";
-import {mapXyToRf} from "../game_logic/coordType/rankfile/mapXyToRf";
-import {mapRfToXy} from "../game_logic/coordType/xy/mapRfToXy";
-import {getNextColor} from "../game_logic/color/getNextColor";
-import {getJson} from "../game_logic/testObjects/getJson";
+import {getNextColor as getEnemyColor} from "../game_logic/color/getNextColor";
 
 
 export function parseData(data) {
     /*called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db**/
-    let [fen, records, playerColor, pieceDefs, idDict] = [data['fen'], data['json'], data['pt'], data['defs'], data['ids']]
-    let board = getBoard(fen)
-    let jsonRecords = JsonRecords(initPawnIds(mapRfToXy(records), board))
-    let [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen)
-    let fenObj = Fen(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum)
-    let color = fenObj.turn.upper()
-    let aiColor = getAiColor(playerColor)
-    let turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict)
-    let enemyTurnData = getTurnData(board, getEnemyColor(color), aiColor, jsonRecords,  pieceDefs, idDict)
-    let payload = {
+    var [fen, records, playerColor, pieceDefs, idDict] = [data['fen'], data['json'], data['pt'], data['defs'], data['ids']]
+    var board = getBoard(fen)
+    var jsonRecords = new JsonRecords(initPawnIds(records, board))
+    var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen)
+    var fenObj = new Fen(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum)
+    var color = fenObj.turn.upper()
+    var aiColor = getAiColor(playerColor)
+    var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict)
+    var enemyTurnData = getTurnData(board, getEnemyColor(color), aiColor, jsonRecords,  pieceDefs, idDict)
+    var payload = {
                'color': color,
-               'board': mapXyToRf(board),
-               'records': mapXyToRf(jsonRecords.getRecords()),
+               'board': board,
+               'records': jsonRecords.getMapRecords(),
                'fenData': fenObj.getData(),
                'pieceDefs': pieceDefs,
                'idDict': idDict,
@@ -96,7 +91,7 @@ if (require.main === module) {
         console.log(gameName, ":")
     }
 
+    console.log(dataDict[gameName]['aiCapture'])
 }
 */
-        console.log(dataDict[gameName]['aiCapture'])
 

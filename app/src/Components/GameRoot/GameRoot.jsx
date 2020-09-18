@@ -38,7 +38,7 @@ export class GameRoot extends React.Component {
         this.currentPage = this.props.location.state.currentPage;
         this.gameData = this.props.location.state.gameData;
         this.board = this.gameData['board']
-        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['records'], board));
+        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['records'], this.board));
         this.gameStatus = new GameStatus(this.gameData['status']);
         this.specialMoves = new SpecialMoves(this.gameData['moves']);
         this.fenObj = new Fen(this.gameData['fen_data']);
@@ -48,7 +48,7 @@ export class GameRoot extends React.Component {
         this.idDict = this.gameData['id_dict'];
         this.pieceDefs = this.gameData['piece_defs']; 
         this.promoChoices = this.gameData['promos'];
-        this.playerType = this.gameData['pt'];
+        this.playerType = this.gameData['pt']; //duplicate?
         this.resigned = this.gameStatus.hasResigned();
         this.unsaved = false;
         this.aiDisplay = false;
@@ -197,9 +197,9 @@ export class GameRoot extends React.Component {
         var turnData;
 
         if (this.gameType === "council") 
-            turnData = updateCouncil(this.board, this.jsonRecords, this.turn, aiColor, this.playerType, this.pieceDefs, this.idDict)
+            turnData = updateCouncil(this.board, this.jsonRecords, this.turn, this.playerType, this.playerType, this.pieceDefs, this.idDict)
         else
-            turnData = update(this.board, this.jsonRecords, this.turn, aiColor, this.playerType, this.pieceDefs, this.idDict);
+            turnData = update(this.board, this.jsonRecords, this.turn, this.playerType, this.playerType, this.pieceDefs, this.idDict);
 
         this.ranges = turnData['ranges']
         this.enemyRanges = turnData['enemy_ranges'];

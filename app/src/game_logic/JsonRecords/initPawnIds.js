@@ -5,6 +5,11 @@ export function initPawnIds(records, board) {
     /*exchange the tf that pawn started the game with, with the id for that pawn**/
     var pawnHistories = {};
     var rf, id;
+    
+    if (! Object.keys(records).includes('pawn_histories')) {
+        records['pawn_histories'] = {}
+    }
+    
     for (var hist of Object.values(records['pawn_histories'])) {
         rf = hist[hist.length - 1]
         id = board[rf]

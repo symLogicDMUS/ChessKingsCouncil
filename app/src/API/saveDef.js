@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
+import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
 
 
 async function savePieceDefToDb(username, pieceName, pieceDef) {

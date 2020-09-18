@@ -1,4 +1,4 @@
-import {getColor} from "../../color/getColor";
+import {strfind} from "../../helpers/strfind";
 import {replacePawnIdWithRankfile} from "../../JsonRecords/replacePawnIdWithRankfile";
 import {filterNonMatchingRows} from "./pawnPromotion/filterNonMatchingRows";
 import {getPawnIds} from "./pawnPromotion/getPawnIds";

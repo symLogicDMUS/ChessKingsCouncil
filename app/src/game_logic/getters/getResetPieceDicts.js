@@ -31,8 +31,6 @@ export function getResetPieceDicts(board, color) {
 /** for node.js
 if (require.main === module) {
 
-    /**Note: are identical at this point (the start) so only need print 1 */
-
     import {sampleBoardDicts} from "../testObjects/sampleBoardDicts"
     
     var board = sampleBoardDicts['check_example3']
@@ -53,41 +51,4 @@ if (require.main === module) {
     console.log(iRanges)
 
 }
-
-/**
- * check_example3
-{
-  WR1: [],
-  WR2: [],
-  WN1: [],
-  WP1: [],
-  WQ1: [],
-  WK1: [],
-  WQ2: [],
-  WB1: [],
-  WP2: [],
-  WP3: [],
-  WP4: []
-}
-knight_threat2
-{
-  WR1: [],
-  WK1: [],
-  WR2: [],
-  WP1: [],
-  WQ1: [],
-  WP2: [],
-  WN1: [],
-  WP3: [],
-  WN2: [],
-  WB1: [],
-  WP4: [],
-  WP5: [],
-  WN3: [],
-  WN4: []
-
-}
 */
-super_checkmate_impossible_example
-{ WK1: [] }
- */

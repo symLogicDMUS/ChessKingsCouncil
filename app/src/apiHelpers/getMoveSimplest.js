@@ -1,13 +1,16 @@
+import { flipKeysValues } from "../Components/helpers/flipKeysValues";
 import {sampleBoardDicts} from "../game_logic/testObjects/sampleBoardDicts";
+import {shuffle} from "../Components/helpers/shuffleArray";
 
 
-export function getMoveSimplest(board, pieceId, ranges) {
+export function getMoveSimplest(responseBoard, pieceId, ranges) {
     /*dummest possible AI for picking a move. Picks a random move from the range of pieceId**/
     // https://stackoverflow.com/questions/483666/reverse-invert-a-dictionary-mapping
-    //let pieceDict = {v: k for k, v in Object.entries(board)} REIMPLEMENT THIS LINE
-    let start = pieceDict[pieceId]
-    let dest = random.choice(ranges[pieceId])
-    return start, dest
+    var pieceDict = flipKeysValues(responseBoard)
+    ranges[pieceId] = shuffle(ranges[pieceId])
+    var start = pieceDict[pieceId]
+    var dest = ranges[pieceId][0]
+    return [start, dest]
 }
 
 
@@ -32,7 +35,7 @@ if (require.main === module) {
               'BR1': [],
               'BR2': [] }
 
+    console.log(getMoveSimplest(sampleBoardDicts['singleMove'], 'BP5', ranges))
 }
 */
-    console.log(getMoveSimplest(sampleBoardDicts['singleMove'], 'BP5', ranges))
 

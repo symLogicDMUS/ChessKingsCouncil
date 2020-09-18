@@ -1,4 +1,5 @@
-import {filterEmptyRanges} from "apiHelpers/filterEmptyRanges";
+import {filterEmptyRanges} from "../../../apiHelpers/filterEmpyRanges";
+import {isEmptyObject} from "../../helpers/isEmptyObject";
 
 
 export function isCheckmate(ranges) {

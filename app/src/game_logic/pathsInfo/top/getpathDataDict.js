@@ -1,12 +1,8 @@
 import {getPathDir} from "../getPathDir";
 import {PathData} from "../PathData";
 import {getPathData} from "../getPathData";
-import {stepFuncList} from "../../helpers/stepFuncs".stepFuncList;
-import {getStandardPieceDefs} from "../../testObjects/getStandardPieceDefs";
-import {getStandardIdDict} from "../../testObjects/getStandardIdDict";
-import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
-import {getPiecesOnPath} from "../getPiecesOnPath";
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
+import {stepFuncList} from "../../helpers/stepFuncs";
+
 
 /** */
 export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {

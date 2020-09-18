@@ -1,11 +1,8 @@
 import {canKingSideCastle} from "../../specialMoves/castle/canKingSideCastle";
 import {canQueenSideCastle} from "../../specialMoves/castle/canQueenSideCastle";
+import {getCastleTargetSquare} from "../../specialMoves/castle/getCastleTargetSquare";
 import {getKingInitialMoves} from "../getKingInitialMoves";
 import {getKingActualMoves} from "../getKingActualMoves";
-import {getCastleTargetSquare} from "../../specialMoves/castle/getCastleTargetSquare";
-import {mapListXyToRf} from "../../../coordType/mapListXyToRf";
-import {initDDEmptyLists} from "../../../apiHelpers/initDDEmptyLists";
-
 
 
 export function king(board, sqr, color, jsonRecords, specialMoves, pieceDefs, idDict) {

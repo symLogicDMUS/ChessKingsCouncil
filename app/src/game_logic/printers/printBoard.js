@@ -1,7 +1,7 @@
 import {getUnicodePiece} from "../printers/getUnicodePiece";
 import {checkerboard} from "../printers/checkerBoard";
 import {isPiece} from "../pieceType/isPiece";
-import {xyToRf} from "../coordType/crdCnvrt".xyToRf;
+import {xyToRf} from "../coordType/crdCnvrt";
 import colors from 'colors';
 
 

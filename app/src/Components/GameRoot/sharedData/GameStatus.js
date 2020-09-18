@@ -1,3 +1,7 @@
+import {isEmptyRanges} from "../../helpers/isEmptyRanges";
+import {OVER, IN_PROGRESS} from "./gStatusTypes";
+import {getPieceTypes} from "../../helpers/getPieceTypes";
+
 
 export class GameStatus {
     /**
@@ -28,7 +32,7 @@ export class GameStatus {
          :param ranges: dict, ranges of pieces of color
          :param enemyColor: str, color of king
         */
-        if (! Object.values(any(ranges))) {
+        if (isEmptyRanges(ranges)) {
             if (npck > 0) {
                 this.condition = 'checkmate'
                 this.status = OVER

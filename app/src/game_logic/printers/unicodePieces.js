@@ -28,7 +28,7 @@ if (require.main === module) {
     }
     for (var uniP of Object.keys(unicodePiecesRk)) {
     }
-
+    
+    console.log(unicodePiecesRk[uniP])
 }
 */
-        console.log(unicodePiecesRk[uniP])

@@ -1,6 +1,6 @@
-import {rfToXy} from "../coordType/crdCnvrt";
+import {rfToXy, xyToRf} from "../coordType/crdCnvrt";
 import {mapDictListRfToXy} from "../coordType/mapDictListRfToXy";
-import {initPawnIds} from "./initPawnIds";
+import { mapDictListXyToRf } from "../coordType/mapDictListXyToRf";
 import {getPieceType} from "../pieceType/getPieceType";
 
 
@@ -24,7 +24,7 @@ export class JsonRecords {
 
     pawnKeysToCurrentRf() {
         /*swap the key of each pawnHistory entry with the coordinate of its current location**/
-        pawnHistories = {}
+        var pawnHistories = {}
         for (var hist of Object.values(this.pawnHistories)) {
             let sqr = hist[hist.length - 1]
             pawnHistories[sqr] = hist
@@ -75,11 +75,22 @@ export class JsonRecords {
         }
     }
 
+    getMapRecords() {
+        /**convert pawnHistories and last_pawn_move to rankfile format, than return all records */
+        this.pawnHistories = mapDictListXyToRf(this.pawnHistories)
+        this.lastPawnMove = xyToRf(this.lastPawnMove)
+        return this.getRecords()
+    }
+
     getRecords() {
         /*return the json records as one python dict**/
-        return {'rooksMoved': this.rooksMoved, 'kingsMoved': this.kingsMoved,
-                'pawnHistories': this.pawnHistories, 'lastPawnMove': this.lastPawnMove,
-                'numConsecutiveNonPawnMoves': this.numConsecutiveNonPawnMoves}
+        return {
+            rooks_moved: this.rooksMoved,
+            kings_moved: this.kingsMoved,
+            pawn_histories: this.pawnHistories,
+            last_pawn_move: this.lastPawnMove,
+            num_consecutive_non_Pawn_moves: this.numConsecutiveNonPawnMoves,
+        };
     }
 
     resetNonPawnMoves() {
