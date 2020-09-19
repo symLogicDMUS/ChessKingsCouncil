@@ -3,7 +3,7 @@ import "firebase/database";
 import "firebase/auth";
 
 async function deletePieceDefFromDb(username, pieceName) {
-    firebase.database().ref().child('defs').child(username).delete() //look up how to, make sure deleting correctly.
+    return firebase.database().ref().child('defs').child(username).child(pieceName).remove()
 }
 
 

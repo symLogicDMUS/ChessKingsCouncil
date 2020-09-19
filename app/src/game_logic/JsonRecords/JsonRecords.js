@@ -14,12 +14,6 @@ export class JsonRecords {
         this.pawnHistories = records['pawn_histories']
         this.lastPawnMove = records['last_pawn_move']
         this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
-
-        this.pawnHistories = mapDictListRfToXy(this.pawnHistories)
-
-        if (this.lastPawnMove !== "None") {
-            this.lastPawnMove = rfToXy(this.lastPawnMove)
-        }
     }
 
     pawnKeysToCurrentRf() {
@@ -153,6 +147,15 @@ export class JsonRecords {
         }
         else if (color === 'B') {
             return this.rooksMoved["h8"]
+        }
+    }
+
+    isLastPawnMove(rf) {
+        if (rf === this.lastPawnMove) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

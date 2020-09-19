@@ -31,7 +31,7 @@ export function canEnpassant(attacking, attacked, board, color, pawnHistories, n
     if (! pawnMovedOnce2Sqrs(pawnHistories, board[xyToRf(...attacked)])) {
         return false
     }
-    if (attacked.toString() != lastPawnMove.toString()) {
+    if (xyToRf(...attacked) != lastPawnMove) {
         return false
     }
     return true

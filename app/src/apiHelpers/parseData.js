@@ -28,7 +28,7 @@ export function parseData(data) {
     return {
             'color': color,
             'board': board,
-            'json_records': jsonRecords.getMapRecords(),
+            'json_records': jsonRecords.getRecords(),
             'special_moves': turnData['special_moves'],
             'fen_data': fenObj.getData(),
             'piece_defs': pieceDefs,

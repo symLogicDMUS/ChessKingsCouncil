@@ -38,7 +38,7 @@ export class SpecialMoves {
     }
 
     convertToRf() {
-        this.enPassant = mapListXyToRf(this.enPassant)
+        this.enPassant = mapListListXyToRf(this.enPassant)
         this.castles = mapListListXyToRf(this.castles)
         this.promos = mapListListXyToRf(this.promos)
         return
@@ -169,10 +169,18 @@ export class SpecialMoves {
     }
 
     removeEnpassant(move) {
-        if (move === this.enPassant[0]) {
-            this.enPassant = []
+        let index = -1;
+        for (let i = 0; i < this.enPassant.length; i++) {
+            if (this.enPassant[i][0] === move[0] && this.enPassant[i][1] === move[1]) {
+                index = i;
+                break;
+            }
+        }
+        if (index > -1) {
+            this.enPassant.splice(index, 1)
         }
     }
+    
 }
 
 // module.exports = SpecialMoves;
