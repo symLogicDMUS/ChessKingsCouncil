@@ -24,8 +24,6 @@ export function getRanges(board, color, ranges, jsonRecords, pieceDefs, idDict) 
 
     for (var [rf, id] of Object.entries(board)) {
 
-        console.log(rf)
-
         if (id === '#') {
             continue
         }

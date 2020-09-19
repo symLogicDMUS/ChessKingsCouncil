@@ -8,7 +8,7 @@ export function gameDefsOffsetListsToStrs(pieceDefs) {
     */
     for (var name of Object.keys(pieceDefs)) {
         for (var color of ['W', 'B']) {
-            pieceDefs[name][color]['offsets'] = convert(pieceDefs[name][color]['offsets'])
+            pieceDefs[name][color]['offsets'] = convertOffsetPairsToStrs(pieceDefs[name][color]['offsets'])
         }
     }
     return pieceDefs

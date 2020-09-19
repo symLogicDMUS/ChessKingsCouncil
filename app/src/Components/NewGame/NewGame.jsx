@@ -107,13 +107,17 @@ export class NewGame extends React.Component {
         this.gameData['id_dict'] = idDict; //4.
         this.gameData['piece_defs'] = {}; //4.
 
-        for (var name of Object.values(idDict)) {
-            this.gameData['piece_defs'][name] = defs[name] //4.
+        var name;
+        for (var id of Object.keys(idDict)) {
+            if (id !== 'k' && id !== 'p') {
+                name = idDict[id]
+                this.gameData['piece_defs'][name] = defs[name] //4.
+            }
         }
         
         var dataEntry = firstUpdate(
           this.gameData["board"],
-          this.gameData["records"],
+          this.gameData["json_records"],
           "W",
           this.gameData["pt"],
           this.gameData["piece_defs"],
@@ -123,7 +127,8 @@ export class NewGame extends React.Component {
         this.gameData['moves'] = dataEntry['moves'];
         this.gameData['ranges'] = dataEntry['ranges'];
         this.gameData['enemy_ranges'] = dataEntry['enemy_ranges'];
-        this.gameData['status'] = dataEntry['status'];
+        this.gameData['status'] = JSON.parse(JSON.stringify(status));
+        
         this.nextStep();
 
     }

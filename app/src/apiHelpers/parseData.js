@@ -12,7 +12,10 @@ import {getNextColor as getEnemyColor} from "../game_logic/color/getNextColor";
 
 
 export function parseData(data) {
-    /*called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db**/
+    /*called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db
+     * NOTE: data needed combined as single object. (this is why includes unmodified values status, promos, and type).
+     * The method gathers all relavent data into single object and returns it.
+    **/
     var [fen, records, playerColor, pieceDefs, idDict] = [data['fen'], data['json'], data['pt'], data['defs'], data['ids']]
     var board = getBoard(fen)
     var jsonRecords = new JsonRecords(initPawnIds(records, board))
@@ -25,7 +28,7 @@ export function parseData(data) {
     return {
             'color': color,
             'board': board,
-            'records': jsonRecords.getMapRecords(),
+            'json_records': jsonRecords.getMapRecords(),
             'special_moves': turnData['special_moves'],
             'fen_data': fenObj.getData(),
             'piece_defs': pieceDefs,
@@ -40,7 +43,7 @@ export function parseData(data) {
             'type': data['type'],
             'pt': playerColor 
     }
-}
+} 
 
 // module.exports = parseData;
 

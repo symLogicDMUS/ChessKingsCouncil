@@ -28,10 +28,10 @@ export function getPathData(board, sqr, color, pieceDefs, idDict, stepFunc) {
     var pieceIds = getPiecesOnPath(board, x, y, stepFunc);
     var statuses = getStatuses(pieceIds, color);
     var pieceMatchesPath = [];
-    var id_, pieceName;
+    var id, pieceName;
     for (var pieceId of pieceIds) {
-        id_ = pieceId[1].toLowerCase();
-        pieceName = idDict[id_];
+        id = pieceId[1].toLowerCase();
+        pieceName = idDict[id];
         pieceMatchesPath.push(getPieceMatchesPath(stepFunc, pieceDefs, pieceName, color));
     }
     return [coordPath, path, pieceIds, statuses, pieceMatchesPath];

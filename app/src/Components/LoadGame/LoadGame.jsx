@@ -1,8 +1,10 @@
 import React from "react";
 import {SelectGame} from "./SelectGame";
 import { Redirect } from "react-router-dom";
-import {getGameNames} from "../../API/getGameNames";
-import {getGame} from "../../API/getGame";
+import { getGames } from "../../API/getGames";
+import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
+import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
+import {parseData} from "../../apiHelpers/parseData";
 import "./LoadGame.css";
 
 
@@ -15,7 +17,8 @@ export class LoadGame extends React.Component {
         this.selected = false;
         this.dataEntry = null; 
         this.pieceDefs = null;
-        this.games = [<option value="choose">Loading...</option>];
+        this.games = null;
+        this.gameList = [<option value="choose">Loading...</option>];
         this.load = this.load.bind(this);
         this.changeName = this.changeName.bind(this);
 
@@ -25,10 +28,11 @@ export class LoadGame extends React.Component {
 
     document.body.className = "load-game-body";
 
-    this.games = [<option value="choose">Choose...</option>];
-    getGameNames(this.props.username).then( ([gameNames]) => {
-        for (var name of gameNames) {
-          this.games.push(<option value={name}>{name}</option>)
+    this.gameList = [<option value="choose">Choose...</option>];
+    getGames(this.props.username).then( ([games]) => {
+        this.games = games;
+        for (var name of Object.keys(this.games)) {
+          this.gameList.push(<option value={name}>{name}</option>)
         }
         this.setState({gameName: "none", loaded: false, reload: ! this.state.reload});
     });
@@ -47,16 +51,17 @@ export class LoadGame extends React.Component {
   }
 
     load() {
-        getGame(this.props.username, this.state.gameName).then( ([gameData]) => {
-          this.gameData = gameData;
+          this.gameData = this.games[this.state.gameName];
+          this.gameData['defs'] = initEmptyRanges(this.gameData['defs'])
+          this.gameData['defs'] = offsetStrsToList(this.gameData['defs'])
+          this.gameData = parseData(this.gameData)
           this.setState({loaded: true});
-        })
     }
 
   render() {
     if (this.state.loaded === false) {
       return <SelectGame handleChange={this.changeName} 
-                         games={this.games} 
+                         games={this.gameList} 
                          selected={this.selected} 
                          load={this.load} />
     }

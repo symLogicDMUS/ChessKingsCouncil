@@ -9,7 +9,6 @@ import {SubList} from "./Bottom/SubList";
 import {PromoAll} from "./PromoAll";
 import {spanToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
-import {Ok} from "./Bottom/CustomiseOk";
 import {HelpComponent} from "../../Help/HelpComponent";
 import {HelpModal} from "../../Help/HelpModal";
 import {HelpText} from "./HelpText";
@@ -19,6 +18,9 @@ import {NavBar} from "../../NavBar/NavBarRegular2";
 import {NavExpand} from "../../NavBar/NavExpand2";
 import {NavColapse} from "../../NavBar/NavColapse2";
 import {getDefs} from "../../../API/getDefs";
+import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
+import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
+import {Ok} from "./Bottom/CustomiseOk";
 import "./Customize.css";
 
 
@@ -66,7 +68,7 @@ export class Customize extends React.Component {
         this.togleSub = this.togleSub.bind(this);
         this.toglePromo = this.toglePromo.bind(this);
         this.toglePromoAll = this.toglePromoAll.bind(this);
-        this.loadNewCustom = this.loadNewCustom.bind(this);
+        this.loadNewCustom = this.loadIdDict.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
@@ -131,22 +133,13 @@ export class Customize extends React.Component {
         this.setState({binaryValue: ! this.state.binaryValue})
     }
 
-    async assignIds(names, subs) {
-        let response = await fetch('/assign_ids', {
-            method:'POST',
-            body:JSON.stringify({"names":names, "subs":subs})
-        });
-        let idDict = await response.json();
-        return idDict;
-    }
-
-    preparePayload() {
+    prepareForSubAssign() {
         //names will be a list of names of all pieces.
-        let names = [];
+        var names = [];
         // subs is this.subs with key:value pairs reversed. 
         //frontend uses standard:sub dict, and backend uses
         //sub:standard dict:
-        let subs = {};
+        var subs = {};
         Object.entries(this.subs).forEach( ([standard, sub]) => {
             if (sub != null)
                 subs[sub] = standard;
@@ -166,17 +159,28 @@ export class Customize extends React.Component {
         return [names, subs];
     }
 
-    loadNewCustom() {
-        let [names, subs] = this.preparePayload();
-        return Promise.all([this.assignIds(names, subs)]);
+    setStandardPromos(idDict) {
+        for (var [name1, id1] of Object.entries(standardIds)) {
+            for (var [id2, name2] of Object.entries(idDict)) {
+                if (name1 === name2 && id1 === id2 && id1 !== "p" && id1 !== "k") {
+                    this.promos.push(name1)
+                }
+            }
+        }
+    }
+
+    loadIdDict() {
+        var [names, subs] = this.prepareForSubAssign();
+        var idDict = idAssign(names, subs);
+        return idDict;
     }
 
     accept() {
-        this.loadNewCustom().then( ([idDict]) => {
-            this.props.loadNewCustom(idDict, this.defs, this.promos);
-            this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
-            this.setState({binaryValue: ! this.state.binaryValue});
-        });
+        var idDict = this.loadIdDict()
+        this.setStandardPromos(idDict)
+        this.props.loadNewCustom(idDict, this.defs, this.promos);
+        this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
+        this.setState({binaryValue: ! this.state.binaryValue});
     }
 
     expand(pieceName, color, rangeType) {
@@ -228,7 +232,7 @@ export class Customize extends React.Component {
     toglePromoAll(promoAll) {
 
         if (promoAll) {
-            for (var pieceName of Object.keys(this.defs)) {
+            for (var pieceName of Object.keys(this.displayDefs)) { //this.defs to this.displayDefs
                 if (! this.promos.includes(pieceName)) {
                     this.promos.push(pieceName);
                 }

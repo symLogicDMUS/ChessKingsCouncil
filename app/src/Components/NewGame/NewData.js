@@ -18,7 +18,7 @@ export const newData = {
                     'f1': 'WB2', 'f2': 'WP6', 'f3': '#', 'f4': '#', 'f5': '#', 'f6': '#', 'f7': 'BP6', 'f8': 'BB2', 
                     'g1': 'WN2', 'g2': 'WP7', 'g3': '#', 'g4': '#', 'g5': '#', 'g6': '#', 'g7': 'BP7', 'g8': 'BN2', 
                     'h1': 'WR2', 'h2': 'WP8', 'h3': '#', 'h4': '#', 'h5': '#', 'h6': '#', 'h7': 'BP8', 'h8': 'BR2'}, 
-                 "records": {
+                 "json_records": {
                     "rooks_moved": {
                       "h1": false,
                       "a1": false,

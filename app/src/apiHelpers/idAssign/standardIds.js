@@ -1,4 +1,4 @@
-let standardIds = {
+export const standardIds = {
     'Rook': 'r',
     'Bishop': 'b',
     'Knight': 'n',

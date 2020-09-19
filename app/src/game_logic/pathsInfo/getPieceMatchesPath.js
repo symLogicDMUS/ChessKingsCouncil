@@ -11,13 +11,13 @@ import {
 import {getRotation} from "../helpers/getRotation";
 import {getStandardPieceDefs} from "../testObjects/getStandardPieceDefs";
 
-export function getPieceMatchesPath(stepFunc, pieceDefs, pieceName, pieceColor) {
+export function getPieceMatchesPath(stepFunc, pieceDefs, pieceName, color) {
     /*if the type of piece matches the type of path, then the piece can attack on that type of path**/
     if (!Object.keys(pieceDefs).includes(pieceName)) {
         return false;
     }
     stepFunc = getRotation(stepFunc.name, 180);
-    if (!pieceDefs[pieceName][pieceColor]["spans"].includes(stepFunc.name)) {
+    if (!pieceDefs[pieceName][color]["spans"].includes(stepFunc.name)) {
         return false;
     }
     return true;

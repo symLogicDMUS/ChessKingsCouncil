@@ -39,7 +39,7 @@ export class GameRoot extends React.Component {
         this.currentPage = this.props.location.state.currentPage;
         this.gameData = this.props.location.state.gameData;
         this.board = this.gameData['board']
-        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['records'], this.board));
+        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['json_records'], this.board));
         this.gameStatus = new GameStatus(this.gameData['status']);
         this.specialMoves = new SpecialMoves(this.gameData['special_moves'])
         this.fenObj = new Fen(this.gameData['fen_data']);
@@ -245,9 +245,7 @@ export class GameRoot extends React.Component {
 
     save() {
         this.setUnsavedProgress(false);
-        saveGame({
-            user: this.username,
-            game_name: this.gameName,
+        saveGame(this.username, this.gameName, {
             board: this.getBoard(),
             fen_obj: this.fenObj.getData(),
             game_type: this.gameType,

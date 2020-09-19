@@ -1,12 +1,12 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
+import {gameDefsOffsetListsToStrs} from "../apiHelpers/gameDefsOffsetListsToStrs"
 
 
 async function savePieceDefToDb(username, pieceName, pieceDef) {
-    var [pieceName, pieceDef] = offsetStrsToList({pieceName, pieceDef})
-    return await firebase.database().ref().child('defs').child(username).update({pieceName, pieceDef})
+    var pieceDefObj = gameDefsOffsetListsToStrs({[pieceName]: pieceDef})
+    return await firebase.database().ref().child('defs').child(username).update(pieceDefObj)
 }
 
 export function saveDef(username, pieceName, pieceDef) {
