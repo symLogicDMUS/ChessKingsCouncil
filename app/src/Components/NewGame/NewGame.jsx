@@ -2,10 +2,11 @@ import React from "react";
 import {PickType} from "./PickType/PickType";
 import {PickName} from "./PickName/PickName";
 import {Customize} from "./Customize/Customize";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { PlayAs } from "./PlayAs/PlayAs";
 import {newData, ranges, enemyRanges, moves, status, id_dict, piece_defs, standard_promo_ids} from "./NewData";
-import {firstUpdate} from "../../apiHelpers/firstUpdate"
+import {firstUpdate} from "../../apiHelpers/firstUpdate";
+import {GameRoot} from "../GameRoot/GameRoot";
 import "./NewGame.css";
 
 
@@ -146,15 +147,23 @@ export class NewGame extends React.Component {
     }
 
     play() {
-        return <Redirect to={{ pathname:"/NewGame/Play",
-                               state: {currentPage:"/NewGame/Play",
-                                       username:JSON.parse(JSON.stringify(this.props.username)),
-                                       gameName:JSON.parse(JSON.stringify(this.gameName)),
-                                       gameType:JSON.parse(JSON.stringify(this.gameType)),
-                                       playerType:JSON.parse(JSON.stringify(this.playerType)),
-                                       gameData:JSON.parse(JSON.stringify(this.gameData)),
-                                       }
-                            }} />
+
+        return <GameRoot username={this.props.username} 
+                         gameName={this.state.gameName} 
+                         gameType={this.gameData['type']} 
+                         playerType={this.gameData['pt']} 
+                         gameData={this.gameData} />
+
+
+        // return <Redirect to={{ pathname:"/NewGame/Play",
+        //                        state: {currentPage:"/NewGame/Play",
+        //                                username:JSON.parse(JSON.stringify(this.props.username)),
+        //                                gameName:JSON.parse(JSON.stringify(this.gameName)),
+        //                                gameType:JSON.parse(JSON.stringify(this.gameType)),
+        //                                playerType:JSON.parse(JSON.stringify(this.playerType)),
+        //                                gameData:JSON.parse(JSON.stringify(this.gameData)),
+        //                                }
+        //                     }} />
     }
 
     render() {

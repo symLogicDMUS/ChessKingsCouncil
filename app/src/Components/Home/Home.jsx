@@ -14,9 +14,6 @@ export class Home extends React.Component {
 
     componentDidMount() {
         document.body.className = "main-menu-background";
-        fetch("get_game_names").then(response => response.json()).then(game_names => {
-            console.log(game_names);
-        })
     }
 
     render() {

@@ -5,8 +5,12 @@ import {rook_starting_rf, king_starting_rf} from "./sharedData/castleRankfiles";
 import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
+import {replacePawnIdWithCurrentLoc} from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc"
 import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
 import { Fen } from "../../game_logic/fenParser/Fen";
+import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
+import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
+import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
 import { Promo } from "./Modals/Promo";
 import {isPawn} from "./gameRootHelpers/isPawn";
 import {SaveAs} from "./Modals/SaveAs";
@@ -32,12 +36,20 @@ export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
         this.state = {bValue:true, isHelpModal:false};
-        this.username = this.props.location.state.username;
-        this.gameName = this.props.location.state.gameName;
-        this.gameType = this.props.location.state.gameType;
-        this.playerType = this.props.location.state.playerType;
-        this.currentPage = this.props.location.state.currentPage;
-        this.gameData = this.props.location.state.gameData;
+        
+        // this.username = this.props.location.state.username;
+        // this.gameName = this.props.location.state.gameName;
+        // this.gameType = this.props.location.state.gameType;
+        // this.playerType = this.props.location.state.playerType;
+        // this.currentPage = this.props.location.state.currentPage;
+        // this.gameData = this.props.location.state.gameData;
+        this.username = this.props.username;
+        this.gameName = this.props.gameName;
+        this.playerType = this.props.playerType;
+        this.gameType = this.props.gameType;
+        this.gameData = this.props.gameData;
+
+        
         this.board = this.gameData['board']
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['json_records'], this.board));
         this.gameStatus = new GameStatus(this.gameData['status']);
@@ -244,16 +256,25 @@ export class GameRoot extends React.Component {
     }
 
     save() {
+        
         this.setUnsavedProgress(false);
+
+        var posFen = getFen(this.board)
+        var fenData = this.fenObj.getData()
+        var fen = getFullFen(posFen, fenData) 
+        var records = this.jsonRecords.getRecords()
+        records['pawn_histories'] = replacePawnIdWithCurrentLoc(records['pawn_histories'])
+        var pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs)
+        var status = this.gameStatus.getStatus()
+
         saveGame(this.username, this.gameName, {
-            board: this.getBoard(),
-            fen_obj: this.fenObj.getData(),
+            fen: fen,
+            status: status,
             game_type: this.gameType,
             player_type: this.playerType,
-            status: this.gameStatus.getStatus(),
             promos: this.promoChoices,
-            json_records: this.jsonRecords.getRecords(),
-            piece_defs: this.pieceDefs,
+            json_records: records,
+            piece_defs: pieceDefs,
             id_dict: this.idDict,
         });
     }

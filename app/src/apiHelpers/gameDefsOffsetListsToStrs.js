@@ -6,12 +6,13 @@ export function gameDefsOffsetListsToStrs(pieceDefs) {
      {param piecefunctions { piece functioninitions for a game
      {return { piecefunctions with offsets converted from form [x,y] to form 'x,y'
     */
-    for (var name of Object.keys(pieceDefs)) {
+    var pieceDefsForDb = JSON.parse(JSON.stringify(pieceDefs))
+    for (var name of Object.keys(pieceDefsForDb)) {
         for (var color of ['W', 'B']) {
-            pieceDefs[name][color]['offsets'] = convertOffsetPairsToStrs(pieceDefs[name][color]['offsets'])
+            pieceDefsForDb[name][color]['offsets'] = convertOffsetPairsToStrs(pieceDefs[name][color]['offsets'])
         }
     }
-    return pieceDefs
+    return pieceDefsForDb
 }
 
 // module.exports = gameDefsOffsetListsToStrs;

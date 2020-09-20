@@ -53,17 +53,6 @@ export class Promo extends React.Component {
             }
         }
 
-        for (var standardName of this.standardPromoNames) {
-            if (Object.values(this.props.idDict).includes(standardName)) {
-                imgName = this.props.pieceDefs[standardName][this.props.color]["img"];
-                promoChoices.push(<PromoChoice  
-                    key={this.standardPromoNameDict[standardName]}
-                    imgName={imgName}
-                    selected={this.state.selected}
-                />);                
-            }
-        }
-
         return promoChoices;
     }
 
@@ -76,11 +65,7 @@ export class Promo extends React.Component {
                 promoChoices.push(id_);
             }
         }
-        for (var standardName of this.standardPromoNames) {
-            if (Object.values(this.props.idDict).includes(standardName)) {
-                promoChoices.push(id_);                
-            }
-        }
+
         return promoChoices;
     }
 

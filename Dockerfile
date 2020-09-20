@@ -1,36 +1,25 @@
+# build environment
 FROM node:13.12.0-alpine as react-build
-WORKDIR /react-app
+WORKDIR /app
 RUN mkdir public src
-COPY ./react-app/src  ./src
-COPY ./react-app/public  ./public
-COPY ./react-app/package.json  ./
-COPY ./react-app/package-lock.json  ./
+COPY ./app/src  ./src
+COPY ./app/public  ./public
+COPY ./app/package.json  ./
+COPY ./app/package-lock.json  ./
 RUN npm install
 RUN npm run-script build
 
 
+# server environment
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/configfile.template
 
-# The standard nginx container just runs nginx. The configuration file added
-# below will be used by nginx.
-FROM nginx
+COPY --from=react-build /app/build /usr/share/nginx/html
 
-# Copy the nginx configuration file. This sets up the behavior of nginx, most
-# importantly, it ensure nginx listens on port 8080. Google App Engine expects
-# the runtime to respond to HTTP requests at port 8080.
-COPY nginx.conf /etc/nginx/nginx.conf
+# because react-router  https://mherman.org/blog/dockerizing-a-react-app/
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# create log dir configured in nginx.conf
-RUN mkdir -p /var/log/app_engine
-
-# Create a simple file to handle heath checks. Health checking can be disabled
-# in app.yaml, but is highly recommended. Google App Engine will send an HTTP
-# request to /_ah/health and any 2xx or 404 response is considered healthy.
-# Because 404 responses are considered healthy, this could actually be left
-# out as nginx will return 404 if the file isn't found. However, it is better
-# to be explicit.
-RUN mkdir -p /usr/share/nginx/www/_ah && \
-    echo "healthy" > /usr/share/nginx/www/_ah/health
-
-# Finally, all static assets.
-COPY --from=react-build /react-app/build  /usr/share/nginx/www/
-RUN chmod -R a+r /usr/share/nginx/www
+ENV PORT 8080
+ENV HOST 0.0.0.0
+EXPOSE 8080
+CMD sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"

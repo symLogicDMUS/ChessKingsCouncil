@@ -92,9 +92,9 @@ export class JsonRecords {
         this.numConsecutiveNonPawnMoves = 0
     }
 
-    deletePawn(id_) {
+    deletePawn(id) {
         /*delete pawn with id from pawn histories**/
-        delete this.pawnHistories[id_]
+        delete this.pawnHistories[id]
     }
 
     hasKingMoved(color) {

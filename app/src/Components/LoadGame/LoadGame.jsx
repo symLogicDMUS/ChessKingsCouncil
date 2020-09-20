@@ -5,6 +5,7 @@ import { getGames } from "../../API/getGames";
 import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
 import {parseData} from "../../apiHelpers/parseData";
+import {GameRoot} from "../GameRoot/GameRoot";
 import "./LoadGame.css";
 
 
@@ -59,6 +60,7 @@ export class LoadGame extends React.Component {
     }
 
   render() {
+
     if (this.state.loaded === false) {
       return <SelectGame handleChange={this.changeName} 
                          games={this.gameList} 
@@ -67,16 +69,23 @@ export class LoadGame extends React.Component {
     }
 
     else {
-      return (<Redirect to={{
-                pathname:"/LoadGame/Play",
-                state: {currentPage:"/LoadGame/Play",
-                        username:JSON.parse(JSON.stringify(this.props.username)),
-                        gameName:JSON.parse(JSON.stringify(this.state.gameName)),
-                        gameType:JSON.parse(JSON.stringify(this.gameData['type'])),
-                        playerType:JSON.parse(JSON.stringify(this.gameData['pt'])),
-                        gameData:JSON.parse(JSON.stringify(this.gameData))
-                      }     
-              }}/>);
+
+      return <GameRoot username={this.props.username} 
+                       gameName={this.state.gameName} 
+                       gameType={this.gameData['type']} 
+                       playerType={this.gameData['pt']} 
+                       gameData={this.gameData} />
+
+      // return (<Redirect to={{
+      //           pathname:"/LoadGame/Play",
+      //           state: {currentPage:"/LoadGame/Play",
+      //                   username:JSON.parse(JSON.stringify(this.props.username)),
+      //                   gameName:JSON.parse(JSON.stringify(this.state.gameName)),
+      //                   gameType:JSON.parse(JSON.stringify(this.gameData['type'])),
+      //                   playerType:JSON.parse(JSON.stringify(this.gameData['pt'])),
+      //                   gameData:JSON.parse(JSON.stringify(this.gameData))
+      //                 }     
+      //         }}/>);
     }
     /** 
      * note: the pieceDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
