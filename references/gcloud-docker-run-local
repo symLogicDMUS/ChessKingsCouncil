@@ -1,0 +1,1 @@
+PORT=8080 && docker run -p 9090:${PORT} -e PORT=${PORT} gcr.io/chess-king-council/council-kings
