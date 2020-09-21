@@ -53,25 +53,26 @@ export function step_1sqr315d(x, y) {
     return [x, y];
 }
 
-export var stepFuncList = [
-    step_1sqr90d,
-    step_1sqr45d,
-    step_1sqr0d,
-    step_1sqr315d,
-    step_1sqr270d,
-    step_1sqr225d,
-    step_1sqr180d,
-    step_1sqr135d,
+export var angles = [
+    "90d",
+    "45d",
+    "0d",
+    "315d",
+    "270d",
+    "225d",
+    "180d",
+    "135d",
 ];
+
 export var stepFuncDict = {
-    step_1sqr90d: step_1sqr90d,
-    step_1sqr45d: step_1sqr45d,
-    step_1sqr0d: step_1sqr0d,
-    step_1sqr315d: step_1sqr315d,
-    step_1sqr270d: step_1sqr270d,
-    step_1sqr225d: step_1sqr225d,
-    step_1sqr180d: step_1sqr180d,
-    step_1sqr135d: step_1sqr135d,
+    "step_1sqr90d": step_1sqr90d,
+    "step_1sqr45d": step_1sqr45d,
+    "step_1sqr0d":  step_1sqr0d,
+    "step_1sqr315d": step_1sqr315d,
+    "step_1sqr270d": step_1sqr270d,
+    "step_1sqr225d": step_1sqr225d,
+    "step_1sqr180d": step_1sqr180d,
+    "step_1sqr135d": step_1sqr135d,
 };
 
 // module.exports = {

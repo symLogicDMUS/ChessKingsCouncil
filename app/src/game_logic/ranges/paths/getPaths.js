@@ -1,4 +1,3 @@
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
 import {stepFuncDict} from "../../helpers/stepFuncs";
 import {getPath} from "../../ranges/paths/getPath";
 

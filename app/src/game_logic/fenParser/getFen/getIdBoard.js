@@ -66,8 +66,6 @@ if (require.main === module) {
     for (var row of idBoard) {
         console.log(row)
     }
-
+    console.log('\n')
 }
 */
-    console.log('\n')
-

@@ -3,25 +3,13 @@ import {getPath} from "../pathsInfo/getPath";
 import {getPiecesOnPath} from "./getPiecesOnPath";
 import {getStatuses} from "./getStatuses";
 import {getPieceMatchesPath} from "./getPieceMatchesPath";
-import {getStandardPieceDefs} from "../testObjects/getStandardPieceDefs";
-import {getStandardIdDict} from "../testObjects/getStandardIdDict";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-import {mapListXyToRf} from "../coordType/mapListXyToRf";
-import {printBoard} from "../printers/printBoard";
-import {
-    step_1sqr90d,
-    step_1sqr45d,
-    step_1sqr0d,
-    step_1sqr315d,
-    step_1sqr270d,
-    step_1sqr225d,
-    step_1sqr180d,
-    step_1sqr135d,
-} from "../helpers/stepFuncs";
+import {stepFuncDict} from "../helpers/stepFuncs"
 
 
-export function getPathData(board, sqr, color, pieceDefs, idDict, stepFunc) {
+
+export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
     /*get all info about a path on board determined by step function stemming from sqr**/
+    var stepFunc = stepFuncDict["step_1sqr"+ pathDir]
     let [x, y] = [...sqr];
     var coordPath = getCoordPath(x, y, stepFunc);
     var path = getPath(board, x, y, stepFunc);
@@ -32,7 +20,7 @@ export function getPathData(board, sqr, color, pieceDefs, idDict, stepFunc) {
     for (var pieceId of pieceIds) {
         id = pieceId[1].toLowerCase();
         pieceName = idDict[id];
-        pieceMatchesPath.push(getPieceMatchesPath(stepFunc, pieceDefs, pieceName, color));
+        pieceMatchesPath.push(getPieceMatchesPath("step_1sqr"+ pathDir, pieceDefs, pieceName, color));
     }
     return [coordPath, path, pieceIds, statuses, pieceMatchesPath];
 }

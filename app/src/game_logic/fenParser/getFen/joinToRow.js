@@ -26,8 +26,7 @@ if (require.main === module) {
     console.log(joinToRow(['#', '#', '#', 'b', '#', 'B', 'p', 'P']))
     console.log(joinToRow(['N', 'B', 'Q', 'b', '#', 'q', '#', '#']))
     console.log(joinToRow(['#', '#', '#', '#', '#', '#', '#', '#']))
-
+    console.log(joinToRow(['R', '#', '#', '#', 'K', '#', '#', 'R']))
 }
 */
-    console.log(joinToRow(['R', '#', '#', '#', 'K', '#', '#', 'R']))
 

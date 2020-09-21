@@ -1,24 +1,21 @@
 import {getPathDir} from "../getPathDir";
 import {PathData} from "../PathData";
 import {getPathData} from "../getPathData";
-import {stepFuncList} from "../../helpers/stepFuncs";
+import {angles} from "../../helpers/stepFuncs";
 
 
 /** */
 export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {
     /*get data about every path stemming from sqr, &&  dict.includes(record)**/
     
-    let pdDict = {}
-    for (var stepFunc of stepFuncList) {
-        
-        // get direction of path
-        let pathDir = getPathDir(stepFunc)
-        
+    var pdDict = {}
+    for (var pathDir of angles) {
+                
         // initialize class for given direction
         pdDict[pathDir] = new PathData(pathDir)
         
         // get path data for given direction
-        let pathData = getPathData(board, sqr, color, pieceDefs, idDict, stepFunc)
+        let pathData = getPathData(board, sqr, color, pieceDefs, idDict, pathDir)
         
         //initialize class attributes to path data results
         pdDict[pathDir].coordPath = pathData[0]

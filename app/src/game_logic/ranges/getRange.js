@@ -1,10 +1,5 @@
 import {getPaths} from "./paths/getPaths";
 import {getJumps} from "./jumps/getJumps";
-import {printBoard} from "../printers/printBoard";
-import {getStandardPieceDefs} from "../testObjects/getStandardPieceDefs";
-import {getStandardIdDict} from "../testObjects/getStandardIdDict";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-import {mapListXyToRf} from "../coordType/mapListXyToRf";
 import {xyToRf} from "../coordType/crdCnvrt";
 
 
@@ -15,8 +10,8 @@ export function getRange(board, sqr, color, pieceDefs, idDict) {
     var name = idDict[fenId]
     var def = pieceDefs[name]
     var offsets = def[color]['offsets']
-    var stepFuncs = def[color]['spans']
-    var paths = getPaths(stepFuncs, board, sqr, color)
+    var stepFuncNames = def[color]['spans']
+    var paths = getPaths(stepFuncNames, board, sqr, color)
     var jumps = getJumps(offsets, board, sqr, color)
     paths.push(...jumps)
     return paths;

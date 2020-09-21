@@ -1,23 +1,18 @@
-import {
-    step_1sqr90d,
-    step_1sqr45d,
-    step_1sqr0d,
-    step_1sqr315d,
-    step_1sqr270d,
-    step_1sqr225d,
-    step_1sqr180d,
-    step_1sqr135d,
-} from "../helpers/stepFuncs";
 import {getRotation} from "../helpers/getRotation";
 import {getStandardPieceDefs} from "../testObjects/getStandardPieceDefs";
+import {stepFuncDict} from "../helpers/stepFuncs"
 
-export function getPieceMatchesPath(stepFunc, pieceDefs, pieceName, color) {
+
+export function getPieceMatchesPath(stepFuncName, pieceDefs, pieceName, color) {
     /*if the type of piece matches the type of path, then the piece can attack on that type of path**/
+
+    var stepFunc = stepFuncDict[stepFuncName]
+
     if (!Object.keys(pieceDefs).includes(pieceName)) {
         return false;
     }
-    stepFunc = getRotation(stepFunc.name, 180);
-    if (!pieceDefs[pieceName][color]["spans"].includes(stepFunc.name)) {
+    stepFuncName = getRotation(stepFuncName, 180);
+    if (!pieceDefs[pieceName][color]["spans"].includes(stepFuncName)) {
         return false;
     }
     return true;

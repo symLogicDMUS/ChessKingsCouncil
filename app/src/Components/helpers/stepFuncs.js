@@ -63,8 +63,8 @@ export function step1sqr315d(rf) {
     rf = xyToRf(x, y)
     return rf
 }
-export const stepFuncList = [step1sqr90d, step1sqr45d, step1sqr0d, step1sqr315d, step1sqr270d,
-                           step1sqr225d, step1sqr180d, step1sqr135d]
+//export const stepFuncList = [step1sqr90d, step1sqr45d, step1sqr0d, step1sqr315d, step1sqr270d,
+//                           step1sqr225d, step1sqr180d, step1sqr135d]
 
 export const stepFuncDict = {
     "90d" :step1sqr90d, 
