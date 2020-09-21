@@ -18,7 +18,15 @@ if __name__ == "__main__":
     for id_ in container_ids:
         docker_rm(id_)
     img_ids = [
-
+        "1debebb47e7e",
+        "5600bef17f5b",
+        "2b3f2879c728",
+        "d723e64ac77e",
+        "aa84cfd5e852",
+        "d41e30c14c4b",
+        "760f268e07da",
+        "116a76de3e22",
+        "e7f4c3237852"
     ]
     for img_id in img_ids:
         docker_rmi(img_id)

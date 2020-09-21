@@ -12,14 +12,13 @@
 }
 
 .grid-item {
-    opacity: 80%;
     border-radius: 10px;
 } 
 .link-icon-small {
     height: 47px;
     width: 30px;
-    font-size:47px;
-    font-family:Tahoma;
+    font-size:40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 30px;
     max-height: 47px;
     stroke: 0.5px;

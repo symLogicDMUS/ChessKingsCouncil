@@ -10,7 +10,7 @@
     border-radius: 8px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
   }
 
@@ -27,6 +27,5 @@
     color: slateblue;
     background-color: white;  
     cursor: not-allowed;
-    opacity: 80%;
   }
 

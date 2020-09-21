@@ -17,7 +17,7 @@ COPY nginx.conf /etc/nginx/conf.d/configfile.template
 COPY --from=react-build /app/build /usr/share/nginx/html
 
 # because react-router.  https://mherman.org/blog/dockerizing-a-react-app/
-COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 ENV PORT 8080
 ENV HOST 0.0.0.0

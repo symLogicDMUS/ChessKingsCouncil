@@ -36,7 +36,7 @@
         width: 1280px;
         height: 64px;
         top: 14px;
-        font: normal 16px Tahoma;
+        font: normal 16px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
       } .title-div .title {
           z-index: 1;
