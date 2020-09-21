@@ -20,7 +20,7 @@ export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
     for (var pieceId of pieceIds) {
         id = pieceId[1].toLowerCase();
         pieceName = idDict[id];
-        pieceMatchesPath.push(getPieceMatchesPath("step_1sqr"+ pathDir, pieceDefs, pieceName, color));
+        pieceMatchesPath.push(getPieceMatchesPath("step_1sqr" + pathDir, pieceDefs, pieceName, color));
     }
     return [coordPath, path, pieceIds, statuses, pieceMatchesPath];
 }

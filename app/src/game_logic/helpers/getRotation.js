@@ -8,8 +8,7 @@ export function getRotation(stepFuncName, rotationAngle) {
     if (newAngle >= 360) {
         newAngle = newAngle - 360
     }
-    let stepFunc = stepFuncDict[`step_1sqr${newAngle}d`]
-    return stepFunc
+    return `step_1sqr${newAngle}d`
 }
 
 // module.exports = getRotation;

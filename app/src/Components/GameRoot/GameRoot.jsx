@@ -35,21 +35,13 @@ export class GameRoot extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {bValue:true, isHelpModal:false};
-        
-        // this.username = this.props.location.state.username;
-        // this.gameName = this.props.location.state.gameName;
-        // this.gameType = this.props.location.state.gameType;
-        // this.playerType = this.props.location.state.playerType;
-        // this.currentPage = this.props.location.state.currentPage;
-        // this.gameData = this.props.location.state.gameData;
-        this.username = this.props.username;
-        this.gameName = this.props.gameName;
-        this.playerType = this.props.playerType;
-        this.gameType = this.props.gameType;
-        this.gameData = this.props.gameData;
-
-        
+        this.state = {bValue:true, isHelpModal:false};        
+        this.username = this.props.location.state.username;
+        this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
+        this.currentPage = this.props.location.state.currentPage;
+        this.gameData = this.props.location.state.gameData;
         this.board = this.gameData['board']
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['json_records'], this.board));
         this.gameStatus = new GameStatus(this.gameData['status']);

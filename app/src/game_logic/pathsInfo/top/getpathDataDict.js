@@ -15,7 +15,7 @@ export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {
         pdDict[pathDir] = new PathData(pathDir)
         
         // get path data for given direction
-        let pathData = getPathData(board, sqr, color, pieceDefs, idDict, pathDir)
+        var pathData = getPathData(board, sqr, color, pieceDefs, idDict, pathDir) //changed let to var
         
         //initialize class attributes to path data results
         pdDict[pathDir].coordPath = pathData[0]
@@ -25,7 +25,7 @@ export function getPathdataDict(board, sqr, color, pieceDefs, idDict) {
         pdDict[pathDir].pieceMatchesPath = pathData[4]
     }
 
-    return pdDict
+    return pdDict;
 }
 
 // module.exports = getPathdataDict;
