@@ -259,7 +259,7 @@ export class GameRoot extends React.Component {
         var pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs)
         var status = this.gameStatus.getStatus()
 
-        saveGame(this.username, this.gameName, {
+        saveGame(this.gameName, {
             fen: fen,
             status: status,
             game_type: this.gameType,

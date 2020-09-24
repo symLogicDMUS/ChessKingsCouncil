@@ -21,4 +21,4 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-ReactDOM.render(<App username="symLogicDMUS"/>, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))

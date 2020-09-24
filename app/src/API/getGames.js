@@ -3,13 +3,15 @@ import "firebase/database";
 import "firebase/auth";
 
 
-async function gamesFromDb(username) {
-    var games = await firebase.database().ref().child('games').child('symLogicDMUS').once('value').then(function(snapshot) {
+async function gamesFromDb() {
+    var user = firebase.auth().currentUser;
+    var uid = user.uid;
+    var games = await firebase.database().ref().child('games').child(uid).once('value').then(function(snapshot) {
         return (snapshot.val())
     })
     return games;
 }
 
-export function getGames(username) {
-    return Promise.all([gamesFromDb(username)])
+export function getGames() {
+    return Promise.all([gamesFromDb()])
 }

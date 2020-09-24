@@ -19,4 +19,6 @@ export const imgNames =
  "Octocat-white.svg",
  "black_duke.svg",
  "white_duke.svg",
+ "white-dragon.svg",
+ "black-dragon.svg"
 ];

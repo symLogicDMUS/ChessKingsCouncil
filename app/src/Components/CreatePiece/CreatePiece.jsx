@@ -24,6 +24,7 @@ import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
 import {NavBar} from "../NavBar/NavBarRegular";
 import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
+import {redirectMessageStr} from "./helpers/redirectMessageStr";
 import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
 import {HelpText as OptionsText} from "./Options/HelpText";
@@ -42,6 +43,9 @@ export class CreatePiece extends React.Component {
         this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false};
 
         this.defs = {}
+
+        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.standardsLc = ["rook", "bishop", "queen", "knight", "pawn", "king"];
 
         //used to record in defs object at the end:
         this.name = "";
@@ -109,7 +113,7 @@ export class CreatePiece extends React.Component {
         this.optionTool = true;
         this.confirmRedirectModal = false;
         this.redirectPath = null;
-        this.redirectMessage = "There are unsaved changes to your piece. If you leave the page without saving you will lose your changes. Do you still want to continue?"
+        this.redirectMessage = redirectMessageStr;
 
 
         //Dictionary of Extra windows to display for help modals. More may be added.
@@ -138,12 +142,26 @@ export class CreatePiece extends React.Component {
     }
 
     componentDidMount() {
+
         document.body.className="create-piece-body";
-        getDefs(this.props.username).then(([defs]) => {
-            this.defs = defs;
-            if (this.props.defaultPiece != null) {
-                this.load(this.props.defaultPiece);
+        
+        getDefs().then(([defs]) => {
+            
+            if (defs) {
+                //this.defs = JSON.parse(JSON.stringify(defs));
+                this.defs = defs;
+                for (var name of this.standards) {
+                    if (Object.keys(this.defs).includes(name))
+                        delete this.defs[name];
+                }        
             }
+            else {
+                this.defs = {}
+            }
+
+            if (this.props.defaultPiece != null) 
+                this.load(this.props.defaultPiece);
+            
             this.setState({binaryValue: ! this.state.binaryValue});
         });
     }
@@ -201,8 +219,6 @@ export class CreatePiece extends React.Component {
             return
         }        
 
-        //pieceImgDict[this.name] = this.name;
-
         this.defs[this.name] = { 
             "W":{"spans":null, "offsets":null, "img": null}, 
             "B":{"spans":null, "offsets": null, "img": null}
@@ -221,7 +237,7 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['W']['img'] = this.imgNames['white'];
         this.defs[this.name]['B']['img'] = this.imgNames['black'];
 
-        saveDef(this.props.username, this.name, this.defs[this.name]).then(([response]) => {
+        saveDef(this.name, this.defs[this.name]).then(([response]) => {
             this.setSaveStatus("success");
         });
     }
@@ -341,6 +357,9 @@ export class CreatePiece extends React.Component {
 
         if (digits.includes(name[0]))
             return "leading-digit";
+
+        if (this.standardsLc.includes(this.name.toLowerCase()))
+            return "standard-name"
 
         return "valid";
 

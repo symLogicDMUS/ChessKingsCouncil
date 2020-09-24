@@ -29,11 +29,16 @@ export class LoadGame extends React.Component {
     document.body.className = "load-game-body";
 
     this.gameList = [<option value="choose">Choose...</option>];
-    getGames(this.props.username).then( ([games]) => {
-        this.games = games;
+    getGames().then( ([games]) => {
+      if (games)
+          this.games = games
+        else
+          this.games = {}
+
         for (var name of Object.keys(this.games)) {
           this.gameList.push(<option value={name}>{name}</option>)
         }
+
         this.setState({gameName: "none", loaded: false, reload: ! this.state.reload});
     });
 
@@ -72,7 +77,6 @@ export class LoadGame extends React.Component {
       return (<Redirect to={{
                 pathname:"/LoadGame/Play",
                 state: {currentPage:"/LoadGame/Play",
-                        username:JSON.parse(JSON.stringify(this.props.username)),
                         gameName:JSON.parse(JSON.stringify(this.state.gameName)),
                         gameType:JSON.parse(JSON.stringify(this.gameData['type'])),
                         playerType:JSON.parse(JSON.stringify(this.gameData['pt'])),

@@ -5,15 +5,19 @@ import {initEmptyRanges} from "../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
 
 
-async function getPieceDefsFromDb(username) {
-    return await firebase.database().ref().child('defs').child(username).once('value').then( function(snapshot) {
+async function getPieceDefsFromDb() {
+    var user = firebase.auth().currentUser;
+    var uid = user.uid;
+    return await firebase.database().ref().child('defs').child(uid).once('value').then( function(snapshot) {
         var defs = snapshot.val()
-        defs = initEmptyRanges(defs)
-        defs = offsetStrsToList(defs)
+        if (defs) {
+            defs = initEmptyRanges(defs)
+            defs = offsetStrsToList(defs)
+        }
         return defs;
     })
 }
 
-export function getDefs(username) {
-    return Promise.all([getPieceDefsFromDb(username)])
+export function getDefs() {
+    return Promise.all([getPieceDefsFromDb()])
 }

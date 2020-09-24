@@ -1,2 +1,9 @@
-# lists all untracked files
+# lists all untracked files:
 git ls-files --others --exclude-standard
+
+# remove single file from git repos without removing from local filesystem:
+git rm --cached [FILE_NAME]
+
+# remove directory from git repos without deleting from local filesystem:
+git rm --cached -r [DIR_NAME]
+

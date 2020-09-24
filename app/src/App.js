@@ -41,11 +41,11 @@ export class App extends React.Component {
     componentDidMount() {
         document.body.className = "main-menu-background";
         firebase.auth().onAuthStateChanged(user => {
+            this.setState({isSignedIn: !!user})
             if (user) {
                 this.isAnonymous = user.isAnonymous;
-                this.uid = user.uid;
+                //this.uid = user.uid;
             }
-            this.setState({isSignedIn: !!user})
             console.log("user", user)
         })        
     }
@@ -71,13 +71,13 @@ export class App extends React.Component {
                 <Router>
                     <Switch>
                         <Route exact path="/" exact strict render={() => <Home signOut={this.signOut} />} />
-                        <Route exact path="/NewGame" exact strict render={() => <NewGame username={this.props.username}/> } />
-                        <Route exact path="/LoadGame" exact strict render={() => <LoadGame username={this.props.username} /> } />
+                        <Route exact path="/NewGame" exact strict render={() => <NewGame /> } />
+                        <Route exact path="/LoadGame" exact strict render={() => <LoadGame /> } />
                         <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
                         <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
-                        <Route exact path="/CreatePiece" exact strict render={() => <CreatePiece username={this.props.username} defaultPiece={null} />} />
+                        <Route exact path="/CreatePiece" exact strict render={() => <CreatePiece  defaultPiece={null} />} />
                         <Route exact path="/CouncilRules" exact component={CouncilRules} />
-                        <Route exact path="/MyPieces" exact strict render={() => <MyPieces username={this.props.username} />} />
+                        <Route exact path="/MyPieces" exact strict render={() => <MyPieces />} />
                         <Route exact path="/ComingSoon" component={ComingSoon} />
                     </Switch>
                 </Router>

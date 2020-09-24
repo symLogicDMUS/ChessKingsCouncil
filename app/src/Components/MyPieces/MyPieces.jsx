@@ -52,7 +52,7 @@ export class MyPieces extends React.Component {
 
         document.body.className="my-pieces-body";
 
-        getDefs(this.props.username).then( ([defs]) => {
+        getDefs().then( ([defs]) => {
             this.defs = defs;
             for (var name of this.standards) {
                 delete this.defs[name]
@@ -93,7 +93,7 @@ export class MyPieces extends React.Component {
 
     delete(pieceName) {
         delete this.defs[pieceName];
-        deleteDef(this.props.username, pieceName).then( ([response]) => {
+        deleteDef(pieceName).then( ([response]) => {
             this.update();
         });
     }
@@ -194,7 +194,7 @@ export class MyPieces extends React.Component {
     render() {
         
         if (this.state.redirect) {
-            return (<CreatePiece username={this.props.username} defaultPiece={this.state.selectedPiece} />)
+            return (<CreatePiece defaultPiece={this.state.selectedPiece} />)
         }
         
         return (

@@ -15,12 +15,7 @@ export class CreatedPieceProfiles extends React.Component {
         super(props);
         this.searchText = "";
         this.state = {binaryValue: true, selected: null};
-        this.defs = JSON.parse(JSON.stringify(this.props.defs));
-        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        for (var name of this.standards) {
-            delete this.defs[name];
-        }
-        this.displayDefs = JSON.parse(JSON.stringify(this.defs));
+        this.displayDefs = JSON.parse(JSON.stringify(this.props.defs));
         Object.keys(this.displayDefs).forEach(pieceName => {
             this.displayDefs[pieceName]["W"]["spans"] = this.getSpansText(this.displayDefs[pieceName]["W"])
             this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsetsText(this.displayDefs[pieceName]["W"])

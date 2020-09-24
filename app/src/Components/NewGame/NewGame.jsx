@@ -139,7 +139,7 @@ export class NewGame extends React.Component {
             return <PlayAs setPlayer={this.setPlayerType} nextStep={this.nextStep} loadNew={this.loadNewStandard}/>
 
         if (this.gameType === "custom")
-            return <Customize username={this.props.username} loadNewCustom={this.loadNewCustom} setPlayer={this.setPlayerType} nextStep={this.nextStep} />
+            return <Customize loadNewCustom={this.loadNewCustom} setPlayer={this.setPlayerType} nextStep={this.nextStep} />
 
         if (this.gameType === "council")
             return <PlayAs setPlayer={this.setPlayerType} nextStep={this.nextStep} loadNew={this.loadNewCouncil}/>
@@ -149,7 +149,6 @@ export class NewGame extends React.Component {
 
         return <Redirect to={{ pathname:"/NewGame/Play",
                                state: {currentPage:"/NewGame/Play",
-                                       username:JSON.parse(JSON.stringify(this.props.username)),
                                        gameName:JSON.parse(JSON.stringify(this.gameName)),
                                        gameType:JSON.parse(JSON.stringify(this.gameType)),
                                        playerType:JSON.parse(JSON.stringify(this.playerType)),

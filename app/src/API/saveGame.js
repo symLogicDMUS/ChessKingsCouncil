@@ -5,9 +5,10 @@ import "firebase/auth";
 
 
 
-async function saveGameToDb(username, gameName, data) {
-
-    return await firebase.database().ref().child('games').child(username).update({ [gameName]: {
+async function saveGameToDb(gameName, data) {
+    var user = firebase.auth().currentUser;
+    var uid = user.uid;
+    return await firebase.database().ref().child('games').child(uid).update({ [gameName]: {
         'fen': data['fen'],
         'type': data['game_type'],
         'pt': data['player_type'],
@@ -19,6 +20,6 @@ async function saveGameToDb(username, gameName, data) {
     }});
 }
 
-export function saveGame(username, gameName, data) {
-    return Promise.all([saveGameToDb(username, gameName, data)]);
+export function saveGame(gameName, data) {
+    return Promise.all([saveGameToDb(gameName, data)]);
 }

@@ -19,6 +19,7 @@ import {NavExpand} from "../../NavBar/NavExpand2";
 import {NavColapse} from "../../NavBar/NavColapse2";
 import {getDefs} from "../../../API/getDefs";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
+import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
 import {Ok} from "./Bottom/CustomiseOk";
 import "./Customize.css";
@@ -55,7 +56,7 @@ export class Customize extends React.Component {
         this.clientX = 0;
         this.clientY = 0;
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        //content inside  componentDidMount() could also go here.
+        
         this.subs = {
             "Rook":null,
             "Bishop":null,
@@ -78,9 +79,15 @@ export class Customize extends React.Component {
 
     componentDidMount() {
         
-        getDefs(this.props.username).then( ([defs]) => {
-            this.defs = defs;
+        getDefs().then( ([defs]) => {
+
+            if (! defs)
+                defs = {};
+
+            this.defs = initStandardDefs(defs)
+
             this.displayDefs = JSON.parse(JSON.stringify(this.defs))
+            
             Object.keys(this.defs).forEach(pieceName => {
                 if (this.standards.includes(pieceName)) {
                     delete this.displayDefs[pieceName]
