@@ -19,24 +19,37 @@ export class Home extends React.Component {
     render() {
 
         return (
-            <svg viewBox="0 0 1920 1080">
-                <defs>
-                    <clipPath id="b">
-                        <rect width={1920} height={1080} />
-                    </clipPath>
-                </defs>
-                <g id="a" className="a">
-                    <Title />
-                    <ChessRulesIcon />
-                    <CouncilRulesIcon />
-                    <CreatePieceIcon />
-                    <NewGameIcon /> 
-                    <LoadGameIcon />
-                    <MyPiecesIcon />
-                    <a href="https://github.com/symLogicDMUS"><AuthorsGithubIcon /></a>
-                </g>
-            </svg>
+            <>
+                <svg viewBox="0 0 1920 1080">
+                    <defs>
+                        <clipPath id="b">
+                            <rect width={1920} height={1080} />
+                        </clipPath>
+                    </defs>
+                    <g id="a" className="a">
+                        <Title />
+                        <ChessRulesIcon />
+                        <CouncilRulesIcon />
+                        <CreatePieceIcon />
+                        <NewGameIcon /> 
+                        <LoadGameIcon />
+                        <MyPiecesIcon />
+                        <a href="https://github.com/symLogicDMUS"><AuthorsGithubIcon /></a>
+                    </g>
+                </svg>
+                <div className="sign-out" onClick={this.props.signOut} style={{position: "absolute", 
+                                                             width:"15vw", 
+                                                             height:"4vh", 
+                                                             top:"1vh", 
+                                                             left: "90.2vw",
+                                                             fontSize: "4vh",
+                                                             cursor:"pointer"
+                                                             }}>
+                    Sign Out
+                </div>
+            </>
         );
+
     }
 };
 

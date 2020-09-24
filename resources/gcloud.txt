@@ -10,7 +10,7 @@ docker build . --tag gcr.io/chess-king-council/council-kings
 # 2:
 PORT=8080 && docker run -p 9090:${PORT} -e PORT=${PORT} gcr.io/chess-king-council/council-kings
 # 3:
-open http://localhost:9090 in browser
+http://localhost:9090
 
 
 build and deploy to cloud run:

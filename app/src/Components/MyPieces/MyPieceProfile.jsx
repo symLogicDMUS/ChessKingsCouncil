@@ -8,8 +8,8 @@ export class MyPieceProfile extends React.Component {
 
     render() {
         return (
-            <div className="profile">
-                <div className="header">
+            <div className="my-pieces-profile">
+                <div className="my-pieces-profile-header">
                     <div className="my-piece-name">
                         {this.props.pieceName}
                     </div>

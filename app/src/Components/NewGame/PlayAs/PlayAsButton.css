@@ -15,7 +15,6 @@
 }
 
 .pab-active {
-    opacity: 100%;
     cursor: pointer;
 } .pab-active:hover {
     color: black;
@@ -23,6 +22,5 @@
 }
 
 .pab-inactive {
-    opacity: 60%;
     cursor: not-allowed;
 }

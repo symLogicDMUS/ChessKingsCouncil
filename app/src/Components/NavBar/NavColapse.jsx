@@ -14,10 +14,10 @@ export class NavColapse extends React.Component {
 
     render() {
 
-        let height = 30;
+        let height = 27;
         let top = 0;
         if (this.props.styles.border === "none") {
-            height = 31.5;
+            height = 28;
             top = 0;
         }
 

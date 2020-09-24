@@ -16,7 +16,7 @@
     left: 10px;
     top: 10px;
     font-size: 16px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #a9a9a9;
 }
 
@@ -28,7 +28,7 @@
     top: 38px;
     border-radius: 5px;
     color: #a9a9a9;
-    font-family: "Tahoma";
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #515151;
     border: solid 1px #515151;
     cursor: pointer;
@@ -46,7 +46,7 @@
         top: 38px;
         border-radius: 5px;
         color: #a9a9a9;
-        font-family: "Tahoma";
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background-color: #EC2525;
         border: solid 1px #EC2525;
         cursor: pointer;

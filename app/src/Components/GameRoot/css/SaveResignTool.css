@@ -57,7 +57,7 @@
     width: 100px;
     height: 20px;
     color: #b1faae;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -70,6 +70,6 @@
     top: 3px;
     color: #b1faae;
     font-size: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: left;
 }

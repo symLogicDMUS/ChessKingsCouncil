@@ -13,15 +13,14 @@
 }
 
 .grid-item {
-    opacity: 80%;
     border-radius: 10px;
 }
 
 .link-icon {
     height: 67px;
     width: 50px;
-    font-size:57px;
-    font-family:Tahoma;
+    font-size:50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 50px;
     max-height: 67px;
 }
