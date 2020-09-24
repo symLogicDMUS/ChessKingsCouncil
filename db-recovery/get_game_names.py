@@ -1,14 +1,4 @@
 import os
-import firebase_admin
-from firebase_admin import db, credentials
-from get_data import get_data
-from pprint import pprint
-
-
-cred = credentials.Certificate('./ckc-firebase-admin-sdk.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL': "https://chess-king-council.firebaseio.com/",
-})
 
 
 def get_game_names():

@@ -1,12 +1,4 @@
 import json
-import firebase_admin
-from firebase_admin import db, credentials
-from pprint import pprint
-
-cred = credentials.Certificate('./ckc-firebase-admin-sdk.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL': "https://chess-king-council.firebaseio.com/",
-})
 
 
 def get_defs():
