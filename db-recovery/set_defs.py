@@ -1,6 +1,6 @@
 import firebase_admin
 from firebase_admin import db, credentials
-from db_setup.get_defs import get_defs
+from get_defs import get_defs
 
 cred = credentials.Certificate('./ckc-firebase-admin-sdk.json')
 firebase_admin.initialize_app(cred, {

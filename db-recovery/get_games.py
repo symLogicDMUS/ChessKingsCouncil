@@ -1,7 +1,7 @@
 import os
 import json
 import firebase_admin
-from db_setup.get_data import get_data
+from get_data import get_data
 from firebase_admin import db, credentials
 from pprint import pprint
 

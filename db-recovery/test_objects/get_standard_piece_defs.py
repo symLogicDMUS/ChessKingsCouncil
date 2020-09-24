@@ -1,4 +1,4 @@
-from game_logic.test_objects._standard_piece_defs import piece_defs
+from test_objects._standard_piece_defs import piece_defs
 
 
 def get_standard_piece_defs():
