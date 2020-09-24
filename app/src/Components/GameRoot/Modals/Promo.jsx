@@ -41,12 +41,12 @@ export class Promo extends React.Component {
         let pieceName = null;
         let imgName = null;
         let promoChoices = [];
-        for (var id_ of Object.keys(this.props.idDict)) {
-            pieceName = this.props.idDict[id_];
+        for (var id of Object.keys(this.props.idDict)) {
+            pieceName = this.props.idDict[id];
             if (this.props.promoChoices.includes(pieceName)) {
                 imgName = this.props.pieceDefs[pieceName][this.props.color]["img"];
                 promoChoices.push(<PromoChoice  
-                    key={id_}
+                    key={id}
                     imgName={imgName}
                     selected={this.state.selected}
                 />);
@@ -59,10 +59,10 @@ export class Promo extends React.Component {
     aiPromoChoices() {
         let pieceName = null;
         let promoChoices = [];
-        for (var id_ of Object.keys(this.props.idDict)) {
-            pieceName = this.props.idDict[id_];
+        for (var id of Object.keys(this.props.idDict)) {
+            pieceName = this.props.idDict[id];
             if (this.props.promoChoices.includes(pieceName)) {
-                promoChoices.push(id_);
+                promoChoices.push(id);
             }
         }
 

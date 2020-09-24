@@ -4,7 +4,7 @@ import {PickName} from "./PickName/PickName";
 import {Customize} from "./Customize/Customize";
 import { Redirect } from "react-router-dom";
 import { PlayAs } from "./PlayAs/PlayAs";
-import {newData, ranges, enemyRanges, moves, status, id_dict, piece_defs, standard_promo_ids} from "./NewData";
+import {newData, ranges, enemyRanges, moves, status, id_dict, piece_defs, standard_promo_names} from "./NewData";
 import {firstUpdate} from "../../apiHelpers/firstUpdate";
 import "./NewGame.css";
 
@@ -60,7 +60,7 @@ export class NewGame extends React.Component {
         this.gameData['game_name'] = this.gameName;
         this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType));
         this.gameData['type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_names));
         this.gameData['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.gameData['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
         this.gameData['moves'] = JSON.parse(JSON.stringify(moves));
@@ -75,7 +75,7 @@ export class NewGame extends React.Component {
         this.gameData['game_name'] = this.gameName;
         this.gameData['pt'] = JSON.parse(JSON.stringify(this.playerType));
         this.gameData['type'] = JSON.parse(JSON.stringify(this.gameType));
-        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_ids));
+        this.gameData['promos'] = JSON.parse(JSON.stringify(standard_promo_names));
         this.gameData['id_dict'] = JSON.parse(JSON.stringify(id_dict));
         this.gameData['piece_defs'] = JSON.parse(JSON.stringify(piece_defs));
         this.gameData['moves'] = JSON.parse(JSON.stringify(moves));
