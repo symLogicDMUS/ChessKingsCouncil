@@ -53,10 +53,18 @@ export class MyPieces extends React.Component {
         document.body.className="my-pieces-body";
 
         getDefs().then( ([defs]) => {
-            this.defs = defs;
-            for (var name of this.standards) {
-                delete this.defs[name]
+
+            if (defs) {
+                this.defs = defs;
+                for (var pieceName of this.standards) {
+                    if (Object.keys(this.defs).includes(pieceName))
+                        delete this.defs[pieceName];
+                }        
             }
+            else {
+                this.defs = {}
+            }
+
             this.displayDefs = JSON.parse(JSON.stringify(this.defs));
             Object.keys(this.displayDefs).forEach(pieceName => {
                 this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"])

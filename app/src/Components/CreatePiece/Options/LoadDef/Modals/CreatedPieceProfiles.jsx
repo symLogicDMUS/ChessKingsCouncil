@@ -97,9 +97,9 @@ export class CreatedPieceProfiles extends React.Component {
 
     applySearchFilter() {
         if (this.searchText !== "")
-            return Object.keys(this.defs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
+            return Object.keys(this.displayDefs).filter(pieceName => pieceName.toLowerCase().startsWith(this.searchText));
         else
-            return Object.keys(this.defs);
+            return Object.keys(this.displayDefs);
     }
 
     getProfiles() {

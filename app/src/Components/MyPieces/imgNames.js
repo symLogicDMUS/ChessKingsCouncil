@@ -11,8 +11,6 @@ export const imgNames =
  'Timberwolf_white.png',
  'x-wing-white.svg',
  'x-wing-black.svg',
- 'white_brian.svg',
- 'black_brian.svg',
  'white-gem.svg',
  'black-gem.svg',
  "Octocat-black.svg",

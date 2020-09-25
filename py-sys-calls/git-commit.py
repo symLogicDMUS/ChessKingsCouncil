@@ -1,6 +1,6 @@
 import os
 
-#  this file assumes being run from the directory 'py-shell-scripts' in the root of git repo 
+#  this file assumes being run from the directory 'py-sys-calls' in the root of git repo
 
 
 def git_commit(file_paths):

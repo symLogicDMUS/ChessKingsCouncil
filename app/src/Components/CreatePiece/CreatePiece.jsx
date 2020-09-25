@@ -148,11 +148,10 @@ export class CreatePiece extends React.Component {
         getDefs().then(([defs]) => {
             
             if (defs) {
-                //this.defs = JSON.parse(JSON.stringify(defs));
                 this.defs = defs;
-                for (var name of this.standards) {
-                    if (Object.keys(this.defs).includes(name))
-                        delete this.defs[name];
+                for (var pieceName of this.standards) {
+                    if (Object.keys(this.defs).includes(pieceName))
+                        delete this.defs[pieceName];
                 }        
             }
             else {
