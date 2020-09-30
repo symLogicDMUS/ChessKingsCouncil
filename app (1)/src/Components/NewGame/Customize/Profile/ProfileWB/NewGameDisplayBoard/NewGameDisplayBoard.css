@@ -1,0 +1,8 @@
+
+
+.new-game-display-board {
+    position: absolute;
+    z-index: inherit;
+    grid-column: 1 \ 3;
+    grid-row: 2;
+}

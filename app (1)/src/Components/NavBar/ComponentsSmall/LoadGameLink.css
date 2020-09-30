@@ -1,0 +1,28 @@
+
+.load-game-small-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 3;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-small-load-game-small-tooltiptext {
+        visibility: hidden;
+        width: 40px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 22px;
+        left: 86px;
+    }
+
+    .load-game-small-link:hover .navbar-small-load-game-small-tooltiptext {
+        visibility: visible;
+    }

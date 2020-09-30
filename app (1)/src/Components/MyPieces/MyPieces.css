@@ -1,0 +1,61 @@
+.my-pieces-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}
+
+.my-pieces {
+    position: absolute;
+    z-index: inherit;
+    top: 150px;
+    left: 231px;
+    width: 1020px;
+    height: 860px;
+    display: grid;
+    grid-template-columns: 1065px;
+    grid-template-rows: 60px 800px 60px;
+    border: 1px solid #a9a9a9;
+
+}
+
+.my-pieces .top-bar {
+    display: relative;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    width: 1065px;
+    background-color: #515151;
+    border-bottom: 1px solid #707070;
+}
+
+.my-pieces .top-bar .title {
+    position: relative;
+    height: 40px;
+    width: 200px;
+    color: #a9a9a9;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 4px;
+}
+
+.my-pieces-question-mark {
+    position: absolute;
+    top: 10px;
+    left: 202px;
+    width: 30px;
+    height: 30px;
+}
+
+.profiles {
+    position: relative;
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #515151;
+    width: 1065px;
+    overflow: scroll;
+}

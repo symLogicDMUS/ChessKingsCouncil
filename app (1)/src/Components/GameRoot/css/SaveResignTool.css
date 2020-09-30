@@ -1,0 +1,75 @@
+.save-resign-tool {
+    position: absolute;
+    z-index: 1;
+    left: 980px;
+    top: 110px;
+    width: 200px;
+    height: 110px;
+    background-color: green;
+    border-radius: 10px;
+}
+
+.save-game-container {
+    position: absolute;
+    z-index: 1;
+    top: 28px;
+    width: 55px;
+    height: 75px;
+    cursor: pointer;
+    /* outline: 1px dashed gold; */
+}
+
+.save-as-container {
+    position: absolute;
+    z-index: 1;
+    left: 68px;
+    top: 28px;
+    width: 55px;
+    height: 75px;
+    cursor: pointer;
+    /* outline: 1px dashed gold; */
+}
+
+.resign-container {
+    position: absolute;
+    z-index: 1;
+    left: 135px;
+    top: 30px;
+    width: 55px;
+    height: 75px;
+    cursor: pointer;
+    /* outline: 1px dashed gold; */
+}
+
+.save-resign-img {
+    width: 66px;
+    height: 74px;
+}
+
+.game-description {
+    position: absolute;
+    width: 200px;
+    /* border: 1px dashed purple; */
+}
+
+.game-name {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    color: #b1faae;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* border: 1px dashed goldenrod; */
+}
+
+.gen-info {
+    position: absolute;
+    left: 105px;
+    top: 3px;
+    color: #b1faae;
+    font-size: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+}

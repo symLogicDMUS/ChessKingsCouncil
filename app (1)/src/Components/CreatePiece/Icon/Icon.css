@@ -1,0 +1,68 @@
+
+.icon-tool {
+    position: absolute;
+    z-index: 0;
+    left: 876px;
+    top: 228px;
+    width: 400px;
+    height: 147px;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 10px;
+}
+
+.icon-tool .icon-title {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+}
+
+.icon-tool .black-title {
+    position: absolute;
+    z-index: 0;
+    left: 207px;
+    top: 38px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+
+}
+
+.icon-tool .white-title {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 38px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+
+}
+
+.icon-tool .white-window {
+    position: absolute;
+    z-index: 0;
+    height: 75px;
+    width: 75px;
+    top: 62px;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 118px;
+}
+
+.icon-tool .black-window {
+    position: absolute;
+    z-index: 0;
+    height: 75px;
+    width: 75px;
+    top: 62px;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    left: 315px;
+}

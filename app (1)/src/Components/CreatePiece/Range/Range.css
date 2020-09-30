@@ -1,0 +1,74 @@
+.range-tool {
+    position: absolute;
+    z-index: 0;
+    width: 400px;
+    height: 151px;
+    top: 385px;
+    left: 876px;
+    background-color: #515151;
+    border-radius: 15px;
+    border-color: #a9a9a9;
+}
+
+.range-tool .range-title {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+}
+
+
+.range-tool .direction-pad {
+    position: absolute;
+    z-index: 0;
+    size: 100px;
+    left: 290px;
+    top: 41px;
+}
+
+.direction-pad .button-selected {
+    position: absolute;
+    z-index: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #EC2525;
+    border: 1px solid #A9A9A9;
+    border-radius: 5px;
+    cursor: pointer;
+} .button-normal:hover {
+    border-color: #00CCFF;
+}
+
+.direction-pad .button-normal {
+    position: absolute;
+    z-index: 0;
+    width: 30px;
+    height: 30px;
+    background-color: #515151;
+    border: 1px solid #A9A9A9;
+    border-radius: 5px;
+    cursor: pointer;
+} .button-normal:hover {
+    background-color: #a9a9a9;
+}
+
+.button-selected .vector {
+    position: absolute;
+    z-index: 0;
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    top: 5px;
+}
+
+.button-normal .vector {
+    position: absolute;
+    z-index: 0;
+    width: 20px;
+    height: 20px;
+    left: 5px;
+    top: 5px;
+}

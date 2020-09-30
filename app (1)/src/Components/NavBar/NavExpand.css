@@ -1,0 +1,7 @@
+.nav-expand {
+    position: absolute;
+    grid-column: 9;
+    grid-row: 1;
+    border-radius: 2px;
+    cursor: pointer;
+} 

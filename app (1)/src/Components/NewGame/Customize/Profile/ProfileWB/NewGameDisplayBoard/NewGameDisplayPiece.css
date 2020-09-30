@@ -1,0 +1,6 @@
+.new-game-display-piece {
+    position: absolute;
+    z-index: inherit;
+    width: 20px;
+    height: 20px;
+}

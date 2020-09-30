@@ -1,0 +1,25 @@
+.chess-rules-link {
+    grid-row: 1;
+    grid-column: 5;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-chess-rules-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 267px;        
+    }
+
+    .chess-rules-link:hover .navbar-chess-rules-tooltiptext {
+        visibility: visible;
+    }

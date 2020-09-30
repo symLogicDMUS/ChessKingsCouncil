@@ -1,0 +1,27 @@
+.nav-bar-small {
+    position: absolute;
+    display: grid;
+    z-index: 0;
+    width: 505px;
+    height: 48px;
+    top: 10px;
+    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px;
+    grid-template-rows: 48px;
+    column-gap: 15px;
+    /*border: 1px dashed white;*/
+}
+
+.grid-item {
+    border-radius: 10px;
+} 
+.link-icon-small {
+    height: 47px;
+    width: 30px;
+    font-size:40px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 30px;
+    max-height: 47px;
+    stroke: 0.5px;
+    /* stroke: black; */
+    stroke-width: 6px;
+}

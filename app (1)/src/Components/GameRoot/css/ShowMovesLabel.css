@@ -1,0 +1,11 @@
+.show-moves-label {
+    position:absolute;
+    width: 140px;
+    height:16px;
+    left:20px;
+    top:14px;
+    text-align:left;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}

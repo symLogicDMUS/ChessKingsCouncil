@@ -1,0 +1,38 @@
+.bottom-bar .ok-inactive {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    width: 96px;
+    height: 34px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 1px;
+    color:#a9a9a9;
+    background-color: #4f4f4f;
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    cursor: not-allowed;
+}
+
+.bottom-bar .ok-active {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    width: 96px;
+    height: 34px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 1px;
+    color:#a9a9a9;
+    background-color: #4f4f4f;
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    cursor: pointer; 
+} .bottom-bar .ok-active:hover {
+    color: #4f4f4f;
+    background-color: #a9a9a9;
+}
+
+

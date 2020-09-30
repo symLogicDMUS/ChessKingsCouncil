@@ -1,0 +1,10 @@
+.chess-rules-regular-link {
+    grid-row: 1;
+    grid-column: 5;
+    font-size:18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 2px;
+    text-decoration: none;
+    /* border: 1px dashed white; */
+}
+

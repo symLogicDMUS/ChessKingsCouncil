@@ -1,0 +1,31 @@
+.new-game-display-board-sqr1 {
+    position: absolute;
+    z-index: inherit;
+    width: 40px;
+    height: 40px;
+    background-color: #707070;
+}
+
+.new-game-display-board-sqr2 {
+    position: absolute;
+    z-index: inherit;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}
+
+.new-game-display-board-span-sqr {
+    position: absolute;
+    z-index: inherit;
+    width: 40px;
+    height: 40px;
+    background-color: #EC2525;
+}
+
+.new-game-display-board-offset-sqr {
+    position: absolute;
+    z-index: inherit;
+    width: 40px;
+    height: 40px;
+    background-color: #8b0000;
+}

@@ -1,0 +1,14 @@
+.name-label {
+    position: absolute;
+    z-index: 0;
+    left: 263px;
+    top: 108px;
+    width: 600px;
+    height: 28px;
+    color: #72e2ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

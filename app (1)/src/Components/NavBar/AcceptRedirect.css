@@ -1,0 +1,21 @@
+.accept-redirect {
+    position: absolute;
+    z-index: inherit;
+    left: 158px;
+    top: 228px;
+    width: 90px;
+    height: 22px;
+    color: #b6b6b6;
+    background-color: #606060;
+    border: 1px solid #606060;
+    border-radius: 7px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-top: 4px;
+    text-align: center;
+    cursor: pointer;
+} .accept-redirect:hover {
+    background-color: #b6b6b6;
+    border: 1px solid #b6b6b6;
+    color: #606060;
+  }

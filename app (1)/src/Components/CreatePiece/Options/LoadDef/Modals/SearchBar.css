@@ -1,0 +1,33 @@
+.create-piece-load-top-bar-search {
+    position: absolute;
+    z-index: inherit;
+    width: 320px;
+    height: 26px;
+    left: 660px;
+    top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #515151;
+    border: 2px solid #707070;
+    border-radius: 9px;
+}
+.create-piece-load-top-bar-search-magnifying-glass {
+    position: absolute;
+    left: 4px; 
+    width:16px; 
+    height:16px;
+    margin-top: 6px;
+}
+.create-piece-load-top-bar-search-box {
+    position: absolute;
+    left: 21px;
+    top: 0px;
+    height: 24px;
+    width: 292px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #c4c4c4;
+    background-color: #515151;
+    border: none;
+    border-radius: 9px;
+    outline: none;
+    /* border: 1px dashed #5c9fd2; */
+}

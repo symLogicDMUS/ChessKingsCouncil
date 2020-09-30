@@ -1,0 +1,18 @@
+.a{
+    clip-path:url(#b);
+}
+.b{
+    font-size:35px;font-family:SitkaDisplay, Sitka Display;
+}
+.c{
+    fill:#fff;
+}
+.icon:hover {
+    fill: white;
+}
+.new-game-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+}

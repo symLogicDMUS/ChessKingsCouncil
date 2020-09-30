@@ -1,0 +1,23 @@
+.new-game-player-type-label {
+    position: absolute;
+    top: 12px;
+    left: 280px;
+    color: #a9a9a9;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.new-game-player-type-dropdown {
+    position: absolute;
+    top: 14px;
+    left: 350px;
+    width: 200px;
+    height: 22px;
+    background-color: #515151;
+    border: 1px solid #707070;
+    color: #a9a9a9;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}

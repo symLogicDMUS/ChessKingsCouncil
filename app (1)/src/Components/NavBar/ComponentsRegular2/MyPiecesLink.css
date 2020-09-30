@@ -1,0 +1,28 @@
+.my-pieces-regular-link2 {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 6;
+    display: grid;
+    grid-template-columns: 30px 85px;
+    grid-template-rows: 31px;
+    border-right: 1px solid #707070;
+}
+.my-pieces-nav-bar-button-icon-container2 {
+    grid-row: 1;
+    grid-column: 1;
+    /* border: 1px dashed white; */
+} 
+
+.my-pieces-nav-bar-button-text-container2 {
+    grid-row: 1;
+    grid-column: 2;
+    width: 87px;
+    height: 31px;
+    text-align: center;
+    padding-top: 6px;
+    color: #b6b6b6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    word-wrap: break-word;
+    /* border: 1px dashed white; */
+} 

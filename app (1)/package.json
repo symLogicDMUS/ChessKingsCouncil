@@ -1,0 +1,64 @@
+{
+  "name": "front-end",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/storage": "^5.3.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@trendmicro/react-grid-system": "^1.1.0",
+    "axios": "^0.20.0",
+    "colors": "^1.4.0",
+    "firebase": "^7.20.0",
+    "react": "^16.13.1",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dom": "^16.13.1",
+    "react-dropdown": "^1.7.0",
+    "react-dropzone": "^11.2.0",
+    "react-firebaseui": "^4.1.0",
+    "react-grid-layout": "^0.18.3",
+    "react-grid-system": "^6.3.0",
+    "react-horizontal-scrolling-menu": "^0.7.7",
+    "react-image-crop": "^8.6.5",
+    "react-onclickoutside": "^6.9.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2",
+    "react-youtube": "^7.6.0",
+    "whatwg-fetch": "^2.0.4",
+    "react-markdown": "^3.3.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "react-scripts": "1.1.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

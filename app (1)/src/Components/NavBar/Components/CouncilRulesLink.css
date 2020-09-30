@@ -1,0 +1,28 @@
+
+.council-rules-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 7;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-council-rules-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 326px;        
+    }
+
+    .council-rules-link:hover .navbar-council-rules-tooltiptext {
+        visibility: visible;
+    }
+    

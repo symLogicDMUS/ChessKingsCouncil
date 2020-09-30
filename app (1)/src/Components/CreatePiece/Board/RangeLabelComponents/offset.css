@@ -1,0 +1,56 @@
+    .offset-label {
+        display: block;
+        height: 15px;
+        width: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        fill: white;    
+    }
+   
+   .x-offset {
+    display: block;
+    height: 20px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 11px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    fill: white;
+
+   }
+   
+   .divider {
+    display: block;
+    width: 60px;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1px;
+   }
+   
+   .y-offset {
+    display: block;
+    width: 40px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    fill: white;
+
+   }
+
+   .span {
+    display: block;
+    width: 40px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    fill: white;
+   }
+
+   

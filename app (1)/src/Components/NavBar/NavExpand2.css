@@ -1,0 +1,7 @@
+.nav-expand2 {
+    position: absolute;
+    width: 10px;
+    height: 31px;
+    border-radius: 2px;
+    cursor: pointer;
+}

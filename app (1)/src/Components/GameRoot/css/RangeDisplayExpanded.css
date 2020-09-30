@@ -1,0 +1,10 @@
+.range-display-expanded {
+    position: absolute;
+    z-index: 1;
+    left: 980px;
+    top: 230px;
+    width: 200px;
+    height: 218px;
+    background-color: green;
+    border-radius: 10px;
+}

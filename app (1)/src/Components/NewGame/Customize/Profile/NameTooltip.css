@@ -1,0 +1,12 @@
+.new-game-name-tooltip {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    word-wrap: break-word;
+    color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}

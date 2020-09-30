@@ -1,0 +1,24 @@
+.new-game-promotion-checkbox {
+    width: 18px; 
+    height: 18px; 
+    margin-top: 5px; 
+    background-color: #515151;
+    border: 2px solid #707070;
+    border-radius: 5px;
+    cursor: pointer;
+} .new-game-promotion-checkbox-selected {
+    width: 18px; 
+    height: 18px; 
+    margin-top: 5px; 
+    background-color: #515151;
+    border: 2px solid #969696;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.new-game-promotion-checkbox-checkmark {
+    position: absolute;
+    max-height: 18px; 
+    max-width: 18px; 
+    padding: 1px;
+    object-fit: contain;
+}

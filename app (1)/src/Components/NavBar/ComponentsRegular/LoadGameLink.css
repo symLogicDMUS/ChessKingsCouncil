@@ -1,0 +1,12 @@
+
+.load-game-regular-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 3;
+    font-size:18px;
+    font-family:Tahoma;
+    padding-top: 2px;
+    text-decoration: none;
+    /* border: 1px dashed white; */
+}
+

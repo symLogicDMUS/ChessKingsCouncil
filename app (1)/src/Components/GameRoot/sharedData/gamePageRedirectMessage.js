@@ -1,0 +1,1 @@
+export const gamePageRedirectMessage = "The game has changed since you last saved. If you leave the page you will lose your progress. Do you want to continue?";

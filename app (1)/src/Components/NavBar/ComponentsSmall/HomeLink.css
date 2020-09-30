@@ -1,0 +1,29 @@
+
+.home-small {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 1;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-small-home-small-tooltiptext {
+        visibility: hidden;
+        width: 40px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 24px;
+        left: -4px;
+        
+    }
+    
+    .home-small:hover .navbar-small-home-small-tooltiptext {
+        visibility: visible;
+    }

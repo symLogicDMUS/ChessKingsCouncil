@@ -1,0 +1,26 @@
+.new-game-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 2;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-new-game-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 68px;
+    }
+    
+    .new-game-link:hover .navbar-new-game-tooltiptext {
+        visibility: visible;
+    }

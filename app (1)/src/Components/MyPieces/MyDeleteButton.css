@@ -1,0 +1,21 @@
+.my-delete-button {
+    position: relative;
+    z-index: inherit;
+    top: 5px;
+    height: 25px;
+    width: 95px;
+    font-size: 15px;
+    padding-top: 5px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #b6b6b6;
+    background-color: #606060;
+    border-radius: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+} .my-delete-button:hover {
+    color: #515151;
+    background-color: #b6b6b6;
+}
+

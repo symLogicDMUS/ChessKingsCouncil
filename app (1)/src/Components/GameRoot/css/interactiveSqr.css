@@ -1,0 +1,30 @@
+
+  .sqr1 {
+    display: inline-block;
+    z-index: 2;
+    width: 75px;
+    height: 75px;  
+  }
+
+  .sqr2 {
+    display: inline-block;
+    z-index: 2;
+    width: 75px;
+    height: 75px;  
+  }
+
+  .sqr1-in-range {
+    display: inline-block;
+    z-index: 2;
+    background-color: #ddff00;
+    width: 75px;
+    height: 75px;  
+  }
+
+  .sqr2-in-range {
+    display: inline-block;
+    z-index: 2;
+    background-color: #fdfd35;
+    width: 75px;
+    height: 75px;  
+  }

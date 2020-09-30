@@ -1,0 +1,30 @@
+.pick-name-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-repeat: repeat;
+    object-fit: none;
+}
+
+.enter-game-name {
+    margin-top: 10%;
+    margin-left: 50%;   
+}
+
+.game-name-form {
+    margin-top: 1%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.game-name-accept-button {
+    margin-top: 1%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 2px;
+    cursor: pointer;
+    font-family: Georgia;
+}

@@ -1,0 +1,54 @@
+
+
+.w-or-b-profile {
+    z-index: inherit;
+    display: grid;
+    height: 180px;
+    grid-template-columns: 150px 420px 420px;
+    grid-template-rows: 30px 150px;
+    column-gap: 20px;
+    margin-top: 20px;
+    margin-left: 5px;
+    background-color: #515151;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+    .w-or-b-profile .my-img-label {
+        grid-column:1;
+        grid-row: 1;
+        font-size: 15px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding-top: 6px;
+        color: #a9a9a9;
+        border: 1px solid #707070;
+    }
+
+    .w-or-b-profile .my-img-window {
+        z-index: inherit;
+        grid-column: 1;
+        grid-row: 2;
+        object-fit: cover;
+        border: 1px solid #707070;
+    }
+
+        .w-or-b-profile .my-img-window img {
+            z-index: inherit;
+            width: 108px; 
+            height: 108px; 
+            padding-bottom: 18px; 
+            border-radius: 5px;
+        }
+
+    .w-or-b-profile .my-spans-label {
+        grid-column: 2;
+        grid-row: 1;
+        
+    }
+
+    .w-or-b-profile .my-offsets-label {
+        grid-column: 3;
+        grid-row: 1;
+        
+    }

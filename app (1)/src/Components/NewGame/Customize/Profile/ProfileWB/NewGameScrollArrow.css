@@ -1,0 +1,32 @@
+
+.new-game-spans-up-arrow {
+    grid-column: 1;
+    grid-row: 1;
+    cursor: pointer;
+}
+
+.new-game-spans-down-arrow {
+    grid-column: 1;
+    grid-row: 7;
+    cursor: pointer;
+}
+
+ .new-game-offsets-up-arrow {
+    grid-column: 1;
+    grid-row: 1;
+    cursor: pointer;
+}
+
+ .new-game-offsets-down-arrow {
+    grid-column: 1;
+    grid-row: 7;
+    cursor: pointer;
+}
+
+.scroll-arrow {
+    position: relative;
+    top: -4px;
+    left: 207px;
+    width: 6px;
+    height: 5px;
+}

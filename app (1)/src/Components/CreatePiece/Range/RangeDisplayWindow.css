@@ -1,0 +1,39 @@
+
+.range-tool .range-display-window {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 41px;
+    width: 241px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: #515151;
+    border: 1px solid #A9A9A9;
+    color: #a9a9a9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.show-spans-label {
+    position: absolute;
+    top: 3px;
+    width: 68px;
+    height: 10px;
+    text-align: left;
+    font-size: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+    /* border: 1px dashed white; */
+}
+
+.show-offsets-label {
+    position: absolute;
+    top: 3px;
+    left: 86px;
+    width: 68px;
+    height: 10px;
+    text-align: left;
+    font-size: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+
+}

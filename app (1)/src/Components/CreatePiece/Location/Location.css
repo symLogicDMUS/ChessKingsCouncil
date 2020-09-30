@@ -1,0 +1,67 @@
+.location-tool {
+    position: absolute;
+    z-index: 0;
+    width: 400px;
+    height: 84px;
+    top: 546px;
+    left: 876px;
+    border-radius: 10px;
+    background-color: #515151;
+    border-color: #a9a9a9;
+}
+
+.location-tool .location-title {
+    position: absolute;
+    z-index: 0;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+}
+
+.location-tool .location-button-normal {
+    position: absolute;
+    z-index: 0;
+    width: 30px;
+    height: 30px;
+    top: 38px;
+    border-radius: 5px;
+    color: #a9a9a9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #515151;
+    border: solid 1px #515151;
+    cursor: pointer;
+}
+
+.location-tool .location-button-normal:hover {
+    background-color: #a9a9a9;
+}
+
+.location-tool .location-button-selected {
+        position: absolute;
+        z-index: 0;
+        width: 30px;
+        height: 30px;
+        top: 38px;
+        border-radius: 5px;
+        color: #a9a9a9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #EC2525;
+        border: solid 1px #EC2525;
+        cursor: pointer;
+}
+
+.location-button-normal .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 8px;
+    left: 6px;
+}
+
+.location-button-selected .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 8px;
+    left: 6px;
+}

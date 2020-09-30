@@ -1,0 +1,18 @@
+﻿@charset "utf-8";
+
+.a{
+    clip-path:url(#b);
+}
+.b{
+    font-size:28px;font-family:Georgia;
+}
+
+.d{
+	fill: black;
+}
+.council-rules-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+background-position: center center;
+}

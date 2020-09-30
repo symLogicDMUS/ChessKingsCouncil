@@ -1,0 +1,27 @@
+
+.load-game2-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 3;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar2-load-game2-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: #0CC;
+        font-family: Georgia;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+        left: 133px;
+    }
+
+    .load-game2-link:hover .navbar2-load-game2-tooltiptext {
+        visibility: visible;
+    }

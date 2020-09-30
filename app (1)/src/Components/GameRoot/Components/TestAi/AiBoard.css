@@ -1,0 +1,9 @@
+.test-ai-board {
+    position: absolute;
+    z-index: 2;
+    width: 600px;
+    height: 600px;
+    left: 468px;
+    top: 100px;
+    line-height: 0;
+}

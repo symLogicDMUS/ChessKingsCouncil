@@ -1,0 +1,25 @@
+.help-component {
+    position: absolute;
+    cursor: pointer;
+}
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip_right */
+  
+  .help-component .help-tooltiptext {
+    visibility: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -6px;
+    left: 105%;
+    
+  }
+  
+  .help-component:hover .help-tooltiptext {
+    visibility: visible;
+  }

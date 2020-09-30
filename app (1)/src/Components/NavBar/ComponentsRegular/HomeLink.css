@@ -1,0 +1,12 @@
+
+.home-regular {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 1;
+    font-size:18px;
+    font-family:Tahoma;
+    padding-top: 2px;
+    text-decoration: none;
+    /* border: 1px dashed white; */
+}
+

@@ -1,0 +1,8 @@
+.nav-bar-regular3 {
+    display: grid;
+    z-index: 0;
+    width: 620px;
+    height: 45px;
+    grid-template-columns: 112px 112px 112px 112px 112px 112px 112px 112px 20px;
+    grid-template-rows: 45px;
+}

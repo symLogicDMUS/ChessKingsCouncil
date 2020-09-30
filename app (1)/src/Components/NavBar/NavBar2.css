@@ -1,0 +1,32 @@
+.nav-bar2 {
+    position: absolute;
+    display: grid;
+    z-index: 0;
+    width: 505px;
+    height: 50px;
+    left: 320px;
+    top: 10px;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: 68px;
+    column-gap: 15px;
+    /*border: 1px dashed white;*/
+}
+
+.grid-item {
+    border-radius: 10px;
+} 
+.link-icon2 {
+    height: 67px;
+    width: 50px;
+    font-size:57px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 50px;
+    max-height: 67px;
+    stroke: 0.5px;
+    stroke: #515151;
+    /* stroke: black; */
+    stroke-width: 6px;
+}
+.link-icon2:hover {
+    stroke: #0CC;
+}

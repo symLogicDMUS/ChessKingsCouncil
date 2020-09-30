@@ -1,0 +1,26 @@
+.author-github-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 8;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-author-github-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 457px;  
+    }
+
+    .author-github-link:hover .navbar-author-github-tooltiptext {
+        visibility: visible;
+    }

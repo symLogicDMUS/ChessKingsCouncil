@@ -1,0 +1,28 @@
+.created-piece-load-button {
+    position: relative;
+    left: 906px;
+    top: 10px;
+    width: 100px;
+    height: 30px;
+    color: #ffffff;
+    background-color: #5a5a5a;
+    border: 1px solid #7e7e7e;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+.created-piece-load-button-active {
+    cursor: pointer;
+} .created-piece-load-button-active:hover {
+    color: #515151;
+    background-color: #a9a9a9;
+}
+
+.created-piece-load-button-inactive {
+    cursor: not-allowed;
+}

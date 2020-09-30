@@ -1,0 +1,8 @@
+.pick-type-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-repeat: repeat;
+    object-fit: none;
+}
+.a{clip-path:url(#b);}
+.b{font-size:35px;font-family:SitkaDisplay, Sitka Display;}
+.c{fill:#fff;}

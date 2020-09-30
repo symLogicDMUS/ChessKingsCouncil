@@ -1,0 +1,41 @@
+.nav-bar-regular {
+    position: absolute;
+    display: grid;
+    z-index: 0;
+    width: 610px;
+    height: 32px;
+    grid-template-columns: 75px 75px 75px 75px 75px 75px 75px 75px 10px;
+    grid-template-rows: 27px;
+} 
+
+
+.nav-bar-button-icon-container {
+    position: relative;
+    left: 10px;
+    top: 5px;
+    width: 20px;
+    height: 13px;
+} 
+
+.nav-bar-button-text-container {
+    position: relative;
+    left: 35px;
+    top: -10px;
+    width: 32px;
+    height: 13px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 8px;
+    word-wrap: break-word;
+} 
+.nav-bar-button-text-container-first {
+    position: relative;
+    top: -6px;
+    left: 35px;
+    width: 32px;
+    height: 13px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 8px;
+    word-wrap: break-word;
+}

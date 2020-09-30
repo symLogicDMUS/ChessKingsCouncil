@@ -1,0 +1,6 @@
+.piece {
+    position: absolute;
+    z-index: 1;
+    width: 75px;
+    height: 75px;
+  }

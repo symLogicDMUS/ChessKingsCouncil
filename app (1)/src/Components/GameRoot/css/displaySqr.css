@@ -1,0 +1,22 @@
+.dark {
+    position: absolute;
+    z-index: 0;
+    width: 75px;
+    height: 75px;  
+    background-color: #008000;
+  } 
+  
+  .dark:hover { 
+    background: #00CCFF;
+  }
+
+  .light {
+    position: absolute;
+    z-index: 0;       
+    width: 75px;
+    height: 75px;
+    background-color: #ffffff;
+  } 
+  .light:hover { 
+    background: #00CCFF;
+  }

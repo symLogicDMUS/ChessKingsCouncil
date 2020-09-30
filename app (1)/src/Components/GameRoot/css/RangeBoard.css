@@ -1,0 +1,41 @@
+.range-display-board {
+    position: absolute;
+    z-index: 1;
+    left: 20px;
+    top: 38px;
+    width: 160px;
+    height: 160px;
+    border: 1px solid #b1faae;
+}
+
+.range-display-board .sqr1 {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: green;
+}
+
+.range-display-board .sqr2 {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+}
+
+.range-display-board .sqr-highlight1 {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(221, 255, 0);
+}
+
+.range-display-board .sqr-highlight2 {
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(253, 253, 53);
+}

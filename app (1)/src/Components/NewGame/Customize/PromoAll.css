@@ -1,0 +1,55 @@
+.new-game-promo-all {
+    position: absolute;
+    z-index: 3;
+    display: grid;
+    left: 572px;
+    top: 6px;
+    grid-template-columns: 98px 25px; 
+    grid-template-rows: 36px; 
+    text-align: left;
+}
+
+.new-game-promo-all-label {
+    grid-column: 1;
+    font-size: 20px;
+    padding-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+    /* border: 1px dashed white; */
+}
+
+.new-game-promo-all-checkbox-container {
+    grid-column: 2;
+    /* border: 1px dashed white;  */
+}
+
+.new-game-promo-all-checkbox {
+    position: relative;
+    top: 9px;
+    width: 18px; 
+    height: 18px; 
+    background-color: #515151;
+    border: 2px solid #707070;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+
+.new-game-promo-all-checkbox-selected {
+    position: relative;
+    top: 9px;
+    width: 18px; 
+    height: 18px; 
+    background-color: #515151;
+    border: 2px solid #969696;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+.new-game-checked {
+    position: absolute;
+    max-height: 18px; 
+    max-width: 18px; 
+    padding: 1px;
+    object-fit: contain;
+}

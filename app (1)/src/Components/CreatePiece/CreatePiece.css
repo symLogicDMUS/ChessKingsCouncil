@@ -1,0 +1,16 @@
+
+    .create-piece-body {
+      background-image: url("/Images/Backgrounds/y-so-serious.png");
+      background-repeat: repeat;
+      object-fit: none;
+    }
+
+    .options-title {
+      position: absolute;
+      z-index: 0;
+      left: 886px;
+      top: 650px;
+      font-size: 16px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #a9a9a9;
+  }

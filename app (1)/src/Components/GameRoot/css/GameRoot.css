@@ -1,0 +1,7 @@
+  
+  .game-root-body {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+  }

@@ -1,0 +1,22 @@
+export const imgNames =
+['black_firehat.svg',
+ 'black_jester.svg',
+ 'evil_morty_red.svg',
+ 'evil_morty_white.svg',
+ 'white_firehat.svg',
+ 'white_jester.svg',
+ 'Tux_red.svg',
+ 'Tux_white.svg',
+ 'Timberwolf_black.png',
+ 'Timberwolf_white.png',
+ 'x-wing-white.svg',
+ 'x-wing-black.svg',
+ 'white-gem.svg',
+ 'black-gem.svg',
+ "Octocat-black.svg",
+ "Octocat-white.svg",
+ "black_duke.svg",
+ "white_duke.svg",
+ "white-dragon.svg",
+ "black-dragon.svg"
+];

@@ -1,0 +1,26 @@
+.my-pieces-link {
+    z-index: inherit;
+    grid-row: 1;
+    grid-column: 6;
+    /*border: 1px dashed white;*/
+}
+
+    .navbar-my-pieces-tooltiptext {
+        visibility: hidden;
+        width: 45px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        top: 60px;
+        left: 395px;         
+    }
+
+    .my-pieces-link:hover .navbar-my-pieces-tooltiptext {
+        visibility: visible;
+    }
