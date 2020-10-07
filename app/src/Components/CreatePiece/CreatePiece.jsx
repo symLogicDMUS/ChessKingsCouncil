@@ -136,6 +136,7 @@ export class CreatePiece extends React.Component {
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
+        this.setCurrentIconColor = this.setCurrentIconColor.bind(this);
         this.showChooseModal = this.showChooseModal.bind(this);
         this.closeChooseModal = this.closeChooseModal.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
@@ -398,12 +399,18 @@ export class CreatePiece extends React.Component {
          }           
     }
     
+    setCurrentIconColor(color) {
+        this.currentIconColor = color;
+        this.update();
+    }
+
     showChooseModal(color) {
         this.currentIconColor = color;
         this.setState({chooseModal: true});
     }
 
     closeChooseModal() {
+        this.currentIconColor = null;
         this.setState({chooseModal: false});
     }
 
@@ -432,6 +439,8 @@ export class CreatePiece extends React.Component {
                       setHelpText={this.setHelpText} 
                       togleHelpModal={this.togleHelpModal}
                       showChooseModal={this.showChooseModal}
+                      currentIconColor={this.currentIconColor}
+                      setCurrentIconColor={this.setCurrentIconColor}
                       setUnsaved={this.setUnsaved} />
                 <Location activeLocation={this.location} 
                           setLoc={this.setLoc} 

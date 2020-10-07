@@ -1,38 +1,43 @@
 .icon-tool .white-upload {
-    z-index: 0;
     position: absolute;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
-    cursor: pointer;
+    z-index: 0;
     left: 10px;
     top: 62px;
     width: 98px;
-    height: 32px;
+    height: 25px;
+    color: #bbbbbb;
+    background-color: #515151;    
+    border: solid 1px #a9a9a9;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 6px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+
 } .white-upload:hover {
-    /* color: #00CCFF;
-    border-color: #00CCFF; */
     color: white;
     background-color: #a9a9a9;
 }
 
 .icon-tool .black-upload {
-    z-index: 0;
     position: absolute;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
-    cursor: pointer;
+    z-index: 0;
     left: 207px;
     top: 62px;
     width: 98px;
-    height: 32px;
+    height: 25px;
+    color: #bbbbbb;
+    background-color: #515151;    
+    border: solid 1px #a9a9a9;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 6px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+
 } .black-upload:hover {
-    /* color: #00CCFF;
-    border-color: #00CCFF; */
     color: white;
     background-color: #a9a9a9;
-
 }

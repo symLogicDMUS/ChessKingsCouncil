@@ -11,8 +11,6 @@
     width: 98px;
     height: 32px;
 }.white-choose:hover {
-    /* color: #00CCFF;
-    border-color: #00CCFF; */
     color: white;
     background-color: #a9a9a9;
 }
@@ -30,8 +28,6 @@
     width: 98px;
     height: 32px;
 } .black-choose:hover {
-    /* color: #00CCFF;
-    border-color: #00CCFF; */
     color: white;
     background-color: #a9a9a9;
 }

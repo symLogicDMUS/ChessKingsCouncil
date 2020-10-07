@@ -2,7 +2,7 @@ import React from "react";
 import "./UploadButton.css";
 
 
-export class UploadButton extends React.Component {
+export class UploadButtonBlack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {bValue: true}
@@ -19,39 +19,25 @@ export class UploadButton extends React.Component {
         myFileItemReader.addEventListener(
             "load", 
             () => {
-                this.imgStr = myFileItemReader.result;
-                const imgStr = this.imgStr;
-                this.imgStr = null;
+                const imgStr = myFileItemReader.result;
                 this.props.setUnsaved(true);
-                this.props.setPieceImg(this.props.color, imgStr);
-                //this.setState({bValue: ! this.state.bValue}) 
+                this.props.setPieceImg("black", imgStr);
             }, 
             false
         );
 
         myFileItemReader.readAsDataURL(currentFile);
-        
     }
 
     render() {
 
-        // if (this.props.currentIconColor) {
             return(
                 <div>
-                    <label htmlFor="choose-img" className={`${this.props.color}-upload`}>
+                    <label htmlFor="choose-img" className="black-upload">
                         Upload...
                     </label>
                     <input id="choose-img" type="file" onChange={this.handleChange} style={{display: "none"}} />
                 </div>
-            )            
-        // }
-
-    //     else {
-    //         return (
-    //             <button className={`${this.props.color}-upload`} onClick={this.props.setCurrentIconColor}>
-    //                 Upload...
-    //             </button>
-    //         )
-    //     }
+            )
     }
 }

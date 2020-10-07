@@ -1,4 +1,4 @@
-./node_modules
+node_modules/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -135,3 +135,4 @@ python_backend/db_setup.py
 python_backend/run_setup
 docker_rmi.py
 TODO.txt
+.vscode/launch.json
