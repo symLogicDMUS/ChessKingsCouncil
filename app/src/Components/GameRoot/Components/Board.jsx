@@ -26,7 +26,7 @@ export class Board extends React.Component {
     getInteractiveBoard() {
 
         let squares = [];
-        let imgName = null;
+        let pieceImgBase64Str = null;
         for (var rf of rankfiles) {
 
             if (this.props.gameroot.board[rf] === '#') {
@@ -38,10 +38,10 @@ export class Board extends React.Component {
             }
 
             else {
-                imgName = getPieceImg(this.props.gameroot.board[rf], this.props.gameroot.idDict, this.props.gameroot.pieceDefs);
+                pieceImgBase64Str = getPieceImg(this.props.gameroot.board[rf], this.props.gameroot.idDict, this.props.gameroot.pieceDefs);
                 squares.push(
                     <Square sqr_color={sqrClasses[rf]} pos={rf} gameroot={this.props.gameroot} >
-                        <Piece pos={rf} id_={this.props.gameroot.board[rf]} img_={imgName} />
+                        <Piece pos={rf} id_={this.props.gameroot.board[rf]} pieceImgBase64Str={pieceImgBase64Str} />
                     </Square>
                 );
             }

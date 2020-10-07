@@ -1,5 +1,6 @@
 import React from "react";
-import {imgNames} from "../../../MyPieces/imgNames";
+import {getImgDict} from "../../../../API/getImgDict";
+import {getSampleImgs} from "../../../../apiHelpers/getSampleImgs"
 import {ImgChoice} from "./ImgChoice.jsx";
 import {Ok} from "./IconChooseOk";
 import {SearchBar} from "./SearchBar";
@@ -9,7 +10,9 @@ export class ChooseModal  extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {choice: null};
+        this.state = {imgNameChoice: null, bValue: true};
+        this.imgDict = null;
+        this.imgNames = null;
         this.searchText = "";
         this.closeChoose = this.closeChoose.bind(this);
         this.setChoice = this.setChoice.bind(this);
@@ -17,7 +20,22 @@ export class ChooseModal  extends React.Component {
         this.updateSearch = this.updateSearch.bind(this);
         this.showHideClassName = this.props.show ? "choose-modal display-block" : "choose display-none";
     }
-    
+   
+    componentDidMount() {
+        getImgDict().then( ([imgDict]) => {
+            
+            if (! imgDict) {
+                this.imgDict = getSampleImgs()
+            }
+            else {
+                this.imgDict = imgDict;
+            }
+            
+            this.imgNames = Object.keys(this.imgDict)
+        });
+        this.setState({bValue: ! this.state.bValue});
+    }
+
     updateSearch(searchText) {
         this.searchText = searchText;
         this.setState({binaryValue: ! this.state.binaryValue})
@@ -27,29 +45,36 @@ export class ChooseModal  extends React.Component {
         this.props.closeChoose(this.props.color);
     }
     
-    setChoice(choice) {
-        if (this.state.choice === choice)
-            this.setState({choice: null})
+    setChoice(imgNameChoice) {
+        if (this.state.imgNameChoice === imgNameChoice)
+            this.setState({imgNameChoice: null})
         else
-            this.setState({choice: choice})
+            this.setState({imgNameChoice: imgNameChoice})
     }
 
     submitChoice() {
         this.props.setUnsaved(true);
-        this.props.setImg(this.props.color, this.state.choice);
+        this.props.setPieceImg(this.props.color, this.imgDict[this.state.imgNameChoice]);
     }
 
     applySearchFilter() {
         if (this.searchText !== "")
-            return imgNames.filter(imgName => imgName.toLowerCase().startsWith(this.searchText));
+            return this.imgNames.filter(imgName => imgName.toLowerCase().startsWith(this.searchText));
         else
-            return imgNames;
+            return this.imgNames;
     }
 
     getImages() {
         let imageNames = this.applySearchFilter();
         let imgPrevs = [];
-        imageNames.forEach(name => {imgPrevs.push(<ImgChoice name={name} choice={this.state.choice} setChoice={this.setChoice} />)})
+        imageNames.forEach(name => {imgPrevs.push(
+            <ImgChoice 
+              name={name} 
+              base64ImgStr={this.imgDict[name]} 
+              imgNameChoice={this.state.imgNameChoice} 
+              setChoice={this.setChoice} 
+            />
+        )})
         return imgPrevs;
     }
 
@@ -71,7 +96,7 @@ export class ChooseModal  extends React.Component {
                         {this.getImages()}
                     </div>
                     <div className="bottom-bar">
-                        <Ok choice={this.state.choice} submitChoice={this.submitChoice} closeChoose={this.closeChoose} />
+                        <Ok imgNameChoice={this.state.imgNameChoice} submitChoice={this.submitChoice} closeChoose={this.closeChoose} />
                     </div>
                 </div>                
             </div>

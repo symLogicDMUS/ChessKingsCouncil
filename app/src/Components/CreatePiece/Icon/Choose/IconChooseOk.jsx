@@ -19,7 +19,7 @@ export class Ok extends React.Component {
     render() {
 
         this.class_ = "ok-inactive"
-        if (this.props.choice != null)
+        if (this.props.imgNameChoice != null)
             this.class_ = "ok-active";
 
         return(

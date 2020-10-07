@@ -14,7 +14,7 @@ export class RangePiece extends React.Component {
 
     render() {
         return (
-            <img src={`/Images/Pieces/${this.props.imgName}`} className="range-display-piece" onClick={this.updatePrh}/>
+            <img src={this.props.pieceImgBase64Str} className="range-display-piece" onClick={this.updatePrh}/>
         );
     } 
 }

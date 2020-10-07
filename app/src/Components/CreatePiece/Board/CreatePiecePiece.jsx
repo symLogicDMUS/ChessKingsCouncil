@@ -9,6 +9,10 @@ export class CreatePiecePiece extends React.Component {
     }
 
     render() {
-        return <div className="my-piece">{this.props.pieceImg}</div>
+        return (
+            <div className="my-piece">
+                <img src={this.props.pieceImgBase64Str} width="75px" height="75px" alt="icon of a piece" />
+            </div>
+        )
     }      
 }

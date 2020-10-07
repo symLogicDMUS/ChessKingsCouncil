@@ -32,7 +32,7 @@ export class CreatePieceBoard extends React.Component {
                 showOffsetText={this.props.showOffsetText}
                 setUnsaved={this.props.setUnsaved}
                 >
-                    <Piece pieceImg={this.props.pieceImg} />
+                    <Piece pieceImgBase64Str={this.props.pieceImgBase64Str} />
                 </Square>
                 ); 
             }

@@ -60,13 +60,13 @@ export class CreatePiece extends React.Component {
             "135d":false
         }
         this.offsets = [];
-        this.imgNames = {"white":null, "black":null};
 
         //static copies so can reset if want to:
         this.loadedName = null;
         this.loadedSpans = null; 
         this.loadedOffsets = null;
-        this.loadedImgNames = null;
+
+        this.pieceImg = {"white":null, "black":null};
 
         //true values rendered highlight color (currently red) as part of span.
         this.spanDisplays = { 
@@ -94,7 +94,6 @@ export class CreatePiece extends React.Component {
         };
 
         // will be set to a <img src=""" /> jsx
-        this.pieceImg = {"white":null, "black":null}
         
         //to use for spans, update by Location:
         this.location = "d4"        
@@ -174,18 +173,14 @@ export class CreatePiece extends React.Component {
         this.name = pieceName;
         this.spans = getSpansDict(this.defs[pieceName]['W']['spans']);
         this.offsets = this.defs[pieceName]['W']['offsets'];
-        this.imgNames = { "white": this.defs[pieceName]['W']['img'],
+        this.pieceImg = { "white": this.defs[pieceName]['W']['img'],
                           "black": this.defs[pieceName]['B']['img']}
         
         // provide static copy so that can reset if want to:
         this.loadedName = JSON.parse(JSON.stringify(this.name));
         this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
         this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
-        this.loadedImgNames = JSON.parse(JSON.stringify(this.imgNames));
-        
-        this.pieceImg['white'] = <img src={`/Images/Pieces/${this.imgNames['white']}`} width="75px" height="75px" alt="icon of a white piece" />
-        this.pieceImg['black'] = <img src={`/Images/Pieces/${this.imgNames['black']}`} width="75px" height="75px" alt="icon of a black piece" />
-        
+                
         //reminder: calls this.update() at end
         this.setLoc("d4");
         
@@ -213,7 +208,7 @@ export class CreatePiece extends React.Component {
             return
         }
         
-        if (this.imgNames['white'] === null || this.imgNames['black'] === null) {
+        if (this.pieceImg['white'] === null || this.pieceImg['black'] === null) {
             this.setSaveStatus('no-icon');
             return
         }        
@@ -233,8 +228,8 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]['B']['spans'] = getStepFuncNames(getRotations(angles, 180));
         this.defs[this.name]['W']["offsets"] = this.offsets;
         this.defs[this.name]['B']["offsets"] = flipOffsets(this.offsets);
-        this.defs[this.name]['W']['img'] = this.imgNames['white'];
-        this.defs[this.name]['B']['img'] = this.imgNames['black'];
+        this.defs[this.name]['W']['img'] = this.pieceImg['white'];
+        this.defs[this.name]['B']['img'] = this.pieceImg['black'];
 
         saveDef(this.name, this.defs[this.name]).then(([response]) => {
             this.setSaveStatus("success");
@@ -255,9 +250,8 @@ export class CreatePiece extends React.Component {
         this.update();
     }
 
-    setPieceImg(color, imgName) {
-        this.imgNames[color] = imgName;
-        this.pieceImg[color] = <img src={`/Images/Pieces/${imgName}`} width="75px" height="75px" alt="icon of a piece" />
+    setPieceImg(color, pieceImgBase64Str) {
+        this.pieceImg[color] = pieceImgBase64Str;
         this.update();
     }
 
@@ -381,7 +375,6 @@ export class CreatePiece extends React.Component {
         Object.keys(this.spanDisplays).forEach(rf => {this.spanDisplays[rf] = false});
         Object.keys(this.jumpDisplays).forEach(rf => {this.jumpDisplays[rf] = false});
         this.name = "";
-        this.imgNames = {"white":null, "black":null};
         this.pieceImg = {"white":null, "black":null};
         this.location = "d4"; 
         this.offsets = []; 
@@ -397,7 +390,6 @@ export class CreatePiece extends React.Component {
             this.name = JSON.parse(JSON.stringify(this.loadedName));
             this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
             this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
-            this.imgNames = JSON.parse(JSON.stringify(this.loadedImgNames));
             this.setLoc(this.location);
          }           
     }
@@ -422,7 +414,7 @@ export class CreatePiece extends React.Component {
                        togleHelpModal={this.togleHelpModal} 
                        setUnsaved={this.setUnsaved} />
                 <Icon pieceImg={this.pieceImg} 
-                      setImg={this.setPieceImg} 
+                      setPieceImg={this.setPieceImg} 
                       updateParent={this.update} 
                       setHelpText={this.setHelpText} 
                       togleHelpModal={this.togleHelpModal}

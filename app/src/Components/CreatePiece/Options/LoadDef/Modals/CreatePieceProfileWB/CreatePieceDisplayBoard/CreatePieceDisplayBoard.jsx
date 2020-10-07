@@ -117,7 +117,7 @@ export class CreatePieceDisplayBoard extends React.Component {
             if (rf === this.props.location) {
                 squares.push (
                     <Square class_={this.getSqrClass(rf)} pxPos={getPosPx(rf, 40, 320)}>
-                        <Piece imgName={this.props.def['img']} />
+                        <Piece pieceImgBase64Str={this.props.def['img']} />
                     </Square>
                 )
             }

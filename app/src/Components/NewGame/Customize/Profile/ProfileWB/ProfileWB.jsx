@@ -20,7 +20,7 @@ export class ProfileWB extends React.Component {
             <div className="new-game-w-or-b-profile">
                 <div className="new-game-w-or-b-profile-img-label"> {this.color} Image </div>
                 <div className="new-game-w-or-b-profile-img-window">
-                    <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}} alt="icon of a piece"/>
+                    <img src={this.props.def.img} style={{maxHeight:"159px"}} alt="icon of a piece"/>
                 </div>
                 <NewGameProfileWBHeader class_="new-game-spans-header"
                                         expand={this.props.expand}

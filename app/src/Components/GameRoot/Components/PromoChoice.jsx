@@ -1,7 +1,6 @@
 import React from "react";
-import {imgNames} from  "../../MyPieces/imgNames";
-import {pieceImgDict} from "../../MyPieces/pieceImgDict";
 import "../css/Promo.css";
+
 
 export class PromoChoice extends React.Component {
 
@@ -17,7 +16,7 @@ export class PromoChoice extends React.Component {
             this.class_ = "promo-choice-selected";
 
         return (
-                <img src={`/Images/Pieces/${this.props.imgName}`} className={this.class_} />
+                <img src={this.props.pieceImgBase64Str} className={this.class_} />
         );
     }
 

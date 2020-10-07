@@ -1,11 +1,11 @@
 import React from "react";
 import "./CreatePieceDisplayPiece.css";
 
-export function CreatePieceDisplayPiece({imgName}) {
+export function CreatePieceDisplayPiece({pieceImgBase64Str}) {
 
 
         return ( 
-            <img src={`/Images/Pieces/${imgName}`} 
+            <img src={pieceImgBase64Str} 
                  style = {{
                     position: "absolute",
                     zIndex: "inherit",

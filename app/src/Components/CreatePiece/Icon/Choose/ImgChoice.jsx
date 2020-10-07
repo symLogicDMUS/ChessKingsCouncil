@@ -15,12 +15,12 @@ export class ImgChoice extends React.Component {
     render() {
 
         let class_ = "profile"
-        if (this.props.name === this.props.choice)
+        if (this.props.name === this.props.imgNameChoice)
             class_ = "selected-profile";
 
         return(
             <div className={class_} onClick={this.setChoice}>
-                <img src={`/Images/Pieces/${this.props.name}`} className="image" alt="list of icons that can be used as pieces" />
+                <img src={this.props.base64ImgStr} className="image" alt="list of icons that can be used as pieces" />
                 <br />
                 {this.props.name}
             </div>

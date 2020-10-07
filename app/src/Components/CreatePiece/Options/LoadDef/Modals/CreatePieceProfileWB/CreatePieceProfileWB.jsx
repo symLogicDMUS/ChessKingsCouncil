@@ -20,7 +20,7 @@ export class CreatePieceProfileWB extends React.Component {
             <div className="create-piece-w-or-b-profile">
                 <div className="create-piece-w-or-b-profile-img-label"> {this.color} Image </div>
                 <div className="create-piece-w-or-b-profile-img-window">
-                    <img src={`/Images/Pieces/${this.props.def.img}`} style={{maxHeight:"159px"}}/>
+                    <img src={this.props.def.img} style={{maxHeight:"159px"}}/>
                 </div>
                 <CreatePieceProfileWBHeader class_="create-piece-spans-header"
                                         expand={this.props.expand}

@@ -39,17 +39,19 @@ export class Promo extends React.Component {
 
     getPromoChoices() {
         let pieceName = null;
-        let imgName = null;
+        let pieceImgBase64Str = null;
         let promoChoices = [];
         for (var id of Object.keys(this.props.idDict)) {
             pieceName = this.props.idDict[id];
             if (this.props.promoChoices.includes(pieceName)) {
-                imgName = this.props.pieceDefs[pieceName][this.props.color]["img"];
-                promoChoices.push(<PromoChoice  
-                    key={id}
-                    imgName={imgName}
-                    selected={this.state.selected}
-                />);
+                pieceImgBase64Str = this.props.pieceDefs[pieceName][this.props.color]["img"];
+                promoChoices.push(
+                    <PromoChoice  
+                      key={id}
+                      pieceImgBase64Str={pieceImgBase64Str}
+                      selected={this.state.selected} 
+                    />
+                );
             }
         }
 

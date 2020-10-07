@@ -5,7 +5,7 @@ export function NewGameDisplayPiece({imgName}) {
 
 
         return ( 
-            <img src={`/Images/Pieces/${imgName}`} 
+            <img src={imgName} 
                  style = {{
                     position: "absolute",
                     zIndex: "inherit",

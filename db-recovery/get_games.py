@@ -1,4 +1,5 @@
 import os
+import json
 from get_data import get_data
 from pprint import pprint
 
@@ -6,10 +7,13 @@ from pprint import pprint
 def get_games():
     """ """
     data_dict = {}
-    for game_name in os.listdir('./saved games'):
-        data_dict[game_name] = get_data('saved games', game_name)
-    for game_name in os.listdir('./example_games'):
-        data_dict[game_name] = get_data('example_games', game_name)
+    for game_file in os.listdir("./test_objects/game_entries"):
+        f = open("./test_objects/game_entries/{}".format(game_file), 'r')
+        data = f.read()
+        game_data = json.loads(data)
+        game_name, dot, exten = game_file.partition('.')
+        data_dict[game_name] = game_data
+        f.close()
     return data_dict
 
 
