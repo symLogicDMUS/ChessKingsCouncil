@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {UploadModal} from "./Upload/UploadModal";
-import {ChooseModal} from "./Choose/ChooseModal";
 import {ChooseButton} from "./Choose/ChooseButton";
 import {UploadButton} from "./Upload/UploadButton";
 import {HelpComponent} from "../../Help/HelpComponent";
@@ -10,33 +8,6 @@ import "./Icon.css"
 
 
 export class Icon extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {upload: false, choose: false};
-        this.showChoose = this.showChoose.bind(this);
-        this.closeChoose = this.closeChoose.bind(this);
-        this.showUpload = this.showUpload.bind(this);
-        this.closeUpload = this.closeUpload.bind(this);
-    }
-
-    showChoose(color) {
-        this.color = color;
-        this.setState({choose: true});
-    }
-
-    closeChoose() {
-        this.setState({choose: false});
-    }
-
-    showUpload(color) {
-        this.color = color;
-        this.setState({upload: true})
-    }
-    
-    closeUpload() {
-        this.setState({upload: false});
-    }
 
     render() {
         return(
@@ -58,26 +29,20 @@ export class Icon extends React.Component {
                                    color="#72e2ff"                               
                     />
 
-                    {/*Buttons open Modals*/}
-                    <UploadButton showUpload={this.showUpload} color="white" />
-                    <UploadButton showUpload={this.showUpload} color="black" />
-                    <ChooseButton showChoose={this.showChoose} color="white" />
-                    <ChooseButton showChoose={this.showChoose} color="black" />
-
+                    <UploadButton setPieceImg={this.props.setPieceImg} setUnsaved={this.props.setUnsaved} color="white" />
+                    <UploadButton setPieceImg={this.props.setPieceImg} setUnsaved={this.props.setUnsaved} color="black" />
+                    <ChooseButton showChooseModal={this.props.showChooseModal} color="white" />
+                    <ChooseButton showChooseModal={this.props.showChooseModal} color="black" />
+                    
                     <div className="white-window">
-                        <div>{this.props.pieceImg['white']}</div>
+                        {this.props.pieceImg['white'] ? <img src={this.props.pieceImg['white']} width="75px" height="75px"  /> : null}
                     </div>
                     <div className="black-window">
-                        <div>{this.props.pieceImg['black']}</div>
+                        {this.props.pieceImg['black'] ? <img src={this.props.pieceImg['white']} width="75px" height="75px"  /> : null}
                     </div>
 
                 </div>
-
-                {/*Modals close themselves using parent method prop*/}
-                <UploadModal show={this.state.upload}  hideUpload={this.closeUpload} color={this.color} />
-                <ChooseModal show={this.state.choose} closeChoose={this.closeChoose} setPieceImg={this.props.setPieceImg} color={this.color} setUnsaved={this.props.setUnsaved} />
             </>
-            
         );
     }
 }

@@ -1,23 +1,51 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import "./UploadButton.css";
+
 
 export class UploadButton extends React.Component {
     constructor(props) {
         super(props);
-        this.showUpload = this.showUpload.bind(this);
+        this.state = {bValue: true}
+        this.imgStr = null;
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    showUpload() {
-        this.props.showUpload(this.props.color)
+    handleChange(event) {
+
+        const files = event.target.files;
+        const currentFile = files[0];
+        const myFileItemReader = new FileReader();
+
+        myFileItemReader.addEventListener(
+            "load", 
+            () => {
+                this.imgStr = myFileItemReader.result
+                this.setState({bValue: ! this.state.bValue}) 
+            }, 
+            false
+        );
+
+        myFileItemReader.readAsDataURL(currentFile);
+        
     }
 
     render() {
+
+        if (this.imgStr) {
+            const imgStr = this.imgStr;
+            this.imgStr = null;
+            this.props.setUnsaved(true);
+            this.props.setPieceImg(this.props.color, imgStr);
+        }
+
         return(
-            <Link to="/ComingSoon">
-                <button className={`${this.props.color}-upload`} onClick={this.showUpload}>
+            <div>
+                <label htmlFor="choose-img" className={`${this.props.color}-upload`}>
                     Upload...
-                </button>        
-            </Link>
+                </label>
+                <input id="choose-img" type="file" onChange={this.handleChange} style={{display: "none"}} />
+            </div>
         )
     }
 }

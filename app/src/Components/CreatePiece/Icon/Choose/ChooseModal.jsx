@@ -14,11 +14,9 @@ export class ChooseModal  extends React.Component {
         this.imgDict = null;
         this.imgNames = null;
         this.searchText = "";
-        this.closeChoose = this.closeChoose.bind(this);
         this.setChoice = this.setChoice.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
-        this.showHideClassName = this.props.show ? "choose-modal display-block" : "choose display-none";
     }
    
     componentDidMount() {
@@ -39,10 +37,6 @@ export class ChooseModal  extends React.Component {
     updateSearch(searchText) {
         this.searchText = searchText;
         this.setState({binaryValue: ! this.state.binaryValue})
-    }
-
-    closeChoose() {
-        this.props.closeChoose(this.props.color);
     }
     
     setChoice(imgNameChoice) {
@@ -80,12 +74,10 @@ export class ChooseModal  extends React.Component {
 
     render() {
 
-        this.showHideClassName = this.props.show ? "choose-modal display-block" : "choose display-none";
-        
         return (
-            <div className={this.showHideClassName}>
+            <div className="choose-modal">
                 <div className="choose-main">
-                    <div className="close" onClick={this.closeChoose}>
+                    <div className="close" onClick={this.props.closeChoose}>
                         <img src="/Images/close.svg" className="x" alt="close window"/>
                     </div>
                     <div className="title-div">
@@ -96,7 +88,7 @@ export class ChooseModal  extends React.Component {
                         {this.getImages()}
                     </div>
                     <div className="bottom-bar">
-                        <Ok imgNameChoice={this.state.imgNameChoice} submitChoice={this.submitChoice} closeChoose={this.closeChoose} />
+                        <Ok imgNameChoice={this.state.imgNameChoice} submitChoice={this.submitChoice} closeChoose={this.props.closeChoose} />
                     </div>
                 </div>                
             </div>

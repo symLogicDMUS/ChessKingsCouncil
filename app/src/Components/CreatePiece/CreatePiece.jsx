@@ -22,6 +22,7 @@ import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import { HelpComponent } from "../Help/HelpComponent";
 import {HelpModal} from "../Help/HelpModal";
+import {ChooseModal} from "./Icon/Choose/ChooseModal";
 import {NavBar} from "../NavBar/NavBarRegular";
 import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import {redirectMessageStr} from "./helpers/redirectMessageStr";
@@ -40,7 +41,7 @@ export class CreatePiece extends React.Component {
 
         super(props);
 
-        this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false};
+        this.state = {binaryValue: 0, isHelpModal: false, isLoadModal: false, chooseModal:false};
 
         this.defs = {}
 
@@ -103,6 +104,7 @@ export class CreatePiece extends React.Component {
 
         //attributes for various displays
         this.unsaved = false;
+        this.currentIconColor = null;
         this.showSpanText = true;
         this.showOffsetText = true;
         this.helpTitle = "";
@@ -134,6 +136,8 @@ export class CreatePiece extends React.Component {
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setHelpText = this.setHelpText.bind(this);
+        this.showChooseModal = this.showChooseModal.bind(this);
+        this.closeChooseModal = this.closeChooseModal.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
@@ -394,6 +398,15 @@ export class CreatePiece extends React.Component {
          }           
     }
     
+    showChooseModal(color) {
+        this.currentIconColor = color;
+        this.setState({chooseModal: true});
+    }
+
+    closeChooseModal() {
+        this.setState({chooseModal: false});
+    }
+
     render() {
         
         return(
@@ -418,6 +431,7 @@ export class CreatePiece extends React.Component {
                       updateParent={this.update} 
                       setHelpText={this.setHelpText} 
                       togleHelpModal={this.togleHelpModal}
+                      showChooseModal={this.showChooseModal}
                       setUnsaved={this.setUnsaved} />
                 <Location activeLocation={this.location} 
                           setLoc={this.setLoc} 
@@ -480,6 +494,10 @@ export class CreatePiece extends React.Component {
                                                        togleHelpModal={this.togleHelpModal}>
                                                 {this.getHelpModalChild()}
                                             </HelpModal> )}
+                {this.state.chooseModal && (<ChooseModal closeChooseModal={this.props.closeChooseModal} 
+                                                         setPieceImg={this.props.setPieceImg} 
+                                                         color={this.currentIconColor} 
+                                                         setUnsaved={this.props.setUnsaved} />)}
                 {this.navExpanded && (<NavBar currentPage="/CreatePiece"
                                               togleHelpModal={this.togleHelpModal}
                                               setHelpText={this.setHelpText}
