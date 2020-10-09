@@ -25,7 +25,7 @@ export class BlankDef extends React.Component {
 
     clear() {
         this.props.setUnsaved(true);
-        this.props.clear();
+        this.props.eraseRange();
     }
 
     render() {

@@ -1,8 +1,5 @@
-import os
-import json
 import base64
-from pprint import pprint
-from test_objects.write_json import write_json
+from write_json import write_json
 
 
 def get_special_piece_b64():

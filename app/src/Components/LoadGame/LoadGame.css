@@ -1,11 +1,11 @@
-.container { 
+.load-game { 
     height: 200px;
     position: relative;
     vertical-align: top;
     cursor: pointer; 
   }
   
-  .load-game {
+  .load-game-text {
       margin: 0;
       position: absolute;
       top: 50%;

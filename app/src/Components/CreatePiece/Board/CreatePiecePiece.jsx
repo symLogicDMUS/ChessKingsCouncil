@@ -3,7 +3,6 @@ import "../CreatePiece.css";
 import "./CreatePiecePiece.css";
 
 export class CreatePiecePiece extends React.Component {
-    
     constructor(props) {
         super(props);
     }
@@ -11,8 +10,10 @@ export class CreatePiecePiece extends React.Component {
     render() {
         return (
             <div className="my-piece">
-                <img src={this.props.pieceImgBase64Str} width="75px" height="75px" alt="icon of a piece" />
+                {this.props.pieceImgBase64Str ? (
+                    <img src={this.props.pieceImgBase64Str} width="75px" height="75px" alt="icon of a piece" />
+                ) : null}
             </div>
-        )
-    }      
+        );
+    }
 }

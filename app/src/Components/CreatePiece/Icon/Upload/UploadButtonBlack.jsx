@@ -1,4 +1,5 @@
 import React from "react";
+import {saveImg} from "../../../../API/saveImg";
 import "./UploadButton.css";
 
 
@@ -6,7 +7,6 @@ export class UploadButtonBlack extends React.Component {
     constructor(props) {
         super(props);
         this.state = {bValue: true}
-        this.imgStr = null;
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -14,6 +14,7 @@ export class UploadButtonBlack extends React.Component {
 
         const files = event.target.files;
         const currentFile = files[0];
+        var imgName = currentFile.name.replace(".", "-");
         const myFileItemReader = new FileReader();
 
         myFileItemReader.addEventListener(
@@ -21,8 +22,10 @@ export class UploadButtonBlack extends React.Component {
             () => {
                 const imgStr = myFileItemReader.result;
                 this.props.setUnsaved(true);
-                this.props.setPieceImg("black", imgStr);
-            }, 
+                saveImg(imgName, imgStr).then( ([res]) => {
+                    this.props.setPieceImg("black", imgStr);
+                })
+            },
             false
         );
 

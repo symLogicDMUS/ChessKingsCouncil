@@ -16,4 +16,8 @@ const pawn2SqrFirstMoves = [["a2", "a4"], ["b2", "b4"], ["c2", "c4"], ["d2", "d4
 
 let e4Opening = ["e2", "e4"]
 
-strfind(pawn2SqrFirstMoves, e4Opening)
+// strfind(pawn2SqrFirstMoves, e4Opening)
+
+let string = "black_timberwolf.svg.all.bla"
+
+string = string.replace(".", '-')
