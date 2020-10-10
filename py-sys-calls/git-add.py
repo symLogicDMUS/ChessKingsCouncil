@@ -14,4 +14,3 @@ if __name__ == "__main__":
 
     ]
     git_add(file_paths)
-    

@@ -7,3 +7,7 @@ git rm --cached [FILE_NAME]
 # remove directory from git repos without deleting from local filesystem:
 git rm --cached -r [DIR_NAME]
 
+# force a pull
+git reset --hard origin/master
+git pull
+
