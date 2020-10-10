@@ -1,10 +1,10 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { offsetToText } from "../helpers/offsetToText";
 import { spanToText } from "../helpers/spanToText";
 import { MyPieceProfile } from "./MyPieceProfile";
 import { MyPieceConfirmDelete } from "./MyPieceConfirmDelete";
 import { MyPiecesDisplayBoardModal } from "./MyPiecesDisplayBoardModal";
-import { CreatePiece } from "../CreatePiece/CreatePiece";
 import { HelpText } from "./HelpText";
 import { HelpModal } from "../Help/HelpModal";
 import { HelpComponent } from "../Help/HelpComponent";
@@ -189,7 +189,16 @@ export class MyPieces extends React.Component {
 
     render() {
         if (this.state.redirect) {
-            return <CreatePiece defaultPiece={this.state.selectedPiece} />;
+            return (
+                <Redirect
+                    to={{
+                        pathname: "/CreatePiece",
+                        state: {
+                            defaultPiece: this.state.selectedPiece,
+                        },
+                    }}
+                ></Redirect>
+            );
         }
 
         return (
@@ -267,3 +276,5 @@ export class MyPieces extends React.Component {
         );
     }
 }
+
+export default MyPieces;

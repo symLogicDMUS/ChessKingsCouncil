@@ -145,7 +145,7 @@ export class LoadGame extends React.Component {
                         <div className="load-game">
                             <div>
                                 <img
-                                    src="./Images/LoadGame.svg"
+                                    src="/Images/LoadGame.svg"
                                     className="load-game-text"
                                     alt="text that reads 'Load Game'"
                                 />

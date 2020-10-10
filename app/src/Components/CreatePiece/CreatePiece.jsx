@@ -157,7 +157,8 @@ export class CreatePiece extends React.Component {
                 this.defs = {};
             }
 
-            if (this.props.defaultPiece != null) this.load(this.props.defaultPiece);
+            if (this.props.location !== undefined && this.props.location.state.defaultPiece != null) 
+                this.load(this.props.location.state.defaultPiece);
 
             this.setState({ binaryValue: !this.state.binaryValue });
         });

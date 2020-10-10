@@ -50,7 +50,8 @@ export const newData = {
                     "last_pawn_move": "None",
                     "num_consecutive_non_pawn_moves": 0
                   },
-                 "flask_method": "update"}
+                 "tal": 0 //t hreat a rea l ength
+}
 
 export const ranges =
 {

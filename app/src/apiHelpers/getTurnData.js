@@ -1,7 +1,7 @@
 import {getRanges} from "../game_logic/ranges/top/getRanges";
 import {getPathdataDict} from "../game_logic/pathsInfo/top/getpathDataDict";
 import {getResetPieceDicts} from "../game_logic/getters/getResetPieceDicts";
-import {getKingLocs} from "../game_logic/threatArea/getKingLocs";
+import {getKingLoc} from "../game_logic/threatArea/getKingLoc";
 import {getThreatArea} from "../game_logic/threatArea/top/getThreatArea";
 import {getNumPiecesCheckingKing} from "../game_logic/restriction/getNumPiecesCheckingKing";
 import {getMultithreatRestriction} from "../game_logic/restriction/getMultithreatRestriction";
@@ -25,7 +25,7 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     */
     var [initRanges, pins, mtRestricts, finalRanges] = getResetPieceDicts(board, color);
     var [initRanges, specialMoves] = getRanges(board, color, initRanges, jsonRecords, pieceDefs, idDict);
-    var kLoc = getKingLocs(board, color);
+    var kLoc = getKingLoc(board, color);
     var threatArea = getThreatArea(board, kLoc, color, pieceDefs, idDict);
     var pdDict = getPathdataDict(board, kLoc, color, pieceDefs, idDict);
     var pins = getPins(pdDict, pins);
@@ -33,7 +33,6 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     var mtRestricts = getMultithreatRestriction(board, npck, color);
     [initRanges, pins, threatArea, mtRestricts] = convertToRf(initRanges, pins, threatArea, mtRestricts)
     finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); // finalRanges in rf format
-    // specialMoves.setPromos(board, finalRanges, color);
 
     var aiCapture, aiStart, aiDest;
     if (color === aiColor && ! noRanges(finalRanges)) {

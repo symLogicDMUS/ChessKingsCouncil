@@ -7,6 +7,7 @@ import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
 import {replacePawnIdWithCurrentLoc} from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc"
 import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
+import {GameStatusCouncil} from "../../game_logic/council_logic/GameStatusCouncil";
 import { Fen } from "../../game_logic/fenParser/Fen";
 import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
@@ -42,9 +43,11 @@ export class GameRoot extends React.Component {
         this.playerType = this.props.location.state.playerType;
         this.currentPage = this.props.location.state.currentPage;
         this.gameData = this.props.location.state.gameData;
+        this.isCouncil = this.gameType === "council" ? true : false;
         this.board = this.gameData['board']
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData['json_records'], this.board));
-        this.gameStatus = new GameStatus(this.gameData['status']);
+        if (this.isCouncil) this.gameStatus = new GameStatusCouncil(this.gameData['status']) 
+        else this.gameStatus = new GameStatus(this.gameData['status'])
         this.specialMoves = new SpecialMoves(this.gameData['special_moves'])
         this.fenObj = new Fen(this.gameData['fen_data']);
         this.turn = this.gameData['color']
@@ -215,7 +218,8 @@ export class GameRoot extends React.Component {
         this.specialMoves.update(turnData['special_moves'])
         this.aiStart = turnData['ai_start'];
         this.aiDest = turnData['ai_dest'];
-        this.gameStatus.update(this.board, this.ranges, this.getColorLastMove(), turnData['npck']);
+        if (this.isCouncil) this.gameStatus.update(this.board, this.ranges, this.getColorLastMove(), turnData['tal'])
+        else this.gameStatus.update(this.board, this.ranges, this.getColorLastMove(), turnData['npck']);
     }
 
     updateJsonRecords(start, dest) {

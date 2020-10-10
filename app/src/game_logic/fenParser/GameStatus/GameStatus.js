@@ -1,4 +1,3 @@
-import {noRanges} from "./noRanges";
 import {OVER, IN_PROGRESS} from "./gStatusTypes";
 import {getPieceTypeInstances} from "../../pieceType/getPieceTypeInstances";
 
@@ -47,7 +46,6 @@ export class GameStatus {
         }
 
         var pieceTypeInstances = getPieceTypeInstances(board);
-
         if (pieceTypeInstances.toString() === ['K', 'K'].toString()) {
             this.condition = 'stalemate';
             this.status = OVER;
@@ -96,5 +94,4 @@ export class GameStatus {
         }
         return true
     }
-
 }

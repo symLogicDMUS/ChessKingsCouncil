@@ -75,7 +75,7 @@ export class App extends React.Component {
                         <Route exact path="/LoadGame" exact strict render={() => <LoadGame /> } />
                         <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
                         <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />} />
-                        <Route exact path="/CreatePiece" exact strict render={() => <CreatePiece  defaultPiece={null} />} />
+                        <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece  {...props} />} />
                         <Route exact path="/CouncilRules" exact component={CouncilRules} />
                         <Route exact path="/MyPieces" exact strict render={() => <MyPieces />} />
                         <Route exact path="/ComingSoon" component={ComingSoon} />

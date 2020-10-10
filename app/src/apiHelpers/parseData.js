@@ -1,49 +1,60 @@
-
-
-import {getTurnData} from "./getTurnData";
-import {Fen} from "../game_logic/fenParser/Fen";
-import {getFenDict} from "../game_logic/fenParser/getFenDict";
-import {getBoard} from "../game_logic/fenParser/getBoard/top/getBoard";
-import {getFenData} from "../game_logic/fenParser/GameStatus/getFenData";
-import {JsonRecords} from "../game_logic/JsonRecords/JsonRecords";
-import {initPawnIds} from "../game_logic/JsonRecords/initPawnIds";
-import {getAiColor} from "../game_logic/color/getAiColor";
-import {getNextColor as getEnemyColor} from "../game_logic/color/getNextColor";
-
+import { getTurnData } from "./getTurnData";
+import { getTurnDataCouncil } from "./getTurnDataCouncil";
+import { Fen } from "../game_logic/fenParser/Fen";
+import { getFenDict } from "../game_logic/fenParser/getFenDict";
+import { getBoard } from "../game_logic/fenParser/getBoard/top/getBoard";
+import { getFenData } from "../game_logic/fenParser/GameStatus/getFenData";
+import { JsonRecords } from "../game_logic/JsonRecords/JsonRecords";
+import { initPawnIds } from "../game_logic/JsonRecords/initPawnIds";
+import { getAiColor } from "../game_logic/color/getAiColor";
+import { getNextColor as getEnemyColor } from "../game_logic/color/getNextColor";
 
 export function parseData(data) {
     /*called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db
      * NOTE: data needed combined as single object. (this is why includes unmodified values status, promos, and type).
      * The method gathers all relavent data into single object and returns it.
-    **/
-    var [fen, records, playerColor, pieceDefs, idDict] = [data['fen'], data['json'], data['pt'], data['defs'], data['ids']]
-    var board = getBoard(fen)
-    var jsonRecords = new JsonRecords(initPawnIds(records, board))
-    var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen)
+     **/
+    var [fen, records, playerColor, pieceDefs, idDict] = [
+        data["fen"],
+        data["json"],
+        data["pt"],
+        data["defs"],
+        data["ids"],
+    ];
+    var board = getBoard(fen);
+    var jsonRecords = new JsonRecords(initPawnIds(records, board));
+    var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen);
     var fenObj = new Fen(getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum));
-    var color = fenObj.turn.toUpperCase()
-    var aiColor = getAiColor(playerColor)
-    var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict)
-    var enemyTurnData = getTurnData(board, getEnemyColor(color), aiColor, jsonRecords,  pieceDefs, idDict)
-    return {
-            'color': color,
-            'board': board,
-            'json_records': jsonRecords.getRecords(),
-            'special_moves': turnData['special_moves'],
-            'fen_data': fenObj.getData(),
-            'piece_defs': pieceDefs,
-            'id_dict': idDict,
-            'ranges': turnData['ranges'],
-            'enemy_ranges': enemyTurnData['ranges'],
-            'ai_start': turnData['ai_start'],
-            'ai_dest': turnData['ai_dest'],
-            'ai_capture': turnData['ai_capture'],
-            'status': data['status'],
-            'promos': data['promos'],
-            'type': data['type'],
-            'pt': playerColor 
+    var color = fenObj.turn.toUpperCase();
+    var aiColor = getAiColor(playerColor);
+    var enemyColor = getEnemyColor(color);
+    if (data.type === "council") {
+        var turnData = getTurnDataCouncil(board, color, aiColor, jsonRecords, pieceDefs, idDict);
+        var enemyTurnData = getTurnDataCouncil(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
+    } else {
+        var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict);
+        var enemyTurnData = getTurnData(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
     }
-} 
+
+    return {
+        color: color,
+        board: board,
+        json_records: jsonRecords.getRecords(),
+        special_moves: turnData["special_moves"],
+        fen_data: fenObj.getData(),
+        piece_defs: pieceDefs,
+        id_dict: idDict,
+        ranges: turnData["ranges"],
+        enemy_ranges: enemyTurnData["ranges"],
+        ai_start: turnData["ai_start"],
+        ai_dest: turnData["ai_dest"],
+        ai_capture: turnData["ai_capture"],
+        status: data["status"],
+        promos: data["promos"],
+        type: data["type"],
+        pt: playerColor,
+    };
+}
 
 // module.exports = parseData;
 
@@ -98,4 +109,3 @@ if (require.main === module) {
     console.log(dataDict[gameName]['aiCapture'])
 }
 */
-

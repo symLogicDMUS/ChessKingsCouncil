@@ -1,37 +1,34 @@
 import React from "react";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
-import {PromoChoice} from "../Components/PromoChoice";
-import {AcceptPromo} from "../Components/AcceptPromo";
-import {shuffle} from "../../helpers/shuffleArray";
+import ScrollMenu from "react-horizontal-scrolling-menu";
+import { PromoChoice } from "../Components/PromoChoice";
+import { AcceptPromo } from "../Components/AcceptPromo";
+import { shuffle } from "../../helpers/shuffleArray";
+import { numKings } from "../../helpers/numKings";
+import { standardPieceImgStrs } from "../../helpers/standardPieceImgStrs";
 import "../css/AcceptPromo.css";
 
 const Arrow = ({ text, className }) => {
-    return (
-      <div
-        className={className}
-      >{text}</div>
-    );
+    return <div className={className}>{text}</div>;
 };
-      
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+
+const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
+const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
 export class Promo extends React.Component {
-
     /**
-     * note: once pawn has moved to a backrow square, color has already switched to 
+     * note: once pawn has moved to a backrow square, color has already switched to
      * the next player before it is promoted. must use what color attribute just was.
      * */
     constructor(props) {
         super(props);
-        this.state = {selected: null};
+        this.state = { selected: null };
         this.aiPromoComplete = false;
-        this.standardPromoNames = ["Queen","Rook","Bishop","Knight"];
+        this.standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
         this.standardPromoNameDict = {
-            "Queen": "q",
-            "Rook": "r",
-            "Bishop": "b",
-            "Knight": "n",
+            Queen: "q",
+            Rook: "r",
+            Bishop: "b",
+            Knight: "n",
         };
         this.onSelect = this.onSelect.bind(this);
         this.promote = this.promote.bind(this);
@@ -41,16 +38,22 @@ export class Promo extends React.Component {
         let pieceName = null;
         let pieceImgBase64Str = null;
         let promoChoices = [];
+
+        if (this.props.isCouncil && numKings(this.props.board, this.props.color) === 0) {
+            var pieceImgStr = standardPieceImgStrs[`${this.props.color}K-svg`];
+            promoChoices.push(
+                <PromoChoice key={"K"} pieceImgBase64Str={pieceImgStr} selected={this.state.selected} />
+            );
+            return promoChoices;
+        }
+
         for (var id of Object.keys(this.props.idDict)) {
             pieceName = this.props.idDict[id];
             if (this.props.promoChoices.includes(pieceName)) {
-                pieceImgBase64Str = this.props.pieceDefs[pieceName][this.props.color]["img"];
+                if (pieceName === "King") pieceImgBase64Str = standardPieceImgStrs[`${this.props.color}K-svg`];
+                else pieceImgBase64Str = this.props.pieceDefs[pieceName][this.props.color]["img"];
                 promoChoices.push(
-                    <PromoChoice  
-                      key={id}
-                      pieceImgBase64Str={pieceImgBase64Str}
-                      selected={this.state.selected} 
-                    />
+                    <PromoChoice key={id} pieceImgBase64Str={pieceImgBase64Str} selected={this.state.selected} />
                 );
             }
         }
@@ -71,14 +74,14 @@ export class Promo extends React.Component {
         return promoChoices;
     }
 
-
     getIdNumber(idChoice) {
-        /**Pawn promotion means we are adding another piece, 
-         * idNumber is how many of that piece for that color 
+        /**Pawn promotion means we are adding another piece,
+         * idNumber is how many of that piece for that color
          * there is now
          **/
-        let matches = Object.values(this.props.board).filter(pieceId => 
-            pieceId.startsWith( this.props.color + idChoice.toUpperCase()))
+        let matches = Object.values(this.props.board).filter((pieceId) =>
+            pieceId.startsWith(this.props.color + idChoice.toUpperCase())
+        );
         let idNumber = matches.length + 1;
         return idNumber;
     }
@@ -98,11 +101,11 @@ export class Promo extends React.Component {
     }
 
     updateGameRoot() {
-        this.props.updateTurnData()
+        this.props.updateTurnData();
         this.props.updateSpecialCase("none");
         this.props.update();
     }
- 
+
     promote() {
         let idNumber = this.getIdNumber(this.state.selected);
         let newId = this.getNewId(idNumber, this.state.selected);
@@ -125,7 +128,6 @@ export class Promo extends React.Component {
         this.props.update();
     }
 
-
     noStandardPieces() {
         for (var pieceName of Object.values(this.props.idDict)) {
             if (this.standardPromoNames.includes(pieceName)) {
@@ -136,11 +138,10 @@ export class Promo extends React.Component {
     }
 
     onSelect(key) {
-        this.setState({selected: key});
+        this.setState({ selected: key });
     }
 
     render() {
-
         if (this.props.promoChoices.length === 0 && this.noStandardPieces()) {
             this.props.updateSpecialCase("none");
             this.props.update();
@@ -152,16 +153,16 @@ export class Promo extends React.Component {
         return (
             <div className="promo-modal">
                 <div className="img-group">
-                    <ScrollMenu 
-                     data={promoChoices}
-                     selected={this.state.selected}
-                     arrowLeft={ArrowLeft}
-                     arrowRight={ArrowRight}
-                     onSelect={this.onSelect}
+                    <ScrollMenu
+                        data={promoChoices}
+                        selected={this.state.selected}
+                        arrowLeft={ArrowLeft}
+                        arrowRight={ArrowRight}
+                        onSelect={this.onSelect}
                     />
                 </div>
                 <AcceptPromo promote={this.promote} selected={this.state.selected} />
-                {this.props.color === this.props.aiColor && ! this.aiPromoComplete && (this.aiPromote())}
+                {this.props.color === this.props.aiColor && !this.aiPromoComplete && this.aiPromote()}
             </div>
         );
     }

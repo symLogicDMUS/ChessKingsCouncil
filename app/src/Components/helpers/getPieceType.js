@@ -1,5 +1,5 @@
 
-export function getPieceType(str) {
+ export function getPieceType(str) {
 
     let id_ = str;
 
@@ -8,5 +8,4 @@ export function getPieceType(str) {
     }
 
     return id_[1];
-
 }

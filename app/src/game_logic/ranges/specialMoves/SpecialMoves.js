@@ -41,7 +41,6 @@ export class SpecialMoves {
         this.enPassant = mapListListXyToRf(this.enPassant)
         this.castles = mapListListXyToRf(this.castles)
         this.promos = mapListListXyToRf(this.promos)
-        return
     }
 
     isCastle(move) {
@@ -116,29 +115,6 @@ export class SpecialMoves {
             }
         }
     }
-
-    /*
-    setPromos(board, ranges, color) {
-        // use the ranges &&  board to determine potential pawn promotions
-
-        ///getPawnIds
-        var pawnIds = getPawnIds(ranges, color)
-        
-        //getPawnRanges
-        var pawnRanges = getPawnRanges(pawnIds, ranges)
-
-        //setPawnRangeKeysToRf
-        var pawnRangesRfKey = replacePawnIdWithRankfile(board, pawnRanges)
-        
-        //filterNonMatchingRows
-        var promosDict = filterNonMatchingRows(board, pawnRangesRfKey)
-
-        //getPromos
-        this.promos = getPromos(promosDict);
-
-        return
-    }
-    */
    
     removeCastle(move) {
         let index = -1;
