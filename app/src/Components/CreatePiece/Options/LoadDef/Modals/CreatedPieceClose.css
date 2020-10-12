@@ -5,12 +5,12 @@
     background-color: #515151;
 } .created-piece-close .close-button {
     position: relative;
-    left: 30px;
-    width: 21px;
-    height: 21px;
+    left: 22.5px;
+    width: 15.75px;
+    height: 15.75px;
     background-color: #515151;
     cursor: pointer;
-    /* border: 1px dashed white; */
+    /* border: 0.75px dashed white; */
 } .created-piece-close .close-button:hover {
     background-color: #EC2525;
 }

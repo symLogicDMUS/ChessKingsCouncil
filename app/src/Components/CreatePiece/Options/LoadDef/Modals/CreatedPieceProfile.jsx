@@ -19,10 +19,10 @@ export class CreatedPieceProfile extends React.Component {
                     <CreatedPieceCheckBox pieceName={this.props.pieceName} select={this.props.select} selectedPiece={this.props.selectedPiece} />
                 </div>
                 <div className="profile-item">
-                    <CreatePieceProfileWB def={this.props.displayDefs[this.props.pieceName]['W']} piece={this.props.pieceName} color='W' expand={this.props.expand} />
+                    <CreatePieceProfileWB def={this.props.displayDefs[this.props.pieceName]['W']} pieceName={this.props.pieceName} color='W' expand={this.props.expand} />
                 </div>
                 <div className="profile-item">
-                    <CreatePieceProfileWB def={this.props.displayDefs[this.props.pieceName]['B']} piece={this.props.pieceName} color='B' expand={this.props.expand} />
+                    <CreatePieceProfileWB def={this.props.displayDefs[this.props.pieceName]['B']} pieceName={this.props.pieceName} color='B' expand={this.props.expand} />
                 </div>
             </div>
         )

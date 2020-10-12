@@ -69,11 +69,11 @@ export class CreatePieceRangeTable extends React.Component {
         return (
             <div className={this.props.table}>
                 <CreatePieceScrollArrow class_={this.props.upArrow} move={this.moveUp} />
-                <div className="range-list-item list-item1">{this.getLabel(this.inView[0])}{this.inView[0]}</div>
-                <div className="range-list-item list-item2">{this.getLabel(this.inView[1])}{this.inView[1]}</div>
-                <div className="range-list-item list-item3">{this.getLabel(this.inView[2])}{this.inView[2]}</div>
-                <div className="range-list-item list-item4">{this.getLabel(this.inView[3])}{this.inView[3]}</div>
-                <div className="range-list-item list-item5">{this.getLabel(this.inView[4])}{this.inView[4]}</div>
+                <div className="create-piece-load-range-list-item1">{this.inView[0]}</div>
+                <div className="create-piece-load-range-list-item2">{this.inView[1]}</div>
+                <div className="create-piece-load-range-list-item3">{this.inView[2]}</div>
+                <div className="create-piece-load-range-list-item4">{this.inView[3]}</div>
+                <div className="create-piece-load-range-list-item5">{this.inView[4]}</div>
                 <CreatePieceScrollArrow class_={this.props.downArrow} move={this.moveDown} />
             </div>
         )

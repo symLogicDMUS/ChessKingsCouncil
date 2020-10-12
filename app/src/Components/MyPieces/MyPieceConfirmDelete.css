@@ -11,23 +11,23 @@
    .my-piece-confirm-delete-window {
        position: absolute;
        z-index: inherit;
-       left: 40%;
-       top: 50%;
-       width: 600px;
-       height: 300px;
+       left: 32%;
+       top: 40%;
+       width: 480px;
+       height: 240px;
        background-color: #515151;
-       border: 2px solid #a9a9a9;
-       border-radius: 10px;
+       border: 1.6px solid #a9a9a9;
+       border-radius: 8px;
    }
    
    .my-piece-confirm-delete-heading {
        position: absolute;
        z-index: inherit;
-       top: 40px;
-       width: 600px;
+       top: 32px;
+       width: 480px;
        color: #b6b6b6;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       font-size: 16px;
+       font-size: 12.8px;
        text-align: center;
        word-wrap: break-word;
    }
@@ -35,20 +35,20 @@
    .my-piece-confirm-delete-button {
        position: absolute;
        z-index: inherit;
-       top: 228px;
-       height: 25px;
-       width: 90px;
+       top: 182.4px;
+       height: 20px;
+       width: 72px;
        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-       font-size: 16px;
-       padding-top: 5px;
+       font-size: 12.8px;
+       padding-top: 4px;
        text-align: center;
        color: #a9a9a9;
        background-color: #606060;
-       border: 1px solid #606060;
-       border-radius: 10px;
+       border: 0.8px solid #606060;
+       border-radius: 8px;
        cursor: pointer;
    } .my-piece-confirm-delete-button:hover {
         color: #606060;
         background-color: #a9a9a9;
-        border: 1px solid #a9a9a9;
+        border: 0.8px solid #a9a9a9;
    }

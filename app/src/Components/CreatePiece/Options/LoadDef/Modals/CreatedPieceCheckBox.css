@@ -3,18 +3,18 @@
     z-index: inherit;
     grid-row: 1;
     grid-column: 1;
-    width: 35px;
-    height: 35px;
-    top: 10px;
-    left: 10px;
+    width: 26.25px;
+    height: 26.25px;
+    top: 7.5px;
+    left: 7.5px;
     background-color: #515151;
-    border: 3px solid #707070;
-    border-radius: 10px;
+    border: 2.25px solid #707070;
+    border-radius: 7.5px;
     cursor: pointer;
 } .created-piece-profile .profile-header .checkbox .checkmark {
     position: relative;
     z-index: inherit;
     object-fit: contain;
-    width: 35px;
-    height: 35px;
+    width: 26.25px;
+    height: 26.25px;
 }

@@ -1,12 +1,11 @@
 import React from "react";
-import {getColorName} from "../../../../helpers/getColorName";
+import { getColorName } from "../../../../helpers/getColorName";
 import "./NewGameProfileWBHeader.css";
 
-export class  NewGameProfileWBHeader extends React.Component  {
-
+export class NewGameProfileWBHeader extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {src: "/Images/expand.svg"}
+        this.state = { src: "/Images/expand.svg" };
         this.expand = this.expand.bind(this);
         this.color = getColorName(this.props.color);
         this.hoverOn = this.hoverOn.bind(this);
@@ -18,11 +17,11 @@ export class  NewGameProfileWBHeader extends React.Component  {
     }
 
     hoverOn() {
-        this.setState({src: "/Images/expand-72e2ff.svg"})
+        this.setState({ src: "/Images/expand-72e2ff.svg" });
     }
 
     hoverOff() {
-        this.setState({src: "/Images/expand.svg"})
+        this.setState({ src: "/Images/expand.svg" });
     }
 
     render() {
@@ -31,13 +30,19 @@ export class  NewGameProfileWBHeader extends React.Component  {
                 <div className="new-game-piece-wb-piece-name">
                     {this.color} {this.props.rangeType}
                 </div>
-                <div className="new-game-piece-expand-modal" onClick={this.expand} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-                    <img src={this.state.src}
-                         alt="view board diagram of spans or offsets" 
-                         style={{width: 16, height: 16, marginTop: 7, marginLeft: 7, cursor:"pointer"}} 
+                <div
+                    className="new-game-piece-expand-modal"
+                    onClick={this.expand}
+                    onMouseEnter={this.hoverOn}
+                    onMouseLeave={this.hoverOff}
+                >
+                    <img
+                        src={this.state.src}
+                        alt="view board diagram of spans or offsets"
+                        style={{ width: 16, height: 16, marginTop: 4, marginLeft: 4, cursor: "pointer" }}
                     />
                 </div>
             </div>
-        )    
+        );
     }
 }

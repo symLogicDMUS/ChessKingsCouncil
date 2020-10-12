@@ -3,10 +3,10 @@
 .create-piece-w-or-b-profile {
     z-index: inherit;
     display: grid;
-    height: 180px;
-    grid-template-columns: 150px 420px 420px;
-    grid-template-rows: 30px 150px;
-    margin-top: 20px;
+    height: 135px;
+    grid-template-columns: 112.5px 315px 315px;
+    grid-template-rows: 22.5px 112.5px;
+    margin-top: 15px;
     background-color: #515151;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -15,12 +15,12 @@
     .create-piece-w-or-b-profile-img-label {
         grid-column:1;
         grid-row: 1;
-        font-size: 15px;
+        font-size: 11.25px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
-        padding-top: 6px;
+        padding-top: 4.5px;
         color: #a9a9a9;
-        border: 1px solid #707070;
+        border: 0.75px solid #707070;
     }
 
     .create-piece-w-or-b-profile-img-window {
@@ -28,14 +28,14 @@
         grid-column: 1;
         grid-row: 2;
         object-fit: cover;
-        border: 1px solid #707070;
+        border: 0.75px solid #707070;
     }
 
         .create-piece-w-or-b-profile-img-window img {
             z-index: inherit;
-            width: 150px; 
-            height: 150px;
-            border-radius: 5px;
+            width: 112.5px; 
+            height: 112.5px;
+            border-radius: 3.75px;
         }
 
     .create-piece-w-or-b-profile-spans-label {

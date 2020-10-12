@@ -2,12 +2,12 @@
     z-index: inherit;
     grid-row: 1;
     grid-column: 1 / 3;
-    padding-top: 3px;
-    padding-left: 9px; 
-    padding-bottom: 3px; 
-    border-radius: 3px; 
+    padding-top: 2.4000000000000004px;
+    padding-left: 7.2px; 
+    padding-bottom: 2.4000000000000004px; 
+    border-radius: 2.4000000000000004px; 
     color: #a9a9a9;
-    font-size: 21px; 
+    font-size: 16.8px; 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
     text-overflow: ellipsis;

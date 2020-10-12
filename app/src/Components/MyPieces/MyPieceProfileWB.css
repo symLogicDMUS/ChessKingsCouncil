@@ -3,12 +3,12 @@
 .w-or-b-profile {
     z-index: inherit;
     display: grid;
-    height: 180px;
-    grid-template-columns: 150px 420px 420px;
-    grid-template-rows: 30px 150px;
-    column-gap: 20px;
-    margin-top: 20px;
-    margin-left: 5px;
+    height: 144px;
+    grid-template-columns: 120px 336px 336px;
+    grid-template-rows: 24px 120px;
+    column-gap: 16px;
+    margin-top: 16px;
+    margin-left: 4px;
     background-color: #515151;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -17,12 +17,12 @@
     .w-or-b-profile .my-img-label {
         grid-column:1;
         grid-row: 1;
-        font-size: 15px;
+        font-size: 12px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: center;
-        padding-top: 6px;
+        padding-top: 4.800000000000001px;
         color: #a9a9a9;
-        border: 1px solid #707070;
+        border: 0.8px solid #707070;
     }
 
     .w-or-b-profile .my-img-window {
@@ -30,15 +30,15 @@
         grid-column: 1;
         grid-row: 2;
         object-fit: cover;
-        border: 1px solid #707070;
+        border: 0.8px solid #707070;
     }
 
         .w-or-b-profile .my-img-window img {
             z-index: inherit;
-            width: 108px; 
-            height: 108px; 
-            padding-bottom: 18px; 
-            border-radius: 5px;
+            width: 86.4px; 
+            height: 86.4px; 
+            padding-bottom: 14.4px; 
+            border-radius: 4px;
         }
 
     .w-or-b-profile .my-spans-label {

@@ -8,14 +8,14 @@
 .my-pieces {
     position: absolute;
     z-index: inherit;
-    top: 150px;
-    left: 231px;
-    width: 1020px;
-    height: 860px;
+    top: 120px;
+    left: 350px;
+    width: 816px;
+    height: 688px;
     display: grid;
-    grid-template-columns: 1065px;
-    grid-template-rows: 60px 800px 60px;
-    border: 1px solid #a9a9a9;
+    grid-template-columns: 852px;
+    grid-template-rows: 48px 640px 48px;
+    border: 0.8px solid #a9a9a9;
 
 }
 
@@ -23,29 +23,29 @@
     display: relative;
     top: 0px;
     left: 0px;
-    height: 60px;
-    width: 1065px;
+    height: 48px;
+    width: 852px;
     background-color: #515151;
-    border-bottom: 1px solid #707070;
+    border-bottom: 0.8px solid #707070;
 }
 
 .my-pieces .top-bar .title {
     position: relative;
-    height: 40px;
-    width: 200px;
+    height: 32px;
+    width: 160px;
     color: #a9a9a9;
-    font-size: 40px;
+    font-size: 32px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    margin-top: 4px;
+    margin-top: 3.2px;
 }
 
 .my-pieces-question-mark {
     position: absolute;
-    top: 10px;
-    left: 202px;
-    width: 30px;
-    height: 30px;
+    top: 8px;
+    left: 161.60000000000002px;
+    width: 24px;
+    height: 24px;
 }
 
 .profiles {
@@ -56,6 +56,6 @@
     display: grid;
     grid-template-columns: 1fr;
     background-color: #515151;
-    width: 1065px;
+    width: 852px;
     overflow: scroll;
 }

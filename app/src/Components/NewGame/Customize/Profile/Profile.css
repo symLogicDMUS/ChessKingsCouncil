@@ -1,26 +1,26 @@
 
 .new-game-profile {
     z-index: inherit;
-    height: 480px;
-    border-bottom: 1px solid #707070;
+    height: 384px;
+    border-bottom: 0.8px solid #707070;
 }
 
     /*container for w-or-b-profile*/
     .new-game-profile-item {
         z-index: inherit;
-        height: 180px;
+        height: 144px;
         background-color: #515151;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
 
     .new-game-profile-header {
         display: grid;
         z-index: inherit;
-        width: 900px;
-        grid-template-rows: 30px;
-        grid-template-columns: 200px 100px 268px 260px;
-        margin-bottom: 10px;
-        /* column-gap: 10px; */
+        width: 720px;
+        grid-template-rows: 24px;
+        grid-template-columns: 160px 80px 214.4px 208px;
+        margin-bottom: 8px;
+        /* column-gap: 8px; */
     }
 
         .new-game-promotion {
@@ -28,8 +28,8 @@
             display: grid;
             grid-row: 1;
             grid-column: 3;
-            grid-template-columns: 120px 147px; 
-            grid-template-rows: 30px; 
+            grid-template-columns: 96px 117.60000000000001px; 
+            grid-template-rows: 24px; 
             text-align: left;
         }
 
@@ -39,9 +39,9 @@
                 grid-row: 1;
                 text-align: left;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 20px;
-                padding-left: 8px;
-                padding-top: 3px;
+                font-size: 16px;
+                padding-left: 6.4px;
+                padding-top: 2.4000000000000004px;
                 color: #a9a9a9;
             }
 
@@ -54,7 +54,7 @@
         .new-game-substitute {
             z-index: inherit;
             display: grid;
-            grid-template-columns: 60px 272px; 
+            grid-template-columns: 48px 217.60000000000002px; 
             grid-row: 1;
             grid-column: 4;
         }
@@ -66,13 +66,13 @@
                 color: #a9a9a9;
                 text-align: left;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 20px;
-                padding-top: 2px;
+                font-size: 16px;
+                padding-top: 1.6px;
             }
 
             .new-game-sub-dropdown-container {
                 z-index: inherit;
                 grid-column: 2;
                 grid-row: 1;
-                margin-left: 6px;
+                margin-left: 4.800000000000001px;
             }
