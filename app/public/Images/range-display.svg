@@ -12,7 +12,7 @@
    viewBox="0 0 93.734741 14.658322"
    version="1.1"
    id="svg3447"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="range-display.svg">
   <defs
      id="defs3441" />
@@ -23,9 +23,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="137.3579"
-     inkscape:cy="187.33875"
+     inkscape:zoom="2.8"
+     inkscape:cx="181.36194"
+     inkscape:cy="64.641429"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -34,11 +34,11 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1424"
-     inkscape:window-height="1030"
-     inkscape:window-x="14"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata3444">
     <rdf:RDF>
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,18 +58,18 @@
      transform="translate(-11.877962,-28.729271)">
     <text
        xml:space="preserve"
-       style="font-size:15.1694px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;stroke-width:0.264583"
-       x="58.208332"
-       y="40.254459"
+       style="font-size:13.01804924px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;stroke-width:0.22705936"
+       x="58.399853"
+       y="39.65937"
        id="text4012"><tspan
          sodipodi:role="line"
          id="tspan4010"
-         x="58.208332"
-         y="40.254459"
-         style="fill:#f9f9f9;stroke-width:0.264583"><tspan
+         x="58.399857"
+         y="39.65937"
+         style="fill:#f9f9f9;stroke-width:0.22705936"><tspan
    id="tspan836"
-   style="fill:#b1faae;fill-opacity:1">Range</tspan> <tspan
+   style="fill:#b1faae;fill-opacity:1;stroke-width:0.22705936">Range</tspan> <tspan
    id="tspan852"
-   style="fill:#b1faae;fill-opacity:1">Display</tspan></tspan></text>
+   style="fill:#b1faae;fill-opacity:1;stroke-width:0.22705936">Display</tspan></tspan></text>
   </g>
 </svg>
