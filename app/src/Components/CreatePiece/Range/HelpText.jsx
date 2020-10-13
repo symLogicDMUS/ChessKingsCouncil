@@ -2,6 +2,8 @@ import React from "react";
 /**
  * title: Creating the Range of Your Piece
  */
+export let helpTitle="Creating the Range of a Piece";
+
 export let HelpText = 
 <div>
   <p>The range of a piece is how it can move. I define ranges as 2 separate types: offsets and spans.</p>

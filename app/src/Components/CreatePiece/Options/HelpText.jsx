@@ -2,6 +2,9 @@ import React from "react";
 /**
  * title: Options
  */
+
+export let helpTitle="Options";
+
 export let HelpText = 
 <div>
   <ul>

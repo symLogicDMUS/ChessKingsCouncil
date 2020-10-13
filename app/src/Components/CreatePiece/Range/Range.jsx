@@ -70,16 +70,6 @@ export class Range extends React.Component {
         return(
             <div className="range-tool">
                 <div className="range-title">Range</div>
-                <HelpComponent helpTitle="Creating the Range of a Piece"
-                               hmChildName="Range"
-                               helpText={HelpText}
-                               togleHelpModal={this.props.togleHelpModal} 
-                               setHelpText={this.props.setHelpText} 
-                               style={{left:63, top:16, zIndex:"inherit", width:10, height:10}}
-                               normal="/Images/question-mark-a9a9a9.svg"
-                               highlighted="/Images/question-mark-72e2ff.svg"
-                               color="#72e2ff"                               
-                />
                 <RangeDisplayWindow spans={this.getSpans()} 
                                     offsets={this.getOffsets()} 
                                     togleSpanText={this.props.togleSpanText} 

@@ -21,14 +21,13 @@ import {BlankDef} from "./Options/BlankDef/BlankDef";
 import {ThemeCreatePiece} from "./Options/ThemeCreatePiece/ThemeCreatePiece";
 import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
 import { HelpComponent } from "../Help/HelpComponent";
-import {HelpModal} from "../Help/HelpModal";
+import {Help} from "../Help/Help";
 import {ChooseModal} from "./Icon/Choose/ChooseModal";
 import {NavBar} from "../NavBar/NavBarRegular";
 import {ConfirmRedirect} from "../NavBar/ConfirmRedirect";
 import {redirectMessageStr} from "./helpers/redirectMessageStr";
 import { OptionsTool } from "./Options/OptionsTool";
 import {RangeHelpTextExtraModal} from "./Range/HelpTextExtraModal";
-import {HelpText as OptionsText} from "./Options/HelpText";
 import {saveDef} from "../../API/saveDef";
 import {getDefs} from "../../API/getDefs";
 import {defs} from "../tests/defs1";
@@ -428,6 +427,11 @@ export class CreatePiece extends React.Component {
     render() {
         return (
             <div>
+                <HelpComponent
+                    normal="/Images/static-question-mark-a9a9a9.svg"
+                    highlighted="/Images/static-question-mark-72e2ff.svg"
+                    togleHelpModal={this.togleHelpModal}
+                />
                 <Name
                     name={this.name}
                     updateName={this.updateName}
@@ -503,17 +507,6 @@ export class CreatePiece extends React.Component {
                     highlighted="/Images/theme-create-piece-72e2ff.svg"
                     togleOptionTool={this.togleOptionTool}
                 />
-                <HelpComponent
-                    helpTitle="Options"
-                    normal="/Images/question-mark-a9a9a9.svg"
-                    highlighted="/Images/question-mark-72e2ff.svg"
-                    style={{ left: 948, top: 655, zIndex: "inherit", width: 10, height: 10 }}
-                    color="#72e2ff"
-                    hmChildName="none"
-                    helpText={OptionsText}
-                    togleHelpModal={this.togleHelpModal}
-                    setHelpText={this.setHelpText}
-                />
                 <Board
                     update={this.update}
                     togleJump={this.togleJump}
@@ -525,6 +518,12 @@ export class CreatePiece extends React.Component {
                     showOffsetText={this.showOffsetText}
                     setUnsaved={this.setUnsaved}
                 />
+                {this.state.isHelpModal && (
+                    <Help 
+                        pageName="CreatePiece" 
+                        togleHelpModal={this.togleHelpModal} 
+                    />
+                )}
                 {this.state.isLoadModal && (
                     <CreatedPieceProfiles
                         defs={this.defs}
@@ -532,15 +531,6 @@ export class CreatePiece extends React.Component {
                         togleLoadModal={this.togleLoadModal}
                         setUnsaved={this.setUnsaved}
                     />
-                )}
-                {this.state.isHelpModal && (
-                    <HelpModal
-                        helpTitle={this.helpTitle}
-                        helpText={this.helpText}
-                        togleHelpModal={this.togleHelpModal}
-                    >
-                        {this.getHelpModalChild()}
-                    </HelpModal>
                 )}
                 {this.state.chooseModal && (
                     <ChooseModal

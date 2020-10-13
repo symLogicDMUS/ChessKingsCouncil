@@ -1,5 +1,7 @@
 import React from "react";
 
+export let helpTitle="Picking an Icon for Your Piece";
+
 export let HelpText = 
 <div>
     <p>
