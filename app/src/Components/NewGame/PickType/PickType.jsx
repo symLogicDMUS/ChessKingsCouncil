@@ -4,9 +4,8 @@ import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
 import {NavBar} from "../../NavBar/NavBarRegular3";
-import {StaticHelpComponent} from "../../Help/StaticHelpComponent";
-import {HelpText} from "./HelpText";
-import {HelpModal} from "../../Help/HelpModal";
+import {HelpComponent} from "../../Help/HelpComponent";
+import {Help} from "../../Help/Help";
 import "./PickType.css";
 
 export class PickType extends React.Component {
@@ -14,12 +13,10 @@ export class PickType extends React.Component {
         super(props);
         this.state = {bValue: true, isHelpModal: false};
         this.helpTitle = null;
-        this.helpText = null;
         this.hmChildName = null;
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.hmChildren = {"none":null} 
         this.setType = this.setType.bind(this);
-        this.setHelpText = this.setHelpText.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
     }
 
@@ -39,12 +36,6 @@ export class PickType extends React.Component {
 
     togleHelpModal(boolVal) {
         this.setState({isHelpModal: boolVal})
-    }
-
-    setHelpText(helpTitle, helpText, hmChildName) {
-        this.helpTitle = helpTitle;
-        this.helpText = helpText;
-        this.hmChildName = hmChildName;
     }
 
     render() {
@@ -69,20 +60,19 @@ export class PickType extends React.Component {
                             <Title />
                     </g>
                 </svg>
-                <StaticHelpComponent helpTitle="Explaining Game Types"
-                                     helpText={HelpText}
-                                     hmChildName="none"
-                                     setHelpText={this.setHelpText}
-                                     togleHelpModal={this.togleHelpModal}
-                                     normal="/Images/static-question-mark-000000.svg"
-                                     highlighted="/Images/static-question-mark-ffffff.svg"
-                                     width="3vw" left="64vw" top="43.5vh"
+                <HelpComponent
+                    normal="/Images/static-question-mark-a9a9a9.svg"
+                    highlighted="/Images/static-question-mark-72e2ff.svg"
+                    togleHelpModal={this.togleHelpModal}
                 />
-                {this.state.isHelpModal && (<HelpModal helpTitle={this.helpTitle}
-                                                       helpText={this.helpText}
-                                                       hmChildName={this.hmChildName}
-                                                       extraModal={null}
-                                                       togleHelpModal={this.togleHelpModal}/>)}
+                {this.state.isHelpModal && (
+                    <Help 
+                        pageName="PickType" 
+                        togleHelpModal={this.togleHelpModal}
+                        posLeft={263}
+                    />
+                )}
+
             </>
         );
     }

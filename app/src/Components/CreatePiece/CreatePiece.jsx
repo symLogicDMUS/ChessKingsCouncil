@@ -521,7 +521,8 @@ export class CreatePiece extends React.Component {
                 {this.state.isHelpModal && (
                     <Help 
                         pageName="CreatePiece" 
-                        togleHelpModal={this.togleHelpModal} 
+                        togleHelpModal={this.togleHelpModal}
+                        posLeft={263}
                     />
                 )}
                 {this.state.isLoadModal && (
