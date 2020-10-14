@@ -40,7 +40,7 @@ export class NewGameLink extends React.Component {
 
   checkDest() {
     if (this.path === this.props.currentPage) {
-      this.props.setHelpText("", this.helpText, "none");
+      // this.props.setHelpText("", this.helpText, "none");
       this.props.togleHelpModal(true);
     }
   }

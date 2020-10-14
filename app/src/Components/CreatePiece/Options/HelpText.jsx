@@ -14,4 +14,5 @@ export let HelpText =
     <li>Erase: The Erase option removes all ranges and makes the name and image icons blank.</li>
     <li>Theme: As on other pages, this option will be to edit the color/image of the board, background, navigation bar, and tools, to either combinations included by the developer, or your own choice from what's available.</li>
   </ul>
+  <p>You can return to the help menu any time through the Help option in the upper left hand corner</p>
 </div>

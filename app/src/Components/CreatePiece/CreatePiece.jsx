@@ -38,6 +38,8 @@ export class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
 
+        this.firstTime = false;
+
         this.state = { binaryValue: 0, isHelpModal: false, isLoadModal: false, chooseModal: false };
 
         this.defs = {};
@@ -131,7 +133,8 @@ export class CreatePiece extends React.Component {
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleOptionTool = this.togleOptionTool.bind(this);
-        this.setHelpText = this.setHelpText.bind(this);
+        // this.setHelpText = this.setHelpText.bind(this);
+        this.setFirstTime = this.setFirstTime.bind(this);
         this.setCurrentIconColor = this.setCurrentIconColor.bind(this);
         this.showChooseModal = this.showChooseModal.bind(this);
         this.closeChooseModal = this.closeChooseModal.bind(this);
@@ -347,10 +350,16 @@ export class CreatePiece extends React.Component {
         return "valid";
     }
 
-    setHelpText(helpTitle, helpText, hmChildName) {
-        this.helpTitle = helpTitle;
-        this.helpText = helpText;
-        this.hmChildName = hmChildName;
+    // setHelpText(helpTitle, helpText, hmChildName) {
+    //     this.helpTitle = helpTitle;
+    //     this.helpText = helpText;
+    //     this.hmChildName = hmChildName;
+    // }
+
+    setFirstTime(isFirstTime) {
+        this.firstTime = isFirstTime;
+        if (this.firstTime) this.setState({ isHelpModal: true });
+        else this.setState({ bValue: ! this.state.bValue  });
     }
 
     setConfirmRedirect(boolVal, path) {
@@ -428,8 +437,8 @@ export class CreatePiece extends React.Component {
         return (
             <div>
                 <HelpComponent
-                    normal="/Images/static-question-mark-a9a9a9.svg"
-                    highlighted="/Images/static-question-mark-72e2ff.svg"
+                    pageName="CreatePiece"
+                    setFirstTime={this.setFirstTime} 
                     togleHelpModal={this.togleHelpModal}
                 />
                 <Name
@@ -520,7 +529,8 @@ export class CreatePiece extends React.Component {
                 />
                 {this.state.isHelpModal && (
                     <Help 
-                        pageName="CreatePiece" 
+                        pageName="CreatePiece"
+                        firstTime={this.firstTime}
                         togleHelpModal={this.togleHelpModal}
                         posLeft={263}
                     />

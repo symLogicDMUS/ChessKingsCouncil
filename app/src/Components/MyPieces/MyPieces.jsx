@@ -5,8 +5,7 @@ import { spanToText } from "../helpers/spanToText";
 import { MyPieceProfile } from "./MyPieceProfile";
 import { MyPieceConfirmDelete } from "./MyPieceConfirmDelete";
 import { MyPiecesDisplayBoardModal } from "./MyPiecesDisplayBoardModal";
-import { HelpText } from "./HelpText";
-import { HelpModal } from "../Help/HelpModal";
+import { Help } from "../Help/Help";
 import { HelpComponent } from "../Help/HelpComponent";
 import { SearchBar } from "./SearchBar";
 import { NavBar } from "../NavBar/NavBarRegular2";
@@ -20,6 +19,7 @@ export class MyPieces extends React.Component {
     constructor(props) {
         super(props);
         this.state = { binaryValue: true, selectedPiece: null, redirect: false, isHelpModal: false };
+        this.firstTime = false;
         this.deleteModal = false;
         this.displayBoard = null;
         this.pieceName = null;
@@ -41,7 +41,8 @@ export class MyPieces extends React.Component {
         this.togleNav = this.togleNav.bind(this);
         this.togleConfirmDeleteModal = this.togleConfirmDeleteModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        this.setHelpText = this.setHelpText.bind(this);
+        //this.setHelpText = this.setHelpText.bind(this);
+        this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
     }
@@ -102,10 +103,16 @@ export class MyPieces extends React.Component {
         this.setState({ isHelpModal: boolVal });
     }
 
-    setHelpText(helpTitle, helpText, hmChildName) {
-        this.helpTitle = helpTitle;
-        this.helpText = helpText;
-        this.hmChildName = hmChildName;
+    // setHelpText(helpTitle, helpText, hmChildName) {
+    //     this.helpTitle = helpTitle;
+    //     this.helpText = helpText;
+    //     this.hmChildName = hmChildName;
+    // }
+
+    setFirstTime(isFirstTime) {
+        this.firstTime = isFirstTime;
+        if (this.firstTime) this.setState({ isHelpModal: true });
+        else this.setState({ bValue: !this.state.bValue });
     }
 
     getHelpModalChild() {
@@ -203,20 +210,17 @@ export class MyPieces extends React.Component {
 
         return (
             <>
+                <HelpComponent
+                    pageName="MyPieces"
+                    setFirstTime={this.setFirstTime}
+                    togleHelpModal={this.togleHelpModal}
+                />
+                {this.state.isHelpModal && (
+                    <Help pageName="MyPieces" firstTime={this.firstTime} togleHelpModal={this.togleHelpModal} posLeft={263} />
+                )}
                 <div className="my-pieces">
                     <div className="top-bar">
                         <div className="title">My Pieces</div>
-                        <HelpComponent
-                            helpTitle="My Pieces Page"
-                            helpText={HelpText}
-                            hmChildName="none"
-                            togleHelpModal={this.togleHelpModal}
-                            setHelpText={this.setHelpText}
-                            normal="/Images/question-mark-a9a9a9.svg"
-                            highlighted="/Images/question-mark-72e2ff.svg"
-                            color="#72e2ff"
-                            style={{ position: "absolute", top: 25, left: 202, width: 16, height: 16 }}
-                        />
                         <SearchBar updateSearch={this.updateSearch} />
                     </div>
                     <div className="profiles">{this.getProfiles()}</div>
@@ -230,15 +234,6 @@ export class MyPieces extends React.Component {
                     />
                 )}
                 {this.getDisplayBoard()}
-                {this.state.isHelpModal && (
-                    <HelpModal
-                        togleHelpModal={this.togleHelpModal}
-                        helpTitle={this.helpTitle}
-                        helpText={this.helpText}
-                    >
-                        {this.getHelpModalChild()}
-                    </HelpModal>
-                )}
                 {this.navExpanded && (
                     <NavBar
                         currentPage="/NewGame"

@@ -25,8 +25,7 @@ export let paragraphs = {
                 </li>
             </ol>
             <p>
-                Note: At dating of writing the Council option hasn't been implemented. Remove this notice when Council
-                is fully implemented.
+                You can return to the help menu any time through the Help option in the upper left hand corner
             </p>
         </div>
     ),

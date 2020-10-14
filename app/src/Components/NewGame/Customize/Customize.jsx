@@ -10,8 +10,7 @@ import { PromoAll } from "./PromoAll";
 import { spanToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
 import { HelpComponent } from "../../Help/HelpComponent";
-import { HelpModal } from "../../Help/HelpModal";
-import { HelpText } from "./HelpText";
+import { Help } from "../../Help/Help";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { SearchBar } from "./SearchBar";
 import { NavBar } from "../../NavBar/NavBarRegular2";
@@ -22,11 +21,13 @@ import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
 import { Ok } from "./Bottom/CustomiseOk";
+import { queryUser } from "../../../API/queryUser";
 import "./Customize.css";
 
 export class Customize extends React.Component {
     constructor(props) {
         super(props);
+        this.firstTime = false;
         this.state = { binaryValue: true, isHelpModal: false };
         this.defs = {};
         this.displayDefs = {};
@@ -53,6 +54,7 @@ export class Customize extends React.Component {
         this.navExpanded = true;
         this.clientX = 0;
         this.clientY = 0;
+        this.first = false;
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.subs = {
             Rook: null,
@@ -69,7 +71,8 @@ export class Customize extends React.Component {
         this.loadNewCustom = this.loadIdDict.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        this.setHelpText = this.setHelpText.bind(this);
+        // this.setHelpText = this.setHelpText.bind(this);
+        this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.setPlayerType = this.setPlayerType.bind(this);
     }
@@ -267,10 +270,16 @@ export class Customize extends React.Component {
         this.setState({ isHelpModal: boolVal });
     }
 
-    setHelpText(helpTitle, helpText, hmChildName) {
-        this.helpTitle = helpTitle;
-        this.helpText = helpText;
-        this.hmChildName = hmChildName;
+    // setHelpText(helpTitle, helpText, hmChildName) {
+    //     this.helpTitle = helpTitle;
+    //     this.helpText = helpText;
+    //     this.hmChildName = hmChildName;
+    // }
+
+    setFirstTime(isFirstTime) {
+        this.firstTime = isFirstTime;
+        if (this.firstTime) this.setState({ isHelpModal: true });
+        else this.setState({ bValue: !this.state.bValue });
     }
 
     updateSearch(searchText) {
@@ -317,20 +326,17 @@ export class Customize extends React.Component {
 
         return (
             <>
+                <HelpComponent
+                    pageName="Customize"
+                    togleHelpModal={this.togleHelpModal}
+                    setFirstTime={this.setFirstTime}
+                />
+                {this.state.isHelpModal && (
+                    <Help pageName="Customize" firstTime={this.firstTime} togleHelpModal={this.togleHelpModal} posLeft={263} />
+                )}
                 <div className="new-game-customize-window">
                     <div className="new-game-customize-top-bar">
                         <div className="new-game-customize-top-bar-title">Customize</div>
-                        <HelpComponent
-                            togleHelpModal={this.togleHelpModal}
-                            setHelpText={this.setHelpText}
-                            helpTitle="Customizing a New Game"
-                            helpText={HelpText}
-                            hmChildName="none"
-                            style={{ position: "absolute", height: 15, width: 15, left: 200, top: 18 }}
-                            normal="/Images/question-mark-a9a9a9.svg"
-                            highlighted="/Images/question-mark-72e2ff.svg"
-                            color="#72e2ff"
-                        />
                         <PlayerType setPlayerType={this.setPlayerType} />
                         <SearchBar updateSearch={this.updateSearch} />
                         <PromoAll toglePromoAll={this.toglePromoAll} />
@@ -351,16 +357,6 @@ export class Customize extends React.Component {
                 </div>
                 {this.isTooltip && <NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />}
                 {this.getModals()}
-                {this.state.isHelpModal && (
-                    <HelpModal
-                        helpTitle={this.helpTitle}
-                        helpText={this.helpText}
-                        togleHelpModal={this.togleHelpModal}
-                    >
-                        {this.getHelpModalChild()}
-                    </HelpModal>
-                )}
-
                 {this.navExpanded && (
                     <NavBar
                         currentPage="/NewGame"

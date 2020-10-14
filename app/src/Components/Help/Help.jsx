@@ -6,22 +6,11 @@ import { HelpModal } from "./HelpModal";
 export class Help extends React.Component {
     constructor(props) {
         super(props);
-        this.firstTime = true;
         this.state = { current: 0, window: "menu" };
         this.setToHelpPage = this.setToHelpPage.bind(this);
         this.setToMenu = this.setToMenu.bind(this);
         this.forward = this.forward.bind(this);
         this.back = this.back.bind(this);
-    }
-
-    componentDidMount() {
-        // queryUser(this.props.pageName).then(([exists]) => {
-        //     if (exists) {
-        //         this.firstTime = true;
-        //     } else {
-        //         this.firstTime = false;
-        //     }
-        // });
     }
 
     getHelpModals() {
@@ -59,6 +48,7 @@ export class Help extends React.Component {
                     style={{
                         position: "absolute",
                         top: top_,
+                        zIndex: 5,
                         height: 28,
                         width: 600,
                         color: "#a9a9a9",
@@ -112,7 +102,7 @@ export class Help extends React.Component {
     }
 
     render() {
-        if (this.firstTime) {
+        if (this.props.firstTime) {
             return (
                 <HelpModal
                     helpTitle={titles[this.props.pageName][this.state.current]}
@@ -146,6 +136,7 @@ export class Help extends React.Component {
                         <div
                             style={{
                                 position: "absolute",
+                                zIndex: 5,
                                 width: 600,
                                 height: 28 * numSlides + 30,
                                 backgroundColor: "#515151",
@@ -159,12 +150,12 @@ export class Help extends React.Component {
                                     onClick={() => this.props.togleHelpModal(false)}
                                     style={{
                                         position: "absolute",
+                                        zIndex: 6,
                                         top: 0,
                                         left: 585,
                                         width: 15,
                                         height: 15,
                                         cursor: "pointer",
-                                        zIndex: 3,
                                     }}
                                     alt="X symbol to close window"
                                 />
@@ -172,6 +163,7 @@ export class Help extends React.Component {
                             <div
                                 style={{
                                     position: "absolute",
+                                    zIndex: 5,
                                     height: 40,
                                     width: 602,
                                     color: "#a9a9a9",

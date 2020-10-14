@@ -1,5 +1,4 @@
 import React from "react";
-import { numSlides } from "../CreatePiece/helpTexts";
 import "./HelpModal.css";
 
 export class HelpModal extends React.Component {
