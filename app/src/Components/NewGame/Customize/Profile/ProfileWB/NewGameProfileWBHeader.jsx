@@ -17,11 +17,11 @@ export class NewGameProfileWBHeader extends React.Component {
     }
 
     hoverOn() {
-        this.setState({ src: "/Images/expand-72e2ff.svg" });
+        this.setState({ src: "/Images/expand/expand-72e2ff.svg" });
     }
 
     hoverOff() {
-        this.setState({ src: "/Images/expand.svg" });
+        this.setState({ src: "/Images/expand/expand.svg" });
     }
 
     render() {

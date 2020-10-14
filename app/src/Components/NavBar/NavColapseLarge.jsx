@@ -14,7 +14,7 @@ export class NavColapseLarge extends React.Component {
 
     render() {
         return (
-            <img src={`/Images/nav-colapse-button-${this.props.color}.svg`}
+            <img src={`/Images/nav-button/nav-colapse-button-${this.props.color}.svg`}
                  className="nav-colapse-large"
                  style={{width:20, height:45, cursor:"pointer"}}
                  onClick={this.colapseNav} 

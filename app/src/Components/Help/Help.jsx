@@ -146,7 +146,7 @@ export class Help extends React.Component {
                         >
                             <div style={{ position: "absolute", height: 15, width: 602, backgroundColor: "#515151" }}>
                                 <img
-                                    src="/Images/close.svg"
+                                    src="/Images/close/close.svg"
                                     onClick={() => this.props.togleHelpModal(false)}
                                     style={{
                                         position: "absolute",

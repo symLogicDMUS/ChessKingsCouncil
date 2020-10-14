@@ -19,11 +19,11 @@ export class MyPiecesDisplayBoardModal extends React.Component {
     }
 
     hoverOn() {
-        this.setState({src: "/Images/close-0cc.svg"})
+        this.setState({src: "/Images/close/close-0cc.svg"})
     }
 
     hoverOff() {
-        this.setState({src: "/Images/close.svg"})
+        this.setState({src: "/Images/close/close.svg"})
     }
 
     render() {

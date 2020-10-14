@@ -63,7 +63,7 @@ export class PickName extends React.Component {
                   navBarPosLeft="22.2vw" 
                   expandColapseColor="000000" />
           <div class="enter-game-name">
-            <img src="/Images/enter-name.svg" className="game-name-form" alt="title to enter name" />
+            <img src="/Images/text-labels/enter-name.svg" className="game-name-form" alt="title to enter name" />
               <input type="text" id="gname" value={this.state.userInput} onChange={this.handleUserInput} className="game-name-form"/>
               <button className="game-name-accept-button" onClick={this.setNameStatus}>
                 Submit

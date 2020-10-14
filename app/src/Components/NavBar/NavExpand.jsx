@@ -24,7 +24,7 @@ export class NavExpand extends React.Component {
         return (
             <div className="nav-expand" style={{backgroundColor:this.props.styles.backgroundColor, border: this.props.styles.border}} onClick={this.expandNav}>
                 <div style={{backgroundColor:this.props.styles.backgroundColor, border:this.props.styles.border, top:top, height:height, width:10, borderRadius:"2px"}} onClick={this.expandNav}>
-                    <img src={`/Images/nav-expand-${this.props.styles.iconColor}.svg`}  style={{position:"absolute", top:11.5, left:2, width:8, height:5.6}} alt="expand navbar" />
+                    <img src={`/Images/nav-expand/nav-expand-${this.props.styles.iconColor}.svg`}  style={{position:"absolute", top:11.5, left:2, width:8, height:5.6}} alt="expand navbar" />
                 </div>
             </div>
         )

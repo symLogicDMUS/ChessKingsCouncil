@@ -108,7 +108,7 @@ export class LoadGame extends React.Component {
                             <div className="load-game">
                                 <div>
                                     <img
-                                        src="/Images/LoadGame.svg"
+                                        src="/Images/text-labels/LoadGame.svg"
                                         className="load-game-text"
                                         alt="title for loading game"
                                     />
@@ -145,7 +145,7 @@ export class LoadGame extends React.Component {
                         <div className="load-game">
                             <div>
                                 <img
-                                    src="/Images/LoadGame.svg"
+                                    src="/Images/text-labels/LoadGame.svg"
                                     className="load-game-text"
                                     alt="text that reads 'Load Game'"
                                 />

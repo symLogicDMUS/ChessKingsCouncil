@@ -17,7 +17,7 @@ export class CreatedPieceCheckBox extends React.Component {
 
         this.checkmark = null;
         if (this.props.pieceName === this.props.selectedPiece) 
-            this.checkmark = <img src="/Images/silver-checkmark.svg" className="checkmark" />
+            this.checkmark = <img src="/Images/checkmark/silver-checkmark.svg" className="checkmark" />
 
         return (
             <div className="checkbox" onClick={this.selectMe}>

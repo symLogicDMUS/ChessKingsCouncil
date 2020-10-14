@@ -21,7 +21,6 @@ import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
 import { Ok } from "./Bottom/CustomiseOk";
-import { queryUser } from "../../../API/queryUser";
 import "./Customize.css";
 
 export class Customize extends React.Component {

@@ -15,7 +15,7 @@ export class PlayAsOption extends React.Component {
 
     getCheckmark() {
         if (this.props.selected === this.props.optionName)
-            return <img src="/Images/checkmark.svg" style={{position:"absolute", width:48, height:48}} alt="a checkmark" />
+            return <img src="/Images/checkmark/checkmark.svg" style={{position:"absolute", width:48, height:48}} alt="a checkmark" />
         else
             return null;
     }
@@ -34,7 +34,7 @@ export class PlayAsOption extends React.Component {
                     {this.getCheckmark()}
                 </div>
                 <div className="play-as-option-name">
-                    <img src={`/Images/${optionText}.svg`} style={{position:"absolute", left:68, top:10, height:48}} alt="title for checkbox" />
+                    <img src={`/Images/text-labels/${optionText}.svg`} style={{position:"absolute", left:68, top:10, height:48}} alt="title for checkbox" />
                 </div>
             </div>
         )

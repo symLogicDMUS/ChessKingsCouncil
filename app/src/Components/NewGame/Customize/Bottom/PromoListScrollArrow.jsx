@@ -11,9 +11,9 @@ export class PromoListScrollArrow extends React.Component {
 
         let arrowImg = null;
         if (this.props.class_ === "promo-list-up-arrow")
-            arrowImg = <img src="/Images/up-arrow.svg"  className="promo-list-scroll-arrow" />
+            arrowImg = <img src="/Images/arrows/up-arrow.svg"  className="promo-list-scroll-arrow" />
         else if (this.props.class_ === "promo-list-down-arrow")
-            arrowImg = <img src="/Images/down-arrow.svg" className="promo-list-scroll-arrow" />
+            arrowImg = <img src="/Images/arrows/down-arrow.svg" className="promo-list-scroll-arrow" />
         else
             arrowImg = <div>Error: incorrect class for Scroll Arrow Component</div>
         return arrowImg;

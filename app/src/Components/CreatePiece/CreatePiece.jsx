@@ -480,8 +480,8 @@ export class CreatePiece extends React.Component {
                 {this.optionTool && <OptionsTool togleOptionTool={this.togleOptionTool} />}
                 <div className="options-title">Options</div>
                 <SaveDef
-                    normal="/Images/save-a9a9a9.svg"
-                    highlighted="/Images/save-72e2ff.svg"
+                    normal="/Images/save/save-a9a9a9.svg"
+                    highlighted="/Images/save/save-72e2ff.svg"
                     existing={Object.keys(this.defs)}
                     save={this.save}
                     name={this.name}
@@ -492,28 +492,28 @@ export class CreatePiece extends React.Component {
                     setUnsaved={this.setUnsaved}
                 />
                 <LoadDef
-                    normal="/Images/load-piece-a9a9a9.svg"
-                    highlighted="/Images/load-piece-72e2ff.svg"
+                    normal="/Images/load-piece/load-piece-a9a9a9.svg"
+                    highlighted="/Images/load-piece/load-piece-72e2ff.svg"
                     togleLoadModal={this.togleLoadModal}
                     togleOptionTool={this.togleOptionTool}
                 />
                 <ResetDef
-                    normal="/Images/reset-range-a9a9a9.svg"
-                    highlighted="/Images/reset-range-72e2ff.svg"
+                    normal="/Images/reset-range/reset-range-a9a9a9.svg"
+                    highlighted="/Images/reset-range/reset-range-72e2ff.svg"
                     reset={this.reset}
                     togleOptionTool={this.togleOptionTool}
                     setUnsaved={this.setUnsaved}
                 />
                 <BlankDef
-                    normal="/Images/erase-range-a9a9a9.svg"
-                    highlighted="/Images/erase-range-72e2ff.svg"
+                    normal="/Images/erase-range/erase-range-a9a9a9.svg"
+                    highlighted="/Images/erase-range/erase-range-72e2ff.svg"
                     eraseRange={this.eraseRange}
                     togleOptionTool={this.togleOptionTool}
                     setUnsaved={this.setUnsaved}
                 />
                 <ThemeCreatePiece
-                    normal="/Images/theme-create-piece-a9a9a9.svg"
-                    highlighted="/Images/theme-create-piece-72e2ff.svg"
+                    normal="/Images/theme-create-piece/theme-create-piece-a9a9a9.svg"
+                    highlighted="/Images/theme-create-piece/theme-create-piece-72e2ff.svg"
                     togleOptionTool={this.togleOptionTool}
                 />
                 <Board

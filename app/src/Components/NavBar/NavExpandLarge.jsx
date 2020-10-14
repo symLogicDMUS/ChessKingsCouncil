@@ -14,7 +14,7 @@ export class NavExpandLarge extends React.Component {
 
     render() {
         return (
-            <img src={`/Images/nav-expand-button-${this.props.color}.svg`}
+            <img src={`/Images/nav-button/nav-expand-button-${this.props.color}.svg`}
                  className="nav-expand-large"
                  style={{width:20, height:45, cursor:"pointer"}}
                  onClick={this.expandNav} 

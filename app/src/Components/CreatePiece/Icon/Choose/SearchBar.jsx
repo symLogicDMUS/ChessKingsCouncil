@@ -42,7 +42,7 @@ export class SearchBar extends React.Component {
     render() {
         return (
             <div className="choose-icon-search" style={{backgroundColor: this.state.backgroundColor}}>
-                <img src="/Images/magnifying-glass-b6n6n6.svg" 
+                <img src="/Images/other/magnifying-glass-b6n6n6.svg" 
                      className="choose-icon-search-magnifying-glass" 
                      alt="magnifying glass symbol for search boxes" 
                 />

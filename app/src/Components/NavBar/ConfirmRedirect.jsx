@@ -17,7 +17,7 @@ export class ConfirmRedirect extends React.Component {
         return (
             <div className="confirm-redirect" onClick={this.closeConfirmRedirect}>
                 <div className="close-confirm-redirect">
-                    <img src="/Images/close.svg" alt="exit button" style={{width:12, height:12}} />    
+                    <img src="/Images/close/close.svg" alt="exit button" style={{width:12, height:12}} />    
                 </div>
                 <div className="confirm-redirect-text-label">
                     {this.props.message}

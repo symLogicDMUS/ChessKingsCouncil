@@ -87,7 +87,7 @@ export class App extends React.Component {
         else {
             return (
                 <>
-                    <img src="/Images/chess-kings-council.svg" style={{position: "relative", 
+                    <img src="/Images/text-labels/chess-kings-council.svg" style={{position: "relative", 
                                                                        top: "22vh", 
                                                                        left: "12.5vw", 
                                                                        height:"20vh", 

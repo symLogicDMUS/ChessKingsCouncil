@@ -17,14 +17,14 @@ export function AiBoard({aiStart, aiDest}) {
             if (rf === aiStart) {
                 squares.push(
                     <div style={pxPos}>
-                        <img src="/Images/sqr-outline-fdfd35.svg" style={{position:"absolute", width:75, height:75}} alt="ai start square"/>
+                        <img src="/Images/sqr/sqr-outline-fdfd35.svg" style={{position:"absolute", width:75, height:75}} alt="ai start square"/>
                     </div>
                 )
             }
             else if (rf === aiDest) {
                 squares.push(
                     <div style={pxPos}>
-                        <img src="/Images/sqr-highlight-fdfd35.svg" style={{position:"absolute", width:75, height:75}} alt="ai destination square"/>
+                        <img src="/Images/sqr/sqr-highlight-fdfd35.svg" style={{position:"absolute", width:75, height:75}} alt="ai destination square"/>
                     </div>
                 )
             }

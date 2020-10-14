@@ -16,9 +16,9 @@ export class ScrollArrow extends React.Component {
             this.class_ = "create-piece-scroll-down"
 
         if (this.class_ === "create-piece-scroll-up")
-            this.arrowImg = <img src="/Images/up-arrow.svg" className="create-piece-scroll-arrow" />
+            this.arrowImg = <img src="/Images/arrow/up-arrow.svg" className="create-piece-scroll-arrow" />
         else
-            this.arrowImg = <img src="/Images/down-arrow.svg" className="create-piece-scroll-arrow" />
+            this.arrowImg = <img src="/Images/arrow/down-arrow.svg" className="create-piece-scroll-arrow" />
 
         return (
             <div className={`create-piece-scroll ${this.class_}`} onClick={this.props.move}>

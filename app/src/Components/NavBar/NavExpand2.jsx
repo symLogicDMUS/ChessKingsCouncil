@@ -21,7 +21,7 @@ export class NavExpand extends React.Component {
                          backgroundColor:this.props.backgroundColor,
                          border:this.props.border
                         }}>
-                <img src={`/Images/nav-expand-${this.props.iconColor}.svg`}  
+                <img src={`/Images/nav-expand/nav-expand-${this.props.iconColor}.svg`}  
                      style={{position:"absolute",
                             top:11,
                             height:8

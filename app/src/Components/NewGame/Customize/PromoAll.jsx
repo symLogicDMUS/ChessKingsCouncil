@@ -19,7 +19,7 @@ export class PromoAll extends React.Component {
 
     getCheckmark() {
         if (this.state.checkmark)
-            return <img src="/Images/checkmark.svg" className="new-game-checked" alt="checkmark shows all indicates all pieces promoted."/>
+            return <img src="/Images/checkmark/checkmark.svg" className="new-game-checked" alt="checkmark shows all indicates all pieces promoted."/>
         else
             return null;
     }

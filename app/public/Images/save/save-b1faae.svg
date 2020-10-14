@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="save-0cc.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="save-b1faae.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    id="svg8"
    version="1.1"
    viewBox="0 0 13.229168 17.991666"
@@ -170,9 +170,9 @@
   <sodipodi:namedview
      units="px"
      inkscape:window-maximized="1"
-     inkscape:window-y="-9"
-     inkscape:window-x="-9"
-     inkscape:window-height="1001"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
      inkscape:window-width="1920"
      fit-margin-bottom="0"
      fit-margin-right="0"
@@ -183,7 +183,7 @@
      inkscape:current-layer="g849"
      inkscape:document-units="mm"
      inkscape:cy="33.633818"
-     inkscape:cx="45.093443"
+     inkscape:cx="21.622827"
      inkscape:zoom="7.4561314"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
@@ -216,11 +216,11 @@
          transform="matrix(0.89960937,0,0,0.89984324,2.8296587,5.8916223)">
         <path
            d="m 30.903696,63.860088 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712207,0 6.848829,-0.01022 8.561036,-0.01022 -1.712207,0 -6.848829,-0.01022 -8.561036,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z m 0,-0.763825 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712207,0 6.848829,-0.01022 8.561036,-0.01022 -1.712207,0 -6.848829,-0.01022 -8.561036,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z m -0.0036,-0.835278 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712207,0 6.848829,-0.01022 8.561036,-0.01022 -1.712207,0 -6.848829,-0.01022 -8.561036,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z m 0.08583,-0.806265 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712208,0 6.848829,-0.01022 8.561037,-0.01022 -1.712208,0 -6.848829,-0.01022 -8.561037,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z m 0,-0.848701 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712208,0 6.848829,-0.01022 8.561037,-0.01022 -1.712208,0 -6.848829,-0.01022 -8.561037,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z m -0.04921,-0.722487 c 0,0 0,0.01022 0,0.01022 v 0 c 1.712208,0 6.848829,-0.01022 8.561037,-0.01022 -1.712208,0 -6.848829,-0.01022 -8.561037,-0.01022 v 0 c 0,0 0,0.01022 0,0.01022 z M 30.132763,59.09819 h 10.036322 c 0.137411,0 0.248033,0.110623 0.248033,0.248033 v 5.325233 c 0,0.13741 -0.110622,0.248033 -0.248033,0.248033 H 30.13276 c -0.13741,0 -0.248032,-0.110623 -0.248032,-0.248033 v -5.325233 c 0,-0.13741 0.110622,-0.248033 0.248032,-0.248033 z m 0.709322,7.00549 v 6.122332 h 8.26913 V 66.10368 Z m 0.650852,0.754998 h 1.957711 v 3.765379 h -1.957714 z m -3.17765,-7.898705 v 11.860553 l 1.56414,1.546632 H 41.734824 V 58.959973 Z"
-           style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#00cccc;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#b1faae;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="path912-26-9-1" />
         <text
            xml:space="preserve"
-           style="font-size:5.02708px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;stroke-width:0.264583;stroke:none;stroke-opacity:1;fill:#00cccc;fill-opacity:1;"
+           style="font-size:5.02708px;line-height:0.5;font-family:sans-serif;-inkscape-font-specification:Tahoma;text-align:center;text-anchor:middle;fill:#00cccc;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
            x="35.081764"
            y="77.59182"
            id="text1505"><tspan
@@ -228,7 +228,7 @@
              id="tspan1503"
              x="35.081764"
              y="77.59182"
-             style="font-size:5.02708px;fill:#00cccc;fill-opacity:1;stroke-width:0.264583;stroke:none;stroke-opacity:1;">Save</tspan></text>
+             style="font-size:5.02708px;fill:#b1faae;fill-opacity:0.94117647;stroke:none;stroke-width:0.264583;stroke-opacity:1">Save</tspan></text>
       </g>
     </g>
   </g>

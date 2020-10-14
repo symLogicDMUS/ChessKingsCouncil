@@ -1,6 +1,5 @@
 import React from "react";
 import { getColorName } from "../../helpers/getColorName";
-import { HelpComponent } from "../../Help/HelpComponent";
 import "../css/SaveResignTool.css";
 
 export class SaveResignTool extends React.Component {
@@ -61,20 +60,19 @@ export class SaveResignTool extends React.Component {
     render() {
 
         if (this.state.saveHighlighted)
-            this.saveImg = "/Images/save-72e2ff.svg";
+            this.saveImg = "/Images/save/save-72e2ff.svg";
         else
-            this.saveImg = "/Images/save-b1faae.svg";
+            this.saveImg = "/Images/save/save-b1faae.svg";
 
         if (this.state.resignHighlighted)
-            this.resignImg = "/Images/resign-game-72e2ff.svg";
+            this.resignImg = "/Images/resign-game/resign-game-72e2ff.svg";
         else
-            this.resignImg = "/Images/resign-game-b1faae.svg";
+            this.resignImg = "/Images/resign-game/resign-game-b1faae.svg";
 
         if (this.state.saveAsHighlighted)
-            this.saveAsImg = "/Images/save-as-72e2ff.svg";
+            this.saveAsImg = "/Images/save-as/save-as-72e2ff.svg";
         else
-            this.saveAsImg = "/Images/save-as-b1faae.svg";
-
+            this.saveAsImg = "/Images/save-as/save-as-b1faae.svg";
 
         return (
             <div className="save-resign-tool">

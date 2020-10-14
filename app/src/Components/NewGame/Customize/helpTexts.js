@@ -30,7 +30,7 @@ export let paragraphs = {
             <p>
                 Click the{" "}
                 <span className="ilb-ei">
-                    <img src="/Images/expand.svg" className="ilb-ei-img" alt="expand icon for range and spans" />
+                    <img src="/Images/expand/expand.svg" className="ilb-ei-img" alt="expand icon for range and spans" />
                 </span>{" "}
                 Icon at the top of the span or offset list to view an image of a board with only that piece, and its
                 span or offset squares highlighted.

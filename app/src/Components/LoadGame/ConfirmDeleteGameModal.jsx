@@ -7,7 +7,7 @@ export class ConfirmDeleteGameModal extends Component {
             <div className="confirm-delete-game-modal">
                 <div className="confirm-delete-game-window">
                     <div className="confirm-delete-game-close" onClick={this.props.cancelDeleteGame}>
-                        <img src="/Images/close.svg" className="confirm-delete-game-close-x-symbol" alt="close window" />
+                        <img src="/Images/close/close.svg" className="confirm-delete-game-close-x-symbol" alt="close window" />
                     </div>
                     <div className="confirm-delete-game-window-title">
                         Are You Sure you want to delete game {this.props.gameName}?

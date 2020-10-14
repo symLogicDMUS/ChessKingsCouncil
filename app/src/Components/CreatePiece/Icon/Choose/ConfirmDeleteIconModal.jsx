@@ -7,7 +7,7 @@ export class ConfirmDeleteIconModal extends Component {
             <div className="confirm-delete-icon-modal">
                 <div className="confirm-delete-icon-window">
                     <div className="confirm-delete-icon-close" onClick={this.props.cancelDeleteIcon}>
-                        <img src="/Images/close.svg" className="confirm-delete-icon-close-x-symbol" alt="close window" />
+                        <img src="/Images/close/close.svg" className="confirm-delete-icon-close-x-symbol" alt="close window" />
                     </div>
                     <div className="confirm-delete-icon-window-title">
                         Are You Sure you want to delete image {this.props.imgNameChoice}?

@@ -9,7 +9,7 @@ export class ExpandModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {tooltip: false, src: "/Images/unexpand.svg"}
+        this.state = {tooltip: false, src: "/Images/unexpand/unexpand.svg"}
         this.togleTooltip = this.togleTooltip.bind(this);
         this.unexpand = this.unexpand.bind(this);
         this.hoverOn = this.hoverOn.bind(this);
@@ -33,11 +33,11 @@ export class ExpandModal extends React.Component {
     }
 
     hoverOn() {
-        this.setState({src: "/Images/unexpand-72e2ff.svg"})
+        this.setState({src: "/Images/unexpand/unexpand-72e2ff.svg"})
     }
 
     hoverOff() {
-        this.setState({src: "/Images/unexpand.svg"})
+        this.setState({src: "/Images/unexpand/unexpand.svg"})
     }
 
     render() {

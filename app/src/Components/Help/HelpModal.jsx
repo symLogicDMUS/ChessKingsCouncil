@@ -26,7 +26,7 @@ export class HelpModal extends React.Component {
                         <div className="help-modal-window-title">{this.props.helpTitle}</div>
                         <div className="help-modal-window-close" onClick={closeMethod}>
                             <img
-                                src="/Images/close.svg"
+                                src="/Images/close/close.svg"
                                 style={{ width: "15px", height: "15px" }}
                                 alt="X symbol to close window"
                             />

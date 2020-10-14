@@ -21,10 +21,6 @@ export class RangeDisplayTool extends React.Component {
         this.setState({expanded: boolVal})
     }
 
-
-
-
-
     getHelpModalChild() {
         return this.hmChildren[this.hmChildName];
     }

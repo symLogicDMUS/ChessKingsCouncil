@@ -18,11 +18,11 @@ export let paragraphs = {
             <p>
                 Use the expand and colapse (
                 <span className="ilb-ei">
-                    <img src="/Images/expand.svg" className="ilb-ei-img" alt="expand icon" />
+                    <img src="/Images/expand/expand.svg" className="ilb-ei-img" alt="expand icon" />
                 </span>{" "}
                 and{" "}
                 <span className="ilb-ei">
-                    <img src="/Images/unexpand.svg" className="ilb-ei-img" alt="unexpand-icon" />
+                    <img src="/Images/unexpand/unexpand.svg" className="ilb-ei-img" alt="unexpand-icon" />
                 </span>
                 ) to show and hide the Range Display Board.{" "}
             </p>

@@ -3,8 +3,7 @@ import {RangeBoard} from "./RangeBoard";
 import {ExpandColapseWidget} from "./ExpandColapseWidget";
 import "../css/RangeDisplayExpanded.css";
 import "../css/ShowMovesLabel.css";
-import {HelpText} from "../helpTexts";
-import {HelpComponent} from "../../Help/HelpComponent";
+
 
 export class RangeDisplayExpanded extends React.Component {
 
@@ -21,9 +20,9 @@ export class RangeDisplayExpanded extends React.Component {
         return (
             <div className="range-display-expanded">
                 <div className="show-moves-label">
-                    <img src="/Images/range-display.svg" style={{height:"16px"}} alt="expand icon" />
+                    <img src="/Images/text-labels/range-display.svg" style={{height:"16px"}} alt="expand icon" />
                 </div>
-                <ExpandColapseWidget togleExpand={this.togleExpand} imgName={"/Images/range-display-colapse-b1faae.svg"}/>
+                <ExpandColapseWidget togleExpand={this.togleExpand} imgName={"/Images/colapse/range-display-colapse-b1faae.svg"}/>
                 <RangeBoard 
                             board={this.props.board}
                             allRanges={this.props.allRanges}

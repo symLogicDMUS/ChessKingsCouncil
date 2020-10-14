@@ -82,7 +82,7 @@ export class PlayAs extends React.Component {
                 />
                 <div className="play-as-title">
                     <img
-                        src="/Images/play-as.svg"
+                        src="/Images/text-labels/play-as.svg"
                         alt="title for picking to play as white, black, or test"
                         style={{ position: "absolute", height: 75, width: 251 }}
                     />

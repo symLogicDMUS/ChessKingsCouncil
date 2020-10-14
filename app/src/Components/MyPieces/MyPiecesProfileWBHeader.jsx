@@ -17,11 +17,11 @@ export class  MyPiecesProfileWBHeader extends React.Component  {
         this.props.expand(this.props.pieceName, this.props.color, this.props.rangeType);
     }
     hoverOn() {
-        this.setState({src: "/Images/expand-0cc.svg"})
+        this.setState({src: "/Images/expand/expand-0cc.svg"})
     }
 
     hoverOff() {
-        this.setState({src: "/Images/expand.svg"})
+        this.setState({src: "/Images/expand/expand.svg"})
     }
 
     render() {

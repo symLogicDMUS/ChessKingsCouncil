@@ -106,10 +106,10 @@ export class ChooseModal extends React.Component {
                 <div className="choose-modal">
                     <div className="choose-main">
                         <div className="close" onClick={this.props.closeChooseModal}>
-                            <img src="/Images/close.svg" className="x" alt="close window" />
+                            <img src="/Images/close/close.svg" className="x" alt="close window" />
                         </div>
                         <div className="title-div">
-                            <img src="/Images/choose-icon-title.svg" className="title" alt="title of window" />
+                            <img src="/Images/text-labels/choose-icon-title.svg" className="title" alt="title of window" />
                         </div>
                         <SearchBar updateSearch={this.updateSearch} />
                         <div className="pieces-profiles">{this.getImages()}</div>

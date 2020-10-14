@@ -21,7 +21,7 @@ export class  CreatePieceProfileWBHeader extends React.Component  {
                     {this.color} {this.props.rangeType}
                 </div>
                 <div class_="create-piece-piece-expand-modal" onClick={this.expand}>
-                    <img src="/Images/expand.svg" style={{width: 14, height: 14, marginTop: 3, marginLeft: 3, cursor:"pointer"}}  />
+                    <img src="/Images/expand/expand.svg" style={{width: 14, height: 14, marginTop: 3, marginLeft: 3, cursor:"pointer"}}  />
                 </div>
             </div>
         )    
