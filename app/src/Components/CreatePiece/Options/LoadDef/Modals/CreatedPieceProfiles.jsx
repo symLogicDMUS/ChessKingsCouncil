@@ -48,7 +48,7 @@ export class CreatedPieceProfiles extends React.Component {
         if (this.pieceName != null && this.rangeType != null && this.color != null) {
             return (
                 <CreatePieceExpandModal
-                    def={this.displayDefs[this.pieceName][this.color]}
+                    def={this.props.defs[this.pieceName][this.color]}
                     pieceName={this.pieceName}
                     rangeType={this.rangeType}
                     color={this.color}

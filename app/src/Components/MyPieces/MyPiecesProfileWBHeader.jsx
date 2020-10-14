@@ -34,8 +34,8 @@ export class  MyPiecesProfileWBHeader extends React.Component  {
                     <img src={this.state.src}
                          style={{width: 16, 
                                  height: 16, 
-                                 marginTop: 7, 
-                                 marginLeft: 7, 
+                                 marginTop: 3, 
+                                 marginLeft: 3, 
                                  cursor:"pointer"
                                 }}
                          alt="expand icon"
