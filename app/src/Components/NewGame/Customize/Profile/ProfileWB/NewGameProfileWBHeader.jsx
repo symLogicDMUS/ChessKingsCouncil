@@ -5,7 +5,7 @@ import "./NewGameProfileWBHeader.css";
 export class NewGameProfileWBHeader extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { src: "/Images/expand.svg" };
+        this.state = { src: "/Images/expand/expand.svg" };
         this.expand = this.expand.bind(this);
         this.color = getColorName(this.props.color);
         this.hoverOn = this.hoverOn.bind(this);

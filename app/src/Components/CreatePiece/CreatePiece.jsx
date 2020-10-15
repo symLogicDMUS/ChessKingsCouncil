@@ -446,17 +446,7 @@ export class CreatePiece extends React.Component {
 
     getNameCase() {
         if (this.name === "") return "blank-name";
-
-        let name = this.name.split("");
-
-        if (!name.every(isIndentifier)) return "invalid-character";
-
-        let digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-        if (digits.includes(name[0])) return "leading-digit";
-
         if (this.standardsLc.includes(this.name.toLowerCase())) return "standard-name";
-
         return "valid";
     }
 

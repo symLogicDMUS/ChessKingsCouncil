@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="150"
+   viewBox="0 0 400 150"
+   version="1.1"
+   id="svg117"
+   sodipodi:docname="Range Tool All Spans.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata121">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview119"
+     showgrid="false"
+     inkscape:zoom="0.71"
+     inkscape:cx="-174.48095"
+     inkscape:cy="450.62256"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg117" />
+  <defs
+     id="defs4">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rectangle_21"
+         data-name="Rectangle 21"
+         width="44"
+         height="16"
+         fill="none"
+         stroke="rgba(0,0,0,0)"
+         stroke-width="1" />
+    </clipPath>
+  </defs>
+  <g
+     id="RangeTool"
+     style="fill:#515151;stroke:#707070;stroke-width:1">
+    <rect
+       width="400"
+       height="150"
+       rx="15"
+       id="rect6"
+       x="0"
+       y="0"
+       style="stroke:none" />
+    <rect
+       x="0.5"
+       y="0.5"
+       width="399"
+       height="149"
+       rx="14.5"
+       id="rect8"
+       style="fill:none" />
+  </g>
+  <g
+     id="Mask_Group_1"
+     data-name="Mask Group 1"
+     transform="translate(10,10)"
+     clip-path="url(#clip-path)">
+    <text
+       id="Range"
+       transform="translate(-0.5,12.457)"
+       font-size="16"
+       style="font-size:16px;font-family:Tahoma;fill:#a9a9a9">
+      <tspan
+         x="0"
+         y="0"
+         id="tspan11">Range</tspan>
+    </text>
+  </g>
+  <g
+     id="rangeDisplay"
+     transform="translate(10,40)"
+     style="fill:#515151;stroke:#a9a9a9;stroke-width:1">
+    <rect
+       width="241"
+       height="100"
+       rx="5"
+       id="rect15"
+       x="0"
+       y="0"
+       style="stroke:none" />
+    <rect
+       x="0.5"
+       y="0.5"
+       width="240"
+       height="99"
+       rx="4.5"
+       id="rect17"
+       style="fill:none" />
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     id="directionButton"
+     transform="rotate(90,157.5,232.5)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect20"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect22"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(90,150,238)"
+     data-name="right"
+     id="right-2">
+    <g
+       data-name="Group 7"
+       id="Group_7">
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         d="M 2.5,0 5,5 H 0 Z"
+         data-name="Polygon 1"
+         id="Polygon_1" />
+      <rect
+         style="fill:#ffffff"
+         y="0"
+         x="0"
+         transform="translate(2,1)"
+         height="25"
+         width="1"
+         data-name="Rectangle 20"
+         id="Rectangle_20" />
+    </g>
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-2"
+     transform="rotate(90,140,250)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect30"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect32"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(135,165.45033,146.39743)"
+     id="arrow">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       d="M 2.5,0 5,5 H 0 Z"
+       data-name="Polygon 1"
+       id="Polygon_1-2" />
+    <rect
+       style="fill:#ffffff"
+       y="0"
+       x="0"
+       transform="translate(2,1)"
+       height="25"
+       width="1"
+       data-name="Rectangle 20"
+       id="Rectangle_20-2" />
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-3"
+     transform="rotate(180,177.5,70)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect39"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect41"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(180,171,69)"
+     data-name="arrow"
+     id="arrow-2">
+    <g
+       data-name="Group 7"
+       id="Group_7-2">
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         d="M 2.5,0 5,5 H 0 Z"
+         data-name="Polygon 1"
+         id="Polygon_1-3" />
+      <rect
+         style="fill:#ffffff"
+         y="0"
+         x="0"
+         transform="translate(2,1)"
+         height="25"
+         width="1"
+         data-name="Rectangle 20"
+         id="Rectangle_20-3" />
+    </g>
+  </g>
+  <rect
+     width="30"
+     height="30"
+     rx="5"
+     id="rect49"
+     x="-105"
+     y="290"
+     style="fill:#ff0000;stroke:none;stroke-width:1"
+     transform="rotate(-90)" />
+  <rect
+     x="-104.5"
+     y="290.5"
+     width="29"
+     height="29"
+     rx="4.5"
+     id="rect51"
+     style="fill:none;stroke:#888888;stroke-width:1"
+     transform="rotate(-90)" />
+  <g
+     transform="rotate(-90,192,-100)"
+     data-name="left"
+     id="left-2">
+    <g
+       data-name="Group 7"
+       id="Group_7-3">
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         d="M 2.5,0 5,5 H 0 Z"
+         data-name="Polygon 1"
+         id="Polygon_1-4" />
+      <rect
+         style="fill:#ffffff"
+         y="0"
+         x="0"
+         transform="translate(2,1)"
+         height="25"
+         width="1"
+         data-name="Rectangle 20"
+         id="Rectangle_20-4" />
+    </g>
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-5"
+     transform="rotate(180,160,70)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect59"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect61"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(-135,176.69574,6.453753)"
+     data-name="arrow"
+     id="arrow-3">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       d="M 2.5,0 5,5 H 0 Z"
+       data-name="Polygon 1"
+       id="Polygon_1-5" />
+    <rect
+       style="fill:#ffffff"
+       y="0"
+       x="0"
+       transform="translate(2,1)"
+       height="25"
+       width="1"
+       data-name="Rectangle 20"
+       id="Rectangle_20-5" />
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-6"
+     transform="translate(325,40)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect68"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect70"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="translate(338,42)"
+     data-name="arrow"
+     id="arrow-4">
+    <g
+       data-name="Group 7"
+       id="Group_7-4">
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         d="M 2.5,0 5,5 H 0 Z"
+         data-name="Polygon 1"
+         id="Polygon_1-6" />
+      <rect
+         style="fill:#ffffff"
+         y="0"
+         x="0"
+         transform="translate(2,1)"
+         height="25"
+         width="1"
+         data-name="Rectangle 20"
+         id="Rectangle_20-6" />
+    </g>
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-7"
+     transform="translate(360,40)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect78"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect80"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(45,138.30152,484.25136)"
+     data-name="arrow"
+     id="arrow-5">
+    <path
+       style="fill:#ffffff"
+       inkscape:connector-curvature="0"
+       d="M 2.5,0 5,5 H 0 Z"
+       data-name="Polygon 1"
+       id="Polygon_1-7" />
+    <rect
+       style="fill:#ffffff"
+       y="0"
+       x="0"
+       transform="translate(2,1)"
+       height="25"
+       width="1"
+       data-name="Rectangle 20"
+       id="Rectangle_20-7" />
+  </g>
+  <g
+     style="fill:#ff0000;stroke:#888888;stroke-width:1"
+     data-name="directionButton"
+     id="directionButton-8"
+     transform="rotate(-90,180,-110)">
+    <rect
+       style="stroke:none;fill:#ff0000"
+       y="0"
+       x="0"
+       id="rect87"
+       rx="5"
+       height="30"
+       width="30" />
+    <rect
+       style="fill:#ff0000"
+       id="rect89"
+       rx="4.5"
+       height="29"
+       width="29"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     transform="rotate(-90,179.7495,-114.2895)"
+     data-name="Group 8"
+     id="Group_8">
+    <g
+       transform="rotate(45,9.1925,22.192658)"
+       data-name="arrow"
+       id="arrow-6">
+      <path
+         style="fill:#ffffff"
+         inkscape:connector-curvature="0"
+         d="M 2,26 V 5 H 0 L 2.5,0 5,5 H 3 v 21 z"
+         data-name="Union 1"
+         id="Union_1" />
+    </g>
+  </g>
+  <rect
+     style="fill:#5d5d5d"
+     y="65"
+     x="11"
+     height="13"
+     width="238"
+     data-name="Rectangle 26"
+     id="Rectangle_26" />
+  <rect
+     style="fill:#5d5d5d"
+     y="91"
+     x="11"
+     height="13"
+     width="238"
+     data-name="Rectangle 27"
+     id="Rectangle_27" />
+  <rect
+     style="fill:#5d5d5d"
+     y="117"
+     x="11"
+     height="13"
+     width="238"
+     data-name="Rectangle 28"
+     id="Rectangle_28" />
+  <g
+     style="opacity:0.8;fill:#515151;stroke:#a9a9a9;stroke-width:1"
+     transform="translate(170,43)"
+     data-name="Rectangle 29"
+     id="Rectangle_29">
+    <rect
+       style="stroke:none"
+       y="0"
+       x="0"
+       id="rect100"
+       rx="3"
+       height="9"
+       width="9" />
+    <rect
+       style="fill:none"
+       id="rect102"
+       rx="2.5"
+       height="8"
+       width="8"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <g
+     style="opacity:0.8;fill:#515151;stroke:#a9a9a9;stroke-width:1"
+     transform="translate(77,43)"
+     data-name="Rectangle 30"
+     id="Rectangle_30">
+    <rect
+       style="stroke:none"
+       y="0"
+       x="0"
+       id="rect105"
+       rx="3"
+       height="9"
+       width="9" />
+    <rect
+       style="fill:none"
+       id="rect107"
+       rx="2.5"
+       height="8"
+       width="8"
+       y="0.5"
+       x="0.5" />
+  </g>
+  <text
+     style="font-size:8px;font-family:SegoeUI, 'Segoe UI';fill:#a9a9a9"
+     font-size="8"
+     data-name="span text squares"
+     id="span_text_squares"
+     x="41"
+     y="50">
+    <tspan
+       id="tspan110"
+       y="50"
+       x="10.291">span text squares</tspan>
+  </text>
+  <text
+     style="font-size:8px;font-family:SegoeUI, 'Segoe UI';fill:#a9a9a9"
+     font-size="8"
+     data-name="offset text squares"
+     id="offset_text_squares"
+     x="134"
+     y="50">
+    <tspan
+       id="tspan113"
+       y="50"
+       x="101.646">offset text squares</tspan>
+  </text>
+  <g
+     id="g1696"
+     transform="matrix(0.03691877,0,0,0.03691877,297.42622,57.031168)">
+    <path
+       style="fill:#ffffff;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 495.87661,496.36368 2.87187,-264.21225 c -22.49944,-46.49872 -54.21121,-42.15606 -79.45513,0 l 0.95729,-25.84685 c -15.95691,-38.13925 -58.68262,-64.22014 -81.36971,1.91458 l 3.82916,-27.76143 C 330.94168,133.77568 271.84178,116.8449 258.4685,181.41502 V 45.479736 c -7.28066,-23.95206 -49.32628,-67.953499 -77.54055,-0.957291 L 177.09879,386.27524 75.625969,336.49612 C 46.750646,323.81288 3.6974828,342.43869 20.103106,395.84815 L 216.34771,585.39172 c 90.09028,62.80839 162.4676,44.92435 229.74978,3.82916 18.13647,-25.93625 40.9724,-36.59926 49.77912,-92.8572 z"
+       id="path1692"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccc" />
+    <path
+       style="fill:#000000"
+       d="m 334.03727,640.50821 c -1.375,-0.45843 -5.875,-0.89261 -10,-0.96487 -7.8339,-0.13721 -27.1738,-2.43937 -28.7676,-3.4244 -0.507,-0.31334 -4.9292,-1.46716 -9.8271,-2.56403 -4.8979,-1.09687 -10.796,-2.9135 -13.107,-4.03694 -2.3109,-1.12345 -4.68695,-2.04263 -5.2801,-2.04263 -2.34306,0 -19.0539,-7.62279 -31.01817,-14.14919 -9.68921,-5.28539 -26.34052,-17.54803 -36.4222,-26.82265 C 185.43725,573.46063 18.916757,406.21238 15.743797,401.82862 c -2.04885,-2.83069 -4.95477,-7.78069 -6.4576096,-11 -2.51663,-5.39102 -2.73307,-6.84046 -2.74064,-18.35328 -0.008,-12.40983 0.0189,-12.55624 3.7529196,-20.29574 6.5084,-13.49 18.64029,-23.91885 32.23885,-27.71327 6.52707,-1.82125 21.29614,-1.86101 29.499988,-0.0794 10.060907,2.18489 17.764707,5.60017 56.453715,25.02732 19.77454,9.92952 36.30536,17.70202 36.73515,17.27223 0.42979,-0.42979 0.90062,-73.66562 1.04628,-162.74628 l 0.26485,-161.964846 4.39078,-9 c 6.9099,-14.16358 18.25882,-23.8400899 33.46707,-28.5352799 5.06814,-1.56466 22.15291,-1.58825 27.18109,-0.0375 15.03559,4.6370899 26.64435,14.4950199 33.55614,28.4951999 l 4.40489,8.92239 0.2947,49.546209 c 0.1939,32.599297 0.647,49.763917 1.3246,50.182747 0.5665,0.3501 4.9339,-0.71293 9.7054,-2.3623 12.2792,-4.24459 19.4904,-4.56131 30.5513,-1.34182 9.3178,2.71214 15.4019,6.09864 22.2169,12.36625 4.5003,4.13892 10.2998,12.17654 12.3403,17.10287 1.6336,3.94373 3.2052,3.96705 10.6764,0.15843 12.4901,-6.36722 30.0118,-6.30381 43.3904,0.15703 11.3903,5.50064 18.4451,12.68758 25.9611,26.44743 l 2.2404,4.10164 8.1493,-4.09164 8.1492,-4.09164 13,-0.01 c 10.0272,-0.008 13.8004,0.36796 16.5,1.64278 1.925,0.90903 5.75,2.69453 8.5,3.96777 6.9497,3.21767 18.3081,14.8149 21.9187,22.37945 5.9045,12.37063 5.5813,4.27388 5.5813,139.84121 0,120.13269 -0.3884,138.97212 -2.9928,145.15879 -0.4631,1.1 -1.744,5.6 -2.8465,10 -5.869,23.42368 -18.2957,46.9284 -35.4108,66.97875 -7.573,8.87179 -19.9019,20.49029 -26.3336,24.81616 -2.2461,1.51068 -4.9884,3.58949 -6.0941,4.61958 -1.1057,1.03008 -3.318,2.60828 -4.9162,3.5071 -1.5983,0.89882 -4.481,2.581 -6.406,3.73818 -20.7787,12.49075 -47.0267,20.92181 -71,22.80569 -6.875,0.54026 -13.625,1.18898 -15,1.4416 -1.375,0.25263 -3.625,0.0842 -5,-0.37419 z m 20.9345,-26.11077 c 6.2889,-0.58909 13.2639,-1.66575 15.5,-2.3926 2.236,-0.72682 6.5403,-1.89013 9.565,-2.5851 5.12,-1.17639 15.9749,-5.25501 20.5231,-7.71135 1.0876,-0.58737 4.4524,-2.27952 7.4774,-3.76035 3.025,-1.48083 6.9325,-3.76799 8.6833,-5.08256 1.7508,-1.31458 3.4333,-2.39014 3.7388,-2.39014 3.255,0 30.5135,-25.78053 35.4205,-33.5 1.3985,-2.2 3.0383,-4.45 3.644,-5 1.636,-1.48544 10.0607,-16.42489 13.0515,-23.14398 3.6802,-8.26772 8.0042,-21.55729 9.8769,-30.35602 3.2751,-15.388 3.6748,-33.0163 3.378,-149 -0.3298,-128.88749 0.3582,-118.09929 -8.0903,-126.85592 -5.6357,-5.84121 -11.4842,-8.28752 -19.751,-8.26139 -8.2772,0.0262 -14.0804,2.47048 -19.614,8.26139 -7.8089,8.17203 -7.7134,7.57711 -8.0786,50.35592 -0.2127,24.90363 -0.7097,38.97195 -1.4422,40.82019 -0.7407,1.86906 -2.7532,3.6092 -5.9673,5.15971 l -4.8496,2.33954 -4.8698,-2.34929 c -2.6784,-1.2921 -5.2659,-3.16397 -5.75,-4.15971 -0.4841,-0.99573 -1.1052,-25.43544 -1.3802,-54.31044 -0.4996,-52.46227 -0.5016,-52.50323 -2.8167,-57 -3.1827,-6.18217 -5.8349,-9.01787 -11.6833,-12.49153 -4.4918,-2.66794 -5.8638,-2.96976 -13.5,-2.96976 -7.5233,0 -9.041,0.32188 -13.2084,2.80133 -6.3022,3.74951 -10.1526,8.33618 -12.6891,15.11552 -2.0335,5.43516 -2.1025,7.25671 -2.1025,55.53491 0,36.79356 -0.3166,50.6103 -1.2043,52.55871 -0.7154,1.57001 -3.1457,3.57979 -5.9855,4.94977 l -4.7812,2.3065 -4.4168,-2.15272 c -2.4293,-1.184 -5.0233,-3.05272 -5.7645,-4.15273 -1.083,-1.60716 -1.4459,-14.86559 -1.8477,-67.5 -0.4866,-63.75002 -0.5557,-65.62043 -2.5865,-70.00758 -2.1421,-4.6275 -10.6501,-13.98036 -12.7424,-14.00773 -0.7967,-0.0104 -0.7567,-0.27816 0.1251,-0.83752 0.7135,-0.45268 -4.269,-0.78287 -11.086,-0.73468 -11.7887,0.0833 -12.5696,0.21818 -16.2961,2.81392 -4.6118,3.21241 -8.8697,8.35094 -11.2243,13.54569 -1.5209,3.3553 -1.7165,10.17474 -1.9576,68.2279 -0.1874,45.12455 -0.6081,65.34718 -1.40043,67.3202 -0.74636,1.85856 -2.7812,3.61552 -5.96764,5.15272 l -4.83511,2.33253 -4.43022,-2.15272 c -8.28346,-4.02508 -7.59867,8.43755 -7.59956,-138.30701 l -7.9e-4,-130.845706 -2.94435,-6 c -3.66596,-7.47048 -5.27807,-9.28763 -11.55407,-13.02361 -4.49581,-2.67626 -5.85712,-2.97639 -13.5,-2.97639 -7.20764,0 -9.10817,0.36629 -12.5,2.40915 -6.40498,3.85765 -9.57888,7.21401 -12.37922,13.09085 l -2.62078,5.5 -0.5,171.999986 c -0.27627,95.03591 -0.89144,172.80382 -1.37479,173.79639 -0.48114,0.98801 -3.09989,2.92393 -5.81945,4.30204 l -4.94467,2.50565 -8.68054,-4.11731 c -7.74233,-3.67231 -15.63373,-7.6173 -24.68055,-12.33808 -1.65,-0.86099 -4.35,-2.19892 -6,-2.97316 -4.03138,-1.89168 -19.4998,-9.58327 -22,-10.93939 -5.0314,-2.72904 -17.313728,-8.73614 -17.862258,-8.73614 -0.33568,0 -4.104,-1.9196 -8.37404,-4.2658 -4.27003,-2.34619 -11.12793,-5.6087 -15.23977,-7.25 -6.555095,-2.61658 -8.710925,-2.9842 -17.499995,-2.9842 -8.87048,0 -10.48419,0.28103 -14.02392,2.4423 -8.56639,5.23039 -12.58014,12.14325 -12.66794,21.81787 -0.1086,11.96588 -3.8989,7.72913 96.899473,108.31285 58.66048,58.53555 94.65467,93.70824 99.76845,97.49142 10.05341,7.43753 17.66634,12.3768 19.12756,12.40997 0.62015,0.0141 1.63471,0.63669 2.25458,1.38358 0.94304,1.1363 11.04882,6.41327 18.61786,9.72176 6.45867,2.82313 17.04657,6.33495 23.99997,7.9604 4.4,1.02855 9.948,2.35052 12.3288,2.93772 10.5045,2.59076 34.4701,3.5025 51.1057,1.94423 z"
+       id="path1687"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

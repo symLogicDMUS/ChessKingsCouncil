@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="400"
+   height="207.91875"
+   viewBox="0 0 400 207.91875"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="Name Tool Standard Names Not Allowed.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata25">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview23"
+     showgrid="false"
+     inkscape:zoom="1.42"
+     inkscape:cx="202.44947"
+     inkscape:cy="113.03016"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs4">
+    <clipPath
+       id="clip-path">
+      <rect
+         id="Rectangle_23"
+         data-name="Rectangle 23"
+         width="41"
+         height="13"
+         stroke="rgba(0,0,0,0)"
+         x="0"
+         y="0"
+         style="fill:none;stroke-width:1" />
+    </clipPath>
+  </defs>
+  <g
+     id="Name_Tool"
+     data-name="Name Tool"
+     transform="translate(-876,-89.237051)">
+    <g
+       id="NameTool"
+       transform="translate(876,149)"
+       style="fill:#515151;stroke:#707070;stroke-width:1">
+      <rect
+         width="400"
+         height="69"
+         rx="15"
+         id="rect6"
+         x="0"
+         y="0"
+         style="stroke:none" />
+      <rect
+         x="0.5"
+         y="0.5"
+         width="399"
+         height="68"
+         rx="14.5"
+         id="rect8"
+         style="fill:none" />
+    </g>
+    <g
+       id="Form"
+       transform="translate(886,187)"
+       style="fill:#515151">
+      <path
+         d="M 374.87524,20.5 H 5.1247501 C 2.57465,20.5 0.5,18.4813 0.5,16 V 5 C 0.5,2.5186999 2.57465,0.5 5.1247501,0.5 H 374.87524 C 377.42535,0.5 379.5,2.5186999 379.5,5 v 11 c 0,2.4813 -2.07465,4.5 -4.62476,4.5 z"
+         id="path11"
+         inkscape:connector-curvature="0"
+         style="stroke:none" />
+      <path
+         d="M 5.1247559,1 C 2.8503418,1 1,2.7943993 1,5 v 11 c 0,2.205601 1.8503418,4 4.1247559,4 H 374.87524 C 377.14966,20 379,18.205601 379,16 V 5 c 0,-2.2056007 -1.85034,-4 -4.12476,-4 H 5.1247559 m 0,-1 H 374.87524 C 377.70554,0 380,2.2385998 380,5 v 11 c 0,2.7614 -2.29446,5 -5.12476,5 H 5.1247559 C 2.2944641,21 0,18.7614 0,16 V 5 C 0,2.2385998 2.2944641,0 5.1247559,0 Z"
+         id="path13"
+         inkscape:connector-curvature="0"
+         style="fill:#a9a9a9;stroke:none" />
+    </g>
+    <g
+       id="Name"
+       transform="translate(886.813,159)"
+       clip-path="url(#clip-path)">
+      <text
+         id="Name-2"
+         data-name="Name"
+         transform="translate(-1,12)"
+         font-size="16"
+         style="font-size:16px;font-family:Tahoma;fill:#a9a9a9">
+        <tspan
+           x="0"
+           y="0"
+           id="tspan16">Name</tspan>
+      </text>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:33.33333206px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="40.832928"
+     y="113.32611"
+     id="text834"><tspan
+       sodipodi:role="line"
+       id="tspan832"
+       x="40.832928"
+       y="113.32611"
+       style="font-size:16px;fill:#72e2ff;fill-opacity:1">Queen</tspan></text>
+  <g
+     id="g850"
+     transform="translate(-2.8169014,66.100977)">
+    <circle
+       r="88.770088"
+       cy="27.669111"
+       cx="182.25429"
+       id="path838"
+       style="opacity:0.98999999;fill:none;fill-opacity:1;stroke:#da1b22;stroke-width:10;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       transform="matrix(0.56476409,0.8252524,-0.83276753,0.55362284,0,0)"
+       ry="0.37770966"
+       y="-141.33252"
+       x="42.189617"
+       height="8.0933437"
+       width="163.86519"
+       id="rect840"
+       style="opacity:0.98999999;fill:#ff0000;fill-opacity:1;stroke:#da1b22;stroke-width:8.10442638;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:33.33333206px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="183.09859"
+     y="207.6362"
+     id="text854"><tspan
+       sodipodi:role="line"
+       id="tspan852"
+       x="183.09859"
+       y="207.6362"
+       style="font-size:18.66666603px;fill:#ff0000">Not allowed</tspan></text>
+</svg>

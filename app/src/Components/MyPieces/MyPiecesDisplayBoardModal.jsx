@@ -7,7 +7,7 @@ export class MyPiecesDisplayBoardModal extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {src:"/Images/close.svg"}
+        this.state = {src:"/Images/close/close.svg"}
         this.close = this.close.bind(this);
         this.hoverOn = this.hoverOn.bind(this);
         this.hoverOff = this.hoverOff.bind(this);

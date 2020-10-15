@@ -343,7 +343,6 @@ export class Customize extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-
                 {(this.state.isHelpModal || this.state.firstTime) && (
                     <Help
                         pageName="Customize"
