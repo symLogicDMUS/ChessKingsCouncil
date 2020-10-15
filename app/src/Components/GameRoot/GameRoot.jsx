@@ -26,6 +26,7 @@ import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { HelpComponent } from "../Help/HelpComponent";
 import { Help } from "../Help/Help";
+import { MessageModal } from "../Help/MessageModal";
 import { OVER } from "../helpers/gStatusTypes";
 import { update } from "../../apiHelpers/update";
 import { updateCouncil } from "../../apiHelpers/updateCouncil";
@@ -35,7 +36,7 @@ import "./css/GameRoot.css";
 export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, isHelpModal: false };
+        this.state = { bValue: true, isHelpModal: false, messageModal: false, firstTime: false };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -67,6 +68,8 @@ export class GameRoot extends React.Component {
         this.pieceRangeHighlight = "none";
         this.helpTitle = null;
         this.helpText = null;
+        this.messageTitle = null;
+        this.messageText = null;
         this.hmChildName = null;
         this.hmChildren = { none: null };
         this.confirmRedirectModal = false;
@@ -82,7 +85,8 @@ export class GameRoot extends React.Component {
         this.aiMakeMove = this.aiMakeMove.bind(this);
         this.togleNav = this.togleNav.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        // this.setHelpText = this.setHelpText.bind(this);
+        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.setMessageText = this.setMessageText.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.togleSaveAs = this.togleSaveAs.bind(this);
@@ -154,24 +158,26 @@ export class GameRoot extends React.Component {
     }
 
     togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal });
+        this.setState({ isHelpModal: boolVal, firstTime: false });
+    }
+
+    togleMessageModal(boolVal) {
+        this.setState({ messageModal: boolVal });
     }
 
     getHelpModalChild() {
         return this.hmChildren[this.hmChildName];
     }
 
-    setFirstTime(isFirstTime) {
-        this.firstTime = isFirstTime;
-        if (! this.firstTime) this.setState({ isHelpModal: true });
-        else this.setState({ bValue: !this.state.bValue });
+    setFirstTime(firstTime) {
+        this.setState({ firstTime: firstTime });
     }
 
-    // setHelpText(helpTitle, helpText, hmChildName) {
-    //     this.helpTitle = helpTitle;
-    //     this.helpText = helpText;
-    //     this.hmChildName = hmChildName;
-    // }
+    setMessageText(helpTitle, helpText) {
+        this.messageTitle = helpTitle;
+        this.messageText = helpText;
+        this.setState({ messageModal: true });
+    }
 
     getCondition() {
         if (this.resigned) return "resigned";
@@ -300,13 +306,27 @@ export class GameRoot extends React.Component {
     render() {
         return (
             <>
+                {this.state.messageModal && (
+                    <MessageModal
+                        messageTitle={this.messageTitle}
+                        messageText={this.messageText}
+                        togleMessageModal={this.togleMessageModal}
+                    />
+                )}
                 <HelpComponent
                     pageName="GameRoot"
                     setFirstTime={this.setFirstTime}
                     togleHelpModal={this.togleHelpModal}
+                    fontSize={30}
+                    color="#008000"
                 />
-                {this.state.isHelpModal && (
-                    <Help pageName="GameRoot" firstTime={this.firstTime} togleHelpModal={this.togleHelpModal} posLeft={350} />
+                {(this.state.isHelpModal || this.state.firstTime) && (
+                    <Help
+                        pageName="GameRoot"
+                        firstTime={this.state.firstTime}
+                        togleHelpModal={this.togleHelpModal}
+                        posLeft={350}
+                    />
                 )}
                 <Board gameroot={this} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
@@ -373,8 +393,8 @@ export class GameRoot extends React.Component {
                         currentPage={this.currentPage}
                         unsavedProgress={this.unsaved}
                         setConfirmRedirect={this.setConfirmRedirect}
-                        togleHelpModal={this.togleHelpModal}
-                        setHelpText={this.setHelpText}
+                        togleHelpModal={this.togleMessageModal}
+                        setHelpText={this.setMessageText}
                     />
                 )}
                 {this.confirmRedirectModal && (

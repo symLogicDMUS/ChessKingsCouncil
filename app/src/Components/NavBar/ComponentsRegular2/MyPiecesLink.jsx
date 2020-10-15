@@ -16,7 +16,7 @@ export class MyPiecesLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {selected: false};
-    this.currentPage = "/MyPieces";
+    this.path = "/MyPieces";
     this.helpText = "You are already on this page. Go to home page and follow the link from there to start over."
     this.select = this.select.bind(this);
     this.unselect = this.unselect.bind(this);

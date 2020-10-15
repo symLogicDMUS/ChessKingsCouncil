@@ -12,9 +12,12 @@
     background-position: center center;
 }
 
-.icon {
+.main-menu-icon-normal {
+    fill: black;
+} 
+
+.main-menu-icon-highlighted {
     cursor: pointer;
-} .icon:hover {
     fill: white;
 }
 

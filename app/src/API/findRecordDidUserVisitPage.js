@@ -16,6 +16,16 @@ async function getDoesUserExistFromDb(pageName) {
     });
 }
 
-export function queryUser(pageName) {
+async function markAsVisited(pageName) {
+    var user = firebase.auth().currentUser;
+    var uid = user.uid;
+    return await firebase.database().ref().child('newcomers').child(pageName).update({[uid]: true });
+}
+
+export function findDidUserVisitPage(pageName) {
     return Promise.all([getDoesUserExistFromDb(pageName)])
+}
+
+export function recordUserVisitedPage(pageName) {
+    return Promise.all([markAsVisited(pageName)])
 }

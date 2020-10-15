@@ -1,24 +1,21 @@
 import React from "react";
-import {queryUser} from "../../API/queryUser";
+import { findDidUserVisitPage, recordUserVisitedPage } from "../../API/findRecordDidUserVisitPage";
 export class HelpComponent extends React.Component {
     constructor(props) {
         super(props);
         this.src = this.props.normal;
         this.state = { highlighted: false };
-        this.openHelpModal = this.openHelpModal.bind(this);
         this.highlight = this.highlight.bind(this);
         this.unhighlight = this.unhighlight.bind(this);
     }
 
     componentDidMount() {
-        queryUser(this.props.pageName).then(([exists]) => {
-            const firstTime = exists ? false : true;
-            this.props.setFirstTime(firstTime);
+        findDidUserVisitPage(this.props.pageName).then(([exists]) => {
+            recordUserVisitedPage(this.props.pageName).then(([res]) => {
+                const firstTime = exists ? false : true;
+                this.props.setFirstTime(firstTime);
+            });
         });
-    }
-
-    openHelpModal() {
-        this.props.togleHelpModal(true);
     }
 
     highlight() {
@@ -37,22 +34,20 @@ export class HelpComponent extends React.Component {
             <div
                 style={{
                     position: "absolute",
-                    width: this.props.width,
-                    height: this.props.height,
+                    height: this.props.fontSize,
                     top: "0px",
                     left: "0px",
                     fontSize: this.props.fontSize,
                     color: this.props.color,
                     cursor: "pointer",
                 }}
-                onClick={this.openHelpModal}
+                onClick={() => this.props.togleHelpModal(true)}
                 onMouseEnter={this.highlight}
                 onMouseLeave={this.unhighlight}
                 alt="question mark, click for help"
             >
                 Help
             </div>
-
         );
     }
 }

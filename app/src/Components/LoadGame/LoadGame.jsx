@@ -6,6 +6,7 @@ import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
+import { MessageModal } from "../Help/MessageModal";
 import { ConfirmDeleteGameModal } from "./ConfirmDeleteGameModal";
 import "./LoadGame.css";
 
@@ -21,10 +22,14 @@ export class LoadGame extends React.Component {
         this.games = {};
         this.load = this.load.bind(this);
         this.togleNav = this.togleNav.bind(this);
+        this.messageTitle = null;
+        this.messageText = null;
+        this.togleMessageModal = this.togleMessageModal.bind(this);
         this.changeName = this.changeName.bind(this);
         this.askDeleteGame = this.askDeleteGame.bind(this);
         this.acceptDeleteGame = this.acceptDeleteGame.bind(this);
         this.cancelDeleteGame = this.cancelDeleteGame.bind(this);
+        this.setMessageText = this.setMessageText.bind(this);
     }
 
     componentDidMount() {
@@ -53,7 +58,7 @@ export class LoadGame extends React.Component {
         const name = e.target.value;
         if (name === "choose") {
             this.selected = false;
-            this.setState({loaded: false, bValue: ! this.state.bValue})
+            this.setState({ loaded: false, bValue: !this.state.bValue });
         } else {
             this.selected = true;
             this.setState({ gameName: name });
@@ -93,6 +98,16 @@ export class LoadGame extends React.Component {
         this.setState({ loaded: true });
     }
 
+    setMessageText(helpTitle, helpText) {
+        this.messageTitle = helpTitle;
+        this.messageText = helpText;
+        this.setState({ messageModal: true });
+    }
+    
+    togleMessageModal(boolVal) {
+        this.setState({ messageModal: boolVal });
+    }
+
     render() {
         if (this.state.loaded === false) {
             if (this.selected) {
@@ -104,6 +119,7 @@ export class LoadGame extends React.Component {
                                 navBarPosTop={0}
                                 navBarPosLeft="22.2vw"
                                 expandColapseColor="000000"
+                                setHelpText={this.setMessageText}
                             />
                             <div className="load-game">
                                 <div>
@@ -142,6 +158,13 @@ export class LoadGame extends React.Component {
                             navBarPosLeft="22.2vw"
                             expandColapseColor="000000"
                         />
+                        {this.state.messageModal && (
+                            <MessageModal
+                                messageTitle={this.messageTitle}
+                                messageText={this.messageText}
+                                togleMessageModal={this.togleMessageModal}
+                            />
+                        )}
                         <div className="load-game">
                             <div>
                                 <img

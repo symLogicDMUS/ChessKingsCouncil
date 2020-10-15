@@ -11,6 +11,7 @@ import { spanToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
 import { HelpComponent } from "../../Help/HelpComponent";
 import { Help } from "../../Help/Help";
+import { MessageModal } from "../../Help/MessageModal";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { SearchBar } from "./SearchBar";
 import { NavBar } from "../../NavBar/NavBarRegular2";
@@ -27,7 +28,7 @@ export class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
-        this.state = { binaryValue: true, isHelpModal: false };
+        this.state = { binaryValue: true, isHelpModal: false, firstTime: false };
         this.defs = {};
         this.displayDefs = {};
         this.promos = [];
@@ -70,7 +71,8 @@ export class Customize extends React.Component {
         this.loadNewCustom = this.loadIdDict.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        // this.setHelpText = this.setHelpText.bind(this);
+        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.setMessageText = this.setMessageText.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.setPlayerType = this.setPlayerType.bind(this);
@@ -266,19 +268,21 @@ export class Customize extends React.Component {
     }
 
     togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal });
+        this.setState({ isHelpModal: boolVal, firstTime: false });
     }
 
-    // setHelpText(helpTitle, helpText, hmChildName) {
-    //     this.helpTitle = helpTitle;
-    //     this.helpText = helpText;
-    //     this.hmChildName = hmChildName;
-    // }
+    togleMessageModal(boolVal) {
+        this.setState({ messageModal: boolVal });
+    }
 
-    setFirstTime(isFirstTime) {
-        this.firstTime = isFirstTime;
-        if (this.firstTime) this.setState({ isHelpModal: true });
-        else this.setState({ bValue: !this.state.bValue });
+    setMessageText(helpTitle, helpText) {
+        this.messageTitle = helpTitle;
+        this.messageText = helpText;
+        this.setState({ messageModal: true });
+    }
+
+    setFirstTime(firstTime) {
+        this.setState({ firstTime: firstTime });
     }
 
     updateSearch(searchText) {
@@ -329,9 +333,24 @@ export class Customize extends React.Component {
                     pageName="Customize"
                     togleHelpModal={this.togleHelpModal}
                     setFirstTime={this.setFirstTime}
+                    fontSize={30}
+                    color="#515151"
                 />
-                {this.state.isHelpModal && (
-                    <Help pageName="Customize" firstTime={this.firstTime} togleHelpModal={this.togleHelpModal} posLeft={263} />
+                {this.state.messageModal && (
+                    <MessageModal
+                        messageTitle={this.messageTitle}
+                        messageText={this.messageText}
+                        togleMessageModal={this.togleMessageModal}
+                    />
+                )}
+
+                {(this.state.isHelpModal || this.state.firstTime) && (
+                    <Help
+                        pageName="Customize"
+                        firstTime={this.state.firstTime}
+                        togleHelpModal={this.togleHelpModal}
+                        posLeft={263}
+                    />
                 )}
                 <div className="new-game-customize-window">
                     <div className="new-game-customize-top-bar">
@@ -359,8 +378,8 @@ export class Customize extends React.Component {
                 {this.navExpanded && (
                     <NavBar
                         currentPage="/NewGame"
-                        togleHelpModal={this.togleHelpModal}
-                        setHelpText={this.setHelpText}
+                        togleHelpModal={this.togleMessageModal}
+                        setHelpText={this.setMessageText}
                         navBarPosTop={0}
                         navBarPosLeft={258}
                         backgroundColor="#515151"

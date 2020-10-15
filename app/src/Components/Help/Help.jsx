@@ -1,5 +1,5 @@
 import React from "react";
-import { queryUser } from "../../API/queryUser";
+import { findRecordDidUserVisitPage } from "../../API/findRecordDidUserVisitPage";
 import { titles, paragraphs, numSlides, children } from "./data";
 import { HelpModal } from "./HelpModal";
 
@@ -11,10 +11,6 @@ export class Help extends React.Component {
         this.setToMenu = this.setToMenu.bind(this);
         this.forward = this.forward.bind(this);
         this.back = this.back.bind(this);
-    }
-
-    getHelpModals() {
-        return <HelpModal title={titles[this.state.current]} />;
     }
 
     getBorderStyle(i) {

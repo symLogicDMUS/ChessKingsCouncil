@@ -7,6 +7,7 @@ import { MyPieceConfirmDelete } from "./MyPieceConfirmDelete";
 import { MyPiecesDisplayBoardModal } from "./MyPiecesDisplayBoardModal";
 import { Help } from "../Help/Help";
 import { HelpComponent } from "../Help/HelpComponent";
+import { MessageModal } from "../Help/MessageModal";
 import { SearchBar } from "./SearchBar";
 import { NavBar } from "../NavBar/NavBarRegular2";
 import { NavExpand } from "../NavBar/NavExpand2";
@@ -18,9 +19,16 @@ import "./MyPieces.css";
 export class MyPieces extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { binaryValue: true, selectedPiece: null, redirect: false, isHelpModal: false };
+        this.state = {
+            binaryValue: true,
+            selectedPiece: null,
+            redirect: false,
+            isHelpModal: false,
+            deleteModal: false,
+            firstTime: false,
+        };
         this.firstTime = false;
-        this.deleteModal = false;
+        // this.deleteModal = false;
         this.displayBoard = null;
         this.pieceName = null;
         this.color = null;
@@ -41,7 +49,8 @@ export class MyPieces extends React.Component {
         this.togleNav = this.togleNav.bind(this);
         this.togleConfirmDeleteModal = this.togleConfirmDeleteModal.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
-        //this.setHelpText = this.setHelpText.bind(this);
+        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.setMessageText = this.setMessageText.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
@@ -89,7 +98,8 @@ export class MyPieces extends React.Component {
     }
 
     togleConfirmDeleteModal(boolVal) {
-        this.deleteModal = boolVal;
+        this.setState({ deleteModal: boolVal });
+        //this.deleteModal = boolVal;
     }
 
     delete(pieceName) {
@@ -100,19 +110,21 @@ export class MyPieces extends React.Component {
     }
 
     togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal });
+        this.setState({ isHelpModal: boolVal, firstTime: false });
     }
 
-    // setHelpText(helpTitle, helpText, hmChildName) {
-    //     this.helpTitle = helpTitle;
-    //     this.helpText = helpText;
-    //     this.hmChildName = hmChildName;
-    // }
+    togleMessageModal(boolVal) {
+        this.setState({ messageModal: boolVal });
+    }
 
-    setFirstTime(isFirstTime) {
-        this.firstTime = isFirstTime;
-        if (this.firstTime) this.setState({ isHelpModal: true });
-        else this.setState({ bValue: !this.state.bValue });
+    setMessageText(helpTitle, helpText) {
+        this.messageTitle = helpTitle;
+        this.messageText = helpText;
+        this.setState({ messageModal: true });
+    }
+
+    setFirstTime(firstTime) {
+        this.setState({ firstTime: firstTime });
     }
 
     getHelpModalChild() {
@@ -214,10 +226,25 @@ export class MyPieces extends React.Component {
                     pageName="MyPieces"
                     setFirstTime={this.setFirstTime}
                     togleHelpModal={this.togleHelpModal}
+                    fontSize={30}
+                    color="#515151"
                 />
-                {this.state.isHelpModal && (
-                    <Help pageName="MyPieces" firstTime={this.firstTime} togleHelpModal={this.togleHelpModal} posLeft={263} />
+                {(this.state.isHelpModal || this.state.firstTime) && (
+                    <Help
+                        pageName="MyPieces"
+                        firstTime={this.state.firstTime}
+                        togleHelpModal={this.togleHelpModal}
+                        posLeft={263}
+                    />
                 )}
+                {this.state.messageModal && (
+                    <MessageModal
+                        messageTitle={this.messageTitle}
+                        messageText={this.messageText}
+                        togleMessageModal={this.togleMessageModal}
+                    />
+                )}
+
                 <div className="my-pieces">
                     <div className="top-bar">
                         <div className="title">My Pieces</div>
@@ -225,7 +252,7 @@ export class MyPieces extends React.Component {
                     </div>
                     <div className="profiles">{this.getProfiles()}</div>
                 </div>
-                {this.deleteModal && (
+                {this.state.deleteModal && (
                     <MyPieceConfirmDelete
                         delete={this.delete}
                         setPiece={this.setPiece}
@@ -236,9 +263,9 @@ export class MyPieces extends React.Component {
                 {this.getDisplayBoard()}
                 {this.navExpanded && (
                     <NavBar
-                        currentPage="/NewGame"
-                        togleHelpModal={this.togleHelpModal}
-                        setHelpText={this.setHelpText}
+                        currentPage="/MyPieces"
+                        togleHelpModal={this.togleMessageModal}
+                        setHelpText={this.setMessageText}
                         navBarPosTop={0}
                         navBarPosLeft={258}
                         backgroundColor="#515151"
