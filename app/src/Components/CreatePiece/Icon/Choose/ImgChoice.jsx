@@ -1,5 +1,5 @@
 import React from "react";
-import "./ImgChoice.css";
+import "./ImgChoice.scss";
 
 export class ImgChoice extends React.Component {
     constructor(props) {

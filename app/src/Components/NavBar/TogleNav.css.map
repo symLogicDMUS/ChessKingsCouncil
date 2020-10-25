@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,QAAQ,EAAE,QAAQ;EAClB,WAAW,EAAE,CAAC;EACd,QAAQ,EAAE,CAAC;EACX,aAAa,EAAE,GAAG;EAClB,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "TogleNav.scss"
+    ],
+    "names": [],
+    "file": "TogleNav.css"
+}

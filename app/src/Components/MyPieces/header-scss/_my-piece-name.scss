@@ -1,0 +1,12 @@
+@mixin my-piece-name {
+    grid-row: 1;
+    grid-column: 1;
+    color: #a9a9a9;
+    font-size: 20px;
+    padding-top: 6.4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    padding-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

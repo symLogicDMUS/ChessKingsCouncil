@@ -1,0 +1,4 @@
+@mixin grc($row, $column) {
+    grid-row: $row;
+    grid-column: $column;
+}

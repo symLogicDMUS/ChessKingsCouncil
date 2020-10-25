@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/AcceptPromo.css";
+import "../css/AcceptPromo.scss";
 
 
 export function AcceptPromo({selected, promote}) {

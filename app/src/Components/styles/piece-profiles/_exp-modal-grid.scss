@@ -1,0 +1,6 @@
+@import "../grc";
+
+@mixin exp-modal-grid($row, $column) {
+    @include grc($row, $column);
+    cursor: pointer;    
+}

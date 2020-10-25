@@ -1,25 +1,26 @@
+.pieces-profiles .profile {
+  z-index: 2;
+  height: 160px;
+  margin: 10px;
+  margin-bottom: 32px;
+  border: 1px solid #8c8c8c;
+  border-radius: 3px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
 
-  .pieces-profiles .profile {
-      z-index: 2;
-      height: 160px;
-      margin: 10px;
-      margin-bottom: 32px;
-      border: 1px solid #8c8c8c;
-      border-radius: 3px;
-      text-align: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      cursor: pointer;
-  } 
-
-  .pieces-profiles .selected-profile {
-    z-index: 2;
-    height: 160px;
-    margin: 10px;
-    margin-bottom: 32px;
-    border-radius: 3px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    box-shadow: 0px 0px 16px white;
-    cursor: pointer;
-  }
+.pieces-profiles .selected-profile {
+  z-index: 2;
+  height: 160px;
+  margin: 10px;
+  margin-bottom: 32px;
+  border-radius: 3px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  -webkit-box-shadow: 0px 0px 16px white;
+          box-shadow: 0px 0px 16px white;
+  cursor: pointer;
+}
+/*# sourceMappingURL=ImgChoice.css.map */

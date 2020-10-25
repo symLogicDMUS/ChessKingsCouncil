@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,qBAAqB,CAAC;EAClB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,OAAO;EAChB,WAAW,EAAE,CAAC;EACd,QAAQ,EAAE,CAAC;CACd",
+    "sources": [
+        "DisplayBoard.scss"
+    ],
+    "names": [],
+    "file": "DisplayBoard.css"
+}

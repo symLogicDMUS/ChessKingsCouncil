@@ -1,6 +1,6 @@
 import React from "react";
 import {saveImg} from "../../../../API/saveImg";
-import "./UploadButton.css";
+import "./UploadButton.scss";
 
 
 export class UploadButtonWhite extends React.Component {

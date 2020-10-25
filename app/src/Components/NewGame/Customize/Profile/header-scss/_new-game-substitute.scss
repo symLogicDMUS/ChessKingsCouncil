@@ -1,0 +1,7 @@
+@mixin new-game-substitute {
+    z-index: inherit;
+    display: grid;
+    grid-template-columns: 48px 217.6px;
+    grid-row: 1;
+    grid-column: 4;
+}

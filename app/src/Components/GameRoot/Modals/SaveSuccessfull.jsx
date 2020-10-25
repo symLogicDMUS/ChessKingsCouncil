@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactDOM from "react-dom";
-import "../css/Saving.css";
+import "../css/Saving.scss";
 
 export function SaveSuccessfull({updateSpecialCase, update}) {
 

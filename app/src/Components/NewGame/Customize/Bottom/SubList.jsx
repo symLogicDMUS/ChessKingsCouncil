@@ -1,5 +1,5 @@
 import React from "react";
-import "./SubList.css";
+import "./SubList.scss";
 
 export function SubList({subs}) {
 

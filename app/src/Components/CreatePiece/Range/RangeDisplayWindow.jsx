@@ -5,7 +5,7 @@ import {ScrollArrow} from "./ScrollArrow";
 import {RangeTable} from "./RangeTable";
 import {ShowSpansCheckbox} from "./ShowSpansCheckbox";
 import {ShowOffsetsCheckbox} from "./ShowOffsetsCheckbox";
-import "./RangeDisplayWindow.css";
+import "./RangeDisplayWindow.scss";
 
 export class RangeDisplayWindow extends React.Component {
 

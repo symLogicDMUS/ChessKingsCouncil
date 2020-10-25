@@ -1,0 +1,7 @@
+@import "./get-sqr-color";
+
+@mixin square($size, $theme, $parity, $property) {
+    height: percentage($size / 600);
+    width: percentage($size / 600);
+    background-color: get-sqr-color($theme, $parity, $property);
+}

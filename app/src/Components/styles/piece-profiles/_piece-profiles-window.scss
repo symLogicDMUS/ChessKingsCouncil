@@ -1,0 +1,12 @@
+@mixin piece-profiles-window {
+    position: absolute;
+    z-index: inherit;
+    top: 120px;
+    left: 350px;
+    width: 816px;
+    height: 688px;
+    display: grid;
+    grid-template-columns: 852px;
+    grid-template-rows: 48px 640px 48px;
+    border: 0.8px solid #a9a9a9;
+}

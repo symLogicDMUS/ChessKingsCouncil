@@ -1,5 +1,5 @@
 import React from "react";
-import "./PromoListScrollArrow.css";
+import "./PromoListScrollArrow.scss";
 
 export class PromoListScrollArrow extends React.Component {
 

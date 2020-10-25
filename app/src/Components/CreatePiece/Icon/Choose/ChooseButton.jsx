@@ -1,22 +1,12 @@
 import React from "react"
-import "./ChooseButton.css";
+import "./ChooseButton.scss";
 
-export class ChooseButton extends React.Component {
+export function ChooseButton({color, showChooseModal}) {
 
-    constructor(props) {
-        super(props)
-        this.showChooseModal = this.showChooseModal.bind(this);
-    }
+    return(
+        <button className={`${color}-choose`} onClick={()  => showChooseModal(color)}>
+            Choose...
+        </button>
+    );
 
-    showChooseModal() {
-        this.props.showChooseModal(this.props.color);
-    }
-
-    render() {
-        return(
-            <button className={`${this.props.color}-choose`} onClick={this.showChooseModal}>
-                Choose...
-            </button>
-        );
-    }
 }

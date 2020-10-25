@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/SaveAs.css";
+import "../css/SaveAs.scss";
 
 export class SaveAs extends React.Component {
 

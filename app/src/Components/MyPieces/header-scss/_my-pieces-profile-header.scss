@@ -1,0 +1,11 @@
+@mixin my-pieces-profile-header {
+    position: relative;
+    z-index: inherit;
+    display: grid;
+    grid-template-columns: 644px 76px 76px;
+    column-gap: 16px;
+    width: 800px;
+    height: 32px;
+    background-color: #515151;
+    margin-bottom: 4px;
+}

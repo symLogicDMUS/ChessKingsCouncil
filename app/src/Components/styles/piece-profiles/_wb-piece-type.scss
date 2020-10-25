@@ -1,0 +1,12 @@
+@mixin wb-piece-type {
+    grid-row: 1;
+    grid-column: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    padding-top: 4.8px;
+    color: #a9a9a9;
+    text-align: center;
+    padding-left: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

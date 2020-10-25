@@ -3,25 +3,21 @@ import { Standard } from "./IconComponents/Standard";
 import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
-import { NavBar } from "../../NavBar/NavBarRegular3";
-import { HelpComponent } from "../../Help/HelpComponent";
-import { Help } from "../../Help/Help";
-import { MessageModal } from "../../Help/MessageModal";
-import "./PickType.css";
+import { NavBar } from "../../NavBar/NavBar";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
+import "./PickType.scss";
 
 export class PickType extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
-        this.state = { bValue: true, isHelpModal: false, firstTime: false };
+        this.state = { bValue: true,  theme: "dark" };
         this.helpTitle = null;
         this.hmChildName = null;
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.setMessageText = this.setMessageText.bind(this);
         this.hmChildren = { none: null };
         this.setType = this.setType.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
     }
 
@@ -39,16 +35,9 @@ export class PickType extends React.Component {
         this.setState({ bValue: !this.state.bValue });
     }
 
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
 
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
-    }
-
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
     }
 
     setMessageText(helpTitle, helpText) {
@@ -61,13 +50,12 @@ export class PickType extends React.Component {
         return (
             <>
                 <NavBar
-                    currentPage="/NewGame"
+                    currentPath="/NewGame"
+                    currentPage="PickType"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
                     setHelpText={this.setMessageText}
-                    togleHelpModal={this.togleMessageModal}
-                    navBarPos="relative"
-                    navBarPosTop={0}
-                    navBarPosLeft="22.2vw"
-                    expandColapseColor="000000"
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
                     <MessageModal
@@ -90,21 +78,6 @@ export class PickType extends React.Component {
                         <Title />
                     </g>
                 </svg>
-                <HelpComponent
-                    pageName="PickType"
-                    setFirstTime={this.setFirstTime}
-                    togleHelpModal={this.togleHelpModal}
-                    fontSize={30}
-                    color="#000000"
-                />
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="PickType"
-                        firstTime={this.state.firstTime}
-                        posLeft={263}
-                        togleHelpModal={this.togleHelpModal}
-                    />
-                )}
             </>
         );
     }

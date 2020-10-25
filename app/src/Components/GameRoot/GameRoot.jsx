@@ -21,27 +21,25 @@ import { RangeDisplayTool } from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
 import { AiDisplay } from "./Components/AiDisplay";
 import { makeMove } from "./Move/makeMove";
-import { NavBar } from "../NavBar/NavBarRegular";
+import { NavBar } from "../NavBar/NavBar";
 import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
-import { HelpComponent } from "../Help/HelpComponent";
-import { Help } from "../Help/Help";
-import { MessageModal } from "../Help/MessageModal";
+import { MessageModal } from "../NavBar/Help/MessageModal";
 import { OVER } from "../helpers/gStatusTypes";
 import { update } from "../../apiHelpers/update";
 import { updateCouncil } from "../../apiHelpers/updateCouncil";
 import { saveGame } from "../../API/saveGame";
-import "./css/GameRoot.css";
+import "./css/GameRoot.scss";
 
 export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, isHelpModal: false, messageModal: false, firstTime: false };
+        this.state = { bValue: true, messageModal: false, theme: "dark" };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
-        this.currentPage = this.props.location.state.currentPage;
+        this.currentPath = this.props.location.state.currentPath;
         this.gameData = this.props.location.state.gameData;
         this.isCouncil = this.gameType === "council" ? true : false;
         this.board = this.gameData["board"];
@@ -84,10 +82,8 @@ export class GameRoot extends React.Component {
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
         this.togleNav = this.togleNav.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.togleSaveAs = this.togleSaveAs.bind(this);
         this.changeName = this.changeName.bind(this);
@@ -157,20 +153,8 @@ export class GameRoot extends React.Component {
         this.setState({ bValue: !this.state.bValue });
     }
 
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
-
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
-    }
-
-    getHelpModalChild() {
-        return this.hmChildren[this.hmChildName];
-    }
-
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
     }
 
     setMessageText(helpTitle, helpText) {
@@ -306,6 +290,16 @@ export class GameRoot extends React.Component {
     render() {
         return (
             <>
+                <NavBar
+                    currentPage="GameRoot"
+                    currentPath={this.currentPath}
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
+                    setHelpText={this.setMessageText}
+                    unsavedProgress={this.unsaved}
+                    setConfirmRedirect={this.setConfirmRedirect}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                />
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
@@ -313,21 +307,8 @@ export class GameRoot extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                <HelpComponent
-                    pageName="GameRoot"
-                    setFirstTime={this.setFirstTime}
-                    togleHelpModal={this.togleHelpModal}
-                    fontSize={30}
-                    color="#008000"
-                />
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="GameRoot"
-                        firstTime={this.state.firstTime}
-                        togleHelpModal={this.togleHelpModal}
-                        posLeft={350}
-                    />
-                )}
+
+
                 <Board gameroot={this} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 {this.specialCase === "promo" && (
@@ -356,7 +337,6 @@ export class GameRoot extends React.Component {
                     idDict={this.idDict}
                     update={this.update}
                     updatePrh={this.updatePrh}
-                    togleHelpModal={this.togleHelpModal}
                 />
                 <SaveResignTool
                     gameName={this.gameName}
@@ -366,7 +346,6 @@ export class GameRoot extends React.Component {
                     update={this.update}
                     resign={this.resign}
                     updateSpecialCase={this.updateSpecialCase}
-                    togleHelpModal={this.togleHelpModal}
                     togleSaveAs={this.togleSaveAs}
                 />
                 {this.saveAsModal && (
@@ -380,22 +359,6 @@ export class GameRoot extends React.Component {
                 {this.specialCase === "saving" && <Saving />}
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />
-                )}
-                {this.navExpanded && (
-                    <NavBar
-                        navBarPosTop={0}
-                        navBarPosLeft={368}
-                        iconColor="b1faae"
-                        iconColorHover="b1faae"
-                        backgroundColor="green"
-                        backgroundColorSelected="darkgreen"
-                        border="1px solid darkgreen"
-                        currentPage={this.currentPage}
-                        unsavedProgress={this.unsaved}
-                        setConfirmRedirect={this.setConfirmRedirect}
-                        togleHelpModal={this.togleMessageModal}
-                        setHelpText={this.setMessageText}
-                    />
                 )}
                 {this.confirmRedirectModal && (
                     <ConfirmRedirect

@@ -2,17 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { PlayAsOption } from "./PlayAsOption";
 import { PlayAsButton } from "./PlayAsButton";
-import { NavBar } from "../../NavBar/NavBarRegular3";
-import { HelpComponent } from "../../Help/HelpComponent";
-import { MessageModal } from "../../Help/MessageModal";
-import { Help } from "../../Help/Help";
-import "./PlayAs.css";
+import { NavBar } from "../../NavBar/NavBar";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
+import "./PlayAs.scss";
 
 export class PlayAs extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
-        this.state = { option: null, bValue: true, isHelpModal: false, messageModal: false, firstTime: false };
+        this.state = {
+            option: null,
+            bValue: true,
+            messageModal: false,
+            theme: "dark",
+        };
         this.navExpanded = true;
         this.messageTitle = null;
         this.messageText = null;
@@ -21,8 +24,6 @@ export class PlayAs extends React.Component {
         this.accept = this.accept.bind(this);
         this.togleNav = this.togleNav.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
     }
 
@@ -50,37 +51,23 @@ export class PlayAs extends React.Component {
         this.setState({ messageModal: boolVal });
     }
 
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
     }
 
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
-    }
-
     render() {
         return (
             <>
-                <HelpComponent
-                    pageName="PlayAs"
-                    setFirstTime={this.setFirstTime}
-                    togleHelpModal={this.togleHelpModal}
-                    fontSize={30}
-                    color="#000000"
-                />
+
                 <NavBar
-                    currentPage="/NewGame"
+                    currentPath="/NewGame"
+                    currentPage="PlayAs"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
                     setHelpText={this.setMessageText}
-                    togleHelpModal={this.togleMessageModal}
-                    navBarPos="relative"
-                    navBarPosTop={0}
-                    navBarPosLeft="22.2vw"
-                    expandColapseColor="000000"
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 <div className="play-as-title">
                     <img
@@ -95,14 +82,7 @@ export class PlayAs extends React.Component {
                     <PlayAsOption update={this.update} optionName="B" top={156} selected={this.state.option} />
                 </div>
                 <PlayAsButton selected={this.state.option} accept={this.accept} />
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="PlayAs"
-                        firstTime={this.state.firstTime}
-                        posLeft={263}
-                        togleHelpModal={this.togleHelpModal}
-                    />
-                )}
+
                 {this.state.messageModal && (
                     <MessageModal
                         togleMessageModal={this.togleMessageModal}

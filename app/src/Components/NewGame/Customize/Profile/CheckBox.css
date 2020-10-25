@@ -1,24 +1,29 @@
 .new-game-promotion-checkbox {
-    width: 14.4px; 
-    height: 14.4px; 
-    margin-top: 4px; 
-    background-color: #515151;
-    border: 1.6px solid #707070;
-    border-radius: 4px;
-    cursor: pointer;
-} .new-game-promotion-checkbox-selected {
-    width: 14.4px; 
-    height: 14.4px; 
-    margin-top: 4px; 
-    background-color: #515151;
-    border: 1.6px solid #969696;
-    border-radius: 4px;
-    cursor: pointer;
+  width: 14.4px;
+  height: 14.4px;
+  margin-top: 4px;
+  background-color: #515151;
+  border: 1.6px solid #707070;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
+.new-game-promotion-checkbox-selected {
+  width: 14.4px;
+  height: 14.4px;
+  margin-top: 4px;
+  background-color: #515151;
+  border: 1.6px solid #969696;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .new-game-promotion-checkbox-checkmark {
-    position: absolute;
-    max-height: 14.4px; 
-    max-width: 14.4px; 
-    padding: 0.8px;
-    object-fit: contain;
+  position: absolute;
+  max-height: 14.4px;
+  max-width: 14.4px;
+  padding: 0.8px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
+/*# sourceMappingURL=CheckBox.css.map */

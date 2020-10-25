@@ -1,0 +1,9 @@
+@import "./header-scss/checkbox";
+@import "./header-scss/checkmark";
+
+.created-piece-profile-header-checkbox {
+    @include created-piece-profile-header-checkbox;
+    .created-piece-profile-header-checkbox-checkmark {
+        @include created-piece-profile-header-checkbox-checkmark;
+    }
+}

@@ -1,0 +1,36 @@
+@mixin create-piece-scroll {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 7.5%;
+    cursor: pointer;
+    background-color: #535353;
+}
+@mixin create-piece-scroll-arrow {
+    position: absolute;
+    left: 48%;
+    height: 80%;
+}
+.create-piece-scroll-up {
+    @include create-piece-scroll;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    top: 14%;
+}
+
+.create-piece-scroll-down {
+    @include create-piece-scroll;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    top: 92%;
+}
+
+.create-piece-scroll-arrow-up {
+    @include create-piece-scroll-arrow;
+    bottom: 20%;
+}
+
+.create-piece-scroll-arrow-down {
+    @include create-piece-scroll-arrow;
+    top: 20%;
+}

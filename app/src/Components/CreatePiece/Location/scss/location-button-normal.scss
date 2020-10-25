@@ -1,0 +1,9 @@
+@mixin location-button-normal {
+    @include location-button;
+    background-color: #515151;
+    border: solid 1px #515151;
+    cursor: pointer;
+    &:hover {
+        background-color: #a9a9a9;
+    }
+}

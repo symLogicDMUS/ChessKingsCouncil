@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../PickType.css";
+import "../PickType.scss";
 
 export class Council extends React.Component {
     constructor(props) {

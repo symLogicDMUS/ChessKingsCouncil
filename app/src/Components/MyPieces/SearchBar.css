@@ -1,33 +1,35 @@
 .my-pieces-top-bar-search {
-    position: absolute;
-    z-index: inherit;
-    width: 336px;
-    height: 20.8px;
-    left: 496px;
-    top: 12px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #515151;
-    border: 1.6px solid #707070;
-    border-radius: 7.2px;
+  position: absolute;
+  z-index: inherit;
+  width: 41.17647%;
+  height: 2.57353%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #515151;
+  border: 1.6px solid #707070;
+  border-radius: 7.2px;
+  left: 496px;
+  top: 12px;
 }
+
 .my-pieces-top-bar-search-magnifying-glass {
-    position: absolute;
-    left: 3.2px; 
-    width:12.8px; 
-    height:12.8px;
-    margin-top: 4.800000000000001px;
+  position: absolute;
+  width: 12.8px;
+  height: 12.8px;
+  margin-top: 4.8px;
+  left: 3.2px;
 }
+
 .my-pieces-top-bar-search-box {
-    position: absolute;
-    left: 16.8px;
-    top: 0px;
-    height: 19.200000000000003px;
-    width: 304px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #c4c4c4;
-    /* color: #5c9fd2; */
-    background-color: #515151;
-    border: none;
-    border-radius: 7.2px;
-    outline: none;
+  position: absolute;
+  height: 19.2px;
+  width: 304px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #c4c4c4;
+  background-color: #515151;
+  border-radius: 7.2px;
+  border: none;
+  outline: none;
+  left: 16.8px;
+  top: 0px;
 }
+/*# sourceMappingURL=SearchBar.css.map */

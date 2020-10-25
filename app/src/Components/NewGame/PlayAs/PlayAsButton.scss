@@ -1,0 +1,26 @@
+.play-as-button {
+    position: absolute;
+    left: 712px;
+    top: 430px;
+    width: 112px;
+    height:30px;
+    color: white;
+    font-size: 20px;
+    font-family: Georgia;
+    text-align: center;
+    padding-top:6px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.pab-active {
+    cursor: pointer;
+} .pab-active:hover {
+    color: black;
+    background-color: white;
+}
+
+.pab-inactive {
+    cursor: not-allowed;
+}

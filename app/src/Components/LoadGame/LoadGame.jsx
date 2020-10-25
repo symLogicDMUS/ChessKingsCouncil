@@ -1,19 +1,29 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBarRegular3";
+import { NavBar } from "../NavBar/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { MessageModal } from "../Help/MessageModal";
+import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ConfirmDeleteGameModal } from "./ConfirmDeleteGameModal";
-import "./LoadGame.css";
+import "./LoadGame.scss";
 
 export class LoadGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { gameName: "none", loaded: false, reload: 0, bValue: false, confirmDeleteModal: false };
+        this.state = {
+            reload: 0,
+            theme: "dark",
+            gameName: "none",
+            loaded: false,
+            bValue: false,
+            confirmDeleteModal: false,
+        };
+
+        this.playButton = <button onClick={this.load}>Play</button>;
+        this.deleteButton = <button onClick={this.askDeleteGame}>Delete</button>;
         this.council = false;
         this.selected = false;
         this.dataEntry = null;
@@ -46,6 +56,23 @@ export class LoadGame extends React.Component {
         });
     }
 
+    getTextStyle() {
+        return {
+            width: window.screen.availWidth * 0.4,
+            height: window.screen.availHeight * 0.3,
+            top: window.screen.availHeight * 0.34,
+            left: window.screen.availWidth * 0.5,
+        };
+    }
+    getButtonStyle() {
+        return {
+            width: window.screen.availWidth * 0.4,
+            height: window.screen.availHeight * 0.125,
+            top: window.screen.availHeight * 0.5,
+            left: window.screen.availWidth * 0.5,
+            objectAlign: "center",
+        };
+    }
     getGameList() {
         const gameList = [<option value="choose">Choose...</option>];
         for (var name of Object.keys(this.games)) {
@@ -103,114 +130,19 @@ export class LoadGame extends React.Component {
         this.messageText = helpText;
         this.setState({ messageModal: true });
     }
-    
+
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
 
     render() {
-        if (this.state.loaded === false) {
-            if (this.selected) {
-                return (
-                    <>
-                        <div>
-                            <NavBar
-                                navBarPos="relative"
-                                navBarPosTop={0}
-                                navBarPosLeft="22.2vw"
-                                expandColapseColor="000000"
-                                setHelpText={this.setMessageText}
-                            />
-                            <div className="load-game">
-                                <div>
-                                    <img
-                                        src="/Images/text-labels/LoadGame.svg"
-                                        className="load-game-text"
-                                        alt="title for loading game"
-                                    />
-                                </div>
-                                <div className="button-options">
-                                    <br />
-                                    <br />
-                                    <select id="games" onChange={this.changeName}>
-                                        {this.getGameList()}
-                                    </select>
-                                    <button onClick={this.load}>Play</button>
-                                    <button onClick={this.askDeleteGame}>Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        {this.state.confirmDeleteModal && (
-                            <ConfirmDeleteGameModal
-                                gameName={this.state.gameName}
-                                acceptDeleteGame={this.acceptDeleteGame}
-                                cancelDeleteGame={this.cancelDeleteGame}
-                            />
-                        )}
-                    </>
-                );
-            } else {
-                return (
-                    <div>
-                        <NavBar
-                            navBarPos="relative"
-                            navBarPosTop={0}
-                            navBarPosLeft="22.2vw"
-                            expandColapseColor="000000"
-                        />
-                        {this.state.messageModal && (
-                            <MessageModal
-                                messageTitle={this.messageTitle}
-                                messageText={this.messageText}
-                                togleMessageModal={this.togleMessageModal}
-                            />
-                        )}
-                        <div className="load-game">
-                            <div>
-                                <img
-                                    src="/Images/text-labels/LoadGame.svg"
-                                    className="load-game-text"
-                                    alt="text that reads 'Load Game'"
-                                />
-                            </div>
-                            <div className="button-options">
-                                <br />
-                                <br />
-                                <select id="games" onChange={this.changeName}>
-                                    {this.getGameList()}
-                                </select>
-                                <button
-                                    style={{
-                                        backgroundColor: "grey",
-                                        opacity: "0.6",
-                                        color: "dark-grey",
-                                        cursor: "not-allowed",
-                                    }}
-                                >
-                                    Play
-                                </button>
-                                <button
-                                    style={{
-                                        backgroundColor: "grey",
-                                        opacity: "0.6",
-                                        color: "dark-grey",
-                                        cursor: "not-allowed",
-                                    }}
-                                >
-                                    Delete
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
-        } else {
+        if (this.state.loaded) {
             return (
                 <Redirect
                     to={{
                         pathname: "/LoadGame/Play",
                         state: {
-                            currentPage: "/LoadGame/Play",
+                            currentPath: "/LoadGame/Play",
                             gameName: JSON.parse(JSON.stringify(this.state.gameName)),
                             gameType: JSON.parse(JSON.stringify(this.gameData["type"])),
                             playerType: JSON.parse(JSON.stringify(this.gameData["pt"])),
@@ -220,10 +152,70 @@ export class LoadGame extends React.Component {
                 />
             );
         }
-        /**
-         * note: the pieceDefs attribute passed as seperate prop because NewGame passes it is a seperate prop
-         * because pieceDefs is not the same for every new game data, it is defined by the user.
-         */
+
+        if (this.selected) {
+            this.playButton = <button onClick={this.load}>Play</button>;
+            this.deleteButton = <button onClick={this.askDeleteGame}>Delete</button>;
+        } else {
+            this.playButton = (
+                <button
+                    style={{
+                        backgroundColor: "grey",
+                        opacity: "0.6",
+                        color: "dark-grey",
+                        cursor: "not-allowed",
+                    }}
+                >
+                    Play
+                </button>
+            );
+            this.deleteButton = (
+                <button
+                    style={{
+                        backgroundColor: "grey",
+                        opacity: "0.6",
+                        color: "dark-grey",
+                        cursor: "not-allowed",
+                    }}
+                >
+                    Delete
+                </button>
+            );
+        }
+
+        return (
+            <>
+                <NavBar
+                    currentPath="/LoadGame"
+                    currentPage="LoadGame"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
+                    setHelpText={this.setMessageText}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                />
+
+                <img
+                    src="/Images/text-labels/LoadGame.svg"
+                    className="load-game-text"
+                    style={this.getTextStyle()}
+                    alt="title for loading game"
+                />
+                <div className="button-options" style={this.getButtonStyle()}>
+                    <select id="games" style={{width: window.screen.availWidth * 0.31}} onChange={this.changeName}>
+                        {this.getGameList()}
+                    </select>
+                    {this.playButton}
+                    {this.deleteButton}
+                </div>
+                {this.state.confirmDeleteModal && (
+                    <ConfirmDeleteGameModal
+                        gameName={this.state.gameName}
+                        acceptDeleteGame={this.acceptDeleteGame}
+                        cancelDeleteGame={this.cancelDeleteGame}
+                    />
+                )}
+            </>
+        );
     }
 }
 

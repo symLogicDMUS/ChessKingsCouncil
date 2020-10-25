@@ -1,0 +1,7 @@
+@import "./text-area";
+
+@mixin text {
+    position: absolute;
+    top: 50px;
+    @include text-area;
+}

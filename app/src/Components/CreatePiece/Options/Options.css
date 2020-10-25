@@ -1,39 +1,77 @@
 .options-tool {
-    position: absolute;
-    z-index: 0;
-    top: 640px;
-    left: 876px;
-    height: 109px;
-    width: 400px;
-    border-radius: 10px;
-    background-color: #515151;
-} 
+  position: absolute;
+  z-index: 0;
+  top: 85%;
+  left: 57%;
+  height: 14.4%;
+  width: 26%;
+  border-radius: 10px;
+  background-color: #515151;
+}
 
-.option {
-    z-index: 1;
-    position: absolute;
-    width: 49px;
-    height: 68px;
-    top: 678px;
-    cursor: pointer;
+.options-title {
+  position: absolute;
+  z-index: 0;
+  left: 2.5%;
+  top: 5%;
+  font-size: 125%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #a9a9a9;
 }
 
 .save-option {
-    left: 886px;
+  z-index: 1;
+  position: absolute;
+  width: 12.25%;
+  height: 63.5%;
+  top: 30%;
+  cursor: pointer;
+  left: 2.5%;
 }
 
 .load-option {
-    left: 970px;
+  z-index: 1;
+  position: absolute;
+  width: 12.25%;
+  height: 63.5%;
+  top: 30%;
+  cursor: pointer;
+  left: 23.4%;
 }
 
 .reset-option {
-    left: 1054px;
+  z-index: 1;
+  position: absolute;
+  width: 12.25%;
+  height: 63.5%;
+  top: 30%;
+  cursor: pointer;
+  left: 44.3%;
 }
 
 .blank-option {
-    left: 1138px;
+  z-index: 1;
+  position: absolute;
+  width: 12.25%;
+  height: 63.5%;
+  top: 30%;
+  cursor: pointer;
+  left: 65.2%;
 }
 
 .theme-option {
-    left: 1222px;
+  z-index: 1;
+  position: absolute;
+  width: 12.25%;
+  height: 63.5%;
+  top: 30%;
+  cursor: pointer;
+  left: 86.1%;
 }
+
+.option-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=Options.css.map */

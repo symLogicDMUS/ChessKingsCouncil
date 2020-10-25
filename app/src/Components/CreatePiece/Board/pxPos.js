@@ -4,32 +4,32 @@ import {rfToXy} from "../../helpers/crdCnvrt";
 export function getPxPos (rf) {
 
     let [x, y] = rfToXy(rf);
-    let [left, top] = [-1, -1];
+    let left, top = [null, null]
 
     switch(x) {
         case 1:
-            left = 0;
+            left = "0%";
             break;
         case 2:
-            left = 75;
+            left = "12.5%";
             break;
         case 3:
-            left = 150;
+            left = "25%";
             break;
         case 4:
-            left = 225;
+            left = "37.5%";
             break;
         case 5:
-            left = 300;
+            left = "50%";
             break;
         case 6:
-            left = 375;
+            left = "62.5%";
             break;
         case 7:
-            left = 450;
+            left = "75%";
             break;
         case 8:
-            left = 525;
+            left = "87.5%";
             break;
         default:
             break;
@@ -37,28 +37,28 @@ export function getPxPos (rf) {
 
     switch(y) {
         case 8:
-            top = 0;
+            top = "0%";
             break;
         case 7:
-            top = 75;
+            top = "12.5%";
             break;
         case 6:
-            top = 150;
+            top = "25%";
             break;
         case 5:
-            top = 225;
+            top = "37.5%";
             break;
         case 4:
-            top = 300;
+            top = "50%";
             break;
         case 3:
-            top = 375;
+            top = "62.5%";
             break;
         case 2:
-            top = 450;
+            top = "75%";
             break;
         case 1:
-            top = 525;
+            top = "87.5%";
             break;
         default:
             break;

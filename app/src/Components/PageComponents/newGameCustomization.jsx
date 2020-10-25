@@ -1,5 +1,5 @@
 import React from "react";
-import "./newGameCustomization.css";
+import "./newGameCustomization.scss";
 
 /**
  * title: Customizing a New Game

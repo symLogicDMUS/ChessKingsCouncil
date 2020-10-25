@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./AskDeleteIconButton.css";
+import "./AskDeleteIconButton.scss";
 
 export class AskDeleteIconButton extends Component {
     constructor(props) {

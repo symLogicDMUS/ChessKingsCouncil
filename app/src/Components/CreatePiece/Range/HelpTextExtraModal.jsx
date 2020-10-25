@@ -7,7 +7,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import "./HelpTextExtraModal.css";
+import "./HelpTextExtraModal.scss";
 
 export const RangeHelpTextExtraModal = () => (
 

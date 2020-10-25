@@ -1,0 +1,64 @@
+.options-tool {
+    position: absolute;
+    z-index: 0;
+    top: 85%;
+    left: 57%;
+    height: 14.4%;
+    width: 26%;
+    border-radius: 10px;
+    background-color: #515151;
+}
+
+.options-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 5%;
+    font-size: 125%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+}
+
+@mixin option {
+    z-index: 1;
+    position: absolute;
+    width: 12.25%;
+    height: 63.5%;
+    top: 30%;
+    cursor: pointer;
+}
+
+$first-option-y: 2.5%;
+$option-disp: 20.9%;
+
+
+.save-option {
+    @include option;
+    left: $first-option-y + $option-disp * 0;
+}
+
+.load-option {
+    @include option;
+    left: $first-option-y + $option-disp * 1;
+}
+
+.reset-option {
+    @include option;
+    left: $first-option-y + $option-disp * 2;
+}
+
+.blank-option {
+    @include option;
+    left: $first-option-y + $option-disp * 3;
+}
+
+.theme-option {
+    @include option;
+    left: $first-option-y + $option-disp * 4;
+}
+
+.option-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

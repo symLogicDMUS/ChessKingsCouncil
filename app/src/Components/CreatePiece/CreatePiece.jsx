@@ -8,37 +8,34 @@ import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { NameLabel } from "./NameLabel/NameLabel";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
-import { isIndentifier } from "../helpers/isIdentifier";
 import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
 import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { SaveDef } from "./Options/SaveDef/SaveDef";
-import { LoadDef } from "./Options/LoadDef/LoadDef";
-import { ResetDef } from "./Options/ResetDef/ResetDef";
-import { BlankDef } from "./Options/BlankDef/BlankDef";
-import { ThemeCreatePiece } from "./Options/ThemeCreatePiece/ThemeCreatePiece";
-import { CreatedPieceProfiles } from "./Options/LoadDef/Modals/CreatedPieceProfiles";
-import { HelpComponent } from "../Help/HelpComponent";
-import { Help } from "../Help/Help";
-import { MessageModal } from "../Help/MessageModal";
+import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
+import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
-import { NavBar } from "../NavBar/NavBarRegular";
+import { NavBar } from "../NavBar/NavBar";
 import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
-import { OptionsTool } from "./Options/OptionsTool";
+import { Options } from "./Options/Options";
 import { RangeHelpTextExtraModal } from "./Range/HelpTextExtraModal";
 import { saveDef } from "../../API/saveDef";
 import { getDefs } from "../../API/getDefs";
 import { defs } from "../tests/defs1";
-import "./CreatePiece.css";
+import "./CreatePiece.scss";
 
 export class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { binaryValue: 0, isHelpModal: false, isLoadModal: false, chooseModal: false, firstTime: false };
+        this.state = {
+            binaryValue: 0,
+            theme: "dark",
+            isLoadModal: false,
+            chooseModal: false,
+        };
 
         this.defs = {};
 
@@ -68,141 +65,27 @@ export class CreatePiece extends React.Component {
 
         //true values rendered highlight color (currently red) as part of span.
         this.spanDisplays = {
-            a1: false,
-            a2: false,
-            a3: false,
-            a4: false,
-            a5: false,
-            a6: false,
-            a7: false,
-            a8: false,
-            b1: false,
-            b2: false,
-            b3: false,
-            b4: false,
-            b5: false,
-            b6: false,
-            b7: false,
-            b8: false,
-            c1: false,
-            c2: false,
-            c3: false,
-            c4: false,
-            c5: false,
-            c6: false,
-            c7: false,
-            c8: false,
-            d1: false,
-            d2: false,
-            d3: false,
-            d4: false,
-            d5: false,
-            d6: false,
-            d7: false,
-            d8: false,
-            e1: false,
-            e2: false,
-            e3: false,
-            e4: false,
-            e5: false,
-            e6: false,
-            e7: false,
-            e8: false,
-            f1: false,
-            f2: false,
-            f3: false,
-            f4: false,
-            f5: false,
-            f6: false,
-            f7: false,
-            f8: false,
-            g1: false,
-            g2: false,
-            g3: false,
-            g4: false,
-            g5: false,
-            g6: false,
-            g7: false,
-            g8: false,
-            h1: false,
-            h2: false,
-            h3: false,
-            h4: false,
-            h5: false,
-            h6: false,
-            h7: false,
-            h8: false,
+            a1: false, a2: false, a3: false, a4: false, a5: false, a6: false, a7: false, a8: false,
+            b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false,
+            c1: false, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false,
+            d1: false, d2: false, d3: false, d4: false, d5: false, d6: false, d7: false, d8: false,
+            e1: false, e2: false, e3: false, e4: false, e5: false, e6: false, e7: false, e8: false,
+            f1: false, f2: false, f3: false, f4: false, f5: false, f6: false, f7: false, f8: false,
+            g1: false, g2: false, g3: false, g4: false, g5: false, g6: false, g7: false, g8: false,
+            h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false
         };
 
         //true values rendered highlight color (currently dark red) and calculate jump offsets
         this.jumpDisplays = {
-            a1: false,
-            a2: false,
-            a3: false,
-            a4: false,
-            a5: false,
-            a6: false,
-            a7: false,
-            a8: false,
-            b1: false,
-            b2: false,
-            b3: false,
-            b4: false,
-            b5: false,
-            b6: false,
-            b7: false,
-            b8: false,
-            c1: false,
-            c2: false,
-            c3: false,
-            c4: false,
-            c5: false,
-            c6: false,
-            c7: false,
-            c8: false,
-            d1: false,
-            d2: false,
-            d3: false,
-            d4: false,
-            d5: false,
-            d6: false,
-            d7: false,
-            d8: false,
-            e1: false,
-            e2: false,
-            e3: false,
-            e4: false,
-            e5: false,
-            e6: false,
-            e7: false,
-            e8: false,
-            f1: false,
-            f2: false,
-            f3: false,
-            f4: false,
-            f5: false,
-            f6: false,
-            f7: false,
-            f8: false,
-            g1: false,
-            g2: false,
-            g3: false,
-            g4: false,
-            g5: false,
-            g6: false,
-            g7: false,
-            g8: false,
-            h1: false,
-            h2: false,
-            h3: false,
-            h4: false,
-            h5: false,
-            h6: false,
-            h7: false,
-            h8: false,
+            a1: false, a2: false, a3: false, a4: false, a5: false, a6: false, a7: false, a8: false,
+            b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false,
+            c1: false, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false,
+            d1: false, d2: false, d3: false, d4: false, d5: false, d6: false, d7: false, d8: false,
+            e1: false, e2: false, e3: false, e4: false, e5: false, e6: false, e7: false, e8: false,
+            f1: false, f2: false, f3: false, f4: false, f5: false, f6: false, f7: false, f8: false,
+            g1: false, g2: false, g3: false, g4: false, g5: false, g6: false, g7: false, g8: false,
+            h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false
         };
-
-        // will be set to a <img src=""" /> jsx
 
         //to use for spans, update by Location:
         this.location = "d4";
@@ -217,7 +100,7 @@ export class CreatePiece extends React.Component {
         this.showOffsetText = true;
         this.messageTitle = "";
         this.messageText = "";
-        this.hmChildName = null; //Name of HelpModal child
+
         this.navExpanded = true;
         this.optionTool = true;
         this.confirmRedirectModal = false;
@@ -244,12 +127,10 @@ export class CreatePiece extends React.Component {
         this.togleOffsetText = this.togleOffsetText.bind(this);
         this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
         this.setCurrentIconColor = this.setCurrentIconColor.bind(this);
         this.showChooseModal = this.showChooseModal.bind(this);
         this.closeChooseModal = this.closeChooseModal.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.setUnsaved = this.setUnsaved.bind(this);
@@ -302,14 +183,6 @@ export class CreatePiece extends React.Component {
 
     togleLoadModal(boolVal) {
         this.setState({ isLoadModal: boolVal });
-    }
-
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
-
-    getHelpModalChild() {
-        return this.hmChildren[this.hmChildName];
     }
 
     save() {
@@ -460,9 +333,7 @@ export class CreatePiece extends React.Component {
         this.setState({ messageModal: boolVal });
     }
 
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
-    }
+
 
     setConfirmRedirect(boolVal, path) {
         this.confirmRedirectModal = boolVal;
@@ -535,13 +406,16 @@ export class CreatePiece extends React.Component {
 
     render() {
         return (
-            <div>
-                <HelpComponent
-                    pageName="CreatePiece"
-                    setFirstTime={this.setFirstTime}
-                    togleHelpModal={this.togleHelpModal}
-                    fontSize={30}
-                    color="#a9a9a9"
+            <>
+                <NavBar
+                    currentPath="/CreatePiece"
+                    currentPage="CreatePiece"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
+                    setHelpText={this.setMessageText}
+                    setConfirmRedirect={this.setConfirmRedirect}
+                    unsavedProgress={this.unsaved}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
                     <MessageModal
@@ -553,7 +427,6 @@ export class CreatePiece extends React.Component {
                 <Name
                     name={this.name}
                     updateName={this.updateName}
-                    togleHelpModal={this.togleHelpModal}
                     setUnsaved={this.setUnsaved}
                 />
                 <NameLabel name={this.name} />
@@ -564,58 +437,30 @@ export class CreatePiece extends React.Component {
                     update={this.update}
                     togleOffsetText={this.togleOffsetText}
                     togleSpanText={this.togleSpanText}
-                    togleHelpModal={this.togleHelpModal}
                     setUnsaved={this.setUnsaved}
                 />
                 <Icon
                     pieceImg={this.pieceImg}
                     setPieceImg={this.setPieceImg}
                     updateParent={this.update}
-                    togleHelpModal={this.togleHelpModal}
                     showChooseModal={this.showChooseModal}
                     currentIconColor={this.currentIconColor}
                     setCurrentIconColor={this.setCurrentIconColor}
                     setUnsaved={this.setUnsaved}
                 />
-                <Location setLoc={this.setLoc} togleHelpModal={this.togleHelpModal} setUnsaved={this.setUnsaved} />
-                {this.optionTool && <OptionsTool togleOptionTool={this.togleOptionTool} />}
-                <div className="options-title">Options</div>
-                <SaveDef
-                    normal="/Images/save/save-a9a9a9.svg"
-                    highlighted="/Images/save/save-72e2ff.svg"
+                <Location setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
+                <Options
+                    togleLoadModal={this.togleLoadModal}
+                    togleOptionTool={this.togleOptionTool}
+                    setUnsaved={this.setUnsaved}
+                    eraseRange={this.eraseRange}
                     existing={Object.keys(this.defs)}
                     save={this.save}
                     name={this.name}
                     clear={this.clear}
-                    status={this.saveStatus}
-                    setSaveStatus={this.setSaveStatus}
-                    togleOptionTool={this.togleOptionTool}
-                    setUnsaved={this.setUnsaved}
-                />
-                <LoadDef
-                    normal="/Images/load-piece/load-piece-a9a9a9.svg"
-                    highlighted="/Images/load-piece/load-piece-72e2ff.svg"
-                    togleLoadModal={this.togleLoadModal}
-                    togleOptionTool={this.togleOptionTool}
-                />
-                <ResetDef
-                    normal="/Images/reset-range/reset-range-a9a9a9.svg"
-                    highlighted="/Images/reset-range/reset-range-72e2ff.svg"
                     reset={this.reset}
-                    togleOptionTool={this.togleOptionTool}
-                    setUnsaved={this.setUnsaved}
-                />
-                <BlankDef
-                    normal="/Images/erase-range/erase-range-a9a9a9.svg"
-                    highlighted="/Images/erase-range/erase-range-72e2ff.svg"
-                    eraseRange={this.eraseRange}
-                    togleOptionTool={this.togleOptionTool}
-                    setUnsaved={this.setUnsaved}
-                />
-                <ThemeCreatePiece
-                    normal="/Images/theme-create-piece/theme-create-piece-a9a9a9.svg"
-                    highlighted="/Images/theme-create-piece/theme-create-piece-72e2ff.svg"
-                    togleOptionTool={this.togleOptionTool}
+                    saveStatus={this.saveStatus}
+                    setSaveStatus={this.setSaveStatus}
                 />
                 <Board
                     update={this.update}
@@ -628,14 +473,7 @@ export class CreatePiece extends React.Component {
                     showOffsetText={this.showOffsetText}
                     setUnsaved={this.setUnsaved}
                 />
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="CreatePiece"
-                        firstTime={this.state.firstTime}
-                        togleHelpModal={this.togleHelpModal}
-                        posLeft={263}
-                    />
-                )}
+
                 {this.state.isLoadModal && (
                     <CreatedPieceProfiles
                         defs={this.defs}
@@ -653,22 +491,7 @@ export class CreatePiece extends React.Component {
                         resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
                     />
                 )}
-                {this.navExpanded && (
-                    <NavBar
-                        currentPage="/CreatePiece"
-                        togleHelpModal={this.togleMessageModal}
-                        setHelpText={this.setMessageText}
-                        setConfirmRedirect={this.setConfirmRedirect}
-                        unsavedProgress={this.unsaved}
-                        navBarPosTop={0}
-                        navBarPosLeft={263}
-                        backgroundColor="#515151"
-                        iconColor="969696"
-                        iconColorHover="969696"
-                        backgroundColorSelected="#3d3d3d"
-                        border="none"
-                    />
-                )}
+
                 {this.confirmRedirectModal && (
                     <ConfirmRedirect
                         path={this.redirectPath}
@@ -676,7 +499,7 @@ export class CreatePiece extends React.Component {
                         setConfirmRedirect={this.setConfirmRedirect}
                     />
                 )}
-            </div>
+            </>
         );
     }
 }

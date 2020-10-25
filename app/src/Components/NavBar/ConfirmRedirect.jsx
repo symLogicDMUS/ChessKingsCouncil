@@ -1,9 +1,8 @@
 import React from "react";
-import {AcceptRedirect} from "./AcceptRedirect";
-import "./ConfirmRedirect.css";
+import { AcceptRedirect } from "./AcceptRedirect";
+import "./ConfirmRedirect.scss";
 
 export class ConfirmRedirect extends React.Component {
-
     constructor(props) {
         super(props);
         this.closeConfirmRedirect = this.closeConfirmRedirect.bind(this);
@@ -16,17 +15,13 @@ export class ConfirmRedirect extends React.Component {
     render() {
         return (
             <div className="confirm-redirect" onClick={this.closeConfirmRedirect}>
-                <div className="close-confirm-redirect">
-                    <img src="/Images/close/close.svg" alt="exit button" style={{width:12, height:12}} />    
-                </div>
-                <div className="confirm-redirect-text-label">
-                    {this.props.message}
-                </div>
+                <img src="/Images/close/close.svg" className="close" onClick={this.props.close} />
+                <div className="text">{this.props.message}</div>
                 <AcceptRedirect path={this.props.path} />
-                <div className="reject-redirect" onClick={this.closeConfirmRedirect}>
+                <div className="reject-button" onClick={this.closeConfirmRedirect}>
                     No
                 </div>
             </div>
-        )
+        );
     }
 }

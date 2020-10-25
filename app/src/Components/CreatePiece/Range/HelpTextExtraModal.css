@@ -1,47 +1,48 @@
-
-.rthem-a 
-
+.rthem-a
 .range-tool-help-extra-modal {
-    position: absolute;
-    z-index: 6;
-    width: 768px;
-    height: 325px;
-    left: 400px;
-    top: 504px;
+  position: absolute;
+  z-index: 6;
+  width: 768px;
+  height: 325px;
+  left: 400px;
+  top: 504px;
 }
 
 .rthem-h {
-    fill:none;
+  fill: none;
 }
 
 .rthem-a {
-    stroke:rgba(0,0,0,0);
+  stroke: rgba(0, 0, 0, 0);
 }
 
-.rthem-b{
-    fill:#515151;
-    stroke:#707070;
-    stroke-width:5px;
+.rthem-b {
+  fill: #515151;
+  stroke: #707070;
+  stroke-width: 5px;
 }
 
 .rthem-c {
-    fill:url(#rthem-a);
+  fill: url(#rthem-a);
 }
 
 .rthem-d {
-    clip-path:url(#rthem-b);
+  -webkit-clip-path: url(#rthem-b);
+          clip-path: url(#rthem-b);
 }
 
-.rthem-e { 
-    fill:#a9a9a9;
-    font-size:18px;
-    font-family:SegoeUI, Segoe UI;
+.rthem-e {
+  fill: #a9a9a9;
+  font-size: 18px;
+  font-family: SegoeUI, Segoe UI;
 }
 
 .rthem-f {
-    clip-path:url(#rthem-c);
+  -webkit-clip-path: url(#rthem-c);
+          clip-path: url(#rthem-c);
 }
 
 .rthem-g {
-    stroke:none;
+  stroke: none;
 }
+/*# sourceMappingURL=HelpTextExtraModal.css.map */

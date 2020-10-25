@@ -1,0 +1,11 @@
+@mixin profiles-section {
+    position: relative;
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #515151;
+    width: 100%;
+    overflow: scroll;    
+}

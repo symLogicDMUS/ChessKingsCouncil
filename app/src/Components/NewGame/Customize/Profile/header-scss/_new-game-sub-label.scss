@@ -1,0 +1,10 @@
+@mixin new-game-sub-label {
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 1;
+    color: #a9a9a9;
+    text-align: left;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-top: 1.6px;
+}

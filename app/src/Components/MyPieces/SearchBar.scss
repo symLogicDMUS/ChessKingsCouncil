@@ -1,0 +1,21 @@
+@import "../styles/search";
+@import "../styles/mg-container.scss";
+@import "../styles/search-box";
+
+.my-pieces-top-bar-search {
+    @include search(336);
+    left: 496px;
+    top: 12px;
+}
+.my-pieces-top-bar-search-magnifying-glass {
+    position: absolute;
+    @include mg-container;
+    margin-top: 4.8px;
+    left: 3.2px; 
+}
+.my-pieces-top-bar-search-box {
+    position: absolute;
+    @include search-box;
+    left: 16.8px;
+    top: 0px;
+}

@@ -1,41 +1,41 @@
 .main-menu-background {
-    background-image: url("/Images/Backgrounds/background.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
+  background-image: url("/Images/Backgrounds/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 .alt-background {
-    background-image: url("/Images/Backgrounds/y-so-serious.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
+  background-image: url("/Images/Backgrounds/y-so-serious.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 .main-menu-icon-normal {
-    fill: black;
-} 
+  fill: black;
+}
 
 .main-menu-icon-highlighted {
-    cursor: pointer;
-    fill: white;
+  cursor: pointer;
+  fill: white;
 }
 
 .config-container {
-    position: relative;
-    width: 20vw;
-    height: 15vh;
-    left: 36vw;
-    top: 22vh;
-    /* border: 1px dashed white; */
+  position: relative;
+  width: 20vw;
+  height: 15vh;
+  left: 36vw;
+  top: 22vh;
+  /* border: 1px dashed white; */
 }
 
 .anonymous-login:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .sign-out:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* .anonymous-login {
@@ -48,8 +48,6 @@
     font-family:Roboto,Helvetica,Arial,sans-serif;
     cursor:pointer;
 } */
-
-
 /* .sign-in-box {
     position: relative;
     width: 20vw;
@@ -58,4 +56,4 @@
     top: 45vh;
     background-color: black;
 } */
-
+/*# sourceMappingURL=Home.css.map */

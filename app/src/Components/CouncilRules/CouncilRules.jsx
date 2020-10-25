@@ -1,18 +1,13 @@
-/**
- *
- * This file was generated with Adobe XD React Exporter
- * Exporter for Adobe XD is written by: Johannes Pichler <j.pichler@webpixels.a1t>
- *
- **/
+
 import React from "react";
-import { NavBar } from "../NavBar/NavBarRegular3";
-import { MessageModal } from "../Help/MessageModal";
-import "./CouncilRules.css";
+import { NavBar } from "../NavBar/NavBar";
+import { MessageModal } from "../NavBar/Help/MessageModal";
+import "./CouncilRules.scss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false };
+        this.state = { bValue: true, messageModal: false, theme:"dark" };
         this.navExpanded = true;
         this.messageTitle = null;
         this.messageText = null;
@@ -44,13 +39,12 @@ export class CouncilRules extends React.Component {
         return (
             <>
                 <NavBar
-                    currentPage="/CouncilRules"
-                    navBarPos="relative"
-                    navBarPosTop={0}
-                    navBarPosLeft="21vw"
-                    expandColapseColor="000000"
+                    currentPath="/CouncilRules"
+                    currentPage="CouncilRules"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
                     setHelpText={this.setMessageText}
-                    togleHelpModal={this.togleMessageModal}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
                     <MessageModal

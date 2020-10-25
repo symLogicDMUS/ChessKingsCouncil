@@ -1,0 +1,31 @@
+@mixin upload-button {
+    position: absolute;
+    z-index: 0;
+    top: 41.33%;
+    width: 24.25%;
+    height: 16.67%;
+    color: #bbbbbb;
+    background-color: #515151;    
+    border: solid 1px #a9a9a9;
+    font-size: 110%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 6px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        color: white;
+        background-color: #a9a9a9;
+    }
+    
+}
+
+.icon-tool .white-upload {
+    @include upload-button;
+    left: 2.5%;
+} 
+
+.icon-tool .black-upload {
+    @include upload-button;
+    left: 51.75%;
+} 

@@ -1,15 +1,14 @@
 import React from "react";
-import { NavBar } from "../../NavBar/NavBarRegular3";
-import { HelpModal } from "../../Help/HelpModal";
-import { MessageModal } from "../../Help/MessageModal";
+import { NavBar } from "../../NavBar/NavBar";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
-import "./PickName.css";
+import "./PickName.scss";
 
 export class PickName extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userInput: "", bValue: true, nameStatus: "none", isHelpModal: false };
+        this.state = { userInput: "", bValue: true, nameStatus: "none",  theme: "dark" };
         this.navExpanded = true;
         this.messageTitle = null;
         this.messageText = null;
@@ -43,8 +42,8 @@ export class PickName extends React.Component {
     }
 
     togleMessageModal(boolVal) {
-      this.setState({ messageModal: boolVal });
-  }
+        this.setState({ messageModal: boolVal });
+    }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
@@ -56,13 +55,12 @@ export class PickName extends React.Component {
         return (
             <>
                 <NavBar
-                    currentPage="/NewGame"
+                    currentPath="/NewGame"
+                    currentPage="PickName"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
                     setHelpText={this.setMessageText}
-                    togleHelpModal={this.togleMessageModal}
-                    navBarPos="relative"
-                    navBarPosTop={0}
-                    navBarPosLeft="22.2vw"
-                    expandColapseColor="000000"
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
                     <MessageModal
@@ -89,15 +87,7 @@ export class PickName extends React.Component {
                         Submit
                     </button>
                 </div>
-                {this.state.isHelpModal && (
-                    <HelpModal
-                        helpTitle={this.helpTitle}
-                        helpText={this.helpText}
-                        hmChildName={this.hmChildName}
-                        extraModal={null}
-                        togleHelpModal={this.togleHelpModal}
-                    />
-                )}
+\
                 {this.state.nameStatus === "blank" && (
                     <InvalidGameName header="You can't leave the name of a game blank" reset={this.reset} />
                 )}

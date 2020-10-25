@@ -1,18 +1,25 @@
-.a{
-    clip-path:url(#b);
+.a {
+  -webkit-clip-path: url(#b);
+          clip-path: url(#b);
 }
-.b{
-    font-size:35px;font-family:SitkaDisplay, Sitka Display;
+
+.b {
+  font-size: 35px;
+  font-family: SitkaDisplay, Sitka Display;
 }
-.c{
-    fill:#fff;
+
+.c {
+  fill: #fff;
 }
+
 .icon:hover {
-    fill: white;
+  fill: white;
 }
+
 .new-game-body {
-    background-image: url("/Images/Backgrounds/background.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
+  background-image: url("/Images/Backgrounds/background.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
 }
+/*# sourceMappingURL=NewGame.css.map */

@@ -1,0 +1,8 @@
+@mixin bottom {
+    position: absolute;
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 3;
+    background-color: #515151;
+    border-radius: 15px;
+}

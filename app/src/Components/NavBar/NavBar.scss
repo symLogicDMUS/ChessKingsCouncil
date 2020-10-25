@@ -1,0 +1,211 @@
+// @import "../styles/grc";
+
+// @mixin nav-bar($theme) {
+//     position: absolute;
+//     display: grid;
+//     z-index: 0;
+//     grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 1.2%;
+//     grid-template-rows: 100%;
+//     border-bottom: 2px solid  #707070;
+//     border-top: 1px solid  #707070;
+// }
+
+// @mixin nav-bar-button($theme, $row, $col) {
+//     @include grc($row, $col);
+//     z-index: inherit;
+//     display: grid;
+//     grid-template-columns: 25% 70%;
+//     column-gap: 5%;
+//     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+//     text-decoration: none;
+//     background-color: #515151;
+//     border-left: 1px solid #707070;
+// }
+
+// @mixin nav-bar-icon($theme) {
+//     @include grc(1, 1);
+// }
+// @mixin nav-bar-text($theme) {
+//     @include grc(1, 2);
+//     width: 100%;
+//     height: 100%;
+//     text-align: center;
+//     color: #a9a9a9;
+//     padding-top: 9%;
+//     font-size: 100%;
+//     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+//     word-wrap: break-word;
+// }
+
+// @mixin togle-nav($theme, $row, $col) {
+//     @include grc($row, $col);
+//     z-index: inherit;
+//     position: relative;
+//     // top: -2%;
+//     // height: 100.1%;
+//     background-color: #515151;
+//     border-top: 1px solid #707070;
+//     border-bottom: 2px solid #707070;
+//     border-right: 1px solid #707070;
+//     border-left: 1px solid  #707070;
+//     border-top-right-radius: 5px;
+//     border-bottom-right-radius: 5px;
+//     cursor: pointer;
+// }
+
+// .nav-container {
+//     position: absolute;
+// }
+
+// .nav-bar-dark {
+//     @include nav-bar("dark");
+//     .nav-bar-home-dark {
+//         @include nav-bar-button("dark", 1, 1);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-new-game-dark {
+//         @include nav-bar-button("dark", 1, 2);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-load-game-dark {
+//         @include nav-bar-button("dark", 1, 3);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-create-piece-dark {
+//         @include nav-bar-button("dark", 1, 4);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-chess-rules-dark {
+//         @include nav-bar-button("dark", 1, 5);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-council-rules-dark {
+//         @include nav-bar-button("dark", 1, 6);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-my-pieces-dark {
+//         @include nav-bar-button("dark", 1, 7);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .nav-bar-author-github-dark {
+//         @include nav-bar-button("dark", 1, 8);
+//         .nav-bar-icon-dark {
+//             @include nav-bar-icon("dark");
+//         }
+//         .nav-bar-text-dark {
+//             @include nav-bar-text("dark");
+//         }
+//     }
+//     .togle-nav-dark {
+//         @include togle-nav("dark", 1, 9);
+//     }
+// }
+
+// /*light theme*/
+// // .nav-bar-light {
+// //     @include nav-bar("light");
+// //     .nav-bar-home-light {
+// //         @include nav-bar-button("light", 1, 1);
+// //     }
+// //     .nav-bar-new-game-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-load-game-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-create-piece-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-chess-rules-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-council-rules-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-my-pieces-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .nav-bar-author-github-light {
+// //         @include nav-bar-button("light", 1, 2);
+// //         .nav-bar-icon-light {
+// //             @include nav-bar-icon("light");
+// //         }
+// //         .nav-bar-text-light {
+// //             @include nav-bar-text("light");
+// //         }
+// //     }
+// //     .togle-nav-light {
+// //         @include togle-nav("light");
+// //     }
+// // }

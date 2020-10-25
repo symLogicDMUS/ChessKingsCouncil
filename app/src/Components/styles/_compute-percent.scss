@@ -1,0 +1,7 @@
+//height and width of first screen designed on
+$design-width: 1536px;
+$design-height: 754px;
+
+@function p-width($n) {
+    @return ($n / $design-width) * 100;
+}

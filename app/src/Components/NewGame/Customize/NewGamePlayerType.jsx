@@ -1,6 +1,6 @@
 import React from "react";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import "./NewGamePlayerType.css";
+import "./NewGamePlayerType.scss";
 
 export class NewGamePlayerType extends React.Component {
     

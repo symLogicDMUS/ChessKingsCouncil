@@ -1,34 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Profile } from "./Profile/Profile";
+import { Profile } from "../../PieceProfile/Profile";
 import { defs } from "./tests/testDefs1";
-import { ExpandModal } from "./Profile/ProfileWB/ExpandModal";
+import { DisplayBoardModal } from "../../PieceProfile/DisplayBoardModal/DisplayBoardModal";
 import { NameTooltip } from "./Profile/NameTooltip";
 import { PromoList } from "./Bottom/PromoList";
 import { SubList } from "./Bottom/SubList";
 import { PromoAll } from "./PromoAll";
 import { spanToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
-import { HelpComponent } from "../../Help/HelpComponent";
-import { Help } from "../../Help/Help";
-import { MessageModal } from "../../Help/MessageModal";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
+import { ProfileHeader } from "./ProfileHeader";
 import { SearchBar } from "./SearchBar";
-import { NavBar } from "../../NavBar/NavBarRegular2";
-import { NavExpand } from "../../NavBar/NavExpand2";
-import { NavColapse } from "../../NavBar/NavColapse2";
+import { NavBar } from "../../NavBar/NavBar";
 import { getDefs } from "../../../API/getDefs";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
 import { Ok } from "./Bottom/CustomiseOk";
-import "./Customize.css";
+import "./Customize.scss";
 
 export class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
-        this.state = { binaryValue: true, isHelpModal: false, firstTime: false };
+        this.state = { binaryValue: true, theme: "dark" };
         this.defs = {};
         this.displayDefs = {};
         this.promos = [];
@@ -70,10 +67,8 @@ export class Customize extends React.Component {
         this.toglePromoAll = this.toglePromoAll.bind(this);
         this.loadNewCustom = this.loadIdDict.bind(this);
         this.nameTooltip = this.nameTooltip.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.setPlayerType = this.setPlayerType.bind(this);
     }
@@ -81,7 +76,6 @@ export class Customize extends React.Component {
     componentDidMount() {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
-
             this.defs = initStandardDefs(defs);
 
             this.displayDefs = JSON.parse(JSON.stringify(this.defs));
@@ -188,7 +182,7 @@ export class Customize extends React.Component {
     getModals() {
         if (this.pieceName != null && this.rangeType != null && this.color != null) {
             return (
-                <ExpandModal
+                <DisplayBoardModal
                     def={this.defs[this.pieceName][this.color]}
                     pieceName={this.pieceName}
                     rangeType={this.rangeType}
@@ -263,13 +257,7 @@ export class Customize extends React.Component {
         this.promoListUpdate = false;
     }
 
-    getHelpModalChild() {
-        return this.hmChildren[this.hmChildName];
-    }
 
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
 
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
@@ -279,10 +267,6 @@ export class Customize extends React.Component {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
         this.setState({ messageModal: true });
-    }
-
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
     }
 
     updateSearch(searchText) {
@@ -308,17 +292,16 @@ export class Customize extends React.Component {
         let profiles = [];
         for (var pieceName of pieceNames) {
             profiles.push(
-                <Profile
-                    newReplacement={this.newReplacement}
-                    newReplaced={this.newReplaced}
-                    nameTooltip={this.nameTooltip}
-                    togleSub={this.togleSub}
-                    toglePromo={this.toglePromo}
-                    expand={this.expand}
-                    pieceName={pieceName}
-                    promos={this.promos}
-                    displayDefs={this.displayDefs}
-                />
+                <Profile pieceName={pieceName} expand={this.expand} displayDefs={this.displayDefs}>
+                    {ProfileHeader(
+                        pieceName,
+                        this.promos,
+                        this.newReplacement,
+                        this.newReplaced,
+                        this.togleSub,
+                        this.toglePromo
+                    )}
+                </Profile>
             );
         }
         return profiles;
@@ -329,12 +312,13 @@ export class Customize extends React.Component {
 
         return (
             <>
-                <HelpComponent
-                    pageName="Customize"
-                    togleHelpModal={this.togleHelpModal}
-                    setFirstTime={this.setFirstTime}
-                    fontSize={30}
-                    color="#515151"
+                <NavBar
+                    currentPath="/NewGame"
+                    currentPage="Customize"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
+                    setHelpText={this.setMessageText}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
                     <MessageModal
@@ -343,14 +327,7 @@ export class Customize extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="Customize"
-                        firstTime={this.state.firstTime}
-                        togleHelpModal={this.togleHelpModal}
-                        posLeft={263}
-                    />
-                )}
+
                 <div className="new-game-customize-window">
                     <div className="new-game-customize-top-bar">
                         <div className="new-game-customize-top-bar-title">Customize</div>
@@ -374,39 +351,6 @@ export class Customize extends React.Component {
                 </div>
                 {this.isTooltip && <NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />}
                 {this.getModals()}
-                {this.navExpanded && (
-                    <NavBar
-                        currentPage="/NewGame"
-                        togleHelpModal={this.togleMessageModal}
-                        setHelpText={this.setMessageText}
-                        navBarPosTop={0}
-                        navBarPosLeft={258}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        backgroundColorSelected="#3d3d3d"
-                        border="1px solid #707070"
-                    />
-                )}
-                {this.navExpanded && (
-                    <NavColapse
-                        left={1276}
-                        top={0}
-                        togleNav={this.togleNav}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        border="1px solid #707070"
-                    />
-                )}
-                {!this.navExpanded && (
-                    <NavExpand
-                        left={1276}
-                        top={0}
-                        togleNav={this.togleNav}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        border="1px solid #707070"
-                    />
-                )}
                 <Ok accept={this.accept} />
             </>
         );

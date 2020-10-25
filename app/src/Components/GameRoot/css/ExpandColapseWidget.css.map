@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,yBAAyB,CAAC;EACtB,QAAQ,EAAC,QAAQ;EACjB,KAAK,EAAE,GAAG;EACV,MAAM,EAAC,GAAG;EACV,GAAG,EAAC,EAAE;EACN,IAAI,EAAC,GAAG;CACX;;AAED,AAAA,wBAAwB,CAAC;EACrB,QAAQ,EAAC,QAAQ;EACjB,KAAK,EAAE,GAAG;EACV,MAAM,EAAC,GAAG;EACV,GAAG,EAAC,GAAG;EACP,IAAI,EAAC,GAAG;CACX",
+    "sources": [
+        "ExpandColapseWidget.scss"
+    ],
+    "names": [],
+    "file": "ExpandColapseWidget.css"
+}

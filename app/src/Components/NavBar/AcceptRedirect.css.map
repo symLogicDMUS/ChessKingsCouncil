@@ -1,0 +1,12 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,gBAAgB,CAAC;ECCT,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,OAAO;EAChB,MAAM,EDFO,IAAI;ECGjB,KAAK,EAAE,IAAa;EACpB,SAAS,EAAE,UAAc;EACzB,WAAW,EAAE,GAAW;EACxB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,+CAA+C;EAC5D,KAAK,EEPC,OAAO;EFQb,gBAAgB,EEXX,OAAO;EFYZ,aAAa,EAAE,SAAc;EAC7B,QAAQ,EAAE,MAAM;EAChB,aAAa,EAAE,QAAQ;EACvB,MAAM,EAAE,OAAO;EDZnB,OAAO,EAAE,OAAO;EAChB,IAAI,EAAE,KAAK;EACX,GAAG,EAAE,KAAK;CACb;;AALD,ACeK,gBDfW,ACeV,MAAM,CAAC;EACL,KAAK,EEjBA,OAAO;EFkBZ,gBAAgB,EEfV,OAAO;CFgBhB",
+    "sources": [
+        "AcceptRedirect.scss",
+        "../styles/_button1.scss",
+        "../styles/_get-button-colors.scss",
+        "../styles/_color-variables.scss"
+    ],
+    "names": [],
+    "file": "AcceptRedirect.css"
+}

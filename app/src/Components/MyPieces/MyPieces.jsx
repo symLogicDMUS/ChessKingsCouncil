@@ -2,35 +2,29 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { offsetToText } from "../helpers/offsetToText";
 import { spanToText } from "../helpers/spanToText";
-import { MyPieceProfile } from "./MyPieceProfile";
+import { Profile } from "../PieceProfile/Profile";
 import { MyPieceConfirmDelete } from "./MyPieceConfirmDelete";
-import { MyPiecesDisplayBoardModal } from "./MyPiecesDisplayBoardModal";
-import { Help } from "../Help/Help";
-import { HelpComponent } from "../Help/HelpComponent";
-import { MessageModal } from "../Help/MessageModal";
+import { DisplayBoardModal } from "../PieceProfile/DisplayBoardModal/DisplayBoardModal";
+import { ProfileHeader } from "./ProfileHeader";
+import { MessageModal } from "../NavBar/Help/MessageModal";
 import { SearchBar } from "./SearchBar";
-import { NavBar } from "../NavBar/NavBarRegular2";
-import { NavExpand } from "../NavBar/NavExpand2";
-import { NavColapse } from "../NavBar/NavColapse2";
+import { NavBar } from "../NavBar/NavBar";
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
-import "./MyPieces.css";
+import "./MyPieces.scss";
 
 export class MyPieces extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            theme: "dark",
             binaryValue: true,
             selectedPiece: null,
             redirect: false,
-            isHelpModal: false,
             deleteModal: false,
-            firstTime: false,
         };
         this.firstTime = false;
-        // this.deleteModal = false;
         this.displayBoard = null;
-        this.pieceName = null;
         this.color = null;
         this.rangeType = null;
         this.navExpanded = true;
@@ -48,17 +42,14 @@ export class MyPieces extends React.Component {
         this.expand = this.expand.bind(this);
         this.togleNav = this.togleNav.bind(this);
         this.togleConfirmDeleteModal = this.togleConfirmDeleteModal.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
-        this.setFirstTime = this.setFirstTime.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
     }
 
     componentDidMount() {
         document.body.className = "my-pieces-body";
-
         getDefs().then(([defs]) => {
             if (defs) {
                 this.defs = defs;
@@ -83,6 +74,8 @@ export class MyPieces extends React.Component {
     update() {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
+
+    getStyle() {}
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
@@ -109,10 +102,6 @@ export class MyPieces extends React.Component {
         });
     }
 
-    togleHelpModal(boolVal) {
-        this.setState({ isHelpModal: boolVal, firstTime: false });
-    }
-
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
@@ -121,14 +110,6 @@ export class MyPieces extends React.Component {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
         this.setState({ messageModal: true });
-    }
-
-    setFirstTime(firstTime) {
-        this.setState({ firstTime: firstTime });
-    }
-
-    getHelpModalChild() {
-        return this.hmChildren[this.hmChildName];
     }
 
     expand(piece, color, rangeType) {
@@ -165,7 +146,7 @@ export class MyPieces extends React.Component {
     getDisplayBoard() {
         if (this.pieceName != null && this.color != null && this.rangeType != null)
             return (
-                <MyPiecesDisplayBoardModal
+                <DisplayBoardModal
                     def={this.defs[this.pieceName][this.color]}
                     rangeType={this.rangeType}
                     color={this.color}
@@ -193,14 +174,9 @@ export class MyPieces extends React.Component {
         let pieceNames = this.applySearchFilter();
         for (var pieceName of pieceNames) {
             profiles.push(
-                <MyPieceProfile
-                    load={this.load}
-                    expand={this.expand}
-                    setPiece={this.setPiece}
-                    pieceName={pieceName}
-                    displayDefs={this.displayDefs}
-                    togleConfirmDeleteModal={this.togleConfirmDeleteModal}
-                />
+                <Profile pieceName={pieceName} expand={this.expand} displayDefs={this.displayDefs}>
+                    {ProfileHeader(pieceName, this.load, this.setPiece, this.togleConfirmDeleteModal)}
+                </Profile>
             );
         }
         return profiles;
@@ -222,21 +198,15 @@ export class MyPieces extends React.Component {
 
         return (
             <>
-                <HelpComponent
-                    pageName="MyPieces"
-                    setFirstTime={this.setFirstTime}
-                    togleHelpModal={this.togleHelpModal}
-                    fontSize={30}
-                    color="#515151"
+                <NavBar
+                    currentPath="/MyPieces"
+                    currentPage="MyPieces"
+                    theme={this.state.theme}
+                    togleMessageModal={this.togleMessageModal}
+                    setHelpText={this.setMessageText}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
-                {(this.state.isHelpModal || this.state.firstTime) && (
-                    <Help
-                        pageName="MyPieces"
-                        firstTime={this.state.firstTime}
-                        togleHelpModal={this.togleHelpModal}
-                        posLeft={263}
-                    />
-                )}
+
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
@@ -245,7 +215,7 @@ export class MyPieces extends React.Component {
                     />
                 )}
 
-                <div className="my-pieces">
+                <div className="my-pieces" style={this.getStyle()}>
                     <div className="top-bar">
                         <div className="title">My Pieces</div>
                         <SearchBar updateSearch={this.updateSearch} />
@@ -261,39 +231,6 @@ export class MyPieces extends React.Component {
                     />
                 )}
                 {this.getDisplayBoard()}
-                {this.navExpanded && (
-                    <NavBar
-                        currentPage="/MyPieces"
-                        togleHelpModal={this.togleMessageModal}
-                        setHelpText={this.setMessageText}
-                        navBarPosTop={0}
-                        navBarPosLeft={258}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        backgroundColorSelected="#3d3d3d"
-                        border="1px solid #707070"
-                    />
-                )}
-                {this.navExpanded && (
-                    <NavColapse
-                        left={1276}
-                        top={0}
-                        togleNav={this.togleNav}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        border="1px solid #707070"
-                    />
-                )}
-                {!this.navExpanded && (
-                    <NavExpand
-                        left={1276}
-                        top={0}
-                        togleNav={this.togleNav}
-                        backgroundColor="#515151"
-                        iconColor="b6b6b6"
-                        border="1px solid #707070"
-                    />
-                )}
             </>
         );
     }

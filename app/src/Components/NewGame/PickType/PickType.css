@@ -1,20 +1,23 @@
 .pick-type-body {
-    background-image: url("/Images/Backgrounds/background.png");
-    background-repeat: repeat;
-    object-fit: none;
+  background-image: url("/Images/Backgrounds/background.png");
+  background-repeat: repeat;
+  -o-object-fit: none;
+     object-fit: none;
 }
 
 .game-type-icon-normal {
-    fill: black;
+  fill: black;
 }
 
 .game-type-icon-highlighted {
-    fill: white;
+  fill: white;
 }
 
 /* .a{clip-path:url(#game-type-text);} */
 .game-type-text {
-    font-size: 35px;
-    font-family: SitkaDisplay, Sitka Display;
+  font-size: 35px;
+  font-family: SitkaDisplay, Sitka Display;
 }
+
 /* .c{fill:#fff;} */
+/*# sourceMappingURL=PickType.css.map */

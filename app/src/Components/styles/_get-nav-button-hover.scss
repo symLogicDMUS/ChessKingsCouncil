@@ -1,0 +1,7 @@
+@import "./color-variables";
+
+$hover-colors: ("dark": #4d4d4d);
+
+@function get-nav-button-hover($theme) {
+    @return map-get($hover-colors, $theme)
+}

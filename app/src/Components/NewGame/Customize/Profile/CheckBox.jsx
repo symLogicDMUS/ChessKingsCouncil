@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./CheckBox.css";
+import "./CheckBox.scss";
 
 export class CheckBox extends React.Component {
     

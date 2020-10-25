@@ -1,0 +1,25 @@
+@import "../styles/grc";
+
+@mixin direction-arrow($row, $col) {
+    @include grc($row, $col);
+    cursor: pointer;
+}
+.spans-up-arrow {
+    @include direction-arrow(1, 1);
+}
+.spans-down-arrow {
+    @include direction-arrow(7, 1);
+}
+.offsets-up-arrow {
+    @include direction-arrow(1, 1);
+}
+.offsets-down-arrow {
+    @include direction-arrow(7, 1);
+}
+.scroll-arrow {
+    position: relative;
+    top: -3.2px;
+    left: 165px;
+    width: 4px;
+    height: 4px;
+}

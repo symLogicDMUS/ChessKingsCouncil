@@ -15,7 +15,7 @@ import {
     standard_promo_names
 } from "./NewData";
 import { firstUpdate } from "../../apiHelpers/firstUpdate";
-import "./NewGame.css";
+import "./NewGame.scss";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
@@ -143,7 +143,7 @@ export class NewGame extends React.Component {
                 to={{
                     pathname: "/NewGame/Play",
                     state: {
-                        currentPage: "/NewGame/Play",
+                        currentPath: "/NewGame/Play",
                         gameName: JSON.parse(JSON.stringify(this.gameName)),
                         gameType: JSON.parse(JSON.stringify(this.gameType)),
                         playerType: JSON.parse(JSON.stringify(this.playerType)),

@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Saving.css";
+import "../css/Saving.scss";
 
 export const Saving = () => {
  

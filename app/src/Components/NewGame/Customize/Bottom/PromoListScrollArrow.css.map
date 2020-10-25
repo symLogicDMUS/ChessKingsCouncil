@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,oBAAoB,CAAC;EACjB,WAAW,EAAE,CAAC;EACd,QAAQ,EAAE,CAAC;EACX,MAAM,EAAE,OAAO;CAClB;;AAED,AAAA,sBAAsB,CAAC;EACnB,WAAW,EAAE,CAAC;EACd,QAAQ,EAAE,CAAC;EACX,MAAM,EAAE,OAAO;CAClB;;AAED,AAAA,wBAAwB,CAAC;EACrB,QAAQ,EAAE,QAAQ;EAClB,UAAU,EAAE,oBAAoB;EAChC,KAAK,EAAE,oBAAoB;EAC3B,MAAM,EAAE,mBAAmB;CAC9B",
+    "sources": [
+        "PromoListScrollArrow.scss"
+    ],
+    "names": [],
+    "file": "PromoListScrollArrow.css"
+}

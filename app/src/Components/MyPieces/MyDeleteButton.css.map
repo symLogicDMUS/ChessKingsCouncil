@@ -1,0 +1,13 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,wBAAwB,CAAC;EIFrB,QAAQ,EJGK,CAAC;EIFd,WAAW,EJEK,CAAC;CAKpB;;AAND,AAEI,wBAFoB,CAEpB,iBAAiB,CAAC;ECFd,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,OAAO;EAChB,MAAM,EDCW,IAAI;ECArB,KAAK,EAAE,IAAa;EACpB,SAAS,EAAE,UAAc;EACzB,WAAW,EAAE,GAAW;EACxB,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,+CAA+C;EAC5D,KAAK,EEPC,OAAO;EFQb,gBAAgB,EEXX,OAAO;EFYZ,aAAa,EAAE,SAAc;EAC7B,QAAQ,EAAE,MAAM;EAChB,aAAa,EAAE,QAAQ;EACvB,MAAM,EAAE,OAAO;EDTf,GAAG,EAAE,GAAG;CACX;;AALL,ACcK,wBDdmB,CAEpB,iBAAiB,ACYf,MAAM,CAAC;EACL,KAAK,EEjBA,OAAO;EFkBZ,gBAAgB,EEfV,OAAO;CFgBhB",
+    "sources": [
+        "MyDeleteButton.scss",
+        "../styles/_button1.scss",
+        "../styles/_get-button-colors.scss",
+        "../styles/_color-variables.scss",
+        "../styles/_grc.scss"
+    ],
+    "names": [],
+    "file": "MyDeleteButton.css"
+}

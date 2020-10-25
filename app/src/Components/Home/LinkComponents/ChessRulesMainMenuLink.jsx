@@ -1,5 +1,5 @@
 import React from "react";
-import "../Home.css";
+import "../Home.scss";
 /**
  *
  * This file was generated with Adobe XD React Exporter

@@ -1,5 +1,5 @@
 import React from "react";
-import "../PickType.css";
+import "../PickType.scss";
 
 export class Title extends React.Component {
     

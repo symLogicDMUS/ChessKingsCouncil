@@ -1,0 +1,7 @@
+@import "../close";
+
+@mixin modal-close {
+    position: absolute;
+    left: 585px;
+    @include close;
+}

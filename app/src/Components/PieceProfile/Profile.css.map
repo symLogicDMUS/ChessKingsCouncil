@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,cAAc,CAAC;ECDX,OAAO,EAAE,OAAO;EAChB,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,mBAAmB;CDClC",
+    "sources": [
+        "Profile.scss",
+        "../styles/piece-profiles/_piece-profile.scss"
+    ],
+    "names": [],
+    "file": "Profile.css"
+}

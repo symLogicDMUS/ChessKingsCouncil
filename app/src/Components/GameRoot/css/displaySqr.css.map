@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,KAAK,CAAC;EACJ,QAAQ,EAAE,QAAQ;EAChB,OAAO,EAAE,CAAC;ECDV,MAAM,EAAE,KAAuB;EAC/B,KAAK,EAAE,KAAuB;EAC9B,gBAAgB,ECEJ,OAAO;CFDtB;;AAED,AAAA,MAAM,CAAC;EACH,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,CAAC;ECPV,MAAM,EAAE,KAAuB;EAC/B,KAAK,EAAE,KAAuB;EAC9B,gBAAgB,ECCJ,OAAO;CFMtB",
+    "sources": [
+        "displaySqr.scss",
+        "../../styles/_sqr.scss",
+        "../../styles/get-sqr-color.scss"
+    ],
+    "names": [],
+    "file": "displaySqr.css"
+}

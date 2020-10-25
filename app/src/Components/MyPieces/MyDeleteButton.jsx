@@ -1,5 +1,5 @@
 import React from "react";
-import "./MyDeleteButton.css";
+import "./MyDeleteButton.scss";
 
 export class MyDeleteButton extends React.Component {
 

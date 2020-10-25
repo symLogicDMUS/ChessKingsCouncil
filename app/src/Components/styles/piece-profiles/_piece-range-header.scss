@@ -1,0 +1,9 @@
+@import "../grc";
+
+@mixin piece-range-header($row, $col) {
+    @include grc($row, $col);
+    display: grid;
+    width: 99.5%;
+    grid-template-columns: 95%  5%;
+    border: 0.8px solid #707070;
+}

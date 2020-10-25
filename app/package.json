@@ -10,6 +10,7 @@
     "colors": "^1.4.0",
     "firebase": "^7.20.0",
     "jshint": "^2.12.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dnd": "^10.0.2",
     "react-dnd-html5-backend": "^10.0.2",

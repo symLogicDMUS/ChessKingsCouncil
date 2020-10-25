@@ -1,0 +1,10 @@
+@import "../styles/button1";
+@import "../styles/grc";
+
+.load-button-container {
+    @include grc(1, 2);
+    .my-load-button {
+        @include button1(20px, "dark");
+        top: 4px;
+    }            
+}

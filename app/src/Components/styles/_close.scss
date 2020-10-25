@@ -1,0 +1,8 @@
+@mixin close {
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    &:hover {
+        background-color: #EC2525;
+    }
+}

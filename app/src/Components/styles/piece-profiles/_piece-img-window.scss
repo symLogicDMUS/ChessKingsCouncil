@@ -1,0 +1,14 @@
+@mixin piece-img-window {
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 2;
+    object-fit: cover;
+    border: 0.8px solid #707070;
+    &:img {
+        z-index: inherit;
+        width: 100%; 
+        height: 100%; 
+        padding-bottom: 14.4px; 
+        border-radius: 4px;
+    }
+}

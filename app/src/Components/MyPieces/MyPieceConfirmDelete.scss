@@ -1,0 +1,37 @@
+@import "../styles/modal";
+@import "../styles/button1";
+@import "../styles/modal-window1-components/text";
+@import "../styles/modal-window1-components/window";
+@import "../styles/close";
+
+$button1-x: 180px;
+$button2-x: $button1-x + 152px;
+
+.my-piece-confirm-delete-modal {
+    @include modal
+}
+
+.my-piece-confirm-delete-window {
+    @include window;
+    .my-piece-confirm-delete-heading {
+        position: absolute;
+        @include text;
+    }
+    .my-piece-confirm-delete {
+        position: absolute;
+        @include button1(20px, "dark");
+        left: $button1-x;
+        top: 250px;
+    }
+    .my-piece-reject-delete {
+        position: absolute;
+        @include button1(20px, "dark");
+        left: $button2-x;
+        top: 250px;
+    }
+    .close {
+        position: absolute;
+        left: 585px;
+        @include close;
+    }
+}   

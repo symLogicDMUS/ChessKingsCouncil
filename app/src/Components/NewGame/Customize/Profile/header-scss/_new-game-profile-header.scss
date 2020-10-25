@@ -1,0 +1,8 @@
+@mixin new-game-profile-header {
+    display: grid;
+    z-index: inherit;
+    width: 720px;
+    grid-template-rows: 24px;
+    grid-template-columns: 160px 80px 214.4px 208px;
+    margin-bottom: 8px;
+}

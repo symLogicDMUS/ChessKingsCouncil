@@ -1,0 +1,14 @@
+@mixin title {
+    text-align: center;
+    width: 565px;
+    height: 30px;
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #b6b6b6;
+    background-color: #515151;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

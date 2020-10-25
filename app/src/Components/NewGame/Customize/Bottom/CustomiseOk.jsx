@@ -1,5 +1,5 @@
 import React from "react";
-import "./CustomiseOk.css";
+import "./CustomiseOk.scss";
 
 export function Ok({accept}) {
 

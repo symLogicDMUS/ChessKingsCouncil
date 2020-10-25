@@ -1,0 +1,13 @@
+@mixin wb-profile {
+    z-index: inherit;
+    display: grid;
+    height: 40%;
+    grid-template-columns: 15% 40.55% 40.55%;
+    grid-template-rows: 24px 120px;
+    column-gap: 2%;
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: #515151;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

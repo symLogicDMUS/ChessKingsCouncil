@@ -1,0 +1,26 @@
+@import "../styles/piece-profiles/range-list-item";
+@import "../styles/piece-profiles/piece-range-grid";
+@import "../styles/grc";
+
+.spans-table {
+    @include piece-range-grid(2, 2);
+}
+.offsets-table {
+    @include piece-range-grid(2, 3);
+    left: 0;
+}        
+.list-item1 {
+    @include range-list-item(2, 1);
+}
+.list-item2 {
+    @include range-list-item(3, 1);
+}
+.list-item3 {
+    @include range-list-item(4, 1);
+}
+.list-item4 {
+    @include range-list-item(5, 1);
+}
+.list-item5 {
+    @include range-list-item(6, 1);
+}

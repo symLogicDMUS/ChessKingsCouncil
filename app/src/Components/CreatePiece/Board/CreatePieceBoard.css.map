@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,CAAC;EACV,IAAI,EAAE,GAAG;EACT,GAAG,EAAE,KAAK;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,QAAQ;EAChB,WAAW,EAAE,CAAC;EACd,UAAU,EAAE,kBAAkB;CAC/B",
+    "sources": [
+        "CreatePieceBoard.scss"
+    ],
+    "names": [],
+    "file": "CreatePieceBoard.css"
+}

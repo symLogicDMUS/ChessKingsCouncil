@@ -1,5 +1,5 @@
 import React from "react";
-import "./HelpText.css";
+import "./HelpText.scss";
 
 export let titles = {
   0: "My Pieces page"

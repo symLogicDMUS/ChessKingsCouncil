@@ -1,0 +1,9 @@
+@import "./header-scss/my-piece-name";
+@import "./header-scss/my-pieces-profile-header";
+
+.my-pieces-profile-header {
+    @include my-pieces-profile-header;
+    .my-piece-name {
+        @include my-piece-name;
+    }
+}

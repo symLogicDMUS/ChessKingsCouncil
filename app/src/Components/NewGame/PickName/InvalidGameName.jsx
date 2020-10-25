@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./InvalidGameName.css";
+import "./InvalidGameName.scss";
 
 export class InvalidGameName extends React.Component {
 

@@ -8,7 +8,7 @@
  **/
 
 import React from "react";
-import "../Home.css";
+import "../Home.scss";
 
 export const Title = () => (
     <g transform="translate(59.353 227.839)">

@@ -1,6 +1,6 @@
 import React from "react";
-import "../CreatePiece.css";
-import "./CreatePiecePiece.css";
+import "../CreatePiece.scss";
+import "./CreatePiecePiece.scss";
 
 export class CreatePiecePiece extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export class CreatePiecePiece extends React.Component {
         return (
             <div className="my-piece">
                 {this.props.pieceImgBase64Str ? (
-                    <img src={this.props.pieceImgBase64Str} width="75px" height="75px" alt="icon of a piece" />
+                    <img src={this.props.pieceImgBase64Str} width="100%" height="100%" alt="icon of a piece" />
                 ) : null}
             </div>
         );

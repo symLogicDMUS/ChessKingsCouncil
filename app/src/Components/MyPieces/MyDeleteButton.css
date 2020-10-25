@@ -1,21 +1,30 @@
-.my-delete-button {
-    position: relative;
-    z-index: inherit;
-    top: 4px;
-    height: 20px;
-    width: 76px;
-    font-size: 12px;
-    padding-top: 4px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #b6b6b6;
-    background-color: #606060;
-    border-radius: 5.6000000000000005px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    cursor: pointer;
-} .my-delete-button:hover {
-    color: #515151;
-    background-color: #b6b6b6;
+.delete-button-container {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 3;
+  grid-column: 3;
 }
 
+.delete-button-container .my-delete-button {
+  position: absolute;
+  z-index: inherit;
+  height: 20px;
+  width: 76px;
+  font-size: 12.04819px;
+  padding-top: 4px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #606060;
+  border-radius: 5.60224px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  top: 4px;
+}
+
+.delete-button-container .my-delete-button:hover {
+  color: #606060;
+  background-color: #b6b6b6;
+}
+/*# sourceMappingURL=MyDeleteButton.css.map */

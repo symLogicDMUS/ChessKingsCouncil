@@ -1,0 +1,9 @@
+@mixin location-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 5%;
+    font-size: 125%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+}

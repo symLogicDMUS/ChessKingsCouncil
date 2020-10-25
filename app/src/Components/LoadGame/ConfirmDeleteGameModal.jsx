@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ConfirmDeleteGameModal.css";
+import "./ConfirmDeleteGameModal.scss";
 
 export class ConfirmDeleteGameModal extends Component {
     render() {

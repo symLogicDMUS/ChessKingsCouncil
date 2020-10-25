@@ -1,5 +1,5 @@
 import React from "react";
-import "./RangeTable.css";
+import "./RangeTable.scss";
 
 
 export function RangeTable({displayList}) {

@@ -1,0 +1,30 @@
+.my-pieces-profile-header {
+  position: relative;
+  z-index: inherit;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 644px 76px 76px;
+      grid-template-columns: 644px 76px 76px;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+  width: 800px;
+  height: 32px;
+  background-color: #515151;
+  margin-bottom: 4px;
+}
+
+.my-pieces-profile-header .my-piece-name {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  color: #a9a9a9;
+  font-size: 20px;
+  padding-top: 6.4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*# sourceMappingURL=ProfileHeader.css.map */

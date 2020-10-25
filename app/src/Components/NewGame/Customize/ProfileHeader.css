@@ -1,0 +1,99 @@
+.new-game-profile-header {
+  display: -ms-grid;
+  display: grid;
+  z-index: inherit;
+  width: 720px;
+  -ms-grid-rows: 24px;
+      grid-template-rows: 24px;
+  -ms-grid-columns: 160px 80px 214.4px 208px;
+      grid-template-columns: 160px 80px 214.4px 208px;
+  margin-bottom: 8px;
+}
+
+.new-game-profile-header .new-game-name-of-piece {
+  z-index: inherit;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / 3;
+  padding-top: 2.4px;
+  padding-left: 7.2px;
+  padding-bottom: 2.4px;
+  border-radius: 2.4px;
+  color: #a9a9a9;
+  font-size: 16.8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.new-game-profile-header .new-game-promotion {
+  z-index: inherit;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 3;
+  grid-column: 3;
+  -ms-grid-columns: 96px 117.6px;
+      grid-template-columns: 96px 117.6px;
+  -ms-grid-rows: 24px;
+      grid-template-rows: 24px;
+  text-align: left;
+}
+
+.new-game-profile-header .new-game-promotion .new-game-promotion-label {
+  z-index: inherit;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  text-align: left;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  padding-left: 6.4px;
+  padding-top: 2.4px;
+  color: #a9a9a9;
+}
+
+.new-game-profile-header .new-game-promotion .new-game-promotion-checkbox-container {
+  z-index: inherit;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.new-game-profile-header .new-game-substitute {
+  z-index: inherit;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 48px 217.6px;
+      grid-template-columns: 48px 217.6px;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 4;
+  grid-column: 4;
+}
+
+.new-game-profile-header .new-game-substitute .new-game-sub-label {
+  z-index: inherit;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  color: #a9a9a9;
+  text-align: left;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  padding-top: 1.6px;
+}
+
+.new-game-profile-header .new-game-substitute .new-game-sub-dropdown-container {
+  z-index: inherit;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  margin-left: 4.81px;
+}
+/*# sourceMappingURL=ProfileHeader.css.map */

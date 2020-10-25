@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./SubDropdown.css";
+import "./SubDropdown.scss";
 
 export class SubDropdown extends React.Component {
     

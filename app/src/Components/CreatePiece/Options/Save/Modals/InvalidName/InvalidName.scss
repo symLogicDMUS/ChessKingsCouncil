@@ -1,0 +1,31 @@
+@import "../../../../../styles/modal-window1-components/ok-button";
+@import "../../../../../styles/modal-window1-components/modal-close";
+@import "../../../../../styles/modal-window1-components/window";
+@import "../../../../../styles/modal-window1-components/text";
+@import "../../../../../styles/modal-window1-components/title";
+@import "../../../../../styles/modal";
+
+.invalid-name-modal {
+    @include modal;
+}
+
+.invalid-name {
+    @include window;
+    .text {
+        @include text;
+    }
+    .ok-button {
+        @include ok-button(20px, "dark");
+    }
+    .msg-modal-close {
+        @include modal-close;
+    }
+}
+
+.visible {
+    display: initial;
+}
+
+.invisible {
+    display: none;
+}

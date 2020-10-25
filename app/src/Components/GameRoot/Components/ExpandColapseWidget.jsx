@@ -1,13 +1,18 @@
 import React from "react";
-import "../css/ExpandColapseWidget.css";
+import "../css/ExpandColapseWidget.scss";
 
 export class ExpandColapseWidget extends React.Component {
-
     render() {
-        return(
-        <div className="game-play-expand-colapse-widget" onClick={this.props.togleExpand}>
-            <img src={this.props.imgName} style={{width:"20px", height:"20px", cursor:"pointer"}} />
-        </div>
-        )
+
+        var class_ = this.props.expanded ? "game-play-colapse-widget" : "game-play-expand-widget";
+
+        return (
+            <div
+                className={class_}
+                onClick={this.props.togleExpand}
+            >
+                <img src={this.props.imgName} style={{ width: "100%", height: "100%", cursor: "pointer" }} />
+            </div>
+        );
     }
 }

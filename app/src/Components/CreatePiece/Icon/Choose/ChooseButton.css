@@ -1,33 +1,40 @@
 .icon-tool .white-choose {
-    position: absolute;
-    z-index: 0;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
-    cursor: pointer;
-    left: 10px;
-    top:  105px;
-    width: 98px;
-    height: 32px;
-}.white-choose:hover {
-    color: white;
-    background-color: #a9a9a9;
+  position: absolute;
+  z-index: 0;
+  top: 70%;
+  width: 24.25%;
+  height: 21.33%;
+  font-size: 100%;
+  color: #bbbbbb;
+  background-color: #515151;
+  border: solid 1px #a9a9a9;
+  border-radius: 5px;
+  cursor: pointer;
+  left: 2.5%;
+}
+
+.icon-tool .white-choose:hover {
+  color: white;
+  background-color: #a9a9a9;
 }
 
 .icon-tool .black-choose {
-    position: absolute;
-    z-index: 0;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
-    cursor: pointer;
-    left: 207px;
-    top: 105px;
-    width: 98px;
-    height: 32px;
-} .black-choose:hover {
-    color: white;
-    background-color: #a9a9a9;
+  position: absolute;
+  z-index: 0;
+  top: 70%;
+  width: 24.25%;
+  height: 21.33%;
+  font-size: 100%;
+  color: #bbbbbb;
+  background-color: #515151;
+  border: solid 1px #a9a9a9;
+  border-radius: 5px;
+  cursor: pointer;
+  left: 51.75%;
 }
+
+.icon-tool .black-choose:hover {
+  color: white;
+  background-color: #a9a9a9;
+}
+/*# sourceMappingURL=ChooseButton.css.map */

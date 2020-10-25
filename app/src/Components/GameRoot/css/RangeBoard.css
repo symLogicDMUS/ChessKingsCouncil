@@ -1,41 +1,42 @@
 .range-display-board {
-    position: absolute;
-    z-index: 1;
-    left: 20px;
-    top: 38px;
-    width: 160px;
-    height: 160px;
-    border: 1px solid #b1faae;
+  position: absolute;
+  z-index: 1;
+  left: 10%;
+  top: 15%;
+  width: 80%;
+  height: 80%;
+  border: 1px solid #b1faae;
 }
 
-.range-display-board .sqr1 {
-    position: absolute;
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-    background-color: green;
+.range-display-board .rdb-sqr1 {
+  position: absolute;
+  z-index: 1;
+  height: 12.5%;
+  width: 12.5%;
+  background-color: #ffffff;
 }
 
-.range-display-board .sqr2 {
-    position: absolute;
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
+.range-display-board .rdb-sqr2 {
+  position: absolute;
+  z-index: 1;
+  height: 12.5%;
+  width: 12.5%;
+  background-color: #008000;
 }
 
-.range-display-board .sqr-highlight1 {
-    position: absolute;
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-    background-color: rgb(221, 255, 0);
+.range-display-board .rdb-sqr1-highlight {
+  position: absolute;
+  z-index: 1;
+  height: 12.5%;
+  width: 12.5%;
+  background-color: #fdfd35;
 }
 
-.range-display-board .sqr-highlight2 {
-    position: absolute;
-    z-index: 1;
-    width: 20px;
-    height: 20px;
-    background-color: rgb(253, 253, 53);
+.range-display-board .rdb-sqr2-highlight {
+  position: absolute;
+  z-index: 1;
+  height: 12.5%;
+  width: 12.5%;
+  background-color: #ddff00;
 }
+/*# sourceMappingURL=RangeBoard.css.map */

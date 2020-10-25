@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,OAAO,EAAE,YAAY;EACrB,OAAO,EAAE,CAAC;EAAE,eAAe;EAC3B,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "CreatePiecePiece.scss"
+    ],
+    "names": [],
+    "file": "CreatePiecePiece.css"
+}

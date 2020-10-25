@@ -8,7 +8,7 @@ import { AskDeleteIconButton } from "./AskDeleteIconButton";
 import { ConfirmDeleteIconModal } from "./ConfirmDeleteIconModal";
 import { Ok } from "./IconChooseOk";
 import { SearchBar } from "./SearchBar";
-import "./ChooseModal.css";
+import "./ChooseModal.scss";
 
 export class ChooseModal extends React.Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../Range.css";
+import "../Range.scss";
 
 export class ArrowButton extends React.Component {
     
@@ -14,7 +14,7 @@ export class ArrowButton extends React.Component {
 
     togleSpan() {
         this.props.togleSpan(this.id);
-        this.props.setUnsaved(true);
+        // this.props.setUnsaved(true); /**SUS*/
         this.props.update();
     }
     render() {

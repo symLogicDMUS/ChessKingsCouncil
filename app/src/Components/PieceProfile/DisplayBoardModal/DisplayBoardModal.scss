@@ -1,0 +1,22 @@
+@import "../../styles/modal";
+@import "../../styles/_display-board-modal/window";
+@import "../../styles/_display-board-modal/title";
+@import "../../styles/_display-board-modal/close";
+@import "../../styles/_display-board-modal/bottom";
+
+.pieces-display-board-modal {
+    @include modal;
+}
+.pieces-display-board-window {
+    @include window;
+    .pieces-display-board-header-title {
+        @include title;
+    }
+    .pieces-display-board-header-close {
+        @include close;
+    } 
+    
+    .pieces-display-board-bottom {
+        @include bottom;
+    }
+}

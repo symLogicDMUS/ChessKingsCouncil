@@ -1,0 +1,6 @@
+@mixin location-button-selected {
+    @include location-button;
+    background-color: #ec2525;
+    border: solid 1px #ec2525;
+    cursor: pointer;
+}

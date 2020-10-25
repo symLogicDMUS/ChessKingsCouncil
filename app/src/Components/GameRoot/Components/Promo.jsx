@@ -1,6 +1,6 @@
 import React from "react";
 import {PromoChoice} from "./PromoChoice";
-import "./Promo.css";
+import "./Promo.scss";
 
 export class Promo extends React.Component {
     constructor(props) {

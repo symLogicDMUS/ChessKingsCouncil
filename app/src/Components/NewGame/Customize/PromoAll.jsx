@@ -1,5 +1,5 @@
 import React from "react";
-import "./PromoAll.css";
+import "./PromoAll.scss";
 
 export class PromoAll extends React.Component {
 

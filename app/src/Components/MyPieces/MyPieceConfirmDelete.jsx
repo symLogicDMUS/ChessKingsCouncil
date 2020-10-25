@@ -1,9 +1,8 @@
 import React from "react";
-import "./MyPieceConfirmDelete.css";
+import "./MyPieceConfirmDelete.scss";
 
 export class MyPieceConfirmDelete extends React.Component {
-
-    constructor(props){
+    constructor(props) {
         super(props);
         this.confirm = this.confirm.bind(this);
         this.deny = this.deny.bind(this);
@@ -24,19 +23,20 @@ export class MyPieceConfirmDelete extends React.Component {
         return (
             <div className="my-piece-confirm-delete-modal">
                 <div className="my-piece-confirm-delete-window">
+                    <img src="/Images/close/close.svg" className="close" onClick={this.deny} />
                     <div className="my-piece-confirm-delete-heading">
-                        You are asking to delete piece "{this.props.pieceName}". Games in progress will not be effected but the piece's record for new games will be destroyed. This action cannot be undone. Are you sure you want to delete piece "{this.props.pieceName}"?
+                        You are asking to delete piece "{this.props.pieceName}". Games in progress will not be
+                        effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                        Are you sure you want to delete piece "{this.props.pieceName}"?
                     </div>
-                    <div className="my-piece-confirm-delete-button" onClick={this.confirm} style={{left:138}}>
+                    <div className="my-piece-confirm-delete" onClick={this.confirm} style={{ left: 138 }}>
                         Yes
                     </div>
-                    <div className="my-piece-confirm-delete-button" onClick={this.deny} style={{left:326}}>
+                    <div className="my-piece-reject-delete" onClick={this.deny} style={{ left: 326 }}>
                         No
                     </div>
                 </div>
             </div>
-        )
+        );
     }
-
-
 }

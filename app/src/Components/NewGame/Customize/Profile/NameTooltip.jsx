@@ -1,5 +1,5 @@
 import React from "react";
-import "./NameTooltip.css";
+import "./NameTooltip.scss";
 
 export const NameTooltip = ({clientX, clientY, name}) => {
 

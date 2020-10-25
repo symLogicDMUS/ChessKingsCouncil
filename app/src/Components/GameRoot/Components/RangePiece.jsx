@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/RangePiece.css";
+import "../css/RangePiece.scss";
 
 export class RangePiece extends React.Component {
 

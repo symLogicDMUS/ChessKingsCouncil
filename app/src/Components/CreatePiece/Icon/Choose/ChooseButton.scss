@@ -1,0 +1,27 @@
+@mixin choose-button {
+    position: absolute;
+    z-index: 0;
+    top:  70%;
+    width: 24.25%;
+    height: 21.33%;
+    font-size: 100%;
+    color: #bbbbbb;
+    background-color: #515151;    
+    border: solid 1px #a9a9a9;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        color: white;
+        background-color: #a9a9a9;
+    }
+}
+
+.icon-tool .white-choose {
+    @include choose-button;
+    left: 2.5%;
+}
+
+.icon-tool .black-choose {
+    @include choose-button;
+    left: 51.75%;
+}

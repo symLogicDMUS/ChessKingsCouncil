@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./ConfirmDeleteIconModal.css";
+import "./ConfirmDeleteIconModal.scss";
 
 export class ConfirmDeleteIconModal extends Component {
     render() {

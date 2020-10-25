@@ -1,0 +1,10 @@
+@import "../styles/button1";
+@import "../styles/grc";
+
+.delete-button-container {
+    @include grc(1, 3);
+    .my-delete-button {
+        @include button1(20px, "dark");
+        top: 4px;
+    } 
+}

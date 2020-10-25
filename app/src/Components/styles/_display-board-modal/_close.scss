@@ -1,0 +1,9 @@
+@mixin close {
+    position: absolute;
+    z-index: inherit;
+    left:90%;
+    width:10%;
+    height: 7.5%;
+    border-top-right-radius: 15px;
+    cursor: pointer;
+}

@@ -1,0 +1,7 @@
+@import "./piece-range-header";
+
+@mixin range-header {
+    grid-row: 1;
+    grid-column: 2;
+    @include piece-range-header;
+}

@@ -1,93 +1,101 @@
-
 .choose-modal {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width:100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-  }
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
 
-    .choose-modal .choose-main {
-      position: absolute;
-      z-index: 2;
-      left: 850px;
-      top: 380px;
-      width: 1280px;
-      height: 640px;
-      background-color: #515151;
-      border: 1px solid #a9a9a9;
-      border-radius: 4px;
-      transform: translate(-50%,-50%);
-    }
+.choose-modal .choose-main {
+  position: absolute;
+  z-index: 2;
+  left: 850px;
+  top: 380px;
+  width: 1280px;
+  height: 640px;
+  background-color: #515151;
+  border: 1px solid #a9a9a9;
+  border-radius: 4px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
 
-    .display-block {
-      display: initial;
-    }
-    
-    .display-none {
-      display: none;
-    }
+.display-block {
+  display: initial;
+}
 
-      .choose-main .title-div {
-        position: absolute;
-        z-index: 1;
-        width: 1280px;
-        height: 64px;
-        top: 14px;
-        font: normal 16px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-align: center;
-      } .title-div .title {
-          z-index: 1;
-          margin: auto;
-          width: 40%;
-          height: 75%;
-          fill: white;
-        }
-        .choose-main .close {
-          position: absolute;
-          z-index: 1;
-          width: 19px;
-          height: 19px;
-          left: 1260px;
-          cursor: pointer;
-        } .close:hover {
-          z-index: 1;
-          background-color: red;
-        } .close .x {
-          position: absolute;
-          z-index: 1;
-          top: 3px;
-          left: 2px;
-          right: 4px;
-          bottom: 4px;
-          max-width: 16px;
-        }
+.display-none {
+  display: none;
+}
 
-      .choose-main .pieces-profiles {
-        position: absolute;
-        z-index: 1;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        top: 80px;
-        left: 40px;
-        bottom: 120px;
-        width: 1200px;
-        height: 504px;
-        background-color: #515151;
-        border: 1px solid #a9a9a9;
-        border-radius: 3px;
-        overflow-y: scroll;
-      }
+.choose-main .title-div {
+  position: absolute;
+  z-index: 1;
+  width: 1280px;
+  height: 64px;
+  top: 14px;
+  font: normal 16px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+}
 
-      .choose-main  .bottom-bar {
-        position: absolute;
-        z-index: 1;
-        width: 1202px;
-        height: 54px;
-        top: 584px;
-        left: 40px;
-      }
-  
+.title-div .title {
+  z-index: 1;
+  margin: auto;
+  width: 40%;
+  height: 75%;
+  fill: white;
+}
 
+.choose-main .close {
+  position: absolute;
+  z-index: 1;
+  width: 19px;
+  height: 19px;
+  left: 1260px;
+  cursor: pointer;
+}
+
+.close:hover {
+  z-index: 1;
+  background-color: red;
+}
+
+.close .x {
+  position: absolute;
+  z-index: 1;
+  top: 3px;
+  left: 2px;
+  right: 4px;
+  bottom: 4px;
+  max-width: 16px;
+}
+
+.choose-main .pieces-profiles {
+  position: absolute;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  top: 80px;
+  left: 40px;
+  bottom: 120px;
+  width: 1200px;
+  height: 504px;
+  background-color: #515151;
+  border: 1px solid #a9a9a9;
+  border-radius: 3px;
+  overflow-y: scroll;
+}
+
+.choose-main .bottom-bar {
+  position: absolute;
+  z-index: 1;
+  width: 1202px;
+  height: 54px;
+  top: 584px;
+  left: 40px;
+}
+/*# sourceMappingURL=ChooseModal.css.map */

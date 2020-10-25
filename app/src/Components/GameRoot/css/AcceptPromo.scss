@@ -1,0 +1,31 @@
+  /*the ok button*/
+  .accept-promo {
+    position: absolute;
+    top: 418px;
+    left: 580px;
+    width: 381px;
+    height: 22px;
+    border: 3px solid slateblue;
+    border-top: none;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+
+  .promo-selected {
+    color: slateblue;
+    background-color: white;
+    cursor: pointer;
+  } .promo-selected:hover {
+    color: white;
+    background-color: slateblue;
+  }
+
+  .promo-unselected {
+    color: slateblue;
+    background-color: white;  
+    cursor: not-allowed;
+  }
+

@@ -1,9 +1,17 @@
 .ai-board {
-    position: absolute;
-    z-index: 2;
-    width: 600px;
-    height: 600px;
-    left: 368px;
-    top: 110px;
-    line-height: 0;
+  position: absolute;
+  z-index: 2;
+  width: 39%;
+  height: 79.57%;
+  left: 23.958%;
+  top: 14.58%;
+  line-height: 0;
 }
+
+.sqr-img {
+  position: absolute;
+  z-index: 2;
+  width: 12.5%;
+  height: 12.5%;
+}
+/*# sourceMappingURL=AiBoard.css.map */

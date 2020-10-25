@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAC;EACd,QAAQ,EAAC,QAAQ;EACjB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAC,IAAI;EACX,IAAI,EAAC,IAAI;EACT,GAAG,EAAC,IAAI;EACR,UAAU,EAAC,IAAI;EACf,mBAAmB;EACnB,WAAW,EAAE,+CAA+C;EAC5D,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "ShowMovesLabel.scss"
+    ],
+    "names": [],
+    "file": "ShowMovesLabel.css"
+}

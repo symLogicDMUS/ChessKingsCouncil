@@ -1,0 +1,46 @@
+$sqr-colors: (
+    "dark": (
+        "sqr1": #ffffff,
+        "sqr2": #a9a9a9,
+    ),
+    "light": (
+        "sqr1": #ffffff,
+        "sqr2": #008000,
+    ),
+);
+
+$highlight-sqr-colors: (
+    "dark": (
+        "sqr1": #72efff,
+        "sqr2": #00ccff,
+    ),
+    "light": (
+        "sqr1": #fdfd35,
+        "sqr2": #ddff00,
+    ),
+);
+
+$offset-colors: ("dark": #8b0000);
+
+$span-colors: ("dark": #ec2525);
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+@function get-sqr-color($theme, $parity, $property) {
+    @if $property == "highlight" {
+        @return map-deep-get($highlight-sqr-colors, $theme, $parity);
+    }
+    @if $property == "offset" {
+        @return map-get($map: $offset-colors, $key: $theme);
+    }
+    @if $property == "span" {
+        @return map-get($map: $span-colors, $key: $theme);
+    }
+    @return map-deep-get($sqr-colors, $theme, $parity);
+}

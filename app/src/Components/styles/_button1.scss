@@ -1,0 +1,22 @@
+@import "./get-button-colors";
+
+@mixin button1($height, $theme) {
+        position: absolute;
+        z-index: inherit;
+        height: $height;
+        width: $height * 3.8;
+        font-size: $height / 1.66;
+        padding-top: $height / 5;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: get-button-text-color($theme);
+        background-color: get-button-bg-color($theme);
+        border-radius: $height / 3.57;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+     &:hover {
+        color: get-button-hover-text-color($theme);
+        background-color: get-button-hover-bg-color($theme);
+    }   
+}

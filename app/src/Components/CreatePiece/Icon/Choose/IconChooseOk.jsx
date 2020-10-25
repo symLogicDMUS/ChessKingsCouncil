@@ -1,5 +1,5 @@
 import React from "react";
-import "./IconChooseOk.css";
+import "./IconChooseOk.scss";
 
 export class Ok extends React.Component {
     constructor(props) {

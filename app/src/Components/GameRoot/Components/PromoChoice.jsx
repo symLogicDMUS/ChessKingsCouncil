@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Promo.css";
+import "../css/Promo.scss";
 
 
 export class PromoChoice extends React.Component {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./MyLoadButton.css";
+import "./MyLoadButton.scss";
 
 export class MyLoadButton extends React.Component {
 

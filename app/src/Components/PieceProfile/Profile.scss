@@ -1,0 +1,5 @@
+@import "../styles/piece-profiles/piece-profile";
+
+.piece-profile {
+    @include piece-profile;
+} 

@@ -1,0 +1,75 @@
+@mixin srt-option {
+    position: absolute;
+    z-index: 1;
+    top: 37.45%;
+    height: 50%;
+    cursor: pointer;    
+}
+
+@mixin srt-icon-size {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+@mixin srt-text-label {
+    position: absolute;
+    width: 90%;
+    height: 15%;
+    left: 3%;
+    color: #b1faae;
+    font-size: 120%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+
+.save-resign-tool {
+    position: absolute;
+    z-index: 1;
+    background-color: green;
+    border-radius: 10px;
+
+    .game-description {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        .game-name {
+            @include srt-text-label;
+            top: 0%;
+        }
+
+        .gen-info {
+            @include srt-text-label;
+            top: 16%
+        }
+    }
+
+    .save-game-container {
+        @include srt-option;
+        left: 3%;
+    }
+
+    .save-as-container {
+        @include srt-option;
+        left: 35%;
+    }
+
+    .resign-container {
+        @include srt-option;
+        left: 70%;
+    }
+}
+
+
+
+
+
+
+
+
+
+

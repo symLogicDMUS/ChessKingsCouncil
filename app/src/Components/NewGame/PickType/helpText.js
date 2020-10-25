@@ -1,9 +1,5 @@
 import React from "react";
 
-/**
- * Title: Explaining Game Types
- */
-
 export let titles = {
     0: "Explaining Game Types",
 };

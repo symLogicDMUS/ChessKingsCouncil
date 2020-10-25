@@ -1,0 +1,26 @@
+@import "./scss/location-tool";
+@import "./scss/location-title";
+@import "./scss/location-button";
+@import "./scss/location-button-label";
+@import "./scss/location-button-normal";
+@import "./scss/location-button-selected";
+
+.location-tool {
+    @include location-tool;
+    .location-title {
+        @include location-title;
+    }
+    .location-button-normal {
+        @include location-button-normal;
+        .location-button-label {
+            @include location-button-label;
+        }
+    }
+    .location-button-selected {
+        @include location-button-selected;
+        .location-button-label {
+            @include location-button-label;
+        }
+    }
+
+}

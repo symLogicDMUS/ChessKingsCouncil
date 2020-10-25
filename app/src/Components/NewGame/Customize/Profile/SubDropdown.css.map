@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,sBAAsB,CAAC;EACnB,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,KAAK;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,MAAM;EACd,KAAK,EAAE,OAAO;EACd,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,OAAO;CAClB",
+    "sources": [
+        "SubDropdown.scss"
+    ],
+    "names": [],
+    "file": "SubDropdown.css"
+}

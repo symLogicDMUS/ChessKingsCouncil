@@ -1,0 +1,11 @@
+@mixin new-game-promotion-label {
+    z-index: inherit;
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-left: 6.4px;
+    padding-top: 2.4px;
+    color: #a9a9a9;
+}

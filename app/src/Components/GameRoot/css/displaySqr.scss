@@ -1,0 +1,13 @@
+@import "../../styles/sqr";
+
+.dark {
+  position: absolute;
+    z-index: 0;
+    @include square(75, "light", "sqr2", "reg");
+}
+
+.light {
+    position: absolute;
+    z-index: 0;
+    @include square(75, "light", "sqr1", "reg");
+}
