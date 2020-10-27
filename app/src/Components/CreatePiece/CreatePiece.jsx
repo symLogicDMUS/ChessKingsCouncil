@@ -511,19 +511,18 @@ export class CreatePiece extends React.Component {
     render() {
         return (
             <>
-                {/* {!this.state.unsaved && (
+                {!this.state.unsaved && (
                     <RedirectBar
                         currentPage="CreatePiece"
                         theme={this.state.theme}
                     /> 
                 )} 
-                */}
-                {/* {this.state.unsaved && ( */}
+                {this.state.unsaved && (
                     <NavBar
                         currentPage="CreatePiece"
                         theme={this.state.theme}
                     />
-                {/* )} */}
+                )}
                 {/* {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}

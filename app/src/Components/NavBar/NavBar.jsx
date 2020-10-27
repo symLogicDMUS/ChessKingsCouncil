@@ -62,7 +62,7 @@ export class NavBar extends React.Component {
                         posLeft={263 / 1536}
                     />
                 )}
-                {this.confirmRedirectModal && (
+                {this.state.isRedirectModal && (
                     <ConfirmRedirect
                         path={this.state.pendingRedirect}
                         message={this.redirectMessage}

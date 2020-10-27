@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getPageIconStyle } from "./styles";
 import { getIconColor } from "./getIconColor";
-// import "./NavBar.scss";
+import "./NavBar.scss";
 
 export class PageRedirectButton extends React.Component {
     constructor(props) {
@@ -11,25 +10,26 @@ export class PageRedirectButton extends React.Component {
         this.select = this.select.bind(this);
         this.unselect = this.unselect.bind(this);
     }
-
+    
     getComponent() {
         return (
-            <div style={this.props.styles["button"]} onMouseEnter={this.select} onMouseLeave={this.unselect}>
-                <div style={this.props.styles["icon-container"]}>
+            <div className={this.props.classes.button} onMouseEnter={this.select} onMouseLeave={this.unselect}>
+                <div className={this.props.classes["icon-container"]}>
                     <img
                         src={`/Images/Navbar/${this.props.pageIcon}-invert-${getIconColor(this.props.theme)}.svg`}
-                        style={getPageIconStyle()}
+                        // style={getPageIconStyle()}
+                        className="nav-bar-icon-style"
                         alt=""
                     />
                 </div>
-                <div style={this.props.styles["text"]}>{this.props.pageName}</div>
+                <div className={this.props.classes.text}>{this.props.pageName}</div>
             </div>
         );
     }
 
     getLink() {
         return (
-            <Link to={this.props.path} style={{ textDecoration: "none" }}>
+            <Link to={this.props.path} style={{ textDecoration: "none", zIndex: this.props.z }}>
                 {this.getComponent()}
             </Link>
         );
@@ -37,7 +37,7 @@ export class PageRedirectButton extends React.Component {
 
     getHref() {
         return (
-            <a href={this.props.path} style={{ textDecoration: "none" }}>
+            <a href={this.props.path} style={{ textDecoration: "none",  zIndex: this.props.z }}>
                 {this.getComponent()}
             </a>
         );

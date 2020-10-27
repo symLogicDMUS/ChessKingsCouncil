@@ -1,6 +1,6 @@
 @import "../styles/grc";
 
-$page-icon-width: 12%;
+$page-icon-width: 100%; //100% of size asigned to it by grid
 $help-icon-width: 3%;
 $tog-nav-width: 1%;
 
@@ -22,12 +22,12 @@ $tog-nav-width: 1%;
 }
 
 @mixin nav-bar-button() {
-    position: absolute;
-    z-index: inherit;
+    // position: absolute;
+    // z-index: inherit;
+    cursor: pointer;
     display: grid;
     width: $page-icon-width;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 100%;
     background-color: #515151;
     border-right: 1px solid #707070;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -37,25 +37,29 @@ $tog-nav-width: 1%;
 .nav-bar {
     /*expict width and height defined in-line style*/
     position: absolute;
+    display: grid;
     z-index: 0;
-    border: 1px solid #707070;
+    // width: 1536px;
+    grid-template-columns: 3% 12% 12% 12% 12% 12% 12% 12% 12% 1%;
 
     .go-to-help {
-        position: absolute;
-        width: $help-icon-width;
-        left: 0;
-        top: 0;
-        z-index: 10;
-        height: navBarHeight;
+        grid-column: 1;
+        // position: absolute;
+        // width: $help-icon-width;
+        // left: 0;
+        // top: 0;
+        // z-index: 10;
+        // height: navBarHeight;
         background-color: #515151;
         border-right: 1px solid #707070;
     }
 
     .go-to-home {
+        grid-column: 2;
         @include nav-bar-button();
-        left: $help-icon-width;
-        top: 0;
-        z-index: 9;
+        z-index: 10;
+        // left: $help-icon-width;
+        // top: 0;
         .home-icon {
             grid-row: 1;
             grid-column: 1;
@@ -68,10 +72,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-new-game {
+        grid-column: 3;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width;
-        top: 0;
         z-index: 9;
+        // left: $help-icon-width + $page-icon-width;
+        // top: 0;
         .new-game-icon {
             grid-row: 1;
             grid-column: 1;
@@ -84,9 +89,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-load-game {
+        grid-column: 4;
+        z-index: 8;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 2;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 2;
+        // top: 0;
         .go-to-load-game-icon {
             grid-row: 1;
             grid-column: 1;
@@ -99,9 +106,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-create-piece {
+        grid-column: 5;
+        z-index: 7;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 3;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 3;
+        // top: 0;
         .create-piece-icon {
             grid-row: 1;
             grid-column: 1;
@@ -114,9 +123,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-chess-rules {
+        grid-column: 6;
+        z-index: 6;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 4;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 4;
+        // top: 0;
         .chess-rules-icon {
             grid-row: 1;
             grid-column: 1;
@@ -129,9 +140,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-council-rules {
+        grid-column: 7;
+        z-index: 5;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 5;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 5;
+        // top: 0;
         .council-rules-icon {
             grid-row: 1;
             grid-column: 1;
@@ -144,9 +157,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-my-pieces {
+        grid-column: 8;
+        z-index: 4;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 6;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 6;
+        // top: 0;
         .my-pieces-icon {
             grid-row: 1;
             grid-column: 1;
@@ -159,9 +174,11 @@ $tog-nav-width: 1%;
     }
 
     .go-to-author-github {
+        grid-column: 9;
+        z-index: 3;
         @include nav-bar-button();
-        left: $help-icon-width + $page-icon-width * 7;
-        top: 0;
+        // left: $help-icon-width + $page-icon-width * 7;
+        // top: 0;
         .author-github-icon {
             grid-row: 1;
             grid-column: 1;
@@ -174,19 +191,28 @@ $tog-nav-width: 1%;
     }
 
     .togle-nav {
-        position: absolute;
-        left: $help-icon-width + $page-icon-width * 8;
+        // position: absolute;
+        z-index: 2;
+        grid-column: 10;
+        // left: $help-icon-width + $page-icon-width * 8;
         top: 0;
-        left: $page-icon-width * 8;
+        // left: $page-icon-width * 8;
         cursor: pointer;
     }
 }
 
 .nav-bar-icon-style {
     cursor: pointer;
-    position: relative;
+    z-index: 0;
+    // position: relative;
     width: 80%;
-    margin-top: 7.5%;
+    margin-left: 14%;
+    margin-top: 10%;
+    margin-bottom: 3%;
     // margin-bottom: 10%;
-    left: 10%;
+    // left: 10%;
+}
+
+.togle-nav-widget-style {
+    height: 100%;
 }

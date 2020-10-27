@@ -4,15 +4,24 @@ import { TogleNav } from "./TogleNav";
 import { PageRedirectButton } from "./PageRedirectButton";
 import { HelpComponent } from "./Help/HelpComponent";
 // import { yMult, xMult } from "../styles/scaleValues";
-import { styles } from "./styles";
-// import "./NavBar.scss";
+// import { styles } from "./styles";
+import "./NavBar.scss";
 
 export class RedirectBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { navExpanded: true, isHelpModal: false, firstTime: false };
+        this.state = {
+            navExpanded: true,
+            isHelpModal: false,
+            isRedirectModal: false,
+            firstTime: false,
+            pendingRedirect: null,
+            isLocalLink: true,
+        };
+        this.redirectMessage = "If you leave this page you will loose unsaved work. Do you want to continue?";
         this.togleNav = this.togleNav.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.togleConfirmRedirect = this.togleConfirmRedirect.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
     }
 
@@ -24,15 +33,20 @@ export class RedirectBar extends React.Component {
         this.setState({ isHelpModal: boolVal, firstTime: false });
     }
 
+    togleConfirmRedirect(bValue, path, isLocalLink) {
+        this.setState({ isRedirectModal: bValue, pendingRedirect: path, isLocalLink: isLocalLink });
+    }
+
     setFirstTime(firstTime) {
         this.setState({ firstTime: firstTime });
     }
 
     getStyle() {
         return {
-            // left: xMult * this.props.startingProperties.initLeft,
-            // top: yMult * this.props.startingProperties.initTop,
-            ...styles["nav_bar"],
+            width: window.screen.availWidth,
+            height: window.screen.availHeight * 0.04,
+            left: 0,
+            top: 0,
         };
     }
 
@@ -47,15 +61,23 @@ export class RedirectBar extends React.Component {
                         posLeft={263 / 1536}
                     />
                 )}
-                <div style={this.getStyle()}>
+                {this.state.isRedirectModal && (
+                    <ConfirmRedirect
+                        path={this.state.pendingRedirect}
+                        message={this.redirectMessage}
+                        isLocalLink={this.state.isLocalLink}
+                        togleConfirmRedirect={this.togleConfirmRedirect}
+                    />
+                )}
+                <div className="nav-bar" style={this.getStyle()}>
                     {this.state.navExpanded && (
                         <HelpComponent
                             currentPage={this.props.currentPage}
-                            setFirstTime={this.setFirstTime}
                             togleHelpModal={this.togleHelpModal}
+                            setFirstTime={this.setFirstTime}
                             theme={this.props.theme}
-                            styles={{
-                                button: styles.help,
+                            classes={{
+                                button: "go-to-help",
                             }}
                             pageIcon="help"
                         />
@@ -64,122 +86,132 @@ export class RedirectBar extends React.Component {
                         <PageRedirectButton
                             pageName="Home"
                             path="/"
-                            styles={{
-                                button: styles.home,
-                                "icon-container": styles.home.icon,
-                                text: styles.home.text,
+                            classes={{
+                                button: "go-to-home",
+                                "icon-container": "home-icon",
+                                text: "home-text",
                             }}
                             pageIcon="home"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={9}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="New Game"
                             path="/NewGame"
-                            styles={{
-                                button: styles.new_game,
-                                "icon-container": styles.new_game.icon,
-                                text: styles.new_game.text,
+                            classes={{
+                                button: "go-to-new-game",
+                                "icon-container": "new-game-icon",
+                                text: "new-game-text",
                             }}
                             pageIcon="new-game"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={8}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="Load Game"
                             path="/LoadGame"
-                            styles={{
-                                button: styles.load_game,
-                                "icon-container": styles.load_game.icon,
-                                text: styles.load_game.text,
+                            classes={{
+                                button: "go-to-load-game",
+                                "icon-container": "go-to-load-game-icon",
+                                text: "go-to-load-game-text",
                             }}
                             pageIcon="load-game"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={7}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="Create Piece"
                             path="/CreatePiece"
-                            styles={{
-                                button: styles.create_piece,
-                                "icon-container": styles.create_piece.icon,
-                                text: styles.create_piece.text,
+                            classes={{
+                                button: "go-to-create-piece",
+                                "icon-container": "create-piece-icon",
+                                text: "create-piece-text",
                             }}
                             pageIcon="create-piece"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={6}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="Chess Rules"
                             path="https://www.chess.com/learn-how-to-play-chess"
-                            styles={{
-                                button: styles.chess_rules,
-                                "icon-container": styles.council_rules.icon,
-                                text: styles.chess_rules.text,
+                            classes={{
+                                button: "go-to-chess-rules",
+                                "icon-container": "council-rules-icon",
+                                text: "chess-rules-text",
                             }}
                             pageIcon="chess-rules"
                             localLink={false}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={5}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="Council Rules"
                             path="/CouncilRules"
-                            styles={{
-                                button: styles.council_rules,
-                                "icon-container": styles.council_rules.icon,
-                                text: styles.council_rules.text,
+                            classes={{
+                                button: "go-to-council-rules",
+                                "icon-container": "council-rules-icon",
+                                text: "council-rules-text",
                             }}
                             pageIcon="council-rules"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={4}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="My Pieces"
                             path="/MyPieces"
-                            styles={{
-                                button: styles.my_pieces,
-                                "icon-container": styles.my_pieces.icon,
-                                text: styles.my_pieces.text,
+                            classes={{
+                                button: "go-to-my-pieces",
+                                "icon-container": "my-pieces-icon",
+                                text: "my-pieces-text",
                             }}
                             pageIcon="my-pieces"
                             localLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={3}
                         />
                     )}
                     {this.state.navExpanded && (
                         <PageRedirectButton
                             pageName="Author Github"
                             path="https://github.com/symLogicDMUS"
-                            styles={{
-                                button: styles.author_github,
-                                "icon-container": styles.author_github.icon,
-                                text: styles.author_github.text,
+                            classes={{
+                                button: "go-to-author-github",
+                                "icon-container": "author-github-icon",
+                                text: "author-github-text",
                             }}
                             pageIcon="author-github"
                             localLink={false}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            z={2}
                         />
                     )}
-                    <TogleNav
-                        type="colapse"
-                        togleNav={this.togleNav}
-                        theme={this.props.theme}
-                        styles={styles.togle_nav}
-                    />
+                    <TogleNav type="colapse" togleNav={this.togleNav} theme={this.props.theme} />
                 </div>
-            
             </>
         );
     }
