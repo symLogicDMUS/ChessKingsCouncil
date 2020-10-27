@@ -36,7 +36,6 @@ export class HelpComponent extends React.Component {
         return (
             <div
                 className={this.props.classes.button}
-                // style={this.props.styles.button}
                 onMouseEnter={this.select}
                 onMouseLeave={this.unselect}
                 onClick={() => this.props.togleHelpModal(true)}
@@ -44,7 +43,6 @@ export class HelpComponent extends React.Component {
                 <img
                     src={`/Images/Navbar/${this.props.pageIcon}-${this.getIconColor()}.svg`}
                     className="nav-bar-icon-style"
-                    // style={getHelpIconStyle()}
                     alt=""
                 />
             </div>

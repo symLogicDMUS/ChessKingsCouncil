@@ -1,5 +1,5 @@
 import React from "react";
-import { RedirectBar } from '../../NavBar/RedirectBar'
+import { NavBar } from '../../NavBar/NavBar'
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
@@ -54,10 +54,10 @@ export class PickName extends React.Component {
     render() {
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal

@@ -3,7 +3,7 @@ import { Standard } from "./IconComponents/Standard";
 import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
-import { RedirectBar } from '../../NavBar/RedirectBar'
+import { NavBar } from '../../NavBar/NavBar'
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PickType.scss";
 
@@ -48,10 +48,10 @@ export class PickType extends React.Component {
     render() {
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal

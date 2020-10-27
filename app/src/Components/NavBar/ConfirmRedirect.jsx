@@ -4,24 +4,24 @@ import "./ConfirmRedirect.scss";
 
 export function ConfirmRedirect({ path, message, togleConfirmRedirect, isLocalLink}) {
     return (
-        <div>
+        <div className="confirm-redirect">
             <img
                 src="/Images/close/close.svg"
-                className="close"
+                className="confirm-redirect-close"
                 onClick={() => togleConfirmRedirect(false, null, false)}
             />
-            <div className="text">{message}</div>
+            <div className="confirm-redirect-text">{message}</div>
             {isLocalLink && (
                 <Link to={path}>
-                    <div className="accept-button">Yes</div>
+                    <div className="confirm-redirect-accept-button">Yes</div>
                 </Link>
             )}
             {!isLocalLink && (
                 <a href={path}>
-                    <div className="accept-button">Yes</div>
+                    <div className="confirm-redirect-accept-button">Yes</div>
                 </a>
             )}
-            <div className="reject-button" onClick={() => togleConfirmRedirect(false, null, false)}>
+            <div className="confirm-redirect-reject-button" onClick={() => togleConfirmRedirect(false, null, false)}>
                 No
             </div>
         </div>

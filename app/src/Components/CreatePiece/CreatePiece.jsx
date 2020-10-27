@@ -16,7 +16,6 @@ import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
-import { RedirectBar } from "../NavBar/RedirectBar";
 import { NavBar } from "../NavBar/NavBar";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { Options } from "./Options/Options";
@@ -511,18 +510,7 @@ export class CreatePiece extends React.Component {
     render() {
         return (
             <>
-                {!this.state.unsaved && (
-                    <RedirectBar
-                        currentPage="CreatePiece"
-                        theme={this.state.theme}
-                    /> 
-                )} 
-                {this.state.unsaved && (
-                    <NavBar
-                        currentPage="CreatePiece"
-                        theme={this.state.theme}
-                    />
-                )}
+                <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
                 {/* {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}

@@ -9,28 +9,28 @@ $button2-x: $button1-x + 152px;
 
 .confirm-redirect {
     @include window;
-    .title {
+    .confirm-redirect-title {
         position: absolute;
         @include title;
     }
-    .text {
+    .confirm-redirect-text {
         position: absolute;
         top: 50px;
         @include text-area;
     }
-    .accept-button {
+    .confirm-redirect-accept-button {
         position: absolute;
         top: 250px;
         left: $button1-x;
         @include button1(20px, "dark");
     }
-    .reject-button {
+    .confirm-redirect-reject-button {
         position: absolute;
         @include button1(20px, "dark");
         left: $button2-x;
         top: 250px;
     }
-    .close {
+    .confirm-redirect-close {
         position: absolute;
         left: 585px;
         @include close;

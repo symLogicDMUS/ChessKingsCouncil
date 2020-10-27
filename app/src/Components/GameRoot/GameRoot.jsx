@@ -21,7 +21,7 @@ import { RangeDisplayTool } from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
 import { AiDisplay } from "./Components/AiDisplay";
 import { makeMove } from "./Move/makeMove";
-import { RedirectBar } from "../NavBar/RedirectBar";
+import { NavBar } from "../NavBar/NavBar";
 import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { MessageModal } from "../NavBar/Help/MessageModal";
@@ -291,15 +291,10 @@ export class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="GameRoot"
-                    currentPath={this.currentPath}
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
-                    unsavedProgress={this.unsaved}
-                    setConfirmRedirect={this.setConfirmRedirect}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal
@@ -308,7 +303,6 @@ export class GameRoot extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-
                 <Board gameroot={this} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 {this.specialCase === "promo" && (

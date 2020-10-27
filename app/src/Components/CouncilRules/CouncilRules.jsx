@@ -1,6 +1,6 @@
 
 import React from "react";
-import { RedirectBar } from "../NavBar/RedirectBar";
+import { NavBar } from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import "./CouncilRules.scss";
 
@@ -38,7 +38,7 @@ export class CouncilRules extends React.Component {
     render() {
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPath="/CouncilRules"
                     currentPage="CouncilRules"
                     theme={this.state.theme}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { RedirectBar } from '../NavBar/RedirectBar'
-import { Red } from "../NavBar/NavBar";
+import { NavBar } from '../NavBar/NavBar'
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
@@ -186,10 +185,10 @@ export class LoadGame extends React.Component {
 
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 <img
                     src="/Images/text-labels/LoadGame.svg"

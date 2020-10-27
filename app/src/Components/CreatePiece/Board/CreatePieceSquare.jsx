@@ -14,7 +14,7 @@ export class CreatePieceSquare extends React.Component {
     }
 
     toglejumpElement() {
-        // this.props.setUnsaved(true); /**SUS*/
+        this.props.setUnsaved(true);
         this.props.togleJump(this.props.rf, getOffset(this.props.rf, this.props.pieceLoc));
         this.props.update();
     }

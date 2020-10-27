@@ -4,8 +4,6 @@ import { TogleNav } from "./TogleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpComponent } from "./Help/HelpComponent";
-// import { yMult, xMult } from "../styles/scaleValues";
-// import { styles } from "./styles";
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {
@@ -43,7 +41,7 @@ export class NavBar extends React.Component {
             width: window.screen.availWidth,
             height: window.screen.availHeight * 0.04,
             left: 0,
-            top: 0
+            top: 0,
         };
     }
 
@@ -96,6 +94,8 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={9}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -111,6 +111,8 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={8}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -126,6 +128,8 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={7}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -141,6 +145,8 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={6}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -156,6 +162,8 @@ export class NavBar extends React.Component {
                             isLocalLink={false}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={5}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -171,6 +179,8 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={4}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -186,6 +196,9 @@ export class NavBar extends React.Component {
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={3}
+
                         />
                     )}
                     {this.state.navExpanded && (
@@ -201,9 +214,11 @@ export class NavBar extends React.Component {
                             isLocalLink={false}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
+                            unsaved={this.props.unsaved}
+                            z={2}
                         />
                     )}
-                    <TogleNav type="colapse" togleNav={this.togleNav} theme={this.props.theme} />
+                    <TogleNav navExpanded={this.state.navExpanded} togleNav={this.togleNav} theme={this.props.theme} />
                 </div>
             </>
         );

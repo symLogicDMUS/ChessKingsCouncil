@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { PlayAsOption } from "./PlayAsOption";
 import { PlayAsButton } from "./PlayAsButton";
-import { RedirectBar } from '../../NavBar/RedirectBar';
+import { NavBar } from '../../NavBar/NavBar';
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PlayAs.scss";
 
@@ -59,10 +59,10 @@ export class PlayAs extends React.Component {
     render() {
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 <div className="play-as-title">
                     <img

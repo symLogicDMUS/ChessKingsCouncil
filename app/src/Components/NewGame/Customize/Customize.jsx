@@ -13,7 +13,7 @@ import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { ProfileHeader } from "./ProfileHeader";
 import { SearchBar } from "./SearchBar";
-import { RedirectBar } from '../../NavBar/RedirectBar'
+import { NavBar } from '../../NavBar/NavBar'
 import { getDefs } from "../../../API/getDefs";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
@@ -310,10 +310,10 @@ export class Customize extends React.Component {
 
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    unsaved={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal

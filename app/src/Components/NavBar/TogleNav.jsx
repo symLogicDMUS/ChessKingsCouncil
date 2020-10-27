@@ -1,15 +1,15 @@
 import React from "react";
 import { getIconColor } from "./getIconColor";
 import "./NavBar.scss";
-// import { getTogleNavWidgetStyle } from "./styles";
 
-export function TogleNav({ togleNav, type, theme, styles }) {
+export function TogleNav({navExpanded, togleNav, theme }) {
+
+    const type = navExpanded ? "colapse" : "expand";
 
     return (
-        <div onClick={() => togleNav()} style={styles} className="togle-nav">
+        <div onClick={() => togleNav()} className="togle-nav">
             <img
                 src={`/Images/nav-button/nav-${type}-button-${getIconColor(theme)}.svg`}
-                //style={getTogleNavWidgetStyle()}
                 className="togle-nav-widget-style"
                 alt="togle navbar"
             />

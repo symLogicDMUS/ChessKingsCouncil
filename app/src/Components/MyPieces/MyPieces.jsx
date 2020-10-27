@@ -8,7 +8,7 @@ import { DisplayBoardModal } from "../PieceProfile/DisplayBoardModal/DisplayBoar
 import { ProfileHeader } from "./ProfileHeader";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { SearchBar } from "./SearchBar";
-import { RedirectBar } from '../NavBar/RedirectBar'
+import { NavBar } from '../NavBar/NavBar'
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
 import "./MyPieces.scss";
@@ -198,7 +198,7 @@ export class MyPieces extends React.Component {
 
         return (
             <>
-                <RedirectBar
+                <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
