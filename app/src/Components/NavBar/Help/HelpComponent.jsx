@@ -42,7 +42,7 @@ export class HelpComponent extends React.Component {
             >
                 <img
                     src={`/Images/Navbar/${this.props.pageIcon}-${this.getIconColor()}.svg`}
-                    className="nav-bar-icon-style"
+                    className="help-icon-style"
                     alt=""
                 />
             </div>

@@ -39,7 +39,7 @@ export class NavBar extends React.Component {
     getStyle() {
         return {
             width: window.screen.availWidth,
-            height: window.screen.availHeight * 0.04,
+            height: window.screen.availHeight * 0.052,
             left: 0,
             top: 0,
         };
@@ -198,7 +198,6 @@ export class NavBar extends React.Component {
                             theme={this.props.theme}
                             unsaved={this.props.unsaved}
                             z={3}
-
                         />
                     )}
                     {this.state.navExpanded && (
@@ -218,7 +217,11 @@ export class NavBar extends React.Component {
                             z={2}
                         />
                     )}
-                    <TogleNav navExpanded={this.state.navExpanded} togleNav={this.togleNav} theme={this.props.theme} />
+                    <TogleNav
+                        navExpanded={this.state.navExpanded}
+                        togleNav={this.togleNav}
+                        theme={this.props.theme}
+                    />
                 </div>
             </>
         );

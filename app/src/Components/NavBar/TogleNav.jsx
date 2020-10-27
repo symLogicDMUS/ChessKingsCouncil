@@ -7,12 +7,13 @@ export function TogleNav({navExpanded, togleNav, theme }) {
     const type = navExpanded ? "colapse" : "expand";
 
     return (
-        <div onClick={() => togleNav()} className="togle-nav">
+        // <div onClick={() => togleNav()} className="togle-nav">
             <img
                 src={`/Images/nav-button/nav-${type}-button-${getIconColor(theme)}.svg`}
-                className="togle-nav-widget-style"
+                onClick={() => togleNav()}
+                className="togle-nav"
                 alt="togle navbar"
             />
-        </div>
+        // </div>
     );
 }
