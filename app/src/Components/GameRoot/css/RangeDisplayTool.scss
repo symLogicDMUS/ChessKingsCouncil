@@ -4,27 +4,28 @@
     background-color: green;
     border-radius: 10px;
 }
-@mixin show-moves-label {
+@mixin show-moves-label($top) {
     position:absolute;
-    width: 140px;
-    height:16px;
-    left:20px;
-    top:14px;
+    width: 70%;
+    height: 10%;
+    left:10%;
+    top:$top;
     text-align:left;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
+    color: #b1faae;
+    font-size: 120%;
 }
 
 .range-display-expanded {
     @include range-display-tool;
     .show-moves-label {
-        @include show-moves-label;
+        @include show-moves-label(2%);
     }
 }
 
 .range-display-colapsed {
     @include range-display-tool;
     .show-moves-label {
-        @include show-moves-label;
+        @include show-moves-label(20%);
     }
 }

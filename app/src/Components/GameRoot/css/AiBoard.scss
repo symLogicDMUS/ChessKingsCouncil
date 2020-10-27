@@ -1,0 +1,18 @@
+@import "../../styles/sqr/get-ai-sqr-background-img";
+
+@mixin ai-sqr($theme, $start-or-dest) {
+    position: absolute;
+    width: 12.5%;
+    height: 12.5%;
+    background-repeat: no-repeat;
+    background-image: get-ai-sqr-background-img($theme, $start-or-dest);
+    background-size: cover;
+}
+
+/*light theme*/
+.ai-start-sqr-light {
+    @include ai-sqr("light", "start");
+}
+.ai-dest-sqr-light {
+    @include ai-sqr("light", "dest");
+}

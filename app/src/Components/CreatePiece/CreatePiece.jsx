@@ -511,13 +511,13 @@ export class CreatePiece extends React.Component {
         return (
             <>
                 <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
-                {/* {this.state.messageModal && (
+                {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.togleMessageModal}
                     />
-                )} */}
+                )}
                 <Name name={this.name} updateName={this.updateName} setUnsaved={this.setUnsaved} />
                 <NameLabel name={this.name} />
                 <Range

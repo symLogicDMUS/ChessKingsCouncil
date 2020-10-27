@@ -2,12 +2,7 @@
 
 @mixin window {
     position: absolute;
-    z-index: 5;
-    left: 469px;
-    top: 226px;
-    width: 598px;
-    height: 302px;
+    z-index: 20;
     background-color: #515151;
     border: 1px solid #b6b6b6;
-    border-radius: 15px;
 }

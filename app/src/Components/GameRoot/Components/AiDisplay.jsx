@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {AiBoard} from "./AiBoard";
 
-export function AiDisplay({aiStart, aiDest, aiMakeMove}) {
+export function AiDisplay({aiStart, aiDest, aiMakeMove, theme}) {
 
     const [seconds, setSeconds] = useState(1);
 
@@ -16,6 +16,6 @@ export function AiDisplay({aiStart, aiDest, aiMakeMove}) {
         aiMakeMove();
     }
   
-    return (<AiBoard aiStart={aiStart} aiDest={aiDest} />)
+    return (<AiBoard aiStart={aiStart} aiDest={aiDest} theme={theme} />)
   
 };

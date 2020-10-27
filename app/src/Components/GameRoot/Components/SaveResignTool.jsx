@@ -23,12 +23,12 @@ export class SaveResignTool extends React.Component {
         this.highlightSaveAsIcon = this.highlightSaveAsIcon.bind(this);
         this.unhighlightSaveAsIcon = this.unhighlightSaveAsIcon.bind(this);
     }
-
+    
     getStyle() {
         return {
             left: window.screen.availWidth * 0.638,
             top: window.screen.availHeight * 0.1459,
-            width: window.screen.availWidth * 0.13,
+            width: window.screen.availWidth * 0.16,
             height: window.screen.availHeight * 0.16,
         };
     }

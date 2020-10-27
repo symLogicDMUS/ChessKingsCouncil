@@ -8,7 +8,7 @@ import {adjustSqrColor} from "../gameRootHelpers/adjustSqrColor";
 import "../css/interactiveSqr.scss";
 import "../css/displaySqr.scss";
 
-export function Square({sqr_color, pos, gameroot, children}) {
+export function Square({sqr_color, pos, style, gameroot, children}) {
 
     const [{ isOver, canDrop }, drop] = useDrop({
       accept: ItemTypes,
@@ -23,7 +23,7 @@ export function Square({sqr_color, pos, gameroot, children}) {
     sqr_color = adjustSqrColor(sqr_color, canDrop)
 
     return (
-        <div ref={drop} className={sqr_color} style={getPosPx(pos)}>
+        <div ref={drop} className={sqr_color} style={style}>
             <div className={sqr_color}>
                 {children}
             </div>

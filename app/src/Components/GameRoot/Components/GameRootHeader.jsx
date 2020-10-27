@@ -10,6 +10,20 @@ export class GameRootHeader extends React.Component {
         this.style = {color:"red"}
     }
 
+    getStyle() {
+        var width = window.screen.availHeight * 0.8;
+        var height = width * 0.0667;
+        var fontSize = height - height * 0.15;
+        return {
+            width: width,
+            height: height,
+            fontSize: fontSize,
+            left: window.screen.availHeight * 0.37,
+            top: window.screen.availHeight * 0.061,
+            border: "1px dashed white"
+        }
+    }
+
     exclaimMark() {
         if (this.props.condition === 'checkmate' || this.props.condition === "stalemate")
             return '!'
@@ -49,7 +63,7 @@ export class GameRootHeader extends React.Component {
 
         if (this.props.condition === '') {
             return (
-                <div className="board-header-label">
+                <div className="board-header-label" style={this.getStyle()}>
                     {this.getTurn()}
                 </div>
             );
@@ -57,11 +71,11 @@ export class GameRootHeader extends React.Component {
 
         else {
             return (
-                <div className="board-header-grid">
-                    <div className="turn">
+                <div className="board-header-grid" style={this.getStyle()}>
+                    <div className="board-header-turn">
                         {this.getTurn()}
                     </div>
-                    <div className="condition">
+                    <div className="board-header-condition">
                         {this.props.condition}{this.exclaimMark()}
                     </div>
                 </div>

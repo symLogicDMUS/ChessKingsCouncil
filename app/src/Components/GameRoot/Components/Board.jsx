@@ -8,10 +8,10 @@ import { sqrClasses } from "../../helpers/sqrClasses";
 import { sqrColors } from "../gameRootHelpers/sqrColors";
 import { getPosPx } from "../gameRootHelpers/getPosPx";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
+import { interactive_board, display_board } from "../styles/desktop/Board";
 import "../css/interactiveSqr.scss";
 import "../css/displaySqr.scss";
 import "../css/piece.scss";
-import "../css/Board.scss";
 
 export class Board extends React.Component {
     constructor(props) {
@@ -22,23 +22,19 @@ export class Board extends React.Component {
         }
     }
 
-    getBoardStyle() {
-        const size = this.screenWidth * 0.39;
-        return {
-            width: size,
-            height: size,
-            top: window.screen.availHeight * 0.1459,
-            left: window.screen.availWidth * 0.2396,
-        }
-    }
-
     getInteractiveBoard() {
         let squares = [];
         let pieceImgBase64Str = null;
         for (var rf of rankfiles) {
             if (this.props.gameroot.board[rf] === "#") {
                 squares.push(
-                    <Square rf={rf} sqr_color={sqrClasses[rf]} pos={rf} gameroot={this.props.gameroot}>
+                    <Square
+                        rf={rf}
+                        sqr_color={sqrClasses[rf]}
+                        pos={rf}
+                        style={getPosPx(rf)}
+                        gameroot={this.props.gameroot}
+                    >
                         {null}
                     </Square>
                 );
@@ -49,7 +45,7 @@ export class Board extends React.Component {
                     this.props.gameroot.pieceDefs
                 );
                 squares.push(
-                    <Square sqr_color={sqrClasses[rf]} pos={rf} gameroot={this.props.gameroot}>
+                    <Square sqr_color={sqrClasses[rf]} pos={rf} style={getPosPx(rf)} gameroot={this.props.gameroot}>
                         <Piece pos={rf} id_={this.props.gameroot.board[rf]} pieceImgBase64Str={pieceImgBase64Str} />
                     </Square>
                 );
@@ -67,19 +63,9 @@ export class Board extends React.Component {
         return (
             <>
                 <DndProvider backend={Backend}>
-                    <div
-                        className="interactive-board"
-                        style={this.getBoardStyle()}
-                    >
-                        {this.getInteractiveBoard()}
-                    </div>
+                    <div style={interactive_board}>{this.getInteractiveBoard()}</div>
                 </DndProvider>
-                <div
-                    className="display-board"
-                    style={this.getBoardStyle()}
-                >
-                    {this.getDisplayBoard()}
-                </div>
+                <div style={display_board}>{this.getDisplayBoard()}</div>
             </>
         );
     }

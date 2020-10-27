@@ -291,11 +291,6 @@ export class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPage="GameRoot"
-                    theme={this.state.theme}
-                    unsaved={false}
-                />
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
@@ -303,8 +298,9 @@ export class GameRoot extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                <Board gameroot={this} />
+                <NavBar currentPage="GameRoot" theme={this.state.theme} unsaved={false} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
+                <Board gameroot={this} />
                 {this.specialCase === "promo" && (
                     <Promo
                         promoChoices={this.promoChoices}
@@ -322,7 +318,7 @@ export class GameRoot extends React.Component {
                     />
                 )}
                 {this.aiDisplay && this.specialCase !== "promo" && !this.isGameOver() && (
-                    <AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} aiMakeMove={this.aiMakeMove} />
+                    <AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} aiMakeMove={this.aiMakeMove} theme="light" />
                 )}
                 <RangeDisplayTool
                     board={this.board}

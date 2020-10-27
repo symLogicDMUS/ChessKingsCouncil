@@ -1,6 +1,6 @@
-@import "../styles/search";
-@import "../styles/mg-container.scss";
-@import "../styles/search-box";
+@import "../styles/search-box/search";
+@import "../styles/mg-container";
+@import "../styles/search-box/search-box";
 
 .my-pieces-top-bar-search {
     @include search(336);

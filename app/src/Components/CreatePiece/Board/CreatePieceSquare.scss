@@ -1,5 +1,5 @@
-@import "../../styles/sqr";
-@import "../../styles/get-sqr-hover-color";
+@import "../../styles/sqr/sqr";
+@import "../../styles/sqr/get-sqr-hover-color";
 
 @mixin sqr($height, $theme, $parity, $property) {
     position: absolute;
