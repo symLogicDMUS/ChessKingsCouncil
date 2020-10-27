@@ -3,7 +3,7 @@ import { Standard } from "./IconComponents/Standard";
 import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
-import { NavBar } from "../../NavBar/NavBar";
+import { RedirectBar } from '../../NavBar/RedirectBar'
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PickType.scss";
 
@@ -11,7 +11,7 @@ export class PickType extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
-        this.state = { bValue: true,  theme: "dark" };
+        this.state = { bValue: true, theme: "dark" };
         this.helpTitle = null;
         this.hmChildName = null;
         //Dictionary of Extra windows to display for help modals. More may be added.
@@ -35,7 +35,6 @@ export class PickType extends React.Component {
         this.setState({ bValue: !this.state.bValue });
     }
 
-
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
@@ -49,12 +48,9 @@ export class PickType extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPath="/NewGame"
-                    currentPage="PickType"
+                <RedirectBar
+                    currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (

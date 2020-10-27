@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../../NavBar/NavBar";
+import { RedirectBar } from '../../NavBar/RedirectBar'
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
@@ -8,7 +8,7 @@ import "./PickName.scss";
 export class PickName extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { userInput: "", bValue: true, nameStatus: "none",  theme: "dark" };
+        this.state = { userInput: "", bValue: true, nameStatus: "none", theme: "dark" };
         this.navExpanded = true;
         this.messageTitle = null;
         this.messageText = null;
@@ -54,12 +54,9 @@ export class PickName extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPath="/NewGame"
-                    currentPage="PickName"
+                <RedirectBar
+                    currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (
@@ -69,7 +66,6 @@ export class PickName extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-
                 <div class="enter-game-name">
                     <img
                         src="/Images/text-labels/enter-name.svg"
@@ -87,7 +83,7 @@ export class PickName extends React.Component {
                         Submit
                     </button>
                 </div>
-\
+                \
                 {this.state.nameStatus === "blank" && (
                     <InvalidGameName header="You can't leave the name of a game blank" reset={this.reset} />
                 )}

@@ -13,7 +13,7 @@ import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { ProfileHeader } from "./ProfileHeader";
 import { SearchBar } from "./SearchBar";
-import { NavBar } from "../../NavBar/NavBar";
+import { RedirectBar } from '../../NavBar/RedirectBar'
 import { getDefs } from "../../../API/getDefs";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
@@ -257,8 +257,6 @@ export class Customize extends React.Component {
         this.promoListUpdate = false;
     }
 
-
-
     togleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
@@ -312,12 +310,9 @@ export class Customize extends React.Component {
 
         return (
             <>
-                <NavBar
-                    currentPath="/NewGame"
-                    currentPage="Customize"
+                <RedirectBar
+                    currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (

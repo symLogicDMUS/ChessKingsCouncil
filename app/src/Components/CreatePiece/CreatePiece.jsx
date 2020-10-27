@@ -16,8 +16,8 @@ import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
+import { RedirectBar } from "../NavBar/RedirectBar";
 import { NavBar } from "../NavBar/NavBar";
-import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { Options } from "./Options/Options";
 import { RangeHelpTextExtraModal } from "./Range/HelpTextExtraModal";
@@ -35,6 +35,7 @@ export class CreatePiece extends React.Component {
             theme: "dark",
             isLoadModal: false,
             chooseModal: false,
+            unsaved: false,
         };
 
         this.defs = {};
@@ -65,36 +66,148 @@ export class CreatePiece extends React.Component {
 
         //true values rendered highlight color (currently red) as part of span.
         this.spanDisplays = {
-            a1: false, a2: false, a3: false, a4: false, a5: false, a6: false, a7: false, a8: false,
-            b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false,
-            c1: false, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false,
-            d1: false, d2: false, d3: false, d4: false, d5: false, d6: false, d7: false, d8: false,
-            e1: false, e2: false, e3: false, e4: false, e5: false, e6: false, e7: false, e8: false,
-            f1: false, f2: false, f3: false, f4: false, f5: false, f6: false, f7: false, f8: false,
-            g1: false, g2: false, g3: false, g4: false, g5: false, g6: false, g7: false, g8: false,
-            h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false
+            a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            a5: false,
+            a6: false,
+            a7: false,
+            a8: false,
+            b1: false,
+            b2: false,
+            b3: false,
+            b4: false,
+            b5: false,
+            b6: false,
+            b7: false,
+            b8: false,
+            c1: false,
+            c2: false,
+            c3: false,
+            c4: false,
+            c5: false,
+            c6: false,
+            c7: false,
+            c8: false,
+            d1: false,
+            d2: false,
+            d3: false,
+            d4: false,
+            d5: false,
+            d6: false,
+            d7: false,
+            d8: false,
+            e1: false,
+            e2: false,
+            e3: false,
+            e4: false,
+            e5: false,
+            e6: false,
+            e7: false,
+            e8: false,
+            f1: false,
+            f2: false,
+            f3: false,
+            f4: false,
+            f5: false,
+            f6: false,
+            f7: false,
+            f8: false,
+            g1: false,
+            g2: false,
+            g3: false,
+            g4: false,
+            g5: false,
+            g6: false,
+            g7: false,
+            g8: false,
+            h1: false,
+            h2: false,
+            h3: false,
+            h4: false,
+            h5: false,
+            h6: false,
+            h7: false,
+            h8: false,
         };
 
         //true values rendered highlight color (currently dark red) and calculate jump offsets
         this.jumpDisplays = {
-            a1: false, a2: false, a3: false, a4: false, a5: false, a6: false, a7: false, a8: false,
-            b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false,
-            c1: false, c2: false, c3: false, c4: false, c5: false, c6: false, c7: false, c8: false,
-            d1: false, d2: false, d3: false, d4: false, d5: false, d6: false, d7: false, d8: false,
-            e1: false, e2: false, e3: false, e4: false, e5: false, e6: false, e7: false, e8: false,
-            f1: false, f2: false, f3: false, f4: false, f5: false, f6: false, f7: false, f8: false,
-            g1: false, g2: false, g3: false, g4: false, g5: false, g6: false, g7: false, g8: false,
-            h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false
+            a1: false,
+            a2: false,
+            a3: false,
+            a4: false,
+            a5: false,
+            a6: false,
+            a7: false,
+            a8: false,
+            b1: false,
+            b2: false,
+            b3: false,
+            b4: false,
+            b5: false,
+            b6: false,
+            b7: false,
+            b8: false,
+            c1: false,
+            c2: false,
+            c3: false,
+            c4: false,
+            c5: false,
+            c6: false,
+            c7: false,
+            c8: false,
+            d1: false,
+            d2: false,
+            d3: false,
+            d4: false,
+            d5: false,
+            d6: false,
+            d7: false,
+            d8: false,
+            e1: false,
+            e2: false,
+            e3: false,
+            e4: false,
+            e5: false,
+            e6: false,
+            e7: false,
+            e8: false,
+            f1: false,
+            f2: false,
+            f3: false,
+            f4: false,
+            f5: false,
+            f6: false,
+            f7: false,
+            f8: false,
+            g1: false,
+            g2: false,
+            g3: false,
+            g4: false,
+            g5: false,
+            g6: false,
+            g7: false,
+            g8: false,
+            h1: false,
+            h2: false,
+            h3: false,
+            h4: false,
+            h5: false,
+            h6: false,
+            h7: false,
+            h8: false,
         };
 
         //to use for spans, update by Location:
         this.location = "d4";
 
         //flag to displaying progress in saving piece, if any
-        this.saveStatus = "none";
+        this.saveProgress = "none";
 
         //attributes for various displays
-        this.unsaved = false;
+        // this.unsaved = false;
         this.currentIconColor = null;
         this.showSpanText = true;
         this.showOffsetText = true;
@@ -119,7 +232,7 @@ export class CreatePiece extends React.Component {
         this.setLoc = this.setLoc.bind(this);
         this.eraseRange = this.eraseRange.bind(this);
         this.updateName = this.updateName.bind(this);
-        this.setSaveStatus = this.setSaveStatus.bind(this);
+        this.setSaveProgress = this.setSaveProgress.bind(this);
         this.togleSpan = this.togleSpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
@@ -132,7 +245,6 @@ export class CreatePiece extends React.Component {
         this.closeChooseModal = this.closeChooseModal.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
-        this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.setUnsaved = this.setUnsaved.bind(this);
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
     }
@@ -190,12 +302,12 @@ export class CreatePiece extends React.Component {
 
         let namecase = this.getNameCase();
         if (namecase !== "valid") {
-            this.setSaveStatus(namecase);
+            this.setSaveProgress(namecase);
             return;
         }
 
         if (this.pieceImg["white"] === null || this.pieceImg["black"] === null) {
-            this.setSaveStatus("no-icon");
+            this.setSaveProgress("no-icon");
             return;
         }
 
@@ -217,17 +329,17 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]["B"]["img"] = this.pieceImg["black"];
 
         saveDef(this.name, this.defs[this.name]).then(([response]) => {
-            this.setSaveStatus("success");
+            this.setSaveProgress("success");
         });
     }
 
-    setSaveStatus(value) {
-        this.saveStatus = value;
+    setSaveProgress(value) {
+        this.saveProgress = value;
         this.update();
     }
 
     setUnsaved(boolVal) {
-        this.unsaved = boolVal;
+        this.setState({ unsaved: boolVal });
     }
 
     updateName(input) {
@@ -333,14 +445,6 @@ export class CreatePiece extends React.Component {
         this.setState({ messageModal: boolVal });
     }
 
-
-
-    setConfirmRedirect(boolVal, path) {
-        this.confirmRedirectModal = boolVal;
-        this.redirectPath = path;
-        this.update();
-    }
-
     eraseRange() {
         Object.keys(this.spans).forEach((rf) => {
             this.spans[rf] = false;
@@ -352,7 +456,7 @@ export class CreatePiece extends React.Component {
             this.jumpDisplays[rf] = false;
         });
         this.offsets = [];
-        this.saveStatus = "none";
+        this.saveProgress = "none";
         this.update();
     }
 
@@ -370,7 +474,7 @@ export class CreatePiece extends React.Component {
         this.pieceImg = { white: null, black: null };
         this.location = "d4";
         this.offsets = [];
-        this.saveStatus = "none";
+        this.saveProgress = "none";
         this.update();
     }
 
@@ -407,28 +511,27 @@ export class CreatePiece extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPath="/CreatePiece"
-                    currentPage="CreatePiece"
-                    theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
-                    setConfirmRedirect={this.setConfirmRedirect}
-                    unsavedProgress={this.unsaved}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
-                />
-                {this.state.messageModal && (
+                {/* {!this.state.unsaved && (
+                    <RedirectBar
+                        currentPage="CreatePiece"
+                        theme={this.state.theme}
+                    /> 
+                )} 
+                */}
+                {/* {this.state.unsaved && ( */}
+                    <NavBar
+                        currentPage="CreatePiece"
+                        theme={this.state.theme}
+                    />
+                {/* )} */}
+                {/* {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.togleMessageModal}
                     />
-                )}
-                <Name
-                    name={this.name}
-                    updateName={this.updateName}
-                    setUnsaved={this.setUnsaved}
-                />
+                )} */}
+                <Name name={this.name} updateName={this.updateName} setUnsaved={this.setUnsaved} />
                 <NameLabel name={this.name} />
                 <Range
                     spans={this.spans}
@@ -459,8 +562,8 @@ export class CreatePiece extends React.Component {
                     name={this.name}
                     clear={this.clear}
                     reset={this.reset}
-                    saveStatus={this.saveStatus}
-                    setSaveStatus={this.setSaveStatus}
+                    saveStatus={this.saveProgress}
+                    setSaveStatus={this.setSaveProgress}
                 />
                 <Board
                     update={this.update}
@@ -489,14 +592,6 @@ export class CreatePiece extends React.Component {
                         color={this.currentIconColor}
                         setUnsaved={this.setUnsaved}
                         resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
-                    />
-                )}
-
-                {this.confirmRedirectModal && (
-                    <ConfirmRedirect
-                        path={this.redirectPath}
-                        message={this.redirectMessage}
-                        setConfirmRedirect={this.setConfirmRedirect}
                     />
                 )}
             </>

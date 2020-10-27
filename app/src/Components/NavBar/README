@@ -1,0 +1,2 @@
+NavBar is for unsaved progress. It togles a modal that asks if they want to continue to that page
+RedirectBar is for all changes saved. It simpley redirects and does not ask.

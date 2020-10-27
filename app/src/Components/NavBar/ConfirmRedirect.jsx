@@ -1,27 +1,29 @@
 import React from "react";
-import { AcceptRedirect } from "./AcceptRedirect";
+import { Link } from "react-router-dom";
 import "./ConfirmRedirect.scss";
 
-export class ConfirmRedirect extends React.Component {
-    constructor(props) {
-        super(props);
-        this.closeConfirmRedirect = this.closeConfirmRedirect.bind(this);
-    }
-
-    closeConfirmRedirect() {
-        this.props.setConfirmRedirect(false, null);
-    }
-
-    render() {
-        return (
-            <div className="confirm-redirect" onClick={this.closeConfirmRedirect}>
-                <img src="/Images/close/close.svg" className="close" onClick={this.props.close} />
-                <div className="text">{this.props.message}</div>
-                <AcceptRedirect path={this.props.path} />
-                <div className="reject-button" onClick={this.closeConfirmRedirect}>
-                    No
-                </div>
+export function ConfirmRedirect({ path, message, togleConfirmRedirect, isLocalLink}) {
+    return (
+        <div>
+            <img
+                src="/Images/close/close.svg"
+                className="close"
+                onClick={() => togleConfirmRedirect(false, null, false)}
+            />
+            <div className="text">{message}</div>
+            {isLocalLink && (
+                <Link to={path}>
+                    <div className="accept-button">Yes</div>
+                </Link>
+            )}
+            {!isLocalLink && (
+                <a href={path}>
+                    <div className="accept-button">Yes</div>
+                </a>
+            )}
+            <div className="reject-button" onClick={() => togleConfirmRedirect(false, null, false)}>
+                No
             </div>
-        );
-    }
+        </div>
+    );
 }

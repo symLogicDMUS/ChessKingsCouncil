@@ -1,24 +1,29 @@
 import React from "react";
+import { Help } from "./Help/Help";
 import { TogleNav } from "./TogleNav";
 import { NavBarButton } from "./NavBarButton";
-import { Help } from "./Help/Help";
+import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpComponent } from "./Help/HelpComponent";
-import { yMult, xMult } from "../styles/scaleValues";
-import { styles } from "./styles";
-// import "./NavBar.scss";
+// import { yMult, xMult } from "../styles/scaleValues";
+// import { styles } from "./styles";
+import "./NavBar.scss";
 
 export class NavBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { navExpanded: true, isHelpModal: false, firstTime: false };
-        this.navBarStyle = {
-            left: xMult * this.props.startingProperties.initLeft,
-            top: yMult * this.props.startingProperties.initTop,
-            ...styles["nav_bar"],
+        this.state = {
+            navExpanded: true,
+            isHelpModal: false,
+            isRedirectModal: false,
+            pendingRedirect: null,
+            isLocalLink: false,
+            firstTime: false,
         };
+        this.redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
         this.togleNav = this.togleNav.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
+        this.togleConfirmRedirect = this.togleConfirmRedirect.bind(this);
     }
 
     togleNav() {
@@ -33,13 +38,18 @@ export class NavBar extends React.Component {
         this.setState({ firstTime: firstTime });
     }
 
-    // getStyle() {
-    //     return {
-    //         left: xMult * this.props.startingProperties.initLeft,
-    //         top: yMult * this.props.startingProperties.initTop,
-    //         ...styles["nav_bar"],
-    //     };
-    // }
+    getStyle() {
+        return {
+            width: window.screen.availWidth,
+            height: window.screen.availHeight * 0.04,
+            left: 0,
+            top: 0
+        };
+    }
+
+    togleConfirmRedirect(bValue, path, isLocalLink) {
+        this.setState({ isRedirectModal: bValue, pendingRedirect: path, isLocalLink: isLocalLink });
+    }
 
     render() {
         return (
@@ -49,180 +59,151 @@ export class NavBar extends React.Component {
                         pageName={this.props.currentPage}
                         firstTime={this.state.firstTime}
                         togleHelpModal={this.togleHelpModal}
-                        posLeft={263}
+                        posLeft={263 / 1536}
                     />
                 )}
-                <div style={this.navBarStyle}>
+                {this.confirmRedirectModal && (
+                    <ConfirmRedirect
+                        path={this.state.pendingRedirect}
+                        message={this.redirectMessage}
+                        isLocalLink={this.state.isLocalLink}
+                        togleConfirmRedirect={this.togleConfirmRedirect}
+                    />
+                )}
+                <div className="nav-bar" style={this.getStyle()}>
                     {this.state.navExpanded && (
                         <HelpComponent
                             currentPage={this.props.currentPage}
-                            setFirstTime={this.setFirstTime}
                             togleHelpModal={this.togleHelpModal}
+                            setFirstTime={this.setFirstTime}
                             theme={this.props.theme}
-                            styles={{
-                                button: styles.help,
-                            }}
                             pageIcon="help"
+                            classes={{
+                                button: "go-to-help",
+                            }}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Home"
                             path="/"
-                            styles={{
-                                button: styles.home,
-                                "icon-container": styles.home.icon,
-                                text: styles.home.text,
+                            classes={{
+                                button: "go-to-home",
+                                "icon-container": "home-icon",
+                                text: "home-text",
                             }}
                             pageIcon="home"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            currentPath={this.props.currentPath}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="New Game"
                             path="/NewGame"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.new_game,
-                                "icon-container": styles.new_game.icon,
-                                text: styles.new_game.text,
+                            classes={{
+                                button: "go-to-new-game",
+                                "icon-container": "new-game-icon",
+                                text: "new-game-text",
                             }}
                             pageIcon="new-game"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Load Game"
                             path="/LoadGame"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.load_game,
-                                "icon-container": styles.load_game.icon,
-                                text: styles.load_game.text,
+                            classes={{
+                                button: "go-to-load-game",
+                                "icon-container": "go-to-load-game-icon",
+                                text: "go-to-load-game-text",
                             }}
                             pageIcon="load-game"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Create Piece"
                             path="/CreatePiece"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.create_piece,
-                                "icon-container": styles.create_piece.icon,
-                                text: styles.create_piece.text,
+                            classes={{
+                                button: "go-to-create-piece",
+                                "icon-container": "create-piece-icon",
+                                text: "create-piece-text",
                             }}
                             pageIcon="create-piece"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Chess Rules"
                             path="https://www.chess.com/learn-how-to-play-chess"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.chess_rules,
-                                "icon-container": styles.council_rules.icon,
-                                text: styles.chess_rules.text,
+                            classes={{
+                                button: "go-to-chess-rules",
+                                "icon-container": "council-rules-icon",
+                                text: "chess-rules-text",
                             }}
                             pageIcon="chess-rules"
-                            localLink={false}
+                            isLocalLink={false}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Council Rules"
                             path="/CouncilRules"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.council_rules,
-                                "icon-container": styles.council_rules.icon,
-                                text: styles.council_rules.text,
+                            classes={{
+                                button: "go-to-council-rules",
+                                "icon-container": "council-rules-icon",
+                                text: "council-rules-text",
                             }}
                             pageIcon="council-rules"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="My Pieces"
                             path="/MyPieces"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.my_pieces,
-                                "icon-container": styles.my_pieces.icon,
-                                text: styles.my_pieces.text,
+                            classes={{
+                                button: "go-to-my-pieces",
+                                "icon-container": "my-pieces-icon",
+                                text: "my-pieces-text",
                             }}
                             pageIcon="my-pieces"
-                            localLink={true}
+                            isLocalLink={true}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
                             pageName="Author Github"
                             path="https://github.com/symLogicDMUS"
-                            currentPath={this.props.currentPath}
-                            styles={{
-                                button: styles.author_github,
-                                "icon-container": styles.author_github.icon,
-                                text: styles.author_github.text,
+                            classes={{
+                                button: "go-to-author-github",
+                                "icon-container": "author-github-icon",
+                                text: "author-github-text",
                             }}
                             pageIcon="author-github"
-                            localLink={false}
+                            isLocalLink={false}
+                            togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            setHelpText={this.props.setHelpText}
-                            togleMessageModal={this.props.togleMessageModal}
-                            unsavedProgress={this.props.unsavedProgress}
-                            setConfirmRedirect={this.props.setConfirmRedirect}
                         />
                     )}
-                    <TogleNav
-                        type="colapse"
-                        togleNav={this.togleNav}
-                        theme={this.props.theme}
-                        styles={styles.togle_nav}
-                    />
+                    <TogleNav type="colapse" togleNav={this.togleNav} theme={this.props.theme} />
                 </div>
             </>
         );

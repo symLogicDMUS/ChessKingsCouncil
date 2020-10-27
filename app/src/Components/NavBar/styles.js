@@ -49,6 +49,7 @@ function getTextContainer() {
 
 function getNavBarButton() {
     return {
+        position: "absolute",
         zIndex: "inherit",
         display: "grid",
         gridTemplateColumns: `${iconColWidth}px auto`,
@@ -63,14 +64,16 @@ function getNavBarButton() {
 export var styles = {
     nav_bar: {
         position: "absolute",
-        display: "grid",
+        left: 0,
+        // display: "grid",
         zIndex: 0,
-        gridTemplateColumns: `${gw(iconSize)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(togleNavWidth)}px`,
-        border: `1 solid #707070`,
+        //gridTemplateColumns: `${gw(iconSize)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(cw)}px ${gw(togleNavWidth)}px`,
+        border: "1px dashed #1bfaae",
     },
 
     help: {
-        gridColumn: "1",
+        // gridColumn: "1",
+        left: 0,
         zIndex: "inherit",
         height: navBarHeight,
         backgroundColor: "#515151",
@@ -78,7 +81,8 @@ export var styles = {
     },
 
     home: {
-        gridColumn: "2",
+        // gridColumn: "2",
+        left: `${gw(iconSize)}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -92,7 +96,8 @@ export var styles = {
     },
 
     new_game: {
-        gridColumn: "3",
+        // gridColumn: "3",
+        left: `${gw(iconSize) + gw(cw)}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -106,7 +111,8 @@ export var styles = {
     },
 
     load_game: {
-        gridColumn: "4",
+        // gridColumn: "4",
+        left: `${gw(iconSize) + gw(cw)  * 2}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -120,7 +126,8 @@ export var styles = {
     },
 
     create_piece: {
-        gridColumn: "5",
+        // gridColumn: "5",
+        left: `${gw(iconSize) + gw(cw)  * 3}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -134,7 +141,8 @@ export var styles = {
     },
 
     chess_rules: {
-        gridColumn: "6",
+        // gridColumn: "6",
+        left: `${gw(iconSize) + gw(cw)  * 4}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -148,7 +156,8 @@ export var styles = {
     },
 
     my_pieces: {
-        gridColumn: "7",
+        // gridColumn: "7",
+        left: `${gw(iconSize) + gw(cw)  * 5}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -162,7 +171,8 @@ export var styles = {
     },
 
     council_rules: {
-        gridColumn: "8",
+        // gridColumn: "8",
+        left: `${gw(iconSize) + gw(cw)  * 6}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -176,7 +186,8 @@ export var styles = {
     },
 
     author_github: {
-        gridColumn: "9",
+        // gridColumn: "9",
+        left: `${gw(iconSize) + gw(cw)  * 7}px`,
         ...getNavBarButton(),
         icon: {
             gridRow: "1",
@@ -190,7 +201,8 @@ export var styles = {
     },
 
     togle_nav: {
+        // gridColumn: "10",
+        left: `${gw(iconSize) + gw(cw)  * 8}px`,
         cursor: "pointer",
-        gridColumn: "10",
     },
 };

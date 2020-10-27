@@ -1,6 +1,8 @@
 import React from "react";
 import { findDidUserVisitPage, recordUserVisitedPage } from "../../../API/findRecordDidUserVisitPage";
-import { getHelpIconStyle } from "../styles";
+// import { getHelpIconStyle } from "../styles";
+import "../NavBar.scss";
+
 
 export class HelpComponent extends React.Component {
     constructor(props) {
@@ -33,14 +35,16 @@ export class HelpComponent extends React.Component {
     render() {
         return (
             <div
-                style={this.props.styles["button"]}
+                className={this.props.classes.button}
+                // style={this.props.styles.button}
                 onMouseEnter={this.select}
                 onMouseLeave={this.unselect}
                 onClick={() => this.props.togleHelpModal(true)}
             >
                 <img
                     src={`/Images/Navbar/${this.props.pageIcon}-${this.getIconColor()}.svg`}
-                    style={getHelpIconStyle()}
+                    className="nav-bar-icon-style"
+                    // style={getHelpIconStyle()}
                     alt=""
                 />
             </div>

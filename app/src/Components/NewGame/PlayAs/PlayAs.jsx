@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { PlayAsOption } from "./PlayAsOption";
 import { PlayAsButton } from "./PlayAsButton";
-import { NavBar } from "../../NavBar/NavBar";
+import { RedirectBar } from '../../NavBar/RedirectBar';
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PlayAs.scss";
 
@@ -51,7 +51,6 @@ export class PlayAs extends React.Component {
         this.setState({ messageModal: boolVal });
     }
 
-
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
@@ -60,13 +59,9 @@ export class PlayAs extends React.Component {
     render() {
         return (
             <>
-
-                <NavBar
-                    currentPath="/NewGame"
-                    currentPage="PlayAs"
+                <RedirectBar
+                    currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 <div className="play-as-title">

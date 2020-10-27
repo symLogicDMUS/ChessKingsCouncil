@@ -8,7 +8,7 @@ import { DisplayBoardModal } from "../PieceProfile/DisplayBoardModal/DisplayBoar
 import { ProfileHeader } from "./ProfileHeader";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { SearchBar } from "./SearchBar";
-import { NavBar } from "../NavBar/NavBar";
+import { RedirectBar } from '../NavBar/RedirectBar'
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
 import "./MyPieces.scss";
@@ -198,15 +198,11 @@ export class MyPieces extends React.Component {
 
         return (
             <>
-                <NavBar
-                    currentPath="/MyPieces"
-                    currentPage="MyPieces"
+                <RedirectBar
+                    currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
-
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}

@@ -21,7 +21,7 @@ import { RangeDisplayTool } from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
 import { AiDisplay } from "./Components/AiDisplay";
 import { makeMove } from "./Move/makeMove";
-import { NavBar } from "../NavBar/NavBar";
+import { RedirectBar } from "../NavBar/RedirectBar";
 import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { MessageModal } from "../NavBar/Help/MessageModal";
@@ -34,7 +34,7 @@ import "./css/GameRoot.scss";
 export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme: "dark" };
+        this.state = { bValue: true, messageModal: false, theme: "dark", unsaved: false };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -284,13 +284,14 @@ export class GameRoot extends React.Component {
     }
 
     setUnsavedProgress(boolVal) {
+        this.setState({ unsaved: boolVal });
         this.unsaved = boolVal;
     }
 
     render() {
         return (
             <>
-                <NavBar
+                <RedirectBar
                     currentPage="GameRoot"
                     currentPath={this.currentPath}
                     theme={this.state.theme}
@@ -307,7 +308,6 @@ export class GameRoot extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-
 
                 <Board gameroot={this} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
@@ -359,13 +359,6 @@ export class GameRoot extends React.Component {
                 {this.specialCase === "saving" && <Saving />}
                 {this.specialCase === "save-success" && (
                     <SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />
-                )}
-                {this.confirmRedirectModal && (
-                    <ConfirmRedirect
-                        path={this.redirectPath}
-                        message={this.redirectMessage}
-                        setConfirmRedirect={this.setConfirmRedirect}
-                    />
                 )}
             </>
         );

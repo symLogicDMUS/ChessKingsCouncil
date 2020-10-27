@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from "../NavBar/NavBar";
+// import { NavBar } from "../NavBar/NavBar";
 import "./ComingSoon.scss";
 
 export class ComingSoonComponent extends React.Component {
@@ -16,13 +16,13 @@ export class ComingSoonComponent extends React.Component {
     render() {
         return (
             <div>
-                <NavBar
+                {/* <NavBar
                     theme={this.state.theme}
                     currentPage="/NewGame"
                     togleMessageModal={this.togleMessageModal}
                     setHelpText={this.setMessageText}
                     posMultipliers={{ width: 0.2, height: 0.01, left: 0.2, top: 0 }}
-                />
+                /> */}
                 <svg viewBox="0 0 1706.988 502.028" transform="translate(-0.613 65)">
                     <g transform="translate(-0.613 150)">
                         <path

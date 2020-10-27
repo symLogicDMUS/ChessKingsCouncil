@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
+import { RedirectBar } from '../NavBar/RedirectBar'
+import { Red } from "../NavBar/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
@@ -185,15 +186,11 @@ export class LoadGame extends React.Component {
 
         return (
             <>
-                <NavBar
-                    currentPath="/LoadGame"
+                <RedirectBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
-                    setHelpText={this.setMessageText}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
-
                 <img
                     src="/Images/text-labels/LoadGame.svg"
                     className="load-game-text"
@@ -201,7 +198,7 @@ export class LoadGame extends React.Component {
                     alt="title for loading game"
                 />
                 <div className="button-options" style={this.getButtonStyle()}>
-                    <select id="games" style={{width: window.screen.availWidth * 0.31}} onChange={this.changeName}>
+                    <select id="games" style={{ width: window.screen.availWidth * 0.31 }} onChange={this.changeName}>
                         {this.getGameList()}
                     </select>
                     {this.playButton}

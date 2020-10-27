@@ -1,9 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {isHref} from "../helpers/isHref";
 import "./ConfirmRedirect.scss";
 
-export function AcceptRedirect({path}) {
+export function AcceptRedirect({path, isLocal}) {
     
     if (isHref(path)) {
         return (
