@@ -1,7 +1,12 @@
-@import "../close";
+// @import "../close";
 
 @mixin modal-close {
     position: absolute;
-    left: 585px;
-    @include close;
+    left: 95%;
+    top: 2%;
+    width: 5%;
+    height: 5%;
+    &:hover {
+        background-color: #EC2525;
+    }
 }

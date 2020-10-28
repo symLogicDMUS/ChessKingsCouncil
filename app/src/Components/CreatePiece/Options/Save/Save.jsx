@@ -64,47 +64,8 @@ export class Save extends React.Component {
                     onMouseEnter={this.hoverOn}
                     onMouseLeave={this.hoverOff}
                 >
-                    <img
-                        src={this.src}
-                        className="option-img"
-                        alt="floppy disk icon for saving a piece"
-                    />
+                    <img src={this.src} className="option-img" alt="floppy disk icon for saving a piece" />
                 </div>
-                {this.props.status === "saving" && (
-                    <div className="save-piece-modal">
-                        <div className="saving-ellipsis">Saving...</div>;
-                    </div>
-                )}
-                {this.props.status === "blank-name" && (
-                    <InvalidName
-                        header="You must give a piece name before saving."
-                        setSaveStatus={this.props.setSaveStatus}
-                    />
-                )}
-                {this.props.status === "standard-name" && (
-                    <InvalidName
-                        header="You can not use the name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn."
-                        setSaveStatus={this.props.setSaveStatus}
-                    />
-                )}
-                {this.props.status === "no-icon" && (
-                    <InvalidName
-                        header="You must pick an image icon for both white and black."
-                        setSaveStatus={this.props.setSaveStatus}
-                    />
-                )}
-                {this.props.status === "success" && (
-                    <div className="save-piece-modal">
-                        <Success setSaveStatus={this.props.setSaveStatus} />
-                    </div>
-                )}
-                {this.props.status === "confirm-overwrite" && (
-                    <div className="save-piece-modal">
-                        <ConfirmOverwrite respond={this.ynOverwrite} name={this.props.name} />
-                    </div>
-                )}
-                {this.props.status === "reset" && this.reset()}
-                {this.props.status === "none" && null}
             </>
         );
     }

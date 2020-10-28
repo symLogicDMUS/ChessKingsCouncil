@@ -49,6 +49,7 @@ export class Options extends React.Component {
                     status={this.props.saveStatus}
                     setSaveStatus={this.props.setSaveStatus}
                     togleOptionTool={this.props.togleOptionTool}
+                    togleMessageModal={this.props.togleMessageModal}
                     setUnsaved={this.props.setUnsaved}
                 />
                 <Load

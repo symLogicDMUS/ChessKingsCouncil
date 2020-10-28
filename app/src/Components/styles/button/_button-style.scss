@@ -1,0 +1,18 @@
+@import "./get-button-colors";
+
+@mixin button-style($theme) {
+    /*% units*/
+        position: absolute;
+        z-index: inherit;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: get-button-text-color($theme);
+        background-color: get-button-bg-color($theme);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+     &:hover {
+        color: get-button-hover-text-color($theme);
+        background-color: get-button-hover-bg-color($theme);
+    }   
+}

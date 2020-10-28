@@ -20,7 +20,6 @@ export class GameRootHeader extends React.Component {
             fontSize: fontSize,
             left: window.screen.availHeight * 0.37,
             top: window.screen.availHeight * 0.061,
-            border: "1px dashed white"
         }
     }
 

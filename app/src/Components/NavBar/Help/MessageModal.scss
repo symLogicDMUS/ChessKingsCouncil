@@ -12,21 +12,18 @@
 
 .message-modal-window {
     @include window;
-    .text {
+
+    .msg-title {
+        @include title;
+    }
+
+    .msg-text {
         @include text;
     }
-    .ok-button {
-        @include ok-button(20px, "dark");
+    .msg-ok-button {
+        @include ok-button("dark");
     }
     .msg-modal-close {
         @include modal-close;
     }
-}
-   
-.visible {
-    display: initial;
-}
-
-.invisible {
-    display: none;
 }

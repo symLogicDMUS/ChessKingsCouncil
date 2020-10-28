@@ -2,7 +2,7 @@
 
 @mixin ok-button($button-height, $theme) {
     position: absolute;
-    top: 250px;
+    top: 80%;
     left: 263px;
     @include button1($button-height, $theme);
 }

@@ -1,28 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Name } from "./Name/Name";
-import { Range } from "./Range/Range";
 import { Icon } from "./Icon/Icon";
+import { Range } from "./Range/Range";
+import { defs } from "../tests/defs1";
+import { NavBar } from "../NavBar/NavBar";
+import { getDefs } from "../../API/getDefs";
+import { Options } from "./Options/Options";
+import { saveDef } from "../../API/saveDef";
 import { Location } from "./Location/Location";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { NameLabel } from "./NameLabel/NameLabel";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
 import { getRotations } from "./helpers/getRotations";
+import { Success } from "./Options/Save/Modals/Success/Success";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
-import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
-import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
-import { NavBar } from "../NavBar/NavBar";
+import { MessageModal } from "../NavBar/Help/MessageModal";
+import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
-import { Options } from "./Options/Options";
-import { RangeHelpTextExtraModal } from "./Range/HelpTextExtraModal";
-import { saveDef } from "../../API/saveDef";
-import { getDefs } from "../../API/getDefs";
-import { defs } from "../tests/defs1";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
 import "./CreatePiece.scss";
 
 export class CreatePiece extends React.Component {
@@ -32,9 +32,11 @@ export class CreatePiece extends React.Component {
         this.state = {
             binaryValue: 0,
             theme: "dark",
+            unsaved: false,
             isLoadModal: false,
             chooseModal: false,
-            unsaved: false,
+            isMessageModal: false,
+            displaySuccessfullSaveMessage: false,
         };
 
         this.defs = {};
@@ -203,24 +205,24 @@ export class CreatePiece extends React.Component {
         this.location = "d4";
 
         //flag to displaying progress in saving piece, if any
-        this.saveProgress = "none";
+        this.saveStatus = "none";
 
         //attributes for various displays
         // this.unsaved = false;
         this.currentIconColor = null;
         this.showSpanText = true;
         this.showOffsetText = true;
-        this.messageTitle = "";
-        this.messageText = "";
+        this.msgModalConfig = {
+            title: null,
+            text: null,
+            togleMethod: this.togleMessageModal,
+        };
 
         this.navExpanded = true;
         this.optionTool = true;
         this.confirmRedirectModal = false;
         this.redirectPath = null;
         this.redirectMessage = redirectMessageStr;
-
-        //Dictionary of Extra windows to display for help modals. More may be added.
-        this.hmChildren = { none: null, Range: <RangeHelpTextExtraModal /> };
 
         //binds
         this.save = this.save.bind(this);
@@ -231,7 +233,7 @@ export class CreatePiece extends React.Component {
         this.setLoc = this.setLoc.bind(this);
         this.eraseRange = this.eraseRange.bind(this);
         this.updateName = this.updateName.bind(this);
-        this.setSaveProgress = this.setSaveProgress.bind(this);
+        this.setSaveStatus = this.setSaveStatus.bind(this);
         this.togleSpan = this.togleSpan.bind(this);
         this.togleJump = this.togleJump.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
@@ -245,6 +247,7 @@ export class CreatePiece extends React.Component {
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setUnsaved = this.setUnsaved.bind(this);
+        this.resetSaveStatus = this.resetSaveStatus.bind(this)
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
     }
 
@@ -301,12 +304,12 @@ export class CreatePiece extends React.Component {
 
         let namecase = this.getNameCase();
         if (namecase !== "valid") {
-            this.setSaveProgress(namecase);
+            this.setSaveStatus(namecase);
             return;
         }
 
         if (this.pieceImg["white"] === null || this.pieceImg["black"] === null) {
-            this.setSaveProgress("no-icon");
+            this.setSaveStatus("no-icon");
             return;
         }
 
@@ -328,13 +331,85 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]["B"]["img"] = this.pieceImg["black"];
 
         saveDef(this.name, this.defs[this.name]).then(([response]) => {
-            this.setSaveProgress("success");
+            this.setSaveStatus("success");
         });
     }
 
-    setSaveProgress(value) {
-        this.saveProgress = value;
-        this.update();
+    setSaveStatus(value) {
+        this.saveStatus = value;
+        switch (this.saveStatus) {
+            case "saving":
+                this.setState({
+                    isMessageModal: false,
+                    confirmRedirectModal: false,
+                    displaySuccessfullSaveMessage: false,
+                    binaryValue: !this.state.binaryValue,
+                });
+                break;
+            case "blank-name":
+                this.msgModalConfig = {
+                    title: "blank name",
+                    text: "You must give a piece name before saving.",
+                    togleMethod: this.resetSaveStatus,
+                };
+                this.setState({
+                    isMessageModal: true,
+                    confirmRedirectModal: false,
+                    displaySuccessfullSaveMessage: false,
+                });
+                break;
+            case "standard-name":
+                this.msgModalConfig = {
+                    title: "used standard name",
+                    text:
+                        "You can not use the name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
+                    togleMethod: this.resetSaveStatus,
+                };
+                this.setState({
+                    isMessageModal: true,
+                    confirmRedirectModal: false,
+                    displaySuccessfullSaveMessage: false,
+                });
+                break;
+            case "no-icon":
+                this.msgModalConfig = {
+                    title: "Missing Icon",
+                    text: "You must pick an image icon for both white and black.",
+                    togleMethod: this.resetSaveStatus,
+                };
+                this.setState({
+                    isMessageModal: true,
+                    confirmRedirectModal: false,
+                    displaySuccessfullSaveMessage: false,
+                });
+                break;
+            case "success":
+                this.setState({
+                    displaySuccessfullSaveMessage: true,
+                    confirmRedirectModal: false,
+                    isMessageModal: false,
+                });
+                break;
+            case "confirm-overwrite":
+                this.setState({
+                    confirmRedirectModal: true,
+                    displaySuccessfullSaveMessage: false,
+                    isMessageModal: false,
+                });
+                break;
+            case "reset":
+                this.clear();
+                break;
+            case "none":
+                this.setState({
+                    isMessageModal: false,
+                    confirmRedirectModal: false,
+                    displaySuccessfullSaveMessage: false,
+                    binaryValue: !this.state.binaryValue,
+                });
+            default:
+                break;
+        }
     }
 
     setUnsaved(boolVal) {
@@ -444,6 +519,10 @@ export class CreatePiece extends React.Component {
         this.setState({ messageModal: boolVal });
     }
 
+    resetSaveStatus() {
+        this.setSaveStatus("none")
+    }
+
     eraseRange() {
         Object.keys(this.spans).forEach((rf) => {
             this.spans[rf] = false;
@@ -455,7 +534,7 @@ export class CreatePiece extends React.Component {
             this.jumpDisplays[rf] = false;
         });
         this.offsets = [];
-        this.saveProgress = "none";
+        this.saveStatus = "none";
         this.update();
     }
 
@@ -473,8 +552,7 @@ export class CreatePiece extends React.Component {
         this.pieceImg = { white: null, black: null };
         this.location = "d4";
         this.offsets = [];
-        this.saveProgress = "none";
-        this.update();
+        this.setSaveStatus("none");
     }
 
     reset() {
@@ -510,60 +588,14 @@ export class CreatePiece extends React.Component {
     render() {
         return (
             <>
-                <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
-                {this.state.messageModal && (
+                {/*Modals */}
+                {this.state.isMessageModal && (
                     <MessageModal
-                        messageTitle={this.messageTitle}
-                        messageText={this.messageText}
-                        togleMessageModal={this.togleMessageModal}
+                        messageTitle={this.msgModalConfig.title}
+                        messageText={this.msgModalConfig.text}
+                        togleMessageModal={this.msgModalConfig.togleMethod}
                     />
                 )}
-                <Name name={this.name} updateName={this.updateName} setUnsaved={this.setUnsaved} />
-                <NameLabel name={this.name} />
-                <Range
-                    spans={this.spans}
-                    offsets={this.offsets}
-                    togleSpan={this.togleSpan}
-                    update={this.update}
-                    togleOffsetText={this.togleOffsetText}
-                    togleSpanText={this.togleSpanText}
-                    setUnsaved={this.setUnsaved}
-                />
-                <Icon
-                    pieceImg={this.pieceImg}
-                    setPieceImg={this.setPieceImg}
-                    updateParent={this.update}
-                    showChooseModal={this.showChooseModal}
-                    currentIconColor={this.currentIconColor}
-                    setCurrentIconColor={this.setCurrentIconColor}
-                    setUnsaved={this.setUnsaved}
-                />
-                <Location setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
-                <Options
-                    togleLoadModal={this.togleLoadModal}
-                    togleOptionTool={this.togleOptionTool}
-                    setUnsaved={this.setUnsaved}
-                    eraseRange={this.eraseRange}
-                    existing={Object.keys(this.defs)}
-                    save={this.save}
-                    name={this.name}
-                    clear={this.clear}
-                    reset={this.reset}
-                    saveStatus={this.saveProgress}
-                    setSaveStatus={this.setSaveProgress}
-                />
-                <Board
-                    update={this.update}
-                    togleJump={this.togleJump}
-                    spanDisplays={this.spanDisplays}
-                    jumps={this.jumpDisplays}
-                    pieceLoc={this.location}
-                    pieceImgBase64Str={this.pieceImg["white"]}
-                    showSpanText={this.showSpanText}
-                    showOffsetText={this.showOffsetText}
-                    setUnsaved={this.setUnsaved}
-                />
-
                 {this.state.isLoadModal && (
                     <CreatedPieceProfiles
                         defs={this.defs}
@@ -581,6 +613,59 @@ export class CreatePiece extends React.Component {
                         resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
                     />
                 )}
+                {this.state.displaySuccessfullSaveMessage && (
+                    <div className="save-piece-modal">
+                        <Success setSaveStatus={this.setSaveStatus} />
+                    </div>
+                )}
+                {/*At time writing ordered by screen appearence.(left to right, top to bottom)*/}
+                <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
+                <NameLabel name={this.name} />
+                <Board
+                    update={this.update}
+                    togleJump={this.togleJump}
+                    spanDisplays={this.spanDisplays}
+                    jumps={this.jumpDisplays}
+                    pieceLoc={this.location}
+                    pieceImgBase64Str={this.pieceImg["white"]}
+                    showSpanText={this.showSpanText}
+                    showOffsetText={this.showOffsetText}
+                    setUnsaved={this.setUnsaved}
+                />
+                <Name name={this.name} updateName={this.updateName} setUnsaved={this.setUnsaved} />
+                <Icon
+                    pieceImg={this.pieceImg}
+                    setPieceImg={this.setPieceImg}
+                    updateParent={this.update}
+                    showChooseModal={this.showChooseModal}
+                    currentIconColor={this.currentIconColor}
+                    setCurrentIconColor={this.setCurrentIconColor}
+                    setUnsaved={this.setUnsaved}
+                />
+                <Range
+                    spans={this.spans}
+                    offsets={this.offsets}
+                    togleSpan={this.togleSpan}
+                    update={this.update}
+                    togleOffsetText={this.togleOffsetText}
+                    togleSpanText={this.togleSpanText}
+                    setUnsaved={this.setUnsaved}
+                />
+                <Location setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
+                <Options
+                    save={this.save}
+                    name={this.name}
+                    clear={this.clear}
+                    reset={this.reset}
+                    togleLoadModal={this.togleLoadModal}
+                    togleOptionTool={this.togleOptionTool}
+                    togleMessageModal={this.togleMessageModal}
+                    setUnsaved={this.setUnsaved}
+                    eraseRange={this.eraseRange}
+                    existing={Object.keys(this.defs)}
+                    saveStatus={this.saveStatus}
+                    setSaveStatus={this.setSaveStatus}
+                />
             </>
         );
     }

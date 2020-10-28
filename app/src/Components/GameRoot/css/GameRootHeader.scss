@@ -2,7 +2,6 @@
     z-index: $z;
     color: $color;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    // font-size: 100%;
     text-align: $text-align;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -10,10 +9,7 @@
 
 .board-header-label {
     position: absolute;
-    // left: 368px;
-    // top: 65px;
-    // width: 600px;
-    // height: 40px;
+
     @include board-header-text(black, center, 4);
 }
 
@@ -21,23 +17,16 @@
 .board-header-grid {
     position: absolute;
     z-index: 4;
-    // left: 468px;
-    // top: 50px;
-    // width: 600px;
-    // height: 40px;
     display: grid;
     grid-template-columns: 48.67% 48.67%;
-    //grid-template-rows: 40px;
-    column-gap: 16px;
+    column-gap: 2.66%;
 
     .board-header-turn {
-        // grid-row: 1;
         grid-column: 1;
         @include board-header-text(black, right, inherit);
     }
 
     .board-header-condition {
-        // grid-row: 1;
         grid-column: 2;
         @include board-header-text(red, left, inherit);
     }
