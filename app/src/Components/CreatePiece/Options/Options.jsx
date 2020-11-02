@@ -3,7 +3,7 @@ import { Save } from "./Save/Save";
 import { Load } from "./Load/Load";
 import { Reset } from "./Reset/Reset";
 import { Erase } from "./Erase/Erase";
-import { Theme } from "./Theme/Theme";
+import { stylesObjects } from "../styles-objects";
 import "./Options.scss";
 
 export class Options extends React.Component {
@@ -23,21 +23,9 @@ export class Options extends React.Component {
         this.props.togleOptionTool(true);
     }
 
-    getStyle() {
-        return {
-            width: window.screen.availWidth * 0.26,
-            height: window.screen.availHeight * 0.13,
-            top: window.screen.availHeight * 0.785,
-            left: window.screen.availWidth * 0.57,
-        };
-    }
-
     render() {
         return (
-            <div
-                className="options-tool"
-                style={this.getStyle()}
-            >
+            <div className="options-tool" style={stylesObjects[this.props.screenCase]["Options"]()}>
                 <div className="options-title">Options</div>
                 <Save
                     normal="/Images/save/save-a9a9a9.svg"
@@ -62,7 +50,7 @@ export class Options extends React.Component {
                 <Reset
                     normal="/Images/reset-range/reset-range-a9a9a9.svg"
                     highlighted="/Images/reset-range/reset-range-72e2ff.svg"
-                    reset={this.reset}
+                    reset={this.props.reset}
                     togleOptionTool={this.props.togleOptionTool}
                     setUnsaved={this.props.setUnsaved}
                 />
@@ -72,11 +60,6 @@ export class Options extends React.Component {
                     eraseRange={this.props.eraseRange}
                     togleOptionTool={this.props.togleOptionTool}
                     setUnsaved={this.props.setUnsaved}
-                />
-                <Theme
-                    normal="/Images/theme-create-piece/theme-create-piece-a9a9a9.svg"
-                    highlighted="/Images/theme-create-piece/theme-create-piece-72e2ff.svg"
-                    togleOptionTool={this.props.togleOptionTool}
                 />
             </div>
         );

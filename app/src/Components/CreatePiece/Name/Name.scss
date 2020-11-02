@@ -1,42 +1,75 @@
+@import "../../styles/color-variables";
 
 .name-component1 {
     position: absolute;
     z-index: 0;
-    background-color: #515151;
+    background-color: $dark-grey1;
     border-radius: 15px;
-    width: 26%;
-    height: 9.2%;
-    top: 19.76%;
-    left: 57%;
-} 
+}
 
-.name-component1 .name
-{
-    position: absolute;
-    z-index: 0;
-    font-family: 'Segoe UI', Geneva, Verdana, sans-serif;
-    font-size: 125%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
-    top: 6%;
-    left: 2.5%;
-} 
+.name-component1 .name {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+        font-size: 125%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: $light-grey1;
+        top: 6%;
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        display: none;
+        // position: absolute;
+        // z-index: 0;
+        // font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+        // font-size: 100%;
+        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        // color: $light-grey3;
+        // top: 30%;
+        // left: 2.5%;
+    }
+}
 
 .name-component1 .form1 {
-    position: absolute;
-    z-index: 0;
-    top: 54.28%;
-    left: 2.5%;
-    width: 93.75%;
-    height: 30%;
-    border-radius: 5px;
-    fill: black;
-    color: #A9A9A9;
-    background-color: #515151;
-    border: 1px solid #A9A9A9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    outline: none;
-} 
-.form1[type=text]:focus {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        top: 54.28%;
+        left: 2.5%;
+        width: 93.75%;
+        height: 30%;
+        border-radius: 5px;
+        fill: black;
+        color: $light-grey1;
+        background-color: $dark-grey2;
+        border: 1px solid $light-grey1;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        outline: none;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        top: 35%;
+        left: 2%;
+        width: 92.5%;
+        height: 25%;
+        border-radius: 5px;
+        fill: black;
+        color: $light-grey1;
+        background-color: $dark-grey2;
+        border: 1px solid $dark-grey4;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        outline: none;
+    }
+}
+.form1[type="text"]:focus {
     border: 1px solid #72e2ff;
-  }
+}
+
+.form1[type="text"]::placeholder {
+    @media screen and (max-device-width: 767px) {
+        font-size: 120%;
+        color: $light-grey1;
+    }
+}

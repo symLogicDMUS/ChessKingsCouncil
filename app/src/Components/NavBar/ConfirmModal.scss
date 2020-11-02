@@ -1,27 +1,22 @@
 @import "../styles/button/button-style";
 @import "../styles/modal-window1-components/modal-close";
 @import "../styles/modal-window1-components/window";
-@import "../styles/modal-window1-components/text";
-@import "../styles/modal-window1-components/title";
+@import "../styles/modal-window1-components/confirm-text";
 @import "../styles/modal";
 
 
-.confirm-redirect {
+.confirm-window {
     @include window;
-    .confirm-redirect-title {
-        @include title;
-    }
-    .confirm-redirect-text {
+    .confirm-text {
         @include text;
-        //top: 5%;
     }
-    .confirm-redirect-accept-button {
+    .yes-button {
         @include button-style("dark");
     }
-    .confirm-redirect-reject-button {
+    .no-button {
         @include button-style("dark");
     }
-    .confirm-redirect-close {
+    .close-confirm-window {
         @include modal-close;
     }
 }

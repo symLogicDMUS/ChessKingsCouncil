@@ -1,0 +1,8 @@
+@function icon-button-left($color) {
+    @if ($color == "white") {
+        @return percentage(30/100);
+    }
+    @if ($color == "black") {
+        @return percentage(80/100);
+    }
+}

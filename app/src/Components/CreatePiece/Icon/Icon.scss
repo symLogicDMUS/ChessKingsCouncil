@@ -1,67 +1,125 @@
+@import "../../styles/button/icon-button-top";
+@import "../../styles/color-variables";
+@import "./heights";
 
+@mixin icon-img-window {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        height: 50%;
+        width: 18.75%;
+        top: 41.33%;
+        background-color: #515151;
+        border: solid 1px #a9a9a9;
+        border-radius: 5px;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        height: percentage(89/100);
+        width: percentage(35/100);
+        top: percentage(5/100);
+        background-color: $dark-grey2;
+        border: solid 1px $dark-grey4;
+        border-radius: 5px;
+    }
+}
+
+@mixin piece-title {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        top: 25.33%;
+        font-size: 115%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #a9a9a9;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 1;
+        top: 43%;
+        font-size: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #a9a9a9;
+    }
+}
 .icon-tool {
-    position: absolute;
-    z-index: 0;
-    left: 57%;
-    top: 29.84%;
-    width: 26%;
-    height: 19.49%;
-    background-color: #515151;
-    border-radius: 10px;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        height: 19.49%;
+        background-color: #515151;
+        border-radius: 10px;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        height: percentage((72 * 0.625)/100);
+        width: percentage((72 * 0.2343)/100);
+        top: percentage((72 * 0.125)/100);
+        background-color: #515151;
+        border-radius: 10px;
+    }
 }
 
 .icon-tool .icon-title {
-    position: absolute;
-    z-index: 0;
-    left: 2.5%;
-    top: 3%;
-    font-size: 125%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        left: 2.5%;
+        top: 3%;
+        font-size: 125%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #a9a9a9;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        left: percentage((72 * 0/031)/100);
+        top: percentage((72 * 0.0375)/100);
+        font-size: 125%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #a9a9a9;
+    }
 }
 
 .icon-tool .black-title {
-    position: absolute;
-    z-index: 0;
-    left: 51.75%;
-    top: 25.33%;
-    font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
-
+    @include piece-title;
+    @media screen and (min-device-width: 768px) {
+        left: 51.75%;
+    }
+    @media screen and (max-device-width: 767px) {
+        left: percentage(75.75/100);
+    }
 }
 
 .icon-tool .white-title {
-    position: absolute;
-    z-index: 0;
-    left: 2.5%;
-    top: 25.33%;
-    font-size: 14px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
-
+    @include piece-title;
+    @media screen and (min-device-width: 768px) {
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        left: percentage(13.5/100);
+    }
 }
 
 .icon-tool .white-window {
-    position: absolute;
-    z-index: 0;
-    height: 50%;
-    width: 18.75%;
-    top: 41.33%;
-    left: 29.5%;
-    background-color: #515151;
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
+    @media screen and (min-device-width: 768px) {
+        @include icon-img-window;
+        left: 29.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        @include icon-img-window;
+        left: percentage(2/100);
+    }
 }
 
 .icon-tool .black-window {
-    position: absolute;
-    z-index: 0;
-    height: 50%;
-    width: 18.75%;
-    top: 41.33%;
-    left: 78.75%;
-    background-color: #515151;
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
+    @media screen and (min-device-width: 768px) {
+        @include icon-img-window;
+        left: 78.75%;
+    }
+    @media screen and (max-device-width: 767px) {
+        @include icon-img-window;
+        left: percentage(63/100);
+    }
 }

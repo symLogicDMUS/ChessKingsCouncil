@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import MediaQuery from "react-responsive";
 import { Name } from "./Name/Name";
 import { Icon } from "./Icon/Icon";
 import { Range } from "./Range/Range";
@@ -23,6 +24,7 @@ import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./CreatePiece.scss";
 
 export class CreatePiece extends React.Component {
@@ -36,6 +38,7 @@ export class CreatePiece extends React.Component {
             isLoadModal: false,
             chooseModal: false,
             isMessageModal: false,
+            confirmOverwriteModal: false,
             displaySuccessfullSaveMessage: false,
         };
 
@@ -220,7 +223,6 @@ export class CreatePiece extends React.Component {
 
         this.navExpanded = true;
         this.optionTool = true;
-        this.confirmRedirectModal = false;
         this.redirectPath = null;
         this.redirectMessage = redirectMessageStr;
 
@@ -247,7 +249,7 @@ export class CreatePiece extends React.Component {
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setUnsaved = this.setUnsaved.bind(this);
-        this.resetSaveStatus = this.resetSaveStatus.bind(this)
+        this.resetSaveStatus = this.resetSaveStatus.bind(this);
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
     }
 
@@ -300,7 +302,6 @@ export class CreatePiece extends React.Component {
     }
 
     save() {
-        /**TODO: add guards against all possible bad user input for name */
 
         let namecase = this.getNameCase();
         if (namecase !== "valid") {
@@ -331,6 +332,7 @@ export class CreatePiece extends React.Component {
         this.defs[this.name]["B"]["img"] = this.pieceImg["black"];
 
         saveDef(this.name, this.defs[this.name]).then(([response]) => {
+            this.setState({ unsaved: false });
             this.setSaveStatus("success");
         });
     }
@@ -341,7 +343,7 @@ export class CreatePiece extends React.Component {
             case "saving":
                 this.setState({
                     isMessageModal: false,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
                     binaryValue: !this.state.binaryValue,
                 });
@@ -354,7 +356,7 @@ export class CreatePiece extends React.Component {
                 };
                 this.setState({
                     isMessageModal: true,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
                 });
                 break;
@@ -367,7 +369,7 @@ export class CreatePiece extends React.Component {
                 };
                 this.setState({
                     isMessageModal: true,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
                 });
                 break;
@@ -379,22 +381,22 @@ export class CreatePiece extends React.Component {
                 };
                 this.setState({
                     isMessageModal: true,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
                 });
                 break;
             case "success":
                 this.setState({
                     displaySuccessfullSaveMessage: true,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     isMessageModal: false,
                 });
                 break;
             case "confirm-overwrite":
                 this.setState({
-                    confirmRedirectModal: true,
-                    displaySuccessfullSaveMessage: false,
                     isMessageModal: false,
+                    confirmOverwriteModal: true,
+                    displaySuccessfullSaveMessage: false,
                 });
                 break;
             case "reset":
@@ -403,7 +405,7 @@ export class CreatePiece extends React.Component {
             case "none":
                 this.setState({
                     isMessageModal: false,
-                    confirmRedirectModal: false,
+                    confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
                     binaryValue: !this.state.binaryValue,
                 });
@@ -520,7 +522,7 @@ export class CreatePiece extends React.Component {
     }
 
     resetSaveStatus() {
-        this.setSaveStatus("none")
+        this.setSaveStatus("none");
     }
 
     eraseRange() {
@@ -562,6 +564,8 @@ export class CreatePiece extends React.Component {
             this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
             this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
             this.setLoc(this.location);
+            this.setSaveStatus("none");
+            this.setUnsaved(false);
         }
     }
 
@@ -585,7 +589,7 @@ export class CreatePiece extends React.Component {
         this.setState({ chooseModal: false });
     }
 
-    render() {
+    getComponents(screenCase) {
         return (
             <>
                 {/*Modals */}
@@ -613,6 +617,13 @@ export class CreatePiece extends React.Component {
                         resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
                     />
                 )}
+                {this.state.confirmOverwriteModal && (
+                    <ConfirmModal
+                        text={`A piece named ${this.name} already exists. do you want to replace it?`}
+                        yesClick={() => this.save()}
+                        noClick={() => this.setSaveStatus("none")}
+                    />
+                )}
                 {this.state.displaySuccessfullSaveMessage && (
                     <div className="save-piece-modal">
                         <Success setSaveStatus={this.setSaveStatus} />
@@ -622,6 +633,7 @@ export class CreatePiece extends React.Component {
                 <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
                 <NameLabel name={this.name} />
                 <Board
+                    screenCase={screenCase}
                     update={this.update}
                     togleJump={this.togleJump}
                     spanDisplays={this.spanDisplays}
@@ -632,8 +644,9 @@ export class CreatePiece extends React.Component {
                     showOffsetText={this.showOffsetText}
                     setUnsaved={this.setUnsaved}
                 />
-                <Name name={this.name} updateName={this.updateName} setUnsaved={this.setUnsaved} />
+                {/* <Name name={this.name} screenCase={screenCase} updateName={this.updateName} setUnsaved={this.setUnsaved} /> */}
                 <Icon
+                    screenCase={screenCase}
                     pieceImg={this.pieceImg}
                     setPieceImg={this.setPieceImg}
                     updateParent={this.update}
@@ -643,6 +656,7 @@ export class CreatePiece extends React.Component {
                     setUnsaved={this.setUnsaved}
                 />
                 <Range
+                    screenCase={screenCase}
                     spans={this.spans}
                     offsets={this.offsets}
                     togleSpan={this.togleSpan}
@@ -651,8 +665,10 @@ export class CreatePiece extends React.Component {
                     togleSpanText={this.togleSpanText}
                     setUnsaved={this.setUnsaved}
                 />
-                <Location setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
-                <Options
+
+                <Location screenCase={screenCase} setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
+                {/* <Options
+                    screenCase={screenCase}
                     save={this.save}
                     name={this.name}
                     clear={this.clear}
@@ -665,7 +681,16 @@ export class CreatePiece extends React.Component {
                     existing={Object.keys(this.defs)}
                     saveStatus={this.saveStatus}
                     setSaveStatus={this.setSaveStatus}
-                />
+                /> */}
+            </>
+        );
+    }
+
+    render() {
+        return (
+            <>
+                <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery>
             </>
         );
     }

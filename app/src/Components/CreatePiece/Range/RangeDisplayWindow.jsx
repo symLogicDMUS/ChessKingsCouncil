@@ -87,10 +87,10 @@ export class RangeDisplayWindow extends React.Component {
 
         return (
             <div className="range-display-window">
-                <div className="show-spans-label">span text squares</div>
-                <ShowSpansCheckbox togleSpanText={this.props.togleSpanText} />
-                <div className="show-offsets-label">offset text squares</div>
-                <ShowOffsetsCheckbox togleOffsetText={this.props.togleOffsetText} />
+                {/* <div className="show-spans-label">span text squares</div> */}
+                {/* <ShowSpansCheckbox togleSpanText={this.props.togleSpanText} /> */}
+                {/* <div className="show-offsets-label">offset text squares</div> */}
+                {/* <ShowOffsetsCheckbox togleOffsetText={this.props.togleOffsetText} /> */}
                 <ScrollArrow id={"up"}   move={this.moveUp} />
                 <RangeTable displayList={this.inView} />
                 <ScrollArrow id={"down"} move={this.moveDown} />

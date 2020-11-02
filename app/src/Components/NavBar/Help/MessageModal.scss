@@ -1,10 +1,10 @@
 @import "../../styles/modal-window1-components/modal-close";
 @import "../../styles/modal-window1-components/ok-button";
+@import "../../styles/button/button-style";
 @import "../../styles/modal-window1-components/window";
 @import "../../styles/modal-window1-components/text";
 @import "../../styles/modal-window1-components/title";
 @import "../../styles/modal";
-
 
 .message-modal {
     @include modal;
@@ -12,7 +12,6 @@
 
 .message-modal-window {
     @include window;
-
     .msg-title {
         @include title;
     }

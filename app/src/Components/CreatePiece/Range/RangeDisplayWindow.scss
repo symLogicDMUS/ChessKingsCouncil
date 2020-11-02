@@ -1,37 +1,80 @@
+@import "../../styles/color-variables";
 
 .range-tool .range-display-window {
-    position: absolute;
-    z-index: 0;
-    left: 2.5%;
-    top: 27.33%;
-    width: 60.25%;
-    height: 66.667%;
-    border-radius: 5px;
-    background-color: #515151;
-    border: 1px solid #A9A9A9;
-    color: #a9a9a9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        left: 2.5%;
+        top: 27.33%;
+        width: 60.25%;
+        height: 66.667%;
+        border-radius: 5px;
+        background-color: $dark-grey1;
+        border: 1px solid $light-grey1;
+        color: $light-grey1;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        left: 63.5%;
+        top: 5%;
+        width: 33%;
+        height: 88.5%;
+        border-radius: 5px;
+        background-color: $dark-grey1;
+        border: 1px solid $light-grey1;
+        color: $light-grey1;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
 }
 
 .show-spans-label {
-    position: absolute;
-    top: -3%;
-    width: 32%;
-    height: 20%;
-    text-align: left;
-    font-size: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        top: -3%;
+        width: 32%;
+        height: 20%;
+        text-align: left;
+        font-size: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: $light-grey1;
+    }
+    @media screen and (max-device-width: 767px) {
+        // position: absolute;
+        // top: -3%;
+        // width: 32%;
+        // height: 20%;
+        // text-align: left;
+        // font-size: 100%;
+        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        // color: $light-grey1;
+        display: none;
+    }
 }
 
 .show-offsets-label {
-    position: absolute;
-    top: -3%;
-    left: 35.68%;
-    width: 32%;
-    height: 10%;
-    text-align: left;
-    font-size: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        top: -3%;
+        left: 60.25%;
+        width: 32%;
+        height: 10%;
+        text-align: left;
+        font-size: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: $light-grey1;
+    }
+    @media screen and (max-device-width: 767px) {
+        display: none;
+        // position: absolute;
+        // top: -3%;
+        // left: 35.68%;
+        // width: 50%;
+        // height: 10%;
+        // text-align: left;
+        // font-size: 50%;
+        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        // color: $light-grey1;
+    }
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from '../NavBar/NavBar'
+import { NavBar } from "../NavBar/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { MessageModal } from "../NavBar/Help/MessageModal";
-import { ConfirmDeleteGameModal } from "./ConfirmDeleteGameModal";
+// import { MessageModal } from "../NavBar/Help/MessageModal";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./LoadGame.scss";
 
 export class LoadGame extends React.Component {
@@ -185,11 +185,7 @@ export class LoadGame extends React.Component {
 
         return (
             <>
-                <NavBar
-                    currentPage="LoadGame"
-                    theme={this.state.theme}
-                    unsaved={false}
-                />
+                <NavBar currentPage="LoadGame" theme={this.state.theme} unsaved={false} />
                 <img
                     src="/Images/text-labels/LoadGame.svg"
                     className="load-game-text"
@@ -204,10 +200,10 @@ export class LoadGame extends React.Component {
                     {this.deleteButton}
                 </div>
                 {this.state.confirmDeleteModal && (
-                    <ConfirmDeleteGameModal
-                        gameName={this.state.gameName}
-                        acceptDeleteGame={this.acceptDeleteGame}
-                        cancelDeleteGame={this.cancelDeleteGame}
+                    <ConfirmModal
+                        text={`Are You Sure you want to delete game ${this.state.gameName}?`}
+                        yesClick={this.acceptDeleteGame}
+                        noClick={this.cancelDeleteGame}
                     />
                 )}
             </>

@@ -1,4 +1,5 @@
 import React from "react";
+import {getButtonSize} from "../styles/button/button-size";
 import "./MyDeleteButton.scss";
 
 export class MyDeleteButton extends React.Component {
@@ -15,7 +16,7 @@ export class MyDeleteButton extends React.Component {
 
     render() {
         return (
-            <div className="my-delete-button" onClick={this.delete}>
+            <div className="my-delete-button" style={getButtonSize(window.screen.availHeight * 0.02)} onClick={this.delete}>
                 Delete
             </div>
         )

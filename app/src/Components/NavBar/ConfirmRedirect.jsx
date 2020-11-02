@@ -1,29 +1,67 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import { modalWindow } from "../styles/modal-window1-components/modal-window-size-pos";
+import { getYesNoButtonStyle } from "../styles/modal-window1-components/yes-no-buttons";
 import "./ConfirmRedirect.scss";
 
-export function ConfirmRedirect({ path, message, togleConfirmRedirect, isLocalLink}) {
-    return (
-        <div className="confirm-redirect">
-            <img
-                src="/Images/close/close.svg"
-                className="confirm-redirect-close"
-                onClick={() => togleConfirmRedirect(false, null, false)}
-            />
-            <div className="confirm-redirect-text">{message}</div>
-            {isLocalLink && (
-                <Link to={path}>
-                    <div className="confirm-redirect-accept-button">Yes</div>
-                </Link>
-            )}
-            {!isLocalLink && (
-                <a href={path}>
-                    <div className="confirm-redirect-accept-button">Yes</div>
-                </a>
-            )}
-            <div className="confirm-redirect-reject-button" onClick={() => togleConfirmRedirect(false, null, false)}>
-                No
+
+export class ConfirmRedirect extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { redirect: "none" };
+        this.buttonSizePos = getYesNoButtonStyle(modalWindow);
+        this.goToPage = this.goToPage.bind(this);
+        this.cancelRedirect = this.cancelRedirect.bind(this);
+    }
+
+    goToPage(redirectType) {
+        this.setState({ redirect: redirectType });
+    }
+
+    cancelRedirect() {
+        this.setState({ redirect: "none" });
+        this.props.togleConfirmRedirect(false, null, false);
+    }
+
+    render() {
+        if (this.state.redirect === "local") {
+            return (window.location.href = this.props.path);
+        }
+
+        if (this.state.redirect === "external") {
+            return (
+                <Redirect
+                    to={{
+                        pathname: this.props.path,
+                        state: {
+                            currentPath: this.props.path,
+                        },
+                    }}
+                />
+            );
+        }
+
+        const redirectType = this.props.localLink ? "local" : "external";
+
+        return (
+            <div className="confirm-redirect" style={modalWindow}>
+                <img src="/Images/close/close.svg" className="confirm-redirect-close" onClick={this.cancelRedirect} />
+                <div className="confirm-redirect-text">{this.props.message}</div>
+                <div
+                    className="confirm-redirect-accept-button"
+                    style={this.buttonSizePos.yes}
+                    onClick={() => this.goToPage(redirectType)}
+                >
+                    Yes
+                </div>
+                <div
+                    className="confirm-redirect-reject-button"
+                    style={this.buttonSizePos.no}
+                    onClick={this.cancelRedirect}
+                >
+                    No
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }

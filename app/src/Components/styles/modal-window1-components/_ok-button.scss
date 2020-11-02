@@ -1,8 +1,9 @@
-@import "../button/button1";
+@import "../button/button-style";
+// @import "../button/button-size";
 
-@mixin ok-button($button-height, $theme) {
-    position: absolute;
-    top: 80%;
-    left: 263px;
-    @include button1($button-height, $theme);
+@mixin ok-button($theme) {
+    // position: absolute;
+    top: 90%;
+    left: 55%;
+    @include button-style($theme);
 }

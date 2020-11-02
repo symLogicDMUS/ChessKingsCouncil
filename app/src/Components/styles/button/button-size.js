@@ -1,4 +1,4 @@
-export function buttonSizePos(height) {
+export function getButtonSize(height) {
     return {
         height: height,
         width: height * 3.8,

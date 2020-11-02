@@ -2,6 +2,7 @@
 
 @mixin modal-close {
     position: absolute;
+    cursor: pointer;
     left: 95%;
     top: 2%;
     width: 5%;

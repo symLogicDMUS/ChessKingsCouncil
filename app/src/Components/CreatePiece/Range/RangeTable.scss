@@ -3,13 +3,24 @@ $width: 400;
 
 
 .range-table {
-    position: absolute;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
     width: 100%;
     height: 90%;
     top: 20%;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 16% 16% 16% 16% 16%;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 5%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 18% 18% 18% 18% 18%;
+    }
     /* border: 1px dashed white; */
 }
 

@@ -1,27 +1,39 @@
+@import "../../../styles/button/icon-button";
+@import "../../../styles/button//icon-button-left";
+@import "../../../styles/button//icon-button-top";
+@import "../../../styles/button//icon-button-text";
+@import "../heights";
+
 @mixin choose-button {
-    position: absolute;
-    z-index: 0;
-    top:  70%;
-    width: 24.25%;
-    height: 21.33%;
-    font-size: 100%;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-        color: white;
-        background-color: #a9a9a9;
+    @include icon-button($button-height);
+    @media screen and (min-device-width: 768px) {
+        top: 71%;
+    }
+    @media screen and (max-device-width: 767px) {
+        text-align: center;
     }
 }
 
 .icon-tool .white-choose {
     @include choose-button;
-    left: 2.5%;
+    @media screen and (min-device-width: 768px) {
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage(($margin + $button-disp * 2)/100);
+    }
 }
 
 .icon-tool .black-choose {
     @include choose-button;
-    left: 51.75%;
+    @media screen and (min-device-width: 768px) {
+        left: 51.75%;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage(($margin + $button-disp * 3)/100);
+    }
+}
+
+.icon-button-text {
+    @include icon-button-text;
 }

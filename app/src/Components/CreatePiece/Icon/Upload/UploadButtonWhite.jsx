@@ -1,31 +1,29 @@
 import React from "react";
-import {saveImg} from "../../../../API/saveImg";
+import { saveImg } from "../../../../API/saveImg";
 import "./UploadButton.scss";
-
 
 export class UploadButtonWhite extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {bValue: true}
+        this.state = { bValue: true };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-
         const files = event.target.files;
         const currentFile = files[0];
         var imgName = currentFile.name.replace(".", "-");
         const myFileItemReader = new FileReader();
 
         myFileItemReader.addEventListener(
-            "load", 
+            "load",
             () => {
                 const imgStr = myFileItemReader.result;
                 this.props.setUnsaved(true);
-                saveImg(imgName, imgStr).then( ([res]) => {
+                saveImg(imgName, imgStr).then(([res]) => {
                     this.props.setPieceImg("white", imgStr);
-                })
-            }, 
+                });
+            },
             false
         );
 
@@ -33,14 +31,14 @@ export class UploadButtonWhite extends React.Component {
     }
 
     render() {
-
-            return(
-                <div>
-                    <label htmlFor="choose-img2" className="white-upload">
-                        Upload...
-                    </label>
-                    <input id="choose-img2" type="file" onChange={this.handleChange} style={{display: "none"}} />
-                </div>
-            )
+        return (
+            <div>
+                <label htmlFor="choose-img2" className="white-upload">
+                    <p className="icon-button-text">Upload...</p>
+                    <div className="icon-button-text-mobile1">Upload White</div>
+                </label>
+                <input id="choose-img2" type="file" onChange={this.handleChange} style={{ display: "none" }} />
+            </div>
+        );
     }
 }

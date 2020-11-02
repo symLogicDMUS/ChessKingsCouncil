@@ -5,6 +5,7 @@ import { sqrColorClass } from "./sqrColorClass";
 import { blankBoard } from "./blankBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
+import {stylesObjects} from "../styles-objects";
 import "../../helpers/stepFuncs";
 import "./CreatePieceBoard.scss";
 
@@ -16,15 +17,15 @@ export class CreatePieceBoard extends React.Component {
         this.board = blankBoard;
     }
 
-    getStyle() {
-        const size = window.screen.availWidth * 0.39;
-        return {
-            width: size,
-            height: size,
-            top: window.screen.availHeight * 0.195,
-            left: window.screen.availWidth * 0.17,
-        };
-    }
+    // getStyle() {
+    //     const size = window.screen.availWidth * 0.39;
+    //     return {
+    //         width: size,
+    //         height: size,
+    //         top: window.screen.availHeight * 0.195,
+    //         left: window.screen.availWidth * 0.17,
+    //     };
+    // }
 
     getBoard() {
         let squares = [];
@@ -70,7 +71,7 @@ export class CreatePieceBoard extends React.Component {
 
     render() {
         return (
-            <div className="my-grid" style={this.getStyle()}>
+            <div className="my-grid" style={stylesObjects[this.props.screenCase]["Board"]()}>
                 {this.getBoard()};
             </div>
         );

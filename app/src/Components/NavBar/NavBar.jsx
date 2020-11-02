@@ -14,7 +14,7 @@ export class NavBar extends React.Component {
             isHelpModal: false,
             isRedirectModal: false,
             pendingRedirect: null,
-            isLocalLink: false,
+            isLocalLink: true,
             firstTime: false,
         };
         this.redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";

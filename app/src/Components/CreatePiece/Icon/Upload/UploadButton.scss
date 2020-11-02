@@ -1,31 +1,53 @@
+@import "../../../styles/button/icon-button";
+@import "../../../styles/button/icon-button-left";
+@import "../../../styles/button/icon-button-top";
+@import "../../../styles/button/icon-button-text";
+@import "../heights";
+
 @mixin upload-button {
-    position: absolute;
-    z-index: 0;
-    top: 41.33%;
-    width: 24.25%;
-    height: 16.67%;
-    color: #bbbbbb;
-    background-color: #515151;    
-    border: solid 1px #a9a9a9;
-    font-size: 110%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 6px;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-        color: white;
-        background-color: #a9a9a9;
+    @include icon-button($button-height);
+    @media screen and (min-device-width: 768px) {
+        top: 41.33%;
     }
-    
+    @media screen and (max-device-width: 767px) {
+        text-align: center;
+    }
 }
 
 .icon-tool .white-upload {
     @include upload-button;
-    left: 2.5%;
-} 
+    @media screen and (min-device-width: 768px) {
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($margin/100);
+    }
+}
 
 .icon-tool .black-upload {
     @include upload-button;
-    left: 51.75%;
-} 
+    @media screen and (min-device-width: 768px) {
+        left: 51.75%;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage(($margin + $button-disp)/100);
+    }
+}
+
+.icon-button-text {
+    @media screen and (min-device-width: 768px) {
+        @include icon-button-text;
+    }
+    @media screen and (max-device-width: 767px) {
+        display: none;
+    }
+}
+
+.icon-button-text-mobile1 {
+    @media screen and (min-device-width: 768px) {
+        display: none;
+    }
+    @media screen and (max-device-width: 767px) {
+        @include icon-button-text;
+    }
+}

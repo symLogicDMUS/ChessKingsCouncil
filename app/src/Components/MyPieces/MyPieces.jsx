@@ -3,14 +3,14 @@ import { Redirect } from "react-router-dom";
 import { offsetToText } from "../helpers/offsetToText";
 import { spanToText } from "../helpers/spanToText";
 import { Profile } from "../PieceProfile/Profile";
-import { MyPieceConfirmDelete } from "./MyPieceConfirmDelete";
 import { DisplayBoardModal } from "../PieceProfile/DisplayBoardModal/DisplayBoardModal";
 import { ProfileHeader } from "./ProfileHeader";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { SearchBar } from "./SearchBar";
-import { NavBar } from '../NavBar/NavBar'
+import { NavBar } from "../NavBar/NavBar";
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./MyPieces.scss";
 
 export class MyPieces extends React.Component {
@@ -38,6 +38,7 @@ export class MyPieces extends React.Component {
         this.update = this.update.bind(this);
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
+        this.cancelDelete = this.cancelDelete.bind(this);
         this.setPiece = this.setPiece.bind(this);
         this.expand = this.expand.bind(this);
         this.togleNav = this.togleNav.bind(this);
@@ -92,18 +93,21 @@ export class MyPieces extends React.Component {
 
     togleConfirmDeleteModal(boolVal) {
         this.setState({ deleteModal: boolVal });
-        //this.deleteModal = boolVal;
+    }
+
+    togleMessageModal(boolVal) {
+        this.setState({ messageModal: boolVal });
     }
 
     delete(pieceName) {
         delete this.defs[pieceName];
         deleteDef(pieceName).then(([response]) => {
-            this.update();
+            this.setState({ deleteModal: false, selectedPiece: null });
         });
     }
 
-    togleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
+    cancelDelete() {
+        this.setState({ deleteModal: false, selectedPiece: null });
     }
 
     setMessageText(helpTitle, helpText) {
@@ -219,11 +223,12 @@ export class MyPieces extends React.Component {
                     <div className="profiles">{this.getProfiles()}</div>
                 </div>
                 {this.state.deleteModal && (
-                    <MyPieceConfirmDelete
-                        delete={this.delete}
-                        setPiece={this.setPiece}
-                        pieceName={this.state.selectedPiece}
-                        togleConfirmDeleteModal={this.togleConfirmDeleteModal}
+                    <ConfirmModal
+                        text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
+                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                    Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
+                        yesClick={() => this.delete(this.state.selectedPiece)}
+                        noClick={() => this.cancelDelete()}
                     />
                 )}
                 {this.getDisplayBoard()}

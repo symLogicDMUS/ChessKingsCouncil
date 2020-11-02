@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { stylesObjects } from "../styles-objects";
 import "./Name.scss";
 
 export class Name extends React.Component {
@@ -15,30 +16,18 @@ export class Name extends React.Component {
         this.props.updateName(this.userInput);
     }
 
-    getStyle() {
-        return {
-            width: window.screen.availWidth * 0.26,
-            left: window.screen.availWidth * 0.57,
-            height: window.screen.availHeight * 0.08,
-            top: window.screen.availHeight * 0.1976,
-        };
-    }
-
     render() {
         this.userInput = this.props.name;
 
         return (
-            <div
-                className="name-component1"
-                style={this.getStyle()}
-            >
+            <div className="name-component1" style={stylesObjects[this.props.screenCase]["Name"]()}>
                 <div className="name">Name</div>
                 <input
                     type="text"
                     value={this.userInput}
                     onChange={this.handleUserInput}
                     className="form1"
-                    placeholder="enter name of piece..."
+                    placeholder="Piece Name..."
                 />
             </div>
         );

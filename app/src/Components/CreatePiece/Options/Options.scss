@@ -10,51 +10,95 @@
 }
 
 .options-title {
-    position: absolute;
-    z-index: 0;
-    left: 2.5%;
-    top: 5%;
-    font-size: 125%;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: #a9a9a9;
-}
-
-@mixin option {
-    z-index: 1;
-    position: absolute;
-    width: 12.25%;
-    height: 63.5%;
-    top: 30%;
-    cursor: pointer;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        left: 2.5%;
+        top: 5%;
+        font-size: 125%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #a9a9a9;
+    }
+    @media screen and (max-device-width: 767px) {
+        display: none;
+    }
 }
 
 $first-option-y: 2.5%;
-$option-disp: 20.9%;
+$option-disp: 25%;
 
+$margin: 1;
+$option-width: 80;
+$option-height: 23;
+$disp-y: $option-height + $margin*2;
+// $disp-x: $option-width + $margin;
+
+@mixin option {
+    position: absolute;
+    z-index: 1;
+    @media screen and (min-device-width: 768px) {
+        width: 12.25%;
+        height: 63.5%;
+        top: 30%;
+        cursor: pointer;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 1;
+        width: percentage($option-width/100);
+        height: percentage($option-height/100);
+        left: percentage($margin/100);
+    }
+}
 
 .save-option {
     @include option;
-    left: $first-option-y + $option-disp * 0;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 0;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($margin/100);
+    }
 }
 
 .load-option {
     @include option;
-    left: $first-option-y + $option-disp * 1;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 1;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-y/100);
+    }
 }
 
 .reset-option {
     @include option;
-    left: $first-option-y + $option-disp * 2;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 2;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-y*2/100);
+    }
 }
 
 .blank-option {
     @include option;
-    left: $first-option-y + $option-disp * 3;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 3;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-y*3/100);
+    }
 }
 
 .theme-option {
     @include option;
-    left: $first-option-y + $option-disp * 4;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 4;
+    }
+    @media screen and (max-device-width: 767px) {
+        
+    }
 }
 
 .option-img {

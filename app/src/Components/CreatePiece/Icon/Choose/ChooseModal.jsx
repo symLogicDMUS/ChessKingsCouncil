@@ -5,7 +5,7 @@ import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
 import { ImgChoice } from "./ImgChoice";
 import { AskDeleteIconButton } from "./AskDeleteIconButton";
-import { ConfirmDeleteIconModal } from "./ConfirmDeleteIconModal";
+import { ConfirmModal } from "../../../NavBar/ConfirmModal";
 import { Ok } from "./IconChooseOk";
 import { SearchBar } from "./SearchBar";
 import "./ChooseModal.scss";
@@ -26,7 +26,6 @@ export class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
                 this.imgDict = getSetSampleImgs();
@@ -109,7 +108,11 @@ export class ChooseModal extends React.Component {
                             <img src="/Images/close/close.svg" className="x" alt="close window" />
                         </div>
                         <div className="title-div">
-                            <img src="/Images/text-labels/choose-icon-title.svg" className="title" alt="title of window" />
+                            <img
+                                src="/Images/text-labels/choose-icon-title.svg"
+                                className="title"
+                                alt="title of window"
+                            />
                         </div>
                         <SearchBar updateSearch={this.updateSearch} />
                         <div className="pieces-profiles">{this.getImages()}</div>
@@ -127,10 +130,10 @@ export class ChooseModal extends React.Component {
                     </div>
                 </div>
                 {this.state.confirmDeleteModal && (
-                    <ConfirmDeleteIconModal
-                        cancelDeleteIcon={this.cancelDeleteIcon}
-                        acceptDeleteIcon={this.acceptDeleteIcon}
-                        imgNameChoice={this.state.imgNameChoice}
+                    <ConfirmModal
+                        text={`Are You Sure you want to delete image ${this.state.imgNameChoice}?`}
+                        noClick={this.cancelDeleteIcon}
+                        yesClick={this.acceptDeleteIcon}
                     />
                 )}
             </>
