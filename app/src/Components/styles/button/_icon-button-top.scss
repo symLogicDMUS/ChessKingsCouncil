@@ -1,8 +1,0 @@
-@function icon-button-top($type) {
-    @if ($type == "upload") {
-        @return percentage(5/100);
-    }
-    @if ($type == "choose") {
-        @return percentage(80/100);
-    }
-}

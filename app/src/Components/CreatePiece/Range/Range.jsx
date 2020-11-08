@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { ArrowButton } from "./ArrowButton/ArrowButton";
 import { RangeDisplayWindow } from "./RangeDisplayWindow";
-import { stylesObjects } from "../styles-objects";
+import { stylesObjects } from "../create-piece-styles-objects";
 import "./Range.scss";
 
 export class Range extends React.Component {
@@ -30,15 +30,6 @@ export class Range extends React.Component {
             "315d": { position: "absolute", top: "70%", left: "70%" },
         };
     }
-
-    // getStyle() {
-    //     return {
-    //         width: window.screen.availWidth * 0.26,
-    //         height: window.screen.availHeight * 0.18,
-    //         top: window.screen.availHeight * 0.478,
-    //         left: window.screen.availWidth * 0.57,
-    //     };
-    // }
 
     getArrowButtons() {
         const arrowButtons = [];
@@ -75,6 +66,7 @@ export class Range extends React.Component {
 
     render() {
         return (
+            <>
             <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
                 <div className="range-title">Range</div>
                 <RangeDisplayWindow
@@ -88,6 +80,7 @@ export class Range extends React.Component {
                     <div className="middle" />
                 </div>
             </div>
+            </>
         );
     }
 }

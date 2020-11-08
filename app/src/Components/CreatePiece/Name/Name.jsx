@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { stylesObjects } from "../styles-objects";
+import { stylesObjects } from "../create-piece-styles-objects";
 import "./Name.scss";
 
 export class Name extends React.Component {
@@ -20,16 +20,18 @@ export class Name extends React.Component {
         this.userInput = this.props.name;
 
         return (
-            <div className="name-component1" style={stylesObjects[this.props.screenCase]["Name"]()}>
-                <div className="name">Name</div>
-                <input
-                    type="text"
-                    value={this.userInput}
-                    onChange={this.handleUserInput}
-                    className="form1"
-                    placeholder="Piece Name..."
-                />
-            </div>
+            <>
+                    <div className="name-component1" style={stylesObjects[this.props.screenCase]["Name"]()}>
+                        <div className="name">Name</div>
+                        <input
+                            type="text"
+                            value={this.userInput}
+                            onChange={this.handleUserInput}
+                            className="form1"
+                            placeholder="Enter name of piece..."
+                        />
+                    </div>
+            </>
         );
     }
 }

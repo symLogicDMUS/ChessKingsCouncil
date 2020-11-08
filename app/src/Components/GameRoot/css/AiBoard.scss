@@ -5,8 +5,8 @@
     width: 12.5%;
     height: 12.5%;
     background-repeat: no-repeat;
-    background-image: get-ai-sqr-background-img($theme, $start-or-dest);
     background-size: cover;
+    background-image: get-ai-sqr-background-img($theme, $start-or-dest);
 }
 
 /*light theme*/

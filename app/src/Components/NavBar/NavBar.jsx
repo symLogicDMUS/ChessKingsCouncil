@@ -1,9 +1,11 @@
 import React from "react";
+import MediaQuery from "react-responsive";
 import { Help } from "./Help/Help";
 import { TogleNav } from "./TogleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpComponent } from "./Help/HelpComponent";
+import {styleObjects} from "./styleObjects"
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {
@@ -36,24 +38,17 @@ export class NavBar extends React.Component {
         this.setState({ firstTime: firstTime });
     }
 
-    getStyle() {
-        return {
-            width: window.screen.availWidth,
-            height: window.screen.availHeight * 0.052,
-            left: 0,
-            top: 0,
-        };
-    }
 
     togleConfirmRedirect(bValue, path, isLocalLink) {
         this.setState({ isRedirectModal: bValue, pendingRedirect: path, isLocalLink: isLocalLink });
     }
 
-    render() {
+    getComponents(screenCase) {
         return (
             <>
                 {(this.state.isHelpModal || this.state.firstTime) && (
                     <Help
+                        screenCase={screenCase}
                         pageName={this.props.currentPage}
                         firstTime={this.state.firstTime}
                         togleHelpModal={this.togleHelpModal}
@@ -62,15 +57,17 @@ export class NavBar extends React.Component {
                 )}
                 {this.state.isRedirectModal && (
                     <ConfirmRedirect
+                        screenCase={screenCase}
                         path={this.state.pendingRedirect}
                         message={this.redirectMessage}
                         isLocalLink={this.state.isLocalLink}
                         togleConfirmRedirect={this.togleConfirmRedirect}
                     />
                 )}
-                <div className="nav-bar" style={this.getStyle()}>
+                <div className="nav-bar" style={styleObjects[screenCase]()}>
                     {this.state.navExpanded && (
                         <HelpComponent
+                            screenCase={screenCase}
                             currentPage={this.props.currentPage}
                             togleHelpModal={this.togleHelpModal}
                             setFirstTime={this.setFirstTime}
@@ -83,6 +80,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Home"
                             path="/"
                             classes={{
@@ -100,6 +98,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="New Game"
                             path="/NewGame"
                             classes={{
@@ -117,6 +116,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Load Game"
                             path="/LoadGame"
                             classes={{
@@ -134,6 +134,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Create Piece"
                             path="/CreatePiece"
                             classes={{
@@ -151,6 +152,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Chess Rules"
                             path="https://www.chess.com/learn-how-to-play-chess"
                             classes={{
@@ -168,6 +170,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Council Rules"
                             path="/CouncilRules"
                             classes={{
@@ -185,6 +188,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="My Pieces"
                             path="/MyPieces"
                             classes={{
@@ -202,6 +206,7 @@ export class NavBar extends React.Component {
                     )}
                     {this.state.navExpanded && (
                         <NavBarButton
+                            screenCase={screenCase}
                             pageName="Author Github"
                             path="https://github.com/symLogicDMUS"
                             classes={{
@@ -218,11 +223,21 @@ export class NavBar extends React.Component {
                         />
                     )}
                     <TogleNav
+                        screenCase={screenCase}
                         navExpanded={this.state.navExpanded}
                         togleNav={this.togleNav}
                         theme={this.props.theme}
                     />
                 </div>
+            </>
+        );
+    }
+
+    render() {
+        return (
+            <>    
+                <MediaQuery minDeviceWidth={768}>{this.getComponents('desktop')}</MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>{this.getComponents('mobile')}</MediaQuery>
             </>
         );
     }

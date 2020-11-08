@@ -3,7 +3,7 @@ import { Save } from "./Save/Save";
 import { Load } from "./Load/Load";
 import { Reset } from "./Reset/Reset";
 import { Erase } from "./Erase/Erase";
-import { stylesObjects } from "../styles-objects";
+import { stylesObjects } from "../create-piece-styles-objects";
 import "./Options.scss";
 
 export class Options extends React.Component {
@@ -13,6 +13,7 @@ export class Options extends React.Component {
         this.screenWidth = window.screen.availWidth;
         this.backgroundOn = this.backgroundOn.bind(this);
         this.backgroundOff = this.backgroundOff.bind(this);
+        console.log("hello there")
     }
 
     backgroundOn() {
@@ -25,6 +26,7 @@ export class Options extends React.Component {
 
     render() {
         return (
+            <>
             <div className="options-tool" style={stylesObjects[this.props.screenCase]["Options"]()}>
                 <div className="options-title">Options</div>
                 <Save
@@ -62,6 +64,7 @@ export class Options extends React.Component {
                     setUnsaved={this.props.setUnsaved}
                 />
             </div>
+            </>
         );
     }
 }

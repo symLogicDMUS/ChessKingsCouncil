@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { ChooseButton } from "./Choose/ChooseButton";
 import { UploadButtonWhite } from "./Upload/UploadButtonWhite";
 import { UploadButtonBlack } from "./Upload/UploadButtonBlack";
-import { stylesObjects } from "../styles-objects";
+import { stylesObjects } from "../create-piece-styles-objects";
 import "./Icon.scss";
 
 export class Icon extends React.Component {
@@ -11,7 +11,7 @@ export class Icon extends React.Component {
         return (
             <>
                 <div className="icon-tool" style={stylesObjects[this.props.screenCase]["Icon"]()}>
-                    {/* <div className="icon-title">Icon</div> */}
+                    <div className="icon-title">Icon</div>
                     <div className="white-title">White</div>
                     <div className="black-title">Black</div>
                     <UploadButtonWhite

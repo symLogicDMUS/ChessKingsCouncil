@@ -1,9 +1,21 @@
-@import "../../../styles/button/icon-button";
-@import "../../../styles/button//icon-button-left";
-@import "../../../styles/button//icon-button-top";
-@import "../../../styles/button//icon-button-text";
-@import "../heights";
+@import "../icon-button.scss";
+@import "../percent-values.scss";
 
+
+@mixin icon-button-text {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        top: -25%;
+        left: 23%;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: relative;
+        top: 15%;
+        font-size: 85%;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
 @mixin choose-button {
     @include icon-button($button-height);
     @media screen and (min-device-width: 768px) {
@@ -20,7 +32,8 @@
         left: 2.5%;
     }
     @media screen and (max-device-width: 767px) {
-        top: percentage(($margin + $button-disp * 2)/100);
+        top: 73%;
+        left: 2%;
     }
 }
 
@@ -30,7 +43,8 @@
         left: 51.75%;
     }
     @media screen and (max-device-width: 767px) {
-        top: percentage(($margin + $button-disp * 3)/100);
+        top: 73%;
+        left: 60%;
     }
 }
 

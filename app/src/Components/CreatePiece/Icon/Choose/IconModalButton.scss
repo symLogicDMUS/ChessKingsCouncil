@@ -1,0 +1,41 @@
+@import "../../../styles/button/button-text-and-color";
+
+.bottom-bar .ok-active {
+    @include button-text-and-color("dark");
+    cursor: pointer;
+    &:hover {
+        color: #4f4f4f;
+        background-color: #a9a9a9;
+    }
+}
+
+.bottom-bar .ok-inactive {
+    @include button-text-and-color("dark");
+    cursor: not-allowed;
+}
+
+.bottom-bar .delete-active {
+    @include button-text-and-color("dark");
+    @media screen and (min-device-width: 768px) {
+        left: 8.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        left: 75%;
+    }
+    cursor: pointer;
+    &:hover {
+        color: #4f4f4f;
+        background-color: #a9a9a9;
+    }
+}
+
+.bottom-bar .delete-inactive {
+    @include button-text-and-color("dark");
+    @media screen and (min-device-width: 768px) {
+        left: 8.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        left: 75%;
+    }
+    cursor: not-allowed;
+}

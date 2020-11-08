@@ -3,17 +3,20 @@ import { getImgDict } from "../../../../API/getImgDict";
 import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
-import { ImgChoice } from "./ImgChoice";
-import { AskDeleteIconButton } from "./AskDeleteIconButton";
+import { IconModalButton } from "./IconModalButton";
 import { ConfirmModal } from "../../../NavBar/ConfirmModal";
-import { Ok } from "./IconChooseOk";
-import { SearchBar } from "./SearchBar";
+import { ImgChoice } from "./ImgChoice";
+import { SearchBox } from "../../../Reuseables/SearchBox";
+import { stylesObjects } from "./choose-modal-styles-objects";
+import { SearchBoxStyle } from "../../../Reuseables/SearchBoxStyle";
+import { CloseStyle } from "../../../Reuseables/CloseStyle";
+import { Close } from "../../../Reuseables/Close";
 import "./ChooseModal.scss";
 
 export class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { imgNameChoice: null, bValue: true, confirmDeleteModal: false };
+        this.state = { imgNameChoice: null, bValue: true, confirmDeleteModal: false, hoverText: null };
         this.imgDict = {};
         this.imgNames = [];
         this.searchText = "";
@@ -23,6 +26,7 @@ export class ChooseModal extends React.Component {
         this.acceptDeleteIcon = this.acceptDeleteIcon.bind(this);
         this.cancelDeleteIcon = this.cancelDeleteIcon.bind(this);
         this.openAskDeleteModal = this.openAskDeleteModal.bind(this);
+        this.setHoverText = this.setHoverText.bind(this);
     }
 
     componentDidMount() {
@@ -75,6 +79,11 @@ export class ChooseModal extends React.Component {
     submitChoice() {
         this.props.setUnsaved(true);
         this.props.setPieceImg(this.props.color, this.imgDict[this.state.imgNameChoice]);
+        this.props.closeChooseModal();
+    }
+
+    setHoverText(imgName) {
+        this.setState({ hoverText: imgName });
     }
 
     applySearchFilter() {
@@ -90,9 +99,11 @@ export class ChooseModal extends React.Component {
             imgPrevs.push(
                 <ImgChoice
                     name={name}
+                    screenCase={this.props.screenCase}
                     base64ImgStr={this.imgDict[name]}
                     imgNameChoice={this.state.imgNameChoice}
                     setChoice={this.setChoice}
+                    setHoverText={this.setHoverText}
                 />
             );
         });
@@ -103,29 +114,47 @@ export class ChooseModal extends React.Component {
         return (
             <>
                 <div className="choose-modal">
-                    <div className="choose-main">
-                        <div className="close" onClick={this.props.closeChooseModal}>
-                            <img src="/Images/close/close.svg" className="x" alt="close window" />
-                        </div>
-                        <div className="title-div">
+                    <div className="choose-main" style={stylesObjects[this.props.screenCase]["chooseMain"]()}>
+                        <Close
+                            styleObject={CloseStyle[this.props.screenCase](0.018, "0.75%", "97.75%")}
+                            theme="dark"
+                            clickMethod={this.props.closeChooseModal}
+                        />
+                        <div
+                            className="title-container"
+                            style={stylesObjects[this.props.screenCase]["titleContainer"]()}
+                        >
                             <img
                                 src="/Images/text-labels/choose-icon-title.svg"
-                                className="title"
+                                style={{ position: "absolute", width: "100%" }}
                                 alt="title of window"
                             />
                         </div>
-                        <SearchBar updateSearch={this.updateSearch} />
-                        <div className="pieces-profiles">{this.getImages()}</div>
-                        <div className="bottom-bar">
-                            <Ok
+                        <SearchBox
+                            updateSearch={this.updateSearch}
+                            screenCase={this.props.screenCase}
+                            styleObject={SearchBoxStyle[this.props.screenCase](0.01, 13.5, "60%", "1%")}
+                        />
+                        <div className="image-choices" style={stylesObjects[this.props.screenCase]["imageChoices"]()}>
+                            {this.getImages()}
+                        </div>
+                        <div className="bottom-bar" style={stylesObjects[this.props.screenCase]["bottomBar"]()}>
+                            <IconModalButton
+                                buttonText="Ok"
+                                buttonType="ok"
                                 imgNameChoice={this.state.imgNameChoice}
-                                submitChoice={this.submitChoice}
-                                closeChoose={this.props.closeChooseModal}
+                                clickMethod={this.submitChoice}
                             />
-                            <AskDeleteIconButton
+                            <IconModalButton
+                                buttonText="Delete"
+                                buttonType="delete"
                                 imgNameChoice={this.state.imgNameChoice}
-                                openAskDeleteModal={this.openAskDeleteModal}
+                                clickMethod={this.openAskDeleteModal}
                             />
+                            <div className="hover-image-name">
+                                <div style={{ position: "absolute", top: "20%" }}>{this.state.hoverText}</div>
+                            </div>
+                            <div className="selected-image-name">{this.state.imgNameChoice}</div>
                         </div>
                     </div>
                 </div>

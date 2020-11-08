@@ -1,9 +1,40 @@
-@import "../styles/piece-profiles/piece-range-header";
-@import "../styles/piece-profiles/wb-piece-type";
-@import "../styles/piece-profiles/exp-modal-grid";
-@import "../styles/piece-profiles/expand-modal-icon";
+@import "../styles/grc";
 
+@mixin piece-range-header($row, $col) {
+    @include grc($row, $col);
+    display: grid;
+    width: 99.75%;
+    grid-template-columns: 95% 5%;
+    border: 0.8px solid #707070;
+}
+@mixin wb-piece-type {
+    position: relative;
+    grid-row: 1;
+    grid-column: 1;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+    text-align: center;
+    width: 100%;
+    height: 90%;
+    left: 2.5%;
+    font-size: 130%;
+    // overflow: hidden;
+    text-overflow: ellipsis;
+}
 
+@mixin exp-modal-grid($row, $column) {
+    @include grc($row, $column);
+    cursor: pointer;
+}
+@mixin expand-modal-icon {
+    position: relative;
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    grid-row: 1;
+    grid-column: 2;
+    left: 17.5%;
+}
 .spans-header {
     @include piece-range-header(1, 2);
     .wb-piece-name {

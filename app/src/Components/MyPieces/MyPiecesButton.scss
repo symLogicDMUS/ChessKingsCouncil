@@ -1,0 +1,14 @@
+@import "../styles/button/button-style";
+@import "../styles/grc";
+
+.my-load-button {
+    @include button-style("dark");
+    top: 22.5%;
+    left: 86%;
+}
+
+.my-delete-button {
+    @include button-style("dark");
+    top: 22.5%;
+    left: 93%;
+}

@@ -1,8 +1,5 @@
-@import "../../../styles/button/icon-button";
-@import "../../../styles/button/icon-button-left";
-@import "../../../styles/button/icon-button-top";
-@import "../../../styles/button/icon-button-text";
-@import "../heights";
+@import "../icon-button.scss";
+@import "../percent-values";
 
 @mixin upload-button {
     @include icon-button($button-height);
@@ -20,7 +17,8 @@
         left: 2.5%;
     }
     @media screen and (max-device-width: 767px) {
-        top: percentage($margin/100);
+        top: 86.5%;
+        left: 2%;
     }
 }
 
@@ -30,24 +28,11 @@
         left: 51.75%;
     }
     @media screen and (max-device-width: 767px) {
-        top: percentage(($margin + $button-disp)/100);
+        top: 86.5%;
+        left: 60%;
     }
 }
 
 .icon-button-text {
-    @media screen and (min-device-width: 768px) {
-        @include icon-button-text;
-    }
-    @media screen and (max-device-width: 767px) {
-        display: none;
-    }
-}
-
-.icon-button-text-mobile1 {
-    @media screen and (min-device-width: 768px) {
-        display: none;
-    }
-    @media screen and (max-device-width: 767px) {
-        @include icon-button-text;
-    }
+    @include icon-button-text;
 }

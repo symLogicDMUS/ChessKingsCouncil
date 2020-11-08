@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { getColorName } from "../helpers/getColorName";
+import { Textfit } from "react-textfit";
 import { RangeTable } from "./RangeTable";
+import { getColorName } from "../helpers/getColorName";
 import { ProfileWBHeader } from "./ProfileWBHeader";
 import "./ProfileWB.scss";
 
@@ -16,7 +17,7 @@ export class ProfileWB extends React.Component {
     render() {
         return (
             <div className="w-or-b-profile">
-                <div className="img-label"> {this.color} Image </div>
+                <Textfit className="img-label">{this.color} Image</Textfit>
                 <div className="img-window">
                     <img src={this.props.def.img} className="piece-profile-img" alt="icon of piece" />
                 </div>

@@ -1,0 +1,23 @@
+@import "./piece-profiles-top-bar";
+@import "./piece-profiles-window";
+@import "./profiles-section";
+
+@mixin title {
+    position: absolute;
+    color: #a9a9a9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.profiles-window {
+    @include piece-profiles-window;
+    .top-bar {
+        @include piece-profiles-top-bar;
+        .title {
+            @include title;
+        }        
+    }
+    .profiles {
+        @include profiles-section;
+    }
+}

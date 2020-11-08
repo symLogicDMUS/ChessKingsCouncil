@@ -1,19 +1,19 @@
 import React from "react";
-import { MyLoadButton } from "./MyLoadButton";
-import { MyDeleteButton } from "./MyDeleteButton";
+import { MyPiecesButton } from "./MyPiecesButton";
 import "./ProfileHeader.scss";
 
-export function ProfileHeader(pieceName, load, setPiece, togleConfirmDeleteModal) {
+export function ProfileHeader(pieceName, load, prepareDelete) {
     return (
         <div className="my-pieces-profile-header">
             <div className="my-piece-name">{pieceName}</div>
             <div className="load-button-container">
-                <MyLoadButton load={load} setPiece={setPiece} pieceName={pieceName} />
+                <MyPiecesButton buttonType="load" buttonText="Load" clickMethod={load} pieceName={pieceName} />
             </div>
             <div className="delete-button-container">
-                <MyDeleteButton
-                    togleConfirmDeleteModal={togleConfirmDeleteModal}
-                    setPiece={setPiece}
+                <MyPiecesButton
+                    buttonType="delete"
+                    buttonText="Delete"
+                    clickMethod={prepareDelete}
                     pieceName={pieceName}
                 />
             </div>

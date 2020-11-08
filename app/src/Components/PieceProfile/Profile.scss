@@ -1,5 +1,6 @@
-@import "../styles/piece-profiles/piece-profile";
+// @import "../styles/piece-profiles/piece-profile";
 
 .piece-profile {
-    @include piece-profile;
+    z-index: inherit;
+    border-top: 0.8px solid #707070;
 } 

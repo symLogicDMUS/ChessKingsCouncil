@@ -1,10 +1,13 @@
 @import "../color-variables";
 
 $bg-colors: (
-    "dark": $dark-grey2,
+    "dark": $dark-grey1,
     "light": $green1
 );
-
+$border-colors: (
+    "dark": $dark-grey4,
+    "light": $light-green1
+);
 $text-colors: (
     "dark": $light-grey2,
     "light": $light-green1
@@ -37,3 +40,6 @@ $hover-text-colors: (
     @return map-get($hover-bg-colors, $theme);
 }
 
+@function get-button-border-color($theme) {
+    @return map-get($border-colors, $theme)
+}

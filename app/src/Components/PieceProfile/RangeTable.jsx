@@ -1,5 +1,7 @@
 import React from "react";
+import { Textfit } from "react-textfit";
 import {ScrollArrow } from "./ScrollArrow";
+
 import "./RangeTable.scss";
 
 

@@ -1,13 +1,19 @@
+@import "../../styles/color-variables";
+
 .range-tool {
-    position: absolute;
-    z-index: 0;
-    width: 26%;
-    height: 20%;
-    top: 51%;
-    left: 57%;
-    background-color: #515151;
-    border-radius: 15px;
-    border-color: #a9a9a9;
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        background-color: #515151;
+        border-radius: 15px;
+        border-color: #a9a9a9;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        border-radius: 15px;
+        border-color: #a9a9a9;
+    }
 }
 
 .range-tool .range-title {
@@ -25,6 +31,10 @@
     }
 }
 
+//will be unit %
+$direction-pad-height: 90;
+$icon-tool-hw-ratio: 0.615;
+
 .range-tool .direction-pad {
     @media screen and (min-device-width: 768px) {
         position: absolute;
@@ -37,12 +47,11 @@
     @media screen and (max-device-width: 767px) {
         position: absolute;
         z-index: 0;
-        width: 56%;
-        height: 88.5%;
-        top: 5%;
-        left: 3.5%;
+        height: percentage($direction-pad-height/100);
+        width: percentage($direction-pad-height * $icon-tool-hw-ratio/100);
+        top: 7%;
+        left: 3%;
     }
-
 }
 
 .direction-pad .middle {
@@ -72,8 +81,8 @@
     z-index: 0;
     width: 30%;
     height: 30%;
-    background-color: #515151;
-    border: 1px solid #a9a9a9;
+    background-color: $dark-grey2;
+    border: 1px solid $light-grey1;
     border-radius: 5px;
     cursor: pointer;
 }

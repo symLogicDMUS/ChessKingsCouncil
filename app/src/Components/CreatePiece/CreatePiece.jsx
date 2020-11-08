@@ -24,6 +24,9 @@ import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
+import { ProfilesWindow } from "../PieceProfile/ProfilesWindow";
+import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
+import { MyPieces as SavedPieces } from "../MyPieces/MyPieces";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./CreatePiece.scss";
 
@@ -39,6 +42,7 @@ export class CreatePiece extends React.Component {
             chooseModal: false,
             isMessageModal: false,
             confirmOverwriteModal: false,
+            selectedToolMobile: null,
             displaySuccessfullSaveMessage: false,
         };
 
@@ -251,6 +255,7 @@ export class CreatePiece extends React.Component {
         this.setUnsaved = this.setUnsaved.bind(this);
         this.resetSaveStatus = this.resetSaveStatus.bind(this);
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
+        this.setSelectedToolMobile = this.setSelectedToolMobile.bind(this);
     }
 
     componentDidMount() {
@@ -292,17 +297,22 @@ export class CreatePiece extends React.Component {
         this.loadedName = JSON.parse(JSON.stringify(this.name));
         this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
         this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
-
+        
         //reminder: calls this.update() at end
         this.setLoc("d4");
+
+        this.setState({ isLoadModal: false, unsaved: true });
     }
 
     togleLoadModal(boolVal) {
         this.setState({ isLoadModal: boolVal });
     }
 
-    save() {
+    setUnsaved(boolVal) {
+        this.setState({ unsaved: boolVal });
+    }
 
+    save() {
         let namecase = this.getNameCase();
         if (namecase !== "valid") {
             this.setSaveStatus(namecase);
@@ -412,10 +422,6 @@ export class CreatePiece extends React.Component {
             default:
                 break;
         }
-    }
-
-    setUnsaved(boolVal) {
-        this.setState({ unsaved: boolVal });
     }
 
     updateName(input) {
@@ -589,27 +595,33 @@ export class CreatePiece extends React.Component {
         this.setState({ chooseModal: false });
     }
 
+    setSelectedToolMobile(selectedToolMobile) {
+        this.setState({ selectedToolMobile: selectedToolMobile });
+    }
+
     getComponents(screenCase) {
         return (
             <>
                 {/*Modals */}
                 {this.state.isMessageModal && (
                     <MessageModal
+                        screenCase={screenCase}
                         messageTitle={this.msgModalConfig.title}
                         messageText={this.msgModalConfig.text}
                         togleMessageModal={this.msgModalConfig.togleMethod}
                     />
                 )}
                 {this.state.isLoadModal && (
-                    <CreatedPieceProfiles
+                    <ProfilesWindow
+                        screenCase={screenCase}
                         defs={this.defs}
                         load={this.load}
-                        togleLoadModal={this.togleLoadModal}
-                        setUnsaved={this.setUnsaved}
                     />
                 )}
+                {/* {this.state.isLoadModal && <SavedPieces />} */}
                 {this.state.chooseModal && (
                     <ChooseModal
+                        screenCase={screenCase}
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}
                         color={this.currentIconColor}
@@ -619,6 +631,7 @@ export class CreatePiece extends React.Component {
                 )}
                 {this.state.confirmOverwriteModal && (
                     <ConfirmModal
+                        screenCase={screenCase}
                         text={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
                         noClick={() => this.setSaveStatus("none")}
@@ -644,44 +657,59 @@ export class CreatePiece extends React.Component {
                     showOffsetText={this.showOffsetText}
                     setUnsaved={this.setUnsaved}
                 />
-                {/* <Name name={this.name} screenCase={screenCase} updateName={this.updateName} setUnsaved={this.setUnsaved} /> */}
-                <Icon
-                    screenCase={screenCase}
-                    pieceImg={this.pieceImg}
-                    setPieceImg={this.setPieceImg}
-                    updateParent={this.update}
-                    showChooseModal={this.showChooseModal}
-                    currentIconColor={this.currentIconColor}
-                    setCurrentIconColor={this.setCurrentIconColor}
-                    setUnsaved={this.setUnsaved}
-                />
-                <Range
-                    screenCase={screenCase}
-                    spans={this.spans}
-                    offsets={this.offsets}
-                    togleSpan={this.togleSpan}
-                    update={this.update}
-                    togleOffsetText={this.togleOffsetText}
-                    togleSpanText={this.togleSpanText}
-                    setUnsaved={this.setUnsaved}
-                />
-
-                <Location screenCase={screenCase} setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
-                {/* <Options
-                    screenCase={screenCase}
-                    save={this.save}
-                    name={this.name}
-                    clear={this.clear}
-                    reset={this.reset}
-                    togleLoadModal={this.togleLoadModal}
-                    togleOptionTool={this.togleOptionTool}
-                    togleMessageModal={this.togleMessageModal}
-                    setUnsaved={this.setUnsaved}
-                    eraseRange={this.eraseRange}
-                    existing={Object.keys(this.defs)}
-                    saveStatus={this.saveStatus}
-                    setSaveStatus={this.setSaveStatus}
-                /> */}
+                {screenCase === "mobile" && <ToolsMenuMobile notifyParent={this.setSelectedToolMobile} />}
+                {(screenCase !== "mobile" || this.state.selectedToolMobile === "name") && (
+                    <Name
+                        name={this.name}
+                        screenCase={screenCase}
+                        updateName={this.updateName}
+                        setUnsaved={this.setUnsaved}
+                    />
+                )}
+                {(screenCase !== "mobile" || this.state.selectedToolMobile === "icon") && (
+                    <Icon
+                        screenCase={screenCase}
+                        pieceImg={this.pieceImg}
+                        setPieceImg={this.setPieceImg}
+                        updateParent={this.update}
+                        showChooseModal={this.showChooseModal}
+                        currentIconColor={this.currentIconColor}
+                        setCurrentIconColor={this.setCurrentIconColor}
+                        setUnsaved={this.setUnsaved}
+                    />
+                )}
+                {(screenCase !== "mobile" || this.state.selectedToolMobile === "range") && (
+                    <Range
+                        screenCase={screenCase}
+                        spans={this.spans}
+                        offsets={this.offsets}
+                        togleSpan={this.togleSpan}
+                        update={this.update}
+                        togleOffsetText={this.togleOffsetText}
+                        togleSpanText={this.togleSpanText}
+                        setUnsaved={this.setUnsaved}
+                    />
+                )}
+                {(screenCase !== "mobile" || this.state.selectedToolMobile === "location") && (
+                    <Location screenCase={screenCase} setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
+                )}
+                {(screenCase !== "mobile" || this.state.selectedToolMobile === "options") && (
+                    <Options
+                        screenCase={screenCase}
+                        save={this.save}
+                        name={this.name}
+                        clear={this.clear}
+                        reset={this.reset}
+                        togleLoadModal={this.togleLoadModal}
+                        togleOptionTool={this.togleOptionTool}
+                        togleMessageModal={this.togleMessageModal}
+                        setUnsaved={this.setUnsaved}
+                        eraseRange={this.eraseRange}
+                        existing={Object.keys(this.defs)}
+                        saveStatus={this.saveStatus}
+                        setSaveStatus={this.setSaveStatus}
+                    />
+                )}
             </>
         );
     }

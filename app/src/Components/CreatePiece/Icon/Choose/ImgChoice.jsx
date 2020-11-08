@@ -1,49 +1,25 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { stylesObjects } from "./choose-modal-styles-objects";
 import "./ImgChoice.scss";
 
-export class ImgChoice extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { width: 150, height: 150 };
-        this.setChoice = this.setChoice.bind(this);
-        this.growImg = this.growImg.bind(this);
-        this.shrinkImg = this.shrinkImg.bind(this);
-    }
-
-    setChoice() {
-        this.props.setChoice(this.props.name);
-    }
-
-    growImg() {
-        this.setState({ width: 170, height: 170 });
-    }
-
-    shrinkImg() {
-        this.setState({ width: 160, height: 160 });
-    }
-
-    render() {
-        let class_ = "profile";
-        if (this.props.name === this.props.imgNameChoice) class_ = "selected-profile";
-
-        return (
-            <div className={class_} onClick={this.setChoice}>
-                <div style={{ position: "relative", top: "175px" }}>{this.props.name}</div>
-                <img
-                    src={this.props.base64ImgStr}
-                    className="choose-icon-image"
-                    style={{
-                        zIndex: 2,
-                        position: "relative",
-                        top:"-12px",
-                        width: this.state.width,
-                        height: this.state.height,
-                    }}
-                    onMouseEnter={this.growImg}
-                    onMouseLeave={this.shrinkImg}
-                    alt="list of icons that can be used as pieces"
-                />
-            </div>
-        );
-    }
+export function ImgChoice({ name, screenCase, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
+    var class_ = "image-choice-container";
+    if (name === imgNameChoice) class_ = "selected-image-choice-container";
+    return (
+        <div
+            className={class_}
+            onClick={() => setChoice(name)}
+            onMouseEnter={() => setHoverText(name)}
+            onMouseLeave={() => setHoverText(null)}
+            style={stylesObjects[screenCase]["imageContainer"]()}
+        >
+            <motion.img
+                src={base64ImgStr}
+                whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+                className="image-choice"
+                alt="list of icons that can be used as pieces"
+            />
+        </div>
+    );
 }

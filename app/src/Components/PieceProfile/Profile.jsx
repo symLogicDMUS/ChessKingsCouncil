@@ -8,14 +8,14 @@ export class Profile extends React.Component {
             <div className="piece-profile">
                 {this.props.children}
                 <ProfileWB
-                    def={this.props.displayDefs[this.props.pieceName]["W"]}
                     color="W"
+                    def={this.props.displayDefs[this.props.pieceName]["W"]}
                     pieceName={this.props.pieceName}
                     expand={this.props.expand}
                 />
                 <ProfileWB
-                    def={this.props.displayDefs[this.props.pieceName]["B"]}
                     color="B"
+                    def={this.props.displayDefs[this.props.pieceName]["B"]}
                     pieceName={this.props.pieceName}
                     expand={this.props.expand}
                 />

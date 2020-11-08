@@ -35,7 +35,6 @@ export class UploadButtonBlack extends React.Component {
             <div>
                 <label htmlFor="choose-img" className="black-upload">
                     <p className="icon-button-text">Upload...</p>
-                    <div className="icon-button-text-mobile1">Upload Black</div>
                 </label>
                 <input id="choose-img" type="file" onChange={this.handleChange} style={{ display: "none" }} />
             </div>

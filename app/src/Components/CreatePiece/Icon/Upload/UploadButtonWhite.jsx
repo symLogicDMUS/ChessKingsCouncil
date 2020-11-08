@@ -35,7 +35,6 @@ export class UploadButtonWhite extends React.Component {
             <div>
                 <label htmlFor="choose-img2" className="white-upload">
                     <p className="icon-button-text">Upload...</p>
-                    <div className="icon-button-text-mobile1">Upload White</div>
                 </label>
                 <input id="choose-img2" type="file" onChange={this.handleChange} style={{ display: "none" }} />
             </div>

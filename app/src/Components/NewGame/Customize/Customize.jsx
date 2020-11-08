@@ -12,7 +12,7 @@ import { offsetToText } from "../../helpers/offsetToText";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { ProfileHeader } from "./ProfileHeader";
-import { SearchBar } from "./SearchBar";
+// import { SearchBar } from "./SearchBar";
 import { NavBar } from '../../NavBar/NavBar'
 import { getDefs } from "../../../API/getDefs";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
@@ -327,7 +327,7 @@ export class Customize extends React.Component {
                     <div className="new-game-customize-top-bar">
                         <div className="new-game-customize-top-bar-title">Customize</div>
                         <PlayerType setPlayerType={this.setPlayerType} />
-                        <SearchBar updateSearch={this.updateSearch} />
+                        {/* <SearchBar updateSearch={this.updateSearch} /> */}
                         <PromoAll toglePromoAll={this.toglePromoAll} />
                     </div>
                     <div className="new-game-piece-profiles">{this.getProfiles()}</div>

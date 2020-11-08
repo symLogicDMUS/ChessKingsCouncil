@@ -5,7 +5,7 @@ import { sqrColorClass } from "./sqrColorClass";
 import { blankBoard } from "./blankBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
-import {stylesObjects} from "../styles-objects";
+import {stylesObjects} from "../create-piece-styles-objects";
 import "../../helpers/stepFuncs";
 import "./CreatePieceBoard.scss";
 

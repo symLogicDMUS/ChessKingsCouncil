@@ -1,13 +1,13 @@
 import React from "react";
 import { getOkButtonStyle } from "../../styles/modal-window1-components/ok-button";
-import { modalWindow } from "../../styles/modal-window1-components/modal-window-size-pos";
+import {stylesObjects} from "./message-modal-styles-objects";
 import "./MessageModal.scss";
 
-export function MessageModal({ togleMessageModal, messageTitle, messageText }) {
-    var buttonSizePos = getOkButtonStyle(modalWindow);
+export function MessageModal({screenCase, togleMessageModal, messageTitle, messageText }) {
+    var buttonSizePos = getOkButtonStyle(stylesObjects[screenCase]['Modal']());
     return (
         <div className="message-modal">
-            <div className="message-modal-window" style={modalWindow}>
+            <div className="message-modal-window" style={stylesObjects[screenCase]['Modal']()}>
                 <img
                     src="/Images/close/close.svg"
                     className="msg-modal-close"
@@ -15,9 +15,9 @@ export function MessageModal({ togleMessageModal, messageTitle, messageText }) {
                 />
                 <div className="msg-title">{messageTitle}</div>
                 <div className="msg-text">{messageText}</div>
-                <div className="msg-ok-button" style={buttonSizePos} onClick={() => togleMessageModal(false)}>
+                <button className="msg-ok-button" style={buttonSizePos} onClick={() => togleMessageModal(false)}>
                     Ok
-                </div>
+                </button>
             </div>
         </div>
     );

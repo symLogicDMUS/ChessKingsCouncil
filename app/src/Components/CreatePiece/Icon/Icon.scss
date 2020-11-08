@@ -1,6 +1,5 @@
-@import "../../styles/button/icon-button-top";
 @import "../../styles/color-variables";
-@import "./heights";
+@import "./percent-values";
 
 @mixin icon-img-window {
     @media screen and (min-device-width: 768px) {
@@ -16,11 +15,11 @@
     @media screen and (max-device-width: 767px) {
         position: absolute;
         z-index: 0;
-        height: percentage(89/100);
-        width: percentage(35/100);
-        top: percentage(5/100);
-        background-color: $dark-grey2;
-        border: solid 1px $dark-grey4;
+        height: percentage($window-height/100);
+        width: percentage($window-height*0.643/100);
+        top: percentage(12/100);
+        background-color: $dark-grey1;
+        border: solid 1px $dark-grey5;
         border-radius: 5px;
     }
 }
@@ -37,7 +36,7 @@
     @media screen and (max-device-width: 767px) {
         position: absolute;
         z-index: 1;
-        top: 43%;
+        top: 0%;
         font-size: 100%;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         color: #a9a9a9;
@@ -72,13 +71,14 @@
         color: #a9a9a9;
     }
     @media screen and (max-device-width: 767px) {
-        position: absolute;
-        z-index: 0;
-        left: percentage((72 * 0/031)/100);
-        top: percentage((72 * 0.0375)/100);
-        font-size: 125%;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: #a9a9a9;
+        display: none;
+        // position: absolute;
+        // z-index: 0;
+        // left: percentage(45/100);
+        // top: 0%;
+        // font-size: 125%;
+        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        // color: #a9a9a9;
     }
 }
 
@@ -88,7 +88,7 @@
         left: 51.75%;
     }
     @media screen and (max-device-width: 767px) {
-        left: percentage(75.75/100);
+        left: percentage(73.5/100);
     }
 }
 
@@ -98,7 +98,7 @@
         left: 2.5%;
     }
     @media screen and (max-device-width: 767px) {
-        left: percentage(13.5/100);
+        left: 14%;
     }
 }
 
@@ -109,7 +109,7 @@
     }
     @media screen and (max-device-width: 767px) {
         @include icon-img-window;
-        left: percentage(2/100);
+        left: 2%;
     }
 }
 
@@ -120,6 +120,6 @@
     }
     @media screen and (max-device-width: 767px) {
         @include icon-img-window;
-        left: percentage(63/100);
+        left: 60%;
     }
 }

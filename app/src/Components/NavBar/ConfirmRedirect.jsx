@@ -46,21 +46,21 @@ export class ConfirmRedirect extends React.Component {
         return (
             <div className="confirm-redirect" style={modalWindow}>
                 <img src="/Images/close/close.svg" className="confirm-redirect-close" onClick={this.cancelRedirect} />
-                <div className="confirm-redirect-text">{this.props.message}</div>
-                <div
+                <div className="confirm-redirect-title">{this.props.message}</div>
+                <button
                     className="confirm-redirect-accept-button"
                     style={this.buttonSizePos.yes}
                     onClick={() => this.goToPage(redirectType)}
                 >
                     Yes
-                </div>
-                <div
+                </button>
+                <button
                     className="confirm-redirect-reject-button"
                     style={this.buttonSizePos.no}
                     onClick={this.cancelRedirect}
                 >
                     No
-                </div>
+                </button>
             </div>
         );
     }
