@@ -1,9 +1,0 @@
-@mixin window {
-    position: absolute;
-    z-index: 4;
-    display: grid;
-    background-color: #515151;
-    border-radius: 20px;
-    grid-template-columns: 320px;
-    grid-template-rows: 7.89% 84.21% 7.89%;
-}

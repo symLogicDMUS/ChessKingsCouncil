@@ -1,38 +1,21 @@
-export function spanToText(step_func) {
+export const angleToText = {
+    "0d": "right",
+    "45d": "upper-right",
+    "90d": "up",
+    "135d": "upper-left",
+    "180d": "left",
+    "225d": "lower-left",
+    "270d": "down",
+    "315d": "lower-right",
+};
 
-    const reInt = /([0-9]+)d/;
-    let integer = Number(step_func.match(reInt)[1]);
-    let span = null;
-    switch(integer) {
-        case 0:
-            span = "right"
-            break;
-        case 45:
-            span = "upper-right"
-            break;
-        case 90:
-            span = "up"
-            break;
-        case 135:
-            span = "upper-left"
-            break;
-        case 180:
-            span = "left"
-            break;
-        case 225:
-            span = "lower-left"
-            break;
-        case 270:
-            span = "down"
-            break;
-        case 315:
-            span = "lower-right"
-            break;
-        default:
-            console.log("no match");
-            break;
-    }
-
-    return span;
-
-}
+export const stepFuncNamesToText = {
+    step_1sqr0d: "right",
+    step_1sqr45d: "upper-right",
+    step_1sqr90d: "up",
+    step_1sqr135d: "upper-left",
+    step_1sqr180d: "left",
+    step_1sqr225d: "lower-left",
+    step_1sqr270d: "down",
+    step_1sqr315d: "lower-right",
+};

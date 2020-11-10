@@ -1,87 +1,59 @@
 import React from "react";
 import { Textfit } from "react-textfit";
 import { styleObjects } from "./styleObjects";
+// import { SearchBar } from "./SearchBar";
+import { Close } from "../Reuseables/Close";
+import { CloseStyle } from "../Reuseables/CloseStyle";
 import { pieceProfilesSizePos } from "./pieceProfilesSizePos";
 import { offsetToText } from "../helpers/offsetToText";
-import { spanToText } from "../helpers/spanToText";
+import { stepFuncNamesToText } from "../helpers/spanToText";
 import { Profile } from "./Profile";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import { ProfileHeader } from "./ProfileHeader";
-// import { SearchBar } from "./SearchBar";
-import { getDefs } from "../../API/getDefs";
-import { deleteDef } from "../../API/deleteDef";
-import { ConfirmModal } from "../NavBar/ConfirmModal";
-import "../PieceProfile/ProfilesWindow.scss";
+import { CustomizeHeader } from "./CustomizeHeader";
+import { LoadDeleteHeader } from "./LoadDeleteHeader";
+import "./ProfilesWindow.scss";
 
 export class ProfilesWindow extends React.Component {
     constructor(props) {
         super(props);
-        
         this.state = {
             theme: "dark",
             binaryValue: true,
             selectedPiece: null,
             redirect: false,
-            deleteModal: false,
         };
-        
+        this.displayDefs = null;
         this.displayBoard = null;
         this.color = null;
         this.rangeType = null;
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.searchText = "";
-        
-        this.update = this.update.bind(this);
-        this.load = this.load.bind(this);
-        this.delete = this.delete.bind(this);
-        this.cancelDelete = this.cancelDelete.bind(this);
-        this.prepareDelete = this.prepareDelete.bind(this);
         this.expand = this.expand.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
-        
-        this.displayDefs = JSON.parse(JSON.stringify(this.props.defs));
-        Object.keys(this.displayDefs).forEach((pieceName) => {
-            this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"]);
-            this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"]);
-            this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"]);
-            this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"]);
-        });
     }
 
-    componentDidMount() {
-            // this.displayDefs = JSON.parse(JSON.stringify(this.props.defs));
-            // Object.keys(this.displayDefs).forEach((pieceName) => {
-            //     this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"]);
-            //     this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"]);
-            //     this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"]);
-            //     this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"]);
-            // });
-            // this.setState({ binaryValue: !this.state.binaryValue });
+    getEmptyProfile() {
+        return { W: { spans: [], offsets: [] }, B: { spans: [], offsets: [] } };
+    }
+
+    getDisplayDefs() {
+        this.displayDefs = {};
+        for (var pieceName of Object.keys(this.props.defs)) {
+            if (!this.standards.includes(pieceName)) {
+                this.displayDefs[pieceName] = this.getEmptyProfile();
+                this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.props.defs[pieceName]["W"]);
+                this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.props.defs[pieceName]["W"]);
+                this.displayDefs[pieceName]["W"]["img"] = this.props.defs[pieceName]["W"]["img"];
+                this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.props.defs[pieceName]["B"]);
+                this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.props.defs[pieceName]["B"]);
+                this.displayDefs[pieceName]["B"]["img"] = this.props.defs[pieceName]["B"]["img"];
+            }
+        }
     }
 
     update() {
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    togleNav(boolVal) {
-        this.navExpanded = boolVal;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    prepareDelete(pieceName) {
-        this.setState({ selectedPiece: pieceName, deleteModal: true });
-    }
-
-    cancelDelete() {
-        this.setState({ selectedPiece: null, deleteModal: false });
-    }
-
-    delete(pieceName) {
-        delete this.defs[pieceName];
-        deleteDef(pieceName).then(([response]) => {
-            this.setState({ deleteModal: false, selectedPiece: null });
-        });
     }
 
     expand(piece, color, rangeType) {
@@ -95,10 +67,9 @@ export class ProfilesWindow extends React.Component {
         if (def.spans.length === 0) {
             return Array(0);
         }
-
         let spanStrings = [];
         for (var span of def.spans) {
-            spanStrings.push(spanToText(span));
+            spanStrings.push(stepFuncNamesToText[span]);
         }
         return spanStrings;
     }
@@ -119,7 +90,7 @@ export class ProfilesWindow extends React.Component {
         if (this.pieceName != null && this.color != null && this.rangeType != null)
             return (
                 <DisplayBoardModal
-                    def={this.defs[this.pieceName][this.color]}
+                    def={this.props.defs[this.pieceName][this.color]}
                     rangeType={this.rangeType}
                     color={this.color}
                     pieceName={this.pieceName}
@@ -136,54 +107,100 @@ export class ProfilesWindow extends React.Component {
     }
 
     applySearchFilter() {
-        if (this.searchText !== "")
-            return Object.keys(this.defs).filter((pieceName) => pieceName.toLowerCase().startsWith(this.searchText));
-        else return Object.keys(this.defs);
+        if (this.searchText !== "") {
+            return Object.keys(this.displayDefs).filter((pieceName) =>
+                pieceName.toLowerCase().startsWith(this.searchText)
+            );
+        } else {
+            return Object.keys(this.displayDefs);
+        }
     }
 
     getProfiles() {
         let profiles = [];
+        this.getDisplayDefs();
         let pieceNames = this.applySearchFilter();
-        for (var pieceName of pieceNames) {
-            profiles.push(
-                <Profile pieceName={pieceName} expand={this.expand} displayDefs={this.displayDefs}>
-                    {ProfileHeader(pieceName, this.load, this.prepareDelete)}
-                </Profile>
+        if (this.props.headerType === "load-delete") {
+            for (var pieceName of pieceNames) {
+                profiles.push(
+                    <Profile
+                        screenCase={this.props.screenCase}
+                        pieceName={pieceName}
+                        expand={this.expand}
+                        displayDefs={this.displayDefs}
+                    >
+                        {LoadDeleteHeader(pieceName, this.props.load, this.props.prepareDelete)}
+                    </Profile>
+                );
+            }
+        } else if (this.props.headerType === "custom-game") {
+            for (var pieceName of pieceNames) {
+                profiles.push(
+                    <Profile
+                        screenCase={this.props.screenCase}
+                        pieceName={pieceName}
+                        expand={this.expand}
+                        displayDefs={this.displayDefs}
+                    >
+                        {CustomizeHeader(
+                            pieceName,
+                            this.props.promos,
+                            this.props.newReplacement,
+                            this.props.newReplaced,
+                            this.props.togleSub,
+                            this.props.toglePromo
+                        )}
+                    </Profile>
+                );
+            }
+        } else {
+            return (
+                <div style={{ width: "20%", height: "20%", color: "red" }}>
+                    Error: Invalid Header Type in Piece Profiles.
+                </div>
             );
         }
+
         return profiles;
     }
 
     render() {
-
         return (
             <>
-                <div className="profiles-window" style={pieceProfilesSizePos[this.props.screenCase]()}>
-                    <div className="top-bar" style={styleObjects[this.props.screenCase]["topBar"]()}>
+                <div
+                    className="profiles-window"
+                    style={pieceProfilesSizePos[this.props.screenCase](this.props.scaler)}
+                >
+                    <div className="top-bar" style={styleObjects[this.props.screenCase]["topBar"](this.props.scaler)}>
                         <Textfit
                             className="title"
                             mode="multi"
                             max={1000000}
-                            style={styleObjects[this.props.screenCase]["title"]()}
+                            style={styleObjects[this.props.screenCase]["title"](this.props.scaler)}
                         >
-                            My Pieces
+                            {this.props.title}
                         </Textfit>
                         {/* <SearchBar updateSearch={this.updateSearch} /> */}
+                        {this.props.closeIcon && (
+                            <Close
+                                theme="dark"
+                                clickMethod={() => this.props.togleLoadModal(false)}
+                                styleObject={CloseStyle[this.props.screenCase](
+                                    0.018,
+                                    "10%",
+                                    "98%",
+                                    this.props.scaler
+                                )}
+                            />
+                        )}
                     </div>
-                    <div className="profiles" style={styleObjects[this.props.screenCase]["profiles"]()}>
+                    <div
+                        className="profiles"
+                        style={styleObjects[this.props.screenCase]["profiles"](this.props.scaler)}
+                    >
                         {this.getProfiles()}
                     </div>
                 </div>
-
-                {this.state.deleteModal && (
-                    <ConfirmModal
-                        text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
-                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
-                    Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
-                        yesClick={() => this.delete(this.state.selectedPiece)}
-                        noClick={() => this.cancelDelete()}
-                    />
-                )}
                 {this.getDisplayBoard()}
             </>
         );

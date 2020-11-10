@@ -1,5 +1,6 @@
 @mixin close($src) {
     position: absolute;
+    z-index: inherit;
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: cover;

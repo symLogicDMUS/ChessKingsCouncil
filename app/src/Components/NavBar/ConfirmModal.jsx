@@ -1,19 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { modalWindow } from "../styles/modal-window1-components/modal-window-size-pos";
-import { getYesNoButtonStyle } from "../styles/modal-window1-components/yes-no-buttons";
+import { stylesObjects } from "./Help/message-modal-styles-objects";
 import "./ConfirmModal.scss";
 
-export function ConfirmModal({ text, yesClick, noClick }) {
-    const buttonSizePos = getYesNoButtonStyle(modalWindow);
-
+export function ConfirmModal({screenCase, text, yesClick, noClick }) {
     return (
-        <div className="confirm-window" style={modalWindow}>
+        <div className="confirm-window" style={stylesObjects[screenCase]['Modal']()}>
             <div className="confirm-text">{text}</div>
-            <div className="yes-button" style={buttonSizePos.yes} onClick={yesClick}>
+            <div
+                className="yes-button"
+                style={stylesObjects[screenCase]["YesNoButton"](stylesObjects[screenCase]["Modal"]()).yes}
+                onClick={yesClick}
+            >
                 Yes
             </div>
-            <div className="no-button" style={buttonSizePos.no} onClick={noClick}>
+            <div
+                className="no-button"
+                style={stylesObjects[screenCase]["YesNoButton"](stylesObjects[screenCase]["Modal"]()).no}
+                onClick={noClick}
+            >
                 No
             </div>
         </div>

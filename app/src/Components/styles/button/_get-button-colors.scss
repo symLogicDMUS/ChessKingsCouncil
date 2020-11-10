@@ -2,25 +2,30 @@
 
 $bg-colors: (
     "dark": $dark-grey1,
-    "light": $green1
+    "light": $green1,
+    "dark2": $dark-grey2
 );
 $border-colors: (
-    "dark": $dark-grey4,
-    "light": $light-green1
+    "dark": 1px solid $dark-grey4,
+    "light": 1px solid $light-green1,
+    "dark2": 1px solid $light-grey1
 );
 $text-colors: (
     "dark": $light-grey2,
-    "light": $light-green1
+    "light": $light-green1,
+    "dark2": $light-grey1
 );
 
 $hover-bg-colors: (
     "dark": $light-grey2,
-    "light": $light-green1
+    "light": $light-green1,
+    "dark2": $light-grey1
 );
 
 $hover-text-colors: (
     "dark": $dark-grey2,
-    "light": $green1
+    "light": $green1,
+    "dark2": $dark-grey2
 );
 
 

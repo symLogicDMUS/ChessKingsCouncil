@@ -116,8 +116,8 @@ export class ChooseModal extends React.Component {
                 <div className="choose-modal">
                     <div className="choose-main" style={stylesObjects[this.props.screenCase]["chooseMain"]()}>
                         <Close
-                            styleObject={CloseStyle[this.props.screenCase](0.018, "0.75%", "97.75%")}
                             theme="dark"
+                            styleObject={CloseStyle[this.props.screenCase](0.018, "0.75%", "97.75%")}
                             clickMethod={this.props.closeChooseModal}
                         />
                         <div

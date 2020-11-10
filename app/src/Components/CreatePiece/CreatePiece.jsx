@@ -7,6 +7,7 @@ import { Range } from "./Range/Range";
 import { defs } from "../tests/defs1";
 import { NavBar } from "../NavBar/NavBar";
 import { getDefs } from "../../API/getDefs";
+import { deleteDef } from "../../API/deleteDef";
 import { Options } from "./Options/Options";
 import { saveDef } from "../../API/saveDef";
 import { Location } from "./Location/Location";
@@ -23,10 +24,8 @@ import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { CreatedPieceProfiles } from "./Options/Load/Modals/CreatedPieceProfiles";
 import { ProfilesWindow } from "../PieceProfile/ProfilesWindow";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
-import { MyPieces as SavedPieces } from "../MyPieces/MyPieces";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./CreatePiece.scss";
 
@@ -38,8 +37,10 @@ export class CreatePiece extends React.Component {
             binaryValue: 0,
             theme: "dark",
             unsaved: false,
+            pendingDelete: null,
             isLoadModal: false,
             chooseModal: false,
+            isDeleteModal: false,
             isMessageModal: false,
             confirmOverwriteModal: false,
             selectedToolMobile: null,
@@ -237,6 +238,9 @@ export class CreatePiece extends React.Component {
         this.clear = this.clear.bind(this);
         this.update = this.update.bind(this);
         this.setLoc = this.setLoc.bind(this);
+        this.deletePiece = this.deletePiece.bind(this);
+        this.prepareDelete = this.prepareDelete.bind(this);
+        this.cancelDelete = this.cancelDelete.bind(this);
         this.eraseRange = this.eraseRange.bind(this);
         this.updateName = this.updateName.bind(this);
         this.setSaveStatus = this.setSaveStatus.bind(this);
@@ -297,7 +301,7 @@ export class CreatePiece extends React.Component {
         this.loadedName = JSON.parse(JSON.stringify(this.name));
         this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
         this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
-        
+
         //reminder: calls this.update() at end
         this.setLoc("d4");
 
@@ -422,6 +426,22 @@ export class CreatePiece extends React.Component {
             default:
                 break;
         }
+    }
+
+    prepareDelete(pieceName) {
+        this.setState({ pendingDelete: pieceName, isDeleteModal: true });
+    }
+
+    cancelDelete() {
+        this.setState({ pendingDelete: null, isDeleteModal: false, isLoadModal: false });
+    }
+
+    deletePiece() {
+        deleteDef(this.state.pendingDelete).then(([response]) => {
+            delete this.defs[this.state.pendingDelete];
+            delete this.displayDefs[this.state.pendingDelete];
+            this.setState({ isDeleteModal: false, isLoadModal: false, pendingDelete: null });
+        });
     }
 
     updateName(input) {
@@ -613,12 +633,17 @@ export class CreatePiece extends React.Component {
                 )}
                 {this.state.isLoadModal && (
                     <ProfilesWindow
+                        headerType="load-delete"
                         screenCase={screenCase}
+                        closeIcon={true}
+                        title="Created Pieces"
                         defs={this.defs}
                         load={this.load}
+                        scaler={1}
+                        togleLoadModal={this.togleLoadModal}
+                        prepareDelete={this.prepareDelete}
                     />
                 )}
-                {/* {this.state.isLoadModal && <SavedPieces />} */}
                 {this.state.chooseModal && (
                     <ChooseModal
                         screenCase={screenCase}
@@ -635,6 +660,15 @@ export class CreatePiece extends React.Component {
                         text={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
                         noClick={() => this.setSaveStatus("none")}
+                    />
+                )}
+                {this.state.isDeleteModal && (
+                    <ConfirmModal
+                        text={`You are asking to delete piece "${this.state.pendingDelete}". Games in progress will not be
+                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                    Are you sure you want to delete piece "${this.state.pendingDelete}"?`}
+                        yesClick={this.deletePiece}
+                        noClick={this.cancelDelete}
                     />
                 )}
                 {this.state.displaySuccessfullSaveMessage && (
@@ -685,8 +719,6 @@ export class CreatePiece extends React.Component {
                         offsets={this.offsets}
                         togleSpan={this.togleSpan}
                         update={this.update}
-                        togleOffsetText={this.togleOffsetText}
-                        togleSpanText={this.togleSpanText}
                         setUnsaved={this.setUnsaved}
                     />
                 )}
@@ -710,6 +742,12 @@ export class CreatePiece extends React.Component {
                         setSaveStatus={this.setSaveStatus}
                     />
                 )}
+                {/* <div className="settings">
+                    <div className="show-spans-label">span text squares</div>
+                    <ShowSpansCheckbox togleSpanText={this.props.togleSpanText} />
+                    <div className="show-offsets-label">offset text squares</div>
+                    <ShowOffsetsCheckbox togleOffsetText={this.props.togleOffsetText} />
+                </div> */}
             </>
         );
     }

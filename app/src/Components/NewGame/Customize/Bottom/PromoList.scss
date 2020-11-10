@@ -1,47 +1,24 @@
-.new-game-promo-list {
-    display: grid;
-    grid-template-columns: 384px;
-    grid-template-rows: 12px 19.200000000000003px 19.200000000000003px 19.200000000000003px 19.200000000000003px 19.200000000000003px 12px;
-    border: 0.8px solid #707070
 
+
+.pawn-promotions {
+    position: absolute;
+    .customize-promo-label {
+        position: absolute;
+        height: 20%;
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        width: 99.75%;
+        color: #a9a9a9;
+        // background-color: #515151;
+        // border: 0.8px solid #707070;
+    }
+    // .customize-promo-list {
+    //     position: relative;
+    //     display: grid;
+    //     top: 20%;
+    //     height: 80%;
+    //     left: 0;
+    //     grid-template-rows: 7.5% 17% 17% 17% 17% 17% 7.5%;
+    // }
 }
 
-.promo-list-item {
-    color: #a9a9a9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    text-align: left;
-    padding-top: 3.2px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.p-list-item1 {
-    grid-column: 1;
-    grid-row: 2;
-    background-color: #5D5D5D;
-}
-
-.p-list-item2 {
-    grid-column: 1;
-    grid-row: 3;
-    background-color: #515151;
-}
-
-.p-list-item3 {
-    grid-column: 1;
-    grid-row: 4;
-    background-color: #5D5D5D;
-}
-
-.p-list-item4 {
-    grid-column: 1;
-    grid-row: 5;
-    background-color: #515151;
-}
-
-.p-list-item5 {
-    grid-column: 1;
-    grid-row: 6;
-    background-color: #5D5D5D;
-} 

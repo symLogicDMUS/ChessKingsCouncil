@@ -1,8 +1,0 @@
-@mixin profiles-section {
-    position: absolute;
-    z-index: inherit;
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: #515151;
-    overflow: scroll;    
-}

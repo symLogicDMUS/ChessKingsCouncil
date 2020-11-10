@@ -49,7 +49,7 @@ export class PickType extends React.Component {
         return (
             <>
                 <NavBar
-                    currentPage="LoadGame"
+                    currentPage="PickType"
                     theme={this.state.theme}
                     unsaved={false}
                 />

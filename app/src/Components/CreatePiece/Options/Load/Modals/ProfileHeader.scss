@@ -1,9 +1,0 @@
-@import "./header-scss/piece-name";
-@import "./header-scss/profile-header";
-
-.profile-header {
-    @include profile-header;
-    .created-piece-name {
-        @include piece-name;
-    }
-}

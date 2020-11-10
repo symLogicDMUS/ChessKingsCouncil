@@ -1,11 +1,14 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
-// import { SearchBar } from "./SearchBar";
 import MediaQuery from "react-responsive";
+import { NavBar } from "../NavBar/NavBar";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
+import { deleteDef } from "../../API/deleteDef";
+import { getDefs } from "../../API/getDefs";
+// import { SearchBar } from "./SearchBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ProfilesWindow } from "../PieceProfile/ProfilesWindow";
-import "./MyPieces.scss"
+import "./MyPieces.scss";
 
 export class MyPieces extends React.Component {
     constructor(props) {
@@ -14,8 +17,13 @@ export class MyPieces extends React.Component {
             theme: "dark",
             binaryValue: true,
             selectedPiece: null,
+            messageModal: false,
+            deleteModal: false,
             redirect: false,
+            fetched: false,
         };
+        this.defs = {};
+        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.firstTime = false;
         this.navExpanded = true;
         this.helpTitle = null;
@@ -24,13 +32,33 @@ export class MyPieces extends React.Component {
         this.hmChildren = { none: null };
         this.update = this.update.bind(this);
         this.load = this.load.bind(this);
+        this.delete = this.delete.bind(this);
+        this.prepareDelete = this.prepareDelete.bind(this);
+        this.cancelDelete = this.cancelDelete.bind(this);
         this.togleNav = this.togleNav.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
+        this.setDefs = this.setDefs.bind(this);
+        this.setDefs();
     }
 
     componentDidMount() {
         document.body.className = "my-pieces-body";
+        this.setDefs();
+    }
+
+    setDefs() {
+        getDefs().then(([defs]) => {
+            if (defs) {
+                this.defs = defs;
+                for (var pieceName of this.standards) {
+                    if (Object.keys(this.defs).includes(pieceName)) delete this.defs[pieceName];
+                }
+            } else {
+                this.defs = {};
+            }
+            this.setState({ fetched: true });
+        });
     }
 
     update() {
@@ -56,12 +84,28 @@ export class MyPieces extends React.Component {
         this.setState({ messageModal: true });
     }
 
+    prepareDelete(pieceName) {
+        this.setState({ selectedPiece: pieceName, deleteModal: true });
+    }
+
+    cancelDelete() {
+        this.setState({ selectedPiece: null, deleteModal: false });
+    }
+
+    delete() {
+        deleteDef(this.state.selectedPiece).then(([response]) => {
+            delete this.defs[this.state.selectedPiece];
+            this.setState({ deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null,  });
+            this.setState({ profileRef: null });
+        });
+    }
+
     getComponents(screenCase) {
         return (
             <>
                 <NavBar
                     screenCase={screenCase}
-                    currentPage="LoadGame"
+                    currentPage="MyPieces"
                     theme={this.state.theme}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
@@ -73,7 +117,28 @@ export class MyPieces extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                <ProfilesWindow screenCase={screenCase} load={this.load} />
+                {this.state.deleteModal && (
+                    <ConfirmModal
+                        text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
+                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                    Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
+                        yesClick={this.delete}
+                        noClick={this.cancelDelete}
+                    />
+                )}
+                {this.state.fetched && (
+                    <ProfilesWindow
+                        headerType="load-delete"
+                        screenCase={screenCase}
+                        closeIcon={false}
+                        title="My Pieces"
+                        defs={this.defs}
+                        load={this.load}
+                        scaler={1}
+                        profileRef={this.state.profileRef}
+                        prepareDelete={this.prepareDelete}
+                    />
+                )}
             </>
         );
     }

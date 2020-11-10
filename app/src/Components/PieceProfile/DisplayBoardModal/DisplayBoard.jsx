@@ -37,6 +37,7 @@ export class DisplayBoard extends React.Component {
             g1: false, g2: false, g3: false, g4: false, g5: false, g6: false, g7: false, g8: false,
             h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false,
         };
+        
         this.angles = this.props.def["spans"].map((stepFuncName) => getAngle(stepFuncName));
     }
 

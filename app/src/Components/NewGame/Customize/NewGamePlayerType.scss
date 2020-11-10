@@ -1,23 +1,23 @@
-.new-game-player-type-label {
+.customize-player-type-label {
     position: absolute;
-    top: 9.600000000000001px;
-    left: 224px;
+    top: 16%;
+    left: 62.5%;
     color: #a9a9a9;
-    font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
-.new-game-player-type-dropdown {
+.customize-player-type-dropdown {
     position: absolute;
-    top: 11.200000000000001px;
-    left: 280px;
-    width: 160px;
-    height: 17.6px;
-    background-color: #515151;
-    border: 0.8px solid #707070;
+    top: 20%;
+    left: 67.5%;
+    width: 20%;
+    height: 60%;
     color: #a9a9a9;
-    font-size: 12.8px;
+    background-color: #5D5D5D;
+    border: 0.8px solid #707070;
+    border-radius: 5px;
+    font-size: 120%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
 }

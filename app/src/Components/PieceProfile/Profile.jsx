@@ -1,25 +1,25 @@
 import React from "react";
-import {ProfileWB } from "./ProfileWB"
+import { ProfileWB } from "./ProfileWB";
 import "./Profile.scss";
 
-export class Profile extends React.Component {
-    render() {
-        return (
-            <div className="piece-profile">
-                {this.props.children}
-                <ProfileWB
-                    color="W"
-                    def={this.props.displayDefs[this.props.pieceName]["W"]}
-                    pieceName={this.props.pieceName}
-                    expand={this.props.expand}
-                />
-                <ProfileWB
-                    color="B"
-                    def={this.props.displayDefs[this.props.pieceName]["B"]}
-                    pieceName={this.props.pieceName}
-                    expand={this.props.expand}
-                />
-            </div>
-        );
-    }
+export function Profile({ screenCase, pieceName, expand, displayDefs, children }) {
+    return (
+        <div className="piece-profile">
+            {children}
+            <ProfileWB
+                color="W"
+                screenCase={screenCase}
+                pieceName={pieceName}
+                expand={expand}
+                def={displayDefs[pieceName]["W"]}
+            />
+            <ProfileWB
+                color="B"
+                screenCase={screenCase}
+                pieceName={pieceName}
+                expand={expand}
+                def={displayDefs[pieceName]["B"]}
+            />
+        </div>
+    );
 }

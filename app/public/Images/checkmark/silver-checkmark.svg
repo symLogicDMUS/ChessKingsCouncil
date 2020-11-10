@@ -8,7 +8,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="silver-checkmark.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    id="svg8"
    version="1.1"
    viewBox="0 0 65.718437 59.114834"
@@ -18,9 +18,9 @@
      id="defs2" />
   <sodipodi:namedview
      inkscape:window-maximized="1"
-     inkscape:window-y="-9"
-     inkscape:window-x="-9"
-     inkscape:window-height="1001"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
      inkscape:window-width="1920"
      fit-margin-bottom="0"
      fit-margin-right="0"
@@ -30,9 +30,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="g1441"
      inkscape:document-units="mm"
-     inkscape:cy="148.26157"
-     inkscape:cx="57.835774"
-     inkscape:zoom="1.8471046"
+     inkscape:cy="394.67952"
+     inkscape:cx="-369.90127"
+     inkscape:zoom="0.65305009"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
      borderopacity="1.0"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,7 +61,7 @@
       <g
          transform="translate(-3.1750001,-3.7041668)"
          id="g1445"
-         style="fill:#a9a9a9;stroke:#a9a9a9;stroke-opacity:1;fill-opacity:1">
+         style="fill:#bfbfbf;stroke:#bfbfbf;stroke-opacity:1;fill-opacity:1;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
         <rect
            transform="rotate(35.880702)"
            rx="0"
@@ -70,7 +70,7 @@
            height="68.391472"
            width="2.903038"
            id="rect1404"
-           style="fill:#a9a9a9;stroke:#a9a9a9;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1" />
+           style="fill:#bfbfbf;stroke:#bfbfbf;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1" />
         <rect
            transform="rotate(39.618002)"
            y="29.040129"
@@ -78,7 +78,7 @@
            height="3.6197782"
            width="28.077738"
            id="rect1436"
-           style="fill:#a9a9a9;stroke:#a9a9a9;stroke-width:1.307;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1" />
+           style="fill:#bfbfbf;stroke:#bfbfbf;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;fill-opacity:1" />
       </g>
     </g>
   </g>

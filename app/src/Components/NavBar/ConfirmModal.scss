@@ -1,9 +1,9 @@
 @import "../styles/button/button-style";
 @import "../styles/modal-window1-components/modal-close";
 @import "../styles/modal-window1-components/window";
-@import "../styles/modal-window1-components/confirm-text";
+@import "../styles/modal-window1-components/text";
+@import "../styles/modal-window1-components/title";
 @import "../styles/modal";
-
 
 .confirm-window {
     @include window;

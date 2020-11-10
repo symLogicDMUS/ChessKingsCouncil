@@ -1,80 +1,31 @@
 @import "../../styles/color-variables";
+@import "../../Reuseables/ScrollTable.scss";
 
 .range-tool .range-display-window {
     @media screen and (min-device-width: 768px) {
         position: absolute;
+        display: grid;
         z-index: 0;
         left: 2.5%;
         top: 27.33%;
         width: 60.25%;
         height: 66.667%;
         border-radius: 5px;
-        background-color: $dark-grey1;
         border: 1px solid $light-grey1;
         color: $light-grey1;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     @media screen and (max-device-width: 767px) {
         position: absolute;
+        display: grid;
         z-index: 0;
         left: 62%;
         top: 7%;
         width: 35%;
         height: 90%;
         border-radius: 5px;
-        background-color: $dark-grey1;
         border: 1px solid $light-grey1;
         color: $light-grey1;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-}
-
-.show-spans-label {
-    @media screen and (min-device-width: 768px) {
-        position: absolute;
-        top: -3%;
-        width: 32%;
-        height: 20%;
-        text-align: left;
-        font-size: 100%;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: $light-grey1;
-    }
-    @media screen and (max-device-width: 767px) {
-        // position: absolute;
-        // top: -3%;
-        // width: 32%;
-        // height: 20%;
-        // text-align: left;
-        // font-size: 100%;
-        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        // color: $light-grey1;
-        display: none;
-    }
-}
-
-.show-offsets-label {
-    @media screen and (min-device-width: 768px) {
-        position: absolute;
-        top: -3%;
-        left: 60.25%;
-        width: 32%;
-        height: 10%;
-        text-align: left;
-        font-size: 100%;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        color: $light-grey1;
-    }
-    @media screen and (max-device-width: 767px) {
-        display: none;
-        // position: absolute;
-        // top: -3%;
-        // left: 35.68%;
-        // width: 50%;
-        // height: 10%;
-        // text-align: left;
-        // font-size: 50%;
-        // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        // color: $light-grey1;
     }
 }

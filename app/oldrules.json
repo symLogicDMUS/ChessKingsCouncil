@@ -1,0 +1,78 @@
+{
+    "rules": {
+        "games": {
+            "$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            }
+        },
+        "defs": {
+            "$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            }
+        },
+        "images": {
+            "$uid": {
+                ".read": "auth != null && $uid === auth.uid",
+                ".write": "auth != null && $uid === auth.uid"
+            }
+        },
+        "newcomers": {
+            "CreatePiece": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "Customize": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "PickType": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "PlayAs": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "PickName": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "LoadGame": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "CouncilRules": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "MyPieces": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            },
+            "GameRoot": {
+                "$uid": {
+                    ".read": true,
+                    ".write": true
+                }
+            }
+        }
+    }
+}

@@ -1,20 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Profile } from "../../PieceProfile/Profile";
+import MediaQuery from "react-responsive";
 import { defs } from "./tests/testDefs1";
+import { styleObjects } from "./styleObjects";
 import { DisplayBoardModal } from "../../PieceProfile/DisplayBoardModal/DisplayBoardModal";
-import { NameTooltip } from "./Profile/NameTooltip";
 import { PromoList } from "./Bottom/PromoList";
 import { SubList } from "./Bottom/SubList";
-import { PromoAll } from "./PromoAll";
 import { spanToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
-import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
-import { ProfileHeader } from "./ProfileHeader";
+import { PromoAll } from "./PromoAll";
+// import { Profile } from "../../PieceProfile/Profile";
+// import { NameTooltip } from "./Profile/NameTooltip";
+import { NewGamePlayerType, NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 // import { SearchBar } from "./SearchBar";
-import { NavBar } from '../../NavBar/NavBar'
+import { NavBar } from "../../NavBar/NavBar";
 import { getDefs } from "../../../API/getDefs";
+import { ProfilesWindow } from "../../PieceProfile/ProfilesWindow";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
@@ -27,12 +29,7 @@ export class Customize extends React.Component {
         this.firstTime = false;
         this.state = { binaryValue: true, theme: "dark" };
         this.defs = {};
-        this.displayDefs = {};
         this.promos = [];
-        this.aboveView = [];
-        this.inView = [];
-        this.belowView = [];
-        this.promoListUpdate = false;
         this.expandModals = [];
         this.playerType = "test";
         this.pieceName = null;
@@ -66,7 +63,7 @@ export class Customize extends React.Component {
         this.toglePromo = this.toglePromo.bind(this);
         this.toglePromoAll = this.toglePromoAll.bind(this);
         this.loadNewCustom = this.loadIdDict.bind(this);
-        this.nameTooltip = this.nameTooltip.bind(this);
+        // this.nameTooltip = this.nameTooltip.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
@@ -77,55 +74,42 @@ export class Customize extends React.Component {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
-
-            this.displayDefs = JSON.parse(JSON.stringify(this.defs));
-
-            Object.keys(this.defs).forEach((pieceName) => {
-                if (this.standards.includes(pieceName)) {
-                    delete this.displayDefs[pieceName];
-                } else {
-                    this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.displayDefs[pieceName]["W"]);
-                    this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["W"]);
-                    this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.displayDefs[pieceName]["B"]);
-                    this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.displayDefs[pieceName]["B"]);
-                }
-            });
             this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
 
-    getSpans(def) {
-        if (def.spans.length === 0) {
-            return Array(0);
-        }
+    // getSpans(def) {
+    //     if (def.spans.length === 0) {
+    //         return Array(0);
+    //     }
 
-        let spanStrings = [];
-        for (var span of def.spans) {
-            spanStrings.push(spanToText(span));
-        }
-        return spanStrings;
-    }
+    //     let spanStrings = [];
+    //     for (var span of def.spans) {
+    //         spanStrings.push(spanToText(span));
+    //     }
+    //     return spanStrings;
+    // }
 
-    getOffsets(def) {
-        if (def.offsets.length === 0) {
-            return Array(0);
-        }
+    // getOffsets(def) {
+    //     if (def.offsets.length === 0) {
+    //         return Array(0);
+    //     }
 
-        let offsetStrings = [];
-        def.offsets.forEach((offset) => {
-            offsetStrings.push(offsetToText(offset));
-        });
-        return offsetStrings;
-    }
+    //     let offsetStrings = [];
+    //     def.offsets.forEach((offset) => {
+    //         offsetStrings.push(offsetToText(offset));
+    //     });
+    //     return offsetStrings;
+    // }
 
-    nameTooltip(e, isTooltip, name) {
-        this.clientX = e.clientX;
-        this.clientY = e.clientY;
-        this.isTooltip = isTooltip;
-        if (this.isTooltip) this.nameDisp = name;
-        else this.nameDisp = null;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    // nameTooltip(e, isTooltip, name) {
+    //     this.clientX = e.clientX;
+    //     this.clientY = e.clientY;
+    //     this.isTooltip = isTooltip;
+    //     if (this.isTooltip) this.nameDisp = name;
+    //     else this.nameDisp = null;
+    //     this.setState({ binaryValue: !this.state.binaryValue });
+    // }
 
     prepareForSubAssign() {
         //names will be a list of names of all pieces.
@@ -209,14 +193,13 @@ export class Customize extends React.Component {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
-        this.promoListUpdate = true;
+        // this.promoListUpdate = true;
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toglePromoAll(promoAll) {
         if (promoAll) {
-            for (var pieceName of Object.keys(this.displayDefs)) {
-                //this.defs to this.displayDefs
+            for (var pieceName of Object.keys(this.defs)) {
                 if (!this.promos.includes(pieceName)) {
                     this.promos.push(pieceName);
                 }
@@ -224,37 +207,13 @@ export class Customize extends React.Component {
         } else {
             this.promos = [];
         }
-        this.promoListUpdate = true;
+        // this.promoListUpdate = true;
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    divideList() {
-        this.aboveView = [];
-        this.inView = [];
-        this.belowView = [];
-        let remaining = 0;
-        if (this.promos.length > 5) {
-            remaining = this.promos.length - 5;
-            let lenTop = Math.floor(remaining / 2);
-            for (let i = 0; i < lenTop; i++) {
-                this.aboveView.push(this.promos[i]);
-            }
-            let current = lenTop;
-            for (let i = 0; i < 5; i++) {
-                this.inView.push(this.promos[current]);
-                current++;
-            }
-            for (let i = current; i < this.promos.length; i++) {
-                this.belowView.push(this.promos[i]);
-            }
-        } else this.inView = this.promos;
-
-        this.promoListUpdate = false;
     }
 
     togleMessageModal(boolVal) {
@@ -272,81 +231,55 @@ export class Customize extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    applySearchFilter() {
-        if (this.searchText !== "")
-            return Object.keys(this.displayDefs).filter((pieceName) =>
-                pieceName.toLowerCase().startsWith(this.searchText)
-            );
-        else return Object.keys(this.displayDefs);
-    }
-
     setPlayerType(playerType) {
         this.props.setPlayer(playerType);
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    getProfiles() {
-        let pieceNames = this.applySearchFilter();
-        let profiles = [];
-        for (var pieceName of pieceNames) {
-            profiles.push(
-                <Profile pieceName={pieceName} expand={this.expand} displayDefs={this.displayDefs}>
-                    {ProfileHeader(
-                        pieceName,
-                        this.promos,
-                        this.newReplacement,
-                        this.newReplaced,
-                        this.togleSub,
-                        this.toglePromo
-                    )}
-                </Profile>
-            );
-        }
-        return profiles;
-    }
-
-    render() {
-        if (this.promoListUpdate) this.divideList();
-
+    getComponents(screenCase) {
         return (
             <>
-                <NavBar
-                    currentPage="LoadGame"
-                    theme={this.state.theme}
-                    unsaved={false}
-                />
+                <NavBar currentPage="Customize" theme={this.state.theme} unsaved={false} />
                 {this.state.messageModal && (
                     <MessageModal
+                        screenCase={screenCase}
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-
-                <div className="new-game-customize-window">
-                    <div className="new-game-customize-top-bar">
-                        <div className="new-game-customize-top-bar-title">Customize</div>
-                        <PlayerType setPlayerType={this.setPlayerType} />
-                        {/* <SearchBar updateSearch={this.updateSearch} /> */}
-                        <PromoAll toglePromoAll={this.toglePromoAll} />
-                    </div>
-                    <div className="new-game-piece-profiles">{this.getProfiles()}</div>
-                    <div className="new-game-bottom-bar">
-                        <SubList subs={this.subs} />
-                        <div className="new-game-promo-label">Pawn Promotions</div>
-                        <div className="new-game-promo-list-container">
-                            <PromoList
-                                promos={this.promos}
-                                aboveView={this.aboveView}
-                                inView={this.inView}
-                                belowView={this.belowView}
-                            />
-                        </div>
-                    </div>
+                <ProfilesWindow
+                    screenCase={screenCase}
+                    title="Customize Game"
+                    headerType="custom-game"
+                    defs={this.defs}
+                    promos={this.promos}
+                    newReplacement={this.newReplacement}
+                    newReplaced={this.newReplaced}
+                    togleSub={this.togleSub}
+                    toglePromo={this.toglePromo}
+                    scaler={0.62}
+                    closeIcon={false}
+                />
+                <SubList screenCase={screenCase} subs={this.subs} />
+                <PromoList screenCase={screenCase} promos={this.promos} />
+                {/* {this.getModals()} */}
+                <div className="customize-bottom-bar" style={styleObjects[screenCase]["bottomBar"]()}>
+                    <PromoAll screenCase={screenCase} toglePromoAll={this.toglePromoAll} />
+                    <PlayerType screenCase={screenCase} setPlayerType={this.setPlayerType} />
+                    <Ok screenCase={screenCase} accept={this.accept} />
                 </div>
-                {this.isTooltip && <NameTooltip clientX={this.clientX} clientY={this.clientY} name={this.nameDisp} />}
-                {this.getModals()}
-                <Ok accept={this.accept} />
+            </>
+        );
+    }
+
+    render() {
+        // if (this.promoListUpdate) this.divideList();
+
+        return (
+            <>
+                <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery>
             </>
         );
     }

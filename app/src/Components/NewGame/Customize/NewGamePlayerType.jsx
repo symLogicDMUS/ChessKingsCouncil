@@ -1,5 +1,7 @@
 import React from "react";
 import {getColorLetter} from "../../helpers/getColorLetter";
+import {styleObjects} from "./styleObjects";
+import {fontSizes} from "../../styles/fontSizes";
 import "./NewGamePlayerType.scss";
 
 export class NewGamePlayerType extends React.Component {
@@ -23,10 +25,10 @@ export class NewGamePlayerType extends React.Component {
     render() {
         return (
             <div>
-                <div className="new-game-player-type-label">
+                <div className="customize-player-type-label" style={{fontSize: fontSizes[this.props.screenCase]['medium1']()}}>
                     Play As
                 </div>
-                <select id="player-type" onChange={this.handleChange} className="new-game-player-type-dropdown" value={this.selectedType}>
+                <select id="player-type" onChange={this.handleChange} className="customize-player-type-dropdown" value={this.selectedType}>
                     {this.playerTypes}
                 </select>
             </div>

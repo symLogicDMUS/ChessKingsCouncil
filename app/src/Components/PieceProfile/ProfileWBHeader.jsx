@@ -1,6 +1,7 @@
 import React from "react";
 import { Textfit } from "react-textfit";
 import { getColorName } from "../helpers/getColorName";
+import { fontSizes } from "../styles/fontSizes";
 import "./ProfileWBHeader.scss";
 
 export class ProfileWBHeader extends React.Component {
@@ -27,7 +28,7 @@ export class ProfileWBHeader extends React.Component {
     render() {
         return (
             <div className={this.props.class_}>
-                <div className="wb-piece-name" mode="single" max={1000000}>
+                <div className="wb-piece-name" style={{fontSize: fontSizes[this.props.screenCase]['medium2']()}}>
                     {this.color} {this.props.rangeType}
                 </div>
                 <div

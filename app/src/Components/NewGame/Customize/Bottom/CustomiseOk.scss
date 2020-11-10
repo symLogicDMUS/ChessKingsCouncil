@@ -1,19 +1,8 @@
-.new-game-accept-customization {
-    position: absolute;
-    z-index: 2;
-    width: 72px; 
-    height: 32px; 
-    left: 1095px; 
-    top: 920px; 
-    font-size: 14.4px;
-    color: #b6b6b6;
-    background-color: #6c6c6c;
-    border: 0.8px solid #7e7e7e;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 4.800000000000001px;
-    cursor: pointer;
+@import "../../../styles/button/button-style";
+
+.customize-ok {
+    @include button-style("dark");
+    top: 15%;
+    left: 91.5%;
+    border: 1px solid#707070;
 }
-.new-game-accept-customization:hover {
-    color: #606060;
-    background-color: #b6b6b6;
-} 

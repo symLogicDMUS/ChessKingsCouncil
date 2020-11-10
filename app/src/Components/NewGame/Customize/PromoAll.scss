@@ -1,55 +1,26 @@
-.new-game-promo-all {
+.customize-promo-all-label {
     position: absolute;
-    z-index: 3;
-    display: grid;
-    left: 457.6px;
-    top: 4.800000000000001px;
-    grid-template-columns: 78.4px 20px; 
-    grid-template-rows: 28.8px; 
-    text-align: left;
-}
-
-.new-game-promo-all-label {
-    grid-column: 1;
-    font-size: 16px;
-    padding-top: 4px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 16%;
+    left: 50%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #a9a9a9;
-    /* border: 0.8px dashed white; */
 }
 
-.new-game-promo-all-checkbox-container {
-    grid-column: 2;
-    /* border: 0.8px dashed white;  */
-}
-
-.new-game-promo-all-checkbox {
-    position: relative;
-    top: 7.2px;
-    width: 14.4px; 
-    height: 14.4px; 
-    background-color: #515151;
-    border: 1.6px solid #707070;
-    border-radius: 4px;
-    cursor: pointer;
-} 
-
-
-.new-game-promo-all-checkbox-selected {
-    position: relative;
-    top: 7.2px;
-    width: 14.4px; 
-    height: 14.4px; 
-    background-color: #515151;
-    border: 1.6px solid #969696;
-    border-radius: 4px;
-    cursor: pointer;
-} 
-
-.new-game-checked {
+.customize-promo-all-checkbox {
     position: absolute;
-    max-height: 14.4px; 
-    max-width: 14.4px; 
-    padding: 0.8px;
+    left: 56.5%;
+    top: 17%;
+    width: 1.6%;
+    height: 60%;
+    background-color: #5d5d5d;
+    border: 1.6px solid #707070;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.customize-checked {
+    position: absolute;
     object-fit: contain;
+    width: 100%;
+    height: 100%;
 }

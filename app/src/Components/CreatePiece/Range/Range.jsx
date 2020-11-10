@@ -4,6 +4,8 @@ import { ArrowButton } from "./ArrowButton/ArrowButton";
 import { RangeDisplayWindow } from "./RangeDisplayWindow";
 import { stylesObjects } from "../create-piece-styles-objects";
 import "./Range.scss";
+import { angleToText } from "../../helpers/spanToText";
+import { offsetToText } from "../../helpers/offsetToText";
 
 export class Range extends React.Component {
     constructor(props) {
@@ -53,33 +55,27 @@ export class Range extends React.Component {
         let spans = [];
         for (var angle of Object.keys(this.props.spans)) {
             if (this.props.spans[angle]) {
-                spans.push("step_1sqr" + angle);
+                spans.push(angleToText[angle]);
             }
         }
         return spans;
     }
 
     getOffsets() {
-        let offsets = JSON.parse(JSON.stringify(this.props.offsets));
-        return offsets;
+        return this.props.offsets.map((offset) => offsetToText(offset));
     }
 
     render() {
         return (
             <>
-            <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
-                <div className="range-title">Range</div>
-                <RangeDisplayWindow
-                    spans={this.getSpans()}
-                    offsets={this.getOffsets()}
-                    togleSpanText={this.props.togleSpanText}
-                    togleOffsetText={this.props.togleOffsetText}
-                />
-                <div class="direction-pad">
-                    {this.getArrowButtons()}
-                    <div className="middle" />
+                <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
+                    <div className="range-title">Range</div>
+                    <RangeDisplayWindow ranges={{ ...this.getSpans(), ...this.getOffsets() }} />
+                    <div class="direction-pad">
+                        {this.getArrowButtons()}
+                        <div className="middle" />
+                    </div>
                 </div>
-            </div>
             </>
         );
     }

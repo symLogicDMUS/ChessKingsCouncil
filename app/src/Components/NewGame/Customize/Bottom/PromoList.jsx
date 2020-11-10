@@ -1,55 +1,20 @@
 import React from "react";
-import { PromoListScrollArrow } from "./PromoListScrollArrow";
+import { ScrollTable } from "../../../Reuseables/ScrollTable";
+import { fontSizes } from "../../../styles/fontSizes";
+import { styleObjects } from "../styleObjects";
 import "./PromoList.scss";
 
-
-export class PromoList extends React.Component {
-
-    constructor(props) {
-    
-        super(props);
-        this.state = {bValue: true};
-        this.aboveView = this.props.aboveView;
-        this.inView = this.props.inView;
-        this.belowView = this.props.belowView;
-        this.moveUp = this.moveUp.bind(this);
-        this.moveDown = this.moveDown.bind(this);
-    }
-    
-    moveUp() {
-        if (this.props.belowView.length !== 0) {
-            let firstIn = this.props.inView.shift();
-            this.props.aboveView.push(firstIn);
-            let firstBelow = this.props.belowView.shift();
-            this.props.inView.push(firstBelow);    
-        }
-        this.setState({bValue: ! this.state.bValue})
-    }
-    
-    moveDown() {
-        if (this.props.aboveView.length !== 0) {
-            let firstAbove = this.props.aboveView.pop();
-            this.props.inView.unshift(firstAbove);
-            let lastIn = this.props.inView.pop();
-            this.props.belowView.unshift(lastIn);    
-        }
-        this.setState({bValue: ! this.state.bValue})
-    }
-    
-    render() {
-
-        return (
-            <div className="new-game-promo-list">
-                <PromoListScrollArrow class_="promo-list-up-arrow" move={this.moveUp} />
-                <div className="promo-list-item p-list-item1">{this.props.inView[0]}</div>
-                <div className="promo-list-item p-list-item2">{this.props.inView[1]}</div>
-                <div className="promo-list-item p-list-item3">{this.props.inView[2]}</div>
-                <div className="promo-list-item p-list-item4">{this.props.inView[3]}</div>
-                <div className="promo-list-item p-list-item5">{this.props.inView[4]}</div>
-                <PromoListScrollArrow class_="promo-list-down-arrow" move={this.moveDown} />
+export function PromoList({ promos, screenCase }) {
+    const fontSize = fontSizes[screenCase]["medium3"]();
+    const fontStyleObject = { fontSize: fontSize, paddingTop: fontSize * 0.05 };
+    return (
+        <div className="pawn-promotions" style={styleObjects[screenCase]["PromoList"]()}>
+            <div className="customize-promo-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
+                Pawn Promotions
             </div>
-        )
-    }
+            {/* <div className="customize-promo-list"> */}
+            <ScrollTable className="scroll-table" listItems={promos} fontStyleObject={fontStyleObject} />
+            {/* </div> */}
+        </div>
+    );
 }
-
-
