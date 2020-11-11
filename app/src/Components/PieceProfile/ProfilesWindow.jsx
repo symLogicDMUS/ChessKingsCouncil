@@ -4,7 +4,6 @@ import { styleObjects } from "./styleObjects";
 // import { SearchBar } from "./SearchBar";
 import { Close } from "../Reuseables/Close";
 import { CloseStyle } from "../Reuseables/CloseStyle";
-import { pieceProfilesSizePos } from "./pieceProfilesSizePos";
 import { offsetToText } from "../helpers/offsetToText";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { Profile } from "./Profile";
@@ -169,17 +168,15 @@ export class ProfilesWindow extends React.Component {
             <>
                 <div
                     className="profiles-window"
-                    style={pieceProfilesSizePos[this.props.screenCase](this.props.scaler)}
+                    style={styleObjects[this.props.screenCase]["profilesWindow"](this.props.scaler)}
                 >
                     <div className="top-bar" style={styleObjects[this.props.screenCase]["topBar"](this.props.scaler)}>
-                        <Textfit
+                        <div
                             className="title"
-                            mode="multi"
-                            max={1000000}
                             style={styleObjects[this.props.screenCase]["title"](this.props.scaler)}
                         >
                             {this.props.title}
-                        </Textfit>
+                        </div>
                         {/* <SearchBar updateSearch={this.updateSearch} /> */}
                         {this.props.closeIcon && (
                             <Close

@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import jss from 'jss';
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";

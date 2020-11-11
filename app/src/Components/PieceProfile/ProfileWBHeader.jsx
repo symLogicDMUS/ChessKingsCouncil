@@ -1,45 +1,25 @@
-import React from "react";
-import { Textfit } from "react-textfit";
+import React, {useState} from "react";
 import { getColorName } from "../helpers/getColorName";
 import { fontSizes } from "../styles/fontSizes";
 import "./ProfileWBHeader.scss";
 
-export class ProfileWBHeader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { src: "/Images/expand/expand-969696.svg" };
-        this.expand = this.expand.bind(this);
-        this.color = getColorName(this.props.color);
-        this.hoverOn = this.hoverOn.bind(this);
-        this.hoverOff = this.hoverOff.bind(this);
-    }
+export function ProfileWBHeader({screenCase, className, expand, pieceName, color, rangeType}) {
+        
+        let [src, setSrc] = useState("/Images/expand/expand-969696.svg");
 
-    expand() {
-        this.props.expand(this.props.pieceName, this.props.color, this.props.rangeType);
-    }
-    hoverOn() {
-        this.setState({ src: "/Images/expand/expand-72e2ff.svg" });
-    }
-
-    hoverOff() {
-        this.setState({ src: "/Images/expand/expand-969696.svg" });
-    }
-
-    render() {
         return (
-            <div className={this.props.class_}>
-                <div className="wb-piece-name" style={{fontSize: fontSizes[this.props.screenCase]['medium2']()}}>
-                    {this.color} {this.props.rangeType}
+            <div className={className}>
+                <div className="wb-piece-name" style={{fontSize: fontSizes[screenCase]['medium2']()}}>
+                    {getColorName(color)} {rangeType}
                 </div>
                 <div
-                    class_="expand-modal"
-                    onClick={this.expand}
-                    onMouseEnter={this.hoverOn}
-                    onMouseLeave={this.hoverOff}
+                    className="expand-modal"
+                    onClick={() => expand(pieceName, color, rangeType)}
+                    onMouseEnter={() => setSrc("/Images/expand/expand-72e2ff.svg")}
+                    onMouseLeave={() => setSrc("/Images/expand/expand-969696.svg")}
                 >
-                    <img className="expand-modal-icon" src={this.state.src} alt="expand icon" />
+                    <img className="expand-modal-icon" src={src} alt="expand icon" />
                 </div>
             </div>
         );
-    }
 }

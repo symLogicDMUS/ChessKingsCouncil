@@ -11,11 +11,11 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand }) {
             <div className="img-label" style={{ fontSize: fontSizes[screenCase]["medium2"]() }}>
                 {getColorName(color)} Image
             </div>
-            <div className="img-window">
+            <div className="piece-profile-img">
                 <img src={def.img} className="piece-profile-img" alt="icon of piece" />
             </div>
             <ProfileWBHeader
-                class_="spans-header"
+                className="spans-header"
                 screenCase={screenCase}
                 pieceName={pieceName}
                 expand={expand}
@@ -23,7 +23,6 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand }) {
                 rangeType="spans"
             />
             <ScrollTable
-                className="scroll-table"
                 listItems={def.spans}
                 fontStyleObject={{
                     fontSize: fontSizes[screenCase]["medium2"](),
@@ -31,7 +30,7 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand }) {
                 }}
             />
             <ProfileWBHeader
-                class_="offsets-header"
+                className="offsets-header"
                 screenCase={screenCase}
                 pieceName={pieceName}
                 expand={expand}
@@ -39,7 +38,6 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand }) {
                 color={getColorName(color)}
             />
             <ScrollTable
-                className="scroll-table"
                 listItems={def.offsets}
                 fontStyleObject={{
                     fontSize: fontSizes[screenCase]["medium2"](),
@@ -49,11 +47,3 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand }) {
         </div>
     );
 }
-
-/**
- *                     color="W"
-                    screenCase={screenCase}
-                    def={displayDefs[pieceName]["W"]}
-                    pieceName={pieceName}
-                    expand={expand}
- */

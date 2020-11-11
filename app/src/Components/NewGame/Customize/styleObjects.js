@@ -2,10 +2,10 @@ export var styleObjects = {
     desktop: {
         PromoList: () => {
             const width = window.screen.availWidth * 0.5;
-            const height = window.screen.availHeight * 0.2;
+            const height = window.screen.availHeight * 0.198;
             const top = window.screen.availHeight * 0.67;
             const left = window.screen.availWidth * 0.5;
-            return { width: width, height: height, top: top, left: left, zIndex: 5 };
+            return { width: width, height: height, top: top, left: left, zIndex: 5, border: "1px dashed red" };
         },
         SubList: () => {
             const width = window.screen.availWidth * 0.5;

@@ -12,9 +12,9 @@ export function PromoList({ promos, screenCase }) {
             <div className="customize-promo-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
                 Pawn Promotions
             </div>
-            {/* <div className="customize-promo-list"> */}
-            <ScrollTable className="scroll-table" listItems={promos} fontStyleObject={fontStyleObject} />
-            {/* </div> */}
+            <div>
+                {/* <ScrollTable listItems={promos} fontStyleObject={fontStyleObject} /> */}
+            </div>
         </div>
     );
 }

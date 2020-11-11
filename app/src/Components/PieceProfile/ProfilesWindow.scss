@@ -17,8 +17,11 @@ $b-rad: 12px;
 @mixin title {
     position: absolute;
     color: #a9a9a9;
+    border: 1px dashed #b1faae;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
+    text-align: left;
+    padding-left: 1%;
+    padding-top: 0.25%;
 }
 @mixin profiles-section {
     position: absolute;
