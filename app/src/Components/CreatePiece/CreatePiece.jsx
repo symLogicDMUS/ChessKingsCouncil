@@ -24,7 +24,7 @@ import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { redirectMessageStr } from "./helpers/redirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { ProfilesWindow } from "../PieceProfile/ProfilesWindow";
+import { ProfilesModal } from "./ProfilesModal/ProfilesModal";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./CreatePiece.scss";
@@ -632,14 +632,10 @@ export class CreatePiece extends React.Component {
                     />
                 )}
                 {this.state.isLoadModal && (
-                    <ProfilesWindow
-                        headerType="load-delete"
-                        screenCase={screenCase}
-                        closeIcon={true}
-                        title="Created Pieces"
-                        defs={this.defs}
+                    <ProfilesModal
                         load={this.load}
-                        scaler={1}
+                        defs={this.defs}
+                        screenCase={screenCase}
                         togleLoadModal={this.togleLoadModal}
                         prepareDelete={this.prepareDelete}
                     />

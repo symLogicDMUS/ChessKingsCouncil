@@ -1,5 +1,5 @@
 import React from "react";
-import { stylesObjects } from "./message-modal-styles-objects";
+import { stylesObjects } from "./HelpStyle";
 import "./MessageModal.scss";
 
 export function MessageModal({ screenCase, togleMessageModal, messageTitle, messageText }) {

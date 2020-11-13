@@ -1,6 +1,6 @@
 import React from "react";
 import { fontSizes } from "../../../styles/fontSizes";
-import {styleObjects} from "../styleObjects";
+import {styleObjects} from "../CustomizeStyle";
 import "./SubList.scss";
 
 export function SubList({ screenCase, subs }) {

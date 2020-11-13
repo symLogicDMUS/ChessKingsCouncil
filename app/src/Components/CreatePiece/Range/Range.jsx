@@ -70,7 +70,10 @@ export class Range extends React.Component {
             <>
                 <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
                     <div className="range-title">Range</div>
-                    <RangeDisplayWindow ranges={{ ...this.getSpans(), ...this.getOffsets() }} />
+                    <RangeDisplayWindow
+                        ranges={{ ...this.getSpans(), ...this.getOffsets() }}
+                        screenCase={this.props.screenCase}
+                    />
                     <div class="direction-pad">
                         {this.getArrowButtons()}
                         <div className="middle" />

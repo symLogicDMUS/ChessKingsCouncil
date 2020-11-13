@@ -1,72 +1,276 @@
-.location-tool {
-  position: absolute;
-  z-index: 0;
-  width: 26%;
-  height: 11.14%;
-  top: 72.41%;
-  left: 57%;
-  border-radius: 10px;
-  background-color: #515151;
-  border-color: #a9a9a9;
+@media screen and (min-device-width: 768px) {
+  .location-button-normal {
+    cursor: pointer;
+  }
 }
 
-.location-tool .location-title {
-  position: absolute;
-  z-index: 0;
-  left: 2.5%;
-  top: 5%;
-  font-size: 125%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #a9a9a9;
+@media screen and (min-device-width: 768px) and (min-width: 768px) {
+  .location-button-normal {
+    position: absolute;
+    width: 10%;
+    height: 44.21053%;
+    top: 40%;
+    border-radius: 10px;
+  }
 }
 
-.location-tool .location-button-normal {
-  position: absolute;
-  z-index: 0;
-  width: 7.5%;
-  height: 35.7%;
-  top: 45.2%;
-  border-radius: 5px;
-  color: #a9a9a9;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #515151;
-  border: solid 1px #515151;
-  cursor: pointer;
+@media screen and (min-device-width: 768px) and (max-width: 767px) {
+  .location-button-normal {
+    position: absolute;
+    width: 12%;
+    height: 12%;
+    border-radius: 5px;
+    top: 45%;
+  }
 }
 
-.location-tool .location-button-normal:hover {
-  background-color: #a9a9a9;
+@media screen and (min-device-width: 768px) and (min-device-width: 768px) {
+  .location-button-normal {
+    background-color: #5d5d5d;
+    border: 1px solid #5d5d5d;
+  }
 }
 
-.location-tool .location-button-normal .location-button-label {
-  position: absolute;
-  z-index: 0;
-  top: 15%;
-  left: 15%;
-  width: 70%;
-  height: 70%;
+@media screen and (min-device-width: 768px) and (max-device-width: 767px) {
+  .location-button-normal {
+    background-color: #5d5d5d;
+    border: 1px solid #454849;
+  }
 }
 
-.location-tool .location-button-selected {
-  position: absolute;
-  z-index: 0;
-  width: 7.5%;
-  height: 35.7%;
-  top: 45.2%;
-  border-radius: 5px;
-  color: #a9a9a9;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ec2525;
-  border: solid 1px #ec2525;
-  cursor: pointer;
+@media screen and (min-device-width: 768px) {
+  .location-button-normal:hover {
+    background-color: #a9a9a9;
+  }
+  .location-button-normal .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+  }
+  .location-button-selected {
+    background-color: #ec2525;
+    border: solid 1px #ec2525;
+    cursor: pointer;
+  }
 }
 
-.location-tool .location-button-selected .location-button-label {
-  position: absolute;
-  z-index: 0;
-  top: 15%;
-  left: 15%;
-  width: 70%;
-  height: 70%;
+@media screen and (min-device-width: 768px) and (min-width: 768px) {
+  .location-button-selected {
+    position: absolute;
+    width: 10%;
+    height: 44.21053%;
+    top: 40%;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-width: 767px) {
+  .location-button-selected {
+    position: absolute;
+    width: 12%;
+    height: 12%;
+    border-radius: 5px;
+    top: 45%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .location-button-selected .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+  }
+  .location-tool {
+    position: absolute;
+    z-index: 0;
+    border-radius: 10px;
+    background-color: #515151;
+    border-color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (min-width: 768px) {
+  .location-tool .location-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 5%;
+    font-size: 125%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) and (max-width: 767px) {
+  .location-tool .location-title {
+    position: absolute;
+    z-index: 0;
+    left: 5%;
+    top: 28%;
+    font-size: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .location-tool .d4 {
+    left: 3%;
+  }
+  .location-tool .e4 {
+    left: 16%;
+  }
+  .location-tool .d5 {
+    left: 29%;
+  }
+  .location-tool .e5 {
+    left: 42%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .location-button-normal {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (min-width: 768px) {
+  .location-button-normal {
+    position: absolute;
+    width: 10%;
+    height: 44.21053%;
+    top: 40%;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (max-width: 767px) {
+  .location-button-normal {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    border-radius: 5px;
+    top: 45%;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (min-device-width: 768px) {
+  .location-button-normal {
+    background-color: #5d5d5d;
+    border: 1px solid #5d5d5d;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (max-device-width: 767px) {
+  .location-button-normal {
+    background-color: #5d5d5d;
+    border: 1px solid #454849;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .location-button-normal:hover {
+    background-color: #a9a9a9;
+  }
+  .location-button-normal .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+  }
+  .location-button-selected {
+    background-color: #ec2525;
+    border: solid 1px #ec2525;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (min-width: 768px) {
+  .location-button-selected {
+    position: absolute;
+    width: 10%;
+    height: 44.21053%;
+    top: 40%;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (max-width: 767px) {
+  .location-button-selected {
+    position: absolute;
+    width: 45%;
+    height: 45%;
+    border-radius: 5px;
+    top: 45%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .location-button-selected .location-button-label {
+    position: absolute;
+    z-index: 0;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+  }
+  .location-tool {
+    position: absolute;
+    z-index: 0;
+    border-radius: 10px;
+    background-color: #515151;
+    border-color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (min-width: 768px) {
+  .location-tool .location-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 5%;
+    font-size: 125%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) and (max-width: 767px) {
+  .location-tool .location-title {
+    position: absolute;
+    z-index: 0;
+    left: 5%;
+    top: 28%;
+    font-size: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .location-tool .d4 {
+    top: 52%;
+    left: 3.5%;
+  }
+  .location-tool .e4 {
+    top: 52%;
+    left: 52%;
+  }
+  .location-tool .d5 {
+    top: 3.5%;
+    left: 3.5%;
+  }
+  .location-tool .e5 {
+    top: 3.5%;
+    left: 52%;
+  }
 }
 /*# sourceMappingURL=Location.css.map */

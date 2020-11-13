@@ -2,7 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "location-button-selected.scss"
+        "location-button-selected.scss",
+        "../../../styles/button/_location-button.scss"
     ],
     "names": [],
     "file": "location-button-selected.css"

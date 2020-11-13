@@ -2,10 +2,10 @@ import React from "react";
 import { ScrollTable } from "../../Reuseables/ScrollTable";
 import "./RangeDisplayWindow.scss";
 
-export function RangeDisplayWindow({ ranges }) {
+export function RangeDisplayWindow({ ranges, screenCase }) {
     return (
         <div className="range-display-window">
-            <ScrollTable className="scroll-table-no-disp" listItems={ranges} />
+            <ScrollTable className="scroll-table-no-disp" listItems={ranges} screenCase={screenCase}  />
         </div>
     );
 }

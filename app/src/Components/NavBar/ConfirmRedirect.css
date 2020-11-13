@@ -1,111 +1,90 @@
 .confirm-redirect {
   position: absolute;
-  z-index: 5;
-  left: 469px;
-  top: 226px;
-  width: 598px;
-  height: 302px;
+  z-index: 20;
   background-color: #515151;
-  border: 1px solid #b6b6b6;
-  border-radius: 15px;
+  border: 1px solid #5d5d5d;
 }
 
-.confirm-redirect .title {
+.confirm-redirect .confirm-redirect-title {
   position: absolute;
+  z-index: inherit;
+  width: 90%;
+  height: 10%;
+  left: 5%;
+  top: 5%;
   text-align: center;
-  width: 565px;
-  height: 30px;
-  margin-top: 16px;
-  margin-left: 16px;
-  margin-right: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 20px;
+  font-size: 160%;
   color: #b6b6b6;
   background-color: #515151;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.confirm-redirect .text {
-  position: absolute;
-  top: 50px;
-  color: #b6b6b6;
-  background-color: #515151;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 560px;
-  max-height: 150px;
-  text-align: center;
-  font-size: 15px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 16px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   word-wrap: break-word;
-  overflow-x: hidden;
+}
+
+.confirm-redirect .confirm-redirect-text {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  height: 50%;
+  z-index: inherit;
+  color: #b6b6b6;
+  background-color: #515151;
+  font-size: 145%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-y: hidden;
   text-overflow: ellipsis;
 }
 
-.confirm-redirect .accept-button {
-  position: absolute;
-  top: 250px;
-  left: 180px;
+.confirm-redirect .confirm-redirect-accept-button {
+  /*% units*/
   position: absolute;
   z-index: inherit;
-  height: 20px;
-  width: 76px;
-  font-size: 12.04819px;
-  padding-top: 4px;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #b6b6b6;
-  background-color: #606060;
-  border-radius: 5.60224px;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
 }
 
-.confirm-redirect .accept-button:hover {
-  color: #606060;
+.confirm-redirect .confirm-redirect-accept-button:hover {
+  color: #515151;
   background-color: #b6b6b6;
 }
 
-.confirm-redirect .reject-button {
-  position: absolute;
+.confirm-redirect .confirm-redirect-reject-button {
+  /*% units*/
   position: absolute;
   z-index: inherit;
-  height: 20px;
-  width: 76px;
-  font-size: 12.04819px;
-  padding-top: 4px;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #b6b6b6;
-  background-color: #606060;
-  border-radius: 5.60224px;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
-  left: 332px;
-  top: 250px;
 }
 
-.confirm-redirect .reject-button:hover {
-  color: #606060;
+.confirm-redirect .confirm-redirect-reject-button:hover {
+  color: #515151;
   background-color: #b6b6b6;
 }
 
-.confirm-redirect .close {
+.confirm-redirect .confirm-redirect-close {
   position: absolute;
-  left: 585px;
-  width: 12px;
-  height: 12px;
   cursor: pointer;
+  left: 95%;
+  top: 2%;
+  width: 5%;
+  height: 5%;
 }
 
-.confirm-redirect .close:hover {
+.confirm-redirect .confirm-redirect-close:hover {
   background-color: #EC2525;
 }
 /*# sourceMappingURL=ConfirmRedirect.css.map */

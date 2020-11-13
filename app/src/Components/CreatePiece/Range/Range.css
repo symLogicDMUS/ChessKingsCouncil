@@ -1,0 +1,115 @@
+@media screen and (min-device-width: 768px) {
+  .range-tool {
+    position: absolute;
+    z-index: 0;
+    background-color: #515151;
+    border-radius: 15px;
+    border-color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .range-tool {
+    position: absolute;
+    z-index: 0;
+    border-radius: 15px;
+    border-color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .range-tool .range-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 2.5%;
+    font-size: 150%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .range-tool .range-title {
+    display: none;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .range-tool .direction-pad {
+    position: absolute;
+    z-index: 0;
+    width: 25%;
+    height: 66.67%;
+    left: 72.5%;
+    top: 27.3%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .range-tool .direction-pad {
+    position: absolute;
+    z-index: 0;
+    height: 90%;
+    width: 55.35%;
+    top: 7%;
+    left: 3%;
+  }
+}
+
+.direction-pad .middle {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 30%;
+  height: 30%;
+}
+
+.direction-pad .button-selected {
+  position: absolute;
+  z-index: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #ec2525;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-normal:hover {
+  border-color: #00ccff;
+}
+
+.direction-pad .button-normal {
+  position: absolute;
+  z-index: 0;
+  width: 30%;
+  height: 30%;
+  background-color: #515151;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-normal:hover {
+  background-color: #a9a9a9;
+}
+
+.button-selected .vector {
+  position: absolute;
+  z-index: 0;
+  width: 66.667%;
+  height: 66.667%;
+  left: 16.66%;
+  top: 16.66%;
+}
+
+.button-normal .vector {
+  position: absolute;
+  z-index: 0;
+  width: 66.667%;
+  height: 66.667%;
+  left: 16.66%;
+  top: 16.66%;
+}
+/*# sourceMappingURL=Range.css.map */

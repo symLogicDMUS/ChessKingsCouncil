@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAcA,AAAA,SAAS,CAAC;EAXN,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,OAAO;EAChB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,GAAG;EAC1B,gBAAgB,EAAE,OAAO;EACzB,UAAU,EAAE,iBAAiB;EAE7B,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,MAAM;CAKrB",
+    "sources": [
+        "PieceProfiles.scss"
+    ],
+    "names": [],
+    "file": "PieceProfiles.css"
+}

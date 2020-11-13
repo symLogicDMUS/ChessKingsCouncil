@@ -7,7 +7,7 @@ import { deleteDef } from "../../API/deleteDef";
 import { getDefs } from "../../API/getDefs";
 // import { SearchBar } from "./SearchBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
-import { ProfilesWindow } from "../PieceProfile/ProfilesWindow";
+import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import "./MyPieces.scss";
 
 export class MyPieces extends React.Component {
@@ -95,7 +95,7 @@ export class MyPieces extends React.Component {
     delete() {
         deleteDef(this.state.selectedPiece).then(([response]) => {
             delete this.defs[this.state.selectedPiece];
-            this.setState({ deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null,  });
+            this.setState({ deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null });
             this.setState({ profileRef: null });
         });
     }
@@ -103,12 +103,6 @@ export class MyPieces extends React.Component {
     getComponents(screenCase) {
         return (
             <>
-                <NavBar
-                    screenCase={screenCase}
-                    currentPage="MyPieces"
-                    theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
-                />
                 {this.state.messageModal && (
                     <MessageModal
                         screenCase={screenCase}
@@ -126,19 +120,30 @@ export class MyPieces extends React.Component {
                         noClick={this.cancelDelete}
                     />
                 )}
-                {this.state.fetched && (
-                    <ProfilesWindow
-                        headerType="load-delete"
-                        screenCase={screenCase}
-                        closeIcon={false}
-                        title="My Pieces"
-                        defs={this.defs}
-                        load={this.load}
-                        scaler={1}
-                        profileRef={this.state.profileRef}
-                        prepareDelete={this.prepareDelete}
-                    />
-                )}
+                <NavBar
+                    screenCase={screenCase}
+                    currentPage="MyPieces"
+                    theme={this.state.theme}
+                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                />
+
+                <div className="my-pieces">
+                    <div className="my-pieces-top-bar">
+                        <div className="my-pieces-title">My Pieces</div>
+                    </div>
+                    {this.state.fetched && (
+                        <PieceProfiles
+                            headerType="load-delete"
+                            screenCase={screenCase}
+                            title="My Pieces"
+                            defs={this.defs}
+                            load={this.load}
+                            scaler={1}
+                            profileRef={this.state.profileRef}
+                            prepareDelete={this.prepareDelete}
+                        />
+                    )}
+                </div>
             </>
         );
     }

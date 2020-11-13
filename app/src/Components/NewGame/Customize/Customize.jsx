@@ -2,21 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MediaQuery from "react-responsive";
 import { defs } from "./tests/testDefs1";
-import { styleObjects } from "./styleObjects";
-import { DisplayBoardModal } from "../../PieceProfile/DisplayBoardModal/DisplayBoardModal";
+import { styleObjects } from "./CustomizeStyle";
+import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
 import { PromoList } from "./Bottom/PromoList";
 import { SubList } from "./Bottom/SubList";
-import { spanToText } from "../../helpers/spanToText";
-import { offsetToText } from "../../helpers/offsetToText";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { PromoAll } from "./PromoAll";
-// import { Profile } from "../../PieceProfile/Profile";
 // import { NameTooltip } from "./Profile/NameTooltip";
-import { NewGamePlayerType, NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 // import { SearchBar } from "./SearchBar";
+import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
 import { NavBar } from "../../NavBar/NavBar";
 import { getDefs } from "../../../API/getDefs";
-import { ProfilesWindow } from "../../PieceProfile/ProfilesWindow";
+import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
@@ -77,39 +74,6 @@ export class Customize extends React.Component {
             this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
-
-    // getSpans(def) {
-    //     if (def.spans.length === 0) {
-    //         return Array(0);
-    //     }
-
-    //     let spanStrings = [];
-    //     for (var span of def.spans) {
-    //         spanStrings.push(spanToText(span));
-    //     }
-    //     return spanStrings;
-    // }
-
-    // getOffsets(def) {
-    //     if (def.offsets.length === 0) {
-    //         return Array(0);
-    //     }
-
-    //     let offsetStrings = [];
-    //     def.offsets.forEach((offset) => {
-    //         offsetStrings.push(offsetToText(offset));
-    //     });
-    //     return offsetStrings;
-    // }
-
-    // nameTooltip(e, isTooltip, name) {
-    //     this.clientX = e.clientX;
-    //     this.clientY = e.clientY;
-    //     this.isTooltip = isTooltip;
-    //     if (this.isTooltip) this.nameDisp = name;
-    //     else this.nameDisp = null;
-    //     this.setState({ binaryValue: !this.state.binaryValue });
-    // }
 
     prepareForSubAssign() {
         //names will be a list of names of all pieces.
@@ -239,7 +203,6 @@ export class Customize extends React.Component {
     getComponents(screenCase) {
         return (
             <>
-                <NavBar currentPage="Customize" theme={this.state.theme} unsaved={false} />
                 {this.state.messageModal && (
                     <MessageModal
                         screenCase={screenCase}
@@ -248,26 +211,34 @@ export class Customize extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                <ProfilesWindow
-                    screenCase={screenCase}
-                    title="Customize Game"
-                    headerType="custom-game"
-                    defs={this.defs}
-                    promos={this.promos}
-                    newReplacement={this.newReplacement}
-                    newReplaced={this.newReplaced}
-                    togleSub={this.togleSub}
-                    toglePromo={this.toglePromo}
-                    scaler={0.62}
-                    closeIcon={false}
-                />
-                <SubList screenCase={screenCase} subs={this.subs} />
-                <PromoList screenCase={screenCase} promos={this.promos} />
                 {/* {this.getModals()} */}
-                <div className="customize-bottom-bar" style={styleObjects[screenCase]["bottomBar"]()}>
-                    <PromoAll screenCase={screenCase} toglePromoAll={this.toglePromoAll} />
-                    <PlayerType screenCase={screenCase} setPlayerType={this.setPlayerType} />
-                    <Ok screenCase={screenCase} accept={this.accept} />
+                <NavBar currentPage="Customize" theme={this.state.theme} unsaved={false} />
+                <div className="customize" style={styleObjects[screenCase]['customize']()}>
+                    <div className="customize-topbar" style={styleObjects[screenCase]["topBar"]()}>
+                        <div className="customize-title">Customize Game</div>
+                        {/* <SearchBar updateSearch={this.updateSearch} /> */}
+                    </div>
+                    <PieceProfiles
+                        screenCase={screenCase}
+                        headerType="custom-game"
+                        defs={this.defs}
+                        promos={this.promos}
+                        newReplacement={this.newReplacement}
+                        newReplaced={this.newReplaced}
+                        togleSub={this.togleSub}
+                        toglePromo={this.toglePromo}
+                        pieceProfilesStyle={styleObjects[screenCase]['PieceProfiles']()}
+                    />
+                    <SubList screenCase={screenCase} subs={this.subs} />
+                    <PromoList screenCase={screenCase} promos={this.promos} />
+                    <div
+                        className="customize-bottom-bar"
+                        style={styleObjects[screenCase]["bottomBar"]()}
+                    >
+                        <PromoAll screenCase={screenCase} toglePromoAll={this.toglePromoAll} />
+                        <PlayerType screenCase={screenCase} setPlayerType={this.setPlayerType} />
+                        <Ok screenCase={screenCase} accept={this.accept} />
+                    </div>
                 </div>
             </>
         );
@@ -279,7 +250,7 @@ export class Customize extends React.Component {
         return (
             <>
                 <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery>
+                {/* <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery> */}
             </>
         );
     }

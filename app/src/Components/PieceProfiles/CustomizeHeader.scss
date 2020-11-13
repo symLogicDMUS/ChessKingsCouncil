@@ -1,0 +1,28 @@
+@mixin header-label {
+    position: relative;
+    z-index: inherit;
+    color: #a9a9a9;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    top: 0;
+}
+
+.customize-profile-header {
+    position: relative;
+    z-index: inherit;
+    background-color: #515151;
+    .customize-name-of-piece {
+        grid-column: 1;
+        @include header-label;
+    }
+    .customize-sub-label {
+        grid-column: 2;
+        @include header-label;
+    }
+    .customize-promotion-label {
+        grid-column: 4;
+        @include header-label;
+    }
+}

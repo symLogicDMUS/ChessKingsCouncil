@@ -1,16 +1,16 @@
 .game-play-colapse-widget {
   position: absolute;
   width: 12%;
+  left: 80%;
   height: 12%;
   top: 2%;
-  left: 80%;
 }
 
 .game-play-expand-widget {
   position: absolute;
   width: 12%;
+  left: 80%;
   height: 70%;
   top: 20%;
-  left: 80%;
 }
 /*# sourceMappingURL=ExpandColapseWidget.css.map */

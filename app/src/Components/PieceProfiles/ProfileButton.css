@@ -1,0 +1,42 @@
+.profile-load-button {
+  /*% units*/
+  position: absolute;
+  z-index: inherit;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  top: 22.5%;
+  left: 86%;
+}
+
+.profile-load-button:hover {
+  color: #515151;
+  background-color: #b6b6b6;
+}
+
+.profile-delete-button {
+  /*% units*/
+  position: absolute;
+  z-index: inherit;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  top: 22.5%;
+  left: 93%;
+}
+
+.profile-delete-button:hover {
+  color: #515151;
+  background-color: #b6b6b6;
+}
+/*# sourceMappingURL=ProfileButton.css.map */

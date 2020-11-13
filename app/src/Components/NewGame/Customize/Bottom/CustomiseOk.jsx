@@ -1,10 +1,10 @@
 import React from "react";
-import { getButtonSize } from "../../../styles/button/button-size";
+import {styleObjects} from "../CustomizeStyle";
 import "./CustomiseOk.scss";
 
-export function Ok({ accept }) {
+export function Ok({screenCase, accept }) {
     return (
-        <button className="customize-ok" onClick={accept} style={getButtonSize(window.screen.availHeight * 0.035)}>
+        <button className="customize-ok" onClick={accept} style={styleObjects[screenCase]['OkButton']()}>
             Ok
         </button>
     );

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "icon-button.scss",
+        "../../styles/_color-variables.scss"
+    ],
+    "names": [],
+    "file": "icon-button.css"
+}

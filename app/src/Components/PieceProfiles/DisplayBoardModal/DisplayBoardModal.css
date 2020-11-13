@@ -1,0 +1,60 @@
+.pieces-display-board-modal {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004d;
+}
+
+.pieces-display-board-window {
+  position: absolute;
+  z-index: 4;
+  display: -ms-grid;
+  display: grid;
+  background-color: #515151;
+  border-radius: 20px;
+  -ms-grid-columns: 320px;
+      grid-template-columns: 320px;
+  -ms-grid-rows: 7.89% 84.21% 7.89%;
+      grid-template-rows: 7.89% 84.21% 7.89%;
+}
+
+.pieces-display-board-window .pieces-display-board-header-title {
+  position: absolute;
+  z-index: 4;
+  left: 0%;
+  height: 0%;
+  width: 90%;
+  height: 7.5%;
+  color: #a9a9a9;
+  font-size: 180%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-top-left-radius: 15px;
+}
+
+.pieces-display-board-window .pieces-display-board-header-close {
+  position: absolute;
+  z-index: inherit;
+  left: 90%;
+  width: 10%;
+  height: 7.5%;
+  border-top-right-radius: 15px;
+  cursor: pointer;
+}
+
+.pieces-display-board-window .pieces-display-board-bottom {
+  position: absolute;
+  z-index: inherit;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  background-color: #515151;
+  border-radius: 15px;
+}
+/*# sourceMappingURL=DisplayBoardModal.css.map */

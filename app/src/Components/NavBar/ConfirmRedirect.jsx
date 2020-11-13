@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { modalWindow } from "../styles/modal-window1-components/modal-window-size-pos";
-import { stylesObjects } from "./Help/message-modal-styles-objects";
+import { stylesObjects } from "./Help/HelpStyle";
 import "./ConfirmRedirect.scss";
 
 

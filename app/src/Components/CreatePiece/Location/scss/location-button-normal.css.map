@@ -2,7 +2,9 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "location-button-normal.scss"
+        "location-button-normal.scss",
+        "../../../styles/button/_location-button.scss",
+        "../../../styles/_color-variables.scss"
     ],
     "names": [],
     "file": "location-button-normal.css"

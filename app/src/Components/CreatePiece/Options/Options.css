@@ -9,64 +9,170 @@
   background-color: #515151;
 }
 
-.options-title {
-  position: absolute;
-  z-index: 0;
-  left: 2.5%;
-  top: 5%;
-  font-size: 125%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #a9a9a9;
+@media screen and (min-device-width: 768px) {
+  .options-title {
+    position: absolute;
+    z-index: 0;
+    left: 2.5%;
+    top: 5%;
+    font-size: 125%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .options-title {
+    display: none;
+  }
 }
 
 .save-option {
-  z-index: 1;
   position: absolute;
-  width: 12.25%;
-  height: 63.5%;
-  top: 30%;
-  cursor: pointer;
-  left: 2.5%;
+  z-index: 1;
+}
+
+@media screen and (min-device-width: 768px) {
+  .save-option {
+    width: 12.25%;
+    height: 63.5%;
+    top: 30%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .save-option {
+    position: absolute;
+    z-index: 1;
+    width: 33.0885%;
+    height: 45%;
+    left: 7.5%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .save-option {
+    left: 2.5%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .save-option {
+    top: 0;
+    left: 7.5%;
+  }
 }
 
 .load-option {
-  z-index: 1;
   position: absolute;
-  width: 12.25%;
-  height: 63.5%;
-  top: 30%;
-  cursor: pointer;
-  left: 23.4%;
+  z-index: 1;
+}
+
+@media screen and (min-device-width: 768px) {
+  .load-option {
+    width: 12.25%;
+    height: 63.5%;
+    top: 30%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .load-option {
+    position: absolute;
+    z-index: 1;
+    width: 33.0885%;
+    height: 45%;
+    left: 7.5%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .load-option {
+    left: 27.5%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .load-option {
+    top: 0;
+    left: 61.2135%;
+  }
 }
 
 .reset-option {
-  z-index: 1;
   position: absolute;
-  width: 12.25%;
-  height: 63.5%;
-  top: 30%;
-  cursor: pointer;
-  left: 44.3%;
+  z-index: 1;
+}
+
+@media screen and (min-device-width: 768px) {
+  .reset-option {
+    width: 12.25%;
+    height: 63.5%;
+    top: 30%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .reset-option {
+    position: absolute;
+    z-index: 1;
+    width: 33.0885%;
+    height: 45%;
+    left: 7.5%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .reset-option {
+    left: 52.5%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .reset-option {
+    top: 52.5%;
+    left: 7.5%;
+  }
 }
 
 .blank-option {
-  z-index: 1;
   position: absolute;
-  width: 12.25%;
-  height: 63.5%;
-  top: 30%;
-  cursor: pointer;
-  left: 65.2%;
+  z-index: 1;
 }
 
-.theme-option {
-  z-index: 1;
-  position: absolute;
-  width: 12.25%;
-  height: 63.5%;
-  top: 30%;
-  cursor: pointer;
-  left: 86.1%;
+@media screen and (min-device-width: 768px) {
+  .blank-option {
+    width: 12.25%;
+    height: 63.5%;
+    top: 30%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .blank-option {
+    position: absolute;
+    z-index: 1;
+    width: 33.0885%;
+    height: 45%;
+    left: 7.5%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .blank-option {
+    left: 77.5%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .blank-option {
+    top: 52.5%;
+    left: 61.2135%;
+  }
 }
 
 .option-img {

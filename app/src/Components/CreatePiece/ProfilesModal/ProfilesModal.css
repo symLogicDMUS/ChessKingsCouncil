@@ -1,0 +1,26 @@
+.profiles-modal {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid #707070;
+  border-radius: 10px;
+}
+
+.profiles-modal .profiles-modal-topbar {
+  position: absolute;
+  z-index: inherit;
+  background-color: #515151;
+  border-bottom: 0.8px solid #707070;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.profiles-modal .profiles-modal-topbar .profiles-modal-title {
+  position: absolute;
+  color: #a9a9a9;
+  border: 1px dashed #b1faae;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  padding-left: 1%;
+  padding-top: 0.25%;
+}
+/*# sourceMappingURL=ProfilesModal.css.map */

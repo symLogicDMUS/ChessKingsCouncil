@@ -1,13 +1,8 @@
 .board-header-label {
   position: absolute;
   z-index: 4;
-  left: 368px;
-  top: 65px;
-  width: 600px;
-  height: 40px;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -16,43 +11,31 @@
 .board-header-grid {
   position: absolute;
   z-index: 4;
-  left: 468px;
-  top: 50px;
-  width: 600px;
-  height: 40px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 292px 292px;
-      grid-template-columns: 292px 292px;
-  -ms-grid-rows: 40px;
-      grid-template-rows: 40px;
-  -webkit-column-gap: 16px;
-          column-gap: 16px;
+  -ms-grid-columns: 48.67% 48.67%;
+      grid-template-columns: 48.67% 48.67%;
+  -webkit-column-gap: 2.66%;
+          column-gap: 2.66%;
 }
 
-.board-header-grid .turn {
-  -ms-grid-row: 1;
-  grid-row: 1;
+.board-header-grid .board-header-turn {
   -ms-grid-column: 1;
   grid-column: 1;
   z-index: inherit;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: right;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.board-header-grid .condition {
-  -ms-grid-row: 1;
-  grid-row: 1;
+.board-header-grid .board-header-condition {
   -ms-grid-column: 2;
   grid-column: 2;
   z-index: inherit;
   color: red;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;

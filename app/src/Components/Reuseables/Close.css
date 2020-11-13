@@ -1,0 +1,18 @@
+.close-dark-on {
+  position: absolute;
+  z-index: inherit;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/Images/close/on/dark.svg");
+}
+
+.close-dark-off {
+  position: absolute;
+  z-index: inherit;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("/Images/close/off/dark.svg");
+}
+/*# sourceMappingURL=Close.css.map */

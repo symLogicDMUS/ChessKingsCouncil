@@ -5,7 +5,7 @@ import { TogleNav } from "./TogleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpComponent } from "./Help/HelpComponent";
-import {styleObjects} from "./styleObjects"
+import {styleObjects} from "./NavBarStyle"
 import "./NavBar.scss";
 
 export class NavBar extends React.Component {

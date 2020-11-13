@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fontSizes } from "../../styles/fontSizes";
+import {styleObjects} from "./CustomizeStyle";
 import "./PromoAll.scss";
 
 export function PromoAll({ screenCase, toglePromoAll }) {
@@ -20,11 +21,12 @@ export function PromoAll({ screenCase, toglePromoAll }) {
     };
     return (
         <>
-            <div className="customize-promo-all-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
+            <div className="customize-promo-all-label" style={styleObjects[screenCase]['PromoAllLabel']()}>
                 Promo All
             </div>
             <div
                 className="customize-promo-all-checkbox"
+                style={styleObjects[screenCase]['PromoAllCheckbox']()}
                 onClick={() => {
                     setCheckmark(!checkmark);
                     toglePromoAll(!checkmark);
@@ -35,50 +37,3 @@ export function PromoAll({ screenCase, toglePromoAll }) {
         </>
     );
 }
-
-// export class PromoAll extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = { checkmark: false };
-//         this.togleCheck = this.togleCheck.bind(this);
-//     }
-
-//     togleCheck() {
-//         if (this.state.checkmark) this.props.toglePromoAll(false);
-//         else this.props.toglePromoAll(true);
-//         this.setState({ checkmark: !this.state.checkmark });
-//     }
-
-//     getCheckmark() {
-//         if (this.state.checkmark)
-//             return (
-//                 <img
-//                     src="/Images/checkmark/checkmark.svg"
-//                     className="customize-checked"
-//                     alt="checkmark shows all indicates all pieces promoted."
-//                 />
-//             );
-//         else return null;
-//     }
-
-//     getCheckbox() {
-//         if (this.state.checkmark) return "customize-promo-all-checkbox-selected";
-//         else return "customize-promo-all-checkbox";
-//     }
-
-//     render() {
-//         return (
-//             <>
-//                 <div
-//                     className="customize-promo-all-label"
-//                     style={{ fontSize: fontSizes[this.props.screenCase]["medium1"]() }}
-//                 >
-//                     Promo All
-//                 </div>
-//                 <div className={this.getCheckbox()} onClick={this.togleCheck}>
-//                     {this.getCheckmark()}
-//                 </div>
-//             </>
-//         );
-//     }
-// }

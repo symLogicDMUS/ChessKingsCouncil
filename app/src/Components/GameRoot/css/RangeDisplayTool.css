@@ -7,13 +7,14 @@
 
 .range-display-expanded .show-moves-label {
   position: absolute;
-  width: 140px;
-  height: 16px;
-  left: 20px;
-  top: 14px;
+  width: 70%;
+  height: 10%;
+  left: 10%;
+  top: 2%;
   text-align: left;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
+  color: #b1faae;
+  font-size: 120%;
 }
 
 .range-display-colapsed {
@@ -25,12 +26,13 @@
 
 .range-display-colapsed .show-moves-label {
   position: absolute;
-  width: 140px;
-  height: 16px;
-  left: 20px;
-  top: 14px;
+  width: 70%;
+  height: 10%;
+  left: 10%;
+  top: 20%;
   text-align: left;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 12px;
+  color: #b1faae;
+  font-size: 120%;
 }
 /*# sourceMappingURL=RangeDisplayTool.css.map */
