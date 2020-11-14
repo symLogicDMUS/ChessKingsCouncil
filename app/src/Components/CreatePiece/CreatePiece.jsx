@@ -715,8 +715,8 @@ export class CreatePiece extends React.Component {
                         spans={this.spans}
                         offsets={this.offsets}
                         togleSpan={this.togleSpan}
-                        update={this.update}
                         setUnsaved={this.setUnsaved}
+                        update={this.update}
                     />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "location") && (

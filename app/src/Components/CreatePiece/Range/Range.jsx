@@ -74,7 +74,7 @@ export class Range extends React.Component {
                         ranges={{ ...this.getSpans(), ...this.getOffsets() }}
                         screenCase={this.props.screenCase}
                     />
-                    <div class="direction-pad">
+                    <div className="direction-pad">
                         {this.getArrowButtons()}
                         <div className="middle" />
                     </div>

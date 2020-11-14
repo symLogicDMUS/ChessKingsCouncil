@@ -1,23 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MediaQuery from "react-responsive";
-import { defs } from "./tests/testDefs1";
-import { styleObjects } from "./CustomizeStyle";
-import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import { PromoList } from "./Bottom/PromoList";
-import { SubList } from "./Bottom/SubList";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
-import { PromoAll } from "./PromoAll";
+import {defs} from "./tests/testDefs1";
+import {styleObjects} from "./CustomizeStyle";
+import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
+import {PromoList} from "./Bottom/PromoList";
+import {SubList} from "./Bottom/SubList";
+import {MessageModal} from "../../NavBar/Help/MessageModal";
+import {PromoAll} from "./PromoAll";
 // import { NameTooltip } from "./Profile/NameTooltip";
 // import { SearchBar } from "./SearchBar";
-import { NewGamePlayerType as PlayerType } from "./NewGamePlayerType";
-import { NavBar } from "../../NavBar/NavBar";
-import { getDefs } from "../../../API/getDefs";
-import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
-import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
-import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
-import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
-import { Ok } from "./Bottom/CustomiseOk";
+import {NewGamePlayerType as PlayerType} from "./NewGamePlayerType";
+import {NavBar} from "../../NavBar/NavBar";
+import {getDefs} from "../../../API/getDefs";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
+import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
+import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
+import {Ok} from "./Bottom/CustomiseOk";
 import "./Customize.scss";
 
 export class Customize extends React.Component {
@@ -107,12 +107,11 @@ export class Customize extends React.Component {
     }
 
     loadIdDict() {
-        var [names, subs] = this.prepareForSubAssign();
-        var idDict = idAssign(names, subs);
-        return idDict;
+        const [names, subs] = this.prepareForSubAssign();
+        return idAssign(names, subs);
     }
     accept() {
-        var idDict = this.loadIdDict();
+        const idDict = this.loadIdDict();
         this.setStandardPromos(idDict);
         this.props.loadNewCustom(idDict, this.defs, this.promos);
         this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";

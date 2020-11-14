@@ -10,14 +10,14 @@ export class ScrollTable extends React.Component {
         this.inView = [];
         this.belowView = [];
 
-        this.divideList()
+        this.divideList();
 
         this.moveUp = this.moveUp.bind(this);
         this.moveDown = this.moveDown.bind(this);
     }
 
     reset() {
-        this.listItems = this.props.listItems
+        this.listItems = this.props.listItems;
         this.aboveView = [];
         this.inView = [];
         this.belowView = [];
@@ -63,10 +63,9 @@ export class ScrollTable extends React.Component {
     }
 
     render() {
-
         if (this.props.listItems !== this.listItems) {
-            this.reset()
-            this.divideList()
+            this.reset();
+            this.divideList();
         }
 
         return (

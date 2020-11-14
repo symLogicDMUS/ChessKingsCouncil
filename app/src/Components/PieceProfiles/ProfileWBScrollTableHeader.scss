@@ -3,9 +3,9 @@
 @mixin piece-range-header($row, $col) {
     @include grc($row, $col);
     display: grid;
-    width: 99.75%;
+    width: 100%;
     grid-template-columns: 95% 5%;
-    border: 0.8px solid #707070;
+    border: 1px solid #707070;
 }
 @mixin color-and-range-type {
     position: relative;
