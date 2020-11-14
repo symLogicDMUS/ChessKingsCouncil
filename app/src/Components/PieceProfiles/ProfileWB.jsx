@@ -9,10 +9,7 @@ import "./ProfileWB.scss";
 export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProfilesStyle }) {
     return (
         <div className="profile-wb" style={styleObjects[screenCase]["ProfileWB"](pieceProfilesStyle)}>
-            <div
-                className="img-label"
-                style={{ fontSize: fontSizes[screenCase]["actualUnit1"](pieceProfilesStyle.height) }}
-            >
+            <div className="img-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
                 {getColorName(color)} Image
             </div>
             <div className="img-window">
@@ -31,7 +28,13 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 listItems={def.spans}
                 screenCase={screenCase}
                 cellFontSize={fontSizes[screenCase]["medium3"]()}
-                styleObject={{border: "1px solid #707070", borderTop: "none"}}
+                styleObject={{
+                    gridRow: 2,
+                    gridColumn: 2,
+                    gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
+                    border: "1px solid #707070",
+                    borderTop: "none",
+                }}
             />
             <ProfileWBScrollTableHeader
                 className="offsets-header"
@@ -46,7 +49,13 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 listItems={def.offsets}
                 screenCase={screenCase}
                 cellFontSize={fontSizes[screenCase]["medium3"]()}
-                styleObject={{border: "1px solid #707070", borderTop: "none"}}
+                styleObject={{
+                    gridRow: 2,
+                    gridColumn: 3,
+                    gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
+                    border: "1px solid #707070",
+                    borderTop: "none",
+                }}
             />
         </div>
     );

@@ -1,15 +1,29 @@
 import React from "react";
-import { fontSizes } from "../styles/fontSizes";
 import "./ScrollTable.scss";
 
 export class ScrollTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = { bValue: true };
+        this.listItems = this.props.listItems;
         this.aboveView = [];
         this.inView = [];
         this.belowView = [];
 
+        this.divideList()
+
+        this.moveUp = this.moveUp.bind(this);
+        this.moveDown = this.moveDown.bind(this);
+    }
+
+    reset() {
+        this.listItems = this.props.listItems
+        this.aboveView = [];
+        this.inView = [];
+        this.belowView = [];
+    }
+
+    divideList() {
         let remaining = 0;
         if (this.props.listItems.length > 5) {
             remaining = this.props.listItems.length - 5;
@@ -26,13 +40,10 @@ export class ScrollTable extends React.Component {
                 this.belowView.push(this.props.listItems[i]);
             }
         } else this.inView = this.props.listItems;
-
-        this.moveUp = this.moveUp.bind(this);
-        this.moveDown = this.moveDown.bind(this);
     }
 
     moveUp() {
-        if (this.belowView.length != 0) {
+        if (this.belowView.length !== 0) {
             let firstIn = this.inView.shift();
             this.aboveView.push(firstIn);
             let firstBelow = this.belowView.shift();
@@ -42,7 +53,7 @@ export class ScrollTable extends React.Component {
     }
 
     moveDown() {
-        if (this.aboveView.length != 0) {
+        if (this.aboveView.length !== 0) {
             let firstAbove = this.aboveView.pop();
             this.inView.unshift(firstAbove);
             let lastIn = this.inView.pop();
@@ -52,6 +63,12 @@ export class ScrollTable extends React.Component {
     }
 
     render() {
+
+        if (this.props.listItems !== this.listItems) {
+            this.reset()
+            this.divideList()
+        }
+
         return (
             <div className="scroll-table" style={this.props.styleObject}>
                 <div className="up-arrow" onClick={this.moveUp}>
@@ -73,7 +90,7 @@ export class ScrollTable extends React.Component {
                     {this.inView[4]}
                 </div>
                 <div className="down-arrow" onClick={this.moveDown}>
-                    <img src="/Images/arrows/down-arrow.svg" className="scroll-arrow" />
+                    <img src="/Images/arrows/down-arrow.svg" className="scroll-arrow-img" />
                 </div>
             </div>
         );

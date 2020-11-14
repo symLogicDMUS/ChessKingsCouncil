@@ -20,7 +20,7 @@ import "./NewGame.scss";
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
  * assigns ids to piece-names for pieces the player chose for that game. the
- * id:piece-name arangement is unique to that game, and is stored in game-name.defs
+ * id:piece-name arrangement is unique to that game, and is stored in game-name.defs
  * in the game's folder.
  */
 export class NewGame extends React.Component {

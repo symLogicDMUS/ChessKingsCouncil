@@ -24,11 +24,14 @@ export var fontSizes = {
         small3: () => {
             return window.screen.availHeight * 0.018;
         },
-        actualUnit1: (containerHeight) => {
+        textDivRatio1: (divHeight) => {
             /**some fonts are in containers defined by actual unit lengths (like px)
              * and some are not. If so than uses cointainerHeight
              */
-            return containerHeight *0.0375 
+            return divHeight * 0.85;
+        },
+        textDivRatio2: (divHeight) => {
+            return divHeight * 0.5;
         }
     },
     mobile: {
@@ -41,11 +44,14 @@ export var fontSizes = {
         medium3: () => {
             return window.screen.availHeight * 0.02;
         },
-        actualUnit1: (containerHeight) => {
+        textDivRatio1: (divHeight) => {
             /**some fonts are in containers defined by actual unit lengths (like px)
              * and some are not. If so than uses cointainerHeight
              */
-            return containerHeight * 0.0375
+            return divHeight * 0.675;
+        },
+        textDivRatio2: (divHeight) => {
+            return divHeight * 0.5;
         }
     },
 };

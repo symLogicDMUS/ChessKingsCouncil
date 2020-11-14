@@ -18,6 +18,7 @@ export function PromoList({ promos, screenCase }) {
                     height: "80%",
                     top: "20%",
                     left: 0,
+                    gridTemplateRows: "10% 16% 16% 16% 16% 16% 10%",
                 }}
                 cellFontSize={fontSizes[screenCase]["small3"]()}
             />

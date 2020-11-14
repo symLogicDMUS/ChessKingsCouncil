@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { fontSizes } from "../../styles/fontSizes";
+import { styleObjects } from "../CustomizeStyle";
 import "./SubDropdown.scss";
 
 export class SubDropdown extends React.Component {
@@ -34,9 +34,9 @@ export class SubDropdown extends React.Component {
         return (
             <select
                 id="subs"
-                style={{ fontSize: fontSizes[this.props.screenCase]["medium2"]() }}
-                onChange={this.handleChange}
+                style={styleObjects[this.props.screenCase]['SubDropdown']()}
                 className="customize-sub-dropdown"
+                onChange={this.handleChange}
                 value={this.selectedPiece}
             >
                 {this.subs}

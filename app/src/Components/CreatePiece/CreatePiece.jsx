@@ -277,7 +277,7 @@ export class CreatePiece extends React.Component {
 
             if (
                 this.props.location !== undefined &&
-                this.props.location.state != undefined &&
+                this.props.location.state !== undefined &&
                 this.props.location.state.defaultPiece != null
             ) {
                 this.load(this.props.location.state.defaultPiece);
@@ -423,6 +423,7 @@ export class CreatePiece extends React.Component {
                     displaySuccessfullSaveMessage: false,
                     binaryValue: !this.state.binaryValue,
                 });
+                break;
             default:
                 break;
         }

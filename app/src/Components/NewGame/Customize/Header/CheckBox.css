@@ -1,10 +1,5 @@
-.customize-promotion-checkbox {
+.checkbox-grid-item {
   position: relative;
-  -ms-grid-column: 5;
-  grid-column: 5;
-  width: 5.5%;
-  height: 60%;
-  top: 15%;
   background-color: #515151;
   border: 1px solid #707070;
   background-color: #515151;

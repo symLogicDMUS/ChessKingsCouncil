@@ -8,19 +8,19 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    sodipodi:docname="down-arrow.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    id="svg8"
    version="1.1"
-   viewBox="0 0 6 5"
-   height="5mm"
-   width="6mm">
+   viewBox="0 0 7 7"
+   height="7mm"
+   width="7mm">
   <defs
      id="defs2" />
   <sodipodi:namedview
      inkscape:window-maximized="1"
-     inkscape:window-y="-9"
-     inkscape:window-x="-9"
-     inkscape:window-height="1001"
+     inkscape:window-y="-8"
+     inkscape:window-x="-8"
+     inkscape:window-height="1017"
      inkscape:window-width="1920"
      fit-margin-bottom="0"
      fit-margin-right="0"
@@ -31,9 +31,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="7.7842508"
-     inkscape:cx="26.490775"
-     inkscape:zoom="19.685647"
+     inkscape:cy="5.5336055"
+     inkscape:cx="-1.8127641"
+     inkscape:zoom="13.919854"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -53,14 +53,14 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(0.07850784,-1.6824068)"
+     transform="translate(-9.224762,1.1070901)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
     <path
-       transform="matrix(-2.1312494,0.04737734,-0.04438021,-2.0498165,9.9244297,8.8079406)"
-       inkscape:transform-center-y="0.8319235"
-       inkscape:transform-center-x="-0.0052326462"
+       transform="matrix(2.1312494,0.04737734,0.04438021,-2.0498165,5.7218245,7.0184441)"
+       inkscape:transform-center-y="0.83192359"
+       inkscape:transform-center-x="0.0052325469"
        d="M 4.6188522,3.5829367 1.8049994,3.515837 3.2700358,1.1125188 Z"
        inkscape:randomized="0"
        inkscape:rounded="0"
@@ -73,7 +73,7 @@
        sodipodi:cx="3.2312958"
        sodipodi:sides="3"
        id="path833"
-       style="opacity:0.997;fill:#a9a9a9;fill-opacity:1;stroke-width:0.280001;stroke-linejoin:round"
+       style="opacity:0.997;fill:#a9a9a9;fill-opacity:1;stroke-width:0.28000101;stroke-linejoin:round"
        sodipodi:type="star" />
   </g>
 </svg>

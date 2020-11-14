@@ -19,6 +19,16 @@ export function PromoAll({ screenCase, toglePromoAll }) {
             return null;
         }
     };
+    const toglePromos = () => {
+        if (checkmark) {
+            setCheckmark(!checkmark)
+            toglePromoAll(false)
+        }
+        else {
+            setCheckmark(!checkmark)
+            toglePromoAll(true)
+        }
+    }
     return (
         <>
             <div className="customize-promo-all-label" style={styleObjects[screenCase]['PromoAllLabel']()}>
@@ -27,10 +37,7 @@ export function PromoAll({ screenCase, toglePromoAll }) {
             <div
                 className="customize-promo-all-checkbox"
                 style={styleObjects[screenCase]['PromoAllCheckbox']()}
-                onClick={() => {
-                    setCheckmark(!checkmark);
-                    toglePromoAll(!checkmark);
-                }}
+                onClick={() => {toglePromos()}}
             >
                 {getCheckmark()}
             </div>

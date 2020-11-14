@@ -10,7 +10,7 @@ export function ProfileWBScrollTableHeader({screenCase, pieceProfilesStyle, clas
 
         return (
             <div className={className}>
-                <div className="color-and-range-type" style={{fontSize: fontSizes[screenCase]['actualUnit1'](pieceProfilesStyle.height)}}>
+                <div className="color-and-range-type" style={{fontSize: fontSizes[screenCase]['medium1']()}}>
                     {getColorName(color)} {rangeType}
                 </div>
                 <div

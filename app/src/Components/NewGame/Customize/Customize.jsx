@@ -111,7 +111,6 @@ export class Customize extends React.Component {
         var idDict = idAssign(names, subs);
         return idDict;
     }
-
     accept() {
         var idDict = this.loadIdDict();
         this.setStandardPromos(idDict);
@@ -213,7 +212,7 @@ export class Customize extends React.Component {
                 )}
                 {/* {this.getModals()} */}
                 <NavBar currentPage="Customize" theme={this.state.theme} unsaved={false} />
-                <div className="customize" style={styleObjects[screenCase]['customize']()}>
+                <div className="customize" style={styleObjects[screenCase]["customize"]()}>
                     <div className="customize-topbar" style={styleObjects[screenCase]["topBar"]()}>
                         <div className="customize-title">Customize Game</div>
                         {/* <SearchBar updateSearch={this.updateSearch} /> */}
@@ -227,14 +226,11 @@ export class Customize extends React.Component {
                         newReplaced={this.newReplaced}
                         togleSub={this.togleSub}
                         toglePromo={this.toglePromo}
-                        pieceProfilesStyle={styleObjects[screenCase]['PieceProfiles']()}
+                        styleObjects={styleObjects}
                     />
                     <SubList screenCase={screenCase} subs={this.subs} />
                     <PromoList screenCase={screenCase} promos={this.promos} />
-                    <div
-                        className="customize-bottom-bar"
-                        style={styleObjects[screenCase]["bottomBar"]()}
-                    >
+                    <div className="customize-bottom-bar" style={styleObjects[screenCase]["bottomBar"]()}>
                         <PromoAll screenCase={screenCase} toglePromoAll={this.toglePromoAll} />
                         <PlayerType screenCase={screenCase} setPlayerType={this.setPlayerType} />
                         <Ok screenCase={screenCase} accept={this.accept} />

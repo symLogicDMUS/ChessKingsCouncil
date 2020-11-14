@@ -10,19 +10,26 @@
 }
 
 .customize-profile-header {
-    position: relative;
     z-index: inherit;
     background-color: #515151;
-    .customize-name-of-piece {
-        grid-column: 1;
-        @include header-label;
+    .customize-profile-grid {
+        position: relative;
+        display: grid;
     }
-    .customize-sub-label {
-        grid-column: 2;
+    .customize-name-of-piece {
+        // grid-row: 1;
+        // grid-column: 1;
         @include header-label;
     }
     .customize-promotion-label {
+        // grid-row: 1;
+        // grid-column: 2;
+        @include header-label;
+    }
+    .customize-sub-label {
+        grid-row: 1;
         grid-column: 4;
         @include header-label;
     }
+
 }

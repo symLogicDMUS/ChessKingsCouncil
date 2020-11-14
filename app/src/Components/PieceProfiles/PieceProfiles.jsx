@@ -8,8 +8,8 @@ import { offsetToText } from "../helpers/offsetToText";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { Profile } from "./Profile";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import { CustomizeHeader } from "./CustomizeHeader";
-import { LoadDeleteHeader } from "./LoadDeleteHeader";
+import { CustomizeHeader } from "../NewGame/Customize/Header/CustomizeHeader"
+import { LoadDeleteHeader } from "../MyPieces/LoadDeleteHeader";
 import "./PieceProfiles.scss";
 
 export class PieceProfiles extends React.Component {
@@ -128,15 +128,13 @@ export class PieceProfiles extends React.Component {
                         pieceName={pieceName}
                         expand={this.expand}
                         displayDefs={this.displayDefs}
-                        pieceProfilesStyle={this.props.pieceProfilesStyle}
+                        pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
                     >
                         {LoadDeleteHeader({
                             screenCase: this.props.screenCase,
                             pieceName: pieceName,
                             load: this.props.load,
-                            prepareDelete: this.props.prepareDelete,
-                            pieceProfilesStyle: this.props.pieceProfilesStyle,
-                            
+                            prepareDelete: this.props.prepareDelete,                       
                         })}
                     </Profile>
                 );
@@ -150,12 +148,10 @@ export class PieceProfiles extends React.Component {
                         pieceName={pieceName}
                         expand={this.expand}
                         displayDefs={this.displayDefs}
-                        pieceProfilesStyle={this.props.pieceProfilesStyle}
+                        pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
                     >
                         {CustomizeHeader({
                             pieceName: pieceName,
-                            pieceProfilesStyle: this.props.pieceProfilesStyle,
-                            windowHeightAllProfiles: this.props.pieceProfilesStyle.height,
                             screenCase: this.props.screenCase,
                             promos: this.props.promos,
                             newReplacement: this.props.newReplacement,
@@ -182,7 +178,7 @@ export class PieceProfiles extends React.Component {
             <>
                 <div
                     className="profiles"
-                    style={this.props.pieceProfilesStyle}
+                    style={this.props.styleObjects[this.props.screenCase]['PieceProfiles']()}
                 >
                     {this.getProfiles()}
                 </div>

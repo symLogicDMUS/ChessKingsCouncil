@@ -7,27 +7,11 @@ export var styleObjects = {
             return winWidth() * 0.0125;
         },
 
-        ProfileHeader: function (pieceProfilesStyle) {
-            const ProfileHeaderHeight = pieceProfilesStyle.height * 0.075;
-            return {
-                display: "grid",
-                width: pieceProfilesStyle.width,
-                height: ProfileHeaderHeight,
-                gridTemplateColumns: "17% 4% 37.7% 9%",
-                left: this.margin(),
-            };
-        },
-
-        fontSize: function (pieceProfilesStyle) {
-            return {
-                fontSize: this.ProfileHeader(pieceProfilesStyle).height * 0.6,
-            };
-        },
-
         ProfileWB: function (pieceProfilesStyle) {
             const margin = this.margin();
-            const profileHeaderHeight = this.ProfileHeader(pieceProfilesStyle).height;
-            const profileWBHeight = (pieceProfilesStyle.height - profileHeaderHeight - margin * 3) * 0.5;
+            const pieceProfiles = pieceProfilesStyle.PieceProfiles()
+            const profileHeader = pieceProfilesStyle.ProfileHeader()
+            const profileWBHeight = (pieceProfiles.height - profileHeader.height - margin * 3) * 0.5;
             const row1 = profileWBHeight * 0.15;
             const row2 = profileWBHeight * 0.85;
             const col1 = row2;
