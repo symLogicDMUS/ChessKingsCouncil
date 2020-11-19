@@ -1,5 +1,13 @@
+@import "./Board/CreatePieceBoard.scss";
+@import "./Location/Location.scss";
+@import "./Icon/Choose/ChooseButton.scss";
+@import "./Location/Location.scss";
+@import "./Range/Range.scss";
+@import "./Range/RangeDisplayWindow.scss";
+
 .create-piece-body {
     background-image: url("/Images/Backgrounds/y-so-serious.png");
     background-repeat: repeat;
     object-fit: none;
+    // @extend .range-tool
 }

@@ -45,7 +45,7 @@
 @media screen and (max-device-width: 767px) {
     $button-size: 45;
     $margin: 3.5;
-    $disp: $button-size + $margin*2;
+    $disp: $button-size + $margin * 2;
 
     .location-button-normal {
         @include location-button-normal($button-size);

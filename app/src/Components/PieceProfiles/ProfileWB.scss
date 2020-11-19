@@ -1,6 +1,7 @@
 @import "../styles/grc";
 
 @mixin profile-wb {
+    position: relative;
     z-index: inherit;
     background-color: #515151;
     overflow: hidden;

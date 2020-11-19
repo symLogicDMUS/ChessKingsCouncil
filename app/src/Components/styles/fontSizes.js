@@ -32,7 +32,13 @@ export var fontSizes = {
         },
         textDivRatio2: (divHeight) => {
             return divHeight * 0.5;
-        }
+        },
+        textDivRatio3: (divHeight) => {
+            /**some fonts are in containers defined by actual unit lengths (like px)
+             * and some are not. If so than uses cointainerHeight
+             */
+            return divHeight * 1.25;
+        },
     },
     mobile: {
         medium1: () => {

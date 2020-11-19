@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import { ArrowButton } from "./ArrowButton/ArrowButton";
 import { RangeDisplayWindow } from "./RangeDisplayWindow";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./Range.scss";
 import { angleToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
+// import "./Range.scss";
+import '../CreatePiece.scss'
 
 export class Range extends React.Component {
     constructor(props) {

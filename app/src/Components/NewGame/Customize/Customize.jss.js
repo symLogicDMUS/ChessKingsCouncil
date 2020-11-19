@@ -5,7 +5,7 @@ import { getTextWidth } from "../../helpers/getTextWidth";
 import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes";
 
-export var styleObjects = {
+var styleObjects = {
     desktop: {
         margin: function () {
             return winWidth() * 0.0125;
@@ -230,6 +230,8 @@ export var styleObjects = {
     mobile: {}
     */
 };
+
+export default styleObjects;
 
 export const labelSizes = {
     //material-ui checkboxes and other  items should scale proportionally to their label

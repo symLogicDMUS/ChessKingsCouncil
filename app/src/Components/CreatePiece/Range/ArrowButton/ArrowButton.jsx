@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "../Range.scss";
+// import "../Range.scss";
+import "../../CreatePiece.scss"
 
 export class ArrowButton extends React.Component {
     

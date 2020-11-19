@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollTable } from "../../Reuseables/ScrollTable";
-import "./RangeDisplayWindow.scss";
+// import "./RangeDisplayWindow.scss";
+import "../CreatePiece.scss"
 
 export function RangeDisplayWindow({ ranges, screenCase }) {
     return (

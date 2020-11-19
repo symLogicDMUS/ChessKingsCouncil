@@ -1,6 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { styleObjects } from "../CustomizeStyle";
+import { ThemeProvider } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { labelSizes, styleObjects } from "../CustomizeStyle";
 import "./SubDropdown.scss";
 
 export class SubDropdown extends React.Component {
@@ -8,13 +12,14 @@ export class SubDropdown extends React.Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.selectedPiece = "";
-
         this.subs = [
-            <option value="None">None</option>,
-            <option value="Rook">Rook</option>,
-            <option value="Bishop">Bishop</option>,
-            <option value="Knight">Knight</option>,
-            <option value="Queen">Queen</option>,
+            <MenuItem value="None">
+                <em>None</em>
+            </MenuItem>,
+            <MenuItem value="Rook">Rook</MenuItem>,
+            <MenuItem value="Bishop">Bishop</MenuItem>,
+            <MenuItem value="Knight">Knight</MenuItem>,
+            <MenuItem value="Queen">Queen</MenuItem>,
         ];
     }
 
@@ -32,17 +37,26 @@ export class SubDropdown extends React.Component {
             this.selectedPiece = <option value="None">None</option>;
 
         return (
-            <select
-                id="subs"
-                style={styleObjects[this.props.screenCase]['SubDropdown']()}
-                className="customize-sub-dropdown"
-                onChange={this.handleChange}
-                value={this.selectedPiece}
-            >
-                {this.subs}
-            </select>
+            <ThemeProvider theme={labelSizes[this.props.screenCase]["h1"]}>
+                <FormControl
+                    variant="outlined"
+                    className="customize-sub-dropdown"
+                    style={styleObjects[this.props.screenCase]["SubDropdown"]()}
+                >
+                    <InputLabel id="outlined-label">Sub Piece</InputLabel>
+                    <Select
+                        id="subs"
+                        labelId="demo-simple-select-outlined-label"
+                        value={this.selectedPiece}
+                        onChange={this.handleChange}
+                        label="Piece Sub"
+                        //icon={<ArrowDropDownIcon />}
+                        style={{width: styleObjects[this.props.screenCase]['h1']*15}}
+                    >
+                        {this.subs}
+                    </Select>
+                </FormControl>
+            </ThemeProvider>
         );
     }
 }
-
-export let test = () => ReactDOM.render(<SubDropdown piece="Duke" />, document.getElementById("root"));

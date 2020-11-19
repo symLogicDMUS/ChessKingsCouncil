@@ -120,7 +120,6 @@ export class PieceProfiles extends React.Component {
         this.getDisplayDefs();
         let pieceNames = this.applySearchFilter();
         if (this.props.headerType === "load-delete") {
-
             for (var pieceName of pieceNames) {
                 profiles.push(
                     <Profile
@@ -140,7 +139,6 @@ export class PieceProfiles extends React.Component {
                 );
             }
         } else if (this.props.headerType === "custom-game") {
-
             for (var pieceName of pieceNames) {
                 profiles.push(
                     <Profile
@@ -152,6 +150,7 @@ export class PieceProfiles extends React.Component {
                     >
                         {CustomizeHeader({
                             pieceName: pieceName,
+                            theme: this.state.theme,
                             screenCase: this.props.screenCase,
                             promos: this.props.promos,
                             newReplacement: this.props.newReplacement,
@@ -169,7 +168,6 @@ export class PieceProfiles extends React.Component {
                 </div>
             );
         }
-
         return profiles;
     }
 

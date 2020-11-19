@@ -31,7 +31,7 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 styleObject={{
                     gridRow: 2,
                     gridColumn: 2,
-                    width:"100%",
+                    width: "100%",
                     gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
                     border: "1px solid #707070",
                     borderTop: "none",
@@ -53,7 +53,7 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 styleObject={{
                     gridRow: 2,
                     gridColumn: 3,
-                    width:"100%",
+                    width: "100%",
                     gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
                     border: "1px solid #707070",
                     borderTop: "none",
