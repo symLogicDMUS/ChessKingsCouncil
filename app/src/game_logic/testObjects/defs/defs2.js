@@ -259,7 +259,7 @@ export var defs2 = {
             "spans": []
         },
         "W": {
-            "img": "Octocat-white.svg",
+            "img": "Octocat-hover-off.svg",
             "offsets": [
                 "0,1",
                 "0,2",
@@ -439,7 +439,7 @@ export var defs2 = {
             "spans": []
         },
         "W": {
-            "img": "white-gem.svg",
+            "img": "hover-off-gem.svg",
             "offsets": [
                 "-3,4",
                 "-2,4",
@@ -585,7 +585,7 @@ export var defs2 = {
             "spans": []
         },
         "W": {
-            "img": "x-wing-white.svg",
+            "img": "x-wing-hover-off.svg",
             "offsets": [
                 "-1,-1",
                 "-2,-2",

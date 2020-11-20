@@ -26,7 +26,7 @@ export class DisplayBoard extends React.Component {
             h1: false, h2: false, h3: false, h4: false, h5: false, h6: false, h7: false, h8: false,
         };
 
-        //true values rendered highlight color (currently dark red) and calculate jump offsets
+        //true values rendered highlight color (currently hover-on red) and calculate jump offsets
         this.jumpDisplays = { 
             a1: false, a2: false, a3: false, a4: false, a5: false, a6: false, a7: false, a8: false,
             b1: false, b2: false, b3: false, b4: false, b5: false, b6: false, b7: false, b8: false,

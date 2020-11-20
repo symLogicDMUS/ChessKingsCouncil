@@ -3,7 +3,7 @@ import {xyToRf, rfToXy} from "../../../coordType/crdCnvrt"
 
 
 export function isEnpWhiteAttR(sqr) {
-    /*return true if sqr the.includes(is) en-passant white attack rank, else false**/
+    /*return true if sqr the.includes(is) en-passant hover-off attack rank, else false**/
     if (enPassantWhiteAttackRank.includes(xyToRf(...sqr))) {
         return true
     }

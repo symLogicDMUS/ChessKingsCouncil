@@ -4,7 +4,7 @@ import { getOffset } from "../../helpers/getOffset";
 import { getOffsetLabel } from "./RangeLabelComponents/getOffsetLabel";
 import { getSpanLabel } from "./RangeLabelComponents/getSpanLabel";
 import { getPxPos } from "./pxPos";
-import "./CreatePieceSquare.scss";
+import "./_CreatePieceSquare.scss";
 
 export class CreatePieceSquare extends React.Component {
     constructor(props) {
@@ -44,7 +44,7 @@ export class CreatePieceSquare extends React.Component {
         }
 
         return (
-            <div className={this.props.class_} style={this.pxPos} onClick={this.toglejumpElement}>
+            <div className={this.props.className} style={this.pxPos} onClick={this.toglejumpElement}>
                 {this.props.children}
             </div>
         );

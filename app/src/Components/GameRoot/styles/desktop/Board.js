@@ -21,5 +21,5 @@ export var display_board = {
     zIndex: "0",
     ...boardSizePos,
     lineHeight: "0",
-    boxShadow: "0px 0px 25px white",
+    boxShadow: "0px 0px 25px hover-off",
 };

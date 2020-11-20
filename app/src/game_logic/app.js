@@ -33,8 +33,8 @@ export function updateCouncil(data) {
 
 
 export function assignIds(pieceNames, subs) {
-    /**called by NewGame component on the front end. create id:piece-name arrangement unique to new game. substitute
-    custom-piece(s) for of Rook, Bishop, Knight, or Queen, by assigning its usual id to the custom-piece name and
+    /**called by NewGame component on the front end. create id:piece-Name arrangement unique to new game. substitute
+    custom-piece(s) for of Rook, Bishop, Knight, or Queen, by assigning its usual id to the custom-piece Name and
     custom-piece range-def. add custom pieces selected to be a pawn promotion choice.
     */
     let [pieceNames, subs] = [data['names'], data['subs']]
@@ -81,10 +81,10 @@ export function deleteDef(data) {
 
 export function save(data) {
     /**save information about game as a db collection with documents being the different types of information
-    gameName: name of the game being saved.
+    gameName: Name of the game being saved.
     board: data describing game board.
     jsonRecords: data for special moves and other things (the dict, not the object)
-    idDict: key is id for piece, name is name of piece.
+    idDict: key is id for piece, Name is Name of piece.
     rangefunctions { describes how each piece can move
     success or failure integer and message to backend.
     */

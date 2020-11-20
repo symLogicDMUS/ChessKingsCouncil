@@ -1,0 +1,19 @@
+@import "../../../../styles/button/location-button";
+@import "../../../../styles/color-variables";
+
+
+@mixin location-button-normal($button-size) {
+    @include location-button($button-size);
+    @media screen and (min-device-width: 768px) {
+        background-color: $dark-grey1;
+        border: 1px solid $dark-grey1;
+    }
+    @media screen and (max-device-width: 767px) {
+        background-color: $dark-grey1;
+        border: 1px solid $dark-grey4;
+    }
+    cursor: pointer;
+    &:hover {
+        background-color: #a9a9a9;
+    }
+}

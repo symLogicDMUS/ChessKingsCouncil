@@ -56,7 +56,7 @@ if (require.main === module) {
     var board = sampleBoardDicts["rangesTest"];
     var pathPieceLocs, path;
     
-    //white pieces
+    //hover-off pieces
     pathPieceLocs = [
         [1, 3],
         [2, 1],
@@ -71,7 +71,7 @@ if (require.main === module) {
     for (var sqr of pathPieceLocs) {
         for (var stepFunc of stepFuncList) {
             path = getPath(sqr, board, 'W', stepFunc)
-            printBoard(board, `color: W, step func: ${stepFunc.name}`, mapListXyToRf(path), null, [xyToRf(...sqr)])
+            printBoard(board, `color: W, step func: ${stepFunc.Name}`, mapListXyToRf(path), null, [xyToRf(...sqr)])
             console.log("")
         }
     }
@@ -87,7 +87,7 @@ if (require.main === module) {
     for (var sqr of pathPieceLocs) {
         for (var stepFunc of stepFuncList) {
             path = getPath(sqr, board, 'B', stepFunc)
-            printBoard(board, `color: B, step func: ${stepFunc.name}`, mapListXyToRf(path), null, [xyToRf(...sqr)])
+            printBoard(board, `color: B, step func: ${stepFunc.Name}`, mapListXyToRf(path), null, [xyToRf(...sqr)])
             console.log("")
         }
     }

@@ -42,7 +42,7 @@
         font-size: 20px;
         color: #b6b6b6;
         background-color: #515151;
-        /* border: 1px dashed white; */
+        /* border: 1px dashed hover-off; */
     }
 
     .help-modal-window-close {
@@ -51,7 +51,7 @@
         width:15px; 
         height:15px;
         cursor: pointer;
-        /* border: 1px dashed white; */
+        /* border: 1px dashed hover-off; */
     }
       .help-modal-window-close:hover {
         background-color: #EC2525;
@@ -72,14 +72,14 @@
     border-bottom-right-radius:8px;
     word-wrap: break-word;
     overflow-y: scroll;
-    /* border: 1px dashed white; */
+    /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-bottom {
     grid-row: 3;
     grid-column: 1;
     background-color: #515151;
-    /* border: 1px dashed white; */
+    /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-bottom-button 

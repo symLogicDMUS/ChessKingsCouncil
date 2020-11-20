@@ -22,25 +22,25 @@ if (require.main === module) {
 
     var board = sampleBoardDicts["pawn_range"];
     
-    //b5, white
+    //b5, hover-off
     if (isActual1SqrJump(board, [2, 5], 'W'))
         printBoard(board, "\ngreen: yes, red: no", null, ["b5"], null, ["b4"])
     else
         printBoard(board, "\ngreen: yes, red: no", ["b5"], null, null, ["b4"])
 
-    //b5, white
+    //b5, hover-off
     if (isActual1SqrJump(board, [3, 5], 'W'))
         printBoard(board, "\ngreen: yes, red: no", null, ["c5"], null, ["c4"])
     else
         printBoard(board, "\ngreen: yes, red: no", ["c5"], null, null, ["c4"])
 
-    //e5, white
+    //e5, hover-off
     if (isActual1SqrJump(board, [5, 5], 'W'))
         printBoard(board, "\ngreen: yes, red: no", null, ["e5"], null, ["e4"])
     else
         printBoard(board, "\ngreen: yes, red: no", ["e5"], null, null, ["e4"])
 
-    //a3, white
+    //a3, hover-off
     if (isActual1SqrJump(board, [1, 3], 'W'))
         printBoard(board, "\ngreen: yes, red: no", null, ["a3"], null, ["a2"])
     else

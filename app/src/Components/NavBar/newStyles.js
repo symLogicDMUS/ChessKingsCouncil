@@ -98,7 +98,7 @@
 //     home: {
 //         gridColumn: "2",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -112,7 +112,7 @@
 //     new_game: {
 //         gridColumn: "3",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -126,7 +126,7 @@
 //     load_game: {
 //         gridColumn: "4",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -140,7 +140,7 @@
 //     create_piece: {
 //         gridColumn: "5",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -154,7 +154,7 @@
 //     chess_rules: {
 //         gridColumn: "6",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -168,7 +168,7 @@
 //     my_pieces: {
 //         gridColumn: "7",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -182,7 +182,7 @@
 //     council_rules: {
 //         gridColumn: "8",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },
@@ -196,7 +196,7 @@
 //     author_github: {
 //         gridColumn: "9",
 //         ...getNavBarButton(),
-//         icon: {
+//         Icon: {
 //             gridRow: "1",
 //             gridColumn: "1",
 //         },

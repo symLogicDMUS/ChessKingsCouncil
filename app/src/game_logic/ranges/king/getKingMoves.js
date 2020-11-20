@@ -27,7 +27,7 @@ if (require.main === module) {
     let idDict = getStandardIdDict()
     let board = sampleBoardDicts['king_range_test']
     kingMoves = getKingMoves(board, [4, 3], 'W', rangeDefs, idDict)
-    printBoard(board, heading="test 1, white", highlights=kingMoves)
+    printBoard(board, heading="test 1, hover-off", highlights=kingMoves)
     kingMoves = getKingMoves(board, [5, 8], 'B', rangeDefs, idDict)
 
 }

@@ -5,8 +5,7 @@ import { RangeDisplayWindow } from "./RangeDisplayWindow";
 import { stylesObjects } from "../create-piece-styles-objects";
 import { angleToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
-// import "./Range.scss";
-import '../CreatePiece.scss'
+import "./_Range.scss";
 
 export class Range extends React.Component {
     constructor(props) {
@@ -39,13 +38,12 @@ export class Range extends React.Component {
         Object.entries(this.vectors).forEach(([angle, svg]) => {
             arrowButtons.push(
                 <ArrowButton
-                    id_={angle}
+                    id={angle}
                     image={svg}
                     pos={this.buttonPos[angle]}
                     isActive={this.props.spans[angle]}
                     togleSpan={this.props.togleSpan}
-                    setUnsaved={this.props.setUnsaved}
-                    update={this.props.update}
+                    theme={this.props.theme}
                 />
             );
         });

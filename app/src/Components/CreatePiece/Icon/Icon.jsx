@@ -4,7 +4,7 @@ import { ChooseButton } from "./Choose/ChooseButton";
 import { UploadButtonWhite } from "./Upload/UploadButtonWhite";
 import { UploadButtonBlack } from "./Upload/UploadButtonBlack";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./Icon.scss";
+import "./_Icon.scss";
 
 export class Icon extends React.Component {
     render() {
@@ -16,14 +16,14 @@ export class Icon extends React.Component {
                     <div className="black-title">Black</div>
                     <UploadButtonWhite
                         setPieceImg={this.props.setPieceImg}
-                        setUnsaved={this.props.setUnsaved}
+                        setUnsavedChanges={this.props.setUnsavedChanges}
                         color="white"
                         currentIconColor={this.props.currentIconColor}
                         setCurrentIconColor={this.props.setCurrentIconColor}
                     />
                     <UploadButtonBlack
                         setPieceImg={this.props.setPieceImg}
-                        setUnsaved={this.props.setUnsaved}
+                        setUnsavedChanges={this.props.setUnsavedChanges}
                         color="black"
                         currentIconColor={this.props.currentIconColor}
                         setCurrentIconColor={this.props.setCurrentIconColor}

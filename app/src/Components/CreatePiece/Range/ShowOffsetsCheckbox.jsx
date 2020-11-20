@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShowOffsetsCheckbox.scss";
+import "../scss/Range/range-table/ShowOffsetsCheckbox.scss";
 
 export class ShowOffsetsCheckbox extends React.Component {
 

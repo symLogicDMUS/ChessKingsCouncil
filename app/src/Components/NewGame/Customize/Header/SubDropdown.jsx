@@ -50,7 +50,7 @@ export class SubDropdown extends React.Component {
                         value={this.selectedPiece}
                         onChange={this.handleChange}
                         label="Piece Sub"
-                        //icon={<ArrowDropDownIcon />}
+                        //Icon={<ArrowDropDownIcon />}
                         style={{width: styleObjects[this.props.screenCase]['h1']*15}}
                     >
                         {this.subs}

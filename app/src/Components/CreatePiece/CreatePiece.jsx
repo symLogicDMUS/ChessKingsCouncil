@@ -16,28 +16,35 @@ import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
 import { getRotations } from "./helpers/getRotations";
-import { Success } from "./Options/Save/Modals/Success/Success";
+import { Success } from "./Options/SaveModals/Success";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { redirectMessageStr } from "./helpers/redirectMessageStr";
+import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { ProfilesModal } from "./ProfilesModal/ProfilesModal";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
-import "./CreatePiece.scss";
+import "./scss/CreatePiece.scss";
+import { getBinaryBoarAllFalse } from "./getBinaryBoardAllFalse";
 
 export class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            binaryValue: 0,
+            name: "",
+            location: "d4",
             theme: "dark",
-            unsaved: false,
+            binaryValue: 0,
+            whiteImg: null,
+            blackImg: null,
+            unsavedChanges: false,
             pendingDelete: null,
+            currentIconColor: null,
+            showSpanText: true,
+            showOffsetText: true,
             isLoadModal: false,
             chooseModal: false,
             isDeleteModal: false,
@@ -46,14 +53,7 @@ export class CreatePiece extends React.Component {
             selectedToolMobile: null,
             displaySuccessfullSaveMessage: false,
         };
-
         this.defs = {};
-
-        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.standardsLc = ["rook", "bishop", "queen", "knight", "pawn", "king"];
-
-        //used to record in defs object at the end:
-        this.name = "";
         this.spans = {
             "90d": false,
             "45d": false,
@@ -65,171 +65,23 @@ export class CreatePiece extends React.Component {
             "135d": false,
         };
         this.offsets = [];
+        this.spanDisplays = getBinaryBoarAllFalse();
+        this.offsetDisplays = getBinaryBoarAllFalse();
 
-        //static copies so can reset if want to:
-        this.loadedName = null;
-        this.loadedSpans = null;
-        this.loadedOffsets = null;
+        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.standardsLc = ["rook", "bishop", "queen", "knight", "pawn", "king"];
 
-        this.pieceImg = { white: null, black: null };
+        this.whiteAndBlackImgs = { white: null, black: null };
 
-        //true values rendered highlight color (currently red) as part of span.
-        this.spanDisplays = {
-            a1: false,
-            a2: false,
-            a3: false,
-            a4: false,
-            a5: false,
-            a6: false,
-            a7: false,
-            a8: false,
-            b1: false,
-            b2: false,
-            b3: false,
-            b4: false,
-            b5: false,
-            b6: false,
-            b7: false,
-            b8: false,
-            c1: false,
-            c2: false,
-            c3: false,
-            c4: false,
-            c5: false,
-            c6: false,
-            c7: false,
-            c8: false,
-            d1: false,
-            d2: false,
-            d3: false,
-            d4: false,
-            d5: false,
-            d6: false,
-            d7: false,
-            d8: false,
-            e1: false,
-            e2: false,
-            e3: false,
-            e4: false,
-            e5: false,
-            e6: false,
-            e7: false,
-            e8: false,
-            f1: false,
-            f2: false,
-            f3: false,
-            f4: false,
-            f5: false,
-            f6: false,
-            f7: false,
-            f8: false,
-            g1: false,
-            g2: false,
-            g3: false,
-            g4: false,
-            g5: false,
-            g6: false,
-            g7: false,
-            g8: false,
-            h1: false,
-            h2: false,
-            h3: false,
-            h4: false,
-            h5: false,
-            h6: false,
-            h7: false,
-            h8: false,
-        };
-
-        //true values rendered highlight color (currently dark red) and calculate jump offsets
-        this.jumpDisplays = {
-            a1: false,
-            a2: false,
-            a3: false,
-            a4: false,
-            a5: false,
-            a6: false,
-            a7: false,
-            a8: false,
-            b1: false,
-            b2: false,
-            b3: false,
-            b4: false,
-            b5: false,
-            b6: false,
-            b7: false,
-            b8: false,
-            c1: false,
-            c2: false,
-            c3: false,
-            c4: false,
-            c5: false,
-            c6: false,
-            c7: false,
-            c8: false,
-            d1: false,
-            d2: false,
-            d3: false,
-            d4: false,
-            d5: false,
-            d6: false,
-            d7: false,
-            d8: false,
-            e1: false,
-            e2: false,
-            e3: false,
-            e4: false,
-            e5: false,
-            e6: false,
-            e7: false,
-            e8: false,
-            f1: false,
-            f2: false,
-            f3: false,
-            f4: false,
-            f5: false,
-            f6: false,
-            f7: false,
-            f8: false,
-            g1: false,
-            g2: false,
-            g3: false,
-            g4: false,
-            g5: false,
-            g6: false,
-            g7: false,
-            g8: false,
-            h1: false,
-            h2: false,
-            h3: false,
-            h4: false,
-            h5: false,
-            h6: false,
-            h7: false,
-            h8: false,
-        };
-
-        //to use for spans, update by Location:
-        this.location = "d4";
-
-        //flag to displaying progress in saving piece, if any
-        this.saveStatus = "none";
-
-        //attributes for various displays
-        // this.unsaved = false;
-        this.currentIconColor = null;
-        this.showSpanText = true;
-        this.showOffsetText = true;
         this.msgModalConfig = {
             title: null,
             text: null,
             togleMethod: this.togleMessageModal,
         };
 
-        this.navExpanded = true;
-        this.optionTool = true;
-        this.redirectPath = null;
-        this.redirectMessage = redirectMessageStr;
+        this.loadedName = null;
+        this.loadedSpans = null;
+        this.loadedOffsets = null;
 
         //binds
         this.save = this.save.bind(this);
@@ -249,14 +101,13 @@ export class CreatePiece extends React.Component {
         this.setPieceImg = this.setPieceImg.bind(this);
         this.togleSpanText = this.togleSpanText.bind(this);
         this.togleOffsetText = this.togleOffsetText.bind(this);
-        this.togleOptionTool = this.togleOptionTool.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.setCurrentIconColor = this.setCurrentIconColor.bind(this);
         this.showChooseModal = this.showChooseModal.bind(this);
         this.closeChooseModal = this.closeChooseModal.bind(this);
         this.togleLoadModal = this.togleLoadModal.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
-        this.setUnsaved = this.setUnsaved.bind(this);
+        this.setUnsavedChanges = this.setUnsavedChanges.bind(this);
         this.resetSaveStatus = this.resetSaveStatus.bind(this);
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
         this.setSelectedToolMobile = this.setSelectedToolMobile.bind(this);
@@ -268,7 +119,7 @@ export class CreatePiece extends React.Component {
         getDefs().then(([defs]) => {
             if (defs) {
                 this.defs = defs;
-                for (var pieceName of this.standards) {
+                for (const pieceName of this.standards) {
                     if (Object.keys(this.defs).includes(pieceName)) delete this.defs[pieceName];
                 }
             } else {
@@ -292,28 +143,26 @@ export class CreatePiece extends React.Component {
     }
 
     load(pieceName) {
-        this.name = pieceName;
+        this.setState({ name: pieceName, isLoadModal: false, unsavedChanges: false });
         this.spans = getSpansDict(this.defs[pieceName]["W"]["spans"]);
         this.offsets = this.defs[pieceName]["W"]["offsets"];
-        this.pieceImg = { white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"] };
+        this.whiteAndBlackImgs = { white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"] };
 
-        // provide static copy so that can reset if want to:
-        this.loadedName = JSON.parse(JSON.stringify(this.name));
+        // provide static copy so that can reset if need to:
+        this.loadedName = JSON.parse(JSON.stringify(this.state.name));
         this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
         this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
 
         //reminder: calls this.update() at end
         this.setLoc("d4");
-
-        this.setState({ isLoadModal: false, unsaved: true });
     }
 
     togleLoadModal(boolVal) {
         this.setState({ isLoadModal: boolVal });
     }
 
-    setUnsaved(boolVal) {
-        this.setState({ unsaved: boolVal });
+    setUnsavedChanges(boolVal) {
+        this.setState({ unsavedChanges: boolVal });
     }
 
     save() {
@@ -323,49 +172,48 @@ export class CreatePiece extends React.Component {
             return;
         }
 
-        if (this.pieceImg["white"] === null || this.pieceImg["black"] === null) {
-            this.setSaveStatus("no-icon");
+        if (this.whiteAndBlackImgs["white"] === null || this.whiteAndBlackImgs["black"] === null) {
+            this.setSaveStatus("no-Icon");
             return;
         }
 
-        this.defs[this.name] = {
+        this.defs[this.state.name] = {
             W: { spans: null, offsets: null, img: null },
             B: { spans: null, offsets: null, img: null },
         };
 
         const angles = [];
-        for (var s of Object.keys(this.spans)) {
+        for (const s of Object.keys(this.spans)) {
             if (this.spans[s]) angles.push(s);
         }
 
-        this.defs[this.name]["W"]["spans"] = getStepFuncNames(angles);
-        this.defs[this.name]["B"]["spans"] = getStepFuncNames(getRotations(angles, 180));
-        this.defs[this.name]["W"]["offsets"] = this.offsets;
-        this.defs[this.name]["B"]["offsets"] = flipOffsets(this.offsets);
-        this.defs[this.name]["W"]["img"] = this.pieceImg["white"];
-        this.defs[this.name]["B"]["img"] = this.pieceImg["black"];
+        this.defs[this.state.name]["W"]["spans"] = getStepFuncNames(angles);
+        this.defs[this.state.name]["B"]["spans"] = getStepFuncNames(getRotations(angles, 180));
+        this.defs[this.state.name]["W"]["offsets"] = this.offsets;
+        this.defs[this.state.name]["B"]["offsets"] = flipOffsets(this.offsets);
+        this.defs[this.state.name]["W"]["img"] = this.whiteAndBlackImgs["white"];
+        this.defs[this.state.name]["B"]["img"] = this.whiteAndBlackImgs["black"];
 
-        saveDef(this.name, this.defs[this.name]).then(([response]) => {
-            this.setState({ unsaved: false });
+        saveDef(this.state.name, this.defs[this.state.name]).then(([response]) => {
+            this.setState({ unsavedChanges: false });
             this.setSaveStatus("success");
         });
     }
 
     setSaveStatus(value) {
-        this.saveStatus = value;
-        switch (this.saveStatus) {
+        this.setState({ saveStatus: value });
+        switch (this.state.saveStatus) {
             case "saving":
                 this.setState({
                     isMessageModal: false,
                     confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
-                    binaryValue: !this.state.binaryValue,
                 });
                 break;
-            case "blank-name":
+            case "blank-Name":
                 this.msgModalConfig = {
-                    title: "blank name",
-                    text: "You must give a piece name before saving.",
+                    title: "blank Name",
+                    text: "You must give a piece Name before saving.",
                     togleMethod: this.resetSaveStatus,
                 };
                 this.setState({
@@ -374,11 +222,11 @@ export class CreatePiece extends React.Component {
                     displaySuccessfullSaveMessage: false,
                 });
                 break;
-            case "standard-name":
+            case "standard-Name":
                 this.msgModalConfig = {
-                    title: "used standard name",
+                    title: "used standard Name",
                     text:
-                        "You can not use the name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
+                        "You can not use the Name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
                     togleMethod: this.resetSaveStatus,
                 };
                 this.setState({
@@ -387,10 +235,10 @@ export class CreatePiece extends React.Component {
                     displaySuccessfullSaveMessage: false,
                 });
                 break;
-            case "no-icon":
+            case "no-Icon":
                 this.msgModalConfig = {
                     title: "Missing Icon",
-                    text: "You must pick an image icon for both white and black.",
+                    text: "You must pick an image Icon for both hover-off and black.",
                     togleMethod: this.resetSaveStatus,
                 };
                 this.setState({
@@ -421,7 +269,6 @@ export class CreatePiece extends React.Component {
                     isMessageModal: false,
                     confirmOverwriteModal: false,
                     displaySuccessfullSaveMessage: false,
-                    binaryValue: !this.state.binaryValue,
                 });
                 break;
             default:
@@ -446,28 +293,29 @@ export class CreatePiece extends React.Component {
     }
 
     updateName(input) {
-        this.name = input;
-        this.update();
+        this.setState({ name: input });
+        this.setState({ unsavedChanges: true });
     }
 
     setPieceImg(color, pieceImgBase64Str) {
-        this.pieceImg[color] = pieceImgBase64Str;
-        this.update();
+        this.whiteAndBlackImgs[color] = pieceImgBase64Str;
+        this.setState({ unsavedChanges: true });
     }
 
     togleSpan(angle) {
         this.spans[angle] = !this.spans[angle];
         const stepFunc = stepFuncDict[angle];
-        let rf = stepFunc(this.location);
+        let rf = stepFunc(this.state.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
+        this.setState({ unsavedChanges: true });
     }
 
     setDisplaySpan(angle) {
         const stepFunc = stepFuncDict[angle];
-        let rf = stepFunc(this.location);
+        let rf = stepFunc(this.state.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = true;
             rf = stepFunc(rf);
@@ -481,17 +329,19 @@ export class CreatePiece extends React.Component {
     }
 
     togleSpanText() {
-        this.showSpanText = !this.showSpanText;
-        this.update();
+        this.setState({ showSpanText: !this.state.showSpanText });
     }
 
     resetSpanDisplays() {
-        //turn off all displays
-        this.spanDisplays = Object.values(this.spanDisplays).map((isSpan) => isSpan & false);
+        this.spanDisplays = getBinaryBoarAllFalse();
+    }
+
+    resetOffsetDisplays() {
+        this.offsetDisplays = getBinaryBoarAllFalse();
     }
 
     togleJump(rf, offset) {
-        this.jumpDisplays[rf] = !this.jumpDisplays[rf];
+        this.offsetDisplays[rf] = !this.offsetDisplays[rf];
         let offsetStrs = this.offsets.map((o) => JSON.stringify(o));
         if (offsetStrs.includes(JSON.stringify(offset))) {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
@@ -499,42 +349,33 @@ export class CreatePiece extends React.Component {
         } else this.offsets.push(offset);
     }
 
-    resetJumpDisplays() {
-        this.jumpDisplays = Object.values(this.jumpDisplays).map((isJump) => isJump & false);
-    }
-
-    setJumpDisplays() {
-        let [x1, y1] = rfToXy(this.location);
+    setOffsetDisplays() {
+        let [x1, y1] = rfToXy(this.state.location);
         let [dx, dy] = [-1, -1];
         this.offsets.forEach((xy) => {
             dx = x1 + xy[0];
             dy = y1 + xy[1];
-            this.jumpDisplays[xyToRf(dx, dy)] = true;
+            this.offsetDisplays[xyToRf(dx, dy)] = true;
         });
     }
 
     togleOffsetText() {
-        this.showOffsetText = !this.showOffsetText;
-        this.update();
-    }
-
-    togleOptionTool(boolVal) {
-        this.optionTool = boolVal;
-        this.update();
+        this.setState({ showOffsetText: !this.state.showOffsetText });
     }
 
     setLoc(rf) {
-        this.location = rf;
+        this.setState({ location: rf });
         this.resetSpanDisplays();
-        this.resetJumpDisplays();
+        this.resetOffsetDisplays();
         this.setDisplaySpans();
-        this.setJumpDisplays();
-        this.update();
+        this.setOffsetDisplays();
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     getNameCase() {
-        if (this.name === "") return "blank-name";
-        if (this.standardsLc.includes(this.name.toLowerCase())) return "standard-name";
+        if (this.state.name === "") return "blank-Name";
+        //if name is one of: Queen, King, Rook, Bishop, Knight, Pawn:
+        if (this.standardsLc.includes(this.state.name.toLowerCase())) return "standard-Name";
         return "valid";
     }
 
@@ -552,68 +393,60 @@ export class CreatePiece extends React.Component {
         this.setSaveStatus("none");
     }
 
-    eraseRange() {
-        Object.keys(this.spans).forEach((rf) => {
-            this.spans[rf] = false;
-        });
-        Object.keys(this.spanDisplays).forEach((rf) => {
-            this.spanDisplays[rf] = false;
-        });
-        Object.keys(this.jumpDisplays).forEach((rf) => {
-            this.jumpDisplays[rf] = false;
-        });
+    resetDisplayBoardAndRange() {
+        this.spans = {
+            "90d": false,
+            "45d": false,
+            "0d": false,
+            "315d": false,
+            "270d": false,
+            "225d": false,
+            "180d": false,
+            "135d": false,
+        };
         this.offsets = [];
-        this.saveStatus = "none";
-        this.update();
+        this.spanDisplays = getBinaryBoarAllFalse();
+        this.offsetDisplays = getBinaryBoarAllFalse();
+    }
+
+    eraseRange() {
+        this.resetDisplayBoardAndRange();
+        this.setState({ unsavedChanges: true, saveStatus: "none" });
     }
 
     clear() {
-        Object.keys(this.spans).forEach((rf) => {
-            this.spans[rf] = false;
-        });
-        Object.keys(this.spanDisplays).forEach((rf) => {
-            this.spanDisplays[rf] = false;
-        });
-        Object.keys(this.jumpDisplays).forEach((rf) => {
-            this.jumpDisplays[rf] = false;
-        });
-        this.name = "";
-        this.pieceImg = { white: null, black: null };
-        this.location = "d4";
-        this.offsets = [];
+        this.resetDisplayBoardAndRange();
+        this.setState({ name: "", location: "d4", unsavedChanges: true });
+        this.whiteAndBlackImgs = { white: null, black: null };
         this.setSaveStatus("none");
     }
 
     reset() {
         if (this.loadedName === null) this.clear();
         else {
-            this.name = JSON.parse(JSON.stringify(this.loadedName));
             this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
             this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
-            this.setLoc(this.location);
+            const name = JSON.parse(JSON.stringify(this.loadedName));
             this.setSaveStatus("none");
-            this.setUnsaved(false);
+            this.setState({ name: name, unsavedChanges: false });
         }
     }
 
     resetIconWindowIfImageDeleted(deletedBase64ImgStr) {
-        if (this.pieceImg["white"] === deletedBase64ImgStr) this.pieceImg["white"] = null;
-        if (this.pieceImg["black"] === deletedBase64ImgStr) this.pieceImg["black"] = null;
+        if (this.whiteAndBlackImgs["white"] === deletedBase64ImgStr) this.whiteAndBlackImgs["white"] = null;
+        if (this.whiteAndBlackImgs["black"] === deletedBase64ImgStr) this.whiteAndBlackImgs["black"] = null;
     }
 
     setCurrentIconColor(color) {
-        this.currentIconColor = color;
-        this.update();
+        this.setState({ currentIconColor: color });
     }
 
     showChooseModal(color) {
-        this.currentIconColor = color;
-        this.setState({ chooseModal: true });
+        this.setState({ chooseModal: true, currentIconColor: color });
     }
 
     closeChooseModal() {
-        this.currentIconColor = null;
-        this.setState({ chooseModal: false });
+        this.setState({ chooseModal: false, currentIconColor: null });
     }
 
     setSelectedToolMobile(selectedToolMobile) {
@@ -623,7 +456,7 @@ export class CreatePiece extends React.Component {
     getComponents(screenCase) {
         return (
             <>
-                {/*Modals */}
+                {/*SaveModals */}
                 {this.state.isMessageModal && (
                     <MessageModal
                         screenCase={screenCase}
@@ -646,8 +479,8 @@ export class CreatePiece extends React.Component {
                         screenCase={screenCase}
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}
-                        color={this.currentIconColor}
-                        setUnsaved={this.setUnsaved}
+                        color={this.state.currentIconColor}
+                        setUnsaved={this.setUnsavedChanges}
                         resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
                     />
                 )}
@@ -673,20 +506,25 @@ export class CreatePiece extends React.Component {
                         <Success setSaveStatus={this.setSaveStatus} />
                     </div>
                 )}
-                {/*At time writing ordered by screen appearence.(left to right, top to bottom)*/}
-                <NavBar currentPage="CreatePiece" unsaved={this.state.unsaved} theme={this.state.theme} />
+                {/*At time writing ordered by appearance on screen from top to bottom left to right*/}
+                <NavBar
+                    currentPage="CreatePiece"
+                    redirectMessage={createPieceRedirectMessageStr}
+                    unsavedChanges={this.state.unsavedChanges}
+                    theme={this.state.theme}
+                />
                 <NameLabel name={this.name} />
                 <Board
                     screenCase={screenCase}
                     update={this.update}
                     togleJump={this.togleJump}
                     spanDisplays={this.spanDisplays}
-                    jumps={this.jumpDisplays}
-                    pieceLoc={this.location}
-                    pieceImgBase64Str={this.pieceImg["white"]}
-                    showSpanText={this.showSpanText}
-                    showOffsetText={this.showOffsetText}
-                    setUnsaved={this.setUnsaved}
+                    jumps={this.offsetDisplays}
+                    pieceLoc={this.state.location}
+                    pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+                    showSpanText={this.state.showSpanText}
+                    showOffsetText={this.state.showOffsetText}
+                    setUnsaved={this.setUnsavedChanges}
                 />
                 {screenCase === "mobile" && <ToolsMenuMobile notifyParent={this.setSelectedToolMobile} />}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "name") && (
@@ -694,33 +532,39 @@ export class CreatePiece extends React.Component {
                         name={this.name}
                         screenCase={screenCase}
                         updateName={this.updateName}
-                        setUnsaved={this.setUnsaved}
+                        setUnsaved={this.setUnsavedChanges}
                     />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "icon") && (
                     <Icon
                         screenCase={screenCase}
-                        pieceImg={this.pieceImg}
+                        pieceImg={this.whiteAndBlackImgs}
                         setPieceImg={this.setPieceImg}
                         updateParent={this.update}
                         showChooseModal={this.showChooseModal}
-                        currentIconColor={this.currentIconColor}
+                        currentIconColor={this.state.currentIconColor}
                         setCurrentIconColor={this.setCurrentIconColor}
-                        setUnsaved={this.setUnsaved}
+                        setUnsaved={this.setUnsavedChanges}
                     />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "range") && (
                     <Range
+                        theme={this.state.theme}
                         screenCase={screenCase}
                         spans={this.spans}
                         offsets={this.offsets}
                         togleSpan={this.togleSpan}
-                        setUnsaved={this.setUnsaved}
+                        setUnsaved={this.setUnsavedChanges}
                         update={this.update}
                     />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "location") && (
-                    <Location screenCase={screenCase} setLoc={this.setLoc} setUnsaved={this.setUnsaved} />
+                    <Location
+                        location={this.state.location}
+                        screenCase={screenCase}
+                        setLoc={this.setLoc}
+                        theme={this.state.theme}
+                    />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "options") && (
                     <Options
@@ -730,13 +574,12 @@ export class CreatePiece extends React.Component {
                         clear={this.clear}
                         reset={this.reset}
                         togleLoadModal={this.togleLoadModal}
-                        togleOptionTool={this.togleOptionTool}
                         togleMessageModal={this.togleMessageModal}
-                        setUnsaved={this.setUnsaved}
+                        setUnsaved={this.setUnsavedChanges}
                         eraseRange={this.eraseRange}
-                        existing={Object.keys(this.defs)}
-                        saveStatus={this.saveStatus}
+                        saveStatus={this.state.saveStatus}
                         setSaveStatus={this.setSaveStatus}
+                        namesOfExistingPieces={Object.keys(this.defs)}
                     />
                 )}
                 {/* <div className="settings">

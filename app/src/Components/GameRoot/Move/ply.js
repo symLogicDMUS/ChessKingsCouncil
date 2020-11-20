@@ -1,4 +1,4 @@
-import { isPiece } from "../gameRootHelpers/isPiece";
+import { isPiece } from "../../helpers/isPiece";
 
 export function ply(gameroot, start, dest) {
     /*move piece to new square, capturing piece there if there is**/

@@ -6,7 +6,7 @@ export class Custom extends React.Component {
     constructor(props) {
         super(props);
         this.setHover = this.setHover.bind(this);
-        this.state = { iconClass: "game-type-icon-normal" };
+        this.state = { iconClass: "game-type-Icon-normal" };
     }
 
     setHover(iconClass) {
@@ -31,8 +31,8 @@ export class Custom extends React.Component {
                     width={151}
                     height={182}
                     opacity="0%"
-                    onMouseEnter={() => this.setHover("game-type-icon-highlighted")}
-                    onMouseLeave={() => this.setHover("game-type-icon-normal")}
+                    onMouseEnter={() => this.setHover("game-type-Icon-highlighted")}
+                    onMouseLeave={() => this.setHover("game-type-Icon-normal")}
                     onClick={() => this.props.setType("custom")}
                 />
             </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./Name.scss";
+import "./_Name.scss";
 
 export class Name extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ export class Name extends React.Component {
         return (
             <>
                     <div className="name-component1" style={stylesObjects[this.props.screenCase]["Name"]()}>
-                        <div className="name">Name</div>
+                        <div className="name-title">Name</div>
                         <input
                             type="text"
                             value={this.userInput}

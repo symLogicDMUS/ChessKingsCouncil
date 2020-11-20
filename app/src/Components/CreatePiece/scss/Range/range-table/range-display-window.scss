@@ -1,0 +1,31 @@
+@import "../../../../styles/color-variables";
+@import "../../../../Reuseables/ScrollTable";
+
+.range-tool .range-display-window {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        display: grid;
+        z-index: 0;
+        left: 2.5%;
+        top: 27.33%;
+        width: 60.25%;
+        height: 66.667%;
+        border-radius: 5px;
+        border: 1px solid $light-grey1;
+        color: $light-grey1;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        display: grid;
+        z-index: 0;
+        left: 62%;
+        top: 7%;
+        width: 35%;
+        height: 90%;
+        border-radius: 5px;
+        border: 1px solid $light-grey1;
+        color: $light-grey1;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+}

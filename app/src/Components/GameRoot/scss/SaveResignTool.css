@@ -1,0 +1,68 @@
+.save-resign-tool {
+  position: absolute;
+  z-index: 1;
+  background-color: green;
+  border-radius: 10px;
+}
+
+.save-resign-tool .game-description {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.save-resign-tool .game-description .game-name {
+  position: absolute;
+  width: 90%;
+  height: 15%;
+  left: 3%;
+  color: #b1faae;
+  font-size: 120%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: 0%;
+}
+
+.save-resign-tool .game-description .gen-info {
+  position: absolute;
+  width: 90%;
+  height: 15%;
+  left: 3%;
+  color: #b1faae;
+  font-size: 120%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  top: 16%;
+}
+
+.save-resign-tool .save-game-container {
+  position: absolute;
+  z-index: 1;
+  top: 37.45%;
+  height: 50%;
+  cursor: pointer;
+  left: 3%;
+}
+
+.save-resign-tool .save-as-container {
+  position: absolute;
+  z-index: 1;
+  top: 37.45%;
+  height: 50%;
+  cursor: pointer;
+  left: 35%;
+}
+
+.save-resign-tool .resign-container {
+  position: absolute;
+  z-index: 1;
+  top: 37.45%;
+  height: 50%;
+  cursor: pointer;
+  left: 70%;
+}
+/*# sourceMappingURL=SaveResignTool.scss.map */

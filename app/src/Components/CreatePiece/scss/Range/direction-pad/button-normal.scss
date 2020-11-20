@@ -1,0 +1,15 @@
+@import "../../../../styles/color-variables";
+
+.direction-pad .button-normal {
+    position: absolute;
+    z-index: 0;
+    width: 30%;
+    height: 30%;
+    background-color: $dark-grey2;
+    border: 1px solid $light-grey1;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-normal:hover {
+    background-color: #a9a9a9;
+}

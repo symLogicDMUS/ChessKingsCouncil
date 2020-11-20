@@ -20,6 +20,7 @@ export class NavBar extends React.Component {
             firstTime: false,
         };
         this.redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
+        if (this.props.redirectMessage) this.redirectMessage = this.props.redirectMessage;
         this.togleNav = this.togleNav.bind(this);
         this.togleHelpModal = this.togleHelpModal.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
@@ -85,14 +86,14 @@ export class NavBar extends React.Component {
                             path="/"
                             classes={{
                                 button: "go-to-home",
-                                "icon-container": "home-icon",
+                                "icon-container": "home-Icon",
                                 text: "home-text",
                             }}
                             pageIcon="home"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={9}
                         />
                     )}
@@ -103,14 +104,14 @@ export class NavBar extends React.Component {
                             path="/NewGame"
                             classes={{
                                 button: "go-to-new-game",
-                                "icon-container": "new-game-icon",
+                                "icon-container": "new-game-Icon",
                                 text: "new-game-text",
                             }}
                             pageIcon="new-game"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={8}
                         />
                     )}
@@ -121,14 +122,14 @@ export class NavBar extends React.Component {
                             path="/LoadGame"
                             classes={{
                                 button: "go-to-load-game",
-                                "icon-container": "go-to-load-game-icon",
+                                "icon-container": "go-to-load-game-Icon",
                                 text: "go-to-load-game-text",
                             }}
                             pageIcon="load-game"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={7}
                         />
                     )}
@@ -139,14 +140,14 @@ export class NavBar extends React.Component {
                             path="/CreatePiece"
                             classes={{
                                 button: "go-to-create-piece",
-                                "icon-container": "create-piece-icon",
+                                "icon-container": "create-piece-Icon",
                                 text: "create-piece-text",
                             }}
                             pageIcon="create-piece"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={6}
                         />
                     )}
@@ -157,14 +158,14 @@ export class NavBar extends React.Component {
                             path="https://www.chess.com/learn-how-to-play-chess"
                             classes={{
                                 button: "go-to-chess-rules",
-                                "icon-container": "council-rules-icon",
+                                "icon-container": "council-rules-Icon",
                                 text: "chess-rules-text",
                             }}
                             pageIcon="chess-rules"
                             isLocalLink={false}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={5}
                         />
                     )}
@@ -175,14 +176,14 @@ export class NavBar extends React.Component {
                             path="/CouncilRules"
                             classes={{
                                 button: "go-to-council-rules",
-                                "icon-container": "council-rules-icon",
+                                "icon-container": "council-rules-Icon",
                                 text: "council-rules-text",
                             }}
                             pageIcon="council-rules"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={4}
                         />
                     )}
@@ -193,14 +194,14 @@ export class NavBar extends React.Component {
                             path="/MyPieces"
                             classes={{
                                 button: "go-to-my-pieces",
-                                "icon-container": "my-pieces-icon",
+                                "icon-container": "my-pieces-Icon",
                                 text: "my-pieces-text",
                             }}
                             pageIcon="my-pieces"
                             isLocalLink={true}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={3}
                         />
                     )}
@@ -211,14 +212,14 @@ export class NavBar extends React.Component {
                             path="https://github.com/symLogicDMUS"
                             classes={{
                                 button: "go-to-author-github",
-                                "icon-container": "author-github-icon",
+                                "icon-container": "author-github-Icon",
                                 text: "author-github-text",
                             }}
                             pageIcon="author-github"
                             isLocalLink={false}
                             togleConfirmRedirect={this.togleConfirmRedirect}
                             theme={this.props.theme}
-                            unsaved={this.props.unsaved}
+                            unsavedChanges={this.props.unsavedChanges}
                             z={2}
                         />
                     )}

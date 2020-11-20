@@ -1,6 +1,6 @@
 import React from "react";
 import { getColorName } from "../../helpers/getColorName";
-import "../css/SaveResignTool.scss";
+import "../scss/SaveResignTool.scss";
 
 export class SaveResignTool extends React.Component {
     constructor(props) {

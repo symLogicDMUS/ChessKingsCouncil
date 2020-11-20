@@ -11,7 +11,7 @@ import { stylesObjects } from "./choose-modal-styles-objects";
 import { SearchBoxStyle } from "../../../Reuseables/SearchBoxStyle";
 import { CloseStyle } from "../../../Reuseables/CloseStyle";
 import { Close } from "../../../Reuseables/Close";
-import "./ChooseModal.scss";
+import "./_ChooseModal.scss";
 
 export class ChooseModal extends React.Component {
     constructor(props) {

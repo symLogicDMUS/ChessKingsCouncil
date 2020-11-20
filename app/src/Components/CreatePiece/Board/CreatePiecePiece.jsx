@@ -1,6 +1,6 @@
 import React from "react";
-import "../CreatePiece.scss";
-import "./CreatePiecePiece.scss";
+import "../scss/CreatePiece.scss";
+import "./_CreatePiecePiece.scss";
 
 export class CreatePiecePiece extends React.Component {
     constructor(props) {

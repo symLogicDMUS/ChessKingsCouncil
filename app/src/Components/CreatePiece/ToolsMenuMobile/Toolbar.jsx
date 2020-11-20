@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./ToolsMenuMobile.scss";
+import "../scss/ToolsMenuMobile/ToolsMenuMobile.scss";
 
 export function Toolbar({ togleExpand, toolName, toolHeight, selectedTool }) {
     var toolClass = `tools-menu-${toolName}`;
@@ -14,10 +14,7 @@ export function Toolbar({ togleExpand, toolName, toolHeight, selectedTool }) {
 
     return (
         <>
-            <motion.div
-                className={toolClass}
-                animate={{ scaleY: toolHeight }}
-            ></motion.div>
+            <motion.div className={toolClass} animate={{ scaleY: toolHeight }} />
             <img
                 className={widgetClass}
                 src={`/Images/${widgetType}/${widgetType}-a9a9a9.svg`}

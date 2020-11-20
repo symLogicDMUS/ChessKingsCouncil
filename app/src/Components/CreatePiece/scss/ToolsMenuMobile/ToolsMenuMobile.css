@@ -1,0 +1,109 @@
+.tools-menu {
+  position: absolute;
+}
+
+/*tool-bars*/
+.tools-menu-name {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 0;
+}
+
+.tools-menu-icon {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 16%;
+}
+
+.tools-menu-range {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 32%;
+}
+
+.tools-menu-location {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 48%;
+}
+
+.tools-menu-options {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 64%;
+}
+
+/*expand widgets*/
+.name-expand-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: 0;
+}
+
+.icon-expand-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: 16%;
+}
+
+.range-expand-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: 32%;
+}
+
+.location-expand-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: 48%;
+}
+
+.options-expand-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: 64%;
+}
+
+/*The selected toolbar and widgets. Tool is expanded*/
+.tool-bar-selected {
+  position: absolute;
+  width: 100%;
+  height: 16%;
+  background-color: #515151;
+  border: 1px solid #3c3f41;
+  top: 32%;
+}
+
+.tool-bar-selected-widget {
+  position: absolute;
+  left: 90%;
+  height: 16%;
+  width: 7.5%;
+  top: -2.5%;
+}
+/*# sourceMappingURL=ToolsMenuMobile.scss.map */

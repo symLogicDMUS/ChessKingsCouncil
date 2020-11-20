@@ -44,7 +44,7 @@ if (require.main === module) {
     
     // test 1:
     console.log('test 1:')
-    printBoard(board, "white", mapListXyToRf(getKingThreats(board, [4, 4], 'W')), ["d4"])
+    printBoard(board, "hover-off", mapListXyToRf(getKingThreats(board, [4, 4], 'W')), ["d4"])
     console.log('\n')
     
     // test 2:

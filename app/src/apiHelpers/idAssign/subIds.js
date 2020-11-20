@@ -2,7 +2,7 @@ import {standardIds} from "./standardIds";
 
 
 export function subIds(subs) {
-    /**replace any of Bishop Knight or the.includes(Queen) game by assigning its id to the name of a custom piece.
+    /**replace any of Bishop Knight or the.includes(Queen) game by assigning its id to the Name of a custom piece.
        assign standard ids to custom piece names, resulting in a dict of form "standardId":"customPieceName"
     */
     var idDict = {}

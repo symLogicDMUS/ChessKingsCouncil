@@ -34,7 +34,7 @@ if (require.main === module) {
 
     board = sampleBoardDicts['king_range_test']
     initMoves = getKingInitialMoves(board, [4, 3], 'W')
-    printBoard(board, heading='\nking_range_test, white', mapListXyToRf(initMoves))
+    printBoard(board, heading='\nking_range_test, hover-off', mapListXyToRf(initMoves))
 
 
 }

@@ -35,12 +35,12 @@ if (require.main === module) {
             // W:
             let matchesPath = getPieceMatchesPath(stepFunc, pieceDefs, pieceName, "W");
             if (matchesPath) {
-                console.log(`piece type:${pieceName} path type:${stepFunc.name}\n`);
+                console.log(`piece type:${pieceName} path type:${stepFunc.Name}\n`);
             }
             // B:
             matchesPath = getPieceMatchesPath(stepFunc, pieceDefs, pieceName, "B");
             if (matchesPath) {
-                console.log(`piece type:${pieceName} path type:${stepFunc.name}\n`);
+                console.log(`piece type:${pieceName} path type:${stepFunc.Name}\n`);
             }
         }
     }

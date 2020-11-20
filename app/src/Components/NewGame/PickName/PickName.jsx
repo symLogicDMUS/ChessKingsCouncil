@@ -21,7 +21,7 @@ export class PickName extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "pick-name-body";
+        document.body.className = "pick-Name-body";
     }
 
     handleUserInput(e) {

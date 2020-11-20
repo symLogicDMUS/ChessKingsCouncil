@@ -1,0 +1,5 @@
+@import "profiles-modal-top-bar";
+
+.profiles-modal-top-bar {
+    @include profiles-modal-top-bar;
+}

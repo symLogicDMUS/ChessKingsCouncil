@@ -1,5 +1,5 @@
 import React from "react";
-import "./ShowSpansCheckbox.scss";
+import "../scss/Range/range-table/ShowSpansCheckbox.scss";
 
 export class ShowSpansCheckbox extends React.Component {
 

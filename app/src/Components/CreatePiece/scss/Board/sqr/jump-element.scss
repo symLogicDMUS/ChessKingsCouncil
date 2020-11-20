@@ -1,0 +1,5 @@
+@import "./_sqr";
+
+.jump-element {
+    @include sqr(75, "dark", "sqr1", "offset");
+}

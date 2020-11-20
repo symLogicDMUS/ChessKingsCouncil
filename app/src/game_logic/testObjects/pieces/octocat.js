@@ -38,7 +38,7 @@ export let octocat = {
       "spans": []
   },
   "W": {
-      "img": "Octocat-white.svg",
+      "img": "Octocat-hover-off.svg",
       "offsets": [
           [0,1],
           [0,2],

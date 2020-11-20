@@ -1,69 +1,70 @@
 import React from "react";
-import { Save } from "./Save/Save";
-import { Load } from "./Load/Load";
-import { Reset } from "./Reset/Reset";
-import { Erase } from "./Erase/Erase";
+import { Option } from "./Option";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./Options.scss";
+import "./_Options.scss";
 
 export class Options extends React.Component {
     constructor(props) {
         super(props);
-        this.screenHeight = window.screen.availHeight;
-        this.screenWidth = window.screen.availWidth;
-        this.backgroundOn = this.backgroundOn.bind(this);
-        this.backgroundOff = this.backgroundOff.bind(this);
-        console.log("hello there")
+        this.load = this.load.bind(this);
+        this.save = this.save.bind(this);
+        this.reset = this.reset.bind(this);
+        this.erase = this.erase.bind(this);
     }
-
-    backgroundOn() {
-        this.props.togleOptionTool(false);
+    load() {
+        this.props.togleLoadModal(true);
     }
-
-    backgroundOff() {
-        this.props.togleOptionTool(true);
+    save() {
+        if (this.props.namesOfExistingPieces.includes(this.props.name)) {
+            this.props.setSaveStatus("confirm-overwrite");
+        } else {
+            // this.props.setUnsaved(false);
+            this.props.save();
+        }
+    }
+    reset() {
+        this.props.setUnsaved(true);
+        this.props.reset();
+    }
+    erase() {
+        this.props.setUnsaved(true);
+        this.props.eraseRange();
     }
 
     render() {
         return (
             <>
-            <div className="options-tool" style={stylesObjects[this.props.screenCase]["Options"]()}>
-                <div className="options-title">Options</div>
-                <Save
-                    normal="/Images/save/save-a9a9a9.svg"
-                    highlighted="/Images/save/save-72e2ff.svg"
-                    existing={this.props.existing}
-                    save={this.props.save}
-                    name={this.props.name}
-                    clear={this.props.clear}
-                    status={this.props.saveStatus}
-                    setSaveStatus={this.props.setSaveStatus}
-                    togleOptionTool={this.props.togleOptionTool}
-                    togleMessageModal={this.props.togleMessageModal}
-                    setUnsaved={this.props.setUnsaved}
-                />
-                <Load
-                    normal="/Images/load-piece/load-piece-a9a9a9.svg"
-                    highlighted="/Images/load-piece/load-piece-72e2ff.svg"
-                    togleLoadModal={this.props.togleLoadModal}
-                    togleOptionTool={this.props.togleOptionTool}
-                />
-
-                <Reset
-                    normal="/Images/reset-range/reset-range-a9a9a9.svg"
-                    highlighted="/Images/reset-range/reset-range-72e2ff.svg"
-                    reset={this.props.reset}
-                    togleOptionTool={this.props.togleOptionTool}
-                    setUnsaved={this.props.setUnsaved}
-                />
-                <Erase
-                    normal="/Images/erase-range/erase-range-a9a9a9.svg"
-                    highlighted="/Images/erase-range/erase-range-72e2ff.svg"
-                    eraseRange={this.props.eraseRange}
-                    togleOptionTool={this.props.togleOptionTool}
-                    setUnsaved={this.props.setUnsaved}
-                />
-            </div>
+                <div className="options-tool" style={stylesObjects[this.props.screenCase]["Options"]()}>
+                    <div className="options-title">Options</div>
+                    <Option
+                        className="load-option"
+                        normal="/Images/load-piece/load-piece-a9a9a9.svg"
+                        highlighted="/Images/load-piece/load-piece-72e2ff.svg"
+                        clickMethod={this.load}
+                        alt="on click opens list of pieces to load"
+                    />
+                    <Option
+                        className="save-option"
+                        normal="/Images/save/save-a9a9a9.svg"
+                        highlighted="/Images/save/save-72e2ff.svg"
+                        clickMethod={this.save}
+                        alt="on click saves piece if right criteria are met"
+                    />
+                    <Option
+                        className="reset-option"
+                        normal="/Images/reset-range/reset-range-a9a9a9.svg"
+                        highlighted="/Images/reset-range/reset-range-72e2ff.svg"
+                        clickMethod={this.reset}
+                        alt="on click resets the to last save or blank if not saved"
+                    />
+                    <Option
+                        className="erase-option"
+                        normal="/Images/erase-range/erase-range-a9a9a9.svg"
+                        highlighted="/Images/erase-range/erase-range-72e2ff.svg"
+                        clickMethod={this.erase}
+                        alt="on click erases everything"
+                    />
+                </div>
             </>
         );
     }

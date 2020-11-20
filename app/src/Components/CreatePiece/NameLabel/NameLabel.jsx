@@ -1,5 +1,5 @@
 import React from "react";
-import "./NameLabel.scss";
+import "../scss/Name/name-label/NameLabel.scss";
 
 export class NameLabel extends React.Component {
 

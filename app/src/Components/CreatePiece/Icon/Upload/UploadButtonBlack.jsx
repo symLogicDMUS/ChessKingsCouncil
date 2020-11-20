@@ -1,6 +1,6 @@
 import React from "react";
 import { saveImg } from "../../../../API/saveImg";
-import "./UploadButton.scss";
+import "./_UploadButtonBlack.scss";
 
 export class UploadButtonBlack extends React.Component {
     constructor(props) {
@@ -19,7 +19,7 @@ export class UploadButtonBlack extends React.Component {
             "load",
             () => {
                 const imgStr = myFileItemReader.result;
-                this.props.setUnsaved(true);
+                this.props.setUnsavedChanges(true);
                 saveImg(imgName, imgStr).then(([res]) => {
                     this.props.setPieceImg("black", imgStr);
                 });

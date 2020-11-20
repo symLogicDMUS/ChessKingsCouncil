@@ -1,0 +1,13 @@
+@import "../option";
+@import "../../variables.scss";
+
+.erase-option {
+    @include option;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 3;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-y/100);
+        left: percentage($disp-x/100);
+    }
+}

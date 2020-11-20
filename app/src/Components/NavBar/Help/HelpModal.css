@@ -52,7 +52,7 @@
   font-size: 20px;
   color: #b6b6b6;
   background-color: #515151;
-  /* border: 1px dashed white; */
+  /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-close {
@@ -63,7 +63,7 @@
   width: 15px;
   height: 15px;
   cursor: pointer;
-  /* border: 1px dashed white; */
+  /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-close:hover {
@@ -87,7 +87,7 @@
   border-bottom-right-radius: 8px;
   word-wrap: break-word;
   overflow-y: scroll;
-  /* border: 1px dashed white; */
+  /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-bottom {
@@ -96,7 +96,7 @@
   -ms-grid-column: 1;
   grid-column: 1;
   background-color: #515151;
-  /* border: 1px dashed white; */
+  /* border: 1px dashed hover-off; */
 }
 
 .help-modal-window-bottom-button {
@@ -119,4 +119,4 @@
   background-color: #b6b6b6;
   color: #515151;
 }
-/*# sourceMappingURL=HelpModal.css.map */
+/*# sourceMappingURL=HelpModal.scss.map */

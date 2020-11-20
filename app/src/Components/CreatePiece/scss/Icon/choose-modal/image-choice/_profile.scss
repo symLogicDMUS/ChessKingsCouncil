@@ -1,0 +1,12 @@
+@import "../../../../../styles/color-variables";
+
+@mixin profile {
+    z-index: 2;
+    width: 100%;
+    background-color: $dark-grey2;
+    border: 1px solid $dark-grey5;
+    border-radius: 5px;
+    text-align: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}

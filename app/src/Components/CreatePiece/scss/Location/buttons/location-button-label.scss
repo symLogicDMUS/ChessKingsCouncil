@@ -1,0 +1,5 @@
+@import "./_location-button-label";
+
+.location-button-label {
+    @include location-button-label;
+}

@@ -1,4 +1,4 @@
-import { getRookStartAndDest } from "../gameRootHelpers/getRookStartAndDest";
+import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
 import { ply } from "./ply";
 
 export function castleMove(gameroot, start, dest) {

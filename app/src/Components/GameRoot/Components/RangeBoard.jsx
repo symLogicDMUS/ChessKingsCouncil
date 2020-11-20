@@ -4,7 +4,7 @@ import { RangePiece } from "./RangePiece";
 import { sqrClasses } from "../../helpers/sqrClasses";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { getRangeDispPosPx } from "../../helpers/getRangeDispPosPx";
-import "../css/RangeBoard.scss";
+import "../scss/RangeBoard.scss";
 
 export class RangeBoard extends React.Component {
     constructor(props) {

@@ -1,0 +1,22 @@
+@import "../../../../styles/color-variables";
+
+.name-component1 .name-title {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+        font-size: 125%;
+        color: $light-grey1;
+        top: 6%;
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+        font-size: 125%;
+        color: $light-grey1;
+        top: 0%;
+        left: 2.5%;
+    }
+}

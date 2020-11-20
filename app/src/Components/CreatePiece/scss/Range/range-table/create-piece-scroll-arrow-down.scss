@@ -1,0 +1,6 @@
+@import "./_create-piece-scroll-arrow";
+
+.create-piece-scroll-arrow-down {
+    @include create-piece-scroll-arrow;
+    top: 20%;
+}

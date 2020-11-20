@@ -4,9 +4,9 @@ import { useDrop } from 'react-dnd';
 import { isLegal } from '../Move/isLegal';
 import { move } from '../Move/move';
 import {getPosPx} from "../gameRootHelpers/getPosPx";
-import {adjustSqrColor} from "../gameRootHelpers/adjustSqrColor";
-import "../css/interactiveSqr.scss";
-import "../css/displaySqr.scss";
+import {adjustSqrColor} from "../../helpers/adjustSqrColor";
+import "../scss/interactiveSqr.scss";
+import "../scss/displaySqr.scss";
 
 export function Square({sqr_color, pos, style, gameroot, children}) {
 

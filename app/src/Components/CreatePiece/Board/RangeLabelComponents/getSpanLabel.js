@@ -1,5 +1,5 @@
 import React from "react";
-import "./offset.scss";
+import "./_getSpanLabel.scss";
 
 export function getSpanLabel() {
     return (

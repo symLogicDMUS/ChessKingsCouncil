@@ -1,0 +1,5 @@
+@import "./_profile";
+
+.image-choices .image-choice-container {
+    @include profile;
+}

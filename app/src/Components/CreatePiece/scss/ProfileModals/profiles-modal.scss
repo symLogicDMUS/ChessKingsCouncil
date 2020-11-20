@@ -1,0 +1,5 @@
+@import "profiles-modal";
+
+.profiles-modal {
+    @include profiles-modal;
+}

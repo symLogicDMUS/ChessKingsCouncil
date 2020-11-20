@@ -35,7 +35,7 @@ if (require.main === module) {
          "step_1sqr135d"]
     board = sampleBoardDicts["rangesTest"];
     paths = getPaths(stepFuncNames, board, [4, 3], 'W')
-    printBoard(board, "white", mapListXyToRf(paths), null, ["d3"])
+    printBoard(board, "hover-off", mapListXyToRf(paths), null, ["d3"])
     paths = getPaths(stepFuncNames, board, [4, 5], 'B')
     printBoard(board, "black", mapListXyToRf(paths), null, ["d5"])
 

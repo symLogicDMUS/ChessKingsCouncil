@@ -1,0 +1,10 @@
+.icon-tool .black-window {
+    @media screen and (min-device-width: 768px) {
+        @include icon-img-window;
+        left: 78.75%;
+    }
+    @media screen and (max-device-width: 767px) {
+        @include icon-img-window;
+        left: 60%;
+    }
+}

@@ -5,7 +5,7 @@ import { AcceptPromo } from "../Components/AcceptPromo";
 import { shuffle } from "../../helpers/shuffleArray";
 import { numKings } from "../../helpers/numKings";
 import { standardPieceImgStrs } from "../../helpers/standardPieceImgStrs";
-import "../css/AcceptPromo.scss";
+import "../scss/AcceptPromo.scss";
 
 const Arrow = ({ text, className }) => {
     return <div className={className}>{text}</div>;

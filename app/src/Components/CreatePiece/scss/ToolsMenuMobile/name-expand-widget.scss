@@ -1,0 +1,6 @@
+@import "./_expand-widget";
+
+.name-expand-widget {
+    @include expand-widget;
+    top: 0;
+}

@@ -1,0 +1,8 @@
+@import "./_expand-widget";
+@import "../variables.scss";
+
+
+.icon-expand-widget {
+    @include expand-widget;
+    top: percentage($disp/100);
+}

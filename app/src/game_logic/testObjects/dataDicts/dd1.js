@@ -611,7 +611,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         "0,1",
                         "0,2",
@@ -757,7 +757,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -899,7 +899,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -1539,7 +1539,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -1889,7 +1889,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         "0,1",
                         "0,2",
@@ -2063,7 +2063,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -2205,7 +2205,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -3171,7 +3171,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         "0,1",
                         "0,2",
@@ -3345,7 +3345,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -3487,7 +3487,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -4723,7 +4723,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -4865,7 +4865,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -5004,7 +5004,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         "0,1",
                         "0,2",
@@ -5540,7 +5540,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -5773,7 +5773,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -6082,7 +6082,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         "0,1",
                         "0,2",
@@ -6256,7 +6256,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -6398,7 +6398,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -8140,7 +8140,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -11817,7 +11817,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -11959,7 +11959,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",
@@ -12484,7 +12484,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "white-gem.svg",
+                    "img": "hover-off-gem.svg",
                     "offsets": [
                         "-3,4",
                         "-2,4",
@@ -12626,7 +12626,7 @@ export var dd1 = {
                     ]
                 },
                 "W": {
-                    "img": "x-wing-white.svg",
+                    "img": "x-wing-hover-off.svg",
                     "offsets": [
                         "-1,-1",
                         "-2,-2",

@@ -46,15 +46,15 @@ if (require.main === module) {
     var idDict = getStandardIdDict()
     dataDict = initDDEmptyLists(dataDict)
 
-    //castle_test1, white
+    //castle_test1, hover-off
     board = sampleBoardDicts["castle_test1"];
     records = dataDict["castle_test1"]["json"]
     jsonRecords = new JsonRecords(initPawnIds(records, board))
     if(canKingSideCastle(board, 'W', jsonRecords, pieceDefs, idDict)) {
-        printBoard(board, "\nwhite true".green)
+        printBoard(board, "\nhover-off true".green)
     }
     else {
-       printBoard(board, "\nwhite, false".red) 
+       printBoard(board, "\nhover-off, false".red)
     }
 
     //castle_test1, black
@@ -69,15 +69,15 @@ if (require.main === module) {
     }
 
 
-    //castle_test2, white
+    //castle_test2, hover-off
     board = sampleBoardDicts["castle_test2"];
     records = dataDict["castle_test2"]["json"]
     jsonRecords = new JsonRecords(initPawnIds(records, board))
     if(canKingSideCastle(board, 'W', jsonRecords, pieceDefs, idDict)) {
-        printBoard(board, "\nwhite true".green)
+        printBoard(board, "\nhover-off true".green)
     }
     else {
-       printBoard(board, "\nwhite, false".red) 
+       printBoard(board, "\nhover-off, false".red)
     }
 
     //castle_test2, black
@@ -91,15 +91,15 @@ if (require.main === module) {
        printBoard(board, "\nblack, false".red) 
     }
 
-    //castle_test3, white
+    //castle_test3, hover-off
     board = sampleBoardDicts["castle_test3"];
     records = dataDict["castle_test3"]["json"]
     jsonRecords = new JsonRecords(initPawnIds(records, board))
     if(canKingSideCastle(board, 'W', jsonRecords, pieceDefs, idDict)) {
-        printBoard(board, "\nwhite true".green)
+        printBoard(board, "\nhover-off true".green)
     }
     else {
-       printBoard(board, "\nwhite, false".red) 
+       printBoard(board, "\nhover-off, false".red)
     }
 
     //castle_test3, black
@@ -114,15 +114,15 @@ if (require.main === module) {
     }
 
 
-    //castle_test4, white
+    //castle_test4, hover-off
     board = sampleBoardDicts["castle_test4"];
     records = dataDict["castle_test4"]["json"]
     jsonRecords = new JsonRecords(initPawnIds(records, board))
     if(canKingSideCastle(board, 'W', jsonRecords, pieceDefs, idDict)) {
-        printBoard(board, "\nwhite true".green)
+        printBoard(board, "\nhover-off true".green)
     }
     else {
-       printBoard(board, "\nwhite, false".red) 
+       printBoard(board, "\nhover-off, false".red)
     }
 
     //castle_test4, black

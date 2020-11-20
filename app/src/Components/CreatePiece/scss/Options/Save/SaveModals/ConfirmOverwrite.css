@@ -1,0 +1,86 @@
+.confirm-box {
+  position: absolute;
+  z-index: 20;
+  background-color: #515151;
+  border: 1px solid #5d5d5d;
+}
+
+.yes-button {
+  /*% units*/
+  position: absolute;
+  z-index: inherit;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.yes-button:hover {
+  color: #515151;
+  background-color: #b6b6b6;
+}
+
+.no-button {
+  /*% units*/
+  position: absolute;
+  z-index: inherit;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #5d5d5d;
+  border: 1px solid #454849;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.no-button:hover {
+  color: #515151;
+  background-color: #b6b6b6;
+}
+
+.label1 {
+  position: absolute;
+  z-index: inherit;
+  width: 100%;
+  top: 0%;
+  width: 100%;
+  height: 10%;
+  color: #b6b6b6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 180%;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.piece-name {
+  position: absolute;
+  z-index: inherit;
+  top: 35%;
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #b6b6b6;
+  font-size: 180%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.label2 {
+  position: absolute;
+  z-index: inherit;
+  top: 65%;
+  width: 100%;
+  height: 20%;
+  color: #b6b6b6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 180%;
+  padding-top: 8px;
+  text-align: center;
+}
+/*# sourceMappingURL=ConfirmOverwrite.scss.map */

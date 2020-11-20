@@ -1,0 +1,41 @@
+@import "../../../../styles/color-variables";
+
+@mixin icon-button($height) {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        width: 24.25%;
+        height: 16.67%;
+        padding-top: 6px;
+        text-align: center;
+        color: #bbbbbb;
+        background-color: #515151;
+        border: solid 1px #a9a9a9;
+        font-size: 110%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: #a9a9a9;
+        }
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        width: 20%;
+        height: percentage($height/100);
+        left: 40%;
+        color: #bbbbbb;
+        background-color: $dark-grey2;
+        border: solid 1px $dark-grey4;
+        font-size: 80%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: #a9a9a9;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import "../../../variables.scss";
+@import "../_icon-button";
+
+@mixin upload-button {
+    @include icon-button($button-height);
+    @media screen and (min-device-width: 768px) {
+        top: 41.33%;
+    }
+    @media screen and (max-device-width: 767px) {
+        text-align: center;
+    }
+}

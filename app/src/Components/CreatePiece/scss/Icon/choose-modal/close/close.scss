@@ -1,0 +1,9 @@
+.choose-main .close {
+    position: absolute;
+    z-index: inherit;
+    cursor: pointer;
+    &:hover {
+        z-index: inherit;
+        background-color: red;
+    }
+}

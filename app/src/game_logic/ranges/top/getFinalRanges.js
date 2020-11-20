@@ -54,11 +54,11 @@ if (require.main === module) {
 
     var board, initPieceDict, initRanges, pins, threatArea, finalRanges, mtRestriction;
 
-    initPieceDict = require("../../testObjects/white/initPieceDicts/check_example3")
-    initRanges = require("../../testObjects/white/initRangeDicts/check_example3");
-    pins = require("../../testObjects/white/pinDicts/check_example3");
-    threatArea = require("../../testObjects/white/threatAreaLists/check_example3")
-    mtRestriction = require("../../testObjects/white/restrictionDicts/check_example3")
+    initPieceDict = require("../../testObjects/hover-off/initPieceDicts/check_example3")
+    initRanges = require("../../testObjects/hover-off/initRangeDicts/check_example3");
+    pins = require("../../testObjects/hover-off/pinDicts/check_example3");
+    threatArea = require("../../testObjects/hover-off/threatAreaLists/check_example3")
+    mtRestriction = require("../../testObjects/hover-off/restrictionDicts/check_example3")
     board = sampleBoardDicts['check_example3']
 
     finalRanges = getFinalRanges(initRanges, pins, threatArea, initPieceDict, mtRestriction)
@@ -67,11 +67,11 @@ if (require.main === module) {
     }
 
 
-    initPieceDict = require("../../testObjects/white/initPieceDicts/knight_threat2")
-    initRanges = require("../../testObjects/white/initRangeDicts/knight_threat2");
-    pins = require("../../testObjects/white/pinDicts/knight_threat2");
-    threatArea = require("../../testObjects/white/threatAreaLists/knight_threat2")
-    mtRestriction = require("../../testObjects/white/restrictionDicts/knight_threat2")
+    initPieceDict = require("../../testObjects/hover-off/initPieceDicts/knight_threat2")
+    initRanges = require("../../testObjects/hover-off/initRangeDicts/knight_threat2");
+    pins = require("../../testObjects/hover-off/pinDicts/knight_threat2");
+    threatArea = require("../../testObjects/hover-off/threatAreaLists/knight_threat2")
+    mtRestriction = require("../../testObjects/hover-off/restrictionDicts/knight_threat2")
     board = sampleBoardDicts['knight_threat2']
 
     finalRanges = getFinalRanges(initRanges, pins, threatArea, initPieceDict, mtRestriction)
@@ -80,11 +80,11 @@ if (require.main === module) {
     }
 
 
-    initPieceDict = require("../../testObjects/white/initPieceDicts/super_checkmate_impossible_example")
-    initRanges = require("../../testObjects/white/initRangeDicts/super_checkmate_impossible_example");
-    pins = require("../../testObjects/white/pinDicts/super_checkmate_impossible_example");
-    threatArea = require("../../testObjects/white/threatAreaLists/super_checkmate_impossible_example")
-    mtRestriction = require("../../testObjects/white/restrictionDicts/super_checkmate_impossible_example")
+    initPieceDict = require("../../testObjects/hover-off/initPieceDicts/super_checkmate_impossible_example")
+    initRanges = require("../../testObjects/hover-off/initRangeDicts/super_checkmate_impossible_example");
+    pins = require("../../testObjects/hover-off/pinDicts/super_checkmate_impossible_example");
+    threatArea = require("../../testObjects/hover-off/threatAreaLists/super_checkmate_impossible_example")
+    mtRestriction = require("../../testObjects/hover-off/restrictionDicts/super_checkmate_impossible_example")
     board = sampleBoardDicts['super_checkmate_impossible_example']
 
     finalRanges = getFinalRanges(initRanges, pins, threatArea, initPieceDict, mtRestriction)

@@ -10,7 +10,7 @@ export class Promo extends React.Component {
         this.boardComponent = this.props.children // Board is child
         //appending piece data objects
         for (var [pieceName, pieceData] of Object.entries(this.pieceDefs)) {
-            //choice name, data seperate props because need specify
+            //choice Name, data seperate props because need specify
             this.promoChoices.push(<PromoChoice  
                                       data={this.props.data} 
                                       choiceName={pieceName}

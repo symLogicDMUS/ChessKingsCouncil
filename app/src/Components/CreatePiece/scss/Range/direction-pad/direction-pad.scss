@@ -1,0 +1,22 @@
+//will be unit %
+$direction-pad-height: 90;
+$icon-tool-hw-ratio: 0.615;
+
+.range-tool .direction-pad {
+    @media screen and (min-device-width: 768px) {
+        position: absolute;
+        z-index: 0;
+        width: 25%;
+        height: 66.67%;
+        left: 72.5%;
+        top: 27.3%;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 0;
+        height: percentage($direction-pad-height/100);
+        width: percentage($direction-pad-height * $icon-tool-hw-ratio/100);
+        top: 7%;
+        left: 3%;
+    }
+}

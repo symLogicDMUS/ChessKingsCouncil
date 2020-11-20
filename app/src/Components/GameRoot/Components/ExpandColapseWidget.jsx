@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ExpandColapseWidget.scss";
+import "../scss/ExpandColapseWidget.scss";
 
 export class ExpandColapseWidget extends React.Component {
     render() {

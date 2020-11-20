@@ -1,7 +1,7 @@
 import React from "react";
 import {getColorName} from "../../helpers/getColorName";
 import { getOppositeColorName } from "../../helpers/getOppositeColorName";
-import "../css/GameRootHeader.scss";
+import "../scss/GameRootHeader.scss";
 
 export class GameRootHeader extends React.Component {
     

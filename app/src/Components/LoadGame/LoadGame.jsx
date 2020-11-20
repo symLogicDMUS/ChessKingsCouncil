@@ -162,7 +162,7 @@ export class LoadGame extends React.Component {
                     style={{
                         backgroundColor: "grey",
                         opacity: "0.6",
-                        color: "dark-grey",
+                        color: "hover-on-off-hover",
                         cursor: "not-allowed",
                     }}
                 >
@@ -174,7 +174,7 @@ export class LoadGame extends React.Component {
                     style={{
                         backgroundColor: "grey",
                         opacity: "0.6",
-                        color: "dark-grey",
+                        color: "hover-on-off-hover",
                         cursor: "not-allowed",
                     }}
                 >

@@ -2,7 +2,7 @@ import React from "react";
 import { rankfiles } from "../../helpers/rankfiles";
 import { getPosPx } from "../../helpers/getPosPx";
 import {ai_board} from "../styles/desktop/Board";
-import "../css/AiBoard.scss";
+import "../scss/AiBoard.scss";
 
 export function AiBoard({ aiStart, aiDest, theme }) {
 

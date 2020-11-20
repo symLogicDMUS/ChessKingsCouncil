@@ -1,0 +1,13 @@
+@import "../../variables";
+@import "../_option";
+
+.save-option {
+    @include option;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 0;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: 0;
+        left: percentage($margin2/100);
+    }
+}

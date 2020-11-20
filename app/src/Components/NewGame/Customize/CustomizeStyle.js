@@ -15,6 +15,9 @@ export var styleObjects = {
             const windowHeight = winHeight();
             const navHeight = navBarHeight();
             return {
+                zIndex: 5,
+                position: 'absolute',
+                border: '1px solid #707070',
                 width: windowWidth * 0.99,
                 height: windowHeight - navHeight,
                 top: navHeight + navHeight * 0.1,

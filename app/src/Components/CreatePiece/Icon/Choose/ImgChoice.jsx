@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { stylesObjects } from "./choose-modal-styles-objects";
-import "./ImgChoice.scss";
+import "./_ImgChoice.scss";
 
 export function ImgChoice({ name, screenCase, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
     var class_ = "image-choice-container";

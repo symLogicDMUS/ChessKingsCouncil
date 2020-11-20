@@ -1,0 +1,8 @@
+@mixin profiles-modal-top-bar {
+    position: absolute;
+    z-index: inherit;
+    background-color: #515151;
+    border-bottom: 0.8px solid #707070;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}

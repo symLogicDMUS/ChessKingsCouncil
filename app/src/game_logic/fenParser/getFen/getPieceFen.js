@@ -19,7 +19,7 @@ export function getPieceFen(id_) {
 /** for node.js
 if (require.main === module) {
     
-    // white:
+    // hover-off:
     console.log(getPieceFen('WB2'))
     console.log(getPieceFen('WQ1'))
     console.log(getPieceFen('WK1'))

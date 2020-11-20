@@ -1,0 +1,13 @@
+@import "../_option";
+@import "../../variables.scss";
+
+.reset-option {
+    @include option;
+    @media screen and (min-device-width: 768px) {
+        left: $first-option-y + $option-disp * 2;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-y/100);
+        left: percentage($margin1/100);
+    }
+}

@@ -1,0 +1,14 @@
+.piece-name {
+    position: absolute;
+    z-index: inherit;
+    top: 35%;
+    width: 100%;
+    height: 30%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #b6b6b6;
+    font-size: 180%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    // border: 1px dashed #1bfaae;
+}

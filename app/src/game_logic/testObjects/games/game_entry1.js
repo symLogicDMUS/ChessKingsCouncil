@@ -40,7 +40,7 @@ export let game_entry1 = {
                     "spans": []
                 },
                 "W": {
-                    "img": "Octocat-white.svg",
+                    "img": "Octocat-hover-off.svg",
                     "offsets": [
                         [0, 1],
                         [0, 2],

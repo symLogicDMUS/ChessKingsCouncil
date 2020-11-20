@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { stylesObjects } from "../create-piece-styles-objects";
 import { Toolbar } from "./Toolbar";
-import "./ToolsMenuMobile.scss";
+import "../scss/ToolsMenuMobile/ToolsMenuMobile.scss";
 
 export function ToolsMenuMobile({notifyParent}) {
     let [toolHeight, setToolHeight] = useState(1);

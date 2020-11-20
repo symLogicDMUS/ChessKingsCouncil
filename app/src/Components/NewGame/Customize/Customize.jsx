@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 import MediaQuery from "react-responsive";
@@ -17,8 +18,8 @@ import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {Ok} from "./Bottom/CustomiseOk";
-//import "./Customize.jss";
 import {styleObjects} from "./CustomizeStyle";
+//import "./Customize.jss";
 import "./Customize.scss";
 
 export class Customize extends React.Component {

@@ -1,0 +1,5 @@
+@import "./_location-tool";
+
+.location-tool {
+    @include location-tool;
+}

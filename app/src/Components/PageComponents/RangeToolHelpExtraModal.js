@@ -70,7 +70,7 @@ export const RangeToolHelpExtraModal = () => (
             {"In the diagram, spans and "}
           </tspan>
           <tspan x={2} y={23}>
-            {"offsets for white are added."}
+            {"offsets for hover-off are added."}
           </tspan>
         </text>
       </g>

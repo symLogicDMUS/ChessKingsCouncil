@@ -9,9 +9,9 @@ import { sqrColors } from "../gameRootHelpers/sqrColors";
 import { getPosPx } from "../gameRootHelpers/getPosPx";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { interactive_board, display_board } from "../styles/desktop/Board";
-import "../css/interactiveSqr.scss";
-import "../css/displaySqr.scss";
-import "../css/piece.scss";
+import "../scss/interactiveSqr.scss";
+import "../scss/displaySqr.scss";
+import "../scss/piece.scss";
 
 export class Board extends React.Component {
     constructor(props) {

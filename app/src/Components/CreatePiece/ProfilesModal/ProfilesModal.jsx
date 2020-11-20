@@ -1,7 +1,7 @@
 import React from "react";
 import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
 import {styleObjects} from "./ProfilesModalStyle";
-import "./ProfilesModal.scss";
+import "./_ProfilesModal.scss";
 
 export function ProfilesModal({ screenCase, defs, load, togleLoadModal, prepareDelete }) {
     return (

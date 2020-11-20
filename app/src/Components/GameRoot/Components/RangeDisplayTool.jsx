@@ -1,7 +1,7 @@
 import React from "react";
 import { RangeBoard } from "./RangeBoard";
 import { ExpandColapseWidget } from "./ExpandColapseWidget";
-import "../css/RangeDisplayTool.scss";
+import "../scss/RangeDisplayTool.scss";
 
 export class RangeDisplayTool extends React.Component {
     constructor(props) {

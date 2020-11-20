@@ -1,0 +1,12 @@
+@import "./_upload-button";
+
+.icon-tool .white-upload {
+    @include upload-button;
+    @media screen and (min-device-width: 768px) {
+        left: 2.5%;
+    }
+    @media screen and (max-device-width: 767px) {
+        top: 86.5%;
+        left: 2%;
+    }
+}

@@ -1,0 +1,5 @@
+@import "../../../../../styles/button/button-style";
+
+.yes-button {
+    @include button-style("dark");
+}

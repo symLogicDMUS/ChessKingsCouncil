@@ -207,7 +207,7 @@ if (require.main === module) {
     specialMoves.setPromos(board, ranges, 'W')
     var promos = mapListListXyToRf(specialMoves.promos)
     var [promoStarts, promoDests] = getPromoStartAndDest(promos);
-    printBoard(board, "white", promoDests, null, promoStarts)
+    printBoard(board, "hover-off", promoDests, null, promoStarts)
 
     specialMoves = new SpecialMoves()
     specialMoves.setPromos(board, ranges, 'B')

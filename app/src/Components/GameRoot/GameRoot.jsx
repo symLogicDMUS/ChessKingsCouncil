@@ -13,7 +13,7 @@ import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
 import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
 import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
 import { Promo } from "./Modals/Promo";
-import { isPawn } from "./gameRootHelpers/isPawn";
+import { isPawn } from "../helpers/isPawn";
 import { SaveAs } from "./Modals/SaveAs";
 import { Saving } from "./Modals/Saving";
 import { SaveSuccessfull } from "./Modals/SaveSuccessfull";
@@ -29,7 +29,7 @@ import { OVER } from "../helpers/gStatusTypes";
 import { update } from "../../apiHelpers/update";
 import { updateCouncil } from "../../apiHelpers/updateCouncil";
 import { saveGame } from "../../API/saveGame";
-import "./css/GameRoot.scss";
+import "./scss/GameRoot.scss";
 
 export class GameRoot extends React.Component {
     constructor(props) {

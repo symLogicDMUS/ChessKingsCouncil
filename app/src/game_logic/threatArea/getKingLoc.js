@@ -20,13 +20,13 @@ if (require.main === module) {
     
     board = sampleBoardDicts['check_example3']
     kingLoc = getKingLoc(board, 'W')
-    printBoard(board, `\ncheck_example3, white`, [kingLoc])
+    printBoard(board, `\ncheck_example3, hover-off`, [kingLoc])
     kingLoc = getKingLoc(board, 'B')
     printBoard(board, `\ncheck_example3, black`, [kingLoc])
 
     board = sampleBoardDicts['super_checkmate_impossible_example']
     kingLoc = getKingLoc(board, 'W')
-    printBoard(board, `\nsuper_checkmate_impossible_example, white`, [kingLoc])
+    printBoard(board, `\nsuper_checkmate_impossible_example, hover-off`, [kingLoc])
     kingLoc = getKingLoc(board, 'B')
     printBoard(board, `\nsuper_checkmate_impossible_example, black`, [kingLoc])
 }

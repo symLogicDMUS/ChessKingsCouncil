@@ -1,5 +1,5 @@
 import React from "react";
-import "./ScrollArrow.scss";
+import "../scss/Range/range-table/ScrollArrow.scss";
 
 export function ScrollArrow({ direction, move }) {
     return (

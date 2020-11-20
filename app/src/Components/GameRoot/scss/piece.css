@@ -1,0 +1,7 @@
+.piece {
+  position: absolute;
+  z-index: 1;
+  width: 12.5%;
+  height: 12.5%;
+}
+/*# sourceMappingURL=piece.scss.map */

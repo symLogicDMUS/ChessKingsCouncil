@@ -1,0 +1,11 @@
+@import "../../../styles/color-variables";
+@import "../variables.scss";
+
+@mixin tools-option {
+    position: absolute;
+    width: 100%;
+    height: percentage($disp/100);
+    background-color: $dark-grey2;
+    border: 1px solid $dark-grey5;
+}
+

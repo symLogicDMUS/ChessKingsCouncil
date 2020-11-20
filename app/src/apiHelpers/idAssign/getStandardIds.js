@@ -2,8 +2,8 @@ import {standardIds} from "./standardIds";
 
 
 export function getStandardIds(exclude) {
-    /**the standardIds.py.includes(dict) has key the name of piece, and value the id of piece.
-       Reverse this definition and return dict with key the id and value the name. filter
+    /**the standardIds.py.includes(dict) has key the Name of piece, and value the id of piece.
+       Reverse this definition and return dict with key the id and value the Name. filter
        out names of any standard pieces being substituted by assignIds pieces
     */
     var standIds = {}

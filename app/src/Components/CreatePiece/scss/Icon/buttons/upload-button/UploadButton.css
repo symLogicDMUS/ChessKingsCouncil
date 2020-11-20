@@ -1,0 +1,154 @@
+@media screen and (min-device-width: 768px) {
+  .icon-tool .white-upload {
+    position: absolute;
+    z-index: 0;
+    width: 24.25%;
+    height: 16.67%;
+    padding-top: 6px;
+    text-align: center;
+    color: #bbbbbb;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    font-size: 110%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .icon-tool .white-upload:hover {
+    color: white;
+    background-color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .white-upload {
+    position: absolute;
+    z-index: 0;
+    width: 20%;
+    height: 10%;
+    left: 40%;
+    color: #bbbbbb;
+    background-color: #515151;
+    border: solid 1px #454849;
+    font-size: 80%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .icon-tool .white-upload:hover {
+    color: white;
+    background-color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-tool .white-upload {
+    top: 41.33%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .white-upload {
+    text-align: center;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-tool .white-upload {
+    left: 2.5%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .white-upload {
+    top: 86.5%;
+    left: 2%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-tool .black-upload {
+    position: absolute;
+    z-index: 0;
+    width: 24.25%;
+    height: 16.67%;
+    padding-top: 6px;
+    text-align: center;
+    color: #bbbbbb;
+    background-color: #515151;
+    border: solid 1px #a9a9a9;
+    font-size: 110%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .icon-tool .black-upload:hover {
+    color: white;
+    background-color: #a9a9a9;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .black-upload {
+    position: absolute;
+    z-index: 0;
+    width: 20%;
+    height: 10%;
+    left: 40%;
+    color: #bbbbbb;
+    background-color: #515151;
+    border: solid 1px #454849;
+    font-size: 80%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .icon-tool .black-upload:hover {
+    color: white;
+    background-color: #a9a9a9;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-tool .black-upload {
+    top: 41.33%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .black-upload {
+    text-align: center;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-tool .black-upload {
+    left: 51.75%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-tool .black-upload {
+    top: 86.5%;
+    left: 60%;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .icon-button-text {
+    position: absolute;
+    top: -25%;
+    left: 23%;
+  }
+}
+
+@media screen and (max-device-width: 767px) {
+  .icon-button-text {
+    position: relative;
+    top: 15%;
+    font-size: 85%;
+    text-align: center;
+    word-wrap: break-word;
+  }
+}
+/*# sourceMappingURL=UploadButton.scss.map */

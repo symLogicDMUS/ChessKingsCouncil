@@ -1,0 +1,8 @@
+@import "../variables.scss";
+
+@mixin expand-widget {
+    position: absolute;
+    left: 90%;
+    height: percentage($disp/100);
+    width: 7.5%;
+}

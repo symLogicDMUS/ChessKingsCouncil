@@ -1,0 +1,19 @@
+@import "../variables.scss";
+
+@mixin option {
+    position: absolute;
+    z-index: 1;
+    @media screen and (min-device-width: 768px) {
+        width: 12.25%;
+        height: 63.5%;
+        top: 30%;
+        cursor: pointer;
+    }
+    @media screen and (max-device-width: 767px) {
+        position: absolute;
+        z-index: 1;
+        width: percentage($option-width/100);
+        height: percentage($option-height/100);
+        left: percentage($margin2/100);
+    }
+}

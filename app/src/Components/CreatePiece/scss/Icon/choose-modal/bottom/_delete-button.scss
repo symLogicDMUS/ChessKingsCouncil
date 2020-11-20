@@ -1,0 +1,15 @@
+@import "../../../../../styles/button/button-text-and-color";
+
+@mixin delete-button {
+    @include button-text-and-color("dark2");
+    @media screen and (min-device-width: 768px) {
+        left: 10%;
+    }
+    @media screen and (max-device-width: 767px) {
+        left: 75%;
+    }
+}
+
+
+
+

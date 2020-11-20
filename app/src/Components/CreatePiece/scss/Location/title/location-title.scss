@@ -1,0 +1,5 @@
+@import "./_location-title";
+
+.location-title {
+    @include location-title;
+}

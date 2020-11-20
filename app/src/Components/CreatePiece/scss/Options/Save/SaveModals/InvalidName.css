@@ -1,0 +1,88 @@
+.invalid-name-modal {
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000004d;
+}
+
+.invalid-name {
+  position: absolute;
+  z-index: 5;
+  left: 469px;
+  top: 226px;
+  width: 598px;
+  height: 302px;
+  background-color: #515151;
+  border: 1px solid #b6b6b6;
+  border-radius: 15px;
+}
+
+.invalid-name .text {
+  position: absolute;
+  top: 50px;
+  color: #b6b6b6;
+  background-color: #515151;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 560px;
+  max-height: 150px;
+  text-align: center;
+  font-size: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 16px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  word-wrap: break-word;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.invalid-name .ok-button {
+  position: absolute;
+  top: 250px;
+  left: 263px;
+  position: absolute;
+  z-index: inherit;
+  height: 20px;
+  width: 76px;
+  font-size: 12.04819px;
+  padding-top: 4px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b6b6b6;
+  background-color: #606060;
+  border-radius: 5.60224px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.invalid-name .ok-button:hover {
+  color: #606060;
+  background-color: #b6b6b6;
+}
+
+.invalid-name .msg-modal-close {
+  position: absolute;
+  left: 585px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.invalid-name .msg-modal-close:hover {
+  background-color: #EC2525;
+}
+
+.visible {
+  display: initial;
+}
+
+.invisible {
+  display: none;
+}
+/*# sourceMappingURL=InvalidName.scss.map */
