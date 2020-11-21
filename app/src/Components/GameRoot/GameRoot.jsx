@@ -34,14 +34,14 @@ import "./scss/GameRoot.scss";
 export class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme: "dark", unsaved: false };
+        this.state = { bValue: true, messageModal: false, theme: "dark", unsavedChanges: false };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
         this.currentPath = this.props.location.state.currentPath;
         this.gameData = this.props.location.state.gameData;
-        this.isCouncil = this.gameType === "council" ? true : false;
+        this.isCouncil = this.gameType === "council";
         this.board = this.gameData["board"];
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData["json_records"], this.board));
         if (this.isCouncil) this.gameStatus = new GameStatusCouncil(this.gameData["status"]);
@@ -56,7 +56,7 @@ export class GameRoot extends React.Component {
         this.promoChoices = this.gameData["promos"];
         this.playerType = this.gameData["pt"]; //duplicate?
         this.resigned = this.gameStatus.hasResigned();
-        this.unsaved = false;
+        // this.unsavedChanges = false;
         this.aiDisplay = false;
         this.firstMoveCurrent = true;
         this.firstTime = false;
@@ -284,8 +284,8 @@ export class GameRoot extends React.Component {
     }
 
     setUnsavedProgress(boolVal) {
-        this.setState({ unsaved: boolVal });
-        this.unsaved = boolVal;
+        this.setState({ unsavedChanges: boolVal });
+        // this.unsavedChanges = boolVal;
     }
 
     render() {
@@ -298,7 +298,7 @@ export class GameRoot extends React.Component {
                         togleMessageModal={this.togleMessageModal}
                     />
                 )}
-                <NavBar currentPage="GameRoot" theme={this.state.theme} unsaved={false} />
+                <NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 <Board gameroot={this} />
                 {this.specialCase === "promo" && (

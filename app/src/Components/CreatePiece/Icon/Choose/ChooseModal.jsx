@@ -77,7 +77,6 @@ export class ChooseModal extends React.Component {
     }
 
     submitChoice() {
-        this.props.setUnsaved(true);
         this.props.setPieceImg(this.props.color, this.imgDict[this.state.imgNameChoice]);
         this.props.closeChooseModal();
     }

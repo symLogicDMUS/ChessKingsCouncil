@@ -1,0 +1,12 @@
+short:
+* Profiles modals now crashes when click Load icon (CreatePiece and MyPieces need a stylesObject to pass the way that
+  Customize does, or it will crash)
+* ok-button in modal, save button, and other buttons now need to be clicked twice to work. might have something to do
+  with changing regular variables to state variables
+* Location tool not rendering or is rendering way wrong
+
+medium:
+
+
+long:
+* Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

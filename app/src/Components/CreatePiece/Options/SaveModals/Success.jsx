@@ -11,7 +11,7 @@ export function Success({ setSaveStatus }) {
         return () => clearInterval(interval);
     }, []);
 
-    if (seconds === 0) setSaveStatus("reset");
+    if (seconds === 0) setSaveStatus("none");
 
     return (
         <div

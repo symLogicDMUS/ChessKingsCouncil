@@ -12,7 +12,6 @@ export class Name extends React.Component {
 
     handleUserInput(e) {
         this.userInput = e.target.value;
-        this.props.setUnsaved(true);
         this.props.updateName(this.userInput);
     }
 

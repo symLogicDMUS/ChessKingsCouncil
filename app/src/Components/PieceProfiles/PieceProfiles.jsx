@@ -21,13 +21,12 @@ export class PieceProfiles extends React.Component {
             selectedPiece: null,
             redirect: false,
         };
-        this.displayDefs = null;
-        this.displayBoard = null;
-        this.color = null;
-        this.rangeType = null;
+        // this.displayDefs = null;
+        // this.displayBoard = null;
+        // this.color = null;
+        // this.rangeType = null;
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.searchText = "";
-        this.expand = this.expand.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
     }
@@ -36,69 +35,10 @@ export class PieceProfiles extends React.Component {
         return { W: { spans: [], offsets: [] }, B: { spans: [], offsets: [] } };
     }
 
-    getDisplayDefs() {
-        this.displayDefs = {};
-        for (var pieceName of Object.keys(this.props.defs)) {
-            if (!this.standards.includes(pieceName)) {
-                this.displayDefs[pieceName] = this.getEmptyProfile();
-                this.displayDefs[pieceName]["W"]["spans"] = this.getSpans(this.props.defs[pieceName]["W"]);
-                this.displayDefs[pieceName]["W"]["offsets"] = this.getOffsets(this.props.defs[pieceName]["W"]);
-                this.displayDefs[pieceName]["W"]["img"] = this.props.defs[pieceName]["W"]["img"];
-                this.displayDefs[pieceName]["B"]["spans"] = this.getSpans(this.props.defs[pieceName]["B"]);
-                this.displayDefs[pieceName]["B"]["offsets"] = this.getOffsets(this.props.defs[pieceName]["B"]);
-                this.displayDefs[pieceName]["B"]["img"] = this.props.defs[pieceName]["B"]["img"];
-            }
-        }
-    }
-
     update() {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    expand(piece, color, rangeType) {
-        this.pieceName = piece;
-        this.color = color;
-        this.rangeType = rangeType;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    getSpans(def) {
-        if (def.spans.length === 0) {
-            return Array(0);
-        }
-        let spanStrings = [];
-        for (var span of def.spans) {
-            spanStrings.push(stepFuncNamesToText[span]);
-        }
-        return spanStrings;
-    }
-
-    getOffsets(def) {
-        if (def.offsets.length === 0) {
-            return Array(0);
-        }
-
-        let offsetStrings = [];
-        def.offsets.forEach((offset) => {
-            offsetStrings.push(offsetToText(offset));
-        });
-        return offsetStrings;
-    }
-
-    getDisplayBoard() {
-        if (this.pieceName != null && this.color != null && this.rangeType != null)
-            return (
-                <DisplayBoardModal
-                    def={this.props.defs[this.pieceName][this.color]}
-                    rangeType={this.rangeType}
-                    color={this.color}
-                    pieceName={this.pieceName}
-                    expand={this.expand}
-                    location="d4"
-                />
-            );
-        else return null;
-    }
 
     updateSearch(searchText) {
         this.searchText = searchText;
@@ -107,26 +47,26 @@ export class PieceProfiles extends React.Component {
 
     applySearchFilter() {
         if (this.searchText !== "") {
-            return Object.keys(this.displayDefs).filter((pieceName) =>
+            return Object.keys(this.props.defs).filter((pieceName) =>
                 pieceName.toLowerCase().startsWith(this.searchText)
             );
         } else {
-            return Object.keys(this.displayDefs);
+            return Object.keys(this.props.defs);
         }
     }
 
     getProfiles() {
+        let pieceName;
         let profiles = [];
-        this.getDisplayDefs();
         let pieceNames = this.applySearchFilter();
         if (this.props.headerType === "load-delete") {
-            for (var pieceName of pieceNames) {
+            for (pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        screenCase={this.props.screenCase}
                         pieceName={pieceName}
-                        expand={this.expand}
-                        displayDefs={this.displayDefs}
+                        expand={this.props.expand}
+                        defs={this.props.defs}
+                        screenCase={this.props.screenCase}
                         pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
                     >
                         {LoadDeleteHeader({
@@ -139,20 +79,24 @@ export class PieceProfiles extends React.Component {
                 );
             }
         } else if (this.props.headerType === "custom-game") {
-            for (var pieceName of pieceNames) {
+            let isCheckmark;
+            for (pieceName of pieceNames) {
+                isCheckmark = this.props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
-                        screenCase={this.props.screenCase}
                         pieceName={pieceName}
-                        expand={this.expand}
-                        displayDefs={this.displayDefs}
+                        theme={this.props.theme}
+                        expand={this.props.expand}
+                        defs={this.props.defs}
+                        screenCase={this.props.screenCase}
                         pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
                     >
                         {CustomizeHeader({
                             pieceName: pieceName,
-                            theme: this.state.theme,
+                            theme: this.props.theme,
                             screenCase: this.props.screenCase,
                             promos: this.props.promos,
+                            isCheckmark: isCheckmark,
                             newReplacement: this.props.newReplacement,
                             newReplaced: this.props.newReplaced,
                             togleSub: this.props.togleSub,
@@ -176,11 +120,10 @@ export class PieceProfiles extends React.Component {
             <>
                 <div
                     className="profiles"
-                    style={this.props.styleObjects[this.props.screenCase]['PieceProfiles']()}
+                    style={this.props.styleObjects[this.props.screenCase]['pieceProfiles']()}
                 >
                     {this.getProfiles()}
                 </div>
-                {this.getDisplayBoard()}
             </>
         );
     }

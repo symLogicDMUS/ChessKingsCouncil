@@ -18,7 +18,7 @@ export class PickType extends React.Component {
         this.setMessageText = this.setMessageText.bind(this);
         this.hmChildren = { none: null };
         this.setType = this.setType.bind(this);
-        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.toggleMessageModal = this.toggleMessageModal.bind(this);
     }
 
     componentDidMount() {
@@ -30,12 +30,12 @@ export class PickType extends React.Component {
         this.props.nextStep();
     }
 
-    togleNav(boolVal) {
+    toggleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({ bValue: !this.state.bValue });
     }
 
-    togleMessageModal(boolVal) {
+    toggleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
 
@@ -51,13 +51,13 @@ export class PickType extends React.Component {
                 <NavBar
                     currentPage="PickType"
                     theme={this.state.theme}
-                    unsaved={false}
+                    unsavedChanges={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
-                        togleMessageModal={this.togleMessageModal}
+                        togleMessageModal={this.toggleMessageModal}
                     />
                 )}
 

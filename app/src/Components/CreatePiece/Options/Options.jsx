@@ -18,16 +18,13 @@ export class Options extends React.Component {
         if (this.props.namesOfExistingPieces.includes(this.props.name)) {
             this.props.setSaveStatus("confirm-overwrite");
         } else {
-            // this.props.setUnsaved(false);
             this.props.save();
         }
     }
     reset() {
-        this.props.setUnsaved(true);
         this.props.reset();
     }
     erase() {
-        this.props.setUnsaved(true);
         this.props.eraseRange();
     }
 

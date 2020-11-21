@@ -4,9 +4,13 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { labelSizes, styleObjects } from "../CustomizeStyle";
-import "./SubDropdown.scss";
-
+// import { fonts, styleObjects } from "../CustomizeStyle";
+import {dropdownStyle} from "../../../Reuseables/dropdownStyle.jss"
+import "../../../Reuseables/MuiSelect.scss";
+/**
+ * props:
+ * positionAndWidth: the positionAndWidth object includes top/left values, may include margins
+ */
 export class SubDropdown extends React.Component {
     constructor(props) {
         super(props);
@@ -29,6 +33,9 @@ export class SubDropdown extends React.Component {
     }
 
     render() {
+
+        const fontAndHeight = dropdownStyle[this.props.screenCase]['dropdown'](this.props.fontSize)
+
         if (
             this.props.newReplacement != null &&
             this.props.piece !== this.props.newReplacement &&
@@ -37,26 +44,24 @@ export class SubDropdown extends React.Component {
             this.selectedPiece = <option value="None">None</option>;
 
         return (
-            <ThemeProvider theme={labelSizes[this.props.screenCase]["h1"]}>
                 <FormControl
                     variant="outlined"
-                    className="customize-sub-dropdown"
-                    style={styleObjects[this.props.screenCase]["SubDropdown"]()}
+                    className="mui-select"
+                    style={this.props.positionAndWidth}
                 >
-                    <InputLabel id="outlined-label">Sub Piece</InputLabel>
+                    <InputLabel id="outlined-label" style={fontAndHeight}>Sub Piece</InputLabel>
                     <Select
-                        id="subs"
-                        labelId="demo-simple-select-outlined-label"
+                        label="Piece Sub"
+                        style={fontAndHeight}
                         value={this.selectedPiece}
                         onChange={this.handleChange}
-                        label="Piece Sub"
+                        labelId="sub-piece"
+                        id="subs"
                         //Icon={<ArrowDropDownIcon />}
-                        style={{width: styleObjects[this.props.screenCase]['h1']*15}}
                     >
                         {this.subs}
                     </Select>
                 </FormControl>
-            </ThemeProvider>
         );
     }
 }

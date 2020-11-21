@@ -19,7 +19,6 @@ export class UploadButtonBlack extends React.Component {
             "load",
             () => {
                 const imgStr = myFileItemReader.result;
-                this.props.setUnsavedChanges(true);
                 saveImg(imgName, imgStr).then(([res]) => {
                     this.props.setPieceImg("black", imgStr);
                 });

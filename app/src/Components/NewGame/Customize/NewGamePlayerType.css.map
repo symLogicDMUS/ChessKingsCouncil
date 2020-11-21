@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,4BAA4B,CAAC;EACzB,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,OAAO;EACd,WAAW,EAAE,+CAA+C;EAC5D,UAAU,EAAE,MAAM;CACrB;;AAED,AAAA,+BAA+B,CAAC;EAC5B,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,OAAO;EACd,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,mBAAmB;EAC3B,aAAa,EAAE,GAAG;EAClB,WAAW,EAAE,+CAA+C;EAC5D,MAAM,EAAE,OAAO;CAClB",
-    "sources": [
-        "NewGamePlayerType.scss"
-    ],
-    "names": [],
-    "file": "NewGamePlayerType.css"
-}

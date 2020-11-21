@@ -6,49 +6,46 @@ import { getSpanLabel } from "./RangeLabelComponents/getSpanLabel";
 import { getPxPos } from "./pxPos";
 import "./_CreatePieceSquare.scss";
 
-export class CreatePieceSquare extends React.Component {
-    constructor(props) {
-        super(props);
-        this.pxPos = getPxPos(this.props.rf);
-        this.toglejumpElement = this.toglejumpElement.bind(this);
-    }
+export function CreatePieceSquare({
+    rf,
+    className,
+    pieceLoc,
+    toggleOffset,
+    isSpan,
+    isOffset,
+    showSpanText,
+    showOffsetText,
+    children,
+}) {
+    let pxPos = getPxPos(rf);
 
-    toglejumpElement() {
-        this.props.setUnsaved(true);
-        this.props.togleJump(this.props.rf, getOffset(this.props.rf, this.props.pieceLoc));
-        this.props.update();
-    }
-
-    render() {
-        if (this.props.isSpan) {
-            let spanLabel = null;
-            if (this.props.showSpanText) spanLabel = getSpanLabel();
-
-            return (
-                <div className="span-element" style={this.pxPos}>
-                    {spanLabel}
-                </div>
-            );
-        }
-
-        if (this.props.isJump) {
-            let offsetLabel = null;
-            if (this.props.showOffsetText)
-                offsetLabel = getOffsetLabel(getOffset(this.props.rf, this.props.pieceLoc));
-
-            return (
-                <div className="jump-element" style={this.pxPos} onClick={this.toglejumpElement}>
-                    {offsetLabel}
-                </div>
-            );
-        }
+    if (isSpan) {
+        let spanLabel = null;
+        if (showSpanText) spanLabel = getSpanLabel();
 
         return (
-            <div className={this.props.className} style={this.pxPos} onClick={this.toglejumpElement}>
-                {this.props.children}
+            <div className="span-element" style={pxPos}>
+                {spanLabel}
             </div>
         );
     }
+
+    if (isOffset) {
+        let offsetLabel = null;
+        if (showOffsetText) offsetLabel = getOffsetLabel(getOffset(rf, pieceLoc));
+
+        return (
+            <div className="offset-element" style={pxPos} onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}>
+                {offsetLabel}
+            </div>
+        );
+    }
+
+    return (
+        <div className={className} style={pxPos} onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}>
+            {children}
+        </div>
+    );
 }
 
 export let test = () => ReactDOM.render(<CreatePieceSquare />, document.getElementById("root"));

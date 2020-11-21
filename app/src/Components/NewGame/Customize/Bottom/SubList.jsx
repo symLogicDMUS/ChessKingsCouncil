@@ -7,7 +7,7 @@ export function SubList({ screenCase, subs }) {
     const fontSize = fontSizes[screenCase]["medium2"]();
     const fontStyleObject = { fontSize: fontSize, paddingTop: fontSize * 0.3 };
     return (
-        <div className="sub-list" style={styleObjects[screenCase]["SubList"]()}>
+        <div className="sub-list" style={styleObjects[screenCase]["subList"]()}>
             <div className="customize-subs-header" style={{fontSize: fontSizes[screenCase]['medium1']()}}>
                 Subs
             </div>

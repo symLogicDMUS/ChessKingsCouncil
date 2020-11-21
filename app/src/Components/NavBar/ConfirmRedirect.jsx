@@ -19,7 +19,7 @@ export class ConfirmRedirect extends React.Component {
 
     cancelRedirect() {
         this.setState({ redirect: "none" });
-        this.props.togleConfirmRedirect(false, null, false);
+        this.props.toggleConfirmRedirect(false, null, false);
     }
 
     render() {

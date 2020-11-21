@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,sBAAsB,CAAC;EACnB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,KAAK;EACd,IAAI,EAAE,GAAG;EACT,GAAG,EAAE,GAAG;EACR,OAAO,EAAE,CAAC;EACV,SAAS,EAAE,UAAU;EACrB,KAAK,EAAE,KAAK;EAEZ,WAAW,EAAE,+CAA+C;EAC5D,aAAa,EAAE,GAAG;CACrB",
-    "sources": [
-        "NameTooltip.scss"
-    ],
-    "names": [],
-    "file": "NameTooltip.css"
-}

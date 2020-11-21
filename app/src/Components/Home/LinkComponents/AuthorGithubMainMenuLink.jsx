@@ -13,7 +13,7 @@ import "../Home.scss";
 export class AuthorsGithubIcon extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { iconClass: "main-menu-Icon-normal" };
+        this.state = { iconClass: "main-menu-icon-normal" };
         this.setHover = this.setHover.bind(this);
     }
 
@@ -42,8 +42,8 @@ export class AuthorsGithubIcon extends React.Component {
                     width={151}
                     height={254}
                     opacity="0%"
-                    onMouseEnter={() => this.setHover("main-menu-Icon-highlighted")}
-                    onMouseLeave={() => this.setHover("main-menu-Icon-normal")}
+                    onMouseEnter={() => this.setHover("main-menu-icon-highlighted")}
+                    onMouseLeave={() => this.setHover("main-menu-icon-normal")}
                 />
             </>
         );

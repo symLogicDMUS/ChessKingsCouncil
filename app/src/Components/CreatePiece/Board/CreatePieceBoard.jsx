@@ -26,13 +26,13 @@ export class CreatePieceBoard extends React.Component {
                         rf={rf}
                         className={sqrColorClass[rf]}
                         isSpan={this.props.spanDisplays[rf]}
-                        togleJump={this.props.togleJump}
+                        toggleOffset={this.props.toggleOffset}
                         update={this.props.update}
-                        isJump={this.props.jumps[rf]}
+                        isOffset={this.props.offsets[rf]}
                         pieceLoc={this.props.pieceLoc}
                         showSpanText={this.props.showSpanText}
                         showOffsetText={this.props.showOffsetText}
-                        setUnsaved={this.props.setUnsaved}
+
                     >
                         <Piece pieceImgBase64Str={this.props.pieceImgBase64Str} />
                     </Square>
@@ -43,13 +43,12 @@ export class CreatePieceBoard extends React.Component {
                         rf={rf}
                         className={sqrColorClass[rf]}
                         isSpan={this.props.spanDisplays[rf]}
-                        togleJump={this.props.togleJump}
+                        toggleOffset={this.props.toggleOffset}
                         update={this.props.update}
-                        isJump={this.props.jumps[rf]}
+                        isOffset={this.props.offsets[rf]}
                         pieceLoc={this.props.pieceLoc}
                         showSpanText={this.props.showSpanText}
                         showOffsetText={this.props.showOffsetText}
-                        setUnsaved={this.props.setUnsaved}
                     >
                         {null}
                     </Square>

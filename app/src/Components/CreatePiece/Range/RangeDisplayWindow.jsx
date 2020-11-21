@@ -9,7 +9,7 @@ export function RangeDisplayWindow({ ranges, screenCase }) {
                 className="scroll-table-no-disp"
                 listItems={ranges}
                 screenCase={screenCase}
-                styleObject={{ gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%", border: "1px solid #707070" }}
+                styleObject={{ gridTemplateRows: "0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em", border: "1px solid #707070" }}
             />
         </div>
     );

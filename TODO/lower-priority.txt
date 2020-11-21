@@ -1,0 +1,19 @@
+short:
+* tweak appearance of play-as on bottom-bar of createPiece
+* Make z-index of NavBar one higher than everything except the Modals
+* Add hover color to NavBar.
+* make 'Shockwave' color of checkbox match the theme (not pink)
+* change color of close icon on hover from red to something else (seen in displayBoardModal). maybe a light grey
+
+medium:
+* Have clicking the help Icon toggle the help model.
+* remove .css and .css.map from git, figure out how to include all files of certain extension in gitignore
+* make use stepFuncDict the same across components. shouldn't need a dict for both angles as keys, and one func names as keys
+* organize DisplayBoardModal styles like did with CreatePieces
+
+long:
+* add new and different themes
+* add multiple versions of standard game (Star Wars, NBA etc)
+* optimise style methods, maybe only called at top/page level components and then passed as props
+* look into scss with font-size used as units. Read about
+* make some of the tools/modals in desktop version draggable, including Range display board in GameRoot and Customize

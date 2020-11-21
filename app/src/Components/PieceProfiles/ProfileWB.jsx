@@ -4,9 +4,32 @@ import { ProfileWBScrollTableHeader } from "./ProfileWBScrollTableHeader";
 import { ScrollTable } from "../Reuseables/ScrollTable";
 import { styleObjects } from "./PieceProfileStyle";
 import { fontSizes } from "../styles/fontSizes";
+import {stepFuncNamesToText} from "../helpers/spanToText";
+import {offsetToText} from "../helpers/offsetToText";
 import "./ProfileWB.scss";
 
 export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProfilesStyle }) {
+    const getSpans = (def) => {
+        if (def.spans.length === 0) {
+            return Array(0);
+        }
+        let spanStrings = [];
+        for (const span of def.spans) {
+            spanStrings.push(stepFuncNamesToText[span]);
+        }
+        return spanStrings;
+    }
+    const getOffsets = (def) => {
+        if (def.offsets.length === 0) {
+            return Array(0);
+        }
+
+        let offsetStrings = [];
+        def.offsets.forEach((offset) => {
+            offsetStrings.push(offsetToText(offset));
+        });
+        return offsetStrings;
+    }
     return (
         <div className="profile-wb" style={styleObjects[screenCase]["ProfileWB"](pieceProfilesStyle)}>
             <div className="img-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
@@ -21,11 +44,11 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 screenCase={screenCase}
                 pieceProfilesStyle={pieceProfilesStyle}
                 expand={expand}
-                color={getColorName(color)}
+                color={color}
                 rangeType="spans"
             />
             <ScrollTable
-                listItems={def.spans}
+                listItems={getOffsets(def)}
                 screenCase={screenCase}
                 cellFontSize={fontSizes[screenCase]["medium3"]()}
                 styleObject={{
@@ -44,10 +67,10 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
                 pieceProfilesStyle={pieceProfilesStyle}
                 expand={expand}
                 rangeType="offsets"
-                color={getColorName(color)}
+                color={color}
             />
             <ScrollTable
-                listItems={def.offsets}
+                listItems={getSpans(def)}
                 screenCase={screenCase}
                 cellFontSize={fontSizes[screenCase]["medium3"]()}
                 styleObject={{

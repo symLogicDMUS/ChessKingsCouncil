@@ -6,7 +6,7 @@ export class Council extends React.Component {
     constructor(props) {
         super(props);
         this.setHover = this.setHover.bind(this);
-        this.state = { iconClass: "game-type-Icon-normal" };
+        this.state = { iconClass: "game-type-icon-normal" };
     }
 
     setHover(iconClass) {
@@ -32,8 +32,8 @@ export class Council extends React.Component {
                     width={151}
                     height={182}
                     opacity="0%"
-                    onMouseEnter={() => this.setHover("game-type-Icon-highlighted")}
-                    onMouseLeave={() => this.setHover("game-type-Icon-normal")}
+                    onMouseEnter={() => this.setHover("game-type-icon-highlighted")}
+                    onMouseLeave={() => this.setHover("game-type-icon-normal")}
                     onClick={() => this.props.setType("council")}
                 />
             </Link>

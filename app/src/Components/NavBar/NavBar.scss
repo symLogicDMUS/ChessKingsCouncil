@@ -10,7 +10,7 @@ $tog-nav-width: 1%;
     color: #b6b6b6;
     font-size: 140%;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    wordwrap: break-word;
+    word-wrap: break-word;
 }
 
 @mixin nav-bar-button() {
@@ -22,6 +22,9 @@ $tog-nav-width: 1%;
     border-right: 1px solid #707070;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
+    &:hover {
+        background-color: #4d4d4d;
+    }
 }
 
 .nav-bar {

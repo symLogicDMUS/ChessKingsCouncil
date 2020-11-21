@@ -57,7 +57,7 @@ export class PickName extends React.Component {
                 <NavBar
                     currentPage="LoadGame"
                     theme={this.state.theme}
-                    unsaved={false}
+                    unsavedChanges={false}
                 />
                 {this.state.messageModal && (
                     <MessageModal

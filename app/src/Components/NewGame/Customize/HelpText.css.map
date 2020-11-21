@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACL,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,oBAAoB;EAC3B,MAAM,EAAE,oBAAoB;CAC9B;;AAED,AAAA,WAAW,CAAC;EACR,KAAK,EAAE,oBAAoB;EAC3B,MAAM,EAAE,oBAAoB;CAC/B",
-    "sources": [
-        "HelpText.scss"
-    ],
-    "names": [],
-    "file": "HelpText.css"
-}

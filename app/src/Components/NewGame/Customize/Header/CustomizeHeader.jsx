@@ -1,40 +1,46 @@
 import React from "react";
-import {SubDropdown} from "./SubDropdown";
-import { PromoCheckbox } from "./PromoCheckbox";
-import { styleObjects, labelSizes } from "../CustomizeStyle";
-import { fontSizes } from "../../../styles/fontSizes";
-import { Typography, ThemeProvider } from "@material-ui/core";
-import {Label} from "semantic-ui-react";
-import "./CustomizeHeader.scss";
+import { SubDropdown } from "./SubDropdown";
+import {CheckBox} from '../../../Reuseables/CheckBox';
+import { styleObjects } from "../CustomizeStyle";
 
 export function CustomizeHeader({
     screenCase,
     theme,
     pieceName,
-    promos,
+    isCheckmark,
     newReplacement,
     newReplaced,
     togleSub,
     toglePromo,
 }) {
 
-    const subAndPromoTextSize = fontSizes[screenCase]["medium1"]();
+    const profileHeaderStyle = styleObjects[screenCase]["profileHeader"]();
+    const profileGridStyle = styleObjects[screenCase]['profileGrid']();
+    const pieceNameStyle = styleObjects[screenCase]['pieceName']();
+    const subDropdownStyle = styleObjects[screenCase]['subDropdown']();
+    const promoCheckboxStyle = styleObjects[screenCase]['promoCheckbox']();
     return (
-        <div className="customize-profile-header" style={styleObjects[screenCase]["ProfileHeader"]()}>
-            <div className="customize-profile-grid" style={styleObjects[screenCase]["ProfileGrid"]()}>
-                 <div className="customize-name-of-piece" style={styleObjects[screenCase]['PieceName']()}>
-                    {pieceName}
-                </div>
-                <PromoCheckbox
+        <div style={profileHeaderStyle}>
+            <div style={profileGridStyle}>
+                <div style={pieceNameStyle}>{pieceName}</div>
+                <CheckBox
                     theme={theme}
+                    labelText="Promotion"
+                    position={promoCheckboxStyle}
+                    fontSize={styleObjects[screenCase]['fontSize1']()}
+                    fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
                     screenCase={screenCase}
-                    toglePromo={toglePromo}
-                    pieceName={pieceName}
-                    promos={promos}
+                    clickMethod={toglePromo}
+                    clickValue={pieceName}
+                    labelStyleMethod="PromoLabel"
+                    boxStyleMethod="PromoCheckbox"
+                    checkmarkState={isCheckmark}
                 />
                 <SubDropdown
-                    piece={pieceName}
                     theme={theme}
+                    piece={pieceName}
+                    fontSize={styleObjects[screenCase]['fontSize2']()}
+                    positionAndWidth={subDropdownStyle}
                     screenCase={screenCase}
                     newReplacement={newReplacement}
                     newReplaced={newReplaced}

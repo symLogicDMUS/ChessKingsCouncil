@@ -6,7 +6,7 @@ import "./PromoList.scss";
 
 export function PromoList({ promos, screenCase }) {
     return (
-        <div className="promo-list" style={styleObjects[screenCase]["PromoList"]()}>
+        <div className="promo-list" style={styleObjects[screenCase]["promoList"]()}>
             <div className="customize-promo-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
                 Pawn Promotions
             </div>

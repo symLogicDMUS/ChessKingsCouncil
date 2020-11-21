@@ -1,5 +1,4 @@
 import React from "react";
-import "./HelpText.scss";
 
 export let titles = {
     0: "Customizing a New Game (Overview)",
@@ -9,7 +8,16 @@ export let titles = {
     4: "Viewing the range of a piece",
     5: "Options for playing the game",
 };
-
+const ilbEi = {
+    display: 'inline-block',
+    width: '11.2px',
+    height: '11.2px',
+ }
+ 
+ const ilbEiImg = {
+     width: '11.2px',
+     height: '11.2px',
+ }
 export let paragraphs = {
     0: (
         <div>
@@ -51,10 +59,10 @@ export let paragraphs = {
         <div>
             <p>
                 Click the{" "}
-                <span className="ilb-ei">
+                <span style={ilbEi}>
                     <img
                         src="/Images/expand/expand.svg"
-                        className="ilb-ei-img"
+                        style={ilbEiImg}
                         alt="expand icon for range and spans"
                     />
                 </span>{" "}

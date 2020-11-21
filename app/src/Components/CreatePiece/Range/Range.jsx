@@ -50,9 +50,9 @@ export class Range extends React.Component {
         return arrowButtons;
     }
 
-    getSpans() {
+    getSpanTextLabels() {
         let spans = [];
-        for (var angle of Object.keys(this.props.spans)) {
+        for (const angle of Object.keys(this.props.spans)) {
             if (this.props.spans[angle]) {
                 spans.push(angleToText[angle]);
             }
@@ -60,7 +60,7 @@ export class Range extends React.Component {
         return spans;
     }
 
-    getOffsets() {
+    getOffsetTextLabels() {
         return this.props.offsets.map((offset) => offsetToText(offset));
     }
 
@@ -70,7 +70,7 @@ export class Range extends React.Component {
                 <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
                     <div className="range-title">Range</div>
                     <RangeDisplayWindow
-                        ranges={{ ...this.getSpans(), ...this.getOffsets() }}
+                        ranges={{ ...this.getSpanTextLabels(), ...this.getOffsetTextLabels() }}
                         screenCase={this.props.screenCase}
                     />
                     <div className="direction-pad">

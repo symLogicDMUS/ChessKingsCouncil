@@ -1,75 +1,36 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { getIconColor } from "./getIconColor";
 import "./NavBar.scss";
 
-export class NavBarButton extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { selected: false };
-        this.select = this.select.bind(this);
-        this.unselect = this.unselect.bind(this);
-        this.goToLocalPage = this.goToLocalPage.bind(this);
-        this.goToExtenernalPage = this.goToExtenernalPage.bind(this);
-    }
+export function NavBarButton({
+    path,
+    pageName,
+    isLocalLink,
+    unsavedChanges,
+    toggleConfirmRedirect,
+    classes,
+    pageIcon,
+    theme,
+}) {
+    
+    let history = useHistory();
+    let pageRedirectMethod = isLocalLink ? () => (window.location.href = path) : () => history.push(path);
+    if (unsavedChanges) pageRedirectMethod = () => toggleConfirmRedirect(true, path, isLocalLink);
 
-    unselect() {
-        this.setState({ selected: false });
-    }
-
-    select() {
-        this.setState({ selected: true });
-    }
-
-    getComponent(clickMethod) {
-        return (
-            <div
-                className={this.props.classes.button}
-                onClick={clickMethod}
-                onMouseEnter={this.select}
-                onMouseLeave={this.unselect}
-            >
-                <div className={this.props.classes["icon-container"]}>
-                    <img
-                        src={`/Images/Navbar/${this.props.pageIcon}-invert-${getIconColor(this.props.theme)}.svg`}
-                        className="nav-bar-icon-style"
-                        alt=""
-                    />
-                </div>
-                <div className={this.props.classes.text}>{this.props.pageName}</div>
+    return (
+        <div
+            className={classes.button}
+            onClick={pageRedirectMethod}
+        >
+            <div className={classes["icon-container"]}>
+                <img
+                    src={`/Images/Navbar/${pageIcon}-invert-${getIconColor(theme)}.svg`}
+                    className="nav-bar-icon-style"
+                    alt=""
+                />
             </div>
-        );
-    }
-
-    goToExtenernalPage() {
-        return (window.location.href = this.props.path);
-    }
-
-    goToLocalPage() {
-        return (
-            <Redirect
-                to={{
-                    pathname: this.props.path,
-                    state: {
-                        currentPath: this.props.path,
-                        gameName: JSON.parse(JSON.stringify(this.state.gameName)),
-                        gameType: JSON.parse(JSON.stringify(this.gameData["type"])),
-                        playerType: JSON.parse(JSON.stringify(this.gameData["pt"])),
-                        gameData: JSON.parse(JSON.stringify(this.gameData)),
-                    },
-                }}
-            />
-        );
-    }
-
-    render() {
-        if (this.props.unsaved) {
-            return this.getComponent(() =>
-                this.props.togleConfirmRedirect(true, this.props.path, this.props.isLocalLink)
-            );
-        } else {
-            if (this.props.localLink) return this.getComponent(this.goToLocalPage);
-            else return this.getComponent(this.goToExtenernalPage);
-        }
-    }
+            <div className={classes.text}>{pageName}</div>
+        </div>
+    );
 }

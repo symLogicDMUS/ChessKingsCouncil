@@ -3,7 +3,7 @@ import { fontSizes } from "../../styles/fontSizes";
 import { winWidth, winHeight } from "../../helpers/windowMeasurments";
 import { getTextWidth } from "../../helpers/getTextWidth";
 import { createMuiTheme, makeStyles } from "@material-ui/core/styles";
-import { themes } from "../../styles/themes";
+import { themesJss } from "../../styles/themes.jss";
 
 var styleObjects = {
     desktop: {

@@ -1,0 +1,17 @@
+short:
+* Fix span/offset text on CreatePiece board (mobile)
+* Add searchbar back in
+* move getStyle methods that are a part of component to separate style object
+* why is Customize Background now rendering as white?
+
+medium:
+* span arrows of range tool are opposite colors of intended for hover on and off
+* move style object methods to their own .jss.js files
+* Refactor Message and ConfirmRedirect modals for mobile *?
+* replace buttons and possibly search-boxes with material ui version
+
+
+long:
+* replace all .scss classes with style methods in .jss.js files
+* Finish refactoring CreatePiece page for mobile, then do other pages.
+* Make ToolsMenuMobile reusable so can use for GameRoot, implement in GameRoot for the mobile case

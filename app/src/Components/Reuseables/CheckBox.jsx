@@ -2,48 +2,26 @@ import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
-import "./CheckBox.scss";
-
-/**Checkbox with label */
-export function CheckBox({
-    screenCase,
-    styleObjects,
-    clickMethod,
-    clickValue,
-    heightValue,
-    labelText,
-    fontFamily,
-    checkmarkState,
-}) {
-    const checkboxStyle = {
-        fontSize: heightValue * 0.8,
-        width: "1.5em",
-        height: "1.5em",
-        transform: "translate(0, -0.12em)",
-    };
+import {checkBoxStyle} from "./CheckBox.jss";
+/**
+ * arguments
+ * position: the position object includes left/top values and may include margins
+*/
+export function CheckBox({ screenCase, theme, position, fontSize, fontFamily, clickMethod, clickValue, labelText, checkmarkState }) {
+    const checkboxStyle = checkBoxStyle[screenCase].checkbox(fontSize, fontFamily, theme);
+    const labelStyle = checkBoxStyle[screenCase].label(fontSize, fontFamily, theme);
     return (
-        <div>
-            <div
-                style={{
-                    fontFamily: fontFamily,
-                    fontSize: heightValue * 0.8,
-                    display: "inline-block",
-                    // border: "1px dashed red",
-                    lineHeight: 1,
-                }}
-                className="check-box"
-            >
-                {labelText}
-                <Checkbox
-                    icon={<CheckBoxOutlineBlankIcon style={checkboxStyle} />}
-                    checkedIcon={<CheckBoxIcon style={checkboxStyle} />}
-                    onClick={() => clickMethod(clickValue)}
-                    //style={styleObjects[screenCase]['']}
-                    checked={checkmarkState}
-                    className="check-box"
-                    name="checkedI"
-                />
+            <div style={position}>
+                <div style={labelStyle}>
+                    {labelText}
+                    <Checkbox
+                        icon={<CheckBoxOutlineBlankIcon style={checkboxStyle['not-checked']} />}
+                        checkedIcon={<CheckBoxIcon style={checkboxStyle.checked} />}
+                        onClick={() => clickMethod(clickValue)}
+                        checked={checkmarkState}
+                        name="checkedI"
+                    />
+                </div>
             </div>
-        </div>
     );
 }

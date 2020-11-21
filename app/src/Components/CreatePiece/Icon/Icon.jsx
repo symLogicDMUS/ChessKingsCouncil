@@ -15,16 +15,14 @@ export class Icon extends React.Component {
                     <div className="white-title">White</div>
                     <div className="black-title">Black</div>
                     <UploadButtonWhite
-                        setPieceImg={this.props.setPieceImg}
-                        setUnsavedChanges={this.props.setUnsavedChanges}
                         color="white"
+                        setPieceImg={this.props.setPieceImg}
                         currentIconColor={this.props.currentIconColor}
                         setCurrentIconColor={this.props.setCurrentIconColor}
                     />
                     <UploadButtonBlack
-                        setPieceImg={this.props.setPieceImg}
-                        setUnsavedChanges={this.props.setUnsavedChanges}
                         color="black"
+                        setPieceImg={this.props.setPieceImg}
                         currentIconColor={this.props.currentIconColor}
                         setCurrentIconColor={this.props.setCurrentIconColor}
                     />

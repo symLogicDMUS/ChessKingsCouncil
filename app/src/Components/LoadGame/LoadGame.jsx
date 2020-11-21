@@ -185,7 +185,7 @@ export class LoadGame extends React.Component {
 
         return (
             <>
-                <NavBar currentPage="LoadGame" theme={this.state.theme} unsaved={false} />
+                <NavBar currentPage="LoadGame" theme={this.state.theme} unsavedChanges={false} />
                 <img
                     src="/Images/text-labels/LoadGame.svg"
                     className="load-game-text"

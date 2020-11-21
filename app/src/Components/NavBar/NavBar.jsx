@@ -21,17 +21,17 @@ export class NavBar extends React.Component {
         };
         this.redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
         if (this.props.redirectMessage) this.redirectMessage = this.props.redirectMessage;
-        this.togleNav = this.togleNav.bind(this);
-        this.togleHelpModal = this.togleHelpModal.bind(this);
+        this.toggleNav = this.toggleNav.bind(this);
+        this.toggleHelpModal = this.toggleHelpModal.bind(this);
         this.setFirstTime = this.setFirstTime.bind(this);
-        this.togleConfirmRedirect = this.togleConfirmRedirect.bind(this);
+        this.toggleConfirmRedirect = this.toggleConfirmRedirect.bind(this);
     }
 
-    togleNav() {
+    toggleNav() {
         this.setState({ navExpanded: !this.state.navExpanded });
     }
 
-    togleHelpModal(boolVal) {
+    toggleHelpModal(boolVal) {
         this.setState({ isHelpModal: boolVal, firstTime: false });
     }
 
@@ -40,7 +40,7 @@ export class NavBar extends React.Component {
     }
 
 
-    togleConfirmRedirect(bValue, path, isLocalLink) {
+    toggleConfirmRedirect(bValue, path, isLocalLink) {
         this.setState({ isRedirectModal: bValue, pendingRedirect: path, isLocalLink: isLocalLink });
     }
 
@@ -52,7 +52,7 @@ export class NavBar extends React.Component {
                         screenCase={screenCase}
                         pageName={this.props.currentPage}
                         firstTime={this.state.firstTime}
-                        togleHelpModal={this.togleHelpModal}
+                        togleHelpModal={this.toggleHelpModal}
                         posLeft={263 / 1536}
                     />
                 )}
@@ -62,7 +62,7 @@ export class NavBar extends React.Component {
                         path={this.state.pendingRedirect}
                         message={this.redirectMessage}
                         isLocalLink={this.state.isLocalLink}
-                        togleConfirmRedirect={this.togleConfirmRedirect}
+                        toggleConfirmRedirect={this.toggleConfirmRedirect}
                     />
                 )}
                 <div className="nav-bar" style={styleObjects[screenCase]()}>
@@ -70,7 +70,7 @@ export class NavBar extends React.Component {
                         <HelpComponent
                             screenCase={screenCase}
                             currentPage={this.props.currentPage}
-                            togleHelpModal={this.togleHelpModal}
+                            togleHelpModal={this.toggleHelpModal}
                             setFirstTime={this.setFirstTime}
                             theme={this.props.theme}
                             pageIcon="help"
@@ -86,12 +86,12 @@ export class NavBar extends React.Component {
                             path="/"
                             classes={{
                                 button: "go-to-home",
-                                "icon-container": "home-Icon",
+                                "icon-container": "home-icon",
                                 text: "home-text",
                             }}
                             pageIcon="home"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={9}
@@ -104,12 +104,12 @@ export class NavBar extends React.Component {
                             path="/NewGame"
                             classes={{
                                 button: "go-to-new-game",
-                                "icon-container": "new-game-Icon",
+                                "icon-container": "new-game-icon",
                                 text: "new-game-text",
                             }}
                             pageIcon="new-game"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={8}
@@ -122,12 +122,12 @@ export class NavBar extends React.Component {
                             path="/LoadGame"
                             classes={{
                                 button: "go-to-load-game",
-                                "icon-container": "go-to-load-game-Icon",
+                                "icon-container": "go-to-load-game-icon",
                                 text: "go-to-load-game-text",
                             }}
                             pageIcon="load-game"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={7}
@@ -140,12 +140,12 @@ export class NavBar extends React.Component {
                             path="/CreatePiece"
                             classes={{
                                 button: "go-to-create-piece",
-                                "icon-container": "create-piece-Icon",
+                                "icon-container": "create-piece-icon",
                                 text: "create-piece-text",
                             }}
                             pageIcon="create-piece"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={6}
@@ -158,12 +158,12 @@ export class NavBar extends React.Component {
                             path="https://www.chess.com/learn-how-to-play-chess"
                             classes={{
                                 button: "go-to-chess-rules",
-                                "icon-container": "council-rules-Icon",
+                                "icon-container": "council-rules-icon",
                                 text: "chess-rules-text",
                             }}
                             pageIcon="chess-rules"
                             isLocalLink={false}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={5}
@@ -176,12 +176,12 @@ export class NavBar extends React.Component {
                             path="/CouncilRules"
                             classes={{
                                 button: "go-to-council-rules",
-                                "icon-container": "council-rules-Icon",
+                                "icon-container": "council-rules-icon",
                                 text: "council-rules-text",
                             }}
                             pageIcon="council-rules"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={4}
@@ -194,12 +194,12 @@ export class NavBar extends React.Component {
                             path="/MyPieces"
                             classes={{
                                 button: "go-to-my-pieces",
-                                "icon-container": "my-pieces-Icon",
+                                "icon-container": "my-pieces-icon",
                                 text: "my-pieces-text",
                             }}
                             pageIcon="my-pieces"
                             isLocalLink={true}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={3}
@@ -212,12 +212,12 @@ export class NavBar extends React.Component {
                             path="https://github.com/symLogicDMUS"
                             classes={{
                                 button: "go-to-author-github",
-                                "icon-container": "author-github-Icon",
+                                "icon-container": "author-github-icon",
                                 text: "author-github-text",
                             }}
                             pageIcon="author-github"
                             isLocalLink={false}
-                            togleConfirmRedirect={this.togleConfirmRedirect}
+                            toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={2}
@@ -226,7 +226,7 @@ export class NavBar extends React.Component {
                     <TogleNav
                         screenCase={screenCase}
                         navExpanded={this.state.navExpanded}
-                        togleNav={this.togleNav}
+                        togleNav={this.toggleNav}
                         theme={this.props.theme}
                     />
                 </div>
