@@ -1,14 +1,20 @@
 import React from "react";
+import {useStyles} from "./PieceProfiles.jss"
 import { getColorName } from "../helpers/getColorName";
 import { ProfileWBScrollTableHeader } from "./ProfileWBScrollTableHeader";
 import { ScrollTable } from "../Reuseables/ScrollTable";
-import { styleObjects } from "./PieceProfileStyle";
 import { fontSizes } from "../styles/fontSizes";
 import {stepFuncNamesToText} from "../helpers/spanToText";
 import {offsetToText} from "../helpers/offsetToText";
-import "./ProfileWB.scss";
+// import "./ProfileWB.scss";
 
-export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProfilesStyle }) {
+/**
+ * className: profileWB class
+ * color: is for W or B piece,
+ * expand: given to header. opens displayBoard
+ * def: spans, offsets, and img of W or B piece
+ * */
+export function ProfileWB({ color, theme, classes, pieceName, expand, def }) {
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);
@@ -31,56 +37,36 @@ export function ProfileWB({ color, screenCase, def, pieceName, expand, pieceProf
         return offsetStrings;
     }
     return (
-        <div className="profile-wb" style={styleObjects[screenCase]["ProfileWB"](pieceProfilesStyle)}>
-            <div className="img-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
+        <div className={classes.profileWB}>
+            <div className="img-label" style={{ fontSize: fontSizes.medium1 }}>
                 {getColorName(color)} Image
             </div>
-            <div className="img-window">
+            <div className={classes.imgWindow}>
                 <img src={def.img} className="piece-profile-img" alt="icon of piece" />
             </div>
             <ProfileWBScrollTableHeader
                 className="spans-header"
                 pieceName={pieceName}
-                screenCase={screenCase}
-                pieceProfilesStyle={pieceProfilesStyle}
                 expand={expand}
                 color={color}
                 rangeType="spans"
             />
             <ScrollTable
                 listItems={getOffsets(def)}
-                screenCase={screenCase}
-                cellFontSize={fontSizes[screenCase]["medium3"]()}
-                styleObject={{
-                    gridRow: 2,
-                    gridColumn: 2,
-                    width: "100%",
-                    gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
-                    border: "1px solid #707070",
-                    borderTop: "none",
-                }}
+                cellFontSize={fontSizes.medium3}
+                className={classes.rangeTable}
             />
             <ProfileWBScrollTableHeader
                 className="offsets-header"
                 pieceName={pieceName}
-                screenCase={screenCase}
-                pieceProfilesStyle={pieceProfilesStyle}
                 expand={expand}
                 rangeType="offsets"
                 color={color}
             />
             <ScrollTable
                 listItems={getSpans(def)}
-                screenCase={screenCase}
-                cellFontSize={fontSizes[screenCase]["medium3"]()}
-                styleObject={{
-                    gridRow: 2,
-                    gridColumn: 3,
-                    width: "100%",
-                    gridTemplateRows: "7.5% 17% 17% 17% 17% 17% 7.5%",
-                    border: "1px solid #707070",
-                    borderTop: "none",
-                }}
+                cellFontSize={fontSizes.medium3}
+                className={classes.rangeTable}
             />
         </div>
     );

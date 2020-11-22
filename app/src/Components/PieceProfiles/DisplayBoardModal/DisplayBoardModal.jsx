@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DisplayBoard } from "./DisplayBoard";
 import { getColorName } from "../../helpers/getColorName";
-import {styleObjects} from "../PieceProfileStyle";
+import {styleObjects} from "../PieceProfiles.jss";
 import "./DisplayBoardModal.scss";
 
 export function DisplayBoardModal({screenCase, theme, img, pieceName, rangeType, range, color, expand }) {

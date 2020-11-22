@@ -1,0 +1,7 @@
+* the part of profiles displaying info on pieces is same for MyPieces, LoadModal, and Customize, but the header for each
+  piece and the top and bottom parts are different.
+* 1 header has load delete buttons, the other has checkbox and dropdown
+* context variable tells us the type of header
+* import size and position variables for both, one make styles uses the variables for one context, the other uses variables
+  from other. prop used as key to indicate which.
+* compute styles once at page level component, or possibly re-usable, giving it the context

@@ -1,4 +1,5 @@
 import {navBarHeight} from "../../NavBar/NavBarStyle";
+import {winWidth} from "../../helpers/windowMeasurments";
 export const margin = window.screen.availWidth * 0.0125;
 
 export const customizeWidth = window.screen.availWidth * 0.99;
@@ -21,6 +22,13 @@ export const profileHeaderWidth = pieceProfilesWidth;
 export const profileHeaderHeight = pieceProfilesHeight * 0.1;
 
 export const profileGridTop = margin;
+export const columnGap = margin;
+export const profileWBHeight = (pieceProfilesHeight - profileHeaderHeight - columnGap * 3) * 0.5;
+export const row1 = profileWBHeight * 0.15;
+export const row2 = profileWBHeight * 0.85;
+export const col1 = row2;
+export const col2 = customizeWidth * 0.4;
+export const col3 = col2;
 
 export const pieceNameWidth = (pieceProfilesHeight - profileHeaderHeight - margin * 3) * 0.5;
 

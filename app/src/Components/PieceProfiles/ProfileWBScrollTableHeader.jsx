@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { getColorName } from "../helpers/getColorName";
-import {styleObjects} from "./PieceProfileStyle";
+import {styleObjects} from "./PieceProfiles.jss";
 import { fontSizes } from "../styles/fontSizes";
 import "./ProfileWBScrollTableHeader.scss";
 

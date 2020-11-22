@@ -1,6 +1,6 @@
 import React from "react";
 import { Textfit } from "react-textfit";
-import { styleObjects } from "./PieceProfileStyle";
+import { styleObjects } from "./PieceProfiles.jss";
 // import { SearchBar } from "./SearchBar";
 import { Close } from "../Reuseables/Close";
 import { CloseStyle } from "../Reuseables/CloseStyle";
