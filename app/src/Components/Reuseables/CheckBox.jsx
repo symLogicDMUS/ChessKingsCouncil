@@ -11,12 +11,12 @@ export function CheckBox({ screenCase, theme, position, fontSize, fontFamily, cl
     const checkboxStyle = checkBoxStyle[screenCase].checkbox(fontSize, fontFamily, theme);
     const labelStyle = checkBoxStyle[screenCase].label(fontSize, fontFamily, theme);
     return (
-            <div style={position}>
-                <div style={labelStyle}>
+            <div className={this.props.className}>
+                <div className={classes.label}>
                     {labelText}
                     <Checkbox
-                        icon={<CheckBoxOutlineBlankIcon style={checkboxStyle['not-checked']} />}
-                        checkedIcon={<CheckBoxIcon style={checkboxStyle.checked} />}
+                        icon={<CheckBoxOutlineBlankIcon className={checkboxStyle.checkbox.unchecked} />}
+                        checkedIcon={<CheckBoxIcon style={checkboxStyle.checkbox.checked} />}
                         onClick={() => clickMethod(clickValue)}
                         checked={checkmarkState}
                         name="checkedI"

@@ -8,7 +8,7 @@ import { HelpComponent } from "./Help/HelpComponent";
 import {styleObjects} from "./NavBarStyle"
 import "./NavBar.scss";
 
-export class NavBar extends React.Component {
+class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -243,3 +243,5 @@ export class NavBar extends React.Component {
         );
     }
 }
+
+export default NavBar;

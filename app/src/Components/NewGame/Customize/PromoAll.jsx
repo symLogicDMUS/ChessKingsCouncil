@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { fontSizes } from "../../styles/fontSizes";
-import {styleObjects} from "./CustomizeStyle";
 
 export function PromoAll({ screenCase, toglePromoAll }) {
     let [checkmark, setCheckmark] = useState(false);

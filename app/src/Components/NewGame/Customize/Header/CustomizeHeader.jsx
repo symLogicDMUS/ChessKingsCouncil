@@ -1,50 +1,39 @@
 import React from "react";
 import { SubDropdown } from "./SubDropdown";
-import {CheckBox} from '../../../Reuseables/CheckBox';
-import { styleObjects } from "../CustomizeStyle";
+import { CheckBox } from "../../../Reuseables/CheckBox";
+import {fontSizes} from "../../../styles/fontSizes";
 
 export function CustomizeHeader({
-    screenCase,
     theme,
+    classes,
     pieceName,
     isCheckmark,
     newReplacement,
     newReplaced,
-    togleSub,
-    toglePromo,
+    toggleSub,
+    togglePromo,
 }) {
-
-    const profileHeaderStyle = styleObjects[screenCase]["profileHeader"]();
-    const profileGridStyle = styleObjects[screenCase]['profileGrid']();
-    const pieceNameStyle = styleObjects[screenCase]['pieceName']();
-    const subDropdownStyle = styleObjects[screenCase]['subDropdown']();
-    const promoCheckboxStyle = styleObjects[screenCase]['promoCheckbox']();
     return (
-        <div style={profileHeaderStyle}>
-            <div style={profileGridStyle}>
-                <div style={pieceNameStyle}>{pieceName}</div>
+        <div className={classes.profileHeader}>
+            <div className={classes.profileGrid}>
+                <div className={classes.pieceName}>{pieceName}</div>
                 <CheckBox
                     theme={theme}
-                    labelText="Promotion"
-                    position={promoCheckboxStyle}
-                    fontSize={styleObjects[screenCase]['fontSize1']()}
-                    fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                    screenCase={screenCase}
-                    clickMethod={toglePromo}
+                    clickMethod={togglePromo}
                     clickValue={pieceName}
-                    labelStyleMethod="PromoLabel"
-                    boxStyleMethod="PromoCheckbox"
                     checkmarkState={isCheckmark}
+                    className={classes.promoCheckbox}
+                    fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                    fontSize={fontSizes.medium2}
+                    labelText="Promotion"
                 />
                 <SubDropdown
-                    theme={theme}
                     piece={pieceName}
-                    fontSize={styleObjects[screenCase]['fontSize2']()}
-                    positionAndWidth={subDropdownStyle}
-                    screenCase={screenCase}
+                    theme={theme}
+                    className={classes.subDropdown}
                     newReplacement={newReplacement}
                     newReplaced={newReplaced}
-                    togleSub={togleSub}
+                    togleSub={toggleSub}
                 />
             </div>
         </div>

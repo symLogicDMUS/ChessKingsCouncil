@@ -1,29 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MediaQuery from "react-responsive";
-// import { defs } from "./tests/testDefs1";
-import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import { PromoList } from "./Bottom/PromoList";
-import { SubList } from "./Bottom/SubList";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
-import { PromoAll } from "./PromoAll";
-// import { NameTooltip } from "./Profile/NameTooltip";
-// import { SearchBar } from "./SearchBar";
-import { PlayAsDropdown as PlayerType } from "./PlayAsDropdown";
-import { NavBar } from "../../NavBar/NavBar";
-import { getDefs } from "../../../API/getDefs";
-import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
-import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
-import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
-import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
-import { Ok } from "./Bottom/CustomiseOk";
-import { styleObjects, fonts } from "./CustomizeStyle";
-import { CheckBox } from "../../Reuseables/CheckBox";
-import MenuItem from "@material-ui/core/MenuItem";
-//import "./Customize.jss";
-// import "./Customize.scss";
+import {withStyles} from "@material-ui/core";
+import NavBar from "../../NavBar/NavBar";
+import {Ok} from "./Bottom/CustomiseOk";
+import {SubList} from "./Bottom/SubList";
+import {getDefs} from "../../../API/getDefs";
+import {PromoList} from "./Bottom/PromoList";
+import {CheckBox} from "../../Reuseables/CheckBox";
+import {MessageModal} from "../../NavBar/Help/MessageModal";
+import {PlayAsDropdown as PlayerType} from "./PlayAsDropdown";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
+import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
+import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
+import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
+import {styles} from "./Customize.jss";
+import {fontSizes} from "../../styles/fontSizes";
+import {margin, pieceProfilesHeight, profileHeaderHeight} from "./sizeAndPosVariables.jss";
 
-export class Customize extends React.Component {
+class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
@@ -45,7 +40,7 @@ export class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = { none: null };
+        this.hmChildren = {none: null};
         this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
@@ -60,24 +55,13 @@ export class Customize extends React.Component {
             Queen: null,
             Knight: null,
         };
-        this.subs = [
-            <MenuItem value="None">
-                <em>None</em>
-            </MenuItem>,
-            <MenuItem value="Rook">Rook</MenuItem>,
-            <MenuItem value="Bishop">Bishop</MenuItem>,
-            <MenuItem value="Knight">Knight</MenuItem>,
-            <MenuItem value="Queen">Queen</MenuItem>,
-        ];
-        this.handleChange = this.handleChange.bind(this);
         this.accept = this.accept.bind(this);
         this.expand = this.expand.bind(this);
         this.togleNav = this.togleNav.bind(this);
-        this.togleSub = this.togleSub.bind(this);
-        this.toglePromo = this.toglePromo.bind(this);
-        this.toglePromoAll = this.toglePromoAll.bind(this);
-        this.loadNewCustom = this.loadIdDict.bind(this);
-        // this.nameTooltip = this.nameTooltip.bind(this);
+        this.toggleSub = this.toggleSub.bind(this);
+        this.togglePromo = this.togglePromo.bind(this);
+        this.togglePromoAll = this.togglePromoAll.bind(this);
+        this.loadIdDict = this.loadIdDict.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
@@ -88,13 +72,15 @@ export class Customize extends React.Component {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
-            this.setState({ binaryValue: !this.state.binaryValue });
+            this.setState({binaryValue: !this.state.binaryValue});
         });
     }
+
     handleChange(e) {
         this.selectedPiece = e.target.value;
         this.props.togleSub(this.props.piece, this.selectedPiece);
     }
+
     prepareForSubAssign() {
         //names will be a list of names of all pieces.
         const names = [];
@@ -136,34 +122,34 @@ export class Customize extends React.Component {
         this.setStandardPromos(idDict);
         this.props.loadNewCustom(idDict, this.defs, this.promos);
         this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     expand(pieceName, color, rangeType) {
-        this.setState({ pieceName: pieceName, rangeType: rangeType, color: color });
+        this.setState({pieceName: pieceName, rangeType: rangeType, color: color});
     }
 
-    togleSub(sub, standardPiece) {
+    toggleSub(sub, standardPiece) {
         this.subs[standardPiece] = sub;
         Object.keys(this.subs).forEach((pieceName) => {
             if (pieceName !== standardPiece && this.subs[pieceName] === sub) this.subs[pieceName] = null;
         });
         this.newReplacement = sub;
         this.newReplaced = standardPiece;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    toglePromo(pieceName) {
+    togglePromo(pieceName) {
         if (this.promos.includes(pieceName)) {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
         // this.promoListUpdate = true;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    toglePromoAll() {
-        this.promoAll = ! this.promoAll
+    togglePromoAll() {
+        this.promoAll = !this.promoAll;
         if (this.promoAll) {
             for (const pieceName of Object.keys(this.defs)) {
                 if (!this.promos.includes(pieceName)) {
@@ -174,38 +160,33 @@ export class Customize extends React.Component {
             this.promos = [];
         }
         // this.promoListUpdate = true;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
+        this.setState({messageModal: boolVal});
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({ messageModal: true });
+        this.setState({messageModal: true});
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     setPlayerType(playerType) {
         this.props.setPlayer(playerType);
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
-
-    // preConditions() {
-    //     /**this method will change the props of 1 or more componts before returning from render*/
-    //
-    // }
 
     getComponents(screenCase) {
         return (
@@ -231,51 +212,50 @@ export class Customize extends React.Component {
                         location="d4"
                     />
                 )}
-                <NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false} />
-                <div style={styleObjects[screenCase]["customize"]()}>
-                    <div style={styleObjects[screenCase]["topBar"]()}>
-                        <div style={styleObjects[screenCase]["title"]()}>Customize Game</div>
+                <NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>
+                <div className={this.props.classes.customize}>
+                    <div className={this.props.classes.topBar}>
+                        <div className={this.props.classes.title}>Customize Game</div>
                         {/* <SearchBar updateSearch={this.updateSearch} /> */}
                     </div>
                     <PieceProfiles
-                        screenCase={screenCase}
-                        headerType="custom-game"
+                        context="custom-game"
                         defs={this.defs}
-                        theme={this.state.theme}
                         promos={this.promos}
                         newReplacement={this.newReplacement}
                         newReplaced={this.newReplaced}
                         expand={this.expand}
-                        togleSub={this.togleSub}
-                        toglePromo={this.toglePromo}
-                        styleObjects={styleObjects}
+                        toggleSub={this.toggleSub}
+                        togglePromo={this.togglePromo}
+                        theme={this.state.theme}
+                        classes={{
+                            profileHeader: this.props.classes.profileHeader,
+                            pieceProfiles: this.props.classes.pieceProfiles,
+                            profileGrid: this.props.classes.profileGrid,
+                            pieceName: this.props.classes.pieceName,
+                            promoCheckbox: this.props.classes.promoCheckbox,
+                            subDropdown: this.props.classes.subDropdown,
+                        }}
                     />
-                    <SubList screenCase={screenCase} subs={this.subs} />
-                    <PromoList screenCase={screenCase} promos={this.promos} />
-                    <div style={styleObjects[screenCase]["bottomBar"]()}>
+                    <SubList screenCase={screenCase} subs={this.subs}/>
+                    <PromoList screenCase={screenCase} promos={this.promos}/>
+                    <div className={}>
                         <CheckBox
-                            screenCase={screenCase}
                             theme={this.state.theme}
-                            styleObject={styleObjects[screenCase]["promoAllCheckbox"](
-                                styleObjects[screenCase]["bottomBar"]().height * 0.7
-                            )}
-                            clickMethod={this.toglePromoAll}
-                            clickValue={null} //this.toglePromoAll takes no arguments
-                            heightValue={styleObjects[screenCase]["bottomBar"]()}
-                            fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                            fontSize={styleObjects[screenCase]["fontSize1"]()}
-                            labelText="Promo All"
+                            clickMethod={this.togglePromoAll}
+                            clickValue={null} //this.togglePromoAll takes no arguments
                             checkmarkState={this.state.promoAll}
+                            className={this.props.classes.promoAllCheckbox}
+                            fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                            fontSize={fontSizes.medium2}
+                            labelText="Promo All"
                         />
                         <PlayerType
-                            screenCase={screenCase}
-                            positionAndWidth={styleObjects[screenCase]["playAsDropdown"](
-                                styleObjects[screenCase]["bottomBar"]().height * 0.7
-                            )}
-                            muiFontSize={fonts.fontSize1}
+                            className={this.props.classes.playAsDropDown}
+                            fontSize={fontSizes.medium2}
                             setPlayerType={this.setPlayerType}
                         />
-                        <Ok screenCase={screenCase} accept={this.accept} />
+                        <Ok screenCase={screenCase} accept={this.accept}/>
                     </div>
                 </div>
             </>
@@ -284,7 +264,6 @@ export class Customize extends React.Component {
 
     render() {
         // if (this.promoListUpdate) this.divideList();
-
         return (
             <>
                 <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
@@ -294,4 +273,4 @@ export class Customize extends React.Component {
     }
 }
 
-// export let test = () => ReactDOM.render(<Customize defs={defs} />, document.getElementById("root"));
+export default withStyles(styles)(Customize);

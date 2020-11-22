@@ -34,8 +34,6 @@ export class SubDropdown extends React.Component {
 
     render() {
 
-        const fontAndHeight = dropdownStyle[this.props.screenCase]['dropdown'](this.props.fontSize)
-
         if (
             this.props.newReplacement != null &&
             this.props.piece !== this.props.newReplacement &&

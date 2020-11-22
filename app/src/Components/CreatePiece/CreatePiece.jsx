@@ -1,11 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import MediaQuery from "react-responsive";
+import NavBar from "../NavBar/NavBar";
 import { Name } from "./Name/Name";
 import { Icon } from "./Icon/Icon";
 import { Range } from "./Range/Range";
-import { defs } from "../tests/defs1";
-import { NavBar } from "../NavBar/NavBar";
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
 import { Options } from "./Options/Options";
@@ -27,10 +25,10 @@ import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { ProfilesModal } from "./ProfilesModal/ProfilesModal";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
-import "./scss/CreatePiece.scss";
 import { getBinaryBoarAllFalse } from "./getBinaryBoardAllFalse";
+import "./scss/CreatePiece.scss";
 
-export class CreatePiece extends React.Component {
+class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -576,3 +574,5 @@ export class CreatePiece extends React.Component {
         );
     }
 }
+
+export default CreatePiece;

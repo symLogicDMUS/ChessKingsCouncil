@@ -1,12 +1,11 @@
 import React from "react";
 import { ScrollTable } from "../../../Reuseables/ScrollTable";
 import { fontSizes } from "../../../styles/fontSizes";
-import { styleObjects } from "../CustomizeStyle";
-import "./PromoList.scss";
+// import "./PromoList.scss";
 
-export function PromoList({ promos, screenCase }) {
+export function PromoList({ className, promos, screenCase }) {
     return (
-        <div className="promo-list" style={styleObjects[screenCase]["promoList"]()}>
+        <div className={className}>
             <div className="customize-promo-label" style={{ fontSize: fontSizes[screenCase]["medium1"]() }}>
                 Pawn Promotions
             </div>

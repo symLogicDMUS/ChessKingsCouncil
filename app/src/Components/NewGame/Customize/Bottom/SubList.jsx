@@ -1,13 +1,12 @@
 import React from "react";
 import { fontSizes } from "../../../styles/fontSizes";
-import {styleObjects} from "../CustomizeStyle";
 import "./SubList.scss";
 
-export function SubList({ screenCase, subs }) {
+export function SubList({className, screenCase, subs }) {
     const fontSize = fontSizes[screenCase]["medium2"]();
     const fontStyleObject = { fontSize: fontSize, paddingTop: fontSize * 0.3 };
     return (
-        <div className="sub-list" style={styleObjects[screenCase]["subList"]()}>
+        <div className="sub-list" className={className}>
             <div className="customize-subs-header" style={{fontSize: fontSizes[screenCase]['medium1']()}}>
                 Subs
             </div>

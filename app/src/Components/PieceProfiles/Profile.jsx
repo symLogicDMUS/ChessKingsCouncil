@@ -1,11 +1,19 @@
 import React from "react";
 import { ProfileWB } from "./ProfileWB";
-import {styleObjects} from "./PieceProfileStyle"
 
-export function Profile({ theme, screenCase, pieceName, expand, defs, pieceProfilesStyle, children }) {
+export function Profile({
+    theme,
+    screenCase,
+    pieceName,
+    expand,
+    defs,
+    context,
+    children,
+}) {
     /**children is a piece profile header */
+
     return (
-    <div style={styleObjects[screenCase]['Profile'](pieceProfilesStyle)}>
+        <div className={}>
             {children}
             <ProfileWB
                 color="W"
@@ -14,7 +22,7 @@ export function Profile({ theme, screenCase, pieceName, expand, defs, pieceProfi
                 pieceName={pieceName}
                 expand={expand}
                 def={defs[pieceName]["W"]}
-                pieceProfilesStyle={pieceProfilesStyle}
+
             />
             <ProfileWB
                 color="B"
@@ -23,7 +31,6 @@ export function Profile({ theme, screenCase, pieceName, expand, defs, pieceProfi
                 pieceName={pieceName}
                 expand={expand}
                 def={defs[pieceName]["B"]}
-                pieceProfilesStyle={pieceProfilesStyle}
             />
         </div>
     );

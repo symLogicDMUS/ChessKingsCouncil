@@ -1,13 +1,12 @@
-
 import React from "react";
-import { NavBar } from "../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import "./CouncilRules.scss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme:"dark" };
+        this.state = { bValue: true, messageModal: false, theme: "dark" };
         this.navExpanded = true;
         this.messageTitle = null;
         this.messageText = null;

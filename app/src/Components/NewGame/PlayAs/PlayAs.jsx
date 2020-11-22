@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { PlayAsOption } from "./PlayAsOption";
-import { PlayAsButton } from "./PlayAsButton";
-import { NavBar } from "../../NavBar/NavBar";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
+import {PlayAsOption} from "./PlayAsOption";
+import {PlayAsButton} from "./PlayAsButton";
+import NavBar from "../../NavBar/NavBar";
+import {MessageModal} from "../../NavBar/Help/MessageModal";
 import "./PlayAs.scss";
 
-export class PlayAs extends React.Component {
+class PlayAs extends React.Component {
     constructor(props) {
         super(props);
         this.firstTime = false;
@@ -32,8 +32,8 @@ export class PlayAs extends React.Component {
     }
 
     update(option) {
-        if (this.state.option === option) this.setState({ option: null });
-        else this.setState({ option: option });
+        if (this.state.option === option) this.setState({option: null});
+        else this.setState({option: option});
     }
 
     accept() {
@@ -44,11 +44,11 @@ export class PlayAs extends React.Component {
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({ bValue: !this.state.bValue });
+        this.setState({bValue: !this.state.bValue});
     }
 
     togleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
+        this.setState({messageModal: boolVal});
     }
 
     setMessageText(helpTitle, helpText) {
@@ -59,20 +59,20 @@ export class PlayAs extends React.Component {
     render() {
         return (
             <>
-                <NavBar currentPage="PlayAs" theme={this.state.theme} unsavedChanges={false} />
+                <NavBar currentPage="PlayAs" theme={this.state.theme} unsavedChanges={false}/>
                 <div className="play-as-title">
                     <img
                         src="/Images/text-labels/play-as.svg"
                         alt="title for picking to play as white, black, or test"
-                        style={{ position: "absolute", height: 75, width: 251 }}
+                        style={{position: "absolute", height: 75, width: 251}}
                     />
                 </div>
                 <div className="play-as-options">
-                    <PlayAsOption update={this.update} optionName="test" top={0} selected={this.state.option} />
-                    <PlayAsOption update={this.update} optionName="W" top={78} selected={this.state.option} />
-                    <PlayAsOption update={this.update} optionName="B" top={156} selected={this.state.option} />
+                    <PlayAsOption update={this.update} optionName="test" top={0} selected={this.state.option}/>
+                    <PlayAsOption update={this.update} optionName="W" top={78} selected={this.state.option}/>
+                    <PlayAsOption update={this.update} optionName="B" top={156} selected={this.state.option}/>
                 </div>
-                <PlayAsButton selected={this.state.option} accept={this.accept} />
+                <PlayAsButton selected={this.state.option} accept={this.accept}/>
 
                 {this.state.messageModal && (
                     <MessageModal
@@ -86,4 +86,4 @@ export class PlayAs extends React.Component {
     }
 }
 
-export let test = () => ReactDOM.render(<PlayAs />, document.getElementById("root"));
+export default PlayAs;

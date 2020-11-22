@@ -17,7 +17,7 @@ export function ProfilesModal({ screenCase, defs, load, togleLoadModal, prepareD
                 screenCase={screenCase}
                 togleLoadModal={togleLoadModal}
                 prepareDelete={prepareDelete}
-                headerType="load-delete"
+                context="load-delete"
                 title="Created Pieces"
                 closeIcon={true}
                 scaler={1}

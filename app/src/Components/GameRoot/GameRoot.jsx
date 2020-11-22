@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../NavBar/NavBar";
 import { Board } from "./Components/Board";
 import { GameRootHeader as Header } from "./Components/GameRootHeader";
 import { rook_starting_rf, king_starting_rf } from "./sharedData/castleRankfiles";
@@ -21,7 +22,6 @@ import { RangeDisplayTool } from "./Components/RangeDisplayTool";
 import { SaveResignTool } from "./Components/SaveResignTool";
 import { AiDisplay } from "./Components/AiDisplay";
 import { makeMove } from "./Move/makeMove";
-import { NavBar } from "../NavBar/NavBar";
 import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { MessageModal } from "../NavBar/Help/MessageModal";
@@ -31,7 +31,7 @@ import { updateCouncil } from "../../apiHelpers/updateCouncil";
 import { saveGame } from "../../API/saveGame";
 import "./scss/GameRoot.scss";
 
-export class GameRoot extends React.Component {
+class GameRoot extends React.Component {
     constructor(props) {
         super(props);
         this.state = { bValue: true, messageModal: false, theme: "dark", unsavedChanges: false };
@@ -318,7 +318,12 @@ export class GameRoot extends React.Component {
                     />
                 )}
                 {this.aiDisplay && this.specialCase !== "promo" && !this.isGameOver() && (
-                    <AiDisplay aiStart={this.aiStart} aiDest={this.aiDest} aiMakeMove={this.aiMakeMove} theme="light" />
+                    <AiDisplay
+                        aiStart={this.aiStart}
+                        aiDest={this.aiDest}
+                        aiMakeMove={this.aiMakeMove}
+                        theme="light"
+                    />
                 )}
                 <RangeDisplayTool
                     board={this.board}
@@ -354,3 +359,5 @@ export class GameRoot extends React.Component {
         );
     }
 }
+
+export default GameRoot;

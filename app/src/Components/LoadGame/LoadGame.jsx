@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
@@ -10,7 +10,7 @@ import { parseData } from "../../apiHelpers/parseData";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import "./LoadGame.scss";
 
-export class LoadGame extends React.Component {
+class LoadGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

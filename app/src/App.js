@@ -9,11 +9,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Home} from "./Components/Home/Home";
 import {ComingSoonComponent as ComingSoon} from "./Components/ComingSoon/ComingSoonComponent";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
-import {CreatePiece} from "./Components/CreatePiece/CreatePiece";
-import {LoadGame} from "./Components/LoadGame/LoadGame";
-import {NewGame} from "./Components/NewGame/NewGame";
-import {GameRoot} from "./Components/GameRoot/GameRoot";
-import {MyPieces} from "./Components/MyPieces/MyPieces";
+import CreatePiece from "./Components/CreatePiece/CreatePiece";
+import LoadGame from "./Components/LoadGame/LoadGame";
+import NewGame from "./Components/NewGame/NewGame";
+import GameRoot from "./Components/GameRoot/GameRoot";
+import MyPieces from "./Components/MyPieces/MyPieces";
 
 export class App extends React.Component {
 

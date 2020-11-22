@@ -17,7 +17,7 @@ export var stylesObjects = {
         },
         Name: () => {
             return {
-                width: window.screen.availWidth * 0.26,
+                width: '31.25em',
                 left: window.screen.availWidth * 0.57,
                 height: window.screen.availHeight * 0.08,
                 top: window.screen.availHeight * 0.1976,
@@ -25,23 +25,23 @@ export var stylesObjects = {
         },
         Icon: () => {
             return {
+                width: '31.25em',
                 top: window.screen.availHeight * 0.288,
-                width: window.screen.availWidth * 0.26,
                 height: window.screen.availHeight * 0.18,
                 left: window.screen.availWidth * 0.57,
             };
         },
         Range: () => {
             return {
-                width: window.screen.availWidth * 0.26,
-                height: window.screen.availHeight * 0.18,
-                top: window.screen.availHeight * 0.478,
+                width: '31.25em',
+                height: '11.75em',
+                top: '31.2em',
                 left: window.screen.availWidth * 0.57,
             };
         },
         Location: () => {
             return {
-                width: window.screen.availWidth * 0.26,
+                width: '31.25em',
                 height: window.screen.availHeight * 0.103,
                 top: window.screen.availHeight * 0.67,
                 left: window.screen.availWidth * 0.57,
@@ -49,7 +49,7 @@ export var stylesObjects = {
         },
         Options: () => {
             return {
-                width: window.screen.availWidth * 0.26,
+                width: '31.25em',
                 height: window.screen.availHeight * 0.13,
                 top: window.screen.availHeight * 0.785,
                 left: window.screen.availWidth * 0.57,

@@ -9,6 +9,8 @@ short:
 medium:
 * fix Icon tool buttons
 * Refactor NavBar for mobile
+* Checkbox and dropdown reusables need their own styles, and only take what it needs to know about the context of where
+  it is as a prop
 * move getStyle methods inside classes to their own .jss.js files
 * replace buttons and possibly search-boxes with material ui version
 

@@ -23,6 +23,7 @@
     "react-grid-layout": "^0.18.3",
     "react-grid-system": "^6.3.0",
     "react-horizontal-scrolling-menu": "^0.7.7",
+    "react-jss": "^10.5.0",
     "react-onclickoutside": "^6.9.0",
     "react-responsive": "^8.1.0",
     "react-router-dom": "^5.2.0",

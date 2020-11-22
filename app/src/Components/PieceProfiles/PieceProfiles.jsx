@@ -8,9 +8,10 @@ import { offsetToText } from "../helpers/offsetToText";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { Profile } from "./Profile";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import { CustomizeHeader } from "../NewGame/Customize/Header/CustomizeHeader"
+import { CustomizeHeader } from "../NewGame/Customize/Header/CustomizeHeader";
 import { LoadDeleteHeader } from "../MyPieces/LoadDeleteHeader";
 import "./PieceProfiles.scss";
+import {margin, pieceProfilesHeight, profileHeaderHeight} from "../NewGame/Customize/sizeAndPosVariables.jss";
 
 export class PieceProfiles extends React.Component {
     constructor(props) {
@@ -39,7 +40,6 @@ export class PieceProfiles extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-
     updateSearch(searchText) {
         this.searchText = searchText;
         this.setState({ binaryValue: !this.state.binaryValue });
@@ -59,26 +59,25 @@ export class PieceProfiles extends React.Component {
         let pieceName;
         let profiles = [];
         let pieceNames = this.applySearchFilter();
-        if (this.props.headerType === "load-delete") {
+        if (this.props.context === "load-delete") {
             for (pieceName of pieceNames) {
                 profiles.push(
                     <Profile
                         pieceName={pieceName}
                         expand={this.props.expand}
                         defs={this.props.defs}
-                        screenCase={this.props.screenCase}
-                        pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
+                        context={this.props.context}
                     >
                         {LoadDeleteHeader({
                             screenCase: this.props.screenCase,
                             pieceName: pieceName,
                             load: this.props.load,
-                            prepareDelete: this.props.prepareDelete,                       
+                            prepareDelete: this.props.prepareDelete,
                         })}
                     </Profile>
                 );
             }
-        } else if (this.props.headerType === "custom-game") {
+        } else if (this.props.context === "custom-game") {
             let isCheckmark;
             for (pieceName of pieceNames) {
                 isCheckmark = this.props.promos.includes(pieceName);
@@ -88,19 +87,24 @@ export class PieceProfiles extends React.Component {
                         theme={this.props.theme}
                         expand={this.props.expand}
                         defs={this.props.defs}
-                        screenCase={this.props.screenCase}
-                        pieceProfilesStyle={this.props.styleObjects[this.props.screenCase]}
+                        context={this.props.context}
                     >
                         {CustomizeHeader({
                             pieceName: pieceName,
-                            theme: this.props.theme,
-                            screenCase: this.props.screenCase,
                             promos: this.props.promos,
                             isCheckmark: isCheckmark,
                             newReplacement: this.props.newReplacement,
                             newReplaced: this.props.newReplaced,
-                            togleSub: this.props.togleSub,
-                            toglePromo: this.props.toglePromo,
+                            toggleSub: this.props.toggleSub,
+                            togglePromo: this.props.togglePromo,
+                            theme: this.props.theme,
+                            classes: {
+                                profileHeader: this.props.classes.profileHeader,
+                                profileGrid: this.props.classes.profileGrid,
+                                pieceName: this.props.classes.pieceName,
+                                promoCheckbox: this.props.classes.promoCheckbox,
+                                subDropdown: this.props.classes.subDropdown,
+                            },
                         })}
                     </Profile>
                 );
@@ -118,10 +122,7 @@ export class PieceProfiles extends React.Component {
     render() {
         return (
             <>
-                <div
-                    className="profiles"
-                    style={this.props.styleObjects[this.props.screenCase]['pieceProfiles']()}
-                >
+                <div className="profiles" style={this.props.styleObjects[this.props.screenCase]["pieceProfiles"]()}>
                     {this.getProfiles()}
                 </div>
             </>

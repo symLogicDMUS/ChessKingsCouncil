@@ -1,13 +1,13 @@
 import React from "react";
+import NavBar from "../../NavBar/NavBar";
 import { Standard } from "./IconComponents/Standard";
 import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
-import { NavBar } from '../../NavBar/NavBar'
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PickType.scss";
 
-export class PickType extends React.Component {
+class PickType extends React.Component {
     constructor(props) {
         super(props);
         this.state = { bValue: true, theme: "dark" };
@@ -45,11 +45,7 @@ export class PickType extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPage="PickType"
-                    theme={this.state.theme}
-                    unsavedChanges={false}
-                />
+                <NavBar currentPage="PickType" theme={this.state.theme} unsavedChanges={false} />
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
@@ -75,3 +71,5 @@ export class PickType extends React.Component {
         );
     }
 }
+
+export default PickType;

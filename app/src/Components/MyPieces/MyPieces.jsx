@@ -1,16 +1,16 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import MediaQuery from "react-responsive";
-import { NavBar } from "../NavBar/NavBar";
-import { ConfirmModal } from "../NavBar/ConfirmModal";
-import { deleteDef } from "../../API/deleteDef";
-import { getDefs } from "../../API/getDefs";
+import NavBar from "../NavBar/NavBar";
+import {ConfirmModal} from "../NavBar/ConfirmModal";
+import {deleteDef} from "../../API/deleteDef";
+import {getDefs} from "../../API/getDefs";
+import {MessageModal} from "../NavBar/Help/MessageModal";
+import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 // import { SearchBar } from "./SearchBar";
-import { MessageModal } from "../NavBar/Help/MessageModal";
-import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import "./MyPieces.scss";
 
-export class MyPieces extends React.Component {
+class MyPieces extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +29,7 @@ export class MyPieces extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = { none: null };
+        this.hmChildren = {none: null};
         this.update = this.update.bind(this);
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
@@ -57,46 +57,46 @@ export class MyPieces extends React.Component {
             } else {
                 this.defs = {};
             }
-            this.setState({ fetched: true });
+            this.setState({fetched: true});
         });
     }
 
     update() {
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     load(pieceName) {
-        this.setState({ selectedPiece: pieceName, redirect: true });
+        this.setState({selectedPiece: pieceName, redirect: true});
     }
 
     togleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
+        this.setState({messageModal: boolVal});
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({ messageModal: true });
+        this.setState({messageModal: true});
     }
 
     prepareDelete(pieceName) {
-        this.setState({ selectedPiece: pieceName, deleteModal: true });
+        this.setState({selectedPiece: pieceName, deleteModal: true});
     }
 
     cancelDelete() {
-        this.setState({ selectedPiece: null, deleteModal: false });
+        this.setState({selectedPiece: null, deleteModal: false});
     }
 
     delete() {
         deleteDef(this.state.selectedPiece).then(([response]) => {
             delete this.defs[this.state.selectedPiece];
-            this.setState({ deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null });
-            this.setState({ profileRef: null });
+            this.setState({deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null});
+            this.setState({profileRef: null});
         });
     }
 
@@ -124,7 +124,7 @@ export class MyPieces extends React.Component {
                     screenCase={screenCase}
                     currentPage="MyPieces"
                     theme={this.state.theme}
-                    startingProperties={{ initLeft: 0, initTop: 0 }}
+                    startingProperties={{initLeft: 0, initTop: 0}}
                 />
 
                 <div className="my-pieces">
@@ -158,7 +158,7 @@ export class MyPieces extends React.Component {
                             defaultPiece: this.state.selectedPiece,
                         },
                     }}
-                ></Redirect>
+                />
             );
         }
 

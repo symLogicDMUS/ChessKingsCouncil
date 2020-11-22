@@ -1,11 +1,11 @@
 import React from "react";
-import { NavBar } from "../../NavBar/NavBar";
+import NavBar from "../../NavBar/NavBar";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
 import "./PickName.scss";
 
-export class PickName extends React.Component {
+class PickName extends React.Component {
     constructor(props) {
         super(props);
         this.state = { userInput: "", bValue: true, nameStatus: "none", theme: "dark" };
@@ -93,3 +93,4 @@ export class PickName extends React.Component {
         );
     }
 }
+export default PickName;
