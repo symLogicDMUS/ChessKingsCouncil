@@ -1,15 +1,9 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import { LocationButton } from "./LocationButton";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./_Location.scss";
+import "./Location.scss";
 
 export function Location({ location, setLoc, screenCase, theme }) {
-    // let [location, setLocation] = useState("d4");
-    // const changeLoc = (rf) => {
-    //     setLocation(rf);
-    //     updateParent(rf); //notify parent of location change
-    // };
     return (
         <>
             <div className="location-tool" style={stylesObjects[screenCase]["Location"]()}>
@@ -22,5 +16,3 @@ export function Location({ location, setLoc, screenCase, theme }) {
         </>
     );
 }
-
-export let test = () => ReactDOM.render(<Location />, document.getElementById("root"));

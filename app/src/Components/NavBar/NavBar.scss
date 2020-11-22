@@ -23,7 +23,7 @@ $tog-nav-width: 1%;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
     &:hover {
-        background-color: #4d4d4d;
+        background-color: #5d5d5d;
     }
 }
 
@@ -168,7 +168,7 @@ $tog-nav-width: 1%;
         }
     }
 
-    .togle-nav {
+    .toggle-nav {
         height: 100%;
         grid-column: 10;
         z-index: 1;
@@ -187,9 +187,8 @@ $tog-nav-width: 1%;
     cursor: pointer;
     z-index: 0;
     width: 85%;
-    margin: 5%;
-    margin-left: 8%;
+    margin: 5% 5% 5% 8%;
 }
-.togle-nav-widget-style {
+.toggle-nav-widget-style {
     width: 100%;
 }

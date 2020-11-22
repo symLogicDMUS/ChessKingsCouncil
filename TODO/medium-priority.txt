@@ -1,13 +1,15 @@
 short:
+* spans and offsets are displayed in the wrong tables
+* Standard pieces are being displayed in the piece profiles again
+* name isn't displayed above board anymore, in CreatePiece
 * Fix span/offset text on CreatePiece board (mobile)
 * Add searchbar back in
 * move getStyle methods that are a part of component to separate style object
-* why is Customize Background now rendering as white?
 
 medium:
-* span arrows of range tool are opposite colors of intended for hover on and off
-* move style object methods to their own .jss.js files
-* Refactor Message and ConfirmRedirect modals for mobile *?
+* fix Icon tool buttons
+* Refactor NavBar for mobile
+* move getStyle methods inside classes to their own .jss.js files
 * replace buttons and possibly search-boxes with material ui version
 
 

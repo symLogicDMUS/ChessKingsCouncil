@@ -303,7 +303,7 @@
   wordwrap: break-word;
 }
 
-.nav-bar .togle-nav {
+.nav-bar .toggle-nav {
   height: 100%;
   -ms-grid-column: 10;
   grid-column: 10;
@@ -328,7 +328,7 @@
   margin-left: 8%;
 }
 
-.togle-nav-widget-style {
+.toggle-nav-widget-style {
   width: 100%;
 }
 /*# sourceMappingURL=NavBar.scss.map */

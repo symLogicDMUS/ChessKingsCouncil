@@ -1,5 +1,4 @@
 @mixin location-button($button-size) {
-
     @media screen and (min-width: 768px) {
         position: absolute;
         width: percentage(40/400);

@@ -1,7 +1,9 @@
 short:
+* margin at bottom of Option tool in CreatePiece too large
 * tweak appearance of play-as on bottom-bar of createPiece
+* add silver border back to the top of Subs list
+* Fix overflow property of pieceName label in Customize Profile
 * Make z-index of NavBar one higher than everything except the Modals
-* Add hover color to NavBar.
 * make 'Shockwave' color of checkbox match the theme (not pink)
 * change color of close icon on hover from red to something else (seen in displayBoardModal). maybe a light grey
 

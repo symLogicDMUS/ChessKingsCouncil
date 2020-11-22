@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { PlayAsOption } from "./PlayAsOption";
 import { PlayAsButton } from "./PlayAsButton";
-import { NavBar } from '../../NavBar/NavBar';
+import { NavBar } from "../../NavBar/NavBar";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import "./PlayAs.scss";
 
@@ -13,8 +13,8 @@ export class PlayAs extends React.Component {
         this.state = {
             option: null,
             bValue: true,
-            messageModal: false,
             theme: "dark",
+            messageModal: false,
         };
         this.navExpanded = true;
         this.messageTitle = null;
@@ -59,11 +59,7 @@ export class PlayAs extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPage="LoadGame"
-                    theme={this.state.theme}
-                    unsavedChanges={false}
-                />
+                <NavBar currentPage="PlayAs" theme={this.state.theme} unsavedChanges={false} />
                 <div className="play-as-title">
                     <img
                         src="/Images/text-labels/play-as.svg"

@@ -11,7 +11,7 @@ export function TogleNav({navExpanded, togleNav, theme }) {
             <img
                 src={`/Images/nav-button/nav-${type}-button-${getIconColor(theme)}.svg`}
                 onClick={() => togleNav()}
-                className="togle-nav"
+                className="toggle-nav"
                 alt="togle navbar"
             />
         // </div>

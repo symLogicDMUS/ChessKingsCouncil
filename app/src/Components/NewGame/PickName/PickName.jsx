@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBar } from '../../NavBar/NavBar'
+import { NavBar } from "../../NavBar/NavBar";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
@@ -21,7 +21,7 @@ export class PickName extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "pick-Name-body";
+        document.body.className = "pick-name-body";
     }
 
     handleUserInput(e) {
@@ -54,11 +54,7 @@ export class PickName extends React.Component {
     render() {
         return (
             <>
-                <NavBar
-                    currentPage="LoadGame"
-                    theme={this.state.theme}
-                    unsavedChanges={false}
-                />
+                <NavBar currentPage="PickName" theme={this.state.theme} unsavedChanges={false} />
                 {this.state.messageModal && (
                     <MessageModal
                         messageTitle={this.messageTitle}
@@ -83,7 +79,6 @@ export class PickName extends React.Component {
                         Submit
                     </button>
                 </div>
-                \
                 {this.state.nameStatus === "blank" && (
                     <InvalidGameName header="You can't leave the name of a game blank" reset={this.reset} />
                 )}

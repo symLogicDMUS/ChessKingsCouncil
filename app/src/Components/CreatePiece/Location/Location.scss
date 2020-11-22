@@ -1,0 +1,79 @@
+@import "../scss/Location/location-tool";
+@import "../scss/Location/title/location-title";
+@import "../scss/Location/buttons/location-button-label";
+@import "../scss/Location/buttons/location-button-normal";
+@import "../scss/Location/buttons/location-button-selected";
+
+//values are unit percent, with use percentage() method
+$button-size-desktop: 12;
+$margin-desktop: 1;
+$first-margin-desktop: 3;
+$disp-desktop: $button-size-desktop + $margin-desktop;
+
+$button-size-mobile: 45;
+$margin-mobile: 3.5;
+$disp-mobile: $button-size-mobile + $margin-mobile * 2;
+
+.location-tool {
+    @include location-tool;
+}
+.location-title {
+    @include location-title;
+}
+.location-button-label {
+    @include location-button-label;
+}
+
+.location-button-normal {
+    @media screen and (min-device-width: 768px) {
+        @include location-button-normal($button-size-desktop);
+    }
+    @media screen and (max-device-width: 767px) {
+        @include location-button-normal($button-size-mobile);
+    }
+}
+.location-button-selected {
+    @media screen and (min-device-width: 768px) {
+        @include location-button-selected($button-size-desktop);
+    }
+    @media screen and (max-device-width: 767px) {
+        @include location-button-selected($button-size-mobile);
+    }
+}
+
+.d4 {
+    @media screen and (min-device-width: 768px) {
+        left: percentage($first-margin-desktop/100);
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-mobile/100);
+        left: percentage($margin-mobile/100);
+    }
+}
+.e4 {
+    @media screen and (min-device-width: 768px) {
+        left: percentage(($first-margin-desktop + $disp-desktop)/100);
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($disp-mobile/100);
+        left: percentage($disp-mobile/100);
+    }
+}
+.d5 {
+    @media screen and (min-device-width: 768px) {
+        left: percentage(($first-margin-desktop + $disp-desktop * 2)/100);
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($margin-mobile/100);
+        left: percentage($margin-mobile/100);
+    }
+}
+.e5 {
+    @media screen and (min-device-width: 768px) {
+        left: percentage(($first-margin-desktop + $disp-desktop * 3)/100);
+    }
+    @media screen and (max-device-width: 767px) {
+        top: percentage($margin-mobile/100);
+        left: percentage($disp-mobile/100);
+    }
+}

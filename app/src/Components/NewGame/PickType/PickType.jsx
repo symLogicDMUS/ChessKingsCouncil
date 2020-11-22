@@ -10,13 +10,10 @@ import "./PickType.scss";
 export class PickType extends React.Component {
     constructor(props) {
         super(props);
-        this.firstTime = false;
         this.state = { bValue: true, theme: "dark" };
         this.helpTitle = null;
-        this.hmChildName = null;
         //Dictionary of Extra windows to display for help modals. More may be added.
         this.setMessageText = this.setMessageText.bind(this);
-        this.hmChildren = { none: null };
         this.setType = this.setType.bind(this);
         this.toggleMessageModal = this.toggleMessageModal.bind(this);
     }

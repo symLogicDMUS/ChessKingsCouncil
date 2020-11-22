@@ -73,7 +73,7 @@ export class NewGame extends React.Component {
         this.gameData["ranges"] = JSON.parse(JSON.stringify(ranges));
         this.gameData["enemy_ranges"] = JSON.parse(JSON.stringify(enemyRanges));
         this.gameData["status"] = JSON.parse(JSON.stringify(status));
-        if (this.gameType === "council") this.gameData["promos"].push("King");
+        if (this.gameType === "council") this.gameData.promos.push("King");
     }
 
     loadNewCustom(idDict, defs, promos) {

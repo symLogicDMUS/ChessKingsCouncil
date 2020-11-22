@@ -1,4 +1,4 @@
-@import "../../../../styles/button/location-button";
+@import "./_location-button";
 
 @mixin location-button-selected($button-size) {
     @include location-button($button-size);
