@@ -1,10 +1,6 @@
 import React from "react";
 import { ProfileWB } from "./ProfileWB";
-import { useStyles } from "./PieceProfiles.jss";
-import { imgLabel } from "./styles/imgLabel.jss";
-import { imgWindow } from "./styles/imgWindow.jss";
-import { pieceProfileImg } from "./styles/pieceProfileImg.jss";
-import { rangeTable } from "./styles/rangeTable.jss";
+import { useStyles } from "./Profile.jss";
 
 export function Profile({ theme, pieceName, expand, defs, context, children }) {
     /**children is a piece profile header */
@@ -20,10 +16,10 @@ export function Profile({ theme, pieceName, expand, defs, context, children }) {
                 theme={theme}
                 classes={{
                     profileWB: classes.profileWB,
-                    imgLabel: imgLabel,
-                    imgWindow: imgWindow,
-                    pieceProfileImg: pieceProfileImg,
-                    rangeTable: rangeTable,
+                    imgLabel: classes.imgLabel,
+                    imgWindow: classes.imgWindow,
+                    pieceProfileImg: classes.pieceProfileImg,
+                    rangeTable: classes.rangeTable,
                 }}
             />
             <ProfileWB
@@ -34,10 +30,10 @@ export function Profile({ theme, pieceName, expand, defs, context, children }) {
                 theme={theme}
                 classes={{
                     profileWB: classes.profileWB,
-                    imgLabel: imgLabel,
-                    imgWindow: imgWindow,
-                    pieceProfileImg: pieceProfileImg,
-                    rangeTable: rangeTable,
+                    imgLabel: classes.imgLabel,
+                    imgWindow: classes.imgWindow,
+                    pieceProfileImg: classes.pieceProfileImg,
+                    rangeTable: classes.rangeTable,
                 }}
             />
         </div>

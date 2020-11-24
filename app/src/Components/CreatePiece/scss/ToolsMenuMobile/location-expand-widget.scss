@@ -1,8 +1,0 @@
-@import "./_expand-widget";
-@import "../variables.scss";
-
-
-.location-expand-widget {
-    @include expand-widget;
-    top: percentage($disp * 3/100);
-}

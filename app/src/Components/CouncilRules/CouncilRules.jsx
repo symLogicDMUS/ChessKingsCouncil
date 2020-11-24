@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
-import "./CouncilRules.scss";
+import {styles} from "./CouncilRules.jss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {
@@ -198,11 +198,11 @@ export class CouncilRules extends React.Component {
                             </tspan>
                             <tspan x={0} y={135} />
                             <tspan x={0} y={163}>
-                                {"Kings can be captured like any other piece but this isn't required."}
+                                {"Kings can be captured like any symbols piece but this isn't required."}
                             </tspan>
                             <tspan x={0} y={191} />
                             <tspan x={0} y={219}>
-                                {"To win the game you must checkmate the other player "}
+                                {"To win the game you must checkmate the symbols player "}
                             </tspan>
                             <tspan className="g" y={219}>
                                 {"or"}

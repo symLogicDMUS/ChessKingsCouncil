@@ -1,6 +1,6 @@
 import React from "react";
 import { ProfileButton } from "../PieceProfiles/ProfileButton";
-import "./LoadDeleteHeader.scss";
+import {styles} from "./LoadDeleteHeader.jss";
 
 export function LoadDeleteHeader({pieceName, load, prepareDelete, pieceProfilesStyle}) {
     return (

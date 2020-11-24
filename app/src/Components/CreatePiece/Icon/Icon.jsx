@@ -4,7 +4,7 @@ import { ChooseButton } from "./Choose/ChooseButton";
 import { UploadButtonWhite } from "./Upload/UploadButtonWhite";
 import { UploadButtonBlack } from "./Upload/UploadButtonBlack";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./_Icon.scss";
+import {styles} from "./_Icon.jss";
 
 export class Icon extends React.Component {
     render() {

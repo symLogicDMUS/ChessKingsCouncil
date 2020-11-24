@@ -1,37 +1,36 @@
 import React from "react";
-import { fontSizes } from "../../../styles/fontSizes";
-import "./SubList.scss";
+import {useStyles} from "./SubList.jss";
 
 export function SubList({className, screenCase, subs }) {
-    const fontSize = fontSizes[screenCase]["medium2"]();
-    const fontStyleObject = { fontSize: fontSize, paddingTop: fontSize * 0.3 };
+    const classes = useStyles()
+    
     return (
-        <div className="sub-list" className={className}>
-            <div className="customize-subs-header" style={{fontSize: fontSizes[screenCase]['medium1']()}}>
+        <div className={classes.subList}>
+            <div className={classes.header}>
                 Subs
             </div>
-            <div className="customize-rook-label" style={fontStyleObject}>
+            <div className={classes.rookLabel}>
                 Rook{" "}
             </div>
-            <div className="customize-rook-value" style={fontStyleObject}>
+            <div className={classes.rookValue}>
                 {subs["Rook"]}
             </div>
-            <div className="customize-bishop-label" style={fontStyleObject}>
+            <div className={classes.bishopLabel}>
                 Bishop{" "}
             </div>
-            <div className="customize-bishop-value" style={fontStyleObject}>
+            <div className={classes.bishopValue}>
                 {subs["Bishop"]}
             </div>
-            <div className="customize-knight-label" style={fontStyleObject}>
+            <div className={classes.knightLabel}>
                 Knight{" "}
             </div>
-            <div className="customize-knight-value" style={fontStyleObject}>
+            <div className={classes.knightValue}>
                 {subs["Knight"]}
             </div>
-            <div className="customize-queen-label" style={fontStyleObject}>
+            <div className={classes.queenLabel}>
                 Queen{" "}
             </div>
-            <div className="customize-queen-value" style={fontStyleObject}>
+            <div className={classes.queenValue}>
                 {subs["Queen"]}
             </div>
         </div>

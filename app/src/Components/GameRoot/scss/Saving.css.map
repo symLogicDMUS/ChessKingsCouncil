@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,QAAQ,EAAE,KAAK;EACf,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,WAAW,EAAE,GAAG;EAChB,YAAY,EAAE,GAAG;EAEjB,gBAAgB,EAAE,SAAS;EAC3B,WAAW,EAAE,+CAA+C;EAC5D,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,IAAI;CAClB",
-    "sources": [
-        "Saving.scss"
-    ],
-    "names": [],
-    "file": "Saving.css"
-}

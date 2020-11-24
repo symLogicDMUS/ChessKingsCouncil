@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { modalWindow } from "../styles/modal-window1-components/modal-window-size-pos";
 import { stylesObjects } from "./Help/HelpStyle";
-import "./ConfirmRedirect.scss";
+import {styles} from "./ConfirmRedirect.jss";
 
 
 export class ConfirmRedirect extends React.Component {

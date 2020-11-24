@@ -3,7 +3,7 @@ import NavBar from "../../NavBar/NavBar";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
-import "./PickName.scss";
+import {styles} from "./PickName.jss";
 
 class PickName extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
 import React from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import { PromoChoice } from "../Components/PromoChoice";
-import { AcceptPromo } from "../Components/AcceptPromo";
+import { PromoChoice } from "../PromoModal/PromoChoice";
+import { AcceptPromo } from "../PromoModal/AcceptPromo";
 import { shuffle } from "../../helpers/shuffleArray";
 import { numKings } from "../../helpers/numKings";
 import { standardPieceImgStrs } from "../../helpers/standardPieceImgStrs";

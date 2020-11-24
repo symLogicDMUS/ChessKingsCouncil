@@ -4,7 +4,7 @@ import {PlayAsOption} from "./PlayAsOption";
 import {PlayAsButton} from "./PlayAsButton";
 import NavBar from "../../NavBar/NavBar";
 import {MessageModal} from "../../NavBar/Help/MessageModal";
-import "./PlayAs.scss";
+import {styles} from "./PlayAs.jss";
 
 class PlayAs extends React.Component {
     constructor(props) {

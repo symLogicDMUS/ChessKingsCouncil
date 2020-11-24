@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getIconColor } from "./getIconColor";
-import "./NavBar.scss";
 
 export function NavBarButton({
     path,

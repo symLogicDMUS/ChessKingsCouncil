@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import {styles} from "./Success.jss";
 
 export function Success({ setSaveStatus }) {
     const [seconds, setSeconds] = useState(1);
@@ -14,27 +15,8 @@ export function Success({ setSaveStatus }) {
     if (seconds === 0) setSaveStatus("none");
 
     return (
-        <div
-            style={{
-                position: "absolute",
-                zIndex: "3",
-                width: "100%",
-                height: "100%",
-            }}
-        >
-            <div
-                style={{
-                    position: "absolute",
-                    zIndex: "3",
-                    fontSize: "50px",
-                    fontFamily: "Tahoma",
-                    color: "#72e2ff",
-                    left: "20%",
-                    top: "40%",
-                }}
-            >
-                Piece saved successfully!
-            </div>
+        <div className={classes.success_message_container}>
+            <div className={classes.success_message}>Piece saved successfully!</div>
         </div>
     );
 }

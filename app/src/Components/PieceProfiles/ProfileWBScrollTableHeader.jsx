@@ -1,26 +1,27 @@
 import React, {useState} from "react";
-import { getColorName } from "../helpers/getColorName";
-import {styleObjects} from "./PieceProfiles.jss";
-import { fontSizes } from "../styles/fontSizes";
-import "./ProfileWBScrollTableHeader.scss";
+import {getColorName} from "../helpers/getColorName";
+import {fontSizes} from "../styles/fontSizes";
+import {useStyles} from "./ProfileWBScrollTableHeader.jss";
 
-export function ProfileWBScrollTableHeader({screenCase, pieceProfilesStyle, className, expand, pieceName, color, rangeType}) {
-        
-        let [src, setSrc] = useState("/Images/expand/expand-969696.svg");
+export function ProfileWBScrollTableHeader({screenCase, expand, pieceName, color, rangeType}) {
 
-        return (
-            <div className={className}>
-                <div className="color-and-range-type" style={{fontSize: fontSizes[screenCase]['medium1']()}}>
-                    {getColorName(color)} {rangeType}
-                </div>
-                <div
-                    className="expand-modal"
-                    onClick={() => expand(pieceName, color, rangeType)}
-                    onMouseEnter={() => setSrc("/Images/expand/expand-72e2ff.svg")}
-                    onMouseLeave={() => setSrc("/Images/expand/expand-969696.svg")}
-                >
-                    <img className="expand-modal-icon" src={src} alt="expand icon" />
-                </div>
+    let [src, setSrc] = useState("/Images/expand/expand-969696.svg");
+
+    const classes = useStyles()
+
+    return (
+        <div className={rangeType === 'spans' ? classes.spansHeader : classes.offsetsHeader}>
+            <div className={classes.colorAndRangeType} style={{fontSize: fontSizes[screenCase]['medium1']()}}>
+                {getColorName(color)} {rangeType}
             </div>
-        );
+            <div
+                className={classes.expandWidget}
+                onClick={() => expand(pieceName, color, rangeType)}
+                onMouseEnter={() => setSrc("/Images/expand/expand-72e2ff.svg")}
+                onMouseLeave={() => setSrc("/Images/expand/expand-969696.svg")}
+            >
+                <img className={classes.expandWidgetIcon} src={src} alt="expand icon"/>
+            </div>
+        </div>
+    );
 }

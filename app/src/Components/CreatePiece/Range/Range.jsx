@@ -5,7 +5,7 @@ import { RangeDisplayWindow } from "./RangeDisplayWindow";
 import { stylesObjects } from "../create-piece-styles-objects";
 import { angleToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
-import "./_Range.scss";
+import {styles} from "./_Range.jss";
 
 export class Range extends React.Component {
     constructor(props) {

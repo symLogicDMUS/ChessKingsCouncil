@@ -1,9 +1,0 @@
-.pieces-display-board {
-  position: absolute;
-  z-index: inherit;
-  -ms-grid-column: 1;
-  grid-column: 1;
-  -ms-grid-row: 2;
-  grid-row: 2;
-}
-/*# sourceMappingURL=DisplayBoard.scss.map */

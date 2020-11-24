@@ -8,7 +8,7 @@ import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
 // import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
-import "./LoadGame.scss";
+import {styles} from "./LoadGame.jss";
 
 class LoadGame extends React.Component {
     constructor(props) {

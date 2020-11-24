@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Close.scss";
+import {styles} from "./Close.jss";
 
 export function Close({ clickMethod, styleObject, theme }) {
     var [hover, setHover] = useState("off");

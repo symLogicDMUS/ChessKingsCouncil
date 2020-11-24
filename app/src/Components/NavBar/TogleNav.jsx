@@ -1,6 +1,6 @@
 import React from "react";
 import { getIconColor } from "./getIconColor";
-import "./NavBar.scss";
+import {styles} from "./NavBar.jss";
 
 export function TogleNav({navExpanded, togleNav, theme }) {
 

@@ -83,7 +83,7 @@ export function save(data) {
     /**save information about game as a db collection with documents being the different types of information
     gameName: Name of the game being saved.
     board: data describing game board.
-    jsonRecords: data for special moves and other things (the dict, not the object)
+    jsonRecords: data for special moves and symbols things (the dict, not the object)
     idDict: key is id for piece, Name is Name of piece.
     rangefunctions { describes how each piece can move
     success or failure integer and message to backend.

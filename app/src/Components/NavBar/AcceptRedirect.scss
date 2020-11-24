@@ -1,8 +1,0 @@
-@import "../styles/button1";
-
-.accept-redirect {
-    @include button1(20px, "dark");
-    z-index: inherit;
-    left: 158px;
-    top: 228px;
-}

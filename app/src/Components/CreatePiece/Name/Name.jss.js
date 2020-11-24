@@ -1,0 +1,78 @@
+export const styles = {
+    name_component1: {
+        position: "absolute",
+        zIndex: "0",
+        backgroundColor: "#515151",
+        borderRadius: "15px",
+    },
+    "@media screen and (min-device-width: 768px)": {
+        __expression__: "screen and (min-device-width: 768px)",
+        name_component1__name: {
+            position: "absolute",
+            zIndex: "0",
+            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+            fontSize: "125%",
+            color: "#a9a9a9",
+            top: "6%",
+            left: "2.5%",
+        },
+        name_component1__form1: {
+            position: "absolute",
+            zIndex: "0",
+            top: "54.28%",
+            left: "2.5%",
+            width: "93.75%",
+            height: "30%",
+            borderRadius: "5px",
+            fill: "black",
+            color: "#a9a9a9",
+            backgroundColor: "#515151",
+            border: "1px solid #a9a9a9",
+            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+            outline: "none",
+        },
+    },
+    "@media screen and (max-device-width: 767px)": {
+        __expression__: "screen and (max-device-width: 767px)",
+        name_component1__name: {
+            position: "absolute",
+            zIndex: "0",
+            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+            fontSize: "125%",
+            color: "#a9a9a9",
+            top: "0%",
+            left: "2.5%",
+        },
+        name_component1__form1: {
+            position: "absolute",
+            zIndex: "0",
+            top: "35%",
+            left: "2%",
+            width: "92.5%",
+            height: "25%",
+            borderRadius: "5px",
+            fill: "black",
+            color: "#a9a9a9",
+            backgroundColor: "#5d5d5d",
+            border: "1px solid #454849",
+            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+            outline: "none",
+        },
+        form1_type__text_____webkit_input_placeholder: {
+            color: "#a9a9a9",
+        },
+        form1_type__text____ms_input_placeholder: {
+            color: "#a9a9a9",
+        },
+        form1_type__text_____ms_input_placeholder: {
+            color: "#a9a9a9",
+        },
+        form1_type__text____placeholder: {
+            color: "#a9a9a9",
+        },
+    },
+    form1_type__text___focus: {
+        backgroundColor: "#5d5d5d",
+        border: "1px solid #b6b6b6",
+    },
+};

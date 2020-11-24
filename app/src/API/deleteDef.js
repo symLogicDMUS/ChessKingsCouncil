@@ -3,8 +3,8 @@ import "firebase/database";
 import "firebase/auth";
 
 async function deletePieceDefFromDb(pieceName) {
-    var user = firebase.auth().currentUser;
-    var uid = user.uid;
+    const user = firebase.auth().currentUser;
+    const uid = user.uid;
     return firebase.database().ref().child('defs').child(uid).child(pieceName).remove()
 }
 

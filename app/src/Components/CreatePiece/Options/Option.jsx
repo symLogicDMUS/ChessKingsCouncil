@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "./_Option.scss";
+import {styles} from "./_Option.jss";
 
 export function Option({ className, clickMethod, normal, highlighted, alt }) {
     let [isHover, setHover] = useState(false);

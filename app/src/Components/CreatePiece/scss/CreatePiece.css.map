@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,kBAAkB,CAAC;EACf,gBAAgB,EAAE,2CAA2C;EAC7D,iBAAiB,EAAE,MAAM;EACzB,UAAU,EAAE,IAAI;CACnB",
-    "sources": [
-        "CreatePiece.scss"
-    ],
-    "names": [],
-    "file": "CreatePiece.css"
-}

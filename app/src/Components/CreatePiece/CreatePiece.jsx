@@ -20,12 +20,12 @@ import { flipOffsets } from "./helpers/flipOffsets";
 import { ChooseModal } from "./Icon/Choose/ChooseModal";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { ProfilesModal } from "./ProfilesModal/ProfilesModal";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
-import { getBinaryBoarAllFalse } from "./getBinaryBoardAllFalse";
+import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import "./scss/CreatePiece.scss";
 
 class CreatePiece extends React.Component {

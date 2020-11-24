@@ -1,5 +1,5 @@
 import React from "react";
-import "./_ChooseButton.scss";
+import {styles} from "./_ChooseButton.jss";
 
 export function ChooseButton({ color, showChooseModal }) {
     return (

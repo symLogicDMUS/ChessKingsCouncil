@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACjB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf;;AAAC,AAAA,oBAAoB,AAAA,MAAM,CAAC;EACzB,MAAM,EAAE,OAAO;CAClB",
-    "sources": [
-        "RangePiece.scss"
-    ],
-    "names": [],
-    "file": "RangePiece.css"
-}

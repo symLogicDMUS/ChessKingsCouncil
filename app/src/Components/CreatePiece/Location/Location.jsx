@@ -1,7 +1,7 @@
 import React from "react";
 import { LocationButton } from "./LocationButton";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./Location.scss";
+import {styles} from "./Location.jss";
 
 export function Location({ location, setLoc, screenCase, theme }) {
     return (

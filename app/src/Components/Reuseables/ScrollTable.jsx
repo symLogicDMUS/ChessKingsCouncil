@@ -1,7 +1,9 @@
 import React from "react";
-import "./ScrollTable.scss";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {styles} from "./ScrollTable.jss"
+import {styles} from "./ScrollTable.jss";
 
-export class ScrollTable extends React.Component {
+class ScrollTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = { bValue: true };
@@ -69,7 +71,7 @@ export class ScrollTable extends React.Component {
         }
 
         return (
-            <div className="scroll-table" style={this.props.styleObject}>
+            <div className={this.props.classes.scrollTable}>
                 <div className="up-arrow" onClick={this.moveUp}>
                     <img src="/Images/arrows/up-arrow.svg" className="scroll-arrow-img" />
                 </div>
@@ -95,3 +97,4 @@ export class ScrollTable extends React.Component {
         );
     }
 }
+export default withStyles(styles)(ScrollTable)

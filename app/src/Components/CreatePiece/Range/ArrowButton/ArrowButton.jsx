@@ -1,5 +1,5 @@
 import React from "react";
-import "./_ArrowButton.scss";
+import {styles} from "./_ArrowButton.jss";
 
 export function ArrowButton({id, image, pos, isActive, togleSpan, theme}) {
 

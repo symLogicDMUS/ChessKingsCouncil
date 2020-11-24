@@ -1,8 +1,0 @@
-@import "../../../styles/button/button-style";
-
-.customize-ok {
-    @include button-style("dark");
-    top: 15%;
-    left: 91.5%;
-    border: 1px solid#707070;
-}

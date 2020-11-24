@@ -1,13 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { rankfiles } from "./rankfiles";
 import { sqrColorClass } from "./sqrColorClass";
 import { blankBoard } from "./blankBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
-import { stylesObjects } from "../create-piece-styles-objects";
+import { stylesObjects } from "../create_piece_styles_objects";
 import "../../helpers/stepFuncs";
-import "./_CreatePieceBoard.scss";
+import {styles} from "./_CreatePieceBoard.jss";
 
 export class CreatePieceBoard extends React.Component {
     constructor(props) {
@@ -60,7 +59,7 @@ export class CreatePieceBoard extends React.Component {
 
     render() {
         return (
-            <div className="my-grid" style={stylesObjects[this.props.screenCase]["Board"]()}>
+            <div className={this.props.classes.my_grid} style={stylesObjects[this.props.screenCase]["Board"]()}>
                 {this.getBoard()};
             </div>
         );

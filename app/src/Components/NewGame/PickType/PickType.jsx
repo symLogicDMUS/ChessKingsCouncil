@@ -5,7 +5,7 @@ import { Council } from "./IconComponents/Council";
 import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
-import "./PickType.scss";
+import {styles} from "./PickType.jss";
 
 class PickType extends React.Component {
     constructor(props) {

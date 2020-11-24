@@ -6,9 +6,9 @@ import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {deleteDef} from "../../API/deleteDef";
 import {getDefs} from "../../API/getDefs";
 import {MessageModal} from "../NavBar/Help/MessageModal";
-import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
+import PieceProfiles from "../PieceProfiles/PieceProfiles";
 // import { SearchBar } from "./SearchBar";
-import "./MyPieces.scss";
+import {styles} from "./MyPieces.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {

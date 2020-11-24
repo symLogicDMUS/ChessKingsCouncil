@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AACE,AAAA,eAAe,CAAC;EACd,gBAAgB,EAAE,yCAAyC;EAC3D,eAAe,EAAE,KAAK;EACtB,qBAAqB,EAAE,KAAK;EAC5B,mBAAmB,EAAE,aAAa;CACnC",
-    "sources": [
-        "GameRoot.scss"
-    ],
-    "names": [],
-    "file": "GameRoot.css"
-}

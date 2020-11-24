@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchBox.scss";
+import {styles} from "./SearchBox.jss";
 
 export class SearchBox extends React.Component {
     constructor(props) {

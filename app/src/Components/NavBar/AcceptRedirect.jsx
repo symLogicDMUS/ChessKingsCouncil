@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import "./ConfirmRedirect.scss";
+import {styles} from "./ConfirmRedirect.jss";
 
 export function AcceptRedirect({path, isLocal}) {
     

@@ -7,7 +7,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import "./_HelpTextExtraModal.scss";
+import {styles} from "./_HelpTextExtraModal.jss";
 
 export const RangeHelpTextExtraModal = () => (
     <div style={{ position: "absolute", zIndex: 6, width: 768, height: 325, left: 384, top: 504 }}>

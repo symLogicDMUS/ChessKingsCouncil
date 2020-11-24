@@ -1,5 +1,5 @@
 import React from "react";
-import "./myPiecesPage.scss";
+import {styles} from "./myPiecesPage.jss";
 
 /**
  * title: My Pieces Page

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {modalWindow} from "../../../styles/modal-window1-components/modal-window-size-pos";
 import {getYesNoButtonStyle} from "../../../styles/modal-window1-components/yes-no-buttons";
-import "./_ConfirmOverwrite.scss";
+import {styles} from "./_ConfirmOverwrite.jss";
 
 export function ConfirmOverwrite({name, save, setSaveStatus }) {
 

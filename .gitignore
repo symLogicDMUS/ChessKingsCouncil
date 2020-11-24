@@ -31,7 +31,7 @@ MANIFEST
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+#  before PyInstaller builds the exe, so as to inject date/symbols infos into it.
 *.manifest
 *.spec
 
@@ -129,7 +129,7 @@ dmypy.json
 # key
 Chess King Council-10297b2460f1.json
 
-#other
+#symbols
 .vs
 python_backend/db_setup.py
 python_backend/run_setup

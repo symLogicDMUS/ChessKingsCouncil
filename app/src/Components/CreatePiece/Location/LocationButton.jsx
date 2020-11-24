@@ -1,5 +1,5 @@
 import React from "react";
-import "./Location.scss";
+import {styles} from "./Location.jss";
 
 export function LocationButton({ rf, selected, setLoc, theme }) {
     let className = selected ? "location-button-selected" : "location-button-normal";

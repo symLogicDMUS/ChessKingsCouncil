@@ -3,7 +3,7 @@ short:
   Customize does, or it will crash)
 
 medium:
-
+* Need to refactor the way all boards work, to work with JavaScript .jss (range board, game board, createPieceBoard,
 
 long:
 * Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

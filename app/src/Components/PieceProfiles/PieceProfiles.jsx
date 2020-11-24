@@ -1,19 +1,13 @@
 import React from "react";
-import { Textfit } from "react-textfit";
-import { styleObjects } from "./PieceProfiles.jss";
 // import { SearchBar } from "./SearchBar";
-import { Close } from "../Reuseables/Close";
-import { CloseStyle } from "../Reuseables/CloseStyle";
-import { offsetToText } from "../helpers/offsetToText";
-import { stepFuncNamesToText } from "../helpers/spanToText";
 import { Profile } from "./Profile";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import { CustomizeHeader } from "../NewGame/Customize/Header/CustomizeHeader";
+import { CustomizeHeader } from "../NewGame/Customize/ProfileHeader/CustomizeHeader";
 import { LoadDeleteHeader } from "../MyPieces/LoadDeleteHeader";
-import "./PieceProfiles.scss";
-import {margin, pieceProfilesHeight, profileHeaderHeight} from "../NewGame/Customize/sizeAndPosVariables.jss";
+import {styles} from "./PieceProfiles.jss"
+import { withStyles } from "@material-ui/core";
 
-export class PieceProfiles extends React.Component {
+class PieceProfiles extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -97,14 +91,7 @@ export class PieceProfiles extends React.Component {
                             newReplaced: this.props.newReplaced,
                             toggleSub: this.props.toggleSub,
                             togglePromo: this.props.togglePromo,
-                            theme: this.props.theme,
-                            classes: {
-                                profileHeader: this.props.classes.profileHeader,
-                                profileGrid: this.props.classes.profileGrid,
-                                pieceName: this.props.classes.pieceName,
-                                promoCheckbox: this.props.classes.promoCheckbox,
-                                subDropdown: this.props.classes.subDropdown,
-                            },
+                            theme: this.props.theme
                         })}
                     </Profile>
                 );
@@ -122,10 +109,12 @@ export class PieceProfiles extends React.Component {
     render() {
         return (
             <>
-                <div className="profiles" style={this.props.styleObjects[this.props.screenCase]["pieceProfiles"]()}>
+                <div className={this.props.classes.pieceProfiles}>
                     {this.getProfiles()}
                 </div>
             </>
         );
     }
 }
+
+export default withStyles(styles)(PieceProfiles);

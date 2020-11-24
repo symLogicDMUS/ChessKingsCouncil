@@ -1,5 +1,5 @@
 import React from "react";
-import "./ScrollArrow.scss";
+import {styles} from "./ScrollArrow.jss";
 
 export class ScrollArrow extends React.Component {
 

@@ -2,21 +2,28 @@ import React from "react";
 import MediaQuery from "react-responsive";
 import {withStyles} from "@material-ui/core";
 import NavBar from "../../NavBar/NavBar";
-import {Ok} from "./Bottom/CustomiseOk";
 import {SubList} from "./Bottom/SubList";
 import {getDefs} from "../../../API/getDefs";
 import {PromoList} from "./Bottom/PromoList";
-import {CheckBox} from "../../Reuseables/CheckBox";
 import {MessageModal} from "../../NavBar/Help/MessageModal";
-import {PlayAsDropdown as PlayerType} from "./PlayAsDropdown";
-import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import PieceProfiles from "../../PieceProfiles/PieceProfiles";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
 import {styles} from "./Customize.jss";
+import * as PropTypes from "prop-types";
 import {fontSizes} from "../../styles/fontSizes";
-import {margin, pieceProfilesHeight, profileHeaderHeight} from "./sizeAndPosVariables.jss";
+import {CheckBox as PromoAll} from "../../Reuseables/CheckBox";
+import PlayAsDropdown from "./Bottom/PlayAsDropdown";
+import {Ok} from "./Bottom/CustomiseOk";
+import {
+    playAsDropdownHeight, playAsDropdownLeft, playAsDropdownTop,
+    playAsDropdownWidth,
+    promoAllCheckboxLeft,
+    promoAllCheckboxTop
+} from "./sizeAndPosVariables.jss";
+
 
 class Customize extends React.Component {
     constructor(props) {
@@ -57,12 +64,12 @@ class Customize extends React.Component {
         };
         this.accept = this.accept.bind(this);
         this.expand = this.expand.bind(this);
-        this.togleNav = this.togleNav.bind(this);
+        this.toggleNav = this.toggleNav.bind(this);
         this.toggleSub = this.toggleSub.bind(this);
         this.togglePromo = this.togglePromo.bind(this);
         this.togglePromoAll = this.togglePromoAll.bind(this);
         this.loadIdDict = this.loadIdDict.bind(this);
-        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.setPlayerType = this.setPlayerType.bind(this);
@@ -94,9 +101,9 @@ class Customize extends React.Component {
         if (this.promos.length > 20) {
             for (let i = 0; i < 20; i++) names.push(this.promos[i]);
         } else {
-            for (var p of this.promos) names.push(p);
+            for (const p of this.promos) names.push(p);
         }
-        for (var s of Object.keys(subs)) {
+        for (const s of Object.keys(subs)) {
             if (!names.includes(s)) names.push(s);
         }
         return [names, subs];
@@ -163,12 +170,12 @@ class Customize extends React.Component {
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    togleNav(boolVal) {
+    toggleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    togleMessageModal(boolVal) {
+    toggleMessageModal(boolVal) {
         this.setState({messageModal: boolVal});
     }
 
@@ -228,31 +235,28 @@ class Customize extends React.Component {
                         toggleSub={this.toggleSub}
                         togglePromo={this.togglePromo}
                         theme={this.state.theme}
-                        classes={{
-                            profileHeader: this.props.classes.profileHeader,
-                            pieceProfiles: this.props.classes.pieceProfiles,
-                            profileGrid: this.props.classes.profileGrid,
-                            pieceName: this.props.classes.pieceName,
-                            promoCheckbox: this.props.classes.promoCheckbox,
-                            subDropdown: this.props.classes.subDropdown,
-                        }}
                     />
                     <SubList screenCase={screenCase} subs={this.subs}/>
                     <PromoList screenCase={screenCase} promos={this.promos}/>
-                    <div className={}>
-                        <CheckBox
+                    <div className={this.props.classes.bottomBar}>
+                        <PromoAll
                             theme={this.state.theme}
                             clickMethod={this.togglePromoAll}
                             clickValue={null} //this.togglePromoAll takes no arguments
                             checkmarkState={this.state.promoAll}
-                            className={this.props.classes.promoAllCheckbox}
+                            top={promoAllCheckboxTop}
+                            left={promoAllCheckboxLeft}
                             fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
                             fontSize={fontSizes.medium2}
                             labelText="Promo All"
                         />
-                        <PlayerType
-                            className={this.props.classes.playAsDropDown}
+                        <PlayAsDropdown
                             fontSize={fontSizes.medium2}
+                            position="absolute"
+                            width={playAsDropdownWidth}
+                            height={playAsDropdownHeight}
+                            top={playAsDropdownTop}
+                            left={playAsDropdownLeft}
                             setPlayerType={this.setPlayerType}
                         />
                         <Ok screenCase={screenCase} accept={this.accept}/>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./PlayAsOption.scss";
+import {styles} from "./PlayAsOption.jss";
 import {getColorNameLc} from "../../helpers/getColorNameLc";
 
 export class PlayAsOption extends React.Component {

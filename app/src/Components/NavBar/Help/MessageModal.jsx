@@ -1,6 +1,6 @@
 import React from "react";
 import { stylesObjects } from "./HelpStyle";
-import "./MessageModal.scss";
+import {styles} from "./MessageModal.jss";
 
 export function MessageModal({ screenCase, toggleMessageModal, messageTitle, messageText }) {
     return (

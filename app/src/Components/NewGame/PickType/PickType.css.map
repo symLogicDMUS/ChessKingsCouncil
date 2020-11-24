@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACZ,gBAAgB,EAAE,yCAAyC;EAC3D,iBAAiB,EAAE,MAAM;EACzB,UAAU,EAAE,IAAI;CACnB;;AAED,AAAA,sBAAsB,CAAC;EACnB,IAAI,EAAE,KAAK;CACd;;AAED,AAAA,2BAA2B,CAAC;EACxB,IAAI,EAAE,KAAK;CACd;;AAED,yCAAyC;AACzC,AAAA,eAAe,CAAC;EACZ,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,2BAA2B;CAC3C;;AACD,oBAAoB",
-    "sources": [
-        "PickType.scss"
-    ],
-    "names": [],
-    "file": "PickType.css"
-}

@@ -3,7 +3,7 @@ import { getImgDict } from "../../../../API/getImgDict";
 import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
-import { IconModalButton } from "./IconModalButton";
+import { IconModalButton } from "../IconModalButton";
 import { ConfirmModal } from "../../../NavBar/ConfirmModal";
 import { ImgChoice } from "./ImgChoice";
 import { SearchBox } from "../../../Reuseables/SearchBox";
@@ -11,7 +11,7 @@ import { stylesObjects } from "./choose-modal-styles-objects";
 import { SearchBoxStyle } from "../../../Reuseables/SearchBoxStyle";
 import { CloseStyle } from "../../../Reuseables/CloseStyle";
 import { Close } from "../../../Reuseables/Close";
-import "./_ChooseModal.scss";
+import {styles} from "./_ChooseModal.jss";
 
 export class ChooseModal extends React.Component {
     constructor(props) {

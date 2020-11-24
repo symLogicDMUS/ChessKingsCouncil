@@ -1,12 +1,11 @@
 import React from "react";
-import {useStyles} from "./PieceProfiles.jss"
 import { getColorName } from "../helpers/getColorName";
 import { ProfileWBScrollTableHeader } from "./ProfileWBScrollTableHeader";
-import { ScrollTable } from "../Reuseables/ScrollTable";
+import ScrollTable from "../Reuseables/ScrollTable";
 import { fontSizes } from "../styles/fontSizes";
 import {stepFuncNamesToText} from "../helpers/spanToText";
 import {offsetToText} from "../helpers/offsetToText";
-// import "./ProfileWB.scss";
+import {useStyles} from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
@@ -14,7 +13,7 @@ import {offsetToText} from "../helpers/offsetToText";
  * expand: given to header. opens displayBoard
  * def: spans, offsets, and img of W or B piece
  * */
-export function ProfileWB({ color, theme, classes, pieceName, expand, def }) {
+export function ProfileWB({ color, theme, pieceName, expand, def }) {
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);
@@ -36,20 +35,23 @@ export function ProfileWB({ color, theme, classes, pieceName, expand, def }) {
         });
         return offsetStrings;
     }
+
+    const classes = useStyles()
+
     return (
         <div className={classes.profileWB}>
-            <div className="img-label" style={{ fontSize: fontSizes.medium1 }}>
+            <div className={classes.imgLabel} style={{ fontSize: fontSizes.medium1 }}>
                 {getColorName(color)} Image
             </div>
             <div className={classes.imgWindow}>
                 <img src={def.img} className="piece-profile-img" alt="icon of piece" />
             </div>
             <ProfileWBScrollTableHeader
-                className="spans-header"
+                rangeType="spans"
+                className={classes.spansHeader}
                 pieceName={pieceName}
                 expand={expand}
                 color={color}
-                rangeType="spans"
             />
             <ScrollTable
                 listItems={getOffsets(def)}
@@ -57,10 +59,10 @@ export function ProfileWB({ color, theme, classes, pieceName, expand, def }) {
                 className={classes.rangeTable}
             />
             <ProfileWBScrollTableHeader
-                className="offsets-header"
+                rangeType="offsets"
+                className={classes.offsetsHeader}
                 pieceName={pieceName}
                 expand={expand}
-                rangeType="offsets"
                 color={color}
             />
             <ScrollTable

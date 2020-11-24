@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { stylesObjects } from "./Help/HelpStyle";
-import "./ConfirmModal.scss";
+import {styles} from "./ConfirmModal.jss";
 
 export function ConfirmModal({screenCase, text, yesClick, noClick }) {
     return (

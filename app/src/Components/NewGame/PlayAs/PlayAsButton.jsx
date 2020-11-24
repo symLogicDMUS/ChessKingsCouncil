@@ -1,5 +1,5 @@
 import React from "react";
-import "./PlayAsButton.scss";
+import {styles} from "./PlayAsButton.jss";
 
 export class PlayAsButton extends React.Component {
 

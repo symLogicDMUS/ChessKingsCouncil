@@ -1,9 +1,0 @@
-.icon-tool .black-title {
-    @include piece-title;
-    @media screen and (min-device-width: 768px) {
-        left: 51.75%;
-    }
-    @media screen and (max-device-width: 767px) {
-        left: percentage(73.5/100);
-    }
-}

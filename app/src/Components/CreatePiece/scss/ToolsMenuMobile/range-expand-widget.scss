@@ -1,6 +1,0 @@
-@import "./_expand-widget";
-
-.range-expand-widget {
-    @include expand-widget;
-    top: percentage($disp * 2/100);
-}

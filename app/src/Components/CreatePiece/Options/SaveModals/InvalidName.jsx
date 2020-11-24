@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./_InvalidName.scss";
+import {styles} from "./_InvalidName.jss";
 
 class InvalidName extends React.Component {
 

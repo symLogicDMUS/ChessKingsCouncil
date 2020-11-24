@@ -1,6 +1,6 @@
 
 import React from "react";
-import "./DisplaySquare.scss";
+import {styles} from "./DisplaySquare.jss";
 
 export function DisplaySquare ({class_, properties, children}) {
 

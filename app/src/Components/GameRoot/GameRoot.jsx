@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import { Board } from "./Components/Board";
-import { GameRootHeader as Header } from "./Components/GameRootHeader";
+import { Board } from "./Board/Board";
+import { GameRootHeader as Header } from "./Header/GameRootHeader";
 import { rook_starting_rf, king_starting_rf } from "./sharedData/castleRankfiles";
 import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
@@ -18,11 +18,11 @@ import { isPawn } from "../helpers/isPawn";
 import { SaveAs } from "./Modals/SaveAs";
 import { Saving } from "./Modals/Saving";
 import { SaveSuccessfull } from "./Modals/SaveSuccessfull";
-import { RangeDisplayTool } from "./Components/RangeDisplayTool";
-import { SaveResignTool } from "./Components/SaveResignTool";
-import { AiDisplay } from "./Components/AiDisplay";
+import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
+import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
+import { AIDisplay } from "./AI/AIDisplay";
 import { makeMove } from "./Move/makeMove";
-import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
+// import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { OVER } from "../helpers/gStatusTypes";
@@ -81,8 +81,8 @@ class GameRoot extends React.Component {
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
-        this.togleNav = this.togleNav.bind(this);
-        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.toggleNav = this.toggleNav.bind(this);
+        this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.togleSaveAs = this.togleSaveAs.bind(this);
@@ -148,12 +148,12 @@ class GameRoot extends React.Component {
         }
     }
 
-    togleNav(boolVal) {
+    toggleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({ bValue: !this.state.bValue });
     }
 
-    togleMessageModal(boolVal) {
+    toggleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
 
@@ -190,8 +190,7 @@ class GameRoot extends React.Component {
 
     updateTurnData() {
         /**called after a move is made.*/
-
-        var turnData;
+        let turnData;
 
         if (this.gameType === "council") {
             turnData = updateCouncil(
@@ -216,8 +215,8 @@ class GameRoot extends React.Component {
     }
 
     updateJsonRecords(start, dest) {
-        var pieceId = this.board[dest];
-        var fenId = pieceId[1].toLowerCase();
+        const pieceId = this.board[dest];
+        const fenId = pieceId[1].toLowerCase();
 
         if (isPawn(this.captured)) {
             delete this.jsonRecords.pawnHistories[this.captured];
@@ -231,8 +230,6 @@ class GameRoot extends React.Component {
             if (fenId === "k" && king_starting_rf.includes(start)) this.jsonRecords.kingsMoved[start] = true;
             if (fenId === "r" && rook_starting_rf.includes(start)) this.jsonRecords.rooksMoved[start] = true;
         }
-
-        return;
     }
 
     updateFen(start, dest) {
@@ -242,13 +239,13 @@ class GameRoot extends React.Component {
     save() {
         this.setUnsavedProgress(false);
 
-        var posFen = getFen(this.board);
-        var fenData = this.fenObj.getData();
-        var fen = getFullFen(posFen, fenData);
-        var records = this.jsonRecords.getRecords();
+        const posFen = getFen(this.board);
+        const fenData = this.fenObj.getData();
+        const fen = getFullFen(posFen, fenData);
+        const records = this.jsonRecords.getRecords();
         records["pawn_histories"] = replacePawnIdWithCurrentLoc(records["pawn_histories"]);
-        var pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs);
-        var status = this.gameStatus.getStatus();
+        const pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs);
+        const status = this.gameStatus.getStatus();
 
         saveGame(this.gameName, {
             fen: fen,
@@ -295,7 +292,7 @@ class GameRoot extends React.Component {
                     <MessageModal
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
-                        togleMessageModal={this.togleMessageModal}
+                        togleMessageModal={this.toggleMessageModal}
                     />
                 )}
                 <NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />
@@ -318,7 +315,7 @@ class GameRoot extends React.Component {
                     />
                 )}
                 {this.aiDisplay && this.specialCase !== "promo" && !this.isGameOver() && (
-                    <AiDisplay
+                    <AIDisplay
                         aiStart={this.aiStart}
                         aiDest={this.aiDest}
                         aiMakeMove={this.aiMakeMove}

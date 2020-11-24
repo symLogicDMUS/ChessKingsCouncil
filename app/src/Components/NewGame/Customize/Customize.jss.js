@@ -1,29 +1,52 @@
-import {title} from "./Header/styles/title.jss";
-import {topBar} from "./Header/styles/topBar.jss";
-import {customize} from "./styles/customize.jss";
-import {pieceProfiles} from "./Profiles/styles/pieceProfiles.jss";
-import {profileHeader} from "./Profiles/styles/profileHeader.jss";
-import {profileGrid} from "./Profiles/styles/profileGrid.jss";
-import {pieceName} from "./Profiles/styles/pieceName.jss";
-import {bottomBar} from "./Bottom/styles/bottomBar.jss";
-import {subList} from "./Bottom/styles/subList.jss";
-import {promoList} from "./Bottom/styles/promoList.jss";
-import {promoAllCheckbox} from "./Bottom/styles/promoAllCheckbox.jss";
-import {playAsDropdown} from "./Bottom/styles/playAsDropdown.jss";
-import {okButton} from "./Bottom/styles/okButton.jss";
+import {
+    bottomBarHeight,
+    bottomBarLeft,
+    bottomBarTop,
+    bottomBarWidth, customizeHeight, customizeLeft, customizeTop, customizeWidth,
+    topBarHeight,
+    topBarLeft,
+    topBarTop,
+    topBarWidth
+} from "./sizeAndPosVariables.jss";
 
 export const styles = {
-    customize: customize,
-    topBar: topBar,
-    title: title,
-    pieceProfiles: pieceProfiles,
-    profileHeader: profileHeader,
-    profileGrid: profileGrid,
-    pieceName: pieceName,
-    bottomBar: bottomBar,
-    subList: subList,
-    promoList: promoList,
-    promoAllCheckbox: promoAllCheckbox,
-    playAsDropDown: playAsDropdown,
-    okButton: okButton,
+    customize: {
+        zIndex: 5,
+        position: "absolute",
+        border: "1px solid #707070",
+        customizeWidth: customizeWidth,
+        customizeHeight: customizeHeight,
+        customizeTop: customizeTop,
+        customizeLeft: customizeLeft,
+    },
+    topBar: {
+        position: "absolute",
+        zIndex: "inherit",
+        backgroundColor: "#515151",
+        border: "1px solid blue",
+        borderTopLeftRadius: "10px",
+        borderTopRightRadius: "10px",
+        topBarWidth: topBarWidth,
+        topBarHeight: topBarHeight,
+        topBarTop: topBarTop,
+        topBarLeft: topBarLeft,
+    },
+    title: {
+        position: "absolute",
+        color: "#a9a9a9",
+        fontSize: "200%",
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        textAlign: "left",
+        paddingLeft: "1%",
+        border: "1px dashed green",
+    },
+    bottomBar: {
+        position: "absolute",
+        backgroundColor: "#515151",
+        borderTop: "1px solid #707070",
+        bottomBarWidth: bottomBarWidth,
+        bottomBarHeight: bottomBarHeight,
+        bottomBarTop: bottomBarTop,
+        bottomBarLeft: bottomBarLeft,
+    },
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./_Name.scss";
+import {styles} from "./_Name.jss";
 
 export class Name extends React.Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./HelpModal.scss";
+import {styles} from "./HelpModal.jss";
 
 export class HelpModal extends React.Component {
     constructor(props) {

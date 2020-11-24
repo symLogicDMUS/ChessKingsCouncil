@@ -1,16 +1,12 @@
 import React from "react";
-import "./DisplayPiece.scss";
+import {styles} from "./DisplayPiece.jss";
+import {useStyles} from "./DisplayPiece.jss";
 
 export function DisplayPiece({pieceImgBase64Str}) {
-
-        return ( 
-            <img src={pieceImgBase64Str} 
-                 style = {{
-                    position: "absolute",
-                    zIndex: "inherit",
-                    width: "100%",
-                    height: "100%"
-                }} 
-            />
-        )
+    const classes = useStyles()
+    return (
+        <img src={pieceImgBase64Str}
+             className={classes.piece}
+        />
+    )
 }

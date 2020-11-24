@@ -1,6 +1,6 @@
 import React from "react";
 import { getButtonSize } from "../styles/button/button-size";
-import "./MyPiecesButton.scss";
+import {styles} from "./MyPiecesButton.jss";
 
 export function MyPiecesButton({buttonType, buttonText, clickMethod, pieceName }) {
     return (

@@ -1,9 +1,10 @@
 import React from "react";
-//import "./CustomiseOk.scss";
+import {useStyles} from "./CustomizeOk.jss"
 
 export function Ok({className, screenCase, accept }) {
+    const classes = useStyles()
     return (
-        <button className={className} onClick={accept} className={}>
+        <button className={classes.button} onClick={accept}>
             Ok
         </button>
     );

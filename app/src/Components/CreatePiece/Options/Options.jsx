@@ -1,7 +1,7 @@
 import React from "react";
 import { Option } from "./Option";
 import { stylesObjects } from "../create-piece-styles-objects";
-import "./_Options.scss";
+import {styles} from "./_Options.jss";
 
 export function Options({screenCase, save, toggleLoadModal, reset, eraseRange }) {
         return (

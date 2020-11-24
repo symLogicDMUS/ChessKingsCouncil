@@ -6,7 +6,7 @@ import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpComponent } from "./Help/HelpComponent";
 import {styleObjects} from "./NavBarStyle"
-import "./NavBar.scss";
+import {styles} from "./NavBar.jss";
 
 class NavBar extends React.Component {
     constructor(props) {

@@ -1,6 +1,0 @@
-@import "./_tools-option";
-
-.tool-bar-selected {
-    @include tools-option;
-    top: percentage($disp * 2/100);
-}

@@ -15,7 +15,7 @@ import {
     piece_defs,
     standard_promo_names
 } from "./NewData";
-import "./NewGame.scss";
+import {styles} from "./NewGame.jss";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which

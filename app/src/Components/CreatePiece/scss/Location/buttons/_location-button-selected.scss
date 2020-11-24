@@ -1,8 +1,0 @@
-@import "./_location-button";
-
-@mixin location-button-selected($button-size) {
-    @include location-button($button-size);
-    background-color: #ec2525;
-    border: solid 1px #ec2525;
-    cursor: pointer;
-}

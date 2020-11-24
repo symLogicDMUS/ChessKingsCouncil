@@ -1,7 +1,0 @@
-@import "./_tools-option";
-@import "../variables.scss";
-
-.tools-menu-location {
-    @include tools-option;
-    top: percentage($disp * 3/100);
-}
