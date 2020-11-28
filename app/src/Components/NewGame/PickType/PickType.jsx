@@ -1,76 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import NavBar from "../../NavBar/NavBar";
-import { Standard } from "./IconComponents/Standard";
-import { Council } from "./IconComponents/Council";
-import { Custom } from "./IconComponents/Custom";
-import { Title } from "./IconComponents/Title";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
+import {Standard} from "./IconComponents/Standard";
+import {Council} from "./IconComponents/Council";
+import {Custom} from "./IconComponents/Custom";
+import {Title} from "./IconComponents/Title";
+import {MessageModal} from "../../NavBar/Help/MessageModal";
 import {styles} from "./PickType.jss";
 import "./PickType.scss";
 
-class PickType extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { bValue: true, theme: "dark" };
-        this.helpTitle = null;
-        //Dictionary of Extra windows to display for help modals. More may be added.
-        this.setMessageText = this.setMessageText.bind(this);
-        this.setType = this.setType.bind(this);
-        this.toggleMessageModal = this.toggleMessageModal.bind(this);
-    }
+export function PickType({setType}) {
 
-    componentDidMount() {
+
+    useEffect(() => {
         document.body.className = "pick-type-body";
-    }
+    })
 
-    setType(gameType) {
-        this.props.setType(gameType);
-        this.props.nextStep();
-    }
+    let [theme, setTheme] = useState('dark')
+    let [type, setType] = useState(null)
 
-    toggleNav(boolVal) {
-        this.navExpanded = boolVal;
-        this.setState({ bValue: !this.state.bValue });
-    }
+    const classes = useStyles()
 
-    toggleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
-    }
-
-    setMessageText(helpTitle, helpText) {
-        this.messageTitle = helpTitle;
-        this.messageText = helpText;
-        this.setState({ messageModal: true });
-    }
-
-    render() {
-        return (
-            <>
-                <NavBar currentPage="PickType" theme={this.state.theme} unsavedChanges={false} />
-                {this.state.messageModal && (
-                    <MessageModal
-                        messageTitle={this.messageTitle}
-                        messageText={this.messageText}
-                        togleMessageModal={this.toggleMessageModal}
-                    />
-                )}
-
-                <svg viewBox="0 0 1920 1080">
-                    <defs>
-                        <clipPath id="b">
-                            <rect width={1920} height={1080} />
-                        </clipPath>
-                    </defs>
-                    <g id="a" className={this.props.classes.a}>
-                        <Custom setType={this.setType} />
-                        <Standard setType={this.setType} />
-                        <Council setType={this.setType} />
-                        <Title />
-                    </g>
-                </svg>
-            </>
-        );
-    }
+    return (
+        <>
+            <NavBar currentPage="PickType" theme={theme} unsavedChanges={false}/>
+            <svg viewBox="0 0 1920 1080">
+                <defs>
+                    <clipPath id="b">
+                        <rect width={1920} height={1080}/>
+                    </clipPath>
+                </defs>
+                <g id="a" className={classes.a}>
+                    <Council setType={() => setType('Council')}/>
+                    <Custom setType={() => setType('Custom')}/>
+                    <Standard setType={() => setType('Standard')}/>
+                    <Title/>
+                </g>
+            </svg>
+        </>
+    );
 }
 
 export default PickType;

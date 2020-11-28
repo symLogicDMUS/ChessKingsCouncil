@@ -1,20 +1,23 @@
 import React from "react";
-import { stylesObjects } from "./HelpStyle";
-import {styles} from "./MessageModal.jss";
+import { useStyles } from "./MessageModal.jss";
 
-export function MessageModal({ screenCase, toggleMessageModal, messageTitle, messageText }) {
+
+export function MessageModal({toggleMessageModal, messageTitle, messageText }) {
+
+    const classes = useStyles()
+
     return (
-        <div className={this.props.classes.message_modal}>
-            <div className={this.props.classes.message_modal_window}>
+        <div className={classes.modal}>
+            <div className={classes.window}>
                 <img
                     src="/Images/close/close.svg"
-                    className={this.props.classes.msg_modal_close}
+                    className={classes.close_icon}
                     onClick={() => toggleMessageModal(false)}
                 />
-                <div className={this.props.classes.msg_title}>{messageTitle}</div>
-                <div className={this.props.classes.msg_text}>{messageText}</div>
+                <div className={classes.title}>{messageTitle}</div>
+                <div className={classes.text}>{messageText}</div>
                 <button
-                    className={this.props.classes.msg_ok_button}
+                    className={classes.ok_button}
                     onClick={() => toggleMessageModal(false)}
                 >
                     Ok

@@ -41,9 +41,6 @@ class NewGame extends React.Component {
         this.loadNewCustom = this.loadNewCustom.bind(this);
     }
 
-    nextStep() {
-        this.setState({step: this.state.step + 1});
-    }
 
     componentDidMount() {
         document.body.className = "new-game-body";
@@ -51,14 +48,17 @@ class NewGame extends React.Component {
 
     setGameType(type) {
         this.gameType = type;
+        this.nextStep()
     }
 
     setPlayerType(playerType) {
         this.playerType = playerType;
+        this.nextStep()
     }
 
     setGameName(name) {
         this.gameName = name;
+        this.nextStep()
     }
 
     loadNewData() {
@@ -74,6 +74,7 @@ class NewGame extends React.Component {
         this.gameData["enemy_ranges"] = JSON.parse(JSON.stringify(enemyRanges));
         this.gameData["status"] = JSON.parse(JSON.stringify(status));
         if (this.gameType === "council") this.gameData.promos.push("King");
+        this.nextStep()
     }
 
     loadNewCustom(idDict, defs, promos) {
@@ -124,15 +125,18 @@ class NewGame extends React.Component {
         this.nextStep();
     }
 
+    nextStep() {
+        this.setState({step: this.state.step + 1});
+    }
+
     getGameSetup() {
         if (this.gameType === "standard" || this.gameType === "council")
-            return <PlayAs setPlayer={this.setPlayerType} nextStep={this.nextStep} loadNew={this.loadNewData}/>;
+            return <PlayAs setPlayer={this.setPlayerType} loadNew={this.loadNewData}/>;
         else
             return (
                 <Customize
                     loadNewCustom={this.loadNewCustom}
                     setPlayer={this.setPlayerType}
-                    nextStep={this.nextStep}
                 />
             );
     }
@@ -157,8 +161,8 @@ class NewGame extends React.Component {
     render() {
         return (
             <>
-                {this.state.step === 0 && <PickType setType={this.setGameType} nextStep={this.nextStep}/>}
-                {this.state.step === 1 && <PickName setName={this.setGameName} nextStep={this.nextStep}/>}
+                {this.state.step === 0 && <PickType setType={this.setGameType} />}
+                {this.state.step === 1 && <PickName setName={this.setGameName} />}
                 {this.state.step === 2 && this.getGameSetup()}
                 {this.state.step === 3 && this.play()}
             </>

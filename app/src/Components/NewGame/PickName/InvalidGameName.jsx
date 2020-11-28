@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { styles } from "./InvalidGameName.jss";
+import { useStyles } from "./InvalidGameName.jss";
 
 export function InvalidGameName() {
+    const classes = useStyles()
     return (
-        <div className={this.props.classes.invalid_game_name_modal}>
-            <div className={this.props.classes.invalid_game_name_window}>
-                <div className={this.props.classes.invalid_game_name_heading}>{this.props.header}</div>
-                <button className={this.props.classes.invalid_game_name_button} onClick={this.props.reset}>
+        <div className={classes.modal}>
+            <div className={classes.window}>
+                <div className={classes.heading}>{header}</div>
+                <button className={classes.button} onClick={reset}>
                     Ok
                 </button>
             </div>

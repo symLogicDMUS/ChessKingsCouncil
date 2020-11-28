@@ -1,20 +1,17 @@
-export const styles = {
-    message_modal: {
-        position: "fixed",
-        zIndex: "10",
-        left: "0",
-        top: "0",
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#0000004d",
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import {modal} from "../../helpers/modal.jss";
+
+export const useStyles = makeStyles({
+    modal: {
+        ...modal
     },
-    message_modal_window: {
+    window: {
         position: "absolute",
         zIndex: "20",
         backgroundColor: "#515151",
         border: "1px solid #5d5d5d",
     },
-    message_modal_window__msg_title: {
+    title: {
         position: "absolute",
         zIndex: "inherit",
         width: "90%",
@@ -28,7 +25,7 @@ export const styles = {
         backgroundColor: "#515151",
         wordWrap: "break-word",
     },
-    message_modal_window__msg_text: {
+    text: {
         position: "absolute",
         top: "45%",
         left: "5%",
@@ -44,7 +41,7 @@ export const styles = {
         overflowY: "hidden",
         textOverflow: "ellipsis",
     },
-    message_modal_window__msg_ok_button: {
+    ok_button: {
         top: "90%",
         left: "55%",
         position: "absolute",
@@ -57,20 +54,20 @@ export const styles = {
         overflow: "hidden",
         textOverflow: "ellipsis",
         cursor: "pointer",
+        '&:hover': {
+            color: "#515151",
+            backgroundColor: "#b6b6b6",
+        },
     },
-    message_modal_window__msg_ok_button_hover: {
-        color: "#515151",
-        backgroundColor: "#b6b6b6",
-    },
-    message_modal_window__msg_modal_close: {
+    close_icon: {
         position: "absolute",
         cursor: "pointer",
         left: "95%",
         top: "2%",
         width: "5%",
         height: "5%",
+        '&:hover': {
+            backgroundColor: "#EC2525",
+        },
     },
-    message_modal_window__msg_modal_close_hover: {
-        backgroundColor: "#EC2525",
-    },
-};
+});
