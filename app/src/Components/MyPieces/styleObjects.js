@@ -1,57 +1,50 @@
-import { pieceProfilesSizePos } from "../PieceProfile/pieceProfilesSizePos";
-import { styleObjects as navBarStyleObjects } from "../NavBar/styleObjects";
+import {winHeight, winWidth} from "../helpers/windowMeasurments";
 
 export var styleObjects = {
     desktop: {
         topBar: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
             return {
-                width: windowSizePos.width,
-                height: windowSizePos.height * 0.075,
+                width: winWidth() * 0.6.width,
+                height: winHeight() * 0.6.height * 0.075,
                 top: 0,
                 left: 0,
             };
         },
         title: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
             return {
-                height: windowSizePos.height * 0.075,
-                width: windowSizePos.width * 0.1,
-                left: windowSizePos.width * 0.008,
+                height: winWidth() * 0.6 * 0.075,
+                width: winWidth() * 0.1,
+                left: winWidth() * 0.008,
             };
         },
         profiles: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
-            const navBarSizePos = navBarStyleObjects["desktop"]()
             return {
-                width: windowSizePos.width,
-                height: windowSizePos.height - navBarSizePos.height,
-                top: windowSizePos.height * 0.075,
+                width: winWidth(),
+                height: winHeight() - winHeight(),
+                top: winHeight() * 0.075,
                 left: 0,
             };
         },
     },
     mobile: {
         topBar: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
-            const navBarSizePos = navBarStyleObjects["desktop"]();
             return {
-                width: windowSizePos.width,
-                height: windowSizePos.height * 0.1,
-                top: navBarSizePos.height,
+                width: winWidth(),
+                height: winHeight() * 0.1,
+                top: winHeight() * 0.1,
                 left: 0,
             };
         },
         title: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
+
             return {
-                fontSize: windowSizePos.height * 0.075 * 0.9,
-                marginTop: windowSizePos.height * 0.075 * 0.05,
+                fontSize: winHeight() * 0.075 * 0.9,
+                marginTop: winHeight() * 0.075 * 0.05,
                 border: "1px dashed green",
             };
         },
         profiles: () => {
-            const windowSizePos = pieceProfilesSizePos["desktop"]();
+
         },
     },
 };

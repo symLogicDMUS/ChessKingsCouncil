@@ -1,9 +1,10 @@
 import React from "react";
-import {styles} from "./_ChooseButton.jss";
+import { useStyles } from "./ChooseButton.jss";
 
 export function ChooseButton({ color, showChooseModal }) {
+    const classes = useStyles()
     return (
-        <div className={`${color}-choose`} onClick={() => showChooseModal(color)}>
+        <div className={color} onClick={() => showChooseModal(color)}>
             <p className="icon-button-text">Choose...</p>
         </div>
     );

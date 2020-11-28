@@ -6,10 +6,11 @@ function getBgColor(rowNum) {
     }
 }
 
-function scrollItem(rowNum) {
+function listItem(fontSize, rowNum) {
     return {
         gridRow: rowNum,
         color: "#a9a9a9",
+        fontSize: fontSize,
         fontFamily: 'Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
         paddingLeft: "1%",
         paddingTop: "0.1%",
@@ -29,31 +30,42 @@ function arrow() {
 }
 
 export const styles = {
+
+    scrollTable: {
+        position: 'relative',
+        top: props => props.top,
+        left: props => props.left,
+        display: 'grid',
+        MsGridRows: '0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em',
+        gridTemplateRows: "0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em",
+        border: "1px solid #707070"
+    },
+
     upArrow: {
         gridRow: 1,
         ...arrow,
     },
-    scrollTableItem1: {
-        ...scrollItem(2),
-    },
-    scrollTableItem2: {
-        ...scrollItem(3),
-    },
-    scrollTableItem3: {
-        ...scrollItem(4),
-    },
-    scrollTableItem4: {
-        ...scrollItem(5),
-    },
-    scrollTableItem5: {
-        ...scrollItem(6),
-    },
+    item1: props => ({
+        ...listItem(props.fontSize,2),
+    }),
+    item2: props => ({
+        ...listItem(props.fontSize,2),
+    }),
+    item3: props => ({
+        ...listItem(props.fontSize,2),
+    }),
+    item4: props => ({
+        ...listItem(props.fontSize,2),
+    }),
+    item5: props => ({
+        ...listItem(props.fontSize,2),
+    }),
     downArrow: {
         gridRow: 7,
         ...arrow,
     },
 
-    scrollArrowImg: {
+    arrowImg: {
         height: "100%",
         width: "100%",
     },

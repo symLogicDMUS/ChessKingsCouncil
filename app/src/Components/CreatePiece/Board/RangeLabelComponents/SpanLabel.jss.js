@@ -1,4 +1,6 @@
-export const styles = {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+export const useStyles = makeStyles({
     span: {
         display: "block",
         width: "40px",
@@ -10,4 +12,4 @@ export const styles = {
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         fill: "white",
     },
-};
+});

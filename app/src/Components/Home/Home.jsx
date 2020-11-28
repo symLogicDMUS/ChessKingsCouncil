@@ -7,7 +7,7 @@ import { LoadGameIcon } from "./LinkComponents/LoadGameMainMenuLink";
 import { MyPiecesIcon } from "./LinkComponents/MyPiecesMainMenuLink";
 import { AuthorsGithubIcon } from "./LinkComponents/AuthorGithubMainMenuLink";
 import { Title } from "./LinkComponents/MainMenuTitle";
-import {styles} from "./Home.jss";
+import "./Home.scss";
 
 export class Home extends React.Component {
     componentDidMount() {
@@ -23,7 +23,7 @@ export class Home extends React.Component {
                             <rect width={1920} height={1080} />
                         </clipPath>
                     </defs>
-                    <g id="a" className="a">
+                    <g id="a">
                         <Title />
                         <ChessRulesIcon />
                         <CouncilRulesIcon />
@@ -39,15 +39,6 @@ export class Home extends React.Component {
                 <div
                     className="sign-out"
                     onClick={this.props.signOut}
-                    style={{
-                        position: "absolute",
-                        width: "15vw",
-                        height: "4vh",
-                        top: "1vh",
-                        left: "90.2vw",
-                        fontSize: "4vh",
-                        cursor: "pointer",
-                    }}
                 >
                     Sign Out
                 </div>

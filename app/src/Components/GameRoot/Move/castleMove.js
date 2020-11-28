@@ -16,7 +16,7 @@ export function castleMove(gameroot, start, dest) {
         return;
     }
 
-    var [rStart, rDest] = getRookStartAndDest(dest);
+    const [rStart, rDest] = getRookStartAndDest(dest);
     ply(gameroot, rStart, rDest);
     gameroot.specialMoves.removeCastle([start, dest]);
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import { Help } from "./Help/Help";
+import Help from "./Help/Help";
 import { TogleNav } from "./TogleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
-import { HelpComponent } from "./Help/HelpComponent";
+import HelpComponent from "./Help/HelpComponent";
 import {styleObjects} from "./NavBarStyle"
 import {styles} from "./NavBar.jss";
 
@@ -65,7 +65,7 @@ class NavBar extends React.Component {
                         toggleConfirmRedirect={this.toggleConfirmRedirect}
                     />
                 )}
-                <div className="nav-bar" style={styleObjects[screenCase]()}>
+                <div className={this.props.classes.nav_bar} style={styleObjects[screenCase]()}>
                     {this.state.navExpanded && (
                         <HelpComponent
                             screenCase={screenCase}

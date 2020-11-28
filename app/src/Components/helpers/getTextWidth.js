@@ -1,5 +1,5 @@
 export function getTextWidth(myText, fontSize, fontFamily) {
-    var text = document.createElement("span");
+    const text = document.createElement("span");
     document.body.appendChild(text);
     text.style.font = fontFamily;
     text.style.fontSize = fontSize + "px";

@@ -1,5 +1,7 @@
-export const styles = {
-    rthem_a__range_tool_help_extra_modal: {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+export const useStyles = makeStyles({
+    range_help_extra_modal: {
         position: "absolute",
         zIndex: "6",
         width: "768px",
@@ -37,4 +39,4 @@ export const styles = {
     rthem_g: {
         stroke: "none",
     },
-};
+});

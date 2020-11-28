@@ -1,0 +1,36 @@
+export const styles = {
+    load_game_text: {
+        margin: "0",
+        position: "absolute",
+        cursor: "pointer",
+        MsTransform: "translate(-50%, -50%)",
+        transform: "translate(-50%, -50%)",
+    },
+    button_options: {
+        margin: "0",
+        position: "absolute",
+        cursor: "pointer",
+        MsTransform: "translate(-50%, -50%)",
+        transform: "translate(-50%, -50%)",
+    },
+    button_options_button: {
+        position: "relative",
+        backgroundColor: "black",
+        border: "1px solid white",
+        color: "white",
+        padding: "5px 15px",
+        cursor: "pointer",
+        margin: "5px",
+        fontFamily: "Georgia",
+    },
+    button_options_select: {
+        position: "relative",
+        backgroundColor: "black",
+        border: "1px solid white",
+        color: "white",
+        padding: "5px 15px",
+        cursor: "pointer",
+        margin: "5px",
+        fontFamily: "Georgia",
+    },
+};

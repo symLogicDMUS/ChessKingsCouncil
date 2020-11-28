@@ -1,10 +1,10 @@
 import React from "react";
 import { findDidUserVisitPage, recordUserVisitedPage } from "../../../API/findRecordDidUserVisitPage";
-// import { getHelpIconStyle } from "../styles";
-import "../NavBar.scss";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {styles} from "./HelpComponent.jss";
 
 
-export class HelpComponent extends React.Component {
+class HelpComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = { selected: false };
@@ -14,7 +14,7 @@ export class HelpComponent extends React.Component {
     componentDidMount() {
         findDidUserVisitPage(this.props.currentPage).then(([exists]) => {
             recordUserVisitedPage(this.props.currentPage).then(([res]) => {
-                const firstTime = exists ? false : true;
+                const firstTime = !exists;
                 this.props.setFirstTime(firstTime);
             });
         });
@@ -35,17 +35,19 @@ export class HelpComponent extends React.Component {
     render() {
         return (
             <div
-                className={this.props.classes.button}
+                className={this.props.classes.help}
                 onMouseEnter={this.select}
                 onMouseLeave={this.unselect}
                 onClick={() => this.props.togleHelpModal(true)}
             >
                 <img
                     src={`/Images/Navbar/${this.props.pageIcon}-${this.getIconColor()}.svg`}
-                    className="help-icon-style"
+                    className={this.props.classes.help_icon_image}
                     alt=""
                 />
             </div>
         );
     }
 }
+
+export default withStyles(styles)(HelpComponent)

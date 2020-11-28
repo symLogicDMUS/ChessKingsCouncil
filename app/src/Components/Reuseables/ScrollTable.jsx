@@ -1,6 +1,5 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {styles} from "./ScrollTable.jss"
 import {styles} from "./ScrollTable.jss";
 
 class ScrollTable extends React.Component {
@@ -72,26 +71,26 @@ class ScrollTable extends React.Component {
 
         return (
             <div className={this.props.classes.scrollTable}>
-                <div className="up-arrow" onClick={this.moveUp}>
-                    <img src="/Images/arrows/up-arrow.svg" className="scroll-arrow-img" />
+                <div className={this.props.classes.upArrow} onClick={this.moveUp}>
+                    <img src="/Images/arrows/up-arrow.svg" className={this.props.classes.arrowImg} />
                 </div>
-                <div className="scroll-table-item1" style={{ fontSize: this.props.cellFontSize }}>
+                <div className={this.props.classes.item1}>
                     {this.inView[0]}
                 </div>
-                <div className="scroll-table-item2" style={{ fontSize: this.props.cellFontSize }}>
+                <div className={this.props.classes.item2}>
                     {this.inView[1]}
                 </div>
-                <div className="scroll-table-item3" style={{ fontSize: this.props.cellFontSize }}>
+                <div className={this.props.classes.item3}>
                     {this.inView[2]}
                 </div>
-                <div className="scroll-table-item4" style={{ fontSize: this.props.cellFontSize }}>
+                <div className={this.props.classes.item4}>
                     {this.inView[3]}
                 </div>
-                <div className="scroll-table-item5" style={{ fontSize: this.props.cellFontSize }}>
+                <div className={this.props.classes.item5}>
                     {this.inView[4]}
                 </div>
-                <div className="down-arrow" onClick={this.moveDown}>
-                    <img src="/Images/arrows/down-arrow.svg" className="scroll-arrow-img" />
+                <div className={this.props.classes.downArrow} onClick={this.moveDown}>
+                    <img src="/Images/arrows/down-arrow.svg" className={this.props.classes.arrowImg} />
                 </div>
             </div>
         );

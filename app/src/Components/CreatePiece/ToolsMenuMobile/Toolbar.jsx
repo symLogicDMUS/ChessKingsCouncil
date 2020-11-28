@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "../scss/ToolsMenuMobile/ToolsMenuMobile.scss";
+import {useStyles} from "./ToolsMenuMoblie.jss";
 
-export function Toolbar({ togleExpand, toolName, toolHeight, selectedTool }) {
-    var toolClass = `tools-menu-${toolName}`;
-    var widgetClass = `${toolName}-expand-widget`;
+export function Toolbar({ toggleExpand, toolName, toolHeight, selectedTool }) {
+
+    const classes = useStyles()
+
+    let className = classes[toolName]
+    let widgetType = 'expand'
     if (toolName === selectedTool) {
-        toolClass = "tool-bar-selected";
-        widgetClass = "tool-bar-selected-widget";
+        className = classes.selected_tool
+        widgetType = 'colapse'
     }
-
-    const widgetType = selectedTool ? "colapse" : "expand";
 
     return (
         <>
-            <motion.div className={toolClass} animate={{ scaleY: toolHeight }} />
+            <motion.div className={} animate={{ scaleY: toolHeight }} />
             <img
-                className={widgetClass}
+                className={classes[toolName].widget}
                 src={`/Images/${widgetType}/${widgetType}-a9a9a9.svg`}
-                onClick={() => togleExpand(toolName)}
+                onClick={() => toggleExpand(toolName)}
             />
         </>
     );

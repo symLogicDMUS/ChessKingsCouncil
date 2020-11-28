@@ -1,14 +1,6 @@
 import React from "react";
-import "../Home.scss";
 import { Link } from "react-router-dom";
-/**
- *
- * This file was generated with Adobe XD React Exporter
- * Exporter for Adobe XD is written by: Johannes Pichler <j.pichler@webpixels.at>
- *
- * NOTE: has since been modified.
- *
- **/
+import "../Home.scss";
 
 export class CouncilRulesIcon extends React.Component {
     constructor(props) {

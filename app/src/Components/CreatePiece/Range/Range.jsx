@@ -5,9 +5,10 @@ import { RangeDisplayWindow } from "./RangeDisplayWindow";
 import { stylesObjects } from "../create-piece-styles-objects";
 import { angleToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
-import {styles} from "./_Range.jss";
+import { styles } from "./Range.jss"
+import withStyles from "@material-ui/core/styles/withStyles";
 
-export class Range extends React.Component {
+class Range extends React.Component {
     constructor(props) {
         super(props);
         this.state = { userInput: "" };
@@ -67,15 +68,15 @@ export class Range extends React.Component {
     render() {
         return (
             <>
-                <div className="range-tool" style={stylesObjects[this.props.screenCase]["Range"]()}>
-                    <div className="range-title">Range</div>
+                <div className={this.props.classes.range_tool}>
+                    <div className={this.props.classes.range_title}>Range</div>
                     <RangeDisplayWindow
                         ranges={{ ...this.getSpanTextLabels(), ...this.getOffsetTextLabels() }}
                         screenCase={this.props.screenCase}
                     />
-                    <div className="direction-pad">
+                    <div className={this.props.classes.direction_pad}>
                         {this.getArrowButtons()}
-                        <div className="middle" />
+                        <div className={this.props.classes.middle} />
                     </div>
                 </div>
             </>
@@ -83,4 +84,4 @@ export class Range extends React.Component {
     }
 }
 
-export let test = () => ReactDOM.render(<Range />, document.getElementById("root"));
+export default withStyles(styles)(Range)

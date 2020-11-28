@@ -1,7 +1,8 @@
 import React from "react";
-import "../scss/Name/name-label/NameLabel.scss";
+import {styles} from "NameLabel.jss";
+import withStyles from "@material-ui/core/styles/withStyles";
 
-export class NameLabel extends React.Component {
+class NameLabel extends React.Component {
 
     getStyle() {
         return {
@@ -14,9 +15,11 @@ export class NameLabel extends React.Component {
 
     render() {
         return (
-            <div className="name-label" style={this.getStyle()}>
+            <div className={this.props.classes.name_label} style={this.getStyle()}>
                 {this.props.name}
             </div>
         )
     }
 }
+
+export default withStyles(styles)(NameLabel);

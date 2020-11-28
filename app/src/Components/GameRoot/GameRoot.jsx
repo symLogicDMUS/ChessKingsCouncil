@@ -1,40 +1,38 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import { Board } from "./Board/Board";
+import Board from "./Board/Board";
+import Promo from "./Promo/Promo";
+import { isPawn } from "../helpers/isPawn";
+import { AIDisplay } from "./AI/AIDisplay";
+import { makeMove } from "./Move/makeMove";
+import { OVER } from "../helpers/gStatusTypes";
+import { update } from "../../apiHelpers/update";
+import { saveGame } from "../../API/saveGame";
+import { SaveAs } from "./SaveResignTool/SaveAs";
+import { Fen } from "../../game_logic/fenParser/Fen";
+import { MessageModal } from "../NavBar/Help/MessageModal";
+import { updateCouncil } from "../../apiHelpers/updateCouncil";
 import { GameRootHeader as Header } from "./Header/GameRootHeader";
+import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
+import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
+import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { rook_starting_rf, king_starting_rf } from "./sharedData/castleRankfiles";
 import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
 import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
-import { Fen } from "../../game_logic/fenParser/Fen";
 import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
 import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
 import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
-import { Promo } from "./Modals/Promo";
-import { isPawn } from "../helpers/isPawn";
-import { SaveAs } from "./Modals/SaveAs";
-import { Saving } from "./Modals/Saving";
-import { SaveSuccessfull } from "./Modals/SaveSuccessfull";
-import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
-import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
-import { AIDisplay } from "./AI/AIDisplay";
-import { makeMove } from "./Move/makeMove";
-// import { ConfirmRedirect } from "../NavBar/ConfirmRedirect";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
-import { MessageModal } from "../NavBar/Help/MessageModal";
-import { OVER } from "../helpers/gStatusTypes";
-import { update } from "../../apiHelpers/update";
-import { updateCouncil } from "../../apiHelpers/updateCouncil";
-import { saveGame } from "../../API/saveGame";
-import "./scss/GameRoot.scss";
+import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
+import "./GameRoot.scss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme: "dark", unsavedChanges: false };
+        this.state = { bValue: true, messageModal: false, theme: "dark", unsavedChanges: false, specialCase: "none" };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -63,7 +61,6 @@ class GameRoot extends React.Component {
         this.aiColor = this.setAiColor();
         this.promo = false;
         this.navExpanded = true;
-        this.pieceRangeHighlight = "none";
         this.helpTitle = null;
         this.helpText = null;
         this.messageTitle = null;
@@ -74,9 +71,8 @@ class GameRoot extends React.Component {
         this.redirectPath = null;
         this.redirectMessage = gamePageRedirectMessage;
         this.save = this.save.bind(this);
-        this.update = this.update.bind(this);
+        this.triggerRender = this.triggerRender.bind(this);
         this.resign = this.resign.bind(this);
-        this.updatePrh = this.updatePrh.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
@@ -85,8 +81,9 @@ class GameRoot extends React.Component {
         this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
-        this.togleSaveAs = this.togleSaveAs.bind(this);
+        this.toggleSaveAs = this.toggleSaveAs.bind(this);
         this.changeName = this.changeName.bind(this);
+        this.isLegal = this.isLegal.bind(this);
     }
 
     componentDidMount() {
@@ -96,17 +93,13 @@ class GameRoot extends React.Component {
             if (this.turn === this.aiColor && !this.isGameOver()) {
                 this.updateTurnData();
                 this.prepareAiMove();
-                this.update();
+                this.triggerRender();
             }
         }
     }
 
     isGameOver() {
-        if (this.gameStatus.status === OVER) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.gameStatus.status === OVER;
     }
 
     setAiColor() {
@@ -127,7 +120,7 @@ class GameRoot extends React.Component {
         this.toggleTurn();
         this.updateFen(this.aiStart, this.aiDest);
         this.updateTurnData();
-        this.update();
+        this.triggerRender();
     }
 
     getBoard() {
@@ -176,16 +169,12 @@ class GameRoot extends React.Component {
         }
     }
 
-    update() {
+    triggerRender() {
         this.setState({ bValue: !this.state.bValue });
     }
 
-    updateSpecialCase(case_) {
-        this.specialCase = case_;
-    }
-
-    updatePrh(pieceRangeHighlight) {
-        this.pieceRangeHighlight = pieceRangeHighlight;
+    updateSpecialCase(specialCase) {
+        this.setState({ specialCase: specialCase });
     }
 
     updateTurnData() {
@@ -256,17 +245,19 @@ class GameRoot extends React.Component {
             json_records: records,
             piece_defs: pieceDefs,
             id_dict: this.idDict,
+        }).then(([res]) => {
+            this.updateSpecialCase("save-success");
         });
     }
 
     resign() {
         if (!this.isGameOver()) {
             this.gameStatus.updateByObj({ status: OVER, condition: "resigned", winner: this.getColorLastMove() });
-            this.update();
+            this.triggerRender();
         }
     }
 
-    togleSaveAs(boolVal) {
+    toggleSaveAs(boolVal) {
         this.saveAsModal = boolVal;
     }
 
@@ -277,7 +268,7 @@ class GameRoot extends React.Component {
     setConfirmRedirect(boolVal, path) {
         this.confirmRedirectModal = boolVal;
         this.redirectPath = path;
-        this.update();
+        this.triggerRender();
     }
 
     setUnsavedProgress(boolVal) {
@@ -298,23 +289,22 @@ class GameRoot extends React.Component {
                 <NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 <Board gameroot={this} />
-                {this.specialCase === "promo" && (
+                {this.state.specialCase === "promo" && (
                     <Promo
                         promoChoices={this.promoChoices}
-                        board={this.board}
                         jsonRecords={this.jsonRecords}
+                        board={this.board}
                         idDict={this.idDict}
                         pieceDefs={this.pieceDefs}
                         isCouncil={this.isCouncil}
                         updateTurnData={this.updateTurnData}
                         updateSpecialCase={this.updateSpecialCase}
-                        update={this.update}
                         color={this.getColorLastMove()}
                         aiColor={this.aiColor}
                         pawnLoc={this.specialMoves.pendingPromo}
                     />
                 )}
-                {this.aiDisplay && this.specialCase !== "promo" && !this.isGameOver() && (
+                {this.aiDisplay && this.state.specialCase !== "promo" && !this.isGameOver() && (
                     <AIDisplay
                         aiStart={this.aiStart}
                         aiDest={this.aiDest}
@@ -327,30 +317,27 @@ class GameRoot extends React.Component {
                     allRanges={{ ...this.ranges, ...this.enemyRanges }}
                     pieceDefs={this.pieceDefs}
                     idDict={this.idDict}
-                    update={this.update}
-                    updatePrh={this.updatePrh}
+                    triggerRender={this.triggerRender}
                 />
                 <SaveResignTool
                     gameName={this.gameName}
                     gameType={this.gameType}
                     playerType={this.playerType}
                     save={this.save}
-                    update={this.update}
                     resign={this.resign}
                     updateSpecialCase={this.updateSpecialCase}
-                    togleSaveAs={this.togleSaveAs}
+                    toggleSaveAs={this.toggleSaveAs}
                 />
                 {this.saveAsModal && (
                     <SaveAs
-                        togleSaveAs={this.togleSaveAs}
+                        togleSaveAs={this.toggleSaveAs}
                         changeName={this.changeName}
-                        update={this.update}
+                        triggerRender={this.triggerRender}
                         save={this.save}
                     />
                 )}
-                {this.specialCase === "saving" && <Saving />}
                 {this.specialCase === "save-success" && (
-                    <SaveSuccessfull update={this.update} updateSpecialCase={this.updateSpecialCase} />
+                    <DisplayMessageOnTimer methodToCallOnFinish={this.updateSpecialCase} valueToSendOnFinish="none" />
                 )}
             </>
         );

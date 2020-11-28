@@ -1,18 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { stylesObjects } from "./choose-modal-styles-objects";
-import {styles} from "./_ImgChoice.jss";
+import { styles } from "./ImgChoice.jss";
 
 export function ImgChoice({ name, screenCase, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
-    var class_ = "image-choice-container";
-    if (name === imgNameChoice) class_ = "selected-image-choice-container";
+    const classes = useStyles()
     return (
         <div
-            className={class_}
+            className={name === imgNameChoice ? classes.selected : classes.normal}
             onClick={() => setChoice(name)}
             onMouseEnter={() => setHoverText(name)}
             onMouseLeave={() => setHoverText(null)}
-            style={stylesObjects[screenCase]["imageContainer"]()}
         >
             <motion.img
                 src={base64ImgStr}

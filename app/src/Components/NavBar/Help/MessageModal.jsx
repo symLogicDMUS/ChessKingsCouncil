@@ -4,18 +4,17 @@ import {styles} from "./MessageModal.jss";
 
 export function MessageModal({ screenCase, toggleMessageModal, messageTitle, messageText }) {
     return (
-        <div className="message-modal">
-            <div className="message-modal-window" style={stylesObjects[screenCase]["Modal"]()}>
+        <div className={this.props.classes.message_modal}>
+            <div className={this.props.classes.message_modal_window}>
                 <img
                     src="/Images/close/close.svg"
-                    className="msg-modal-close"
+                    className={this.props.classes.msg_modal_close}
                     onClick={() => toggleMessageModal(false)}
                 />
-                <div className="msg-title">{messageTitle}</div>
-                <div className="msg-text">{messageText}</div>
+                <div className={this.props.classes.msg_title}>{messageTitle}</div>
+                <div className={this.props.classes.msg_text}>{messageText}</div>
                 <button
-                    className="msg-ok-button"
-                    style={stylesObjects[screenCase]["OkButton"](stylesObjects[screenCase]["Modal"]())}
+                    className={this.props.classes.msg_ok_button}
                     onClick={() => toggleMessageModal(false)}
                 >
                     Ok

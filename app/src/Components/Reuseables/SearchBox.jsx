@@ -1,7 +1,7 @@
 import React from "react";
 import {styles} from "./SearchBox.jss";
 
-export class SearchBox extends React.Component {
+class SearchBox extends React.Component {
     constructor(props) {
         super(props);
         this.userInput = null;
@@ -23,10 +23,10 @@ export class SearchBox extends React.Component {
 
     render() {
         return (
-            <div className="search-tool" style={{...this.props.styleObject, backgroundColor: this.state.backgroundColor}}>
+            <div className={this.props.classes.search_tool} style={{...this.props.styleObject, backgroundColor: this.state.backgroundColor}}>
                 <img
                     src="/Images/other/magnifying-glass-b6n6n6.svg"
-                    className="search-box-magnifying-glass"
+                    className={this.props.classes.search_box_magnifying_glass}
                     alt="magnifying glass symbol for search boxes"
                 />
                 <input
@@ -35,7 +35,7 @@ export class SearchBox extends React.Component {
                     onChange={this.handleUserInput}
                     onFocus={this.togleStyle}
                     onBlur={this.togleStyle}
-                    className="search-box"
+                    className={this.props.classes.search_box}
                     style={{ backgroundColor: this.state.backgroundColor, border: this.state.border }}
                 />
             </div>

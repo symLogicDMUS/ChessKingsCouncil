@@ -1,7 +1,7 @@
 import React from "react";
 import {styles} from "./PlayAsButton.jss";
 
-export class PlayAsButton extends React.Component {
+class PlayAsButton extends React.Component {
 
     constructor(props) {
         super(props);

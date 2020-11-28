@@ -1,6 +1,6 @@
 import React from "react";
 
-export class StaticHelpComponent extends React.Component {
+class StaticHelpComponent extends React.Component {
     constructor(props) {
         super(props);
         this.src = this.props.normal;

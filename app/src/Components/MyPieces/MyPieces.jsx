@@ -2,13 +2,15 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import MediaQuery from "react-responsive";
 import NavBar from "../NavBar/NavBar";
+// import { SearchBar } from "./SearchBar";
 import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {deleteDef} from "../../API/deleteDef";
 import {getDefs} from "../../API/getDefs";
 import {MessageModal} from "../NavBar/Help/MessageModal";
 import PieceProfiles from "../PieceProfiles/PieceProfiles";
-// import { SearchBar } from "./SearchBar";
+import withStyles from "@material-ui/core/styles/withStyles";
 import {styles} from "./MyPieces.jss";
+import "./MyPieces.scss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -51,7 +53,7 @@ class MyPieces extends React.Component {
         getDefs().then(([defs]) => {
             if (defs) {
                 this.defs = defs;
-                for (var pieceName of this.standards) {
+                for (const pieceName of this.standards) {
                     if (Object.keys(this.defs).includes(pieceName)) delete this.defs[pieceName];
                 }
             } else {
@@ -127,9 +129,9 @@ class MyPieces extends React.Component {
                     startingProperties={{initLeft: 0, initTop: 0}}
                 />
 
-                <div className="my-pieces">
-                    <div className="my-pieces-top-bar">
-                        <div className="my-pieces-title">My Pieces</div>
+                <div className={this.props.classes.my_pieces}>
+                    <div className={this.props.classes.topbar}>
+                        <div className={this.props.classes.title}>My Pieces</div>
                     </div>
                     {this.state.fetched && (
                         <PieceProfiles
@@ -171,4 +173,4 @@ class MyPieces extends React.Component {
     }
 }
 
-export default MyPieces;
+export default withStyles(styles)(MyPieces)

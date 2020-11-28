@@ -1,8 +1,7 @@
 import {
     margin,
     pieceNameWidth,
-    pieceProfilesHeight, pieceProfilesLeft, pieceProfilesTop,
-    pieceProfilesWidth, profileGridTop, profileHeaderHeight, profileHeaderWidth, subDropdownWidth,
+    profileGridTop, profileHeaderHeight, profileHeaderWidth, subDropdownWidth,
     topBarHeight
 } from "../sizeAndPosVariables.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";

@@ -1,99 +1,88 @@
-export const style = {
-    save_as_modal: {
-      position: 'fixed',
-      zIndex: '5',
-      width: '100%',
-      height: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.1)'
+import {modal} from "../../helpers/modal.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const formAndButton = {
+    position: 'absolute',
+    zIndex: 'inherit',
+    cursor: 'pointer',
+    color: '#b1faae',
+    backgroundColor: 'green',
+    border: '0.25em solid #b1faae',
+    borderRadius: '0.5em',
+    textAlign: 'center',
+    fontSize: window.screen.availHeight * 0.0185,
+    paddingTop: window.screen.availHeight * 0.0026,
+    fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
+    '&:hover': {
+        color: 'green',
+        backgroundColor: '#b1faae'
     },
-    save_as_window: {
-      position: 'absolute',
-      zIndex: 'inherit',
-      left: '470px',
-      top: '227px',
-      width: '325px',
-      height: '235px',
-      borderRadius: '10px',
-      color: '#b1faae',
-      backgroundColor: 'green',
-      border: '1px solid #b1faae'
+}
+
+export const useStyles = makeStyles({
+    modal: {
+        ...modal
     },
-    save_as_text_label: {
-      position: 'absolute',
-      zIndex: 'inherit',
-      width: '325px',
-      height: '20px',
-      color: '#b1faae',
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-      fontSize: '18px',
-      textAlign: 'center'
+    window: {
+        "@media screen and (min-device-width: 768px)": {
+            left: window.screen.availWidth * 0.31,
+            top: window.screen.availHeight * 0.30,
+            width: window.screen.availWidth * 0.21,
+            height: window.screen.availHeight * 0.31,
+        },
+        position: 'absolute',
+        zIndex: 'inherit',
+        borderRadius: '1.2em',
+        color: '#b1faae',
+        backgroundColor: 'green',
+        border: '0.8em solid #b1faae'
     },
-    save_as_form: {
-      position: 'absolute',
-      zIndex: 'inherit',
-      top: '95px',
-      left: '30px',
-      width: '265px',
-      height: '20px',
-      color: '#b1faae',
-      backgroundColor: 'green',
-      border: '1px solid #b1faae',
-      borderRadius: '5px',
-      fontSize: '16px',
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-      outline: 'none'
+    label: {
+        position: 'absolute',
+        zIndex: 'inherit',
+        "@media screen and (min-device-width: 768px)": {
+            width: window.screen.availWidth * 0.211,
+            height: window.screen.availHeight * 0.02,
+            fontSize: window.screen.availHeight * 0.02,
+        },
+        fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
+        textAlign: 'center',
+        color: '#b1faae',
     },
-    save_as_form__placeholder: {
-      color: '#b1faae',
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif'
+    form: {
+        "@media screen and (min-device-width: 768px)": {
+            top: window.screen.availHeight * 0.195,
+            left: window.screen.availWidth * 0.019,
+            width: window.screen.availWidth * 0.1725,
+            height: window.screen.availHeight * 0.021,
+        },
+        ...formAndButton
     },
-    save_as_form_type_text__focus: {
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif'
+    ok: {
+        "@media screen and (min-device-width: 768px)": {
+            top: window.screen.availHeight * 0.123,
+            left: window.screen.availWidth * 0.052,
+            height: window.screen.availHeight * 0.021,
+            width: window.screen.availWidth * 0.0455,
+        },
+        ...formAndButton,
     },
-    save_as_ok: {
-      position: 'absolute',
-      top: '185px',
-      left: '80px',
-      height: '20px',
-      width: '70px',
-      zIndex: 'inherit',
-      color: '#b1faae',
-      backgroundColor: 'green',
-      border: '1px solid #b1faae',
-      borderRadius: '5px',
-      textAlign: 'center',
-      fontSize: '14px',
-      paddingTop: '2px',
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-      cursor: 'pointer'
+    cancel: {
+        "@media screen and (min-device-width: 768px)": {
+            top: window.screen.availHeight * 0.245,
+            left: window.screen.availWidth * 0.117,
+            height: window.screen.availHeight * 0.021,
+            width: window.screen.availWidth * 0.0455,
+        },
+        ...formAndButton,
     },
-    save_as_ok_hover: {
-      color: 'green',
-      backgroundColor: '#b1faae'
-    },
-    save_as_cancel: {
-      position: 'absolute',
-      top: '185px',
-      left: '180px',
-      height: '20px',
-      width: '70px',
-      zIndex: 'inherit',
-      color: '#b1faae',
-      backgroundColor: 'green',
-      border: '1px solid #b1faae',
-      borderRadius: '5px',
-      textAlign: 'center',
-      fontSize: '14px',
-      paddingTop: '2px',
-      fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-      cursor: 'pointer'
-    },
-    save_as_cancel_hover: {
-      color: 'green',
-      backgroundColor: '#b1faae'
-    },
-    save_as_confirm: {
-      position: 'absolute',
-      zIndex: 'inherit'
+    confirm: {
+        "@media screen and (min-device-width: 768px)": {
+            top: window.screen.availHeight * 0.245,
+            left: window.screen.availWidth * 0.117,
+            height: window.screen.availHeight * 0.021,
+            width: window.screen.availWidth * 0.0455,
+        },
+        ...formAndButton
     }
-  }
+});

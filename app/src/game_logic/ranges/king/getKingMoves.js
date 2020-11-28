@@ -32,4 +32,4 @@ if (require.main === module) {
 
 }
 */
-    printBoard(board, heading='test 2, black', highlights=kingMoves)
+    printBoard(_board, heading='test 2, black', highlights=kingMoves)

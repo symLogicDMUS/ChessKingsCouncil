@@ -124,6 +124,6 @@ export class DisplayBoard extends React.Component {
         if (this.props.rangeType === "offsets") this.setOffsets();
         else if (this.props.rangeType === "spans") this.setSpans();
         else return <div style={{ color: "#EC2525" }}>ERROR: invalid rangeType</div>;
-        return <div className="pieces-display-board">{this.getBoard()}</div>;
+        return <div className={this.props.classes.pieces_display_board}>{this.getBoard()}</div>;
     }
 }

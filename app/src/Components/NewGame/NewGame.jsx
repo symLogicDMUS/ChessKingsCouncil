@@ -23,7 +23,7 @@ import {styles} from "./NewGame.jss";
  * id:piece-Name arrangement is unique to that game, and is stored in game-Name.defs
  * in the game's folder.
  */
-export class NewGame extends React.Component {
+class NewGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {step: 0};
@@ -99,15 +99,15 @@ export class NewGame extends React.Component {
         this.gameData["id_dict"] = idDict; //4.
         this.gameData["piece_defs"] = {}; //4.
 
-        var name;
-        for (var id of Object.keys(idDict)) {
+        let name;
+        for (const id of Object.keys(idDict)) {
             if (id !== "k" && id !== "p") {
                 name = idDict[id];
                 this.gameData["piece_defs"][name] = defs[name]; //4.
             }
         }
 
-        var dataEntry = firstUpdate(
+        const dataEntry = firstUpdate(
             this.gameData["board"],
             this.gameData["json_records"],
             "W",

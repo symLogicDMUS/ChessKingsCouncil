@@ -2,7 +2,7 @@ import React from "react";
 import {styles} from "./PlayAsOption.jss";
 import {getColorNameLc} from "../../helpers/getColorNameLc";
 
-export class PlayAsOption extends React.Component {
+class PlayAsOption extends React.Component {
 
     constructor(props) {
         super(props);
@@ -29,11 +29,11 @@ export class PlayAsOption extends React.Component {
             optionText = getColorNameLc(this.props.optionName)
 
         return (
-            <div className="play-as-option" style={{top:this.props.top}}>
-                <div className="play-as-option-checkebox" onClick={this.update}>
+            <div className={this.props.classes.play_as_option} style={{top:this.props.top}}>
+                <div className={this.props.classes.play_as_option_checkebox} onClick={this.update}>
                     {this.getCheckmark()}
                 </div>
-                <div className="play-as-option-name">
+                <div className={this.props.classes.play_as_option_name}>
                     <img src={`/Images/text-labels/${optionText}.svg`} style={{position:"absolute", left:68, top:10, height:48}} alt="title for checkbox" />
                 </div>
             </div>

@@ -1,7 +1,8 @@
 import React from "react";
-import {styles} from "./_getSpanLabel.jss";
+import { useStyles } from "./SpanLabel.jss";
 
 export function SpanLabel() {
+    const classes = useStyles()
     return (
     <div className={classes.span}>
         <svg viewBox="0 0 40 25">

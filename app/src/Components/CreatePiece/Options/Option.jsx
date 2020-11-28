@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import {styles} from "./_Option.jss";
+import { useStyles } from "./Option.jss";
 
 export function Option({ className, clickMethod, normal, highlighted, alt }) {
     let [isHover, setHover] = useState(false);
@@ -12,8 +12,7 @@ export function Option({ className, clickMethod, normal, highlighted, alt }) {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
         >
-            <img src={src} className="option-img" alt={`${alt}`} />
+            <img src={src} className={classes.image} alt={`${alt}`} />
         </div>
     );
 }
-

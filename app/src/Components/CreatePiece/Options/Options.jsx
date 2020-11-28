@@ -1,12 +1,12 @@
 import React from "react";
 import { Option } from "./Option";
-import { stylesObjects } from "../create-piece-styles-objects";
-import {styles} from "./_Options.jss";
+import { styles } from "./Options.jss";
+import withStyles from "@material-ui/core/styles/withStyles";
 
 export function Options({screenCase, save, toggleLoadModal, reset, eraseRange }) {
         return (
             <>
-                <div className="options-tool" style={stylesObjects[screenCase]["Options"]()}>
+                <div className="options-tool">
                     <div className="options-title">Options</div>
                     <Option
                         className="load-option"
@@ -40,3 +40,5 @@ export function Options({screenCase, save, toggleLoadModal, reset, eraseRange })
             </>
         );
 }
+
+export default withStyles(styles)(Options)

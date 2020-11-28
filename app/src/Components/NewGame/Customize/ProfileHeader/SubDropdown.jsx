@@ -11,7 +11,7 @@ import {styles} from "../../../Reuseables/MuiSelect.jss";
  * props:
  * positionAndWidth: the positionAndWidth object includes top/left values, may include margins
  */
-export class SubDropdown extends React.Component {
+class SubDropdown extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);

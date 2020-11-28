@@ -1,21 +1,24 @@
 import React from 'react';
-import { useDrag, DragPreviewImage } from 'react-dnd';
-import "../scss/piece.scss";
+import {useDrag} from 'react-dnd';
+import {useStyles} from "./Piece.jss";
 
-export function Piece({pos, id_, pieceImgBase64Str}) {
-  let iType = id_.slice(0, 2);
-  const [{isDragging}, drag] = useDrag({
-    item: { type: iType, pos: pos, id_:id_},
-		collect: monitor => ({
-			isDragging: !!monitor.isDragging(),
-		})
-  })
-  
-  return (
-    <>
-      <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1, cursor: 'move'}}>
-          <img src={pieceImgBase64Str} className={"piece"} alt="icon of piece" />
-      </div>
-    </>
-  );
+export function Piece({rf, id, pieceImgBase64Str, alt}) {
+
+    const classes = useStyles()
+
+    let iType = id.slice(0, 2);
+    const [drag] = useDrag({
+        item: {type: iType, pos: rf, id_: id},
+        collect: monitor => ({
+            isDragging: !!monitor.isDragging(),
+        })
+    })
+
+    return (
+        <>
+            <div ref={drag}>
+                <img src={pieceImgBase64Str} className={classes.piece} alt={`${alt} (icon of piece)`}/>
+            </div>
+        </>
+    );
 }

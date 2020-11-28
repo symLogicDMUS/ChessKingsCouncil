@@ -1,9 +1,10 @@
 export const sqrClasses = 
-{'a8': 'sqr2', 'b8': 'sqr1', 'c8': 'sqr2', 'd8': 'sqr1', 'e8': 'sqr2', 'f8': 'sqr1', 'g8': 'sqr2', 'h8': 'sqr1', 
-'a7': 'sqr1', 'b7': 'sqr2', 'c7': 'sqr1', 'd7': 'sqr2', 'e7': 'sqr1', 'f7': 'sqr2', 'g7': 'sqr1', 'h7': 'sqr2', 
-'a6': 'sqr2', 'b6': 'sqr1', 'c6': 'sqr2', 'd6': 'sqr1', 'e6': 'sqr2', 'f6': 'sqr1', 'g6': 'sqr2', 'h6': 'sqr1', 
-'a5': 'sqr1', 'b5': 'sqr2', 'c5': 'sqr1', 'd5': 'sqr2', 'e5': 'sqr1', 'f5': 'sqr2', 'g5': 'sqr1', 'h5': 'sqr2', 
-'a4': 'sqr2', 'b4': 'sqr1', 'c4': 'sqr2', 'd4': 'sqr1', 'e4': 'sqr2', 'f4': 'sqr1', 'g4': 'sqr2', 'h4': 'sqr1', 
-'a3': 'sqr1', 'b3': 'sqr2', 'c3': 'sqr1', 'd3': 'sqr2', 'e3': 'sqr1', 'f3': 'sqr2', 'g3': 'sqr1', 'h3': 'sqr2', 
-'a2': 'sqr2', 'b2': 'sqr1', 'c2': 'sqr2', 'd2': 'sqr1', 'e2': 'sqr2', 'f2': 'sqr1', 'g2': 'sqr2', 'h2': 'sqr1', 
-'a1': 'sqr1', 'b1': 'sqr2', 'c1': 'sqr1', 'd1': 'sqr2', 'e1': 'sqr1', 'f1': 'sqr2', 'g1': 'sqr1', 'h1': 'sqr2'};
+{'a8': 'light', 'b8': 'dark', 'c8': 'light', 'd8': 'dark', 'e8': 'light', 'f8': 'dark', 'g8': 'light', 'h8': 'dark', 
+'a7': 'dark', 'b7': 'light', 'c7': 'dark', 'd7': 'light', 'e7': 'dark', 'f7': 'light', 'g7': 'dark', 'h7': 'light', 
+'a6': 'light', 'b6': 'dark', 'c6': 'light', 'd6': 'dark', 'e6': 'light', 'f6': 'dark', 'g6': 'light', 'h6': 'dark', 
+'a5': 'dark', 'b5': 'light', 'c5': 'dark', 'd5': 'light', 'e5': 'dark', 'f5': 'light', 'g5': 'dark', 'h5': 'light', 
+'a4': 'light', 'b4': 'dark', 'c4': 'light', 'd4': 'dark', 'e4': 'light', 'f4': 'dark', 'g4': 'light', 'h4': 'dark', 
+'a3': 'dark', 'b3': 'light', 'c3': 'dark', 'd3': 'light', 'e3': 'dark', 'f3': 'light', 'g3': 'dark', 'h3': 'light', 
+'a2': 'light', 'b2': 'dark', 'c2': 'light', 'd2': 'dark', 'e2': 'light', 'f2': 'dark', 'g2': 'light', 'h2': 'dark', 
+'a1': 'dark', 'b1': 'light', 'c1': 'dark', 'd1': 'light', 'e1': 'dark', 'f1': 'light', 'g1': 'dark', 'h1': 'light'};
+

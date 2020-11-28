@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getIconColor } from "./getIconColor";
+import {useStyles} from "./NavBarButton.jss";
 
 export function NavBarButton({
     path,
@@ -8,7 +9,6 @@ export function NavBarButton({
     isLocalLink,
     unsavedChanges,
     toggleConfirmRedirect,
-    classes,
     pageIcon,
     theme,
 }) {
@@ -17,15 +17,17 @@ export function NavBarButton({
     let pageRedirectMethod = isLocalLink ? () => (window.location.href = path) : () => history.push(path);
     if (unsavedChanges) pageRedirectMethod = () => toggleConfirmRedirect(true, path, isLocalLink);
 
+    const classes = useStyles()
+
     return (
         <div
-            className={classes.button}
+            className={classes[pageName]}
             onClick={pageRedirectMethod}
         >
-            <div className={classes["icon-container"]}>
+            <div className={classes.icon}>
                 <img
                     src={`/Images/Navbar/${pageIcon}-invert-${getIconColor(theme)}.svg`}
-                    className="nav-bar-icon-style"
+                    className={classes.page_link_image}
                     alt=""
                 />
             </div>

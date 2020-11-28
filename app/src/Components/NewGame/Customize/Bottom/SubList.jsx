@@ -1,7 +1,7 @@
 import React from "react";
 import {useStyles} from "./SubList.jss";
 
-export function SubList({className, screenCase, subs }) {
+export function SubList({ subs }) {
     const classes = useStyles()
     
     return (

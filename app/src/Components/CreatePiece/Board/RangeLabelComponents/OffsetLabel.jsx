@@ -1,13 +1,15 @@
 import React from "react";
 import {getOffset} from "../../../helpers/getOffset";
-import {styles} from "./_getOffsetLabel.jss";
+import {useStyles} from "./OffsetLabel.jss";
 
-export function offsetLabel(offset) {
+export function OffsetLabel(offset) {
+
+    const classes = useStyles()
 
     let xSign = null;
     let ySign = null;
-    
-    if (offset[0] === 0 && offset[1] == 0) {
+
+    if (offset[0] === 0 && offset[1] === 0) {
         return <div>{null}</div>;
     }
 
@@ -22,20 +24,20 @@ export function offsetLabel(offset) {
         ySign = "+"
 
     let offsetLabel = [
-            
-      <div className={classes.x_offset}>
-        <svg viewBox="0 0 40 20">
-        <text x="0" y="20" textLength="40px">x {xSign} {Math.abs(offset[0])}</text>
-        </svg>
-      </div>,
 
-      <div class="divider"></div>,
+        <div className={classes.x_offset}>
+            <svg viewBox="0 0 40 20">
+                <text x="0" y="20" textLength="40px">x {xSign} {Math.abs(offset[0])}</text>
+            </svg>
+        </div>,
 
-      <div className={classes.y_offset}>
-        <svg viewBox="0 0 40 30" >
-          <text x="0" y="20" textLength="40px">y {ySign} {Math.abs(offset[1])}</text>
-        </svg>
-      </div>
+        <div className="divider" />,
+
+        <div className={classes.y_offset}>
+            <svg viewBox="0 0 40 30">
+                <text x="0" y="20" textLength="40px">y {ySign} {Math.abs(offset[1])}</text>
+            </svg>
+        </div>
     ];
 
     return offsetLabel;

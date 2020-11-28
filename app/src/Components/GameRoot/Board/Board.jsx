@@ -3,50 +3,44 @@ import Backend from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { Square } from "./Square";
 import { Piece } from "./Piece";
-import { rankfiles } from "../../helpers/rankfiles";
-import { sqrClasses } from "../../helpers/sqrClasses";
-import { sqrColors } from "../gameRootHelpers/sqrColors";
-import { getPosPx } from "../gameRootHelpers/getPosPx";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
-import { interactive_board, display_board } from "../styles/desktop/Board";
-import "../scss/interactiveSqr.scss";
-import "../scss/displaySqr.scss";
-import "../scss/piece.scss";
+import withStyles from "@material-ui/core/styles/withStyles";
+import { DisplaySquare } from "./DisplaySquare";
+import {getPieceName} from "../../helpers/getPieceName";
+import { rankfiles } from "../../helpers/rankfiles";
+import { styles } from "./Board.jss";
 
-export class Board extends React.Component {
+class Board extends React.Component {
     constructor(props) {
         super(props);
         this.displaySqrs = [];
         for (const rf of rankfiles) {
-            this.displaySqrs.push(<div className={sqrColors[rf]} style={getPosPx(rf)}></div>);
+            this.displaySqrs.push(<DisplaySquare rf={rf} />);
         }
     }
 
     getInteractiveBoard() {
         let squares = [];
         let pieceImgBase64Str = null;
+        let id = null;
         for (const rf of rankfiles) {
             if (this.props.gameroot.board[rf] === "#") {
                 squares.push(
-                    <Square
-                        rf={rf}
-                        sqr_color={sqrClasses[rf]}
-                        pos={rf}
-                        style={getPosPx(rf)}
-                        gameroot={this.props.gameroot}
-                    >
+                    <Square rf={rf} gameroot={this.props.gameroot}>
                         {null}
                     </Square>
                 );
             } else {
-                pieceImgBase64Str = getPieceImg(
-                    this.props.gameroot.board[rf],
-                    this.props.gameroot.idDict,
-                    this.props.gameroot.pieceDefs
-                );
+                id = this.props.gameroot.board[rf];
+                pieceImgBase64Str = getPieceImg(id, this.props.gameroot.idDict, this.props.gameroot.pieceDefs);
                 squares.push(
-                    <Square sqr_color={sqrClasses[rf]} pos={rf} style={getPosPx(rf)} gameroot={this.props.gameroot}>
-                        <Piece pos={rf} id_={this.props.gameroot.board[rf]} pieceImgBase64Str={pieceImgBase64Str} />
+                    <Square rf={rf} gameroot={this.props.gameroot}>
+                        <Piece
+                            rf={rf}
+                            id={id}
+                            pieceImgBase64Str={pieceImgBase64Str}
+                            alt={getPieceName(id, this.props.gameroot.idDict)}
+                        />
                     </Square>
                 );
             }
@@ -55,20 +49,16 @@ export class Board extends React.Component {
         return squares;
     }
 
-    getDisplayBoard() {
-        return this.displaySqrs;
-    }
-
     render() {
         return (
             <>
                 <DndProvider backend={Backend}>
-                    <div style={interactive_board}>{this.getInteractiveBoard()}</div>
+                    <div style={this.props.classes.interactive_board}>{this.getInteractiveBoard()}</div>
                 </DndProvider>
-                <div style={display_board}>{this.getDisplayBoard()}</div>
+                <div style={this.props.classes.display_board}>{this.displaySqrs}</div>
             </>
         );
     }
 }
 
-export default Board;
+export default withStyles(styles)(Board);

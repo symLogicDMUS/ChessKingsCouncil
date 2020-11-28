@@ -9,6 +9,7 @@ import { parseData } from "../../apiHelpers/parseData";
 // import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import {styles} from "./LoadGame.jss";
+import "./LoadGame.scss";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -188,11 +189,11 @@ class LoadGame extends React.Component {
                 <NavBar currentPage="LoadGame" theme={this.state.theme} unsavedChanges={false} />
                 <img
                     src="/Images/text-labels/LoadGame.svg"
-                    className="load-game-text"
+                    className={this.props.classes.load_game_text}
                     style={this.getTextStyle()}
                     alt="title for loading game"
                 />
-                <div className="button-options" style={this.getButtonStyle()}>
+                <div className={this.props.classes.button_options} style={this.getButtonStyle()}>
                     <select id="games" style={{ width: window.screen.availWidth * 0.31 }} onChange={this.changeName}>
                         {this.getGameList()}
                     </select>

@@ -8,6 +8,8 @@ short:
 * change color of close icon on hover from red to something else (seen in displayBoardModal). maybe a light grey
 
 medium:
+* Make functional Components in addition to class components be a default export, to be consistent
+* go and through every document and use the Prettier command..
 * Have clicking the help Icon toggle the help model.
 * remove .css and .css.map from git, figure out how to include all files of certain extension in gitignore
 * make use stepFuncDict the same across components. shouldn't need a dict for both angles as keys, and one func names as keys

@@ -1,21 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {styles} from "./InvalidGameName.jss";
+import { styles } from "./InvalidGameName.jss";
 
-export class InvalidGameName extends React.Component {
-
-    render() {
-        return (
-            <div className="invalid-game-name-modal">
-                <div className="invalid-game-name-window">
-                    <div className="invalid-game-name-heading">{this.props.header}</div>
-                    <button className="invalid-game-name-button" onClick={this.props.reset}>
-                        Ok
-                    </button>
-                </div>
+export function InvalidGameName() {
+    return (
+        <div className={this.props.classes.invalid_game_name_modal}>
+            <div className={this.props.classes.invalid_game_name_window}>
+                <div className={this.props.classes.invalid_game_name_heading}>{this.props.header}</div>
+                <button className={this.props.classes.invalid_game_name_button} onClick={this.props.reset}>
+                    Ok
+                </button>
             </div>
-        )
-    }
+        </div>
+    );
 }
 
-export let test = () => ReactDOM.render(<InvalidGameName />, document.getElementById('root'))
+export let test = () => ReactDOM.render(<InvalidGameName />, document.getElementById("root"));

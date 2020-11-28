@@ -6,6 +6,7 @@ import { Custom } from "./IconComponents/Custom";
 import { Title } from "./IconComponents/Title";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import {styles} from "./PickType.jss";
+import "./PickType.scss";
 
 class PickType extends React.Component {
     constructor(props) {
@@ -60,7 +61,7 @@ class PickType extends React.Component {
                             <rect width={1920} height={1080} />
                         </clipPath>
                     </defs>
-                    <g id="a" className="a">
+                    <g id="a" className={this.props.classes.a}>
                         <Custom setType={this.setType} />
                         <Standard setType={this.setType} />
                         <Council setType={this.setType} />

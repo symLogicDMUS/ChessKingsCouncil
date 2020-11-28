@@ -1,28 +1,40 @@
 export const styles = {
-    name_component1: {
-        position: "absolute",
-        zIndex: "0",
-        backgroundColor: "#515151",
-        borderRadius: "15px",
-    },
-    "@media screen and (min-device-width: 768px)": {
-        __expression__: "screen and (min-device-width: 768px)",
-        name_component1__name: {
+        name: {
             position: "absolute",
             zIndex: "0",
+            "@media screen and (min-device-width: 768px)": {
+                width: '31.25em',
+                left: window.screen.availWidth * 0.57,
+                height: window.screen.availHeight * 0.08,
+                top: window.screen.availHeight * 0.1976,
+            },
+            "@media screen and (max-device-width: 767px)": {
+                width: window.screen.availWidth * 0.9375 - window.screen.availWidth * 0.01 * 2,
+                height: window.screen.availHeight * 0.4 * 0.5,
+                top: window.screen.availHeight * 0.6 * 1.23,
+                left: window.screen.availWidth * 0.01 * 5,
+            },
             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
             fontSize: "125%",
             color: "#a9a9a9",
-            top: "6%",
-            left: "2.5%",
+            backgroundColor: "#515151",
+            borderRadius: "15px",
         },
-        name_component1__form1: {
+        form1: {
             position: "absolute",
             zIndex: "0",
-            top: "54.28%",
-            left: "2.5%",
-            width: "93.75%",
-            height: "30%",
+            "@media screen and (min-device-width: 768px)": {
+                top: "54.28%",
+                left: "2.5%",
+                width: "93.75%",
+                height: "30%",
+            },
+            "@media screen and (max-device-width: 767px)": {
+                top: "35%",
+                left: "2%",
+                width: "92.5%",
+                height: "25%",
+            },
             borderRadius: "5px",
             fill: "black",
             color: "#a9a9a9",
@@ -31,48 +43,8 @@ export const styles = {
             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
             outline: "none",
         },
-    },
-    "@media screen and (max-device-width: 767px)": {
-        __expression__: "screen and (max-device-width: 767px)",
-        name_component1__name: {
-            position: "absolute",
-            zIndex: "0",
-            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-            fontSize: "125%",
-            color: "#a9a9a9",
-            top: "0%",
-            left: "2.5%",
-        },
-        name_component1__form1: {
-            position: "absolute",
-            zIndex: "0",
-            top: "35%",
-            left: "2%",
-            width: "92.5%",
-            height: "25%",
-            borderRadius: "5px",
-            fill: "black",
-            color: "#a9a9a9",
-            backgroundColor: "#5d5d5d",
-            border: "1px solid #454849",
-            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-            outline: "none",
-        },
-        form1_type__text_____webkit_input_placeholder: {
-            color: "#a9a9a9",
-        },
-        form1_type__text____ms_input_placeholder: {
-            color: "#a9a9a9",
-        },
-        form1_type__text_____ms_input_placeholder: {
-            color: "#a9a9a9",
-        },
-        form1_type__text____placeholder: {
-            color: "#a9a9a9",
-        },
-    },
-    form1_type__text___focus: {
-        backgroundColor: "#5d5d5d",
-        border: "1px solid #b6b6b6",
-    },
+    // form1_type__text___focus: {
+    //     backgroundColor: "#5d5d5d",
+    //     border: "1px solid #b6b6b6",
+    // },
 };

@@ -1,15 +1,18 @@
 import React from "react";
-import ScrollTable  from "../../Reuseables/ScrollTable";
-import {styles} from "./_RangeDisplayWindow.jss";
+import ScrollTable from "../../Reuseables/ScrollTable";
+import {useStyles} from "./RangeDisplayWindow.jss"
+import {fontSizes} from "../../styles/fontSizes";
 
-export function RangeDisplayWindow({ ranges, screenCase }) {
+export function RangeDisplayWindow({ranges, screenCase}) {
+    const classes = useStyles()
     return (
-        <div className="range-display-window">
+        <div className={classes.window}>
             <ScrollTable
-                className="scroll-table-no-disp"
+                top='2em'
+                left={0}
                 listItems={ranges}
                 screenCase={screenCase}
-                styleObject={{ gridTemplateRows: "0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em", border: "1px solid #707070" }}
+                fontSize={fontSizes.medium2}
             />
         </div>
     );

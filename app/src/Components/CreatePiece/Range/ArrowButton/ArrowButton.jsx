@@ -1,8 +1,8 @@
 import React from "react";
-import {styles} from "./_ArrowButton.jss";
+import { useStyles } from "./ArrowButton.jss"
 
 export function ArrowButton({id, image, pos, isActive, togleSpan, theme}) {
-
+    const classes = useStyles()
         return (
             <div
                 onClick={() => togleSpan(id)}

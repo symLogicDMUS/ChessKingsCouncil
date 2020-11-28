@@ -8,6 +8,28 @@
             <path value="file://$PROJECT_DIR$/app/src/Components/PieceProfiles" />
             <path value="file://$PROJECT_DIR$/app/src/Components/PieceProfiles/DisplayBoardModal" />
             <path value="file://$PROJECT_DIR$/app/src/Components/NewGame/Customize/ProfileHeader" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Board/RangeLabelComponents" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Icon/Choose" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Icon/Upload" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Options/SaveModals" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/ToolsMenuMobile" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Board" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/helpers" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Icon" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Location" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Name" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/NameLabel" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Options" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/AI" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/Board" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/Header" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/Promo" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/Move" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/RangeDisplayTool/RangeBoard" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/RangeDisplayTool" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/sharedData" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/SaveResignTool" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/MyPieces" />
           </resourceRoots>
         </entryData>
       </entry>

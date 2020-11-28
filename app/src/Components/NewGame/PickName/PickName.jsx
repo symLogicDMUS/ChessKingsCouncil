@@ -3,7 +3,9 @@ import NavBar from "../../NavBar/NavBar";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { InvalidGameName } from "./InvalidGameName";
 import { getNameStatus } from "../../helpers/getNameStatus";
-import {styles} from "./PickName.jss";
+import { styles } from "./PickName.jss";
+import "./PickName.scss";
+
 
 class PickName extends React.Component {
     constructor(props) {
@@ -65,7 +67,7 @@ class PickName extends React.Component {
                 <div class="enter-game-name">
                     <img
                         src="/Images/text-labels/enter-name.svg"
-                        className="game-name-form"
+                        className={this.props.classes.game_name_form}
                         alt="title to enter name"
                     />
                     <input
@@ -73,9 +75,9 @@ class PickName extends React.Component {
                         id="gname"
                         value={this.state.userInput}
                         onChange={this.handleUserInput}
-                        className="game-name-form"
+                        className={this.props.classes.game_name_form}
                     />
-                    <button className="game-name-accept-button" onClick={this.setNameStatus}>
+                    <button className={this.props.classes.game_name_accept_button} onClick={this.setNameStatus}>
                         Submit
                     </button>
                 </div>

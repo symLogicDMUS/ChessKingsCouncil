@@ -1,11 +1,11 @@
 import React from "react";
-import {styles} from "./Location.jss";
+import {useStyles} from "./LocationButton.jss";
 
-export function LocationButton({ rf, selected, setLoc, theme }) {
-    let className = selected ? "location-button-selected" : "location-button-normal";
+export function LocationButton({rf, selected, setLoc, theme }) {
+    const classes = useStyles({rf})
     return (
         <div
-            className={`${rf} ${className}`}
+            className={rf === selected ? classes.selected : classes.normal}
             onClick={() => setLoc(rf)}
         >
             <img

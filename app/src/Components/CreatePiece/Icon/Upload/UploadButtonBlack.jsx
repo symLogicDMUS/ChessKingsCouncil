@@ -1,8 +1,9 @@
 import React from "react";
 import { saveImg } from "../../../../API/saveImg";
-import {styles} from "./_UploadButtonBlack.jss";
+import { styles } from "./UploadButtonBlack.jss"
+import withStyles from "@material-ui/core/styles/withStyles";
 
-export class UploadButtonBlack extends React.Component {
+class UploadButtonBlack extends React.Component {
     constructor(props) {
         super(props);
         this.state = { bValue: true };
@@ -32,11 +33,13 @@ export class UploadButtonBlack extends React.Component {
     render() {
         return (
             <div>
-                <label htmlFor="choose-img" className="black-upload">
-                    <p className="icon-button-text">Upload...</p>
+                <label htmlFor="choose-img" className={this.props.classes.black_upload}>
+                    <p className={this.props.classes.icon_button_text}>Upload...</p>
                 </label>
                 <input id="choose-img" type="file" onChange={this.handleChange} style={{ display: "none" }} />
             </div>
         );
     }
 }
+
+export default withStyles(styles)(UploadButtonBlack)

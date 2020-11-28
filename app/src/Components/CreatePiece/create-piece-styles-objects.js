@@ -1,8 +1,3 @@
-/**
- ** The values in these function calls really do need to be computed spereratly for each function call because
- ** window.screen.availHeight and window.screen.availWidth are variable. This is a case where the redundency is
- ** necessary.
- * */
 
 export var stylesObjects = {
     desktop: {

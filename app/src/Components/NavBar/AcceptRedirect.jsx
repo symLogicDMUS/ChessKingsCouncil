@@ -1,13 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {styles} from "./ConfirmRedirect.jss";
+import {useStyles} from "./ConfirmRedirect.jss";
 
 export function AcceptRedirect({path, isLocal}) {
-    
+    const classes = useStyles()
     if (isHref(path)) {
         return (
             <a href={path}>
-                <div className="accept-button">
+                <div className={this.props.classes.accept_button}>
                     Yes
                 </div>
             </a>
@@ -17,7 +17,7 @@ export function AcceptRedirect({path, isLocal}) {
     else {
         return (
             <Link to={path}>
-                <div className="accept-button">
+                <div className={this.props.classes.accept_button}>
                     Yes
                 </div>
             </Link>

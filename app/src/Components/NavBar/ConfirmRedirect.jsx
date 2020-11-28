@@ -43,18 +43,18 @@ export class ConfirmRedirect extends React.Component {
         const redirectType = this.props.localLink ? "local" : "external";
 
         return (
-            <div className="confirm-redirect" style={stylesObjects[this.props.screenCase]['Modal']()}>
-                <img src="/Images/close/close.svg" className="confirm-redirect-close" onClick={this.cancelRedirect} />
-                <div className="confirm-redirect-title">{this.props.message}</div>
+            <div className={this.props.classes.confirm_redirect}>
+                <img src="/Images/close/close.svg" className={this.props.classes.confirm_redirect_close} onClick={this.cancelRedirect} />
+                <div className={this.props.classes.confirm_redirect_title}>{this.props.message}</div>
                 <button
-                    className="confirm-redirect-accept-button"
+                    className={this.props.classes.confirm_redirect_accept_button}
                     style={stylesObjects[this.props.screenCase]['YesNoButton'](stylesObjects[this.props.screenCase]['Modal']()).yes}
                     onClick={() => this.goToPage(redirectType)}
                 >
                     Yes
                 </button>
                 <button
-                    className="confirm-redirect-reject-button"
+                    className={this.props.classes.confirm_redirect_reject_button}
                     style={stylesObjects[this.props.screenCase]['YesNoButton'](stylesObjects[this.props.screenCase]['Modal']()).no}
                     onClick={this.cancelRedirect}
                 >

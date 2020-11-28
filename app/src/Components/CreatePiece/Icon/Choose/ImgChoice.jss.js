@@ -1,5 +1,5 @@
 export const styles = {
-    image_choices__image_choice_container: {
+    normal: {
         zIndex: "2",
         width: "100%",
         backgroundColor: "#515151",
@@ -9,7 +9,7 @@ export const styles = {
         fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
         cursor: "pointer",
     },
-    image_choices__selected_image_choice_container: {
+    selected: {
         zIndex: "2",
         width: "100%",
         backgroundColor: "#515151",
@@ -22,13 +22,13 @@ export const styles = {
         boxShadow: "0px 0px 16px white",
         color: "white",
     },
-    image_choices__image_choice: {
+    img_choice: {
         position: "relative",
         width: "95%",
         maxHeight: "95%",
         margin: "2.5%",
     },
-    image_choices__piece_name: {
+    piece_name: {
         position: "relative",
         top: "-8%",
         width: "100%",

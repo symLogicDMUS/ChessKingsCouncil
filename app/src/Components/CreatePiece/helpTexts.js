@@ -12,7 +12,7 @@ export var titles = {
     1: rangeTitle,
     2: iconTitle,
     3: locationTitle,
-    4: optionsTitle
+    4: optionsTitle,
 }
 
 export var paragraphs = {

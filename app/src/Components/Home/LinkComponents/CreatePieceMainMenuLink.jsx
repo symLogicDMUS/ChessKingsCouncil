@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Home.scss";
-/**
- *
- * This file was generated with Adobe XD React Exporter
- * Exporter for Adobe XD is written by: Johannes Pichler <j.pichler@webpixels.at>
- *
- * NOTE: has since been modified.
- *
- **/
 
 export class CreatePieceIcon extends React.Component {
     constructor(props) {

@@ -1,95 +1,61 @@
-export const styles = {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import {winHeight, winWidth} from "../../helpers/windowMeasurments";
+
+const listItem = {
+    position: "absolute",
+    width: "100%",
+    height: "16%",
+    backgroundColor: "#515151",
+    border: "1px solid #3c3f41",
+    widget: {
+        position: "absolute",
+        left: "90%",
+        height: "16%",
+        width: "7.5%",
+    },
+}
+
+export const useStyles = makeStyles({
     tools_menu: {
         position: "absolute",
+        width: winWidth() * 0.934,
+        height: winHeight() * 0.48,
+        top: winHeight() * 0.6,
+        left: winWidth() * 0.03,
     },
-    tools_menu_name: {
-        position: "absolute",
-        width: "100%",
-        height: "16%",
-        backgroundColor: "#515151",
-        border: "1px solid #3c3f41",
+    name: {
+        ...listItem,
         top: "0",
     },
-    tools_menu_icon: {
-        position: "absolute",
-        width: "100%",
-        height: "16%",
-        backgroundColor: "#515151",
-        border: "1px solid #3c3f41",
+    icon: {
+        ...listItem,
         top: "16%",
     },
-    tools_menu_range: {
-        position: "absolute",
-        width: "100%",
-        height: "16%",
-        backgroundColor: "#515151",
-        border: "1px solid #3c3f41",
+    range: {
+        ...listItem,
         top: "32%",
     },
-    tools_menu_location: {
-        position: "absolute",
-        width: "100%",
-        height: "16%",
-        backgroundColor: "#515151",
-        border: "1px solid #3c3f41",
+    location: {
+        ...listItem,
         top: "48%",
     },
-    tools_menu_options: {
-        position: "absolute",
-        width: "100%",
-        height: "16%",
-        backgroundColor: "#515151",
-        border: "1px solid #3c3f41",
+    options: {
+        ...listItem,
         top: "64%",
     },
-    name_expand_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "0",
-    },
-    icon_expand_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "16%",
-    },
-    range_expand_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "32%",
-    },
-    location_expand_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "48%",
-    },
-    options_expand_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "64%",
-    },
-    tool_bar_selected: {
+    selected_tool: {
         position: "absolute",
         width: "100%",
         height: "16%",
         backgroundColor: "#515151",
         border: "1px solid #3c3f41",
         top: "32%",
+        widget: {
+            position: "absolute",
+            left: "90%",
+            height: "16%",
+            width: "7.5%",
+            top: "-2.5%",
+        }
     },
-    tool_bar_selected_widget: {
-        position: "absolute",
-        left: "90%",
-        height: "16%",
-        width: "7.5%",
-        top: "-2.5%",
-    },
-};
+});

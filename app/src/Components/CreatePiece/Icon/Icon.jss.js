@@ -1,13 +1,23 @@
 export const styles = {
     "@media screen and (min-device-width: 768px)": {
-        __expression__: "screen and (min-device-width: 768px)",
         icon_tool: {
             position: "absolute",
-            height: "19.49%",
+            "@media screen and (min-device-width: 768px)": {
+                width: '31.25em',
+                top: window.screen.availHeight * 0.288,
+                height: window.screen.availHeight * 0.18,
+                left: window.screen.availWidth * 0.57,
+            },
+            "@media screen and (max-device-width: 767px)": {
+                width: window.screen.availWidth - window.screen.availWidth * 0.01 * 6,
+                height: window.screen.availHeight * 0.4 * 0.85,
+                top: window.screen.availHeight * 0.6 + window.screen.availHeight * 0.4 * 0.125,
+                left: window.screen.availWidth * 0.01 * 3,
+            },
             backgroundColor: "#515151",
             borderRadius: "10px",
         },
-        icon_tool__icon_title: {
+        title: {
             position: "absolute",
             zIndex: "0",
             left: "2.5%",
@@ -16,136 +26,52 @@ export const styles = {
             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
             color: "#a9a9a9",
         },
-        icon_tool__black_title: {
-            left: "51.75%",
+        black_title: {
+            "@media screen and (min-device-width: 768px)": {
+                left: "51.75%",
+            },
+            "@media screen and (max-device-width: 767px)": {
+                left: "73.5%",
+
+            },
         },
-        icon_tool__white_title: {
-            left: "2.5%",
+        white_title: {
+            "@media screen and (min-device-width: 768px)": {
+                left: "2.5%",
+            },
+            "@media screen and (max-device-width: 767px)": {
+                left: "14%",
+
+            },
         },
-        icon_tool__white_window: {
-            left: "29.5%",
+        white_window: {
+            "@media screen and (min-device-width: 768px)": {
+                left: "29.5%",
+            },
+            "@media screen and (max-device-width: 767px)": {
+                left: "2%",
+
+            },
         },
-        icon_tool__black_window: {
-            left: "78.75%",
+        black_window: {
+            "@media screen and (min-device-width: 768px)": {
+                left: "78.75%",
+            },
+            "@media screen and (max-device-width: 767px)": {
+                left: "60%",
+            },
         },
     },
     "@media screen and (max-device-width: 767px)": {
-        __expression__: "screen and (max-device-width: 767px)",
         icon_tool: {
             position: "absolute",
             zIndex: "0",
-            height: "45%",
-            width: "16.8696%",
-            top: "9%",
+            width: window.screen.availWidth - window.screen.availWidth * 0.01 * 6,
+            height: window.screen.availHeight * 0.4 * 0.85,
+            top: window.screen.availHeight * 0.4 * 0.85 + window.screen.availHeight * 0.4 * 0.125,
+            left: window.screen.availWidth * 0.01 * 3,
             backgroundColor: "#515151",
             borderRadius: "10px",
-        },
-        icon_tool__icon_title: {
-            display: "none",
-        },
-        icon_tool__black_title: {
-            left: "73.5%",
-        },
-        icon_tool__white_title: {
-            left: "14%",
-        },
-        icon_tool__white_window: {
-            left: "2%",
-        },
-        icon_tool__black_window: {
-            left: "60%",
-        },
-    },
-    "@media screen and (min-device-width: 768px) and (min-device-width: 768px)": {
-        __expression__: "screen and (min-device-width: 768px) and (min-device-width: 768px)",
-        icon_tool__white_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "50%",
-            width: "18.75%",
-            top: "41.33%",
-            backgroundColor: "#515151",
-            border: "solid 1px #a9a9a9",
-            borderRadius: "5px",
-        },
-        icon_tool__black_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "50%",
-            width: "18.75%",
-            top: "41.33%",
-            backgroundColor: "#515151",
-            border: "solid 1px #a9a9a9",
-            borderRadius: "5px",
-        },
-    },
-    "@media screen and (min-device-width: 768px) and (max-device-width: 767px)": {
-        __expression__: "screen and (min-device-width: 768px) and (max-device-width: 767px)",
-        icon_tool__white_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "57.5%",
-            width: "36.9725%",
-            top: "12%",
-            backgroundColor: "#5d5d5d",
-            border: "solid 1px #3c3f41",
-            borderRadius: "5px",
-        },
-        icon_tool__black_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "57.5%",
-            width: "36.9725%",
-            top: "12%",
-            backgroundColor: "#5d5d5d",
-            border: "solid 1px #3c3f41",
-            borderRadius: "5px",
-        },
-    },
-    "@media screen and (max-device-width: 767px) and (min-device-width: 768px)": {
-        __expression__: "screen and (max-device-width: 767px) and (min-device-width: 768px)",
-        icon_tool__white_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "50%",
-            width: "18.75%",
-            top: "41.33%",
-            backgroundColor: "#515151",
-            border: "solid 1px #a9a9a9",
-            borderRadius: "5px",
-        },
-        icon_tool__black_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "50%",
-            width: "18.75%",
-            top: "41.33%",
-            backgroundColor: "#515151",
-            border: "solid 1px #a9a9a9",
-            borderRadius: "5px",
-        },
-    },
-    "@media screen and (max-device-width: 767px) and (max-device-width: 767px)": {
-        __expression__: "screen and (max-device-width: 767px) and (max-device-width: 767px)",
-        icon_tool__white_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "57.5%",
-            width: "36.9725%",
-            top: "12%",
-            backgroundColor: "#5d5d5d",
-            border: "solid 1px #3c3f41",
-            borderRadius: "5px",
-        },
-        icon_tool__black_window: {
-            position: "absolute",
-            zIndex: "0",
-            height: "57.5%",
-            width: "36.9725%",
-            top: "12%",
-            backgroundColor: "#5d5d5d",
-            border: "solid 1px #3c3f41",
-            borderRadius: "5px",
         },
     },
 };

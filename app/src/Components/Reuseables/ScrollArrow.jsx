@@ -1,7 +1,7 @@
 import React from "react";
 import {styles} from "./ScrollArrow.jss";
 
-export class ScrollArrow extends React.Component {
+class ScrollArrow extends React.Component {
 
     constructor(props) {
         super(props);
@@ -12,16 +12,16 @@ export class ScrollArrow extends React.Component {
         let img_ = null;
         switch(this.props.class_) {
             case "spans-up-arrow":
-                img_ = <img src="/Images/arrows/up-arrow.svg" className="scroll-arrow" />;
+                img_ = <img src="/Images/arrows/up-arrow.svg" className={this.props.classes.scroll_arrow} />;
                 break;
             case "offsets-up-arrow":
-                img_ = <img src="/Images/arrows/up-arrow.svg" className="scroll-arrow" />;
+                img_ = <img src="/Images/arrows/up-arrow.svg" className={this.props.classes.scroll_arrow} />;
                 break;
             case "spans-down-arrow":
-                img_ = <img src="/Images/arrows/down-arrow.svg" className="scroll-arrow" />;
+                img_ = <img src="/Images/arrows/down-arrow.svg" className={this.props.classes.scroll_arrow} />;
                 break;
             case "offsets-down-arrow":
-                img_ = <img src="/Images/arrows/down-arrow.svg" className="scroll-arrow" />
+                img_ = <img src="/Images/arrows/down-arrow.svg" className={this.props.classes.scroll_arrow} />
                 break;
             default:
                 img_ = <div>Error: incorrect class for image of arrow.</div>

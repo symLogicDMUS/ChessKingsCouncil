@@ -44,7 +44,7 @@ export function ProfileWB({ color, theme, pieceName, expand, def }) {
                 {getColorName(color)} Image
             </div>
             <div className={classes.imgWindow}>
-                <img src={def.img} className="piece-profile-img" alt="icon of piece" />
+                <img src={def.img} className={this.props.classes.piece_profile_img} alt="icon of piece" />
             </div>
             <ProfileWBScrollTableHeader
                 rangeType="spans"
