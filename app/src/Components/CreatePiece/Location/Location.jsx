@@ -1,7 +1,6 @@
 import React from "react";
 import { LocationButton } from "./LocationButton";
-import { stylesObjects } from "../create-piece-styles-objects";
-import {styles} from "./Location.jss";
+import {useStyles} from "./Location.jss";
 
 export function Location({ location, setLoc, screenCase, theme }) {
     const classes = useStyles()

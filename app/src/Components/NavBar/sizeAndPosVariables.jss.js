@@ -1,0 +1,1 @@
+export const navBarHeight = window.screen.availHeight * 0.052;

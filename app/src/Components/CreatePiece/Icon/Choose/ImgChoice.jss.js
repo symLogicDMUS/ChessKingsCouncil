@@ -1,4 +1,6 @@
-export const styles = {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+export const useStyles = makeStyles({
     normal: {
         zIndex: "2",
         width: "100%",
@@ -38,4 +40,4 @@ export const styles = {
         overflow: "hidden",
         textOverflow: "ellipsis",
     },
-};
+});

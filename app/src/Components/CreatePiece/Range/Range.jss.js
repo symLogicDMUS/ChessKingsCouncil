@@ -1,4 +1,6 @@
-export const styles = {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+export const useStyles = makeStyles({
     range_tool: {
         position: 'absolute',
         "@media screen and (min-device-width: 768px)": {
@@ -27,41 +29,4 @@ export const styles = {
         fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
         color: '#a9a9a9'
     },
-    direction_pad: {
-        position: 'absolute',
-        zIndex: '0',
-        "@media screen and (min-device-width: 768px)": {
-            width: '25%',
-            height: '66.67%',
-            left: '72.5%',
-            top: '27.3%'
-        },
-        "@media screen and (max-device-width: 767px)": {
-            height: '90%',
-            width: '55.35%',
-            top: '7%',
-            left: '3%'
-        },
-    },
-    middle_section: {
-        position: 'absolute',
-        top: '35%',
-        left: '35%',
-        width: '30%',
-        height: '30%'
-    },
-    button: {
-        backgroundColor: props => props.selected ? '#ec2525' : '#515151',
-        '&:hover': {
-            backgroundColor: props => props.selected ? '#ec2525' : '#a9a9a9'
-        },
-    },
-    vector: {
-        position: 'absolute',
-        zIndex: '0',
-        width: '66.667%',
-        height: '66.667%',
-        left: '16.66%',
-        top: '16.66%'
-    },
-};
+});

@@ -1,30 +1,13 @@
 import React from "react";
-import {styles} from "./PlayAsButton.jss";
+import {useStyles} from "./PlayAsButton.jss";
 
-class PlayAsButton extends React.Component {
+export function PlayAsButton ({accept, selected}) {
 
-    constructor(props) {
-        super(props);
-        this.class_ = "play-as-button pab-inactive";
-        this.accept = this.accept.bind(this);
-    }
-
-    accept() {
-        if (this.props.selected != null)
-            this.props.accept();
-    }
-
-    render() {
-
-        if (this.props.selected != null)
-            this.class_ = "play-as-button pab-active";
-        else
-            this.class_ = "play-as-button pab-inactive";
+        const classes = useStyles()
 
         return (
-            <div className={this.class_} onClick={this.accept}>
+            <button className={selected ? classes.active : classes.inactive} onClick={accept}>
                 Play
-            </div>
+            </button>
         )
-    }
 }

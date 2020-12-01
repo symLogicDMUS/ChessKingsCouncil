@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { useStyles } from "./Option.jss";
+import {useStyles} from "./Option.jss"
 
 export function Option({ className, clickMethod, normal, highlighted, alt }) {
     let [isHover, setHover] = useState(false);
+    const classes = useStyles()
     let src = isHover ? highlighted : normal;
     return (
         <div
-            className={`${className}`}
+            className={className}
             onClick={clickMethod}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}

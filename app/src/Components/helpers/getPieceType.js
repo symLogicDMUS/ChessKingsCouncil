@@ -1,11 +1,7 @@
-
- export function getPieceType(str) {
-
-    let id_ = str;
-
-    if (id_ === '#') {
+export function getPieceType(str) {
+    let id = str;
+    if (id === '#') {
         return 'Empty'
     }
-
-    return id_[1];
+    return id[1];
 }

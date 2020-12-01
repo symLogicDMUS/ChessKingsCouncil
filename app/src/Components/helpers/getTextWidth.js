@@ -8,7 +8,7 @@ export function getTextWidth(myText, fontSize, fontFamily) {
     text.style.position = "absolute";
     text.style.whiteSpace = "no-wrap";
     text.innerHTML = myText;
-    var width = Math.ceil(text.clientWidth);
+    const width = Math.ceil(text.clientWidth);
     document.body.removeChild(text);
     return width;
 }

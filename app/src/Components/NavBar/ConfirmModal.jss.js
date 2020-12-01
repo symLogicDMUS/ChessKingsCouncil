@@ -1,3 +1,5 @@
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
 const sizePos = (width, height, top, left) => ({
     position: 'absolute',
     width: `${width}%`,
@@ -23,8 +25,8 @@ const button = {
     },
 }
 
-export const styles = {
-    confirm_window: {
+export const useStyles = makeStyles({
+    window: {
         position: 'absolute',
         zIndex: '20',
         backgroundColor: '#515151',
@@ -58,4 +60,4 @@ export const styles = {
             backgroundColor: '#EC2525'
         },
     },
-}
+});

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { useStyles } from "./CreatePieceSquare.jss";
 import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
@@ -8,18 +7,18 @@ import { getPxPos } from "./pxPos";
 
 export function CreatePieceSquare({
     rf,
-    className,
     pieceLoc,
     toggleOffset,
     isSpan,
     isOffset,
+    isLightSqr,
     showSpanText,
     showOffsetText,
     children,
 }) {
     let pxPos = getPxPos(rf);
 
-    const classes = useStyles()
+    const classes = useStyles();
 
     if (isSpan) {
         let spanLabel = null;
@@ -37,14 +36,22 @@ export function CreatePieceSquare({
         if (showOffsetText) offsetLabel = OffsetLabel(getOffset(rf, pieceLoc));
 
         return (
-            <div className={classes.offset_element} style={pxPos} onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}>
+            <div
+                className={classes.offset_element}
+                style={pxPos}
+                onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
+            >
                 {offsetLabel}
             </div>
         );
     }
 
     return (
-        <div className={className} style={pxPos} onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}>
+        <div
+            className={isLightSqr ? classes.light_sqr : classes.dark_sqr}
+            style={pxPos}
+            onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
+        >
             {children}
         </div>
     );

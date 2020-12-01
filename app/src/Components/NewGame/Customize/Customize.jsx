@@ -11,18 +11,12 @@ import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {styles} from "./Customize.jss";
-import * as PropTypes from "prop-types";
+import {Ok} from "./Bottom/CustomiseOk";
 import {fontSizes} from "../../styles/fontSizes";
 import {CheckBox as PromoAll} from "../../Reuseables/CheckBox";
 import PlayAsDropdown from "./Bottom/PlayAsDropdown";
-import {Ok} from "./Bottom/CustomiseOk";
-import {
-    playAsDropdownHeight, playAsDropdownLeft, playAsDropdownTop,
-    playAsDropdownWidth,
-    promoAllCheckboxLeft,
-    promoAllCheckboxTop
-} from "./sizeAndPosVariables.jss";
+import {customize as measurements} from "./sizeAndPosVariables.jss";
+import {styles} from "./Customize.jss";
 
 
 class Customize extends React.Component {
@@ -32,6 +26,7 @@ class Customize extends React.Component {
         this.state = {
             binaryValue: true,
             theme: "dark",
+            playerType: "White",
             pieceName: null,
             rangeType: null,
             color: null,
@@ -88,12 +83,13 @@ class Customize extends React.Component {
         this.props.togleSub(this.props.piece, this.selectedPiece);
     }
 
+    /**
+     * subs is this.subs with key:value pairs reversed.
+     * frontend uses standard:sub dict, and backend uses
+     * sub: standard dict
+     */
     prepareForSubAssign() {
-        //names will be a list of names of all pieces.
         const names = [];
-        // subs is this.subs with key:value pairs reversed.
-        //frontend uses standard:sub dict, and backend uses
-        //sub:standard dict:
         const subs = {};
         Object.entries(this.subs).forEach(([standard, sub]) => {
             if (sub != null) subs[sub] = standard;
@@ -127,9 +123,7 @@ class Customize extends React.Component {
     accept() {
         const idDict = this.loadIdDict();
         this.setStandardPromos(idDict);
-        this.props.loadNewCustom(idDict, this.defs, this.promos);
-        this.class_ = this.show ? "customize-window display-on" : "customize-window display-off";
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.props.loadNewCustom(idDict, this.defs, this.promos, this.state.playerType);
     }
 
     expand(pieceName, color, rangeType) {
@@ -191,8 +185,7 @@ class Customize extends React.Component {
     }
 
     setPlayerType(playerType) {
-        this.props.setPlayer(playerType);
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({playerType: playerType})
     }
 
     getComponents(screenCase) {
@@ -203,7 +196,7 @@ class Customize extends React.Component {
                         screenCase={screenCase}
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
-                        togleMessageModal={this.togleMessageModal}
+                        togleMessageModal={this.toggleMessageModal}
                     />
                 )}
                 {this.state.pieceName && this.state.rangeType && this.state.color && (
@@ -240,26 +233,26 @@ class Customize extends React.Component {
                     <PromoList screenCase={screenCase} promos={this.promos}/>
                     <div className={this.props.classes.bottomBar}>
                         <PromoAll
-                            theme={this.state.theme}
                             clickMethod={this.togglePromoAll}
                             clickValue={null} //this.togglePromoAll takes no arguments
                             checkmarkState={this.state.promoAll}
-                            top={promoAllCheckboxTop}
-                            left={promoAllCheckboxLeft}
+                            top={measurements.promoAllCheckboxTop}
+                            left={measurements.promoAllCheckboxLeft}
                             fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
                             fontSize={fontSizes.medium2}
                             labelText="Promo All"
                         />
                         <PlayAsDropdown
-                            fontSize={fontSizes.medium2}
                             position="absolute"
-                            width={playAsDropdownWidth}
-                            height={playAsDropdownHeight}
-                            top={playAsDropdownTop}
-                            left={playAsDropdownLeft}
+                            fontSize={fontSizes.medium2}
+                            fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                            width={measurements.playAsDropdownWidth}
+                            height={measurements.playAsDropdownHeight}
+                            top={measurements.playAsDropdownTop}
+                            left={measurements.playAsDropdownLeft}
                             setPlayerType={this.setPlayerType}
                         />
-                        <Ok screenCase={screenCase} accept={this.accept}/>
+                        <Ok accept={this.accept}/>
                     </div>
                 </div>
             </>

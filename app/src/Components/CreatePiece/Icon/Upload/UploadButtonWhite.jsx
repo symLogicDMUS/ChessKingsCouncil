@@ -1,7 +1,7 @@
 import React from "react";
 import { saveImg } from "../../../../API/saveImg";
-import { styles } from "./UploadButton.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { styles } from "./UploadButton.jss";
 
 class UploadButtonWhite extends React.Component {
     constructor(props) {
@@ -13,7 +13,7 @@ class UploadButtonWhite extends React.Component {
     handleChange(event) {
         const files = event.target.files;
         const currentFile = files[0];
-        var imgName = currentFile.name.replace(".", "-");
+        const imgName = currentFile.name.replace(".", "-");
         const myFileItemReader = new FileReader();
 
         myFileItemReader.addEventListener(

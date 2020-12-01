@@ -1,53 +1,51 @@
 import React from "react";
 import { rankfiles } from "./rankfiles";
-import { sqrColorClass } from "./sqrColorClass";
-import { blankBoard } from "./blankBoard";
+import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
+import { useStyles } from "./CreatePieceBoard.jss";
 import "../../helpers/stepFuncs";
-import {styles} from "./CreatePieceBoard.jss";
-import withStyles from "@material-ui/core/styles/withStyles";
 
-class CreatePieceBoard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.screenHeight = window.screen.availHeight;
-        this.screenWidth = window.screen.availWidth;
-        this.board = blankBoard;
-    }
+export function CreatePieceBoard({
+    offsets,
+    spanDisplays,
+    toggleOffset,
+    showSpanText,
+    showOffsetText,
+    pieceLoc,
+    pieceImgBase64Str,
+}) {
+    const classes = useStyles();
 
-    getBoard() {
+    const getBoard = () => {
         let squares = [];
         for (const rf of rankfiles) {
-            if (rf === this.props.pieceLoc) {
+            if (rf === pieceLoc) {
                 squares.push(
                     <Square
                         rf={rf}
-                        className={sqrColorClass[rf]}
-                        isSpan={this.props.spanDisplays[rf]}
-                        toggleOffset={this.props.toggleOffset}
-                        update={this.props.update}
-                        isOffset={this.props.offsets[rf]}
-                        pieceLoc={this.props.pieceLoc}
-                        showSpanText={this.props.showSpanText}
-                        showOffsetText={this.props.showOffsetText}
-
+                        isLightSqr={binaryBoard[rf]}
+                        isSpan={spanDisplays[rf]}
+                        toggleOffset={toggleOffset}
+                        isOffset={offsets[rf]}
+                        pieceLoc={pieceLoc}
+                        showSpanText={showSpanText}
+                        showOffsetText={showOffsetText}
                     >
-                        <Piece pieceImgBase64Str={this.props.pieceImgBase64Str} />
+                        <Piece pieceImgBase64Str={pieceImgBase64Str} />
                     </Square>
                 );
             } else {
                 squares.push(
                     <Square
                         rf={rf}
-                        className={sqrColorClass[rf]}
-                        isSpan={this.props.spanDisplays[rf]}
-                        toggleOffset={this.props.toggleOffset}
-                        update={this.props.update}
-                        isOffset={this.props.offsets[rf]}
-                        pieceLoc={this.props.pieceLoc}
-                        showSpanText={this.props.showSpanText}
-                        showOffsetText={this.props.showOffsetText}
+                        isLightSqr={binaryBoard[rf]}
+                        isSpan={spanDisplays[rf]}
+                        toggleOffset={toggleOffset}
+                        isOffset={offsets[rf]}
+                        pieceLoc={pieceLoc}
+                        showSpanText={showSpanText}
+                        showOffsetText={showOffsetText}
                     >
                         {null}
                     </Square>
@@ -55,15 +53,7 @@ class CreatePieceBoard extends React.Component {
             }
         }
         return squares;
-    }
+    };
 
-    render() {
-        return (
-            <div className={this.props.classes.my_grid}>
-                {this.getBoard()};
-            </div>
-        );
-    }
+    return <div className={classes.board}>{getBoard()};</div>;
 }
-
-export default withStyles(styles)(CreatePieceBoard)

@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {NavBar} from '../../NavBar/NavBar'
+import NavBar from '../../NavBar/NavBar'
 import {MessageModal} from "../../NavBar/Help/MessageModal";
 import {getNameStatus} from "../../helpers/getNameStatus";
 import { useStyles } from "./PickName.jss";
 import "./PickName.scss";
 
-export function PickName({setName, nextStep}) {
+export function PickName({setName}) {
 
     let [userInput, setUserInput] = useState('')
     let [nameStatus, setNameStatus] = useState('none')
@@ -31,7 +31,7 @@ export function PickName({setName, nextStep}) {
             <div class={classes.pick_name}>
                 <img
                     src="/Images/text-labels/enter-name.svg"
-                    className="game-name-form"
+                    className={classes.form}
                     alt="title to enter name"
                 />
                 <input
@@ -39,7 +39,7 @@ export function PickName({setName, nextStep}) {
                     id="gname"
                     value={userInput}
                     onChange={handleUserInput}
-                    className="game-name-form"
+                    className={classes.form}
                 />
                 <button className={classes.accept_button} onClick={() => setNameStatus(getNameStatus(userInput))}>
                     Submit

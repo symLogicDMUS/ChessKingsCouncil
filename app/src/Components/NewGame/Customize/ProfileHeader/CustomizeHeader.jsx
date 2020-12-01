@@ -1,5 +1,5 @@
 import React from "react";
-import { SubDropdown } from "./SubDropdown";
+import SubDropdown from "./SubDropdown";
 import { CheckBox } from "../../../Reuseables/CheckBox";
 import {fontSizes} from "../../../styles/fontSizes";
 import {useStyles} from "./CustomizeHeader.jss"

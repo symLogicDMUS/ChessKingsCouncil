@@ -1,15 +1,19 @@
 import React from "react";
+import { OVER } from "../helpers/gStatusTypes";
 import NavBar from "../NavBar/NavBar";
-import Board from "./Board/Board";
 import Promo from "./Promo/Promo";
 import { isPawn } from "../helpers/isPawn";
 import { AIDisplay } from "./AI/AIDisplay";
 import { makeMove } from "./Move/makeMove";
-import { OVER } from "../helpers/gStatusTypes";
 import { update } from "../../apiHelpers/update";
 import { saveGame } from "../../API/saveGame";
 import { SaveAs } from "./SaveResignTool/SaveAs";
+import { Board } from "./Board/Board";
 import { Fen } from "../../game_logic/fenParser/Fen";
+import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
+import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
+import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
+import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 import { updateCouncil } from "../../apiHelpers/updateCouncil";
 import { GameRootHeader as Header } from "./Header/GameRootHeader";
@@ -17,16 +21,13 @@ import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
 import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
 import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { rook_starting_rf, king_starting_rf } from "./sharedData/castleRankfiles";
-import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
-import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
 import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
-import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
 import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
 import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
 import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
+import withStyles from "@material-ui/core/styles/withStyles";
 import "./GameRoot.scss";
 
 class GameRoot extends React.Component {
@@ -54,7 +55,6 @@ class GameRoot extends React.Component {
         this.promoChoices = this.gameData["promos"];
         this.playerType = this.gameData["pt"]; //duplicate?
         this.resigned = this.gameStatus.hasResigned();
-        // this.unsavedChanges = false;
         this.aiDisplay = false;
         this.firstMoveCurrent = true;
         this.firstTime = false;

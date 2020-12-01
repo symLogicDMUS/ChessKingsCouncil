@@ -1,5 +1,4 @@
 import React from "react";
-import "../scss/Promo.scss";
 import {useStyles} from "./PromoChoice.jss";
 
 export function PromoChoice({selected, key, pieceImgBase64Str, alt}) {

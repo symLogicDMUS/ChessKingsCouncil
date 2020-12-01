@@ -1,5 +1,4 @@
 import React from "react";
-import {getOffset} from "../../../helpers/getOffset";
 import {useStyles} from "./OffsetLabel.jss";
 
 export function OffsetLabel(offset) {

@@ -1,6 +1,7 @@
 import {winWidth} from "../../helpers/windowMeasurments";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
-export const styles = {
+export const useStyles = makeStyles({
     "@media screen and (min-device-width: 768px)": {
         location_tool: {
             position: "absolute",
@@ -37,4 +38,4 @@ export const styles = {
             color: "#a9a9a9",
         },
     },
-};
+});

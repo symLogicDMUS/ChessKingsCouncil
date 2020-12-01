@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
-import {styles} from "./CouncilRules.jss";
+// import {styles} from "./CouncilRules.jss";
+import "./CouncilRules.scss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {

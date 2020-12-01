@@ -4,8 +4,6 @@ import {TextMessage} from "./TextMessage";
 export function DisplayMessageOnTimer({ methodToCallOnFinish, valueToSendOnFinish }) {
     const [seconds, setSeconds] = useState(1);
 
-    const classes = useStyles();
-
     useEffect(() => {
         const interval = setInterval(() => {
             setSeconds((seconds) => seconds - 1);

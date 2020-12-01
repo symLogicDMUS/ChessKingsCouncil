@@ -24,9 +24,7 @@ export function Square({rf, gameroot, children}) {
 
     return (
         <div ref={drop} className={className}>
-            {/*<div className={sqr_color}>*/}
-                {children}
-            {/*</div>*/}
+            {children}
         </div>
-      );
+    );
 }

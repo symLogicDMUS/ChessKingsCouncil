@@ -1,12 +1,12 @@
-
 import React from "react";
-import {styles} from "./DisplaySquare.jss";
+import {useStyles} from "./DisplaySquare.jss";
+import {getSqrClassName} from "../../helpers/getSqrClassName";
 
-export function DisplaySquare ({class_, properties, children}) {
-
-        return (
-            <div className={class_} style={properties}>
-                {children}
-            </div>
-        )
+export function DisplaySquare({rf, sqrType, children}) {
+    const classes = useStyles({rf})
+    return (
+        <div className={classes[sqrType]}>
+            {children}
+        </div>
+    )
 }

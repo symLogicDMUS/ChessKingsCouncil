@@ -6,9 +6,9 @@ import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-// import { MessageModal } from "../NavBar/Help/MessageModal";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
-import {styles} from "./LoadGame.jss";
+import withStyles from "@material-ui/core/styles/withStyles";
+import { styles } from "./LoadGame.jss";
 import "./LoadGame.scss";
 
 class LoadGame extends React.Component {
@@ -17,7 +17,7 @@ class LoadGame extends React.Component {
         this.state = {
             reload: 0,
             theme: "dark",
-            gameName: "none",
+            gameName: null,
             loaded: false,
             bValue: false,
             confirmDeleteModal: false,
@@ -32,10 +32,10 @@ class LoadGame extends React.Component {
         this.navExpanded = true;
         this.games = {};
         this.load = this.load.bind(this);
-        this.togleNav = this.togleNav.bind(this);
+        this.toggleNav = this.toggleNav.bind(this);
         this.messageTitle = null;
         this.messageText = null;
-        this.togleMessageModal = this.togleMessageModal.bind(this);
+        this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.changeName = this.changeName.bind(this);
         this.askDeleteGame = this.askDeleteGame.bind(this);
         this.acceptDeleteGame = this.acceptDeleteGame.bind(this);
@@ -57,26 +57,9 @@ class LoadGame extends React.Component {
         });
     }
 
-    getTextStyle() {
-        return {
-            width: window.screen.availWidth * 0.4,
-            height: window.screen.availHeight * 0.3,
-            top: window.screen.availHeight * 0.34,
-            left: window.screen.availWidth * 0.5,
-        };
-    }
-    getButtonStyle() {
-        return {
-            width: window.screen.availWidth * 0.4,
-            height: window.screen.availHeight * 0.125,
-            top: window.screen.availHeight * 0.5,
-            left: window.screen.availWidth * 0.5,
-            objectAlign: "center",
-        };
-    }
     getGameList() {
         const gameList = [<option value="choose">Choose...</option>];
-        for (var name of Object.keys(this.games)) {
+        for (const name of Object.keys(this.games)) {
             gameList.push(<option value={name}>{name}</option>);
         }
         return gameList;
@@ -93,7 +76,7 @@ class LoadGame extends React.Component {
         }
     }
 
-    togleNav(boolVal) {
+    toggleNav(boolVal) {
         this.navExpanded = boolVal;
         this.setState({ bValue: !this.state.bValue });
     }
@@ -132,7 +115,7 @@ class LoadGame extends React.Component {
         this.setState({ messageModal: true });
     }
 
-    togleMessageModal(boolVal) {
+    toggleMessageModal(boolVal) {
         this.setState({ messageModal: boolVal });
     }
 
@@ -154,52 +137,33 @@ class LoadGame extends React.Component {
             );
         }
 
-        if (this.selected) {
-            this.playButton = <button onClick={this.load}>Play</button>;
-            this.deleteButton = <button onClick={this.askDeleteGame}>Delete</button>;
-        } else {
-            this.playButton = (
-                <button
-                    style={{
-                        backgroundColor: "grey",
-                        opacity: "0.6",
-                        color: "hover-on-off-hover",
-                        cursor: "not-allowed",
-                    }}
-                >
-                    Play
-                </button>
-            );
-            this.deleteButton = (
-                <button
-                    style={{
-                        backgroundColor: "grey",
-                        opacity: "0.6",
-                        color: "hover-on-off-hover",
-                        cursor: "not-allowed",
-                    }}
-                >
-                    Delete
-                </button>
-            );
-        }
-
         return (
             <>
                 <NavBar currentPage="LoadGame" theme={this.state.theme} unsavedChanges={false} />
                 <img
                     src="/Images/text-labels/LoadGame.svg"
-                    className={this.props.classes.load_game_text}
-                    style={this.getTextStyle()}
+                    className={this.props.classes.title}
                     alt="title for loading game"
                 />
-                <div className={this.props.classes.button_options} style={this.getButtonStyle()}>
-                    <select id="games" style={{ width: window.screen.availWidth * 0.31 }} onChange={this.changeName}>
-                        {this.getGameList()}
-                    </select>
-                    {this.playButton}
-                    {this.deleteButton}
-                </div>
+                <select id="games" onChange={this.changeName}>
+                    {this.getGameList()}
+                </select>
+                <button
+                    className={
+                        this.state.gameName ? this.props.classes.play_enabled : this.props.classes.play_disabled
+                    }
+                    onClick={this.load}
+                >
+                    Play
+                </button>
+                <button
+                    className={
+                        this.state.gameName ? this.props.classes.delete_enabled : this.props.classes.delete_disabled
+                    }
+                    onClick={this.askDeleteGame}
+                >
+                    Delete
+                </button>
                 {this.state.confirmDeleteModal && (
                     <ConfirmModal
                         text={`Are You Sure you want to delete game ${this.state.gameName}?`}
@@ -212,4 +176,4 @@ class LoadGame extends React.Component {
     }
 }
 
-export default LoadGame;
+export default withStyles(styles)(LoadGame);

@@ -32,7 +32,6 @@ class MyPieces extends React.Component {
         this.helpText = null;
         this.hmChildName = "none";
         this.hmChildren = {none: null};
-        this.update = this.update.bind(this);
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
         this.prepareDelete = this.prepareDelete.bind(this);
@@ -40,6 +39,7 @@ class MyPieces extends React.Component {
         this.togleNav = this.togleNav.bind(this);
         this.togleMessageModal = this.togleMessageModal.bind(this);
         this.setMessageText = this.setMessageText.bind(this);
+        this.triggerRender = this.triggerRender.bind(this);
         this.setDefs = this.setDefs.bind(this);
         this.setDefs();
     }
@@ -63,7 +63,7 @@ class MyPieces extends React.Component {
         });
     }
 
-    update() {
+    triggerRender() {
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -135,7 +135,7 @@ class MyPieces extends React.Component {
                     </div>
                     {this.state.fetched && (
                         <PieceProfiles
-                            headerType="load-delete"
+                            context="load-delete"
                             screenCase={screenCase}
                             title="My Pieces"
                             defs={this.defs}

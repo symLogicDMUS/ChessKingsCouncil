@@ -3,7 +3,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import {useStyles} from "./CheckBox.jss";
-import { withStyles } from "@material-ui/core";
+
 /**
  * arguments
  * position: the position object includes left/top values and may include margins

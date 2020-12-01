@@ -15,7 +15,7 @@ export function Toolbar({ toggleExpand, toolName, toolHeight, selectedTool }) {
 
     return (
         <>
-            <motion.div className={} animate={{ scaleY: toolHeight }} />
+            <motion.div className={className} animate={{ scaleY: toolHeight }} />
             <img
                 className={classes[toolName].widget}
                 src={`/Images/${widgetType}/${widgetType}-a9a9a9.svg`}

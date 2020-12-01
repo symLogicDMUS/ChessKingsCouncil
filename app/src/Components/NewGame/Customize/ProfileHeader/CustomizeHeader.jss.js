@@ -1,16 +1,11 @@
-import {
-    margin,
-    pieceNameWidth,
-    profileGridTop, profileHeaderHeight, profileHeaderWidth, subDropdownWidth,
-    topBarHeight
-} from "../sizeAndPosVariables.jss";
+import {customize as sizeAndPos} from "../sizeAndPosVariables.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles({
     pieceName : {
-        pieceNameWidth: pieceNameWidth,
+        pieceNameWidth: sizeAndPos.pieceNameWidth,
         gridColumn: 1,
-        fontSize: topBarHeight*0.7,
+        fontSize: sizeAndPos.topBarHeight*0.7,
         zIndex: "inherit",
         color: "#a9a9a9",
         fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
@@ -22,20 +17,20 @@ export const useStyles = makeStyles({
     profileHeader : {
         zIndex: "inherit",
         backgroundColor: "#515151",
-        profileHeaderWidth: profileHeaderWidth,
-        profileHeaderHeight: profileHeaderHeight,
+        profileHeaderWidth: sizeAndPos.profileHeaderWidth,
+        profileHeaderHeight: sizeAndPos.profileHeaderHeight,
     },
     profileHeaderGrid : {
         position: "relative",
         display: "inline-grid",
-        columnGap: margin,
-        profileGridTop: profileGridTop,
+        columnGap: sizeAndPos.columnGap,
+        profileGridTop: sizeAndPos.profileGridTop,
     },
     promoCheckbox : {
         gridColumn: 2,
     },
     subDropdown : {
         gridColumn: 3,
-        subDropdownWidth: subDropdownWidth,
+        subDropdownWidth: sizeAndPos.subDropdownWidth,
     },
 })

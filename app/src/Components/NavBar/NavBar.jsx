@@ -1,11 +1,11 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import Help from "./Help/Help";
-import { TogleNav } from "./TogleNav";
+import { ToggleNav } from "./ToggleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
 import HelpComponent from "./Help/HelpComponent";
-import {styleObjects} from "./NavBarStyle"
+import { withStyles } from "@material-ui/core";
 import {styles} from "./NavBar.jss";
 
 class NavBar extends React.Component {
@@ -65,7 +65,7 @@ class NavBar extends React.Component {
                         toggleConfirmRedirect={this.toggleConfirmRedirect}
                     />
                 )}
-                <div className={this.props.classes.nav_bar} style={styleObjects[screenCase]()}>
+                <div className={this.props.classes.nav_bar}>
                     {this.state.navExpanded && (
                         <HelpComponent
                             screenCase={screenCase}
@@ -223,10 +223,10 @@ class NavBar extends React.Component {
                             z={2}
                         />
                     )}
-                    <TogleNav
+                    <ToggleNav
                         screenCase={screenCase}
                         navExpanded={this.state.navExpanded}
-                        togleNav={this.toggleNav}
+                        toggleNav={this.toggleNav}
                         theme={this.props.theme}
                     />
                 </div>
@@ -244,4 +244,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+export default withStyles(styles)(NavBar)

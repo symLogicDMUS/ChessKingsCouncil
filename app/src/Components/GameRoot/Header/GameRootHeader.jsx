@@ -3,7 +3,7 @@ import {getColorName} from "../../helpers/getColorName";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
 import {useStyles} from "./GameRootHeader.jss";
 
-export function GameRootHeader({turn, winner, condition,}) {
+export function GameRootHeader({turn, winner, condition}) {
 
     const classes = useStyles()
 

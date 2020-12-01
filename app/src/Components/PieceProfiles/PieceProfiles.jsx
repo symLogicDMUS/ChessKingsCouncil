@@ -1,11 +1,11 @@
 import React from "react";
-// import { SearchBar } from "./SearchBar";
 import { Profile } from "./Profile";
+// import { SearchBar } from "./SearchBar";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
 import { CustomizeHeader } from "../NewGame/Customize/ProfileHeader/CustomizeHeader";
 import { LoadDeleteHeader } from "../MyPieces/LoadDeleteHeader";
-import {styles} from "./PieceProfiles.jss"
 import { withStyles } from "@material-ui/core";
+import {styles} from "./PieceProfiles.jss"
 
 class PieceProfiles extends React.Component {
     constructor(props) {
@@ -16,22 +16,10 @@ class PieceProfiles extends React.Component {
             selectedPiece: null,
             redirect: false,
         };
-        // this.displayDefs = null;
-        // this.displayBoard = null;
-        // this.color = null;
-        // this.rangeType = null;
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.searchText = "";
         this.updateSearch = this.updateSearch.bind(this);
         this.applySearchFilter = this.applySearchFilter.bind(this);
-    }
-
-    getEmptyProfile() {
-        return { W: { spans: [], offsets: [] }, B: { spans: [], offsets: [] } };
-    }
-
-    update() {
-        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     updateSearch(searchText) {
@@ -89,7 +77,7 @@ class PieceProfiles extends React.Component {
                             isCheckmark: isCheckmark,
                             newReplacement: this.props.newReplacement,
                             newReplaced: this.props.newReplaced,
-                            toggleSub: this.props.toggleSub,
+                            Sub: this.props.toggleSub,
                             togglePromo: this.props.togglePromo,
                             theme: this.props.theme
                         })}
@@ -109,7 +97,7 @@ class PieceProfiles extends React.Component {
     render() {
         return (
             <>
-                <div className={this.props.classes.pieceProfiles}>
+                <div className={this.props.classes.piece_profiles}>
                     {this.getProfiles()}
                 </div>
             </>

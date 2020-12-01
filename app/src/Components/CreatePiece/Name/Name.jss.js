@@ -1,4 +1,6 @@
-export const styles = {
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+export const useStyles = makeStyles({
         name: {
             position: "absolute",
             zIndex: "0",
@@ -14,13 +16,15 @@ export const styles = {
                 top: window.screen.availHeight * 0.6 * 1.23,
                 left: window.screen.availWidth * 0.01 * 5,
             },
+        },
+        title: {
             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
             fontSize: "125%",
             color: "#a9a9a9",
             backgroundColor: "#515151",
             borderRadius: "15px",
         },
-        form1: {
+        form: {
             position: "absolute",
             zIndex: "0",
             "@media screen and (min-device-width: 768px)": {
@@ -47,4 +51,4 @@ export const styles = {
     //     backgroundColor: "#5d5d5d",
     //     border: "1px solid #b6b6b6",
     // },
-};
+});

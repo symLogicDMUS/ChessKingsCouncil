@@ -1,3 +1,4 @@
+import makeStyles from "@material-ui/core/styles/makeStyles";
 const modalWidth = window.screen.availWidth * 0.389;
 const modalHeight = window.screen.availHeight * 0.400;
 const modalLeft = window.screen.availWidth * 0.5 - modalWidth * 0.5;
@@ -23,7 +24,7 @@ const button = {
 }
 
 
-export const styles = {
+export const useStyles = makeStyles({
     window: {
         position: "absolute",
         left: modalLeft,
@@ -80,4 +81,4 @@ export const styles = {
         paddingTop: "8px",
         textAlign: "center",
     },
-};
+});

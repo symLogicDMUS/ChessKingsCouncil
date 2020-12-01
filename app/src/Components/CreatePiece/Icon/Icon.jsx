@@ -1,47 +1,44 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { ChooseButton } from "./Choose/ChooseButton";
-import UploadButtonWhite  from "./Upload/UploadButtonWhite";
+import {ChooseButton} from "./Choose/ChooseButton";
+import UploadButtonWhite from "./Upload/UploadButtonWhite";
 import UploadButtonBlack from "./Upload/UploadButtonBlack";
-import { stylesObjects } from "../create-piece-styles-objects";
-import { styles } from "./Icon.jss"
+import {useStyles} from "./Icon.jss"
 
-class Icon extends React.Component {
-    render() {
-        return (
-            <>
-                <div className={this.props.classes.icon_tool}>
-                    <div className={this.props.classes.icon_title}>Icon</div>
-                    <div className={this.props.classes.white_title}>White</div>
-                    <div className={this.props.classes.black_title}>Black</div>
-                    <UploadButtonWhite
-                        color="white"
-                        setPieceImg={this.props.setPieceImg}
-                        currentIconColor={this.props.currentIconColor}
-                        setCurrentIconColor={this.props.setCurrentIconColor}
-                    />
-                    <UploadButtonBlack
-                        color="black"
-                        setPieceImg={this.props.setPieceImg}
-                        currentIconColor={this.props.currentIconColor}
-                        setCurrentIconColor={this.props.setCurrentIconColor}
-                    />
-                    <ChooseButton showChooseModal={this.props.showChooseModal} color="white" />
-                    <ChooseButton showChooseModal={this.props.showChooseModal} color="black" />
-                    <div className={this.props.classes.white_window}>
-                        {this.props.pieceImg["white"] ? (
-                            <img src={this.props.pieceImg["white"]} width="100%" height="100%" />
-                        ) : null}
-                    </div>
-                    <div className={this.props.classes.black_window}>
-                        {this.props.pieceImg["black"] ? (
-                            <img src={this.props.pieceImg["black"]} width="100%" height="100%" />
-                        ) : null}
-                    </div>
+export function Icon({setPieceImg, currentIconColor, setCurrentIconColor, showChooseModal, pieceImg}) {
+
+    const classes = useStyles()
+
+    return (
+        <>
+            <div className={classes.icon_tool}>
+                <div className={classes.title}>Icon</div>
+                <div className={classes.white_title}>White</div>
+                <div className={classes.black_title}>Black</div>
+                <UploadButtonWhite
+                    color="white"
+                    setPieceImg={setPieceImg}
+                    currentIconColor={currentIconColor}
+                    setCurrentIconColor={setCurrentIconColor}
+                />
+                <UploadButtonBlack
+                    color="black"
+                    setPieceImg={setPieceImg}
+                    currentIconColor={currentIconColor}
+                    setCurrentIconColor={setCurrentIconColor}
+                />
+                <ChooseButton showChooseModal={showChooseModal} color="white"/>
+                <ChooseButton showChooseModal={showChooseModal} color="black"/>
+                <div className={classes.white_window}>
+                    {pieceImg["white"] ? (
+                        <img src={pieceImg["white"]} className={classes.image}/>
+                    ) : null}
                 </div>
-            </>
-        );
-    }
+                <div className={classes.black_window}>
+                    {pieceImg["black"] ? (
+                        <img src={pieceImg["black"]} className={classes.image}/>
+                    ) : null}
+                </div>
+            </div>
+        </>
+    );
 }
-
-export let test = () => ReactDOM.render(<Icon />, document.getElementById("root"));

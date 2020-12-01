@@ -14,7 +14,7 @@ export const useStyles = makeStyles({
     },
     help_item: {
         position: "absolute",
-        top: top,
+        top: 0,
         zIndex: 5,
         height: 28,
         width: 600,

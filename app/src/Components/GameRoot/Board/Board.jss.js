@@ -1,6 +1,7 @@
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import {board} from "../../Reuseables/boardMixin.jss";
 
-export const styles = {
+export const useStyles = makeStyles({
     interactive_board: {
         ...board,
         zIndex: 2,
@@ -10,4 +11,4 @@ export const styles = {
         zIndex: 0,
         boxShadow: '0px 0px 25px white'
     }
-}
+})

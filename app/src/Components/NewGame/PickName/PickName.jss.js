@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles({
-    game_name: {
+    pick_name: {
         marginTop: "10%",
         marginLeft: "50%",
     },

@@ -1,9 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { stylesObjects } from "./choose-modal-styles-objects";
-import { styles } from "./ImgChoice.jss";
+import { useStyles } from "./ImgChoice.jss";
 
-export function ImgChoice({ name, screenCase, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
+export function ImgChoice({ name, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
     const classes = useStyles()
     return (
         <div

@@ -1,7 +1,7 @@
 import React from "react";
 import { saveImg } from "../../../../API/saveImg";
-import { styles } from "./UploadButtonBlack.jss"
 import withStyles from "@material-ui/core/styles/withStyles";
+import { styles } from "./UploadButton.jss"
 
 class UploadButtonBlack extends React.Component {
     constructor(props) {

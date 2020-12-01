@@ -1,87 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { ArrowButton } from "./ArrowButton/ArrowButton";
-import { RangeDisplayWindow } from "./RangeDisplayWindow";
-import { stylesObjects } from "../create-piece-styles-objects";
-import { angleToText } from "../../helpers/spanToText";
-import { offsetToText } from "../../helpers/offsetToText";
-import { styles } from "./Range.jss"
-import withStyles from "@material-ui/core/styles/withStyles";
+import {RangeDisplayWindow} from "./RangeDisplayWindow";
+import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
+import {useStyles} from "./Range.jss"
 
-class Range extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { userInput: "" };
-        this.vectors = {
-            "135d": "upLeft.svg",
-            "90d": "up.svg",
-            "45d": "upRight.svg",
-            "180d": "left.svg",
-            "0d": "right.svg",
-            "225d": "downLeft.svg",
-            "270d": "down.svg",
-            "315d": "downRight.svg",
-        };
-        this.buttonPos = {
-            "135d": { position: "absolute", top: "0%", left: "0%" },
-            "90d": { position: "absolute", top: "0%", left: "35%" },
-            "45d": { position: "absolute", top: "0%", left: "70%" },
-            "180d": { position: "absolute", top: "35%", left: "0%" },
-            "0d": { position: "absolute", top: "35%", left: "70%" },
-            "225d": { position: "absolute", top: "70%", left: "0%" },
-            "270d": { position: "absolute", top: "70%", left: "35%" },
-            "315d": { position: "absolute", top: "70%", left: "70%" },
-        };
-    }
 
-    getArrowButtons() {
-        const arrowButtons = [];
-        Object.entries(this.vectors).forEach(([angle, svg]) => {
-            arrowButtons.push(
-                <ArrowButton
-                    id={angle}
-                    image={svg}
-                    pos={this.buttonPos[angle]}
-                    isActive={this.props.spans[angle]}
-                    togleSpan={this.props.togleSpan}
-                    theme={this.props.theme}
-                />
-            );
-        });
-        return arrowButtons;
-    }
 
-    getSpanTextLabels() {
-        let spans = [];
-        for (const angle of Object.keys(this.props.spans)) {
-            if (this.props.spans[angle]) {
-                spans.push(angleToText[angle]);
-            }
-        }
-        return spans;
-    }
+export function Range({spans, offsets, toggleSpan, theme}) {
 
-    getOffsetTextLabels() {
-        return this.props.offsets.map((offset) => offsetToText(offset));
-    }
+    const classes = useStyles()
 
-    render() {
-        return (
-            <>
-                <div className={this.props.classes.range_tool}>
-                    <div className={this.props.classes.range_title}>Range</div>
-                    <RangeDisplayWindow
-                        ranges={{ ...this.getSpanTextLabels(), ...this.getOffsetTextLabels() }}
-                        screenCase={this.props.screenCase}
-                    />
-                    <div className={this.props.classes.direction_pad}>
-                        {this.getArrowButtons()}
-                        <div className={this.props.classes.middle} />
-                    </div>
-                </div>
-            </>
-        );
-    }
+    return (
+        <>
+            <div className={classes.range_tool}>
+                <div className={classes.title}>Range</div>
+                <RangeDisplayWindow spans={spans} offsets={offsets} theme={theme} />
+                <SpanArrowButtons spans={spans} toggleSpan={toggleSpan} theme={theme}/>
+            </div>
+        </>
+    );
 }
-
-export default withStyles(styles)(Range)

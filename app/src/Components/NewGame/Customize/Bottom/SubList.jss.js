@@ -1,13 +1,13 @@
-import { subListWidth, subListHeight, subListTop, subListLeft } from "../sizeAndPosVariables.jss";
+import { customize as sizeAndPos } from "../sizeAndPosVariables.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles({
     subList: {
         position: "absolute",
-        subListWidth: subListWidth,
-        subListHeight: subListHeight,
-        subListTop: subListTop,
-        subListLeft: subListLeft,
+        subListWidth: sizeAndPos.subListWidth,
+        subListHeight: sizeAndPos.subListHeight,
+        subListTop: sizeAndPos.subListTop,
+        subListLeft: sizeAndPos.subListLeft,
         display: "grid",
         gridTemplateColumns: "20% 80%",
         gridTemplateRows: "21% 20% 20% 20% 20%",

@@ -1,63 +1,114 @@
-import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {winWidth} from "../../helpers/windowMeasurments";
-export const margin = window.screen.availWidth * 0.0125;
+import {navBarHeight} from "../../NavBar/sizeAndPosVariables.jss";
 
-export const customizeWidth = window.screen.availWidth * 0.99;
-export const customizeHeight = window.screen.availHeight - navBarHeight;
-export const customizeTop = navBarHeight + navBarHeight * 0.1;
-export const customizeLeft = 0; 
+const margin = window.screen.availWidth * 0.0125;
 
-export const topBarWidth = customizeWidth;
-export const topBarHeight = customizeHeight * 0.05;
-export const topBarTop = navBarHeight + navBarHeight * 0.1;
-export const topBarLeft = 0;
+const windowWidth = window.screen.availWidth * 0.99;
+const windowHeight = window.screen.availHeight - navBarHeight;
+const top = navBarHeight + navBarHeight * 0.1;
+const left = 0;
 
-export const pieceProfilesWidth = customizeWidth;
-export const pieceProfilesHeight = customizeHeight * 0.6;
-export const pieceProfilesTop = topBarHeight;
-export const pieceProfilesLeft = 0;
+const topBarWidth = windowWidth;
+const topBarHeight = windowHeight * 0.05;
+const topBarTop = navBarHeight + navBarHeight * 0.1;
+const topBarLeft = 0;
+
+const pieceProfilesWidth = windowWidth;
+const pieceProfilesHeight = windowHeight * 0.6;
+const pieceProfilesTop = topBarHeight;
+const pieceProfilesLeft = 0;
 
 
-export const profileHeaderWidth = pieceProfilesWidth;
-export const profileHeaderHeight = pieceProfilesHeight * 0.1;
+const profileHeaderWidth = pieceProfilesWidth;
+const profileHeaderHeight = pieceProfilesHeight * 0.1;
 
-export const profileGridTop = margin;
-export const columnGap = margin;
-export const profileWBHeight = (pieceProfilesHeight - profileHeaderHeight - columnGap * 3) * 0.5;
-export const row1 = profileWBHeight * 0.15;
-export const row2 = profileWBHeight * 0.85;
-export const col1 = row2;
-export const col2 = customizeWidth * 0.4;
-export const col3 = col2;
+const profileGridTop = margin;
+const columnGap = margin;
+const profileWBHeight = (pieceProfilesHeight - profileHeaderHeight - columnGap * 3) * 0.5;
+const row1 = profileWBHeight * 0.15;
+const row2 = profileWBHeight * 0.85;
+const col1 = row2;
+const col2 = windowWidth * 0.4;
+const col3 = col2;
 
-export const pieceNameWidth = (pieceProfilesHeight - profileHeaderHeight - margin * 3) * 0.5;
+const pieceNameWidth = (pieceProfilesHeight - profileHeaderHeight - margin * 3) * 0.5;
 
-export const subDropdownWidth =  profileHeaderWidth * 0.2675;
+const subDropdownWidth = profileHeaderWidth * 0.2675;
 
-export const subListWidth = customizeWidth * 0.5;
-export const subListHeight = customizeHeight - (topBarHeight + pieceProfilesHeight + navBarHeight) * 1.15;
-export const subListTop = topBarHeight + pieceProfilesHeight;
-export const subListLeft = 0;
+const subListWidth = windowWidth * 0.5;
+const subListHeight = windowHeight - (topBarHeight + pieceProfilesHeight + navBarHeight) * 1.15;
+const subListTop = topBarHeight + pieceProfilesHeight;
+const subListLeft = 0;
 
-export const promoListWidth = subListWidth;
-export const promoListHeight = subListHeight;
-export const promoListTop = subListTop;
-export const promoListLeft = customizeWidth * 0.5;
+const promoListWidth = subListWidth;
+const promoListHeight = subListHeight;
+const promoListTop = subListTop;
+const promoListLeft = windowWidth * 0.5;
 
-export const bottomBarWidth = customizeWidth;
-export const bottomBarHeight = navBarHeight * 1.15;
-export const bottomBarTop = topBarHeight + pieceProfilesHeight + promoListHeight;
-export const bottomBarLeft = 0;
+const bottomBarWidth = windowWidth;
+const bottomBarHeight = navBarHeight * 1.15;
+const bottomBarTop = topBarHeight + pieceProfilesHeight + promoListHeight;
+const bottomBarLeft = 0;
 
-export const promoAllCheckboxTop = bottomBarHeight * 0.48 - (bottomBarHeight*0.7) * 0.5;
-export const promoAllCheckboxLeft = margin;
+const promoAllCheckboxTop = bottomBarHeight * 0.48 - (bottomBarHeight * 0.7) * 0.5;
+const promoAllCheckboxLeft = margin;
 
-export const playAsDropdownWidth = bottomBarWidth * 0.15;
-export const playAsDropdownHeight = bottomBarHeight * 0.7;
-export const playAsDropdownTop = bottomBarHeight*0.5 - playAsDropdownHeight * 0.5;
-export const playAsDropdownLeft = bottomBarHeight * 0.2
+const playAsDropdownWidth = bottomBarWidth * 0.15;
+const playAsDropdownHeight = bottomBarHeight * 0.7;
+const playAsDropdownTop = bottomBarHeight * 0.5 - playAsDropdownHeight * 0.5;
+const playAsDropdownLeft = bottomBarHeight * 0.2
 
-export const okButtonHeight = playAsDropdownHeight;
-export const okButtonWidth = okButtonHeight * 3;
-export const okButtonLeft = bottomBarWidth * 0.4;
-export const okButtonTop = bottomBarHeight*0.5 - okButtonHeight*0.5
+const okButtonHeight = playAsDropdownHeight;
+const okButtonWidth = okButtonHeight * 3;
+const okButtonLeft = bottomBarWidth * 0.4;
+const okButtonTop = bottomBarHeight * 0.5 - okButtonHeight * 0.5
+
+export const customize = {
+    margin,
+    windowWidth,
+    windowHeight,
+    top,
+    left,
+    topBarWidth,
+    topBarHeight,
+    topBarTop,
+    topBarLeft,
+    pieceProfilesWidth,
+    pieceProfilesHeight,
+    pieceProfilesTop,
+    pieceProfilesLeft,
+    profileHeaderWidth,
+    profileHeaderHeight,
+    profileGridTop,
+    columnGap,
+    profileWBHeight,
+    row1,
+    row2,
+    col1,
+    col2,
+    col3,
+    pieceNameWidth,
+    subDropdownWidth,
+    subListWidth,
+    subListHeight,
+    subListTop,
+    subListLeft,
+    promoListWidth,
+    promoListHeight,
+    promoListTop,
+    promoListLeft,
+    bottomBarWidth,
+    bottomBarHeight,
+    bottomBarTop,
+    bottomBarLeft,
+    promoAllCheckboxTop,
+    promoAllCheckboxLeft,
+    playAsDropdownWidth,
+    playAsDropdownHeight,
+    playAsDropdownTop,
+    playAsDropdownLeft,
+    okButtonHeight,
+    okButtonWidth,
+    okButtonLeft,
+    okButtonTop,
+}

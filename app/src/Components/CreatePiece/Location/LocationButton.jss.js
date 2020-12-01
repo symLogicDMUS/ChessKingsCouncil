@@ -1,39 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 
-const buttons = {
-    desktop: {
-        d4: {
-            left: '3%'
-        },
-        e4: {
-            left: '16%'
-        },
-        d5: {
-            left: '29%'
-        },
-        e5: {
-            left: '42%'
-        },
-    },
-    mobile: {
-        d4: {
-            top: "52%",
-            left: "3.5%",
-        },
-        e4: {
-            top: "52%",
-            left: "52%",
-        },
-        d5: {
-            top: "3.5%",
-            left: "3.5%",
-        },
-        e5: {
-            top: "3.5%",
-            left: "52%",
-        },
-    },
-}
+const buttons = {}
 
 const unselectedButton = {
     backgroundColor: '#5d5d5d',
@@ -51,24 +18,40 @@ export const useStyles = makeStyles({
         width: "50%",
         height: "50%",
     },
-    "@media screen and (min-device-width: 768px)": {
-        normal: props => ({
-            ...buttons.desktop[props.rf],
-            ...unselectedButton
-        }),
-        selected: props => ({
-            ...buttons.desktop[props.rf],
-            backgroundColor: 'red',
-        }),
+    d4: {
+        "@media screen and (min-device-width: 768px)": {
+            left: '3%'
+        },
+        "@media screen and (max-device-width: 767px)": {
+            top: "52%",
+            left: "3.5%",
+        },
     },
-    "@media screen and (max-device-width: 767px)": {
-        normal: props => ({
-            ...buttons.mobile[props.rf],
-            ...unselectedButton
-        }),
-        selected: props => ({
-            ...buttons.mobile[props.rf],
-            backgroundColor: 'red',
-        }),
+    e4: {
+        "@media screen and (min-device-width: 768px)": {
+            left: '16%'
+        },
+        "@media screen and (max-device-width: 767px)": {
+            top: "52%",
+            left: "52%",
+        },
+    },
+    d5: {
+        "@media screen and (min-device-width: 768px)": {
+            left: '29%'
+        },
+        "@media screen and (max-device-width: 767px)": {
+            top: "3.5%",
+            left: "3.5%",
+        },
+    },
+    e5: {
+        "@media screen and (min-device-width: 768px)": {
+            left: '42%'
+        },
+        "@media screen and (max-device-width: 767px)": {
+            top: "3.5%",
+            left: "52%",
+        },
     },
 })

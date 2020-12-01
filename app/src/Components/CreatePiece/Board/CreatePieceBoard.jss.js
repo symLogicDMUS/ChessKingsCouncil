@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-export const styles = {
+export const useStyles = makeStyles({
     board: {
         position: 'absolute',
         zIndex: '0',
@@ -20,4 +20,4 @@ export const styles = {
         WebkitBoxShadow: '0px 0px 20px white',
         boxShadow: '0px 0px 20px white'
     },
-}
+});

@@ -10,16 +10,16 @@ const square = (rf) => ({
     backgroundSize: "cover",
 })
 
-export const useStyles = makeStyles((props), {
-    ai_start: {
+export const useStyles = makeStyles({
+    ai_start: props =>  ({
         ...square(props.rf),
         backgroundImage: 'url("/Images/sqr/sqr-outline-fdfd35.svg")',
-    },
-    ai_dest: {
+    }),
+    ai_dest: props => ({
         ...square(props.rf),
         backgroundImage: 'url("/Images/sqr/sqr-highlight-fdfd35.svg")',
-    },
-    none: {
+    }),
+    none: props => ({
         ...square(props.rf),
-    }
+    })
 });

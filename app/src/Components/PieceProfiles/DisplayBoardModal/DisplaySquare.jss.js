@@ -1,24 +1,48 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {rfToXy} from "../../helpers/crdCnvrt";
+
+
+function getPosPx(rf, screenCase) {
+    if (screenCase === 'desktop') {
+        const sqrHeightRatio = window.screen.availHeight * 0.053;
+        const sqrWidthRatio = window.screen.availWidth * 0.026;
+        const boardSize = sqrHeightRatio * 8;
+        const [x, y] = rfToXy(rf);
+        const left = (x - 1) * sqrWidthRatio;
+        const top = boardSize - y * sqrHeightRatio;
+        return {left: left, top: top};
+    }
+    else if (screenCase === 'mobile') {
+        /*Not yet implemented*/
+    }
+}
+
+const square = (rf) => ({
+    position: 'absolute',
+    zIndex: 'inherit',
+    "@media screen and (min-device-width: 768px)": {
+        ...getPosPx(rf, 'desktop')
+    },
+    "@media screen and (max-device-width: 767px)": {
+        ...getPosPx(rf, 'mobile')
+    },
+})
 
 export const useStyles = makeStyles({
-    lightSqr: {
-        position: 'absolute',
-        zIndex: 'inherit',
+    light: props => ({
+        ...square(props.rf),
         backgroundColor: '#a9a9a9',
-    },
-    darkSqr: {
-        position: 'absolute',
-        zIndex: 'inherit',
-        backgroundColor: 'white',
-    },
-    offsetSqr: {
-        position: 'absolute',
-        zIndex: 'inherit',
+    }),
+    dark: props => ({
+        ...square(props.rf),
+        backgroundColor: '#ffffff',
+    }),
+    offset: props => ({
+        ...square(props.rf),
         backgroundColor: '#8b0000',
-    },
-    spanSqr: {
-        position: 'absolute',
-        zIndex: 'inherit',
+    }),
+    span: props => ({
+        ...square(props.rf),
         backgroundColor: '#EC2525',
-    },
+    }),
 })

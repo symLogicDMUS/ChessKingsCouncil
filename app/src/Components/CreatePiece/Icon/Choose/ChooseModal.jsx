@@ -3,16 +3,14 @@ import { getImgDict } from "../../../../API/getImgDict";
 import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
+import { ImgChoice } from "./ImgChoice";
 import { IconModalButton } from "../IconModalButton";
 import { ConfirmModal } from "../../../NavBar/ConfirmModal";
-import { ImgChoice } from "./ImgChoice";
+import { ImageNameDisplay } from "./ImageNameDisplay";
 import { SearchBox } from "../../../Reuseables/SearchBox";
-import { stylesObjects } from "./choose-modal-styles-objects";
-import { SearchBoxStyle } from "../../../Reuseables/SearchBoxStyle";
-import { CloseStyle } from "../../../Reuseables/CloseStyle";
 import { Close } from "../../../Reuseables/Close";
-import { styles } from "./ChooseModal.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { styles } from "./ChooseModal.jss";
 
 class ChooseModal extends React.Component {
     constructor(props) {
@@ -113,30 +111,18 @@ class ChooseModal extends React.Component {
     render() {
         return (
             <>
-                <div className={this.props.classes.choose_modal}>
-                    <div className={this.props.classes.choose_main}>
-                        <Close
-                            theme="dark"
-                            styleObject={CloseStyle[this.props.screenCase](0.018, "0.75%", "97.75%")}
-                            clickMethod={this.props.closeChooseModal}
-                        />
-                        <div
-                            className={this.props.classes.title_container}
-                        >
+                <div className={this.props.classes.modal}>
+                    <div className={this.props.classes.window}>
+                        <Close theme="dark" clickMethod={this.props.closeChooseModal} />
+                        <div className={this.props.classes.title}>
                             <img
                                 src="/Images/text-labels/choose-icon-title.svg"
-                                style={{ position: "absolute", width: "100%" }}
+                                className={this.props.classes.title}
                                 alt="title of window"
                             />
                         </div>
-                        <SearchBox
-                            updateSearch={this.updateSearch}
-                            screenCase={this.props.screenCase}
-                            styleObject={SearchBoxStyle[this.props.screenCase](0.01, 13.5, "60%", "1%")}
-                        />
-                        <div className={this.props.classes.image_choices}>
-                            {this.getImages()}
-                        </div>
+                        <SearchBox updateSearch={this.updateSearch} screenCase={this.props.screenCase} />
+                        <div className={this.props.classes.image_choices}>{this.getImages()}</div>
                         <div className={this.props.classes.bottom_bar}>
                             <IconModalButton
                                 buttonText="Ok"
@@ -150,10 +136,10 @@ class ChooseModal extends React.Component {
                                 imgNameChoice={this.state.imgNameChoice}
                                 clickMethod={this.openAskDeleteModal}
                             />
-                            <div className={this.props.classes.hover_image_name}>
-                                <div style={{ position: "absolute", top: "20%" }}>{this.state.hoverText}</div>
-                            </div>
-                            <div className={this.props.classes.selected_image_name}>{this.state.imgNameChoice}</div>
+                            <ImageNameDisplay
+                                hoverText={this.state.hoverText}
+                                imgNameChoice={this.state.imgNameChoice}
+                            />
                         </div>
                     </div>
                 </div>
@@ -169,4 +155,4 @@ class ChooseModal extends React.Component {
     }
 }
 
-export default withStyles(styles)(ChooseModal)
+export default withStyles(styles)(ChooseModal);

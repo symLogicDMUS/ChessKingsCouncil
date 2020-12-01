@@ -5,9 +5,9 @@ import { AcceptPromo as AcceptButton } from "./AcceptPromo";
 import { shuffle } from "../../helpers/shuffleArray";
 import { numKings } from "../../helpers/numKings";
 import { standardPieceImgStrs } from "../../helpers/standardPieceImgStrs";
-import withStyles from "@material-ui/core/styles/withStyles";
-import "./Promo.jss";
 import { getPieceName } from "../../helpers/getPieceName";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {styles} from "./Promo.jss";
 
 const Arrow = ({ text, className }) => {
     return <div className={className}>{text}</div>;

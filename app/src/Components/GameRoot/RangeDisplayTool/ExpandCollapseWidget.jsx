@@ -1,5 +1,4 @@
 import React from "react";
-import "../scss/ExpandColapseWidget.scss";
 import { useStyles } from "./EpandCollapseWidget.jss";
 
 export function ExpandCollapseWidget({ toggleExpand, isExpanded }) {

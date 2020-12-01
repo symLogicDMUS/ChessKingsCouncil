@@ -1,41 +1,51 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {
-    col1 as customizeCol1,
-    col2 as customizeCol2,
-    col3 as customizeCol3,
-    columnGap as customizeColumnGap,
-    profileHeaderHeight as customizeProfileHeaderHeight,
-    row1 as customizeRow1,
-    row2 as customizeRow2
-} from "../NewGame/Customize/sizeAndPosVariables.jss";
-/* not yet implemented. will go where needed when splitting load-delete header classes into different files:
-import {
-    row1 as loadDeleteRow1,
-    row2 as loadDeleteRow2,
-    col1 as loadDeleteCol1,
-    col2 as loadDeleteCol2,
-    columnGap as loadDeleteColumnGap,
-} from "../MyPieces/sizeAndPosVariables.jss";
-*/
+import {customize} from "../NewGame/Customize/sizeAndPosVariables.jss";
+import {loadDelete} from "../MyPieces/sizeAndPosVariables.jss";
 
-export const styles = {
-    "custom-game": {
-        profile: {
-            marginLeft: customizeColumnGap,
-            marginBottom: customizeColumnGap,
-            width: customizeCol1 + customizeColumnGap + customizeCol2 + customizeColumnGap + customizeCol3 + 2,
+function profile(context) {
+    if (context === 'custom-game') {
+        return {
+            marginLeft: customize.columnGap,
+            marginBottom: customize.columnGap,
+            width: customize.col1 + customize.columnGap + customize.col2 + customize.columnGap + customize.col3 + 2,
             height:
-                customizeProfileHeaderHeight +
-                customizeCol3 +
-                customizeRow1 +
-                customizeRow2 +
-                customizeColumnGap +
-                customizeRow1 +
-                customizeRow2 +
-                customizeColumnGap,
+                customize.profileHeaderHeight +
+                customize.col3 +
+                customize.row1 +
+                customize.row2 +
+                customize.columnGap +
+                customize.row1 +
+                customize.row2 +
+                customize.columnGap,
             borderTop: '0.8px solid #707070',
             zIndex: 'inherit',
-        },
-    },
-    /*"load-delete": {},*/
-};
+        }
+    } else if (context === 'load-delete') {
+        //TODO: will be different
+        return {
+            marginLeft: loadDelete.columnGap,
+            marginBottom: loadDelete.columnGap,
+            width: loadDelete.col1 + loadDelete.columnGap + loadDelete.col2 + loadDelete.columnGap + loadDelete.col3 + 2,
+            height:
+                loadDelete.profileHeaderHeight +
+                loadDelete.col3 +
+                loadDelete.row1 +
+                loadDelete.row2 +
+                loadDelete.columnGap +
+                loadDelete.row1 +
+                loadDelete.row2 +
+                loadDelete.columnGap,
+            borderTop: '0.8px solid #707070',
+            zIndex: 'inherit',
+        }
+    }
+}
+
+
+export const useStyles = makeStyles({
+    profile: props => ({
+        ...profile(props.context),
+        borderTop: '0.8px solid #707070',
+        zIndex: 'inherit',
+    }),
+});

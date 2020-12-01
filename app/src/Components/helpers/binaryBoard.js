@@ -1,3 +1,8 @@
+/**
+ * binaryBoard primarily used to determine which className to use in Square component.
+ * light squares value of 1, dark square value of 0.
+ */
+
 export const binaryBoard = {
         'a8': 1, 'b8': 0, 'c8': 1, 'd8': 0, 'e8': 1, 'f8': 0, 'g8': 1, 'h8': 0,
         'a7': 0, 'b7': 1, 'c7': 0, 'd7': 1, 'e7': 0, 'f7': 1, 'g7': 0, 'h7': 1,

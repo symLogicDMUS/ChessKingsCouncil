@@ -1,10 +1,4 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {displayBoardModal} from "./styles/displayBoardModal.jss";
-import {displayBoard} from "./styles/displayBoard.jss";
-import {lightSqr} from "./styles/lightSqr.jss";
-import {darkSqr} from "./styles/darkSqr.jss";
-import {offsetSqr} from "./styles/offsetSqr.jss";
-import {spanSqr} from "./styles/spanSqr.jss";
 import {winHeight, winWidth} from "../../helpers/windowMeasurments";
 
 
@@ -54,7 +48,4 @@ export const useStyles = makeStyles({
         backgroundColor: "#515151",
         borderRadius: 15,
     },
-    /*
-    * mobile:makeStyles({}),
-    * */
 })

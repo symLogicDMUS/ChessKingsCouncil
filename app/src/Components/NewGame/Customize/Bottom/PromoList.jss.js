@@ -1,10 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {
-    promoListHeight,
-    promoListLeft,
-    promoListTop,
-    promoListWidth,
-} from "../sizeAndPosVariables.jss";
+import {customize as sizeAndPos} from "../sizeAndPosVariables.jss";
 
 const listItem = {
     position: "absolute",
@@ -21,10 +16,10 @@ const listItem = {
 
 export const useStyles = makeStyles({
     promoList: {
-        promoListWidth: promoListWidth,
-        promoListHeight: promoListHeight,
-        promoListTop: promoListTop,
-        promoListLeft: promoListLeft,
+        promoListWidth: sizeAndPos.promoListWidth,
+        promoListHeight: sizeAndPos.promoListHeight,
+        promoListTop: sizeAndPos.promoListTop,
+        promoListLeft: sizeAndPos.promoListLeft,
     },
     header: props => ({
         ...listItem,

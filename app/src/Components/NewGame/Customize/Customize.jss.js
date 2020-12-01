@@ -1,23 +1,14 @@
-import {
-    bottomBarHeight,
-    bottomBarLeft,
-    bottomBarTop,
-    bottomBarWidth, customizeHeight, customizeLeft, customizeTop, customizeWidth,
-    topBarHeight,
-    topBarLeft,
-    topBarTop,
-    topBarWidth
-} from "./sizeAndPosVariables.jss";
+import {customize as sizeAndPosVariables} from "./sizeAndPosVariables.jss";
 
 export const styles = {
     customize: {
         zIndex: 5,
         position: "absolute",
         border: "1px solid #707070",
-        width: customizeWidth,
-        height: customizeHeight,
-        top: customizeTop,
-        left: customizeLeft,
+        width: sizeAndPosVariables.windowWidth,
+        height: sizeAndPosVariables.windowHeight,
+        top: sizeAndPosVariables.top,
+        left: sizeAndPosVariables.left,
     },
     topBar: {
         position: "absolute",
@@ -26,10 +17,10 @@ export const styles = {
         border: "1px solid blue",
         borderTopLeftRadius: "10px",
         borderTopRightRadius: "10px",
-        width: topBarWidth,
-        height: topBarHeight,
-        top: topBarTop,
-        left: topBarLeft,
+        width: sizeAndPosVariables.topBarWidth,
+        height: sizeAndPosVariables.topBarHeight,
+        top: sizeAndPosVariables.topBarTop,
+        left: sizeAndPosVariables.topBarLeft,
     },
     title: {
         position: "absolute",
@@ -44,9 +35,9 @@ export const styles = {
         position: "absolute",
         backgroundColor: "#515151",
         borderTop: "1px solid #707070",
-        width: bottomBarWidth,
-        height: bottomBarHeight,
-        top: bottomBarTop,
-        left: bottomBarLeft,
+        width: sizeAndPosVariables.bottomBarWidth,
+        height: sizeAndPosVariables.bottomBarHeight,
+        top: sizeAndPosVariables.bottomBarTop,
+        left: sizeAndPosVariables.bottomBarLeft,
     },
 };

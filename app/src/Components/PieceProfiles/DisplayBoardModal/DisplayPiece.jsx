@@ -1,5 +1,4 @@
 import React from "react";
-import {styles} from "./DisplayPiece.jss";
 import {useStyles} from "./DisplayPiece.jss";
 
 export function DisplayPiece({pieceImgBase64Str}) {

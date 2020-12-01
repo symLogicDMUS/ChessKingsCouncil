@@ -1,21 +1,12 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Customize from "./Customize/Customize";
 import PickType from "./PickType/PickType";
-import PickName from "./PickName/PickName";
+import { PickName } from "./PickName/PickName";
 import PlayAs from "./PlayAs/PlayAs";
-import {firstUpdate} from "../../apiHelpers/firstUpdate";
-import {
-    newData,
-    ranges,
-    enemyRanges,
-    moves,
-    status,
-    id_dict,
-    piece_defs,
-    standard_promo_names
-} from "./NewData";
-import {styles} from "./NewGame.jss";
+import { firstUpdate } from "../../apiHelpers/firstUpdate";
+import { newData, ranges, enemyRanges, moves, status, id_dict, piece_defs, standard_promo_names } from "./NewData";
+import { styles } from "./NewGame.jss";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
@@ -26,58 +17,31 @@ import {styles} from "./NewGame.jss";
 class NewGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {step: 0};
-        this.gameName = "none";
-        this.gameType = "none";
-        this.playerType = "test"; //either the color W or B, or 'test'
-        this.pieceDefs = {};
-        this.comp = null;
-        this.turn = null;
-        this.nextStep = this.nextStep.bind(this);
+        this.state = { step: "pick-type", gameName: "", gameType: "", playerType: "" };
+        this.gameData = {};
         this.setGameType = this.setGameType.bind(this);
         this.setGameName = this.setGameName.bind(this);
-        this.setPlayerType = this.setPlayerType.bind(this);
-        this.loadNewData = this.loadNewData.bind(this);
+        this.loadNewStandard = this.loadNewStandard.bind(this);
         this.loadNewCustom = this.loadNewCustom.bind(this);
     }
-
 
     componentDidMount() {
         document.body.className = "new-game-body";
     }
 
+    setGameName(gameName) {
+        this.setState({ gameName: gameName, step: "set-game-type" });
+    }
+
     setGameType(type) {
-        this.gameType = type;
-        this.nextStep()
+        if (type === "customize") {
+            this.setState({ gameType: type, step: "load-new-custom" });
+        } else {
+            this.setState({ gameType: type, step: "load-new-standard" });
+        }
     }
 
-    setPlayerType(playerType) {
-        this.playerType = playerType;
-        this.nextStep()
-    }
-
-    setGameName(name) {
-        this.gameName = name;
-        this.nextStep()
-    }
-
-    loadNewData() {
-        this.gameData = JSON.parse(JSON.stringify(newData));
-        this.gameData["game_name"] = this.gameName;
-        this.gameData["pt"] = JSON.parse(JSON.stringify(this.playerType));
-        this.gameData["type"] = JSON.parse(JSON.stringify(this.gameType));
-        this.gameData["promos"] = JSON.parse(JSON.stringify(standard_promo_names));
-        this.gameData["id_dict"] = JSON.parse(JSON.stringify(id_dict));
-        this.gameData["piece_defs"] = JSON.parse(JSON.stringify(piece_defs));
-        this.gameData["moves"] = JSON.parse(JSON.stringify(moves));
-        this.gameData["ranges"] = JSON.parse(JSON.stringify(ranges));
-        this.gameData["enemy_ranges"] = JSON.parse(JSON.stringify(enemyRanges));
-        this.gameData["status"] = JSON.parse(JSON.stringify(status));
-        if (this.gameType === "council") this.gameData.promos.push("King");
-        this.nextStep()
-    }
-
-    loadNewCustom(idDict, defs, promos) {
+    loadNewCustom(idDict, defs, promos, playerType) {
         /**
          * first declare the data we don't need then backend for, then get rest of data from backend.
          *
@@ -91,10 +55,9 @@ class NewGame extends React.Component {
          * 5. format the data that backend needs together into an object.
          * 6. get the starting ranges for our custom new game from the backend, then update state
          */
-
         this.gameData = JSON.parse(JSON.stringify(newData)); //1.
         this.gameData["game_name"] = this.gameName;
-        this.gameData["pt"] = JSON.parse(JSON.stringify(this.playerType)); //2.
+        this.gameData["pt"] = playerType; //2.
         this.gameData["type"] = JSON.parse(JSON.stringify(this.gameType));
         this.gameData["promos"] = promos; //4.
         this.gameData["id_dict"] = idDict; //4.
@@ -116,29 +79,28 @@ class NewGame extends React.Component {
             this.gameData["piece_defs"],
             this.gameData["id_dict"]
         );
-
         this.gameData["moves"] = dataEntry["moves"];
         this.gameData["ranges"] = dataEntry["ranges"];
         this.gameData["enemy_ranges"] = dataEntry["enemy_ranges"];
         this.gameData["status"] = JSON.parse(JSON.stringify(status));
 
-        this.nextStep();
+        this.setState({ playerType: playerType, step: "play-game" });
     }
 
-    nextStep() {
-        this.setState({step: this.state.step + 1});
-    }
-
-    getGameSetup() {
-        if (this.gameType === "standard" || this.gameType === "council")
-            return <PlayAs setPlayer={this.setPlayerType} loadNew={this.loadNewData}/>;
-        else
-            return (
-                <Customize
-                    loadNewCustom={this.loadNewCustom}
-                    setPlayer={this.setPlayerType}
-                />
-            );
+    loadNewStandard(playerType) {
+        this.gameData = JSON.parse(JSON.stringify(newData));
+        this.gameData["game_name"] = this.gameName;
+        this.gameData["pt"] = JSON.parse(JSON.stringify(this.playerType));
+        this.gameData["type"] = JSON.parse(JSON.stringify(this.gameType));
+        this.gameData["promos"] = JSON.parse(JSON.stringify(standard_promo_names));
+        this.gameData["id_dict"] = JSON.parse(JSON.stringify(id_dict));
+        this.gameData["piece_defs"] = JSON.parse(JSON.stringify(piece_defs));
+        this.gameData["moves"] = JSON.parse(JSON.stringify(moves));
+        this.gameData["ranges"] = JSON.parse(JSON.stringify(ranges));
+        this.gameData["enemy_ranges"] = JSON.parse(JSON.stringify(enemyRanges));
+        this.gameData["status"] = JSON.parse(JSON.stringify(status));
+        if (this.gameType === "council") this.gameData.promos.push("King");
+        this.setState({ playerType: playerType, step: "play-game" });
     }
 
     play() {
@@ -148,9 +110,9 @@ class NewGame extends React.Component {
                     pathname: "/NewGame/Play",
                     state: {
                         currentPath: "/NewGame/Play",
-                        gameName: JSON.parse(JSON.stringify(this.gameName)),
-                        gameType: JSON.parse(JSON.stringify(this.gameType)),
-                        playerType: JSON.parse(JSON.stringify(this.playerType)),
+                        gameName: JSON.parse(JSON.stringify(this.state.gameName)),
+                        gameType: JSON.parse(JSON.stringify(this.state.gameType)),
+                        playerType: JSON.parse(JSON.stringify(this.state.playerType)),
                         gameData: JSON.parse(JSON.stringify(this.gameData)),
                     },
                 }}
@@ -161,10 +123,11 @@ class NewGame extends React.Component {
     render() {
         return (
             <>
-                {this.state.step === 0 && <PickType setType={this.setGameType} />}
-                {this.state.step === 1 && <PickName setName={this.setGameName} />}
-                {this.state.step === 2 && this.getGameSetup()}
-                {this.state.step === 3 && this.play()}
+                {this.state.step === "pick-type" && <PickType setType={this.setGameType} />}
+                {this.state.step === "pick-name" && <PickName setName={this.setGameName} />}
+                {this.state.step === "load-new-standard" && <PlayAs loadNewStandard={this.loadNewStandard} />}
+                {this.state.step === "load-new-custom" && <Customize loadNewCustom={this.loadNewCustom} />}
+                {this.state.step === "play-game" && this.play()}
             </>
         );
     }

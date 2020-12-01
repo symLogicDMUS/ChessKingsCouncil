@@ -1,24 +1,38 @@
-import {
-    col1 as customizeCol1,
-    col2 as customizeCol2, col3 as customizeCol3,
-    columnGap as customizeColumnGap, row1 as customizeRow1, row2 as customizeRow2
-} from "../NewGame/Customize/sizeAndPosVariables.jss";
+import {customize} from "../NewGame/Customize/sizeAndPosVariables.jss";
+import {loadDelete} from "../MyPieces/sizeAndPosVariables.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {imgFillDiv} from "../Reuseables/imgFillDiv.jss";
+
+function profileWB(context) {
+    if (context === 'custom-game') {
+        return {
+            top: customize.columnGap * 2,
+            gridTemplateColumns: `${customize.col1}px ${customize.col2}px ${customize.col3}px`,
+            gridTemplateRows: `${customize.row1}px ${customize.row2}px`,
+            columnGap: customize.columnGap,
+            marginBottom: customize.columnGap,
+        }
+    } else if (context === 'load-delete') {
+        return {
+            top: loadDelete.top,
+            gridTemplateColumns: `${loadDelete.col1}px ${loadDelete.col2}px ${loadDelete.col3}px`,
+            gridTemplateRows: `${loadDelete.row1}px ${loadDelete.row2}px`,
+            columnGap: loadDelete.columnGap,
+            marginBottom: loadDelete.columnGap,
+        }
+    }
+}
 
 export const useStyles = makeStyles({
-    profileWB: {
+    profileWB: props => ({
         position: "relative",
         display: "grid",
         zIndex: 'inherit',
         backgroundColor: '#515151',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
-        top: customizeColumnGap * 2,
-        gridTemplateColumns: `${customizeCol1}px ${customizeCol2}px ${customizeCol3}px`,
-        gridTemplateRows: `${customizeRow1}px ${customizeRow2}px`,
-        columnGap: customizeColumnGap,
-        marginBottom: customizeColumnGap,
-    },
+        ...profileWB(props.context)
+    }),
     imgLabel: {
         gridColumn: 1,
         gridRow: 1,
@@ -51,5 +65,7 @@ export const useStyles = makeStyles({
         border: "1px solid #707070",
         borderTop: "none",
     },
-
+    image: {
+        ...imgFillDiv
+    }
 })

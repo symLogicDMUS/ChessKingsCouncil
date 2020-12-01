@@ -30,6 +30,7 @@
             <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/sharedData" />
             <path value="file://$PROJECT_DIR$/app/src/Components/GameRoot/SaveResignTool" />
             <path value="file://$PROJECT_DIR$/app/src/Components/MyPieces" />
+            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Range" />
           </resourceRoots>
         </entryData>
       </entry>

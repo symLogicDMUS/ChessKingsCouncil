@@ -1,6 +1,6 @@
 import React from "react";
 // import { NavBar } from "../NavBar/NavBar";
-import {styles} from "./ComingSoon.jss";
+import "./ComingSoon.scss";
 
 export class ComingSoonComponent extends React.Component {
     constructor(props) {

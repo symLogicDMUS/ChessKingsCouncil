@@ -3,9 +3,9 @@ import { getColorName } from "../helpers/getColorName";
 import { ProfileWBScrollTableHeader } from "./ProfileWBScrollTableHeader";
 import ScrollTable from "../Reuseables/ScrollTable";
 import { fontSizes } from "../styles/fontSizes";
-import {stepFuncNamesToText} from "../helpers/spanToText";
-import {offsetToText} from "../helpers/offsetToText";
-import {useStyles} from "./ProfileWB.jss";
+import { stepFuncNamesToText } from "../helpers/spanToText";
+import { offsetToText } from "../helpers/offsetToText";
+import { useStyles } from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
@@ -13,7 +13,9 @@ import {useStyles} from "./ProfileWB.jss";
  * expand: given to header. opens displayBoard
  * def: spans, offsets, and img of W or B piece
  * */
-export function ProfileWB({ color, theme, pieceName, expand, def }) {
+export function ProfileWB({ color, pieceName, def, context, expand }) {
+    const classes = useStyles(context);
+
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);
@@ -23,7 +25,8 @@ export function ProfileWB({ color, theme, pieceName, expand, def }) {
             spanStrings.push(stepFuncNamesToText[span]);
         }
         return spanStrings;
-    }
+    };
+
     const getOffsets = (def) => {
         if (def.offsets.length === 0) {
             return Array(0);
@@ -34,9 +37,7 @@ export function ProfileWB({ color, theme, pieceName, expand, def }) {
             offsetStrings.push(offsetToText(offset));
         });
         return offsetStrings;
-    }
-
-    const classes = useStyles()
+    };
 
     return (
         <div className={classes.profileWB}>
@@ -44,7 +45,7 @@ export function ProfileWB({ color, theme, pieceName, expand, def }) {
                 {getColorName(color)} Image
             </div>
             <div className={classes.imgWindow}>
-                <img src={def.img} className={this.props.classes.piece_profile_img} alt="icon of piece" />
+                <img src={def.img} className={classes.image} alt="icon of piece" />
             </div>
             <ProfileWBScrollTableHeader
                 rangeType="spans"
@@ -65,11 +66,7 @@ export function ProfileWB({ color, theme, pieceName, expand, def }) {
                 expand={expand}
                 color={color}
             />
-            <ScrollTable
-                listItems={getSpans(def)}
-                cellFontSize={fontSizes.medium3}
-                className={classes.rangeTable}
-            />
+            <ScrollTable listItems={getSpans(def)} cellFontSize={fontSizes.medium3} className={classes.rangeTable} />
         </div>
     );
 }

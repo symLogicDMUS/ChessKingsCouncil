@@ -1,27 +1,32 @@
-export const styles = {
-    play_as_button: {
-        position: "absolute",
-        left: "712px",
-        top: "430px",
-        width: "112px",
-        height: "30px",
-        color: "white",
-        fontSize: "20px",
-        fontFamily: "Georgia",
-        textAlign: "center",
-        paddingTop: "6px",
-        backgroundColor: "black",
-        border: "1px solid white",
-        borderRadius: "8px",
-    },
-    pab_active: {
+import { makeStyles } from "@material-ui/core/styles";
+
+const button = {
+    position: "absolute",
+    left: window.screen.availWidth * 0.463,
+    top: window.screen.availHeight * 0.57,
+    width: window.screen.availWidth * 0.0729,
+    height: window.screen.availHeight * 0.039,
+    fontSize: window.screen.availHeight * 0.0267,
+    paddingTop: window.screen.availHeight * 0.007,
+    fontFamily: "Georgia",
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "black",
+    border: "0.2em solid white",
+    borderRadius: "0.5em",
+};
+
+export const useStyles = makeStyles({
+    active: {
+        ...button,
         cursor: "pointer",
+        "&:hover": {
+            color: "black",
+            backgroundColor: "white",
+        },
     },
-    pab_active_hover: {
-        color: "black",
-        backgroundColor: "white",
-    },
-    pab_inactive: {
+    inactive: {
+        ...button,
         cursor: "not-allowed",
     },
-};
+});

@@ -1,5 +1,6 @@
+import {digits} from "./digits";
 
-export let enPassants = {
+export const enPassants = {
     'W': {
         'b5a5': "a6",
         'a5b5': "b6",
@@ -33,5 +34,7 @@ export let enPassants = {
         'g4h4': "h3"
     }
 }
-
+Object.preventExtensions(enPassants);
+Object.seal(enPassants);
+Object.freeze(enPassants);
 
