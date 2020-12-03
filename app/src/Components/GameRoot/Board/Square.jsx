@@ -1,10 +1,10 @@
 import React from "react";
 import { useDrop } from 'react-dnd';
-import { ItemTypes } from "../../helpers/constants";
-import { isLegal } from '../Move/isLegal';
 import { move } from '../Move/move';
+import { isLegal } from '../Move/isLegal';
+import { ItemTypes } from "../../helpers/constants";
 import {useStyles} from "./Square.jss";
-import {getSqrClassName} from "../../helpers/getSqrClassName";
+import {getInteractiveSqrClass} from "../../Reuseables/BoardMixins.jss";
 
 export function Square({rf, gameroot, children}) {
 
@@ -20,7 +20,7 @@ export function Square({rf, gameroot, children}) {
       })
     })
 
-    const className = getSqrClassName(rf, canDrop, classes)
+    const className = getInteractiveSqrClass(rf, canDrop, classes)
 
     return (
         <div ref={drop} className={className}>

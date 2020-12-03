@@ -1,4 +1,6 @@
 short:
+* center GameRoot Board
+* remove fill appearing in game name text label in GameOptions
 * margin at bottom of Option tool in CreatePiece too large
 * tweak appearance of play-as on bottom-bar of createPiece
 * add silver border back to the top of Subs list
@@ -11,11 +13,7 @@ medium:
 * Make functional Components in addition to class components be a default export, to be consistent
 * go and through every document and use the Prettier command..
 * Have clicking the help Icon toggle the help model.
-* remove .css and .css.map from git, figure out how to include all files of certain extension in gitignore
 * make use stepFuncDict the same across components. shouldn't need a dict for both angles as keys, and one func names as keys
-* organize DisplayBoardModal styles like did with CreatePieces
-* split up scss folder in create piece into different style folders. each folder with jsx components has a style folder
-  with the scss it uses.
 
 long:
 * add new and different themes

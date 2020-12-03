@@ -1,7 +1,9 @@
-export const themes = {
-    dark: {
+import {createMuiTheme} from "@material-ui/core/styles";
 
+export const themesMui = {
+    dark: createMuiTheme({
         outline: '#707070',
+
         fill: '#515151',
         checkmark: '#a9a9a9',
         font: '#a9a9a9',
@@ -18,8 +20,8 @@ export const themes = {
             checkmark: '#b1faae',
             font: '#72e2ff',
         }
-    },
-    light: {
+    }),
+    light: createMuiTheme({
 
         outline: '#b1faae',
         fill: 'green',
@@ -38,28 +40,25 @@ export const themes = {
             checkmark: '#b1faae',
             font: '#72e2ff',
         }
-    },
-
-    black: {
-
+    }),
+    black: createMuiTheme({
         outline: '#000000',
+
         fill: '#000000',
         checkmark: '#000000',
-        font: '#ffffff',
+        font: '#000000',
 
         hover: {
             outline: '#000000',
             fill: '#000000',
             checkmark: '#000000',
-            font: '#ffffff',
+            font: '#000000',
         },
         focus: {
             outline: '#000000',
             fill: '#000000',
             checkmark: '#000000',
-            font: '#ffffff',
+            font: '#000000',
         },
-    }
-
+    })
 };
-

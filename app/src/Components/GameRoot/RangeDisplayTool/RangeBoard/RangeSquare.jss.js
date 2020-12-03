@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { dark_normal, light_normal, dark_in_range, light_in_range, none } from "../../../Reuseables/squareMixin.jss";
+import {dark_in_range, dark_normal, light_in_range, light_normal, none} from "../../../Reuseables/BoardMixins.jss";
 
 export const useStyles = makeStyles({
     dark_normal: (props) => ({

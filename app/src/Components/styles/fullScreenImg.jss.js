@@ -1,4 +1,4 @@
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const fullScreenImg = {
     position: 'absolute',

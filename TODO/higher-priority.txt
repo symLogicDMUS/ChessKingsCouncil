@@ -1,9 +1,6 @@
-short:
-* Profiles modals now crashes when click Load icon (CreatePiece and MyPieces need a stylesObject to pass the way that
-  Customize does, or it will crash)
-
 medium:
 * Need to refactor the way all boards work, to work with JavaScript .jss (range board, game board, createPieceBoard,
+* fix sign out icon on home page, maybe make it material ui
 
 long:
 * Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

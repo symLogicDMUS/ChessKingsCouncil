@@ -1,4 +1,6 @@
 short:
+* update Firebase security rules for new/removed pages
+* change theme for NavBar im Game Options page
 * spans and offsets are displayed in the wrong tables
 * Standard pieces are being displayed in the piece profiles again
 * name isn't displayed above board anymore, in CreatePiece

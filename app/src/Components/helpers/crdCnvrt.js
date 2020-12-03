@@ -1,4 +1,5 @@
-const xMapR = [undefined, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+const xMapR = [undefined, "a", "b", "c", "d", "e", "f", "g", "h"];
+const xyMapGrid = [undefined, 8, 7, 6, 5, 4, 3, 2, 1];
 
 export function xyToRf(x, y) {
     const r = xMapR[x];
@@ -12,4 +13,9 @@ export function rfToXy(rf) {
     return [x, y];
 }
 
-export default {xyToRf, rfToXy};
+export function rfToGridLoc(rf) {
+    let [x, y] = rfToXy(rf);
+    return { gridColumn: xyMapGrid[x], gridRow: xyMapGrid[y] };
+}
+
+export default { xyToRf, rfToXy };

@@ -1,12 +1,12 @@
 import React from "react";
 import * as PropTypes from "prop-types";
 import { binaryBoard } from "../../../helpers/binaryBoard";
-import { getSqrClassName } from "../../../helpers/getSqrClassName";
 import { useStyles } from "./RangeSquare.jss";
+import {getRangeSqrClass} from "../../../Reuseables/BoardMixins.jss";
 
 export function RangeSquare({ rf, isHighlight, children }) {
     const classes = useStyles({ rf });
-    const className = getSqrClassName(rf, isHighlight, classes);
+    const className = getRangeSqrClass(rf, isHighlight, classes);
     return <div className={className}>{children}</div>;
 }
 

@@ -53,9 +53,9 @@ export function Board({ gameroot }) {
     return (
         <>
             <DndProvider backend={Backend}>
-                <div style={classes.interactive_board}>{getInteractiveBoard()}</div>
+                <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
             </DndProvider>
-            <div style={classes.display_board}>{getDisplayBoard()}</div>
+            <div className={classes.display_board}>{getDisplayBoard()}</div>
         </>
     );
 }

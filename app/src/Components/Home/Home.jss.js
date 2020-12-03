@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {fullScreenImg} from "../Reuseables/style/fullScreenImg.jss";
+import {fullScreenImg} from "../styles/fullScreenImg.jss";
 
 const pageLink = {
     width: window.screen.availWidth * 0.15,

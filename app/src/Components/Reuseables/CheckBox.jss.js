@@ -1,4 +1,4 @@
-import { themesJss } from "../styles/themes.jss";
+import { themes } from "../styles/themes.jss";
 import { makeStyles } from "@material-ui/core/styles";
 import { orange } from "@material-ui/core/colors";
 

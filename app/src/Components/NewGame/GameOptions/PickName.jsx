@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { useStyles } from "./GameName.jss";
+import { useStyles } from "./PickName.jss";
 
-export function GameName({ setGameName, gameName, fontSize }) {
+export function PickName({ setGameName, gameName, fontSize }) {
     const classes = useStyles({ fontSize: fontSize, text: "Game Name" });
 
     return (
@@ -14,7 +14,7 @@ export function GameName({ setGameName, gameName, fontSize }) {
                 className={classes.text_field}
                 onChange={setGameName}
                 id="game-name"
-                label="pick name"
+                label="Pick Name"
                 variant="outlined"
             />
         </>

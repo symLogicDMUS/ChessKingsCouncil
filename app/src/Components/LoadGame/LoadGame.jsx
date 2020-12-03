@@ -8,7 +8,7 @@ import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../Reuseables/style/backgrounds.scss";
+import "../styles/backgrounds.scss";
 import { styles } from "./LoadGame.jss";
 
 class LoadGame extends React.Component {

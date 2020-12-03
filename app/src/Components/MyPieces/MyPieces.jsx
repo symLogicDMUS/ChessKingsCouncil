@@ -9,7 +9,7 @@ import {getDefs} from "../../API/getDefs";
 import {MessageModal} from "../NavBar/Help/MessageModal";
 import PieceProfiles from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../Reuseables/style/backgrounds.scss";
+import "../styles/backgrounds.scss";
 import {styles} from "./MyPieces.jss";
 
 class MyPieces extends React.Component {

@@ -28,7 +28,7 @@ import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../Reuseables/style/backgrounds.scss";
+import "../styles/backgrounds.scss";
 import { styles } from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {

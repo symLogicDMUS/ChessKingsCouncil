@@ -29,8 +29,8 @@ class NewGame extends React.Component {
     }
 
     setGameOptions(gameName, gameType, playerType) {
-        const nextStep = (gameType === 'customize') ? "load-new-custom" : 'load-new-standard'
-        this.setState({gameName: gameName, gameType: gameType, playerType: playerType, set: nextStep})
+        const nextStep = (gameType === 'Custom') ? "load-new-custom" : 'load-new-standard'
+        this.setState({gameName: gameName, gameType: gameType, playerType: playerType, step: nextStep})
     }
 
     /**

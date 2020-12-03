@@ -1,11 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {getLeftAndTopPos} from "../../helpers/getLeftAndTopPos";
+import {getPosPercentVal} from "../../helpers/getPosPercentVal";
 
 const square = (rf) => ({
     position: "absolute",
     width: "12.5%",
     height: "12.5%",
-    ...getLeftAndTopPos(rf),
+    ...getPosPercentVal(rf),
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
 })

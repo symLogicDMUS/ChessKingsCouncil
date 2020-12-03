@@ -1,26 +1,22 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {fontSizes} from "../../styles/fontSizes";
-import {navBarHeight} from "../../NavBar/NavBarStyle";
-import {getTextWidth} from "../../helpers/getTextWidth";
-import {margin, gameOptionsWidth} from "./variables.jss";
-import {availWidth} from "../../helpers/windowMeasurments";
-import {fullScreenImg} from "../../Reuseables/style/fullScreenImg.jss";
+import {fullScreenImg} from "../../styles/fullScreenImg.jss";
+import {dropdownDisp} from "./PlayAs.jss";
+import {standardLeft} from "./PickType.jss";
+import {getInputsWidth, margin} from "./variables.jss";
+
+export const submit_button = (titlesFontSize) => ({
+    position: 'absolute',
+    top: dropdownDisp(titlesFontSize) + margin*1.1,
+    left: standardLeft(titlesFontSize),
+    width: getInputsWidth(titlesFontSize),
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+})
 
 export const useStyles = makeStyles({
 
     background: {
         ...fullScreenImg,
         backgroundImage: 'url("/Images/Backgrounds/light-background.svg")'
-    },
-
-    submit: {
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        fontSize: fontSizes.medium1,
-        background: 'black',
-        color: 'white',
-        '&:hover': {
-            background: 'black',
-            color: 'white',
-        },
     },
 });

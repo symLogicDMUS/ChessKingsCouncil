@@ -1,6 +1,6 @@
 import React from "react";
 import {useStyles} from "./DisplaySquare.jss";
-import {getSqrClassName} from "../../helpers/getSqrClassName";
+import {getRangeSqrClass} from "../../Reuseables/BoardMixins.jss";
 
 export function DisplaySquare({rf, sqrType, children}) {
     const classes = useStyles({rf})

@@ -17,5 +17,6 @@ export const gameType = (fontSize) => ({
     fontSize: fontSize,
     width: '0.7em',
     height: '0.7em',
-    top: navBarHeight + margin*2 + fontSize*2
+    top: navBarHeight + margin*2 + fontSize*2,
+    cursor: 'pointer',
 })

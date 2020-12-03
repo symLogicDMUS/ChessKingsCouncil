@@ -1,8 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {getTextWidth} from "../../helpers/getTextWidth";
-import {availWidth, availHeight} from "../../helpers/windowMeasurments";
-import {sectionWidth, margin} from "./variables.jss";
-import {buttonMargin, size, standardLeft} from "./PickType.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {getInputsWidth, margin} from "./variables.jss";
+import {standardLeft} from "./PickType.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {title} from "./mixins.jss";
 
@@ -17,10 +16,9 @@ export const useStyles = makeStyles({
     }),
     text_field: props => ({
         position: 'absolute',
-        width: size(props.fontSize)*3 + buttonMargin(props.fontSize) * 2,
+        width: getInputsWidth(props.fontSize),
         top: navBarHeight + margin * 0.2 + props.fontSize,
         left: standardLeft(props.fontSize),
-
         color: 'black',
 
         "& .MuiInputLabel-root": {

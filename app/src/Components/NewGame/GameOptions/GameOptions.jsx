@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import NavBar from "../../NavBar/NavBar";
 import {PickType} from "./PickType";
-import {GameName} from "./GameName";
+import {PickName} from "./PickName";
 import {PlayAs} from "./PlayAs";
 import {invalids} from "../../helpers/invalids";
-import {MuiButton as Submit} from "../../Reuseables/MuiButton";
+import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
-import "../../Reuseables/style/backgrounds.scss";
-import {useStyles} from "./GameOptions.jss";
+import {useStyles, submit_button} from "./GameOptions.jss";
+import {getColorLetter} from "../../helpers/getColorLetter";
+import {themes} from "../../styles/themes.jss";
+import "../../styles/backgrounds.scss";
 
 export function GameOptions({setGameOptions, fontSize}) {
     let [playerType, updatePlayerType] = useState(null);
@@ -16,7 +18,7 @@ export function GameOptions({setGameOptions, fontSize}) {
 
 
     useEffect(() => {
-        document.body.className = "chessboard-background-large"
+        document.body.className = "light-background"
     })
 
     const classes = useStyles({fontSize});
@@ -24,8 +26,9 @@ export function GameOptions({setGameOptions, fontSize}) {
     const setGameName = (e) => {
         updateGameName(e.target.value);
     };
-    const setPlayerType = (e) => {
-        updatePlayerType(e.target.value);
+    const setPlayerType = (typePlayer) => {
+        if (typePlayer !== 'Test') updatePlayerType(getColorLetter(typePlayer))
+        else updatePlayerType(typePlayer)
     };
     const setGameType = (gameType) => {
         updateGameType(gameType);
@@ -34,14 +37,15 @@ export function GameOptions({setGameOptions, fontSize}) {
     return (
         <div className={classes.background}>
             <NavBar currentPage="PlayAs" theme={'dark'} unsavedChanges={false}/>
-            <GameName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
+            <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
             <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>
-            <PlayAs setPlayerType={setPlayerType} playerType={playerType} fontSize={fontSize}/>
-            <Submit
+            <PlayAs setPlayerType={setPlayerType} fontSize={fontSize}/>
+            <PlayGameButton
                 clickMethod={() => setGameOptions(gameName, gameType, playerType)}
-                className={classes.submit}
+                style={submit_button(fontSize)}
+                theme={themes.black}
                 variant={"contained"}
-                text={"Submit"}
+                text={"Play"}
                 isDisabled={
                     !(playerType && gameType && gameName !== "" && invalids.every((c) => charNotInStr(c, gameName)))
                 }
