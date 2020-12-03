@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1920"
-   height="1080"
-   viewBox="0 0 508 285.75001"
+   width="1923.3304"
+   height="925.40131"
+   viewBox="0 0 508.88118 244.84577"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
@@ -166,20 +166,32 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="991.32208"
-     inkscape:cy="667.62044"
+     inkscape:zoom="0.24748738"
+     inkscape:cx="937.12104"
+     inkscape:cy="252.96855"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:lockguides="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:snap-global="false" />
+     inkscape:window-width="958"
+     inkscape:window-height="1008"
+     inkscape:window-x="-7"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:snap-global="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <sodipodi:guide
+       position="215.44643,281.21429"
+       orientation="1,0"
+       id="guide1126"
+       inkscape:locked="true" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -196,21 +208,21 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-11.249939)">
+     transform="translate(0.53453904,-50.863697)">
     <rect
-       style="opacity:1;fill:#d7bb99;fill-opacity:1;stroke:none;stroke-width:0.069;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#d7bb99;fill-opacity:1;stroke:none;stroke-width:0.06403226;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect830"
-       width="507.8121"
-       height="284.90933"
+       width="508.8812"
+       height="244.84576"
        x="-0.53453904"
-       y="11.556084" />
+       y="50.863697" />
     <g
        id="layer2-3-0"
        inkscape:label="light sqr"
        transform="matrix(0.30298315,0,0,0.30298315,16.570723,16.901472)" />
     <g
        id="g4184-8-8-4-8"
-       transform="matrix(0.59523371,0,0,0.59523371,-2.0246588,22.438472)">
+       transform="matrix(0.59523371,0,0,0.59523371,-10.397979,55.317665)">
       <g
          transform="matrix(2.5443038,0,0,2.5443038,-229.55049,-31.281487)"
          id="g834-3-6-6-5-1">
@@ -735,7 +747,7 @@
     </g>
     <g
        id="g4184-8-8-4-8-0"
-       transform="matrix(0.59523372,0,0,0.59523372,424.53751,22.438471)">
+       transform="matrix(0.59523372,0,0,0.59523372,432.91083,55.317665)">
       <g
          transform="matrix(2.5443038,0,0,2.5443038,-229.55049,-31.281487)"
          id="g834-3-6-6-5-1-3">
@@ -1260,7 +1272,7 @@
     </g>
     <g
        id="g4184-8-8-4-8-0-8"
-       transform="matrix(0.59523372,0,0,0.59523372,424.53751,185.17458)">
+       transform="matrix(0.59523372,0,0,0.59523372,431.84174,221.39344)">
       <g
          transform="matrix(2.5443038,0,0,2.5443038,-229.55049,-31.281487)"
          id="g834-3-6-6-5-1-3-6">
@@ -1785,7 +1797,7 @@
     </g>
     <g
        id="g4184-8-8-4-8-0-8-5"
-       transform="matrix(0.59523372,0,0,0.59523372,-2.0246595,185.17458)">
+       transform="matrix(0.59523372,0,0,0.59523372,-10.397979,221.39344)">
       <g
          transform="matrix(2.5443038,0,0,2.5443038,-229.55049,-31.281487)"
          id="g834-3-6-6-5-1-3-6-0">

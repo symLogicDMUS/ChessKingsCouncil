@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {buttonMargin, size, standardLeft} from "./PickType.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
-import {getInputsWidth, margin, sectionWidth} from "./variables.jss";
+import {getInputsWidth, gameOptionsMargin as margin, sectionWidth} from "./variables.jss";
 import {title} from "./mixins.jss"
 import {fontSizes} from "../../styles/fontSizes";
 

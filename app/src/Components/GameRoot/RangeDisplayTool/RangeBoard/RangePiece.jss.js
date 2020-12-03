@@ -3,8 +3,8 @@ import {imgFillDiv} from "../../../Reuseables/imgFillDiv.jss";
 
 export const useStyles = makeStyles({
     piece: {
-        position: 'absolute',
-        zIndex: '1',
+        cursor: 'pointer',
+        zIndex: 'inherit',
         ...imgFillDiv,
     },
 });

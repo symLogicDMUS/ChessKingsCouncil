@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {getInputsWidth, margin} from "./variables.jss";
+import {getInputsWidth, gameOptionsMargin as margin} from "./variables.jss";
 import {standardLeft} from "./PickType.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {title} from "./mixins.jss";

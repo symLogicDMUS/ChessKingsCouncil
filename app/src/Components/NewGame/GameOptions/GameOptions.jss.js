@@ -3,7 +3,7 @@ import {fontSizes} from "../../styles/fontSizes";
 import {fullScreenImg} from "../../styles/fullScreenImg.jss";
 import {dropdownDisp} from "./PlayAs.jss";
 import {standardLeft} from "./PickType.jss";
-import {getInputsWidth, margin} from "./variables.jss";
+import {getInputsWidth, gameOptionsMargin as margin} from "./variables.jss";
 
 export const submit_button = (titlesFontSize) => ({
     position: 'absolute',

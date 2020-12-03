@@ -28,6 +28,7 @@ import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsT
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {styles} from "./GameRoot.jss"
 import "../styles/backgrounds.scss"
 
 class GameRoot extends React.Component {
@@ -277,70 +278,70 @@ class GameRoot extends React.Component {
 
     render() {
         return (
-            <>
-                {/*{this.state.messageModal && (*/}
-                {/*    <MessageModal*/}
-                {/*        messageTitle={this.messageTitle}*/}
-                {/*        messageText={this.messageText}*/}
-                {/*        togleMessageModal={this.toggleMessageModal}*/}
-                {/*    />*/}
-                {/*)}*/}
-                {/*<NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />*/}
-                {/*<Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />*/}
+            <div className={this.props.classes.background}>
+                {this.state.messageModal && (
+                    <MessageModal
+                        messageTitle={this.messageTitle}
+                        messageText={this.messageText}
+                        togleMessageModal={this.toggleMessageModal}
+                    />
+                )}
+                <NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />
+                <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 <Board gameroot={this} />
-                {/*{this.state.specialCase === "promo" && (*/}
-                {/*    <Promo*/}
-                {/*        promoChoices={this.promoChoices}*/}
-                {/*        jsonRecords={this.jsonRecords}*/}
-                {/*        board={this.board}*/}
-                {/*        idDict={this.idDict}*/}
-                {/*        pieceDefs={this.pieceDefs}*/}
-                {/*        isCouncil={this.isCouncil}*/}
-                {/*        updateTurnData={this.updateTurnData}*/}
-                {/*        updateSpecialCase={this.updateSpecialCase}*/}
-                {/*        color={this.getColorLastMove()}*/}
-                {/*        aiColor={this.aiColor}*/}
-                {/*        pawnLoc={this.specialMoves.pendingPromo}*/}
-                {/*    />*/}
-                {/*)}*/}
-                {/*{this.aiDisplay && this.state.specialCase !== "promo" && !this.isGameOver() && (*/}
-                {/*    <AIDisplay*/}
-                {/*        aiStart={this.aiStart}*/}
-                {/*        aiDest={this.aiDest}*/}
-                {/*        aiMakeMove={this.aiMakeMove}*/}
-                {/*        theme="light"*/}
-                {/*    />*/}
-                {/*)}*/}
-                {/*<RangeDisplayTool*/}
-                {/*    board={this.board}*/}
-                {/*    allRanges={{ ...this.ranges, ...this.enemyRanges }}*/}
-                {/*    pieceDefs={this.pieceDefs}*/}
-                {/*    idDict={this.idDict}*/}
-                {/*    triggerRender={this.triggerRender}*/}
-                {/*/>*/}
-                {/*<SaveResignTool*/}
-                {/*    gameName={this.gameName}*/}
-                {/*    gameType={this.gameType}*/}
-                {/*    playerType={this.playerType}*/}
-                {/*    save={this.save}*/}
-                {/*    resign={this.resign}*/}
-                {/*    updateSpecialCase={this.updateSpecialCase}*/}
-                {/*    toggleSaveAs={this.toggleSaveAs}*/}
-                {/*/>*/}
-                {/*{this.saveAsModal && (*/}
-                {/*    <SaveAs*/}
-                {/*        togleSaveAs={this.toggleSaveAs}*/}
-                {/*        changeName={this.changeName}*/}
-                {/*        triggerRender={this.triggerRender}*/}
-                {/*        save={this.save}*/}
-                {/*    />*/}
-                {/*)}*/}
-                {/*{this.specialCase === "save-success" && (*/}
-                {/*    <DisplayMessageOnTimer methodToCallOnFinish={this.updateSpecialCase} valueToSendOnFinish="none" />*/}
-                {/*)}*/}
-            </>
+                {this.state.specialCase === "promo" && (
+                    <Promo
+                        promoChoices={this.promoChoices}
+                        jsonRecords={this.jsonRecords}
+                        board={this.board}
+                        idDict={this.idDict}
+                        pieceDefs={this.pieceDefs}
+                        isCouncil={this.isCouncil}
+                        updateTurnData={this.updateTurnData}
+                        updateSpecialCase={this.updateSpecialCase}
+                        color={this.getColorLastMove()}
+                        aiColor={this.aiColor}
+                        pawnLoc={this.specialMoves.pendingPromo}
+                    />
+                )}
+                {this.aiDisplay && this.state.specialCase !== "promo" && !this.isGameOver() && (
+                    <AIDisplay
+                        aiStart={this.aiStart}
+                        aiDest={this.aiDest}
+                        aiMakeMove={this.aiMakeMove}
+                        theme="light"
+                    />
+                )}
+                <RangeDisplayTool
+                    board={this.board}
+                    allRanges={{ ...this.ranges, ...this.enemyRanges }}
+                    pieceDefs={this.pieceDefs}
+                    idDict={this.idDict}
+                    triggerRender={this.triggerRender}
+                />
+                <SaveResignTool
+                    gameName={this.gameName}
+                    gameType={this.gameType}
+                    playerType={this.playerType}
+                    save={this.save}
+                    resign={this.resign}
+                    updateSpecialCase={this.updateSpecialCase}
+                    toggleSaveAs={this.toggleSaveAs}
+                />
+                {this.saveAsModal && (
+                    <SaveAs
+                        togleSaveAs={this.toggleSaveAs}
+                        changeName={this.changeName}
+                        triggerRender={this.triggerRender}
+                        save={this.save}
+                    />
+                )}
+                {this.specialCase === "save-success" && (
+                    <DisplayMessageOnTimer methodToCallOnFinish={this.updateSpecialCase} valueToSendOnFinish="none" />
+                )}
+            </div>
         );
     }
 }
 
-export default GameRoot;
+export default withStyles(styles)(GameRoot)

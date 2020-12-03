@@ -1,5 +1,6 @@
 short:
 * center GameRoot Board
+* adjust colors of GameRoot Board and tools
 * remove fill appearing in game name text label in GameOptions
 * margin at bottom of Option tool in CreatePiece too large
 * tweak appearance of play-as on bottom-bar of createPiece

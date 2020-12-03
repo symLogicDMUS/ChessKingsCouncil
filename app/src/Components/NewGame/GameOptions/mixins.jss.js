@@ -1,6 +1,6 @@
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {getTextWidth} from "../../helpers/getTextWidth";
-import {margin} from "./variables.jss";
+import {gameOptionsMargin as margin} from "./variables.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
 export const title = (fontSize, text) => ({

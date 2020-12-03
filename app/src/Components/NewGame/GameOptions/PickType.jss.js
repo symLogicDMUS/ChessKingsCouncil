@@ -3,7 +3,7 @@ import {getTextWidth} from "../../helpers/getTextWidth";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {gameType, title} from "./mixins.jss";
-import {margin} from "./variables.jss";
+import {gameOptionsMargin as margin} from "./variables.jss";
 
 export const size = (fontSize) => fontSize*0.8;
 export const buttonMargin = (fontSize) => (getTextWidth('Pick Type', fontSize, 'Garamond') - size(fontSize)*3)*0.1;

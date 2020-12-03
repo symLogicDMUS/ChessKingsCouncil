@@ -6,9 +6,9 @@ import {PlayAs} from "./PlayAs";
 import {invalids} from "../../helpers/invalids";
 import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
-import {useStyles, submit_button} from "./GameOptions.jss";
 import {getColorLetter} from "../../helpers/getColorLetter";
 import {themes} from "../../styles/themes.jss";
+import {useStyles, submit_button} from "./GameOptions.jss";
 import "../../styles/backgrounds.scss";
 
 export function GameOptions({setGameOptions, fontSize}) {
@@ -35,7 +35,7 @@ export function GameOptions({setGameOptions, fontSize}) {
     };
 
     return (
-        <div className={classes.background}>
+        <div>
             <NavBar currentPage="PlayAs" theme={'dark'} unsavedChanges={false}/>
             <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
             <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>

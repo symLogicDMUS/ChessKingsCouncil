@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { rankfiles } from "../../../helpers/rankfiles";
 import { getPieceImg } from "../../../MyPieces/getPieceImg";
+import {getPieceName} from "../../../helpers/getPieceName";
 import { RangeSquare } from "./RangeSquare";
 import { RangePiece } from "./RangePiece";
 import {useStyles} from "./RangeBoard.jss";
-import {getPieceName} from "../../../helpers/getPieceName";
 
 
 export function RangeBoard({ allRanges, board, idDict, pieceDefs }) {

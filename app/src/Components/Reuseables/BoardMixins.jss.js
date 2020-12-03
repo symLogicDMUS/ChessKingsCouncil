@@ -1,24 +1,44 @@
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, centerOfScreenX, centerOfScreenY} from "../helpers/windowMeasurments";
 import {navBarHeight} from "../NavBar/NavBarStyle";
 import {getSqrPosPx} from "../helpers/getSqrPosPx";
 import {binaryBoard} from "../helpers/binaryBoard";
 import {rfToGridLoc} from "../helpers/crdCnvrt";
 
-export const boardTop = () => navBarHeight * 1.5
+export const gameBoardTop = (screenCase) => centerOfScreenY() - boardSize(screenCase, 'large')*0.5
+export const gameBoardLeft = (screenCase) => centerOfScreenX() -  boardSize(screenCase, 'large')*0.5
 
-export const boardSize = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return availHeight() * 0.8;
-        case 'mobile':
-            return availHeight() * 0.9;
-        default:
-            break;
+export const boardSize = (screenCase, boardType) => {
+    /**
+     * boardType:
+     *      large: CreatePiece and GameRoot
+     *      medium: RangeDisplayBoard
+     *      small: DisplayBoardModal
+     */
+    switch (boardType) {
+        case 'large':
+            switch (screenCase) {
+                case 'desktop': return availHeight() * 0.7;
+                case 'mobile': return availHeight() * 0.9;
+                default: return;
+            }
+        case 'medium':
+            switch (screenCase) {
+                case 'desktop': return availHeight() * 0.2;
+                case 'mobile': return availHeight() * 0.2;
+                default: return;
+            }
+        case 'small':
+            switch (screenCase) {
+                case 'desktop': return availHeight() * 0.10;
+                case 'mobile': return availHeight() * 0.10;
+                default: return;
+            }
+        default: break;
     }
     return null;
 }
 
-export const sqrSize = (screenCase) => boardSize(screenCase) * 0.125;
+export const sqrSize = (screenCase, boardType) => boardSize(screenCase, boardType) * 0.125;
 
 export function getRangeSqrClass(rf, condition, classes) {
     if (condition) {
@@ -40,16 +60,8 @@ export function getInteractiveSqrClass(rf, condition, classes) {
 }
 
 export const square = (rf) => ({
-    zIndex: 1,
+    zIndex: 'inherit',
     ...rfToGridLoc(rf),
-    "@media screen and (min-device-width: 768px)": {
-        height: sqrSize('desktop'),
-        width: sqrSize('desktop'),
-    },
-    "@media screen and (max-device-width: 767px)": {
-        height: sqrSize('mobile'),
-        width: sqrSize('mobile'),
-    },
 });
 export const dark_normal = (rf) => ({
     ...square(rf),
@@ -70,14 +82,12 @@ export const light_in_range = (rf) => ({
 export const none = (rf) => ({
     ...square(rf),
 });
-export const board = {
+export const board = (boardType) => ({
     position: 'absolute',
     display: 'grid',
     lineHeight: 0,
     "@media screen and (min-device-width: 768px)": {
-        top: boardTop(),
-        left: availWidth() * 0.4,
-        gridTemplateColumns: `repeat(8, ${sqrSize('desktop')})`,
-        gridTemplateRows: `repeat(8, ${sqrSize('desktop')})`,
+        gridTemplateColumns: `repeat(8, ${sqrSize('desktop', boardType)}px)`,
+        gridTemplateRows: `repeat(8, ${sqrSize('desktop', boardType)}px)`,
     },
-}
+})

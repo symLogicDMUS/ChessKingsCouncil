@@ -1,10 +1,18 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-const widget = {
+import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
+
+const expandedSize = window.screen.availWidth * 0.13
+
+const rangeDisplayTool = (screenCase) => ({
     position: 'absolute',
     zIndex: '5',
     backgroundColor: 'green',
-    borderRadius: '10px',
-}
+    borderRadius: '1em',
+    width: expandedSize,
+    left: gameBoardLeft(screenCase) + boardSize(screenCase, 'large') + boardSize(screenCase, 'large') * 0.05,
+    top: window.screen.availHeight * 0.315,
+})
+
 const label = {
     position: 'absolute',
     width: '70%',
@@ -18,26 +26,15 @@ const label = {
 
 export const useStyles = makeStyles({
     expanded: {
-        ...widget,
-        width: window.screen.availWidth * 0.16,
-        height: window.screen.availWidth * 0.16,
-        left: window.screen.availWidth * 0.638,
-        top: window.screen.availHeight * 0.315,
-        "$&label": {
-            ...label,
-            top: '2%',
-        }
+        ...rangeDisplayTool('desktop'),
+        height: expandedSize,
     },
     collapsed: {
-        ...widget,
-        width: window.screen.availWidth * 0.16,
+        ...rangeDisplayTool('desktop'),
         height: window.screen.height * 0.04,
-        left: window.screen.availWidth * 0.638,
-        top: window.screen.availHeight * 0.315,
-        "&$label":{
-            ...label,
-            top: "20%"
-        }
     },
-    label: {},
+    label: {
+        ...label,
+        top: '2%',
+    },
 })
