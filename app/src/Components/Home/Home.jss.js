@@ -1,10 +1,15 @@
 import { makeStyles } from "@material-ui/core/styles";
+import {fullScreenImg} from "../Reuseables/style/fullScreenImg.jss";
 
 const pageLink = {
     width: window.screen.availWidth * 0.15,
 };
 
-export const useStyles = makeStyles({
+export const styles = {
+    home: {
+        ...fullScreenImg,
+        backgroundImage: "url('/Images/Background/light-background.svg')"
+    },
     new_game: {
         ...pageLink,
     },
@@ -26,4 +31,4 @@ export const useStyles = makeStyles({
     author_github: {
         ...pageLink,
     },
-});
+};

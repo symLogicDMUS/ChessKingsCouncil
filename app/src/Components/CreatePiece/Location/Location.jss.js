@@ -1,4 +1,4 @@
-import {winWidth} from "../../helpers/windowMeasurments";
+import {availWidth} from "../../helpers/windowMeasurments";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles({
@@ -12,8 +12,8 @@ export const useStyles = makeStyles({
                 left: window.screen.availWidth * 0.57,
             },
             "@media screen and (max-device-width: 767px)": {
-                width: window.screen.availWidth * 0.635 - winWidth() * 0.1 * 2,
-                height: window.screen.availWidth * 0.635 - winWidth() * 0.1 * 2,
+                width: window.screen.availWidth * 0.635 - availWidth() * 0.1 * 2,
+                height: window.screen.availWidth * 0.635 - availWidth() * 0.1 * 2,
                 top: window.screen.availHeight * 0.6 * 1.07,
                 left: window.screen.availWidth * 0.21,
             },

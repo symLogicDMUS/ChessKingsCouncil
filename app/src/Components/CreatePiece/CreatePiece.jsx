@@ -11,6 +11,7 @@ import { ProfilesModal } from "./Options/ProfilesModal";
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
 import { saveDef } from "../../API/saveDef";
+import {copy} from "../helpers/copy";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
@@ -27,8 +28,8 @@ import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import withStyles from "@material-ui/core/styles/withStyles";
+import "../Reuseables/style/backgrounds.scss";
 import { styles } from "./CreatePiece.jss";
-import "./CreatePiece.scss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -114,7 +115,7 @@ class CreatePiece extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "create-piece-body";
+        document.body.className = "dark-background";
 
         getDefs().then(([defs]) => {
             if (defs) {
@@ -148,9 +149,9 @@ class CreatePiece extends React.Component {
         this.whiteAndBlackImgs = { white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"] };
 
         // provide static copy so that can reset if need to:
-        this.loadedName = JSON.parse(JSON.stringify(this.state.name));
-        this.loadedSpans = JSON.parse(JSON.stringify(this.spans));
-        this.loadedOffsets = JSON.parse(JSON.stringify(this.offsets));
+        this.loadedName = copy(this.state.name);
+        this.loadedSpans = copy(this.spans);
+        this.loadedOffsets = copy(this.offsets);
 
         this.setLoc("d4");
         this.setState({ name: pieceName, isLoadModal: false, unsavedChanges: false });
@@ -422,9 +423,9 @@ class CreatePiece extends React.Component {
     reset() {
         if (this.loadedName === null) this.clear();
         else {
-            this.spans = JSON.parse(JSON.stringify(this.loadedSpans));
-            this.offsets = JSON.parse(JSON.stringify(this.loadedOffsets));
-            const name = JSON.parse(JSON.stringify(this.loadedName));
+            this.spans = copy(this.loadedSpans);
+            this.offsets = copy(this.loadedOffsets);
+            const name = copy(this.loadedName);
             this.setState({ name: name, unsavedChanges: false });
             this.setSaveStatus("none");
         }

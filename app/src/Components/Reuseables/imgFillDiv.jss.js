@@ -1,5 +1,5 @@
 export const imgFillDiv = {
-    cursor: "pointer",
-    width: "100%",
-    height: "100%",
+    width: "95%",
+    height: "95%",
+    margin: '2.5%',
 }

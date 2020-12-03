@@ -1,0 +1,13 @@
+.chessboard-background {
+    background-image: url("/Images/Backgrounds/background.png");
+    background-repeat: repeat;
+    -o-object-fit: none;
+    object-fit: none;
+}
+.chessboard-background-large {
+    background-image: url("/Images/Backgrounds/light-background.svg");
+    background-color: #d7bb99;
+    background-repeat: repeat;
+    -o-object-fit: none;
+    object-fit: none;
+}

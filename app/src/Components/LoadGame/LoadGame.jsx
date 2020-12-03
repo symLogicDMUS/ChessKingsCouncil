@@ -8,8 +8,8 @@ import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import withStyles from "@material-ui/core/styles/withStyles";
+import "../Reuseables/style/backgrounds.scss";
 import { styles } from "./LoadGame.jss";
-import "./LoadGame.scss";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class LoadGame extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "load-game-body";
+        document.body.className = "chessboard-background";
 
         getGames().then(([games]) => {
             if (games) {

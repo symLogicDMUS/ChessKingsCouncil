@@ -1,13 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {winHeight, winWidth} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
 
 export const useStyles = makeStyles({
     displayBoardModal: {
-        width: winWidth() * 0.208,
-        height: winHeight() * 0.504,
-        left: winWidth() * 0.5 - winWidth() * 0.208 * 0.5,
-        top: winHeight() * 0.5 - winHeight() * 0.504 * 0.5,
+        width: availWidth() * 0.208,
+        height: availHeight() * 0.504,
+        left: availWidth() * 0.5 - availWidth() * 0.208 * 0.5,
+        top: availHeight() * 0.5 - availHeight() * 0.504 * 0.5,
         position: "absolute",
         zIndex: 4,
         display: "grid",

@@ -1,5 +1,11 @@
+.home {
+    width: 100%;
+    height: 100%;
+    background-image: url("/Images/Backgrounds/light-background.svg");
+}
+
 .main-menu-background {
-    background-image: url("/Images/Backgrounds/background.png");
+    background-image: url("/Images/Backgrounds/light-background-home.svg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
@@ -20,7 +26,17 @@
     cursor: pointer;
     fill: white;
 }
+.page-link-clip {
+    clip-path: url(#b);
+}
+.page-link-text {
+    font-size: 40px;
+    font-family: Garamond;
+}
 
+.page-link-fill {
+    fill: black;
+}
 .config-container {
     position: relative;
     width: 20vw;

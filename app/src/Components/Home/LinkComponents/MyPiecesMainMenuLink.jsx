@@ -17,7 +17,7 @@ export class MyPiecesIcon extends React.Component {
         return (
             <Link to="/MyPieces">
                 <g transform="translate(1273.497 523.103)" className={this.state.iconClass}>
-                    <text className="b" transform="translate(76.879 199.284)">
+                    <text className="page-link-text" transform="translate(76.879 199.284)">
                         <tspan x={-25.859} y={0}>
                             {"My"}
                         </tspan>

@@ -18,7 +18,7 @@ export function CheckBox({className, fontSize, fontFamily, clickMethod, clickVal
                     {labelText}
                     <Checkbox
                         icon={<CheckBoxOutlineBlankIcon className={classes.unchecked} />}
-                        checkedIcon={<CheckBoxIcon style={classes.checked} />}
+                        checkedIcon={<CheckBoxIcon className={classes.checked} />}
                         onClick={() => clickMethod(clickValue)}
                         checked={checkmarkState}
                         name="checkedI"

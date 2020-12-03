@@ -28,7 +28,7 @@ import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsT
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "./GameRoot.scss";
+import "../Reuseables/style/backgrounds.scss"
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -83,11 +83,10 @@ class GameRoot extends React.Component {
         this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.toggleSaveAs = this.toggleSaveAs.bind(this);
         this.changeName = this.changeName.bind(this);
-        this.isLegal = this.isLegal.bind(this);
     }
 
     componentDidMount() {
-        document.body.className = "game-root-body";
+        document.body.className = "chessboard-background";
         if (this.firstMoveCurrent) {
             this.firstMoveCurrent = false;
             if (this.turn === this.aiColor && !this.isGameOver()) {

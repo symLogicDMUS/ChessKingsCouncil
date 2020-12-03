@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {winHeight, winWidth} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
 const listItem = {
     position: "absolute",
@@ -18,10 +18,10 @@ const listItem = {
 export const useStyles = makeStyles({
     tools_menu: {
         position: "absolute",
-        width: winWidth() * 0.934,
-        height: winHeight() * 0.48,
-        top: winHeight() * 0.6,
-        left: winWidth() * 0.03,
+        width: availWidth() * 0.934,
+        height: availHeight() * 0.48,
+        top: availHeight() * 0.6,
+        left: availWidth() * 0.03,
     },
     name: {
         ...listItem,

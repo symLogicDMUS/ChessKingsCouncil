@@ -12,6 +12,5 @@ export const useStyles = makeStyles({
         left: window.screen.availWidth * 0.5 - getTextWidth(props.text, props.fontSize, props.fontFamily) * 0.5,
         top: window.screen.availHeight* 0.5 - props.fontSize * 0.48,
         lineWidth: 0,
-        border: "1px dashed #b1faae", //remove when confident with implementation
     }),
 });

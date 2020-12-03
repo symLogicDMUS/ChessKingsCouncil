@@ -10,5 +10,5 @@ export function getTextWidth(myText, fontSize, fontFamily) {
     text.innerHTML = myText;
     const width = Math.ceil(text.clientWidth);
     document.body.removeChild(text);
-    return width;
+    return width*1.01;
 }

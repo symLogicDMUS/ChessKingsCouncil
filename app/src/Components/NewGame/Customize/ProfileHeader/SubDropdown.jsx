@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import "../../../Reuseables/MuiSelect.scss";
-import {styles} from "../../../Reuseables/MuiSelect.jss";
+// import {styles} from "../../../Reuseables/Dropdown.jss";
 
 /**
  * props:
@@ -61,5 +61,5 @@ class SubDropdown extends React.Component {
         );
     }
 }
-
-export default withStyles(styles)(SubDropdown)
+export default SubDropdown;
+// export default withStyles(styles)(SubDropdown)

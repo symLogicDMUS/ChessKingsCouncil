@@ -4,7 +4,7 @@ import Help from "./Help/Help";
 import { ToggleNav } from "./ToggleNav";
 import { NavBarButton } from "./NavBarButton";
 import { ConfirmRedirect } from "./ConfirmRedirect";
-import HelpComponent from "./Help/HelpComponent";
+import {HelpButton} from "./Help/HelpButton";
 import { withStyles } from "@material-ui/core";
 import {styles} from "./NavBar.jss";
 
@@ -67,16 +67,13 @@ class NavBar extends React.Component {
                 )}
                 <div className={this.props.classes.nav_bar}>
                     {this.state.navExpanded && (
-                        <HelpComponent
+                        <HelpButton
                             screenCase={screenCase}
                             currentPage={this.props.currentPage}
                             togleHelpModal={this.toggleHelpModal}
                             setFirstTime={this.setFirstTime}
                             theme={this.props.theme}
                             pageIcon="help"
-                            classes={{
-                                button: "go-to-help",
-                            }}
                         />
                     )}
                     {this.state.navExpanded && (
@@ -84,12 +81,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Home"
                             path="/"
-                            classes={{
-                                button: "go-to-home",
-                                "icon-container": "home-icon",
-                                text: "home-text",
-                            }}
                             pageIcon="home"
+                            className="home"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -102,12 +95,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="New Game"
                             path="/NewGame"
-                            classes={{
-                                button: "go-to-new-game",
-                                "icon-container": "new-game-icon",
-                                text: "new-game-text",
-                            }}
                             pageIcon="new-game"
+                            className="new_game"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -120,12 +109,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Load Game"
                             path="/LoadGame"
-                            classes={{
-                                button: "go-to-load-game",
-                                "icon-container": "go-to-load-game-icon",
-                                text: "go-to-load-game-text",
-                            }}
                             pageIcon="load-game"
+                            className="load_game"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -138,12 +123,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Create Piece"
                             path="/CreatePiece"
-                            classes={{
-                                button: "go-to-create-piece",
-                                "icon-container": "create-piece-icon",
-                                text: "create-piece-text",
-                            }}
                             pageIcon="create-piece"
+                            className="create_piece"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -156,12 +137,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Chess Rules"
                             path="https://www.chess.com/learn-how-to-play-chess"
-                            classes={{
-                                button: "go-to-chess-rules",
-                                "icon-container": "council-rules-icon",
-                                text: "chess-rules-text",
-                            }}
                             pageIcon="chess-rules"
+                            className="chess_rules"
                             isLocalLink={false}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -174,12 +151,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Council Rules"
                             path="/CouncilRules"
-                            classes={{
-                                button: "go-to-council-rules",
-                                "icon-container": "council-rules-icon",
-                                text: "council-rules-text",
-                            }}
                             pageIcon="council-rules"
+                            className="council_rules"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -192,12 +165,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="My Pieces"
                             path="/MyPieces"
-                            classes={{
-                                button: "go-to-my-pieces",
-                                "icon-container": "my-pieces-icon",
-                                text: "my-pieces-text",
-                            }}
                             pageIcon="my-pieces"
+                            className="my_pieces"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}
@@ -210,12 +179,8 @@ class NavBar extends React.Component {
                             screenCase={screenCase}
                             pageName="Author Github"
                             path="https://github.com/symLogicDMUS"
-                            classes={{
-                                button: "go-to-author-github",
-                                "icon-container": "author-github-icon",
-                                text: "author-github-text",
-                            }}
                             pageIcon="author-github"
+                            className="author_github"
                             isLocalLink={false}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
                             theme={this.props.theme}

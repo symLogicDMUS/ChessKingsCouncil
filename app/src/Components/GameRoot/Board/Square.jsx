@@ -8,7 +8,7 @@ import {getSqrClassName} from "../../helpers/getSqrClassName";
 
 export function Square({rf, gameroot, children}) {
 
-    const classes = useStyles(rf)
+    const classes = useStyles({rf})
 
     const [{ isOver, canDrop }, drop] = useDrop({
       accept: ItemTypes,

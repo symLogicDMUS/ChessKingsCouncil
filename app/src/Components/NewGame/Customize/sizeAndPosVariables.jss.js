@@ -1,4 +1,4 @@
-import {winWidth} from "../../helpers/windowMeasurments";
+import {availWidth} from "../../helpers/windowMeasurments";
 import {navBarHeight} from "../../NavBar/sizeAndPosVariables.jss";
 
 const margin = window.screen.availWidth * 0.0125;

@@ -7,6 +7,7 @@ import { LoadGameIcon } from "./LinkComponents/LoadGameMainMenuLink";
 import { MyPiecesIcon } from "./LinkComponents/MyPiecesMainMenuLink";
 import { AuthorsGithubIcon } from "./LinkComponents/AuthorGithubMainMenuLink";
 import { Title } from "./LinkComponents/MainMenuTitle";
+import "../Reuseables/style/backgrounds.scss"
 import "./Home.scss";
 
 export class Home extends React.Component {
@@ -16,7 +17,7 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <>
+            <div>
                 <svg viewBox="0 0 1920 1080">
                     <defs>
                         <clipPath id="b">
@@ -25,11 +26,11 @@ export class Home extends React.Component {
                     </defs>
                     <g id="a">
                         <Title />
-                        <ChessRulesIcon />
-                        <CouncilRulesIcon />
-                        <CreatePieceIcon />
                         <NewGameIcon />
                         <LoadGameIcon />
+                        <CreatePieceIcon />
+                        <ChessRulesIcon />
+                        <CouncilRulesIcon />
                         <MyPiecesIcon />
                         <a href="https://github.com/symLogicDMUS">
                             <AuthorsGithubIcon />
@@ -42,7 +43,7 @@ export class Home extends React.Component {
                 >
                     Sign Out
                 </div>
-            </>
+            </div>
         );
     }
 }

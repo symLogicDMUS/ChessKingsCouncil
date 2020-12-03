@@ -7,7 +7,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import "../../../Reuseables/MuiSelect.scss";
-import {styles} from "../../../Reuseables/MuiSelect.jss"
+// import {styles} from "../../../Reuseables/Dropdown.jss"
 
 class PlayAsDropdown extends React.Component {
     constructor(props) {
@@ -41,7 +41,6 @@ class PlayAsDropdown extends React.Component {
                         labelId="play-as"
                         value={this.selectedType}
                         onChange={this.handleChange}
-                        // icon={<ArrowDropDownIcon />}
                     >
                         {this.playerTypes}
                     </Select>
@@ -50,5 +49,5 @@ class PlayAsDropdown extends React.Component {
         );
     }
 }
-
-export default withStyles(styles)(PlayAsDropdown)
+export default PlayAsDropdown;
+// export default withStyles(styles)(PlayAsDropdown)

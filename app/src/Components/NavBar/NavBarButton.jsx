@@ -6,6 +6,7 @@ import {useStyles} from "./NavBarButton.jss";
 export function NavBarButton({
     path,
     pageName,
+    className,
     isLocalLink,
     unsavedChanges,
     toggleConfirmRedirect,
@@ -21,13 +22,13 @@ export function NavBarButton({
 
     return (
         <div
-            className={classes[pageName]}
+            className={classes[className]}
             onClick={pageRedirectMethod}
         >
             <div className={classes.icon}>
                 <img
                     src={`/Images/Navbar/${pageIcon}-invert-${getIconColor(theme)}.svg`}
-                    className={classes.page_link_image}
+                    className={classes.image}
                     alt=""
                 />
             </div>

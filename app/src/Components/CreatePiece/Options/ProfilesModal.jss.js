@@ -16,7 +16,6 @@ export const useStyles = makeStyles({
     title: {
         position: "absolute",
         color: "#a9a9a9",
-        border: "1px dashed #b1faae",
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
         textAlign: "left",
         paddingLeft: "1%",

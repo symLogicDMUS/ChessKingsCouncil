@@ -1,4 +1,4 @@
-import {piece_defs as standardDefs} from "../Components/NewGame/NewData";
+import {standard_piece_defs as standardDefs} from "../Components/NewGame/NewData";
 
 export function initStandardDefs(defs) {
 
