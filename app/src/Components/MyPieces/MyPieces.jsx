@@ -115,6 +115,7 @@ class MyPieces extends React.Component {
                 )}
                 {this.state.deleteModal && (
                     <ConfirmModal
+                        theme={this.state.theme}
                         text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
                     effected but the piece's record for new games will be destroyed. This action cannot be undone.
                     Are you sure you want to delete piece "${this.state.selectedPiece}"?`}

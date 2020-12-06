@@ -1,63 +1,78 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
-const sizePos = (width, height, top, left) => ({
-    position: 'absolute',
-    width: `${width}%`,
-    height: `${height}%`,
-    top: `${top}%`,
-    left: `${left}%`,
-})
+const modalHeight = () => availHeight() * 0.3333;
+const modalWidth = () => availWidth() * 0.3333;
+const buttonWidth = () => modalWidth() * 0.16;
+const buttonHeight = () => buttonWidth() * 0.3333;
+const modalMargin = () => modalWidth() * 0.05;
+const getFontSize = () => modalHeight() * 0.05;
+const titleHeight = () => getFontSize() * 1.5;
+const paragraphHeight = () => modalHeight() - (buttonHeight() + titleHeight() + modalMargin() * 4);
+const buttonTop = () => titleHeight() + paragraphHeight() + modalMargin() * 3.1;
+const titleTop = () => modalMargin();
 
 const button = {
     position: 'absolute',
     zIndex: 'inherit',
-    textAlign: 'center',
-    color: '#b6b6b6',
-    backgroundColor: '#5d5d5d',
-    border: '1px solid #454849',
-    fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    cursor: 'pointer',
-    '&:hover': {
-        color: '#515151',
-        backgroundColor: '#b6b6b6'
-    },
+    color: '#a9a9a9',
+    backgroundColor: '#333333',
+    width: buttonWidth(),
+    height: buttonHeight(),
+    top: buttonTop(),
 }
 
-export const useStyles = makeStyles({
-    window: {
-        position: 'absolute',
-        zIndex: '20',
-        backgroundColor: '#515151',
-        border: '1px solid #5d5d5d'
-    },
-    text: {
-        ...sizePos(90, 50, 45, 5),
-        zIndex: 'inherit',
-        color: '#b6b6b6',
-        backgroundColor: '#515151',
-        textAlign: 'center',
-        fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-        fontSize: '145%',
-        wordWrap: 'break-word',
-        overflowY: 'hidden',
-        textOverflow: 'ellipsis'
-    },
-    yes_button: {
-        ...button,
-        left: '60%',
-    },
+export const yes_button = {
+    ...button,
+    left: modalWidth() * 0.5 - (buttonWidth() + modalMargin()*0.5) ,
+}
 
-    no_button: {
-        ...button,
-        left: '60%',
+export const no_button = {
+    ...button,
+    left: modalWidth() * 0.5 + modalMargin()*0.5,
+}
+
+function closeIconMargin() {
+    return modalMargin() * 0.2;
+}
+
+export const close = {
+    position: 'absolute',
+    top: closeIconMargin(),
+    left: modalWidth()-modalMargin(),
+}
+
+export const text = {
+    position:'absolute',
+    zIndex: 'inherit',
+    width: modalWidth() - modalMargin()*2,
+    left: modalMargin(),
+    color: '#b6b6b6',
+    fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
+    fontSize: getFontSize(),
+}
+
+
+
+export const useStyles = makeStyles({
+    window: props => ({
+        position: 'absolute',
+        width: modalWidth(),
+        height: modalHeight(),
+        top: availHeight()*0.5 - modalHeight()*0.5,
+        left: availWidth()*0.5 - modalWidth()*0.5,
+        backgroundColor: props.theme.modal_fill,
+        borderRadius: '0.8em',
+    }),
+    title: {
+        ...text,
+        top: titleTop(),
+        height: titleHeight(),
     },
-    close_window: {
-        cursor: 'pointer',
-        ...sizePos(5, 5, 2, 95),
-        '&:hover': {
-            backgroundColor: '#EC2525'
-        },
+    paragraph: {
+        ...text,
+        height: paragraphHeight(),
+        top: titleTop() + titleHeight() + modalMargin(),
+        overflowY: 'hidden',
     },
 });

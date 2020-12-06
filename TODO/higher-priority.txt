@@ -1,8 +1,5 @@
 medium:
-* Fix AiBoard
-* crashes on pawn promotion
 * crashes loading help modal
-* images that are not 1/1 dimention are not being reformated
 * fix sign out icon on home page, maybe make it material ui
 
 long:

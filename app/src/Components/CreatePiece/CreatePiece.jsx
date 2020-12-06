@@ -6,7 +6,6 @@ import {Icon} from "./Icon/Icon";
 import {Range} from "./Range/Range";
 import { Location } from "./Location/Location";
 import { Options } from "./Options/Options";
-import ChooseModal from "./Icon/Choose/ChooseModal";
 import { ProfilesModal } from "./Options/ProfilesModal";
 import { getDefs } from "../../API/getDefs";
 import { deleteDef } from "../../API/deleteDef";
@@ -22,14 +21,15 @@ import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
+import ChooseModal from "./Icon/Choose/ChooseModal";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../styles/backgrounds.scss";
 import { styles } from "./CreatePiece.jss";
+import "../styles/backgrounds.scss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -474,7 +474,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.chooseModal && (
                     <ChooseModal
-                        screenCase={screenCase}
+                        theme={this.state.theme}
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}
                         color={this.state.currentIconColor}
@@ -483,6 +483,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.confirmOverwriteModal && (
                     <ConfirmModal
+                        theme={this.state.theme}
                         screenCase={screenCase}
                         text={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
@@ -491,6 +492,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.isDeleteModal && (
                     <ConfirmModal
+                        theme={this.state.theme}
                         text={`You are asking to delete piece "${this.state.pendingDelete}". Games in progress will not be
                     effected but the piece's record for new games will be destroyed. This action cannot be undone.
                     Are you sure you want to delete piece "${this.state.pendingDelete}"?`}

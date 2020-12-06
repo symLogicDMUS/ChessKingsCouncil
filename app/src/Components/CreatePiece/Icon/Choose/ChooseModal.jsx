@@ -145,6 +145,7 @@ class ChooseModal extends React.Component {
                 </div>
                 {this.state.confirmDeleteModal && (
                     <ConfirmModal
+                        theme={this.props.theme}
                         text={`Are You Sure you want to delete image ${this.state.imgNameChoice}?`}
                         noClick={this.cancelDeleteIcon}
                         yesClick={this.acceptDeleteIcon}

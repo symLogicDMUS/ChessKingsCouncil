@@ -9,6 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {themes} from "../../styles/themes.jss";
 import {ok_button, styles} from "./Promo.jss";
 import {ArrowLeft, ArrowRight} from "./HorizontalScrollArrows";
+import {Ok} from "../../NewGame/Customize/Bottom/CustomiseOk";
 
 class Promo extends React.Component {
     /**
@@ -17,7 +18,7 @@ class Promo extends React.Component {
      * */
     constructor(props) {
         super(props);
-        this.state = { promoChoice: null };
+        this.state = {promoChoice: null};
         this.aiPromoComplete = false;
         this.standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
         this.standardPromoNameDict = {
@@ -90,7 +91,7 @@ class Promo extends React.Component {
     }
 
     onSelect(key) {
-        this.setState({ promoChoice: key });
+        this.setState({promoChoice: key});
     }
 
     aiPromoChoices() {
@@ -164,13 +165,14 @@ class Promo extends React.Component {
                     />
                 </div>
                 <OkButton
-                    text={"ok"}
                     style={ok_button}
                     onClick={this.promote}
-                    theme={themes.light2}
+                    theme={themes.purple}
                     variant={"contained"}
                     isDisabled={!this.state.promoChoice}
-                />
+                >
+                    Ok
+                </OkButton>
                 {this.props.color === this.props.aiColor && !this.aiPromoComplete && this.aiPromote()}
             </div>
         );

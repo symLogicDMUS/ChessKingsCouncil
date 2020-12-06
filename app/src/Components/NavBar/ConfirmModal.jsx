@@ -1,23 +1,27 @@
 import React from "react";
-import { useStyles } from "./ConfirmModal.jss";
+import { Typography } from "@material-ui/core";
+import { MuiButton as Button } from "../Reuseables/MuiButton";
+import {Close} from "../Reuseables/Close";
+import { useStyles, yes_button, no_button, close } from "./ConfirmModal.jss";
 
-export function ConfirmModal({ text, title,  yesClick, noClick, closeClick }) {
-    const classes = useStyles();
+export function ConfirmModal({ text, title, theme, yesClick, noClick, closeClick }) {
+    const classes = useStyles({ theme });
+
     return (
         <div className={classes.window}>
-            <img
-                src="/Images/close/close.svg"
-                className={classes.close}
-                onClick={closeClick}
-            />
-            <div title={classes.title}>{title}</div>
-            <div className={classes.text}>{text}</div>
-            <div className={classes.yes_button} onClick={yesClick}>
+            <Close clickMethod={closeClick} style={close} theme={theme} size={"small"}  />
+            <Typography className={classes.title} align={"center"} noWrap={true}>
+                {title}
+            </Typography>
+            <Typography className={classes.paragraph} paragraph={true} align={"center"}>
+                {text}
+            </Typography>
+            <Button onClick={yesClick} style={yes_button} variant={"contained"} theme={theme}>
                 Yes
-            </div>
-            <div className={classes.no_button} onClick={noClick}>
+            </Button>
+            <Button onClick={noClick} style={no_button} variant={"contained"} theme={theme}>
                 No
-            </div>
+            </Button>
         </div>
     );
 }

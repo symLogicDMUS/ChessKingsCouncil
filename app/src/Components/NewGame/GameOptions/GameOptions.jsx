@@ -15,7 +15,7 @@ export function GameOptions({setGameOptions, fontSize}) {
     let [playerType, updatePlayerType] = useState(null);
     let [gameName, updateGameName] = useState("");
     let [gameType, updateGameType] = useState(null);
-
+    let [theme, setTheme] = useState('dark')
 
     useEffect(() => {
         document.body.className = "light-background"
@@ -36,7 +36,8 @@ export function GameOptions({setGameOptions, fontSize}) {
 
     return (
         <div>
-            <NavBar currentPage="PlayAs" theme={'dark'} unsavedChanges={false}/>
+            <NavBar currentPage="PlayAs" theme={theme} unsavedChanges={false}/>
+            <NavBar currentPage="PlayAs" theme={theme} unsavedChanges={false}/>
             <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
             <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>
             <PlayAs setPlayerType={setPlayerType} fontSize={fontSize}/>
@@ -45,11 +46,12 @@ export function GameOptions({setGameOptions, fontSize}) {
                 style={submit_button(fontSize)}
                 theme={themes.black}
                 variant={"contained"}
-                text={"Play"}
                 isDisabled={
                     !(playerType && gameType && gameName !== "" && invalids.every((c) => charNotInStr(c, gameName)))
                 }
-            />
+            >
+            Play
+        </PlayGameButton>
         </div>
     );
 }

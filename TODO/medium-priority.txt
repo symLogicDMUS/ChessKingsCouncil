@@ -10,7 +10,8 @@ short:
 * move getStyle methods that are a part of component to separate style object
 
 medium:
-* add Material UI Responsive drawer, move SaveResignTool and RangeDisplayTool to drawer
+* add Material UI Responsive drawer, move SaveResignTool and RangeDisplayTool to drawer.
+* move NavBar to be side bar for GameRoot and CreatePiece
 * fix Icon tool buttons
 * add loading animation
 * Refactor NavBar for mobile

@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { ConfirmModal } from "./ConfirmModal";
 
-export function ConfirmRedirect({ path, toggleConfirmRedirect, messageText, isLocalLink }) {
+export function ConfirmRedirect({ path, toggleConfirmRedirect, messageText, isLocalLink, theme }) {
     let history = useHistory();
 
     const goToPage = () => {
@@ -13,6 +13,7 @@ export function ConfirmRedirect({ path, toggleConfirmRedirect, messageText, isLo
         <ConfirmModal
             title={null}
             text={messageText}
+            theme={theme}
             yesClick={() => goToPage()}
             noClick={() => toggleConfirmRedirect(false, null, false)}
             closeClick={() => toggleConfirmRedirect(false, null, false)}

@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-// import {useStyles} from "./Close.jss";
+import React, {useState} from "react";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import {useStyles} from "./Close.jss";
 
-export function Close({ clickMethod, styleObject, theme }) {
-    var [hover, setHover] = useState("off");
+export function Close({clickMethod, style, theme, size}) {
+
+    const classes = useStyles({style: style, theme: theme})
 
     return (
-        <div
-            className={`close-${theme}-${hover}`}
-            style={styleObject}
-            onClick={() => clickMethod()}
-            onMouseEnter={() => setHover("on")}
-            onMouseLeave={() => setHover("off")}
-        />
-    );
+        <IconButton onClick={clickMethod} aria-label="close" className={classes.close} size={size}>
+            <CloseIcon fontSize="inherit" className={classes.icon}/>
+        </IconButton>
+    )
 }

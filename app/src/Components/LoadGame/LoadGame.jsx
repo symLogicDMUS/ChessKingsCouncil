@@ -16,13 +16,14 @@ import { copy } from "../helpers/copy";
 import { Dropdown } from "../Reuseables/Dropdown";
 import { styles, dropdown, play_button, delete_button } from "./LoadGame.jss";
 import MenuItem from "@material-ui/core/MenuItem";
+import {getTheme} from "../styles/getTheme.jss";
 
 class LoadGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             reload: 0,
-            theme: "dark",
+            theme: "black",
             selectedGame: null,
             bValue: false,
             navExpanded: true,
@@ -61,11 +62,16 @@ class LoadGame extends React.Component {
             } else {
                 this.games = {};
             }
-            for (const name of Object.keys(this.games)) {
-                this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
-            }
+            this.resetGameList();
             this.setState({userChoseGame: false});
         });
+    }
+
+    resetGameList() {
+        this.gameList=[]
+        for (const name of Object.keys(this.games)) {
+            this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
+        }
     }
 
     isDisabled() {
@@ -88,6 +94,7 @@ class LoadGame extends React.Component {
     acceptDeleteGame() {
         deleteGame(this.state.selectedGame).then(([res]) => {
             delete this.games[this.state.selectedGame];
+            this.resetGameList();
             this.setState({
                 selectedGame: "none",
                 userChoseGame: false,
@@ -144,32 +151,36 @@ class LoadGame extends React.Component {
                     list={this.gameList}
                     overwrite={null}
                     updateParent={this.changeName}
-                    theme={themes.black}
+                    theme={getTheme(this.state.theme)}
                     style={dropdown}
                     label={"Pick name..."}
                     inputLabel={"Pick name..."}
                 />
                 <Button
                     onClick={() => this.load()}
-                    text={"Play"}
                     variant={"contained"}
-                    theme={themes.black}
+                    theme={getTheme(this.state.theme)}
                     isDisabled={this.isDisabled()}
                     style={play_button}
-                />
+                >
+                    Play
+                </Button>
                 <Button
                     onClick={() => this.askDeleteGame()}
-                    text={"Delete"}
                     variant={"contained"}
                     theme={themes.black}
                     isDisabled={this.isDisabled()}
                     style={delete_button}
-                />
+                >
+                    Delete
+                </Button>
                 {this.state.confirmDeleteModal && (
                     <ConfirmModal
-                        text={`Are You Sure you want to delete game ${this.state.selectedGame}?`}
+                        theme={getTheme(this.state.theme)}
+                        title={`Are You Sure you want to delete game ${this.state.selectedGame}?`}
                         yesClick={this.acceptDeleteGame}
                         noClick={this.cancelDeleteGame}
+                        closeClick={this.cancelDeleteGame}
                     />
                 )}
             </>

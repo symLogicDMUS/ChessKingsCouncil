@@ -58,7 +58,7 @@ class NavBar extends React.Component {
                 )}
                 {this.state.isRedirectModal && (
                     <ConfirmRedirect
-                        screenCase={screenCase}
+                        theme={this.props.theme}
                         path={this.state.pendingRedirect}
                         message={this.redirectMessage}
                         isLocalLink={this.state.isLocalLink}

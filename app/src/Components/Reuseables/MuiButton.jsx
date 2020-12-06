@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./MuiButton.jss";
 
-export function MuiButton({ style, theme, onClick, text, variant, isDisabled}) {
+export function MuiButton({ style, theme, onClick, variant, isDisabled, children}) {
     const classes = useStyles({ style: style, theme: theme });
 
     return (
@@ -12,7 +12,7 @@ export function MuiButton({ style, theme, onClick, text, variant, isDisabled}) {
             onClick={onClick}
             disabled={isDisabled}
         >
-            {text}
+            {children}
         </Button>
     );
 }
