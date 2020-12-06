@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {getTextWidth} from "../helpers/getTextWidth";
+import {getTextWidth} from "../helpers/getTextWidth.jss";
 import {modal} from "../helpers/modal.jss";
 
 export const useStyles = makeStyles({

@@ -1,5 +1,5 @@
-import {getUnicodePiece} from "../printers/getUnicodePiece";
-import {checkerboard} from "../printers/checkerBoard";
+import {getUnicodePiece} from "./getUnicodePiece";
+import {checkerboard} from "./checkerBoard";
 import {isPiece} from "../pieceType/isPiece";
 import {xyToRf} from "../coordType/crdCnvrt";
 import colors from 'colors';

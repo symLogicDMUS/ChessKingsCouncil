@@ -1,16 +1,9 @@
-import {JsonRecords} from "../../../JsonRecords/JsonRecords";
-import {getPieceType} from "../../../pieceType/getPieceType";
 import {pawn2SqrFirstMoves} from "./pawn2SqrFirstMoves";
 import {strfind} from "../../../helpers/strfind";
 
 
 export function pawnMovedOnce2Sqrs(pawnHistories, id) {
-    if (strfind(pawn2SqrFirstMoves, pawnHistories[id])) {
-        return true
-    }
-    else {
-        return false
-    }
+    return strfind(pawn2SqrFirstMoves, pawnHistories[id]);
 }
 
 // module.exports = pawnMovedOnce2Sqrs;
@@ -77,8 +70,5 @@ if (require.main === module) {
         }
     }
     printBoard(board, "\ngreen: yes, red: no", no, yes);
-
-    
-
 }
 */

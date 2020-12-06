@@ -1,8 +1,7 @@
 
 export function getMatchesPathLists(pieceLocs, matches) {
-
-    var does = [];
-    var doesNot = [];
+    const does = [];
+    const doesNot = [];
     for (let i = 0; i < pieceLocs.length; i++) {
         if (matches[i])
             does.push(pieceLocs[i])

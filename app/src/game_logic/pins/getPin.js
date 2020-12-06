@@ -6,8 +6,8 @@ import {PathData} from "../pathsInfo/PathData";
 
 export function getPin(pathData) {
     /*return the id of the piece that is pinned, &&  the coordinate path it is pinned to**/
-    var i = getIndexAttackingPiece(pathData.pieces, pathData.path)
-    var pinPath = getSubPath(pathData.coordPath, i)
+    const i = getIndexAttackingPiece(pathData.pieces, pathData.path);
+    const pinPath = getSubPath(pathData.coordPath, i);
     return [pathData.pieces[0], pinPath]
 }
 

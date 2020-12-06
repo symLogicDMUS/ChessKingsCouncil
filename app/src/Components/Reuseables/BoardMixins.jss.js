@@ -1,6 +1,4 @@
-import {availHeight, availWidth, centerOfScreenX, centerOfScreenY} from "../helpers/windowMeasurments";
-import {navBarHeight} from "../NavBar/NavBarStyle";
-import {getSqrPosPx} from "../helpers/getSqrPosPx";
+import {availHeight, centerOfScreenX, centerOfScreenY} from "../helpers/windowMeasurments";
 import {binaryBoard} from "../helpers/binaryBoard";
 import {rfToGridLoc} from "../helpers/crdCnvrt";
 
@@ -90,4 +88,10 @@ export const board = (boardType) => ({
         gridTemplateColumns: `repeat(8, ${sqrSize('desktop', boardType)}px)`,
         gridTemplateRows: `repeat(8, ${sqrSize('desktop', boardType)}px)`,
     },
+})
+export const gameBoard = (z) => ({
+    zIndex: z,
+    top: gameBoardTop('desktop'),
+    left: gameBoardLeft('desktop'),
+    ...board('large'),
 })

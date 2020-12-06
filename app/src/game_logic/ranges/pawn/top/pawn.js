@@ -13,8 +13,8 @@ import {step_1sqr0d, step_1sqr180d} from "../../../helpers/stepFuncs";
 export function pawn(board, sqr, color, jsonRecords, specialMoves) {
     /*get the range of pawn at location sqr and of the given color**/
 
-    var range = [];
-    var twoSqrJump, alignKey, tSqr, twoSqrJump, potentialCaptures;
+    const range = [];
+    let twoSqrJump, alignKey, tSqr, potentialCaptures;
     let potential1Sqr = getPotential1SqrJump(sqr, color);
 
     if (isActual1SqrJump(board, potential1Sqr, color)) {

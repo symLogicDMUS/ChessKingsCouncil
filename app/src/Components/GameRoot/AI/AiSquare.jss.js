@@ -1,11 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {getPosPercentVal} from "../../helpers/getPosPercentVal";
+import {rfToGridLoc} from "../../helpers/crdCnvrt";
 
 const square = (rf) => ({
-    position: "absolute",
-    width: "12.5%",
-    height: "12.5%",
-    ...getPosPercentVal(rf),
+    ...rfToGridLoc(rf),
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
 })

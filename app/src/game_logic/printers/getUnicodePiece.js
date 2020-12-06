@@ -1,4 +1,4 @@
-import {unicodePieces} from "../printers/unicodePieces";
+import {unicodePieces} from "./unicodePieces";
 import {getPieceType} from "../pieceType/getPieceType";
 import {getColor} from "../color/getColor";
 

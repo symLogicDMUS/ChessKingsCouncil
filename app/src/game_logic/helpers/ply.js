@@ -3,7 +3,7 @@ import {xyToRf} from "../coordType/crdCnvrt";
 
 
 export function ply(responseBoard, start, dest) {
-    var captured = null;
+    let captured = null;
     if (start.toString() === dest.toString()) 
         return [responseBoard, null]
     if (isPiece(responseBoard[xyToRf(...dest)]))

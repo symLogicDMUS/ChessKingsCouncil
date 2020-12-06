@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {getTextWidth} from "../../helpers/getTextWidth";
+import {getTextWidth} from "../../helpers/getTextWidth.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {gameType, title} from "./mixins.jss";

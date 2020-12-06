@@ -1,6 +1,5 @@
 import {getPieceType} from "../../../pieceType/getPieceType";
 import {getColor} from "../../../color/getColor";
-import { xyToRf } from "../../../coordType/crdCnvrt";
 
 
 export function isPromoRows(start, dest, id) {
@@ -10,12 +9,7 @@ export function isPromoRows(start, dest, id) {
     if (getPieceType(id) === 'P' &&  getColor(id) === 'W' &&  start[1] === 7 &&  dest[1] === 8) {
         return true
     }
-    else if (getPieceType(id) === 'P' &&  getColor(id) === 'B' &&  start[1] === 2 &&  dest[1] === 1) {
-        return true
-    }
-    else {
-        return false
-    }
+    else return getPieceType(id) === 'P' && getColor(id) === 'B' && start[1] === 2 && dest[1] === 1;
 }
 
 // module.exports = isPromoRows;

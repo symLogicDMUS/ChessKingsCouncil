@@ -1,13 +1,13 @@
 import {stepFuncDict} from "../../helpers/stepFuncs";
-import {getPath} from "../../ranges/paths/getPath";
+import {getPath} from "./getPath";
 
 
 
 export function getPaths(funcNames, board, sqr, color) {
     /* **/
-    var paths = [];
-    var stepFunc;
-    for (var funcName of funcNames) {
+    const paths = [];
+    let stepFunc;
+    for (const funcName of funcNames) {
         stepFunc = stepFuncDict[funcName];
         paths.push(...getPath(sqr, board, color, stepFunc));
     }

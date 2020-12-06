@@ -1,9 +1,9 @@
 export function getPieceColors(pieceList) {
     /**
-    takes a list of piece assignIds, &&  returns a list of the color of each piece
-    */
-    var colors = []
-    for (var piece of pieceList) {
+     takes a list of piece assignIds, &&  returns a list of the color of each piece
+     */
+    const colors = [];
+    for (const piece of pieceList) {
         if (piece[0] === 'W') {
             colors.push('W')
         }

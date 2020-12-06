@@ -4,9 +4,7 @@ import {pawnMovedOnce2Sqrs} from "./pawnMovedOnce2Sqrs"
 import {getPieceType} from "../../../pieceType/getPieceType";
 import {getSqrCase} from "../../../sqrCase/getSqrCase";
 import {ENEMY} from "../../../sqrCase/sqrCases";
-import {xyToRf, rfToXy} from "../../../coordType/crdCnvrt";
-import {JsonRecords} from "../../../JsonRecords/JsonRecords";
-import {replaceRankfileWithPawnId} from "../../../JsonRecords/replaceRankfileWithPawnId";
+import {xyToRf, } from "../../../coordType/crdCnvrt";
 
 
 export function canEnpassant(attacking, attacked, board, color, pawnHistories, ncnpm, lastPawnMove) {
@@ -19,22 +17,20 @@ export function canEnpassant(attacking, attacked, board, color, pawnHistories, n
     if (color === 'B' &&  ! isEnpBlackAttR(attacking)) {
         return false
     }
-    if (getSqrCase(board, attacked[0], attacked[1], color) != ENEMY) {
+    if (getSqrCase(board, attacked[0], attacked[1], color) !== ENEMY) {
         return false
     }
-    if (getPieceType(board[xyToRf(...attacked)]) != 'P') {
+    if (getPieceType(board[xyToRf(...attacked)]) !== 'P') {
         return false
     }
-    if (ncnpm != 0) {
+    if (ncnpm !== 0) {
         return false
     }
     if (! pawnMovedOnce2Sqrs(pawnHistories, board[xyToRf(...attacked)])) {
         return false
     }
-    if (xyToRf(...attacked) != lastPawnMove) {
-        return false
-    }
-    return true
+    return xyToRf(...attacked) === lastPawnMove;
+
 }
 
 // module.exports = canEnpassant;

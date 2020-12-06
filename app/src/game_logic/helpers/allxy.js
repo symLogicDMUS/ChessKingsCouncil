@@ -10,5 +10,4 @@ export var allXy = new Set([
 ]);
 
 //NOTE: in rankfiles form because using rankfiles for sets in the finalRanges is easier.
-// module.exports = allXy; 
-
+// module.exports = allXy;

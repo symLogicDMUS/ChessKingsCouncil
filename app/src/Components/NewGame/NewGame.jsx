@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import Customize from "./Customize/Customize";
 import {GameOptions} from "./GameOptions/GameOptions";
-import { firstUpdate } from "../../apiHelpers/firstUpdate";
+import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
 import { newData, new_standard_ranges, enemyRanges, standard_id_dict, standard_piece_defs, standard_promo_names } from "./NewData";
 import { styles } from "./NewGame.jss";
 import {copy} from "../helpers/copy";

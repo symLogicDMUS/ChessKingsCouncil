@@ -25,7 +25,9 @@ export function PlayAs({setPlayerType, fontSize}) {
                 ]}
                 overwrite={null}
                 theme={themes.black}
-                styles={dropdownStyle}
+                style={dropdownStyle}
+                label={'Play As'}
+                inputLabel={'Play As'}
             />
         </>
     );

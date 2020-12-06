@@ -5,14 +5,14 @@ import {xyToRf} from "../coordType/crdCnvrt";
 
 export function getRange(board, sqr, color, pieceDefs, idDict) {
     /* **/
-    var id = board[xyToRf(...sqr)]
-    var fenId = id[1].toLowerCase()
-    var name = idDict[fenId]
-    var def = pieceDefs[name]
-    var offsets = def[color]['offsets']
-    var stepFuncNames = def[color]['spans']
-    var paths = getPaths(stepFuncNames, board, sqr, color)
-    var jumps = getJumps(offsets, board, sqr, color)
+    const id = board[xyToRf(...sqr)];
+    const fenId = id[1].toLowerCase();
+    const name = idDict[fenId];
+    const def = pieceDefs[name];
+    const offsets = def[color]['offsets'];
+    const stepFuncNames = def[color]['spans'];
+    const paths = getPaths(stepFuncNames, board, sqr, color);
+    const jumps = getJumps(offsets, board, sqr, color);
     paths.push(...jumps)
     return paths;
 }
@@ -33,7 +33,5 @@ if (require.main === module) {
         pieceRange = getRange(board, sqr, 'B', pieceDefs, idDict)
         printBoard(board, `\n${board[xyToRf(...sqr)]}`, mapListXyToRf(pieceRange), null, [xyToRf(...sqr)])
     }
-
 }
 */
-

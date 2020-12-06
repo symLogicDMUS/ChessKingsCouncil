@@ -1,11 +1,6 @@
 import { mapListXyToRf } from "../../coordType/mapListXyToRf";
 import { mapListListXyToRf } from "../../coordType/mapListListXyToRf";
 import {strfind} from "../../helpers/strfind";
-import {replacePawnIdWithRankfile} from "../../JsonRecords/replacePawnIdWithRankfile";
-import {filterNonMatchingRows} from "./pawnPromotion/filterNonMatchingRows";
-import {getPawnIds} from "./pawnPromotion/getPawnIds";
-import {getPawnRanges} from "./pawnPromotion/getPawnRanges";
-import {getPromos} from "./pawnPromotion/getPromos"
 import { isPromoRows } from "./pawnPromotion/isPromoRows";
 import { xyToRf } from "../../coordType/crdCnvrt";
 
@@ -115,7 +110,7 @@ export class SpecialMoves {
             }
         }
     }
-   
+
     removeCastle(move) {
         let index = -1;
         for (let i = 0; i < this.castles.length; i++) {
@@ -127,13 +122,12 @@ export class SpecialMoves {
         if (index > -1) {
             this.castles.splice(index, 1)
         }
-        return
     }
 
     removePromo(move) {
         let index = -1;
         for (let i = 0; i < this.promos.length; i++) {
-            if (this.promos[i][0] === move[0] && this.promos[i][1] == move[1]) {
+            if (this.promos[i][0] === move[0] && this.promos[i][1] === move[1]) {
                 index = i;
                 break;
             }
@@ -141,7 +135,6 @@ export class SpecialMoves {
         if (index > -1) {
             this.promos.splice(index, 1)
         }
-        return
     }
 
     removeEnpassant(move) {

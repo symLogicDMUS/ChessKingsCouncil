@@ -1,9 +1,6 @@
-
-
 export function promoMove(gameroot, start, dest) {
-
-    if (! gameroot.specialMoves.isPromo([start, dest])) {
-        return 
+    if (!gameroot.specialMoves.isPromo([start, dest])) {
+        return;
     }
 
     gameroot.updateSpecialCase("promo");

@@ -1,5 +1,24 @@
 import {modal} from "../../helpers/modal.jss";
+import {availHeight, availWidth, height} from "../../helpers/windowMeasurments";
+import {size  as promoChoiceSize} from "./PromoChoice.jss";
 
+export const promoChoicesHeight = () => promoChoiceSize()
+export const promoChoicesWidth = () => promoChoiceSize() * 4 + promoChoiceSize() * 0.2;
+export const promoChoicesLeft = () => availWidth() * 0.5 - promoChoicesWidth() * 0.5;
+export const promoChoicesTop = () => height() * 0.5 - promoChoicesHeight() * 0.5;
+export const getFontSize = () => promoChoicesHeight() * 0.12;
+
+export const ok_button = {
+    position: "absolute",
+    top: promoChoicesTop() + promoChoicesHeight(),
+    left: promoChoicesLeft(),
+    width: promoChoicesWidth(),
+    fontSize: getFontSize(),
+    height: getFontSize() * 1.5,
+    borderRadius: "0.8em",
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+};
 
 export const styles = {
     promo_modal: {
@@ -8,23 +27,17 @@ export const styles = {
     img_group: {
         display: "block",
         zIndex: "inherit",
-        "@media screen and (min-device-width: 768px)": {
-            width: window.screen.availWidth * 0.244,
-            height: window.screen.availHeight * 0.099,
-            left: window.screen.availWidth * 0.377,
-            top: window.screen.availHeight * 0.451,
-        },
         cursor: "pointer",
         float: "left",
-        backgroundColor: "white",
-        border: "0.08em solid slateblue",
-        borderBottom: "none",
-        borderRadius: "1em",
+        fontSize: 15,
+        height: promoChoiceSize(),
+        width: promoChoicesWidth(),
+        left: promoChoicesLeft(),
+        top: promoChoicesTop(),
+        backgroundColor: 'white',
+        borderRadius: "0.5em",
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
         position: "absolute",
-        '&:hover': {
-            backgroundColor: "slateblue",
-        },
     },
 };

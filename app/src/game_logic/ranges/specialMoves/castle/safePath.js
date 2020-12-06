@@ -1,15 +1,10 @@
 import {sqrUnderAttack} from "../../../threatArea/top/sqrUnderAttack";
-import {getXyBoard} from "../../../helpers/getXyBoard";
-import {pieceDefs} from "../../../testObjects/standardPieceDefs";
-import { xyToRf, rfToXy } from "../../../coordType/crdCnvrt";
-import {sampleBoardDicts} from "../../../testObjects/sampleBoardDicts";
-import { castleTest2 } from "../../../testObjects/sampleBoardDicts";
-
+import { rfToXy } from "../../../coordType/crdCnvrt";
 
 export function safePath(board, path, color, pieceDefs, idDict) {
     /* return true if every square on path is ! under attack, else return false**/
     
-    for (var rf of path) {
+    for (const rf of path) {
         if (sqrUnderAttack(board, rfToXy(rf), color, pieceDefs, idDict)) {
             return false
         }

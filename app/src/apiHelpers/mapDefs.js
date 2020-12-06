@@ -3,8 +3,8 @@ import {convertOffsetStrsToPairs} from "./convertOffsetStrsToPairs";
 
 export function mapDefs(defs) {
     /* **/
-    for (var pieceName of Object.keys(defs)) {
-        for (var color of ['W', 'B']) {
+    for (const pieceName of Object.keys(defs)) {
+        for (const color of ['W', 'B']) {
             defs[pieceName][color]['offsets'] = convertOffsetStrsToPairs(defs[pieceName][color]['offsets'])
         }
     }

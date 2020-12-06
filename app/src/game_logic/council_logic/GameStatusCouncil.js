@@ -7,15 +7,9 @@ import {numKings} from "./numKings";
 
 export class GameStatusCouncil {
     /**
-     * 
-     * @param {*} board : game board object.
-     * @param {*} ranges : ranges of pieces object.
-     * @param {*} enemyColor : opposite color of play whos turn it is, used to declare winner.
-     * 
      * the status of the game: OVER or IN_PROGRESS
      * the winner of the game: 'W', 'B', or '-' (neither)
      * the condition of the king of pla: 'check', 'checkmate', 'stalemate', or 'safe'
-     * 
      */
     constructor(status) {
         this.status = status['status']
@@ -93,14 +87,11 @@ export class GameStatusCouncil {
     }
 
     hasResigned() {
-        if (this.condition === "resigned")
-            return true
-        else
-            return false
+        return this.condition === "resigned";
     }
 
     noRanges(ranges) {
-        for (var range of Object.values(ranges)) {
+        for (const range of Object.values(ranges)) {
             if (range.length > 0)
                 return false
         }

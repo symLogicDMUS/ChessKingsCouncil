@@ -1,8 +1,6 @@
 export function isdigit(ch) {
-    if (!isNaN(ch * 1)){
-       return true;
-    }
-    return false
+    return !isNaN(ch * 1);
+
 }
 
 // module.exports = isdigit;

@@ -1,10 +1,7 @@
 
 
 export function isalpha(str) {
-    if (str.match(/^([a-zA-Z]+)$/g) !== null)
-        return true;
-    else
-        return false;
+    return str.match(/^([a-zA-Z]+)$/g) !== null;
 }
 
 // module.exports = isalpha;

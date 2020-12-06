@@ -4,11 +4,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import {useStyles} from "./Dropdown.jss"
 
-export function Dropdown({list, updateParent, overwrite, theme, styles}) {
+export function Dropdown({list, updateParent, overwrite, theme, style, label, inputLabel}) {
 
     let [selected, setSelected] = useState("")
 
-    const classes = useStyles({styles: styles, theme: theme})
+    const classes = useStyles({style: style, theme: theme})
 
     const handleChange = (e) => {
         setSelected(e.target.value)
@@ -19,9 +19,9 @@ export function Dropdown({list, updateParent, overwrite, theme, styles}) {
 
     return (
             <FormControl variant="outlined" className={classes.dropdown}>
-                <InputLabel id="outlined-label">Play As</InputLabel>
+                <InputLabel id="outlined-label">{inputLabel}</InputLabel>
                 <Select
-                    label="Play As"
+                    label={label}
                     id="player-type"
                     labelId="play-as"
                     value={selected}

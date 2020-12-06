@@ -4,7 +4,7 @@ import {step_1sqr45d, step_1sqr135d, step_1sqr315d, step_1sqr225d} from "../../h
 
 export function getPotentialCaptures(sqr, color) {
     /*get the squares that the pawn of given color at sqr could potentially move to capture a piece**/
-    var potentialPawnCaptures = []
+    const potentialPawnCaptures = [];
     if (color === 'W') {
         potentialPawnCaptures.push(step_1sqr45d(...sqr))
         potentialPawnCaptures.push(step_1sqr135d(...sqr))

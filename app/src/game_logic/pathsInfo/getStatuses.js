@@ -1,10 +1,8 @@
-import {getFandR} from "../helpers/getFandR";
-
 
 export function getStatuses(pieceIds, color) {
     /*takes a list of piece assignIds, &&  returns list of 'f' for friend &&  'e' for enemy**/
     let statuses = []
-    for (var piece of pieceIds) {
+    for (const piece of pieceIds) {
         if (piece[0] === color) {
             statuses.push('f')
         }

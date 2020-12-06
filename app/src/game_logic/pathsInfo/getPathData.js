@@ -1,5 +1,5 @@
-import {getCoordPath} from "../pathsInfo/getCoordPath";
-import {getPath} from "../pathsInfo/getPath";
+import {getCoordPath} from "./getCoordPath";
+import {getPath} from "./getPath";
 import {getPiecesOnPath} from "./getPiecesOnPath";
 import {getStatuses} from "./getStatuses";
 import {getPieceMatchesPath} from "./getPieceMatchesPath";
@@ -9,15 +9,15 @@ import {stepFuncDict} from "../helpers/stepFuncs"
 
 export function getPathData(board, sqr, color, pieceDefs, idDict, pathDir) {
     /*get all info about a path on board determined by step function stemming from sqr**/
-    var stepFunc = stepFuncDict["step_1sqr"+ pathDir]
+    const stepFunc = stepFuncDict["step_1sqr" + pathDir];
     let [x, y] = [...sqr];
-    var coordPath = getCoordPath(x, y, stepFunc);
-    var path = getPath(board, x, y, stepFunc);
-    var pieceIds = getPiecesOnPath(board, x, y, stepFunc);
-    var statuses = getStatuses(pieceIds, color);
-    var pieceMatchesPath = [];
-    var id, pieceName;
-    for (var pieceId of pieceIds) {
+    const coordPath = getCoordPath(x, y, stepFunc);
+    const path = getPath(board, x, y, stepFunc);
+    const pieceIds = getPiecesOnPath(board, x, y, stepFunc);
+    const statuses = getStatuses(pieceIds, color);
+    const pieceMatchesPath = [];
+    let id, pieceName;
+    for (const pieceId of pieceIds) {
         id = pieceId[1].toLowerCase();
         pieceName = idDict[id];
         pieceMatchesPath.push(getPieceMatchesPath("step_1sqr" + pathDir, pieceDefs, pieceName, color));

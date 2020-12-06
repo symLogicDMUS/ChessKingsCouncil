@@ -3,7 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 export const useStyles = makeStyles({
     dropdown: props => ({
 
-        ...props.styles,
+        ...props.style,
 
         /*
          * default (dropdown not in focus or hovered over)
@@ -23,26 +23,26 @@ export const useStyles = makeStyles({
          * when hovered over
          */
         "&:hover .MuiInputLabel-root": {
-            color: props.theme.hover.fill,
+            color: props.theme.fill,
         },
         "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: props.theme.hover.outline,
+            borderColor: props.theme.outline,
         },
         "&:hover .MuiOutlinedInput-input": {
-            color: props.theme.hover.fill,
+            color: props.theme.fill,
         },
 
         /*
          * when in focus
          */
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-            color: props.theme.focus.fill,
+            color: props.theme.fill,
         },
         "& .MuiInputLabel-root.Mui-focused": {
-            color: props.theme.focus.fill,
+            color: props.theme.fill,
         },
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            color: props.theme.focus.fill,
+            color: props.theme.fill,
         },
     }),
 });

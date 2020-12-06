@@ -1,6 +1,6 @@
 import {getMoveSimplest} from "./getMoveSimplest";
 import {filterEmptyRanges} from "./filterEmpyRanges";
-import {aiMakeMove} from "../game_logic/aiMove/aiMakeMove";
+import {aiMakeMove} from "../game_logic/ai/aiMakeMove";
 import {shuffle} from "../Components/helpers/shuffleArray"
 
 
@@ -16,7 +16,7 @@ export function aiMove(board, ranges, color, specialMoves) {
     return [captured, start, dest]
 }
 
-// module.exports = aiMove;
+// module.exports = ai;
 
 /** for node.js
 if (require.main === module) {
@@ -40,7 +40,7 @@ if (require.main === module) {
               'BQ1': [],
               'BR1': [],
               'BR2': []}
-    [captured, start, dest] = aiMove(sampleBoardDicts['singleMove'], ranges, 'B', SpecialMoves())
+    [captured, start, dest] = ai(sampleBoardDicts['singleMove'], ranges, 'B', SpecialMoves())
     console.log([captured, start, dest])
     printBoard(sampleBoardDicts['singleMove'], highlights=[start, dest])
 

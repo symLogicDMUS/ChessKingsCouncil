@@ -8,9 +8,7 @@ export function move(gameroot, start, dest) {
     gameroot.updateFen(start, dest);
     gameroot.updateTurnData();
     gameroot.setUnsavedProgress(true);
-    gameroot.triggerRender();
     if (gameroot.aiColor === gameroot.turn) {
         gameroot.prepareAiMove();
     }
-    return
 }

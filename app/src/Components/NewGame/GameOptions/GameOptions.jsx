@@ -7,8 +7,8 @@ import {invalids} from "../../helpers/invalids";
 import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import {themes} from "../../styles/themes.jss";
 import {useStyles, submit_button} from "./GameOptions.jss";
+import {themes} from "../../styles/themes.jss";
 import "../../styles/backgrounds.scss";
 
 export function GameOptions({setGameOptions, fontSize}) {
@@ -41,7 +41,7 @@ export function GameOptions({setGameOptions, fontSize}) {
             <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>
             <PlayAs setPlayerType={setPlayerType} fontSize={fontSize}/>
             <PlayGameButton
-                clickMethod={() => setGameOptions(gameName, gameType, playerType)}
+                onClick={() => setGameOptions(gameName, gameType, playerType)}
                 style={submit_button(fontSize)}
                 theme={themes.black}
                 variant={"contained"}

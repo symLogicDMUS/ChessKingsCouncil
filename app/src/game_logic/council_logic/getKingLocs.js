@@ -7,7 +7,7 @@ import {getColor} from "../color/getColor";
 
 export function getKingLocs(board, color) {
     /*get the location of the king of given color NOTE: in the modified chess can return list instead of single item**/
-    var locs = Object.keys(board).filter(s => getPieceType(board[s]) === 'K' &&  getColor(board[s]) === color)
+    const locs = Object.keys(board).filter(s => getPieceType(board[s]) === 'K' && getColor(board[s]) === color);
     if (locs.length === 1) {
         return rfToXy(locs[0])
     }

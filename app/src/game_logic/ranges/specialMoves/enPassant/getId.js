@@ -9,7 +9,5 @@ export function getId(board, sqr) {
 
 /** for node.js
 if (require.main === module) {
-
-
 }
 */

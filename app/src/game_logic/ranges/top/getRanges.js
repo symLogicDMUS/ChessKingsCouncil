@@ -1,28 +1,25 @@
 import {getPieceType} from "../../pieceType/getPieceType";
-import {pawn} from "../../ranges/pawn/top/pawn";
-import {king} from "../../ranges/king/top/king";
-import {getRange} from "../../ranges/getRange";
+import {pawn} from "../pawn/top/pawn";
+import {king} from "../king/top/king";
+import {getRange} from "../getRange";
 import {getColor} from "../../color/getColor";
-import {getPieceLoc} from "../../helpers/getPieceLoc";
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
 import {rfToXy} from "../../coordType/crdCnvrt"
-import {SpecialMoves} from "../../ranges/specialMoves/SpecialMoves";
+import {SpecialMoves} from "../specialMoves/SpecialMoves";
 
 
 export function getRanges(board, color, ranges, jsonRecords, pieceDefs, idDict) {
     /**get the range of every piece on board of specific color, including special moves
-    these ranges are initial ranges. They don't take into consideration if the move endangers the king || not. This is
-    resolved the.includes(later) program &&  the initial ranges are then filtered
-    the ranges of special pieces Rook &&  Pawn (who's ranges cannot be fully defined by the defs format)
-    are resolved first, then for the Knight, Queen, Bishop, Rook, &&  any assignIds defined pieces.
-    defs[idDict] dict is a dict withs keys the non-special assigned ids, &&  values the names they're representing
-    defs_[pieceDefs] is a subset of defs.json
-    */
+     these ranges are initial ranges. They don't take into consideration if the move endangers the king || not. This is
+     resolved the.includes(later) program &&  the initial ranges are then filtered
+     the ranges of special pieces Rook &&  Pawn (who's ranges cannot be fully defined by the defs format)
+     are resolved first, then for the Knight, Queen, Bishop, Rook, &&  any assignIds defined pieces.
+     defs[idDict] dict is a dict withs keys the non-special assigned ids, &&  values the names they're representing
+     defs_[pieceDefs] is a subset of defs.json
+     */
+    let pieceType, pieceRange;
+    let specialMoves = new SpecialMoves(null);
 
-    var pieceType, pieceRange;
-    var specialMoves = new SpecialMoves(null);
-
-    for (var [rf, id] of Object.entries(board)) {
+    for (const [rf, id] of Object.entries(board)) {
 
         if (id === '#') {
             continue

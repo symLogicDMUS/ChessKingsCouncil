@@ -1,3 +1,5 @@
+export const height = () => window.screen.height;
+export const width = () => window.screen.width;
 export const availWidth = () => window.screen.availWidth;
 export const availHeight = () => window.screen.availHeight;
 export const wOverH =  () => availWidth() / availHeight();

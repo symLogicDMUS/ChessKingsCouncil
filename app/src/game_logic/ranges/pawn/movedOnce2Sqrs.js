@@ -6,20 +6,10 @@ export function movedOnce_2Sqrs(pawnHist, color) {
     move 2 square jump
     */
     if (color === 'W') {
-        if (pawnHist.length === 2 &&  pawnHist[1][1] === pawnHist[0][1] + 2 &&  pawnHist[0][0] === pawnHist[1][0]) {
-            return true
-        }
-        else {
-            return false
-        }
+        return pawnHist.length === 2 && pawnHist[1][1] === pawnHist[0][1] + 2 && pawnHist[0][0] === pawnHist[1][0];
     }
     else if (color === 'B') {
-        if (pawnHist.length === 2 &&  pawnHist[1][1] === pawnHist[0][1] - 2 &&  pawnHist[0][0] === pawnHist[1][0]) {
-            return true
-        }
-        else {
-            return false
-        }
+        return pawnHist.length === 2 && pawnHist[1][1] === pawnHist[0][1] - 2 && pawnHist[0][0] === pawnHist[1][0];
     }
     else {
         console.log('error: incorrect color\n')

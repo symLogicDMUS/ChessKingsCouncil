@@ -19,11 +19,9 @@ export function canKingSideCastle(board, color, jsonRecords, pieceDefs, idDict) 
         return false
     }
 
-    if (! safePath(board, castlePath, color, pieceDefs, idDict)) {
-        return false
-    }
+    return safePath(board, castlePath, color, pieceDefs, idDict);
 
-    return true
+
 }
 
 // module.exports = canKingSideCastle;

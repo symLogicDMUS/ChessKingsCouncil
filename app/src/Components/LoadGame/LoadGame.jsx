@@ -8,8 +8,14 @@ import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { MuiButton as Button } from "../Reuseables/MuiButton";
 import "../styles/backgrounds.scss";
-import { styles } from "./LoadGame.jss";
+import { themes } from "../styles/themes.jss";
+import { Typography } from "@material-ui/core";
+import { copy } from "../helpers/copy";
+import { Dropdown } from "../Reuseables/Dropdown";
+import { styles, dropdown, play_button, delete_button } from "./LoadGame.jss";
+import MenuItem from "@material-ui/core/MenuItem";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -17,19 +23,23 @@ class LoadGame extends React.Component {
         this.state = {
             reload: 0,
             theme: "dark",
-            gameName: null,
-            loaded: false,
+            selectedGame: null,
             bValue: false,
+            navExpanded: true,
+            userChoseGame: false,
             confirmDeleteModal: false,
         };
-
+        this.gameList = [
+            <MenuItem value="None">
+                <em>None</em>
+            </MenuItem>,
+        ];
         this.playButton = <button onClick={this.load}>Play</button>;
         this.deleteButton = <button onClick={this.askDeleteGame}>Delete</button>;
         this.council = false;
         this.selected = false;
         this.dataEntry = null;
         this.pieceDefs = null;
-        this.navExpanded = true;
         this.games = {};
         this.load = this.load.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
@@ -44,41 +54,31 @@ class LoadGame extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "chessboard-background";
-
+        document.body.className = "light-background";
         getGames().then(([games]) => {
             if (games) {
                 this.games = games;
             } else {
                 this.games = {};
             }
-
-            this.setState({ gameName: "none", loaded: false, reload: !this.state.reload });
+            for (const name of Object.keys(this.games)) {
+                this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
+            }
+            this.setState({userChoseGame: false});
         });
     }
 
-    getGameList() {
-        const gameList = [<option value="choose">Choose...</option>];
-        for (const name of Object.keys(this.games)) {
-            gameList.push(<option value={name}>{name}</option>);
-        }
-        return gameList;
+    isDisabled() {
+        return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
-    changeName(e) {
-        const name = e.target.value;
-        if (name === "choose") {
-            this.selected = false;
-            this.setState({ loaded: false, bValue: !this.state.bValue });
-        } else {
-            this.selected = true;
-            this.setState({ gameName: name });
-        }
+    changeName(gameName) {
+        this.setState({ selectedGame: gameName });
     }
 
     toggleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({ bValue: !this.state.bValue });
+        this.setState({ navExpanded: boolVal });
     }
 
     askDeleteGame() {
@@ -86,12 +86,11 @@ class LoadGame extends React.Component {
     }
 
     acceptDeleteGame() {
-        deleteGame(this.state.gameName).then(([res]) => {
-            delete this.games[this.state.gameName];
-            this.selected = false;
+        deleteGame(this.state.selectedGame).then(([res]) => {
+            delete this.games[this.state.selectedGame];
             this.setState({
-                gameName: "none",
-                loaded: false,
+                selectedGame: "none",
+                userChoseGame: false,
                 confirmDeleteModal: false,
             });
         });
@@ -102,11 +101,11 @@ class LoadGame extends React.Component {
     }
 
     load() {
-        this.gameData = this.games[this.state.gameName];
+        this.gameData = this.games[this.state.selectedGame];
         this.gameData["defs"] = initEmptyRanges(this.gameData["defs"]);
         this.gameData["defs"] = offsetStrsToList(this.gameData["defs"]);
         this.gameData = parseData(this.gameData);
-        this.setState({ loaded: true });
+        this.setState({ userChoseGame: true });
     }
 
     setMessageText(helpTitle, helpText) {
@@ -120,17 +119,17 @@ class LoadGame extends React.Component {
     }
 
     render() {
-        if (this.state.loaded) {
+        if (this.state.userChoseGame) {
             return (
                 <Redirect
                     to={{
                         pathname: "/LoadGame/Play",
                         state: {
                             currentPath: "/LoadGame/Play",
-                            gameName: JSON.parse(JSON.stringify(this.state.gameName)),
-                            gameType: JSON.parse(JSON.stringify(this.gameData["type"])),
-                            playerType: JSON.parse(JSON.stringify(this.gameData["pt"])),
-                            gameData: JSON.parse(JSON.stringify(this.gameData)),
+                            gameName: copy(this.state.selectedGame),
+                            gameType: copy(this.gameData["type"]),
+                            playerType: copy(this.gameData["pt"]),
+                            gameData: copy(this.gameData),
                         },
                     }}
                 />
@@ -140,33 +139,35 @@ class LoadGame extends React.Component {
         return (
             <>
                 <NavBar currentPage="LoadGame" theme={this.state.theme} unsavedChanges={false} />
-                <img
-                    src="/Images/text-labels/LoadGame.svg"
-                    className={this.props.classes.title}
-                    alt="title for loading game"
+                <Typography className={this.props.classes.title} noWrap={true}>Load Game</Typography>
+                <Dropdown
+                    list={this.gameList}
+                    overwrite={null}
+                    updateParent={this.changeName}
+                    theme={themes.black}
+                    style={dropdown}
+                    label={"Pick name..."}
+                    inputLabel={"Pick name..."}
                 />
-                <select id="games" onChange={this.changeName}>
-                    {this.getGameList()}
-                </select>
-                <button
-                    className={
-                        this.state.gameName ? this.props.classes.play_enabled : this.props.classes.play_disabled
-                    }
-                    onClick={this.load}
-                >
-                    Play
-                </button>
-                <button
-                    className={
-                        this.state.gameName ? this.props.classes.delete_enabled : this.props.classes.delete_disabled
-                    }
-                    onClick={this.askDeleteGame}
-                >
-                    Delete
-                </button>
+                <Button
+                    onClick={() => this.load()}
+                    text={"Play"}
+                    variant={"contained"}
+                    theme={themes.black}
+                    isDisabled={this.isDisabled()}
+                    style={play_button}
+                />
+                <Button
+                    onClick={() => this.askDeleteGame()}
+                    text={"Delete"}
+                    variant={"contained"}
+                    theme={themes.black}
+                    isDisabled={this.isDisabled()}
+                    style={delete_button}
+                />
                 {this.state.confirmDeleteModal && (
                     <ConfirmModal
-                        text={`Are You Sure you want to delete game ${this.state.gameName}?`}
+                        text={`Are You Sure you want to delete game ${this.state.selectedGame}?`}
                         yesClick={this.acceptDeleteGame}
                         noClick={this.cancelDeleteGame}
                     />

@@ -4,12 +4,7 @@ import {xyToRf, rfToXy} from "../../../coordType/crdCnvrt"
 
 export function isEnpBlackAttR(sqr) {
     /*return true if sqr the.includes(is) en-passant black attack rank, else false**/
-    if (enPassantBlackAttackRank.includes(xyToRf(...sqr))) {
-        return true
-    }
-    else {
-        return false
-    }
+    return enPassantBlackAttackRank.includes(xyToRf(...sqr));
 }
 
 // module.exports = isEnpBlackAttR;

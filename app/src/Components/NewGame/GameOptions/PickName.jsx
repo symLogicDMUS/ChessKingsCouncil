@@ -8,7 +8,11 @@ export function PickName({ setGameName, gameName, fontSize }) {
 
     return (
         <>
-            <Typography className={classes.title}>Game Name</Typography>
+            <Typography
+                className={classes.title}
+            >
+                Game Name
+            </Typography>
             <TextField
                 value={gameName}
                 className={classes.text_field}

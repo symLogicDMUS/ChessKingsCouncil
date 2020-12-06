@@ -1,10 +1,7 @@
 
 
 export function isEmptyObject(dict) {
-    if (Object.keys(dict).length === 0 && dict.constructor === Object)
-        return true;
-    else
-        return false;
+    return Object.keys(dict).length === 0 && dict.constructor === Object;
 }
 
 // module.exports = isEmptyObject;

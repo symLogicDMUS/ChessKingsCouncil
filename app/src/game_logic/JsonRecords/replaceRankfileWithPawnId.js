@@ -1,11 +1,8 @@
-import {pawnRange} from "../testObjects/sampleBoardDicts";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-
 
 export function replaceRankfileWithPawnId(board, pawnHist) {
-    var id;
-    var newPawnHist = {}
-    for (var rf of Object.keys(pawnHist)) {
+    let id;
+    const newPawnHist = {};
+    for (const rf of Object.keys(pawnHist)) {
         id = board[rf]
         newPawnHist[id] = pawnHist[rf]
     }

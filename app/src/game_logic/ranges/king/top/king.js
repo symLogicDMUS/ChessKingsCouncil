@@ -7,16 +7,16 @@ import {getKingActualMoves} from "../getKingActualMoves";
 
 export function king(board, sqr, color, jsonRecords, specialMoves, pieceDefs, idDict) {
     /**get the range of king at location sqr on board of given color
-    pseudocode
-    ---------
-    get initial moves
-    filter initial moves to get actual moves
-    if canKingSideCastle...
-        ..getKingSideCastle
-    if canQueenSideCastle...
-        ..getQueenSideCastle
-    */
-    var kRange, tSqr;
+     pseudocode
+     ---------
+     get initial moves
+     filter initial moves to get actual moves
+     if canKingSideCastle...
+     ..getKingSideCastle
+     if canQueenSideCastle...
+     ..getQueenSideCastle
+     */
+    let kRange, tSqr;
     kRange = getKingInitialMoves(board, sqr, color)
     if (canKingSideCastle(board, color, jsonRecords, pieceDefs, idDict)) {
         tSqr = getCastleTargetSquare(color, 'K')

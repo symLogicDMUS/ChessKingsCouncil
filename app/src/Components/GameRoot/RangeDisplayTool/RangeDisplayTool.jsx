@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {RangeBoard} from "./RangeBoard/RangeBoard";
+import { RangeBoard } from "./RangeBoard/RangeBoard";
 import { ExpandCollapseWidget } from "./ExpandCollapseWidget";
 import { useStyles } from "./RangeDisplayTool.jss";
 

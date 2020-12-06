@@ -1,10 +1,7 @@
 
 
 export function isupper(str) {
-    if (str.toUpperCase() == str)
-        return true;
-    else
-        return false;
+    return str.toUpperCase() === str;
 }
 
 // module.exports = isupper;

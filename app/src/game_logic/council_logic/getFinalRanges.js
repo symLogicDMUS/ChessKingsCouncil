@@ -18,9 +18,9 @@ export function getFinalRanges(initRanges, threatArea, finalRanges) {
     initRanges = mapDictListXyToRf(initRanges);
     threatArea = mapListXyToRf(threatArea);
 
-    var setA, setB, setC;
+    let setA, setB, setC;
 
-    for (var id of Object.keys(finalRanges)) {
+    for (const id of Object.keys(finalRanges)) {
         if (getPieceType(id) === "K") {
             finalRanges[id] = initRanges[id];
         } else {

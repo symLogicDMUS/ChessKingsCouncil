@@ -1,94 +1,64 @@
-const getLeft = (buttonType, screenCase) => {
-    if (buttonType === 'play') {
-        switch (screenCase) {
-            case 'desktop':
-                return window.screen.availWidth * 0.5
-            case 'mobile':
-                return window.screen.availWidth * 0.25
-            default:
-                break;
-        }
-    } else if (buttonType === 'delete') {
-        switch (screenCase) {
-            case 'desktop':
-                return window.screen.availWidth * 0.6
-            case 'mobile':
-                return window.screen.availWidth * 0.30
-            default:
-                break;
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {getTextWidth} from "../helpers/getTextWidth.jss";
+import {lineHeight} from "../styles/lineHeight.jss";
 
-        }
+let fontFamily = 'Garamond';
+const titleTop = () => availHeight() * 0.34;
+const titleFontSize = () => availHeight() * 0.18
+const titleWidth = () => getTextWidth('Load Game', titleFontSize(), fontFamily)
+const titleLeft = () => availWidth() * 0.5 - getTextWidth('Load Game', titleFontSize(), fontFamily) * 0.5;
+const buttonsMargin = () => titleFontSize() * 0.15;
+
+const dropdownTop = () => titleTop() + titleFontSize() * lineHeight(titleFontSize()) + buttonsMargin()
+const dropdownWidth = () => titleWidth()*0.99
+const dropdownLeft = () => titleLeft()
+const dropdownHeight = () => '3em'
+
+const buttonTop = () => dropdownTop() + buttonsMargin()*3
+const buttonWidth = () => titleWidth() * 0.495 - buttonsMargin() * 0.5
+const buttonLeft = (buttonType, screenCase) => {
+    if (buttonType === 'play') {
+        return titleLeft()
+    } else {
+        return titleLeft() + buttonWidth() + buttonsMargin()
     }
-    return null;
+}
+const button = {
+    position: 'absolute',
+    color: 'white',
+    top: buttonTop(),
+    width: buttonWidth(),
+    height: titleFontSize() * 0.2,
+}
+export const play_button  = {
+    ...button,
+    left: titleLeft(),
 }
 
-const button = (buttonType) => ({
-    objectAlign: "center",
-    border: "1px solid white",
-    padding: "5px 15px",
-    margin: "5px",
-    fontFamily: "Georgia",
-    color: "white",
-    "@media screen and (min-device-width: 768px)": {
-        width: window.screen.availWidth * 0.4,
-        height: window.screen.availHeight * 0.125,
-        top: window.screen.availHeight * 0.5,
-        left: getLeft(buttonType, 'desktop')
-    },
-    "@media screen and (max-device-width: 767px)": {
-        width: window.screen.availWidth * 0.25,
-        height: window.screen.availHeight * 0.12,
-        top: window.screen.availHeight * 0.1,
-        left: getLeft(buttonType, 'mobile')
-    },
-})
+export const delete_button = {
+    ...button,
+    left: titleLeft() + buttonWidth() + buttonsMargin(),
+}
 
-const button_enabled = (buttonType) => ({
-    ...button(buttonType),
-    backgroundColor: "black",
-    cursor: "pointer",
-})
-
-const button_disabled = (buttonType) => ({
-    ...button(buttonType),
-    backgroundColor: "grey",
-    cursor: "not-allowed",
-})
+export const dropdown = {
+    position: "absolute",
+    top: dropdownTop(),
+    left: dropdownLeft(),
+    width: dropdownWidth(),
+    height: dropdownHeight(),
+}
 
 export const styles = {
     title: {
         margin: "0",
         position: "absolute",
         cursor: "pointer",
-        MsTransform: "translate(-50%, -50%)",
-        transform: "translate(-50%, -50%)",
+        fontFamily: fontFamily,
+        lineHeight: '70%',
         "@media screen and (min-device-width: 768px)": {
-            width: window.screen.availWidth * 0.4,
-            height: window.screen.availHeight * 0.3,
-            top: window.screen.availHeight * 0.34,
-            left: window.screen.availWidth * 0.5,
+            fontSize: titleFontSize(),
+            top: titleTop(),
+            left: titleLeft()
         },
-    },
-    play_enabled: {
-        ...button_enabled('play')
-    },
-    play_disabled: {
-        ...button_disabled('play')
-    },
-    delete_enabled: {
-        ...button_enabled('delete')
-    },
-    delete_disabled: {
-        ...button_disabled('delete')
-    },
-    select: {
-        position: "relative",
-        backgroundColor: "black",
-        border: "1px solid white",
-        color: "white",
-        padding: "5px 15px",
-        cursor: "pointer",
-        margin: "5px",
-        fontFamily: "Georgia",
     },
 };

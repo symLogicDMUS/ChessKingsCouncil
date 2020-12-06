@@ -1,18 +1,21 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+
+export const size = () => availHeight() * 0.1;
 
 const promoChoice = {
-    "@media screen and (min-device-width: 768px)": {
-        width: window.screen.availHeight * 0.099,
-        height: window.screen.availHeight * 0.099,
-    },
+    position: 'relative',
+    width: size(),
+    height: size(),
 };
 
 export const useStyles = makeStyles({
-    promo_choice: {
+    normal: {
         ...promoChoice,
+        backgroundColor: "none"
     },
-    promo_choice_selected: {
+    selected: {
         ...promoChoice,
-        backgroundColor: "#00CCFF",
+        backgroundColor: "slateblue",
     },
 });

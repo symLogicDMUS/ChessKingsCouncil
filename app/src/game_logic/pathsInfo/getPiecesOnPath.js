@@ -1,17 +1,5 @@
 import {outOfBounds} from "../sqrCase/oob";
-import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-import {getPieceMatchesPath} from "./getPieceMatchesPath";
 import {xyToRf} from "../coordType/crdCnvrt";
-import {
-    step_1sqr90d,
-    step_1sqr45d,
-    step_1sqr0d,
-    step_1sqr315d,
-    step_1sqr270d,
-    step_1sqr225d,
-    step_1sqr180d,
-    step_1sqr135d,
-} from "../helpers/stepFuncs";
 
 export function getPiecesOnPath(board, x, y, takeStep) {
     /**
@@ -21,7 +9,7 @@ export function getPiecesOnPath(board, x, y, takeStep) {
     [x, y] = takeStep(x, y);
     let pieceList = [];
     while (!outOfBounds(x, y)) {
-        if (board[xyToRf(x, y)] != "#") {
+        if (board[xyToRf(x, y)] !== "#") {
             pieceList.push(board[xyToRf(x, y)]);
         }
         [x, y] = takeStep(x, y);

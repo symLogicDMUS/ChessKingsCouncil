@@ -18,8 +18,8 @@ export class JsonRecords {
 
     pawnKeysToCurrentRf() {
         /*swap the key of each pawnHistory entry with the coordinate of its current location**/
-        var pawnHistories = {}
-        for (var hist of Object.values(this.pawnHistories)) {
+        const pawnHistories = {};
+        for (const hist of Object.values(this.pawnHistories)) {
             let sqr = hist[hist.length - 1]
             pawnHistories[sqr] = hist
         }
@@ -28,8 +28,8 @@ export class JsonRecords {
 
     update(id, start, dest, promoFlag) {
         /*update json records depending on the piece type of id_ at location start**/
-        var pType = getPieceType(id);
-        if (pType != "P") {
+        const pType = getPieceType(id);
+        if (pType !== "P") {
             this.numConsecutiveNonPawnMoves += 1
             if (pType === 'R' &&  Object.keys(this.rooksMoved).includes(start)) {
                 this.updateRooksMoved(start)
@@ -43,7 +43,6 @@ export class JsonRecords {
             this.lastPawnMove = dest
             this.updatePawnHistory(id, dest, promoFlag)
         }
-        return
     }
 
     updateRooksMoved(sqr) {
@@ -56,16 +55,16 @@ export class JsonRecords {
         this.kingsMoved[sqr] = true
     }
 
-    updatePawnHistory(id_, newLoc, promo) {
+    updatePawnHistory(id, newLoc, promo) {
         /*update location of pawn by appending its new location to its history**/
-        console.log("id", id_)
+        console.log("id", id)
         console.log("newLoc", newLoc)
         console.log("promo", promo)
         if (promo) {
-            delete this.pawnHistories[id_]
+            delete this.pawnHistories[id]
         }
         else {
-            this.pawnHistories[id_].push(newLoc)
+            this.pawnHistories[id].push(newLoc)
         }
     }
 
@@ -151,12 +150,7 @@ export class JsonRecords {
     }
 
     isLastPawnMove(rf) {
-        if (rf === this.lastPawnMove) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return rf === this.lastPawnMove;
     }
 }
 

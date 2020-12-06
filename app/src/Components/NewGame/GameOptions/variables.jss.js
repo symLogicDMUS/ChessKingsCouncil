@@ -1,5 +1,5 @@
 import {availWidth} from "../../helpers/windowMeasurments";
-import {getTextWidth} from "../../helpers/getTextWidth";
+import {getTextWidth} from "../../helpers/getTextWidth.jss";
 import {buttonMargin, size} from "./PickType.jss";
 
 export const gameOptionsMargin = availWidth() * 0.04;

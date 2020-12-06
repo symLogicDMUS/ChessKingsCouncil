@@ -2,7 +2,6 @@ import {getSqrCase} from "../../sqrCase/getSqrCase";
 import {ENEMY} from "../../sqrCase/sqrCases";
 
 
-
 export function getActualCaptures(board, potentialPawnCaptures, color) {
     /*filter the list of potential pawn captures to get actual ones**/
     return potentialPawnCaptures.filter(sqr => getSqrCase(board, ...sqr, color) === ENEMY)
@@ -11,7 +10,7 @@ export function getActualCaptures(board, potentialPawnCaptures, color) {
 // module.exports = getActualCaptures;
 
 /** for node.js
-if (require.main === module) {
+ if (require.main === module) {
     
     import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
     import {mapListXyToRf} from "../../coordType/mapListXyToRf"
@@ -25,4 +24,4 @@ if (require.main === module) {
     console.log('\n');
 
 }
-*/
+ */

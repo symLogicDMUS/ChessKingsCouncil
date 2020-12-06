@@ -4,25 +4,34 @@ import {useStyles} from "./SaveResignTool.jss";
 
 export function SaveResignTool({save, toggleSaveAs, resign, gameName, gameType, playerType}) {
 
-    let [state, setState] = useState({
-        saveHighlighted: false,
-        resignHighlighted: false,
-        saveAsHighlighted: false,
-        saveImg: null,
-        saveAsImg: null,
-        resignImg: null,
-    })
-
     const classes = useStyles()
+
+    const imgPaths = {
+        save: {
+            normal: "/Images/save/save-b1faae.svg",
+            hover: "/Images/save/save-72e2ff.svg",
+        },
+        saveAs: {
+            normal: "/Images/save-as/save-as-b1faae.svg",
+            hover: "/Images/save-as/save-as-72e2ff.svg",
+        },
+        resign: {
+            normal: "/Images/resign-game/resign-game-b1faae.svg",
+            hover: "/Images/resign-game/resign-game-72e2ff.svg",
+        },
+    }
+
+    let [state, setState] = useState({
+        saveImg: imgPaths.save.normal,
+        saveAsImg: imgPaths.saveAs.normal,
+        resignImg: imgPaths.resign.normal,
+    })
 
     const setNoHighlights = () => {
         setState({
-            saveHighlighted: false,
-            saveAsHighlighted: false,
-            resignHighlighted: false,
-            saveImg: "/Images/save/save-b1faae.svg",
-            saveAsImg: "/Images/save-as/save-as-b1faae.svg",
-            resignImg: "/Images/save/save-b1faae.svg",
+            saveImg: imgPaths.save.normal,
+            saveAsImg: imgPaths.saveAs.normal,
+            resignImg: imgPaths.resign.normal,
         })
     }
 
@@ -39,12 +48,9 @@ export function SaveResignTool({save, toggleSaveAs, resign, gameName, gameType, 
                 className={classes.save_game}
                 onClick={() => save()}
                 onMouseEnter={() => setState({
-                    saveHighlighted: true,
-                    saveAsHighlighted: false,
-                    resignHighlighted: false,
-                    saveImg: "/Images/save/save-72e2ff.svg",
-                    saveAsImg: "/Images/save-as/save-as-b1faae.svg",
-                    resignImg: "/Images/resign-game/resign-game-b1faae.svg",
+                    saveImg: imgPaths.save.hover,
+                    saveAsImg: imgPaths.saveAs.normal,
+                    resignImg: imgPaths.resign.normal,
                 })}
                 onMouseLeave={() => setNoHighlights()}
                 alt="save icon"
@@ -54,12 +60,9 @@ export function SaveResignTool({save, toggleSaveAs, resign, gameName, gameType, 
                 className={classes.save_as}
                 onClick={() => toggleSaveAs(true)}
                 onMouseEnter={() => setState({
-                    saveHighlighted: false,
-                    saveAsHighlighted: true,
-                    resignHighlighted: false,
-                    saveImg: "/Images/save/save-b1faae.svg",
-                    saveAsImg: "/Images/save-as/save-as-72e2ff.svg",
-                    resignImg: "/Images/resign-game/resign-game-b1faae.svg",
+                    saveImg: imgPaths.save.normal,
+                    saveAsImg: imgPaths.saveAs.hover,
+                    resignImg: imgPaths.resign.normal,
                 })}
                 onMouseLeave={() => setNoHighlights()}
                 alt="save-as icon"
@@ -69,12 +72,9 @@ export function SaveResignTool({save, toggleSaveAs, resign, gameName, gameType, 
                 className={classes.resign}
                 onClick={() => resign()}
                 onMouseEnter={() => setState({
-                    saveHighlighted: false,
-                    saveAsHighlighted: false,
-                    resignHighlighted: true,
-                    saveImg: "/Images/save/save-b1faae.svg",
-                    saveAsImg: "/Images/save-as/save-as-b1faae.svg",
-                    resignImg: "/Images/resign-game/resign-game-72e2ff.svg",
+                    saveImg: imgPaths.save.normal,
+                    saveAsImg: imgPaths.saveAs.normal,
+                    resignImg: imgPaths.resign.hover,
                 })}
                 onMouseLeave={() => setNoHighlights()}
                 alt="resign icon"

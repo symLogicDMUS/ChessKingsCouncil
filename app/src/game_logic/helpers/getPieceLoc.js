@@ -1,9 +1,7 @@
-import {getPiecesOnPath} from "../pathsInfo/getPiecesOnPath";
-
 
 export function getPieceLoc(board, id) {
 
-    for (var rf of Object.keys(board)) {
+    for (const rf of Object.keys(board)) {
         if (board[rf] === id)
             return rf
     }

@@ -2,12 +2,7 @@
 
 export function hasMoved(pawnHist) {
     /*takes a pawn history as input, returns true if that pawn has moved else returns false**/
-    if (pawnHist.length > 1) {
-        return true
-    }
-    else {
-        return false
-    }
+    return pawnHist.length > 1;
 }
 
 // module.exports = hasMoved;

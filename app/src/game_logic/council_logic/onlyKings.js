@@ -1,5 +1,5 @@
 export function onlyKings(list) {
-    for (var i of list) {
+    for (const i of list) {
         if (list[i] !== "K") {
             return false;
         }

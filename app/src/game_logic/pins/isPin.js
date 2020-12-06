@@ -9,16 +9,14 @@ export function isPin(pathData) {
     if (pathData.statuses.length < 2) {
         return false
     }
-    if (pathData.statuses[0] != 'f') {
+    if (pathData.statuses[0] !== 'f') {
         return false
     }
-    if (pathData.statuses[1] != 'e') {
+    if (pathData.statuses[1] !== 'e') {
         return false
     }
-    if (! pathData.pieceMatchesPath[1]) {
-        return false
-    }
-    return true
+    return pathData.pieceMatchesPath[1];
+
 }
 
 // module.exports = isPin;

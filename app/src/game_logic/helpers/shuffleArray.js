@@ -1,7 +1,7 @@
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 export function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-  
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
   

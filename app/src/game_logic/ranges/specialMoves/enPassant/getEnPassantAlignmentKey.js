@@ -13,6 +13,5 @@ export function getEnPassantAlignmentKey(sqr1, sqr2) {
 /** for node.js
 if (require.main === module) {
     console.log(getEnPassantAlignmentKey([2, 4], [3, 4]))
-
 }
 */

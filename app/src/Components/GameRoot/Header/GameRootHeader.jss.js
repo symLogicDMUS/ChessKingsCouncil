@@ -1,22 +1,27 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {availHeight} from "../../helpers/windowMeasurments";
+import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
+import {navBarHeight} from "../../NavBar/NavBarStyle";
+import {lineHeight} from "../../styles/lineHeight.jss";
+
+const boardWidth = () => boardSize('desktop', 'large');
+const fontSize = () => boardWidth() * 0.08;
 
 const header = {
     zIndex: 4,
     position: 'absolute',
-    width: window.screen.availHeight * 0.8,
-    height: window.screen.availHeight * 0.8 * 0.0667,
-    fontSize: window.screen.availHeight * 0.8 * 0.0667 - window.screen.availHeight * 0.8 * 0.0667 * 0.15,
-    left: window.screen.availHeight * 0.37,
-    top: window.screen.availHeight * 0.061,
-
+    width: boardWidth(),
+    fontSize: fontSize(),
+    top: navBarHeight*1.75,
+    left: gameBoardLeft('desktop'),
+    lineHeight: '85%',
 }
 
-const gridItem = {
+const turnAndConditionProperties = {
     zIndex: 'inherit',
+    fontSize: fontSize(),
+    lineHeight: '85%',
     fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-    textAlign: 'left',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis'
 }
 
 export const useStyles = makeStyles({
@@ -27,31 +32,21 @@ export const useStyles = makeStyles({
         ...header,
         color: 'black',
         fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-        textAlign: 'center',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis'
     },
-
     grid: {
         ...header,
         display: 'grid',
-        MsGridColumns: '48.67% 48.67%',
         gridTemplateColumns: '48.67% 48.67%',
-        WebkitColumnGap: '2.66%',
         columnGap: '2.66%',
-        '&$turn': {
-            MsGridColumn: '1',
-            gridColumn: '1',
-            color: 'black',
-            ...gridItem,
-        },
-        '&$condition':{
-            MsGridColumn: '2',
-            gridColumn: '2',
-            color: 'red',
-            ...gridItem,
-        },
     },
-    turn: {},
-    condition: {}
+    turn: {
+        gridColumn: '1',
+        color: 'black',
+        ...turnAndConditionProperties,
+    },
+    condition: {
+        gridColumn: '2',
+        color: '#b1faae',
+        ...turnAndConditionProperties,
+    }
 })

@@ -4,7 +4,7 @@ import {xyToRf} from "../coordType/crdCnvrt";
 
 export function aiPly(responseBoard, start, dest) {
     /**NOTE: start and dest now in rankfile form */
-    var captured = null;
+    let captured = null;
     if (start === dest) 
         return [responseBoard, null]
     if (isPiece(responseBoard[dest]))

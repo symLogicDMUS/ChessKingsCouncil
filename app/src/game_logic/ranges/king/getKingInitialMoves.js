@@ -10,13 +10,13 @@ import { rfToXy } from "../../coordType/crdCnvrt";
 
 export function getKingInitialMoves(board, sqr, color) {
     /*get every initial 'king' move (one square away from sqr)**/
-    var initMoves = Object.keys(board).filter(sqr2 => dist(sqr, rfToXy(sqr2)) === Math.sqrt(2) || dist(sqr, rfToXy(sqr2)) === 1)
+    let initMoves = Object.keys(board).filter(sqr2 => dist(sqr, rfToXy(sqr2)) === Math.sqrt(2) || dist(sqr, rfToXy(sqr2)) === 1);
     initMoves = initMoves.filter(rf => {
-        var sqr = rfToXy(rf)
+        const sqr = rfToXy(rf);
         return getSqrCase(board, ...sqr, color) !== OOB;
     })
     initMoves = initMoves.filter(rf => {
-        var sqr = rfToXy(rf)
+        const sqr = rfToXy(rf);
         return getSqrCase(board, ...sqr, color) !== FRIEND;
     })
     return mapListRfToXy(initMoves)

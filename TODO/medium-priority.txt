@@ -1,4 +1,5 @@
 short:
+* fix LoadGame dropdown label to say "Choose game"
 * update Firebase security rules for new/removed pages
 * change theme for NavBar im Game Options page
 * spans and offsets are displayed in the wrong tables
@@ -9,15 +10,17 @@ short:
 * move getStyle methods that are a part of component to separate style object
 
 medium:
+* add Material UI Responsive drawer, move SaveResignTool and RangeDisplayTool to drawer
 * fix Icon tool buttons
+* add loading animation
 * Refactor NavBar for mobile
-* Checkbox and dropdown reusables need their own styles, and only take what it needs to know about the context of where
+* Checkbox and dropdown reusable need their own styles, and only take what it needs to know about the context of where
   it is as a prop
 * move getStyle methods inside classes to their own .jss.js files
 * replace buttons and possibly search-boxes with material ui version
 
 
 long:
-* replace all .scss classes with style methods in .jss.js files
 * Finish refactoring CreatePiece page for mobile, then do other pages.
 * Make ToolsMenuMobile reusable so can use for GameRoot, implement in GameRoot for the mobile case
+* use Portal for tooltips and Modal, possibly even Promo Modal?

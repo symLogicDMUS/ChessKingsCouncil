@@ -2,7 +2,7 @@ import {step_1sqr90d, step_1sqr270d} from "../../helpers/stepFuncs";
 
 export function get2SqrJump(sqr, color) {
     /*at this point it has been determined that there is a 2 square jump available so now get it**/
-    var x, y;
+    let x, y;
     switch(color) {
         case 'W':
             [x, y] = step_1sqr90d(...sqr);

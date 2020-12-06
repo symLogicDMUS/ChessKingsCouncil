@@ -1,12 +1,17 @@
+import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
+import {navBarHeight} from "../../NavBar/NavBarStyle";
+
+
 export const styles = {
     name_label: {
         position: "absolute",
         zIndex: "0",
+        border: "1px dashed black",
         "@media screen and (min-device-width: 768px)": {
-        left: "263px",
-        top: "108px",
-        width: "600px",
-        height: "28px",
+            left: gameBoardLeft(),
+            top: navBarHeight*1.5,
+            width: boardSize('desktop', 'large'),
+            //height: "28px",
         },
         "@media screen and (max-device-width: 767px)": {
 

@@ -3,14 +3,14 @@ import {getPotential1SqrJump} from "../../pawn/getPotential1SqrJump"
 
 
 export function isPawnMove(board, start, dest) {
-    
-    var color = getColor(board[xyToRf(...start)])
 
-    var oneSqrJump = getPotential1SqrJump(start,  color)
+    const color = getColor(board[xyToRf(...start)]);
+
+    const oneSqrJump = getPotential1SqrJump(start, color);
     if (oneSqrJump.toString() === dest.toString())
         return true
 
-    var leftCapture;
+    let leftCapture;
     if (color === 'W')
         leftCapture = [start[0] - 1, start[1] + 1]
     else
@@ -18,13 +18,10 @@ export function isPawnMove(board, start, dest) {
     if (leftCapture.toString() === dest.toString())
         return true
 
-    var rightCapture;
+    let rightCapture;
     if (color === 'W')
         rightCapture = [start[0] + 1, start[1] + 1]
     else
         rightCapture = [start[0] + 1, start[1] - 1]
-    if(rightCapture.toString() === dest.toString())
-        return true
-
-    return false;
+    return rightCapture.toString() === dest.toString();
 }

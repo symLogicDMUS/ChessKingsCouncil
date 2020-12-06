@@ -1,17 +1,13 @@
-import {pprint} from "pprint";
-import {sampleBoardDicts} from "gameLogic/testObjects/sampleBoardDicts";
-import {getRangeFunc} from "./getRangeFunc";
-
 
 export function getRangeDict(board) {
     /*initialize dict with let key = piece id &&  let value = range of piece**/
     let ranges = {}
-    for (var id_ of Object.values(board)) {
-        if (id_ === '#') {
+    for (const id of Object.values(board)) {
+        if (id === '#') {
             continue
         }
         else {
-            ranges[id_] = []
+            ranges[id] = []
         }
     }
     return ranges

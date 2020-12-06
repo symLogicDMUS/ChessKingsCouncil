@@ -3,18 +3,18 @@ import {getPieceType} from "../pieceType/getPieceType";
 
 export function initPawnIds(records, board) {
     /*exchange the tf that pawn started the game with, with the id for that pawn**/
-    var pawnHistories = {};
-    var rf, id;
-    
+    const pawnHistories = {};
+    let rf, id;
+
     if (! Object.keys(records).includes('pawn_histories')) {
         records['pawn_histories'] = {}
     }
     
-    for (var hist of Object.values(records['pawn_histories'])) {
+    for (const hist of Object.values(records['pawn_histories'])) {
         rf = hist[hist.length - 1]
         id = board[rf]
         pawnHistories[id] = hist
-        if (getPieceType(id) != 'P') {
+        if (getPieceType(id) !== 'P') {
             console.log(`ERROR: there is no pawn at {sqr}`)
             throw Error;
         }

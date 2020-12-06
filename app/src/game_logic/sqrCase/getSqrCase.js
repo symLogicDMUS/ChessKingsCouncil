@@ -1,5 +1,5 @@
-import {OOB, EMPTY, FRIEND, ENEMY} from "../sqrCase/sqrCases";
-import {outOfBounds} from "../sqrCase/oob";
+import {OOB, EMPTY, FRIEND, ENEMY} from "./sqrCases";
+import {outOfBounds} from "./oob";
 import {xyToRf} from "../coordType/crdCnvrt";
 
 export function getSqrCase(board, x, y, color) {
@@ -11,7 +11,6 @@ export function getSqrCase(board, x, y, color) {
     } else if (board[xyToRf(x, y)][0] === color) {
         return FRIEND;
     }
-
     return ENEMY;
 }
 

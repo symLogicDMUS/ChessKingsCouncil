@@ -1,11 +1,12 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import { OVER } from "../helpers/gStatusTypes";
 import NavBar from "../NavBar/NavBar";
 import Promo from "./Promo/Promo";
 import { isPawn } from "../helpers/isPawn";
 import { AIDisplay } from "./AI/AIDisplay";
 import { makeMove } from "./Move/makeMove";
-import { update } from "../../apiHelpers/update";
+import { update } from "../../game_logic/callHierarchyTop/update";
 import { saveGame } from "../../API/saveGame";
 import { SaveAs } from "./SaveResignTool/SaveAs";
 import { Board } from "./Board/Board";
@@ -15,7 +16,7 @@ import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves"
 import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
 import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
 import { MessageModal } from "../NavBar/Help/MessageModal";
-import { updateCouncil } from "../../apiHelpers/updateCouncil";
+import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
 import { GameRootHeader as Header } from "./Header/GameRootHeader";
 import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
 import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
@@ -28,13 +29,14 @@ import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsT
 import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {styles} from "./GameRoot.jss"
-import "../styles/backgrounds.scss"
+import { styles } from "./GameRoot.jss";
+import "../styles/backgrounds.scss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme: "dark", unsavedChanges: false, specialCase: "none" };
+        this.deleteMe = "delete me";
+        this.state = { bValue: true, messageModal: false, theme: "dark" };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -56,6 +58,9 @@ class GameRoot extends React.Component {
         this.promoChoices = this.gameData["promos"];
         this.playerType = this.gameData["pt"]; //duplicate?
         this.resigned = this.gameStatus.hasResigned();
+        //Note: do not make these state variable. Multiple changes need to be made BEFORE re-rendering:
+        this.unsavedProgress = false;
+        this.specialCase = "none";
         this.aiDisplay = false;
         this.firstMoveCurrent = true;
         this.firstTime = false;
@@ -174,7 +179,7 @@ class GameRoot extends React.Component {
     }
 
     updateSpecialCase(specialCase) {
-        this.setState({ specialCase: specialCase });
+        this.specialCase = specialCase;
     }
 
     updateTurnData() {
@@ -272,8 +277,8 @@ class GameRoot extends React.Component {
     }
 
     setUnsavedProgress(boolVal) {
-        this.setState({ unsavedChanges: boolVal });
-        // this.unsavedChanges = boolVal;
+        /**Do not make a state variable*/
+        this.unsavedProgress = boolVal;
     }
 
     render() {
@@ -289,7 +294,7 @@ class GameRoot extends React.Component {
                 <NavBar currentPage="GameRoot" theme={this.state.theme} unsavedChanges={false} />
                 <Header turn={this.turn} condition={this.getCondition()} winner={this.gameStatus.winner} />
                 <Board gameroot={this} />
-                {this.state.specialCase === "promo" && (
+                {this.specialCase === "promo" && (
                     <Promo
                         promoChoices={this.promoChoices}
                         jsonRecords={this.jsonRecords}
@@ -302,9 +307,10 @@ class GameRoot extends React.Component {
                         color={this.getColorLastMove()}
                         aiColor={this.aiColor}
                         pawnLoc={this.specialMoves.pendingPromo}
+                        triggerRender={this.triggerRender}
                     />
                 )}
-                {this.aiDisplay && this.state.specialCase !== "promo" && !this.isGameOver() && (
+                {this.aiDisplay && this.specialCase !== "promo" && !this.isGameOver() && (
                     <AIDisplay
                         aiStart={this.aiStart}
                         aiDest={this.aiDest}
@@ -344,4 +350,4 @@ class GameRoot extends React.Component {
     }
 }
 
-export default withStyles(styles)(GameRoot)
+export default withStyles(styles)(GameRoot);

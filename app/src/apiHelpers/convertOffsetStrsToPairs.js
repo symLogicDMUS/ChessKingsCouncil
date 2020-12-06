@@ -2,7 +2,7 @@
 
 export function convertOffsetStrsToPairs(offsets) {
     /*convert offsets from form 'x,y' to form [x,y] **/
-    var newOffsets = JSON.parse(JSON.stringify(offsets))
+    const newOffsets = JSON.parse(JSON.stringify(offsets));
     for (let i = 0; i < newOffsets.length; i++) {
         newOffsets[i] = newOffsets[i].split(",")
         newOffsets[i][0] = parseInt(newOffsets[i][0], 10)

@@ -3,7 +3,7 @@ import {offsetStrsToList} from "./offsetStrsToList";
 
 export function ddOffsetStrsToList(dataDict) {
     /* **/
-    for (var gameName of Object.keys(dataDict)) {
+    for (const gameName of Object.keys(dataDict)) {
         dataDict[gameName]['defs'] = offsetStrsToList(dataDict[gameName]['defs'])
     }
     return dataDict

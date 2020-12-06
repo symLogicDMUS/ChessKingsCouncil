@@ -6,12 +6,11 @@ import {getResetPieceDicts} from "../../getters/getResetPieceDicts";
 
 export function getPins(pdDict, pins) {
     /**get dict, let key = pieceId, let value = coordList
-       pieceId: a pinned piece 
-       coordList: path the piece is pinned to.
-    */
-    //var pins = {}
-    var pieceId, coordPath;
-    for (var pathData of Object.values(pdDict)) {
+     pieceId: a pinned piece
+     coordList: path the piece is pinned to.
+     */
+    let pieceId, coordPath;
+    for (const pathData of Object.values(pdDict)) {
         if (isPin(pathData)) {
             [pieceId, coordPath] = getPin(pathData);
             if (getPieceType(pieceId) === 'K') {

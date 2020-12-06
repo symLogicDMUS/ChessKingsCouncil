@@ -1,5 +1,5 @@
-import { getTurnData } from "./getTurnData";
-import { getTurnDataCouncil } from "./getTurnDataCouncil";
+import { getTurnData } from "../game_logic/callHierarchyTop/getTurnData";
+import { getTurnDataCouncil } from "../game_logic/callHierarchyTop/getTurnDataCouncil";
 import { Fen } from "../game_logic/fenParser/Fen";
 import { getFenDict } from "../game_logic/fenParser/getFenDict";
 import { getBoard } from "../game_logic/fenParser/getBoard/top/getBoard";
@@ -10,30 +10,33 @@ import { getAiColor } from "../game_logic/color/getAiColor";
 import { getNextColor as getEnemyColor } from "../game_logic/color/getNextColor";
 
 export function parseData(data) {
+
     /*called at start of new or saved game. Get first instance of turn data. parameters are data fetched from db
-     * NOTE: data needed combined as single object. (this is why includes unmodified values status, promos, and type).
-     * The method gathers all relavent data into single object and returns it.
-     **/
-    var [fen, records, playerColor, pieceDefs, idDict] = [
+         * NOTE: data needed combined as single object. (this is why includes unmodified values status, promos, and type).
+         * The method gathers all relevant data into single object and returns it.
+         **/
+    const [fen, records, playerColor, pieceDefs, idDict] = [
         data["fen"],
         data["json"],
         data["pt"],
         data["defs"],
         data["ids"],
     ];
-    var board = getBoard(fen);
-    var jsonRecords = new JsonRecords(initPawnIds(records, board));
-    var [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen);
-    var fenObj = new Fen(getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum));
-    var color = fenObj.turn.toUpperCase();
-    var aiColor = getAiColor(playerColor);
-    var enemyColor = getEnemyColor(color);
+    const board = getBoard(fen);
+    const jsonRecords = new JsonRecords(initPawnIds(records, board));
+    const [turn, castleAvail, enPassantAvail, hmNum, fmNum] = getFenData(fen);
+    const fenObj = new Fen(getFenDict(fen, turn, castleAvail, enPassantAvail, hmNum, fmNum));
+    const color = fenObj.turn.toUpperCase();
+    const aiColor = getAiColor(playerColor);
+    const enemyColor = getEnemyColor(color);
+
+    let turnData, enemyTurnData;
     if (data.type === "council") {
-        var turnData = getTurnDataCouncil(board, color, aiColor, jsonRecords, pieceDefs, idDict);
-        var enemyTurnData = getTurnDataCouncil(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
+        turnData = getTurnDataCouncil(board, color, aiColor, jsonRecords, pieceDefs, idDict);
+        enemyTurnData = getTurnDataCouncil(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
     } else {
-        var turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict);
-        var enemyTurnData = getTurnData(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
+        turnData = getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict);
+        enemyTurnData = getTurnData(board, enemyColor, aiColor, jsonRecords, pieceDefs, idDict);
     }
 
     return {

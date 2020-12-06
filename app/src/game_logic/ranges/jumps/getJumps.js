@@ -1,12 +1,12 @@
 import {printBoard} from "../../printers/printBoard";
-import {getInitJumps} from "../../ranges/jumps/getInitJumps";
-import {filterInitJumps} from "../../ranges/jumps/filterInitJumps";
+import {getInitJumps} from "./getInitJumps";
+import {filterInitJumps} from "./filterInitJumps";
 import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
 
 
 export function getJumps(offsets, board, sqr, color) {
     /*jumps are square that can be reached through a piece jumping**/
-    var jumps = getInitJumps(offsets, sqr)
+    let jumps = getInitJumps(offsets, sqr);
     jumps = filterInitJumps(jumps, board, color)
     return jumps
 }

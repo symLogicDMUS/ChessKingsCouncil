@@ -3,11 +3,11 @@ import {getRookStartAndDest} from "../ranges/specialMoves/castle/getRookStartAnd
 
 
 export function aiCastleMove(responseBoard, start, dest, specialMoves) {
-    var captured;
+    let captured;
     if (! specialMoves.isCastle([start, dest])) {
         return [responseBoard, null]
     }
-    var [rookStart, rookDest] = getRookStartAndDest(dest)
-    [responseBoard, captured] = aiPly(responseBoard, rookStart, rookDest)
+    const [rookStart, rookDest] = getRookStartAndDest(dest)
+        [responseBoard, captured] = aiPly(responseBoard, rookStart, rookDest);
     return [responseBoard, captured]
 }

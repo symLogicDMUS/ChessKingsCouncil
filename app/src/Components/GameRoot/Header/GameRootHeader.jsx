@@ -1,6 +1,7 @@
 import React from "react";
 import {getColorName} from "../../helpers/getColorName";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
+import {Typography} from "@material-ui/core";
 import {useStyles} from "./GameRootHeader.jss";
 
 export function GameRootHeader({turn, winner, condition}) {
@@ -15,50 +16,33 @@ export function GameRootHeader({turn, winner, condition}) {
     }
 
     const getTurn = () => {
-
-        let text = null;
-
         switch (condition) {
-            case "checkmate":
-                text = `${getColorName(winner)} wins!`;
-                break;
-            case "stalemate":
-                text = "Tie game!";
-                break;
-            case "check":
-                text = `${getColorName(turn)}'s turn.`;
-                break;
-            case "resigned":
-                text = `${getOppositeColorName(turn)} wins. ${getColorName(turn)}`;
-                break;
-            case "":
-                text = `${getColorName(turn)}'s turn.`;
-                break;
-            default:
-                text = <div>ERROR: condition not check, checkmate, stalemate or none.</div>;
-                break;
+            case "checkmate": return `${getColorName(winner)} wins!`;
+            case "stalemate": return "Tie game!";
+            case "check": return `${getColorName(turn)}'s turn.`;
+            case "resigned": return `${getOppositeColorName(turn)} wins. ${getColorName(turn)}`;
+            case "": return `${getColorName(turn)}'s turn.`;
+            default: return <div>ERROR: condition not check, checkmate, stalemate or none.</div>;
         }
-
-        return text;
     }
 
     const getHeader = () => {
 
         if (condition === '') {
             return (
-                <div className={classes.label}>
+                <Typography className={classes.label} align={'center'}>
                     {getTurn()}
-                </div>
+                </Typography>
             );
         } else {
             return (
                 <div className={classes.grid}>
-                    <div className={classes.turn}>
+                    <Typography className={classes.turn} align={'left'} noWrap={true}>
                         {getTurn()}
-                    </div>
-                    <div className={classes.condition}>
+                    </Typography>
+                    <Typography className={classes.condition} align={'left'} noWrap={true}>
                         {condition}{exclaimMark()}
-                    </div>
+                    </Typography>
                 </div>
             );
         }

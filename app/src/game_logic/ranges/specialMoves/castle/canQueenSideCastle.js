@@ -18,8 +18,8 @@ export function canQueenSideCastle(board, color, jsonRecords, pieceDefs, idDict)
         return false
     }
 
-    var castlePath = getQueenSideCastlePaths(color)
-    
+    const castlePath = getQueenSideCastlePaths(color);
+
     if (! clearPath(board, castlePath)) {
         return false
     }
@@ -28,11 +28,9 @@ export function canQueenSideCastle(board, color, jsonRecords, pieceDefs, idDict)
         return false
     }
     
-    if (sqrUnderAttack(board, rfToXy(kingStartPos[color]), color, pieceDefs, idDict)) {
-        return false
-    }
+    return !sqrUnderAttack(board, rfToXy(kingStartPos[color]), color, pieceDefs, idDict);
     
-    return true
+
 }
 
 // module.exports = canQueenSideCastle;

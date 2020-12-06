@@ -5,9 +5,8 @@ export function getIndexAttackingPiece(pieceIds, allIds) {
       is the second piece encountered on the path. get the id of that piece. then find where it is in the 
       path as a whole. return that index location
     **/
-    var pieceId = pieceIds[1]
-    var i = allIds.findIndex(el => el === pieceId)
-    return i
+    const pieceId = pieceIds[1];
+    return allIds.findIndex(el => el === pieceId)
 }
 
 // module.exports = getIndexAttackingPiece;

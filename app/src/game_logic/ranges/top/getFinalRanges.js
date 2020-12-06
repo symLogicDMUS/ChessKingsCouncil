@@ -1,23 +1,20 @@
 import {restriction} from "../../restriction/restriction";
 import {getPieceType} from "../../pieceType/getPieceType";
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
-import {mapDictListXyToRf} from "../../coordType/mapDictListXyToRf";
 import {intersection} from "../../helpers/setOps"
 
 // initRanges, pins, threatArea, finalRanges, mtRestrict
 export function getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestriction) {
     /**the final range is the intersection of the initial range, pin, threat area, &&  multi-threat restriction
-    :param initRanges:
-    :param pins:
-    :param threatArea:
-    :param finalRanges:
-    :param mtRestriction:
-    :return:
-    */
+     :param initRanges:
+     :param pins:
+     :param threatArea:
+     :param finalRanges:
+     :param mtRestriction:
+     :return:
+     */
+    let a, b, c, d, e, f, g;
 
-    var a, b, c, d, e, f, g;
-
-    for (var id of Object.keys(finalRanges)) {
+    for (const id of Object.keys(finalRanges)) {
         
         if (getPieceType(id) === 'K') {
             finalRanges[id] = initRanges[id]

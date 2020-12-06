@@ -1,5 +1,4 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {fontSizes} from "../../styles/fontSizes";
 import {fullScreenImg} from "../../styles/fullScreenImg.jss";
 import {dropdownDisp} from "./PlayAs.jss";
 import {standardLeft} from "./PickType.jss";

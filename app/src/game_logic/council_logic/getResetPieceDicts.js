@@ -3,15 +3,15 @@ import {getColor} from "../color/getColor";
 
 export function getResetPieceDicts(board, color) {
     /*create &&  return dicts for the initial ranges, pins, mt-restrictions &&  final ranges, of pieces on board**/
-    
-    var initRanges = {}
-    var finalRanges = {}
-    
-    for (var id of Object.values(board)) {
+
+    const initRanges = {};
+    const finalRanges = {};
+
+    for (const id of Object.values(board)) {
         if (! isPiece(id)) {
             continue
         }
-        if (getColor(id) != color) {
+        if (getColor(id) !== color) {
             continue
         }
         initRanges[id] = []

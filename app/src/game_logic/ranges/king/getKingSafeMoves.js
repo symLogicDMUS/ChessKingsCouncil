@@ -1,7 +1,4 @@
 import {sqrUnderAttack} from "../../threatArea/top/sqrUnderAttack";
-import {getStandardPieceDefs} from "../../testObjects/getStandardPieceDefs";
-import {getStandardIdDict} from "../../testObjects/getStandardIdDict";
-import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
 
 
 export function getKingSafeMoves(board, moveList, color, rangefunctions, idDict) {
@@ -18,6 +15,5 @@ if (require.main === module) {
     // kingRangeTest, 4k3/6pp/8/8/3Pp3/2bK4/4B3/8 w - - 0 1
     let board = sampleBoardDicts['king_range_test'];
     getKingSafeMoves(board, ["d1", "f1", "d2", "e2", "f2"], 'W', rangeDefs, idDict)
-
 }
 */

@@ -3,10 +3,7 @@
 export function strfind(list, b) {
     /**find if b as a string in in list when all element converted to string  */
     list = list.map(el => JSON.stringify(el))
-    if (list.includes(JSON.stringify(b)))
-        return true
-    else 
-        return false
+    return list.includes(JSON.stringify(b));
 }
 
 // module.exports = strfind;

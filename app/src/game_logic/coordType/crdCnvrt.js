@@ -5,14 +5,14 @@ Object.freeze(xMapR);
 
 export function xyToRf(x, y) {
     /**sqr may be sent as 2 arguments x and y, or 1 argument [x, y] */
-    var r = xMapR[x];
-    var f = y.toString();
+    const r = xMapR[x];
+    const f = y.toString();
     return r + f;
 }
 
 export function rfToXy(rf) {
-    var x = xMapR.indexOf(rf[0]);
-    var y = Number(rf[1]);
+    const x = xMapR.indexOf(rf[0]);
+    const y = Number(rf[1]);
     return [x, y];
 }
 

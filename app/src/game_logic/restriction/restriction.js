@@ -18,10 +18,8 @@ export function restriction(coordList) {
 
 /** for node.js
 if (require.main === module) {
-    
-    var restrictionResult = null;
-
-    var pins = {
+    const restrictionResult = null;
+    const pins = {
         WP1: [ [ 3, 4 ], [ 2, 3 ], [ 1, 2 ] ],
         WB1: [ [ 4, 4 ], [ 4, 3 ], [ 4, 2 ], [ 4, 1 ] ],
         WN1: [ [ 5, 4 ], [ 6, 3 ], [ 7, 2 ], [ 8, 1 ] ],
@@ -36,9 +34,5 @@ if (require.main === module) {
         restrictionResult = restriction(pins[id])
         console.log(`${id}`, restrictionResult)
     }
-
-    
-
-
 }
 */

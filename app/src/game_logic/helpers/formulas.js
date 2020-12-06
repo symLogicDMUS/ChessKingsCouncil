@@ -1,14 +1,12 @@
 
 export function dist(sqr1, sqr2) {
     /* calculate the distance between sqr1 &&  sqr2 &&  return **/
-    var res = Math.sqrt((sqr2[0] - sqr1[0]) ** 2 + (sqr2[1] - sqr1[1]) ** 2)
-    return res;
+    return Math.sqrt((sqr2[0] - sqr1[0]) ** 2 + (sqr2[1] - sqr1[1]) ** 2);
 }
 
 export function slope(sqr1, sqr2) {
     /*return the slope of line defined by (x1, x2), (y1, y2) **/
-    let s = (sqr2[1] - sqr1[1]) / (sqr2[0] - sqr1[0])
-    return s;
+    return (sqr2[1] - sqr1[1]) / (sqr2[0] - sqr1[0]);
 }
 
 // // module.exports = {dist, slope}

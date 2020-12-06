@@ -4,16 +4,14 @@ import {shuffle} from "../Components/helpers/shuffleArray";
 
 
 export function getMoveSimplest(responseBoard, pieceId, ranges) {
-    /*dummest possible AI for picking a move. Picks a random move from the range of pieceId**/
+    /*dumbest possible AI for picking a move. Picks a random move from the range of pieceId**/
     // https://stackoverflow.com/questions/483666/reverse-invert-a-dictionary-mapping
-    var pieceDict = flipKeysValues(responseBoard)
+    const pieceDict = flipKeysValues(responseBoard);
     ranges[pieceId] = shuffle(ranges[pieceId])
-    var start = pieceDict[pieceId]
-    var dest = ranges[pieceId][0]
+    const start = pieceDict[pieceId];
+    const dest = ranges[pieceId][0];
     return [start, dest]
 }
-
-
 
 /** for node.js
 if (require.main === module) {

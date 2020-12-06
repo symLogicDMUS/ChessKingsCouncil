@@ -35,7 +35,7 @@ export const useStyles = makeStyles({
             color: 'black',
         },
         "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "black",
+            color: "black",
         },
         "&:hover .MuiOutlinedInput-input": {
             color: "black",
@@ -48,7 +48,10 @@ export const useStyles = makeStyles({
             color: "black",
         },
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "black",
+            color: "black",
         },
     }),
+    input: {
+        color: "blue",
+    }
 });
