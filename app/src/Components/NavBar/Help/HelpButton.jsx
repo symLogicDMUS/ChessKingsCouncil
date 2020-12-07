@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from "react";
 import {findDidUserVisitPage, recordUserVisitedPage} from "../../../API/findRecordDidUserVisitPage";
-import withStyles from "@material-ui/core/styles/withStyles";
+import IconButton from "@material-ui/core/IconButton";
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {useStyles} from "./HelpButton.jss";
 
 
 export function HelpButton({currentPage, toggleHelpModal, setFirstTime, theme}) {
 
     let [hover, setHover] = useState(false)
-    const classes = useStyles()
+    const classes = useStyles({theme})
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {
@@ -19,17 +20,10 @@ export function HelpButton({currentPage, toggleHelpModal, setFirstTime, theme}) 
     })
 
     return (
-        <div
-            className={classes.help}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            onClick={() => toggleHelpModal(true)}
-        >
-            <img
-                src={`/Images/Navbar/help-969696.svg`}
-                className={classes.image}
-                alt=""
-            />
-        </div>
+    <div className={classes.help}>
+        <IconButton className={classes.icon} onClick={() => toggleHelpModal(true)} >
+            <ContactSupportIcon fontSize="inherit"/>
+        </IconButton>
+    </div>
     );
 }

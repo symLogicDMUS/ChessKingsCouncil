@@ -16,16 +16,9 @@ const dropdownHeight = () => '3em'
 
 const buttonTop = () => dropdownTop() + buttonsMargin()*3
 const buttonWidth = () => titleWidth() * 0.495 - buttonsMargin() * 0.5
-const buttonLeft = (buttonType, screenCase) => {
-    if (buttonType === 'play') {
-        return titleLeft()
-    } else {
-        return titleLeft() + buttonWidth() + buttonsMargin()
-    }
-}
+
 const button = {
     position: 'absolute',
-    color: 'white',
     top: buttonTop(),
     width: buttonWidth(),
     height: titleFontSize() * 0.2,
@@ -50,7 +43,7 @@ export const dropdown = {
 
 export const styles = {
     title: {
-        margin: "0",
+        margin: 0,
         position: "absolute",
         cursor: "pointer",
         fontFamily: fontFamily,

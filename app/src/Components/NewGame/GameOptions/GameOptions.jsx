@@ -10,12 +10,13 @@ import {getColorLetter} from "../../helpers/getColorLetter";
 import {useStyles, submit_button} from "./GameOptions.jss";
 import {themes} from "../../styles/themes.jss";
 import "../../styles/backgrounds.scss";
+import {getTheme} from "../../styles/getTheme.jss";
 
 export function GameOptions({setGameOptions, fontSize}) {
     let [playerType, updatePlayerType] = useState(null);
     let [gameName, updateGameName] = useState("");
     let [gameType, updateGameType] = useState(null);
-    let [theme, setTheme] = useState('dark')
+    let [theme, setTheme] = useState('black')
 
     useEffect(() => {
         document.body.className = "light-background"
@@ -37,14 +38,13 @@ export function GameOptions({setGameOptions, fontSize}) {
     return (
         <div>
             <NavBar currentPage="PlayAs" theme={theme} unsavedChanges={false}/>
-            <NavBar currentPage="PlayAs" theme={theme} unsavedChanges={false}/>
             <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
             <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>
             <PlayAs setPlayerType={setPlayerType} fontSize={fontSize}/>
             <PlayGameButton
                 onClick={() => setGameOptions(gameName, gameType, playerType)}
                 style={submit_button(fontSize)}
-                theme={themes.black}
+                theme={getTheme(theme)}
                 variant={"contained"}
                 isDisabled={
                     !(playerType && gameType && gameName !== "" && invalids.every((c) => charNotInStr(c, gameName)))

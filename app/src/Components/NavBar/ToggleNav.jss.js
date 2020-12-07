@@ -1,14 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 export const useStyles = makeStyles({
-    toggle_nav: {
-        height: "100%",
-        MsGridColumn: "10",
-        gridColumn: "10",
-        zIndex: "1",
-        cursor: "pointer",
-    },
-    widget: {
-        width: "100%",
-    },
+    toggle_nav: props => ({
+        gridColumn: 10,
+        position: 'absolute',
+        backgroundColor: props.theme.button_fill,
+    }),
+    icon: props => ({
+        color: props.theme.button_text,
+    }),
 });

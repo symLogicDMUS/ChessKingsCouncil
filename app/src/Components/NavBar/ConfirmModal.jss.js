@@ -47,7 +47,6 @@ export const text = {
     zIndex: 'inherit',
     width: modalWidth() - modalMargin()*2,
     left: modalMargin(),
-    color: '#b6b6b6',
     fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
     fontSize: getFontSize(),
 }
@@ -64,11 +63,12 @@ export const useStyles = makeStyles({
         backgroundColor: props.theme.modal_fill,
         borderRadius: '0.8em',
     }),
-    title: {
+    title: props => ({
         ...text,
+        color: props.theme.text,
         top: titleTop(),
         height: titleHeight(),
-    },
+    }),
     paragraph: {
         ...text,
         height: paragraphHeight(),

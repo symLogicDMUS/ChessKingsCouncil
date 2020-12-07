@@ -1,18 +1,18 @@
 import React from "react";
-import { getIconColor } from "./getIconColor";
-import { useStyles } from "./ToggleNav.jss";
+import {IconButton} from "@material-ui/core";
+import {NavigateNext} from "@material-ui/icons";
+import {useStyles} from "./ToggleNav.jss";
 
-export function ToggleNav({navExpanded, toggleNav, theme }) {
+export function ToggleNav({navExpanded, toggleNav, theme}) {
 
-    const type = navExpanded ? "colapse" : "expand";
-    const classes = useStyles()
+    //const type = navExpanded ? "colapse" : "expand";
+    const classes = useStyles({theme})
 
     return (
-            <img
-                src={`/Images/nav-button/nav-${type}-button-${getIconColor(theme)}.svg`}
-                onClick={() => toggleNav()}
-                className={classes.toggle_nav}
-                alt="toggle navbar"
-            />
-    );
+        <div className={classes.toggle_nav}>
+            <IconButton className={classes.icon} onClick={() => toggleNav()} aria-label="toggle-nav">
+                <NavigateNext fontSize="inherit"/>
+            </IconButton>
+        </div>
+    )
 }

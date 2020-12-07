@@ -36,12 +36,12 @@ export const themes = {
         outline: '#000000',
         fill: '#000000',
         checkmark: '#000000',
-        text: '#ffffff',
+        text: '#d7bb99',
         modal_fill: '#2d2d2d',
-        button_fill: '#000000',
-        button_text: '#ffffff',
+        button_fill: '#1b1b1b',
+        button_text: '#d7bb99',
         button_hover_fill: '#ffffff',
-        button_hover_text: '#000000',
+        button_hover_text: '#1b1b1b',
     },
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:
