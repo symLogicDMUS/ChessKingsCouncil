@@ -7,7 +7,7 @@ import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {deleteDef} from "../../API/deleteDef";
 import {getDefs} from "../../API/getDefs";
 import {MessageModal} from "../NavBar/Help/MessageModal";
-import PieceProfiles from "../PieceProfiles/PieceProfiles";
+import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/backgrounds.scss";
 import {styles} from "./MyPieces.jss";

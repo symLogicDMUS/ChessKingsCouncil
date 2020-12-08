@@ -6,7 +6,7 @@ import {SubList} from "./Bottom/SubList";
 import {getDefs} from "../../../API/getDefs";
 import {PromoList} from "./Bottom/PromoList";
 import {MessageModal} from "../../NavBar/Help/MessageModal";
-import PieceProfiles from "../../PieceProfiles/PieceProfiles";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
@@ -22,7 +22,6 @@ import {styles} from "./Customize.jss";
 class Customize extends React.Component {
     constructor(props) {
         super(props);
-        this.firstTime = false;
         this.state = {
             binaryValue: true,
             theme: "dark",
@@ -31,9 +30,24 @@ class Customize extends React.Component {
             rangeType: null,
             color: null,
         };
+        this.subs = {
+            Rook: null,
+            Bishop: null,
+            Queen: null,
+            Knight: null,
+        };
+        this.standards = [
+            "Rook",
+            "Bishop",
+            "Queen",
+            "Knight",
+            "Pawn",
+            "King"
+        ];
         this.defs = {};
         this.promos = [];
         this.expandModals = [];
+        this.firstTime = false;
         this.playerType = "test";
         this.promoAll = false;
         this.newReplacement = null;
@@ -50,13 +64,6 @@ class Customize extends React.Component {
         this.clientX = 0;
         this.clientY = 0;
         this.first = false;
-        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.subs = {
-            Rook: null,
-            Bishop: null,
-            Queen: null,
-            Knight: null,
-        };
         this.accept = this.accept.bind(this);
         this.expand = this.expand.bind(this);
         this.toggleNav = this.toggleNav.bind(this);
@@ -201,13 +208,12 @@ class Customize extends React.Component {
                 )}
                 {this.state.pieceName && this.state.rangeType && this.state.color && (
                     <DisplayBoardModal
-                        screenCase={screenCase}
                         theme={this.state.theme}
                         expand={this.expand}
-                        img={this.defs[this.state.pieceName][this.state.color]["img"]}
+                        color={this.state.color}
                         pieceName={this.state.pieceName}
                         rangeType={this.state.rangeType}
-                        color={this.state.color}
+                        img={this.defs[this.state.pieceName][this.state.color]["img"]}
                         range={this.defs[this.state.pieceName][this.state.color][this.state.rangeType]}
                         location="d4"
                     />

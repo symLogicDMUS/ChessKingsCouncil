@@ -1,18 +1,12 @@
 import React from "react";
 import {useStyles} from "./LocationButton.jss";
+import Button from "@material-ui/core/Button";
 
-export function LocationButton({rf, selected, setLoc, theme }) {
-    const classes = useStyles({rf})
+export function LocationButton({rf, selected, setLoc, theme}) {
+    const classes = useStyles({theme})
     return (
-        <div
-            className={rf === selected ? classes.selected : classes.normal}
-            onClick={() => setLoc(rf)}
-        >
-            <img
-                src={`/Images/location-button-labels/${theme}/${rf}.svg`}
-                className="location-button-label"
-                alt="button to change location of piece that creating"
-            />
-        </div>
+        <Button onClick={() => setLoc(rf)} className={rf === selected ? classes.normal : classes.selected} variant="contained">
+            {rf}
+        </Button>
     );
 }

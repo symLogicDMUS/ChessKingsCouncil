@@ -1,108 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import { Profile } from "./Profile";
 // import { SearchBar } from "./SearchBar";
-import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import { CustomizeHeader } from "../NewGame/Customize/ProfileHeader/CustomizeHeader";
-import { LoadDeleteHeader } from "../MyPieces/LoadDeleteHeader";
-import { withStyles } from "@material-ui/core";
-import {styles} from "./PieceProfiles.jss"
+import { CustomizeHeader } from "./Header/CustomizeHeader";
+import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
+import { ProfileHeaderError } from "./Header/ProfileHeaderError";
+import { useStyles, subDropdownStyle } from "./PieceProfiles.jss";
 
-class PieceProfiles extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            theme: "dark",
-            binaryValue: true,
-            selectedPiece: null,
-            redirect: false,
-        };
-        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.searchText = "";
-        this.updateSearch = this.updateSearch.bind(this);
-        this.applySearchFilter = this.applySearchFilter.bind(this);
-    }
+export function PieceProfiles(props) {
+    let [theme, setTheme] = useState("dark");
+    let [searchText, setSearchText] = useState("");
 
-    updateSearch(searchText) {
-        this.searchText = searchText;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    const classes = useStyles();
 
-    applySearchFilter() {
-        if (this.searchText !== "") {
-            return Object.keys(this.props.defs).filter((pieceName) =>
-                pieceName.toLowerCase().startsWith(this.searchText)
-            );
+    const updateSearch = (newText) => {
+        setSearchText(newText);
+    };
+
+    const applySearchFilter = () => {
+        if (searchText !== "") {
+            return Object.keys(props.defs).filter((pieceName) => pieceName.toLowerCase().startsWith(searchText));
         } else {
-            return Object.keys(this.props.defs);
+            return Object.keys(props.defs);
         }
-    }
+    };
 
-    getProfiles() {
+    const getProfiles = () => {
         let pieceName;
         let profiles = [];
-        let pieceNames = this.applySearchFilter();
-        if (this.props.context === "load-delete") {
+        let pieceNames = applySearchFilter();
+        if (props.context === "load-delete") {
             for (pieceName of pieceNames) {
                 profiles.push(
-                    <Profile
-                        pieceName={pieceName}
-                        expand={this.props.expand}
-                        defs={this.props.defs}
-                        context={this.props.context}
-                    >
+                    <Profile pieceName={pieceName} expand={props.expand} defs={props.defs} context={props.context}>
                         {LoadDeleteHeader({
-                            screenCase: this.props.screenCase,
                             pieceName: pieceName,
-                            load: this.props.load,
-                            prepareDelete: this.props.prepareDelete,
+                            load: props.load,
+                            prepareDelete: props.prepareDelete,
+                            classes: {
+                                header: classes.ld_header,
+                                piece_name: classes.ld_piece_name,
+                                load_button: classes.load_button,
+                                delete_button: classes.delete_button,
+                            },
                         })}
                     </Profile>
                 );
             }
-        } else if (this.props.context === "custom-game") {
+        } else if (props.context === "custom-game") {
             let isCheckmark;
             for (pieceName of pieceNames) {
-                isCheckmark = this.props.promos.includes(pieceName);
+                isCheckmark = props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
                         pieceName={pieceName}
-                        theme={this.props.theme}
-                        expand={this.props.expand}
-                        defs={this.props.defs}
-                        context={this.props.context}
+                        theme={props.theme}
+                        expand={props.expand}
+                        defs={props.defs}
+                        context={props.context}
                     >
                         {CustomizeHeader({
                             pieceName: pieceName,
-                            promos: this.props.promos,
+                            promos: props.promos,
                             isCheckmark: isCheckmark,
-                            newReplacement: this.props.newReplacement,
-                            newReplaced: this.props.newReplaced,
-                            Sub: this.props.toggleSub,
-                            togglePromo: this.props.togglePromo,
-                            theme: this.props.theme
+                            Sub: props.toggleSub,
+                            newReplacement: props.newReplacement,
+                            newReplaced: props.newReplaced,
+                            togglePromo: props.togglePromo,
+                            theme: props.theme,
+                            classes: {
+                                header: classes.cust_header,
+                                header_grid: classes.cust_header_grid,
+                                piece_name: classes.cust_piece_name,
+                                promo_checkbox: classes.promo_checkbox,
+                                sub_dropdown: classes.sub_dropdown,
+                            },
+                            subDropdownStyle: subDropdownStyle,
                         })}
                     </Profile>
                 );
             }
         } else {
-            return (
-                <div style={{ width: "20%", height: "20%", color: "red" }}>
-                    Error: Invalid Header Type in Piece Profiles.
-                </div>
-            );
+            return <ProfileHeaderError />;
         }
         return profiles;
-    }
+    };
 
-    render() {
-        return (
-            <>
-                <div className={this.props.classes.piece_profiles}>
-                    {this.getProfiles()}
-                </div>
-            </>
-        );
-    }
+    return (
+        <>
+            <div className={classes.piece_profiles}>{getProfiles()}</div>
+        </>
+    );
 }
-
-export default withStyles(styles)(PieceProfiles);

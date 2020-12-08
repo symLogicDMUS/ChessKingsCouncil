@@ -1,4 +1,5 @@
 short:
+* fix sign out icon on home page, make it material ui
 * fix LoadGame dropdown label to say "Choose game"
 * update Firebase security rules for new/removed pages
 * change theme for NavBar im Game Options page

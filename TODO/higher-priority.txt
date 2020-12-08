@@ -1,6 +1,8 @@
 medium:
+* crashes loading Customize page
+* crashes loading MyPieces page (invalid hook call)
+* CreatePiece page loads blank page
 * crashes loading help modal
-* fix sign out icon on home page, maybe make it material ui
 
 long:
 * Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

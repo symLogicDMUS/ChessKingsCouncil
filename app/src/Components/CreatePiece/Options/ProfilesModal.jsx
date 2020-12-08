@@ -1,5 +1,5 @@
 import React from 'react'
-import PieceProfiles from "../../PieceProfiles/PieceProfiles";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import {useStyles} from "./ProfilesModal.jss";
 
 
