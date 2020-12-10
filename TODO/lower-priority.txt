@@ -1,4 +1,5 @@
 short:
+* consider changing design of Icon tool
 * adjust the chessboards apearing in new light mode background image.
 * background image is its own top level div. Don't make everything child of it.
 * have confirm modal fly in from the bottom
@@ -25,3 +26,4 @@ long:
 * optimise style methods, maybe only called at top/page level components and then passed as props
 * look into scss with font-size used as units. Read about
 * make some of the tools/modals in desktop version draggable, including Range display board in GameRoot and Customize
+*

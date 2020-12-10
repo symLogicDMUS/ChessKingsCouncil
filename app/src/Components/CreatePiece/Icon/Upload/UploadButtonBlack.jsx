@@ -1,19 +1,16 @@
 import React from "react";
 import { saveImg } from "../../../../API/saveImg";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { styles } from "./UploadButton.jss"
+import { useStyles } from "./UploadButton.jss"
+import {Button} from "@material-ui/core";
 
-class UploadButtonBlack extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { bValue: true };
-        this.handleChange = this.handleChange.bind(this);
-    }
+export function UploadButtonBlack({setPieceImg}) {
 
-    handleChange(event) {
-        const files = event.target.files;
+    const classes = useStyles()
+
+    const handleChange = (e) => {
+        const files = e.target.files;
         const currentFile = files[0];
-        var imgName = currentFile.name.replace(".", "-");
+        const imgName = currentFile.name.replace(".", "-");
         const myFileItemReader = new FileReader();
 
         myFileItemReader.addEventListener(
@@ -21,25 +18,22 @@ class UploadButtonBlack extends React.Component {
             () => {
                 const imgStr = myFileItemReader.result;
                 saveImg(imgName, imgStr).then(([res]) => {
-                    this.props.setPieceImg("black", imgStr);
+                    setPieceImg("black", imgStr);
                 });
             },
             false
         );
-
         myFileItemReader.readAsDataURL(currentFile);
     }
 
-    render() {
-        return (
-            <div>
-                <label htmlFor="choose-img" className={this.props.classes.black_upload}>
-                    <p className={this.props.classes.icon_button_text}>Upload...</p>
-                </label>
-                <input id="choose-img" type="file" onChange={this.handleChange} style={{ display: "none" }} />
-            </div>
-        );
-    }
+    return (
+        <div>
+            <label htmlFor="choose-img">
+                <Button className={classes.upload_black} size={'large'} variant="contained" component="span">
+                    Upload...
+                </Button>
+            </label>
+            <input id="choose-img" type="file" onChange={handleChange} style={{ display: "none" }} />
+        </div>
+    );
 }
-
-export default withStyles(styles)(UploadButtonBlack)

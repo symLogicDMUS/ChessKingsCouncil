@@ -7,7 +7,6 @@ export function ArrowButton({id, pos, image, isActive, toggleSpan, theme}) {
         <div
             onClick={() => toggleSpan(id)}
             className={isActive ? classes.button_selected : classes.button_normal}
-            style={pos}
         >
             <img src={`/Images/arrows/range pad arrows/${theme}/${image}`} className={classes.vector}/>
         </div>

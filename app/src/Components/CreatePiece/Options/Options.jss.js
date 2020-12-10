@@ -1,21 +1,42 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {toolWidth} from "../CreatePiece.jss";
+
+const getWidthDesktop = () => toolWidth();
+const getHeightDesktop = () => availHeight() * 0.13;
+const getTopDesktop = () => availHeight() * 0.785;
+const getLeftDesktop = () => availWidth() * 0.57;
+
+const getWidthMobile = () => availWidth() * 0.8;
+const getHeightMobile = () => availHeight() * 0.4 * 0.825;
+const getTopMobile = () => availHeight() * 0.6 + availWidth() * 0.03 * 3;
+const getLeftMoble = () => availWidth() * 0.03;
+
+
+export const option = {
+    position: "absolute",
+    zIndex: 1,
+    width: getWidthDesktop() * 0.15,
+    height: getWidthDesktop() * 0.15,
+    border: "1px dashed green",
+}
+
 
 export const useStyles = makeStyles({
     options_tool: {
         position: "absolute",
         zIndex: "0",
         "@media screen and (min-device-width: 768px)": {
-            width: '31.25em',
-            height: window.screen.availHeight * 0.13,
-            top: window.screen.availHeight * 0.785,
-            left: window.screen.availWidth * 0.57,
+            width: getWidthDesktop(),
+            height: getHeightDesktop(),
+            top: getTopDesktop(),
+            left: getLeftDesktop(),
         },
         "@media screen and (max-device-width: 767px)": {
-            width: window.screen.availWidth * 0.934,
-            height: window.screen.availHeight * 0.4 * 0.825,
-            top: window.screen.availHeight * 0.6 + window.screen.availWidth * 0.03 * 3,
-            left: window.screen.availWidth * 0.03
+            width: getWidthMobile(),
+            height: getHeightMobile(),
+            top: getTopMobile(),
+            left: getLeftMoble()
         },
         borderRadius: "10px",
         backgroundColor: "#515151",
@@ -37,8 +58,7 @@ export const useStyles = makeStyles({
         },
     },
     save_option: {
-        position: "absolute",
-        zIndex: "1",
+        ...option,
         "@media screen and (min-device-width: 768px)": {
             left: "2.5%",
         },
@@ -48,8 +68,7 @@ export const useStyles = makeStyles({
         },
     },
     load_option: {
-        position: "absolute",
-        zIndex: "1",
+        ...option,
         "@media screen and (min-device-width: 768px)": {
             left: "27.5%",
         },
@@ -59,20 +78,17 @@ export const useStyles = makeStyles({
         },
     },
     reset_option: {
-        position: "absolute",
-        zIndex: "1",
+        ...option,
         "@media screen and (min-device-width: 768px)": {
             left: "52.5%",
         },
         "@media screen and (max-device-width: 767px)": {
             top: "52.5%",
             left: "7.5%",
-
         },
     },
     erase_option: {
-        position: "absolute",
-        zIndex: "1",
+        ...option,
         "@media screen and (min-device-width: 768px)": {
             left: "77.5%",
         },

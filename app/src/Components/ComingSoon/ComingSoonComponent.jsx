@@ -1,5 +1,5 @@
 import React from "react";
-// import { NavBar } from "../NavBar/NavBar";
+// import { icons } from "../icons/icons";
 import "./ComingSoon.scss";
 
 export class ComingSoonComponent extends React.Component {
@@ -16,7 +16,7 @@ export class ComingSoonComponent extends React.Component {
     render() {
         return (
             <div>
-                {/* <NavBar
+                {/* <icons
                     theme={this.state.theme}
                     currentPage="/NewGame"
                     togleMessageModal={this.togleMessageModal}

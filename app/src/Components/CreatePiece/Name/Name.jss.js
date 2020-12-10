@@ -1,11 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {toolWidth} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
         name: {
             position: "absolute",
             zIndex: "0",
             "@media screen and (min-device-width: 768px)": {
-                width: '31.25em',
+                width: toolWidth(),
                 left: window.screen.availWidth * 0.57,
                 height: window.screen.availHeight * 0.08,
                 top: window.screen.availHeight * 0.1976,

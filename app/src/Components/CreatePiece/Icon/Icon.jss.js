@@ -1,66 +1,120 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {lineHeight, toolLeft, toolWidth} from "../CreatePiece.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {
+    blackLeft, blackWindowLeft, chooseButtonTop,
+    colorTitleTop,
+    iconButtonHeight,
+    iconButtonWidth,
+    iconToolHeight,
+    iconToolTop,
+    iconWindowSize, margin,
+    subtitleFontSize, uploadButtonTop, whiteLeft, whiteWindowLeft
+} from "./calculations.jss";
+
+
+export const iconButton = {
+    position: 'absolute',
+    width: iconButtonWidth(),
+    height: iconButtonHeight(),
+}
+
+export const colorTitle = {
+    position: 'absolute',
+    fontSize: subtitleFontSize(),
+    lineHeight: lineHeight(),
+    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    color: "#a9a9a9",
+}
+
+
+export const imgIconWindow = {
+    position: 'absolute',
+    width: iconWindowSize(),
+    height: iconWindowSize(),
+    top: uploadButtonTop(),
+    border: '0.1em solid #a9a9a9',
+}
+
 
 export const useStyles = makeStyles({
     icon_tool: {
         position: "absolute",
         "@media screen and (min-device-width: 768px)": {
-            width: '31.25em',
-            top: window.screen.availHeight * 0.288,
-            height: window.screen.availHeight * 0.18,
-            left: window.screen.availWidth * 0.57,
+            width: toolWidth(),
+            top: iconToolTop(),
+            height: iconToolHeight(),
+            left: toolLeft(),
         },
         "@media screen and (max-device-width: 767px)": {
-            width: window.screen.availWidth - window.screen.availWidth * 0.01 * 6,
-            height: window.screen.availHeight * 0.4 * 0.85,
-            top: window.screen.availHeight * 0.6 + window.screen.availHeight * 0.4 * 0.125,
-            left: window.screen.availWidth * 0.01 * 3,
+            width: availWidth() - availWidth() * 0.01 * 6,
+            height: availHeight() * 0.4 * 0.85,
+            top: availHeight() * 0.6 + availHeight() * 0.4 * 0.125,
+            left: availWidth() * 0.01 * 3,
         },
         backgroundColor: "#515151",
         borderRadius: "10px",
+        border: "1px dashed white"
     },
     title: {
         position: "absolute",
-        zIndex: "0",
-        left: "2.5%",
-        top: "3%",
-        fontSize: "125%",
+        left: margin(),
+        top: margin(),
+        lineHeight: lineHeight(),
         fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
         color: "#a9a9a9",
     },
-    black_title: {
-        "@media screen and (min-device-width: 768px)": {
-            left: "51.75%",
-        },
-        "@media screen and (max-device-width: 767px)": {
-            left: "73.5%",
-
-        },
-    },
     white_title: {
+        ...colorTitle,
         "@media screen and (min-device-width: 768px)": {
-            left: "2.5%",
+            top: colorTitleTop(),
+            left: whiteLeft(),
+            lineHeight: lineHeight(),
         },
         "@media screen and (max-device-width: 767px)": {
             left: "14%",
+        },
+    },
+    black_title: {
+        ...colorTitle,
+        "@media screen and (min-device-width: 768px)": {
+            top: colorTitleTop(),
+            left: blackLeft(),
+            lineHeight: lineHeight(),
+            border: "1px dashed white",
+        },
+        "@media screen and (max-device-width: 767px)": {
 
         },
     },
+
     white_window: {
         "@media screen and (min-device-width: 768px)": {
-            left: "29.5%",
+            ...imgIconWindow,
+            left: whiteWindowLeft(),
         },
         "@media screen and (max-device-width: 767px)": {
             left: "2%",
-
         },
     },
     black_window: {
         "@media screen and (min-device-width: 768px)": {
-            left: "78.75%",
+            ...imgIconWindow,
+            left: blackWindowLeft()
         },
         "@media screen and (max-device-width: 767px)": {
-            left: "60%",
+            left: "6em",
         },
+    },
+    choose_button_white: {
+        ...iconButton,
+        top: chooseButtonTop(),
+        left: whiteLeft(),
+    },
+    choose_button_black: {
+        ...iconButton,
+        top: chooseButtonTop(),
+        left: blackLeft(),
     },
     image: {
         width: '100%',

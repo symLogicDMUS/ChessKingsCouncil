@@ -115,7 +115,7 @@ class CreatePiece extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "dark-background";
+        document.body.className = "light-background";
 
         getDefs().then(([defs]) => {
             if (defs) {

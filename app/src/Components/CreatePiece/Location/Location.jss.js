@@ -1,8 +1,9 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {locationButtonSize} from "./LocationButton.jss";
+import {toolWidth} from "../CreatePiece.jss";
 
-export const locationToolWidth = () => availWidth() * 0.175; //change later
+export const locationToolWidth = () => toolWidth(); //change later
 export const locationToolHeight = () => availHeight() * 0.103;
 export const locationToolTop = () => availHeight() * 0.67;
 export const locationToolLeft = () => availWidth() * 0.57;

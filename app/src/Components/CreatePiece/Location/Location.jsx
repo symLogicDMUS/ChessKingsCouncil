@@ -1,8 +1,8 @@
 import React from "react";
 import { LocationButton } from "./LocationButton";
 import Button from "@material-ui/core/Button";
-import {useStyles} from "./Location.jss";
 import {Typography} from "@material-ui/core";
+import {useStyles} from "./Location.jss";
 
 export function Location({ location, setLoc, theme }) {
     const classes = useStyles({theme})

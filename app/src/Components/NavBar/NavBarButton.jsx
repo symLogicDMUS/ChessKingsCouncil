@@ -1,10 +1,7 @@
 import React from "react";
 import { Button, IconButton } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-//import { getIconColor } from "./getIconColor";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import Icon from "@material-ui/core/Icon";
-import { icons } from "./icons.jss";
+import { icons } from "../styles/icons/top/icons.jss";
 import { useStyles } from "./NavBarButton.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
