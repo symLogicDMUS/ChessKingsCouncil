@@ -1,50 +1,47 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import {UploadButtonWhite} from "./Upload/UploadButtonWhite";
-import {UploadButtonBlack} from "./Upload/UploadButtonBlack";
+import {UploadButton} from "./UploadButton";
 import {Typography} from "@material-ui/core";
+import InsertPhotoIcon from '@material-ui/icons/InsertPhoto'
+import {ImgWindow} from "./ImgWindow";
+import {fontSize} from "../em.jss";
 import {useStyles} from "./Icon.jss"
 
+export function Icon({setPieceImg, showChooseModal, whiteAndBlackImgs}) {
 
-export function Icon({setPieceImg, currentIconColor, setCurrentIconColor, showChooseModal, pieceImg}) {
-
-    const classes = useStyles()
+    const classes = useStyles({fontSize})
 
     return (
-        <>
-            <div className={classes.icon_tool}>
-                <Typography className={classes.title}>Icon</Typography>
-                <Typography className={classes.white_title}>White</Typography>
-                <Typography className={classes.black_title}>Black</Typography>
-                <UploadButtonWhite
-                    color="white"
-                    setPieceImg={setPieceImg}
-                    currentIconColor={currentIconColor}
-                    setCurrentIconColor={setCurrentIconColor}
-                />
-                <UploadButtonBlack
-                    color="black"
-                    setPieceImg={setPieceImg}
-                    currentIconColor={currentIconColor}
-                    setCurrentIconColor={setCurrentIconColor}
-                />
-                <Button className={classes.choose_button_white} onClick={() => showChooseModal('white')} variant={'contained'}>
-                    Choose...
-                </Button>
-                <Button className={classes.choose_button_black} onClick={() => showChooseModal('black')} variant={'contained'}>
-                    Choose...
-                </Button>
-                <div className={classes.white_window}>
-                    {pieceImg["white"] ? (
-                        <img src={pieceImg["white"]} className={classes.image}/>
-                    ) : null}
-                </div>
-                <div className={classes.black_window}>
-                    {pieceImg["black"] ? (
-                        <img src={pieceImg["black"]} className={classes.image}/>
-                    ) : null}
-                </div>
-            </div>
-        </>
+        <div className={classes.icon_tool}>
+            <Typography className={classes.title}>Icon</Typography>
+            <UploadButton
+                color="white"
+                className={classes.upload_white}
+                setPieceImg={setPieceImg}
+                id={'choose-img'}
+            />
+            <UploadButton
+                color="black"
+                className={classes.upload_black}
+                setPieceImg={setPieceImg}
+                id={'choose-img2'}
+            />
+            <Button
+                className={classes.choose_button_white}
+                onClick={() => showChooseModal('white')}
+                startIcon={<InsertPhotoIcon fontSize={'inherit'}/>} variant={'contained'}
+            >
+                Choose
+            </Button>
+            <Button
+                className={classes.choose_button_black}
+                onClick={() => showChooseModal('black')}
+                startIcon={<InsertPhotoIcon fontSize={'inherit'}/>} variant={'contained'}
+            >
+                Choose
+            </Button>
+            <ImgWindow className={classes.white_window} src={whiteAndBlackImgs['white']}/>
+            <ImgWindow className={classes.black_window} src={whiteAndBlackImgs['black']}/>
+        </div>
     );
 }

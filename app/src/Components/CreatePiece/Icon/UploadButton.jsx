@@ -1,12 +1,9 @@
 import React from "react";
-import {saveImg} from "../../../../API/saveImg";
+import {saveImg} from "../../../API/saveImg";
 import {Button} from "@material-ui/core";
-import {useStyles} from "./UploadButton.jss";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-
-export function UploadButtonWhite({setPieceImg}) {
-
-    const classes = useStyles()
+export function UploadButton({ color, className, setPieceImg, id }) {
 
     const handleChange = (e) => {
         const files = e.target.files;
@@ -19,7 +16,7 @@ export function UploadButtonWhite({setPieceImg}) {
             () => {
                 const imgStr = myFileItemReader.result;
                 saveImg(imgName, imgStr).then(([res]) => {
-                    setPieceImg("white", imgStr);
+                    setPieceImg(color, imgStr);
                 });
             },
             false
@@ -30,12 +27,15 @@ export function UploadButtonWhite({setPieceImg}) {
 
     return (
         <div>
-            {/*<label htmlFor="choose-img2">*/}
-                <Button className={classes.upload_white} variant="contained">
-                    Upload...
-                </Button>
-            {/*</label>*/}
-            <input id="choose-img2" type="file" onChange={handleChange} style={{display: "none"}}/>
+            <Button
+                variant="contained"
+                component="label"
+                className={className}
+                startIcon={<CloudUploadIcon />}
+            >
+                Upload
+                <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>
+            </Button>
         </div>
     );
 }

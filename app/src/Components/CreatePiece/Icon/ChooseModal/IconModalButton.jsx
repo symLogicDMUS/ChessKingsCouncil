@@ -1,5 +1,5 @@
 import React from "react";
-import { getButtonSize } from "../../styles/button/button-size";
+import { getButtonSize } from "../../../styles/button/button-size";
 import {useStyles} from "./IconModalButton.jss";
 
 export function IconModalButton({ buttonText, buttonType, clickMethod, imgNameChoice }) {
@@ -15,7 +15,6 @@ export function IconModalButton({ buttonText, buttonType, clickMethod, imgNameCh
                     ? classes.delete_active
                     : classes.delete_inactive
             }
-            style={getButtonSize(window.screen.availHeight * 0.04)}
             onClick={() => clickMethod()}
         >
             {buttonText}

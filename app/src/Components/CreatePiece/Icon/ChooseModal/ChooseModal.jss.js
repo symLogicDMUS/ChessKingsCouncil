@@ -11,22 +11,9 @@ export const styles = {
         border: "1px solid #a9a9a9",
         borderRadius: "10px",
     },
-    top_bar: {
+    title: {
         position: "absolute",
-        '$&title': {
-            position: "absolute",
-            width: "100%"
-        }
-    },
-    title: {},
-    close: {
-        position: "absolute",
-        zIndex: "inherit",
-        cursor: "pointer",
-        '&:hover': {
-            zIndex: "inherit",
-            backgroundColor: "red",
-        },
+        width: "100%"
     },
     image_choices: {
         position: "absolute",
@@ -35,8 +22,5 @@ export const styles = {
         backgroundColor: "#515151",
         borderRadius: "3px",
         overflowY: "scroll",
-    },
-    bottom_bar: {
-        position: "absolute",
     },
 };

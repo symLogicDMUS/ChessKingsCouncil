@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import {useStyles} from "./Dropdown.jss"
 import MenuItem from "@material-ui/core/MenuItem";
+import {useStyles} from "./Dropdown.jss";
 
 export function Dropdown({list, updateParent, overwrite, theme, style, label, inputLabel}) {
 

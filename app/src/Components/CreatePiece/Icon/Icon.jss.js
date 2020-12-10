@@ -9,37 +9,46 @@ import {
     iconToolHeight,
     iconToolTop,
     iconWindowSize, margin,
-    subtitleFontSize, uploadButtonTop, whiteLeft, whiteWindowLeft
+    subtitleFontSize, uploadButtonTop, wl, bl, whiteWindowLeft
 } from "./calculations.jss";
+import {fontSize} from "../em.jss";
+
+/*em units*/
+export const margin1 = 1.1;
+export const white_button_left = 1.1;
+export const black_button_left = 16;
+export const upload_button_top = 2.5;
+export const choose_button_top = 6.1;
 
 
-export const iconButton = {
+export const iconButton = (fontSize) => ({
     position: 'absolute',
-    width: iconButtonWidth(),
-    height: iconButtonHeight(),
-}
+    fontSize: fontSize,
+    // width: '6.5em',
+    height: '2.5em',
+})
 
-export const colorTitle = {
+export const colorTitle = (fontSize) => ({
     position: 'absolute',
-    fontSize: subtitleFontSize(),
+    fontSize: fontSize,
     lineHeight: lineHeight(),
     fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     color: "#a9a9a9",
-}
+})
 
-
-export const imgIconWindow = {
+export const imgWindow = (fontSize) => ({
     position: 'absolute',
-    width: iconWindowSize(),
-    height: iconWindowSize(),
-    top: uploadButtonTop(),
+    fontSize: fontSize,
+    width: '6em',
+    height: '6em',
+    top: `${upload_button_top}em`,
     border: '0.1em solid #a9a9a9',
-}
-
+});
 
 export const useStyles = makeStyles({
-    icon_tool: {
+    icon_tool: props => ({
         position: "absolute",
+        fontSize: props.fontSize,
         "@media screen and (min-device-width: 768px)": {
             width: toolWidth(),
             top: iconToolTop(),
@@ -53,69 +62,83 @@ export const useStyles = makeStyles({
             left: availWidth() * 0.01 * 3,
         },
         backgroundColor: "#515151",
-        borderRadius: "10px",
-        border: "1px dashed white"
-    },
-    title: {
+        borderRadius: "0.2em",
+    }),
+    title: props => ({
         position: "absolute",
-        left: margin(),
-        top: margin(),
-        lineHeight: lineHeight(),
-        fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+        fontSize: props.fontSize,
+        left: `${white_button_left}em`,
+        top: `${margin1}em`,
+        lineHeight: '0.7em',
+        // fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
         color: "#a9a9a9",
-    },
-    white_title: {
-        ...colorTitle,
+    }),
+
+    /**
+     * White
+     */
+    choose_button_white: props => ({
+        ...iconButton(props.fontSize),
+        top: `${choose_button_top}em`,
+        left: `${white_button_left}em`,
+    }),
+    upload_white: props => ({
+        ...iconButton(props.fontSize),
         "@media screen and (min-device-width: 768px)": {
-            top: colorTitleTop(),
-            left: whiteLeft(),
-            lineHeight: lineHeight(),
+            top: `${upload_button_top}em`,
+            left: `${white_button_left}em`,
         },
         "@media screen and (max-device-width: 767px)": {
-            left: "14%",
+            top: "86.5%",
+            left: "2%",
         },
-    },
-    black_title: {
-        ...colorTitle,
+        "&:hover": {
+            color: "white",
+            backgroundColor: "#a9a9a9",
+        },
+    }),
+    white_window: props => ({
+        ...imgWindow(props.fontSize),
         "@media screen and (min-device-width: 768px)": {
-            top: colorTitleTop(),
-            left: blackLeft(),
-            lineHeight: lineHeight(),
-            border: "1px dashed white",
-        },
-        "@media screen and (max-device-width: 767px)": {
-
-        },
-    },
-
-    white_window: {
-        "@media screen and (min-device-width: 768px)": {
-            ...imgIconWindow,
-            left: whiteWindowLeft(),
+            left: `${8.75}em`,
         },
         "@media screen and (max-device-width: 767px)": {
             left: "2%",
         },
-    },
-    black_window: {
+    }),
+
+    /**
+     * Black
+     */
+    choose_button_black: props => ({
+        ...iconButton(props.fontSize),
+        top: `${choose_button_top}em`,
+        left: `${black_button_left}em`,
+    }),
+    upload_black: props => ({
+        ...iconButton(props.fontSize),
         "@media screen and (min-device-width: 768px)": {
-            ...imgIconWindow,
-            left: blackWindowLeft()
+            top: `${upload_button_top}em`,
+            left: `${black_button_left}em`,
+        },
+        "@media screen and (max-device-width: 767px)": {
+            top: "86.5%",
+            left: "60%",
+        },
+        "&:hover": {
+            color: "white",
+            backgroundColor: "#a9a9a9",
+        },
+    }),
+    black_window: props => ({
+        "@media screen and (min-device-width: 768px)": {
+            ...imgWindow(props.fontSize),
+            left: `${23.75}em`
         },
         "@media screen and (max-device-width: 767px)": {
             left: "6em",
         },
-    },
-    choose_button_white: {
-        ...iconButton,
-        top: chooseButtonTop(),
-        left: whiteLeft(),
-    },
-    choose_button_black: {
-        ...iconButton,
-        top: chooseButtonTop(),
-        left: blackLeft(),
-    },
+    }),
     image: {
         width: '100%',
         height: '100%'

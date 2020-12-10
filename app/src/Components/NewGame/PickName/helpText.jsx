@@ -1,7 +1,7 @@
 import React from "react";
 
 export let titles = {
-    0: "Choose a Name for Your New Game",
+    0: "ChooseModal a Name for Your New Game",
 };
 
 export let paragraphs = {

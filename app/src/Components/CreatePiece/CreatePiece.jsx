@@ -21,15 +21,15 @@ import { MessageModal } from "../NavBar/Help/MessageModal";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
-import ChooseModal from "./Icon/Choose/ChooseModal";
+import ChooseModal from "./Icon/ChooseModal/ChooseModal";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
 import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
 import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { styles } from "./CreatePiece.jss";
 import "../styles/backgrounds.scss";
+import { styles } from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -532,12 +532,10 @@ class CreatePiece extends React.Component {
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "icon") && (
                     <Icon
                         screenCase={screenCase}
-                        pieceImg={this.whiteAndBlackImgs}
                         setPieceImg={this.setPieceImg}
+                        whiteAndBlackImgs={this.whiteAndBlackImgs}
                         updateParent={this.triggerRender}
                         showChooseModal={this.showChooseModal}
-                        currentIconColor={this.state.currentIconColor}
-                        setCurrentIconColor={this.setCurrentIconColor}
                     />
                 )}
                 {(screenCase !== "mobile" || this.state.selectedToolMobile === "range") && (

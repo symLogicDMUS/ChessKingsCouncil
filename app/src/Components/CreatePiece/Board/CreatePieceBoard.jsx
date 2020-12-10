@@ -3,8 +3,8 @@ import { rankfiles } from "./rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
-import { useStyles } from "./CreatePieceBoard.jss";
 import "../../helpers/stepFuncs";
+import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
     offsets,
