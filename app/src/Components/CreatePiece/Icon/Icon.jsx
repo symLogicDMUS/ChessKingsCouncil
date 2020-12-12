@@ -2,46 +2,65 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import {UploadButton} from "./UploadButton";
 import {Typography} from "@material-ui/core";
-import InsertPhotoIcon from '@material-ui/icons/InsertPhoto'
+import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {ImgWindow} from "./ImgWindow";
 import {fontSize} from "../em.jss";
-import {useStyles} from "./Icon.jss"
+import {useStyles} from "./Icon.jss";
+import Box from "@material-ui/core/Box";
 
-export function Icon({setPieceImg, showChooseModal, whiteAndBlackImgs}) {
-
-    const classes = useStyles({fontSize})
+export function Icon({theme, setPieceImg, showChooseModal, whiteAndBlackImgs}) {
+    const classes = useStyles({theme: theme, fontSize: fontSize})
 
     return (
         <div className={classes.icon_tool}>
-            <Typography className={classes.title}>Icon</Typography>
-            <UploadButton
-                color="white"
-                className={classes.upload_white}
-                setPieceImg={setPieceImg}
-                id={'choose-img'}
-            />
-            <UploadButton
-                color="black"
-                className={classes.upload_black}
-                setPieceImg={setPieceImg}
-                id={'choose-img2'}
-            />
-            <Button
-                className={classes.choose_button_white}
-                onClick={() => showChooseModal('white')}
-                startIcon={<InsertPhotoIcon fontSize={'inherit'}/>} variant={'contained'}
-            >
-                Choose
-            </Button>
-            <Button
-                className={classes.choose_button_black}
-                onClick={() => showChooseModal('black')}
-                startIcon={<InsertPhotoIcon fontSize={'inherit'}/>} variant={'contained'}
-            >
-                Choose
-            </Button>
-            <ImgWindow className={classes.white_window} src={whiteAndBlackImgs['white']}/>
-            <ImgWindow className={classes.black_window} src={whiteAndBlackImgs['black']}/>
+            {/*<Typography className={classes.title}>Icon</Typography>*/}
+            <ButtonGroup orientation='vertical' className={classes.button_group}>
+                <UploadButton
+                    color="white"
+                    className={classes.button}
+                    setPieceImg={setPieceImg}
+                    id={"choose-img"}
+                    theme={theme}
+                />
+                <Button
+                    className={classes.button}
+                    onClick={() => showChooseModal("white")}
+                    startIcon={<InsertPhotoIcon fontSize={"inherit"}/>}
+                    variant={"contained"}
+                >
+                    Choose
+                </Button>
+                <UploadButton
+                    color="black"
+                    className={classes.button}
+                    setPieceImg={setPieceImg}
+                    id={"choose-img2"}
+                    theme={theme}
+                />
+                <Button
+                    className={classes.button}
+                    onClick={() => showChooseModal("black")}
+                    startIcon={<InsertPhotoIcon fontSize={"inherit"}/>}
+                    variant={"contained"}
+                >
+                    Choose
+                </Button>
+            </ButtonGroup>
+            <Box display='flex' flexDirection='column'>
+                <ImgWindow
+                    color="white"
+                    className={classes.white_window}
+                    src={whiteAndBlackImgs["white"]}
+                    theme={theme}
+                />
+                <ImgWindow
+                    color="black"
+                    className={classes.black_window}
+                    src={whiteAndBlackImgs["black"]}
+                    theme={theme}
+                />
+            </Box>
         </div>
     );
 }

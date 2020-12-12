@@ -1,8 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {availHeight} from "../../helpers/windowMeasurments";
 import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
-import {lineHeight} from "../../styles/lineHeight.jss";
 
 const boardWidth = () => boardSize('desktop', 'large');
 const fontSize = () => boardWidth() * 0.08;

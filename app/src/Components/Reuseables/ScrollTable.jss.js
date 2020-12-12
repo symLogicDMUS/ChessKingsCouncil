@@ -1,72 +1,61 @@
-function getBgColor(rowNum) {
+import {fontSize} from "../CreatePiece/em.jss";
+
+function getBgColor(rowNum, theme) {
     if (rowNum % 2 === 0) {
-        return "#5d5d5d";
+        return theme.even_row_color;
     } else {
-        return "#515151";
+        return theme.odd_row_color;
     }
 }
 
-function listItem(fontSize, rowNum) {
+function listItem(rowNum, fontSize, theme) {
     return {
         gridRow: rowNum,
         color: "#a9a9a9",
         fontSize: fontSize,
-        fontFamily: 'Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-        paddingLeft: "1%",
-        paddingTop: "0.1%",
+        paddingLeft: "0.1em",
+        paddingTop: "0.05em",
         textAlign: "left",
-        backgroundColor: getBgColor(rowNum),
-    };
-}
-
-function arrow() {
-    return {
-        cursor: "pointer",
-        backgroundColor: "#515151",
-        "&:hover": {
-            backgroundColor: "#545454",
-        },
+        backgroundColor: getBgColor(rowNum, theme),
     };
 }
 
 export const styles = {
 
-    scrollTable: {
+    scroll_table: props => ({
+        ...props.style,
+        fontSize: props.fontSize,
         position: 'relative',
-        top: props => props.top,
-        left: props => props.left,
         display: 'grid',
-        MsGridRows: '0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em',
-        gridTemplateRows: "0.5em 1.25em 1.25em 1.25em 1.25em 1.25em 0.5em",
+        gridTemplateRows: "0.5em repeat(5, 1.5em) 0.5em",
         border: "1px solid #707070"
-    },
+    }),
 
-    upArrow: {
+    up_arrow_row: props => ({
         gridRow: 1,
-        ...arrow,
-    },
-    item1: props => ({
-        ...listItem(props.fontSize,2),
+        background: props.theme.fill,
+        color: props.theme.text,
+        borderRadius: 0,
     }),
-    item2: props => ({
-        ...listItem(props.fontSize,2),
+    row1: props => ({
+        ...listItem( 2, props.fontSize, props.theme),
     }),
-    item3: props => ({
-        ...listItem(props.fontSize,2),
+    row2: props => ({
+        ...listItem( 3, props.fontSize, props.theme),
     }),
-    item4: props => ({
-        ...listItem(props.fontSize,2),
+    row3: props => ({
+        ...listItem( 4, props.fontSize, props.theme),
     }),
-    item5: props => ({
-        ...listItem(props.fontSize,2),
+    row4: props => ({
+        ...listItem( 5, props.fontSize, props.theme),
     }),
-    downArrow: {
+    row5: props => ({
+        ...listItem( 6, props.fontSize, props.theme),
+    }),
+    down_arrow_row: props => ({
         gridRow: 7,
-        ...arrow,
-    },
-
-    arrowImg: {
-        height: "100%",
-        width: "100%",
-    },
+        background: props.theme.fill,
+        color: props.theme.text,
+        borderRadius: 0,
+    }),
 };

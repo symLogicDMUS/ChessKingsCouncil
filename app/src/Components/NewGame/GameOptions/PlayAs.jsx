@@ -5,7 +5,7 @@ import {Dropdown} from "../../Reuseables/Dropdown";
 import {themes} from "../../styles/themes.jss";
 import {useStyles, dropdown} from "./PlayAs.jss";
 
-export function PlayAs({setPlayerType, fontSize}) {
+export function PlayAs({setPlayerType, fontSize, theme}) {
 
     const classes = useStyles({fontSize: fontSize, text: "Play As"});
     const dropdownStyle = dropdown(fontSize);
@@ -26,8 +26,8 @@ export function PlayAs({setPlayerType, fontSize}) {
                 overwrite={null}
                 theme={themes.black}
                 style={dropdownStyle}
-                label={'Play As'}
-                inputLabel={'Play As'}
+                label='Play As'
+                inputLabel='Play As'
             />
         </>
     );

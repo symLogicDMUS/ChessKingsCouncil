@@ -1,25 +1,22 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import { useStyles } from "./PickName.jss";
+import { MuiTextField } from "../../Reuseables/MuiTextField";
+import { useStyles, text_field } from "./PickName.jss";
 
-export function PickName({ setGameName, gameName, fontSize }) {
+export function PickName({ setGameName, gameName, fontSize, theme }) {
     const classes = useStyles({ fontSize: fontSize, text: "Game Name" });
 
     return (
         <>
-            <Typography
-                className={classes.title}
-            >
-                Game Name
-            </Typography>
-            <TextField
+            <Typography className={classes.title}>Game Name</Typography>
+            <MuiTextField
                 value={gameName}
-                className={classes.text_field}
                 onChange={setGameName}
-                id="game-name"
-                label="Pick Name"
-                variant="outlined"
+                style={text_field}
+                theme={theme}
+                id={"pick-game-name"}
+                label={"Pick game name"}
+                variant={"outlined"}
             />
         </>
     );

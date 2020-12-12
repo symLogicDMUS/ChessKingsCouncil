@@ -1,48 +1,48 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 const buttonPos = {
-    "135d": {top: "0%", left: "0%" },
-    "90d": {top: "0%", left: "35%" },
-    "45d": {top: "0%", left: "70%" },
-    "180d": {top: "35%", left: "0%" },
-    "0d": {top: "35%", left: "70%" },
-    "225d": {top: "70%", left: "0%" },
-    "270d": {top: "70%", left: "35%" },
-    "315d": {top: "70%", left: "70%" },
+    "135d": {gridRow: 1, gridColumn: 1 },
+    "90d": {gridRow: 1, gridColumn: 2 },
+    "45d": {gridRow: 1, gridColumn: 3 },
+    "180d": {gridRow: 2, gridColumn: 1 },
+    "0d": {gridRow: 2, gridColumn: 3 },
+    "225d": {gridRow: 3, gridColumn: 1 },
+    "270d": {gridRow: 3, gridColumn: 2 },
+    "315d": {gridRow: 3, gridColumn: 3 },
 };
 
-const button = (pos) => ({
-    position: "absolute",
-    ...buttonPos[pos],
-    zIndex: "0",
-    width: "30%",
-    height: "30%",
-    borderRadius: "5px",
-    cursor: "pointer",
-    border: "1px solid '#a9a9a9'",
+const container = (angle) => ({
+    // position: "absolute",
+    ...buttonPos[angle],
+    width: '3em',
+    height: '3em',
+    border: '1px solid #a9a9a9',
+    borderRadius: '0.2em',
     backgroundColor: "#515151",
 })
 
 export const useStyles = makeStyles({
-    button_normal: props => ({
-        ...button(props.pos),
+    container_normal: props => ({
+        ...container(props.angle),
         backgroundColor: '#515151',
         '&:hover': {
             backgroundColor: '#a9a9a9'
         },
     }),
-    button_selected: props => ({
-        ...button(props.pos),
+    container_selected: props => ({
+        ...container(props.angle),
         backgroundColor: '#ec2525',
         '&:hover': {
             backgroundColor: '#ec2525'
         },
     }),
-    vector: {
-        position: 'absolute',
-        zIndex: '0',
-        width: '66.667%',
-        height: '66.667%',
-        left: '16.66%',
-        top: '16.66%'
-    },
+    arrow_button: props => ({
+        width: '100%',
+        height: '100%',
+    }),
+
+    vector: (props) =>  ({
+        width: '150%',
+        height: '150%',
+        color: props.theme.checkmark,
+    }),
 });

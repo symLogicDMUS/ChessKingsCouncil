@@ -1,0 +1,5 @@
+if Firebase gives you this app for calback URL:
+https://custom-chess-default-rtdb.firebaseapp.com/__/auth/handler
+
+Use this one instead:
+https://custom-chess.firebaseapp.com/__/auth/handler

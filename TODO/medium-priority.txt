@@ -22,7 +22,6 @@ medium:
 * move getStyle methods inside classes to their own .jss.js files
 * replace buttons and possibly search-boxes with material ui version
 
-
 long:
 * Finish refactoring CreatePiece page for mobile, then do other pages.
 * Make ToolsMenuMobile reusable so can use for GameRoot, implement in GameRoot for the mobile case

@@ -1,21 +1,15 @@
 import {makeStyles} from "@material-ui/core/styles"
 
 export const useStyles = makeStyles({
-    span_arrow_buttons: {
+    span_arrow_buttons: props => ({
         position: 'absolute',
-        zIndex: '0',
-        "@media screen and (min-device-width: 768px)": {
-            width: '25%',
-            height: '66.67%',
-            left: '72.5%',
-            top: '27.3%'
-        },
-        "@media screen and (max-device-width: 767px)": {
-            height: '90%',
-            width: '55.35%',
-            top: '7%',
-            left: '3%'
-        },
-    },
+        fontSize: props.fontSize*0.85,
+        left: '12em',
+        display: 'grid',
+        gridTemplateColumns: "repeat(3, 3em)",
+        gridTemplateRows: "repeat(3, 3em)",
+        columnGap: '0.5em',
+        rowGap: '0.5em',
+    }),
 });
 

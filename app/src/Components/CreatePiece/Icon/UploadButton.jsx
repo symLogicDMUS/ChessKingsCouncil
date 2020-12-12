@@ -3,7 +3,7 @@ import {saveImg} from "../../../API/saveImg";
 import {Button} from "@material-ui/core";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-export function UploadButton({ color, className, setPieceImg, id }) {
+export function UploadButton({color, className, setPieceImg, id, theme}) {
 
     const handleChange = (e) => {
         const files = e.target.files;
@@ -26,16 +26,14 @@ export function UploadButton({ color, className, setPieceImg, id }) {
     }
 
     return (
-        <div>
-            <Button
-                variant="contained"
-                component="label"
-                className={className}
-                startIcon={<CloudUploadIcon />}
-            >
-                Upload
-                <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>
-            </Button>
-        </div>
+        <Button
+            variant="contained"
+            component="label"
+            className={className}
+            startIcon={<CloudUploadIcon/>}
+        >
+            Upload
+            <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>
+        </Button>
     );
 }

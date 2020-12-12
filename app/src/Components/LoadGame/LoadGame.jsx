@@ -153,6 +153,10 @@ class LoadGame extends React.Component {
                     updateParent={this.changeName}
                     theme={getTheme(this.state.theme)}
                     style={dropdown}
+                    variant={'outlined'}
+                    labelId={'pick-name-label'}
+                    inputId={'pick-name-input'}
+                    selectId={'pick-name-select'}
                     label={"Pick name..."}
                     inputLabel={"Pick name..."}
                 />

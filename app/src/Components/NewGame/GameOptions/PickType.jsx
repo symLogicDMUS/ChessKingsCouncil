@@ -3,7 +3,7 @@ import {GameType} from "./GameType";
 import {Typography} from "@material-ui/core";
 import {useStyles} from "./PickType.jss";
 
-export function PickType({gameType, setGameType, fontSize}) {
+export function PickType({gameType, setGameType, fontSize, theme}) {
 
     const classes = useStyles({fontSize: fontSize, text: 'Pick Type'})
 

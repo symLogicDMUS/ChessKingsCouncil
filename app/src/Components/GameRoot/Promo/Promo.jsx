@@ -6,10 +6,9 @@ import {numKings} from "../../helpers/numKings";
 import {standardPieceImgStrs} from "../../helpers/standardPieceImgStrs";
 import {MuiButton as OkButton} from "../../Reuseables/MuiButton";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {ArrowLeft, ArrowRight} from "./HorizontalScrollArrows";
 import {themes} from "../../styles/themes.jss";
 import {ok_button, styles} from "./Promo.jss";
-import {ArrowLeft, ArrowRight} from "./HorizontalScrollArrows";
-import {Ok} from "../../NewGame/Customize/Bottom/CustomiseOk";
 
 class Promo extends React.Component {
     /**

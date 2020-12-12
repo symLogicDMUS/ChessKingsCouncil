@@ -1,6 +1,11 @@
 import React from "react";
+import { SvgIcon } from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {styles} from "./ScrollTable.jss";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import Button from "@material-ui/core/Button";
+import { styles } from "./ScrollTable.jss";
 
 class ScrollTable extends React.Component {
     constructor(props) {
@@ -70,30 +75,32 @@ class ScrollTable extends React.Component {
         }
 
         return (
-            <div className={this.props.classes.scrollTable}>
-                <div className={this.props.classes.upArrow} onClick={this.moveUp}>
-                    <img src="/Images/arrows/up-arrow.svg" className={this.props.classes.arrowImg} />
-                </div>
-                <div className={this.props.classes.item1}>
-                    {this.inView[0]}
-                </div>
-                <div className={this.props.classes.item2}>
-                    {this.inView[1]}
-                </div>
-                <div className={this.props.classes.item3}>
-                    {this.inView[2]}
-                </div>
-                <div className={this.props.classes.item4}>
-                    {this.inView[3]}
-                </div>
-                <div className={this.props.classes.item5}>
-                    {this.inView[4]}
-                </div>
-                <div className={this.props.classes.downArrow} onClick={this.moveDown}>
-                    <img src="/Images/arrows/down-arrow.svg" className={this.props.classes.arrowImg} />
-                </div>
+            <div className={this.props.classes.scroll_table}>
+                <Button
+                    onClick={this.moveDown}
+                    variant="contained"
+                    fullWidth={true}
+                    disableElevation
+                    className={this.props.classes.up_arrow_row}
+                >
+                    <ArrowDropUpIcon />
+                </Button>
+                <div className={this.props.classes.row1}>{this.inView[0]}</div>
+                <div className={this.props.classes.row2}>{this.inView[1]}</div>
+                <div className={this.props.classes.row3}>{this.inView[2]}</div>
+                <div className={this.props.classes.row4}>{this.inView[3]}</div>
+                <div className={this.props.classes.row5}>{this.inView[4]}</div>
+                <Button
+                    className={this.props.classes.down_arrow_row}
+                    onClick={this.moveDown}
+                    variant="contained"
+                    fullWidth={true}
+                >
+                    <ArrowDropDownIcon />
+                </Button>
             </div>
         );
     }
 }
-export default withStyles(styles)(ScrollTable)
+
+export default withStyles(styles)(ScrollTable);

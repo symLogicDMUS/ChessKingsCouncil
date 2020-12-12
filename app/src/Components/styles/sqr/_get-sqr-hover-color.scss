@@ -1,8 +1,0 @@
-$sqr-hover-color: (
-    "light": #fdfd35,
-    "dark": #00ccff,
-);
-
-@function get-sqr-hover-color($theme) {
-    @return map-get($sqr-hover-color, $theme);
-}

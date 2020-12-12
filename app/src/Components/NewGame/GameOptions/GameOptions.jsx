@@ -37,10 +37,10 @@ export function GameOptions({setGameOptions, fontSize}) {
 
     return (
         <div>
-            <NavBar currentPage="PlayAs" theme={theme} unsavedChanges={false}/>
-            <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize}/>
-            <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize}/>
-            <PlayAs setPlayerType={setPlayerType} fontSize={fontSize}/>
+            <NavBar currentPage="GameOptions" theme={theme} unsavedChanges={false}/>
+            <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize} theme={getTheme(theme)}/>
+            <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize} theme={getTheme(theme)}/>
+            <PlayAs setPlayerType={setPlayerType} fontSize={fontSize} theme={getTheme(theme)}/>
             <PlayGameButton
                 onClick={() => setGameOptions(gameName, gameType, playerType)}
                 style={submit_button(fontSize)}

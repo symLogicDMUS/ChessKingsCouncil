@@ -1,11 +1,14 @@
 import React, {useState} from "react";
-import {useStyles} from "./Name.jss";
+import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
+import {useStyles, text_field} from "./Name.jss";
+import {fontSize} from "../em.jss";
 
-export function Name({updateName}) {
+
+export function Name({updateName, theme}) {
 
     let [userInput, setUserInput] = useState('')
 
-    const classes = useStyles()
+    const classes = useStyles({theme: theme, fontSize: fontSize})
 
     const handleUserInput = (e) => {
         setUserInput(e.target.value)
@@ -15,17 +18,17 @@ export function Name({updateName}) {
     return (
         <>
             <div className={classes.name}>
-                <div className={classes.title}>Name</div>
-                <input
-                    type="text"
+                <TextField
                     value={userInput}
+                    style={text_field(fontSize)}
+                    theme={theme}
                     onChange={handleUserInput}
-                    className={classes.form}
-                    placeholder="Enter name of piece..."
+                    placeholder={'Enter name of piece...'}
+                    id="game-name"
+                    label="Piece Name"
+                    variant="outlined"
                 />
             </div>
         </>
     );
 }
-
-

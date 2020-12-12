@@ -7,7 +7,6 @@ import {ConfirmRedirect} from "./ConfirmRedirect";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {HelpButton} from "./Help/HelpButton";
 import {withStyles} from "@material-ui/core";
-import {getTheme} from "../styles/getTheme.jss";
 import {styles} from "./NavBar.jss";
 
 class NavBar extends React.Component {
@@ -60,7 +59,7 @@ class NavBar extends React.Component {
                 )}
                 {this.state.isRedirectModal && (
                     <ConfirmRedirect
-                        theme={getTheme(this.props.theme)}
+                        theme={this.props.theme}
                         path={this.state.pendingRedirect}
                         message={this.redirectMessage}
                         isLocalLink={this.state.isLocalLink}
@@ -74,7 +73,7 @@ class NavBar extends React.Component {
                             currentPage={this.props.currentPage}
                             togleHelpModal={this.toggleHelpModal}
                             setFirstTime={this.setFirstTime}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             pageIcon="help"
                         />
                     )}
@@ -87,7 +86,7 @@ class NavBar extends React.Component {
                             className="home"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={9}
                         />
@@ -101,7 +100,7 @@ class NavBar extends React.Component {
                             className="new_game"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={8}
                         />
@@ -115,7 +114,7 @@ class NavBar extends React.Component {
                             className="load_game"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={7}
                         />
@@ -129,7 +128,7 @@ class NavBar extends React.Component {
                             className="create_piece"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={6}
                         />
@@ -143,7 +142,7 @@ class NavBar extends React.Component {
                             className="chess_rules"
                             isLocalLink={false}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={5}
                         />
@@ -157,7 +156,7 @@ class NavBar extends React.Component {
                             className="council_rules"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={4}
                         />
@@ -171,7 +170,7 @@ class NavBar extends React.Component {
                             className="my_pieces"
                             isLocalLink={true}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={3}
                         />
@@ -185,7 +184,7 @@ class NavBar extends React.Component {
                             className="author_github"
                             isLocalLink={false}
                             toggleConfirmRedirect={this.toggleConfirmRedirect}
-                            theme={getTheme(this.props.theme)}
+                            theme={this.props.theme}
                             unsavedChanges={this.props.unsavedChanges}
                             z={2}
                         />
@@ -194,7 +193,7 @@ class NavBar extends React.Component {
                         column={10}
                         navExpanded={this.state.navExpanded}
                         toggleNav={this.toggleNav}
-                        theme={getTheme(this.props.theme)}
+                        theme={this.props.theme}
                     />
                 </ButtonGroup>
             </>

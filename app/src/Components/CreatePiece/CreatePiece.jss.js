@@ -3,8 +3,12 @@ import {availHeight, availWidth} from "../helpers/windowMeasurments";
 export const toolWidth = () => availWidth() * 0.336;
 export const toolLeft = () => availWidth() * 0.57;
 export const toolTitleFontSize = () => availHeight() * 0.0225;
-export const lineHeight = () =>  '0.7em'
-export const margin = () => toolWidth() * 0.025;
+
+/**
+ * em units
+ */
+export const lineHeight = 0.7;
+export const margin = 1.1;
 
 export const styles = {
     create_piece_body: {

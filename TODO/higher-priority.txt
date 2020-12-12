@@ -3,6 +3,7 @@ medium:
 * crashes loading MyPieces page (invalid hook call)
 * CreatePiece page loads blank page
 * crashes loading help modal
+* 'explore without account' text button not working
 
 long:
 * Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

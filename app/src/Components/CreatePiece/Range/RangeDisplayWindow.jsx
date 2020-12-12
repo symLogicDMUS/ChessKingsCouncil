@@ -1,12 +1,13 @@
 import React from "react";
 import ScrollTable from "../../Reuseables/ScrollTable";
 import { useStyles } from "./RangeDisplayWindow.jss";
-import { fontSizes } from "../../styles/fontSizes";
 import { angleToText } from "../../helpers/spanToText";
 import { offsetToText } from "../../helpers/offsetToText";
+import {fontSize} from "../em.jss";
 
-export function RangeDisplayWindow({ spans, offsets }) {
-    const classes = useStyles();
+export function RangeDisplayWindow({ spans, offsets, theme }) {
+
+    const classes = useStyles({theme: theme, fontSize: fontSize})
 
     const getSpanTextLabels = () => {
         const newSpans = [];
@@ -25,10 +26,13 @@ export function RangeDisplayWindow({ spans, offsets }) {
     return (
         <div className={classes.window}>
             <ScrollTable
-                top="2em"
-                left={0}
+                style={{
+                    left: 0,
+                    width: '16em'
+                }}
                 listItems={{ ...getSpanTextLabels(), ...getOffsetTextLabels() }}
-                fontSize={fontSizes.medium2}
+                fontSize={fontSize}
+                theme={theme}
             />
         </div>
     );

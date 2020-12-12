@@ -4,8 +4,8 @@ import "firebase/auth";
 
 
 async function saveImgToDb(imgDict) {
-    var user = firebase.auth().currentUser;
-    var uid = user.uid;
+    const user = firebase.auth().currentUser;
+    const uid = user.uid;
     return await firebase.database().ref().child('images').child(uid).update(imgDict)
 }
 

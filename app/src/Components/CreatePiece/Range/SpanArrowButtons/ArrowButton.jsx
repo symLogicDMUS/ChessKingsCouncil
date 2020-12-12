@@ -1,14 +1,22 @@
 import React from "react";
 import {useStyles} from "./ArrowButton.jss"
+import {IconButton} from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import {themes} from "../../../styles/themes.jss";
+import {icons} from "../../../styles/icons/top/icons.jss";
 
-export function ArrowButton({id, pos, image, isActive, toggleSpan, theme}) {
-    const classes = useStyles({pos})
+export function ArrowButton({angle, isActive, toggleSpan, theme}) {
+    const classes = useStyles({angle: angle, theme: theme})
     return (
         <div
-            onClick={() => toggleSpan(id)}
-            className={isActive ? classes.button_selected : classes.button_normal}
+            onClick={() => toggleSpan(angle)}
+            className={isActive ? classes.container_selected : classes.container_normal}
         >
-            <img src={`/Images/arrows/range pad arrows/${theme}/${image}`} className={classes.vector}/>
+            <IconButton className={classes.arrow_button}>
+                <SvgIcon className={classes.vector}>
+                    {icons[angle]}
+                </SvgIcon>
+            </IconButton>
         </div>
     );
 }
