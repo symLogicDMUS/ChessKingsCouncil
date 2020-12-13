@@ -1,0 +1,14 @@
+{
+    "b": "Tux",
+    "g": "EvilMorty",
+    "k": "King",
+    "l": "Jester",
+    "n": "Octocat",
+    "o": "X_Wing",
+    "p": "Pawn",
+    "q": "Queen",
+    "r": "Rook",
+    "s": "Firelord",
+    "y": "ThisIsAveryLongPieceNameToTestTheCSSTextOverflowPropertiesOfNameLabels",
+    "z": "Duke"
+}
