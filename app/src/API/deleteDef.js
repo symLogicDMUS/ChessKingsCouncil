@@ -8,7 +8,21 @@ async function deletePieceDefFromDb(pieceName) {
     return firebase.database().ref().child('defs').child(uid).child(pieceName).remove()
 }
 
+/**
+ * for development only
+ * @param pieceName
+ * @returns {Promise<Response>}
+ */
+async function deletePieceDefLocal(pieceName) {
+    return await fetch('/delete_def', {
+        method: 'POST',
+        body: JSON.stringify({
+            'piece_name':pieceName
+        })
+    })
+}
 
-export function deleteDef(pieceName) {
-    return Promise.all([deletePieceDefFromDb(pieceName)])
+export function deleteDef(mode, pieceName) {
+    if (mode === 'production') return Promise.all([deletePieceDefFromDb(pieceName)])
+    else return Promise.all([deletePieceDefLocal(pieceName)])
 }

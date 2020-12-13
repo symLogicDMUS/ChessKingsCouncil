@@ -11,6 +11,15 @@ async function getImagesFromDb() {
     })
 }
 
-export function getImgDict() {
-    return Promise.all([getImagesFromDb()])
+/**
+ * For development only
+ * @returns {Promise<Response>}
+ */
+async function getImagesLocal() {
+    return await fetch('/get_imgs')
+}
+
+export function getImgDict(mode) {
+    if (mode === 'production') return Promise.all([getImagesFromDb()])
+    else return Promise.all([getImagesLocal()])
 }

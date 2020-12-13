@@ -11,8 +11,8 @@ export function HelpButton({currentPage, toggleHelpModal, setFirstTime, theme}) 
     const classes = useStyles({theme})
 
     useEffect(() => {
-        findDidUserVisitPage(currentPage).then(([exists]) => {
-            recordUserVisitedPage(currentPage).then(([res]) => {
+        findDidUserVisitPage('production', currentPage).then(([exists]) => {
+            recordUserVisitedPage('production', currentPage).then(([res]) => {
                 const firstTime = !exists;
                 setFirstTime(firstTime);
             });

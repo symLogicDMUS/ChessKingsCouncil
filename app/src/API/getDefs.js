@@ -3,14 +3,13 @@ import "firebase/database";
 import "firebase/auth";
 import {initEmptyRanges} from "../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
-import {defs} from "../apiHelpers/defs";
 
 
 async function getPieceDefsFromDb() {
-    var user = firebase.auth().currentUser;
-    var uid = user.uid;
+    const user = firebase.auth().currentUser;
+    const uid = user.uid;
     return await firebase.database().ref().child('defs').child(uid).once('value').then( function(snapshot) {
-        var defs = snapshot.val()
+        let defs = snapshot.val();
         if (defs) {
             defs = initEmptyRanges(defs)
             defs = offsetStrsToList(defs)
@@ -19,6 +18,15 @@ async function getPieceDefsFromDb() {
     })
 }
 
-export function getDefs() {
-    return Promise.all([getPieceDefsFromDb()])
+/**
+ * For development only
+ * @returns {Promise<Response>}
+ */
+async function getPieceDefsLocal() {
+    return await fetch('/get_defs')
+}
+
+export function getDefs(mode) {
+    if (mode === 'production') return Promise.all([getPieceDefsFromDb()])
+    else return Promise.all([getPieceDefsLocal()])
 }

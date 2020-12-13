@@ -1,5 +1,5 @@
 import os
-from get_local_game import get_local_game
+from db_recovery.get_local_game import get_local_game
 
 
 def get_games_local():

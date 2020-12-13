@@ -16,6 +16,6 @@ const firebaseConfig = {
     appId: "1:993983012037:web:8ddadd164787c38051e4ac",
     measurementId: "G-67GNLGHH93"
 };
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig); /*uncomment before deploying*/
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App mode='production' />, document.getElementById("root"));

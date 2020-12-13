@@ -119,7 +119,7 @@ class CreatePiece extends React.Component {
     componentDidMount() {
         document.body.className = "light-background";
 
-        getDefs().then(([defs]) => {
+        getDefs('production').then(([defs]) => {
             if (defs) {
                 this.defs = defs;
                 for (const pieceName of this.standards) {
@@ -188,7 +188,7 @@ class CreatePiece extends React.Component {
         this.defs[this.state.name].W.img = this.whiteAndBlackImgs.white;
         this.defs[this.state.name].B.img = this.whiteAndBlackImgs.black;
 
-        saveDef(this.state.name, this.defs[this.state.name]).then(([response]) => {
+        saveDef('production', this.state.name, this.defs[this.state.name]).then(([response]) => {
             this.setSaveStatus("success");
             this.setState({unsavedChanges: false});
         });
@@ -239,7 +239,7 @@ class CreatePiece extends React.Component {
     }
 
     deletePiece() {
-        deleteDef(this.state.pendingDelete).then(([response]) => {
+        deleteDef('production', this.state.pendingDelete).then(([response]) => {
             delete this.defs[this.state.pendingDelete];
             delete this.displayDefs[this.state.pendingDelete];
             this.setState({isDeleteModal: false, isLoadModal: false, pendingDelete: null});

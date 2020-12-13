@@ -29,9 +29,9 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        getImgDict().then(([imgDict]) => {
+        getImgDict('production').then(([imgDict]) => {
             if (!imgDict) {
-                this.imgDict = getSetSampleImgs();
+                this.imgDict = getSetSampleImgs('production');
             } else {
                 this.imgDict = imgDict;
             }
@@ -49,7 +49,7 @@ class ChooseModal extends React.Component {
     }
 
     acceptDeleteIcon() {
-        deleteImg(this.state.imgNameChoice).then(([res]) => {
+        deleteImg('production', this.state.imgNameChoice).then(([res]) => {
             this.props.resetIconWindowIfImageDeleted(this.imgDict[this.state.imgNameChoice]);
             delete this.imgDict[this.state.imgNameChoice];
             this.imgNames = Object.keys(this.imgDict);

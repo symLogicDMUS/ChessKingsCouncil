@@ -44,13 +44,15 @@ export class App extends React.Component {
 
     componentDidMount() {
         document.body.className = "main-menu-background";
-        firebase.auth().onAuthStateChanged((user) => {
-            this.setState({ isSignedIn: !!user });
-            if (user) {
-                this.isAnonymous = user.isAnonymous;
-            }
-            console.log("user", user);
-        });
+        if (this.props.mode !== 'development') {
+            firebase.auth().onAuthStateChanged((user) => {
+                this.setState({ isSignedIn: !!user });
+                if (user) {
+                    this.isAnonymous = user.isAnonymous;
+                }
+                console.log("user", user);
+            });
+        }
     }
 
     anonymousLogin() {
@@ -64,7 +66,7 @@ export class App extends React.Component {
     }
 
     signOut() {
-        firebase.auth().signOut();
+        if (this.props.mode !== 'development') firebase.auth().signOut();
     }
 
     update() {
@@ -72,7 +74,7 @@ export class App extends React.Component {
     }
 
     render() {
-        if (this.state.isSignedIn) {
+        if (this.state.isSignedIn || this.props.mode === 'development') {
             return (
                 <Router>
                     <Switch>

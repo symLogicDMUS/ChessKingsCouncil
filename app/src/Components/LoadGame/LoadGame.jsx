@@ -56,7 +56,7 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "light-background";
-        getGames().then(([games]) => {
+        getGames('production').then(([games]) => {
             if (games) {
                 this.games = games;
             } else {
@@ -92,7 +92,7 @@ class LoadGame extends React.Component {
     }
 
     acceptDeleteGame() {
-        deleteGame(this.state.selectedGame).then(([res]) => {
+        deleteGame('production', this.state.selectedGame).then(([res]) => {
             delete this.games[this.state.selectedGame];
             this.resetGameList();
             this.setState({

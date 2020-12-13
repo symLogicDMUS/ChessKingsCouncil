@@ -241,7 +241,7 @@ class GameRoot extends React.Component {
         const pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs);
         const status = this.gameStatus.getStatus();
 
-        saveGame(this.gameName, {
+        saveGame('production', this.gameName, {
             fen: fen,
             status: status,
             game_type: this.gameType,
