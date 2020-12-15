@@ -1,42 +1,42 @@
 import React from "react";
-import { LocationButton } from "./LocationButton";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { Typography } from "@material-ui/core";
-import { fontSize } from "../em.jss";
-import { useStyles } from "./Location.jss";
+import {Typography} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import {LocationButton} from "./LocationButton";
+import {fontSize} from "../fontSize.jss";
+import {useStyles} from "./Location.jss";
 
-export function Location({ location, setLoc, theme }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+export function Location({selectedLoc, setLoc, theme}) {
+    const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
         <>
             <div className={classes.location_tool}>
-                <Typography className={classes.title}>Location</Typography>
-                <ButtonGroup className={classes.button_group}>
+                <Box className={classes.box}>
+                    <Typography className={classes.title}>Location</Typography>
                     <LocationButton
                         rf="d4"
                         setLoc={setLoc}
-                        classes={{ normal: classes.normal, selected: classes.selected }}
-                        selected={location === "d4"}
+                        selected={selectedLoc === "d4"}
+                        theme={theme}
                     />
                     <LocationButton
                         rf="e4"
                         setLoc={setLoc}
-                        classes={{ normal: classes.normal, selected: classes.selected }}
-                        selected={location === "e4"}
+                        selected={selectedLoc === "e4"}
+                        theme={theme}
                     />
                     <LocationButton
                         rf="e5"
                         setLoc={setLoc}
-                        classes={{ normal: classes.normal, selected: classes.selected }}
-                        selected={location === "e5"}
+                        selected={selectedLoc === "e5"}
+                        theme={theme}
                     />
                     <LocationButton
                         rf="d5"
                         setLoc={setLoc}
-                        classes={{ normal: classes.normal, selected: classes.selected }}
-                        selected={location === "d5"}
+                        selected={selectedLoc === "d5"}
+                        theme={theme}
                     />
-                </ButtonGroup>
+                </Box>
             </div>
         </>
     );

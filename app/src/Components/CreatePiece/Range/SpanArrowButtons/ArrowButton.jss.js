@@ -1,4 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {themes} from "../../../styles/themes.jss";
 const buttonPos = {
     "135d": {gridRow: 1, gridColumn: 1 },
     "90d": {gridRow: 1, gridColumn: 2 },
@@ -10,27 +11,26 @@ const buttonPos = {
     "315d": {gridRow: 3, gridColumn: 3 },
 };
 
-const container = (angle) => ({
-    // position: "absolute",
+const container = (angle, fontSize) => ({
     ...buttonPos[angle],
+    fontSize: fontSize,
     width: '3em',
     height: '3em',
-    border: '1px solid #a9a9a9',
+    border: '1px solid #2b2b2b',
     borderRadius: '0.2em',
-    backgroundColor: "#515151",
 })
 
 export const useStyles = makeStyles({
     container_normal: props => ({
-        ...container(props.angle),
-        backgroundColor: '#515151',
+        ...container(props.angle, props.fontSize),
+        backgroundColor: '#414141',
         '&:hover': {
-            backgroundColor: '#a9a9a9'
+            backgroundColor: '#707070'
         },
     }),
     container_selected: props => ({
-        ...container(props.angle),
-        backgroundColor: '#ec2525',
+        ...container(props.angle, props.fontSize),
+        // backgroundColor: '#ec2525',
         '&:hover': {
             backgroundColor: '#ec2525'
         },
@@ -43,6 +43,6 @@ export const useStyles = makeStyles({
     vector: (props) =>  ({
         width: '150%',
         height: '150%',
-        color: props.theme.checkmark,
+        color: themes[props.theme].text,
     }),
 });

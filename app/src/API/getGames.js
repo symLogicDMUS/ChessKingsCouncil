@@ -10,16 +10,8 @@ async function getGamesFromDb() {
     });
 }
 
-/**
- * For  development only
- * @returns {Promise<Response>}
- */
-async function getGamesLocal() {
-    let response = await fetch('/get_games')
-    return response.json()
-}
 
-export function getGames(mode) {
-    if (mode === 'production') return Promise.all([getGamesFromDb()])
-    return Promise.all([getGamesLocal()])
+
+export function getGames() {
+    return Promise.all([getGamesFromDb()])
 }

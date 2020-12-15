@@ -1,4 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     input: props => ({
@@ -8,41 +9,41 @@ export const useStyles = makeStyles({
         /*
          * default (dropdown not in focus or hovered over)
          */
-        // color: props.theme.outline,
+
         "& .MuiInputLabel-root": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
         "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: props.theme.outline,
+            borderColor: themes[props.theme].outline,
         },
         "& .MuiOutlinedInput-input": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
 
         /*
          * when hovered over
          */
         "&:hover .MuiInputLabel-root": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
         "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: props.theme.outline,
+            borderColor: themes[props.theme].outline,
         },
         "&:hover .MuiOutlinedInput-input": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
 
         /*
          * when in focus
          */
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
         "& .MuiInputLabel-root.Mui-focused": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            color: props.theme.outline,
+            color: themes[props.theme].text,
         },
     }),
 });

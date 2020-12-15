@@ -1,63 +1,23 @@
-import { availHeight, availWidth } from "../../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import { toolWidth } from "../CreatePiece.jss";
+import {tool, tool_title, toolbox, toolWidth} from "../CreatePiece.jss";
 import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const locationToolWidth = () => toolWidth(); //change later
-export const locationToolHeight = () => availHeight() * 0.103;
+export const locationToolHeight = () => availHeight() * 0.095
 export const locationToolTop = () => availHeight() * 0.67;
 export const locationToolLeft = () => availWidth() * 0.57;
 
-/**
- * em units
- * */
-export const locationButtonSize = 2.5;
-
-const location_button = (fontSize) => ({
-    fontSize: fontSize,
-    width: `${locationButtonSize}em`,
-    height: `${locationButtonSize}em`,
-    minWidth: 0,
-    minHeight: 0,
-});
-
 export const useStyles = makeStyles({
-    "@media screen and (min-device-width: 768px)": {
         location_tool: (props) => ({
-            // position: "absolute",
-            fontSize: props.fontSize,
-            // "@media screen and (min-device-width: 768px)": {
-            width: drawerWidth,
-            height: locationToolHeight(),
-            // top: locationToolTop(),
-            // left: locationToolLeft(),
-            // },
-            /*
-            "@media screen and (max-device-width: 767px)": {
-                width: availWidth() * 0.635 - availWidth() * 0.1 * 2,
-                height: availWidth() * 0.635 - availWidth() * 0.1 * 2,
-                top: availHeight() * 0.6 * 1.07,
-                left: availWidth() * 0.21,
-            },
-             */
-            zIndex: 0,
-            borderRadius: "0.2em",
-            backgroundColor: "purple",
-            borderColor: "#a9a9a9",
+            ...tool(props.fontSize, props.theme),
         }),
-        button_group: (props) => ({
-            fontSize: props.fontSize,
-            "& > *": {
-                margin: `${locationButtonSize * 0.25}em`,
-            },
+        title: props => ({
+            ...tool_title(props.fontSize*0.8, props.theme),
+            // border: "1px dashed #b1faae",
         }),
-        normal: (props) => ({
-            ...location_button(props.fontSize),
-            background: "#707070",
+        box: props => ({
+            ...toolbox,
         }),
-        selected: (props) => ({
-            ...location_button(props.fontSize),
-            background: "red",
-        }),
-    },
 });

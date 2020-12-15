@@ -28,7 +28,7 @@ import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
 import {createPieceRedirectMessageStr} from "./helpers/createPieceRedirectMessageStr";
 import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../styles/backgrounds.scss";
+import "../styles/_backgrounds.scss";
 import {styles} from "./CreatePiece.jss";
 import {themes} from "../styles/themes.jss";
 import PermanentDrawerLeft from "../Reuseables/PermanentDrawerLeft";
@@ -117,9 +117,9 @@ class CreatePiece extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "light-background";
+        document.body.className = "dark-background";
 
-        getDefs('production').then(([defs]) => {
+        getDefs().then(([defs]) => {
             if (defs) {
                 this.defs = defs;
                 for (const pieceName of this.standards) {
@@ -188,7 +188,7 @@ class CreatePiece extends React.Component {
         this.defs[this.state.name].W.img = this.whiteAndBlackImgs.white;
         this.defs[this.state.name].B.img = this.whiteAndBlackImgs.black;
 
-        saveDef('production', this.state.name, this.defs[this.state.name]).then(([response]) => {
+        saveDef(this.state.name, this.defs[this.state.name]).then(([response]) => {
             this.setSaveStatus("success");
             this.setState({unsavedChanges: false});
         });
@@ -239,7 +239,7 @@ class CreatePiece extends React.Component {
     }
 
     deletePiece() {
-        deleteDef('production', this.state.pendingDelete).then(([response]) => {
+        deleteDef(this.state.pendingDelete).then(([response]) => {
             delete this.defs[this.state.pendingDelete];
             delete this.displayDefs[this.state.pendingDelete];
             this.setState({isDeleteModal: false, isLoadModal: false, pendingDelete: null});
@@ -478,7 +478,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.chooseModal && (
                     <ChooseModal
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}
                         color={this.state.currentIconColor}
@@ -487,7 +487,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.confirmOverwriteModal && (
                     <ConfirmModal
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
                         screenCase={screenCase}
                         text={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
@@ -496,7 +496,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.isDeleteModal && (
                     <ConfirmModal
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
                         text={`You are asking to delete piece "${this.state.pendingDelete}". Games in progress will not be
                     effected but the piece's record for new games will be destroyed. This action cannot be undone.
                     Are you sure you want to delete piece "${this.state.pendingDelete}"?`}
@@ -517,7 +517,7 @@ class CreatePiece extends React.Component {
                     currentPage="CreatePiece"
                     redirectMessage={createPieceRedirectMessageStr}
                     unsavedChanges={this.state.unsavedChanges}
-                    theme={themes[this.state.theme]}
+                    theme={this.state.theme}
                 />
                 <NameDisplayAboveBoard name={this.name}/>
                 <Board
@@ -530,10 +530,10 @@ class CreatePiece extends React.Component {
                     showOffsetText={this.state.showOffsetText}
                 />
                 <PermanentDrawerLeft>
-                    {/*<Name name={this.name} screenCase={screenCase} theme={themes[this.state.theme]}*/}
-                    {/*      updateName={this.updateName}/>*/}
+                    <Name name={this.name} screenCase={screenCase} theme={this.state.theme}
+                          updateName={this.updateName}/>
                     <Icon
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
                         screenCase={screenCase}
                         setPieceImg={this.setPieceImg}
                         whiteAndBlackImgs={this.whiteAndBlackImgs}
@@ -541,7 +541,7 @@ class CreatePiece extends React.Component {
                         showChooseModal={this.showChooseModal}
                     />
                     <Range
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
                         screenCase={screenCase}
                         spans={this.spans}
                         offsets={this.offsets}
@@ -549,14 +549,14 @@ class CreatePiece extends React.Component {
                         update={this.triggerRender}
                     />
                     <Location
-                        location={this.state.location}
-                        screenCase={screenCase}
                         setLoc={this.setLoc}
-                        theme={themes[this.state.theme]}
+                        theme={this.state.theme}
+                        selectedLoc={this.state.location}
                     />
                     <Options
                         save={this.save}
                         reset={this.reset}
+                        theme={this.state.theme}
                         togleLoadModal={this.toggleLoadModal}
                         eraseRange={this.eraseRange}
                         screenCase={screenCase}

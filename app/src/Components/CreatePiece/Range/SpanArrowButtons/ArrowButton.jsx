@@ -1,14 +1,14 @@
 import React from "react";
-import {useStyles} from "./ArrowButton.jss"
 import {IconButton} from "@material-ui/core";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {themes} from "../../../styles/themes.jss";
 import {icons} from "../../../styles/icons/top/icons.jss";
+import {useStyles} from "./ArrowButton.jss"
+import Box from "@material-ui/core/Box";
 
 export function ArrowButton({angle, isActive, toggleSpan, theme}) {
     const classes = useStyles({angle: angle, theme: theme})
     return (
-        <div
+        <Box
             onClick={() => toggleSpan(angle)}
             className={isActive ? classes.container_selected : classes.container_normal}
         >
@@ -17,6 +17,6 @@ export function ArrowButton({angle, isActive, toggleSpan, theme}) {
                     {icons[angle]}
                 </SvgIcon>
             </IconButton>
-        </div>
+        </Box>
     );
 }

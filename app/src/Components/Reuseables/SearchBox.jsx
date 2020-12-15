@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useStyles} from "./SearchBox.jss";
 
-export function SearchBox({updateSearch,}) {
+export function SearchBox({updateSearch}) {
 
     let [userInput, setUserInput] = useState(null)
 

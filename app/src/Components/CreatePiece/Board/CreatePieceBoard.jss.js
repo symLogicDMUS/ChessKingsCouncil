@@ -1,23 +1,18 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {boardSize} from "../../Reuseables/BoardMixins.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+
+const size = boardSize('desktop', 'large');
 
 export const useStyles = makeStyles({
-    board: {
+    board: props => ({
         position: 'absolute',
-        zIndex: '0',
-        "@media screen and (min-device-width: 768px)": {
-            width: window.screen.availWidth * 0.39,
-            height: window.screen.availWidth * 0.39,
-            top: window.screen.availHeight * 0.195,
-            left: window.screen.availWidth * 0.17,
-        },
-        "@media screen and (max-device-width: 767px)": {
-            width: window.screen.availHeight * 0.6 * 0.9 - window.screen.availWidth * 0.01 * 2,
-            height: window.screen.availHeight * 0.6 * 0.9 - window.screen.availWidth * 0.01 * 2,
-            top: window.screen.availWidth * 0.01 * 10,
-            left: window.screen.availWidth * 0.01 * 3,
-        },
+        fontSize: props.fontSize,
+        width: '40em',
+        height: '40em',
         lineHeight: '0',
+        margin: '2em',
         WebkitBoxShadow: '0px 0px 20px white',
         boxShadow: '0px 0px 20px white'
-    },
+    }),
 });

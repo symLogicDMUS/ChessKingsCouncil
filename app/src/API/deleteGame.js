@@ -8,21 +8,7 @@ async function deleteGameFromDb(gameName) {
     return firebase.database().ref().child('games').child(uid).child(gameName).remove()
 }
 
-/**
- * For development only
- * @param gameName
- * @returns {Promise<Response>}
- */
-async function deleteGameLocal(gameName) {
-    return await fetch('/delete_game', {
-        method: 'POST',
-        body: JSON.stringify({
-            'game_name':gameName
-        })
-    })
-}
 
-export function deleteGame(mode, gameName) {
-    if (mode === 'production') return Promise.all([deleteGameFromDb(gameName)])
-    else return Promise.all([deleteGameLocal()])
+export function deleteGame(gameName) {
+    return Promise.all([deleteGameFromDb(gameName)])
 }

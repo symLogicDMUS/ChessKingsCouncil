@@ -30,7 +30,7 @@ import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { styles } from "./GameRoot.jss";
-import "../styles/backgrounds.scss";
+import "../styles/_backgrounds.scss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -241,7 +241,7 @@ class GameRoot extends React.Component {
         const pieceDefs = gameDefsOffsetListsToStrs(this.pieceDefs);
         const status = this.gameStatus.getStatus();
 
-        saveGame('production', this.gameName, {
+        saveGame(this.gameName, {
             fen: fen,
             status: status,
             game_type: this.gameType,
@@ -277,7 +277,7 @@ class GameRoot extends React.Component {
     }
 
     setUnsavedProgress(boolVal) {
-        /**Do not make a state variable*/
+        /**Do not make this a state variable*/
         this.unsavedProgress = boolVal;
     }
 

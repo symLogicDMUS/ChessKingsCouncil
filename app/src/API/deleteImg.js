@@ -8,21 +8,7 @@ async function deletePieceImgFromDb(imgName) {
     return firebase.database().ref().child('images').child(uid).child(imgName).remove()
 }
 
-/**
- * For development only
- * @param imgName
- * @returns {Promise<Response>}
- */
-async function deletePieceImgLocal(imgName) {
-    return await fetch('/delete_img', {
-        method: 'POST',
-        body: JSON.stringify({
-            'img_name':imgName
-        })
-    })
-}
 
-export function deleteImg(mode, imgName) {
-    if (mode === 'production') return Promise.all([deletePieceImgFromDb(imgName)])
-    else return Promise.all([deletePieceImgLocal(imgName)])
+export function deleteImg(imgName) {
+    return Promise.all([deletePieceImgFromDb(imgName)])
 }

@@ -9,7 +9,7 @@ import { parseData } from "../../apiHelpers/parseData";
 import { ConfirmModal } from "../NavBar/ConfirmModal";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { MuiButton as Button } from "../Reuseables/MuiButton";
-import "../styles/backgrounds.scss";
+import "../styles/_backgrounds.scss";
 import { themes } from "../styles/themes.jss";
 import { Typography } from "@material-ui/core";
 import { copy } from "../helpers/copy";
@@ -56,7 +56,7 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "light-background";
-        getGames('production').then(([games]) => {
+        getGames().then(([games]) => {
             if (games) {
                 this.games = games;
             } else {
@@ -92,7 +92,7 @@ class LoadGame extends React.Component {
     }
 
     acceptDeleteGame() {
-        deleteGame('production', this.state.selectedGame).then(([res]) => {
+        deleteGame(this.state.selectedGame).then(([res]) => {
             delete this.games[this.state.selectedGame];
             this.resetGameList();
             this.setState({

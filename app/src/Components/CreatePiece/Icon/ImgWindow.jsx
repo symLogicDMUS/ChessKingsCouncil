@@ -1,31 +1,19 @@
 import React from "react";
-import {SvgIcon} from "@material-ui/core";
-import {white_img_border} from "../../styles/icons/white_img_border.jss";
-import {black_img_border} from "../../styles/icons/black_img_border.jss";
-import {white_img_template} from "../../styles/icons/white_img_template.jss";
-import {black_img_template} from "../../styles/icons/black_img_template.jss";
-import Button from "@material-ui/core/Button";
-import {fontSize} from "../em.jss";
+import {Avatar, SvgIcon} from "@material-ui/core";
+import {fontSize} from "../fontSize.jss";
+import Box from "@material-ui/core/Box";
+import ImageIcon from '@material-ui/icons/Image';
+import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./ImgWindow.jss";
 
-export function ImgWindow({color, className, src, theme}) {
+export function ImgWindow({color, src, theme}) {
     const classes = useStyles({fontSize: fontSize, theme: theme});
-
-    const border =
-        color === "white"
-            ? src
-            ? white_img_border(theme)
-            : white_img_template(theme)
-            : src
-            ? black_img_border(theme)
-            : black_img_template(theme);
-
     return (
-        <>
-            <div className={className}>
-                <SvgIcon className={classes.border}>{border}</SvgIcon>
-                {src ? <img src={src} className={classes.img}/> : <div className={classes.img}/>}
-            </div>
-        </>
+        <Box className={classes.img_window} variant={'rounded'}>
+            <Box className={classes.img_label}>
+                <ImageIcon className={classes.icon} />
+                <Typography className={classes.text}>{color}</Typography>
+            </Box>
+        </Box>
     );
 }

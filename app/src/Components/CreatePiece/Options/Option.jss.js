@@ -1,22 +1,38 @@
 /**See Options.jss */
 import {makeStyles} from "@material-ui/core/styles"
 import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
+import {themes} from "../../styles/themes.jss";
 
-export const optionButtonSize = 4;
+export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
-        // position: "relative",
         fontSize: props.fontSize,
-        top: '1em',
-        width: `${optionButtonSize}em`,
-        height: `${optionButtonSize}em`,
+        width: '3.5em',
+        height: '3.5em',
+        color: themes[props.theme].button_text,
+        border: '0.05em solid #2b2b2b',
     }),
-    label: {
+    button: props => ({
+        marginTop: '0.25em',
+        width: '120%',
+        height: '120%',
+        '&:hover': {
+            background: 'none'
+        },
+    }),
+    label: props => ({
         display: "flex",
         flexDirection: "column",
-    },
-    icon: {
-        ...imgFillDiv,
-    },
+        border: 'black',
+    }),
+    icon: props => ({
+        width: '100%',
+        height: '100%',
+    }),
+    text: props => ({
+        fontSize: props.fontSize*0.9,
+        fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].button_text,
+    }),
 });

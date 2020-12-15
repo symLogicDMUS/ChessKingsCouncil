@@ -18,15 +18,8 @@ async function getPieceDefsFromDb() {
     })
 }
 
-/**
- * For development only
- * @returns {Promise<Response>}
- */
-async function getPieceDefsLocal() {
-    return await fetch('/get_defs')
-}
 
-export function getDefs(mode) {
-    if (mode === 'production') return Promise.all([getPieceDefsFromDb()])
-    else return Promise.all([getPieceDefsLocal()])
+
+export function getDefs() {
+    return Promise.all([getPieceDefsFromDb()])
 }

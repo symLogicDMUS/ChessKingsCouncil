@@ -1,6 +1,6 @@
 import React from "react";
+import {fontSize} from "../../fontSize.jss";
 import { ArrowButton } from "./ArrowButton";
-import {fontSize} from "../../em.jss";
 import { useStyles } from "./SpanArrowButtons.jss";
 
 export function SpanArrowButtons({ spans, toggleSpan, theme }) {

@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
-import {useStyles, text_field} from "./Name.jss";
-import {fontSize} from "../em.jss";
-
+import {fontSize} from "../fontSize.jss";
+import {useStyles} from "./Name.jss";
 
 export function Name({updateName, theme}) {
 
@@ -20,10 +19,10 @@ export function Name({updateName, theme}) {
             <div className={classes.name}>
                 <TextField
                     value={userInput}
-                    style={text_field(fontSize)}
                     theme={theme}
                     onChange={handleUserInput}
-                    placeholder={'Enter name of piece...'}
+                    style={{margin: '5%', width: '90%'}}
+                    placeholder='Enter name of piece...'
                     id="game-name"
                     label="Piece Name"
                     variant="outlined"

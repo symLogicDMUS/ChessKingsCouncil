@@ -20,6 +20,8 @@ import {left} from "../arrows/left.jss";
 import {down_left} from "../arrows/down-left.jss";
 import {down} from "../arrows/down.jss";
 import {down_right} from "../arrows/down-right.jss";
+import {white_img_icon} from "../white_img_icon";
+import {black_img_icon} from "../black_img_icon";
 
 
 export const icons = {
@@ -31,6 +33,8 @@ export const icons = {
     'council-rules': council_rules,
     'my-pieces': my_pieces,
     'author-github': author_github,
+    'white-img-icon': white_img_icon,
+    'black-img-icon': black_img_icon,
     'save': save,
     'load': load,
     'reset': reset,
@@ -42,5 +46,5 @@ export const icons = {
     "180d": left,
     "225d": down_left,
     "270d": down,
-    "315d": down_right
+    "315d": down_right,
 }

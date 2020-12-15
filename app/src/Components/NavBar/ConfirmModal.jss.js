@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {themes} from "../styles/themes.jss";
 
 const modalHeight = () => availHeight() * 0.3333;
 const modalWidth = () => availWidth() * 0.3333;
@@ -60,12 +61,12 @@ export const useStyles = makeStyles({
         height: modalHeight(),
         top: availHeight()*0.5 - modalHeight()*0.5,
         left: availWidth()*0.5 - modalWidth()*0.5,
-        backgroundColor: props.theme.modal_fill,
+        backgroundColor: themes[props.theme].modal_fill,
         borderRadius: '0.8em',
     }),
     title: props => ({
         ...text,
-        color: props.theme.text,
+        color: themes[props.theme].text,
         top: titleTop(),
         height: titleHeight(),
     }),

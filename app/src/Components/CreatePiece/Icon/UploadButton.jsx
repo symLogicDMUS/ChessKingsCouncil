@@ -15,7 +15,7 @@ export function UploadButton({color, className, setPieceImg, id, theme}) {
             "load",
             () => {
                 const imgStr = myFileItemReader.result;
-                saveImg('production', imgName, imgStr).then(([res]) => {
+                saveImg(imgName, imgStr).then(([res]) => {
                     setPieceImg(color, imgStr);
                 });
             },

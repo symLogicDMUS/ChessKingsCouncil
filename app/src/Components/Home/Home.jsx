@@ -7,7 +7,7 @@ import { LoadGameIcon } from "./LinkComponents/LoadGameMainMenuLink";
 import { MyPiecesIcon } from "./LinkComponents/MyPiecesMainMenuLink";
 import { AuthorsGithubIcon } from "./LinkComponents/AuthorGithubMainMenuLink";
 import { Title } from "./LinkComponents/MainMenuTitle";
-import "../styles/backgrounds.scss"
+import "../styles/_backgrounds.scss"
 import "./Home.scss";
 
 export class Home extends React.Component {

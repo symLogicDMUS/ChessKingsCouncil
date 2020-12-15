@@ -14,7 +14,7 @@ export default function PermanentDrawerLeft({children}) {
         <div className={classes.root}>
             <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
+                <Toolbar className={classes.appbar}>
                     <Typography variant="h6" noWrap>
                         Permanent drawer
                     </Typography>

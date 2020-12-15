@@ -9,7 +9,7 @@ import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
 import {useStyles, submit_button} from "./GameOptions.jss";
 import {themes} from "../../styles/themes.jss";
-import "../../styles/backgrounds.scss";
+import "../../styles/_backgrounds.scss";
 import {getTheme} from "../../styles/getTheme.jss";
 
 export function GameOptions({setGameOptions, fontSize}) {

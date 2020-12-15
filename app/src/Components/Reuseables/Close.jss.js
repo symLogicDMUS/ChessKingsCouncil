@@ -1,10 +1,11 @@
 import {makeStyles} from "@material-ui/core/styles"
+import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     close: props => ({
         ...props.style,
     }),
     icon: props => ({
-        color: props.theme.text
+        color: themes[props.theme].text
     }),
 });

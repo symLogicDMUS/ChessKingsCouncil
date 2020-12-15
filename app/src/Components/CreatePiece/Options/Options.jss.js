@@ -1,31 +1,21 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { availHeight, availWidth } from "../../helpers/windowMeasurments";
-import { toolWidth } from "../CreatePiece.jss";
+import {box, tool, tool_title, toolbox, toolWidth} from "../CreatePiece.jss";
 import { optionButtonSize } from "./Option.jss";
 import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
 
-const getWidthDesktop = () => toolWidth();
 const getHeightDesktop = () => availHeight() * 0.13;
-const getTopDesktop = () => availHeight() * 0.785;
-const getLeftDesktop = () => availWidth() * 0.57;
 
 export const useStyles = makeStyles({
     options_tool: (props) => ({
-        // position: 'absolute',
-        fontSize: props.fontSize,
-        width: drawerWidth,
+        ...tool(props.fontSize, props.theme),
         height: getHeightDesktop(),
-        // top: getTopDesktop(),
-        // left: getLeftDesktop(),
-        borderRadius: '0.1em',
-        backgroundColor: "orange",
-        "& > *": {
-            margin: `${optionButtonSize * 0.25}em`,
-        },
     }),
-    title: {
-        position: "absolute",
-        fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-        color: "#a9a9a9",
-    },
+    box: props => ({
+        ...toolbox,
+    }),
+    title: props =>  ({
+        ...tool_title(props.fontSize*0.8, props.theme),
+        // border: "1px dashed #b1faae",
+    }),
 });

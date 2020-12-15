@@ -1,61 +1,44 @@
-import {fontSize} from "../CreatePiece/em.jss";
+import {themes} from "../styles/themes.jss";
 
-function getBgColor(rowNum, theme) {
-    if (rowNum % 2 === 0) {
-        return theme.even_row_color;
-    } else {
-        return theme.odd_row_color;
-    }
-}
-
-function listItem(rowNum, fontSize, theme) {
-    return {
-        gridRow: rowNum,
-        color: "#a9a9a9",
-        fontSize: fontSize,
-        paddingLeft: "0.1em",
-        paddingTop: "0.05em",
-        textAlign: "left",
-        backgroundColor: getBgColor(rowNum, theme),
-    };
-}
+const list_item = (fontSize, theme) => ({
+    color: themes[theme].text,
+    fontSize: fontSize*0.75,
+    height: '2.06em',
+    paddingTop: '0.5em',
+    paddingLeft: '0.5em',
+    width: '100%',
+    textAlign: "left",
+})
 
 export const styles = {
 
     scroll_table: props => ({
         ...props.style,
         fontSize: props.fontSize,
-        position: 'relative',
-        display: 'grid',
-        gridTemplateRows: "0.5em repeat(5, 1.5em) 0.5em",
-        border: "1px solid #707070"
+        width: props.width, // must include width
+        display: 'flex',
+        flexDirection: 'column',
+        border: props.isBorder ? '1px solid #2b2b2b' : 'none'
+    }),
+    /*if applicable:*/
+    title: props => ({
+
+    }),
+    list_item_even : props => ({
+        ...list_item(props.fontSize, props.theme),
+        backgroundColor: themes[props.theme].even_row_color,
+    }),
+    list_item_odd : props => ({
+        ...list_item(props.fontSize, props.theme),
+        backgroundColor: themes[props.theme].odd_row_color,
+    }),
+    arrow_button: props => ({
+        fontSize: props.fontSize*0.75,
+        width: '100%',
+        height: '0.77em',
+        border: 'none',
+        color: themes[props.theme].text,
+        background: themes[props.theme].fill,
     }),
 
-    up_arrow_row: props => ({
-        gridRow: 1,
-        background: props.theme.fill,
-        color: props.theme.text,
-        borderRadius: 0,
-    }),
-    row1: props => ({
-        ...listItem( 2, props.fontSize, props.theme),
-    }),
-    row2: props => ({
-        ...listItem( 3, props.fontSize, props.theme),
-    }),
-    row3: props => ({
-        ...listItem( 4, props.fontSize, props.theme),
-    }),
-    row4: props => ({
-        ...listItem( 5, props.fontSize, props.theme),
-    }),
-    row5: props => ({
-        ...listItem( 6, props.fontSize, props.theme),
-    }),
-    down_arrow_row: props => ({
-        gridRow: 7,
-        background: props.theme.fill,
-        color: props.theme.text,
-        borderRadius: 0,
-    }),
 };
