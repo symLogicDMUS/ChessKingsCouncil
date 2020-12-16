@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import NavBar from "../../NavBar/NavBar";
+import { NavBar } from "../../NavBar/NavBar";
 import {PickType} from "./PickType";
 import {PickName} from "./PickName";
 import {PlayAs} from "./PlayAs";

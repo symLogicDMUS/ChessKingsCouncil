@@ -11,6 +11,9 @@ short:
 * move getStyle methods that are a part of component to separate style object
 
 medium:
+* make NavBar into side bar for desktop
+* Icon Component needs tooltip with Upload and Choose buttons
+* restyle GameRoot page
 * make home icon in NavBar same size as other icons
 * add Material UI Responsive drawer, move SaveResignTool and RangeDisplayTool to drawer.
 * move NavBar to be side bar for GameRoot and CreatePiece

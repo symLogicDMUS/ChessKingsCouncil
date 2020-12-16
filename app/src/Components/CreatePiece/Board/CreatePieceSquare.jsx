@@ -1,9 +1,10 @@
 import React from "react";
-import { useStyles } from "./CreatePieceSquare.jss";
 import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
 import { getPxPos } from "./pxPos";
+import {fontSize} from "../fontSize.jss";
+import { useStyles } from "./CreatePieceSquare.jss";
 
 export function CreatePieceSquare({
     rf,
@@ -18,7 +19,7 @@ export function CreatePieceSquare({
 }) {
     let pxPos = getPxPos(rf);
 
-    const classes = useStyles();
+    const classes = useStyles({fontSize});
 
     if (isSpan) {
         let spanLabel = null;

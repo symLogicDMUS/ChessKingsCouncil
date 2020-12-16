@@ -1,37 +1,38 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import NavBar from "../NavBar/NavBar";
-import {Name} from "./Name/Name";
-import {Icon} from "./Icon/Icon";
-import {Range} from "./Range/Range";
-import {Location} from "./Location/Location";
-import {Options} from "./Options/Options";
-import {ProfilesModal} from "./Options/ProfilesModal";
-import {getDefs} from "../../API/getDefs";
-import {deleteDef} from "../../API/deleteDef";
-import {saveDef} from "../../API/saveDef";
-import {copy} from "../helpers/copy";
-import {stepFuncDict} from "../helpers/stepFuncs";
-import {outOfBounds as oob} from "../helpers/oob";
-import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
-import {getRotations} from "./helpers/getRotations";
-import {getSpansDict} from "./helpers/getSpansDict";
-import {flipOffsets} from "./helpers/flipOffsets";
-import {MessageModal} from "../NavBar/Help/MessageModal";
-import {getStepFuncNames} from "./helpers/getStepFuncNames";
-import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
-import {ToolsMenuMobile} from "./ToolsMenuMobile/ToolsMenuMobile";
+import { NavBar } from "../NavBar/NavBar";
+import { Name } from "./Name/Name";
+import { Icon } from "./Icon/Icon";
+import { Range } from "./Range/Range";
+import { Location } from "./Location/Location";
+import { Options } from "./Options/Options";
+import { ProfilesModal } from "./Options/ProfilesModal";
+import { getDefs } from "../../API/getDefs";
+import { deleteDef } from "../../API/deleteDef";
+import { saveDef } from "../../API/saveDef";
+import { copy } from "../helpers/copy";
+import { stepFuncDict } from "../helpers/stepFuncs";
+import { outOfBounds as oob } from "../helpers/oob";
+import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
+import { getRotations } from "./helpers/getRotations";
+import { getSpansDict } from "./helpers/getSpansDict";
+import { flipOffsets } from "./helpers/flipOffsets";
+import { MessageModal } from "../NavBar/Help/MessageModal";
+import { getStepFuncNames } from "./helpers/getStepFuncNames";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
 import ChooseModal from "./Icon/ChooseModal/ChooseModal";
-import {ConfirmModal} from "../NavBar/ConfirmModal";
-import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
-import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
-import {createPieceRedirectMessageStr} from "./helpers/createPieceRedirectMessageStr";
-import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
+import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
+import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
+import { NameDisplayAboveBoard } from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
+import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {styles} from "./CreatePiece.jss";
-import {themes} from "../styles/themes.jss";
-import PermanentDrawerLeft from "../Reuseables/PermanentDrawerLeft";
+import { styles } from "./CreatePiece.jss";
+import Box from "@material-ui/core/Box";
+import {SideBar} from "../Reuseables/SidBar";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -74,7 +75,7 @@ class CreatePiece extends React.Component {
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.standardsLc = ["rook", "bishop", "queen", "knight", "pawn", "king"];
 
-        this.whiteAndBlackImgs = {white: null, black: null};
+        this.whiteAndBlackImgs = { white: null, black: null };
 
         this.msgModalConfig = {
             title: null,
@@ -137,18 +138,18 @@ class CreatePiece extends React.Component {
                 this.load(this.props.location.state.defaultPiece);
             }
 
-            this.setState({binaryValue: !this.state.binaryValue});
+            this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
 
     triggerRender() {
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     load(pieceName) {
         this.spans = getSpansDict(this.defs[pieceName]["W"]["spans"]);
         this.offsets = this.defs[pieceName]["W"]["offsets"];
-        this.whiteAndBlackImgs = {white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"]};
+        this.whiteAndBlackImgs = { white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"] };
 
         // provide static copy so that can reset if need to:
         this.loadedName = copy(this.state.name);
@@ -156,11 +157,11 @@ class CreatePiece extends React.Component {
         this.loadedOffsets = copy(this.offsets);
 
         this.setLoc("d4");
-        this.setState({name: pieceName, isLoadModal: false, unsavedChanges: false});
+        this.setState({ name: pieceName, isLoadModal: false, unsavedChanges: false });
     }
 
     toggleLoadModal(boolVal) {
-        this.setState({isLoadModal: boolVal});
+        this.setState({ isLoadModal: boolVal });
     }
 
     save() {
@@ -172,8 +173,8 @@ class CreatePiece extends React.Component {
 
         //creating new entry in dictionary to save piece to
         this.defs[this.state.name] = {
-            W: {spans: null, offsets: null, img: null},
-            B: {spans: null, offsets: null, img: null},
+            W: { spans: null, offsets: null, img: null },
+            B: { spans: null, offsets: null, img: null },
         };
 
         const angles = [];
@@ -190,7 +191,7 @@ class CreatePiece extends React.Component {
 
         saveDef(this.state.name, this.defs[this.state.name]).then(([response]) => {
             this.setSaveStatus("success");
-            this.setState({unsavedChanges: false});
+            this.setState({ unsavedChanges: false });
         });
     }
 
@@ -198,8 +199,8 @@ class CreatePiece extends React.Component {
         this.saveStatus = value;
         switch (this.saveStatus) {
             case "blank-Name":
-                this.msgModalConfig = {title: "blank Name", text: "You must give a piece Name before saving."};
-                this.setState({isMessageModal: true});
+                this.msgModalConfig = { title: "blank Name", text: "You must give a piece Name before saving." };
+                this.setState({ isMessageModal: true });
                 break;
             case "standard-Name":
                 this.msgModalConfig = {
@@ -207,23 +208,23 @@ class CreatePiece extends React.Component {
                     text:
                         "You cannot use the Name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
                 };
-                this.setState({isMessageModal: true});
+                this.setState({ isMessageModal: true });
                 break;
             case "no-Icon":
                 this.msgModalConfig = {
                     title: "Missing Icon",
                     text: "You must pick an image Icon for both hover-off and black.",
                 };
-                this.setState({isMessageModal: true});
+                this.setState({ isMessageModal: true });
                 break;
             case "success":
-                this.setState({isMessageModal: false, displaySuccessfulSaveMessage: true});
+                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: true });
                 break;
             case "confirm-overwrite":
-                this.setState({isMessageModal: false, displaySuccessfulSaveMessage: false});
+                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: false });
                 break;
             case "none":
-                this.setState({isMessageModal: false, displaySuccessfulSaveMessage: false});
+                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: false });
                 break;
             default:
                 break;
@@ -231,30 +232,30 @@ class CreatePiece extends React.Component {
     }
 
     prepareDelete(pieceName) {
-        this.setState({pendingDelete: pieceName, isDeleteModal: true});
+        this.setState({ pendingDelete: pieceName, isDeleteModal: true });
     }
 
     cancelDelete() {
-        this.setState({pendingDelete: null, isDeleteModal: false, isLoadModal: false});
+        this.setState({ pendingDelete: null, isDeleteModal: false, isLoadModal: false });
     }
 
     deletePiece() {
         deleteDef(this.state.pendingDelete).then(([response]) => {
             delete this.defs[this.state.pendingDelete];
             delete this.displayDefs[this.state.pendingDelete];
-            this.setState({isDeleteModal: false, isLoadModal: false, pendingDelete: null});
+            this.setState({ isDeleteModal: false, isLoadModal: false, pendingDelete: null });
         });
     }
 
     updateName(input) {
         /**used by name tool*/
-        this.setState({name: input, unsavedChanges: true});
+        this.setState({ name: input, unsavedChanges: true });
     }
 
     setPieceImg(color, pieceImgBase64Str) {
         /**used by Icon tool*/
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     toggleSpan(angle) {
@@ -266,7 +267,7 @@ class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     setDisplaySpan(angle) {
@@ -288,7 +289,7 @@ class CreatePiece extends React.Component {
 
     toggleSpanText() {
         /**used by checkbox for displaying text on squares*/
-        this.setState({showSpanText: !this.state.showSpanText});
+        this.setState({ showSpanText: !this.state.showSpanText });
     }
 
     resetSpanDisplays() {
@@ -309,7 +310,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     setOffsetDisplays() {
@@ -325,12 +326,12 @@ class CreatePiece extends React.Component {
 
     toggleOffsetText() {
         /**used by Checkboxes that toggle displaying text on squares*/
-        this.setState({showOffsetText: !this.state.showOffsetText});
+        this.setState({ showOffsetText: !this.state.showOffsetText });
     }
 
     setLoc(rf) {
         /**used by the Location tool*/
-        this.setState({location: rf});
+        this.setState({ location: rf });
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
         this.setDisplaySpans();
@@ -378,7 +379,7 @@ class CreatePiece extends React.Component {
 
     toggleMessageModal(boolVal) {
         /**used by Save Button when a message needs to be displayed*/
-        this.setState({messageModal: boolVal});
+        this.setState({ messageModal: boolVal });
     }
 
     resetSaveStatus() {
@@ -407,9 +408,9 @@ class CreatePiece extends React.Component {
         /**used by the Erase Option button*/
         this.resetDisplayBoardAndRange();
         if (this.state.name === "" && !this.whiteAndBlackImgs.white && !this.whiteAndBlackImgs.black) {
-            this.setState({unsavedChanges: false});
+            this.setState({ unsavedChanges: false });
         } else {
-            this.setState({unsavedChanges: true});
+            this.setState({ unsavedChanges: true });
         }
         this.setSaveStatus("none");
     }
@@ -417,8 +418,8 @@ class CreatePiece extends React.Component {
     clear() {
         /*used by Reset Option when not a loaded piece*/
         this.resetDisplayBoardAndRange();
-        this.whiteAndBlackImgs = {white: null, black: null};
-        this.setState({name: "", location: "d4", unsavedChanges: false});
+        this.whiteAndBlackImgs = { white: null, black: null };
+        this.setState({ name: "", location: "d4", unsavedChanges: false });
         this.setSaveStatus("none");
     }
 
@@ -428,7 +429,7 @@ class CreatePiece extends React.Component {
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
             const name = copy(this.loadedName);
-            this.setState({name: name, unsavedChanges: false});
+            this.setState({ name: name, unsavedChanges: false });
             this.setSaveStatus("none");
         }
     }
@@ -439,25 +440,24 @@ class CreatePiece extends React.Component {
     }
 
     setCurrentIconColor(color) {
-        this.setState({currentIconColor: color});
+        this.setState({ currentIconColor: color });
     }
 
     showChooseModal(color) {
-        this.setState({chooseModal: true, currentIconColor: color});
+        this.setState({ chooseModal: true, currentIconColor: color });
     }
 
     closeChooseModal() {
-        this.setState({chooseModal: false, currentIconColor: null});
+        this.setState({ chooseModal: false, currentIconColor: null });
     }
 
     setSelectedToolMobile(selectedToolMobile) {
-        this.setState({selectedToolMobile: selectedToolMobile});
+        this.setState({ selectedToolMobile: selectedToolMobile });
     }
 
     getComponents(screenCase) {
         return (
             <>
-                {/*SaveModals */}
                 {this.state.isMessageModal && (
                     <MessageModal
                         screenCase={screenCase}
@@ -512,27 +512,32 @@ class CreatePiece extends React.Component {
                         />
                     </div>
                 )}
-                {/*At time writing ordered by appearance on screen from top to bottom left to right*/}
-                <NavBar
-                    currentPage="CreatePiece"
-                    redirectMessage={createPieceRedirectMessageStr}
-                    unsavedChanges={this.state.unsavedChanges}
-                    theme={this.state.theme}
-                />
                 <NameDisplayAboveBoard name={this.name}/>
-                <Board
-                    toggleOffset={this.toggleOffset}
-                    spanDisplays={this.spanDisplays}
-                    offsets={this.offsetDisplays}
-                    pieceLoc={this.state.location}
-                    pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
-                    showSpanText={this.state.showSpanText}
-                    showOffsetText={this.state.showOffsetText}
-                />
-                <PermanentDrawerLeft>
-                    <Name name={this.name} screenCase={screenCase} theme={this.state.theme}
-                          updateName={this.updateName}/>
+                <PermanentDrawer
+                    title='Create Piece'
+                    drawerType='right'
+                    content={
+                        <Board
+                            key="content"
+                            toggleOffset={this.toggleOffset}
+                            spanDisplays={this.spanDisplays}
+                            offsets={this.offsetDisplays}
+                            pieceLoc={this.state.location}
+                            pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+                            showSpanText={this.state.showSpanText}
+                            showOffsetText={this.state.showOffsetText}
+                        />
+                    }
+                >
+                    <Name
+                        key={"Name"}
+                        name={this.name}
+                        screenCase={screenCase}
+                        theme={this.state.theme}
+                        updateName={this.updateName}
+                    />
                     <Icon
+                        key={"Icon"}
                         theme={this.state.theme}
                         screenCase={screenCase}
                         setPieceImg={this.setPieceImg}
@@ -541,6 +546,7 @@ class CreatePiece extends React.Component {
                         showChooseModal={this.showChooseModal}
                     />
                     <Range
+                        key={"Range"}
                         theme={this.state.theme}
                         screenCase={screenCase}
                         spans={this.spans}
@@ -549,11 +555,13 @@ class CreatePiece extends React.Component {
                         update={this.triggerRender}
                     />
                     <Location
+                        key={"Location"}
                         setLoc={this.setLoc}
                         theme={this.state.theme}
                         selectedLoc={this.state.location}
                     />
                     <Options
+                        key={"Options"}
                         save={this.save}
                         reset={this.reset}
                         theme={this.state.theme}
@@ -561,7 +569,16 @@ class CreatePiece extends React.Component {
                         eraseRange={this.eraseRange}
                         screenCase={screenCase}
                     />
-                </PermanentDrawerLeft>
+                </PermanentDrawer>
+                <SideBar drawerType='left'>
+                    <NavBar
+                        currentPage="CreatePiece"
+                        flexDirection='column'
+                        redirectMessage={createPieceRedirectMessageStr}
+                        unsavedChanges={this.state.unsavedChanges}
+                        theme={this.state.theme}
+                    />
+                </SideBar>
             </>
         );
     }

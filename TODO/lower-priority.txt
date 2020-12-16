@@ -1,29 +1,20 @@
 short:
-* consider changing design of Icon tool
-* adjust the chessboards apearing in new light mode background image.
-* background image is its own top level div. Don't make everything child of it.
+* even out vertical spacing between Icon, Range, Location, and Options, use Material UI's Divider component from
+   permenant drawer demo.
+* background image is its own top level component. Don't make everything child of it.
 * have confirm modal fly in from the bottom
 * have save successful message for GameRoot and createPiece be animated and use svg Garamond font text
 * fix label and expand widget on RangeDisplayTool
-* adjust colors of GameRoot Board and tools
-* margin at bottom of Option tool in CreatePiece too large
-* tweak appearance of play-as on bottom-bar of createPiece
-* add silver border back to the top of Subs list
-* Fix overflow property of pieceName label in Customize Profile
 * Make z-index of NavBar one higher than everything except the Modals
 * make 'Shockwave' color of checkbox match the theme (not pink)
-* change color of close icon on hover from red to something else (seen in displayBoardModal). maybe a light grey
+* consider making the image that Piece component renders, a Material UI Avatar
 
 medium:
 * Make functional Components in addition to class components be a default export, to be consistent
 * go and through every document and use the Prettier command..
 * Have clicking the help Icon toggle the help model.
-* make use stepFuncDict the same across components. shouldn't need a dict for both angles as keys, and one func names as keys
+* make stepFuncDict import the same across components. shouldn't need a dict for both angles as keys, and one func names as keys
 
 long:
 * add new and different themes
 * add multiple versions of standard game (Star Wars, NBA etc)
-* optimise style methods, maybe only called at top/page level components and then passed as props
-* look into scss with font-size used as units. Read about
-* make some of the tools/modals in desktop version draggable, including Range display board in GameRoot and Customize
-*

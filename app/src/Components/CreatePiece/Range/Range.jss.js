@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {tool, tool_title, toolbox} from "../CreatePiece.jss";
 

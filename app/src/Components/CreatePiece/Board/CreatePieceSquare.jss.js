@@ -1,30 +1,31 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSize} from "../fontSize.jss";
 
-const square = {
-    position: "absolute",
-    zIndex: "0",
+const square = (fontSize) => ({
+    fontSize: fontSize,
     cursor: "pointer",
-    height: "12.5%",
-    width: "12.5%",
+    width: '5em',
+    height: '5em',
     '&:hover': {
-        backgroundColor: "#00ccff",
+        backgroundColor: "#00CCFF",
     },
-}
+})
+
 export const useStyles = makeStyles({
-    dark_sqr: {
-        ...square,
+    dark_sqr: props => ({
+        ...square(props.fontSize),
         backgroundColor: "#a9a9a9",
-    },
-    light_sqr: {
-        ...square,
+    }),
+    light_sqr: props => ({
+        ...square(props.fontSize),
         backgroundColor: "#ffffff",
-    },
-    offset_element: {
-        ...square,
+    }),
+    offset_element: props => ({
+        ...square(props.fontSize),
         backgroundColor: "#8b0000",
-    },
-    span_element: {
-        ...square,
+    }),
+    span_element: props => ({
+        ...square(props.fontSize),
         backgroundColor: "#ec2525",
-    },
+    }),
 });

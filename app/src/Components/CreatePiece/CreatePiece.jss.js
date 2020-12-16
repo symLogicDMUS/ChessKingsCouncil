@@ -1,6 +1,6 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
-import {drawerWidth} from "../Reuseables/PermanentDrawerLeft.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const toolLeft = () => availWidth() * 0.57;
@@ -42,4 +42,8 @@ export const styles = {
         backgroundRepeat: "repeat",
         objectFit: "none",
     },
+    box: props => ({
+        fontSize: props.fontSize,
+        display: 'flex',
+    }),
 };

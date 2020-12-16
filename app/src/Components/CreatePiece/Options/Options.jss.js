@@ -2,7 +2,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import { availHeight, availWidth } from "../../helpers/windowMeasurments";
 import {box, tool, tool_title, toolbox, toolWidth} from "../CreatePiece.jss";
 import { optionButtonSize } from "./Option.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 
 const getHeightDesktop = () => availHeight() * 0.13;
 

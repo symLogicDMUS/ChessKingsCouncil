@@ -1,14 +1,11 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import {makeStyles} from "@material-ui/core/styles"
 
-export const col = (val) => window.screen.availWidth * val
-
-export const styles = {
-    nav_bar: {
-        position: "absolute",
-        left: 0,
-        top: 0,
-        display: "grid",
-        zIndex: "0",
-        gridTemplateColumns: `${col(0.02)}px repeat(8, ${col(0.12)}px) ${col(0.02)}px`,
-    },
-};
+export const useStyles = makeStyles((theme) => ({
+    nav_bar: props => ({
+        width: props.flexDirection === 'row' ? '100%' : 0,
+        height: props.flexDirection === 'column' ? '92%' : 0,
+        display: "flex",
+        flexDirection: props.flexDirection,
+        flexWrap: 'nowrap',
+    }),
+}));

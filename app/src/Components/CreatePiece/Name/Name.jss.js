@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {toolbox, toolLeft, toolWidth} from "../CreatePiece.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 
 export const useStyles = makeStyles({
     name: {

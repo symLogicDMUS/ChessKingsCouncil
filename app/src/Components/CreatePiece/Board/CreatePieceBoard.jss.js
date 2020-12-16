@@ -6,13 +6,14 @@ const size = boardSize('desktop', 'large');
 
 export const useStyles = makeStyles({
     board: props => ({
-        position: 'absolute',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
         fontSize: props.fontSize,
         width: '40em',
         height: '40em',
         lineHeight: '0',
-        margin: '2em',
-        WebkitBoxShadow: '0px 0px 20px white',
+        margin: '1em',
         boxShadow: '0px 0px 20px white'
     }),
 });

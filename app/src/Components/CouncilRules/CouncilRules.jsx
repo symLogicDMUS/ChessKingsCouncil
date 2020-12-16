@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
+import { NavBar } from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 // import {styles} from "./CouncilRules.jss";
 import "./CouncilRules.scss";

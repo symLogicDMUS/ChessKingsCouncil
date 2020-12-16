@@ -4,8 +4,8 @@ import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import "../../helpers/stepFuncs";
-import { useStyles } from "./CreatePieceBoard.jss";
 import {fontSize} from "../fontSize.jss";
+import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
     offsets,
@@ -56,5 +56,5 @@ export function CreatePieceBoard({
         return squares;
     };
 
-    return <div className={classes.board}>{getBoard()};</div>;
+    return <div className={classes.board}>{getBoard()}</div>;
 }

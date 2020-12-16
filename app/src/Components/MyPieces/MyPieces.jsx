@@ -1,7 +1,7 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import MediaQuery from "react-responsive";
-import NavBar from "../NavBar/NavBar";
+import { NavBar } from "../NavBar/NavBar";
 // import { SearchBar } from "./SearchBar";
 import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {deleteDef} from "../../API/deleteDef";

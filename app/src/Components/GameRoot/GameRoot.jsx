@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { OVER } from "../helpers/gStatusTypes";
-import NavBar from "../NavBar/NavBar";
+import { NavBar } from "../NavBar/NavBar";
 import Promo from "./Promo/Promo";
 import { isPawn } from "../helpers/isPawn";
 import { AIDisplay } from "./AI/AIDisplay";

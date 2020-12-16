@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import NavBar from "../NavBar/NavBar";
+import { NavBar } from "../NavBar/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";

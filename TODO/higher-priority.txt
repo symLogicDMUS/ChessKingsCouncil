@@ -1,7 +1,7 @@
 medium:
 * crashes loading Customize page
-* crashes loading MyPieces page (invalid hook call)
-* CreatePiece page loads blank page
+* Crashes on multiple pages and in multiple places because invalid hook call. happens in components that render lists of components
+  see if is because need a unique 'id' prop for each component in list
 * crashes loading help modal
 * 'explore without account' text button not working
 

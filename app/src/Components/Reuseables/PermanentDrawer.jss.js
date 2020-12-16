@@ -7,10 +7,11 @@ export const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-    appBar: {
+    appBar: props =>  ({
         width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-    },
+        marginRight: props.drawerType === 'right' ?  drawerWidth : 0,
+        marginLeft: props.drawerType === 'left' ? drawerWidth : 0,
+    }),
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
@@ -25,10 +26,5 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: '#515151',
         color: '#b6b6b6',
         fontFamily: 'Roboto-Light, Roboto'
-    },
-    content: {
-        flexGrow: 1,
-        backgroundColor: 'theme.palette.background.default',
-        padding: theme.spacing(3),
     },
 }));

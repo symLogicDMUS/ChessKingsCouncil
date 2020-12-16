@@ -2,41 +2,33 @@ import React from "react";
 import { Button, IconButton } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { icons } from "../styles/icons/top/icons.jss";
-import { useStyles } from "./NavBarButton.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import { fontSize } from "../CreatePiece/fontSize.jss";
+import Box from "@material-ui/core/Box";
+import { useStyles } from "./NavBarButton.jss";
 
 export function NavBarButton({
     path,
-    column,
     pageName,
     pageIcon,
     theme,
     isLocalLink,
     unsavedChanges,
     toggleConfirmRedirect,
+    flexDirection,
 }) {
     let history = useHistory();
     let pageRedirectMethod = isLocalLink ? () => (window.location.href = path) : () => history.push(path);
     if (unsavedChanges) pageRedirectMethod = () => toggleConfirmRedirect(true, path, isLocalLink);
 
-    const classes = useStyles({ theme: theme, column: column });
+    const classes = useStyles({ theme: theme, fontSize: fontSize, flexDirection: flexDirection });
 
     return (
-        <div className={classes.nav_bar_button}>
-            <Button className={classes.text_button} onClick={pageRedirectMethod}>
-                {pageName}
-            </Button>
-            <IconButton className={classes.icon_button}>
-                <SvgIcon>
-                    {icons[pageIcon]}
-                </SvgIcon>
-            </IconButton>
-        </div>
+        <Button className={classes.nav_bar_button} onClick={pageRedirectMethod}>
+            <Box className={classes.box}>
+                <SvgIcon className={classes.icon}>{icons[pageIcon]}</SvgIcon>
+                <div className={classes.text}>{pageName}</div>
+            </Box>
+        </Button>
     );
 }
-
-/*
-<Icon>
-    <img src={icons[pageIcon]} style={{width: '100%'}} />
-</Icon>
-*/

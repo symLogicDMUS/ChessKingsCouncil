@@ -1,7 +1,7 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool, tool_title, toolbox, toolWidth} from "../CreatePiece.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawerLeft.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const locationToolWidth = () => toolWidth(); //change later

@@ -1,7 +1,7 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import {withStyles} from "@material-ui/core";
-import NavBar from "../../NavBar/NavBar";
+import { NavBar } from "../../NavBar/NavBar";
 import {SubList} from "./Bottom/SubList";
 import {getDefs} from "../../../API/getDefs";
 import {PromoList} from "./Bottom/PromoList";
