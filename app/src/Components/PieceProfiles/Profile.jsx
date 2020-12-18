@@ -4,10 +4,10 @@ import { ProfileWB } from "./ProfileWB";
 import { useStyles } from "./Profile.jss";
 import {fontSize} from "../styles/fontSize.jss";
 
-export function Profile({key, expand, defs, theme, children }) {
+export function Profile({pieceName, expand, defs, theme, children }) {
     /**children is a piece profile header */
     const classes = useStyles({theme: theme, fontSize: fontSize});
-    const pieceName = key;
+
     return (
         <Box className={classes.profile}>
             {children}
@@ -22,6 +22,7 @@ export function Profile({key, expand, defs, theme, children }) {
             <ProfileWB
                 color="B"
                 key={pieceName}
+                pieceName={pieceName}
                 def={defs[pieceName]["B"]}
                 expand={expand}
                 theme={theme}

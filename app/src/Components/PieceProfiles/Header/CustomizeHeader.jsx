@@ -7,7 +7,7 @@ import { useStyles } from "./PieceHeader.jss";
 import { promo_checkbox, sub_dropdown } from "./CustomizeHeader.jss";
 
 export function CustomizeHeader({
-    key,
+    pieceName,
     isCheckmark,
     newReplacement,
     newReplaced,
@@ -23,8 +23,6 @@ export function CustomizeHeader({
         fontSize: fontSize,
         style: style,
     });
-
-    const pieceName = key;
 
     const handleSubSelection = (newSubSelection) => {
         setSubSelection(newSubSelection);

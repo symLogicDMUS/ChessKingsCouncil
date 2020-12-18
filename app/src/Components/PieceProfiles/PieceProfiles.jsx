@@ -26,19 +26,20 @@ export function PieceProfiles(props) {
     };
 
     const getProfiles = () => {
-        let pieceName;
         let profiles = [];
         let pieceNames = applySearchFilter();
         if (props.context === "load-delete") {
-            for (pieceName of pieceNames) {
+            for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
                         key={pieceName}
+                        pieceName={pieceName}
                         expand={props.expand}
                         defs={props.defs}
                     >
                         <LoadDeleteHeader
                             key={pieceName}
+                            pieceName={pieceName}
                             load={props.load}
                             style={{ justifyContent: "right" }}
                         />
@@ -47,17 +48,19 @@ export function PieceProfiles(props) {
             }
         } else if (props.context === "custom-game") {
             let isCheckmark;
-            for (pieceName of pieceNames) {
+            for (let pieceName of pieceNames) {
                 isCheckmark = props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
                         key={pieceName}
+                        pieceName={pieceName}
                         theme={props.theme}
                         expand={props.expand}
                         defs={props.defs}
                     >
                         <CustomizeHeader
                             key={pieceName}
+                            pieceName={pieceName}
                             promos={props.promos}
                             isCheckmark={isCheckmark}
                             toggleSub={props.toggleSub}

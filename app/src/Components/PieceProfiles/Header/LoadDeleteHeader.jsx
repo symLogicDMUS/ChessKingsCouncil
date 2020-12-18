@@ -5,9 +5,8 @@ import { useStyles } from "./PieceHeader.jss";
 import {button} from "./LoadDeleteHeader.jss";
 
 
-export function LoadDeleteHeader({ key, load, prepareDelete, theme, style}) {
+export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style}) {
     const classes = useStyles({theme: theme, style: style, fontSize: fontSize});
-    const pieceName = key;
     return (
         <div className={classes.header}>
             <div className={classes.piece_name}>{pieceName}</div>

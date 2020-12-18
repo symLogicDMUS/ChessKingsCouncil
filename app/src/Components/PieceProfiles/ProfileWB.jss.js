@@ -9,16 +9,29 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         justifyContent: 'space-evenly',
     }),
-    img: {
+    avatar_section: {
 
     },
-    img_label: {
+    avatar_title: {
 
     },
-    img_window: {
+    avatar_window: {
 
     },
-    piece_profile_img: {},
-    range_table: {},
-    image: {}
+    range_header: props => ({
+        fontSize: props.fontSize,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        width: '100%'
+    }),
+    /*Parts of the range table's header: */
+    range_title: props => ({
+        fontSize: props.fontSize,
+        justifySelf: 'center',
+    }),
+    range_expand_widget: props => ({
+        fontSize: props.fontSize,
+        justifySelf: 'right',
+    }),
 })
