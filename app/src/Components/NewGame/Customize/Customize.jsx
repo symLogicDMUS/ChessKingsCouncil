@@ -19,8 +19,8 @@ import {dropdownStyle} from "../GameOptions/PlayAs.jss";
 import {fontSize} from "../../styles/fontSize.jss";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import ScrollTable from "../../Reuseables/ScrollTable";
-import {styles} from "./Customize.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
+import {styles} from "./Customize.jss";
 
 
 class Customize extends React.Component {
