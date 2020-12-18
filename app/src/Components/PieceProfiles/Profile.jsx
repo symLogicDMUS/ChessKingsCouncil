@@ -10,7 +10,7 @@ export function Profile({pieceName, expand, defs, theme, children }) {
 
     return (
         <Box className={classes.profile}>
-            {children}
+            {/*{children}*/}
             <ProfileWB
                 color="W"
                 key={pieceName}

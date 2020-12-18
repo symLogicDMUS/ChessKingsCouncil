@@ -222,12 +222,12 @@ class Customize extends React.Component {
                         location="d4"
                     />
                 )}
-                <NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>
+                {/*<NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>*/}
                 <div className={this.props.classes.customize}>
-                    <Box className={this.props.classes.header}>
-                        <Typography className={this.props.classes.title}>Customize Game</Typography>
-                        {/* <SearchBar updateSearch={this.updateSearch} /> */}
-                    </Box>
+                    {/*<Box className={this.props.classes.header}>*/}
+                    {/*    <Typography className={this.props.classes.title}>Customize Game</Typography>*/}
+                    {/*    /!* <SearchBar updateSearch={this.updateSearch} /> *!/*/}
+                    {/*</Box>*/}
                     <PieceProfiles
                         context='custom-game'
                         defs={this.defs}
@@ -239,50 +239,50 @@ class Customize extends React.Component {
                         togglePromo={this.togglePromo}
                         theme={this.state.theme}
                     />
-                    <SubList subs={this.subs} theme={this.state.theme}/>
-                    <ScrollTable
-                        listItems={this.promos}
-                        width={availWidth()*0.48}
-                        theme={this.state.theme}
-                        title={<Typography className={this.props.classes.promos_title}>Pawn Promotions</Typography>}
-                    />
-                    <Box className={this.props.classes.bottom_bar}>
-                        <CheckBox
-                            labelText="Promo All"
-                            clickMethod={this.togglePromoAll}
-                            clickValue={null}
-                            theme={this.state.theme}
-                        />
-                        <Dropdown
-                            updateParent={this.setPlayerType}
-                            list={[
-                                <MenuItem value="None">
-                                    <em>None</em>
-                                </MenuItem>,
-                                <MenuItem value="Test">Test</MenuItem>,
-                                <MenuItem value="White">White</MenuItem>,
-                                <MenuItem value="Black">Black</MenuItem>,
-                            ]}
-                            overwrite={null}
-                            variant='outlined'
-                            theme={this.state.theme}
-                            style={dropdownStyle(fontSize)}
-                            label='Play As'
-                            inputLabel='Play As'
-                            inputId='play-as-input'
-                            selectId='play-as-selected'
-                            labelId='play-as-label'
-                        />
-                        <Button
-                            onClick={this.accept}
-                            style={{fontFamily: 'Roboto-Light, Roboto'}}
-                            theme={this.state.theme}
-                            variant={'contained'}
-                            isDisabled={false}
-                        >
-                            Ok
-                        </Button>
-                    </Box>
+                    {/*<SubList subs={this.subs} theme={this.state.theme}/>*/}
+                    {/*<ScrollTable*/}
+                    {/*    listItems={this.promos}*/}
+                    {/*    width={availWidth()*0.48}*/}
+                    {/*    theme={this.state.theme}*/}
+                    {/*    title={<Typography className={this.props.classes.promos_title}>Pawn Promotions</Typography>}*/}
+                    {/*/>*/}
+                    {/*<Box className={this.props.classes.bottom_bar}>*/}
+                    {/*    <CheckBox*/}
+                    {/*        labelText="Promo All"*/}
+                    {/*        clickMethod={this.togglePromoAll}*/}
+                    {/*        clickValue={null}*/}
+                    {/*        theme={this.state.theme}*/}
+                    {/*    />*/}
+                    {/*    <Dropdown*/}
+                    {/*        updateParent={this.setPlayerType}*/}
+                    {/*        list={[*/}
+                    {/*            <MenuItem value="None">*/}
+                    {/*                <em>None</em>*/}
+                    {/*            </MenuItem>,*/}
+                    {/*            <MenuItem value="Test">Test</MenuItem>,*/}
+                    {/*            <MenuItem value="White">White</MenuItem>,*/}
+                    {/*            <MenuItem value="Black">Black</MenuItem>,*/}
+                    {/*        ]}*/}
+                    {/*        overwrite={null}*/}
+                    {/*        variant='outlined'*/}
+                    {/*        theme={this.state.theme}*/}
+                    {/*        style={dropdownStyle(fontSize)}*/}
+                    {/*        label='Play As'*/}
+                    {/*        inputLabel='Play As'*/}
+                    {/*        inputId='play-as-input'*/}
+                    {/*        selectId='play-as-selected'*/}
+                    {/*        labelId='play-as-label'*/}
+                    {/*    />*/}
+                    {/*    <Button*/}
+                    {/*        onClick={this.accept}*/}
+                    {/*        style={{fontFamily: 'Roboto-Light, Roboto'}}*/}
+                    {/*        theme={this.state.theme}*/}
+                    {/*        variant={'contained'}*/}
+                    {/*        isDisabled={false}*/}
+                    {/*    >*/}
+                    {/*        Ok*/}
+                    {/*    </Button>*/}
+                    {/*</Box>*/}
                 </div>
             </>
         );

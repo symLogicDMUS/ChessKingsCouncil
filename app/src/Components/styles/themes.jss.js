@@ -32,6 +32,8 @@ export const themes = {
         button_text: '#6a5acd',
         button_hover_fill: '#6a5acd',
         button_hover_text: '#ffffff',
+        even_row: '#6a5acd',
+        odd_row: '#748cd2'
     },
     black: {
         outline: '#000000',
@@ -42,8 +44,8 @@ export const themes = {
         button_text: '#d7bb99',
         button_hover_fill: '#ffffff',
         button_hover_text: '#1b1b1b',
-        even_row: '#2b2b2b',
-        odd_row: '#000000',
+        even_row: '#1b1b1b',
+        odd_row: '#3d3d3d',
     },
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:

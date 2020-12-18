@@ -1,15 +1,17 @@
 import React from "react";
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import { fontSize } from "../styles/fontSize.jss";
 import { getColorName } from "../helpers/getColorName";
-import {fontSize} from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
+import { PieceAvatar } from "./PieceAvatar";
 import { useStyles } from "./ProfileWB.jss";
 import {availWidth} from "../helpers/windowMeasurments";
+import ImageIcon from "@material-ui/icons/Image";
 
 /**
  * className: profileWB class
@@ -18,8 +20,7 @@ import {availWidth} from "../helpers/windowMeasurments";
  * def: spans, offsets, and img of W or B piece
  * */
 export function ProfileWB({ pieceName, color, def, expand, theme }) {
-
-    const classes = useStyles({fontSize: fontSize, theme: theme});
+    const classes = useStyles({ fontSize: fontSize*1.25, theme: theme});
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);
@@ -35,7 +36,6 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
         if (def.offsets.length === 0) {
             return Array(0);
         }
-
         let offsetStrings = [];
         def.offsets.forEach((offset) => {
             offsetStrings.push(offsetToText(offset));
@@ -45,60 +45,48 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
 
     return (
         <div className={classes.profile_wb}>
-            <Box className={classes.image}>
-                <Box className={classes.img_label}>
-                    {getColorName(color)} Image
-                </Box>
-                <Box className={classes.img_window}>
-                    <img src={def.img} className={classes.image} alt="icon of piece" />
-                </Box>
-            </Box>
+            {/*<PieceAvatar*/}
+            {/*    pieceName={pieceName}*/}
+            {/*    color={color}*/}
+            {/*    src={def.img}*/}
+            {/*    theme={theme}*/}
+            {/*/>*/}
             <ScrollTable
                 listItems={getOffsets(def)}
                 title={
                     <Box className={classes.range_header}>
-                        <Typography className={classes.range_title}>{getColorName(color)} Offsets</Typography>
                         <IconButton
                             className={classes.range_expand_widget}
-                            onClick={() => expand(pieceName, color, 'offsets')}
+                            onClick={() => expand(pieceName, color, "offsets")}
                         >
                             <AddIcon />
                         </IconButton>
+                        <Box className={classes.box}>
+                            <Typography className={classes.range_title}>{getColorName(color)} Offsets</Typography>
+                        </Box>
                     </Box>
                 }
-                style={{fontSize: fontSize, width: availWidth()* 0.4}}
+                style={{ fontSize: fontSize*1.25, width:'35em' }}
                 theme={theme}
             />
             <ScrollTable
                 listItems={getSpans(def)}
                 title={
                     <Box className={classes.range_header}>
-                        <Typography className={classes.range_title}>{getColorName(color)} Spans</Typography>
-                        <IconButton className={classes.range_expand_widget}
-                                    onClick={() => expand(pieceName, color, 'spans')}
+                        <IconButton
+                            className={classes.range_expand_widget}
+                            onClick={() => expand(pieceName, color, "spans")}
                         >
                             <AddIcon />
                         </IconButton>
+                        <Box className={classes.box}>
+                            <Typography className={classes.range_title}>{getColorName(color)} Spans</Typography>
+                        </Box>
                     </Box>
                 }
-                style={{fontSize: fontSize, width: availWidth()* 0.4}}
+                style={{ fontSize: fontSize*1.25, width:'35em' }}
                 theme={theme}
             />
         </div>
     );
 }
-
-
-/*
-        <div className={classes.range_header}>
-            <div className={classes.colorAndRangeType}>
-                {getColorName(color)} {rangeType}
-            </div>
-            <IconButton
-                className={classes.expandWidget}
-                onClick={() => expand(pieceName, color, rangeType)}
-            >
-                <img className={classes.expandWidgetIcon} src={src} alt="expand icon"/>
-            </div>
-        </div>
-* */

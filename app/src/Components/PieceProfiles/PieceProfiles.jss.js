@@ -1,12 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {availHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
-        display: 'flex',
-        flexDirection: 'column',
+        // display: 'flex',
+        // flexDirection: 'column',
         height: availHeight() *0.7,
-        width: '100%',
+        width: availWidth(),
         overflow: 'scroll',
     }),
     piece_header: props => ({
