@@ -34,7 +34,7 @@ export const themes = {
     black: {
         outline: '#000000',
         fill: '#000000',
-        text: '#d7bb99',
+        text: '#1b1b1b',
         modal_fill: '#2d2d2d',
         button_fill: '#1b1b1b',
         button_text: '#d7bb99',

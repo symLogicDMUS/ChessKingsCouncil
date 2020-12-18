@@ -7,12 +7,12 @@ import {invalids} from "../../helpers/invalids";
 import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import {useStyles, submit_button} from "./GameOptions.jss";
-import {themes} from "../../styles/themes.jss";
+import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {Background} from "../../Reuseables/Background";
 import "../../styles/_backgrounds.scss";
-import {getTheme} from "../../styles/getTheme.jss";
+import {useStyles, submit_button} from "./GameOptions.jss";
 
-export function GameOptions({setGameOptions, fontSize}) {
+export function GameOptions({setGameOptions}) {
     let [playerType, updatePlayerType] = useState(null);
     let [gameName, updateGameName] = useState("");
     let [gameType, updateGameType] = useState(null);
@@ -37,21 +37,24 @@ export function GameOptions({setGameOptions, fontSize}) {
 
     return (
         <div>
-            <NavBar currentPage="GameOptions" theme={theme} unsavedChanges={false}/>
-            <PickName setGameName={setGameName} gameName={gameName} fontSize={fontSize} theme={getTheme(theme)}/>
-            <PickType setGameType={setGameType} gameType={gameType} fontSize={fontSize} theme={getTheme(theme)}/>
-            <PlayAs setPlayerType={setPlayerType} fontSize={fontSize} theme={getTheme(theme)}/>
-            <PlayGameButton
-                onClick={() => setGameOptions(gameName, gameType, playerType)}
-                style={submit_button(fontSize)}
-                theme={getTheme(theme)}
-                variant={"contained"}
-                isDisabled={
-                    !(playerType && gameType && gameName !== "" && invalids.every((c) => charNotInStr(c, gameName)))
-                }
-            >
-            Play
-        </PlayGameButton>
+            <NavBar currentPage="GameOptions" flexDirection={"row"} theme={theme} unsavedChanges={false}/>
+            <div className={classes.game_options}>
+                <PickName setGameName={setGameName} gameName={gameName} theme={theme}/>
+                <PickType setGameType={setGameType} gameType={gameType} theme={theme}/>
+                <PlayAs setPlayerType={setPlayerType} theme={theme}/>
+                <PlayGameButton
+                    onClick={() => setGameOptions(gameName, gameType, playerType)}
+                    style={submit_button(fontSize)}
+                    theme={theme}
+                    variant={"contained"}
+                    isDisabled={
+                        !(playerType && gameType && gameName !== "" && invalids.every((c) => charNotInStr(c, gameName)))
+                    }
+                >
+                    Play
+                </PlayGameButton>
+            </div>
+                <Background theme={theme} />
         </div>
     );
 }

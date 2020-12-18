@@ -4,9 +4,8 @@ import Customize from "./Customize/Customize";
 import {GameOptions} from "./GameOptions/GameOptions";
 import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
 import { newData, new_standard_ranges, enemyRanges, standard_id_dict, standard_piece_defs, standard_promo_names } from "./NewData";
-import { styles } from "./NewGame.jss";
 import {copy} from "../helpers/copy";
-import {availHeight} from "../helpers/windowMeasurments";
+import { styles } from "./NewGame.jss";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which
@@ -111,7 +110,7 @@ class NewGame extends React.Component {
     render() {
         return (
             <>
-                {this.state.step === 'set-options' && <GameOptions setGameOptions={this.setGameOptions} fontSize={availHeight() * 0.13} />}
+                {this.state.step === 'set-options' && <GameOptions setGameOptions={this.setGameOptions} />}
                 {this.state.step === "load-new-custom" && <Customize loadNewCustom={this.loadNewCustom} theme={this.state.theme} />}
                 {this.state.step === "load-new-standard" && this.loadNewStandard()}
                 {this.state.step === "play-game" && this.play()}

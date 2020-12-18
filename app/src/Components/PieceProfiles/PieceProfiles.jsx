@@ -7,7 +7,6 @@ import { ProfileHeaderError } from "./Header/ProfileHeaderError";
 import { useStyles, subDropdownStyle } from "./PieceProfiles.jss";
 
 export function PieceProfiles(props) {
-    let [theme, setTheme] = useState("dark");
     let [searchText, setSearchText] = useState("");
 
     const classes = useStyles();

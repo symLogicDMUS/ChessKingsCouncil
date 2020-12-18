@@ -41,6 +41,7 @@ export function Dropdown({
                 label={label}
                 id={selectId}
                 labelId={labelId}
+                variant={variant}
             >
                 {list}
             </Select>

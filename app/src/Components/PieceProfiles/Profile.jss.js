@@ -1,6 +1,8 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
+import { makeStyles } from "@material-ui/core/styles";
 import {customize} from "../NewGame/Customize/sizeAndPosVariables.jss";
 import {loadDelete} from "../MyPieces/sizeAndPosVariables.jss";
+
+
 
 function profile(context) {
     if (context === 'custom-game') {
