@@ -5,7 +5,7 @@ import {Typography} from "@material-ui/core";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {ImgWindow} from "./ImgWindow";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
 import {useStyles} from "./Icon.jss";
 

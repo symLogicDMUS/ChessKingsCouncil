@@ -12,25 +12,26 @@ const list_item = (fontSize, theme) => ({
 
 export const styles = {
 
+    /**NOTE: width is a required prop!*/
     scroll_table: props => ({
         ...props.style,
         fontSize: props.fontSize,
-        width: props.width, // must include width
+        width: props.width,
         display: 'flex',
         flexDirection: 'column',
         border: props.isBorder ? '1px solid #2b2b2b' : 'none'
     }),
-    /*if applicable:*/
+    /*if applicable*/
     title: props => ({
-
+        width: props.width,
     }),
     list_item_even : props => ({
         ...list_item(props.fontSize, props.theme),
-        backgroundColor: themes[props.theme].even_row_color,
+        backgroundColor: themes[props.theme].even_row,
     }),
     list_item_odd : props => ({
         ...list_item(props.fontSize, props.theme),
-        backgroundColor: themes[props.theme].odd_row_color,
+        backgroundColor: themes[props.theme].odd_row,
     }),
     arrow_button: props => ({
         fontSize: props.fontSize*0.75,

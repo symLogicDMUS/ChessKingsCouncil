@@ -1,6 +1,6 @@
 import React from "react";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {Typography} from "@material-ui/core";
 import {angleToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";

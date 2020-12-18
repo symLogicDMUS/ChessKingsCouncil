@@ -1,16 +1,5 @@
-import { themes } from "../styles/themes.jss";
 import { makeStyles } from "@material-ui/core/styles";
-import { orange } from "@material-ui/core/colors";
-
-// export const useStyles = makeStyles((theme) => ({
-//     root: {
-//         color: theme.outline,
-//         "&$checked": {
-//             color: theme.checkmark,
-//         },
-//     },
-//     checked: {},
-// }));
+import { themes } from "../styles/themes.jss";
 
 const checkbox = {
     width: "1.5em",
@@ -18,31 +7,21 @@ const checkbox = {
     transform: "translate(0, -0.12em)",
 }
 
+/*NOTE: fontSize is a required prop!*/
 export const useStyles = makeStyles({
-    // desktop: {
-    label: {
-        fontFamily: (props) => props.fontFamily,
-        fontSize: (props) => props.fontSize,
+    text: props =>  ({
+        ...props.style,
         display: "inline-block",
         lineHeight: 1,
-        // color: themesJss[theme].font
-    },
-    // checkbox: {
-    "not-checked": {
-        fontSize: (props) => props.fontSize,
-        fontFamily: (props) => props.fontFamily,
-        ...checkbox
-        // color: themesJss[theme].outline
-    },
-    checked: {
-        fontSize: (props) => props.fontSize,
-        fontFamily: (props) => props.fontFamily,
-        ...checkbox
-        // color: themesJss[theme].checkmark
-    },
-    // },
-    // },
-    /*
-    mobile: {},
-     */
+        color: themes[props.theme].text
+    }),
+    unchecked: props => ({
+        ...props.style,
+        ...checkbox,
+        color: themes[props.theme].text
+    }),
+    checked: props =>  ({
+        ...props.style,
+        ...checkbox,
+    }),
 });

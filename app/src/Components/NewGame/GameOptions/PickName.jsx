@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import { MuiTextField } from "../../Reuseables/MuiTextField";
 import Box from "@material-ui/core/Box";
-import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import { useStyles, text_field } from "./PickName.jss";
 
 export function PickName({ setGameName, gameName, theme }) {

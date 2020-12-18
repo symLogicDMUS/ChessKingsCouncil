@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 
 const square = (fontSize) => ({
     fontSize: fontSize,

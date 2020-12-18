@@ -3,7 +3,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {Dropdown} from "../../Reuseables/Dropdown";
-import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles, dropdownStyle} from "./PlayAs.jss";
 
 export function PlayAs({setPlayerType, theme}) {

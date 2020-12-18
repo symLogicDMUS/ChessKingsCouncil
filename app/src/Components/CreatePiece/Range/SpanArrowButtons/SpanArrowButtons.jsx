@@ -1,5 +1,5 @@
 import React from "react";
-import {fontSize} from "../../fontSize.jss";
+import {fontSize} from "../../../styles/fontSize.jss";
 import { ArrowButton } from "./ArrowButton";
 import { useStyles } from "./SpanArrowButtons.jss";
 

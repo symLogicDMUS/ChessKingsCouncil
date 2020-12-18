@@ -4,7 +4,7 @@ import {NavBarButton} from "./NavBarButton";
 import {ConfirmRedirect} from "./ConfirmRedirect";
 import {HelpButton} from "./Help/HelpButton";
 import Box from "@material-ui/core/Box";
-import {fontSize} from "../CreatePiece/fontSize.jss";
+import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./NavBar.jss";
 
 export function NavBar(props) {

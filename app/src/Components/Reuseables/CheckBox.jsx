@@ -4,26 +4,20 @@ import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import {useStyles} from "./CheckBox.jss";
 
-/**
- * arguments
- * position: the position object includes left/top values and may include margins
-*/
-export function CheckBox({className, fontSize, fontFamily, clickMethod, clickValue, labelText, checkmarkState }) {
-    
-    const classes = useStyles({fontSize, fontFamily})
+export function CheckBox({clickMethod, clickValue, labelText, checkmarkState, style, theme}) {
+
+    const classes = useStyles({style, theme})
 
     return (
-            <div className={className}>
-                <div className={classes.label}>
-                    {labelText}
-                    <Checkbox
-                        icon={<CheckBoxOutlineBlankIcon className={classes.unchecked} />}
-                        checkedIcon={<CheckBoxIcon className={classes.checked} />}
-                        onClick={() => clickMethod(clickValue)}
-                        checked={checkmarkState}
-                        name="checkedI"
-                    />
-                </div>
-            </div>
+        <div className={classes.text}>
+            {labelText}
+            <Checkbox
+                icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
+                checkedIcon={<CheckBoxIcon className={classes.checked}/>}
+                onClick={() => clickMethod(clickValue)}
+                checked={checkmarkState}
+                name="checkbox"
+            />
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./LocationButton.jss";
 
 export function LocationButton({rf, selected, setLoc, theme}) {

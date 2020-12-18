@@ -5,6 +5,8 @@ import ScrollTable from "../Reuseables/ScrollTable";
 import { fontSizes } from "../styles/fontSizes";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
+import {fontSize} from "../styles/fontSize.jss";
+import Box from "@material-ui/core/Box";
 import { useStyles } from "./ProfileWB.jss";
 
 /**
@@ -13,8 +15,11 @@ import { useStyles } from "./ProfileWB.jss";
  * expand: given to header. opens displayBoard
  * def: spans, offsets, and img of W or B piece
  * */
-export function ProfileWB({ color, pieceName, def, context, expand }) {
-    const classes = useStyles(context);
+export function ProfileWB({ key, color, def, expand, theme }) {
+
+    const classes = useStyles({fontSize: fontSize, theme: theme});
+
+    const pieceName = key;
 
     const getSpans = (def) => {
         if (def.spans.length === 0) {
@@ -40,16 +45,18 @@ export function ProfileWB({ color, pieceName, def, context, expand }) {
     };
 
     return (
-        <div className={classes.profileWB}>
-            <div className={classes.imgLabel} style={{ fontSize: fontSizes.medium1 }}>
-                {getColorName(color)} Image
-            </div>
-            <div className={classes.imgWindow}>
-                <img src={def.img} className={classes.image} alt="icon of piece" />
-            </div>
+        <div className={classes.profile_wb}>
+            <Box className={classes.image}>
+                <Box className={classes.img_label} style={{ fontSize: fontSizes.medium1 }}>
+                    {getColorName(color)} Image
+                </Box>
+                <Box className={classes.img_window}>
+                    <img src={def.img} className={classes.image} alt="icon of piece" />
+                </Box>
+            </Box>
             <ProfileWBScrollTableHeader
                 rangeType="spans"
-                className={classes.spansHeader}
+                className={classes.spans_header}
                 pieceName={pieceName}
                 expand={expand}
                 color={color}
@@ -57,7 +64,7 @@ export function ProfileWB({ color, pieceName, def, context, expand }) {
             <ScrollTable
                 listItems={getOffsets(def)}
                 cellFontSize={fontSizes.medium3}
-                className={classes.rangeTable}
+                className={classes.range_table}
             />
             <ProfileWBScrollTableHeader
                 rangeType="offsets"

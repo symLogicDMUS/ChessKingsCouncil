@@ -2,7 +2,7 @@ import React from "react";
 import {Option} from "./Option";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Options.jss";
 
 export function Options({save, reset, toggleLoadModal, eraseRange, theme}) {

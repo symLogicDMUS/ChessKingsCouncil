@@ -3,7 +3,7 @@ import {findDidUserVisitPage, recordUserVisitedPage} from "../../../API/findReco
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {Button} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "../NavBarButton.jss";
 
 

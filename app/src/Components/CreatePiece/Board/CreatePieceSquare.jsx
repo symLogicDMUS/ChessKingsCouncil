@@ -3,7 +3,7 @@ import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
 import { getPxPos } from "./pxPos";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./CreatePieceSquare.jss";
 
 export function CreatePieceSquare({

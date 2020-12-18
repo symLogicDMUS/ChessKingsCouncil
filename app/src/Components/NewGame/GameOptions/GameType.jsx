@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./GameType.jss";
 
 export function GameType({setGameType, gameType, selectedType, theme}) {

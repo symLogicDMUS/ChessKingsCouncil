@@ -1,7 +1,7 @@
 import React from "react";
 import {IconButton} from "@material-ui/core";
 import {NavigateNext} from "@material-ui/icons";
-import {fontSize} from "../CreatePiece/fontSize.jss";
+import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./ToggleNav.jss";
 
 export function ToggleNav({navExpanded, toggleNav, theme, flexDirection}) {

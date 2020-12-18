@@ -137,11 +137,9 @@ class MyPieces extends React.Component {
                     {this.state.fetched && (
                         <PieceProfiles
                             context="load-delete"
-                            screenCase={screenCase}
                             title="My Pieces"
                             defs={this.defs}
                             load={this.load}
-                            scaler={1}
                             profileRef={this.state.profileRef}
                             prepareDelete={this.prepareDelete}
                         />

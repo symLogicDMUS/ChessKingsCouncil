@@ -3,7 +3,7 @@ import { Button, IconButton } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { icons } from "../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { fontSize } from "../CreatePiece/fontSize.jss";
+import { fontSize } from "../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBarButton.jss";
 

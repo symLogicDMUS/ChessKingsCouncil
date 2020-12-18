@@ -1,22 +1,26 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import {withStyles} from "@material-ui/core";
-import { NavBar } from "../../NavBar/NavBar";
-import {SubList} from "./Bottom/SubList";
+import Box from "@material-ui/core/Box";
+import {NavBar} from "../../NavBar/NavBar";
+import {SubList} from "./SubList";
 import {getDefs} from "../../../API/getDefs";
-import {PromoList} from "./Bottom/PromoList";
 import {MessageModal} from "../../NavBar/Help/MessageModal";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {Ok} from "./Bottom/CustomiseOk";
-import {fontSizes} from "../../styles/fontSizes";
-import {CheckBox as PromoAll} from "../../Reuseables/CheckBox";
-import PlayAsDropdown from "./Bottom/PlayAsDropdown";
-import {customize as measurements} from "./sizeAndPosVariables.jss";
+import {CheckBox} from "../../Reuseables/CheckBox";
+import {Dropdown} from "../../Reuseables/Dropdown";
+import Typography from "@material-ui/core/Typography";
+import MenuItem from "@material-ui/core/MenuItem";
+import {dropdownStyle} from "../GameOptions/PlayAs.jss";
+import {fontSize} from "../../styles/fontSize.jss";
+import {MuiButton as Button} from "../../Reuseables/MuiButton";
+import ScrollTable from "../../Reuseables/ScrollTable";
 import {styles} from "./Customize.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
 
 
 class Customize extends React.Component {
@@ -220,12 +224,12 @@ class Customize extends React.Component {
                 )}
                 <NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>
                 <div className={this.props.classes.customize}>
-                    <div className={this.props.classes.topBar}>
-                        <div className={this.props.classes.title}>Customize Game</div>
+                    <Box className={this.props.classes.header}>
+                        <Typography className={this.props.classes.title}>Customize Game</Typography>
                         {/* <SearchBar updateSearch={this.updateSearch} /> */}
-                    </div>
+                    </Box>
                     <PieceProfiles
-                        context="custom-game"
+                        context='custom-game'
                         defs={this.defs}
                         promos={this.promos}
                         newReplacement={this.newReplacement}
@@ -235,31 +239,50 @@ class Customize extends React.Component {
                         togglePromo={this.togglePromo}
                         theme={this.state.theme}
                     />
-                    <SubList screenCase={screenCase} subs={this.subs}/>
-                    <PromoList screenCase={screenCase} promos={this.promos}/>
-                    <div className={this.props.classes.bottomBar}>
-                        <PromoAll
-                            clickMethod={this.togglePromoAll}
-                            clickValue={null} //this.togglePromoAll takes no arguments
-                            checkmarkState={this.state.promoAll}
-                            top={measurements.promoAllCheckboxTop}
-                            left={measurements.promoAllCheckboxLeft}
-                            fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                            fontSize={fontSizes.medium2}
+                    <SubList subs={this.subs} theme={this.state.theme}/>
+                    <ScrollTable
+                        listItems={this.promos}
+                        width={availWidth()*0.48}
+                        theme={this.state.theme}
+                        title={<Typography className={this.props.classes.promos_title}>Pawn Promotions</Typography>}
+                    />
+                    <Box className={this.props.classes.bottom_bar}>
+                        <CheckBox
                             labelText="Promo All"
+                            clickMethod={this.togglePromoAll}
+                            clickValue={null}
+                            theme={this.state.theme}
                         />
-                        <PlayAsDropdown
-                            position="absolute"
-                            fontSize={fontSizes.medium2}
-                            fontFamily="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
-                            width={measurements.playAsDropdownWidth}
-                            height={measurements.playAsDropdownHeight}
-                            top={measurements.playAsDropdownTop}
-                            left={measurements.playAsDropdownLeft}
-                            setPlayerType={this.setPlayerType}
+                        <Dropdown
+                            updateParent={this.setPlayerType}
+                            list={[
+                                <MenuItem value="None">
+                                    <em>None</em>
+                                </MenuItem>,
+                                <MenuItem value="Test">Test</MenuItem>,
+                                <MenuItem value="White">White</MenuItem>,
+                                <MenuItem value="Black">Black</MenuItem>,
+                            ]}
+                            overwrite={null}
+                            variant='outlined'
+                            theme={this.state.theme}
+                            style={dropdownStyle(fontSize)}
+                            label='Play As'
+                            inputLabel='Play As'
+                            inputId='play-as-input'
+                            selectId='play-as-selected'
+                            labelId='play-as-label'
                         />
-                        <Ok accept={this.accept}/>
-                    </div>
+                        <Button
+                            onClick={this.accept}
+                            style={{fontFamily: 'Roboto-Light, Roboto'}}
+                            theme={this.state.theme}
+                            variant={'contained'}
+                            isDisabled={false}
+                        >
+                            Ok
+                        </Button>
+                    </Box>
                 </div>
             </>
         );

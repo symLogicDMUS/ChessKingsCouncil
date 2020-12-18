@@ -4,7 +4,7 @@ import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import "../../helpers/stepFuncs";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({

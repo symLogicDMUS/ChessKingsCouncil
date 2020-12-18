@@ -2,7 +2,7 @@ import React from "react";
 import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {LocationButton} from "./LocationButton";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Location.jss";
 
 export function Location({selectedLoc, setLoc, theme}) {

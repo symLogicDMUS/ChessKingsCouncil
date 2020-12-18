@@ -1,6 +1,6 @@
 import React from "react";
 import {Avatar, SvgIcon} from "@material-ui/core";
-import {fontSize} from "../fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
 import ImageIcon from '@material-ui/icons/Image';
 import Typography from "@material-ui/core/Typography";

@@ -8,8 +8,8 @@ export const themes = {
         button_text: '#a9a9a9',
         button_hover_fill: '#a9a9a9',
         button_hover_text: '#515151',
-        even_row_color: '#414141',
-        odd_row_color: '#474747',
+        even_row: '#414141',
+        odd_row: '#474747',
     },
     green: {
         outline: '#b1faae',
@@ -20,6 +20,8 @@ export const themes = {
         button_text: '#b1faae',
         button_hover_fill: '#b1faae',
         button_hover_text: '#008000',
+        even_row: '#29b157',
+        odd_row: '#b1faae',
     },
     purple: {
         outline: '#6a5acd',
@@ -40,6 +42,8 @@ export const themes = {
         button_text: '#d7bb99',
         button_hover_fill: '#ffffff',
         button_hover_text: '#1b1b1b',
+        even_row: '#2b2b2b',
+        odd_row: '#000000',
     },
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:

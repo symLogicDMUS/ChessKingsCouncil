@@ -7,7 +7,7 @@ import {invalids} from "../../helpers/invalids";
 import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import {fontSize} from "../../CreatePiece/fontSize.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 import {Background} from "../../Reuseables/Background";
 import "../../styles/_backgrounds.scss";
 import {useStyles, submit_button} from "./GameOptions.jss";
