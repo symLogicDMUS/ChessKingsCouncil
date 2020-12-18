@@ -11,3 +11,4 @@ git rm --cached -r [DIR_NAME]
 git reset --hard origin/master
 git pull
 
+# force a push
