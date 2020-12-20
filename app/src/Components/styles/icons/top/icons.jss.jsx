@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {save} from "../save.jss";
 import {load} from "../load.jss";
 import {erase} from "../erase.jss";
@@ -22,10 +21,19 @@ import {down} from "../arrows/down.jss";
 import {down_right} from "../arrows/down-right.jss";
 import {white_img_icon} from "../white_img_icon";
 import {black_img_icon} from "../black_img_icon";
+import {bishop_filled} from "../sub-buttons/bishop-filled.jss";
+import {rook_filled} from "../sub-buttons/rook-filled.jss";
+import {queen_filled} from "../sub-buttons/queen-filled.jss";
+import {knight_filled} from "../sub-buttons/knight-filled.jss";
+import {bishop_outline} from "../sub-buttons/bishop-outline.jss";
+import {rook_outline} from "../sub-buttons/rook-outline.jss";
+import {queen_outline} from "../sub-buttons/queen-outline.jss";
+import {knight_outline} from "../sub-buttons/knight-outline.jss";
+import {none} from "../sub-buttons/none.jss";
 
 
 export const icons = {
-    'home': <path id="home" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />,
+    'home': home,
     'new-game': new_game,
     'load-game': load_game,
     'create-piece': create_piece,
@@ -47,4 +55,13 @@ export const icons = {
     "225d": down_left,
     "270d": down,
     "315d": down_right,
+    bishop_filled: bishop_filled,
+    bishop_outline: bishop_outline,
+    rook_filled: rook_filled,
+    rook_outline: rook_outline,
+    queen_filled: queen_filled,
+    queen_outline: queen_outline,
+    knight_filled: knight_filled,
+    knight_outline: knight_outline,
+    none: none,
 }

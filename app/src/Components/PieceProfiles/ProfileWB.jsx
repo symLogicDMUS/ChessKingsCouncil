@@ -1,15 +1,14 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import { fontSize } from "../styles/fontSize.jss";
 import { getColorName } from "../helpers/getColorName";
+import { fontSizeAlt1 as fontSize } from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
 import { ProfileAvatar } from "./ProfileAvatar";
-import {themes} from "../styles/themes.jss";
 import { useStyles } from "./ProfileWB.jss";
 
 /**
@@ -19,7 +18,9 @@ import { useStyles } from "./ProfileWB.jss";
  * def: spans, offsets, and img of W or B piece
  * */
 export function ProfileWB({ pieceName, color, def, expand, theme }) {
+
     const classes = useStyles({ fontSize: fontSize, theme: theme});
+
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);

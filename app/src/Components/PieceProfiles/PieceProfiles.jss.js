@@ -4,18 +4,19 @@ import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
-        // display: 'flex',
-        // flexDirection: 'column',
-        height: availHeight() *0.7,
+        display: 'flex',
+        flexDirection: 'column',
+        height: availHeight() * 0.6,
         width: availWidth(),
         overflow: 'scroll',
         backgroundColor: themes[props.theme].fill,
     }),
-    piece_header: props => ({
-       fontSize: props.fontSize,
-       display: 'flex',
-       flexDirection: 'row',
-       flexWrap: 'no-wrap',
-       width: '100%',
+    divider: props => ({
+        fontSize: props.fontSize,
+        // width: '80%',
+        width: '77em',
+        marginLeft: '1.8em',
+        marginTop: '0.75em',
+        marginBottom: '0.75em',
     }),
 });

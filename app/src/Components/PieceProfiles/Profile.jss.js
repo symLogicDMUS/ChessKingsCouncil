@@ -6,4 +6,11 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         fontSize: props.fontSize,
     }),
+    divider: props => ({
+        fontSize: props.fontSize,
+        width: '74.5em',
+        marginTop: '0.75em',
+        marginBottom: '0.75em',
+        marginLeft: '1.8em',
+    }),
 });

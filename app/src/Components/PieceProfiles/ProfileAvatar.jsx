@@ -4,11 +4,11 @@ import { Avatar } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ImageIcon from "@material-ui/icons/Image";
 import { getColorName } from "../helpers/getColorName";
-import { fontSize } from "../styles/fontSize.jss";
+import { fontSizeAlt1 as fontSize } from "../styles/fontSize.jss";
 import { useStyles } from "./ProfileAvatar.jss";
 
 export function ProfileAvatar(props) {
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize*1.25 });
+    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
 
     return (
         <Box className={classes.profile_avatar} backgroundColor='red'>

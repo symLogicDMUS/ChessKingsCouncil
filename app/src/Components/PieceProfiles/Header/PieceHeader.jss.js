@@ -1,15 +1,23 @@
-import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import React from "react";
 
-/**Shared by Customize and LoadDelete headers*/
-export const useStyles = makeStyles({
-    header: props => ({
-        ...props.style,
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        width: '100%',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.1em solid ${themes[props.theme].outline}`
-    }),
+/**
+ * Shared by custom-game (Customize) and LoadDelete (MyPieces, LoadModal in CreatePiece) headers
+ * */
+
+export const header = (fontSize, style, theme) => ({
+    ...style,
+    fontSize: fontSize,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'no-wrap',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    backgroundColor: themes[theme].fill,
+});
+
+export const text = (fontSize, theme) => ({
+    fontSize: fontSize*1.5,
+    fontFamily: 'Roboto-Light, Roboto',
+    color: themes[theme].text,
 });

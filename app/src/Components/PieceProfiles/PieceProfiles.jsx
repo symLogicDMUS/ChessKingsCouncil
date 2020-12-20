@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Profile } from "./Profile";
 // import { SearchBar } from "./SearchBar";
+import {Divider} from "@material-ui/core";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
 import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
 import { ProfileHeaderError } from "./Header/ProfileHeaderError";
@@ -72,6 +73,7 @@ export function PieceProfiles(props) {
                         />
                     </Profile>
                 );
+                // profiles.push(<Divider className={classes.divider} />)
             }
         } else {
             return <ProfileHeaderError />;

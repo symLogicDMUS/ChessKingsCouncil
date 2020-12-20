@@ -2,20 +2,20 @@ import {makeStyles} from "@material-ui/core/styles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
 
-const size = '9em'
+const size = '11.55em'
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
         fontSize: props.fontSize,
-        height: '10.75em',
+        height: '12.75em',
         width: size,
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_title: props => ({
-        fontSize: '0.75em',
-        height: '1.55em',
+        fontSize: props.fontSize,
+        height: '1.5em',
         width: '100%',
         textAlign: 'center',
         color: themes[props.theme].text,

@@ -4,11 +4,14 @@ import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     profile_wb: props => ({
-        width: '100%',
+        fontSize: props.fontSize,
+        width: '85%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         justifyContent: 'space-evenly',
+        marginBottom: '0.75em',
+        marginTop: '0.75em',
     }),
     range_header: props => ({
         fontSize: props.fontSize,

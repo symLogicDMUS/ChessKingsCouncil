@@ -1,8 +1,9 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
+import {fontSizeAlt1 as fontSize} from "../styles/fontSize.jss";
+import {Divider} from "@material-ui/core";
 import { useStyles } from "./Profile.jss";
-import {fontSize} from "../styles/fontSize.jss";
 
 export function Profile({pieceName, expand, defs, theme, children }) {
     /**children is a piece profile header */
@@ -10,7 +11,7 @@ export function Profile({pieceName, expand, defs, theme, children }) {
 
     return (
         <Box className={classes.profile}>
-            {/*{children}*/}
+            {children}
             <ProfileWB
                 color="W"
                 key={pieceName}
@@ -27,6 +28,7 @@ export function Profile({pieceName, expand, defs, theme, children }) {
                 expand={expand}
                 theme={theme}
             />
+            <Divider className={classes.divider} />
         </Box>
     );
 }
