@@ -8,7 +8,7 @@ const pageLink = {
 export const styles = {
     home: {
         ...fullScreenImg,
-        backgroundImage: "url('/Images/Background/black-background.svg')"
+        backgroundImage: "url('/Images/Background/light-background.svg')"
     },
     new_game: {
         ...pageLink,

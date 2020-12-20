@@ -20,6 +20,7 @@ import {fontSize} from "../../styles/fontSize.jss";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import ScrollTable from "../../Reuseables/ScrollTable";
 import {availWidth} from "../../helpers/windowMeasurments";
+import {Background} from "../../Reuseables/Background";
 import {styles} from "./Customize.jss";
 
 
@@ -82,6 +83,7 @@ class Customize extends React.Component {
     }
 
     componentDidMount() {
+        document.body.className = "dark-background";
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
@@ -224,6 +226,7 @@ class Customize extends React.Component {
                 )}
                 {/*<NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>*/}
                 <div className={this.props.classes.customize}>
+                    <Background theme={this.state.theme} />
                     {/*<Box className={this.props.classes.header}>*/}
                     {/*    <Typography className={this.props.classes.title}>Customize Game</Typography>*/}
                     {/*    /!* <SearchBar updateSearch={this.updateSearch} /> *!/*/}

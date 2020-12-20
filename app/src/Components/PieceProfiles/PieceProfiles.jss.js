@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
@@ -8,6 +9,7 @@ export const useStyles = makeStyles({
         height: availHeight() *0.7,
         width: availWidth(),
         overflow: 'scroll',
+        backgroundColor: themes[props.theme].fill,
     }),
     piece_header: props => ({
        fontSize: props.fontSize,

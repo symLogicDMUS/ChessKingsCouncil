@@ -1,11 +1,5 @@
-.chessboard-background {
-    background-image: url("/Images/Backgrounds/background.png");
-    background-repeat: repeat;
-    -o-object-fit: none;
-    object-fit: none;
-}
+
 .light-background {
-    background-image: url("/Images/Backgrounds/light-background.svg");
     background-color: #d7bb99;
     background-repeat: repeat;
     -o-object-fit: none;
@@ -13,8 +7,7 @@
 }
 
 .dark-background {
-    background-image: url("/Images/Backgrounds/dark-background.svg");
-    background-color: #d7bb99;
+    background-color: #2b2b2b;
     background-repeat: repeat;
     -o-object-fit: none;
     object-fit: none;

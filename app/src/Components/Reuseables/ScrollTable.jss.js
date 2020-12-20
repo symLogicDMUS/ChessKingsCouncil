@@ -1,15 +1,15 @@
 import {themes} from "../styles/themes.jss";
 
-const list_item = (fontSize, width, theme) => ({
+const list_item = (width, theme) => ({
     color: themes[theme].text,
-    fontSize: fontSize*0.75,
-    height: '2.06em',
+    fontSize: '1em',
+    height: '2em',
     width: width,
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'no-wrap',
     alignItems: 'flex-end',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
 });
 
 export const styles = {
@@ -21,32 +21,30 @@ export const styles = {
         width: props.width,
         display: 'flex',
         flexDirection: 'column',
-        border: props.isBorder ? '1px solid #2b2b2b' : 'none'
     }),
-    /*if applicable*/
-    title: props => ({
-        fontSize: props.style.fontSize,
-        width: props.style.width,
+    list_items: props => ({
+        outline: props.style.isOutline ? `0.05em solid ${themes[props.theme].outline}` : 'none'
     }),
     list_item_even : props => ({
-        ...list_item(props.style.fontSize, props.style.width, props.theme),
+        ...list_item(props.style.width, props.theme, props.style.isOutline),
         backgroundColor: themes[props.theme].even_row,
     }),
     list_item_odd : props => ({
-        ...list_item(props.style.fontSize, props.style.width, props.theme),
+        ...list_item(props.style.width, props.theme, props.style.isOutline),
         backgroundColor: themes[props.theme].odd_row,
     }),
     arrow_button: props => ({
-        fontSize: props.style.fontSize*0.75,
+        fontSize: '1em',
         width: props.style.width,
         height: '0.77em',
         border: 'none',
         color: themes[props.theme].text,
         background: themes[props.theme].fill,
+        outline: props.style.isOutline ? `0.05em solid ${themes[props.theme].outline}` : 'none'
     }),
     /*child of list items*/
     text: props => ({
-        fontSize: props.style.fontSize*0.8,
+        fontSize: '1em',
         maxWidth: '97.5%',
         marginLeft: '2.5%',
         color: themes[props.theme].text,

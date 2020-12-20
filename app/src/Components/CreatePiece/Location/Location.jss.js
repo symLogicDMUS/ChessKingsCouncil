@@ -15,7 +15,6 @@ export const useStyles = makeStyles({
         }),
         title: props => ({
             ...tool_title(props.fontSize*0.8, props.theme),
-            // border: "1px dashed #b1faae",
         }),
         box: props => ({
             ...toolbox,

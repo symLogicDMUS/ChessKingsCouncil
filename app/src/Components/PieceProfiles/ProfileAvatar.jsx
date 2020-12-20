@@ -5,13 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import ImageIcon from "@material-ui/icons/Image";
 import { getColorName } from "../helpers/getColorName";
 import { fontSize } from "../styles/fontSize.jss";
-import { useStyles } from "./PieceAvatar.jss";
+import { useStyles } from "./ProfileAvatar.jss";
 
-export function PieceAvatar(props) {
+export function ProfileAvatar(props) {
     const classes = useStyles({ theme: props.theme, fontSize: fontSize*1.25 });
 
     return (
-        <Box className={classes.piece_avatar} border='1px dashed #b1faae' backgroundColor='red'>
+        <Box className={classes.profile_avatar} backgroundColor='red'>
             <Typography className={classes.avatar_title}>
                 {getColorName(props.color)} Image
             </Typography>

@@ -8,10 +8,9 @@ import { getColorName } from "../helpers/getColorName";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
-import { PieceAvatar } from "./PieceAvatar";
+import { ProfileAvatar } from "./ProfileAvatar";
+import {themes} from "../styles/themes.jss";
 import { useStyles } from "./ProfileWB.jss";
-import {availWidth} from "../helpers/windowMeasurments";
-import ImageIcon from "@material-ui/icons/Image";
 
 /**
  * className: profileWB class
@@ -20,7 +19,7 @@ import ImageIcon from "@material-ui/icons/Image";
  * def: spans, offsets, and img of W or B piece
  * */
 export function ProfileWB({ pieceName, color, def, expand, theme }) {
-    const classes = useStyles({ fontSize: fontSize*1.25, theme: theme});
+    const classes = useStyles({ fontSize: fontSize, theme: theme});
     const getSpans = (def) => {
         if (def.spans.length === 0) {
             return Array(0);
@@ -45,12 +44,12 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
 
     return (
         <div className={classes.profile_wb}>
-            {/*<PieceAvatar*/}
-            {/*    pieceName={pieceName}*/}
-            {/*    color={color}*/}
-            {/*    src={def.img}*/}
-            {/*    theme={theme}*/}
-            {/*/>*/}
+            <ProfileAvatar
+                pieceName={pieceName}
+                color={color}
+                src={def.img}
+                theme={theme}
+            />
             <ScrollTable
                 listItems={getOffsets(def)}
                 title={
@@ -66,7 +65,8 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize*1.25, width:'35em' }}
+                style={{ fontSize: fontSize, width:'30em', isOutline: true }}
+                buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />
             <ScrollTable
@@ -84,7 +84,8 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize*1.25, width:'35em' }}
+                style={{ fontSize: fontSize, width:'30em', isOutline: true }}
+                buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />
         </div>

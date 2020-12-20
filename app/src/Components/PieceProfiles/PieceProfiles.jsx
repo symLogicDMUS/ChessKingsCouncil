@@ -9,7 +9,7 @@ import { useStyles } from "./PieceProfiles.jss";
 export function PieceProfiles(props) {
     let [searchText, setSearchText] = useState("");
 
-    const classes = useStyles();
+    const classes = useStyles({theme: props.theme});
 
     const updateSearch = (newText) => {
         setSearchText(newText);

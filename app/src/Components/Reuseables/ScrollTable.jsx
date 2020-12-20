@@ -76,76 +76,66 @@ class ScrollTable extends React.Component {
 
         return (
             <div className={this.props.classes.scroll_table}>
-                {this.props.title && (
-                    <Box className={this.props.classes.title}>
-                        {this.props.title}
-                    </Box>
-                )}
+                {this.props.title && (this.props.title)}
                 <Button
                     onClick={this.moveDown}
                     variant="outlined"
                     fullWidth={true}
                     className={this.props.classes.arrow_button}
-                    style={{
-                        borderBottomLeftRadius: 0,
-                        borderBottomRightRadius: 0,
-                        borderBottom: "0.05em solid #2b2b2b",
-                    }}
+                    style={this.props.buttonStyle}
                     disableElevation={true}
                 >
                     <ArrowDropUpIcon />
                 </Button>
-                <Box className={this.props.classes.list_item_odd}>
-                    <Typography
-                        className={this.props.classes.text}
-                        noWrap={true}
-                    >
-                        {this.inView[0]}
-                    </Typography>
-                </Box>
-                <Box className={this.props.classes.list_item_even}>
-                    <Typography
-                        className={this.props.classes.text}
-                        noWrap={true}
-                    >
-                        {this.inView[1]}
-                    </Typography>
-                </Box>
-                <Box className={this.props.classes.list_item_odd}>
-                    <Typography
-                        className={this.props.classes.text}
-                        noWrap={true}
-                    >
-                        {this.inView[2]}
-                    </Typography>
-                </Box>
-                <Box className={this.props.classes.list_item_even}>
-                    <Typography
-                        className={this.props.classes.text}
-                        noWrap={true}
-                    >
-                        {this.inView[3]}
-                    </Typography>
-                </Box>
-                <Box className={this.props.classes.list_item_odd}>
-                    <Typography
-                        className={this.props.classes.text}
-                        noWrap={true}
-                    >
-                        {this.inView[4]}
-                    </Typography>
+                <Box className={this.props.classes.list_items}>
+                    <Box className={this.props.classes.list_item_odd}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[0]}
+                        </Typography>
+                    </Box>
+                    <Box className={this.props.classes.list_item_even}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[1]}
+                        </Typography>
+                    </Box>
+                    <Box className={this.props.classes.list_item_odd}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[2]}
+                        </Typography>
+                    </Box>
+                    <Box className={this.props.classes.list_item_even}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[3]}
+                        </Typography>
+                    </Box>
+                    <Box className={this.props.classes.list_item_odd}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[4]}
+                        </Typography>
+                    </Box>
                 </Box>
                 <Button
                     onClick={this.moveDown}
                     variant="outlined"
                     fullWidth={true}
-                    disableElevation={true}
                     className={this.props.classes.arrow_button}
-                    style={{
-                        borderTopLeftRadius: 0,
-                        borderTopRightRadius: 0,
-                        borderTop: "0.05em solid #2b2b2b",
-                    }}
+                    disableElevation={true}
+                    style={this.props.buttonStyle}
                 >
                     <ArrowDropDownIcon />
                 </Button>
