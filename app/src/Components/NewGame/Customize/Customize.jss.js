@@ -7,6 +7,7 @@ export const styles = {
         flexWrap: 'wrap',
         height: availHeight()*0.95,
         width: availWidth(),
+        border: '1px dashed #b1faae',
     },
     header: props => ({
         display: 'flex',
@@ -25,7 +26,7 @@ export const styles = {
     }),
     promos_title: props => ({
         fontSize: props.fontSize,
-        height: '2.7em',
-        width: '100%',
+        // height: '2.7em',
+        // width: '100%',
     }),
 };

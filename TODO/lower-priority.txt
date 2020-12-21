@@ -1,4 +1,6 @@
 short:
+* decide if radio buttons shaped like chess pieces, or a dropdown, looks better for sub pieces. Would need to shrink the
+  height of dropdown in later case.
 * even out vertical spacing between Icon, Range, Location, and Options, use Material UI's Divider component from
    permenant drawer demo.
 * background image is its own top level component. Don't make everything child of it.

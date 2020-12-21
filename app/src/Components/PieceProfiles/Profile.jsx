@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
-import {fontSizeAlt1 as fontSize} from "../styles/fontSize.jss";
+import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
 import {Divider} from "@material-ui/core";
 import { useStyles } from "./Profile.jss";
 

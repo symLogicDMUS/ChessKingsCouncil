@@ -6,8 +6,8 @@ export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        height: availHeight() * 0.6,
-        width: availWidth(),
+        height: availHeight() * 0.75,
+        width: availWidth()*0.47,
         overflow: 'scroll',
         backgroundColor: themes[props.theme].fill,
     }),

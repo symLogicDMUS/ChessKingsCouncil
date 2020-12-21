@@ -1,10 +1,10 @@
 import React from "react";
-import withStyles from "@material-ui/core/styles/withStyles";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import withStyles from "@material-ui/core/styles/withStyles";
 import { styles } from "./ScrollTable.jss";
 
 class ScrollTable extends React.Component {

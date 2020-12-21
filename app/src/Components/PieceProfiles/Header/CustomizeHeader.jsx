@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Radio from "@material-ui/core/Radio";
 import { CheckBox } from "../../Reuseables/CheckBox";
 import { icons } from "../../styles/icons/top/icons.jss";
-import { fontSizeAlt1 as fontSize } from "../../styles/fontSize.jss";
+import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
 import { themes } from "../../styles/themes.jss";
 import RadioButtonsGroup from "../../Reuseables/RadioButtonsGroup";
 import { promo_checkbox, sub_buttons, useStyles } from "./CustomizeHeader.jss";

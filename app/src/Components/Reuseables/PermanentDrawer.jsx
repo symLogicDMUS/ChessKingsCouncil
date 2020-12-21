@@ -5,8 +5,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./PermanentDrawer.jss";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { styles } from "./PermanentDrawer.jss";
 
 export default function PermanentDrawer({
     title,

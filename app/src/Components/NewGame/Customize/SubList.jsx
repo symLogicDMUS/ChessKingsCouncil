@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./SubList.jss";
 
 export function SubList({ subs, theme }) {

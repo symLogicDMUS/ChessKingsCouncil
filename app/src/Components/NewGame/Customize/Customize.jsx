@@ -1,28 +1,28 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import {withStyles} from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {NavBar} from "../../NavBar/NavBar";
-import {SubList} from "./SubList";
-import {getDefs} from "../../../API/getDefs";
-import {MessageModal} from "../../NavBar/Help/MessageModal";
-import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
-import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
-import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
-import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {CheckBox} from "../../Reuseables/CheckBox";
-import {Dropdown} from "../../Reuseables/Dropdown";
+import { NavBar } from "../../NavBar/NavBar";
+import { SubList } from "./SubList";
+import { getDefs } from "../../../API/getDefs";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
+import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
+import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
+import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
+import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
+import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
+import { CheckBox } from "../../Reuseables/CheckBox";
+import { Dropdown } from "../../Reuseables/Dropdown";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
-import {dropdownStyle} from "../GameOptions/PlayAs.jss";
-import {fontSize} from "../../styles/fontSize.jss";
-import {MuiButton as Button} from "../../Reuseables/MuiButton";
+import { dropdownStyle } from "../GameOptions/PlayAs.jss";
+import { fontSize } from "../../styles/fontSize.jss";
+import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import ScrollTable from "../../Reuseables/ScrollTable";
-import {availWidth} from "../../helpers/windowMeasurments";
-import {Background} from "../../Reuseables/Background";
-import {styles} from "./Customize.jss";
-
+import { availWidth } from "../../helpers/windowMeasurments";
+import { Background } from "../../Reuseables/Background";
+import { styles } from "./Customize.jss";
+import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -41,14 +41,7 @@ class Customize extends React.Component {
             Queen: null,
             Knight: null,
         };
-        this.standards = [
-            "Rook",
-            "Bishop",
-            "Queen",
-            "Knight",
-            "Pawn",
-            "King"
-        ];
+        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.defs = {};
         this.promos = [];
         this.expandModals = [];
@@ -61,7 +54,7 @@ class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = {none: null};
+        this.hmChildren = { none: null };
         this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
@@ -87,7 +80,7 @@ class Customize extends React.Component {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
-            this.setState({binaryValue: !this.state.binaryValue});
+            this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
 
@@ -121,7 +114,12 @@ class Customize extends React.Component {
     setStandardPromos(idDict) {
         for (const [name1, id1] of Object.entries(standardIds)) {
             for (const [id2, name2] of Object.entries(idDict)) {
-                if (name1 === name2 && id1 === id2 && id1 !== "p" && id1 !== "k") {
+                if (
+                    name1 === name2 &&
+                    id1 === id2 &&
+                    id1 !== "p" &&
+                    id1 !== "k"
+                ) {
                     this.promos.push(name1);
                 }
             }
@@ -136,21 +134,31 @@ class Customize extends React.Component {
     accept() {
         const idDict = this.loadIdDict();
         this.setStandardPromos(idDict);
-        this.props.loadNewCustom(idDict, this.defs, this.promos, this.state.playerType);
+        this.props.loadNewCustom(
+            idDict,
+            this.defs,
+            this.promos,
+            this.state.playerType
+        );
     }
 
     expand(pieceName, color, rangeType) {
-        this.setState({pieceName: pieceName, rangeType: rangeType, color: color});
+        this.setState({
+            pieceName: pieceName,
+            rangeType: rangeType,
+            color: color,
+        });
     }
 
     toggleSub(sub, standardPiece) {
         this.subs[standardPiece] = sub;
         Object.keys(this.subs).forEach((pieceName) => {
-            if (pieceName !== standardPiece && this.subs[pieceName] === sub) this.subs[pieceName] = null;
+            if (pieceName !== standardPiece && this.subs[pieceName] === sub)
+                this.subs[pieceName] = null;
         });
         this.newReplacement = sub;
         this.newReplaced = standardPiece;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromo(pieceName) {
@@ -159,7 +167,7 @@ class Customize extends React.Component {
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
         // this.promoListUpdate = true;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromoAll() {
@@ -174,31 +182,31 @@ class Customize extends React.Component {
             this.promos = [];
         }
         // this.promoListUpdate = true;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleMessageModal(boolVal) {
-        this.setState({messageModal: boolVal});
+        this.setState({ messageModal: boolVal });
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({messageModal: true});
+        this.setState({ messageModal: true });
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     setPlayerType(playerType) {
-        this.setState({playerType: playerType})
+        this.setState({ playerType: playerType });
     }
 
     getComponents(screenCase) {
@@ -212,18 +220,28 @@ class Customize extends React.Component {
                         togleMessageModal={this.toggleMessageModal}
                     />
                 )}
-                {this.state.pieceName && this.state.rangeType && this.state.color && (
-                    <DisplayBoardModal
-                        theme={this.state.theme}
-                        expand={this.expand}
-                        color={this.state.color}
-                        pieceName={this.state.pieceName}
-                        rangeType={this.state.rangeType}
-                        img={this.defs[this.state.pieceName][this.state.color]["img"]}
-                        range={this.defs[this.state.pieceName][this.state.color][this.state.rangeType]}
-                        location="d4"
-                    />
-                )}
+                {this.state.pieceName &&
+                    this.state.rangeType &&
+                    this.state.color && (
+                        <DisplayBoardModal
+                            theme={this.state.theme}
+                            expand={this.expand}
+                            color={this.state.color}
+                            pieceName={this.state.pieceName}
+                            rangeType={this.state.rangeType}
+                            img={
+                                this.defs[this.state.pieceName][
+                                    this.state.color
+                                ]["img"]
+                            }
+                            range={
+                                this.defs[this.state.pieceName][
+                                    this.state.color
+                                ][this.state.rangeType]
+                            }
+                            location="d4"
+                        />
+                    )}
                 {/*<NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>*/}
                 <div className={this.props.classes.customize}>
                     <Background theme={this.state.theme} />
@@ -232,7 +250,7 @@ class Customize extends React.Component {
                     {/*    /!* <SearchBar updateSearch={this.updateSearch} /> *!/*/}
                     {/*</Box>*/}
                     <PieceProfiles
-                        context='custom-game'
+                        context="custom-game"
                         defs={this.defs}
                         promos={this.promos}
                         newReplacement={this.newReplacement}
@@ -242,13 +260,37 @@ class Customize extends React.Component {
                         togglePromo={this.togglePromo}
                         theme={this.state.theme}
                     />
-                    {/*<SubList subs={this.subs} theme={this.state.theme}/>*/}
-                    {/*<ScrollTable*/}
-                    {/*    listItems={this.promos}*/}
-                    {/*    width={availWidth()*0.48}*/}
-                    {/*    theme={this.state.theme}*/}
-                    {/*    title={<Typography className={this.props.classes.promos_title}>Pawn Promotions</Typography>}*/}
-                    {/*/>*/}
+                    {/*<PermanentDrawer*/}
+                    {/*    title='Customize Game'*/}
+                    {/*    drawerType='right'*/}
+                    {/*    content={*/}
+                    {/*        <PieceProfiles*/}
+                    {/*            context="custom-game"*/}
+                    {/*            defs={this.defs}*/}
+                    {/*            promos={this.promos}*/}
+                    {/*            newReplacement={this.newReplacement}*/}
+                    {/*            newReplaced={this.newReplaced}*/}
+                    {/*            expand={this.expand}*/}
+                    {/*            toggleSub={this.toggleSub}*/}
+                    {/*            togglePromo={this.togglePromo}*/}
+                    {/*            theme={this.state.theme}*/}
+                    {/*        />*/}
+                    {/*    }*/}
+                    {/*>*/}
+                    {/*    <ScrollTable*/}
+                    {/*        listItems={this.promos}*/}
+                    {/*        theme={this.state.theme}*/}
+                    {/*        title={*/}
+                    {/*            <Typography*/}
+                    {/*                className={this.props.classes.promos_title}*/}
+                    {/*            >*/}
+                    {/*                Pawn Promotions*/}
+                    {/*            </Typography>*/}
+                    {/*        }*/}
+                    {/*        style={{ fontSize: fontSize, width: "10em" }}*/}
+                    {/*    />*/}
+                    {/*    <SubList subs={this.subs} theme={this.state.theme} />*/}
+                    {/*</PermanentDrawer>*/}
                     {/*<Box className={this.props.classes.bottom_bar}>*/}
                     {/*    <CheckBox*/}
                     {/*        labelText="Promo All"*/}
@@ -295,7 +337,9 @@ class Customize extends React.Component {
         // if (this.promoListUpdate) this.divideList();
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
+                <MediaQuery minDeviceWidth={768}>
+                    {this.getComponents("desktop")}
+                </MediaQuery>
                 {/* <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery> */}
             </>
         );

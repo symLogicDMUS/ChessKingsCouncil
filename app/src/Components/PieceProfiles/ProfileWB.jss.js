@@ -5,7 +5,7 @@ import {themes} from "../styles/themes.jss";
 export const useStyles = makeStyles({
     profile_wb: props => ({
         fontSize: props.fontSize,
-        width: '85%',
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
     }),
     range_header: props => ({
         fontSize: props.fontSize,
-        width: '30em',
+        width: '11.55em',
         display: 'flex',
         flexDirection: 'row-reverse',
         flexWrap: 'no-wrap',

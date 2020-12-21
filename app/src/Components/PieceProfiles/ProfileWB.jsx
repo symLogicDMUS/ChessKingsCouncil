@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { getColorName } from "../helpers/getColorName";
-import { fontSizeAlt1 as fontSize } from "../styles/fontSize.jss";
+import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
@@ -66,7 +66,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize, width:'30em', isOutline: true }}
+                style={{ fontSize: fontSize, width:'11.55em', isOutline: true }}
                 buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />
@@ -85,7 +85,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize, width:'30em', isOutline: true }}
+                style={{ fontSize: fontSize, width:'11.55em', isOutline: true }}
                 buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />
