@@ -5,16 +5,19 @@ import {themes} from "../../styles/themes.jss";
 export const drawerWidth = availWidth() * 0.23;
 export const sideBarWidth = drawerWidth * 0.75;
 export const sideBarHeight = availHeight() * 0.9;
-const drawerItemWidth = '95%';
-const drawerItemMargin = '4%';
 
+/* unit % */
+export const drawerItemWidth = drawerWidth*0.86;
+export const drawerItemMarginTopBottom = '3.5%';
+export const drawerItemMarginLeft = '7%';
 
 export const drawer_component = (fontSize) => ({
-    width: drawerItemWidth,
-    margin: drawerItemMargin,
     fontSize: fontSize,
+    width: drawerItemWidth,
+    marginLeft: drawerItemMarginLeft,
+    marginTop: drawerItemMarginTopBottom,
+    marginBottom: drawerItemMarginTopBottom,
     fontFamily: 'Roboto-Light, Roboto',
-    marginBottom: '1em',
 });
 
 export const drawer_table_button = (fontSize) => ({
@@ -29,10 +32,8 @@ export const drawer_table_button = (fontSize) => ({
 
 export const list_title = (fontSize, theme) => ({
     textAlign: 'center',
-    width: drawerItemWidth,
     ...text(fontSize, theme),
     backgroundColor: themes[theme].fill,
-    outline: `0.05em solid ${themes[theme].outline}`,
 });
 
 export const styles = {
@@ -44,14 +45,17 @@ export const styles = {
         width: availWidth(),
     },
     list_title: props => ({
+        width: drawerItemWidth,
         ...list_title(props.fontSize, props.theme),
+        outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
-    box: props => ({
+    promo_all_container: props => ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignContent: 'center',
+        ...drawer_component(props.fontSize),
     }),
     divider: props => ({
         fontSize: props.fontSize,

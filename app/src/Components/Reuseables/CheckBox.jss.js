@@ -11,6 +11,9 @@ export const useStyles = makeStyles({
     checkbox_root: props => ({
         ...props.rootStyle,
     }),
+    circle_container: props => ({
+        ...props.circleStyle,
+    }),
     text: props =>  ({
         ...props.style,
         color: themes[props.theme].text,

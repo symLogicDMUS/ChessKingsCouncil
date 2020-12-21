@@ -264,10 +264,20 @@ class Customize extends React.Component {
                             />
                         }
                     >
+                        <Box className={this.props.classes.promo_all_container}>
+                            <CheckBox
+                                labelText="Promo All"
+                                clickValue={null}
+                                theme={this.state.theme}
+                                clickMethod={this.togglePromoAll}
+                                style={{fontSize: fontSize*1.2}}
+                                rootStyle={{marginLeft: '-0.15em', marginTop: 0}}
+                            />
+                        </Box>
                         <ScrollTable
                             listItems={this.promos}
                             theme={this.state.theme}
-                            style={{...drawer_component(fontSize), isOutline: true}}
+                            style={{...drawer_component(fontSize), marginTop: 0, isOutline: true}}
                             buttonStyle={drawer_table_button(fontSize)}
                             title={
                                 <Typography
@@ -278,35 +288,27 @@ class Customize extends React.Component {
                             }
                         />
                         <SubList subs={this.subs} theme={this.state.theme}/>
-                        {/*<Box className={this.props.classes.box}>*/}
-                        {/*    <CheckBox*/}
-                        {/*        labelText="Promo All"*/}
-                        {/*        clickMethod={this.togglePromoAll}*/}
-                        {/*        clickValue={null}*/}
-                        {/*        theme={this.state.theme}*/}
-                        {/*    />*/}
-                        {/*</Box>*/}
-                        {/*<Dropdown*/}
-                        {/*    updateParent={this.setPlayerType}*/}
-                        {/*    list={[*/}
-                        {/*        <MenuItem value="None">*/}
-                        {/*            <em>None</em>*/}
-                        {/*        </MenuItem>,*/}
-                        {/*        <MenuItem value="Test">Test</MenuItem>,*/}
-                        {/*        <MenuItem value="White">White</MenuItem>,*/}
-                        {/*        <MenuItem value="Black">Black</MenuItem>,*/}
-                        {/*    ]}*/}
-                        {/*    theme={this.state.theme}*/}
-                        {/*    style={drawer_component(fontSize)}*/}
-                        {/*    overwrite={null}*/}
-                        {/*    fullWidth={true}*/}
-                        {/*    variant='outlined'*/}
-                        {/*    label='Play As'*/}
-                        {/*    inputLabel='Play As'*/}
-                        {/*    inputId='play-as-input'*/}
-                        {/*    selectId='play-as-selected'*/}
-                        {/*    labelId='play-as-label'*/}
-                        {/*/>*/}
+                        <Dropdown
+                            updateParent={this.setPlayerType}
+                            list={[
+                                <MenuItem value="None">
+                                    <em>None</em>
+                                </MenuItem>,
+                                <MenuItem value="Test">Test</MenuItem>,
+                                <MenuItem value="White">White</MenuItem>,
+                                <MenuItem value="Black">Black</MenuItem>,
+                            ]}
+                            theme={this.state.theme}
+                            style={drawer_component(fontSize)}
+                            overwrite={null}
+                            fullWidth={true}
+                            variant='outlined'
+                            label='Play As'
+                            inputLabel='Play As'
+                            inputId='play-as-input'
+                            selectId='play-as-selected'
+                            labelId='play-as-label'
+                        />
                         {/*<Button*/}
                         {/*    onClick={this.accept}*/}
                         {/*    style={drawer_component(fontSize)}*/}

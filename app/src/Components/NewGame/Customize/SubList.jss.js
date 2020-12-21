@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {text} from "../../PieceProfiles/Header/PieceHeader.jss"
 import {themes} from "../../styles/themes.jss";
-import {list_title} from "./Customize.jss";
+import {drawer_component, list_title} from "./Customize.jss";
 
 export const piece_label = (fontSize, theme) => ({
     width: '25%',
@@ -14,20 +14,22 @@ export const piece_label = (fontSize, theme) => ({
 export const piece_value = (fontSize, theme) => ({
     width: '75%',
     height: '2em',
-    paddingLeft: '5%',
     ...text(fontSize, theme),
 });
 
 export const useStyles = makeStyles({
     sub_list: props =>  ({
-        width: '99%',
-        marginTop: '1em',
+        ...drawer_component(props.fontSize),
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     header: props => ({
+        width: '100%',
         ...list_title(props.fontSize, props.theme),
+        outline: `0.05em solid ${themes[props.theme].outline}`,
+        borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
     piece_label_even: props => ({
         ...piece_label(props.fontSize, props.theme),

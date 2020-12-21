@@ -6,14 +6,15 @@ import Typography from "@material-ui/core/Typography";
 import {FormControlLabel} from "@material-ui/core";
 import {useStyles} from "./CheckBox.jss";
 
-export function CheckBox({clickMethod, clickValue, labelText, checkmarkState, style, rootStyle, theme}) {
+export function CheckBox({clickMethod, clickValue, labelText, checkmarkState, style, rootStyle, circleStyle, theme}) {
 
-    const classes = useStyles({style, rootStyle, theme})
+    const classes = useStyles({style, rootStyle, circleStyle, theme})
 
     return (
         <FormControlLabel
             control={
                 <Checkbox
+                    className={classes.circle_container}
                     icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
                     checkedIcon={<CheckBoxIcon className={classes.checked}/>}
                     onClick={() => clickMethod(clickValue)}
