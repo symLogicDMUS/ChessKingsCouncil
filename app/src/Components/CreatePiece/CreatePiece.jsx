@@ -30,9 +30,10 @@ import { NameDisplayAboveBoard } from "./Name/NameDisplayAboveBoard/NameDisplayA
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import { styles } from "./CreatePiece.jss";
+import {drawerWidth, sideBarWidth, styles} from "./CreatePiece.jss";
 import Box from "@material-ui/core/Box";
 import {SideBar} from "../Reuseables/SidBar";
+import {availWidth} from "../helpers/windowMeasurments";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -516,6 +517,8 @@ class CreatePiece extends React.Component {
                 <PermanentDrawer
                     title='Create Piece'
                     drawerType='right'
+                    theme={this.state.theme}
+                    width={drawerWidth}
                     content={
                         <Board
                             key="content"
@@ -570,10 +573,11 @@ class CreatePiece extends React.Component {
                         screenCase={screenCase}
                     />
                 </PermanentDrawer>
-                <SideBar drawerType='left'>
+                <SideBar theme={this.state.theme} drawerType='left' width={sideBarWidth}>
                     <NavBar
                         currentPage="CreatePiece"
                         flexDirection='column'
+                        width={sideBarWidth*0.98}
                         redirectMessage={createPieceRedirectMessageStr}
                         unsavedChanges={this.state.unsavedChanges}
                         theme={this.state.theme}

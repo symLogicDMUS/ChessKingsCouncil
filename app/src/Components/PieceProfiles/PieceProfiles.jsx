@@ -69,7 +69,6 @@ export function PieceProfiles(props) {
                             newReplaced={props.newReplaced}
                             togglePromo={props.togglePromo}
                             theme={props.theme}
-                            style={{ justifyContent: "spaced-evenly" }}
                         />
                     </Profile>
                 );

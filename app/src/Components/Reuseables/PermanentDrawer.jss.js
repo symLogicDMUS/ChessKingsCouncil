@@ -1,30 +1,32 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {themes} from "../styles/themes.jss";
 
-export const drawerWidth = availWidth() * 0.23;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
     appBar: props =>  ({
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginRight: props.drawerType === 'right' ?  drawerWidth : 0,
-        marginLeft: props.drawerType === 'left' ? drawerWidth : 0,
+        width: `calc(100% - ${props.width}px)`,
+        marginRight: props.drawerType === 'right' ?  props.width : 0,
+        marginLeft: props.drawerType === 'left' ? props.width : 0,
     }),
-    drawer: {
-        width: drawerWidth,
+    drawer: props => ({
+        width: props.width,
+        height: availHeight()*0.98,
         flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-        backgroundColor: '#515151'
-    },
+    }),
+    drawerPaper: props => ({
+        width: props.width,
+        height: availHeight()*0.98,
+        backgroundColor: themes[props.theme].fill,
+    }),
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
-    appbar: {
-        backgroundColor: '#515151',
-        color: '#b6b6b6',
+    appbar: props => ({
+        color: themes[props.theme].text,
+        backgroundColor: themes[props.theme].fill,
         fontFamily: 'Roboto-Light, Roboto'
-    },
+    }),
 }));

@@ -1,10 +1,10 @@
-import React from "react";
-import { Button, IconButton } from "@material-ui/core";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import { icons } from "../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { fontSize } from "../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
+import { fontSize } from "../styles/fontSize.jss";
 import { useStyles } from "./NavBarButton.jss";
 
 export function NavBarButton({
@@ -12,22 +12,43 @@ export function NavBarButton({
     pageName,
     pageIcon,
     theme,
+    width,
+    parentFlex,
     isLocalLink,
     unsavedChanges,
     toggleConfirmRedirect,
-    flexDirection,
 }) {
     let history = useHistory();
-    let pageRedirectMethod = isLocalLink ? () => (window.location.href = path) : () => history.push(path);
-    if (unsavedChanges) pageRedirectMethod = () => toggleConfirmRedirect(true, path, isLocalLink);
+    let pageRedirectMethod = isLocalLink
+        ? () => (window.location.href = path)
+        : () => history.push(path);
+    if (unsavedChanges)
+        pageRedirectMethod = () =>
+            toggleConfirmRedirect(true, path, isLocalLink);
 
-    const classes = useStyles({ theme: theme, fontSize: fontSize, flexDirection: flexDirection });
+    let [hover, setHover] = useState(false);
+
+    const classes = useStyles({
+        theme: theme,
+        width: width,
+        fontSize: fontSize,
+        parentFlex: parentFlex,
+    });
 
     return (
-        <Button className={classes.nav_bar_button} onClick={pageRedirectMethod}>
+        <Button
+            className={classes.nav_bar_button}
+            onClick={pageRedirectMethod}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+        >
             <Box className={classes.box}>
-                <SvgIcon className={classes.icon}>{icons[pageIcon]}</SvgIcon>
-                <div className={classes.text}>{pageName}</div>
+                <SvgIcon className={hover ? classes.icon_hover : classes.icon}>
+                    {icons[pageIcon]}
+                </SvgIcon>
+                <div className={hover ? classes.text_hover : classes.text}>
+                    {pageName}
+                </div>
             </Box>
         </Button>
     );

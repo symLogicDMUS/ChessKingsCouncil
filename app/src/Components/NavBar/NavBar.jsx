@@ -18,6 +18,9 @@ export function NavBar(props) {
 
     const classes = useStyles({theme: props.theme, fontSize: fontSize, flexDirection: props.flexDirection})
 
+    const buttonWidth =  props.flexDirection === 'column' ? props.width*0.98 : 0;
+    // const buttonFontSize = props.flexDirection === 'column' ? fontSize * 1.2 : fontSize;
+
     let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
     if (props.redirectMessage) redirectMessage = props.redirectMessage;
 
@@ -58,100 +61,109 @@ export function NavBar(props) {
             )}
             <Box className={classes.nav_bar}>
                 <HelpButton
+                    pageIcon="help"
+                    theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     currentPage={props.currentPage}
                     togleHelpModal={toggleHelpModal}
                     setIsFirstTime={setIsFirstTime}
-                    theme={props.theme}
-                    pageIcon="help"
-                    flexDirection={props.flexDirection}
                 />
                 <NavBarButton
-                    pageName="Home"
                     path="/"
+                    pageName="Home"
                     pageIcon="home"
                     className="home"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="New Game"
                     path="/NewGame"
+                    pageName="New Game"
                     pageIcon="new-game"
                     className="new_game"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="Load Game"
                     path="/LoadGame"
+                    pageName="Load Game"
                     pageIcon="load-game"
                     className="load_game"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="Create Piece"
                     path="/CreatePiece"
+                    pageName="Create Piece"
                     pageIcon="create-piece"
                     className="create_piece"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="Chess Rules"
                     path="https://www.chess.com/learn-how-to-play-chess"
+                    pageName="Chess Rules"
                     pageIcon="chess-rules"
                     className="chess_rules"
                     isLocalLink={false}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
-                    unsavedChanges={props.unsavedChanges}
                     theme={props.theme}
-                    flexDirection={props.flexDirection}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
+                    unsavedChanges={props.unsavedChanges}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="Council Rules"
                     path="/CouncilRules"
+                    pageName="Council Rules"
                     pageIcon="council-rules"
                     className="council_rules"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="My Pieces"
                     path="/MyPieces"
+                    pageName="My Pieces"
                     pageIcon="my-pieces"
                     className="my_pieces"
                     isLocalLink={true}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
-                    pageName="Author Github"
                     path="https://github.com/symLogicDMUS"
+                    pageName="Author Github"
                     pageIcon="author-github"
                     className="author_github"
                     isLocalLink={false}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                     theme={props.theme}
+                    width={buttonWidth}
+                    parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    flexDirection={props.flexDirection}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
             </Box>
         </>

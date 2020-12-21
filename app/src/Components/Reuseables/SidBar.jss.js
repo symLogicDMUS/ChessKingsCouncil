@@ -1,7 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {drawerWidth} from "./PermanentDrawer.jss";
-
-export const sidBarWidth = drawerWidth * 0.75;
+import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,10 +9,10 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexShrink: 0,
     },
-    drawerPaper: {
-        width: sidBarWidth,
-        backgroundColor: '#414141',
-    },
+    drawerPaper: props => ({
+        width: props.width,
+        backgroundColor: themes[props.theme].fill,
+    }),
     toolbar: theme.mixins.toolbar,
     appbar: {
         backgroundColor: '#515151',

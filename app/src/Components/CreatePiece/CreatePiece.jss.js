@@ -1,10 +1,11 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
-import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const toolLeft = () => availWidth() * 0.57;
 export const toolTitleFontSize = () => availHeight() * 0.0225;
+export const drawerWidth = availWidth() * 0.23;
+export const sideBarWidth = drawerWidth * 0.75
 
 /**
  * em units
@@ -14,7 +15,7 @@ export const margin = 1.1;
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
-    width: drawerWidth,
+    width: '100%',
     backgroundColor: themes[theme].fill,
 })
 

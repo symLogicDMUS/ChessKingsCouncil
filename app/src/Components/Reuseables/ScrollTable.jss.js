@@ -4,7 +4,7 @@ const list_item = (width, theme) => ({
     color: themes[theme].text,
     fontSize: '1em',
     height: '2em',
-    width: width,
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'no-wrap',
@@ -23,6 +23,7 @@ export const styles = {
         flexDirection: 'column',
     }),
     list_items: props => ({
+        width: props.style.width,
         outline: props.style.isOutline ? `0.05em solid ${themes[props.theme].outline}` : 'none'
     }),
     list_item_even : props => ({

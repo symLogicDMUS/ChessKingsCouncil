@@ -1,28 +1,29 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import { withStyles } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import { NavBar } from "../../NavBar/NavBar";
-import { SubList } from "./SubList";
-import { getDefs } from "../../../API/getDefs";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
-import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
-import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
-import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
-import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
-import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import { CheckBox } from "../../Reuseables/CheckBox";
-import { Dropdown } from "../../Reuseables/Dropdown";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
-import { dropdownStyle } from "../GameOptions/PlayAs.jss";
-import { fontSize } from "../../styles/fontSize.jss";
-import { MuiButton as Button } from "../../Reuseables/MuiButton";
+import Divider from "@material-ui/core/Divider";
+import {getDefs} from "../../../API/getDefs";
+import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
+import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
+import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
+import {SubList} from "./SubList";
+import {NavBar} from "../../NavBar/NavBar";
+import {SideBar} from "../../Reuseables/SidBar";
+import {CheckBox} from "../../Reuseables/CheckBox";
+import {Dropdown} from "../../Reuseables/Dropdown";
 import ScrollTable from "../../Reuseables/ScrollTable";
-import { availWidth } from "../../helpers/windowMeasurments";
-import { Background } from "../../Reuseables/Background";
-import { styles } from "./Customize.jss";
+import {Background} from "../../Reuseables/Background";
+import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import {MessageModal} from "../../NavBar/Help/MessageModal";
+import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
+import {withStyles} from "@material-ui/core";
+import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import {drawer_component, drawer_table_button, drawerWidth, sideBarHeight, sideBarWidth, styles} from "./Customize.jss";
+
 
 class Customize extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = { none: null };
+        this.hmChildren = {none: null};
         this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
@@ -80,7 +81,7 @@ class Customize extends React.Component {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
-            this.setState({ binaryValue: !this.state.binaryValue });
+            this.setState({binaryValue: !this.state.binaryValue});
         });
     }
 
@@ -158,7 +159,7 @@ class Customize extends React.Component {
         });
         this.newReplacement = sub;
         this.newReplaced = standardPiece;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togglePromo(pieceName) {
@@ -167,7 +168,7 @@ class Customize extends React.Component {
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
         // this.promoListUpdate = true;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togglePromoAll() {
@@ -182,31 +183,31 @@ class Customize extends React.Component {
             this.promos = [];
         }
         // this.promoListUpdate = true;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     toggleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     toggleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
+        this.setState({messageModal: boolVal});
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({ messageModal: true });
+        this.setState({messageModal: true});
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     setPlayerType(playerType) {
-        this.setState({ playerType: playerType });
+        this.setState({playerType: playerType});
     }
 
     getComponents(screenCase) {
@@ -221,113 +222,111 @@ class Customize extends React.Component {
                     />
                 )}
                 {this.state.pieceName &&
-                    this.state.rangeType &&
-                    this.state.color && (
-                        <DisplayBoardModal
-                            theme={this.state.theme}
-                            expand={this.expand}
-                            color={this.state.color}
-                            pieceName={this.state.pieceName}
-                            rangeType={this.state.rangeType}
-                            img={
-                                this.defs[this.state.pieceName][
-                                    this.state.color
-                                ]["img"]
-                            }
-                            range={
-                                this.defs[this.state.pieceName][
-                                    this.state.color
-                                ][this.state.rangeType]
-                            }
-                            location="d4"
-                        />
-                    )}
-                {/*<NavBar currentPage="Customize" theme={this.state.theme} unsavedChanges={false}/>*/}
-                <div className={this.props.classes.customize}>
-                    <Background theme={this.state.theme} />
-                    {/*<Box className={this.props.classes.header}>*/}
-                    {/*    <Typography className={this.props.classes.title}>Customize Game</Typography>*/}
-                    {/*    /!* <SearchBar updateSearch={this.updateSearch} /> *!/*/}
-                    {/*</Box>*/}
-                    <PieceProfiles
-                        context="custom-game"
-                        defs={this.defs}
-                        promos={this.promos}
-                        newReplacement={this.newReplacement}
-                        newReplaced={this.newReplaced}
-                        expand={this.expand}
-                        toggleSub={this.toggleSub}
-                        togglePromo={this.togglePromo}
+                this.state.rangeType &&
+                this.state.color && (
+                    <DisplayBoardModal
                         theme={this.state.theme}
+                        expand={this.expand}
+                        color={this.state.color}
+                        pieceName={this.state.pieceName}
+                        rangeType={this.state.rangeType}
+                        img={
+                            this.defs[this.state.pieceName][
+                                this.state.color
+                                ]["img"]
+                        }
+                        range={
+                            this.defs[this.state.pieceName][
+                                this.state.color
+                                ][this.state.rangeType]
+                        }
+                        location="d4"
                     />
-                    {/*<PermanentDrawer*/}
-                    {/*    title='Customize Game'*/}
-                    {/*    drawerType='right'*/}
-                    {/*    content={*/}
-                    {/*        <PieceProfiles*/}
-                    {/*            context="custom-game"*/}
-                    {/*            defs={this.defs}*/}
-                    {/*            promos={this.promos}*/}
-                    {/*            newReplacement={this.newReplacement}*/}
-                    {/*            newReplaced={this.newReplaced}*/}
-                    {/*            expand={this.expand}*/}
-                    {/*            toggleSub={this.toggleSub}*/}
-                    {/*            togglePromo={this.togglePromo}*/}
-                    {/*            theme={this.state.theme}*/}
-                    {/*        />*/}
-                    {/*    }*/}
-                    {/*>*/}
-                    {/*    <ScrollTable*/}
-                    {/*        listItems={this.promos}*/}
-                    {/*        theme={this.state.theme}*/}
-                    {/*        title={*/}
-                    {/*            <Typography*/}
-                    {/*                className={this.props.classes.promos_title}*/}
-                    {/*            >*/}
-                    {/*                Pawn Promotions*/}
-                    {/*            </Typography>*/}
-                    {/*        }*/}
-                    {/*        style={{ fontSize: fontSize, width: "10em" }}*/}
-                    {/*    />*/}
-                    {/*    <SubList subs={this.subs} theme={this.state.theme} />*/}
-                    {/*</PermanentDrawer>*/}
-                    {/*<Box className={this.props.classes.bottom_bar}>*/}
-                    {/*    <CheckBox*/}
-                    {/*        labelText="Promo All"*/}
-                    {/*        clickMethod={this.togglePromoAll}*/}
-                    {/*        clickValue={null}*/}
-                    {/*        theme={this.state.theme}*/}
-                    {/*    />*/}
-                    {/*    <Dropdown*/}
-                    {/*        updateParent={this.setPlayerType}*/}
-                    {/*        list={[*/}
-                    {/*            <MenuItem value="None">*/}
-                    {/*                <em>None</em>*/}
-                    {/*            </MenuItem>,*/}
-                    {/*            <MenuItem value="Test">Test</MenuItem>,*/}
-                    {/*            <MenuItem value="White">White</MenuItem>,*/}
-                    {/*            <MenuItem value="Black">Black</MenuItem>,*/}
-                    {/*        ]}*/}
-                    {/*        overwrite={null}*/}
-                    {/*        variant='outlined'*/}
-                    {/*        theme={this.state.theme}*/}
-                    {/*        style={dropdownStyle(fontSize)}*/}
-                    {/*        label='Play As'*/}
-                    {/*        inputLabel='Play As'*/}
-                    {/*        inputId='play-as-input'*/}
-                    {/*        selectId='play-as-selected'*/}
-                    {/*        labelId='play-as-label'*/}
-                    {/*    />*/}
-                    {/*    <Button*/}
-                    {/*        onClick={this.accept}*/}
-                    {/*        style={{fontFamily: 'Roboto-Light, Roboto'}}*/}
-                    {/*        theme={this.state.theme}*/}
-                    {/*        variant={'contained'}*/}
-                    {/*        isDisabled={false}*/}
-                    {/*    >*/}
-                    {/*        Ok*/}
-                    {/*    </Button>*/}
-                    {/*</Box>*/}
+                )}
+                <div className={this.props.classes.customize}>
+                    <Background theme={this.state.theme}/>
+                    <PermanentDrawer
+                        title='Customize Game'
+                        drawerType='right'
+                        width={drawerWidth}
+                        theme={this.state.theme}
+                        content={
+                            <PieceProfiles
+                                context="custom-game"
+                                defs={this.defs}
+                                promos={this.promos}
+                                newReplacement={this.newReplacement}
+                                newReplaced={this.newReplaced}
+                                expand={this.expand}
+                                toggleSub={this.toggleSub}
+                                togglePromo={this.togglePromo}
+                                theme={this.state.theme}
+                            />
+                        }
+                    >
+                        <ScrollTable
+                            listItems={this.promos}
+                            theme={this.state.theme}
+                            style={{...drawer_component(fontSize), isOutline: true}}
+                            buttonStyle={drawer_table_button(fontSize)}
+                            title={
+                                <Typography
+                                    className={this.props.classes.list_title}
+                                >
+                                    Pawn Promotions
+                                </Typography>
+                            }
+                        />
+                        <SubList subs={this.subs} theme={this.state.theme}/>
+                        {/*<Box className={this.props.classes.box}>*/}
+                        {/*    <CheckBox*/}
+                        {/*        labelText="Promo All"*/}
+                        {/*        clickMethod={this.togglePromoAll}*/}
+                        {/*        clickValue={null}*/}
+                        {/*        theme={this.state.theme}*/}
+                        {/*    />*/}
+                        {/*</Box>*/}
+                        {/*<Dropdown*/}
+                        {/*    updateParent={this.setPlayerType}*/}
+                        {/*    list={[*/}
+                        {/*        <MenuItem value="None">*/}
+                        {/*            <em>None</em>*/}
+                        {/*        </MenuItem>,*/}
+                        {/*        <MenuItem value="Test">Test</MenuItem>,*/}
+                        {/*        <MenuItem value="White">White</MenuItem>,*/}
+                        {/*        <MenuItem value="Black">Black</MenuItem>,*/}
+                        {/*    ]}*/}
+                        {/*    theme={this.state.theme}*/}
+                        {/*    style={drawer_component(fontSize)}*/}
+                        {/*    overwrite={null}*/}
+                        {/*    fullWidth={true}*/}
+                        {/*    variant='outlined'*/}
+                        {/*    label='Play As'*/}
+                        {/*    inputLabel='Play As'*/}
+                        {/*    inputId='play-as-input'*/}
+                        {/*    selectId='play-as-selected'*/}
+                        {/*    labelId='play-as-label'*/}
+                        {/*/>*/}
+                        {/*<Button*/}
+                        {/*    onClick={this.accept}*/}
+                        {/*    style={drawer_component(fontSize)}*/}
+                        {/*    theme={this.state.theme}*/}
+                        {/*    variant={'contained'}*/}
+                        {/*    isDisabled={false}*/}
+                        {/*>*/}
+                        {/*    Ok*/}
+                        {/*</Button>*/}
+                    </PermanentDrawer>
+                    <SideBar theme={this.state.theme} drawerType='left' width={sideBarWidth} height={sideBarHeight}>
+                        <NavBar
+                            currentPage="Customize"
+                            flexDirection='column'
+                            height={sideBarHeight * 0.98}
+                            width={sideBarWidth * 0.98}
+                            unsavedChanges={false}
+                            theme={this.state.theme}
+                        />
+                    </SideBar>
                 </div>
             </>
         );

@@ -12,12 +12,11 @@ export const header = (fontSize, style, theme) => ({
     flexDirection: 'row',
     flexWrap: 'no-wrap',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
     backgroundColor: themes[theme].fill,
 });
 
 export const text = (fontSize, theme) => ({
-    fontSize: fontSize*1.5,
+    fontSize: fontSize,
     fontFamily: 'Roboto-Light, Roboto',
     color: themes[theme].text,
 });

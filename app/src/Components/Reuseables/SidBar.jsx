@@ -3,8 +3,8 @@ import Drawer from "@material-ui/core/Drawer";
 import { useStyles } from "./SidBar.jss";
 
 
-export function SideBar({drawerType, children }) {
-    const classes = useStyles({drawerType})
+export function SideBar({theme, drawerType, width, children }) {
+    const classes = useStyles({theme, drawerType, width})
     return (
         <div className={classes.root}>
             <Drawer
