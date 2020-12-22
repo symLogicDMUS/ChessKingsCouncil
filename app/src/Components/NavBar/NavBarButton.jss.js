@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         ...text(props.fontSize),
-        color: themes[props.theme].outline,
+        color: themes[props.theme].text_alt2,
     }),
     text_hover: props => ({
         ...text(props.fontSize),
@@ -40,7 +40,7 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         ...icon(props.fontSize),
-        color: themes[props.theme].outline,
+        color: themes[props.theme].text_alt2,
     }),
     icon_hover: props => ({
         ...icon(props.fontSize),

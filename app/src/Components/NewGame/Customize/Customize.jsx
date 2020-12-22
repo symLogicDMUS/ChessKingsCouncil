@@ -22,8 +22,16 @@ import {MessageModal} from "../../NavBar/Help/MessageModal";
 import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
 import {withStyles} from "@material-ui/core";
 import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
-import {drawer_component, drawer_table_button, drawerWidth, sideBarHeight, sideBarWidth, styles} from "./Customize.jss";
-
+import {
+    drawer_component,
+    drawer_table_button, drawerItemWidth,
+    drawerWidth,
+    list_title,
+    sideBarHeight,
+    sideBarWidth,
+    styles,
+} from "./Customize.jss";
+import {themes} from "../../styles/themes.jss";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -233,7 +241,7 @@ class Customize extends React.Component {
                         img={
                             this.defs[this.state.pieceName][
                                 this.state.color
-                                ]["img"]
+                                ].img
                         }
                         range={
                             this.defs[this.state.pieceName][
@@ -246,8 +254,8 @@ class Customize extends React.Component {
                 <div className={this.props.classes.customize}>
                     <Background theme={this.state.theme}/>
                     <PermanentDrawer
-                        title='Customize Game'
-                        drawerType='right'
+                        title="Customize Game"
+                        drawerType="right"
                         width={drawerWidth}
                         theme={this.state.theme}
                         content={
@@ -264,27 +272,33 @@ class Customize extends React.Component {
                             />
                         }
                     >
-                        <Box className={this.props.classes.promo_all_container}>
-                            <CheckBox
-                                labelText="Promo All"
-                                clickValue={null}
-                                theme={this.state.theme}
-                                clickMethod={this.togglePromoAll}
-                                style={{fontSize: fontSize*1.2}}
-                                rootStyle={{marginLeft: '-0.15em', marginTop: 0}}
-                            />
-                        </Box>
                         <ScrollTable
                             listItems={this.promos}
                             theme={this.state.theme}
-                            style={{...drawer_component(fontSize), marginTop: 0, isOutline: true}}
+                            style={{
+                                ...drawer_component(fontSize),
+                                marginTop: 0,
+                                isOutline: true,
+                            }}
                             buttonStyle={drawer_table_button(fontSize)}
                             title={
                                 <Typography
-                                    className={this.props.classes.list_title}
+                                    className={
+                                        this.props.classes.list_title
+                                    }
                                 >
                                     Pawn Promotions
                                 </Typography>
+                            }
+                            subHeader={
+                                <CheckBox
+                                    labelText="Promo All"
+                                    clickValue={null}
+                                    theme={this.state.theme}
+                                    clickMethod={this.togglePromoAll}
+                                    style={{fontSize: fontSize * 0.8}}
+                                    rootStyle={{marginLeft: drawerItemWidth*0.025}}
+                                />
                             }
                         />
                         <SubList subs={this.subs} theme={this.state.theme}/>
@@ -302,27 +316,32 @@ class Customize extends React.Component {
                             style={drawer_component(fontSize)}
                             overwrite={null}
                             fullWidth={true}
-                            variant='outlined'
-                            label='Play As'
-                            inputLabel='Play As'
-                            inputId='play-as-input'
-                            selectId='play-as-selected'
-                            labelId='play-as-label'
+                            variant="outlined"
+                            label="Play As"
+                            inputLabel="Play As"
+                            inputId="play-as-input"
+                            selectId="play-as-selected"
+                            labelId="play-as-label"
                         />
-                        {/*<Button*/}
-                        {/*    onClick={this.accept}*/}
-                        {/*    style={drawer_component(fontSize)}*/}
-                        {/*    theme={this.state.theme}*/}
-                        {/*    variant={'contained'}*/}
-                        {/*    isDisabled={false}*/}
-                        {/*>*/}
-                        {/*    Ok*/}
-                        {/*</Button>*/}
+                        <Button
+                            onClick={this.accept}
+                            style={drawer_component(fontSize)}
+                            theme={this.state.theme}
+                            variant={'contained'}
+                            isDisabled={false}
+                        >
+                            Ok
+                        </Button>
                     </PermanentDrawer>
-                    <SideBar theme={this.state.theme} drawerType='left' width={sideBarWidth} height={sideBarHeight}>
+                    <SideBar
+                        theme={this.state.theme}
+                        drawerType="left"
+                        width={sideBarWidth}
+                        height={sideBarHeight}
+                    >
                         <NavBar
                             currentPage="Customize"
-                            flexDirection='column'
+                            flexDirection="column"
                             height={sideBarHeight * 0.98}
                             width={sideBarWidth * 0.98}
                             unsavedChanges={false}

@@ -88,6 +88,7 @@ class ScrollTable extends React.Component {
                     <ArrowDropUpIcon />
                 </Button>
                 <Box className={this.props.classes.list_items}>
+                    {this.props.subHeader && (<Box className={this.props.classes.sub_header}>{this.props.subHeader}</Box>)}
                     <Box className={this.props.classes.list_item_odd}>
                         <Typography
                             className={this.props.classes.text}

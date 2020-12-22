@@ -10,7 +10,8 @@ export const themes = {
         modal_fill: '#414141',
         even_row: '#414141',
         odd_row: '#474747',
-        alt_text: '#707070',
+        text_alt: '#707070',
+        text_alt2: '#252525',
     },
     green: {
         outline: '#b1faae',
@@ -48,6 +49,7 @@ export const themes = {
         even_row: '#1b1b1b',
         odd_row: '#3d3d3d',
     },
+
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:
      * 'cannot read property foo of undefined'

@@ -51,4 +51,8 @@ export const styles = {
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
     }),
+    sub_header: props => ({
+        ...list_item(props.style.width, props.theme),
+        backgroundColor: themes[props.theme].even_row,
+    }),
 };
