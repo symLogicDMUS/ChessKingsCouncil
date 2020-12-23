@@ -1,7 +1,7 @@
 import React from "react";
-import { useStyles } from "./RangePiece.jss";
+import { useStyles } from "./RangeDisplayPiece.jss";
 
-export function RangePiece({ id, toggleDisplayOfPieceRange, pieceImgBase64Str, alt }) {
+export function RangeDisplayPiece({ id, toggleDisplayOfPieceRange, pieceImgBase64Str, alt }) {
     const classes = useStyles();
     return (
         <img

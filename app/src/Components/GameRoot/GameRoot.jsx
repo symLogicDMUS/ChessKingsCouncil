@@ -326,6 +326,7 @@ class GameRoot extends React.Component {
             <div>
                 {this.state.messageModal && (
                     <MessageModal
+                        theme={this.state.theme}
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.toggleMessageModal}

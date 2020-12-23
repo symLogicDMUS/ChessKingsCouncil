@@ -1,7 +1,7 @@
 import React from "react";
-import {rankfiles} from "../../helpers/rankfiles";
-import {fontSize} from "../../styles/fontSize.jss";
 import {AiSquare} from "./AISquare";
+import {rankfiles} from "../../helpers/rankfiles";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./AIBoard.jss";
 
 

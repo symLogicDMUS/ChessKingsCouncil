@@ -3,13 +3,14 @@ import { rankfiles } from "../../../helpers/rankfiles";
 import { getPieceImg } from "../../../MyPieces/getPieceImg";
 import {getPieceName} from "../../../helpers/getPieceName";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
-import { RangePiece } from "./RangePiece";
+import { RangeDisplayPiece } from "./RangeDisplayPiece";
+import {smallBoardFontSize as fontSize} from "../../../styles/fontSize.jss";
 import {useStyles} from "./RangeDisplayBoard.jss";
 
 
 export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs }) {
     let [pieceId, setPieceId] = useState(null);
-    const classes = useStyles()
+    const classes = useStyles({fontSize})
     
     const toggleDisplayOfPieceRange = (newPieceId) => {
         /**Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares  */
@@ -40,7 +41,7 @@ export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs })
             } else {
                 squares.push(
                     <RangeDisplaySquare rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
-                        <RangePiece
+                        <RangeDisplayPiece
                             id={board[rf]}
                             toggleDisplayOfPieceRange={toggleDisplayOfPieceRange}
                             pieceImgBase64Str={getPieceImg(board[rf], idDict, pieceDefs)}

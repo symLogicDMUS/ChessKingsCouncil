@@ -462,7 +462,6 @@ class CreatePiece extends React.Component {
             <>
                 {this.state.isMessageModal && (
                     <MessageModal
-                        screenCase={screenCase}
                         theme={this.state.theme}
                         messageTitle={this.msgModalConfig.title}
                         messageText={this.msgModalConfig.text}

@@ -1,86 +1,80 @@
-import React from "react";
+import React, {useState} from "react";
 import {rankfiles} from "../../helpers/rankfiles";
-import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
-import {DisplayPiece as Piece} from "./DisplayPiece";
+import {ModalDisplayPiece as Piece} from "./ModalDisplayPiece";
 import {stepFuncDict2} from "../../helpers/stepFuncs";
 import {outOfBounds} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
+import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
+import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import withStyles from "@material-ui/core/styles/withStyles";
 import {binaryBoard} from "../../helpers/binaryBoard";
-import {styles} from "./ModalDisplayBoard.jss";
+import {useStyles} from "./ModalDisplayBoard.jss";
 
-export class ModalDisplayBoard extends React.Component {
+export function ModalDisplayBoard({img, rangeType, range, theme, location}) {
 
-    constructor(props) {
-        super(props);
-        this.spanDisplays = getBinaryBoarAllFalse();
-        this.jumpDisplays = getBinaryBoarAllFalse();
-    }
+    let [spanDisplays, setSpanDisplays] = useState({})
+    let [offsetDisplays, setOffsetDisplays] = useState({})
 
-    reset() {
-        this.spanDisplays = getBinaryBoarAllFalse();
-        this.jumpDisplays = getBinaryBoarAllFalse();
-    }
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
-    setSpan(stepFunc) {
-        //let span = [];
-        let rf = this.props.location;
+    const setSpan = (_spanDisplays, stepFunc) => {
+        let rf = location;
         rf = stepFunc(rf);
         while (!outOfBounds(rf)) {
-            this.spanDisplays[rf] = true;
+            _spanDisplays[rf] = true;
             rf = stepFunc(rf);
         }
     }
 
-    setSpans() {
+    const setSpans = () => {
         let stepFunc = null;
-        for (const funcName of this.props.range) {
+        let _spanDisplays = getBinaryBoarAllFalse()
+        for (const funcName of range) {
             stepFunc = stepFuncDict2[funcName];
-            this.setSpan(stepFunc);
+            setSpan(_spanDisplays, stepFunc);
         }
+        setSpanDisplays(_spanDisplays)
     }
 
-    setOffsets() {
-        let [x1, y1] = rfToXy(this.props.location);
+    const setOffsets = () => {
+        let [x1, y1] = rfToXy(location);
         let [dx, dy] = [-1, -1];
-        this.props.range.forEach((xy) => {
+        let _offsetDisplays = getBinaryBoarAllFalse()
+        range.forEach((xy) => {
             dx = x1 + xy[0];
             dy = y1 + xy[1];
-            this.jumpDisplays[xyToRf(dx, dy)] = true;
+            _offsetDisplays[xyToRf(dx, dy)] = true;
         });
+        setOffsetDisplays(_offsetDisplays)
     }
 
-    getSqrType(rf) {
-        if (this.spanDisplays[rf]) return 'span'
-        if (this.jumpDisplays[rf]) return 'offset'
+    const getSqrType = (rf) => {
+        if (spanDisplays[rf]) return 'span'
+        if (offsetDisplays[rf]) return 'offset'
         if (binaryBoard[rf]) return 'light_normal'
         return 'dark_normal'
     }
 
-    getBoard() {
-        let squares = [];
+    const getBoard = () => {
+        const squares = [];
         for (const rf of rankfiles) {
-            if (rf === this.props.location) {
+            if (rf === location) {
                 squares.push(
-                    <Square rf={rf} theme={this.props.theme} sqrType={this.getSqrType(rf)} >
-                        <Piece pieceImgBase64Str={this.props.img}/>
+                    <Square rf={rf} theme={theme} sqrType={getSqrType(rf)}>
+                        <Piece pieceImgBase64Str={img} theme={theme}/>
                     </Square>
                 );
             } else {
-                squares.push(<Square rf={rf} sqrType={this.getSqrType(rf)}>{null}</Square>);
+                squares.push(<Square rf={rf} sqrType={getSqrType(rf)} theme={theme}>{null}</Square>);
             }
         }
-
         return squares;
     }
 
-    render() {
-        if (this.props.rangeType === "offsets") this.setOffsets();
-        else if (this.props.rangeType === "spans") this.setSpans();
-        else return <div style={{color: "#EC2525"}}>ERROR: invalid rangeType</div>;
-        return <div className={this.props.classes.displayBoard}>{this.getBoard()}</div>;
-    }
+    if (rangeType === "offsets") setOffsets();
+    else if (rangeType === "spans") setSpans();
+    else return <div style={{color: "#EC2525"}}>ERROR: invalid rangeType</div>;
+    return <div className={classes.display_board}>{getBoard()}</div>;
 }
 
-export default withStyles(styles)(ModalDisplayBoard)
+export default ModalDisplayBoard;

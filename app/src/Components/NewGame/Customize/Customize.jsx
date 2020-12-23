@@ -221,7 +221,7 @@ class Customize extends React.Component {
             <>
                 {this.state.messageModal && (
                     <MessageModal
-                        screenCase={screenCase}
+                        theme={this.state.theme}
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.toggleMessageModal}

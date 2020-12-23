@@ -6,11 +6,12 @@ export const square = (fontSize) => ({
     fontSize: fontSize,
     width: '1em',
     height: '1em',
+    cursor: 'pointer',
 });
 
 export const useStyles = makeStyles({
     dark_normal: props => ({
-       ...square(props.fontSize),
+        ...square(props.fontSize),
         backgroundColor: themes[props.theme].dark_normal,
     }),
     light_normal: props => ({
@@ -29,7 +30,7 @@ export const useStyles = makeStyles({
         ...square(props.fontSize),
         backgroundColor: themes[props.theme].offset,
 
-}),
+    }),
     span: props => ({
         ...square(props.fontSize),
         backgroundColor: themes[props.theme].span,

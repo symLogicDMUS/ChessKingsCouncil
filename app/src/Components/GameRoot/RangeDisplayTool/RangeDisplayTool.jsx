@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { RangeDisplayBoard } from "./RangeBoard/RangeDisplayBoard";
 import { ExpandCollapseWidget } from "./ExpandCollapseWidget";
+import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./RangeDisplayTool.jss";
 
 export function RangeDisplayTool({theme, board, allRanges, pieceDefs, idDict }) {

@@ -113,7 +113,7 @@ class ChooseModal extends React.Component {
             <>
                 <div className={this.props.classes.modal}>
                     <div className={this.props.classes.window}>
-                        <Close theme="dark" clickMethod={this.props.closeChooseModal}/>
+                        <Close theme="dark" onClick={this.props.closeChooseModal}/>
                         <div className={this.props.classes.title}>
                             <img
                                 src="/Images/text-labels/choose-icon-title.svg"

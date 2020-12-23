@@ -4,8 +4,8 @@ import { move } from '../Move/move';
 import { isLegal } from '../Move/isLegal';
 import { ItemTypes } from "../../helpers/constants";
 import {getInteractiveSqrClass} from "../../styles/getSqrColorClass.jss";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss"
 import {useStyles} from "../../Reuseables/Square.jss";
-import {fontSize} from "../../styles/fontSize.jss";
 
 export function Square({rf, theme, gameroot, children}) {
 

@@ -48,6 +48,7 @@ export class CouncilRules extends React.Component {
                 />
                 {this.state.messageModal && (
                     <MessageModal
+                        theme={this.state.theme}
                         messageTitle={this.messageTitle}
                         messageText={this.messageText}
                         togleMessageModal={this.togleMessageModal}

@@ -1,6 +1,6 @@
 import React from "react";
-import {fontSize} from "../../styles/fontSize.jss";
 import {binaryBoard} from "../../helpers/binaryBoard";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "../../Reuseables/Square.jss";
 
 export function GameDisplaySquare({rf, theme}) {

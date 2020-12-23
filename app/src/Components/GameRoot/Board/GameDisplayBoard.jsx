@@ -1,7 +1,7 @@
 import React from "react";
-import {fontSize} from "../../styles/fontSize.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {GameDisplaySquare} from "./GameDisplaySquare";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./GameDisplayBoard.jss";
 
 export function GameDisplayBoard({theme}) {

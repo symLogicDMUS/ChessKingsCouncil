@@ -9,7 +9,7 @@ export function ConfirmModal({ text, title, theme, yesClick, noClick, closeClick
 
     return (
         <div className={classes.window}>
-            <Close clickMethod={closeClick} style={close} theme={theme} size={"small"}  />
+            <Close onClick={closeClick} style={close} theme={theme} size={"small"}  />
             <Typography className={classes.title} align={"center"} noWrap={true}>
                 {title}
             </Typography>

@@ -1,4 +1,5 @@
 import React from "react";
+import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./EpandCollapseWidget.jss";
 
 export function ExpandCollapseWidget({ toggleExpand, isExpanded }) {

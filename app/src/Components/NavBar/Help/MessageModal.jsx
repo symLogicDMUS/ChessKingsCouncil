@@ -1,27 +1,28 @@
 import React from "react";
-import { useStyles } from "./MessageModal.jss";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import {fontSize} from "../../styles/fontSize.jss";
+import {MuiButton} from "../../Reuseables/MuiButton";
+import {Close} from "../../Reuseables/Close";
+import {ok_button, close_icon, useStyles} from "./MessageModal.jss";
 
 
-export function MessageModal({toggleMessageModal, messageTitle, messageText }) {
+export function MessageModal({theme, toggleMessageModal, messageTitle, messageText}) {
 
-    const classes = useStyles()
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
         <div className={classes.modal}>
             <div className={classes.window}>
-                <img
-                    src="/Images/close/close.svg"
-                    className={classes.close_icon}
-                    onClick={() => toggleMessageModal(false)}
-                />
-                <div className={classes.title}>{messageTitle}</div>
-                <div className={classes.text}>{messageText}</div>
-                <button
-                    className={classes.ok_button}
-                    onClick={() => toggleMessageModal(false)}
-                >
+                <Box className={classes.top_flexbox}>
+                    <Close onClick={toggleMessageModal} style={close_icon(fontSize, theme)} theme={theme} />
+                </Box>
+                <Typography className={classes.title} noWrap={true}>{messageTitle}</Typography>
+                <Typography className={classes.text} paragraph={true} noWrap={true}>{messageText}</Typography>
+                <MuiButton onClick={toggleMessageModal} style={ok_button(fontSize)}>
                     Ok
-                </button>
+                </MuiButton>
             </div>
         </div>
     );

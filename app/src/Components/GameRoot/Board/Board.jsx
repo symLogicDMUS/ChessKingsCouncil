@@ -7,7 +7,7 @@ import {GameDisplayBoard} from "./GameDisplayBoard";
 import {getPieceImg} from "../../MyPieces/getPieceImg";
 import {getPieceName} from "../../helpers/getPieceName";
 import {rankfiles} from "../../helpers/rankfiles";
-import {fontSize} from "../../styles/fontSize.jss";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Board.jss";
 
 export function Board({ gameroot }) {

@@ -4,7 +4,7 @@ import { rankfiles } from "./rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
-import {fontSize} from "../../styles/fontSize.jss";
+import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
