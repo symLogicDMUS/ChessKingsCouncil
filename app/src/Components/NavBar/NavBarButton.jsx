@@ -28,6 +28,8 @@ export function NavBarButton({
 
     let [hover, setHover] = useState(false);
 
+    console.log( 'nav bar style prop', style);
+
     const classes = useStyles({
         theme: theme,
         style: style,

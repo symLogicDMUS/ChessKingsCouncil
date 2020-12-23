@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Profile } from "./Profile";
+import {v4 as uuidv4} from "uuid";
 // import { SearchBar } from "./SearchBar";
-import {Divider} from "@material-ui/core";
+import { Profile } from "./Profile";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
 import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
 import { ProfileHeaderError } from "./Header/ProfileHeaderError";
@@ -33,7 +33,7 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        key={pieceName}
+                        key={uuidv4()}
                         pieceName={pieceName}
                         expand={props.expand}
                         defs={props.defs}
@@ -53,14 +53,14 @@ export function PieceProfiles(props) {
                 isCheckmark = props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
-                        key={pieceName}
+                        key={uuidv4()}
                         pieceName={pieceName}
                         theme={props.theme}
                         expand={props.expand}
                         defs={props.defs}
                     >
                         <CustomizeHeader
-                            key={pieceName}
+                            key={uuidv4()}
                             pieceName={pieceName}
                             promos={props.promos}
                             isCheckmark={isCheckmark}
@@ -72,7 +72,6 @@ export function PieceProfiles(props) {
                         />
                     </Profile>
                 );
-                // profiles.push(<Divider className={classes.divider} />)
             }
         } else {
             return <ProfileHeaderError />;

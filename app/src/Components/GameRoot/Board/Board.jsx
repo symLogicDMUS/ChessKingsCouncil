@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuidv4} from "uuid";
 import Backend from "react-dnd-html5-backend";
 import {DndProvider} from "react-dnd";
 import {Square} from "./Square";
@@ -21,7 +22,7 @@ export function Board({ gameroot }) {
         for (const rf of rankfiles) {
             if (gameroot.board[rf] === "#") {
                 squares.push(
-                    <Square rf={rf} gameroot={gameroot} theme={gameroot.theme}>
+                    <Square key={rf} rf={rf} gameroot={gameroot} theme={gameroot.theme}>
                         {null}
                     </Square>
                 );
@@ -29,10 +30,11 @@ export function Board({ gameroot }) {
                 id = gameroot.board[rf];
                 pieceImgBase64Str = getPieceImg(id, gameroot.idDict, gameroot.pieceDefs);
                 squares.push(
-                    <Square rf={rf} gameroot={gameroot} theme={gameroot.theme}>
+                    <Square key={rf} rf={rf} gameroot={gameroot} theme={gameroot.theme}>
                         <Piece
                             rf={rf}
                             id={id}
+                            key={uuidv4()}
                             pieceImgBase64Str={pieceImgBase64Str}
                             alt={getPieceName(id, gameroot.idDict)}
                         />

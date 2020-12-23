@@ -11,6 +11,8 @@ import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
 import {styles} from "./MyPieces.jss";
+import {drawerWidth} from "../CreatePiece/CreatePiece.jss";
+import {fontSize} from "../styles/fontSize.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -127,7 +129,8 @@ class MyPieces extends React.Component {
                     screenCase={screenCase}
                     currentPage="MyPieces"
                     theme={this.state.theme}
-                    startingProperties={{initLeft: 0, initTop: 0}}
+                    style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
+                    buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
                 />
 
                 <div className={this.props.classes.my_pieces}>

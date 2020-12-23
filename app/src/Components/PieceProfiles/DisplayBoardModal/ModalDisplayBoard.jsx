@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { v4 as uuidv4 } from 'uuid';
 import {rankfiles} from "../../helpers/rankfiles";
 import {ModalDisplayPiece as Piece} from "./ModalDisplayPiece";
 import {stepFuncDict2} from "../../helpers/stepFuncs";
@@ -60,12 +61,12 @@ export function ModalDisplayBoard({img, rangeType, range, theme, location}) {
         for (const rf of rankfiles) {
             if (rf === location) {
                 squares.push(
-                    <Square rf={rf} theme={theme} sqrType={getSqrType(rf)}>
-                        <Piece pieceImgBase64Str={img} theme={theme}/>
+                    <Square rf={rf} key={rf} theme={theme} sqrType={getSqrType(rf)}>
+                        <Piece pieceImgBase64Str={img} key={uuidv4()} theme={theme}/>
                     </Square>
                 );
             } else {
-                squares.push(<Square rf={rf} sqrType={getSqrType(rf)} theme={theme}>{null}</Square>);
+                squares.push(<Square rf={rf} key={rf} sqrType={getSqrType(rf)} theme={theme}>{null}</Square>);
             }
         }
         return squares;

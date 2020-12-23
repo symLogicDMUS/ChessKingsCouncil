@@ -5,6 +5,7 @@ import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpButton } from "./Help/HelpButton";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBar.jss";
+import {v4 as uuidv4} from "uuid";
 
 export function NavBar(props) {
     let [isHelpModal, setIsHelpModal] = useState(false);
@@ -42,14 +43,16 @@ export function NavBar(props) {
         <>
             {(isHelpModal || firstTime) && (
                 <Help
-                    pageName={props.currentPage}
+                    key={uuidv4()}
                     firstTime={firstTime}
+                    pageName={props.currentPage}
                     togleHelpModal={toggleHelpModal}
                     posLeft={263 / 1536}
                 />
             )}
             {isRedirectModal && (
                 <ConfirmRedirect
+                    key={uuidv4()}
                     theme={props.theme}
                     path={pendingRedirect}
                     message={redirectMessage}
@@ -61,6 +64,7 @@ export function NavBar(props) {
             <Box className={classes.nav_bar}>
                 <HelpButton
                     pageIcon="help"
+                    key={uuidv4()}
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
@@ -73,6 +77,7 @@ export function NavBar(props) {
                     pageName="Home"
                     pageIcon="home"
                     className="home"
+                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -97,6 +102,7 @@ export function NavBar(props) {
                     pageName="Load Game"
                     pageIcon="load-game"
                     className="load_game"
+                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -109,6 +115,7 @@ export function NavBar(props) {
                     pageName="Create Piece"
                     pageIcon="create-piece"
                     className="create_piece"
+                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -121,6 +128,7 @@ export function NavBar(props) {
                     pageName="Chess Rules"
                     pageIcon="chess-rules"
                     className="chess_rules"
+                    key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -133,6 +141,7 @@ export function NavBar(props) {
                     pageName="Council Rules"
                     pageIcon="council-rules"
                     className="council_rules"
+                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -145,6 +154,7 @@ export function NavBar(props) {
                     pageName="My Pieces"
                     pageIcon="my-pieces"
                     className="my_pieces"
+                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     style={props.buttonStyle}
@@ -157,6 +167,7 @@ export function NavBar(props) {
                     pageName="Author Github"
                     pageIcon="author-github"
                     className="author_github"
+                    key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
                     style={props.buttonStyle}

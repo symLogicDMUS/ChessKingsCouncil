@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuidv4} from "uuid";
 import "../../helpers/stepFuncs";
 import { rankfiles } from "./rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
@@ -26,6 +27,7 @@ export function CreatePieceBoard({
                 squares.push(
                     <Square
                         rf={rf}
+                        key={uuidv4()}
                         theme={theme}
                         isLightSqr={binaryBoard[rf]}
                         isSpan={spanDisplays[rf]}
@@ -35,13 +37,14 @@ export function CreatePieceBoard({
                         showSpanText={showSpanText}
                         showOffsetText={showOffsetText}
                     >
-                        <Piece pieceImgBase64Str={pieceImgBase64Str} />
+                        <Piece pieceImgBase64Str={pieceImgBase64Str} key={uuidv4()} />
                     </Square>
                 );
             } else {
                 squares.push(
                     <Square
                         rf={rf}
+                        key={uuidv4()}
                         theme={theme}
                         isLightSqr={binaryBoard[rf]}
                         isSpan={spanDisplays[rf]}

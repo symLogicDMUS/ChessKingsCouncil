@@ -4,6 +4,7 @@ import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Options.jss";
+import {v4 as uuidv4} from "uuid";
 
 export function Options({save, reset, toggleLoadModal, eraseRange, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize})
@@ -11,10 +12,10 @@ export function Options({save, reset, toggleLoadModal, eraseRange, theme}) {
         <div className={classes.options_tool}>
             <Box className={classes.options_flexbox}>
                 <Typography className={classes.title}>Options</Typography>
-                <Option clickMethod={toggleLoadModal} iconType='load' theme={theme}/>
-                <Option clickMethod={save} iconType='save' theme={theme}/>
-                <Option clickMethod={reset} iconType='reset' theme={theme}/>
-                <Option clickMethod={eraseRange} iconType='erase' theme={theme}/>
+                <Option clickMethod={toggleLoadModal} iconType='load' theme={theme} key={uuidv4()}/>
+                <Option clickMethod={save} iconType='save' theme={theme} key={uuidv4()}/>
+                <Option clickMethod={reset} iconType='reset' theme={theme} key={uuidv4()}/>
+                <Option clickMethod={eraseRange} iconType='erase' theme={theme} key={uuidv4()}/>
             </Box>
         </div>
     );

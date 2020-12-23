@@ -16,7 +16,9 @@ import { copy } from "../helpers/copy";
 import { Dropdown } from "../Reuseables/Dropdown";
 import { styles, dropdown, play_button, delete_button } from "./LoadGame.jss";
 import MenuItem from "@material-ui/core/MenuItem";
-import {getTheme} from "../styles/getTheme.jss";
+import { getTheme } from "../styles/getTheme.jss";
+import { drawerWidth } from "../CreatePiece/CreatePiece.jss";
+import { fontSize } from "../styles/fontSize.jss";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -36,7 +38,9 @@ class LoadGame extends React.Component {
             </MenuItem>,
         ];
         this.playButton = <button onClick={this.load}>Play</button>;
-        this.deleteButton = <button onClick={this.askDeleteGame}>Delete</button>;
+        this.deleteButton = (
+            <button onClick={this.askDeleteGame}>Delete</button>
+        );
         this.council = false;
         this.selected = false;
         this.dataEntry = null;
@@ -63,12 +67,12 @@ class LoadGame extends React.Component {
                 this.games = {};
             }
             this.resetGameList();
-            this.setState({userChoseGame: false});
+            this.setState({ userChoseGame: false });
         });
     }
 
     resetGameList() {
-        this.gameList=[]
+        this.gameList = [];
         for (const name of Object.keys(this.games)) {
             this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
         }
@@ -145,18 +149,26 @@ class LoadGame extends React.Component {
 
         return (
             <>
-                <NavBar currentPage="LoadGame" theme={this.state.theme} unsavedChanges={false} />
-                <Typography className={this.props.classes.title} noWrap={true}>Load Game</Typography>
+                <NavBar
+                    currentPage="LoadGame"
+                    theme={this.state.theme}
+                    style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
+                    buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
+                    unsavedChanges={false}
+                />
+                <Typography className={this.props.classes.title} noWrap={true}>
+                    Load Game
+                </Typography>
                 <Dropdown
                     list={this.gameList}
                     overwrite={null}
                     updateParent={this.changeName}
                     theme={getTheme(this.state.theme)}
                     style={dropdown}
-                    variant={'outlined'}
-                    labelId={'pick-name-label'}
-                    inputId={'pick-name-input'}
-                    selectId={'pick-name-select'}
+                    variant={"outlined"}
+                    labelId={"pick-name-label"}
+                    inputId={"pick-name-input"}
+                    selectId={"pick-name-select"}
                     label={"Pick name..."}
                     inputLabel={"Pick name..."}
                 />

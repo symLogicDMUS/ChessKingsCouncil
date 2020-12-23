@@ -4,27 +4,28 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from "@material-ui/core/Divider";
-import {getDefs} from "../../../API/getDefs";
-import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
-import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
-import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
-import {SubList} from "./SubList";
-import {NavBar} from "../../NavBar/NavBar";
-import {SideBar} from "../../Reuseables/SidBar";
-import {CheckBox} from "../../Reuseables/CheckBox";
-import {Dropdown} from "../../Reuseables/Dropdown";
+import { getDefs } from "../../../API/getDefs";
+import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
+import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
+import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
+import { SubList } from "./SubList";
+import { NavBar } from "../../NavBar/NavBar";
+import { SideBar } from "../../Reuseables/SidBar";
+import { CheckBox } from "../../Reuseables/CheckBox";
+import { Dropdown } from "../../Reuseables/Dropdown";
 import ScrollTable from "../../Reuseables/ScrollTable";
-import {Background} from "../../Reuseables/Background";
-import {MuiButton as Button} from "../../Reuseables/MuiButton";
+import { Background } from "../../Reuseables/Background";
+import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";
-import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {MessageModal} from "../../NavBar/Help/MessageModal";
-import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {withStyles} from "@material-ui/core";
-import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
+import { MessageModal } from "../../NavBar/Help/MessageModal";
+import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
+import { withStyles } from "@material-ui/core";
+import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
 import {
     drawer_component,
-    drawer_table_button, drawerItemWidth,
+    drawer_table_button,
+    drawerItemWidth,
     drawerWidth,
     sideBarHeight,
     sideBarWidth,
@@ -61,7 +62,7 @@ class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = {none: null};
+        this.hmChildren = { none: null };
         this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
@@ -87,7 +88,7 @@ class Customize extends React.Component {
         getDefs().then(([defs]) => {
             if (!defs) defs = {};
             this.defs = initStandardDefs(defs);
-            this.setState({binaryValue: !this.state.binaryValue});
+            this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
 
@@ -165,7 +166,7 @@ class Customize extends React.Component {
         });
         this.newReplacement = sub;
         this.newReplaced = standardPiece;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromo(pieceName) {
@@ -174,7 +175,7 @@ class Customize extends React.Component {
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
         // this.promoListUpdate = true;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromoAll() {
@@ -189,31 +190,31 @@ class Customize extends React.Component {
             this.promos = [];
         }
         // this.promoListUpdate = true;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleMessageModal(boolVal) {
-        this.setState({messageModal: boolVal});
+        this.setState({ messageModal: boolVal });
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({messageModal: true});
+        this.setState({ messageModal: true });
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     setPlayerType(playerType) {
-        this.setState({playerType: playerType});
+        this.setState({ playerType: playerType });
     }
 
     getComponents(screenCase) {
@@ -228,29 +229,29 @@ class Customize extends React.Component {
                     />
                 )}
                 {this.state.pieceName &&
-                this.state.rangeType &&
-                this.state.color && (
-                    <DisplayBoardModal
-                        theme={this.state.theme}
-                        expand={this.expand}
-                        color={this.state.color}
-                        pieceName={this.state.pieceName}
-                        rangeType={this.state.rangeType}
-                        img={
-                            this.defs[this.state.pieceName][
-                                this.state.color
+                    this.state.rangeType &&
+                    this.state.color && (
+                        <DisplayBoardModal
+                            theme={this.state.theme}
+                            expand={this.expand}
+                            color={this.state.color}
+                            pieceName={this.state.pieceName}
+                            rangeType={this.state.rangeType}
+                            img={
+                                this.defs[this.state.pieceName][
+                                    this.state.color
                                 ].img
-                        }
-                        range={
-                            this.defs[this.state.pieceName][
-                                this.state.color
+                            }
+                            range={
+                                this.defs[this.state.pieceName][
+                                    this.state.color
                                 ][this.state.rangeType]
-                        }
-                        location="d4"
-                    />
-                )}
+                            }
+                            location="d4"
+                        />
+                    )}
                 <div className={this.props.classes.customize}>
-                    <Background theme={this.state.theme}/>
+                    <Background theme={this.state.theme} />
                     <PermanentDrawer
                         title="Customize Game"
                         drawerType="right"
@@ -281,9 +282,7 @@ class Customize extends React.Component {
                             buttonStyle={drawer_table_button(fontSize)}
                             title={
                                 <Typography
-                                    className={
-                                        this.props.classes.list_title
-                                    }
+                                    className={this.props.classes.list_title}
                                 >
                                     Pawn Promotions
                                 </Typography>
@@ -294,12 +293,14 @@ class Customize extends React.Component {
                                     clickValue={null}
                                     theme={this.state.theme}
                                     clickMethod={this.togglePromoAll}
-                                    style={{fontSize: fontSize * 0.8}}
-                                    rootStyle={{marginLeft: drawerItemWidth*0.025}}
+                                    style={{ fontSize: fontSize * 0.8 }}
+                                    rootStyle={{
+                                        marginLeft: drawerItemWidth * 0.025,
+                                    }}
                                 />
                             }
                         />
-                        <SubList subs={this.subs} theme={this.state.theme}/>
+                        <SubList subs={this.subs} theme={this.state.theme} />
                         <Dropdown
                             updateParent={this.setPlayerType}
                             list={[
@@ -325,7 +326,7 @@ class Customize extends React.Component {
                             onClick={this.accept}
                             style={drawer_component(fontSize)}
                             theme={this.state.theme}
-                            variant={'contained'}
+                            variant={"contained"}
                             isDisabled={false}
                         >
                             Ok
@@ -340,8 +341,12 @@ class Customize extends React.Component {
                         <NavBar
                             currentPage="Customize"
                             flexDirection="column"
-                            height={sideBarHeight * 0.98}
-                            width={sideBarWidth * 0.98}
+                            style={{ width: drawerWidth * 0.98 }}
+                            buttonStyle={{
+                                fontSize: fontSize,
+                                width: drawerWidth * 0.98 * 0.98,
+                                justifyContent: "flex-start",
+                            }}
                             unsavedChanges={false}
                             theme={this.state.theme}
                         />

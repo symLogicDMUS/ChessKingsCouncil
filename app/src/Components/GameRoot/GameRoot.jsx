@@ -32,13 +32,12 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import { SideBar } from "../Reuseables/SidBar";
 import { fontSize } from "../styles/fontSize.jss";
-import { drawerWidth, sideBarWidth, styles } from "./GameRoot.jss";
 import "../styles/_backgrounds.scss";
+import { drawerWidth, sideBarWidth, styles } from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.deleteMe = "delete me";
         this.state = { bValue: true, messageModal: false, theme: "dark" };
         this.username = this.props.location.state.username;
         this.gameName = this.props.location.state.gameName;
@@ -334,9 +333,9 @@ class GameRoot extends React.Component {
                 )}
                 <PermanentDrawer
                     title={`${this.gameName}`}
-                    drawerType="right"
                     theme={this.state.theme}
                     width={drawerWidth}
+                    drawerType="right"
                     content={
                         <div>
                             <Header
@@ -430,12 +429,12 @@ class GameRoot extends React.Component {
                     <NavBar
                         currentPage="GameRoot"
                         flexDirection="column"
-                        style={{ width: drawerWidth * 0.98 }}
                         buttonStyle={{
                             fontSize: fontSize,
                             width: drawerWidth * 0.98 * 0.98,
                             justifyContent: "flex-start",
                         }}
+                        style={{ width: drawerWidth * 0.98 }}
                         redirectMessage={gamePageRedirectMessage}
                         unsavedChanges={this.state.unsavedChanges}
                         theme={this.state.theme}

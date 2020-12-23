@@ -13,6 +13,7 @@ export function SpanArrowButtons({ spans, toggleSpan, theme }) {
         for (const angle of angles) {
             arrowButtons.push(
                 <ArrowButton
+                    key={angle}
                     angle={angle}
                     isActive={spans[angle]}
                     toggleSpan={toggleSpan}

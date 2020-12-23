@@ -1,7 +1,7 @@
 import React from "react";
 import {useStyles} from "./OffsetLabel.jss";
 
-export function OffsetLabel(offset) {
+export function OffsetLabel({offset}) {
 
     const classes = useStyles()
 
@@ -22,7 +22,7 @@ export function OffsetLabel(offset) {
     else
         ySign = "+"
 
-    let offsetLabel = [
+    return [
 
         <div className={classes.x_offset}>
             <svg viewBox="0 0 40 20">
@@ -30,7 +30,7 @@ export function OffsetLabel(offset) {
             </svg>
         </div>,
 
-        <div className="divider" />,
+        <div className="divider"/>,
 
         <div className={classes.y_offset}>
             <svg viewBox="0 0 40 30">
@@ -38,7 +38,5 @@ export function OffsetLabel(offset) {
             </svg>
         </div>
     ];
-
-    return offsetLabel;
 }
 

@@ -3,6 +3,8 @@ import { NavBar } from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 // import {styles} from "./CouncilRules.jss";
 import "./CouncilRules.scss";
+import {drawerWidth} from "../CreatePiece/CreatePiece.jss";
+import {fontSize} from "../styles/fontSize.jss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {
@@ -42,8 +44,10 @@ export class CouncilRules extends React.Component {
                     currentPath="/CouncilRules"
                     currentPage="CouncilRules"
                     theme={this.state.theme}
-                    togleMessageModal={this.togleMessageModal}
+                    style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
+                    buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
                     setHelpText={this.setMessageText}
+                    togleMessageModal={this.togleMessageModal}
                     startingProperties={{ initLeft: 0, initTop: 0 }}
                 />
                 {this.state.messageModal && (

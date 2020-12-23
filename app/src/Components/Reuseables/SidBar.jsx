@@ -4,6 +4,7 @@ import { useStyles } from "./SidBar.jss";
 
 
 export function SideBar({theme, drawerType, width, children }) {
+    console.log('sidebar children', children)
     const classes = useStyles({theme, drawerType, width})
     return (
         <div className={classes.root}>
