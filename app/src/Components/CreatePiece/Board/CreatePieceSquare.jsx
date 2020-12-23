@@ -1,5 +1,5 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
@@ -22,27 +22,38 @@ export function CreatePieceSquare({
     const classes = useStyles({
         theme: theme,
         fontSize: fontSize,
-        style: { "&:hover": { backgroundColor: themes[theme].sqr_hover } },
+        style: {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            alignContent: "center",
+            "&:hover": { backgroundColor: themes[theme].sqr_hover },
+        },
     });
 
     if (isSpan) {
-        let spanLabel = null;
-        if (showSpanText) spanLabel = SpanLabel();
-
-        return <div className={classes.span} key={uuidv4()}>{spanLabel}</div>;
+        return (
+            <div className={classes.span} key={uuidv4()}>
+                {showSpanText && <SpanLabel theme={theme} />}
+            </div>
+        );
     }
 
     if (isOffset) {
-        let offsetLabel = null;
-        if (showOffsetText) offsetLabel = <OffsetLabel offset={getOffset(rf, pieceLoc)} key={uuidv4()} />
-
         return (
             <div
                 className={classes.offset}
                 onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
                 key={uuidv4()}
             >
-                {offsetLabel}
+                {showOffsetText && (
+                    <OffsetLabel
+                        offset={getOffset(rf, pieceLoc)}
+                        theme={theme}
+                        key={uuidv4()}
+                    />
+                )}
             </div>
         );
     }

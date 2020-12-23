@@ -1,9 +1,11 @@
 import React from "react";
-import {useStyles} from "./OffsetLabel.jss";
+import {sqrFontSize} from "../../CreatePiece.jss";
+import Typography from "@material-ui/core/Typography";
+import {useStyles} from "./SquareText.jss";
 
 export function OffsetLabel({offset}) {
 
-    const classes = useStyles()
+    const classes = useStyles({fontSize: sqrFontSize})
 
     let xSign = null;
     let ySign = null;
@@ -22,21 +24,15 @@ export function OffsetLabel({offset}) {
     else
         ySign = "+"
 
-    return [
-
-        <div className={classes.x_offset}>
-            <svg viewBox="0 0 40 20">
-                <text x="0" y="20" textLength="40px">x {xSign} {Math.abs(offset[0])}</text>
-            </svg>
-        </div>,
-
-        <div className="divider"/>,
-
-        <div className={classes.y_offset}>
-            <svg viewBox="0 0 40 30">
-                <text x="0" y="20" textLength="40px">y {ySign} {Math.abs(offset[1])}</text>
-            </svg>
-        </div>
-    ];
+    return (
+        <>
+            <Typography className={classes.sqr_text}>
+                x {xSign} {Math.abs(offset[0])}
+            </Typography>
+            <Typography className={classes.sqr_text}>
+                y {ySign} {Math.abs(offset[1])}
+            </Typography>
+        </>
+    )
 }
 
