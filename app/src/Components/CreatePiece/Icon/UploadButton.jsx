@@ -1,9 +1,14 @@
 import React from "react";
-import {saveImg} from "../../../API/saveImg";
 import {Button} from "@material-ui/core";
+import {saveImg} from "../../../API/saveImg";
+import {fontSize} from "../../styles/fontSize.jss";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { useStyles } from "../../Reuseables/MuiButton.jss";
 
-export function UploadButton({color, className, setPieceImg, id, theme}) {
+
+export function UploadButton({color, setPieceImg, id, theme, style}) {
+
+    const classes = useStyles({style: style, theme: theme});
 
     const handleChange = (e) => {
         const files = e.target.files;
@@ -29,7 +34,7 @@ export function UploadButton({color, className, setPieceImg, id, theme}) {
         <Button
             variant="contained"
             component="label"
-            className={className}
+            className={classes.button}
             startIcon={<CloudUploadIcon/>}
         >
             Upload

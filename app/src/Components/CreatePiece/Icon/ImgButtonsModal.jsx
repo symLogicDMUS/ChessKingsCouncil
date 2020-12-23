@@ -1,20 +1,19 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
-import {ButtonGroup} from "@material-ui/core";
-import {UploadButton} from "./UploadButton";
-import {Close} from "../../Reuseables/Close";
-import {fontSize} from "../../styles/fontSize.jss";
-import {close_icon, useStyles} from "./ImgButtonsModal.jss";
+import { Close } from "../../Reuseables/Close";
+import { UploadButton } from "./UploadButton";
+import { fontSize } from "../../styles/fontSize.jss";
+import { MuiButton as Button } from "../../Reuseables/MuiButton";
+import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
 
 export function ImgButtonsModal({
-                                    theme,
-                                    setPieceImg,
-                                    showChooseModal,
-                                    toggleImgButtonsModal,
-                                }) {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+    theme,
+    setPieceImg,
+    showChooseModal,
+    toggleImgButtonsModal,
+}) {
+    const classes = useStyles({ theme: theme, fontSize: fontSize });
 
     return (
         <div className={classes.modal}>
@@ -28,17 +27,18 @@ export function ImgButtonsModal({
                 </Box>
                 <Box className={classes.button_group}>
                     <UploadButton
-                        color="white"
-                        className={classes.button}
+                        color='white'
+                        id='choose-img'
                         setPieceImg={setPieceImg}
-                        id={"choose-img"}
+                        style={button(fontSize)}
                         theme={theme}
                     />
                     <Button
-                        className={classes.button}
+                        variant='contained'
                         onClick={() => showChooseModal("white")}
-                        startIcon={<InsertPhotoIcon fontSize={"inherit"}/>}
-                        variant="contained"
+                        startIcon={<InsertPhotoIcon fontSize={"inherit"} />}
+                        style={button(fontSize)}
+                        theme={theme}
                     >
                         Choose
                     </Button>

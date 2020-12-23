@@ -6,7 +6,7 @@ export const themes = {
         button_fill: '#414141',
         button_text: '#a9a9a9',
         button_hover_fill: '#a9a9a9',
-        button_hover_text: '#515151',
+        button_hover_text: '#2b2b2b',
         modal_fill: '#414141',
         even_row: '#414141',
         odd_row: '#474747',

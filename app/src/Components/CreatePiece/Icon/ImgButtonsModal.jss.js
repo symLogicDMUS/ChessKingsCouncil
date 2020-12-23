@@ -8,6 +8,12 @@ export const close_icon = (fontSize) => ({
     height: '2em',
 });
 
+export const button = (fontSize) => ({
+    fontSize: fontSize * 0.8,
+    width: '7.5em',
+    height: '2.5em',
+});
+
 export const useStyles = makeStyles({
 
     modal: props => ({
@@ -41,21 +47,4 @@ export const useStyles = makeStyles({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     }),
-
-    button: (props) => ({
-        fontSize: props.fontSize * 0.8,
-        background: themes[props.theme].button_fill,
-        color: themes[props.theme].button_text,
-        width: '7.5em',
-        height: '2.5em',
-    }),
-
 });
-
-// button_group: (props) => ({
-//     display: 'flex',
-//     flexDirection: 'row',
-//     fontSize: props.fontSize,
-//     justifyContent: 'space-between',
-//     height: '5em',
-// }),

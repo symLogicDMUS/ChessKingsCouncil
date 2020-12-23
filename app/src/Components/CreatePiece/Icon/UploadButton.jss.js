@@ -1,1 +1,1 @@
-/*See Icon.jss.js */
+/** See /Reusables/MuiButton.jss */

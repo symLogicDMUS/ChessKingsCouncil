@@ -2,15 +2,23 @@ import {modal} from "../../../helpers/modal.jss";
 import {availWidth, availHeight, height} from "../../../helpers/windowMeasurments";
 import {themes} from "../../../styles/themes.jss";
 
-const modalWidth = availWidth()*0.9;
-const imgChoicesWidth = modalWidth*0.95;
+const modalWidth = availWidth() * 0.9;
 const modalHeight = availHeight() * 0.9;
-const imgChoicesHeight = modalHeight*0.8;
+const imgChoicesWidth = modalWidth * 0.95;
+const imgChoicesHeight = modalHeight * 0.75;
 
 export const close_icon = (fontSize) => ({
     fontSize: fontSize,
     width: '1.5em',
     height: '1.5em',
+});
+
+export const button = (fontSize) => ({
+    fontSize: fontSize,
+    width: '7.5em',
+    height: '2.25em',
+    marginTop: '0.75em',
+    marginBottom: '0.75em',
 });
 
 export const styles = {
@@ -32,7 +40,6 @@ export const styles = {
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        border: '1px dashed #b1faae',
     }),
     title_flexbox: props => ({
         fontSize: props.fontSize,
@@ -43,10 +50,21 @@ export const styles = {
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        border: '1px dashed #b1faae',
+        alignContent: 'center',
     }),
     title: props => ({
+        fontSize: '3em',
+        fontFamily: 'Roboto-Light, Roboto',
+        lineHeight: '0.7em',
+        marginRight: '0.25em',
+        color: themes[props.theme].text,
+    }),
+    title_icon: props => ({
         fontSize: props.fontSize,
+        height: '3em',
+        width: '3em',
+        marginLeft: '0.25em',
+        color: themes[props.theme].text,
     }),
     img_choices_border: props => ({
         fontSize: props.fontSize,
@@ -70,10 +88,22 @@ export const styles = {
         justifyContent: 'fle-start',
         fontSize: props.fontSize,
         width: '77.5em',
-        height: '33.75em',
+        height: '32em',
         marginLeft: '1em',
         marginRight: '1em',
         marginTop: '1em',
-        marginBottom: '1em',
+        // marginBottom: '1em',
+        overflow: 'scroll',
+    }),
+    bottom_flexbox: props => ({
+        fontSize: props.fontSize,
+        width: imgChoicesWidth,
+        marginLeft: modalWidth * 0.025,
+        marginRight: modalWidth * 0.25,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
     }),
 };

@@ -1,28 +1,32 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import { getImgDict } from "../../../../API/getImgDict";
-import { deleteImg } from "../../../../API/deleteImg";
-import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
-import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
-import { ImgChoice } from "./ImgChoice";
-import { ConfirmModal } from "../../../NavBar/ConfirmModal";
-import { ImageNameDisplay } from "./ImageNameDisplay";
-import { SearchBox } from "../../../Reuseables/SearchBox";
-import { Close } from "../../../Reuseables/Close";
-import Button from "@material-ui/core/Button";
-import withStyles from "@material-ui/core/styles/withStyles";
+import {v4 as uuidv4} from "uuid";
+import PanoramaIcon from '@material-ui/icons/Panorama';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import {getImgDict} from "../../../../API/getImgDict";
+import {deleteImg} from "../../../../API/deleteImg";
+import {getSetSampleImgs} from "../../../helpers/getSampleImgs";
+import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
+import {ImgChoice} from "./ImgChoice";
+import {ConfirmModal} from "../../../NavBar/ConfirmModal";
+import {ImageNameDisplay} from "./ImageNameDisplay";
+import {Close} from "../../../Reuseables/Close";
+import {MuiButton as Button} from "../../../Reuseables/MuiButton";
+import {SearchBox} from "../../../Reuseables/SearchBox";
 import Box from "@material-ui/core/Box";
-import { styles } from "./ChooseModal.jss";
-import { fontSize } from "../../../styles/fontSize.jss";
-import { close_icon } from "../../../NavBar/Help/MessageModal.jss";
+import {button, styles} from "./ChooseModal.jss";
+import {fontSize} from "../../../styles/fontSize.jss";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {close_icon} from "../../../NavBar/Help/MessageModal.jss";
+import Typography from "@material-ui/core/Typography";
 
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            imgNameChoice: null,
             bValue: true,
             confirmDeleteModal: false,
+            imgNameChoice: null,
             hoverText: null,
         };
         this.imgDict = {};
@@ -49,12 +53,12 @@ class ChooseModal extends React.Component {
 
             this.imgNames = Object.keys(this.imgDict);
 
-            this.setState({ bValue: !this.state.bValue });
+            this.setState({bValue: !this.state.bValue});
         });
     }
 
     openAskDeleteModal() {
-        this.setState({ confirmDeleteModal: true });
+        this.setState({confirmDeleteModal: true});
     }
 
     acceptDeleteIcon() {
@@ -68,23 +72,23 @@ class ChooseModal extends React.Component {
                 this.imgDict = getSetSampleImgs();
                 this.imgNames = Object.keys(this.imgDict);
             }
-            this.setState({ confirmDeleteModal: false, imgNameChoice: null });
+            this.setState({confirmDeleteModal: false, imgNameChoice: null});
         });
     }
 
     cancelDeleteIcon() {
-        this.setState({ confirmDeleteModal: false });
+        this.setState({confirmDeleteModal: false});
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     setChoice(imgNameChoice) {
         if (this.state.imgNameChoice === imgNameChoice)
-            this.setState({ imgNameChoice: null });
-        else this.setState({ imgNameChoice: imgNameChoice });
+            this.setState({imgNameChoice: null});
+        else this.setState({imgNameChoice: imgNameChoice});
     }
 
     submitChoice() {
@@ -96,7 +100,7 @@ class ChooseModal extends React.Component {
     }
 
     setHoverText(imgName) {
-        this.setState({ hoverText: imgName });
+        this.setState({hoverText: imgName});
     }
 
     applySearchFilter() {
@@ -139,38 +143,44 @@ class ChooseModal extends React.Component {
                                 onClick={this.props.closeChooseModal}
                             />
                         </Box>
-                        {/*<div className={this.props.classes.title}>*/}
-                        {/*    <img*/}
-                        {/*        src="/Images/text-labels/choose-icon-title.svg"*/}
-                        {/*        className={this.props.classes.title}*/}
-                        {/*        alt="title of window"*/}
-                        {/*    />*/}
-                        {/*</div>*/}
-                        {/*<SearchBox updateSearch={this.updateSearch} screenCase={this.props.screenCase}/>*/}
+                        <Box className={this.props.classes.title_flexbox}>
+                            <Typography className={this.props.classes.title}>Images</Typography>
+                            <PanoramaIcon className={this.props.classes.title_icon} size='large' />
+                            {/*<SearchBox updateSearch={this.updateSearch} screenCase={this.props.screenCase}/>*/}
+                        </Box>
                         <Box className={this.props.classes.img_choices_border}>
                             <Box className={this.props.classes.image_choices}>
                                 {this.getImages()}
                             </Box>
                         </Box>
-
-                        {/*<Button*/}
-                        {/*    imgNameChoice={this.state.imgNameChoice}*/}
-                        {/*    onClick={this.submitChoice}*/}
-                        {/*    className={this.state.imgNameChoice ? this.props.classes.ok_active : this.props.classes.ok_inactive}*/}
-                        {/*>*/}
-                        {/*    Ok*/}
-                        {/*</Button>*/}
-                        {/*<Button*/}
-                        {/*    imgNameChoice={this.state.imgNameChoice}*/}
-                        {/*    onClick={this.openAskDeleteModal}*/}
-                        {/*    className={this.state.imgNameChoice ? this.props.classes.delete_active : this.props.classes.delete_inactive}*/}
-                        {/*>*/}
-                        {/*    Delete*/}
-                        {/*</Button>*/}
-                        {/*<ImageNameDisplay*/}
-                        {/*    hoverText={this.state.hoverText}*/}
-                        {/*    imgNameChoice={this.state.imgNameChoice}*/}
-                        {/*/>*/}
+                        <Box className={this.props.classes.bottom_flexbox}>
+                            <Button
+                                onClick={this.submitChoice}
+                                imgNameChoice={this.state.imgNameChoice}
+                                isDisabled={this.state.imgNameChoice}
+                                style={{...button(fontSize), marginRight: '1em'}}
+                                theme={this.props.theme}
+                                variant='outlined'
+                                startIcon={<CheckCircleOutlineIcon />}
+                            >
+                                Ok
+                            </Button>
+                            <Button
+                                onClick={this.openAskDeleteModal}
+                                imgNameChoice={this.state.imgNameChoice}
+                                style={{...button(fontSize), marginLeft: '1em'}}
+                                theme={this.props.theme}
+                                variant='outlined'
+                                startIcon={<DeleteForeverIcon />}
+                            >
+                                Delete
+                            </Button>
+                            <ImageNameDisplay
+                                hoverText={this.state.hoverText}
+                                imgNameChoice={this.state.imgNameChoice}
+                                theme={this.props.theme}
+                            />
+                        </Box>
                     </div>
                 </div>
                 {this.state.confirmDeleteModal && (

@@ -4,8 +4,8 @@ import {imgFillDiv} from "../../../Reuseables/imgFillDiv.jss";
 
 export const img_container = (fontSize, theme) => ({
     fontSize: fontSize,
-    width: '12em',
-    height: '12em',
+    width: '10em',
+    height: '10em',
     margin: '1em',
     border: `0.08em solid ${themes[theme].outline}`,
     borderRadius: '0.25em',
