@@ -1,8 +1,8 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {themes} from "../styles/themes.jss";
+import { themes } from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    input: props => ({
+    input: (props) => ({
         ...props.style,
         "& .MuiInputLabel-root": {
             color: themes[props.theme].text,
@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
             color: themes[props.theme].text,
         },
     }),
-    field: props => ({
+    field: (props) => ({
         ...props.fieldStyle,
     }),
 });
