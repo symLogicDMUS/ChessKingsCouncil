@@ -3,7 +3,7 @@ import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import {useStyles} from "./ProfilesModal.jss";
 
 
-export function ProfilesModal({ screenCase, defs, load, prepareDelete }) {
+export function ProfilesModal({defs, load, prepareDelete }) {
     const classes = useStyles()
     return (
         <div className={classes.modal}>
@@ -15,7 +15,6 @@ export function ProfilesModal({ screenCase, defs, load, prepareDelete }) {
             <PieceProfiles
                 defs={defs}
                 load={load}
-                screenCase={screenCase}
                 prepareDelete={prepareDelete}
                 headerType="load-delete"
                 title="Created Pieces"

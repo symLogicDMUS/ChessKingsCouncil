@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         color: "#969696",
         ...tool_title(props.fontSize*0.8, props.theme),
     }),
-    box: props => ({
+    flexbox: props => ({
         ...tool_flexbox,
     }),
     buttons_and_img: props => ({

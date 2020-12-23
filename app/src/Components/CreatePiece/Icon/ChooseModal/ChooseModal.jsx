@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
+import {v4 as uuidv4} from 'uuid';
 import {getImgDict} from "../../../../API/getImgDict";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getSetSampleImgs} from "../../../helpers/getSampleImgs";
@@ -97,6 +98,7 @@ class ChooseModal extends React.Component {
             imgPrevs.push(
                 <ImgChoice
                     name={name}
+                    key={uuidv4()}
                     screenCase={this.props.screenCase}
                     base64ImgStr={this.imgDict[name]}
                     imgNameChoice={this.state.imgNameChoice}

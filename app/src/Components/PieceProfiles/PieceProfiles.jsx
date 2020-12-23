@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {v4 as uuidv4} from "uuid";
-// import { SearchBar } from "./SearchBar";
 import { Profile } from "./Profile";
+// import { SearchBar } from "./SearchBar";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
 import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
 import { ProfileHeaderError } from "./Header/ProfileHeaderError";

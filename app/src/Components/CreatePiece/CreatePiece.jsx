@@ -30,11 +30,12 @@ import { NameDisplayAboveBoard } from "./Name/NameDisplayAboveBoard/NameDisplayA
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {drawerWidth, sideBarWidth, styles} from "./CreatePiece.jss";
+import { drawerWidth, sideBarWidth, styles } from "./CreatePiece.jss";
 import Box from "@material-ui/core/Box";
-import {SideBar} from "../Reuseables/SidBar";
-import {availWidth} from "../helpers/windowMeasurments";
-import {fontSize} from "../styles/fontSize.jss";
+import { SideBar } from "../Reuseables/SidBar";
+import { availWidth } from "../helpers/windowMeasurments";
+import { fontSize } from "../styles/fontSize.jss";
+import { ImgButtonsModal } from "./Icon/ImgButtonsModal";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -55,6 +56,7 @@ class CreatePiece extends React.Component {
             chooseModal: false,
             isDeleteModal: false,
             isMessageModal: false,
+            imgButtonsModal: false,
             confirmOverwriteModal: false,
             selectedToolMobile: null,
             displaySuccessfulSaveMessage: false,
@@ -75,7 +77,14 @@ class CreatePiece extends React.Component {
         this.offsetDisplays = getBinaryBoarAllFalse();
 
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.standardsLc = ["rook", "bishop", "queen", "knight", "pawn", "king"];
+        this.standardsLc = [
+            "rook",
+            "bishop",
+            "queen",
+            "knight",
+            "pawn",
+            "king",
+        ];
 
         this.whiteAndBlackImgs = { white: null, black: null };
 
@@ -115,8 +124,11 @@ class CreatePiece extends React.Component {
         this.toggleLoadModal = this.toggleLoadModal.bind(this);
         this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.resetSaveStatus = this.resetSaveStatus.bind(this);
-        this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(this);
+        this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(
+            this
+        );
         this.setSelectedToolMobile = this.setSelectedToolMobile.bind(this);
+        this.toggleImgButtonsModal = this.toggleImgButtonsModal.bind(this);
     }
 
     componentDidMount() {
@@ -126,7 +138,8 @@ class CreatePiece extends React.Component {
             if (defs) {
                 this.defs = defs;
                 for (const pieceName of this.standards) {
-                    if (Object.keys(this.defs).includes(pieceName)) delete this.defs[pieceName];
+                    if (Object.keys(this.defs).includes(pieceName))
+                        delete this.defs[pieceName];
                 }
             } else {
                 this.defs = {};
@@ -151,7 +164,10 @@ class CreatePiece extends React.Component {
     load(pieceName) {
         this.spans = getSpansDict(this.defs[pieceName]["W"]["spans"]);
         this.offsets = this.defs[pieceName]["W"]["offsets"];
-        this.whiteAndBlackImgs = { white: this.defs[pieceName]["W"]["img"], black: this.defs[pieceName]["B"]["img"] };
+        this.whiteAndBlackImgs = {
+            white: this.defs[pieceName]["W"]["img"],
+            black: this.defs[pieceName]["B"]["img"],
+        };
 
         // provide static copy so that can reset if need to:
         this.loadedName = copy(this.state.name);
@@ -159,7 +175,11 @@ class CreatePiece extends React.Component {
         this.loadedOffsets = copy(this.offsets);
 
         this.setLoc("d4");
-        this.setState({ name: pieceName, isLoadModal: false, unsavedChanges: false });
+        this.setState({
+            name: pieceName,
+            isLoadModal: false,
+            unsavedChanges: false,
+        });
     }
 
     toggleLoadModal(boolVal) {
@@ -185,23 +205,30 @@ class CreatePiece extends React.Component {
         }
 
         this.defs[this.state.name].W.spans = getStepFuncNames(angles);
-        this.defs[this.state.name].B.spans = getStepFuncNames(getRotations(angles, 180));
+        this.defs[this.state.name].B.spans = getStepFuncNames(
+            getRotations(angles, 180)
+        );
         this.defs[this.state.name].W.offsets = this.offsets;
         this.defs[this.state.name].B.offsets = flipOffsets(this.offsets);
         this.defs[this.state.name].W.img = this.whiteAndBlackImgs.white;
         this.defs[this.state.name].B.img = this.whiteAndBlackImgs.black;
 
-        saveDef(this.state.name, this.defs[this.state.name]).then(([response]) => {
-            this.setSaveStatus("success");
-            this.setState({ unsavedChanges: false });
-        });
+        saveDef(this.state.name, this.defs[this.state.name]).then(
+            ([response]) => {
+                this.setSaveStatus("success");
+                this.setState({ unsavedChanges: false });
+            }
+        );
     }
 
     setSaveStatus(value) {
         this.saveStatus = value;
         switch (this.saveStatus) {
             case "blank-Name":
-                this.msgModalConfig = { title: "blank Name", text: "You must give a piece Name before saving." };
+                this.msgModalConfig = {
+                    title: "blank Name",
+                    text: "You must give a piece Name before saving.",
+                };
                 this.setState({ isMessageModal: true });
                 break;
             case "standard-Name":
@@ -215,18 +242,28 @@ class CreatePiece extends React.Component {
             case "no-Icon":
                 this.msgModalConfig = {
                     title: "Missing Icon",
-                    text: "You must pick an image Icon for both hover-off and black.",
+                    text:
+                        "You must pick an image Icon for both hover-off and black.",
                 };
                 this.setState({ isMessageModal: true });
                 break;
             case "success":
-                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: true });
+                this.setState({
+                    isMessageModal: false,
+                    displaySuccessfulSaveMessage: true,
+                });
                 break;
             case "confirm-overwrite":
-                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: false });
+                this.setState({
+                    isMessageModal: false,
+                    displaySuccessfulSaveMessage: false,
+                });
                 break;
             case "none":
-                this.setState({ isMessageModal: false, displaySuccessfulSaveMessage: false });
+                this.setState({
+                    isMessageModal: false,
+                    displaySuccessfulSaveMessage: false,
+                });
                 break;
             default:
                 break;
@@ -238,14 +275,22 @@ class CreatePiece extends React.Component {
     }
 
     cancelDelete() {
-        this.setState({ pendingDelete: null, isDeleteModal: false, isLoadModal: false });
+        this.setState({
+            pendingDelete: null,
+            isDeleteModal: false,
+            isLoadModal: false,
+        });
     }
 
     deletePiece() {
         deleteDef(this.state.pendingDelete).then(([response]) => {
             delete this.defs[this.state.pendingDelete];
             delete this.displayDefs[this.state.pendingDelete];
-            this.setState({ isDeleteModal: false, isLoadModal: false, pendingDelete: null });
+            this.setState({
+                isDeleteModal: false,
+                isLoadModal: false,
+                pendingDelete: null,
+            });
         });
     }
 
@@ -365,7 +410,10 @@ class CreatePiece extends React.Component {
             return "standard-Name";
         }
 
-        if (this.whiteAndBlackImgs["white"] === null || this.whiteAndBlackImgs["black"] === null) {
+        if (
+            this.whiteAndBlackImgs["white"] === null ||
+            this.whiteAndBlackImgs["black"] === null
+        ) {
             return "no-Icon";
         }
 
@@ -409,7 +457,11 @@ class CreatePiece extends React.Component {
     eraseRange() {
         /**used by the Erase Option button*/
         this.resetDisplayBoardAndRange();
-        if (this.state.name === "" && !this.whiteAndBlackImgs.white && !this.whiteAndBlackImgs.black) {
+        if (
+            this.state.name === "" &&
+            !this.whiteAndBlackImgs.white &&
+            !this.whiteAndBlackImgs.black
+        ) {
             this.setState({ unsavedChanges: false });
         } else {
             this.setState({ unsavedChanges: true });
@@ -437,8 +489,10 @@ class CreatePiece extends React.Component {
     }
 
     resetIconWindowIfImageDeleted(deletedBase64ImgStr) {
-        if (this.whiteAndBlackImgs["white"] === deletedBase64ImgStr) this.whiteAndBlackImgs["white"] = null;
-        if (this.whiteAndBlackImgs["black"] === deletedBase64ImgStr) this.whiteAndBlackImgs["black"] = null;
+        if (this.whiteAndBlackImgs["white"] === deletedBase64ImgStr)
+            this.whiteAndBlackImgs["white"] = null;
+        if (this.whiteAndBlackImgs["black"] === deletedBase64ImgStr)
+            this.whiteAndBlackImgs["black"] = null;
     }
 
     setCurrentIconColor(color) {
@@ -457,7 +511,11 @@ class CreatePiece extends React.Component {
         this.setState({ selectedToolMobile: selectedToolMobile });
     }
 
-    getComponents(screenCase) {
+    toggleImgButtonsModal(bValue) {
+        this.setState({ imgButtonsModal: bValue });
+    }
+
+    modals() {
         return (
             <>
                 {this.state.isMessageModal && (
@@ -473,7 +531,6 @@ class CreatePiece extends React.Component {
                         load={this.load}
                         defs={this.defs}
                         theme={this.state.theme}
-                        screenCase={screenCase}
                         prepareDelete={this.prepareDelete}
                     />
                 )}
@@ -483,13 +540,14 @@ class CreatePiece extends React.Component {
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}
                         color={this.state.currentIconColor}
-                        resetIconWindowIfImageDeleted={this.resetIconWindowIfImageDeleted}
+                        resetIconWindowIfImageDeleted={
+                            this.resetIconWindowIfImageDeleted
+                        }
                     />
                 )}
                 {this.state.confirmOverwriteModal && (
                     <ConfirmModal
                         theme={this.state.theme}
-                        screenCase={screenCase}
                         text={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
                         noClick={() => this.setSaveStatus("none")}
@@ -505,6 +563,22 @@ class CreatePiece extends React.Component {
                         noClick={this.cancelDelete}
                     />
                 )}
+                {this.state.imgButtonsModal && (
+                    <ImgButtonsModal
+                        theme={this.state.theme}
+                        setPieceImg={this.setPieceImg}
+                        showChooseModal={this.showChooseModal}
+                        toggleImgButtonsModal={this.toggleImgButtonsModal}
+                    />
+                )}
+            </>
+        );
+    }
+
+    getComponents(screenCase) {
+        return (
+            <>
+                {this.modals()}
                 {this.state.displaySuccessfulSaveMessage && (
                     <div className={this.props.classes.save_piece_modal}>
                         <DisplayMessageOnTimer
@@ -513,10 +587,10 @@ class CreatePiece extends React.Component {
                         />
                     </div>
                 )}
-                <NameDisplayAboveBoard name={this.name}/>
+                <NameDisplayAboveBoard name={this.name} />
                 <PermanentDrawer
-                    title='Create Piece'
-                    drawerType='right'
+                    title="Create Piece"
+                    drawerType="right"
                     theme={this.state.theme}
                     width={drawerWidth}
                     content={
@@ -548,6 +622,7 @@ class CreatePiece extends React.Component {
                         whiteAndBlackImgs={this.whiteAndBlackImgs}
                         updateParent={this.triggerRender}
                         showChooseModal={this.showChooseModal}
+                        toggleImgButtonsModal={this.toggleImgButtonsModal}
                     />
                     <Range
                         key={"Range"}
@@ -574,12 +649,20 @@ class CreatePiece extends React.Component {
                         screenCase={screenCase}
                     />
                 </PermanentDrawer>
-                <SideBar theme={this.state.theme} drawerType='left' width={sideBarWidth}>
+                <SideBar
+                    theme={this.state.theme}
+                    drawerType="left"
+                    width={sideBarWidth}
+                >
                     <NavBar
                         currentPage="CreatePiece"
-                        flexDirection='column'
-                        style={{width: drawerWidth*0.98}}
-                        buttonStyle={{fontSize: fontSize, width: drawerWidth*0.98*0.98, justifyContent: 'flex-start'}}
+                        flexDirection="column"
+                        style={{ width: drawerWidth * 0.98 }}
+                        buttonStyle={{
+                            fontSize: fontSize,
+                            width: drawerWidth * 0.98 * 0.98,
+                            justifyContent: "flex-start",
+                        }}
                         redirectMessage={createPieceRedirectMessageStr}
                         unsavedChanges={this.state.unsavedChanges}
                         theme={this.state.theme}
@@ -592,8 +675,12 @@ class CreatePiece extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery>
+                <MediaQuery minDeviceWidth={768}>
+                    {this.getComponents("desktop")}
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>
+                    {this.getComponents("mobile")}
+                </MediaQuery>
             </>
         );
     }

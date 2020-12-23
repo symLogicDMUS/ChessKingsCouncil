@@ -9,7 +9,8 @@ export const useStyles = makeStyles({
         width: "9em",
         height: "9em",
         border: "0.05em solid #2b2b2b",
-        borderRadius: '0.2em'
+        borderRadius: '0.2em',
+        cursor: 'pointer',
     }),
     img_label: props => ({
         fontSize: props.fontSize,
