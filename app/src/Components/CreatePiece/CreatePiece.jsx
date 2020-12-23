@@ -536,6 +536,7 @@ class CreatePiece extends React.Component {
                 )}
                 {this.state.chooseModal && (
                     <ChooseModal
+                        fontSize={fontSize}
                         theme={this.state.theme}
                         closeChooseModal={this.closeChooseModal}
                         setPieceImg={this.setPieceImg}

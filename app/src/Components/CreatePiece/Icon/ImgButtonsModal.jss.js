@@ -19,7 +19,8 @@ export const useStyles = makeStyles({
         width: '15em',
         height: '6em',
         backgroundColor: themes[props.theme].fill,
-        borderRadius: `0.01em solid ${themes[props.theme].outline}`
+        border: `0.05em solid ${themes[props.theme].outline}`,
+        borderRadius: '0.25em',
     }),
 
     top_flexbox: props => ({
