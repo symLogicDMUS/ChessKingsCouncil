@@ -6,7 +6,7 @@ const titleWidth = 15;
 
 export const button = (fontSize) => ({
     fontSize: fontSize,
-    width: '45%',
+    width: '48%',
     height: '2em',
 });
 
@@ -21,12 +21,12 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '8em'
+        marginTop: '12em'
     }),
     content: props => ({
         fontSize: props.fontSize,
         width: '50em',
-        height: '25em',
+        height: '16em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -48,6 +48,7 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
         alignItems: 'center',
         width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
+        marginTop: '1.8em',
     }),
 
 });
