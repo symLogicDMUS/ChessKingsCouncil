@@ -4,7 +4,6 @@ import {themes} from "../styles/themes.jss";
 export const useStyles = makeStyles({
     button: props => ({
         ...props.style,
-        fontSize: props.fontSize,
         background: themes[props.theme].button_fill,
         color: themes[props.theme].button_text,
         '&:hover': {

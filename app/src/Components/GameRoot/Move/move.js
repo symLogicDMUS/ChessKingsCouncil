@@ -1,5 +1,5 @@
 import {makeMove} from "./makeMove";
-import "../../helpers/getColorName";
+import "../../helpers/resolvePlayerType";
 
 export function move(gameroot, start, dest) {
     /* function to move a piece on board from start to dest **/

@@ -1,23 +1,22 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {getPosPercentVal} from "../../helpers/getPosPercentVal";
-import {rfToGridLoc} from "../../helpers/crdCnvrt";
+import {square} from "../../Reuseables/Square.jss";
 
-const square = (rf) => ({
-    ...rfToGridLoc(rf),
+const aiSquare = (fontSize) => ({
+    ...square(fontSize),
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
 })
 
 export const useStyles = makeStyles({
     ai_start: props =>  ({
-        ...square(props.rf),
+        ...aiSquare(props.fontSize),
         backgroundImage: 'url("/Images/sqr/sqr-outline-fdfd35.svg")',
     }),
     ai_dest: props => ({
-        ...square(props.rf),
+        ...aiSquare(props.fontSize),
         backgroundImage: 'url("/Images/sqr/sqr-highlight-fdfd35.svg")',
     }),
     none: props => ({
-        ...square(props.rf),
+        ...aiSquare(props.fontSize),
     })
 });

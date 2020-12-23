@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { getColorName } from "../helpers/getColorName";
+import { resolvePlayerType } from "../helpers/resolvePlayerType";
 import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
@@ -62,7 +62,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                             <AddIcon />
                         </IconButton>
                         <Box className={classes.box}>
-                            <Typography className={classes.range_title}>{getColorName(color)} Offsets</Typography>
+                            <Typography className={classes.range_title}>{resolvePlayerType(color)} Offsets</Typography>
                         </Box>
                     </Box>
                 }
@@ -81,7 +81,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                             <AddIcon />
                         </IconButton>
                         <Box className={classes.box}>
-                            <Typography className={classes.range_title}>{getColorName(color)} Spans</Typography>
+                            <Typography className={classes.range_title}>{resolvePlayerType(color)} Spans</Typography>
                         </Box>
                     </Box>
                 }

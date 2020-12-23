@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { rankfiles } from "../../../helpers/rankfiles";
 import { getPieceImg } from "../../../MyPieces/getPieceImg";
 import {getPieceName} from "../../../helpers/getPieceName";
-import { RangeSquare } from "./RangeSquare";
+import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { RangePiece } from "./RangePiece";
-import {useStyles} from "./RangeBoard.jss";
+import {useStyles} from "./RangeDisplayBoard.jss";
 
 
-export function RangeBoard({ allRanges, board, idDict, pieceDefs }) {
+export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs }) {
     let [pieceId, setPieceId] = useState(null);
     const classes = useStyles()
     
@@ -33,20 +33,20 @@ export function RangeBoard({ allRanges, board, idDict, pieceDefs }) {
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
                 squares.push(
-                    <RangeSquare rf={rf} isHighlight={isRfPartOfRange(rf)} board={board}>
+                    <RangeDisplaySquare rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
                         {null}
-                    </RangeSquare>
+                    </RangeDisplaySquare>
                 );
             } else {
                 squares.push(
-                    <RangeSquare rf={rf} isHighlight={isRfPartOfRange(rf)} board={board}>
+                    <RangeDisplaySquare rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
                         <RangePiece
                             id={board[rf]}
                             toggleDisplayOfPieceRange={toggleDisplayOfPieceRange}
                             pieceImgBase64Str={getPieceImg(board[rf], idDict, pieceDefs)}
                             alt={getPieceName(board[rf], idDict)}
                         />
-                    </RangeSquare>
+                    </RangeDisplaySquare>
                 );
             }
         }

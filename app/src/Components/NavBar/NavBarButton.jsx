@@ -12,7 +12,7 @@ export function NavBarButton({
     pageName,
     pageIcon,
     theme,
-    width,
+    style,
     parentFlex,
     isLocalLink,
     unsavedChanges,
@@ -30,8 +30,7 @@ export function NavBarButton({
 
     const classes = useStyles({
         theme: theme,
-        width: width,
-        fontSize: fontSize,
+        style: style,
         parentFlex: parentFlex,
     });
 

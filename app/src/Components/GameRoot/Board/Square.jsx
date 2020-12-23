@@ -3,12 +3,13 @@ import { useDrop } from 'react-dnd';
 import { move } from '../Move/move';
 import { isLegal } from '../Move/isLegal';
 import { ItemTypes } from "../../helpers/constants";
-import {useStyles} from "./Square.jss";
-import {getInteractiveSqrClass} from "../../Reuseables/BoardMixins.jss";
+import {getInteractiveSqrClass} from "../../styles/getSqrColorClass.jss";
+import {useStyles} from "../../Reuseables/Square.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 
-export function Square({rf, gameroot, children}) {
+export function Square({rf, theme, gameroot, children}) {
 
-    const classes = useStyles({rf})
+    const classes = useStyles({fontSize, theme});
 
     const [{ isOver, canDrop }, drop] = useDrop({
       accept: ItemTypes,

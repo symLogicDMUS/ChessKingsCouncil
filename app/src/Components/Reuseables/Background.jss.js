@@ -7,7 +7,7 @@ export const useStyles = makeStyles({
         zIndex: -1,
         left: 0,
         top: 0,
-        width: availWidth(),
-        height: availHeight(),
+        width: '100%',
+        height:'100%',
     }),
 });

@@ -1,84 +1,76 @@
-import React, {useState} from "react";
-import {getColorName} from "../../helpers/getColorName";
-import {useStyles} from "./SaveResignTool.jss";
+import React, { useState } from "react";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { IconButton, SvgIcon } from "@material-ui/core";
+import { fontSize } from "../../styles/fontSize.jss";
+import { resolvePlayerType } from "../../helpers/resolvePlayerType";
+import { icons } from "../../styles/icons/top/icons.jss";
+import { themes } from "../../styles/themes.jss";
+import { useStyles } from "./SaveResignTool.jss";
 
-export function SaveResignTool({save, toggleSaveAs, resign, gameName, gameType, playerType}) {
-
-    const classes = useStyles()
-
-    const imgPaths = {
-        save: {
-            normal: "/Images/save/save-b1faae.svg",
-            hover: "/Images/save/save-72e2ff.svg",
-        },
-        saveAs: {
-            normal: "/Images/save-as/save-as-b1faae.svg",
-            hover: "/Images/save-as/save-as-72e2ff.svg",
-        },
-        resign: {
-            normal: "/Images/resign-game/resign-game-b1faae.svg",
-            hover: "/Images/resign-game/resign-game-72e2ff.svg",
-        },
-    }
-
-    let [state, setState] = useState({
-        saveImg: imgPaths.save.normal,
-        saveAsImg: imgPaths.saveAs.normal,
-        resignImg: imgPaths.resign.normal,
-    })
-
-    const setNoHighlights = () => {
-        setState({
-            saveImg: imgPaths.save.normal,
-            saveAsImg: imgPaths.saveAs.normal,
-            resignImg: imgPaths.resign.normal,
-        })
-    }
+export function SaveResignTool({
+    theme,
+    save,
+    toggleSaveAs,
+    resign,
+    gameName,
+    gameType,
+    playerType,
+}) {
+    const classes = useStyles({ fontSize });
 
     return (
         <div className={classes.save_resign_tool}>
-            <div className={classes.game_description}>
-                <div className={classes.game_name}>{gameName}</div>
-                <div className={classes.gen_info}>
-                    ({gameType}, {getColorName(playerType)})
-                </div>
-            </div>
-            <img
-                src={state.saveImg}
-                className={classes.save_game}
-                onClick={() => save()}
-                onMouseEnter={() => setState({
-                    saveImg: imgPaths.save.hover,
-                    saveAsImg: imgPaths.saveAs.normal,
-                    resignImg: imgPaths.resign.normal,
-                })}
-                onMouseLeave={() => setNoHighlights()}
-                alt="save icon"
-            />
-            <img
-                src={state.saveAsImg}
-                className={classes.save_as}
-                onClick={() => toggleSaveAs(true)}
-                onMouseEnter={() => setState({
-                    saveImg: imgPaths.save.normal,
-                    saveAsImg: imgPaths.saveAs.hover,
-                    resignImg: imgPaths.resign.normal,
-                })}
-                onMouseLeave={() => setNoHighlights()}
-                alt="save-as icon"
-            />
-            <img
-                src={state.resignImg}
-                className={classes.resign}
-                onClick={() => resign()}
-                onMouseEnter={() => setState({
-                    saveImg: imgPaths.save.normal,
-                    saveAsImg: imgPaths.saveAs.normal,
-                    resignImg: imgPaths.resign.hover,
-                })}
-                onMouseLeave={() => setNoHighlights()}
-                alt="resign icon"
-            />
+            <Box className={classes.options_flexbox}>
+                <Button className={classes.option}>
+                    <IconButton
+                        className={classes.button}
+                        classes={{ label: classes.label }}
+                        onClick={save}
+                    >
+                        <SvgIcon className={classes.icon}>
+                            {icons.save(themes[theme].button_text)}
+                        </SvgIcon>
+                        <Typography className={classes.text}>Save</Typography>
+                    </IconButton>
+                </Button>
+                <Button className={classes.option}>
+                    <IconButton
+                        className={classes.button}
+                        classes={{ label: classes.label }}
+                        onClick={toggleSaveAs}
+                    >
+                        <SvgIcon className={classes.icon}>
+                            {icons.save_as(themes[theme].button_text)}
+                        </SvgIcon>
+                        <Typography className={classes.text}>
+                            Save As
+                        </Typography>
+                    </IconButton>
+                </Button>
+                <Button className={classes.option}>
+                    <IconButton
+                        className={classes.button}
+                        classes={{ label: classes.label }}
+                        onClick={resign}
+                    >
+                        <SvgIcon className={classes.icon}>
+                            {icons.resign(themes[theme].button_text)}
+                        </SvgIcon>
+                        <Typography className={classes.text}>
+                            Save As
+                        </Typography>
+                    </IconButton>
+                </Button>
+            </Box>
+            <Box className={classes.game_info}>
+                <Typography className={classes.text}>{gameName}</Typography>
+                <Typography className={classes.text}>{gameType}</Typography>
+                <Typography className={classes.text}>
+                    {resolvePlayerType(playerType)}
+                </Typography>
+            </Box>
         </div>
     );
 }

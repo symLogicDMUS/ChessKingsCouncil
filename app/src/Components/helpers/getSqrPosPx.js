@@ -1,5 +1,5 @@
 import {rfToXy} from "./crdCnvrt";
-import {boardSize, gameBoardTop, sqrSize} from "../Reuseables/BoardMixins.jss";
+import {boardSize, gameBoardTop, sqrSize} from "../Reuseables/Board.jss";
 
 export function getSqrPosPx (rf, screenCase) {
     let [x, y] = rfToXy(rf);

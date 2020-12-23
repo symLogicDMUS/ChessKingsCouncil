@@ -1,4 +1,4 @@
-import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
+import {boardSize, gameBoardLeft} from "../../Reuseables/Board.jss";
 import {navBarHeight} from "../../NavBar/NavBarStyle";
 
 

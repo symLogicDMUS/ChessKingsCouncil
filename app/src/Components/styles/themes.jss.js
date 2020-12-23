@@ -12,6 +12,10 @@ export const themes = {
         odd_row: '#474747',
         text_alt: '#707070',
         text_alt2: '#252525',
+        span: '#ec2525',
+        offset: '#8b0000',
+        light_in_range: '#72e2ff',
+        dark_in_range: '#4b6eaf',
     },
     green: {
         outline: '#b1faae',
@@ -24,6 +28,10 @@ export const themes = {
         modal_fill: '#008000',
         even_row: '#29b157',
         odd_row: '#b1faae',
+        span: '#32ec25',
+        offset: '#098b00',
+        dark_in_range: '#fdfd35',
+        light_in_range: '#ddff00',
     },
     purple: {
         outline: '#6a5acd',
@@ -35,7 +43,11 @@ export const themes = {
         button_hover_text: '#ffffff',
         modal_fill: '#ffffff',
         even_row: '#6a5acd',
-        odd_row: '#748cd2'
+        odd_row: '#748cd2',
+        span: '#a625ec',
+        offset: '#66008b',
+        light_in_range: '#c972ff',
+        dark_in_range: '#914baf',
     },
     black: {
         outline: '#000000',
@@ -48,6 +60,12 @@ export const themes = {
         modal_fill: '#2d2d2d',
         even_row: '#1b1b1b',
         odd_row: '#3d3d3d',
+        text_alt: '#edc9a2ff',
+        text_alt2: '#d7bb99',
+        span: '#ecc125',
+        offset: '#8b7800',
+        light_in_range: '#fff172',
+        dark_in_range: '#acaf4b',
     },
 
     /**

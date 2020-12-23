@@ -5,7 +5,7 @@ export const toolWidth = () => availWidth() * 0.336;
 export const toolLeft = () => availWidth() * 0.57;
 export const toolTitleFontSize = () => availHeight() * 0.0225;
 export const drawerWidth = availWidth() * 0.23;
-export const sideBarWidth = drawerWidth * 0.75
+export const sideBarWidth = drawerWidth * 0.75;
 
 /**
  * em units
@@ -19,7 +19,7 @@ export const tool = (fontSize, theme) => ({
     backgroundColor: themes[theme].fill,
 })
 
-export const toolbox = {
+export const tool_flexbox = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

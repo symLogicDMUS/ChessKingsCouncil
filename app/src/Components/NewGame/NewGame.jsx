@@ -1,10 +1,17 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import Customize from "./Customize/Customize";
-import {GameOptions} from "./GameOptions/GameOptions";
+import { GameOptions } from "./GameOptions/GameOptions";
 import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
-import { newData, new_standard_ranges, enemyRanges, standard_id_dict, standard_piece_defs, standard_promo_names } from "./NewData";
-import {copy} from "../helpers/copy";
+import {
+    newData,
+    new_standard_ranges,
+    enemyRanges,
+    standard_id_dict,
+    standard_piece_defs,
+    standard_promo_names,
+} from "./NewData";
+import { copy } from "../helpers/copy";
 import { styles } from "./NewGame.jss";
 
 /**
@@ -16,7 +23,13 @@ import { styles } from "./NewGame.jss";
 class NewGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { step: "set-options", gameName: "", gameType: "", playerType: "", theme:"dark" };
+        this.state = {
+            step: "set-options",
+            gameName: "",
+            gameType: "",
+            playerType: "",
+            theme: "dark",
+        };
         this.gameData = {};
         this.setGameOptions = this.setGameOptions.bind(this);
         this.loadNewStandard = this.loadNewStandard.bind(this);
@@ -28,8 +41,14 @@ class NewGame extends React.Component {
     }
 
     setGameOptions(gameName, gameType, playerType) {
-        const nextStep = (gameType === 'Custom') ? "load-new-custom" : 'load-new-standard'
-        this.setState({gameName: gameName, gameType: gameType, playerType: playerType, step: nextStep})
+        const nextStep =
+            gameType === "Custom" ? "load-new-custom" : "load-new-standard";
+        this.setState({
+            gameName: gameName,
+            gameType: gameType,
+            playerType: playerType,
+            step: nextStep,
+        });
     }
 
     /**
@@ -46,10 +65,10 @@ class NewGame extends React.Component {
      * 6. get the starting ranges for our custom new game from the backend, then update state
      */
     loadNewCustom(idDict, defs, promos) {
-        this.gameData = copy(newData) //1.
+        this.gameData = copy(newData); //1.
         this.gameData["game_name"] = this.state.gameName;
         this.gameData["type"] = this.state.gameType;
-        this.gameData["pt"] = this.state.playerType
+        this.gameData["pt"] = this.state.playerType;
         this.gameData["promos"] = promos; //4.
         this.gameData["id_dict"] = idDict; //4.
 
@@ -110,9 +129,17 @@ class NewGame extends React.Component {
     render() {
         return (
             <>
-                {this.state.step === 'set-options' && <GameOptions setGameOptions={this.setGameOptions} />}
-                {this.state.step === "load-new-custom" && <Customize loadNewCustom={this.loadNewCustom} theme={this.state.theme} />}
-                {this.state.step === "load-new-standard" && this.loadNewStandard()}
+                {this.state.step === "set-options" && (
+                    <GameOptions setGameOptions={this.setGameOptions} />
+                )}
+                {this.state.step === "load-new-custom" && (
+                    <Customize
+                        loadNewCustom={this.loadNewCustom}
+                        theme={this.state.theme}
+                    />
+                )}
+                {this.state.step === "load-new-standard" &&
+                    this.loadNewStandard()}
                 {this.state.step === "play-game" && this.play()}
             </>
         );

@@ -9,7 +9,7 @@ export function Options({save, reset, toggleLoadModal, eraseRange, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize})
     return (
         <div className={classes.options_tool}>
-            <Box className={classes.box}>
+            <Box className={classes.options_flexbox}>
                 <Typography className={classes.title}>Options</Typography>
                 <Option clickMethod={toggleLoadModal} iconType='load' theme={theme}/>
                 <Option clickMethod={save} iconType='save' theme={theme}/>

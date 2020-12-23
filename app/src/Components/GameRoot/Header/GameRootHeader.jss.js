@@ -1,50 +1,27 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {boardSize, gameBoardLeft} from "../../Reuseables/BoardMixins.jss";
-import {navBarHeight} from "../../NavBar/NavBarStyle";
-
-const boardWidth = () => boardSize('desktop', 'large');
-const fontSize = () => boardWidth() * 0.08;
-
-const header = {
-    zIndex: 4,
-    position: 'absolute',
-    width: boardWidth(),
-    fontSize: fontSize(),
-    top: navBarHeight*1.75,
-    left: gameBoardLeft('desktop'),
-    lineHeight: '85%',
-}
-
-const turnAndConditionProperties = {
-    zIndex: 'inherit',
-    fontSize: fontSize(),
-    lineHeight: '85%',
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-}
+import {themes} from "../../styles/themes.jss";
+import {bigBoardMargin} from "../../Reuseables/Board.jss";
 
 export const useStyles = makeStyles({
 
     /** either label label or grid is displayed, conditionally.*/
-
-    label: {
-        ...header,
-        color: 'black',
-        fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-    },
-    grid: {
-        ...header,
-        display: 'grid',
-        gridTemplateColumns: '48.67% 48.67%',
-        columnGap: '2.66%',
-    },
-    turn: {
-        gridColumn: '1',
-        color: 'black',
-        ...turnAndConditionProperties,
-    },
-    condition: {
-        gridColumn: '2',
-        color: '#b1faae',
-        ...turnAndConditionProperties,
-    }
+    header: props => ({
+        zIndex: 4,
+        fontSize: props.fontSize,
+        marginLeft: bigBoardMargin,
+        lineHeight: '85%',
+        width: '8em',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+    }),
+    turnAndCondition: props => ({
+        fontSize: props.fontSize,
+        zIndex: 'inherit',
+        lineHeight: '85%',
+        fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].span,
+    }),
 })

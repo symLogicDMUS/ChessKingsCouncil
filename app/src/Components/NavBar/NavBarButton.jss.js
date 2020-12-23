@@ -15,35 +15,33 @@ export const icon = (fontSize) => ({
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({
-        fontSize: props.fontSize,
-        width: props.width,
-        height: props.parentFlex === 'row' ? '2.25em' : '3.5em',
-        borderRadius: 0,
+        style: props.style,
         display: 'flex',
-        justifyContent: props.parentFlex === 'column' ?  'flex-start': 'center',
+        flexGrow: 2,
+        borderRadius: 0,
         background: themes[props.theme].fill,
     }),
     box: props => ({
+        ...props.style,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: "flex-start",
         flexGrow: 4,
     }),
     text: props => ({
-        ...text(props.fontSize),
+        ...text(props.style.fontSize),
         color: themes[props.theme].text_alt2,
     }),
     text_hover: props => ({
-        ...text(props.fontSize),
+        ...text(props.style.fontSize),
         color: themes[props.theme].text,
     }),
     icon: props => ({
-        ...icon(props.fontSize),
+        ...icon(props.style.fontSize),
         color: themes[props.theme].text_alt2,
     }),
     icon_hover: props => ({
-        ...icon(props.fontSize),
+        ...icon(props.style.fontSize),
         color: themes[props.theme].text,
     }),
 });

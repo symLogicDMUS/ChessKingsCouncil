@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
-import {tool, tool_title, toolbox} from "../CreatePiece.jss";
+import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
 
 /*em units*/
 export const margin1 = 1.1;
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         ...tool_title(props.fontSize*0.8, props.theme),
     }),
     box: props => ({
-        ...toolbox,
+        ...tool_flexbox,
     }),
     buttons_and_img: props => ({
         display: 'flex',

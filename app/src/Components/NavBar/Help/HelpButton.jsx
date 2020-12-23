@@ -8,11 +8,11 @@ import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "../NavBarButton.jss";
 
 
-export function HelpButton({currentPage, toggleHelpModal, setIsFirstTime, theme, width, parentFlex}) {
+export function HelpButton({currentPage, toggleHelpModal, setIsFirstTime, style, theme, parentFlex}) {
 
     let [hover, setHover] = useState(false);
 
-    const classes = useStyles({theme: theme, width: width, fontSize: fontSize, parentFlex: parentFlex})
+    const classes = useStyles({style: style, theme: theme, parentFlex: parentFlex})
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {

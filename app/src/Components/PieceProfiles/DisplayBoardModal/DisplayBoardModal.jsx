@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {DisplayBoard} from "./DisplayBoard";
-import {getColorName} from "../../helpers/getColorName";
+import {ModalDisplayBoard} from "./ModalDisplayBoard";
+import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {useStyles} from "./DisplayBoardModal.jss"
 
 export function DisplayBoardModal({screenCase, theme, img, pieceName, rangeType, range, color, expand}) {
@@ -9,7 +9,7 @@ export function DisplayBoardModal({screenCase, theme, img, pieceName, rangeType,
     return (
         <div className={classes.displayBoardModal}>
             <div className={classes.title}>
-                {getColorName(color)} {pieceName} {rangeType}
+                {resolvePlayerType(color)} {pieceName} {rangeType}
             </div>
             <div
                 className={classes.close}
@@ -23,10 +23,11 @@ export function DisplayBoardModal({screenCase, theme, img, pieceName, rangeType,
                     alt="close display board window"
                 />
             </div>
-            <DisplayBoard
+            <ModalDisplayBoard
                 img={img}
                 pieceName={pieceName}
                 rangeType={rangeType}
+                theme={theme}
                 range={range}
                 color={color}
                 expand={expand}

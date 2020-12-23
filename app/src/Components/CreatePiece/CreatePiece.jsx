@@ -34,6 +34,7 @@ import {drawerWidth, sideBarWidth, styles} from "./CreatePiece.jss";
 import Box from "@material-ui/core/Box";
 import {SideBar} from "../Reuseables/SidBar";
 import {availWidth} from "../helpers/windowMeasurments";
+import {fontSize} from "../styles/fontSize.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -522,6 +523,7 @@ class CreatePiece extends React.Component {
                     content={
                         <Board
                             key="content"
+                            theme={this.state.theme}
                             toggleOffset={this.toggleOffset}
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
@@ -577,7 +579,8 @@ class CreatePiece extends React.Component {
                     <NavBar
                         currentPage="CreatePiece"
                         flexDirection='column'
-                        width={sideBarWidth*0.98}
+                        style={{width: drawerWidth*0.98}}
+                        buttonStyle={{fontSize: fontSize, width: drawerWidth*0.98*0.98, justifyContent: 'flex-start'}}
                         redirectMessage={createPieceRedirectMessageStr}
                         unsavedChanges={this.state.unsavedChanges}
                         theme={this.state.theme}

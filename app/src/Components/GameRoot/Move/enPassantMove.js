@@ -14,9 +14,9 @@ export function enPassantMove(gameroot, start, dest, color) {
     */
     if (gameroot.specialMoves.isEnPassant([start, dest])) {
 
-        var rf0 = step1sqr0d(start)  
-        var rf180 = step1sqr180d(start)
-    
+        const rf0 = step1sqr0d(start);
+        const rf180 = step1sqr180d(start);
+
         if (getSqrCase(gameroot.board, rf0, color) === ENEMY && isPawn(gameroot.board[rf0]) && gameroot.jsonRecords.isLastPawnMove(rf0)) {
             gameroot.captured = gameroot.board[rf0]
             gameroot.board[rf0] = '#'

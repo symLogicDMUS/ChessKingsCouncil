@@ -1,17 +1,16 @@
 import React from "react";
 import {rankfiles} from "../../helpers/rankfiles";
-import {DisplaySquare as Square} from "./DisplaySquare";
+import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
 import {DisplayPiece as Piece} from "./DisplayPiece";
-import {stepFuncDict, stepFuncDict2} from "../../helpers/stepFuncs";
+import {stepFuncDict2} from "../../helpers/stepFuncs";
 import {outOfBounds} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
-import {getAngle} from "../../CreatePiece/helpers/getAngle";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {styles} from "./DisplayBoard.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {binaryBoard} from "../../helpers/binaryBoard";
+import {styles} from "./ModalDisplayBoard.jss";
 
-export class DisplayBoard extends React.Component {
+export class ModalDisplayBoard extends React.Component {
 
     constructor(props) {
         super(props);
@@ -55,8 +54,8 @@ export class DisplayBoard extends React.Component {
     getSqrType(rf) {
         if (this.spanDisplays[rf]) return 'span'
         if (this.jumpDisplays[rf]) return 'offset'
-        if (binaryBoard[rf]) return 'light'
-        return 'dark'
+        if (binaryBoard[rf]) return 'light_normal'
+        return 'dark_normal'
     }
 
     getBoard() {
@@ -64,7 +63,7 @@ export class DisplayBoard extends React.Component {
         for (const rf of rankfiles) {
             if (rf === this.props.location) {
                 squares.push(
-                    <Square rf={rf} sqrType={this.getSqrType(rf)} >
+                    <Square rf={rf} theme={this.props.theme} sqrType={this.getSqrType(rf)} >
                         <Piece pieceImgBase64Str={this.props.img}/>
                     </Square>
                 );
@@ -84,4 +83,4 @@ export class DisplayBoard extends React.Component {
     }
 }
 
-export default withStyles(styles)(DisplayBoard)
+export default withStyles(styles)(ModalDisplayBoard)

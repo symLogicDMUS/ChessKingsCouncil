@@ -26,12 +26,10 @@ import {
     drawer_component,
     drawer_table_button, drawerItemWidth,
     drawerWidth,
-    list_title,
     sideBarHeight,
     sideBarWidth,
     styles,
 } from "./Customize.jss";
-import {themes} from "../../styles/themes.jss";
 
 class Customize extends React.Component {
     constructor(props) {

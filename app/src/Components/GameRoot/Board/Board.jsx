@@ -1,25 +1,18 @@
 import React from "react";
 import Backend from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-import { Square } from "./Square";
-import { Piece } from "./Piece";
-import { getPieceImg } from "../../MyPieces/getPieceImg";
-import { DisplaySquare } from "./DisplaySquare";
-import { getPieceName } from "../../helpers/getPieceName";
-import { rankfiles } from "../../helpers/rankfiles"
-import { useStyles } from "./Board.jss";
+import {DndProvider} from "react-dnd";
+import {Square} from "./Square";
+import {Piece} from "./Piece";
+import {GameDisplayBoard} from "./GameDisplayBoard";
+import {getPieceImg} from "../../MyPieces/getPieceImg";
+import {getPieceName} from "../../helpers/getPieceName";
+import {rankfiles} from "../../helpers/rankfiles";
+import {fontSize} from "../../styles/fontSize.jss";
+import {useStyles} from "./Board.jss";
 
 export function Board({ gameroot }) {
 
-    const classes = useStyles()
-
-    const getDisplayBoard = () => {
-        const displaySqrs = [];
-        for (const rf of rankfiles) {
-            displaySqrs.push(<DisplaySquare rf={rf} />);
-        }
-        return displaySqrs;
-    };
+    const classes = useStyles({fontSize})
 
     const getInteractiveBoard = () => {
         const squares = [];
@@ -28,7 +21,7 @@ export function Board({ gameroot }) {
         for (const rf of rankfiles) {
             if (gameroot.board[rf] === "#") {
                 squares.push(
-                    <Square rf={rf} gameroot={gameroot}>
+                    <Square rf={rf} gameroot={gameroot} theme={gameroot.theme}>
                         {null}
                     </Square>
                 );
@@ -36,7 +29,7 @@ export function Board({ gameroot }) {
                 id = gameroot.board[rf];
                 pieceImgBase64Str = getPieceImg(id, gameroot.idDict, gameroot.pieceDefs);
                 squares.push(
-                    <Square rf={rf} gameroot={gameroot}>
+                    <Square rf={rf} gameroot={gameroot} theme={gameroot.theme}>
                         <Piece
                             rf={rf}
                             id={id}
@@ -55,7 +48,7 @@ export function Board({ gameroot }) {
             <DndProvider backend={Backend}>
                 <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
             </DndProvider>
-            <div className={classes.display_board}>{getDisplayBoard()}</div>
+            <GameDisplayBoard theme={gameroot.theme} />
         </>
     );
 }

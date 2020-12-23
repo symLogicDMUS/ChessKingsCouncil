@@ -2,9 +2,10 @@ import {makeStyles} from "@material-ui/core/styles"
 
 export const useStyles = makeStyles((theme) => ({
     nav_bar: props => ({
+        ...props.style,
         fontSize: props.fontSize,
-        width: props.flexDirection === 'row' ? props.width : 0,
-        height: props.flexDirection === 'column' ? props.height : '2.25em',
+        width: props.width,
+        height: props.height,
         display: "flex",
         flexDirection: props.flexDirection,
         flexWrap: 'nowrap',

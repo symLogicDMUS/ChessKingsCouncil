@@ -1,43 +1,42 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Help from "./Help/Help";
-import {NavBarButton} from "./NavBarButton";
-import {ConfirmRedirect} from "./ConfirmRedirect";
-import {HelpButton} from "./Help/HelpButton";
+import { NavBarButton } from "./NavBarButton";
+import { ConfirmRedirect } from "./ConfirmRedirect";
+import { HelpButton } from "./Help/HelpButton";
 import Box from "@material-ui/core/Box";
-import {fontSize} from "../styles/fontSize.jss";
-import {useStyles} from "./NavBar.jss";
+import { useStyles } from "./NavBar.jss";
 
 export function NavBar(props) {
+    let [isHelpModal, setIsHelpModal] = useState(false);
+    let [isRedirectModal, setIsRedirectModal] = useState(false);
+    let [pendingRedirect, setPendingRedirect] = useState(null);
+    let [isLocalLink, setIsLocalLink] = useState(true);
+    let [firstTime, setFirstTime] = useState(false);
 
+    const classes = useStyles({
+        style: props.style,
+        theme: props.theme,
+        flexDirection: props.flexDirection,
+    });
 
-    let [isHelpModal, setIsHelpModal] = useState(false)
-    let [isRedirectModal, setIsRedirectModal] = useState(false)
-    let [pendingRedirect, setPendingRedirect] = useState(null)
-    let [isLocalLink, setIsLocalLink] = useState(true)
-    let [firstTime, setFirstTime] = useState(false)
-
-    const classes = useStyles({theme: props.theme, fontSize: fontSize, flexDirection: props.flexDirection})
-
-    const buttonWidth =  props.flexDirection === 'column' ? props.width*0.98 : 0;
-    // const buttonFontSize = props.flexDirection === 'column' ? fontSize * 1.2 : fontSize;
-
-    let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
+    let redirectMessage =
+        "If you leave this page you will lose your unsaved work. Do you want to continue?";
     if (props.redirectMessage) redirectMessage = props.redirectMessage;
 
     const toggleHelpModal = (boolVal) => {
         setIsHelpModal(boolVal);
-        setFirstTime(false)
-    }
+        setFirstTime(false);
+    };
 
     const setIsFirstTime = (firstTime) => {
         setFirstTime(firstTime);
-    }
+    };
 
     const toggleConfirmRedirect = (bValue, path, isLocalLink) => {
         setIsLocalLink(isLocalLink);
-        setIsRedirectModal(bValue)
-        setPendingRedirect(pendingRedirect)
-    }
+        setIsRedirectModal(bValue);
+        setPendingRedirect(pendingRedirect);
+    };
 
     return (
         <>
@@ -63,7 +62,7 @@ export function NavBar(props) {
                 <HelpButton
                     pageIcon="help"
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     currentPage={props.currentPage}
                     togleHelpModal={toggleHelpModal}
@@ -76,7 +75,7 @@ export function NavBar(props) {
                     className="home"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -88,7 +87,7 @@ export function NavBar(props) {
                     className="new_game"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -100,7 +99,7 @@ export function NavBar(props) {
                     className="load_game"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -112,7 +111,7 @@ export function NavBar(props) {
                     className="create_piece"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -124,7 +123,7 @@ export function NavBar(props) {
                     className="chess_rules"
                     isLocalLink={false}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -136,7 +135,7 @@ export function NavBar(props) {
                     className="council_rules"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -148,7 +147,7 @@ export function NavBar(props) {
                     className="my_pieces"
                     isLocalLink={true}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}
@@ -160,7 +159,7 @@ export function NavBar(props) {
                     className="author_github"
                     isLocalLink={false}
                     theme={props.theme}
-                    width={buttonWidth}
+                    style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
                     toggleConfirmRedirect={toggleConfirmRedirect}

@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {toolbox} from "../CreatePiece.jss";
+import {tool_flexbox} from "../CreatePiece.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
@@ -9,6 +9,6 @@ export const useStyles = makeStyles({
         backgroundColor: '#414141',
     },
     box: props => ({
-        ...toolbox,
+        ...tool_flexbox,
     }),
 });

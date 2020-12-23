@@ -2,12 +2,12 @@ import React from "react";
 import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
-import { getPxPos } from "./pxPos";
 import {fontSize} from "../../styles/fontSize.jss";
-import { useStyles } from "./CreatePieceSquare.jss";
+import { useStyles } from "../../Reuseables/Square.jss";
 
 export function CreatePieceSquare({
     rf,
+    theme,
     pieceLoc,
     toggleOffset,
     isSpan,
@@ -17,16 +17,15 @@ export function CreatePieceSquare({
     showOffsetText,
     children,
 }) {
-    let pxPos = getPxPos(rf);
 
-    const classes = useStyles({fontSize});
+    const classes = useStyles({ fontSize, theme});
 
     if (isSpan) {
         let spanLabel = null;
         if (showSpanText) spanLabel = SpanLabel();
 
         return (
-            <div className={classes.span_element} style={pxPos}>
+            <div className={classes.span_element}>
                 {spanLabel}
             </div>
         );
@@ -39,7 +38,6 @@ export function CreatePieceSquare({
         return (
             <div
                 className={classes.offset_element}
-                style={pxPos}
                 onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
             >
                 {offsetLabel}
@@ -50,7 +48,6 @@ export function CreatePieceSquare({
     return (
         <div
             className={isLightSqr ? classes.light_sqr : classes.dark_sqr}
-            style={pxPos}
             onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
         >
             {children}
