@@ -7,8 +7,9 @@ export const img_container = (fontSize, theme) => ({
     width: '10em',
     height: '10em',
     margin: '1em',
-    border: `0.08em solid ${themes[theme].outline}`,
+    cursor: 'pointer',
     borderRadius: '0.25em',
+    border: `0.08em solid ${themes[theme].outline}`,
     backgroundColor: themes[theme].fill,
 });
 
@@ -18,7 +19,7 @@ export const useStyles = makeStyles({
     }),
     selected: props => ({
         ...img_container(props.fontSize, props.theme),
-        boxShadow: "0px 0px 16px white",
+        boxShadow: "0 0 0.5em white",
     }),
     img_choice: props => ({
         ...imgFillDiv,

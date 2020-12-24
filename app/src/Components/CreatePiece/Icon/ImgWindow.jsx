@@ -9,11 +9,11 @@ import {useStyles} from "./ImgWindow.jss";
 export function ImgWindow({color, toggleImgButtonsModal, src, theme}) {
     const classes = useStyles({fontSize: fontSize, theme: theme});
     return (
-        <Box className={classes.img_window} onClick={() => toggleImgButtonsModal(true)} variant='rounded'>
-            <Box className={classes.img_label} src={src} variant='rounded'>
+        <Avatar className={classes.img_window} src={src} onClick={() => toggleImgButtonsModal(true)} variant='rounded'>
+            <Box className={classes.img_label} variant='rounded'>
                 <ImageIcon className={classes.icon} />
                 <Typography className={classes.text}>{color}</Typography>
             </Box>
-        </Box>
+        </Avatar>
     );
 }

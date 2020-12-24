@@ -1,7 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 import {fontSize} from "../../styles/fontSize.jss";
 import {MuiButton} from "../../Reuseables/MuiButton";
 import {Close} from "../../Reuseables/Close";

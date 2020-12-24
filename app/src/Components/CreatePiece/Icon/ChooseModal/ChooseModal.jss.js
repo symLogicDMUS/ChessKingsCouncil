@@ -24,9 +24,10 @@ export const button = (fontSize) => ({
 export const styles = {
     modal: props => ({
         ...modal,
+        zIndex: 3,
     }),
     window: props => ({
-        zIndex: 100,
+        zIndex: 3,
         fontSize: props.fontSize,
         width: modalWidth,
         height: modalHeight,

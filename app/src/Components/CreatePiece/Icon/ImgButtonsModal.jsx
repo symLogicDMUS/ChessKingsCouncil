@@ -9,6 +9,7 @@ import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
 
 export function ImgButtonsModal({
     theme,
+    color,
     setPieceImg,
     showChooseModal,
     toggleImgButtonsModal,
@@ -22,20 +23,21 @@ export function ImgButtonsModal({
                     <Close
                         theme={theme}
                         style={close_icon(fontSize)}
-                        onClick={() => toggleImgButtonsModal(false)}
+                        onClick={() => toggleImgButtonsModal(null)}
                     />
                 </Box>
                 <Box className={classes.button_group}>
                     <UploadButton
-                        color='white'
+                        color={color}
                         id='choose-img'
-                        setPieceImg={setPieceImg}
-                        style={button(fontSize)}
                         theme={theme}
+                        style={button(fontSize)}
+                        setPieceImg={setPieceImg}
+                        toggleImgButtonsModal={toggleImgButtonsModal}
                     />
                     <Button
                         variant='contained'
-                        onClick={() => showChooseModal("white")}
+                        onClick={() => showChooseModal(color)}
                         startIcon={<InsertPhotoIcon fontSize={"inherit"} />}
                         style={button(fontSize)}
                         theme={theme}

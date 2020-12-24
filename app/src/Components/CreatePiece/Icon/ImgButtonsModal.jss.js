@@ -17,10 +17,12 @@ export const button = (fontSize) => ({
 export const useStyles = makeStyles({
 
     modal: props => ({
-       ...modal
+       ...modal,
+        zIndex: 2,
     }),
 
     window: props => ({
+        zIndex: 2,
         fontSize: props.fontSize,
         width: '15em',
         height: '6em',

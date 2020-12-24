@@ -1,41 +1,41 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import { NavBar } from "../NavBar/NavBar";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Location } from "./Location/Location";
-import { Options } from "./Options/Options";
-import { ProfilesModal } from "./Options/ProfilesModal";
-import { getDefs } from "../../API/getDefs";
-import { deleteDef } from "../../API/deleteDef";
-import { saveDef } from "../../API/saveDef";
-import { copy } from "../helpers/copy";
-import { stepFuncDict } from "../helpers/stepFuncs";
-import { outOfBounds as oob } from "../helpers/oob";
-import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
-import { getRotations } from "./helpers/getRotations";
-import { getSpansDict } from "./helpers/getSpansDict";
-import { flipOffsets } from "./helpers/flipOffsets";
-import { MessageModal } from "../NavBar/Help/MessageModal";
-import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
+import {NavBar} from "../NavBar/NavBar";
+import {Name} from "./Name/Name";
+import {Icon} from "./Icon/Icon";
+import {Range} from "./Range/Range";
+import {Location} from "./Location/Location";
+import {Options} from "./Options/Options";
+import {ProfilesModal} from "./Options/ProfilesModal";
+import {getDefs} from "../../API/getDefs";
+import {deleteDef} from "../../API/deleteDef";
+import {saveDef} from "../../API/saveDef";
+import {copy} from "../helpers/copy";
+import {stepFuncDict} from "../helpers/stepFuncs";
+import {outOfBounds as oob} from "../helpers/oob";
+import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
+import {getRotations} from "./helpers/getRotations";
+import {getSpansDict} from "./helpers/getSpansDict";
+import {flipOffsets} from "./helpers/flipOffsets";
+import {MessageModal} from "../NavBar/Help/MessageModal";
+import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
+import {ToolsMenuMobile} from "./ToolsMenuMobile/ToolsMenuMobile";
 import ChooseModal from "./Icon/ChooseModal/ChooseModal";
-import { ConfirmModal } from "../NavBar/ConfirmModal";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
-import { createPieceRedirectMessageStr } from "./helpers/createPieceRedirectMessageStr";
-import { NameDisplayAboveBoard } from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
+import {ConfirmModal} from "../NavBar/ConfirmModal";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
+import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
+import {createPieceRedirectMessageStr} from "./helpers/createPieceRedirectMessageStr";
+import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import { drawerWidth, sideBarWidth, styles } from "./CreatePiece.jss";
+import {drawerWidth, sideBarWidth, styles} from "./CreatePiece.jss";
 import Box from "@material-ui/core/Box";
-import { SideBar } from "../Reuseables/SidBar";
-import { availWidth } from "../helpers/windowMeasurments";
-import { fontSize } from "../styles/fontSize.jss";
-import { ImgButtonsModal } from "./Icon/ImgButtonsModal";
+import {SideBar} from "../Reuseables/SidBar";
+import {availWidth} from "../helpers/windowMeasurments";
+import {fontSize} from "../styles/fontSize.jss";
+import {ImgButtonsModal} from "./Icon/ImgButtonsModal";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -56,7 +56,7 @@ class CreatePiece extends React.Component {
             chooseModal: false,
             isDeleteModal: false,
             isMessageModal: false,
-            imgButtonsModal: false,
+            imgButtonsModal: null,
             confirmOverwriteModal: false,
             selectedToolMobile: null,
             displaySuccessfulSaveMessage: false,
@@ -86,7 +86,7 @@ class CreatePiece extends React.Component {
             "king",
         ];
 
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
 
         this.msgModalConfig = {
             title: null,
@@ -153,12 +153,12 @@ class CreatePiece extends React.Component {
                 this.load(this.props.location.state.defaultPiece);
             }
 
-            this.setState({ binaryValue: !this.state.binaryValue });
+            this.setState({binaryValue: !this.state.binaryValue});
         });
     }
 
     triggerRender() {
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     load(pieceName) {
@@ -183,7 +183,7 @@ class CreatePiece extends React.Component {
     }
 
     toggleLoadModal(boolVal) {
-        this.setState({ isLoadModal: boolVal });
+        this.setState({isLoadModal: boolVal});
     }
 
     save() {
@@ -195,8 +195,8 @@ class CreatePiece extends React.Component {
 
         //creating new entry in dictionary to save piece to
         this.defs[this.state.name] = {
-            W: { spans: null, offsets: null, img: null },
-            B: { spans: null, offsets: null, img: null },
+            W: {spans: null, offsets: null, img: null},
+            B: {spans: null, offsets: null, img: null},
         };
 
         const angles = [];
@@ -216,7 +216,7 @@ class CreatePiece extends React.Component {
         saveDef(this.state.name, this.defs[this.state.name]).then(
             ([response]) => {
                 this.setSaveStatus("success");
-                this.setState({ unsavedChanges: false });
+                this.setState({unsavedChanges: false});
             }
         );
     }
@@ -229,7 +229,7 @@ class CreatePiece extends React.Component {
                     title: "blank Name",
                     text: "You must give a piece Name before saving.",
                 };
-                this.setState({ isMessageModal: true });
+                this.setState({isMessageModal: true});
                 break;
             case "standard-Name":
                 this.msgModalConfig = {
@@ -237,7 +237,7 @@ class CreatePiece extends React.Component {
                     text:
                         "You cannot use the Name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
                 };
-                this.setState({ isMessageModal: true });
+                this.setState({isMessageModal: true});
                 break;
             case "no-Icon":
                 this.msgModalConfig = {
@@ -245,7 +245,7 @@ class CreatePiece extends React.Component {
                     text:
                         "You must pick an image Icon for both hover-off and black.",
                 };
-                this.setState({ isMessageModal: true });
+                this.setState({isMessageModal: true});
                 break;
             case "success":
                 this.setState({
@@ -271,7 +271,7 @@ class CreatePiece extends React.Component {
     }
 
     prepareDelete(pieceName) {
-        this.setState({ pendingDelete: pieceName, isDeleteModal: true });
+        this.setState({pendingDelete: pieceName, isDeleteModal: true});
     }
 
     cancelDelete() {
@@ -296,13 +296,13 @@ class CreatePiece extends React.Component {
 
     updateName(input) {
         /**used by name tool*/
-        this.setState({ name: input, unsavedChanges: true });
+        this.setState({name: input, unsavedChanges: true});
     }
 
     setPieceImg(color, pieceImgBase64Str) {
         /**used by Icon tool*/
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     toggleSpan(angle) {
@@ -314,7 +314,7 @@ class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     setDisplaySpan(angle) {
@@ -336,7 +336,7 @@ class CreatePiece extends React.Component {
 
     toggleSpanText() {
         /**used by checkbox for displaying text on squares*/
-        this.setState({ showSpanText: !this.state.showSpanText });
+        this.setState({showSpanText: !this.state.showSpanText});
     }
 
     resetSpanDisplays() {
@@ -357,7 +357,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     setOffsetDisplays() {
@@ -373,12 +373,12 @@ class CreatePiece extends React.Component {
 
     toggleOffsetText() {
         /**used by Checkboxes that toggle displaying text on squares*/
-        this.setState({ showOffsetText: !this.state.showOffsetText });
+        this.setState({showOffsetText: !this.state.showOffsetText});
     }
 
     setLoc(rf) {
         /**used by the Location tool*/
-        this.setState({ location: rf });
+        this.setState({location: rf});
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
         this.setDisplaySpans();
@@ -429,7 +429,7 @@ class CreatePiece extends React.Component {
 
     toggleMessageModal(boolVal) {
         /**used by Save Button when a message needs to be displayed*/
-        this.setState({ messageModal: boolVal });
+        this.setState({messageModal: boolVal});
     }
 
     resetSaveStatus() {
@@ -462,9 +462,9 @@ class CreatePiece extends React.Component {
             !this.whiteAndBlackImgs.white &&
             !this.whiteAndBlackImgs.black
         ) {
-            this.setState({ unsavedChanges: false });
+            this.setState({unsavedChanges: false});
         } else {
-            this.setState({ unsavedChanges: true });
+            this.setState({unsavedChanges: true});
         }
         this.setSaveStatus("none");
     }
@@ -472,8 +472,8 @@ class CreatePiece extends React.Component {
     clear() {
         /*used by Reset Option when not a loaded piece*/
         this.resetDisplayBoardAndRange();
-        this.whiteAndBlackImgs = { white: null, black: null };
-        this.setState({ name: "", location: "d4", unsavedChanges: false });
+        this.whiteAndBlackImgs = {white: null, black: null};
+        this.setState({name: "", location: "d4", unsavedChanges: false});
         this.setSaveStatus("none");
     }
 
@@ -483,7 +483,7 @@ class CreatePiece extends React.Component {
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
             const name = copy(this.loadedName);
-            this.setState({ name: name, unsavedChanges: false });
+            this.setState({name: name, unsavedChanges: false});
             this.setSaveStatus("none");
         }
     }
@@ -496,23 +496,23 @@ class CreatePiece extends React.Component {
     }
 
     setCurrentIconColor(color) {
-        this.setState({ currentIconColor: color });
+        this.setState({currentIconColor: color});
     }
 
     showChooseModal(color) {
-        this.setState({ chooseModal: true, currentIconColor: color });
+        this.setState({chooseModal: true, currentIconColor: color});
     }
 
     closeChooseModal() {
-        this.setState({ chooseModal: false, currentIconColor: null });
+        this.setState({chooseModal: false, currentIconColor: null, imgButtonsModal: null});
     }
 
     setSelectedToolMobile(selectedToolMobile) {
-        this.setState({ selectedToolMobile: selectedToolMobile });
+        this.setState({selectedToolMobile: selectedToolMobile});
     }
 
-    toggleImgButtonsModal(bValue) {
-        this.setState({ imgButtonsModal: bValue });
+    toggleImgButtonsModal(color) {
+        this.setState({imgButtonsModal: color});
     }
 
     modals() {
@@ -549,7 +549,7 @@ class CreatePiece extends React.Component {
                 {this.state.confirmOverwriteModal && (
                     <ConfirmModal
                         theme={this.state.theme}
-                        text={`A piece named ${this.name} already exists. do you want to replace it?`}
+                        title={`A piece named ${this.name} already exists. do you want to replace it?`}
                         yesClick={() => this.save()}
                         noClick={() => this.setSaveStatus("none")}
                     />
@@ -557,19 +557,20 @@ class CreatePiece extends React.Component {
                 {this.state.isDeleteModal && (
                     <ConfirmModal
                         theme={this.state.theme}
-                        text={`You are asking to delete piece "${this.state.pendingDelete}". Games in progress will not be
-                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
-                    Are you sure you want to delete piece "${this.state.pendingDelete}"?`}
+                        title={`You are asking to delete piece "${this.state.pendingDelete}". Games in progress will not be
+                                effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                                Are you sure you want to delete piece "${this.state.pendingDelete}"?`}
                         yesClick={this.deletePiece}
                         noClick={this.cancelDelete}
                     />
                 )}
                 {this.state.imgButtonsModal && (
                     <ImgButtonsModal
-                        theme={this.state.theme}
-                        setPieceImg={this.setPieceImg}
+                        color={this.state.imgButtonsModal}
                         showChooseModal={this.showChooseModal}
                         toggleImgButtonsModal={this.toggleImgButtonsModal}
+                        setPieceImg={this.setPieceImg}
+                        theme={this.state.theme}
                     />
                 )}
             </>
@@ -588,7 +589,7 @@ class CreatePiece extends React.Component {
                         />
                     </div>
                 )}
-                <NameDisplayAboveBoard name={this.name} />
+                <NameDisplayAboveBoard name={this.name}/>
                 <PermanentDrawer
                     title="Create Piece"
                     drawerType="right"
@@ -658,7 +659,7 @@ class CreatePiece extends React.Component {
                     <NavBar
                         currentPage="CreatePiece"
                         flexDirection="column"
-                        style={{ width: drawerWidth * 0.98 }}
+                        style={{width: drawerWidth * 0.98}}
                         buttonStyle={{
                             fontSize: fontSize,
                             width: drawerWidth * 0.98 * 0.98,

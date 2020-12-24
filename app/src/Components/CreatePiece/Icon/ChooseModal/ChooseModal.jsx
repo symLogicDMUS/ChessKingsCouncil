@@ -1,23 +1,23 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
-import PanoramaIcon from '@material-ui/icons/Panorama';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-import {getImgDict} from "../../../../API/getImgDict";
-import {deleteImg} from "../../../../API/deleteImg";
-import {getSetSampleImgs} from "../../../helpers/getSampleImgs";
-import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
-import {ImgChoice} from "./ImgChoice";
-import {ConfirmModal} from "../../../NavBar/ConfirmModal";
-import {ImageNameDisplay} from "./ImageNameDisplay";
-import {Close} from "../../../Reuseables/Close";
-import {MuiButton as Button} from "../../../Reuseables/MuiButton";
-import {SearchBox} from "../../../Reuseables/SearchBox";
+import { v4 as uuidv4 } from "uuid";
+import PanoramaIcon from "@material-ui/icons/Panorama";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import { getImgDict } from "../../../../API/getImgDict";
+import { deleteImg } from "../../../../API/deleteImg";
+import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
+import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
+import { ImgChoice } from "./ImgChoice";
+import { ConfirmModal } from "../../../NavBar/ConfirmModal";
+import { ImageNameDisplay } from "./ImageNameDisplay";
+import { Close } from "../../../Reuseables/Close";
+import { MuiButton as Button } from "../../../Reuseables/MuiButton";
+import { SearchBox } from "../../../Reuseables/SearchBox";
 import Box from "@material-ui/core/Box";
-import {button, styles} from "./ChooseModal.jss";
-import {fontSize} from "../../../styles/fontSize.jss";
+import { button, styles } from "./ChooseModal.jss";
+import { fontSize } from "../../../styles/fontSize.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {close_icon} from "../../../NavBar/Help/MessageModal.jss";
+import { close_icon } from "../../../NavBar/Help/MessageModal.jss";
 import Typography from "@material-ui/core/Typography";
 
 class ChooseModal extends React.Component {
@@ -53,12 +53,12 @@ class ChooseModal extends React.Component {
 
             this.imgNames = Object.keys(this.imgDict);
 
-            this.setState({bValue: !this.state.bValue});
+            this.setState({ bValue: !this.state.bValue });
         });
     }
 
     openAskDeleteModal() {
-        this.setState({confirmDeleteModal: true});
+        this.setState({ confirmDeleteModal: true });
     }
 
     acceptDeleteIcon() {
@@ -72,23 +72,25 @@ class ChooseModal extends React.Component {
                 this.imgDict = getSetSampleImgs();
                 this.imgNames = Object.keys(this.imgDict);
             }
-            this.setState({confirmDeleteModal: false, imgNameChoice: null});
+            this.setState({ confirmDeleteModal: false, imgNameChoice: null });
         });
     }
 
     cancelDeleteIcon() {
-        this.setState({confirmDeleteModal: false});
+        this.setState({ confirmDeleteModal: false });
     }
 
     updateSearch(searchText) {
         this.searchText = searchText;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     setChoice(imgNameChoice) {
-        if (this.state.imgNameChoice === imgNameChoice)
-            this.setState({imgNameChoice: null});
-        else this.setState({imgNameChoice: imgNameChoice});
+        if (this.state.imgNameChoice === imgNameChoice) {
+            this.setState({ imgNameChoice: null });
+        } else {
+            this.setState({ imgNameChoice: imgNameChoice });
+        }
     }
 
     submitChoice() {
@@ -100,7 +102,7 @@ class ChooseModal extends React.Component {
     }
 
     setHoverText(imgName) {
-        this.setState({hoverText: imgName});
+        this.setState({ hoverText: imgName });
     }
 
     applySearchFilter() {
@@ -144,8 +146,13 @@ class ChooseModal extends React.Component {
                             />
                         </Box>
                         <Box className={this.props.classes.title_flexbox}>
-                            <Typography className={this.props.classes.title}>Images</Typography>
-                            <PanoramaIcon className={this.props.classes.title_icon} size='large' />
+                            <Typography className={this.props.classes.title}>
+                                Images
+                            </Typography>
+                            <PanoramaIcon
+                                className={this.props.classes.title_icon}
+                                size="large"
+                            />
                             {/*<SearchBox updateSearch={this.updateSearch} screenCase={this.props.screenCase}/>*/}
                         </Box>
                         <Box className={this.props.classes.img_choices_border}>
@@ -155,22 +162,27 @@ class ChooseModal extends React.Component {
                         </Box>
                         <Box className={this.props.classes.bottom_flexbox}>
                             <Button
-                                onClick={this.submitChoice}
-                                imgNameChoice={this.state.imgNameChoice}
-                                isDisabled={this.state.imgNameChoice}
-                                style={{...button(fontSize), marginRight: '1em'}}
+                                onClick={() => this.submitChoice()}
+                                isDisabled={this.state.imgNameChoice === null}
+                                style={{
+                                    ...button(fontSize),
+                                    marginRight: "1em",
+                                }}
                                 theme={this.props.theme}
-                                variant='outlined'
+                                variant="outlined"
                                 startIcon={<CheckCircleOutlineIcon />}
                             >
                                 Ok
                             </Button>
                             <Button
-                                onClick={this.openAskDeleteModal}
-                                imgNameChoice={this.state.imgNameChoice}
-                                style={{...button(fontSize), marginLeft: '1em'}}
+                                onClick={() => this.openAskDeleteModal()}
+                                isDisabled={this.state.imgNameChoice === null}
+                                style={{
+                                    ...button(fontSize),
+                                    marginLeft: "1em",
+                                }}
                                 theme={this.props.theme}
-                                variant='outlined'
+                                variant="outlined"
                                 startIcon={<DeleteForeverIcon />}
                             >
                                 Delete
@@ -186,7 +198,7 @@ class ChooseModal extends React.Component {
                 {this.state.confirmDeleteModal && (
                     <ConfirmModal
                         theme={this.props.theme}
-                        text={`Are You Sure you want to delete image ${this.state.imgNameChoice}?`}
+                        title={`Are You Sure you want to delete image ${this.state.imgNameChoice}?`}
                         noClick={this.cancelDeleteIcon}
                         yesClick={this.acceptDeleteIcon}
                     />

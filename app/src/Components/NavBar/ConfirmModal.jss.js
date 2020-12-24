@@ -1,79 +1,70 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {modal} from "../helpers/modal.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
 
-const modalHeight = () => availHeight() * 0.3333;
-const modalWidth = () => availWidth() * 0.3333;
-const buttonWidth = () => modalWidth() * 0.16;
-const buttonHeight = () => buttonWidth() * 0.3333;
-const modalMargin = () => modalWidth() * 0.05;
-const getFontSize = () => modalHeight() * 0.05;
-const titleHeight = () => getFontSize() * 1.5;
-const paragraphHeight = () => modalHeight() - (buttonHeight() + titleHeight() + modalMargin() * 4);
-const buttonTop = () => titleHeight() + paragraphHeight() + modalMargin() * 3.1;
-const titleTop = () => modalMargin();
+export const button = (fontSize) => ({
+    fontSize: fontSize,
+    width: '7.5em',
+    height: '2em',
+});
 
-const button = {
-    position: 'absolute',
-    zIndex: 'inherit',
-    color: '#a9a9a9',
-    backgroundColor: '#333333',
-    width: buttonWidth(),
-    height: buttonHeight(),
-    top: buttonTop(),
-}
-
-export const yes_button = {
-    ...button,
-    left: modalWidth() * 0.5 - (buttonWidth() + modalMargin()*0.5) ,
-}
-
-export const no_button = {
-    ...button,
-    left: modalWidth() * 0.5 + modalMargin()*0.5,
-}
-
-function closeIconMargin() {
-    return modalMargin() * 0.2;
-}
-
-export const close = {
-    position: 'absolute',
-    top: closeIconMargin(),
-    left: modalWidth()-modalMargin(),
-}
-
-export const text = {
-    position:'absolute',
-    zIndex: 'inherit',
-    width: modalWidth() - modalMargin()*2,
-    left: modalMargin(),
-    fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
-    fontSize: getFontSize(),
-}
-
-
+export const close_icon = (fontSize) => ({
+    fontSize: fontSize,
+    width: '1.5em',
+    height: '1.5em',
+});
 
 export const useStyles = makeStyles({
+
+    modal: props => ({
+        ...modal,
+        zIndex: 5,
+    }),
+
     window: props => ({
-        position: 'absolute',
-        width: modalWidth(),
-        height: modalHeight(),
-        top: availHeight()*0.5 - modalHeight()*0.5,
-        left: availWidth()*0.5 - modalWidth()*0.5,
-        backgroundColor: themes[props.theme].modal_fill,
-        borderRadius: '0.8em',
+        fontSize: props.fontSize,
+        width: availWidth() * 0.333,
+        height: availHeight() * 0.333,
+        borderRadius: '0.3em',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.05em solid ${themes[props.theme].outline}`,
+    }),
+    top_flexbox: props => ({
+        fontSize: props.fontSize,
+        height: '1.5em',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        width: '100%',
     }),
     title: props => ({
-        ...text,
+        fontSize: props.fontSize,
+        width: '95%',
+        marginLeft: '2.5%',
+        marginRight: '2.5%',
+        marginBottom: '1%',
+        textAlign: 'center',
         color: themes[props.theme].text,
-        top: titleTop(),
-        height: titleHeight(),
     }),
-    paragraph: {
-        ...text,
-        height: paragraphHeight(),
-        top: titleTop() + titleHeight() + modalMargin(),
-        overflowY: 'hidden',
-    },
+    paragraph: props => ({
+        display: 'flex',
+        width: '95%',
+        margin: '2.5%',
+        height: '9em',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        color: themes[props.theme].text,
+        overflow: 'hidden',
+    }),
+    buttons: props => ({
+        fontSize: props.fontSize,
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignContent: 'center',
+        justifyContent: 'center',
+    }),
 });

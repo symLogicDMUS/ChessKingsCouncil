@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Box from "@material-ui/core/Box";
 import {fontSize} from "../../../styles/fontSize.jss";
 import { useStyles } from "./ImgChoice.jss";
 
 export function ImgChoice({theme, name, imgNameChoice, base64ImgStr, setChoice, setHoverText }) {
     const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
-        <Box
+        <div
             className={name === imgNameChoice ? classes.selected : classes.normal}
             onClick={() => setChoice(name)}
             onMouseEnter={() => setHoverText(name)}
@@ -19,6 +18,6 @@ export function ImgChoice({theme, name, imgNameChoice, base64ImgStr, setChoice, 
                 className={classes.img_choice}
                 alt="list of icons that can be used as pieces"
             />
-        </Box>
+        </div>
     );
 }

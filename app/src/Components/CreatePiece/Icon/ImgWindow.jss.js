@@ -11,6 +11,7 @@ export const useStyles = makeStyles({
         border: "0.05em solid #2b2b2b",
         borderRadius: '0.2em',
         cursor: 'pointer',
+        backgroundColor: themes[props.theme].fill,
     }),
     img_label: props => ({
         fontSize: props.fontSize,

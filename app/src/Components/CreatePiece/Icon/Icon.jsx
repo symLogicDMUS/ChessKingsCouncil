@@ -17,16 +17,16 @@ export function Icon({
             <Box className={classes.flexbox}>
                 <Typography className={classes.title}>Icon</Typography>
                 <ImgWindow
-                    color="White"
+                    color='White'
                     theme={theme}
-                    src={whiteAndBlackImgs["black"]}
-                    toggleImgButtonsModal={toggleImgButtonsModal}
+                    src={whiteAndBlackImgs.black}
+                    toggleImgButtonsModal={() => toggleImgButtonsModal('black')}
                 />
                 <ImgWindow
-                    color="Black"
+                    color='Black'
                     theme={theme}
-                    src={whiteAndBlackImgs["white"]}
-                    toggleImgButtonsModal={toggleImgButtonsModal}
+                    src={whiteAndBlackImgs.white}
+                    toggleImgButtonsModal={() => toggleImgButtonsModal('white')}
                 />
             </Box>
         </div>

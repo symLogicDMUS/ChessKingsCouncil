@@ -61,7 +61,7 @@ export const themes = {
     black: {
         outline: '#000000',
         fill: '#000000',
-        text: '#1b1b1b',
+        text: '#d7bb99',
         button_fill: '#1b1b1b',
         button_text: '#d7bb99',
         button_hover_fill: '#ffffff',
