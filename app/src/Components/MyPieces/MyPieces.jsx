@@ -11,8 +11,8 @@ import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
 import {styles} from "./MyPieces.jss";
-import {drawerWidth} from "../CreatePiece/CreatePiece.jss";
 import {fontSize} from "../styles/fontSize.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {

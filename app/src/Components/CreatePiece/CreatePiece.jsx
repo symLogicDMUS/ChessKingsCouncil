@@ -1,41 +1,45 @@
 import React from "react";
 import MediaQuery from "react-responsive";
+import Box from "@material-ui/core/Box";
+import {copy} from "../helpers/copy";
+import {messageStr} from "./helpers/messageStr";
 import {NavBar} from "../NavBar/NavBar";
 import {Name} from "./Name/Name";
 import {Icon} from "./Icon/Icon";
 import {Range} from "./Range/Range";
 import {Location} from "./Location/Location";
 import {Options} from "./Options/Options";
+import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {ProfilesModal} from "./Options/ProfilesModal";
+import {ImgButtonsModal} from "./Icon/ImgButtonsModal";
+import {MessageModal} from "../NavBar/Help/MessageModal";
+import ChooseModal from "./Icon/ChooseModal/ChooseModal";
+import {saveDef} from "../../API/saveDef";
 import {getDefs} from "../../API/getDefs";
 import {deleteDef} from "../../API/deleteDef";
-import {saveDef} from "../../API/saveDef";
-import {copy} from "../helpers/copy";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
 import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
-import {MessageModal} from "../NavBar/Help/MessageModal";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
-import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
+import {SideBar} from "../Reuseables/SidBar";
+import PermanentDrawer from "../Reuseables/PermanentDrawer";
+import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
 import {ToolsMenuMobile} from "./ToolsMenuMobile/ToolsMenuMobile";
-import ChooseModal from "./Icon/ChooseModal/ChooseModal";
-import {ConfirmModal} from "../NavBar/ConfirmModal";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
-import {createPieceRedirectMessageStr} from "./helpers/createPieceRedirectMessageStr";
-import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
-import PermanentDrawer from "../Reuseables/PermanentDrawer";
+import {navBarWidth} from "../NavBar/NavBar.jss";
+import { fontSize } from "../styles/fontSize.jss";
+import {sideBarWidth} from "../Reuseables/SidBar.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../NavBar/NavBarButton.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {drawerWidth, sideBarWidth, styles} from "./CreatePiece.jss";
-import Box from "@material-ui/core/Box";
-import {SideBar} from "../Reuseables/SidBar";
-import {availWidth} from "../helpers/windowMeasurments";
-import {fontSize} from "../styles/fontSize.jss";
-import {ImgButtonsModal} from "./Icon/ImgButtonsModal";
+import {styles} from "./CreatePiece.jss";
+
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -659,13 +663,14 @@ class CreatePiece extends React.Component {
                     <NavBar
                         currentPage="CreatePiece"
                         flexDirection="column"
-                        style={{width: drawerWidth * 0.98}}
+                        style={{width: navBarWidth}}
                         buttonStyle={{
-                            fontSize: fontSize,
-                            width: drawerWidth * 0.98 * 0.98,
+                            fontSize: fontSize*1.2,
                             justifyContent: "flex-start",
+                            width: navBarButtonWidth,
+                            height: '2.5em',
                         }}
-                        redirectMessage={createPieceRedirectMessageStr}
+                        redirectMessage={messageStr}
                         unsavedChanges={this.state.unsavedChanges}
                         theme={this.state.theme}
                     />

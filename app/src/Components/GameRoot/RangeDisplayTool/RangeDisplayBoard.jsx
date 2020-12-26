@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { rankfiles } from "../../../helpers/rankfiles";
-import { getPieceImg } from "../../../MyPieces/getPieceImg";
-import {getPieceName} from "../../../helpers/getPieceName";
+import {v4 as uuidv4} from 'uuid';
+import { rankfiles } from "../../helpers/rankfiles";
+import { getPieceImg } from "../../MyPieces/getPieceImg";
+import {getPieceName} from "../../helpers/getPieceName";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { RangeDisplayPiece } from "./RangeDisplayPiece";
-import {smallBoardFontSize as fontSize} from "../../../styles/fontSize.jss";
+import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./RangeDisplayBoard.jss";
 
 
 export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs }) {
     let [pieceId, setPieceId] = useState(null);
-    const classes = useStyles({fontSize})
+
+    const classes = useStyles({theme: theme, fontSize: fontSize});
     
     const toggleDisplayOfPieceRange = (newPieceId) => {
         /**Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares  */
@@ -34,15 +36,16 @@ export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs })
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
                 squares.push(
-                    <RangeDisplaySquare rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
+                    <RangeDisplaySquare key={uuidv4()} rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
                         {null}
                     </RangeDisplaySquare>
                 );
             } else {
                 squares.push(
-                    <RangeDisplaySquare rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
+                    <RangeDisplaySquare key={uuidv4()} rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
                         <RangeDisplayPiece
                             id={board[rf]}
+                            key={uuidv4()}
                             toggleDisplayOfPieceRange={toggleDisplayOfPieceRange}
                             pieceImgBase64Str={getPieceImg(board[rf], idDict, pieceDefs)}
                             alt={getPieceName(board[rf], idDict)}

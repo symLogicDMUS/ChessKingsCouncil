@@ -1,12 +1,10 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {fontSize, largeBoardFontSize} from "../styles/fontSize.jss";
+import {largeBoardFontSize} from "../styles/fontSize.jss";
 import {themes} from "../styles/themes.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const toolLeft = () => availWidth() * 0.57;
 export const toolTitleFontSize = () => availHeight() * 0.0225;
-export const drawerWidth = availWidth() * 0.23;
-export const sideBarWidth = drawerWidth * 0.75;
 export const sqrFontSize = largeBoardFontSize * 0.25;
 
 /**

@@ -34,11 +34,14 @@ export const useStyles = makeStyles({
         ...props.style,
         ...square(props.fontSize),
         backgroundColor: themes[props.theme].offset,
-
     }),
     span: props => ({
         ...props.style,
         ...square(props.fontSize),
         backgroundColor: themes[props.theme].span,
+    }),
+    transparent: props => ({
+        ...props.style,
+        ...square(props.fontSize),
     }),
 });

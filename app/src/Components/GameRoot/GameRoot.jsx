@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Divider from "@material-ui/core/Divider";
 import { OVER } from "../helpers/gStatusTypes";
 import { NavBar } from "../NavBar/NavBar";
 import Promo from "./Promo/Promo";
@@ -31,9 +32,13 @@ import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replac
 import withStyles from "@material-ui/core/styles/withStyles";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import { SideBar } from "../Reuseables/SidBar";
+import { navBarWidth } from "../NavBar/NavBar.jss";
 import { fontSize } from "../styles/fontSize.jss";
+import { sideBarWidth } from "../Reuseables/SidBar.jss";
+import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
+import { navBarButtonWidth } from "../NavBar/NavBarButton.jss";
 import "../styles/_backgrounds.scss";
-import { drawerWidth, sideBarWidth, styles } from "./GameRoot.jss";
+import { styles } from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -69,7 +74,8 @@ class GameRoot extends React.Component {
         this.aiDisplay = false;
         this.firstMoveCurrent = true;
         this.firstTime = false;
-        this.aiColor = this.setAiColor();
+        // this.aiColor = this.setAiColor();
+        this.aiColor = "B";
         this.promo = false;
         this.navExpanded = true;
         this.helpTitle = null;
@@ -121,7 +127,6 @@ class GameRoot extends React.Component {
     prepareAiMove() {
         /**NOTE: if game over, conditional in render() will prevent the component rendering that makes ai move. */
         this.aiDisplay = true;
-        this.setState({ bValue: !this.state.bValue });
     }
 
     aiMakeMove() {
@@ -211,24 +216,24 @@ class GameRoot extends React.Component {
             );
         }
 
-        this.ranges = turnData["ranges"];
-        this.enemyRanges = turnData["enemy_ranges"];
-        this.specialMoves.update(turnData["special_moves"]);
-        this.aiStart = turnData["ai_start"];
-        this.aiDest = turnData["ai_dest"];
+        this.ranges = turnData.ranges;
+        this.enemyRanges = turnData.enemy_ranges;
+        this.specialMoves.update(turnData.special_moves);
+        this.aiStart = turnData.ai_start;
+        this.aiDest = turnData.ai_dest;
         if (this.isCouncil)
             this.gameStatus.update(
                 this.board,
                 this.ranges,
                 this.getColorLastMove(),
-                turnData["tal"]
+                turnData.tal
             );
         else
             this.gameStatus.update(
                 this.board,
                 this.ranges,
                 this.getColorLastMove(),
-                turnData["npck"]
+                turnData.npck
             );
     }
 
@@ -320,9 +325,9 @@ class GameRoot extends React.Component {
         this.unsavedProgress = boolVal;
     }
 
-    render() {
+    modals() {
         return (
-            <div>
+            <>
                 {this.state.messageModal && (
                     <MessageModal
                         theme={this.state.theme}
@@ -331,6 +336,29 @@ class GameRoot extends React.Component {
                         togleMessageModal={this.toggleMessageModal}
                     />
                 )}
+                {this.saveAsModal && (
+                    <SaveAs
+                        save={this.save}
+                        togleSaveAs={this.toggleSaveAs}
+                        changeName={this.changeName}
+                        theme={this.state.theme}
+                        triggerRender={this.triggerRender}
+                    />
+                )}
+                {this.specialCase === "save-success" && (
+                    <DisplayMessageOnTimer
+                        methodToCallOnFinish={this.updateSpecialCase}
+                        valueToSendOnFinish="none"
+                    />
+                )}
+            </>
+        );
+    }
+
+    render() {
+        return (
+            <div>
+                {this.modals()}
                 <PermanentDrawer
                     title={`${this.gameName}`}
                     theme={this.state.theme}
@@ -340,24 +368,11 @@ class GameRoot extends React.Component {
                         <div>
                             <Header
                                 turn={this.turn}
+                                theme={this.state.theme}
                                 condition={this.getCondition()}
                                 winner={this.gameStatus.winner}
                             />
-                            <Board
-                                gameroot={{
-                                    board: this.board,
-                                    theme: this.state.theme,
-                                    specialMoves: this.specialMoves,
-                                    jsonRecords: this.jsonRecords,
-                                    toggleTurn: this.toggleTurn,
-                                    updateFen: this.updateFen,
-                                    setUnsavedProgress: this.setUnsavedProgress,
-                                    updateTurnData: this.updateTurnData,
-                                    prepareAiMove: this.prepareAiMove,
-                                    updateJsonRecords: this.updateJsonRecords,
-                                    updateSpecialCase: this.updateSpecialCase,
-                                }}
-                            />
+                            <Board gameroot={this} />
                             {this.specialCase === "promo" && (
                                 <Promo
                                     board={this.board}
@@ -375,6 +390,8 @@ class GameRoot extends React.Component {
                                 />
                             )}
                             {this.aiDisplay &&
+                                this.aiStart &&
+                                this.aiDest &&
                                 this.specialCase !== "promo" &&
                                 !this.isGameOver() && (
                                     <AIDisplay
@@ -384,60 +401,49 @@ class GameRoot extends React.Component {
                                         aiMakeMove={this.aiMakeMove}
                                     />
                                 )}
-                            {this.saveAsModal && (
-                                <SaveAs
-                                    togleSaveAs={this.toggleSaveAs}
-                                    changeName={this.changeName}
-                                    triggerRender={this.triggerRender}
-                                    save={this.save}
-                                />
-                            )}
-                            {this.specialCase === "save-success" && (
-                                <DisplayMessageOnTimer
-                                    methodToCallOnFinish={
-                                        this.updateSpecialCase
-                                    }
-                                    valueToSendOnFinish="none"
-                                />
-                            )}
                         </div>
                     }
                 >
-                    <RangeDisplayTool
+                    <SaveResignTool
+                        save={this.save}
+                        resign={this.resign}
+                        toggleSaveAs={this.toggleSaveAs}
+                        updateSpecialCase={this.updateSpecialCase}
+                        gameName={this.gameName}
+                        gameType={this.gameType}
+                        playerType={this.playerType}
                         theme={this.state.theme}
+                    />
+                    <RangeDisplayTool
                         board={this.board}
+                        theme={this.state.theme}
                         allRanges={{ ...this.ranges, ...this.enemyRanges }}
                         pieceDefs={this.pieceDefs}
                         idDict={this.idDict}
                         triggerRender={this.triggerRender}
                     />
-                    <SaveResignTool
-                        gameName={this.gameName}
-                        gameType={this.gameType}
-                        playerType={this.playerType}
-                        save={this.save}
-                        resign={this.resign}
-                        updateSpecialCase={this.updateSpecialCase}
-                        toggleSaveAs={this.toggleSaveAs}
-                    />
                 </PermanentDrawer>
                 <SideBar
-                    theme={this.state.theme}
                     drawerType="left"
+                    theme={this.state.theme}
                     width={sideBarWidth}
                 >
                     <NavBar
                         currentPage="GameRoot"
                         flexDirection="column"
-                        buttonStyle={{
-                            fontSize: fontSize,
-                            width: drawerWidth * 0.98 * 0.98,
-                            justifyContent: "flex-start",
+                        theme={this.state.theme}
+                        style={{
+                            width: navBarWidth,
+                            fontSize: fontSize * 1.5,
                         }}
-                        style={{ width: drawerWidth * 0.98 }}
+                        buttonStyle={{
+                            fontSize: fontSize * 1.5,
+                            justifyContent: "flex-start",
+                            width: navBarButtonWidth,
+                            height: "2.5em",
+                        }}
                         redirectMessage={gamePageRedirectMessage}
                         unsavedChanges={this.state.unsavedChanges}
-                        theme={this.state.theme}
                     />
                 </SideBar>
             </div>

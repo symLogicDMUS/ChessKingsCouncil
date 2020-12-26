@@ -18,10 +18,22 @@ export function SaveResignTool({
     gameType,
     playerType,
 }) {
-    const classes = useStyles({ fontSize });
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
         <div className={classes.save_resign_tool}>
+            <Box className={classes.game_info_titles}>
+                <Typography className={classes.title_labels_text}>Game Name</Typography>
+                <Typography className={classes.title_labels_text}>Game Type</Typography>
+                <Typography className={classes.title_labels_text}>Player Type</Typography>
+            </Box>
+            <Box className={classes.game_info}>
+                <Typography className={classes.title_text}>{gameName}</Typography>
+                <Typography className={classes.title_text}>{gameType}</Typography>
+                <Typography className={classes.title_text}>
+                    {resolvePlayerType(playerType)}
+                </Typography>
+            </Box>
             <Box className={classes.options_flexbox}>
                 <Button className={classes.option}>
                     <IconButton
@@ -32,7 +44,9 @@ export function SaveResignTool({
                         <SvgIcon className={classes.icon}>
                             {icons.save(themes[theme].button_text)}
                         </SvgIcon>
-                        <Typography className={classes.text}>Save</Typography>
+                        <Typography className={classes.option_text}>
+                            Save
+                        </Typography>
                     </IconButton>
                 </Button>
                 <Button className={classes.option}>
@@ -44,7 +58,7 @@ export function SaveResignTool({
                         <SvgIcon className={classes.icon}>
                             {icons.save_as(themes[theme].button_text)}
                         </SvgIcon>
-                        <Typography className={classes.text}>
+                        <Typography className={classes.option_text}>
                             Save As
                         </Typography>
                     </IconButton>
@@ -56,20 +70,13 @@ export function SaveResignTool({
                         onClick={resign}
                     >
                         <SvgIcon className={classes.icon}>
-                            {icons.resign(themes[theme].button_text)}
+                            {icons.resign(themes[theme].text)}
                         </SvgIcon>
-                        <Typography className={classes.text}>
-                            Save As
+                        <Typography className={classes.option_text}>
+                            Resign
                         </Typography>
                     </IconButton>
                 </Button>
-            </Box>
-            <Box className={classes.game_info}>
-                <Typography className={classes.text}>{gameName}</Typography>
-                <Typography className={classes.text}>{gameType}</Typography>
-                <Typography className={classes.text}>
-                    {resolvePlayerType(playerType)}
-                </Typography>
             </Box>
         </div>
     );

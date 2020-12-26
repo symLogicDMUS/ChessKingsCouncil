@@ -4,6 +4,7 @@ import {bigBoardMargin, board} from "../../Reuseables/Board.jss";
 export const useStyles = makeStyles({
     ai_board: props => ({
         zIndex: 1,
+        position: 'fixed',
         ...board(props.fontSize),
         margin: bigBoardMargin,
     }),

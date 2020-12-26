@@ -22,7 +22,7 @@ export function Board({ gameroot }) {
         for (const rf of rankfiles) {
             if (gameroot.board[rf] === "#") {
                 squares.push(
-                    <Square key={rf} rf={rf} gameroot={gameroot} theme={gameroot.theme}>
+                    <Square key={uuidv4()} rf={rf} gameroot={gameroot} theme={gameroot.state.theme}>
                         {null}
                     </Square>
                 );
@@ -30,7 +30,7 @@ export function Board({ gameroot }) {
                 id = gameroot.board[rf];
                 pieceImgBase64Str = getPieceImg(id, gameroot.idDict, gameroot.pieceDefs);
                 squares.push(
-                    <Square key={rf} rf={rf} gameroot={gameroot} theme={gameroot.theme}>
+                    <Square key={uuidv4()} rf={rf} gameroot={gameroot} theme={gameroot.state.theme}>
                         <Piece
                             rf={rf}
                             id={id}
@@ -50,7 +50,7 @@ export function Board({ gameroot }) {
             <DndProvider backend={Backend}>
                 <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
             </DndProvider>
-            <GameDisplayBoard theme={gameroot.theme} />
+            <GameDisplayBoard theme={gameroot.state.theme} />
         </>
     );
 }

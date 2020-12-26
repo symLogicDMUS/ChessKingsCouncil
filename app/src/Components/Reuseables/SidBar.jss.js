@@ -1,5 +1,10 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../styles/themes.jss";
+import {drawerWidth} from "./PermanentDrawer.jss";
+import {availHeight} from "../helpers/windowMeasurments";
+
+export const sideBarWidth = drawerWidth * 0.55;
+export const sideBarHeight = availHeight() * 0.9;
 
 export const useStyles = makeStyles((theme) => ({
     root: {

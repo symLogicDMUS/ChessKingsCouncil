@@ -1,29 +1,23 @@
-import React, { useState } from "react";
-import { RangeDisplayBoard } from "./RangeBoard/RangeDisplayBoard";
-import { ExpandCollapseWidget } from "./ExpandCollapseWidget";
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import {RangeDisplayBoard} from "./RangeDisplayBoard";
 import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
-import { useStyles } from "./RangeDisplayTool.jss";
+import {useStyles} from "./RangeDisplayTool.jss";
 
-export function RangeDisplayTool({theme, board, allRanges, pieceDefs, idDict }) {
-    let [expanded, setExpanded] = useState(true);
+export function RangeDisplayTool({theme, board, allRanges, pieceDefs, idDict}) {
 
-    const classes = useStyles();
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
-        <>
-            {expanded && (
-                <div className={classes.expanded}>
-                    <div className={classes.label}>Range Display</div>
-                    <ExpandCollapseWidget isExpanded={true} togleExpand={() => setExpanded(false)} />
-                    <RangeDisplayBoard theme={theme} board={board} idDict={idDict} pieceDefs={pieceDefs} allRanges={allRanges} />
-                </div>
-            )}
-            {!expanded && (
-                <div className={classes.collapsed}>
-                    <div className={classes.label}>Range Display</div>
-                    <ExpandCollapseWidget isExpanded={false} togleExpand={() => setExpanded(true)} />
-                </div>
-            )}
-        </>
+            <div className={classes.range_display_rool}>
+                <Typography className={classes.title}>Range Display</Typography>
+                <RangeDisplayBoard
+                    theme={theme}
+                    board={board}
+                    idDict={idDict}
+                    pieceDefs={pieceDefs}
+                    allRanges={allRanges}
+                />
+            </div>
     );
 }

@@ -3,8 +3,8 @@ import { NavBar } from "../NavBar/NavBar";
 import { MessageModal } from "../NavBar/Help/MessageModal";
 // import {styles} from "./CouncilRules.jss";
 import "./CouncilRules.scss";
-import {drawerWidth} from "../CreatePiece/CreatePiece.jss";
 import {fontSize} from "../styles/fontSize.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 
 export class CouncilRules extends React.Component {
     constructor(props) {

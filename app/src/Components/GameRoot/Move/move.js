@@ -11,4 +11,5 @@ export function move(gameroot, start, dest) {
     if (gameroot.aiColor === gameroot.turn) {
         gameroot.prepareAiMove();
     }
+    gameroot.triggerRender();
 }

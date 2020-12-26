@@ -1,10 +1,7 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
-
-export const drawerWidth = availWidth() * 0.23;
-export const sideBarWidth = drawerWidth * 0.6;
-export const sideBarHeight = availHeight() * 0.9;
 
 /* unit % */
 export const drawerItemWidth = drawerWidth*0.86;

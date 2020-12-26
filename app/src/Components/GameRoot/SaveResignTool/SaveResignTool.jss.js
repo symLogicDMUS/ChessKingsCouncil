@@ -1,15 +1,35 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerWidth} from "../GameRoot.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
+
+const optionSize = '5em';
 
 export const useStyles = makeStyles({
     save_resign_tool: props => ({
         zIndex: 1,
-        fontSize: props.fontSize,
         width: {drawerWidth},
-        height: '20em',
-        backgroundColor: 'green',
-        borderRadius: '10px'
+        height: '12em',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: themes[props.theme].fill,
+        marginBottom: '5%',
+    }),
+    game_info_titles: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        flexWrap: 'no-wrap',
+        width: '100%',
+        // marginTop: '5%',
+    }),
+    game_info: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
+        flexWrap: 'no-wrap',
+        width: '100%',
     }),
     options_flexbox: props => ({
         display: 'flex',
@@ -18,20 +38,16 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         flexWrap: 'wrap',
         width: '90%',
+        height: optionSize,
         marginLeft: '5%',
-    }),
-    game_info: props => ({
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
-        flexWrap: 'wrap',
-        width: '90%',
-        marginLeft: '5%',
+        marginTop: '1%',
+
     }),
     option: props => ({
         fontSize: props.fontSize,
-        height: '0.5em',
+        height: '6em',
+        width: '6em',
+        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     button: props => ({
         width: '120%',
@@ -46,12 +62,29 @@ export const useStyles = makeStyles({
         border: 'black',
     }),
     icon: props => ({
-        width: '100%',
-        height: '100%',
+        fontSize: props.fontSize,
+        width: '3.5em',
+        height: '3.5em',
+        color: themes[props.theme].text,
     }),
-    text: props => ({
-        fontSize: props.fontSize*0.9,
+    option_text: props => ({
+        fontSize: props.fontSize*1.2,
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,
+        width: '4em'
+    }),
+    title_labels_text: props => ({
+        fontSize: props.fontSize*0.5,
+        width: '30%',
+        fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].button_text,
+        textAlign: 'center'
+    }),
+    title_text: props => ({
+        fontSize: props.fontSize*1.5,
+        width: '30%',
+        fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].button_text,
+        textAlign: 'center'
     }),
 })

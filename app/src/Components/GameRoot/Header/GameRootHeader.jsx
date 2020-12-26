@@ -1,12 +1,13 @@
 import React from "react";
+import {Typography} from "@material-ui/core";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
-import {Typography} from "@material-ui/core";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./GameRootHeader.jss";
 
-export function GameRootHeader({turn, winner, condition}) {
+export function GameRootHeader({turn, winner, condition, theme}) {
 
-    const classes = useStyles()
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     const exclaimMark = () => {
         if (condition === 'checkmate' || condition === "stalemate")

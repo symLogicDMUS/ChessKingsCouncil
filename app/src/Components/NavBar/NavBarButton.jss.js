@@ -1,7 +1,9 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
+import {navBarWidth} from "./NavBar.jss";
 
-const margin = '0.6em'
+export const navBarButtonWidth = navBarWidth * 0.99;
+const margin = '0.4em'
 
 export const text = (fontSize) => ({
     fontSize: fontSize,
@@ -9,7 +11,7 @@ export const text = (fontSize) => ({
     marginTop: '0.15em',
 });
 export const icon = (fontSize) => ({
-    fontSize: fontSize*1.2,
+    fontSize: fontSize*1.1,
     marginRight: margin,
 });
 

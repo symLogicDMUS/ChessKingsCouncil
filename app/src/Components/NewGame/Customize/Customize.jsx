@@ -20,15 +20,16 @@ import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import { withStyles } from "@material-ui/core";
+import {navBarWidth} from "../../NavBar/NavBar.jss";
+import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../../NavBar/NavBarButton.jss";
 import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
+import { withStyles } from "@material-ui/core";
 import {
     drawer_component,
     drawer_table_button,
     drawerItemWidth,
-    drawerWidth,
-    sideBarHeight,
-    sideBarWidth,
     styles,
 } from "./Customize.jss";
 
@@ -341,10 +342,10 @@ class Customize extends React.Component {
                         <NavBar
                             currentPage="Customize"
                             flexDirection="column"
-                            style={{ width: drawerWidth * 0.98 }}
+                            style={{ width: navBarWidth }}
                             buttonStyle={{
                                 fontSize: fontSize,
-                                width: drawerWidth * 0.98 * 0.98,
+                                width: navBarButtonWidth,
                                 justifyContent: "flex-start",
                             }}
                             unsavedChanges={false}
