@@ -12,6 +12,7 @@ export const locationToolLeft = () => availWidth() * 0.57;
 export const useStyles = makeStyles({
     location_tool: (props) => ({
         ...tool(props.fontSize, props.theme),
+        justifyContent: 'center',
     }),
     title: props => ({
         ...tool_title(props.theme),

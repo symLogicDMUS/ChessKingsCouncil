@@ -1,9 +1,14 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     img_window: props => ({
-        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            fontSize: props.fontSize,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: props.fontSize*1.25,
+        },
         width: "9.5em",
         height: "9.5em",
         display: 'flex',

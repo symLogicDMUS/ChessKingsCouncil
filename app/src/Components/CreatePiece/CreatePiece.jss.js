@@ -22,7 +22,7 @@ export const tool = (fontSize, theme) => ({
     },
     '@media screen and (max-width: 767px)': {
         width: '100%',
-        height: '70%',
+        height: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -33,13 +33,17 @@ export const tool = (fontSize, theme) => ({
 })
 
 export const tool_flexbox = {
-    width: '93%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     flexWrap: 'wrap',
+    '@media screen and (max-width: 767px)': {
+        width: '100%',
+        height: '100%',
+    },
     '@media screen and (min-width: 768px)': {
+        width: '93%',
         marginLeft: '3.5%',
     },
 }

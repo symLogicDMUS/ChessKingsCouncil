@@ -13,6 +13,6 @@ export const useStyles = makeStyles((theme) => ({
         fontWeight: theme.typography.fontWeightRegular,
     },
     accordion_body: {
-        height: availHeight()*0.48,
+        height: availHeight()*0.3,
     },
 }));
