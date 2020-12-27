@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import {v4 as uuidv4} from "uuid";
 import "../../helpers/stepFuncs";
 import { rankfiles } from "./rankfiles";
@@ -10,6 +11,7 @@ import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
     theme,
+    screenCase,
     offsets,
     pieceLoc,
     spanDisplays,
@@ -62,5 +64,5 @@ export function CreatePieceBoard({
         return squares;
     };
 
-    return <div className={classes.board}>{getBoard()}</div>;
+    return <div className={clsx(classes.board, { [classes.board_mobile]: screenCase === 'mobile' } )}>{getBoard()}</div>;
 }

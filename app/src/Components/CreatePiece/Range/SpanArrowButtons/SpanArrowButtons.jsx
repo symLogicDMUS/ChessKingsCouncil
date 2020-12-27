@@ -4,7 +4,7 @@ import { ArrowButton } from "./ArrowButton";
 import { useStyles } from "./SpanArrowButtons.jss";
 
 export function SpanArrowButtons({ spans, toggleSpan, theme }) {
-    const classes = useStyles({theme: theme, fontSize: fontSize})
+    const classes = useStyles({theme: theme, fontSize: fontSize*0.95})
 
     const angles = ["135d", "90d", "45d", "180d", "0d", "225d", "270d", "315d"];
 

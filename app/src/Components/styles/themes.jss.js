@@ -19,6 +19,7 @@ export const themes = {
         light_in_range: '#ec2525',
         dark_in_range: '#00CCFF',
         sqr_hover: '#00CCFF',
+        outline_label: '#a9a9a9',
     },
     green: {
         outline: '#b1faae',
@@ -38,6 +39,7 @@ export const themes = {
         dark_in_range: '#fdfd35',
         light_in_range: '#ddff00',
         sqr_hover: '#b1faae',
+        outline_label: '#b1faae',
     },
     purple: {
         outline: '#6a5acd',
@@ -56,7 +58,8 @@ export const themes = {
         dark_normal: '#6a5acd',
         light_in_range: '#c972ff',
         dark_in_range: '#914baf',
-        sqr_hover: '#b746fc'
+        sqr_hover: '#b746fc',
+        outline_label: '#6a5acd',
     },
     black: {
         outline: '#000000',
@@ -78,6 +81,7 @@ export const themes = {
         light_in_range: '#fff172',
         dark_in_range: '#acaf4b',
         sqr_hover: 'goldenrod',
+        outline_label: '#000000'
     },
 
     /**

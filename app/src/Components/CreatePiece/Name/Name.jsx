@@ -21,7 +21,7 @@ export function Name({updateName, theme}) {
                     value={userInput}
                     theme={theme}
                     onChange={handleUserInput}
-                    style={{margin: '5%', width: '90%'}}
+                    style={{ width: '100%'}}
                     placeholder='Enter name of piece...'
                     id="game-name"
                     label="Piece Name"

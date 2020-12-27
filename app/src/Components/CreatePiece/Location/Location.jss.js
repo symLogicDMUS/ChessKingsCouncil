@@ -10,13 +10,24 @@ export const locationToolTop = () => availHeight() * 0.67;
 export const locationToolLeft = () => availWidth() * 0.57;
 
 export const useStyles = makeStyles({
-        location_tool: (props) => ({
-            ...tool(props.fontSize, props.theme),
-        }),
-        title: props => ({
-            ...tool_title(props.fontSize*0.8, props.theme),
-        }),
-        box: props => ({
+    location_tool: (props) => ({
+        ...tool(props.fontSize, props.theme),
+    }),
+    title: props => ({
+        ...tool_title(props.theme),
+    }),
+    box: props => ({
+        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
             ...tool_flexbox,
-        }),
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '16em',
+            height: '16em',
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+        },
+    }),
 });

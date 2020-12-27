@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
+import {availWidth} from "../helpers/windowMeasurments";
 
 export const square = (fontSize) => ({
     zIndex: 'inherit',
@@ -7,6 +8,10 @@ export const square = (fontSize) => ({
     width: '1em',
     height: '1em',
     cursor: 'pointer',
+    '@media screen and (max-width: 767px)': {
+        width: availWidth() * 0.95 * 0.125,
+        height: availWidth() * 0.95 * 0.125,
+    },
 });
 
 export const useStyles = makeStyles({

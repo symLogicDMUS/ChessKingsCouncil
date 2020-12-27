@@ -41,6 +41,7 @@ import "../styles/_backgrounds.scss";
 import { styles } from "./CreatePiece.jss";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
+import MuiAccordion from "../Reuseables/MuiAccordion";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -129,11 +130,11 @@ class CreatePiece extends React.Component {
         this.toggleLoadModal = this.toggleLoadModal.bind(this);
         this.toggleMessageModal = this.toggleMessageModal.bind(this);
         this.resetSaveStatus = this.resetSaveStatus.bind(this);
+        this.setSelectedToolMobile = this.setSelectedToolMobile.bind(this);
+        this.toggleImgButtonsModal = this.toggleImgButtonsModal.bind(this);
         this.resetIconWindowIfImageDeleted = this.resetIconWindowIfImageDeleted.bind(
             this
         );
-        this.setSelectedToolMobile = this.setSelectedToolMobile.bind(this);
-        this.toggleImgButtonsModal = this.toggleImgButtonsModal.bind(this);
     }
 
     componentDidMount() {
@@ -524,7 +525,7 @@ class CreatePiece extends React.Component {
         this.setState({ imgButtonsModal: color });
     }
 
-    modals() {
+    modals(screenCase) {
         return (
             <>
                 {this.state.isMessageModal && (
@@ -582,14 +583,6 @@ class CreatePiece extends React.Component {
                         theme={this.state.theme}
                     />
                 )}
-            </>
-        );
-    }
-
-    getComponents(screenCase) {
-        return (
-            <>
-                {this.modals()}
                 {this.state.displaySuccessfulSaveMessage && (
                     <div className={this.props.classes.save_piece_modal}>
                         <DisplayMessageOnTimer
@@ -598,92 +591,6 @@ class CreatePiece extends React.Component {
                         />
                     </div>
                 )}
-                <NameDisplayAboveBoard name={this.name} />
-                <PermanentDrawer
-                    drawerType="right"
-                    theme={this.state.theme}
-                    width={drawerWidth}
-                    content={
-                        <Board
-                            key="content"
-                            theme={this.state.theme}
-                            toggleOffset={this.toggleOffset}
-                            spanDisplays={this.spanDisplays}
-                            offsets={this.offsetDisplays}
-                            pieceLoc={this.state.location}
-                            pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
-                            showSpanText={this.state.showSpanText}
-                            showOffsetText={this.state.showOffsetText}
-                        />
-                    }
-                    appBarContent={
-                        <Typography variant="h6" noWrap>
-                            Create Piece
-                        </Typography>
-                    }
-                >
-                    <Name
-                        key={"Name"}
-                        name={this.name}
-                        screenCase={screenCase}
-                        theme={this.state.theme}
-                        updateName={this.updateName}
-                    />
-                    <Icon
-                        key={"Icon"}
-                        theme={this.state.theme}
-                        screenCase={screenCase}
-                        setPieceImg={this.setPieceImg}
-                        whiteAndBlackImgs={this.whiteAndBlackImgs}
-                        updateParent={this.triggerRender}
-                        showChooseModal={this.showChooseModal}
-                        toggleImgButtonsModal={this.toggleImgButtonsModal}
-                    />
-                    <Range
-                        key={"Range"}
-                        theme={this.state.theme}
-                        screenCase={screenCase}
-                        spans={this.spans}
-                        offsets={this.offsets}
-                        toggleSpan={this.toggleSpan}
-                        update={this.triggerRender}
-                    />
-                    <Location
-                        key={"Location"}
-                        setLoc={this.setLoc}
-                        theme={this.state.theme}
-                        selectedLoc={this.state.location}
-                    />
-                    <Options
-                        key={"Options"}
-                        save={this.save}
-                        reset={this.reset}
-                        theme={this.state.theme}
-                        togleLoadModal={this.toggleLoadModal}
-                        eraseRange={this.eraseRange}
-                        screenCase={screenCase}
-                    />
-                </PermanentDrawer>
-                <SideBar
-                    theme={this.state.theme}
-                    drawerType="left"
-                    width={sideBarWidth}
-                >
-                    <NavBar
-                        currentPage="CreatePiece"
-                        flexDirection="column"
-                        style={{ width: navBarWidth }}
-                        buttonStyle={{
-                            fontSize: fontSize * 1.2,
-                            justifyContent: "flex-start",
-                            width: navBarButtonWidth,
-                            height: "2.5em",
-                        }}
-                        redirectMessage={messageStr}
-                        unsavedChanges={this.state.unsavedChanges}
-                        theme={this.state.theme}
-                    />
-                </SideBar>
             </>
         );
     }
@@ -692,10 +599,183 @@ class CreatePiece extends React.Component {
         return (
             <>
                 <MediaQuery minDeviceWidth={768}>
-                    {this.getComponents("desktop")}
+                    {this.modals("desktop")}
+                    <PermanentDrawer
+                        drawerType="right"
+                        theme={this.state.theme}
+                        width={drawerWidth}
+                        content={
+                            <Board
+                                key="content"
+                                theme={this.state.theme}
+                                toggleOffset={this.toggleOffset}
+                                spanDisplays={this.spanDisplays}
+                                offsets={this.offsetDisplays}
+                                pieceLoc={this.state.location}
+                                pieceImgBase64Str={
+                                    this.whiteAndBlackImgs["white"]
+                                }
+                                showSpanText={this.state.showSpanText}
+                                showOffsetText={this.state.showOffsetText}
+                                screenCase='desktop'
+                            />
+                        }
+                        appBarContent={
+                            <Typography variant="h6" noWrap>
+                                Create Piece
+                            </Typography>
+                        }
+                    >
+                        <Name
+                            key={"Name"}
+                            name={this.name}
+                            theme={this.state.theme}
+                            updateName={this.updateName}
+                        />
+                        <Icon
+                            key={"Icon"}
+                            theme={this.state.theme}
+                            setPieceImg={this.setPieceImg}
+                            whiteAndBlackImgs={this.whiteAndBlackImgs}
+                            updateParent={this.triggerRender}
+                            showChooseModal={this.showChooseModal}
+                            toggleImgButtonsModal={this.toggleImgButtonsModal}
+                        />
+                        <Range
+                            key={"Range"}
+                            theme={this.state.theme}
+                            spans={this.spans}
+                            offsets={this.offsets}
+                            toggleSpan={this.toggleSpan}
+                            update={this.triggerRender}
+                        />
+                        <Location
+                            key={"Location"}
+                            setLoc={this.setLoc}
+                            theme={this.state.theme}
+                            selectedLoc={this.state.location}
+                        />
+                        <Options
+                            key={"Options"}
+                            save={this.save}
+                            reset={this.reset}
+                            theme={this.state.theme}
+                            togleLoadModal={this.toggleLoadModal}
+                            eraseRange={this.eraseRange}
+                        />
+                    </PermanentDrawer>
+                    <SideBar
+                        theme={this.state.theme}
+                        drawerType="left"
+                        width={sideBarWidth}
+                    >
+                        <NavBar
+                            currentPage="CreatePiece"
+                            flexDirection="column"
+                            style={{ width: navBarWidth }}
+                            buttonStyle={{
+                                fontSize: fontSize * 1.2,
+                                justifyContent: "flex-start",
+                                width: navBarButtonWidth,
+                                height: "2.5em",
+                            }}
+                            redirectMessage={messageStr}
+                            unsavedChanges={this.state.unsavedChanges}
+                            theme={this.state.theme}
+                        />
+                    </SideBar>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
-                    {this.getComponents("mobile")}
+                    {this.modals("modal")}
+                    <Board
+                        key="content"
+                        theme={this.state.theme}
+                        toggleOffset={this.toggleOffset}
+                        spanDisplays={this.spanDisplays}
+                        offsets={this.offsetDisplays}
+                        pieceLoc={this.state.location}
+                        pieceImgBase64Str={
+                            this.whiteAndBlackImgs["white"]
+                        }
+                        showSpanText={this.state.showSpanText}
+                        showOffsetText={this.state.showOffsetText}
+                        screenCase='mobile'
+                    />
+                    <MuiAccordion theme={this.state.theme}>
+                        {[
+                            {
+                                id: "name",
+                                title: <Typography>Name</Typography>,
+                                body: (
+                                    <Name
+                                        key={"Name"}
+                                        name={this.name}
+                                        theme={this.state.theme}
+                                        updateName={this.updateName}
+                                    />
+                                ),
+                            },
+                            {
+                                id: "icon",
+                                title: <Typography>Icon</Typography>,
+                                body: (
+                                    <Icon
+                                        key={"Icon"}
+                                        theme={this.state.theme}
+                                        setPieceImg={this.setPieceImg}
+                                        whiteAndBlackImgs={
+                                            this.whiteAndBlackImgs
+                                        }
+                                        updateParent={this.triggerRender}
+                                        showChooseModal={this.showChooseModal}
+                                        toggleImgButtonsModal={
+                                            this.toggleImgButtonsModal
+                                        }
+                                    />
+                                ),
+                            },
+                            {
+                                id: "range",
+                                title: <Typography>Range</Typography>,
+                                body: (
+                                    <Range
+                                        key={"Range"}
+                                        theme={this.state.theme}
+                                        spans={this.spans}
+                                        offsets={this.offsets}
+                                        toggleSpan={this.toggleSpan}
+                                        update={this.triggerRender}
+                                    />
+                                ),
+                            },
+                            {
+                                id: "location",
+                                title: <Typography>Location</Typography>,
+                                body: (
+                                    <Location
+                                        key={"Location"}
+                                        setLoc={this.setLoc}
+                                        theme={this.state.theme}
+                                        selectedLoc={this.state.location}
+                                    />
+                                ),
+                            },
+                            {
+                                id: "options",
+                                title: <Typography>Options</Typography>,
+                                body: (
+                                    <Options
+                                        key={"Options"}
+                                        save={this.save}
+                                        reset={this.reset}
+                                        theme={this.state.theme}
+                                        togleLoadModal={this.toggleLoadModal}
+                                        eraseRange={this.eraseRange}
+                                    />
+                                ),
+                            },
+                        ]}
+                    </MuiAccordion>
                 </MediaQuery>
             </>
         );

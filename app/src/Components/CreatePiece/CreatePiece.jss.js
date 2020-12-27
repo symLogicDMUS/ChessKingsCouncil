@@ -15,26 +15,45 @@ export const margin = 1.1;
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
-    width: '100%',
-    backgroundColor: themes[theme].fill,
+    '@media screen and (min-width: 768px)': {
+        backgroundColor: themes[theme].fill,
+        width: '100%',
+        marginBottom: '3.5%',
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '100%',
+        height: '70%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'red',
+    },
 })
 
 export const tool_flexbox = {
+    width: '93%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     flexWrap: 'wrap',
-    width: '90%',
-    marginLeft: '5%'
+    '@media screen and (min-width: 768px)': {
+        marginLeft: '3.5%',
+    },
 }
 
-export const tool_title = (fontSize, theme) => ({
-    fontSize: fontSize,
-    fontFamily: 'Roboto-Light, Roboto',
-    color: themes[theme].text,
+/**
+ * Only used on desktop
+ */
+export const tool_title = (theme) => ({
+    fontSize: availHeight() * 0.018,
     width: '100%',
-    lineHeight: '2em',
+    lineHeight: '1em',
+    color: themes[theme].text,
+    fontFamily: 'Roboto-Light, Roboto',
+    marginBottom: '2.5%',
 })
 
 export const styles = {

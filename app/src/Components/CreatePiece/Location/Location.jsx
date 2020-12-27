@@ -1,18 +1,23 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import {LocationButton} from "./LocationButton";
-import {fontSize} from "../../styles/fontSize.jss";
-import {useStyles} from "./Location.jss";
-import {v4 as uuidv4} from "uuid";
+import { LocationButton } from "./LocationButton";
+import { fontSize } from "../../styles/fontSize.jss";
+import { useStyles } from "./Location.jss";
+import { v4 as uuidv4 } from "uuid";
+import MediaQuery from "react-responsive/src";
 
-export function Location({selectedLoc, setLoc, theme}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+export function Location({ selectedLoc, setLoc, theme }) {
+    const classes = useStyles({ theme: theme, fontSize: fontSize });
     return (
         <>
             <div className={classes.location_tool}>
                 <Box className={classes.box}>
-                    <Typography className={classes.title}>Location</Typography>
+                    <MediaQuery minDeviceWidth={768}>
+                        <Typography className={classes.title}>
+                            Location
+                        </Typography>
+                    </MediaQuery>
                     <LocationButton
                         rf="d4"
                         setLoc={setLoc}

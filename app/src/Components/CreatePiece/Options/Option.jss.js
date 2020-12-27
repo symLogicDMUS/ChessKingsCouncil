@@ -5,7 +5,13 @@ export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
-        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            fontSize: props.fontSize,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: props.fontSize*2,
+            margin: '0.2em'
+        },
         width: '3.5em',
         height: '3.5em',
         color: themes[props.theme].button_text,

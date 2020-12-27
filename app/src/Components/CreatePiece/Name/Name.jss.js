@@ -4,11 +4,9 @@ import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     name: {
-        width: '100%',
+        ...tool_flexbox,
         height: availHeight() * 0.08,
         backgroundColor: '#414141',
-    },
-    box: props => ({
-        ...tool_flexbox,
-    }),
+        marginBottom: '2.5%',
+    }
 });

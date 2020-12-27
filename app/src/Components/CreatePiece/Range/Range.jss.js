@@ -6,14 +6,13 @@ import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
 export const useStyles = makeStyles({
     range_tool: props => ({
         ...tool(props.fontSize, props.theme),
-        height: availWidth() * 0.135,
+        height: availWidth() * 0.12,
     }),
     box: props => ({
         ...tool_flexbox,
     }),
     title: props => ({
-        ...tool_title(props.fontSize*0.8, props.theme),
-        // marginLeft: '1.5em'
+        ...tool_title(props.theme),
     }),
 });
 

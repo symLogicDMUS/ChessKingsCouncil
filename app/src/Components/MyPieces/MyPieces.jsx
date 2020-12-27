@@ -133,20 +133,21 @@ class MyPieces extends React.Component {
                     style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
                     buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
                 />
-                {/*<MyPiecesHeader theme={this.state.theme} />*/}
-                {this.state.fetched && (
-                    <PieceProfiles
-                        context="load-delete"
-                        title="My Pieces"
-                        defs={this.defs}
-                        load={this.load}
-                        theme={this.state.theme}
-                        profileRef={this.state.profileRef}
-                        prepareDelete={this.prepareDelete}
-                    >
-                        <ProfilesTitle theme={this.state.theme} />
-                    </PieceProfiles>
-                )}
+                <div className={this.props.classes.my_pieces}>
+                    {this.state.fetched && (
+                        <PieceProfiles
+                            context="load-delete"
+                            title="My Pieces"
+                            defs={this.defs}
+                            load={this.load}
+                            theme={this.state.theme}
+                            profileRef={this.state.profileRef}
+                            prepareDelete={this.prepareDelete}
+                        >
+                            <ProfilesTitle theme={this.state.theme}/>
+                        </PieceProfiles>
+                    )}
+                </div>
             </>
         );
     }

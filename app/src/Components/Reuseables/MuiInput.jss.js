@@ -11,8 +11,10 @@ export const useStyles = makeStyles({
             borderColor: themes[props.theme].outline,
         },
         "& .MuiOutlinedInput-input": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].outline_label,
         },
+
+        /*hover*/
         "&:hover .MuiInputLabel-root": {
             color: themes[props.theme].outline,
         },
@@ -20,16 +22,18 @@ export const useStyles = makeStyles({
             borderColor: themes[props.theme].outline,
         },
         "&:hover .MuiOutlinedInput-input": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].outline_label,
         },
+
+        /*focused*/
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].outline_label,
         },
         "& .MuiInputLabel-root.Mui-focused": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].outline_label,
         },
         "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].outline_label,
         },
     }),
     field: (props) => ({

@@ -1,24 +1,25 @@
 import React from "react";
-import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import {fontSize} from "../../styles/fontSize.jss";
-import {Typography} from "@material-ui/core";
-import {angleToText} from "../../helpers/spanToText";
-import {offsetToText} from "../../helpers/offsetToText";
+import { SpanArrowButtons } from "./SpanArrowButtons/SpanArrowButtons";
+import { fontSizeAlt4 as fontSize } from "../../styles/fontSize.jss";
+import { Typography } from "@material-ui/core";
+import { angleToText } from "../../helpers/spanToText";
+import { offsetToText } from "../../helpers/offsetToText";
 import ScrollTable from "../../Reuseables/ScrollTable";
-import {useStyles} from "./Range.jss"
+import { useStyles } from "./Range.jss";
 import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
+import { themes } from "../../styles/themes.jss";
 
 export function getPangram() {
-    const sentences = []
+    const sentences = [];
     for (let index = 0; index < 7; index++) {
-        sentences.push("The quick brown fox jumps over the lazy dog.")
+        sentences.push("The quick brown fox jumps over the lazy dog.");
     }
     return sentences;
 }
 
-export function Range({spans, offsets, toggleSpan, theme}) {
-
-    const classes = useStyles({theme: theme, fontSize: fontSize})
+export function Range({ spans, offsets, toggleSpan, theme }) {
+    const classes = useStyles({ theme: theme, fontSize: fontSize });
 
     const getSpanTextLabels = () => {
         const newSpans = [];
@@ -38,17 +39,25 @@ export function Range({spans, offsets, toggleSpan, theme}) {
         <>
             <div className={classes.range_tool}>
                 <Box className={classes.box}>
-                    <Typography className={classes.title}>Range</Typography>
+                    <MediaQuery minDeviceWidth={768}>
+                        <Typography className={classes.title}>Range</Typography>
+                    </MediaQuery>
                     <ScrollTable
-                        // listItems={{ ...getSpanTextLabels(), ...getOffsetTextLabels() }}
                         listItems={getPangram()}
-                        width='9em'
-                        fontSize={fontSize}
+                        width="11.5em"
                         theme={theme}
                         isBorder={true}
-                        style={{borderRadius: '0.175em'}}
+                        style={{
+                            fontSize: fontSize * 1.089,
+                            borderRadius: "0.175em",
+                            border: `0.05em solid ${themes[theme].outline}`,
+                        }}
                     />
-                    <SpanArrowButtons spans={spans} toggleSpan={toggleSpan} theme={theme}/>
+                    <SpanArrowButtons
+                        spans={spans}
+                        toggleSpan={toggleSpan}
+                        theme={theme}
+                    />
                 </Box>
             </div>
         </>
