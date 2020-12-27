@@ -254,7 +254,6 @@ class Customize extends React.Component {
                 <div className={this.props.classes.customize}>
                     <Background theme={this.state.theme} />
                     <PermanentDrawer
-                        title="Customize Game"
                         drawerType="right"
                         width={drawerWidth}
                         theme={this.state.theme}
@@ -270,6 +269,11 @@ class Customize extends React.Component {
                                 togglePromo={this.togglePromo}
                                 theme={this.state.theme}
                             />
+                        }
+                        appBarContent={
+                            <Typography variant="h6" noWrap>
+                                Customize Game
+                            </Typography>
                         }
                     >
                         <ScrollTable

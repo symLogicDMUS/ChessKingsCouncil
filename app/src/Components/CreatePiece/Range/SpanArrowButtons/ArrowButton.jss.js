@@ -30,7 +30,7 @@ export const useStyles = makeStyles({
     }),
     container_selected: props => ({
         ...container(props.angle, props.fontSize),
-        // backgroundColor: '#ec2525',
+        backgroundColor: '#ec2525',
         '&:hover': {
             backgroundColor: '#ec2525'
         },

@@ -7,11 +7,11 @@ import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./PermanentDrawer.jss";
 
 export default function PermanentDrawer({
-    title,
-    content,
-    theme,
-    drawerType,
     width,
+    theme,
+    content,
+    drawerType,
+    appBarContent,
     children
 }) {
     const classes = useStyles({drawerType: drawerType, width: width, theme: theme});
@@ -20,10 +20,8 @@ export default function PermanentDrawer({
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar className={classes.appbar}>
-                    <Typography variant="h6" noWrap>
-                        {title}
-                    </Typography>
+                <Toolbar className={classes.appbar_content}>
+                    {appBarContent}
                 </Toolbar>
             </AppBar>
             <Drawer

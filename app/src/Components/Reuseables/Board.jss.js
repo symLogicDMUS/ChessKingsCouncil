@@ -1,4 +1,4 @@
-export const bigBoardMargin = '0.5em';
+export const bigBoardMargin = '0.25em';
 
 export const board = (fontSize) => ({
     fontSize: fontSize,

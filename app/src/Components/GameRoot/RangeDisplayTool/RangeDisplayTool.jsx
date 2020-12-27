@@ -1,4 +1,5 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {RangeDisplayBoard} from "./RangeDisplayBoard";
 import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
@@ -10,7 +11,7 @@ export function RangeDisplayTool({theme, board, allRanges, pieceDefs, idDict}) {
 
     return (
             <div className={classes.range_display_rool}>
-                <Typography className={classes.title}>Range Display</Typography>
+                <Box className={classes.flex_header}><Typography className={classes.title}>Range Display</Typography></Box>
                 <RangeDisplayBoard
                     theme={theme}
                     board={board}

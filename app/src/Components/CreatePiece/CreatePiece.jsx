@@ -1,45 +1,46 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import Box from "@material-ui/core/Box";
-import {copy} from "../helpers/copy";
-import {messageStr} from "./helpers/messageStr";
-import {NavBar} from "../NavBar/NavBar";
-import {Name} from "./Name/Name";
-import {Icon} from "./Icon/Icon";
-import {Range} from "./Range/Range";
-import {Location} from "./Location/Location";
-import {Options} from "./Options/Options";
-import {ConfirmModal} from "../NavBar/ConfirmModal";
-import {ProfilesModal} from "./Options/ProfilesModal";
-import {ImgButtonsModal} from "./Icon/ImgButtonsModal";
-import {MessageModal} from "../NavBar/Help/MessageModal";
+import { copy } from "../helpers/copy";
+import { messageStr } from "./helpers/messageStr";
+import { NavBar } from "../NavBar/NavBar";
+import { Name } from "./Name/Name";
+import { Icon } from "./Icon/Icon";
+import { Range } from "./Range/Range";
+import { Location } from "./Location/Location";
+import { Options } from "./Options/Options";
+import { ConfirmModal } from "../NavBar/ConfirmModal";
+import { ProfilesModal } from "./Options/ProfilesModal";
+import { ImgButtonsModal } from "./Icon/ImgButtonsModal";
+import { MessageModal } from "../NavBar/Help/MessageModal";
 import ChooseModal from "./Icon/ChooseModal/ChooseModal";
-import {saveDef} from "../../API/saveDef";
-import {getDefs} from "../../API/getDefs";
-import {deleteDef} from "../../API/deleteDef";
-import {stepFuncDict} from "../helpers/stepFuncs";
-import {outOfBounds as oob} from "../helpers/oob";
-import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
-import {getRotations} from "./helpers/getRotations";
-import {getSpansDict} from "./helpers/getSpansDict";
-import {flipOffsets} from "./helpers/flipOffsets";
-import {getStepFuncNames} from "./helpers/getStepFuncNames";
-import {SideBar} from "../Reuseables/SidBar";
+import { saveDef } from "../../API/saveDef";
+import { getDefs } from "../../API/getDefs";
+import { deleteDef } from "../../API/deleteDef";
+import { stepFuncDict } from "../helpers/stepFuncs";
+import { outOfBounds as oob } from "../helpers/oob";
+import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
+import { getRotations } from "./helpers/getRotations";
+import { getSpansDict } from "./helpers/getSpansDict";
+import { flipOffsets } from "./helpers/flipOffsets";
+import { getStepFuncNames } from "./helpers/getStepFuncNames";
+import { SideBar } from "../Reuseables/SidBar";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
-import {NameDisplayAboveBoard} from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
-import {ToolsMenuMobile} from "./ToolsMenuMobile/ToolsMenuMobile";
-import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
-import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
-import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
-import {navBarWidth} from "../NavBar/NavBar.jss";
+import { NameDisplayAboveBoard } from "./Name/NameDisplayAboveBoard/NameDisplayAboveBoard";
+import { ToolsMenuMobile } from "./ToolsMenuMobile/ToolsMenuMobile";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
+import { navBarWidth } from "../NavBar/NavBar.jss";
 import { fontSize } from "../styles/fontSize.jss";
-import {sideBarWidth} from "../Reuseables/SidBar.jss";
-import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
-import {navBarButtonWidth} from "../NavBar/NavBarButton.jss";
+import { sideBarWidth } from "../Reuseables/SidBar.jss";
+import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
+import { navBarButtonWidth } from "../NavBar/NavBarButton.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {styles} from "./CreatePiece.jss";
-
+import { styles } from "./CreatePiece.jss";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -90,7 +91,7 @@ class CreatePiece extends React.Component {
             "king",
         ];
 
-        this.whiteAndBlackImgs = {white: null, black: null};
+        this.whiteAndBlackImgs = { white: null, black: null };
 
         this.msgModalConfig = {
             title: null,
@@ -157,12 +158,12 @@ class CreatePiece extends React.Component {
                 this.load(this.props.location.state.defaultPiece);
             }
 
-            this.setState({binaryValue: !this.state.binaryValue});
+            this.setState({ binaryValue: !this.state.binaryValue });
         });
     }
 
     triggerRender() {
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     load(pieceName) {
@@ -187,7 +188,7 @@ class CreatePiece extends React.Component {
     }
 
     toggleLoadModal(boolVal) {
-        this.setState({isLoadModal: boolVal});
+        this.setState({ isLoadModal: boolVal });
     }
 
     save() {
@@ -199,8 +200,8 @@ class CreatePiece extends React.Component {
 
         //creating new entry in dictionary to save piece to
         this.defs[this.state.name] = {
-            W: {spans: null, offsets: null, img: null},
-            B: {spans: null, offsets: null, img: null},
+            W: { spans: null, offsets: null, img: null },
+            B: { spans: null, offsets: null, img: null },
         };
 
         const angles = [];
@@ -220,7 +221,7 @@ class CreatePiece extends React.Component {
         saveDef(this.state.name, this.defs[this.state.name]).then(
             ([response]) => {
                 this.setSaveStatus("success");
-                this.setState({unsavedChanges: false});
+                this.setState({ unsavedChanges: false });
             }
         );
     }
@@ -233,7 +234,7 @@ class CreatePiece extends React.Component {
                     title: "blank Name",
                     text: "You must give a piece Name before saving.",
                 };
-                this.setState({isMessageModal: true});
+                this.setState({ isMessageModal: true });
                 break;
             case "standard-Name":
                 this.msgModalConfig = {
@@ -241,7 +242,7 @@ class CreatePiece extends React.Component {
                     text:
                         "You cannot use the Name of any of the 6 standard pieces: Rook, Bishop, Knight, King, Queen, and Pawn.",
                 };
-                this.setState({isMessageModal: true});
+                this.setState({ isMessageModal: true });
                 break;
             case "no-Icon":
                 this.msgModalConfig = {
@@ -249,7 +250,7 @@ class CreatePiece extends React.Component {
                     text:
                         "You must pick an image Icon for both hover-off and black.",
                 };
-                this.setState({isMessageModal: true});
+                this.setState({ isMessageModal: true });
                 break;
             case "success":
                 this.setState({
@@ -275,7 +276,7 @@ class CreatePiece extends React.Component {
     }
 
     prepareDelete(pieceName) {
-        this.setState({pendingDelete: pieceName, isDeleteModal: true});
+        this.setState({ pendingDelete: pieceName, isDeleteModal: true });
     }
 
     cancelDelete() {
@@ -300,13 +301,13 @@ class CreatePiece extends React.Component {
 
     updateName(input) {
         /**used by name tool*/
-        this.setState({name: input, unsavedChanges: true});
+        this.setState({ name: input, unsavedChanges: true });
     }
 
     setPieceImg(color, pieceImgBase64Str) {
         /**used by Icon tool*/
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     toggleSpan(angle) {
@@ -318,7 +319,7 @@ class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     setDisplaySpan(angle) {
@@ -340,7 +341,7 @@ class CreatePiece extends React.Component {
 
     toggleSpanText() {
         /**used by checkbox for displaying text on squares*/
-        this.setState({showSpanText: !this.state.showSpanText});
+        this.setState({ showSpanText: !this.state.showSpanText });
     }
 
     resetSpanDisplays() {
@@ -361,7 +362,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     setOffsetDisplays() {
@@ -377,12 +378,12 @@ class CreatePiece extends React.Component {
 
     toggleOffsetText() {
         /**used by Checkboxes that toggle displaying text on squares*/
-        this.setState({showOffsetText: !this.state.showOffsetText});
+        this.setState({ showOffsetText: !this.state.showOffsetText });
     }
 
     setLoc(rf) {
         /**used by the Location tool*/
-        this.setState({location: rf});
+        this.setState({ location: rf });
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
         this.setDisplaySpans();
@@ -433,7 +434,7 @@ class CreatePiece extends React.Component {
 
     toggleMessageModal(boolVal) {
         /**used by Save Button when a message needs to be displayed*/
-        this.setState({messageModal: boolVal});
+        this.setState({ messageModal: boolVal });
     }
 
     resetSaveStatus() {
@@ -466,9 +467,9 @@ class CreatePiece extends React.Component {
             !this.whiteAndBlackImgs.white &&
             !this.whiteAndBlackImgs.black
         ) {
-            this.setState({unsavedChanges: false});
+            this.setState({ unsavedChanges: false });
         } else {
-            this.setState({unsavedChanges: true});
+            this.setState({ unsavedChanges: true });
         }
         this.setSaveStatus("none");
     }
@@ -476,8 +477,8 @@ class CreatePiece extends React.Component {
     clear() {
         /*used by Reset Option when not a loaded piece*/
         this.resetDisplayBoardAndRange();
-        this.whiteAndBlackImgs = {white: null, black: null};
-        this.setState({name: "", location: "d4", unsavedChanges: false});
+        this.whiteAndBlackImgs = { white: null, black: null };
+        this.setState({ name: "", location: "d4", unsavedChanges: false });
         this.setSaveStatus("none");
     }
 
@@ -487,7 +488,7 @@ class CreatePiece extends React.Component {
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
             const name = copy(this.loadedName);
-            this.setState({name: name, unsavedChanges: false});
+            this.setState({ name: name, unsavedChanges: false });
             this.setSaveStatus("none");
         }
     }
@@ -500,23 +501,27 @@ class CreatePiece extends React.Component {
     }
 
     setCurrentIconColor(color) {
-        this.setState({currentIconColor: color});
+        this.setState({ currentIconColor: color });
     }
 
     showChooseModal(color) {
-        this.setState({chooseModal: true, currentIconColor: color});
+        this.setState({ chooseModal: true, currentIconColor: color });
     }
 
     closeChooseModal() {
-        this.setState({chooseModal: false, currentIconColor: null, imgButtonsModal: null});
+        this.setState({
+            chooseModal: false,
+            currentIconColor: null,
+            imgButtonsModal: null,
+        });
     }
 
     setSelectedToolMobile(selectedToolMobile) {
-        this.setState({selectedToolMobile: selectedToolMobile});
+        this.setState({ selectedToolMobile: selectedToolMobile });
     }
 
     toggleImgButtonsModal(color) {
-        this.setState({imgButtonsModal: color});
+        this.setState({ imgButtonsModal: color });
     }
 
     modals() {
@@ -593,9 +598,8 @@ class CreatePiece extends React.Component {
                         />
                     </div>
                 )}
-                <NameDisplayAboveBoard name={this.name}/>
+                <NameDisplayAboveBoard name={this.name} />
                 <PermanentDrawer
-                    title="Create Piece"
                     drawerType="right"
                     theme={this.state.theme}
                     width={drawerWidth}
@@ -611,6 +615,11 @@ class CreatePiece extends React.Component {
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
                         />
+                    }
+                    appBarContent={
+                        <Typography variant="h6" noWrap>
+                            Create Piece
+                        </Typography>
                     }
                 >
                     <Name
@@ -663,12 +672,12 @@ class CreatePiece extends React.Component {
                     <NavBar
                         currentPage="CreatePiece"
                         flexDirection="column"
-                        style={{width: navBarWidth}}
+                        style={{ width: navBarWidth }}
                         buttonStyle={{
-                            fontSize: fontSize*1.2,
+                            fontSize: fontSize * 1.2,
                             justifyContent: "flex-start",
                             width: navBarButtonWidth,
-                            height: '2.5em',
+                            height: "2.5em",
                         }}
                         redirectMessage={messageStr}
                         unsavedChanges={this.state.unsavedChanges}

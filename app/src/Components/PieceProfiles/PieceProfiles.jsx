@@ -37,12 +37,20 @@ export function PieceProfiles(props) {
                         pieceName={pieceName}
                         expand={props.expand}
                         defs={props.defs}
+                        theme={props.theme}
                     >
                         <LoadDeleteHeader
-                            key={pieceName}
+                            key={uuidv4()}
                             pieceName={pieceName}
                             load={props.load}
-                            style={{ justifyContent: "right" }}
+                            theme={props.theme}
+                            style={{
+                                justifyContent: "right",
+                                width: '93.25%',
+                                marginLeft: '3.25%',
+                                marginTop: '0.5em',
+                                marginBottom: '0.5em',
+                            }}
                         />
                     </Profile>
                 );
@@ -79,9 +87,13 @@ export function PieceProfiles(props) {
         return profiles;
     };
 
+    //children is a header or none, depending on the parent page.
     return (
         <>
-            <div className={classes.piece_profiles}>{getProfiles()}</div>
+            <div className={classes.piece_profiles}>
+                {props.children}
+                {getProfiles()}
+            </div>
         </>
     );
 }

@@ -1,6 +1,4 @@
-/**See Options.jss */
 import {makeStyles} from "@material-ui/core/styles"
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const optionButtonSize = 3.5;

@@ -4,6 +4,7 @@ import {themes} from "../styles/themes.jss";
 import {sideBarWidth} from "./SidBar.jss";
 
 export const drawerWidth = availWidth() * 0.23;
+export const drawerItemWidth = drawerWidth * 0.95;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,10 +27,10 @@ export const useStyles = makeStyles((theme) => ({
     }),
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
-    appbar: props => ({
+    appbar_content: props => ({
         zIndex: 1,
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill,
-        fontFamily: 'Roboto-Light, Roboto'
+        fontFamily: 'Roboto-Light, Roboto',
     }),
 }));

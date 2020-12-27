@@ -1,44 +1,44 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Divider from "@material-ui/core/Divider";
-import { OVER } from "../helpers/gStatusTypes";
-import { NavBar } from "../NavBar/NavBar";
-import Promo from "./Promo/Promo";
-import { isPawn } from "../helpers/isPawn";
-import { AIDisplay } from "./AI/AIDisplay";
-import { makeMove } from "./Move/makeMove";
-import { update } from "../../game_logic/callHierarchyTop/update";
-import { saveGame } from "../../API/saveGame";
-import { SaveAs } from "./SaveResignTool/SaveAs";
-import { Board } from "./Board/Board";
-import { Fen } from "../../game_logic/fenParser/Fen";
-import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
-import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
-import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
-import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
-import { MessageModal } from "../NavBar/Help/MessageModal";
-import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
-import { GameRootHeader as Header } from "./Header/GameRootHeader";
-import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
-import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
-import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
-import { rookStartingRf, kingStartingRf } from "./sharedData/castleRankfiles";
-import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
-import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
-import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
-import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
-import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {OVER} from "../helpers/gStatusTypes";
+import {NavBar} from "../NavBar/NavBar";
+import Promo from "./Promo/Promo";
+import {isPawn} from "../helpers/isPawn";
+import {AIDisplay} from "./AI/AIDisplay";
+import {makeMove} from "./Move/makeMove";
+import {saveGame} from "../../API/saveGame";
+import {SaveAs} from "./SaveResignTool/SaveAs";
+import {Board} from "./Board/Board";
+import {StatusBar} from "./StatusBar/StatusBar";
+import {Fen} from "../../game_logic/fenParser/Fen";
+import {update} from "../../game_logic/callHierarchyTop/update";
+import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
+import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
+import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
+import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
+import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
+import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
+import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
+import {GameStatusCouncil} from "../../game_logic/council_logic/GameStatusCouncil";
+import {replacePawnIdWithCurrentLoc} from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
+import {MessageModal} from "../NavBar/Help/MessageModal";
+import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
+import {RangeDisplayTool} from "./RangeDisplayTool/RangeDisplayTool";
+import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
+import {kingStartingRf, rookStartingRf} from "./sharedData/castleRankfiles";
+import {gameDefsOffsetListsToStrs} from "../../apiHelpers/gameDefsOffsetListsToStrs";
+import {gamePageRedirectMessage} from "./sharedData/gamePageRedirectMessage";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
-import { SideBar } from "../Reuseables/SidBar";
-import { navBarWidth } from "../NavBar/NavBar.jss";
-import { fontSize } from "../styles/fontSize.jss";
-import { sideBarWidth } from "../Reuseables/SidBar.jss";
-import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../NavBar/NavBarButton.jss";
+import {SideBar} from "../Reuseables/SidBar";
+import {navBarWidth} from "../NavBar/NavBar.jss";
+import {sideBarWidth} from "../Reuseables/SidBar.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../NavBar/NavBarButton.jss";
+import {GameInfo} from "./GameInfo/GameInfo";
 import "../styles/_backgrounds.scss";
-import { styles } from "./GameRoot.jss";
+import {styles} from "./GameRoot.jss";
+import {fontSize} from "../styles/fontSize.jss";
+
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -357,21 +357,14 @@ class GameRoot extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
                 {this.modals()}
                 <PermanentDrawer
-                    title={`${this.gameName}`}
                     theme={this.state.theme}
                     width={drawerWidth}
                     drawerType="right"
                     content={
                         <div>
-                            <Header
-                                turn={this.turn}
-                                theme={this.state.theme}
-                                condition={this.getCondition()}
-                                winner={this.gameStatus.winner}
-                            />
                             <Board gameroot={this} />
                             {this.specialCase === "promo" && (
                                 <Promo
@@ -403,15 +396,26 @@ class GameRoot extends React.Component {
                                 )}
                         </div>
                     }
+                    appBarContent={
+                        <StatusBar
+                            turn={this.turn}
+                            theme={this.state.theme}
+                            condition={this.getCondition()}
+                            winner={this.gameStatus.winner}
+                        />
+                    }
                 >
+                    <GameInfo
+                        gameName={this.gameName}
+                        gameType={this.gameType}
+                        playerType={this.playerType}
+                        theme={this.state.theme}
+                    />
                     <SaveResignTool
                         save={this.save}
                         resign={this.resign}
                         toggleSaveAs={this.toggleSaveAs}
                         updateSpecialCase={this.updateSpecialCase}
-                        gameName={this.gameName}
-                        gameType={this.gameType}
-                        playerType={this.playerType}
                         theme={this.state.theme}
                     />
                     <RangeDisplayTool
@@ -446,7 +450,7 @@ class GameRoot extends React.Component {
                         unsavedChanges={this.state.unsavedChanges}
                     />
                 </SideBar>
-            </div>
+            </>
         );
     }
 }

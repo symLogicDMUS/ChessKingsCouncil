@@ -1,8 +1,11 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import MediaQuery from "react-responsive";
-import { NavBar } from "../NavBar/NavBar";
+import {NavBar} from "../NavBar/NavBar";
 // import { SearchBar } from "./SearchBar";
+// import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
+import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
+import {styles} from "./MyPieces.jss";
 import {ConfirmModal} from "../NavBar/ConfirmModal";
 import {deleteDef} from "../../API/deleteDef";
 import {getDefs} from "../../API/getDefs";
@@ -10,9 +13,7 @@ import {MessageModal} from "../NavBar/Help/MessageModal";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {styles} from "./MyPieces.jss";
 import {fontSize} from "../styles/fontSize.jss";
-import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class MyPieces extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "chessboard-background";
+        document.body.className = "dark-background";
         this.setDefs();
     }
 
@@ -132,22 +133,20 @@ class MyPieces extends React.Component {
                     style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
                     buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
                 />
-
-                <div className={this.props.classes.my_pieces}>
-                    <div className={this.props.classes.topbar}>
-                        <div className={this.props.classes.title}>My Pieces</div>
-                    </div>
-                    {this.state.fetched && (
-                        <PieceProfiles
-                            context="load-delete"
-                            title="My Pieces"
-                            defs={this.defs}
-                            load={this.load}
-                            profileRef={this.state.profileRef}
-                            prepareDelete={this.prepareDelete}
-                        />
-                    )}
-                </div>
+                {/*<MyPiecesHeader theme={this.state.theme} />*/}
+                {this.state.fetched && (
+                    <PieceProfiles
+                        context="load-delete"
+                        title="My Pieces"
+                        defs={this.defs}
+                        load={this.load}
+                        theme={this.state.theme}
+                        profileRef={this.state.profileRef}
+                        prepareDelete={this.prepareDelete}
+                    >
+                        <ProfilesTitle theme={this.state.theme} />
+                    </PieceProfiles>
+                )}
             </>
         );
     }
