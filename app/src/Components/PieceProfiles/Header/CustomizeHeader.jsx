@@ -5,10 +5,11 @@ import { CheckBox } from "../../Reuseables/CheckBox";
 import { Radio } from "@material-ui/core";
 import { themes } from "../../styles/themes.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import BlockIcon from '@material-ui/icons/Block';
 import { icons } from "../../styles/icons/top/icons.jss";
 import RadioButtonsGroup from "../../Reuseables/RadioButtonsGroup";
 import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
-import {promo_checkbox, checkbox_root, sub_buttons, useStyles} from "./CustomizeHeader.jss";
+import {promo_checkbox, checkbox_root, sub_buttons, useStyles, checkbox_circle} from "./CustomizeHeader.jss";
 
 export function CustomizeHeader({
     pieceName,
@@ -35,7 +36,7 @@ export function CustomizeHeader({
 
     return (
         <div className={classes.header}>
-            <Typography className={classes.header_text}>{pieceName}</Typography>
+            <Typography className={classes.header_text} variant='h6' noWrap>{pieceName}</Typography>
             <Box className={classes.box}>
                 <CheckBox
                     labelText="Promotion"
@@ -43,8 +44,9 @@ export function CustomizeHeader({
                     clickMethod={togglePromo}
                     clickValue={pieceName}
                     checkmarkState={isCheckmark}
-                    style={promo_checkbox(fontSize*1.2, theme)}
                     rootStyle={checkbox_root(fontSize)}
+                    circleStyle={checkbox_circle(fontSize)}
+                    style={promo_checkbox(fontSize, theme)}
                 />
             </Box>
             <RadioButtonsGroup
@@ -61,16 +63,10 @@ export function CustomizeHeader({
                         name="None"
                         className={classes.sub_button}
                         icon={
-                            <Typography
-                                style={{ color: themes[theme].outline }}
-                            >
-                                None
-                            </Typography>
+                            <BlockIcon />
                         }
                         checkedIcon={
-                            <Typography style={{ color: themes[theme].text }}>
-                                None
-                            </Typography>
+                            <BlockIcon htmlColor={themes[theme].text} />
                         }
                     />,
                     <Radio

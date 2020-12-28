@@ -13,6 +13,7 @@ export const useStyles = makeStyles({
     }),
     circle_container: props => ({
         ...props.circleStyle,
+        color: themes[props.theme].text,
     }),
     text: props =>  ({
         ...props.style,

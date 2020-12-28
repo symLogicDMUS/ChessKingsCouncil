@@ -17,13 +17,15 @@ import ScrollTable from "../../Reuseables/ScrollTable";
 import { Background } from "../../Reuseables/Background";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";
+import PersistentDrawer from "../../Reuseables/PersistentDrawer";
+import MuiAccordion from "../../Reuseables/MuiAccordion";
 import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
 import { MessageModal } from "../../NavBar/Help/MessageModal";
 import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {navBarWidth} from "../../NavBar/NavBar.jss";
-import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {navBarButtonWidth} from "../../NavBar/NavBarButton.jss";
+import { navBarWidth } from "../../NavBar/NavBar.jss";
+import { sideBarHeight, sideBarWidth } from "../../Reuseables/SidBar.jss";
+import { drawerWidth } from "../../Reuseables/PermanentDrawer.jss";
+import { navBarButtonWidth } from "../../NavBar/NavBarButton.jss";
 import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
 import { withStyles } from "@material-ui/core";
 import {
@@ -218,7 +220,8 @@ class Customize extends React.Component {
         this.setState({ playerType: playerType });
     }
 
-    getComponents(screenCase) {
+    render() {
+        // if (this.promoListUpdate) this.divideList();
         return (
             <>
                 {this.state.messageModal && (
@@ -252,12 +255,138 @@ class Customize extends React.Component {
                         />
                     )}
                 <div className={this.props.classes.customize}>
-                    <Background theme={this.state.theme} />
-                    <PermanentDrawer
-                        drawerType="right"
-                        width={drawerWidth}
-                        theme={this.state.theme}
-                        content={
+                    <MediaQuery minDeviceWidth={768}>
+                        {/*<Background theme={this.state.theme} />*/}
+                        <PermanentDrawer
+                            drawerType="right"
+                            width={drawerWidth}
+                            theme={this.state.theme}
+                            content={
+                                <PieceProfiles
+                                    context="custom-game"
+                                    defs={this.defs}
+                                    promos={this.promos}
+                                    newReplacement={this.newReplacement}
+                                    newReplaced={this.newReplaced}
+                                    expand={this.expand}
+                                    toggleSub={this.toggleSub}
+                                    togglePromo={this.togglePromo}
+                                    theme={this.state.theme}
+                                />
+                            }
+                            appBarContent={
+                                <Typography variant="h6" noWrap>
+                                    Customize Game
+                                </Typography>
+                            }
+                        >
+                            <ScrollTable
+                                listItems={this.promos}
+                                theme={this.state.theme}
+                                style={{
+                                    ...drawer_component(fontSize),
+                                    marginTop: 0,
+                                    isOutline: true,
+                                }}
+                                buttonStyle={drawer_table_button(fontSize)}
+                                title={
+                                    <Typography
+                                        className={
+                                            this.props.classes.list_title
+                                        }
+                                    >
+                                        Pawn Promotions
+                                    </Typography>
+                                }
+                                subHeader={
+                                    <CheckBox
+                                        labelText="Promo All"
+                                        clickValue={null}
+                                        theme={this.state.theme}
+                                        clickMethod={this.togglePromoAll}
+                                        style={{ fontSize: fontSize * 0.8 }}
+                                        rootStyle={{
+                                            marginLeft: drawerItemWidth * 0.025,
+                                        }}
+                                    />
+                                }
+                            />
+                            <SubList
+                                subs={this.subs}
+                                theme={this.state.theme}
+                            />
+                            <Dropdown
+                                updateParent={this.setPlayerType}
+                                list={[
+                                    <MenuItem value="None">
+                                        <em>None</em>
+                                    </MenuItem>,
+                                    <MenuItem value="Test">Test</MenuItem>,
+                                    <MenuItem value="White">White</MenuItem>,
+                                    <MenuItem value="Black">Black</MenuItem>,
+                                ]}
+                                theme={this.state.theme}
+                                style={drawer_component(fontSize)}
+                                overwrite={null}
+                                fullWidth={true}
+                                variant="outlined"
+                                label="Play As"
+                                inputLabel="Play As"
+                                inputId="play-as-input"
+                                selectId="play-as-selected"
+                                labelId="play-as-label"
+                            />
+                            <Button
+                                onClick={this.accept}
+                                style={drawer_component(fontSize)}
+                                theme={this.state.theme}
+                                variant={"contained"}
+                                isDisabled={false}
+                            >
+                                Ok
+                            </Button>
+                        </PermanentDrawer>
+                        <SideBar
+                            theme={this.state.theme}
+                            drawerType="left"
+                            width={sideBarWidth}
+                            height={sideBarHeight}
+                        >
+                            <NavBar
+                                currentPage="Customize"
+                                flexDirection="column"
+                                style={{ width: navBarWidth }}
+                                buttonStyle={{
+                                    fontSize: fontSize,
+                                    width: navBarButtonWidth,
+                                    justifyContent: "flex-start",
+                                }}
+                                unsavedChanges={false}
+                                theme={this.state.theme}
+                            />
+                        </SideBar>
+                    </MediaQuery>
+                    <MediaQuery maxDeviceWidth={767}>
+                        <PersistentDrawer
+                            drawer={
+                                <NavBar
+                                    currentPage="Customize"
+                                    flexDirection="column"
+                                    style={{ width: "100%" }}
+                                    buttonStyle={{
+                                        fontSize: fontSize * 1.2,
+                                        justifyContent: "flex-start",
+                                        width: "99%",
+                                        height: "2.5em",
+                                    }}
+                                    redirectMessage={null}
+                                    unsavedChanges={this.state.unsavedChanges}
+                                    theme={this.state.theme}
+                                />
+                            }
+                            appBarContent={<Typography variant='h6' noWrap>Customize Game</Typography>}
+                            theme={this.state.theme}
+                        >
                             <PieceProfiles
                                 context="custom-game"
                                 defs={this.defs}
@@ -269,106 +398,128 @@ class Customize extends React.Component {
                                 togglePromo={this.togglePromo}
                                 theme={this.state.theme}
                             />
-                        }
-                        appBarContent={
-                            <Typography variant="h6" noWrap>
-                                Customize Game
-                            </Typography>
-                        }
-                    >
-                        <ScrollTable
-                            listItems={this.promos}
-                            theme={this.state.theme}
-                            style={{
-                                ...drawer_component(fontSize),
-                                marginTop: 0,
-                                isOutline: true,
-                            }}
-                            buttonStyle={drawer_table_button(fontSize)}
-                            title={
-                                <Typography
-                                    className={this.props.classes.list_title}
-                                >
-                                    Pawn Promotions
-                                </Typography>
-                            }
-                            subHeader={
-                                <CheckBox
-                                    labelText="Promo All"
-                                    clickValue={null}
-                                    theme={this.state.theme}
-                                    clickMethod={this.togglePromoAll}
-                                    style={{ fontSize: fontSize * 0.8 }}
-                                    rootStyle={{
-                                        marginLeft: drawerItemWidth * 0.025,
-                                    }}
-                                />
-                            }
-                        />
-                        <SubList subs={this.subs} theme={this.state.theme} />
-                        <Dropdown
-                            updateParent={this.setPlayerType}
-                            list={[
-                                <MenuItem value="None">
-                                    <em>None</em>
-                                </MenuItem>,
-                                <MenuItem value="Test">Test</MenuItem>,
-                                <MenuItem value="White">White</MenuItem>,
-                                <MenuItem value="Black">Black</MenuItem>,
-                            ]}
-                            theme={this.state.theme}
-                            style={drawer_component(fontSize)}
-                            overwrite={null}
-                            fullWidth={true}
-                            variant="outlined"
-                            label="Play As"
-                            inputLabel="Play As"
-                            inputId="play-as-input"
-                            selectId="play-as-selected"
-                            labelId="play-as-label"
-                        />
-                        <Button
-                            onClick={this.accept}
-                            style={drawer_component(fontSize)}
-                            theme={this.state.theme}
-                            variant={"contained"}
-                            isDisabled={false}
-                        >
-                            Ok
-                        </Button>
-                    </PermanentDrawer>
-                    <SideBar
-                        theme={this.state.theme}
-                        drawerType="left"
-                        width={sideBarWidth}
-                        height={sideBarHeight}
-                    >
-                        <NavBar
-                            currentPage="Customize"
-                            flexDirection="column"
-                            style={{ width: navBarWidth }}
-                            buttonStyle={{
-                                fontSize: fontSize,
-                                width: navBarButtonWidth,
-                                justifyContent: "flex-start",
-                            }}
-                            unsavedChanges={false}
-                            theme={this.state.theme}
-                        />
-                    </SideBar>
+                            <Button
+                                onClick={this.accept}
+                                style={drawer_component(fontSize)}
+                                theme={this.state.theme}
+                                variant={"contained"}
+                                isDisabled={false}
+                            >
+                                Ok
+                            </Button>
+                            <MuiAccordion theme={this.state.theme}>
+                                {[
+                                    {
+                                        id: "sub-list",
+                                        title: (
+                                            <Typography>Sub List</Typography>
+                                        ),
+                                        body: (
+                                            <SubList
+                                                subs={this.subs}
+                                                theme={this.state.theme}
+                                            />
+                                        ),
+                                    },
+                                    {
+                                        id: "promo-list",
+                                        title: (
+                                            <Typography>
+                                                Promotion List
+                                            </Typography>
+                                        ),
+                                        body: (
+                                            <ScrollTable
+                                                listItems={this.promos}
+                                                theme={this.state.theme}
+                                                style={{
+                                                    ...drawer_component(
+                                                        fontSize
+                                                    ),
+                                                    marginTop: 0,
+                                                    isOutline: true,
+                                                }}
+                                                buttonStyle={drawer_table_button(
+                                                    fontSize
+                                                )}
+                                                title={
+                                                    <Typography
+                                                        className={
+                                                            this.props.classes
+                                                                .list_title
+                                                        }
+                                                    >
+                                                        Pawn Promotions
+                                                    </Typography>
+                                                }
+                                                subHeader={
+                                                    <CheckBox
+                                                        labelText="Promo All"
+                                                        clickValue={null}
+                                                        theme={this.state.theme}
+                                                        clickMethod={
+                                                            this.togglePromoAll
+                                                        }
+                                                        style={{
+                                                            fontSize:
+                                                                fontSize * 0.8,
+                                                        }}
+                                                        rootStyle={{
+                                                            marginLeft:
+                                                                drawerItemWidth *
+                                                                0.025,
+                                                        }}
+                                                    />
+                                                }
+                                            />
+                                        ),
+                                    },
+                                    {
+                                        id: "set-player-type",
+                                        title: (
+                                            <Typography>
+                                                Set Player Type
+                                            </Typography>
+                                        ),
+                                        body: (
+                                            <Dropdown
+                                                updateParent={
+                                                    this.setPlayerType
+                                                }
+                                                list={[
+                                                    <MenuItem value="None">
+                                                        <em>None</em>
+                                                    </MenuItem>,
+                                                    <MenuItem value="Test">
+                                                        Test
+                                                    </MenuItem>,
+                                                    <MenuItem value="White">
+                                                        White
+                                                    </MenuItem>,
+                                                    <MenuItem value="Black">
+                                                        Black
+                                                    </MenuItem>,
+                                                ]}
+                                                theme={this.state.theme}
+                                                style={drawer_component(
+                                                    fontSize
+                                                )}
+                                                overwrite={null}
+                                                fullWidth={true}
+                                                variant="outlined"
+                                                label="Play As"
+                                                inputLabel="Play As"
+                                                inputId="play-as-input"
+                                                selectId="play-as-selected"
+                                                labelId="play-as-label"
+                                            />
+                                        ),
+                                    },
+                                ]}
+                            </MuiAccordion>
+                        </PersistentDrawer>
+                    </MediaQuery>
                 </div>
-            </>
-        );
-    }
-
-    render() {
-        // if (this.promoListUpdate) this.divideList();
-        return (
-            <>
-                <MediaQuery minDeviceWidth={768}>
-                    {this.getComponents("desktop")}
-                </MediaQuery>
-                {/* <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery> */}
             </>
         );
     }

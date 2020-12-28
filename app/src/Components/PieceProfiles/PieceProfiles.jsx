@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {v4 as uuidv4} from "uuid";
+import MediaQuery from "react-responsive/src";
 import { Profile } from "./Profile";
 // import { SearchBar } from "./SearchBar";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
@@ -26,7 +27,7 @@ export function PieceProfiles(props) {
         }
     };
 
-    const getProfiles = () => {
+    const getProfiles = (screenCase) => {
         let profiles = [];
         let pieceNames = applySearchFilter();
         if (props.context === "load-delete") {
@@ -38,6 +39,7 @@ export function PieceProfiles(props) {
                         expand={props.expand}
                         defs={props.defs}
                         theme={props.theme}
+                        screenCase={screenCase}
                     >
                         <LoadDeleteHeader
                             key={uuidv4()}
@@ -51,6 +53,7 @@ export function PieceProfiles(props) {
                                 marginTop: '0.5em',
                                 marginBottom: '0.5em',
                             }}
+                            screenCase={screenCase}
                         />
                     </Profile>
                 );
@@ -66,6 +69,7 @@ export function PieceProfiles(props) {
                         theme={props.theme}
                         expand={props.expand}
                         defs={props.defs}
+                        screenCase={screenCase}
                     >
                         <CustomizeHeader
                             key={uuidv4()}
@@ -77,6 +81,7 @@ export function PieceProfiles(props) {
                             newReplaced={props.newReplaced}
                             togglePromo={props.togglePromo}
                             theme={props.theme}
+                            screenCase={screenCase}
                         />
                     </Profile>
                 );
@@ -92,7 +97,8 @@ export function PieceProfiles(props) {
         <>
             <div className={classes.piece_profiles}>
                 {props.children}
-                {getProfiles()}
+                <MediaQuery minDeviceWidth={768}>{getProfiles('desktop')}</MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>{getProfiles('mobile')}</MediaQuery>
             </div>
         </>
     );

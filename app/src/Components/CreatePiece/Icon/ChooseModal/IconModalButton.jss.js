@@ -7,7 +7,6 @@ const button = (left) => ({
     fontFamily: '\'Segoe UI\', Tahoma, Geneva, Verdana, sans-serif',
     color: '#a9a9a9',
     backgroundColor: '#515151',
-    border: '1px solid #a9a9a9',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
 

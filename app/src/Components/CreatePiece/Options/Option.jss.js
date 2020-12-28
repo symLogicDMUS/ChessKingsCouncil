@@ -15,7 +15,6 @@ export const useStyles = makeStyles({
         width: '3.5em',
         height: '3.5em',
         color: themes[props.theme].button_text,
-        border: '0.05em solid #2b2b2b',
     }),
     button: props => ({
         marginTop: '0.25em',

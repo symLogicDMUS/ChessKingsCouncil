@@ -3,13 +3,13 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { resolvePlayerType } from "../helpers/resolvePlayerType";
+import {resolvePlayerType} from "../helpers/resolvePlayerType";
 import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
-import { stepFuncNamesToText } from "../helpers/spanToText";
-import { offsetToText } from "../helpers/offsetToText";
+import {stepFuncNamesToText} from "../helpers/spanToText";
+import {offsetToText} from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
-import { ProfileAvatar } from "./ProfileAvatar";
-import { useStyles } from "./ProfileWB.jss";
+import {ProfileAvatar} from "./ProfileAvatar";
+import {mobileScaler, useStyles} from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
@@ -17,9 +17,17 @@ import { useStyles } from "./ProfileWB.jss";
  * expand: given to header. opens displayBoard
  * def: spans, offsets, and img of W or B piece
  * */
-export function ProfileWB({ pieceName, color, def, expand, theme }) {
+export function ProfileWB({ pieceName, color, def, expand, theme, screenCase }) {
 
     const classes = useStyles({ fontSize: fontSize, theme: theme});
+
+    const getFontSize = () => {
+        switch (screenCase) {
+            case 'desktop': return fontSize;
+            case 'mobile': return fontSize * mobileScaler;
+            default: return fontSize;
+        }
+    };
 
     const getSpans = (def) => {
         if (def.spans.length === 0) {
@@ -59,14 +67,14 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                             className={classes.range_expand_widget}
                             onClick={() => expand(pieceName, color, "offsets")}
                         >
-                            <AddIcon />
+                            <AddIcon className={classes.range_expand_icon} />
                         </IconButton>
                         <Box className={classes.box}>
-                            <Typography className={classes.range_title}>{resolvePlayerType(color)} Offsets</Typography>
+                            <Typography className={classes.range_title} noWrap>{resolvePlayerType(color)} Offsets</Typography>
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize, width:'11.55em', isOutline: true }}
+                style={{ fontSize: getFontSize(), width: screenCase === 'desktop' ? '11.55em': '7.5em', isOutline: true }}
                 buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />
@@ -78,14 +86,14 @@ export function ProfileWB({ pieceName, color, def, expand, theme }) {
                             className={classes.range_expand_widget}
                             onClick={() => expand(pieceName, color, "spans")}
                         >
-                            <AddIcon />
+                            <AddIcon className={classes.range_expand_icon} />
                         </IconButton>
                         <Box className={classes.box}>
-                            <Typography className={classes.range_title}>{resolvePlayerType(color)} Spans</Typography>
+                            <Typography className={classes.range_title} noWrap>{resolvePlayerType(color)} Spans</Typography>
                         </Box>
                     </Box>
                 }
-                style={{ fontSize: fontSize, width:'11.55em', isOutline: true }}
+                style={{ fontSize: getFontSize(), width: screenCase === 'desktop' ? '11.55em': '7.5em', isOutline: true }}
                 buttonStyle={{borderRadius: 0}}
                 theme={theme}
             />

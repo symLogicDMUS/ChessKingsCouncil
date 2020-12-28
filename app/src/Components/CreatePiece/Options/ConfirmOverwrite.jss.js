@@ -13,7 +13,6 @@ const button = {
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     color: "#b6b6b6",
     backgroundColor: "#5d5d5d",
-    border: "1px solid #454849",
     overflow: "hidden",
     textOverflow: "ellipsis",
     cursor: "pointer",
@@ -34,7 +33,6 @@ export const useStyles = makeStyles({
         borderRadius: modalBorderRadius,
         zIndex: "5",
         backgroundColor: "#515151",
-        border: "1px solid #5d5d5d",
     },
     yes_button: {
         ...button,

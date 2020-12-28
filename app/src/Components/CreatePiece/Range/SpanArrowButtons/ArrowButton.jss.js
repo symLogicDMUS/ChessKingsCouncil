@@ -12,25 +12,25 @@ const buttonPos = {
     "315d": {gridRow: 3, gridColumn: 3},
 };
 
-const container = (angle, fontSize) => ({
+const container = (angle, fontSize, theme) => ({
     ...buttonPos[angle],
     fontSize: fontSize,
     width: '3em',
     height: '3em',
-    border: '1px solid #2b2b2b',
+    border: `0.06em solid ${themes[theme].outline}`,
     borderRadius: '0.2em',
 })
 
 export const useStyles = makeStyles({
     container_normal: props => ({
-        ...container(props.angle, props.fontSize),
+        ...container(props.angle, props.fontSize, props.theme),
         backgroundColor: '#414141',
         '&:hover': {
             backgroundColor: '#707070'
         },
     }),
     container_selected: props => ({
-        ...container(props.angle, props.fontSize),
+        ...container(props.angle, props.fontSize, props.theme),
         backgroundColor: '#ec2525',
         '&:hover': {
             backgroundColor: '#ec2525'
