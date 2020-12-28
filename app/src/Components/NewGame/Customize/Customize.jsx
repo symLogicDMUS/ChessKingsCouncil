@@ -31,7 +31,7 @@ import { withStyles } from "@material-ui/core";
 import {
     drawer_component,
     drawer_table_button,
-    drawerItemWidth,
+    drawerItemWidth, ok_button,
     styles,
 } from "./Customize.jss";
 
@@ -338,7 +338,7 @@ class Customize extends React.Component {
                             />
                             <Button
                                 onClick={this.accept}
-                                style={drawer_component(fontSize)}
+                                style={ok_button(fontSize)}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}
@@ -398,15 +398,6 @@ class Customize extends React.Component {
                                 togglePromo={this.togglePromo}
                                 theme={this.state.theme}
                             />
-                            <Button
-                                onClick={this.accept}
-                                style={drawer_component(fontSize)}
-                                theme={this.state.theme}
-                                variant={"contained"}
-                                isDisabled={false}
-                            >
-                                Ok
-                            </Button>
                             <MuiAccordion theme={this.state.theme}>
                                 {[
                                     {
@@ -517,6 +508,15 @@ class Customize extends React.Component {
                                     },
                                 ]}
                             </MuiAccordion>
+                            <Button
+                                onClick={this.accept}
+                                style={ok_button(fontSize)}
+                                theme={this.state.theme}
+                                variant={"contained"}
+                                isDisabled={false}
+                            >
+                                Ok
+                            </Button>
                         </PersistentDrawer>
                     </MediaQuery>
                 </div>

@@ -10,11 +10,25 @@ export const drawerItemMarginLeft = '7%';
 
 export const drawer_component = (fontSize) => ({
     fontSize: fontSize,
-    width: drawerItemWidth,
-    marginLeft: drawerItemMarginLeft,
-    marginTop: drawerItemMarginTopBottom,
-    marginBottom: drawerItemMarginTopBottom,
     fontFamily: 'Roboto-Light, Roboto',
+    '@media screen and (min-width: 768px)': {
+        width: drawerItemWidth,
+        marginLeft: drawerItemMarginLeft,
+        marginTop: drawerItemMarginTopBottom,
+        marginBottom: drawerItemMarginTopBottom,
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '100%',
+    },
+});
+
+
+export const ok_button = (fontSize) => ({
+    ...drawer_component(fontSize),
+    '@media screen and (max-width: 767px)': {
+        marginTop: '0.5em',
+        width: '100%',
+    },
 });
 
 export const drawer_table_button = (fontSize) => ({
