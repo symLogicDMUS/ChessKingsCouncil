@@ -224,7 +224,6 @@ class MyPieces extends React.Component {
                                     profileRef={this.state.profileRef}
                                     prepareDelete={this.prepareDelete}
                                 >
-                                    <ProfilesTitle theme={this.state.theme} />
                                 </PieceProfiles>
                             )}
                         </div>

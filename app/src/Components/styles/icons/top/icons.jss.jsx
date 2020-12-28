@@ -4,6 +4,7 @@ import { load } from "../load.jss";
 import { erase } from "../erase.jss";
 import { reset } from "../reset.jss";
 import { home } from "../nav-bar/home.jss";
+import {app_title} from "../app_title.jss";
 import { new_game } from "../nav-bar/new_game.jss";
 import { load_game } from "../nav-bar/load_game.jss";
 import { create_piece } from "../nav-bar/create_piece.jss";
@@ -11,6 +12,13 @@ import { my_pieces } from "../nav-bar/my_pieces.jss";
 import { author_github } from "../nav-bar/author_github.jss";
 import { chess_rules } from "../nav-bar/chess_rules.jss";
 import { council_rules } from "../nav-bar/council_rules.jss";
+import {new_game_cutout} from "../main-menu/new_game_cutout.jss";
+import {load_game_cutout} from "../main-menu/load_game_cutout.jss";
+import {create_piece_cutout} from "../main-menu/create_piece_cutout.jss";
+import {my_pieces_cutout} from "../main-menu/my_pieces_cutout.jss";
+import {author_github_cutout} from "../main-menu/author_github_cutout.jss";
+import {chess_rules_cutout} from "../main-menu/chess_rules_cutout.jss";
+import {council_rules_cutout} from "../main-menu/council_rules_cutout.jss";
 import { right } from "../arrows/right.jss";
 import { up_right } from "../arrows/up-right.jss";
 import { up } from "../arrows/up.jss";
@@ -35,6 +43,7 @@ import {resign} from "../resign.jss";
 
 export const icons = {
     home: home,
+    app_title:app_title,
     'new-game': new_game,
     'load-game': load_game,
     'create-piece': create_piece,
@@ -42,8 +51,15 @@ export const icons = {
     'council-rules': council_rules,
     'my-pieces': my_pieces,
     'author-github': author_github,
-    'white-img-icon': white_img_icon,
-    'black-img-icon': black_img_icon,
+    'new-game-cutout': new_game_cutout,
+    'load-game-cutout': load_game_cutout,
+    'create-piece-cutout': create_piece_cutout,
+    'chess-rules-cutout': chess_rules_cutout,
+    'council-rules-cutout': council_rules_cutout,
+    'author-github-cutout': author_github_cutout,
+    'my-pieces-cutout': my_pieces_cutout,
+    white_img_icon: white_img_icon,
+    black_img_icon: black_img_icon,
     bishop_filled: bishop_filled,
     bishop_outline: bishop_outline,
     rook_filled: rook_filled,

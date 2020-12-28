@@ -21,7 +21,7 @@ export const ld_header_style = (fontSize, screenCase) => ({
     marginLeft: '3.25%',
     marginTop: '0.5em',
     marginBottom: '0.5em',
-    width: screenCase === 'desktop' ? '93.25%' : '95%'
+    width: screenCase === 'desktop' ? '93.25%' : '94%'
 });
 
 export const useStyles = makeStyles({

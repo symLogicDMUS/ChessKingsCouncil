@@ -10,6 +10,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             width: '100%',
+            marginLeft: '3.75%',
         },
         color: themes[props.theme].text,
     }),

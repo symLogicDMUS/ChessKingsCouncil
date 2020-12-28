@@ -7,7 +7,6 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //Pages
 import {Home} from "./Components/Home/Home";
-import {ComingSoonComponent as ComingSoon} from "./Components/ComingSoon/ComingSoonComponent";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import CreatePiece from "./Components/CreatePiece/CreatePiece";
 import LoadGame from "./Components/LoadGame/LoadGame";
@@ -90,7 +89,6 @@ export class App extends React.Component {
                         />
                         <Route exact path="/CouncilRules" exact component={CouncilRules}/>
                         <Route exact path="/MyPieces" exact strict render={() => <MyPieces/>}/>
-                        <Route exact path="/ComingSoon" component={ComingSoon}/>
                     </Switch>
                 </Router>
             );
