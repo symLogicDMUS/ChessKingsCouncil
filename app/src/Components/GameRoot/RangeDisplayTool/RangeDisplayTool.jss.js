@@ -6,12 +6,19 @@ import {themes} from "../../styles/themes.jss";
 export const useStyles = makeStyles({
     range_display_rool: props => ({
         fontSize: props.fontSize,
-        width: {drawerItemWidth},
-        height: '8em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        '@media screen and (min-width: 768px)': {
+            width: {drawerItemWidth},
+            height: '8em',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+            height: '100%',
+            alignItems: 'center'
+        },
     }),
     flex_header: props => ({
         fontSize: props.fontSize,

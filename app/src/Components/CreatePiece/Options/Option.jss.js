@@ -9,7 +9,7 @@ export const useStyles = makeStyles({
             fontSize: props.fontSize,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize*2,
+            fontSize: props.fontSize*1.75,
             margin: '0.2em'
         },
         width: '3.5em',

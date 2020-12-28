@@ -1,12 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {bigBoardMargin, board} from "../../Reuseables/Board.jss";
+import {board, game_board} from "../../Reuseables/Board.jss";
 
 export const useStyles = makeStyles({
     display_board: props => ({
-        zIndex: 0,
-        position: 'fixed',
         ...board(props.fontSize),
-        margin: bigBoardMargin,
-        boxShadow: '0px 0px 25px white'
+        ...game_board(props.fontSize, 0),
+        marginTop: '-8em',
+        boxShadow: '0 0 0.1em white',
     }),
 });

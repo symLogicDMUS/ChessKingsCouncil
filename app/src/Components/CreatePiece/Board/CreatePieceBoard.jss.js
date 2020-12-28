@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {bigBoardMargin, board, board_mobile} from "../../Reuseables/Board.jss";
+import {bigBoardMargin, board} from "../../Reuseables/Board.jss";
 
 
 export const useStyles = makeStyles({
@@ -9,6 +9,6 @@ export const useStyles = makeStyles({
             marginLeft: bigBoardMargin,
             marginTop: bigBoardMargin,
         },
-        boxShadow: '0px 0px 20px white'
+        boxShadow: '0 0 0.1em white'
     }),
 });

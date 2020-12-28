@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
 import Box from "@material-ui/core/Box";
 import { copy } from "../helpers/copy";
@@ -42,6 +43,7 @@ import { styles } from "./CreatePiece.jss";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import MuiAccordion from "../Reuseables/MuiAccordion";
+import PersistentDrawer from "../Reuseables/PersistentDrawer";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -123,7 +125,6 @@ class CreatePiece extends React.Component {
         this.setPieceImg = this.setPieceImg.bind(this);
         this.toggleSpanText = this.toggleSpanText.bind(this);
         this.toggleOffsetText = this.toggleOffsetText.bind(this);
-        // this.setMessageText = this.setMessageText.bind(this);
         this.setCurrentIconColor = this.setCurrentIconColor.bind(this);
         this.showChooseModal = this.showChooseModal.bind(this);
         this.closeChooseModal = this.closeChooseModal.bind(this);
@@ -300,19 +301,19 @@ class CreatePiece extends React.Component {
         });
     }
 
+    /**used by name tool*/
     updateName(input) {
-        /**used by name tool*/
         this.setState({ name: input, unsavedChanges: true });
     }
 
+    /**used by Icon tool*/
     setPieceImg(color, pieceImgBase64Str) {
-        /**used by Icon tool*/
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
         this.setState({ unsavedChanges: true });
     }
 
+    /**used by Range tool*/
     toggleSpan(angle) {
-        /**used by Range tool*/
         this.spans[angle] = !this.spans[angle];
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.state.location);
@@ -323,8 +324,8 @@ class CreatePiece extends React.Component {
         this.setState({ unsavedChanges: true });
     }
 
+    /**used by Location tool, called by this.setDisplaySpans()*/
     setDisplaySpan(angle) {
-        /**used by Location tool, called by this.setDisplaySpans()*/
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.state.location);
         while (!oob(rf)) {
@@ -333,30 +334,30 @@ class CreatePiece extends React.Component {
         }
     }
 
+    /**used by Location tool, called by this.setLoc()*/
     setDisplaySpans() {
-        /**used by Location tool, called by this.setLoc()*/
         Object.entries(this.spans).forEach(([angle, isActive]) => {
             if (isActive) this.setDisplaySpan(angle);
         });
     }
 
+    /**used by checkbox for displaying text on squares*/
     toggleSpanText() {
-        /**used by checkbox for displaying text on squares*/
         this.setState({ showSpanText: !this.state.showSpanText });
     }
 
+    /**used by the Reset Option button, called by this.reset()*/
     resetSpanDisplays() {
-        /**used by the Reset Option button, called by this.reset()*/
         this.spanDisplays = getBinaryBoarAllFalse();
     }
 
+    /**used by the Reset Option button, called by this.reset()*/
     resetOffsetDisplays() {
-        /**used by the Reset Option button, called by this.reset()*/
         this.offsetDisplays = getBinaryBoarAllFalse();
     }
 
+    /**used by Range tool*/
     toggleOffset(rf, offset) {
-        /**used by Range tool*/
         this.offsetDisplays[rf] = !this.offsetDisplays[rf];
         let offsetStrs = this.offsets.map((o) => JSON.stringify(o));
         if (offsetStrs.includes(JSON.stringify(offset))) {
@@ -366,8 +367,8 @@ class CreatePiece extends React.Component {
         this.setState({ unsavedChanges: true });
     }
 
+    /**used by the Location tool when changing location*/
     setOffsetDisplays() {
-        /**used by the Location tool when changing location*/
         let [x1, y1] = rfToXy(this.state.location);
         let [dx, dy] = [-1, -1];
         this.offsets.forEach((xy) => {
@@ -377,13 +378,13 @@ class CreatePiece extends React.Component {
         });
     }
 
+    /**used by Checkboxes that toggle displaying text on squares*/
     toggleOffsetText() {
-        /**used by Checkboxes that toggle displaying text on squares*/
         this.setState({ showOffsetText: !this.state.showOffsetText });
     }
 
+    /**used by the Location tool*/
     setLoc(rf) {
-        /**used by the Location tool*/
         this.setState({ location: rf });
         this.resetSpanDisplays();
         this.resetOffsetDisplays();
@@ -392,18 +393,17 @@ class CreatePiece extends React.Component {
         this.triggerRender();
     }
 
+    /**
+     * the cases are used to determine what message to display. they are reset to none after each
+     * save attempt:
+     *
+     * confirm-overwrite: the name given already exists and need to ask if want to save over it.
+     * blank-name: name field left blank
+     * standard-name: name given was one of of Rook, Bishop, King, Queen or Pawn
+     * no-icon: an image was not given for either white or black or both
+     * ready: none of the above cases are true so ready to save
+     */
     getIfReadyToSave() {
-        /**
-         * the cases are used to determine what message to display. they are reset to none after each
-         * save attempt:
-         *
-         * confirm-overwrite: the name given already exists and need to ask if want to save over it.
-         * blank-name: name field left blank
-         * standard-name: name given was one of of Rook, Bishop, King, Queen or Pawn
-         * no-icon: an image was not given for either white or black or both
-         * ready: none of the above cases are true so ready to save
-         */
-
         if (Object.keys(this.defs).includes(this.props.name)) {
             return "confirm-overwrite";
         }
@@ -425,13 +425,6 @@ class CreatePiece extends React.Component {
 
         return "ready";
     }
-
-    // setMessageText(helpTitle, helpText) {
-    //     /**/
-    //     this.messageTitle = helpTitle;
-    //     this.messageText = helpText;
-    //     this.setState({ messageModal: true });
-    // }
 
     toggleMessageModal(boolVal) {
         /**used by Save Button when a message needs to be displayed*/
@@ -617,7 +610,7 @@ class CreatePiece extends React.Component {
                                 }
                                 showSpanText={this.state.showSpanText}
                                 showOffsetText={this.state.showOffsetText}
-                                screenCase='desktop'
+                                screenCase="desktop"
                             />
                         }
                         appBarContent={
@@ -648,6 +641,7 @@ class CreatePiece extends React.Component {
                             offsets={this.offsets}
                             toggleSpan={this.toggleSpan}
                             update={this.triggerRender}
+                            screenCase="desktop"
                         />
                         <Location
                             key={"Location"}
@@ -687,95 +681,123 @@ class CreatePiece extends React.Component {
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
                     {this.modals("modal")}
-                    <Board
-                        key="content"
+                    <PersistentDrawer
                         theme={this.state.theme}
-                        toggleOffset={this.toggleOffset}
-                        spanDisplays={this.spanDisplays}
-                        offsets={this.offsetDisplays}
-                        pieceLoc={this.state.location}
-                        pieceImgBase64Str={
-                            this.whiteAndBlackImgs["white"]
+                        drawer={
+                            <NavBar
+                                currentPage="CreatePiece"
+                                flexDirection="column"
+                                style={{ width: "100%" }}
+                                buttonStyle={{
+                                    fontSize: fontSize * 1.2,
+                                    justifyContent: "flex-start",
+                                    width: "99%",
+                                    height: "2.5em",
+                                }}
+                                redirectMessage={messageStr}
+                                unsavedChanges={this.state.unsavedChanges}
+                                theme={this.state.theme}
+                            />
                         }
-                        showSpanText={this.state.showSpanText}
-                        showOffsetText={this.state.showOffsetText}
-                        screenCase='mobile'
-                    />
-                    <MuiAccordion theme={this.state.theme}>
-                        {[
-                            {
-                                id: "name",
-                                title: <Typography>Name</Typography>,
-                                body: (
-                                    <Name
-                                        key={"Name"}
-                                        name={this.name}
-                                        theme={this.state.theme}
-                                        updateName={this.updateName}
-                                    />
-                                ),
-                            },
-                            {
-                                id: "icon",
-                                title: <Typography>Icon</Typography>,
-                                body: (
-                                    <Icon
-                                        key={"Icon"}
-                                        theme={this.state.theme}
-                                        setPieceImg={this.setPieceImg}
-                                        whiteAndBlackImgs={
-                                            this.whiteAndBlackImgs
-                                        }
-                                        updateParent={this.triggerRender}
-                                        showChooseModal={this.showChooseModal}
-                                        toggleImgButtonsModal={
-                                            this.toggleImgButtonsModal
-                                        }
-                                    />
-                                ),
-                            },
-                            {
-                                id: "range",
-                                title: <Typography>Range</Typography>,
-                                body: (
-                                    <Range
-                                        key={"Range"}
-                                        theme={this.state.theme}
-                                        spans={this.spans}
-                                        offsets={this.offsets}
-                                        toggleSpan={this.toggleSpan}
-                                        update={this.triggerRender}
-                                    />
-                                ),
-                            },
-                            {
-                                id: "location",
-                                title: <Typography>Location</Typography>,
-                                body: (
-                                    <Location
-                                        key={"Location"}
-                                        setLoc={this.setLoc}
-                                        theme={this.state.theme}
-                                        selectedLoc={this.state.location}
-                                    />
-                                ),
-                            },
-                            {
-                                id: "options",
-                                title: <Typography>Options</Typography>,
-                                body: (
-                                    <Options
-                                        key={"Options"}
-                                        save={this.save}
-                                        reset={this.reset}
-                                        theme={this.state.theme}
-                                        togleLoadModal={this.toggleLoadModal}
-                                        eraseRange={this.eraseRange}
-                                    />
-                                ),
-                            },
-                        ]}
-                    </MuiAccordion>
+                        appBarContent={
+                            <Typography variant="h6" noWrap>
+                                Create Piece
+                            </Typography>
+                        }
+                    >
+                        <Board
+                            key="content"
+                            theme={this.state.theme}
+                            toggleOffset={this.toggleOffset}
+                            spanDisplays={this.spanDisplays}
+                            offsets={this.offsetDisplays}
+                            pieceLoc={this.state.location}
+                            pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+                            showSpanText={this.state.showSpanText}
+                            showOffsetText={this.state.showOffsetText}
+                            screenCase="mobile"
+                        />
+                        <MuiAccordion theme={this.state.theme}>
+                            {[
+                                {
+                                    id: "name",
+                                    title: <Typography>Name</Typography>,
+                                    body: (
+                                        <Name
+                                            key={"Name"}
+                                            name={this.name}
+                                            theme={this.state.theme}
+                                            updateName={this.updateName}
+                                        />
+                                    ),
+                                },
+                                {
+                                    id: "icon",
+                                    title: <Typography>Icon</Typography>,
+                                    body: (
+                                        <Icon
+                                            key={"Icon"}
+                                            theme={this.state.theme}
+                                            setPieceImg={this.setPieceImg}
+                                            whiteAndBlackImgs={
+                                                this.whiteAndBlackImgs
+                                            }
+                                            updateParent={this.triggerRender}
+                                            showChooseModal={
+                                                this.showChooseModal
+                                            }
+                                            toggleImgButtonsModal={
+                                                this.toggleImgButtonsModal
+                                            }
+                                        />
+                                    ),
+                                },
+                                {
+                                    id: "range",
+                                    title: <Typography>Range</Typography>,
+                                    body: (
+                                        <Range
+                                            key={"Range"}
+                                            theme={this.state.theme}
+                                            spans={this.spans}
+                                            offsets={this.offsets}
+                                            toggleSpan={this.toggleSpan}
+                                            update={this.triggerRender}
+                                            screenCase="mobile"
+                                        />
+                                    ),
+                                },
+                                {
+                                    id: "location",
+                                    title: <Typography>Location</Typography>,
+                                    body: (
+                                        <Location
+                                            key={"Location"}
+                                            setLoc={this.setLoc}
+                                            theme={this.state.theme}
+                                            selectedLoc={this.state.location}
+                                        />
+                                    ),
+                                },
+                                {
+                                    id: "options",
+                                    title: <Typography>Options</Typography>,
+                                    body: (
+                                        <Options
+                                            key={"Options"}
+                                            save={this.save}
+                                            reset={this.reset}
+                                            theme={this.state.theme}
+                                            togleLoadModal={
+                                                this.toggleLoadModal
+                                            }
+                                            eraseRange={this.eraseRange}
+                                        />
+                                    ),
+                                },
+                            ]}
+                        </MuiAccordion>
+                    </PersistentDrawer>
                 </MediaQuery>
             </>
         );

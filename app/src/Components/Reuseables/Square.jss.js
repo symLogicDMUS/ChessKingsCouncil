@@ -1,18 +1,21 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
-import {availWidth} from "../helpers/windowMeasurments";
+import {mobileScalar} from "./Board.jss";
 
-export const square = (fontSize) => ({
-    zIndex: 'inherit',
-    fontSize: fontSize,
-    width: '1em',
-    height: '1em',
-    cursor: 'pointer',
-    '@media screen and (max-width: 767px)': {
-        width: availWidth() * 0.95 * 0.125,
-        height: availWidth() * 0.95 * 0.125,
-    },
-});
+export const square = (fontSize) => {
+    return ({
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSize * mobileScalar,
+        },
+        width: '1em',
+        height: '1em',
+        zIndex: 'inherit',
+        cursor: 'pointer',
+    });
+};
 
 export const useStyles = makeStyles({
     dark_normal: props => ({

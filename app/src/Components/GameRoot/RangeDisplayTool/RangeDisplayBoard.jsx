@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
-import {getPieceName} from "../../helpers/getPieceName";
-import { RangeDisplaySquare } from "./RangeDisplaySquare";
-import { RangeDisplayPiece } from "./RangeDisplayPiece";
-import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
-import {useStyles} from "./RangeDisplayBoard.jss";
+import { getPieceName } from "../../helpers/getPieceName";
+import { RangeDisplaySquare as Square } from "./RangeDisplaySquare";
+import { RangeDisplayPiece as Piece } from "./RangeDisplayPiece";
+import { smallBoardFontSize as fontSize } from "../../styles/fontSize.jss";
+import { useStyles } from "./RangeDisplayBoard.jss";
 
-
-export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs }) {
+export function RangeDisplayBoard({
+    theme,
+    screenCase,
+    allRanges,
+    board,
+    idDict,
+    pieceDefs,
+}) {
     let [pieceId, setPieceId] = useState(null);
 
-    const classes = useStyles({theme: theme, fontSize: fontSize});
-    
+    const classes = useStyles({ theme: theme, fontSize: screenCase === 'mobile' ? fontSize*1.1 : fontSize });
+
     const toggleDisplayOfPieceRange = (newPieceId) => {
         /**Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares  */
         if (pieceId === newPieceId) setPieceId(null);
@@ -36,21 +42,41 @@ export function RangeDisplayBoard({theme, allRanges, board, idDict, pieceDefs })
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
                 squares.push(
-                    <RangeDisplaySquare key={uuidv4()} rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
+                    <Square
+                        key={uuidv4()}
+                        rf={rf}
+                        theme={theme}
+                        board={board}
+                        screenCase={screenCase}
+                        isHighlight={isRfPartOfRange(rf)}
+                    >
                         {null}
-                    </RangeDisplaySquare>
+                    </Square>
                 );
             } else {
                 squares.push(
-                    <RangeDisplaySquare key={uuidv4()} rf={rf} theme={theme} isHighlight={isRfPartOfRange(rf)} board={board}>
-                        <RangeDisplayPiece
+                    <Square
+                        key={uuidv4()}
+                        rf={rf}
+                        theme={theme}
+                        board={board}
+                        screenCase={screenCase}
+                        isHighlight={isRfPartOfRange(rf)}
+                    >
+                        <Piece
                             id={board[rf]}
                             key={uuidv4()}
-                            toggleDisplayOfPieceRange={toggleDisplayOfPieceRange}
-                            pieceImgBase64Str={getPieceImg(board[rf], idDict, pieceDefs)}
+                            toggleDisplayOfPieceRange={
+                                toggleDisplayOfPieceRange
+                            }
+                            pieceImgBase64Str={getPieceImg(
+                                board[rf],
+                                idDict,
+                                pieceDefs
+                            )}
                             alt={getPieceName(board[rf], idDict)}
                         />
-                    </RangeDisplaySquare>
+                    </Square>
                 );
             }
         }

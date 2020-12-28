@@ -6,8 +6,7 @@ const location_button = (fontSize, theme) => ({
         fontSize: fontSize*1.1,
     },
     '@media screen and (max-width: 767px)': {
-        fontSize: fontSize*2,
-            margin: '0.2em'
+        fontSize: fontSize*1.75,
     },
     width: '3.5em',
     height: '3.5em',

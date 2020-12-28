@@ -18,7 +18,7 @@ export function getPangram() {
     return sentences;
 }
 
-export function Range({ spans, offsets, toggleSpan, theme }) {
+export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize });
 
     const getSpanTextLabels = () => {
@@ -35,6 +35,13 @@ export function Range({ spans, offsets, toggleSpan, theme }) {
         return offsets.map((offset) => offsetToText(offset));
     };
 
+    const getFontSize = () => {
+        switch (screenCase) {
+            case 'desktop': return fontSize * 1.089;
+            case 'mobile': return fontSize * 1.32;
+        }
+    }
+
     return (
         <>
             <div className={classes.range_tool}>
@@ -48,10 +55,11 @@ export function Range({ spans, offsets, toggleSpan, theme }) {
                         theme={theme}
                         isBorder={true}
                         style={{
-                            fontSize: fontSize * 1.089,
+                            fontSize: getFontSize(),
                             borderRadius: "0.175em",
                             border: `0.05em solid ${themes[theme].outline}`,
                         }}
+                        buttonStyle={{borderRadius: 0}}
                     />
                     <SpanArrowButtons
                         spans={spans}

@@ -3,25 +3,34 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     game_info: props => ({
-        width: '90%',
+        fontSize: props.fontSize,
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'flex-end',
         flexWrap: 'wrap',
-        marginBottom: '5%',
-        marginLeft: '5%',
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-        // borderRadius: '0.25em',
-        // border: `0.05em solid ${themes[props.theme].outline}`,
-
+        '@media screen and (min-width: 768px)': {
+            width: '90%',
+            marginBottom: '5%',
+            marginLeft: '5%',
+            alignItems: 'flex-end',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+            height: '50%',
+            alignItems: 'center',
+        },
     }),
     cell: props => ({
-        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            fontSize: props.fontSize,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: props.fontSize * 1.2,
+        },
         width: '50%',
         height: '1.5em',
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
-        // paddingLeft: '2.5%',
     }),
 });

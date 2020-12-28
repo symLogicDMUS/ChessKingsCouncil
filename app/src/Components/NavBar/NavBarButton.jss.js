@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
     nav_bar_button: props => ({
         style: props.style,
         display: 'flex',
-        flexGrow: 2,
+        flexGrow: 3,
         borderRadius: 0,
         background: themes[props.theme].fill,
     }),

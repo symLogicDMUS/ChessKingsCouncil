@@ -13,7 +13,12 @@ export const useStyles = makeStyles({
     }),
     status_bar: props => ({
         zIndex: 4,
-        width: '15em',
+        '@media screen and (min-width: 768px)': {
+            width: '15em',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '13em'
+        },
         textAlign: 'center',
         color: themes[props.theme].text,
     }),

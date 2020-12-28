@@ -5,6 +5,7 @@ import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
 import {fontSizeAlt3 as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./StatusBar.jss";
+import MediaQuery from "react-responsive/src";
 
 export function StatusBar({ turn, winner, condition, theme }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize });
@@ -46,7 +47,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
                 variant="h6"
                 noWrap
             >
-                Play Game
+                <MediaQuery minDeviceWidth={768}>Play Game</MediaQuery>
                 <Typography
                     className={classes.status_bar}
                     variant="h6"

@@ -12,7 +12,6 @@ export const locationToolLeft = () => availWidth() * 0.57;
 export const useStyles = makeStyles({
     location_tool: (props) => ({
         ...tool(props.fontSize, props.theme),
-        justifyContent: 'center',
     }),
     title: props => ({
         ...tool_title(props.theme),
@@ -23,11 +22,12 @@ export const useStyles = makeStyles({
             ...tool_flexbox,
         },
         '@media screen and (max-width: 767px)': {
-            width: '16em',
-            height: '16em',
+            width: '15em',
+            height: '15em',
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
+            alignItems: 'flex-start',
             justifyContent: 'space-evenly',
         },
     }),

@@ -7,3 +7,6 @@ export const fontSizeAlt4 = window.screen.availHeight * 0.015;
 export const fontSizeAlt5 = window.screen.availHeight * 0.01725;
 export const largeBoardFontSize = window.screen.availHeight * 0.095;
 export const smallBoardFontSize = largeBoardFontSize * 0.501;
+
+/*mobile*/
+export const mobileLargeBoardFontSize = largeBoardFontSize * 0.65;

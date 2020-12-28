@@ -4,7 +4,7 @@ import {themes} from "../../styles/themes.jss";
 
 
 export const useStyles = makeStyles({
-    board: props =>  ({
+    board: props => ({
         ...board(props.fontSize),
         outline: `0.04em solid ${themes[props.theme].outline}`
     }),

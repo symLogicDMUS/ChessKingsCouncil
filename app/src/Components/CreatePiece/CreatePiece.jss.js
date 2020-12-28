@@ -27,8 +27,7 @@ export const tool = (fontSize, theme) => ({
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'red',
+        alignItems: 'flex-start',
     },
 })
 
@@ -36,15 +35,16 @@ export const tool_flexbox = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     flexWrap: 'wrap',
     '@media screen and (max-width: 767px)': {
         width: '100%',
         height: '100%',
+        alignItems: 'flex-start',
     },
     '@media screen and (min-width: 768px)': {
         width: '93%',
         marginLeft: '3.5%',
+        alignItems: 'center',
     },
 }
 
