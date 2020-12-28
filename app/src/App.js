@@ -13,6 +13,7 @@ import LoadGame from "./Components/LoadGame/LoadGame";
 import NewGame from "./Components/NewGame/NewGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
+import {LoginPage} from "./Components/Home/LoginPage";
 
 export class App extends React.Component {
     constructor(props) {
@@ -80,13 +81,7 @@ export class App extends React.Component {
                         <Route exact path="/LoadGame" exact strict render={() => <LoadGame/>}/>
                         <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />}/>
                         <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />}/>
-                        <Route
-                            exact
-                            path="/CreatePiece"
-                            exact
-                            strict
-                            render={(props) => <CreatePiece {...props} />}
-                        />
+                        <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece {...props} />}/>
                         <Route exact path="/CouncilRules" exact component={CouncilRules}/>
                         <Route exact path="/MyPieces" exact strict render={() => <MyPieces/>}/>
                     </Switch>
@@ -94,34 +89,7 @@ export class App extends React.Component {
             );
         } else {
             return (
-                <>
-                    <img
-                        src="/Images/chess-kings-council.svg"
-                        style={{position: "relative", top: "22vh", left: "12.5vw", height: "20vh", width: "75vw"}}
-                    />
-                    <div
-                        className="config-container"
-                        style={{position: "relative", width: "20vw", height: "15vh", left: "36vw", top: "22vh"}}
-                    >
-                        <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
-                        <div
-                            className="anonymous-login"
-                            onClick={this.anonymousLogin}
-                            style={{
-                                position: "relative",
-                                width: "60%",
-                                height: "20%",
-                                left: "20%",
-                                textAlign: "center",
-                                fontSize: "110%",
-                                fontFamily: "Roboto,Helvetica,Arial,sans-serif",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Expore without Account
-                        </div>
-                    </div>
-                </>
+                <LoginPage uiConfig={this.uiConfig} anonymousLogin={this.anonymousLogin} />
             );
         }
     }
