@@ -15,7 +15,7 @@ export function PickName({ setGameName, gameName, theme }) {
                  flexDirection='row'
                  justifyContent='center'
             >
-                <Typography className={classes.title}>Game Name</Typography>
+                <Typography className={classes.title} noWrap>Game Name</Typography>
             </Box>
             <Box width='100%'
                  display='flex'

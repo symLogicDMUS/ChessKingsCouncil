@@ -8,8 +8,16 @@ export const dropdownStyle = (fontSize) => ({
 
 export const useStyles = makeStyles({
     title: props => ({
-        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            fontSize: props.fontSize,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: props.fontSize * 0.85,
+            width: '100%',
+            lineHeight: '1.5em',
+        },
         fontFamily: 'Garamond',
         width: getTextWidth(props.text, props.fontSize, 'Garamond'),
+        textAlign: 'center',
     }),
 });

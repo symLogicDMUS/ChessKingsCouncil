@@ -8,7 +8,7 @@ import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
 import { ImgChoice } from "./ImgChoice";
-import { ConfirmModal } from "../../../NavBar/ConfirmModal";
+import { ConfirmModal } from "../../../Reuseables/ConfirmModal";
 import { ImageNameDisplay } from "./ImageNameDisplay";
 import { Close } from "../../../Reuseables/Close";
 import { MuiButton as Button } from "../../../Reuseables/MuiButton";
@@ -17,7 +17,7 @@ import Box from "@material-ui/core/Box";
 import { button, styles } from "./ChooseModal.jss";
 import { fontSize } from "../../../styles/fontSize.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { close_icon } from "../../../NavBar/Help/MessageModal.jss";
+import { close_icon } from "../../../Reuseables/Help/MessageModal.jss";
 import Typography from "@material-ui/core/Typography";
 
 class ChooseModal extends React.Component {

@@ -6,6 +6,8 @@ import { Profile } from "./Profile";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
 import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
 import { ProfileHeaderError } from "./Header/ProfileHeaderError";
+import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
+import {fontSize} from "../styles/fontSize.jss";
 import { useStyles } from "./PieceProfiles.jss";
 
 export function PieceProfiles(props) {
@@ -46,13 +48,7 @@ export function PieceProfiles(props) {
                             pieceName={pieceName}
                             load={props.load}
                             theme={props.theme}
-                            style={{
-                                justifyContent: "right",
-                                width: '93.25%',
-                                marginLeft: '3.25%',
-                                marginTop: '0.5em',
-                                marginBottom: '0.5em',
-                            }}
+                            style={ld_header_style(fontSize)}
                             screenCase={screenCase}
                         />
                     </Profile>

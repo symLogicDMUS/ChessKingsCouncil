@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACL,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACd;;AAED,AAAA,WAAW,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf",
-    "sources": [
-        "newGameCustomization.scss"
-    ],
-    "names": [],
-    "file": "newGameCustomization.css"
-}

@@ -1,19 +1,17 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../NavBar/NavBar";
+import { NavBar } from "../Reuseables/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { ConfirmModal } from "../NavBar/ConfirmModal";
-import withStyles from "@material-ui/core/styles/withStyles";
+import { ConfirmModal } from "../Reuseables/ConfirmModal";
 import { copy } from "../helpers/copy";
 import MenuItem from "@material-ui/core/MenuItem";
 import { fontSize } from "../styles/fontSize.jss";
 import { LoadGameFromList } from "./LoadGameFromList";
 import "../styles/_backgrounds.scss";
-// import { styles } from "./LoadGame.jss";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -125,21 +123,6 @@ class LoadGame extends React.Component {
                         closeClick={this.cancelDeleteGame}
                     />
                 )}
-                <NavBar
-                    currentPage="LoadGame"
-                    theme={this.state.theme}
-                    style={{
-                        fontSize: fontSize,
-                        width: "100%",
-                        height: "2.25em",
-                    }}
-                    buttonStyle={{
-                        fontSize: fontSize,
-                        height: "2.25em",
-                        justifyContent: "center",
-                    }}
-                    unsavedChanges={false}
-                />
                 <LoadGameFromList
                     load={this.load}
                     gameList={this.gameList}

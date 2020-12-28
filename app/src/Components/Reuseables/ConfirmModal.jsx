@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { MuiButton as Button } from "../Reuseables/MuiButton";
-import { Close } from "../Reuseables/Close";
+import { MuiButton as Button } from "./MuiButton";
+import { Close } from "./Close";
 import { fontSize } from "../styles/fontSize.jss";
 import { button, close_icon, useStyles } from "./ConfirmModal.jss";
 

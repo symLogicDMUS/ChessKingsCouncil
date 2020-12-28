@@ -1,20 +1,35 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./PieceHeader.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const button = (fontSize, theme) => ({
     fontSize: fontSize,
-    width: '6.1em',
-    height: '2em',
+    '@media screen and (min-width: 768px)': {
+        width: '6.1em',
+        height: '2em',
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '6.9em',
+        height: '1.9em',
+        maxWidth: '100em',
+    },
     border: `0.05em solid ${themes[theme].outline}`
+});
+
+export const ld_header_style = (fontSize, screenCase) => ({
+    justifyContent: "right",
+    marginLeft: '3.25%',
+    marginTop: '0.5em',
+    marginBottom: '0.5em',
+    width: screenCase === 'desktop' ? '93.25%' : '95%'
 });
 
 export const useStyles = makeStyles({
     header: props => ({
-       ...header(props.fontSize, props.style, props.theme),
+        ...header(props.fontSize, props.style, props.theme),
     }),
     piece_name: props => ({
-        ...text(props.fontSize*1.25, props.theme),
+        ...text(props.fontSize * 1.25, props.theme),
     }),
     buttons_flexbox: props => ({
         display: 'flex',

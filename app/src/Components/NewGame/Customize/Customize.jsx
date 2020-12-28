@@ -9,7 +9,7 @@ import { idAssign } from "../../../apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../apiHelpers/idAssign/standardIds";
 import { initStandardDefs } from "../../../apiHelpers/initStandardDefs";
 import { SubList } from "./SubList";
-import { NavBar } from "../../NavBar/NavBar";
+import { NavBar } from "../../Reuseables/NavBar";
 import { SideBar } from "../../Reuseables/SidBar";
 import { CheckBox } from "../../Reuseables/CheckBox";
 import { Dropdown } from "../../Reuseables/Dropdown";
@@ -20,12 +20,12 @@ import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
-import { MessageModal } from "../../NavBar/Help/MessageModal";
+import { MessageModal } from "../../Reuseables/Help/MessageModal";
 import { DisplayBoardModal } from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import { navBarWidth } from "../../NavBar/NavBar.jss";
+import { navBarWidth } from "../../Reuseables/NavBar.jss";
 import { sideBarHeight, sideBarWidth } from "../../Reuseables/SidBar.jss";
 import { drawerWidth } from "../../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../../NavBar/NavBarButton.jss";
+import { navBarButtonWidth } from "../../Reuseables/NavBarButton.jss";
 import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
 import { withStyles } from "@material-ui/core";
 import {
@@ -380,7 +380,7 @@ class Customize extends React.Component {
                                         height: "2.5em",
                                     }}
                                     redirectMessage={null}
-                                    unsavedChanges={this.state.unsavedChanges}
+                                    unsavedChanges={false}
                                     theme={this.state.theme}
                                 />
                             }

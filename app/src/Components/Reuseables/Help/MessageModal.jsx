@@ -2,8 +2,8 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {fontSize} from "../../styles/fontSize.jss";
-import {MuiButton} from "../../Reuseables/MuiButton";
-import {Close} from "../../Reuseables/Close";
+import {MuiButton} from "../MuiButton";
+import {Close} from "../Close";
 import {ok_button, close_icon, useStyles} from "./MessageModal.jss";
 
 

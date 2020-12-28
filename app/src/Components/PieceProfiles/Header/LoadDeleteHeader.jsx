@@ -8,8 +8,16 @@ import {fontSize} from "../../styles/fontSize.jss";
 import {button, useStyles} from "./LoadDeleteHeader.jss";
 
 
-export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style}) {
+export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style, screenCase}) {
     const classes = useStyles({theme: theme, style: style, fontSize: fontSize});
+
+    const getButtonMargin = () => {
+        switch (screenCase) {
+            case 'desktop': return '0.5em';
+            case 'mobile': return '0.75em';
+        }
+    };
+
     return (
         <div className={classes.header}>
             <Typography className={classes.piece_name}>{pieceName}</Typography>
@@ -17,7 +25,7 @@ export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style}
                 <Button
                     theme={theme}
                     startIcon={<StorageIcon />}
-                    style={{...button(fontSize, theme), marginRight: '0.5em'}}
+                    style={{...button(fontSize, theme, screenCase), marginRight: getButtonMargin}}
                     onClick={() => load(pieceName)}
                 >
                     Load
@@ -25,7 +33,7 @@ export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style}
                 <Button
                     theme={theme}
                     startIcon={<DeleteForever />}
-                    style={{...button(fontSize, theme), marginLeft: '0.5em'}}
+                    style={{...button(fontSize, theme, screenCase), marginLeft: getButtonMargin()}}
                     onClick={() => prepareDelete(pieceName)}
                 >
                     Delete

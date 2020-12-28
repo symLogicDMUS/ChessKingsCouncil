@@ -1,6 +1,6 @@
 import React from "react";
-import { NavBar } from "../NavBar/NavBar";
-import { MessageModal } from "../NavBar/Help/MessageModal";
+import { NavBar } from "../Reuseables/NavBar";
+import { MessageModal } from "../Reuseables/Help/MessageModal";
 // import {styles} from "./CouncilRules.jss";
 import "./CouncilRules.scss";
 import {fontSize} from "../styles/fontSize.jss";

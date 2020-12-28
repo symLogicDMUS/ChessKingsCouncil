@@ -1,19 +1,24 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import MediaQuery from "react-responsive";
-import {NavBar} from "../NavBar/NavBar";
+import { NavBar } from "../Reuseables/NavBar";
 // import { SearchBar } from "./SearchBar";
 // import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
-import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
-import {styles} from "./MyPieces.jss";
-import {ConfirmModal} from "../NavBar/ConfirmModal";
-import {deleteDef} from "../../API/deleteDef";
-import {getDefs} from "../../API/getDefs";
-import {MessageModal} from "../NavBar/Help/MessageModal";
-import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
+import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
+import { styles } from "./MyPieces.jss";
+import { ConfirmModal } from "../Reuseables/ConfirmModal";
+import { deleteDef } from "../../API/deleteDef";
+import { getDefs } from "../../API/getDefs";
+import { MessageModal } from "../Reuseables/Help/MessageModal";
+import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
-import {fontSize} from "../styles/fontSize.jss";
+import { fontSize } from "../styles/fontSize.jss";
+import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import { navBarWidth } from "../Reuseables/NavBar.jss";
+import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
+import { SideBar } from "../Reuseables/SidBar";
+import Typography from "@material-ui/core/Typography";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -34,7 +39,7 @@ class MyPieces extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = {none: null};
+        this.hmChildren = { none: null };
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
         this.prepareDelete = this.prepareDelete.bind(this);
@@ -57,55 +62,60 @@ class MyPieces extends React.Component {
             if (defs) {
                 this.defs = defs;
                 for (const pieceName of this.standards) {
-                    if (Object.keys(this.defs).includes(pieceName)) delete this.defs[pieceName];
+                    if (Object.keys(this.defs).includes(pieceName))
+                        delete this.defs[pieceName];
                 }
             } else {
                 this.defs = {};
             }
-            this.setState({fetched: true});
+            this.setState({ fetched: true });
         });
     }
 
     triggerRender() {
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togleNav(boolVal) {
         this.navExpanded = boolVal;
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     load(pieceName) {
-        this.setState({selectedPiece: pieceName, redirect: true});
+        this.setState({ selectedPiece: pieceName, redirect: true });
     }
 
     togleMessageModal(boolVal) {
-        this.setState({messageModal: boolVal});
+        this.setState({ messageModal: boolVal });
     }
 
     setMessageText(helpTitle, helpText) {
         this.messageTitle = helpTitle;
         this.messageText = helpText;
-        this.setState({messageModal: true});
+        this.setState({ messageModal: true });
     }
 
     prepareDelete(pieceName) {
-        this.setState({selectedPiece: pieceName, deleteModal: true});
+        this.setState({ selectedPiece: pieceName, deleteModal: true });
     }
 
     cancelDelete() {
-        this.setState({selectedPiece: null, deleteModal: false});
+        this.setState({ selectedPiece: null, deleteModal: false });
     }
 
     delete() {
         deleteDef(this.state.selectedPiece).then(([response]) => {
             delete this.defs[this.state.selectedPiece];
-            this.setState({deleteModal: false, profileRef: this.state.selectedPiece, selectedPiece: null});
-            this.setState({profileRef: null});
+            this.setState({
+                deleteModal: false,
+                profileRef: this.state.selectedPiece,
+                selectedPiece: null,
+            });
+            this.setState({ profileRef: null });
         });
     }
 
-    getComponents(screenCase) {
+    modals(screenCase) {
         return (
             <>
                 {this.state.messageModal && (
@@ -120,34 +130,12 @@ class MyPieces extends React.Component {
                     <ConfirmModal
                         theme={this.state.theme}
                         text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
-                    effected but the piece's record for new games will be destroyed. This action cannot be undone.
-                    Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
+                               effected but the piece's record for new games will be destroyed. This action cannot be undone.
+                               Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
                         yesClick={this.delete}
                         noClick={this.cancelDelete}
                     />
                 )}
-                <NavBar
-                    screenCase={screenCase}
-                    currentPage="MyPieces"
-                    theme={this.state.theme}
-                    style={{fontSize: fontSize, width: '100%', height: '2.25em'}}
-                    buttonStyle={{fontSize: fontSize, height: '2.25em', justifyContent: 'center'}}
-                />
-                <div className={this.props.classes.my_pieces}>
-                    {this.state.fetched && (
-                        <PieceProfiles
-                            context="load-delete"
-                            title="My Pieces"
-                            defs={this.defs}
-                            load={this.load}
-                            theme={this.state.theme}
-                            profileRef={this.state.profileRef}
-                            prepareDelete={this.prepareDelete}
-                        >
-                            <ProfilesTitle theme={this.state.theme}/>
-                        </PieceProfiles>
-                    )}
-                </div>
             </>
         );
     }
@@ -168,11 +156,83 @@ class MyPieces extends React.Component {
 
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>{this.getComponents("desktop")}</MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>{this.getComponents("mobile")}</MediaQuery>
+                <MediaQuery minDeviceWidth={768}>
+                    {this.modals("desktop")}
+                    <NavBar
+                        currentPage="MyPieces"
+                        theme={this.state.theme}
+                        style={{
+                            fontSize: fontSize,
+                            width: "100%",
+                            height: "2.25em",
+                        }}
+                        buttonStyle={{
+                            fontSize: fontSize,
+                            height: "2.25em",
+                            justifyContent: "center",
+                        }}
+                        unsavedChanges={false}
+                    />
+                    />
+                    <div className={this.props.classes.my_pieces}>
+                        {this.state.fetched && (
+                            <PieceProfiles
+                                context="load-delete"
+                                title="My Pieces"
+                                defs={this.defs}
+                                load={this.load}
+                                theme={this.state.theme}
+                                profileRef={this.state.profileRef}
+                                prepareDelete={this.prepareDelete}
+                            >
+                                <ProfilesTitle theme={this.state.theme} />
+                            </PieceProfiles>
+                        )}
+                    </div>
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>
+                    {this.modals("mobile")}
+                    <PersistentDrawer
+                        theme={this.state.theme}
+                        spacing={0}
+                        drawer={
+                            <NavBar
+                                currentPage="MyPieces"
+                                flexDirection="column"
+                                style={{ width: "100%" }}
+                                buttonStyle={{
+                                    fontSize: fontSize * 1.2,
+                                    justifyContent: "flex-start",
+                                    width: "99%",
+                                    height: "2.5em",
+                                }}
+                                redirectMessage={null}
+                                unsavedChanges={false}
+                                theme={this.state.theme}
+                            />
+                        }
+                        appBarContent={<Typography variant='h6' noWrap>My Pieces</Typography>}
+                    >
+                        <div className={this.props.classes.my_pieces}>
+                            {this.state.fetched && (
+                                <PieceProfiles
+                                    context="load-delete"
+                                    title="My Pieces"
+                                    defs={this.defs}
+                                    load={this.load}
+                                    theme={this.state.theme}
+                                    profileRef={this.state.profileRef}
+                                    prepareDelete={this.prepareDelete}
+                                >
+                                    <ProfilesTitle theme={this.state.theme} />
+                                </PieceProfiles>
+                            )}
+                        </div>
+                    </PersistentDrawer>
+                </MediaQuery>
             </>
         );
     }
 }
 
-export default withStyles(styles)(MyPieces)
+export default withStyles(styles)(MyPieces);

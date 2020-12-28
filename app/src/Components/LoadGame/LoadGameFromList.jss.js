@@ -1,8 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
-
-// em units
-const titleWidth = 15;
 
 export const button = (fontSize) => ({
     fontSize: fontSize,
@@ -12,8 +9,13 @@ export const button = (fontSize) => ({
 
 export const dropdown = (fontSize) => ({
     fontSize: fontSize,
-    width: getTextWidth('Load Game', fontSize * 8, 'Garamond'),
     height: '2em',
+    '@media screen and (min-width: 768px)': {
+        width: getTextWidth('Load Game', fontSize * 8, 'Garamond'),
+    },
+    '@media screen and (max-width: 767px)': {
+        width: getTextWidth('Load Game', fontSize * 5.6, 'Garamond'),
+    },
 });
 export const useStyles = makeStyles({
     flexbox: props => ({
@@ -21,11 +23,13 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '12em'
+        marginTop: '12em',
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+        },
     }),
     content: props => ({
         fontSize: props.fontSize,
-        width: '50em',
         height: '16em',
         display: 'flex',
         flexDirection: 'row',
@@ -33,11 +37,22 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'space-evenly',
+        '@media screen and (min-width: 768px)': {
+            width: '50em',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+        },
     }),
     title: props => ({
-        fontSize: props.fontSize * 8,
+        '@media screen and (min-width: 768px)': {
+            fontSize: props.fontSize * 8,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: props.fontSize * 5.6,
+            width: '100%',
+        },
         fontFamily: 'Garamond',
-        width: '100%',
         lineHeight: '70%',
         textAlign: 'center',
     }),
@@ -47,8 +62,12 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
         marginTop: '1.8em',
+        '@media screen and (min-width: 768px)': {
+            width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
+        },
+        '@media screen and (max-width: 767px)': {
+            width: getTextWidth('Load Game', props.fontSize * 5.6, 'Garamond'),
+        },
     }),
-
 });
