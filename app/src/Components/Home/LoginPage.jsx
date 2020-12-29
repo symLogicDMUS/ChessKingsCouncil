@@ -4,15 +4,34 @@ import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./LoginPage.jss";
+import MediaQuery from "react-responsive/src";
 
 export function LoginPage(props) {
-    let [theme, setTheme] = useState('black');
+    let [theme, setTheme] = useState("black");
     const classes = useStyles({theme: theme, fontSize: fontSize});
+
     return (
-        <div className={classes.login_page}>
-            <img src="/Images/chess-kings-council.svg" className={classes.app_title}/>
-            <StyledFirebaseAuth uiConfig={props.uiConfig} firebaseAuth={firebase.auth()}/>
-            <FirebaseGuestLoginButton onClick={props.anonymousLogin} />
-        </div>
-    )
+        <>
+            <MediaQuery minDeviceWidth={768}>
+                <div className={classes.login_page}>
+                    <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>
+                    <StyledFirebaseAuth
+                        uiConfig={props.uiConfig}
+                        firebaseAuth={firebase.auth()}
+                    />
+                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
+                </div>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={767}>
+                <div className={classes.login_page}>
+                    <img src={`/Images/titles/mobile/login/title-${theme}.svg`} className={classes.app_title_mobile}/>
+                    <StyledFirebaseAuth
+                        uiConfig={props.uiConfig}
+                        firebaseAuth={firebase.auth()}
+                    />
+                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
+                </div>
+            </MediaQuery>
+        </>
+    );
 }

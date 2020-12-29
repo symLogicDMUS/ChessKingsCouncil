@@ -1,8 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { availHeight, availWidth } from "../helpers/windowMeasurments";
-import { themes } from "../styles/themes.jss";
 
-export const anonymous_button = (fontSize) => ({});
 
 export const useStyles = makeStyles((theme) => ({
     login_page: (props) => ({
@@ -12,9 +10,11 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-end",
-        // border: "1px dashed white",
     }),
-    app_title: (props) => ({
+    app_title_desktop: (props) => ({
         width: availWidth() * 0.85625,
+    }),
+    app_title_mobile: props => ({
+
     }),
 }));

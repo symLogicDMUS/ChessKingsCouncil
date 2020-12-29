@@ -21,7 +21,6 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        border: '1px dashed black',
     }),
     page_icon_normal: props => ({
         ...page_icon(props.fontSize),

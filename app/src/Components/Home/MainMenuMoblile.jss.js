@@ -14,6 +14,5 @@ export const useStyles = makeStyles({
         fontSize: props.fontSize,
         width: availWidth() * 0.7,
         height: availHeight()*0.3523,
-        border: '1px dashed black',
     }),
 });
