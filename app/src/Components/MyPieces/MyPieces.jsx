@@ -173,7 +173,6 @@ class MyPieces extends React.Component {
                         }}
                         unsavedChanges={false}
                     />
-                    />
                     <div className={this.props.classes.my_pieces}>
                         {this.state.fetched && (
                             <PieceProfiles

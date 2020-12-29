@@ -1,31 +1,12 @@
 short:
-* fix sign out icon on home page, make it material ui
-* fix LoadGame dropdown label to say "Choose game"
-* update Firebase security rules for new/removed pages
-* change theme for NavBar im Game Options page
+* change units of box shadow FirebaseAnonymousLoginButton to em
 * spans and offsets are displayed in the wrong tables
 * Standard pieces are being displayed in the piece profiles again
-* name isn't displayed above board anymore, in CreatePiece
-* Fix span/offset text on CreatePiece board (mobile)
 * Add searchbar back in
-* move getStyle methods that are a part of component to separate style object
 
 medium:
-* make NavBar into side bar for desktop
-* Icon Component needs tooltip with Upload and Choose buttons
-* restyle GameRoot page
 * make home icon in NavBar same size as other icons
-* add Material UI Responsive drawer, move SaveResignTool and RangeDisplayTool to drawer.
-* move NavBar to be side bar for GameRoot and CreatePiece
-* fix Icon tool buttons
 * add loading animation
-* Refactor NavBar for mobile
-* Checkbox and dropdown reusable need their own styles, and only take what it needs to know about the context of where
-  it is as a prop
-* move getStyle methods inside classes to their own .jss.js files
-* replace buttons and possibly search-boxes with material ui version
 
 long:
-* Finish refactoring CreatePiece page for mobile, then do other pages.
-* Make ToolsMenuMobile reusable so can use for GameRoot, implement in GameRoot for the mobile case
 * use Portal for tooltips and Modal, possibly even Promo Modal?

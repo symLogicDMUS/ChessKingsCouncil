@@ -2,10 +2,7 @@ import React from "react";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-
-//Pages
 import {Home} from "./Components/Home/Home";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import CreatePiece from "./Components/CreatePiece/CreatePiece";
@@ -14,6 +11,7 @@ import NewGame from "./Components/NewGame/NewGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
+import Button from "@material-ui/core/Button";
 
 export class App extends React.Component {
     constructor(props) {
@@ -47,9 +45,11 @@ export class App extends React.Component {
         firebase.auth().onAuthStateChanged((user) => {
             this.setState({isSignedIn: !!user});
             if (user) {
+                var uid = user.uid;
                 this.isAnonymous = user.isAnonymous;
+            } else {
+                this.setState({isSignedIn: false});
             }
-            console.log("user", user);
         });
     }
 
@@ -60,11 +60,11 @@ export class App extends React.Component {
             .catch(function (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-            });
+            })
     }
 
     signOut() {
-        firebase.auth().signOut();
+        firebase.auth().signOut().then(r => this.setState({isSignedIn: true}));
     }
 
     update() {

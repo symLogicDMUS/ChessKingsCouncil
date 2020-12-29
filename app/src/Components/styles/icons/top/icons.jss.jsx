@@ -1,10 +1,10 @@
 import React from "react";
-import { save } from "../save.jss";
-import { load } from "../load.jss";
-import { erase } from "../erase.jss";
-import { reset } from "../reset.jss";
+import { save } from "../options/save.jss";
+import { load } from "../options/load.jss";
+import { erase } from "../options/erase.jss";
+import { reset } from "../options/reset.jss";
 import { home } from "../nav-bar/home.jss";
-import {app_title} from "../app_title.jss";
+import {app_title} from "../other/app_title.jss";
 import { new_game } from "../nav-bar/new_game.jss";
 import { load_game } from "../nav-bar/load_game.jss";
 import { create_piece } from "../nav-bar/create_piece.jss";
@@ -27,8 +27,8 @@ import { left } from "../arrows/left.jss";
 import { down_left } from "../arrows/down-left.jss";
 import { down } from "../arrows/down.jss";
 import { down_right } from "../arrows/down-right.jss";
-import { white_img_icon } from "../white_img_icon";
-import { black_img_icon } from "../black_img_icon";
+import { white_img_icon } from "../other/white_img_icon";
+import { black_img_icon } from "../other/black_img_icon";
 import { bishop_filled } from "../sub-buttons/bishop-filled.jss";
 import { rook_filled } from "../sub-buttons/rook-filled.jss";
 import { queen_filled } from "../sub-buttons/queen-filled.jss";
@@ -38,8 +38,8 @@ import { rook_outline } from "../sub-buttons/rook-outline.jss";
 import { queen_outline } from "../sub-buttons/queen-outline.jss";
 import { knight_outline } from "../sub-buttons/knight-outline.jss";
 import { none } from "../sub-buttons/none.jss";
-import { save_as } from "../save_as.jss";
-import {resign} from "../resign.jss";
+import { save_as } from "../options/save_as.jss";
+import {resign} from "../options/resign.jss";
 
 export const icons = {
     home: home,
