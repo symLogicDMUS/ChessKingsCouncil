@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {page_name} from "./MainMenu.jss";
+import {page_name} from "./MainMenuDesktop.jss";
 
 export const icon = (fontSize) => ({
     width: availWidth() * 0.078,

@@ -1,13 +1,8 @@
 short:
 * decide if radio buttons shaped like chess pieces, or a dropdown, looks better for sub pieces. Would need to shrink the
   height of dropdown in later case.
-* even out vertical spacing between Icon, Range, Location, and Options, use Material UI's Divider component from
-   permenant drawer demo.
-* background image is its own top level component. Don't make everything child of it.
 * have confirm modal fly in from the bottom
 * have save successful message for GameRoot and createPiece be animated and use svg Garamond font text
-* fix label and expand widget on RangeDisplayTool
-* Make z-index of NavBar one higher than everything except the Modals
 * make 'Shockwave' color of checkbox match the theme (not pink)
 * consider making the image that Piece component renders, a Material UI Avatar
 

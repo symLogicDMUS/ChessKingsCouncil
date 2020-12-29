@@ -1,4 +1,5 @@
 short:
+* add z-index to pages with permanent drawer, so that when zoom in isn't ugly
 * change units of box shadow FirebaseAnonymousLoginButton to em
 * spans and offsets are displayed in the wrong tables
 * Standard pieces are being displayed in the piece profiles again

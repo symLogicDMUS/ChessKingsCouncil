@@ -124,6 +124,19 @@ export function NavBar(props) {
                     toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
+                    path="/MyPieces"
+                    pageName="My Pieces"
+                    pageIcon="my-pieces"
+                    className="my_pieces"
+                    key={uuidv4()}
+                    isLocalLink={true}
+                    theme={props.theme}
+                    style={props.buttonStyle}
+                    parentFlex={props.flexDirection}
+                    unsavedChanges={props.unsavedChanges}
+                    toggleConfirmRedirect={toggleConfirmRedirect}
+                />
+                <NavBarButton
                     path="https://www.chess.com/learn-how-to-play-chess"
                     pageName="Chess Rules"
                     pageIcon="chess-rules"
@@ -141,19 +154,6 @@ export function NavBar(props) {
                     pageName="Council Rules"
                     pageIcon="council-rules"
                     className="council_rules"
-                    key={uuidv4()}
-                    isLocalLink={true}
-                    theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
-                />
-                <NavBarButton
-                    path="/MyPieces"
-                    pageName="My Pieces"
-                    pageIcon="my-pieces"
-                    className="my_pieces"
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}

@@ -40,6 +40,7 @@ import { knight_outline } from "../sub-buttons/knight-outline.jss";
 import { none } from "../sub-buttons/none.jss";
 import { save_as } from "../options/save_as.jss";
 import {resign} from "../options/resign.jss";
+import {account_circle} from "../other/account_circle.jss";
 
 export const icons = {
     home: home,
@@ -68,6 +69,7 @@ export const icons = {
     queen_outline: queen_outline,
     knight_filled: knight_filled,
     knight_outline: knight_outline,
+    account_circle: account_circle,
     '0d': right,
     '45d': up_right,
     '90d': up,
@@ -83,5 +85,4 @@ export const icons = {
     reset: reset,
     erase: erase,
     none: none,
-
 };

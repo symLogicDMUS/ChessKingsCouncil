@@ -8,7 +8,6 @@ export function getTextWidth(myText, fontSize, fontFamily) {
     text.style.lineHeight = lineHeight(fontSize) + "px"
     text.style.height = "auto";
     text.style.width = "auto";
-    text.style.border = '1px dashed black';
     text.style.position = "absolute";
     text.style.whiteSpace = "no-wrap";
     text.innerHTML = myText;

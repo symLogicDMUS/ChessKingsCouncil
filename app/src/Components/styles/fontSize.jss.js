@@ -10,3 +10,4 @@ export const smallBoardFontSize = largeBoardFontSize * 0.501;
 
 /*mobile*/
 export const mobileLargeBoardFontSize = largeBoardFontSize * 0.65;
+export const mobileMainMenuOption = window.screen.availHeight * 0.048;
