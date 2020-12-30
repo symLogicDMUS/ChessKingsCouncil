@@ -14,7 +14,7 @@ export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style,
     const getButtonMargin = () => {
         switch (screenCase) {
             case 'desktop': return '0.5em';
-            case 'mobile': return '0.75em';
+            case 'mobile': return '0.9em';
         }
     };
 
@@ -25,7 +25,7 @@ export function LoadDeleteHeader({ pieceName, load, prepareDelete, theme, style,
                 <Button
                     theme={theme}
                     startIcon={<StorageIcon />}
-                    style={{...button(fontSize, theme, screenCase), marginRight: getButtonMargin}}
+                    style={button(fontSize, theme, screenCase)}
                     onClick={() => load(pieceName)}
                 >
                     Load

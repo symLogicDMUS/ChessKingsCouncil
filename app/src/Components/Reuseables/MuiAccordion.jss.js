@@ -1,12 +1,10 @@
-import {availHeight} from "../helpers/windowMeasurments";
+import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-
-const {makeStyles} = require("@material-ui/core");
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
-        fontSize: props.fontSize,
         width: '100%',
+        fontSize: props.fontSize,
         backgroundColor: themes[props.theme].fill,
     }),
     heading: props => ({
@@ -24,6 +22,7 @@ export const useStyles = makeStyles((theme) => ({
         height: '3.5em',
         marginTop: '-0.25em',
         backgroundColor: themes[props.theme].fill,
+        ...props.style, // keep as last thing in object
     }),
     expand_icon: props => ({
        color: themes[props.theme].text,

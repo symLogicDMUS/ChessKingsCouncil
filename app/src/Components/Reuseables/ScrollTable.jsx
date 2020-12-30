@@ -5,12 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { styles } from "./ScrollTable.jss";
+import {styles} from "./ScrollTable.jss";
 
 class ScrollTable extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true };
+        this.state = {bValue: true};
         this.listItems = this.props.listItems;
         this.aboveView = [];
         this.inView = [];
@@ -31,14 +31,14 @@ class ScrollTable extends React.Component {
 
     divideList() {
         let remaining = 0;
-        if (this.props.listItems.length > 5) {
-            remaining = this.props.listItems.length - 5;
+        if (this.props.listItems.length > this.props.numRows) {
+            remaining = this.props.listItems.length - this.props.numRows;
             let lenTop = Math.floor(remaining / 2);
             for (let i = 0; i < lenTop; i++) {
                 this.aboveView.push(this.props.listItems[i]);
             }
             let current = lenTop;
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < this.props.numRows; i++) {
                 this.inView.push(this.props.listItems[current]);
                 current++;
             }
@@ -55,7 +55,7 @@ class ScrollTable extends React.Component {
             let firstBelow = this.belowView.shift();
             this.inView.push(firstBelow);
         }
-        this.setState({ bValue: !this.state.bValue });
+        this.setState({bValue: !this.state.bValue});
     }
 
     moveDown() {
@@ -65,7 +65,37 @@ class ScrollTable extends React.Component {
             let lastIn = this.inView.pop();
             this.belowView.unshift(lastIn);
         }
-        this.setState({ bValue: !this.state.bValue });
+        this.setState({bValue: !this.state.bValue});
+    }
+
+    getRows() {
+        const rows = [];
+        for (let i = 0; i < this.props.numRows; i++) {
+            if ((i+1) % 2 === 0) {
+                rows.push(
+                    <Box className={this.props.classes.list_item_even}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[i]}
+                        </Typography>
+                    </Box>
+                )
+            } else {
+                rows.push(
+                    <Box className={this.props.classes.list_item_odd}>
+                        <Typography
+                            className={this.props.classes.text}
+                            noWrap={true}
+                        >
+                            {this.inView[i]}
+                        </Typography>
+                    </Box>
+                )
+            }
+        }
+        return rows;
     }
 
     render() {
@@ -85,50 +115,11 @@ class ScrollTable extends React.Component {
                     style={this.props.buttonStyle}
                     disableElevation={true}
                 >
-                    <ArrowDropUpIcon />
+                    <ArrowDropUpIcon/>
                 </Button>
                 <Box className={this.props.classes.list_items}>
                     {this.props.subHeader && (<Box className={this.props.classes.sub_header}>{this.props.subHeader}</Box>)}
-                    <Box className={this.props.classes.list_item_odd}>
-                        <Typography
-                            className={this.props.classes.text}
-                            noWrap={true}
-                        >
-                            {this.inView[0]}
-                        </Typography>
-                    </Box>
-                    <Box className={this.props.classes.list_item_even}>
-                        <Typography
-                            className={this.props.classes.text}
-                            noWrap={true}
-                        >
-                            {this.inView[1]}
-                        </Typography>
-                    </Box>
-                    <Box className={this.props.classes.list_item_odd}>
-                        <Typography
-                            className={this.props.classes.text}
-                            noWrap={true}
-                        >
-                            {this.inView[2]}
-                        </Typography>
-                    </Box>
-                    <Box className={this.props.classes.list_item_even}>
-                        <Typography
-                            className={this.props.classes.text}
-                            noWrap={true}
-                        >
-                            {this.inView[3]}
-                        </Typography>
-                    </Box>
-                    <Box className={this.props.classes.list_item_odd}>
-                        <Typography
-                            className={this.props.classes.text}
-                            noWrap={true}
-                        >
-                            {this.inView[4]}
-                        </Typography>
-                    </Box>
+                    {this.getRows()}
                 </Box>
                 <Button
                     onClick={this.moveDown}
@@ -138,7 +129,7 @@ class ScrollTable extends React.Component {
                     disableElevation={true}
                     style={this.props.buttonStyle}
                 >
-                    <ArrowDropDownIcon />
+                    <ArrowDropDownIcon/>
                 </Button>
             </div>
         );

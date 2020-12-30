@@ -4,7 +4,7 @@ import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 
 /* unit % */
-export const drawerItemWidth = drawerWidth*0.86;
+export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
 export const drawerItemMarginLeft = '7%';
 
@@ -33,11 +33,13 @@ export const ok_button = (fontSize) => ({
 
 export const drawer_table_button = (fontSize) => ({
     fontSize: fontSize,
-    width: drawerItemWidth,
-    borderTopLeftRadius: '0.1em',
-    borderTopRightRadius: '0.1em',
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    '@media screen and (min-width: 768px)': {
+        width: drawerItemWidth,
+        borderTopLeftRadius: '0.1em',
+        borderTopRightRadius: '0.1em',
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+    },
     disableElevation: true,
 });
 
@@ -56,17 +58,14 @@ export const styles = {
         width: availWidth(),
     },
     list_title: props => ({
-        width: drawerItemWidth,
         ...list_title(props.fontSize, props.theme),
+        '@media screen and (min-width: 768px)': {
+            width: drawerItemWidth,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+        },
         outline: `0.05em solid ${themes[props.theme].outline}`,
-    }),
-    promo_all_container: props => ({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignContent: 'center',
-        ...drawer_component(props.fontSize),
     }),
     divider: props => ({
         fontSize: props.fontSize,

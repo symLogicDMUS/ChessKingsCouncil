@@ -4,22 +4,37 @@ import {themes} from "../../styles/themes.jss";
 import {drawer_component, list_title} from "./Customize.jss";
 
 export const piece_label = (fontSize, theme) => ({
+    fontSize: fontSize,
     width: '25%',
-    height: '2em',
+    height: '1.75em',
     textAlign: 'center',
-    ...text(fontSize, theme),
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'no-wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRight: `0.08em solid ${themes[theme].outline}`,
 });
 
 export const piece_value = (fontSize, theme) => ({
+    fontSize: fontSize,
     width: '75%',
-    height: '2em',
-    ...text(fontSize, theme),
+    height: '1.75em',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'no-wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: '0.5em'
 });
 
 export const useStyles = makeStyles({
-    sub_list: props =>  ({
+    sub_list: props => ({
         ...drawer_component(props.fontSize),
+        '@media screen and (max-width: 767px)': {
+            height: '7em',
+        },
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -46,5 +61,8 @@ export const useStyles = makeStyles({
     piece_value_odd: props => ({
         ...piece_value(props.fontSize, props.theme),
         backgroundColor: themes[props.theme].odd_row,
+    }),
+    text: props => ({
+        ...text(props.fontSize, props.theme),
     }),
 });

@@ -19,6 +19,7 @@ import { navBarWidth } from "../Reuseables/NavBar.jss";
 import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
 import { SideBar } from "../Reuseables/SidBar";
 import Typography from "@material-ui/core/Typography";
+import {availWidth} from "../helpers/windowMeasurments";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -222,8 +223,7 @@ class MyPieces extends React.Component {
                                     theme={this.state.theme}
                                     profileRef={this.state.profileRef}
                                     prepareDelete={this.prepareDelete}
-                                >
-                                </PieceProfiles>
+                                />
                             )}
                         </div>
                     </PersistentDrawer>

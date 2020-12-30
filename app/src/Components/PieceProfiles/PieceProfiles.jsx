@@ -13,7 +13,7 @@ import { useStyles } from "./PieceProfiles.jss";
 export function PieceProfiles(props) {
     let [searchText, setSearchText] = useState("");
 
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({theme: props.theme, style: props.style});
 
     const updateSearch = (newText) => {
         setSearchText(newText);

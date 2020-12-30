@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,EAAE,CAAA;EACE,SAAS,EAAC,OAAO;CACpB;;AACD,AAAA,EAAE,CAAA;EACE,SAAS,EAAC,IAAI;EAAC,WAAW,EAAC,OAAO;CACrC;;AAED,AAAA,EAAE,CAAA;EACD,IAAI,EAAE,KAAK;CACX;;AACD,AAAA,mBAAmB,CAAC;EAChB,gBAAgB,EAAE,yCAAyC;EAC3D,eAAe,EAAE,KAAK;EACtB,qBAAqB,EAAE,KAAK;EAChC,mBAAmB,EAAE,aAAa;CACjC",
-    "sources": [
-        "CouncilRules.scss"
-    ],
-    "names": [],
-    "file": "CouncilRules.css"
-}

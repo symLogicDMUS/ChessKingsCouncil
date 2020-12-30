@@ -14,10 +14,9 @@ export const useStyles = makeStyles({
             marginTop: '0.25em',
         },
         '@media screen and (max-width: 767px)': {
-            height: availHeight()*0.58,
-            width: availWidth()*0.98,
-            marginLeft: '0.1em',
-            marginTop: '0.1em',
+            height: availHeight()*0.569,
+            width: availWidth(),
+            marginTop: '0.05em',
         },
         backgroundColor: themes[props.theme].fill,
     }),

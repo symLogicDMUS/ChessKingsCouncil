@@ -1,39 +1,45 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import MediaQuery from "react-responsive/src";
 import {useStyles} from "./SubList.jss";
 
-export function SubList({ subs, theme }) {
+const pangram = 'The quick brown fox jumps over the lazy dog.';
+
+export function SubList({subs, theme}) {
     const classes = useStyles({fontSize: fontSize, theme: theme})
 
     return (
         <div className={classes.sub_list}>
-            <Box className={classes.header}>
-                Subs
-            </Box>
+            <MediaQuery minDeviceWidth={768}>
+                <Box className={classes.header}>
+                    Subs
+                </Box>
+            </MediaQuery>
             <Box className={classes.piece_label_odd}>
-                Rook
+                <Typography className={classes.text} noWrap>Rook</Typography>
             </Box>
             <Box className={classes.piece_value_odd}>
-                {subs.Rook}
+                <Typography className={classes.text} noWrap>{subs.Rook}{pangram}</Typography>
             </Box>
             <Box className={classes.piece_label_even}>
-                Bishop
+                <Typography className={classes.text} noWrap>Bishop</Typography>
             </Box>
             <Box className={classes.piece_value_even}>
-                {subs.Bishop}
+                <Typography className={classes.text} noWrap>{subs.Bishop}{pangram}</Typography>
             </Box>
             <Box className={classes.piece_label_odd}>
-                Knight
+                <Typography className={classes.text} noWrap>Knight</Typography>
             </Box>
             <Box className={classes.piece_value_odd}>
-                {subs.Knight}
+                <Typography className={classes.text} noWrap>{subs.Knight}{pangram}</Typography>
             </Box>
             <Box className={classes.piece_label_even}>
-                Queen
+                <Typography className={classes.text} noWrap>Queen</Typography>
             </Box>
             <Box className={classes.piece_value_even}>
-                {subs.Queen}
+                <Typography className={classes.text} noWrap>{subs.Queen}{pangram}</Typography>
             </Box>
         </div>
     );

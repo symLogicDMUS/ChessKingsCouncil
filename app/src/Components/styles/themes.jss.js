@@ -16,7 +16,7 @@ export const themes = {
         offset: '#a70000',
         light_normal: '#ffffff',
         dark_normal: '#a9a9a9',
-        light_in_range: '#ec2525',
+        light_in_range: '#72e2ff',
         dark_in_range: '#00CCFF',
         sqr_hover: '#00CCFF',
         outline_label: '#a9a9a9',

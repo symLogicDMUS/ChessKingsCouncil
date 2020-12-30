@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             width: '95%',
-            marginLeft: '2.5%',
+            marginLeft: '2.75%',
         },
     }),
     header_text: props => ({

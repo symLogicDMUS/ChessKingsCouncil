@@ -23,11 +23,12 @@ import { useStyles } from "./MuiAccordion.jss";
  * ]
  * @param theme {string}
  * @param children {List}
+ * @param style {Object} style object (optional)
  * @returns {JSX.Element}
  * @constructor
  */
-export default function MuiAccordion({theme, children }) {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+export default function MuiAccordion({theme, style, children }) {
+    const classes = useStyles({theme: theme, style: style, fontSize: fontSize});
     let [expanded, setExpanded] = useState(null);
     let [allCollapsed, setAllCollapsed] = useState(true);
 

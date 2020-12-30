@@ -60,6 +60,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme, screenCase }) 
                 theme={theme}
             />
             <ScrollTable
+                numRows={5}
                 listItems={getOffsets(def)}
                 title={
                     <Box className={classes.range_header}>
@@ -79,6 +80,7 @@ export function ProfileWB({ pieceName, color, def, expand, theme, screenCase }) 
                 theme={theme}
             />
             <ScrollTable
+                numRows={5}
                 listItems={getSpans(def)}
                 title={
                     <Box className={classes.range_header}>

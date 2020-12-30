@@ -50,6 +50,7 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
                         <Typography className={classes.title}>Range</Typography>
                     </MediaQuery>
                     <ScrollTable
+                        numRows={5}
                         listItems={getPangram()}
                         width="11.5em"
                         theme={theme}

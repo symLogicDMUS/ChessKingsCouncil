@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
+import withStyles from "@material-ui/core/styles/withStyles";
 import Box from "@material-ui/core/Box";
 import { copy } from "../helpers/copy";
 import { messageStr } from "./helpers/messageStr";
@@ -37,13 +38,12 @@ import { fontSize } from "../styles/fontSize.jss";
 import { sideBarWidth } from "../Reuseables/SidBar.jss";
 import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
 import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
-import withStyles from "@material-ui/core/styles/withStyles";
-import "../styles/_backgrounds.scss";
-import { styles } from "./CreatePiece.jss";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import MuiAccordion from "../Reuseables/MuiAccordion";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import "../styles/_backgrounds.scss";
+import { styles } from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {

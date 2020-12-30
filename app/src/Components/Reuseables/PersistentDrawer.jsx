@@ -37,9 +37,9 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
                 <Toolbar>
                     <IconButton
                         color="inherit"
+                        edge="start"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
-                        edge="start"
                         className={clsx(classes.menuButton, open && classes.hide)}
                     >
                         <MenuIcon />

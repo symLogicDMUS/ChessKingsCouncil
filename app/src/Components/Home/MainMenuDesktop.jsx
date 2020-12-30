@@ -81,7 +81,7 @@ export function MainMenuDesktop(props) {
                         path="https://github.com/symLogicDMUS/ChessKingsCouncil"
                         pathType="remote"
                         line1="Author's"
-                        line2="Author's GitHub"
+                        line2="GitHub"
                         theme={props.theme}
                     />
                 </Box>

@@ -34,6 +34,8 @@ import {
     drawerItemWidth, ok_button,
     styles,
 } from "./Customize.jss";
+import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
+import {availHeight} from "../../helpers/windowMeasurments";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -281,6 +283,7 @@ class Customize extends React.Component {
                             }
                         >
                             <ScrollTable
+                                numRows={4}
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 style={{
@@ -384,8 +387,9 @@ class Customize extends React.Component {
                                     theme={this.state.theme}
                                 />
                             }
-                            appBarContent={<Typography variant='h6' noWrap>Customize Game</Typography>}
+                            spacing={0}
                             theme={this.state.theme}
+                            appBarContent={<Typography variant='h6' noWrap>Customize Game</Typography>}
                         >
                             <PieceProfiles
                                 context="custom-game"
@@ -398,7 +402,7 @@ class Customize extends React.Component {
                                 togglePromo={this.togglePromo}
                                 theme={this.state.theme}
                             />
-                            <MuiAccordion theme={this.state.theme}>
+                            <MuiAccordion theme={this.state.theme} style={{height: '2.4em'}}>
                                 {[
                                     {
                                         id: "sub-list",
@@ -421,28 +425,19 @@ class Customize extends React.Component {
                                         ),
                                         body: (
                                             <ScrollTable
+                                                numRows={4}
                                                 listItems={this.promos}
                                                 theme={this.state.theme}
                                                 style={{
                                                     ...drawer_component(
-                                                        fontSize
+                                                        fontSize*mobileScaler,
                                                     ),
                                                     marginTop: 0,
                                                     isOutline: true,
                                                 }}
                                                 buttonStyle={drawer_table_button(
-                                                    fontSize
+                                                    fontSize*mobileScaler,
                                                 )}
-                                                title={
-                                                    <Typography
-                                                        className={
-                                                            this.props.classes
-                                                                .list_title
-                                                        }
-                                                    >
-                                                        Pawn Promotions
-                                                    </Typography>
-                                                }
                                                 subHeader={
                                                     <CheckBox
                                                         labelText="Promo All"
