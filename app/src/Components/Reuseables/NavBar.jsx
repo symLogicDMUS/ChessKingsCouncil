@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Help from "./Help/Help";
 import { NavBarButton } from "./NavBarButton";
-import { ConfirmRedirect } from "./ConfirmRedirect";
 import { HelpButton } from "./Help/HelpButton";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBar.jss";
@@ -9,7 +8,6 @@ import {v4 as uuidv4} from "uuid";
 
 export function NavBar(props) {
     let [isHelpModal, setIsHelpModal] = useState(false);
-    let [isRedirectModal, setIsRedirectModal] = useState(false);
     let [pendingRedirect, setPendingRedirect] = useState(null);
     let [isLocalLink, setIsLocalLink] = useState(true);
     let [firstTime, setFirstTime] = useState(false);
@@ -20,9 +18,10 @@ export function NavBar(props) {
         flexDirection: props.flexDirection,
     });
 
-    let redirectMessage =
-        "If you leave this page you will lose your unsaved work. Do you want to continue?";
-    if (props.redirectMessage) redirectMessage = props.redirectMessage;
+    let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
+    if (props.redirectMessage){
+        redirectMessage = props.redirectMessage;
+    }
 
     const toggleHelpModal = (boolVal) => {
         setIsHelpModal(boolVal);
@@ -31,12 +30,6 @@ export function NavBar(props) {
 
     const setIsFirstTime = (firstTime) => {
         setFirstTime(firstTime);
-    };
-
-    const toggleConfirmRedirect = (bValue, path, isLocalLink) => {
-        setIsLocalLink(isLocalLink);
-        setIsRedirectModal(bValue);
-        setPendingRedirect(pendingRedirect);
     };
 
     return (
@@ -48,17 +41,6 @@ export function NavBar(props) {
                     pageName={props.currentPage}
                     togleHelpModal={toggleHelpModal}
                     posLeft={263 / 1536}
-                />
-            )}
-            {isRedirectModal && (
-                <ConfirmRedirect
-                    key={uuidv4()}
-                    theme={props.theme}
-                    path={pendingRedirect}
-                    message={redirectMessage}
-                    isLocalLink={isLocalLink}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
-                    flexDirection={props.flexDirection}
                 />
             )}
             <Box className={classes.nav_bar}>
@@ -83,7 +65,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="/NewGame"
@@ -95,7 +76,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="/LoadGame"
@@ -108,7 +88,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="/CreatePiece"
@@ -121,7 +100,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="/MyPieces"
@@ -134,7 +112,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="https://www.chess.com/learn-how-to-play-chess"
@@ -147,7 +124,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="/CouncilRules"
@@ -160,7 +136,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
                 <NavBarButton
                     path="https://github.com/symLogicDMUS"
@@ -173,7 +148,6 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     unsavedChanges={props.unsavedChanges}
-                    toggleConfirmRedirect={toggleConfirmRedirect}
                 />
             </Box>
         </>

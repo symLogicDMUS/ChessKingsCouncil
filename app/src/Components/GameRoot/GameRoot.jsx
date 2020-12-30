@@ -83,8 +83,6 @@ class GameRoot extends React.Component {
         this.navExpanded = true;
         this.helpTitle = null;
         this.helpText = null;
-        this.messageTitle = null;
-        this.messageText = null;
         this.hmChildName = null;
         this.hmChildren = { none: null };
         this.confirmRedirectModal = false;
@@ -341,14 +339,6 @@ class GameRoot extends React.Component {
     modals(screenCase) {
         return (
             <>
-                {this.state.messageModal && (
-                    <MessageModal
-                        theme={this.state.theme}
-                        messageTitle={this.messageTitle}
-                        messageText={this.messageText}
-                        togleMessageModal={this.toggleMessageModal}
-                    />
-                )}
                 {this.saveAsModal && (
                     <SaveAs
                         save={this.save}

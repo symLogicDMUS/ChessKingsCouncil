@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useHistory } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, Portal } from "@material-ui/core";
 import { icons } from "../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Box from "@material-ui/core/Box";
-import { fontSize } from "../styles/fontSize.jss";
 import { useStyles } from "./NavBarButton.jss";
+import { ConfirmModal } from "./ConfirmModal";
 
 export function NavBarButton({
     path,
@@ -16,19 +17,10 @@ export function NavBarButton({
     parentFlex,
     isLocalLink,
     unsavedChanges,
-    toggleConfirmRedirect,
 }) {
     let history = useHistory();
-    let pageRedirectMethod = isLocalLink
-        ? () => (window.location.href = path)
-        : () => history.push(path);
-    if (unsavedChanges)
-        pageRedirectMethod = () =>
-            toggleConfirmRedirect(true, path, isLocalLink);
-
     let [hover, setHover] = useState(false);
-
-    console.log( 'nav bar style prop', style);
+    let [redirectModal, toggleRedirectModal] = useState(false);
 
     const classes = useStyles({
         theme: theme,
@@ -36,21 +28,48 @@ export function NavBarButton({
         parentFlex: parentFlex,
     });
 
+    const goToPage = () => {
+        if (isLocalLink) {
+            history.push(path);
+        } else window.location.href = path;
+    };
+
+    let onClick = () => goToPage();
+    if (unsavedChanges) {
+        onClick = () => toggleRedirectModal(true)
+    }
+    
     return (
-        <Button
-            className={classes.nav_bar_button}
-            onClick={pageRedirectMethod}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-        >
-            <Box className={classes.box}>
-                <SvgIcon className={hover ? classes.icon_hover : classes.icon}>
-                    {icons[pageIcon]}
-                </SvgIcon>
-                <div className={hover ? classes.text_hover : classes.text}>
-                    {pageName}
-                </div>
-            </Box>
-        </Button>
+        <>
+            {redirectModal ? (
+                <Portal>
+                    <ConfirmModal
+                        yesClick={() => goToPage()}
+                        noClick={() => toggleRedirectModal(false)}
+                        closeClick={() => toggleRedirectModal(false)}
+                        theme={theme}
+                        title={null}
+                        text="If you leave this page you will loose your progress. Are you sure you want to continue ?"
+                    />
+                </Portal>
+            ) : null}
+            <Button
+                onClick={onClick}
+                className={classes.nav_bar_button}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+            >
+                <Box className={classes.box}>
+                    <SvgIcon
+                        className={hover ? classes.icon_hover : classes.icon}
+                    >
+                        {icons[pageIcon]}
+                    </SvgIcon>
+                    <div className={hover ? classes.text_hover : classes.text}>
+                        {pageName}
+                    </div>
+                </Box>
+            </Button>
+        </>
     );
 }
