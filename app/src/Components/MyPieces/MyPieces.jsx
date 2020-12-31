@@ -30,9 +30,6 @@ class MyPieces extends React.Component {
         };
         this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.triggerRender = this.triggerRender.bind(this);
-        this.load = this.load.bind(this);
-        this.delete = this.delete.bind(this);
         this.setDefs = this.setDefs.bind(this);
         this.setDefs();
     }
@@ -54,12 +51,6 @@ class MyPieces extends React.Component {
                 this.defs = {};
             }
             this.setState({ fetched: true });
-        });
-    }
-
-    delete(pieceName) {
-        deleteDef(pieceName).then(([r]) => {
-            delete this.defs[pieceName];
         });
     }
 
@@ -87,9 +78,9 @@ class MyPieces extends React.Component {
                             <PieceProfiles
                                 title="My Pieces"
                                 defs={this.defs}
-                                delete={this.delete}
                                 parentPage="MyPieces"
                                 theme={this.state.theme}
+                                load={() => null}
                             >
                                 <ProfilesTitle theme={this.state.theme} />
                             </PieceProfiles>
@@ -124,7 +115,6 @@ class MyPieces extends React.Component {
                                     parentPage="MyPieces"
                                     title="My Pieces"
                                     defs={this.defs}
-                                    delete={this.delete}
                                     theme={this.state.theme}
                                 />
                             )}

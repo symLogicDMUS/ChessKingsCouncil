@@ -19,6 +19,8 @@ export const useStyles = makeStyles({
             marginTop: '0.05em',
         },
         backgroundColor: themes[props.theme].fill,
+        border: themes[props.theme].outline,
+        background: 'red',
     }),
     divider: props => ({
         fontSize: props.fontSize,
@@ -28,3 +30,4 @@ export const useStyles = makeStyles({
         marginBottom: '0.75em',
     }),
 });
+

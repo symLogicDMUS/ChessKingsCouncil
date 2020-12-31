@@ -1,25 +1,25 @@
-import React, {useEffect, useState} from "react";
-import {v4 as uuidv4} from "uuid";
+import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive/src";
-import {getDefs} from "../../API/getDefs";
-import {Profile} from "./Profile";
+import { getDefs } from "../../API/getDefs";
+import { Profile } from "./Profile";
 // import { SearchBar } from "./SearchBar";
-import {CustomizeHeader} from "./Header/CustomizeHeader";
-import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
-import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
-import {fontSize} from "../styles/fontSize.jss";
-import {useStyles} from "./PieceProfiles.jss";
+import { CustomizeHeader } from "./Header/CustomizeHeader";
+import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
+import { ProfileHeaderError } from "./Header/ProfileHeaderError";
+import { ld_header_style } from "./Header/LoadDeleteHeader.jss";
+import "../styles/scrollbar.scss";
+import { fontSize } from "../styles/fontSize.jss";
+import { useStyles } from "./PieceProfiles.jss";
 
 export function PieceProfiles(props) {
-
     let [searchText, setSearchText] = useState("");
     let [defs, setDefs] = useState({});
-    const standards = ['Rook', 'Bishop', 'Knight', 'Queen', 'King', 'Pawn']
+    const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
     const update = (defs_) => {
-        setDefs(defs_)
+        setDefs(defs_);
         if (props.updateParent) {
-            props.updateParent(defs)
+            props.updateParent(defs);
         }
     };
 
@@ -31,12 +31,12 @@ export function PieceProfiles(props) {
                         delete defs_[pieceName];
                     }
                 }
-                update(defs_)
+                update(defs_);
             }
         });
-    }, [])
+    }, []);
 
-    const classes = useStyles({theme: props.theme, style: props.style});
+    const classes = useStyles({ theme: props.theme, style: props.style });
 
     const updateSearch = (newText) => {
         setSearchText(newText);
@@ -55,7 +55,10 @@ export function PieceProfiles(props) {
     const getProfiles = (screenCase) => {
         let profiles = [];
         let pieceNames = applySearchFilter();
-        if (props.parentPage === "CreatePiece" || props.parentPage === 'MyPieces') {
+        if (
+            props.parentPage === "CreatePiece" ||
+            props.parentPage === "MyPieces"
+        ) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
@@ -68,8 +71,9 @@ export function PieceProfiles(props) {
                     >
                         <LoadDeleteHeader
                             key={uuidv4()}
-                            load={props.load}
                             pieceName={pieceName}
+                            parentPage={props.parentPage}
+                            load={props.load}
                             theme={props.theme}
                             screenCase={screenCase}
                             style={ld_header_style(fontSize)}
@@ -114,19 +118,23 @@ export function PieceProfiles(props) {
                 );
             }
         } else {
-            return <ProfileHeaderError/>;
+            return <ProfileHeaderError />;
         }
         return profiles;
     };
 
     //children is a header or none, depending on the parent page.
     return (
-        <>
+        <div className={`scrollbar-${props.theme}`}>
             <div className={classes.piece_profiles}>
                 {props.children}
-                <MediaQuery minDeviceWidth={768}>{getProfiles('desktop')}</MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>{getProfiles('mobile')}</MediaQuery>
+                <MediaQuery minDeviceWidth={768}>
+                    {getProfiles("desktop")}
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>
+                    {getProfiles("mobile")}
+                </MediaQuery>
             </div>
-        </>
+        </div>
     );
 }

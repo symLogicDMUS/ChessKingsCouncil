@@ -4,7 +4,7 @@ import {Portal} from "@material-ui/core";
 import {ProfilesModal} from "./ProfilesModal";
 import {Option} from "./Option";
 
-export function Load({load, defs, deletePiece, theme}) {
+export function Load({load, theme}) {
 
     let [modal, setModal] = useState();
 

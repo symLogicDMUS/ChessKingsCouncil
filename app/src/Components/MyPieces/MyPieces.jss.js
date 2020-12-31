@@ -5,6 +5,7 @@ export const styles = {
     my_pieces: props => ({
         width: availWidth(),
         height: availHeight() * 0.8,
+        overflowX: 'hidden',
         '@media screen and (min-width: 768px)': {
             display: 'flex',
             flexDirection: 'row',

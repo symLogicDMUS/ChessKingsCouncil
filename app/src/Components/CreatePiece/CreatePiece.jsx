@@ -11,8 +11,6 @@ import { Range } from "./Range/Range";
 import { Location } from "./Location/Location";
 import { Options } from "./Options/Options";
 import { saveDef } from "../../API/saveDef";
-import { getDefs } from "../../API/getDefs";
-import { deleteDef } from "../../API/deleteDef";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
@@ -87,13 +85,13 @@ class CreatePiece extends React.Component {
             this.props.location.state !== undefined &&
             this.props.location.state.pieceName !== undefined
         ) {
-            this.load(
-                this.props.location.state.pieceName,
-                this.props.location.state.spans,
-                this.props.location.state.offsets,
-                this.props.location.state.whiteImg,
-                this.props.location.state.blackImg
-            )
+            this.load({
+                name: this.props.location.state.pieceName,
+                spans: this.props.location.state.spans,
+                offsets: this.props.location.state.offsets,
+                whiteImg: this.props.location.state.whiteImg,
+                blackImg: this.props.location.state.blackImg
+            })
         }
     }
 

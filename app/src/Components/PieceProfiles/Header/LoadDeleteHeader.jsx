@@ -43,13 +43,13 @@ export function LoadDeleteHeader({
     };
 
     let loadMethod = () =>
-        load(
-            data.name,
-            data.whiteImg,
-            data.blackImg,
-            data.whiteOffsets,
-            data.whiteSpans
-        );
+        load({
+            name: data.name,
+            whiteImg: data.whiteImg,
+            blackImg: data.blackImg,
+            offsets: data.whiteOffsets,
+            spans: data.whiteSpans
+        });
     if (parentPage === "MyPieces") {
         loadMethod = () =>
             history.push({
