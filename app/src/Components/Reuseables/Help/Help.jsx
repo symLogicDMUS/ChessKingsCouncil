@@ -4,7 +4,7 @@ import {HelpModal} from "./HelpModal";
 import {useStyles} from "./Help.jss";
 
 
-export function Help({firstTime, pageName, togleHelpModal, posLeft}) {
+export function Help({firstTime, pageName, togleHelpModal}) {
 
     let [state, setState] = useState({current: 0, window: "menu"});
 

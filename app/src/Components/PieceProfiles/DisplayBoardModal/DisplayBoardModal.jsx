@@ -1,26 +1,36 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
 import {ModalDisplayBoard} from "./ModalDisplayBoard";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss"
 import {useStyles} from "./DisplayBoardModal.jss"
 
-export function DisplayBoardModal({theme, img, pieceName, rangeType, range, color, expand}) {
+export function DisplayBoardModal({theme, img, pieceName, rangeType, range, color, close}) {
 
-    const classes = useStyles({fontSize})
+    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
-        <div className={classes.displayBoardModal}>
-            <div className={classes.title}>
-                {resolvePlayerType(color)} {pieceName} {rangeType}
+        <div className={classes.modal}>
+            <div className={classes.window}>
+                <Box className={classes.top_bar}>
+                    <Typography className={classes.title}>
+                        {resolvePlayerType(color)} {pieceName} {rangeType}
+                    </Typography>
+                    <IconButton onClick={close} className={classes.close}>
+                        <CloseIcon />
+                    </IconButton>
+                </Box>
+                <ModalDisplayBoard
+                    img={img}
+                    range={range}
+                    rangeType={rangeType}
+                    location="d4"
+                    theme={theme}
+                />
             </div>
-
-            <ModalDisplayBoard
-                img={img}
-                rangeType={rangeType}
-                theme={theme}
-                range={range}
-                location="d4"
-            />
         </div>
     );
 }

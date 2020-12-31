@@ -12,7 +12,7 @@ export function ImgButtonsModal({
     color,
     setPieceImg,
     showChooseModal,
-    toggleImgButtonsModal,
+    close
 }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize });
 
@@ -23,7 +23,7 @@ export function ImgButtonsModal({
                     <Close
                         theme={theme}
                         style={close_icon(fontSize)}
-                        onClick={() => toggleImgButtonsModal(null)}
+                        onClick={close}
                     />
                 </Box>
                 <Box className={classes.button_group}>
@@ -33,7 +33,7 @@ export function ImgButtonsModal({
                         theme={theme}
                         style={button(fontSize)}
                         setPieceImg={setPieceImg}
-                        toggleImgButtonsModal={toggleImgButtonsModal}
+                        close={close}
                     />
                     <Button
                         variant='contained'

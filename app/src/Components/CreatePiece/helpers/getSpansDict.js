@@ -15,7 +15,7 @@ export function getSpansDict(stepFuncs) {
     }
 
     let angle = null;
-    for (var stepFunc of stepFuncs) {
+    for (const stepFunc of stepFuncs) {
         angle = getAngle(stepFunc);
         spans[angle] = true;
     }

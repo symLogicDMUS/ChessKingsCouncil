@@ -36,9 +36,9 @@ export function NavBarButton({
 
     let onClick = () => goToPage();
     if (unsavedChanges) {
-        onClick = () => toggleRedirectModal(true)
+        onClick = () => toggleRedirectModal(true);
     }
-    
+
     return (
         <>
             {redirectModal ? (

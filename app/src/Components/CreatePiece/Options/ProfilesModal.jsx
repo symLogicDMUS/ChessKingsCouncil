@@ -1,25 +1,28 @@
 import React from 'react'
+import Box from "@material-ui/core/Box";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./ProfilesModal.jss";
 
-
-export function ProfilesModal({defs, load, prepareDelete }) {
-    const classes = useStyles()
+export function ProfilesModal({defs, load, close, theme}) {
+    const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
         <div className={classes.modal}>
-            <div className={classes.top_bar} >
-                <div className={classes.title} >
+            <Box className={classes.top_bar} >
+                <Typography variant='h6' noWrap className={classes.title}>
                     Created Pieces
-                </div>
-            </div>
+                </Typography>
+                <IconButton onClick={close} className={classes.close}>
+                    <CloseIcon />
+                </IconButton>
+            </Box>
             <PieceProfiles
                 defs={defs}
                 load={load}
-                prepareDelete={prepareDelete}
-                headerType="load-delete"
-                title="Created Pieces"
-                closeIcon={true}
-                scaler={1}
+                parentPage="CreatePiece"
             />
         </div>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 
-const Portal = ({children}) => {
+const MyPortal = ({children}) => {
   const mount = document.getElementById("root");
   const el = document.createElement("div");
 
@@ -14,4 +14,4 @@ const Portal = ({children}) => {
   return createPortal(children, el)
 };
 
-export default Portal;
+export default MyPortal;

@@ -5,20 +5,24 @@ export const useStyles = makeStyles({
     modal: {
         ...modal,
     },
-    top_bar: {
-        position: 'absolute',
-        zIndex: 'inherit',
-        backgroundColor: '#515151',
-        borderBottom: '0.8px solid #707070',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-    },
-    title: {
-        position: "absolute",
-        color: "#a9a9a9",
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-        textAlign: "left",
-        paddingLeft: "1%",
-        paddingTop: "0.25%",
-    },
+    top_bar: props => ({
+        height: '2em',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        border: '1px dashed #b1faae',
+    }),
+    title: props => ({
+        fontSize: props.fontSize,
+        border: '1px dashed red',
+
+    }),
+    close: props => ({
+       fontSize: props.fontSize,
+       width: '2em',
+       height: '2em',
+    }),
 });

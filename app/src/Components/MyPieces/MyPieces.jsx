@@ -26,29 +26,13 @@ class MyPieces extends React.Component {
         super(props);
         this.state = {
             theme: "dark",
-            binaryValue: true,
-            selectedPiece: null,
-            messageModal: false,
-            deleteModal: false,
-            redirect: false,
             fetched: false,
         };
         this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.firstTime = false;
-        this.navExpanded = true;
-        this.helpTitle = null;
-        this.helpText = null;
-        this.hmChildName = "none";
-        this.hmChildren = { none: null };
+        this.triggerRender = this.triggerRender.bind(this);
         this.load = this.load.bind(this);
         this.delete = this.delete.bind(this);
-        this.prepareDelete = this.prepareDelete.bind(this);
-        this.cancelDelete = this.cancelDelete.bind(this);
-        this.togleNav = this.togleNav.bind(this);
-        this.togleMessageModal = this.togleMessageModal.bind(this);
-        this.setMessageText = this.setMessageText.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
         this.setDefs = this.setDefs.bind(this);
         this.setDefs();
     }
@@ -73,92 +57,16 @@ class MyPieces extends React.Component {
         });
     }
 
-    triggerRender() {
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    togleNav(boolVal) {
-        this.navExpanded = boolVal;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    load(pieceName) {
-        this.setState({ selectedPiece: pieceName, redirect: true });
-    }
-
-    togleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
-    }
-
-    setMessageText(helpTitle, helpText) {
-        this.messageTitle = helpTitle;
-        this.messageText = helpText;
-        this.setState({ messageModal: true });
-    }
-
-    prepareDelete(pieceName) {
-        this.setState({ selectedPiece: pieceName, deleteModal: true });
-    }
-
-    cancelDelete() {
-        this.setState({ selectedPiece: null, deleteModal: false });
-    }
-
-    delete() {
-        deleteDef(this.state.selectedPiece).then(([response]) => {
-            delete this.defs[this.state.selectedPiece];
-            this.setState({
-                deleteModal: false,
-                profileRef: this.state.selectedPiece,
-                selectedPiece: null,
-            });
-            this.setState({ profileRef: null });
+    delete(pieceName) {
+        deleteDef(pieceName).then(([r]) => {
+            delete this.defs[pieceName];
         });
     }
 
-    modals(screenCase) {
-        return (
-            <>
-                {this.state.messageModal && (
-                    <MessageModal
-                        theme={this.state.theme}
-                        messageTitle={this.messageTitle}
-                        messageText={this.messageText}
-                        togleMessageModal={this.togleMessageModal}
-                    />
-                )}
-                {this.state.deleteModal && (
-                    <ConfirmModal
-                        theme={this.state.theme}
-                        text={`You are asking to delete piece "${this.state.selectedPiece}". Games in progress will not be
-                               effected but the piece's record for new games will be destroyed. This action cannot be undone.
-                               Are you sure you want to delete piece "${this.state.selectedPiece}"?`}
-                        yesClick={this.delete}
-                        noClick={this.cancelDelete}
-                    />
-                )}
-            </>
-        );
-    }
-
     render() {
-        if (this.state.redirect) {
-            return (
-                <Redirect
-                    to={{
-                        pathname: "/CreatePiece",
-                        state: {
-                            defaultPiece: this.state.selectedPiece,
-                        },
-                    }}
-                />
-            );
-        }
-
         return (
             <>
                 <MediaQuery minDeviceWidth={768}>
-                    {this.modals("desktop")}
                     <NavBar
                         currentPage="MyPieces"
                         theme={this.state.theme}
@@ -177,13 +85,11 @@ class MyPieces extends React.Component {
                     <div className={this.props.classes.my_pieces}>
                         {this.state.fetched && (
                             <PieceProfiles
-                                context="load-delete"
                                 title="My Pieces"
                                 defs={this.defs}
-                                load={this.load}
+                                delete={this.delete}
+                                parentPage="MyPieces"
                                 theme={this.state.theme}
-                                profileRef={this.state.profileRef}
-                                prepareDelete={this.prepareDelete}
                             >
                                 <ProfilesTitle theme={this.state.theme} />
                             </PieceProfiles>
@@ -191,7 +97,6 @@ class MyPieces extends React.Component {
                     </div>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
-                    {this.modals("mobile")}
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}
@@ -216,13 +121,11 @@ class MyPieces extends React.Component {
                         <div className={this.props.classes.my_pieces}>
                             {this.state.fetched && (
                                 <PieceProfiles
-                                    context="load-delete"
+                                    parentPage="MyPieces"
                                     title="My Pieces"
                                     defs={this.defs}
-                                    load={this.load}
+                                    delete={this.delete}
                                     theme={this.state.theme}
-                                    profileRef={this.state.profileRef}
-                                    prepareDelete={this.prepareDelete}
                                 />
                             )}
                         </div>

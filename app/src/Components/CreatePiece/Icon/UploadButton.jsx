@@ -6,7 +6,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from "../../Reuseables/MuiButton.jss";
 
 
-export function UploadButton({color, id, setPieceImg, toggleImgButtonsModal, theme, style}) {
+export function UploadButton({color, id, setPieceImg, close, theme, style}) {
 
     const classes = useStyles({style: style, theme: theme});
 
@@ -22,7 +22,7 @@ export function UploadButton({color, id, setPieceImg, toggleImgButtonsModal, the
                 const imgStr = myFileItemReader.result;
                 saveImg(imgName, imgStr).then(([res]) => {
                     setPieceImg(color, imgStr);
-                    toggleImgButtonsModal(null);
+                    close();
                 });
             },
             false

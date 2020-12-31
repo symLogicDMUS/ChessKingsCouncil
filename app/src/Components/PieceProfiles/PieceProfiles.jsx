@@ -1,17 +1,40 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import MediaQuery from "react-responsive/src";
-import { Profile } from "./Profile";
+import {getDefs} from "../../API/getDefs";
+import {Profile} from "./Profile";
 // import { SearchBar } from "./SearchBar";
-import { CustomizeHeader } from "./Header/CustomizeHeader";
-import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
-import { ProfileHeaderError } from "./Header/ProfileHeaderError";
+import {CustomizeHeader} from "./Header/CustomizeHeader";
+import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
+import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import {fontSize} from "../styles/fontSize.jss";
-import { useStyles } from "./PieceProfiles.jss";
+import {useStyles} from "./PieceProfiles.jss";
 
 export function PieceProfiles(props) {
+
     let [searchText, setSearchText] = useState("");
+    let [defs, setDefs] = useState({});
+    const standards = ['Rook', 'Bishop', 'Knight', 'Queen', 'King', 'Pawn']
+    const update = (defs_) => {
+        setDefs(defs_)
+        if (props.updateParent) {
+            props.updateParent(defs)
+        }
+    };
+
+    useEffect(() => {
+        getDefs().then(([defs_]) => {
+            if (defs_) {
+                for (const pieceName of standards) {
+                    if (Object.keys(defs_).includes(pieceName)) {
+                        delete defs_[pieceName];
+                    }
+                }
+                update(defs_)
+            }
+        });
+    }, [])
 
     const classes = useStyles({theme: props.theme, style: props.style});
 
@@ -21,50 +44,58 @@ export function PieceProfiles(props) {
 
     const applySearchFilter = () => {
         if (searchText !== "") {
-            return Object.keys(props.defs).filter((pieceName) =>
+            return Object.keys(defs).filter((pieceName) =>
                 pieceName.toLowerCase().startsWith(searchText)
             );
         } else {
-            return Object.keys(props.defs);
+            return Object.keys(defs);
         }
     };
 
     const getProfiles = (screenCase) => {
         let profiles = [];
         let pieceNames = applySearchFilter();
-        if (props.context === "load-delete") {
+        if (props.parentPage === "CreatePiece" || props.parentPage === 'MyPieces') {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
                         key={uuidv4()}
+                        defs={defs}
                         pieceName={pieceName}
                         expand={props.expand}
-                        defs={props.defs}
                         theme={props.theme}
                         screenCase={screenCase}
                     >
                         <LoadDeleteHeader
                             key={uuidv4()}
-                            pieceName={pieceName}
                             load={props.load}
+                            pieceName={pieceName}
                             theme={props.theme}
-                            style={ld_header_style(fontSize)}
                             screenCase={screenCase}
+                            style={ld_header_style(fontSize)}
+                            data={{
+                                whiteImg: defs[pieceName].W.img,
+                                blackImg: defs[pieceName].B.img,
+                                whiteSpans: defs[pieceName].W.spans,
+                                blackSpans: defs[pieceName].B.spans,
+                                whiteOffsets: defs[pieceName].W.offsets,
+                                blackOffsets: defs[pieceName].B.offsets,
+                            }}
                         />
                     </Profile>
                 );
             }
-        } else if (props.context === "custom-game") {
+        } else if (props.parentPage === "Customize") {
             let isCheckmark;
             for (let pieceName of pieceNames) {
                 isCheckmark = props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
                         key={uuidv4()}
+                        defs={defs}
                         pieceName={pieceName}
                         theme={props.theme}
                         expand={props.expand}
-                        defs={props.defs}
                         screenCase={screenCase}
                     >
                         <CustomizeHeader
@@ -83,7 +114,7 @@ export function PieceProfiles(props) {
                 );
             }
         } else {
-            return <ProfileHeaderError />;
+            return <ProfileHeaderError/>;
         }
         return profiles;
     };

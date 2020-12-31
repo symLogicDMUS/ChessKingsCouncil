@@ -1,51 +1,44 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {modal} from "../../helpers/modal.jss";
+import {themes} from "../../styles/themes.jss";
 
 
 export const useStyles = makeStyles({
-    displayBoardModal: {
-        width: availWidth() * 0.208,
-        height: availHeight() * 0.504,
-        left: availWidth() * 0.5 - availWidth() * 0.208 * 0.5,
-        top: availHeight() * 0.5 - availHeight() * 0.504 * 0.5,
-        position: "absolute",
-        zIndex: 4,
-        display: "grid",
-        backgroundColor: "#515151",
-        borderRadius: 20,
-        gridTemplateColumns: 320,
-        gridTemplateRows: "7.89% 84.21% 7.89%",
+    modal: {
+        ...modal,
+        zIndex: 5,
     },
-    title: {
-        position: 'absolute',
-        zIndex: 4,
-        left: 0,
-        width: '90%',
-        height: '7.5%',
-        color: '#a9a9a9',
-        fontSize: '180%',
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif'",
-        textAlign: 'center',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        borderTopLeftRadius: 15,
-    },
-    close: {
-        position: "absolute",
-        zIndex: "inherit",
-        left: "90%",
-        width: "10%",
-        height: "7.5%",
-        borderTopRightRadius: 15,
-        cursor: "pointer",
-    },
-    closeIcon: {position: "absolute", width: "70%", height: "70%", marginTop: "15%"},
-    bottom: {
-        position: "absolute",
-        zIndex: "inherit",
-        gridColumn: 1,
-        gridRow: 3,
-        backgroundColor: "#515151",
-        borderRadius: 15,
-    },
+    window: props => ({
+        fontSize: props.fontSize,
+        width: '8.09em',
+        height: '9.5em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        borderRadius: '0.25em',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.04em solid ${themes[props.theme].outline}`
+    }),
+    top_bar: props => ({
+        fontSize: props.fontSize,
+        width: '8em',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    }),
+    title: props => ({
+        fontSize: props.fontSize * 0.5,
+        color: themes[props.theme].text,
+        lineHeight: '1.5em',
+        paddingLeft: '0.25em',
+    }),
+    close: props => ({
+       width: '1em',
+       height: '1em',
+       color: themes[props.theme].text,
+    }),
 })

@@ -19,7 +19,7 @@ export function MessageModal({theme, toggleMessageModal, messageTitle, messageTe
                 </Box>
                 <Typography className={classes.title} noWrap={true}>{messageTitle}</Typography>
                 <Typography className={classes.text} paragraph={true} noWrap={true}>{messageText}</Typography>
-                <MuiButton onClick={toggleMessageModal} style={ok_button(fontSize)}>
+                <MuiButton onClick={toggleMessageModal} theme={theme} style={ok_button(fontSize)}>
                     Ok
                 </MuiButton>
             </div>

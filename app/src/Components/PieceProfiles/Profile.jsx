@@ -1,12 +1,12 @@
 import React from "react";
+import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
 import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
-import {Divider} from "@material-ui/core";
 import { useStyles } from "./Profile.jss";
 
 export function Profile({pieceName, expand, defs, theme, screenCase, children }) {
-    /**children is a piece profile header */
+    /**children is a header for the profile of the piece */
     const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
@@ -14,7 +14,7 @@ export function Profile({pieceName, expand, defs, theme, screenCase, children })
             {children}
             <ProfileWB
                 color="W"
-                key={pieceName}
+                key={uuidv4()}
                 expand={expand}
                 pieceName={pieceName}
                 def={defs[pieceName]["W"]}
@@ -23,7 +23,7 @@ export function Profile({pieceName, expand, defs, theme, screenCase, children })
             />
             <ProfileWB
                 color="B"
-                key={pieceName}
+                key={uuidv4()}
                 expand={expand}
                 pieceName={pieceName}
                 def={defs[pieceName]["B"]}

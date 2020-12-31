@@ -8,8 +8,6 @@ import {v4 as uuidv4} from "uuid";
 
 export function NavBar(props) {
     let [isHelpModal, setIsHelpModal] = useState(false);
-    let [pendingRedirect, setPendingRedirect] = useState(null);
-    let [isLocalLink, setIsLocalLink] = useState(true);
     let [firstTime, setFirstTime] = useState(false);
 
     const classes = useStyles({
@@ -40,7 +38,6 @@ export function NavBar(props) {
                     firstTime={firstTime}
                     pageName={props.currentPage}
                     togleHelpModal={toggleHelpModal}
-                    posLeft={263 / 1536}
                 />
             )}
             <Box className={classes.nav_bar}>

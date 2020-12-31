@@ -98,7 +98,7 @@ class ChooseModal extends React.Component {
             this.props.color,
             this.imgDict[this.state.imgNameChoice]
         );
-        this.props.closeChooseModal();
+        this.props.closeAll();
     }
 
     setHoverText(imgName) {

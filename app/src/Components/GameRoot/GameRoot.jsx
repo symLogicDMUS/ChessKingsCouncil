@@ -378,7 +378,6 @@ class GameRoot extends React.Component {
         return (
             <>
                 <MediaQuery minDeviceWidth={768}>
-                    {this.modals("desktop")}
                     <PermanentDrawer
                         theme={this.state.theme}
                         width={drawerWidth}
