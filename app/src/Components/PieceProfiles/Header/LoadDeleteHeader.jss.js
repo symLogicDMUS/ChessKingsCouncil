@@ -2,6 +2,15 @@ import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./PieceHeader.jss";
 import {themes} from "../../styles/themes.jss";
 
+export const getButtonMargin = (screenCase) => {
+    switch (screenCase) {
+        case "desktop":
+            return "0.5em";
+        case "mobile":
+            return "0.9em";
+    }
+};
+
 export const button = (fontSize, theme) => ({
     fontSize: fontSize,
     '@media screen and (min-width: 768px)': {

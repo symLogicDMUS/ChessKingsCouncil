@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
+import {useHistory} from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive/src";
 import { getDefs } from "../../API/getDefs";
 import { Profile } from "./Profile";
-// import { SearchBar } from "./SearchBar";
 import { CustomizeHeader } from "./Header/CustomizeHeader";
 import { LoadDeleteHeader } from "./Header/LoadDeleteHeader";
 import { ProfileHeaderError } from "./Header/ProfileHeaderError";
@@ -15,6 +15,7 @@ import { useStyles } from "./PieceProfiles.jss";
 export function PieceProfiles(props) {
     let [searchText, setSearchText] = useState("");
     let [defs, setDefs] = useState({});
+    let history = useHistory()
     const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
     const update = (defs_) => {
         setDefs(defs_);
@@ -54,6 +55,7 @@ export function PieceProfiles(props) {
 
     const getProfiles = (screenCase) => {
         let profiles = [];
+        let loadMethod;
         let pieceNames = applySearchFilter();
         if (
             props.parentPage === "CreatePiece" ||
@@ -71,20 +73,13 @@ export function PieceProfiles(props) {
                     >
                         <LoadDeleteHeader
                             key={uuidv4()}
+                            load={props.load}
+                            def={defs[pieceName]}
                             pieceName={pieceName}
                             parentPage={props.parentPage}
-                            load={props.load}
-                            theme={props.theme}
                             screenCase={screenCase}
+                            theme={props.theme}
                             style={ld_header_style(fontSize)}
-                            data={{
-                                whiteImg: defs[pieceName].W.img,
-                                blackImg: defs[pieceName].B.img,
-                                whiteSpans: defs[pieceName].W.spans,
-                                blackSpans: defs[pieceName].B.spans,
-                                whiteOffsets: defs[pieceName].W.offsets,
-                                blackOffsets: defs[pieceName].B.offsets,
-                            }}
                         />
                     </Profile>
                 );

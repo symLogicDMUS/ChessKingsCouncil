@@ -83,10 +83,10 @@ class CreatePiece extends React.Component {
         if (
             this.props.location !== undefined &&
             this.props.location.state !== undefined &&
-            this.props.location.state.pieceName !== undefined
+            this.props.location.state.name !== undefined
         ) {
             this.load({
-                name: this.props.location.state.pieceName,
+                name: this.props.location.state.name,
                 spans: this.props.location.state.spans,
                 offsets: this.props.location.state.offsets,
                 whiteImg: this.props.location.state.whiteImg,

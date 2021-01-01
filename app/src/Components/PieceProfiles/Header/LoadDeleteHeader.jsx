@@ -1,31 +1,31 @@
 import React, { useState } from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { fontSize } from "../../styles/fontSize.jss";
-import { button, useStyles } from "./LoadDeleteHeader.jss";
 import { ConfirmModal } from "../../Reuseables/ConfirmModal";
 import { deleteDef } from "../../../API/deleteDef";
+import {button, getButtonMargin, useStyles} from "./LoadDeleteHeader.jss";
 
 export function LoadDeleteHeader({
-    pieceName,
     load,
-    data,
-    theme,
-    style,
+    def,
+    pieceName,
     parentPage,
     screenCase,
+    theme,
+    style,
 }) {
+    let [confirmDelete, setConfirmDelete] = useState(false);
+    let history = useHistory();
     const classes = useStyles({
         theme: theme,
         style: style,
         fontSize: fontSize,
     });
-    let history = useHistory();
-    let [confirmDelete, setConfirmDelete] = useState(false);
 
     const deletePiece = (pieceName) => {
         deleteDef(pieceName).then(([r]) => {
@@ -33,34 +33,26 @@ export function LoadDeleteHeader({
         });
     };
 
-    const getButtonMargin = () => {
-        switch (screenCase) {
-            case "desktop":
-                return "0.5em";
-            case "mobile":
-                return "0.9em";
-        }
-    };
-
-    let loadMethod = () =>
-        load({
-            name: data.name,
-            whiteImg: data.whiteImg,
-            blackImg: data.blackImg,
-            offsets: data.whiteOffsets,
-            spans: data.whiteSpans
-        });
-    if (parentPage === "MyPieces") {
+    let loadMethod;
+    if (parentPage === "CreatePiece") {
+        loadMethod = () =>
+            load({
+                name: pieceName,
+                whiteImg: def.W.img,
+                blackImg: def.B.img,
+                spans: def.W.spans,
+                offsets: def.W.offsets,
+            });
+    } else {
         loadMethod = () =>
             history.push({
-                path: "/CreatePiece",
+                pathname: "/CreatePiece",
                 state: {
-                    // location state
-                    pieceName: pieceName,
-                    whiteImg: data.whiteImg,
-                    blackImg: data.blackImg,
-                    spans: data.whiteSpans,
-                    offsets: data.whiteOffsets,
+                    name: pieceName,
+                    whiteImg: def.W.img,
+                    blackImg: def.B.img,
+                    spans: def.W.spans,
+                    offsets: def.W.offsets,
                 },
             });
     }
@@ -86,7 +78,7 @@ export function LoadDeleteHeader({
                     <Button
                         theme={theme}
                         startIcon={<StorageIcon />}
-                        style={button(fontSize, theme, screenCase)}
+                        style={button(fontSize, theme)}
                         onClick={loadMethod}
                     >
                         Load
@@ -95,8 +87,8 @@ export function LoadDeleteHeader({
                         theme={theme}
                         startIcon={<DeleteForever />}
                         style={{
-                            ...button(fontSize, theme, screenCase),
-                            marginLeft: getButtonMargin(),
+                            ...button(fontSize, theme),
+                            marginLeft: getButtonMargin(screenCase),
                         }}
                         onClick={() => setConfirmDelete(true)}
                     >
