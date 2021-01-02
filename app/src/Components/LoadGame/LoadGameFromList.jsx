@@ -71,7 +71,6 @@ export function LoadGameFromList(props) {
                         height: "2.25em",
                         justifyContent: "center",
                     }}
-                    unsavedChanges={false}
                 />
                 {content}
             </MediaQuery>
@@ -89,7 +88,6 @@ export function LoadGameFromList(props) {
                                 height: "2.5em",
                             }}
                             redirectMessage={null}
-                            unsavedChanges={false}
                             theme={props.theme}
                         />
                     }

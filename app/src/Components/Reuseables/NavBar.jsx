@@ -61,7 +61,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="/NewGame"
@@ -72,7 +72,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="/LoadGame"
@@ -84,7 +84,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="/CreatePiece"
@@ -96,7 +96,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="/MyPieces"
@@ -108,7 +108,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="https://www.chess.com/learn-how-to-play-chess"
@@ -120,7 +120,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="/CouncilRules"
@@ -132,7 +132,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
                     path="https://github.com/symLogicDMUS"
@@ -144,7 +144,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
-                    unsavedChanges={props.unsavedChanges}
+                    isUnsavedChanges={props.isUnsavedChanges}
                 />
             </Box>
         </>

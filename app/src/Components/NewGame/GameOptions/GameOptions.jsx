@@ -89,7 +89,6 @@ export function GameOptions({ setGameOptions }) {
                         height: "2.25em",
                         justifyContent: "center",
                     }}
-                    unsavedChanges={false}
                 />
                 {options}
             </MediaQuery>
@@ -108,7 +107,6 @@ export function GameOptions({ setGameOptions }) {
                                 height: "2.5em",
                             }}
                             redirectMessage={null}
-                            unsavedChanges={false}
                             theme={theme}
                         />
                     }

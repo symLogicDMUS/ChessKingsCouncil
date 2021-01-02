@@ -299,7 +299,6 @@ class Customize extends React.Component {
                                     width: navBarButtonWidth,
                                     justifyContent: "flex-start",
                                 }}
-                                unsavedChanges={false}
                                 theme={this.state.theme}
                             />
                         </SideBar>
@@ -318,7 +317,6 @@ class Customize extends React.Component {
                                         height: "2.5em",
                                     }}
                                     redirectMessage={null}
-                                    unsavedChanges={false}
                                     theme={this.state.theme}
                                 />
                             }

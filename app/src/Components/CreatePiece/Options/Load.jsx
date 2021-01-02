@@ -6,7 +6,7 @@ import {Option} from "./Option";
 
 export function Load({load, theme}) {
 
-    let [modal, setModal] = useState();
+    let [modal, setModal] = useState(false);
 
     return (
         <>

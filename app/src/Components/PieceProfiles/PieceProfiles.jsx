@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {useHistory} from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive/src";
 import { getDefs } from "../../API/getDefs";
@@ -15,15 +14,14 @@ import { useStyles } from "./PieceProfiles.jss";
 export function PieceProfiles(props) {
     let [searchText, setSearchText] = useState("");
     let [defs, setDefs] = useState({});
-    let history = useHistory()
-    const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
+    const classes = useStyles({ theme: props.theme, style: props.style });
     const update = (defs_) => {
         setDefs(defs_);
         if (props.updateParent) {
             props.updateParent(defs);
         }
     };
-
+    const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
     useEffect(() => {
         getDefs().then(([defs_]) => {
             if (defs_) {
@@ -37,7 +35,7 @@ export function PieceProfiles(props) {
         });
     }, []);
 
-    const classes = useStyles({ theme: props.theme, style: props.style });
+
 
     const updateSearch = (newText) => {
         setSearchText(newText);

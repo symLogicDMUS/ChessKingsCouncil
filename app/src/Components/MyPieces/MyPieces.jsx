@@ -71,7 +71,6 @@ class MyPieces extends React.Component {
                             height: "2.25em",
                             justifyContent: "center",
                         }}
-                        unsavedChanges={false}
                     />
                     <div className={this.props.classes.my_pieces}>
                         {this.state.fetched && (
@@ -103,7 +102,6 @@ class MyPieces extends React.Component {
                                     height: "2.5em",
                                 }}
                                 redirectMessage={null}
-                                unsavedChanges={false}
                                 theme={this.state.theme}
                             />
                         }

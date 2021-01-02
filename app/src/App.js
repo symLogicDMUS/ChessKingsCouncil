@@ -11,7 +11,6 @@ import NewGame from "./Components/NewGame/NewGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
-import Button from "@material-ui/core/Button";
 
 export class App extends React.Component {
     constructor(props) {

@@ -19,9 +19,9 @@ export const themes = {
         light_in_range: '#72e2ff',
         dark_in_range: '#00CCFF',
         sqr_hover: '#00CCFF',
-        outline_label: '#a9a9a9',
         page_link: '#a9a9a9',
         page_link_hover: '#ffffff',
+        outline_label: '#a9a9a9',
     },
     green: {
         outline: '#b1faae',

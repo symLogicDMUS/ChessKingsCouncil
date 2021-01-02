@@ -36,7 +36,4 @@ export const useStyles = makeStyles({
             color: themes[props.theme].outline_label,
         },
     }),
-    field: (props) => ({
-        ...props.fieldStyle,
-    }),
 });

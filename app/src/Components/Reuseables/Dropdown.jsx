@@ -11,7 +11,6 @@ export function Dropdown({
     theme,
     label,
     style,
-    fieldStyle,
     inputLabel,
     variant,
     inputId,
@@ -23,7 +22,6 @@ export function Dropdown({
     let [selected, setSelected] = useState("");
     const classes = useStyles({
         style: style,
-        fieldStyle: fieldStyle,
         theme: theme,
     });
 

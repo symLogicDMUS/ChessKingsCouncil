@@ -112,7 +112,6 @@ export function CouncilRules() {
                                 height: "2.5em",
                             }}
                             redirectMessage={null}
-                            unsavedChanges={false}
                             theme="black"
                         />
                     }

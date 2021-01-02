@@ -16,7 +16,7 @@ export function NavBarButton({
     style,
     parentFlex,
     isLocalLink,
-    unsavedChanges,
+    isUnsavedChanges,
 }) {
     let history = useHistory();
     let [hover, setHover] = useState(false);
@@ -34,10 +34,14 @@ export function NavBarButton({
         } else window.location.href = path;
     };
 
-    let onClick = () => goToPage();
-    if (unsavedChanges) {
-        onClick = () => toggleRedirectModal(true);
-    }
+    const tryRedirect = () => {
+        if (isUnsavedChanges !== undefined && isUnsavedChanges()) {
+            toggleRedirectModal(true)
+        }
+        else {
+            goToPage()
+        }
+    };
 
     return (
         <>
@@ -54,7 +58,7 @@ export function NavBarButton({
                 </Portal>
             ) : null}
             <Button
-                onClick={onClick}
+                onClick={() => tryRedirect()}
                 className={classes.nav_bar_button}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}

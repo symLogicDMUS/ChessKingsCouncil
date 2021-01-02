@@ -1,47 +1,46 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import {v4 as uuidv4} from "uuid";
 import MediaQuery from "react-responsive";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { copy } from "../helpers/copy";
-import { messageStr } from "./helpers/messageStr";
-import { NavBar } from "../Reuseables/NavBar";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Location } from "./Location/Location";
-import { Options } from "./Options/Options";
-import { saveDef } from "../../API/saveDef";
-import { stepFuncDict } from "../helpers/stepFuncs";
-import { outOfBounds as oob } from "../helpers/oob";
-import { xyToRf, rfToXy } from "../helpers/crdCnvrt";
-import { getRotations } from "./helpers/getRotations";
-import { getSpansDict } from "./helpers/getSpansDict";
-import { flipOffsets } from "./helpers/flipOffsets";
-import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { SideBar } from "../Reuseables/SidBar";
-import PermanentDrawer from "../Reuseables/PermanentDrawer";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { navBarWidth } from "../Reuseables/NavBar.jss";
-import { fontSize } from "../styles/fontSize.jss";
-import { sideBarWidth } from "../Reuseables/SidBar.jss";
-import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
 import Typography from "@material-ui/core/Typography";
-import MuiAccordion from "../Reuseables/MuiAccordion";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {messageStr} from "./helpers/messageStr";
+import {saveDef} from "../../API/saveDef";
+import {copy} from "../helpers/copy";
+import {Name} from "./Name/Name";
+import {Icon} from "./Icon/Icon";
+import {Range} from "./Range/Range";
+import {Options} from "./Options/Options";
+import {Location} from "./Location/Location";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
+import {NavBar} from "../Reuseables/NavBar";
+import {SideBar} from "../Reuseables/SidBar";
+import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import MuiAccordion from "../Reuseables/MuiAccordion";
+import {navBarWidth} from "../Reuseables/NavBar.jss";
+import {sideBarWidth} from "../Reuseables/SidBar.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../Reuseables/NavBarButton.jss";
+import {stepFuncDict} from "../helpers/stepFuncs";
+import {outOfBounds as oob} from "../helpers/oob";
+import {xyToRf, rfToXy} from "../helpers/crdCnvrt";
+import {getRotations} from "./helpers/getRotations";
+import {getSpansDict} from "./helpers/getSpansDict";
+import {flipOffsets} from "./helpers/flipOffsets";
+import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import "../styles/_backgrounds.scss";
-import { styles } from "./CreatePiece.jss";
+import {fontSize} from "../styles/fontSize.jss";
+import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
+        this.name = ""
+        this.location = "d4";
+        this.unsavedChanges = false;
         this.state = {
-            name: "",
-            location: "d4",
             theme: "dark",
-            whiteImg: null,
-            blackImg: null,
             binaryValue: 0,
             unsavedChanges: false,
         };
@@ -59,10 +58,10 @@ class CreatePiece extends React.Component {
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
 
         //these are used because of Reset Option.
-        this.loadedName = null;
+        this.loadedName = "";
         this.loadedSpans = null;
         this.loadedOffsets = null;
 
@@ -73,12 +72,13 @@ class CreatePiece extends React.Component {
         this.erase = this.erase.bind(this);
         this.clear = this.clear.bind(this);
         this.setLoc = this.setLoc.bind(this);
-        this.updateName = this.updateName.bind(this);
+        this.resetImg = this.resetImg.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
+        this.updateName = this.updateName.bind(this);
         this.toggleSpan = this.toggleSpan.bind(this);
         this.toggleOffset = this.toggleOffset.bind(this);
-        this.resetImg = this.resetImg.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
+        this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
         //if MyPieces page redirected to here:
         if (
             this.props.location !== undefined &&
@@ -100,52 +100,44 @@ class CreatePiece extends React.Component {
     }
 
     triggerRender() {
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
+    }
+
+    isUnsavedChanges() {
+        return this.unsavedChanges;
     }
 
     load({name, spans, offsets, whiteImg, blackImg}) {
-        this.spans = getSpansDict(spans);
+        this.name = name;
         this.offsets = offsets;
-        this.whiteAndBlackImgs = {
-            white: whiteImg,
-            black: blackImg,
-        };
-
-        // provide static copy so that can reset if need to:
+        this.spans = getSpansDict(spans);
+        this.whiteAndBlackImgs = {white: whiteImg, black: blackImg,};
         this.loadedName = copy(name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
-
+        this.unsavedChanges = false;
         this.setLoc("d4");
-
-        this.setState({
-            name: name,
-            unsavedChanges: false,
-        });
     }
 
     save() {
-
         const newPiece = {
-            W: { spans: null, offsets: null, img: null },
-            B: { spans: null, offsets: null, img: null },
+            W: {spans: null, offsets: null, img: null},
+            B: {spans: null, offsets: null, img: null},
         };
-
         const angles = [];
         for (const s of Object.keys(this.spans)) {
             if (this.spans[s]) angles.push(s);
         }
-
+        newPiece.W.offsets = this.offsets;
         newPiece.W.spans = getStepFuncNames(angles);
         newPiece.B.spans = getStepFuncNames(getRotations(angles, 180));
-        newPiece.W.offsets = this.offsets;
         newPiece.B.offsets = flipOffsets(this.offsets);
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
-
-        saveDef(this.state.name, newPiece).then(
+        saveDef(this.name, newPiece).then(
             ([r]) => {
-                this.setState({ unsavedChanges: false });
+                this.unsavedChanges = false;
+                this.triggerRender()
             }
         );
     }
@@ -154,13 +146,16 @@ class CreatePiece extends React.Component {
      * reset to the last saved or loaded, or to blank if not saved or loaded
      */
     reset() {
-        if (this.loadedName === null) this.clear();
-        else {
+        if (!this.loadedName) {
+            this.clear();
+        } else {
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
-            const name = copy(this.loadedName);
-            this.setState({ name: name, unsavedChanges: false });
+            this.name = copy(this.loadedName);
+            this.setLoc('d4');
         }
+        this.unsavedChanges = false;
+        this.triggerRender()
     }
 
     /**
@@ -170,50 +165,57 @@ class CreatePiece extends React.Component {
     erase() {
         this.resetOffsetsAndRange();
         if (
-            this.state.name === "" &&
+            this.name === "" &&
             !this.whiteAndBlackImgs.white &&
             !this.whiteAndBlackImgs.black
         ) {
-            this.setState({ unsavedChanges: false });
+            this.setState({unsavedChanges: false});
         } else {
-            this.setState({ unsavedChanges: true });
+            this.unsavedChanges = true;
         }
+        this.triggerRender()
     }
 
     clear() {
         /*used by Reset Option when not a loaded piece*/
         this.resetOffsetsAndRange();
-        this.whiteAndBlackImgs = { white: null, black: null };
-        this.setState({ name: "", location: "d4", unsavedChanges: false });
+        this.whiteAndBlackImgs = {white: null, black: null};
+        this.name = "";
+        this.location = "d4";
+        this.unsavedChanges = false;
+        this.triggerRender();
     }
 
     /**used by name tool*/
-    updateName(input) {
-        this.setState({ name: input, unsavedChanges: true });
+    updateName(userInput) {
+        this.name = userInput;
+        this.unsavedChanges = true;
     }
 
     /**used by Icon tool*/
     setPieceImg(color, pieceImgBase64Str) {
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
-        this.setState({ unsavedChanges: true });
+        this.unsavedChanges = true;
+        this.triggerRender()
     }
 
     /**used by Range tool*/
     toggleSpan(angle) {
         this.spans[angle] = !this.spans[angle];
         const stepFunc = stepFuncDict[angle];
-        let rf = stepFunc(this.state.location);
+        let rf = stepFunc(this.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.setState({ unsavedChanges: true });
+        this.unsavedChanges = true;
+        this.triggerRender()
     }
 
     /**used by Location tool, called by this.setDisplaySpans()*/
     setDisplaySpan(angle) {
         const stepFunc = stepFuncDict[angle];
-        let rf = stepFunc(this.state.location);
+        let rf = stepFunc(this.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = true;
             rf = stepFunc(rf);
@@ -224,9 +226,11 @@ class CreatePiece extends React.Component {
      *  used by Location tool, called by this.setLoc()
      *  updates the squares that are highlighted when piece location changes
      * */
-    setDisplaySpans() {
+    setSpanDisplays() {
         Object.entries(this.spans).forEach(([angle, isActive]) => {
-            if (isActive) this.setDisplaySpan(angle);
+            if (isActive) {
+                this.setDisplaySpan(angle)
+            }
         });
     }
 
@@ -243,12 +247,13 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({ unsavedChanges: true });
+        this.unsavedChanges = true;
+        this.triggerRender()
     }
 
     /**used by the Location tool. Changes the spans displayed on board when piece location changes*/
-    setDisplayOffsets() {
-        let [x1, y1] = rfToXy(this.state.location);
+    setOffsetDisplays() {
+        let [x1, y1] = rfToXy(this.location);
         let [dx, dy] = [-1, -1];
         this.offsets.forEach((xy) => {
             dx = x1 + xy[0];
@@ -258,7 +263,7 @@ class CreatePiece extends React.Component {
     }
 
     /**used by the Reset Option button, called by this.reset()*/
-    resetDisplayOffsets() {
+    resetOffsetDisplays() {
         this.offsetDisplays = getBinaryBoarAllFalse();
     }
 
@@ -281,15 +286,13 @@ class CreatePiece extends React.Component {
 
     /**used by the Location tool*/
     setLoc(rf) {
-        this.setState({ location: rf });
+        this.location = rf;
         this.resetSpanDisplays();
-        this.resetDisplayOffsets();
-        this.setDisplaySpans();
-        this.setDisplayOffsets();
+        this.resetOffsetDisplays();
+        this.setSpanDisplays();
+        this.setOffsetDisplays();
         this.triggerRender();
     }
-
-
 
     /**
      * set white or black image to null if it was just deleted from database
@@ -312,18 +315,16 @@ class CreatePiece extends React.Component {
                         width={drawerWidth}
                         content={
                             <Board
-                                key="content"
+                                key={uuidv4()}
+                                screenCase="desktop"
                                 theme={this.state.theme}
                                 toggleOffset={this.toggleOffset}
                                 spanDisplays={this.spanDisplays}
                                 offsets={this.offsetDisplays}
-                                pieceLoc={this.state.location}
+                                pieceLoc={this.location}
                                 pieceImgBase64Str={
                                     this.whiteAndBlackImgs["white"]
                                 }
-                                showSpanText={this.state.showSpanText}
-                                showOffsetText={this.state.showOffsetText}
-                                screenCase="desktop"
                             />
                         }
                         appBarContent={
@@ -334,9 +335,9 @@ class CreatePiece extends React.Component {
                     >
                         <Name
                             key={uuidv4()}
-                            name={this.name}
-                            theme={this.state.theme}
+                            defaultValue={this.loadedName}
                             updateName={this.updateName}
+                            theme={this.state.theme}
                         />
                         <Icon
                             key={uuidv4()}
@@ -358,7 +359,7 @@ class CreatePiece extends React.Component {
                             key={uuidv4()}
                             setLoc={this.setLoc}
                             theme={this.state.theme}
-                            selectedLoc={this.state.location}
+                            selectedLoc={this.location}
                         />
                         <Options
                             key={uuidv4()}
@@ -368,7 +369,7 @@ class CreatePiece extends React.Component {
                             erase={this.erase}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
-                            pieceName={this.state.name}
+                            pieceName={this.name}
                             theme={this.state.theme}
                         />
                     </PermanentDrawer>
@@ -380,16 +381,16 @@ class CreatePiece extends React.Component {
                         <NavBar
                             currentPage="CreatePiece"
                             flexDirection="column"
-                            style={{ width: navBarWidth }}
+                            style={{width: navBarWidth}}
                             buttonStyle={{
                                 fontSize: fontSize * 1.2,
                                 justifyContent: "flex-start",
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
-                            redirectMessage={messageStr}
-                            unsavedChanges={this.state.unsavedChanges}
                             theme={this.state.theme}
+                            redirectMessage={messageStr}
+                            isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
                 </MediaQuery>
@@ -400,16 +401,16 @@ class CreatePiece extends React.Component {
                             <NavBar
                                 currentPage="CreatePiece"
                                 flexDirection="column"
-                                style={{ width: "100%" }}
+                                style={{width: "100%"}}
                                 buttonStyle={{
                                     fontSize: fontSize * 1.2,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                redirectMessage={messageStr}
-                                unsavedChanges={this.state.unsavedChanges}
                                 theme={this.state.theme}
+                                redirectMessage={messageStr}
+                                isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }
                         appBarContent={
@@ -424,7 +425,7 @@ class CreatePiece extends React.Component {
                             toggleOffset={this.toggleOffset}
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
-                            pieceLoc={this.state.location}
+                            pieceLoc={this.location}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
@@ -485,7 +486,7 @@ class CreatePiece extends React.Component {
                                             key={"Location"}
                                             setLoc={this.setLoc}
                                             theme={this.state.theme}
-                                            selectedLoc={this.state.location}
+                                            selectedLoc={this.location}
                                         />
                                     ),
                                 },
@@ -501,7 +502,7 @@ class CreatePiece extends React.Component {
                                             erase={this.erase}
                                             whiteImg={this.whiteAndBlackImgs.white}
                                             blackImg={this.whiteAndBlackImgs.black}
-                                            pieceName={this.state.name}
+                                            pieceName={this.name}
                                             theme={this.state.theme}
                                         />
                                     ),

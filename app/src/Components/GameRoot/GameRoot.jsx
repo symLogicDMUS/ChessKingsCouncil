@@ -447,7 +447,7 @@ class GameRoot extends React.Component {
                                 height: "2.5em",
                             }}
                             redirectMessage={gamePageRedirectMessage}
-                            unsavedChanges={this.state.unsavedChanges}
+                            isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
                 </MediaQuery>
@@ -467,7 +467,7 @@ class GameRoot extends React.Component {
                                     height: "2.5em",
                                 }}
                                 redirectMessage={gamePageRedirectMessage}
-                                unsavedChanges={this.state.unsavedChanges}
+                                isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }
                         appBarContent={

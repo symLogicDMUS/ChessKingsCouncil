@@ -20,29 +20,29 @@ export function Location({ selectedLoc, setLoc, theme }) {
                     </MediaQuery>
                     <LocationButton
                         rf="d4"
-                        setLoc={setLoc}
+                        onClick={() => setLoc('d4')}
                         selected={selectedLoc === "d4"}
                         theme={theme}
                         key={uuidv4()}
                     />
                     <LocationButton
                         rf="e4"
-                        setLoc={setLoc}
+                        onClick={() => setLoc('e4')}
                         selected={selectedLoc === "e4"}
                         theme={theme}
                         key={uuidv4()}
                     />
                     <LocationButton
-                        rf="e5"
-                        setLoc={setLoc}
-                        selected={selectedLoc === "e5"}
+                        rf="d5"
+                        onClick={() => setLoc('d5')}
+                        selected={selectedLoc === "d5"}
                         theme={theme}
                         key={uuidv4()}
                     />
                     <LocationButton
-                        rf="d5"
-                        setLoc={setLoc}
-                        selected={selectedLoc === "d5"}
+                        rf="e5"
+                        onClick={() => setLoc('e5')}
+                        selected={selectedLoc === "e5"}
                         theme={theme}
                         key={uuidv4()}
                     />

@@ -3,29 +3,26 @@ import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
 import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Name.jss";
 
-export function Name({updateName, theme}) {
-
-    let [userInput, setUserInput] = useState('')
+export function Name({updateName, theme, defaultValue}) {
 
     const classes = useStyles({theme: theme, fontSize: fontSize})
 
-    const handleUserInput = (e) => {
-        setUserInput(e.target.value)
-        updateName(e.target.value);
-    }
+    const handleInput = (e) => {
+        updateName(e.target.value)
+    };
 
     return (
         <>
             <div className={classes.name}>
                 <TextField
-                    value={userInput}
-                    theme={theme}
-                    onChange={handleUserInput}
-                    style={{ width: '100%'}}
+                    onChange={handleInput}
+                    defaultValue={defaultValue}
+                    style={{width: '100%'}}
                     placeholder='Enter name of piece...'
                     id="game-name"
                     label="Piece Name"
                     variant="outlined"
+                    theme={theme}
                 />
             </div>
         </>
