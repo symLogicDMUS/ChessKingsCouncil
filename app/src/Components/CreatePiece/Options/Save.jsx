@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {Portal} from "@material-ui/core";
+import {Option} from "./Option";
 import {ConfirmModal} from "../../Reuseables/ConfirmModal";
 import {MessageModal} from "../../Reuseables/Help/MessageModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
-import {Option} from "./Option";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
@@ -23,6 +23,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
     /**see bottom of file*/
     const getSaveStatus = () => {
+
         if (pieceNameExists) {
             return "confirm-overwrite";
         }
@@ -106,14 +107,13 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                 />
             ) : null}
             <Option
-                clickMethod={makeSaveAttempt}
+                onClick={makeSaveAttempt}
                 iconType="save"
                 theme={theme}
                 key={uuidv4()}
             />
         </>
     )
-
 }
 
 /**

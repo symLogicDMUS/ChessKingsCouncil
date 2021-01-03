@@ -1,17 +1,12 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {largeBoardFontSize} from "../styles/fontSize.jss";
+import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
-export const toolLeft = () => availWidth() * 0.57;
-export const toolTitleFontSize = () => availHeight() * 0.0225;
 export const sqrFontSize = largeBoardFontSize * 0.25;
-
-/**
- * em units
- */
-export const lineHeight = 0.7;
-export const margin = 1.1;
+export const lineHeight = 0.7; //em
+export const margin = 1.1; //em
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -65,6 +60,12 @@ export const styles = {
         backgroundImage: 'url("/Images/Backgrounds/y-so-serious.png")',
         backgroundRepeat: "repeat",
         objectFit: "none",
+    },
+    modal: {
+        ...modal,
+    },
+    save_animation: {
+        width: '33.333%',
     },
     box: props => ({
         fontSize: props.fontSize,

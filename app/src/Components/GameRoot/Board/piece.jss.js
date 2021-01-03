@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles"
 
 export const useStyles = makeStyles({
     piece: {
-        cursor: 'pointer',
+        cursor: 'move',
         zIndex: '1',
         width: '95%',
         height: '95%',

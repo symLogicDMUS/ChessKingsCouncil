@@ -5,7 +5,7 @@ import {Option} from "./Option";
 export function Erase({erase, theme}) {
     return (
         <Option
-            clickMethod={erase}
+            onClick={erase}
             iconType="erase"
             theme={theme}
             key={uuidv4()}

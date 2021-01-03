@@ -8,6 +8,5 @@ export const modal = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    // alignContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.1)',
 }

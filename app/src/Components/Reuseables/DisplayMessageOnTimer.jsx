@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {TextMessage} from "./TextMessage";
 
-export function DisplayMessageOnTimer({ methodToCallOnFinish, valueToSendOnFinish }) {
+export function DisplayMessageOnTimer({ methodToCallOnFinish, valueToSendOnFinish, children }) {
     const [seconds, setSeconds] = useState(1);
 
     useEffect(() => {
@@ -14,10 +14,8 @@ export function DisplayMessageOnTimer({ methodToCallOnFinish, valueToSendOnFinis
     if (seconds === 0) methodToCallOnFinish(valueToSendOnFinish);
 
     return (
-        <TextMessage
-            text="Piece Saved Successfully!"
-            fontFamily='"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'
-            fontSize={window.screen.availHeight * 0.08}
-        />
+        <div>
+            {children}
+        </div>
     );
 }

@@ -6,7 +6,7 @@ import {Option} from "./Option";
 export function Reset({theme, reset}) {
     return (
         <Option
-            clickMethod={reset}
+            onClick={reset}
             iconType="reset"
             theme={theme}
             key={uuidv4()}

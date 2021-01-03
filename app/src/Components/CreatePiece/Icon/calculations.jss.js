@@ -1,4 +1,4 @@
-import {toolTitleFontSize, toolWidth} from "../CreatePiece.jss";
+import {toolWidth} from "../CreatePiece.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 
 /**

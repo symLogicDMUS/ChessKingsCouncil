@@ -7,14 +7,12 @@ export function ImgChoice({theme, name, imgNameChoice, base64ImgStr, setChoice, 
     const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
         <div
-            className={name === imgNameChoice ? classes.selected : classes.normal}
             onClick={() => setChoice(name)}
-            onMouseEnter={() => setHoverText(name)}
-            onMouseLeave={() => setHoverText(null)}
+            className={name === imgNameChoice ? classes.selected : classes.normal}
         >
             <motion.img
                 src={base64ImgStr}
-                whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+                whileHover={{ scale: 1.3 }}
                 className={classes.img_choice}
                 alt="list of icons that can be used as pieces"
             />

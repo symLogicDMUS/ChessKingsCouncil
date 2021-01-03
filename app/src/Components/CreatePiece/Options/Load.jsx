@@ -20,10 +20,10 @@ export function Load({load, theme}) {
                 </Portal>
             ) : null}
             <Option
-                clickMethod={() => setModal(true)}
                 iconType="load"
                 theme={theme}
                 key={uuidv4()}
+                onClick={() => setModal(true)}
             />
         </>
     )

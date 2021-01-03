@@ -15,10 +15,10 @@ export function Options({
     save,
     reset,
     erase,
+    theme,
+    pieceName,
     whiteImg,
     blackImg,
-    pieceName,
-    theme,
 }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize });
 

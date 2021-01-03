@@ -7,11 +7,11 @@ import {icons} from "../../styles/icons/top/icons.jss";
 import {fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./Option.jss";
 
-export function Option({clickMethod, iconType, theme}) {
+export function Option({onClick, iconType, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize})
     return (
         <Button className={classes.option} >
-            <IconButton className={classes.button} classes={{label: classes.label}} onClick={clickMethod}>
+            <IconButton className={classes.button} classes={{label: classes.label}} onClick={onClick}>
                 <SvgIcon className={classes.icon}>
                     {icons[iconType](themes[theme].button_text)}
                 </SvgIcon>
