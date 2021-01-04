@@ -1,13 +1,14 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { Dropdown } from "../Reuseables/Dropdown";
 import { fontSize } from "../styles/fontSize.jss";
-import { MuiButton as Button } from "../Reuseables/MuiButton";
-import { button, dropdown, useStyles } from "./LoadGameFromList.jss";
 import MediaQuery from "react-responsive/src";
+import { Dropdown } from "../Reuseables/Dropdown";
 import { NavBar } from "../Reuseables/NavBar";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import { MuiButton as Button } from "../Reuseables/MuiButton";
+import {MuiDeleteButton as DeleteButton} from "../Reuseables/MuiDeleteButton";
+import { button, dropdown, useStyles } from "./LoadGameFromList.jss";
 
 export function LoadGameFromList(props) {
     const classes = useStyles({ theme: props.theme, fontSize: fontSize });
@@ -34,22 +35,22 @@ export function LoadGameFromList(props) {
                 <Box className={classes.buttons}>
                     <Button
                         onClick={() => props.load()}
-                        variant={"contained"}
-                        theme={props.theme}
                         isDisabled={props.isDisabled()}
                         style={button(fontSize)}
+                        variant={"contained"}
+                        theme={props.theme}
                     >
                         Play
                     </Button>
-                    <Button
-                        onClick={() => props.askDeleteGame()}
-                        variant={"contained"}
-                        theme={props.theme}
+                    <DeleteButton
+                        onAcceptDelete={props.deleteGame}
+                        modalTitle={`You are asking to delete game ${props.selectedGame}.`}
+                        modalText={`This action cannot be undone. Are you sure you want to delete ${props.selectedGame}?`}
                         isDisabled={props.isDisabled()}
                         style={button(fontSize)}
-                    >
-                        Delete
-                    </Button>
+                        variant={"contained"}
+                        theme={props.theme}
+                    />
                 </Box>
             </Box>
         </Box>

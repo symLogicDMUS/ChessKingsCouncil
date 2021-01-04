@@ -8,7 +8,7 @@ import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
 import { ImgChoice } from "./ImgChoice";
-import { ConfirmModal } from "../../../Reuseables/ConfirmModal";
+import { StandardModal } from "../../../Reuseables/StandardModal";
 import { ImageNameDisplay } from "./ImageNameDisplay";
 import { Close } from "../../../Reuseables/Close";
 import { MuiButton as Button } from "../../../Reuseables/MuiButton";
@@ -19,6 +19,7 @@ import { fontSize } from "../../../styles/fontSize.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { close_icon } from "../../../Reuseables/Help/MessageModal.jss";
 import Typography from "@material-ui/core/Typography";
+import {MuiDeleteButton as DeleteButton} from "../../../Reuseables/MuiDeleteButton";
 
 class ChooseModal extends React.Component {
     constructor(props) {
@@ -32,12 +33,10 @@ class ChooseModal extends React.Component {
         this.imgDict = {};
         this.imgNames = [];
         this.searchText = "";
+        this.deleteImg = this.deleteImg.bind(this);
         this.setChoice = this.setChoice.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
-        this.acceptDeleteIcon = this.acceptDeleteIcon.bind(this);
-        this.cancelDeleteIcon = this.cancelDeleteIcon.bind(this);
-        this.openAskDeleteModal = this.openAskDeleteModal.bind(this);
         this.setHoverText = this.setHoverText.bind(this);
     }
 
@@ -48,36 +47,18 @@ class ChooseModal extends React.Component {
             } else {
                 this.imgDict = imgDict;
             }
-
             this.imgDict = filterStandardPieces(this.imgDict);
-
             this.imgNames = Object.keys(this.imgDict);
-
             this.setState({ bValue: !this.state.bValue });
         });
     }
 
-    openAskDeleteModal() {
-        this.setState({ confirmDeleteModal: true });
-    }
-
-    acceptDeleteIcon() {
+    deleteImg() {
         deleteImg(this.state.imgNameChoice).then(([res]) => {
-            this.props.resetIconWindowIfImageDeleted(
-                this.imgDict[this.state.imgNameChoice]
-            );
+            this.props.resetImg(this.imgDict[this.state.imgNameChoice]);
             delete this.imgDict[this.state.imgNameChoice];
-            this.imgNames = Object.keys(this.imgDict);
-            if (this.imgNames.length === 0) {
-                this.imgDict = getSetSampleImgs();
-                this.imgNames = Object.keys(this.imgDict);
-            }
-            this.setState({ confirmDeleteModal: false, imgNameChoice: null });
+            this.setState({ imgNameChoice: null });
         });
-    }
-
-    cancelDeleteIcon() {
-        this.setState({ confirmDeleteModal: false });
     }
 
     updateSearch(searchText) {
@@ -142,7 +123,7 @@ class ChooseModal extends React.Component {
                             <Close
                                 theme={this.props.theme}
                                 style={close_icon(fontSize)}
-                                onClick={this.props.closeChooseModal}
+                                onClick={this.props.closeAll}
                             />
                         </Box>
                         <Box className={this.props.classes.title_flexbox}>
@@ -153,7 +134,6 @@ class ChooseModal extends React.Component {
                                 className={this.props.classes.title_icon}
                                 size="large"
                             />
-                            {/*<SearchBox updateSearch={this.updateSearch} screenCase={this.props.screenCase}/>*/}
                         </Box>
                         <Box className={this.props.classes.img_choices_border}>
                             <Box className={this.props.classes.image_choices}>
@@ -168,25 +148,21 @@ class ChooseModal extends React.Component {
                                     ...button(fontSize),
                                     marginRight: "1em",
                                 }}
-                                theme={this.props.theme}
                                 variant="outlined"
+                                theme={this.props.theme}
                                 startIcon={<CheckCircleOutlineIcon />}
                             >
                                 Ok
                             </Button>
-                            <Button
-                                onClick={() => this.openAskDeleteModal()}
+                            <DeleteButton
+                                onAcceptDelete={this.deleteImg}
+                                modalTitle={`Are you sure you want to delete this image? ${this.state.imgNameChoice}?`}
                                 isDisabled={this.state.imgNameChoice === null}
-                                style={{
-                                    ...button(fontSize),
-                                    marginLeft: "1em",
-                                }}
+                                style={{...button(fontSize), marginLeft: "1em",}}
+                                startIcon={<DeleteForeverIcon />}
                                 theme={this.props.theme}
                                 variant="outlined"
-                                startIcon={<DeleteForeverIcon />}
-                            >
-                                Delete
-                            </Button>
+                            />
                             <ImageNameDisplay
                                 hoverText={this.state.hoverText}
                                 imgNameChoice={this.state.imgNameChoice}
@@ -195,14 +171,6 @@ class ChooseModal extends React.Component {
                         </Box>
                     </div>
                 </div>
-                {this.state.confirmDeleteModal && (
-                    <ConfirmModal
-                        theme={this.props.theme}
-                        title={`Are You Sure you want to delete image ${this.state.imgNameChoice}?`}
-                        noClick={this.cancelDeleteIcon}
-                        yesClick={this.acceptDeleteIcon}
-                    />
-                )}
             </>
         );
     }

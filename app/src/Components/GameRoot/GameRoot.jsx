@@ -22,7 +22,6 @@ import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
 import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
 import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
-import { MessageModal } from "../Reuseables/Help/MessageModal";
 import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
 import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
 import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";

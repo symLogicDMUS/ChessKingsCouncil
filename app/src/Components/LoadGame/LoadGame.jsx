@@ -6,12 +6,15 @@ import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { ConfirmModal } from "../Reuseables/ConfirmModal";
+import { StandardModal } from "../Reuseables/StandardModal";
 import { copy } from "../helpers/copy";
 import MenuItem from "@material-ui/core/MenuItem";
 import { fontSize } from "../styles/fontSize.jss";
 import { LoadGameFromList } from "./LoadGameFromList";
 import "../styles/_backgrounds.scss";
+import {MuiButton as Button} from "../Reuseables/MuiButton";
+import {button} from "../Reuseables/StandardModal.jss";
+import Box from "@material-ui/core/Box";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -20,22 +23,17 @@ class LoadGame extends React.Component {
             theme: "black",
             selectedGame: null,
             userChoseGame: false,
-            confirmDeleteModal: false,
         };
+        this.games = {};
         this.gameList = [
             <MenuItem value="None">
                 <em>None</em>
             </MenuItem>,
         ];
-
-        this.games = {};
-        this.didSelect = false;
         this.load = this.load.bind(this);
         this.isDisabled = this.isDisabled.bind(this);
         this.changeName = this.changeName.bind(this);
-        this.askDeleteGame = this.askDeleteGame.bind(this);
-        this.acceptDeleteGame = this.acceptDeleteGame.bind(this);
-        this.cancelDeleteGame = this.cancelDeleteGame.bind(this);
+        this.deleteGame = this.deleteGame.bind(this);
     }
 
     componentDidMount() {
@@ -66,12 +64,8 @@ class LoadGame extends React.Component {
         this.setState({ selectedGame: gameName });
     }
 
-    askDeleteGame() {
-        this.setState({ confirmDeleteModal: true });
-    }
-
-    acceptDeleteGame() {
-        deleteGame(this.state.selectedGame).then(([res]) => {
+    deleteGame() {
+        deleteGame(this.state.selectedGame).then(([r]) => {
             delete this.games[this.state.selectedGame];
             this.resetGameList();
             this.setState({
@@ -80,10 +74,6 @@ class LoadGame extends React.Component {
                 confirmDeleteModal: false,
             });
         });
-    }
-
-    cancelDeleteGame() {
-        this.setState({ confirmDeleteModal: false });
     }
 
     load() {
@@ -114,22 +104,14 @@ class LoadGame extends React.Component {
 
         return (
             <>
-                {this.state.confirmDeleteModal && (
-                    <ConfirmModal
-                        theme={this.state.theme}
-                        title={`Are You Sure you want to delete game ${this.state.selectedGame}?`}
-                        yesClick={this.acceptDeleteGame}
-                        noClick={this.cancelDeleteGame}
-                        closeClick={this.cancelDeleteGame}
-                    />
-                )}
                 <LoadGameFromList
                     load={this.load}
+                    deleteGame={this.deleteGame}
+                    selectedGame={this.state.selectedGame}
+                    changeName={this.changeName}
+                    isDisabled={this.isDisabled}
                     gameList={this.gameList}
                     theme={this.state.theme}
-                    changeName={this.changeName}
-                    askDeleteGame={this.askDeleteGame}
-                    isDisabled={this.isDisabled}
                 />
             </>
         );

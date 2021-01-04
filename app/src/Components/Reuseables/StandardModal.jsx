@@ -4,15 +4,14 @@ import { Typography } from "@material-ui/core";
 import { MuiButton as Button } from "./MuiButton";
 import { Close } from "./Close";
 import { fontSize } from "../styles/fontSize.jss";
-import { button, close_icon, useStyles } from "./ConfirmModal.jss";
+import { button, close_icon, useStyles } from "./StandardModal.jss";
 
-export function ConfirmModal({
+export function StandardModal({
     text,
     title,
     theme,
-    yesClick,
-    noClick,
     closeClick,
+    children
 }) {
     const classes = useStyles({theme: theme, fontSize: fontSize});
 
@@ -41,22 +40,7 @@ export function ConfirmModal({
                     {text}
                 </Typography>
                 <Box className={classes.buttons}>
-                    <Button
-                        onClick={yesClick}
-                        style={{ ...button(fontSize), marginRight: "0.75em" }}
-                        variant="contained"
-                        theme={theme}
-                    >
-                        Yes
-                    </Button>
-                    <Button
-                        onClick={noClick}
-                        style={{ ...button(fontSize), marginLeft: "0.75em" }}
-                        variant="contained"
-                        theme={theme}
-                    >
-                        No
-                    </Button>
+                    {children}
                 </Box>
             </Box>
         </div>

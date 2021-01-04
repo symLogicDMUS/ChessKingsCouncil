@@ -4,11 +4,12 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import { MuiButton as Button } from "../../Reuseables/MuiButton";
+import { MuiButton, MuiButton as Button } from "../../Reuseables/MuiButton";
 import { fontSize } from "../../styles/fontSize.jss";
-import { ConfirmModal } from "../../Reuseables/ConfirmModal";
+import { StandardModal } from "../../Reuseables/StandardModal";
 import { deleteDef } from "../../../API/deleteDef";
-import {button, getButtonMargin, useStyles} from "./LoadDeleteHeader.jss";
+import { button, getButtonMargin, useStyles } from "./LoadDeleteHeader.jss";
+import { MuiDeleteButton } from "../../Reuseables/MuiDeleteButton";
 
 export function LoadDeleteHeader({
     load,
@@ -19,7 +20,6 @@ export function LoadDeleteHeader({
     theme,
     style,
 }) {
-    let [confirmDelete, setConfirmDelete] = useState(false);
     let history = useHistory();
     const classes = useStyles({
         theme: theme,
@@ -59,17 +59,6 @@ export function LoadDeleteHeader({
 
     return (
         <>
-            {confirmDelete ? (
-                <ConfirmModal
-                    theme={theme}
-                    title={`You are asking to delete piece "${pieceName}". Games in progress will not be
-                                effected but the piece's record for new games will be destroyed. This action cannot be undone.
-                                Are you sure you want to delete piece "${pieceName}"?`}
-                    yesClick={() => deletePiece(pieceName)}
-                    noClick={() => setConfirmDelete(false)}
-                    closeClick={() => setConfirmDelete(false)}
-                />
-            ) : null}
             <div className={classes.header}>
                 <Typography className={classes.piece_name}>
                     {pieceName}
@@ -83,17 +72,19 @@ export function LoadDeleteHeader({
                     >
                         Load
                     </Button>
-                    <Button
-                        theme={theme}
+                    <MuiDeleteButton
+                        onAcceptDelete={() => deletePiece(pieceName)}
+                        modalTitle={`You are asking to delete piece ${pieceName}.`}
+                        modalText={`Game in progress will no be effected but the record of the piece for new games will be 
+                                    destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
                         startIcon={<DeleteForever />}
+                        isDisabled={false}
+                        theme={theme}
                         style={{
                             ...button(fontSize, theme),
                             marginLeft: getButtonMargin(screenCase),
                         }}
-                        onClick={() => setConfirmDelete(true)}
-                    >
-                        Delete
-                    </Button>
+                    />
                 </Box>
             </div>
         </>

@@ -2,10 +2,13 @@ import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import {Portal} from "@material-ui/core";
 import {Option} from "./Option";
-import {ConfirmModal} from "../../Reuseables/ConfirmModal";
+import {StandardModal} from "../../Reuseables/StandardModal";
 import {MessageModal} from "../../Reuseables/Help/MessageModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
+import {MuiButton} from "../../Reuseables/MuiButton";
+import {button} from "../../Reuseables/StandardModal.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
@@ -88,24 +91,50 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
         <>
             {modal === 'confirm' ? (
                 <Portal>
-                    <ConfirmModal
-                        yesClick={() => save()}
-                        noClick={() => closeModal()}
-                        closeClick={() => closeModal()}
-                        theme={theme}
+                    <StandardModal
                         title={null}
+                        theme={theme}
                         text={message}
-                    />
+                        closeClick={() => closeModal()}
+                    >
+                        <MuiButton
+                            onClick={() => save()}
+                            variant={'contained'}
+                            style={button(fontSize)}
+                            theme={theme}
+                        >
+                            Yes
+                        </MuiButton>
+                        <MuiButton
+                            onClick={() => closeModal()}
+                            variant={'contained'}
+                            style={button(fontSize)}
+                            theme={theme}
+                        >
+                            No
+                        </MuiButton>
+                    </StandardModal>
                 </Portal>
             ) : null}
             {modal === 'accept' ? (
-                <MessageModal
-                    theme={theme}
-                    messageTitle={null}
-                    messageText={message}
-                    toggleMessageModal={() => closeModal()}
-                />
-            ) : null}
+                <Portal>
+                    <StandardModal
+                        title={null}
+                        theme={theme}
+                        text={message}
+                        closeClick={() => closeModal()}
+                    >
+                        <MuiButton
+                            onClick={() => closeModal()}
+                            style={button(fontSize)}
+                            variant={'contained'}
+                            theme={theme}
+                        >
+                            Ok
+                        </MuiButton>
+                    </StandardModal>
+                </Portal>
+                ) : null}
             <Option
                 onClick={makeSaveAttempt}
                 iconType="save"

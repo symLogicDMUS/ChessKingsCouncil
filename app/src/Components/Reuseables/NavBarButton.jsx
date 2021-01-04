@@ -6,7 +6,10 @@ import { icons } from "../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBarButton.jss";
-import { ConfirmModal } from "./ConfirmModal";
+import { StandardModal } from "./StandardModal";
+import {MuiButton} from "./MuiButton";
+import {button} from "./StandardModal.jss";
+import {fontSize} from "../styles/fontSize.jss";
 
 export function NavBarButton({
     path,
@@ -47,14 +50,29 @@ export function NavBarButton({
         <>
             {redirectModal ? (
                 <Portal>
-                    <ConfirmModal
-                        yesClick={() => goToPage()}
-                        noClick={() => toggleRedirectModal(false)}
-                        closeClick={() => toggleRedirectModal(false)}
-                        theme={theme}
+                    <StandardModal
                         title={null}
                         text="If you leave this page you will loose your progress. Are you sure you want to continue ?"
-                    />
+                        closeClick={() => toggleRedirectModal(false)}
+                        theme={theme}
+                    >
+                        <MuiButton
+                            onClick={() => goToPage()}
+                            style={button(fontSize)}
+                            variant={'contained'}
+                            theme={theme}
+                        >
+                            Yes
+                        </MuiButton>
+                        <MuiButton
+                            onClick={() => toggleRedirectModal(false)}
+                            style={button(fontSize)}
+                            variant={'contained'}
+                            theme={theme}
+                        >
+                            No
+                        </MuiButton>
+                    </StandardModal>
                 </Portal>
             ) : null}
             <Button

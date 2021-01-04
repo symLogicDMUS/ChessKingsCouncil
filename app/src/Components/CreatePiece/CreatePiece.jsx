@@ -361,8 +361,8 @@ class CreatePiece extends React.Component {
                         <Icon
                             key={uuidv4()}
                             theme={this.state.theme}
-                            setPieceImg={this.setPieceImg}
                             resetImg={this.resetImg}
+                            setPieceImg={this.setPieceImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
                         />
                         <Range

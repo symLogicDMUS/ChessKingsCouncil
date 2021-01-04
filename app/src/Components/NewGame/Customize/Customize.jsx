@@ -20,7 +20,6 @@ import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {MessageModal} from "../../Reuseables/Help/MessageModal";
 import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
 import {navBarWidth} from "../../Reuseables/NavBar.jss";
 import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
