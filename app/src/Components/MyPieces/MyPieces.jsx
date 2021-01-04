@@ -80,7 +80,9 @@ class MyPieces extends React.Component {
                                 theme={this.state.theme}
                                 load={() => null}
                             >
-                                <ProfilesTitle theme={this.state.theme} />
+                                <ProfilesTitle theme={this.state.theme}>
+                                    My Pieces
+                                </ProfilesTitle>
                             </PieceProfiles>
                         )}
                     </div>

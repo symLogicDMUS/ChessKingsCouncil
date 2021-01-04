@@ -31,7 +31,6 @@ class ChooseModal extends React.Component {
             hoverText: null,
         };
         this.imgDict = {};
-        this.imgNames = [];
         this.searchText = "";
         this.deleteImg = this.deleteImg.bind(this);
         this.setChoice = this.setChoice.bind(this);
@@ -88,17 +87,17 @@ class ChooseModal extends React.Component {
 
     applySearchFilter() {
         if (this.searchText !== "")
-            return this.imgNames.filter((imgName) =>
+            return Object.keys(this.imgDict).filter((imgName) =>
                 imgName.toLowerCase().startsWith(this.searchText)
             );
-        else return this.imgNames;
+        else return Object.keys(this.imgDict);
     }
 
     getImages() {
         let imageNames = this.applySearchFilter();
-        let imgPrevs = [];
+        let imgItems = [];
         imageNames.forEach((name) => {
-            imgPrevs.push(
+            imgItems.push(
                 <ImgChoice
                     name={name}
                     key={uuidv4()}
@@ -111,7 +110,7 @@ class ChooseModal extends React.Component {
                 />
             );
         });
-        return imgPrevs;
+        return imgItems;
     }
 
     render() {

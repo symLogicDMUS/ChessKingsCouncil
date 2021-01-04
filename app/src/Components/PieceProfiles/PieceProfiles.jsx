@@ -1,60 +1,53 @@
 import React, {useEffect, useReducer, useState} from "react";
 import {v4 as uuidv4} from "uuid";
 import MediaQuery from "react-responsive/src";
-import {getDefs} from "../../API/getDefs";
-import {Profile} from "./Profile";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
+import {copy} from "../helpers/copy";
 import "../styles/scrollbar.scss";
+import {Profile} from "./Profile";
+import {getDefs} from "../../API/getDefs";
 import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./PieceProfiles.jss";
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'load':
+            return action.payload; // payload == defs
+        case 'delete':
+            const defs = copy(state)
+            delete defs[action.payload] //payload == pieceName
+            return defs;
+        default:
+            return {}
+    }
+}
+
 export function PieceProfiles(props) {
-    let [searchText, setSearchText] = useState("");
-    let [defs, setDefs] = useState({});
+
+    const [state, dispatch] = useReducer(reducer, {});
+
     const classes = useStyles({ theme: props.theme, style: props.style });
-
-    const update = (defs_) => {
-        setDefs(defs_);
-        if (props.updateParent) {
-            props.updateParent(defs);
-        }
-    };
-
     const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
+
     useEffect(() => {
-        getDefs().then(([defs_]) => {
-            if (defs_) {
+        getDefs().then(([defs]) => {
+            if (defs) {
                 for (const pieceName of standards) {
-                    if (Object.keys(defs_).includes(pieceName)) {
-                        delete defs_[pieceName];
+                    if (Object.keys(defs).includes(pieceName)) {
+                        delete defs[pieceName];
                     }
                 }
-                update(defs_);
+                dispatch({type: 'load', payload: defs})
             }
         });
     }, []);
 
-
-    const updateSearch = (newText) => {
-        setSearchText(newText);
-    };
-
-    const applySearchFilter = () => {
-        if (searchText !== "") {
-            return Object.keys(defs).filter((pieceName) =>
-                pieceName.toLowerCase().startsWith(searchText)
-            );
-        } else {
-            return Object.keys(defs);
-        }
-    };
-
     const getProfiles = (screenCase) => {
         let profiles = [];
-        let pieceNames = applySearchFilter();
+        let pieceNames = Object.keys(state);
         if (
             props.parentPage === "CreatePiece" ||
             props.parentPage === "MyPieces"
@@ -62,8 +55,8 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
+                        defs={state}
                         key={uuidv4()}
-                        defs={defs}
                         pieceName={pieceName}
                         expand={props.expand}
                         theme={props.theme}
@@ -72,12 +65,13 @@ export function PieceProfiles(props) {
                         <LoadDeleteHeader
                             key={uuidv4()}
                             load={props.load}
-                            def={defs[pieceName]}
+                            dispatch={dispatch}
                             pieceName={pieceName}
-                            parentPage={props.parentPage}
+                            def={state[pieceName]}
                             screenCase={screenCase}
-                            theme={props.theme}
+                            parentPage={props.parentPage}
                             style={ld_header_style(fontSize)}
+                            theme={props.theme}
                         />
                     </Profile>
                 );
@@ -88,8 +82,8 @@ export function PieceProfiles(props) {
                 isCheckmark = props.promos.includes(pieceName);
                 profiles.push(
                     <Profile
+                        defs={state}
                         key={uuidv4()}
-                        defs={defs}
                         pieceName={pieceName}
                         theme={props.theme}
                         expand={props.expand}
@@ -104,8 +98,8 @@ export function PieceProfiles(props) {
                             newReplacement={props.newReplacement}
                             newReplaced={props.newReplaced}
                             togglePromo={props.togglePromo}
-                            theme={props.theme}
                             screenCase={screenCase}
+                            theme={props.theme}
                         />
                     </Profile>
                 );

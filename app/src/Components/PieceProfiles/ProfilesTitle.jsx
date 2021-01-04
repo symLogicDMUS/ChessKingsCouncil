@@ -8,12 +8,12 @@ import {useStyles} from "./ProfilesTitle.jss";
 /**
  * For pages without Permanent Drawer
  * */
-export function ProfilesTitle({theme}) {
+export function ProfilesTitle({theme, children}) {
     const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
         <>
             <Box className={classes.title_bar}>
-                <Typography className={classes.title} variant='h6'>My Pieces</Typography>
+                <Typography className={classes.title} variant='h6'>{children}</Typography>
             </Box>
             <Divider className={classes.divider} />
         </>

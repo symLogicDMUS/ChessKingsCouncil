@@ -4,16 +4,16 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import { MuiButton, MuiButton as Button } from "../../Reuseables/MuiButton";
+import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { fontSize } from "../../styles/fontSize.jss";
-import { StandardModal } from "../../Reuseables/StandardModal";
 import { deleteDef } from "../../../API/deleteDef";
+import { MuiDeleteButton as DeleteButton } from "../../Reuseables/MuiDeleteButton";
 import { button, getButtonMargin, useStyles } from "./LoadDeleteHeader.jss";
-import { MuiDeleteButton } from "../../Reuseables/MuiDeleteButton";
 
 export function LoadDeleteHeader({
-    load,
     def,
+    load,
+    dispatch,
     pieceName,
     parentPage,
     screenCase,
@@ -29,7 +29,7 @@ export function LoadDeleteHeader({
 
     const deletePiece = (pieceName) => {
         deleteDef(pieceName).then(([r]) => {
-            //TODO: need to tell PieceProfiles to trigger new API call
+            dispatch({type: 'delete', payload: pieceName})
         });
     };
 
@@ -72,7 +72,7 @@ export function LoadDeleteHeader({
                     >
                         Load
                     </Button>
-                    <MuiDeleteButton
+                    <DeleteButton
                         onAcceptDelete={() => deletePiece(pieceName)}
                         modalTitle={`You are asking to delete piece ${pieceName}.`}
                         modalText={`Game in progress will no be effected but the record of the piece for new games will be 
