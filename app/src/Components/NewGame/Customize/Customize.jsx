@@ -11,7 +11,7 @@ import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {SubList} from "./SubList";
 import {NavBar} from "../../Reuseables/NavBar";
 import {SideBar} from "../../Reuseables/SidBar";
-import {CheckBox} from "../../Reuseables/CheckBox";
+import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
 import {Dropdown} from "../../Reuseables/Dropdown";
 import ScrollTable from "../../Reuseables/ScrollTable";
 import {Background} from "../../Reuseables/Background";
@@ -236,16 +236,16 @@ class Customize extends React.Component {
                                     </Typography>
                                 }
                                 subHeader={
-                                    <CheckBox
-                                        labelText="Promo All"
-                                        clickValue={null}
+                                    <MuiCheckbox
                                         theme={this.state.theme}
-                                        clickMethod={this.togglePromoAll}
+                                        onClick={() => this.togglePromoAll()}
                                         style={{fontSize: fontSize * 0.8}}
                                         rootStyle={{
                                             marginLeft: drawerItemWidth * 0.025,
                                         }}
-                                    />
+                                    >
+                                        Promo All
+                                    </MuiCheckbox>
                                 }
                             />
                             <SubList
@@ -371,13 +371,9 @@ class Customize extends React.Component {
                                                     fontSize * mobileScaler,
                                                 )}
                                                 subHeader={
-                                                    <CheckBox
-                                                        labelText="Promo All"
-                                                        clickValue={null}
+                                                    <MuiCheckbox
                                                         theme={this.state.theme}
-                                                        clickMethod={
-                                                            this.togglePromoAll
-                                                        }
+                                                        onClick={() => this.togglePromoAll()}
                                                         style={{
                                                             fontSize:
                                                                 fontSize * 0.8,
@@ -387,7 +383,9 @@ class Customize extends React.Component {
                                                                 drawerItemWidth *
                                                                 0.025,
                                                         }}
-                                                    />
+                                                    >
+                                                        Promo All
+                                                    </MuiCheckbox>
                                                 }
                                             />
                                         ),

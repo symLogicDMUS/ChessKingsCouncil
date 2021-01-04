@@ -12,7 +12,7 @@ export function ImageNameDisplay({theme, hoverName, selectedName}) {
     const classes = useStyles({theme: theme, fontSize: fontSize});
     return (
         <>
-            <Typography className={classes.selected_name}>{selectedName}</Typography>
+            <Typography className={classes.selected_name} variant='h6'>{selectedName}</Typography>
             <Typography className={classes.hover_name}>{hoverName}</Typography>
         </>);
 }

@@ -6,7 +6,7 @@ const checkbox = {
     height: "1.25em",
 }
 
-/*NOTE: fontSize is a required prop!*/
+/*NOTE: fontSize is a required part of style!*/
 export const useStyles = makeStyles({
     checkbox_root: props => ({
         ...props.rootStyle,

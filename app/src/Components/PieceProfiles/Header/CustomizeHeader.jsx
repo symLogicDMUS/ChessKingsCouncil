@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { CheckBox } from "../../Reuseables/CheckBox";
+import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
 import { Radio } from "@material-ui/core";
 import { themes } from "../../styles/themes.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -38,16 +38,16 @@ export function CustomizeHeader({
         <div className={classes.header}>
             <Typography className={classes.header_text} variant='h6' noWrap>{pieceName}</Typography>
             <Box className={classes.box}>
-                <CheckBox
-                    labelText="Promotion"
-                    theme={theme}
-                    clickMethod={togglePromo}
-                    clickValue={pieceName}
+                <MuiCheckbox
+                    onClick={() => togglePromo(pieceName)}
                     checkmarkState={isCheckmark}
                     rootStyle={checkbox_root(fontSize)}
                     circleStyle={checkbox_circle(fontSize)}
                     style={promo_checkbox(fontSize, theme)}
-                />
+                    theme={theme}
+                >
+                    Promotion
+                </MuiCheckbox>
             </Box>
             <RadioButtonsGroup
                 theme={theme}

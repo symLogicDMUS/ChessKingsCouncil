@@ -1,5 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
+import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import PanoramaIcon from "@material-ui/icons/Panorama";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -7,36 +9,25 @@ import { getImgDict } from "../../../../API/getImgDict";
 import { deleteImg } from "../../../../API/deleteImg";
 import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
-import { ImgChoice } from "./ImgChoice";
-import { StandardModal } from "../../../Reuseables/StandardModal";
-import { ImageNameDisplay } from "./ImageNameDisplay";
 import { Close } from "../../../Reuseables/Close";
 import { MuiButton as Button } from "../../../Reuseables/MuiButton";
-import { SearchBox } from "../../../Reuseables/SearchBox";
-import Box from "@material-ui/core/Box";
+import { close_icon } from "../../../Reuseables/Help/MessageModal.jss";
+import { MuiDeleteButton as DeleteButton } from "../../../Reuseables/MuiDeleteButton";
+import { ImgChoice } from "./ImgChoice";
 import { button, styles } from "./ChooseModal.jss";
 import { fontSize } from "../../../styles/fontSize.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { close_icon } from "../../../Reuseables/Help/MessageModal.jss";
-import Typography from "@material-ui/core/Typography";
-import {MuiDeleteButton as DeleteButton} from "../../../Reuseables/MuiDeleteButton";
+import {MuiCheckbox} from "../../../Reuseables/MuiCheckbox";
 
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bValue: true,
-            confirmDeleteModal: false,
-            imgNameChoice: null,
-            hoverText: null,
-        };
+        this.state = {imgNameChoice: null, showNames: false, bValue: true};
         this.imgDict = {};
-        this.searchText = "";
         this.deleteImg = this.deleteImg.bind(this);
         this.setChoice = this.setChoice.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
-        this.updateSearch = this.updateSearch.bind(this);
-        this.setHoverText = this.setHoverText.bind(this);
+        this.toggleShowNames = this.toggleShowNames.bind(this);
     }
 
     componentDidMount() {
@@ -60,16 +51,11 @@ class ChooseModal extends React.Component {
         });
     }
 
-    updateSearch(searchText) {
-        this.searchText = searchText;
-        this.setState({ binaryValue: !this.state.binaryValue });
-    }
-
-    setChoice(imgNameChoice) {
-        if (this.state.imgNameChoice === imgNameChoice) {
+    setChoice(imgName) {
+        if (this.state.imgNameChoice === imgName) {
             this.setState({ imgNameChoice: null });
         } else {
-            this.setState({ imgNameChoice: imgNameChoice });
+            this.setState({ imgNameChoice: imgName });
         }
     }
 
@@ -81,36 +67,28 @@ class ChooseModal extends React.Component {
         this.props.closeAll();
     }
 
-    setHoverText(imgName) {
-        this.setState({ hoverText: imgName });
-    }
-
-    applySearchFilter() {
-        if (this.searchText !== "")
-            return Object.keys(this.imgDict).filter((imgName) =>
-                imgName.toLowerCase().startsWith(this.searchText)
-            );
-        else return Object.keys(this.imgDict);
-    }
-
     getImages() {
-        let imageNames = this.applySearchFilter();
         let imgItems = [];
+        let imageNames = Object.keys(this.imgDict);
         imageNames.forEach((name) => {
             imgItems.push(
                 <ImgChoice
                     name={name}
                     key={uuidv4()}
                     theme={this.props.theme}
-                    screenCase={this.props.screenCase}
-                    base64ImgStr={this.imgDict[name]}
-                    imgNameChoice={this.state.imgNameChoice}
                     setChoice={this.setChoice}
-                    setHoverText={this.setHoverText}
+                    base64ImgStr={this.imgDict[name]}
+                    screenCase={this.props.screenCase}
+                    showName={this.state.showNames}
+                    isSelected={name === this.state.imgNameChoice}
                 />
             );
         });
         return imgItems;
+    }
+
+    toggleShowNames () {
+        this.setState({showNames: ! this.state.showNames})
     }
 
     render() {
@@ -157,16 +135,22 @@ class ChooseModal extends React.Component {
                                 onAcceptDelete={this.deleteImg}
                                 modalTitle={`Are you sure you want to delete this image? ${this.state.imgNameChoice}?`}
                                 isDisabled={this.state.imgNameChoice === null}
-                                style={{...button(fontSize), marginLeft: "1em",}}
+                                style={{
+                                    ...button(fontSize),
+                                    marginLeft: "1em",
+                                }}
                                 startIcon={<DeleteForeverIcon />}
                                 theme={this.props.theme}
                                 variant="outlined"
                             />
-                            <ImageNameDisplay
-                                hoverText={this.state.hoverText}
-                                imgNameChoice={this.state.imgNameChoice}
+                            <MuiCheckbox
+                                onClick={this.toggleShowNames}
+                                style={{fontSize: fontSize}}
+                                rootStyle={{ marginLeft: "2.15em",}}
                                 theme={this.props.theme}
-                            />
+                            >
+                                Show Names
+                            </MuiCheckbox>
                         </Box>
                     </div>
                 </div>
