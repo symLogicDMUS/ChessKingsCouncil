@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import {Portal} from "@material-ui/core";
 import {AnimatePresence} from "framer-motion";
-import {animations} from "../styles/animations/top/animations.jss";
-import {useStyles } from "./AnimatePresencePortal.jss";
-import {fill_variants, stroke_variants} from "../styles/animations/variants/piece_saved_successfully.jss";
+import {useStyles} from "./AnimatePresencePortal.jss";
 
 export function AnimatePresencePortal({children}) {
 

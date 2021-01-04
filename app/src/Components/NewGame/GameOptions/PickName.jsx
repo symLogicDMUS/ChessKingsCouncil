@@ -25,8 +25,9 @@ export function PickName({ setGameName, gameName, theme }) {
                 <MuiTextField
                     value={gameName}
                     onChange={setGameName}
-                    style={text_field(fontSize)}
+                    autoComplete={""}
                     theme={theme}
+                    style={text_field(fontSize)}
                     id={"pick-game-name"}
                     label={"Pick game name"}
                     variant={"outlined"}

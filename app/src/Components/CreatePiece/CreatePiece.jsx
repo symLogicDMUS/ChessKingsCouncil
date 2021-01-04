@@ -32,9 +32,8 @@ import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { AnimatePresencePortal } from "../Reuseables/AnimatePresencePortal";
-import { piece_saved_successfully } from "../styles/animations/paths/piece_saved_successfully.jss";
+import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { styles } from "./CreatePiece.jss";
-import {fill_variants, stroke_variants} from "../styles/animations/variants/piece_saved_successfully.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -186,12 +185,12 @@ class CreatePiece extends React.Component {
         this.setState({ unsavedChanges: false });
     }
 
-    /**used by name tool*/
+    /**used by Name tool*/
     updateName(userInput) {
         this.name = userInput;
     }
 
-    /**used by name tool*/
+    /**used by Name tool*/
     updateNameFinish() {
         this.setState({ unsavedChanges: true });
         this.textInput.current.focus();
@@ -311,7 +310,12 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.state.justSaved && (
-                    piece_saved_successfully(stroke_variants(), fill_variants(), )
+                    <AnimatePresencePortal>
+                        <PieceSavedSuccessfully
+                            callback={() => this.setState({ justSaved: false })}
+                            theme={this.state.theme}
+                        />
+                    </AnimatePresencePortal>
                 )}
             </>
         );

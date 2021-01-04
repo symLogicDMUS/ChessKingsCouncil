@@ -18,6 +18,7 @@ export function Name({inputRef, updateName, updateNameFinish, theme, defaultValu
                 inputRef={inputRef}
                 onChange={handleInput}
                 defaultValue={defaultValue}
+                autoComplete="off"
                 style={{width: '100%'}}
                 placeholder='Enter name of piece...'
                 id="game-name"

@@ -1,5 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { modal } from "../../helpers/modal.jss";
+import {themes} from "../../styles/themes.jss";
+
+export const close_icon = (fontSize) => ({
+    fontSize: fontSize,
+    width: '1em',
+    height: '1em',
+});
 
 export const useStyles = makeStyles({
     modal: {
@@ -13,16 +20,10 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        border: '1px dashed #b1faae',
     }),
     title: props => ({
         fontSize: props.fontSize,
-        border: '1px dashed red',
-
-    }),
-    close: props => ({
-       fontSize: props.fontSize,
-       width: '2em',
-       height: '2em',
+        color: themes[props.theme].text,
+        marginLeft: '1em'
     }),
 });
