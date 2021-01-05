@@ -12,10 +12,16 @@ export const HelpTitle = (fontSize, theme) => (
 
 export const HelpText = (fontSize, theme) => ([
     <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
-        <ol>
-            <li>View the ranges or offsets of the black or white version of any piece. Click the <span style={{display: 'inline'}}><Add /></span> Icon at the top of the span or offset list to view an image of a board with only that piece, and its span or offset squares highlighted.</li>
+        On this page you can:
+        <ol type='a'>
+            <li>View the ranges or offsets of the black or white version of any piece. Click the <span
+                style={{display: 'inline'}}><Add/></span> Icon at the top of the span or offset list to view an image of
+                a board with only that piece, and its span or offset squares highlighted.
+            </li>
             <li>Click the Load button to go to the Piece Creation page with that piece and further edit it.</li>
-            <li>Delete the piece. Pieces that are deleted will not affect games in progress, but no new game can be started with that piece.</li>
+            <li>Delete the piece. Pieces that are deleted will not affect games in progress, but no new game can be
+                started with that piece.
+            </li>
         </ol>
     </Typography>,
-])
+]);

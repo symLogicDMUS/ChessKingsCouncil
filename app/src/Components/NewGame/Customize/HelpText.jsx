@@ -9,8 +9,8 @@ export const HelpTitle = (fontSize, theme) => (
     </Typography>
 );
 
-export const HelpText = (fontSize, theme) => [
-    <Typography
+export const HelpText = (fontSize, theme) => ([
+     <Typography
         key={uuidv4()}
         paragraph={true}
         style={help_text(fontSize, theme)}
@@ -44,4 +44,4 @@ export const HelpText = (fontSize, theme) => [
             aremodified/deleted after.
         </p>
     </Typography>
-];
+]);

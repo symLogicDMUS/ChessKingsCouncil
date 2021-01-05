@@ -10,11 +10,11 @@ export const HelpTitle = (fontSize, theme) => (
 )
 
 export const HelpText = (fontSize, theme) => ([
-    <Typography key={uuidv4()} style={help_text(fontSize, theme)}>
+     <Typography key={uuidv4()} style={help_text(fontSize, theme)}>
         Create a Piece to use in a custom game. You can not use the name of one
         of the 6 regular pieces: Bishop, Knight, Rook, Queen, King, or Pawn
     </Typography>,
-    <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+     <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
         Click of the image windows to upload an image from your computer or
         choose from an image already uploaded The image of a piece can be any
         image. An an image without square dimensions will be displayed with its
@@ -39,7 +39,7 @@ export const HelpText = (fontSize, theme) => ([
             <li>Images that contain transparency, and/or are .svg files probably look better when playing.</li>
         </ol>
     </Typography>,
-    <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+     <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
         <p>
             The range of a piece is how it can move. I define ranges as 2
             separate types: offsets and spans.
@@ -93,7 +93,7 @@ export const HelpText = (fontSize, theme) => ([
             squares can be turned off in the settings in the NavBar.
         </p>
     </Typography>,
-    <Typography  key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+     <Typography  key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
         <p>You can position the piece in one of 4 locations in the center of the board: D4, D5, E4, or E5. </p>
         <p>
             You can use the location buttons to switch to any of the 4 locations at any time. You will be able to see
@@ -115,7 +115,7 @@ export const HelpText = (fontSize, theme) => ([
             stalemate to include this, but regardless the game would be over before the first move.
         </p>
     </Typography>,
-    <Typography  key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+     <Typography  key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
         <ul>
             <li>
                 <i>Load:</i> Opens a list of previously created pieces. You also have the option to delete them. This is the
@@ -133,7 +133,7 @@ export const HelpText = (fontSize, theme) => ([
             <li><i>Erase:</i> The Erase option removes all ranges and makes the name and image icons blank.</li>
         </ul>
     </Typography>,
-    <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+     <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
         Remember: You can return to the help menu any time through the Help option on the NavBar
     </Typography>
 ]);

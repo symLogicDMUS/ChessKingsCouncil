@@ -109,8 +109,8 @@ export function GameOptions({ setGameOptions }) {
                                 width: "99%",
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle}
-                            helpText={HelpText}
+                            helpTitle={HelpTitle(fontSize, theme)}
+                            helpText={HelpText(fontSize, theme)}
                             redirectMessage={null}
                             theme={theme}
                         />

@@ -37,11 +37,11 @@ import { sideBarWidth } from "../Reuseables/SidBar.jss";
 import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
 import { navBarButtonWidth } from "../Reuseables/NavBar/NavBarButton.jss";
 import { GameInfo } from "./GameInfo/GameInfo";
-import "../styles/_backgrounds.scss";
 import { fontSize } from "../styles/fontSize.jss";
-import { styles } from "./GameRoot.jss";
 import Typography from "@material-ui/core/Typography";
 import {HelpTitle, HelpText} from "./HelpText";
+import "../styles/_backgrounds.scss";
+import { styles } from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -446,8 +446,8 @@ class GameRoot extends React.Component {
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle}
-                            helpText={HelpText}
+                            helpTitle={HelpTitle(fontSize, this.state.theme)}
+                            helpText={HelpText(fontSize, this.state.theme)}
                             redirectMessage={gamePageRedirectMessage}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
@@ -468,8 +468,8 @@ class GameRoot extends React.Component {
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle}
-                                helpText={HelpText}
+                                helpTitle={HelpTitle(fontSize, this.state.theme)}
+                                helpText={HelpText(fontSize, this.state.theme)}
                                 redirectMessage={gamePageRedirectMessage}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />

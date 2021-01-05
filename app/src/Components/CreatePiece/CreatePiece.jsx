@@ -407,10 +407,10 @@ class CreatePiece extends React.Component {
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle(fontSize, this.state.theme)}
-                            helpText={HelpText(fontSize, this.state.theme)}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
+                            helpTitle={HelpTitle(fontSize, this.state.theme)}
+                            helpText={HelpText(fontSize, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
@@ -431,6 +431,8 @@ class CreatePiece extends React.Component {
                                 }}
                                 theme={this.state.theme}
                                 redirectMessage={messageStr}
+                                helpTitle={HelpTitle(fontSize, this.state.theme)}
+                                helpText={HelpText(fontSize, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }

@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
+import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -10,8 +11,14 @@ export const useStyles = makeStyles({
     }),
     window: props => ({
         fontSize: props.fontSize,
-        width: '60%',
-        height: '60%',
+        '@media screen and (min-width: 768px)': {
+            width: '60%',
+            height: '60%',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+            height: availHeight(),
+        },
         display: 'flex',
         flexDirection: 'column',
         flexWrap: 'nowrap',
@@ -25,15 +32,24 @@ export const useStyles = makeStyles({
         fontSize: props.fontSize,
         width: '100%',
         height: '1.5em',
+        '@media screen and (min-width: 768px)': {
+            marginTop: '-1em',
+        },
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'flex-end',
     }),
     content: props => ({
         fontSize: props.fontSize,
         width: '98%',
-        height: '20em',
+        '@media screen and (min-width: 768px)': {
+            height: '20em',
+        },
+        '@media screen and (max-width: 767px)': {
+            height: '41em',
+            borderTop: themes[props.theme].text,
+        },
         overflow: 'scroll',
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,

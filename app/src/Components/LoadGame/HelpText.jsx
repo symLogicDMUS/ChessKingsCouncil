@@ -1,16 +1,16 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
-import { help_text, help_title } from "../Reuseables/NavBar/HelpText.jss";
+import {help_text, help_title} from "../Reuseables/NavBar/HelpText.jss";
 
 export const HelpTitle = (fontSize, theme) => (
-    <Typography variant="h6" style={{ ...help_title(fontSize, theme) }}>
+    <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
         Loading a Previously Saved Game
     </Typography>
 );
 
-export const HelpText = (fontSize, theme) => [
-    <Typography
+export const HelpText = (fontSize, theme) => ([
+     <Typography
         key={uuidv4()}
         paragraph={true}
         style={help_text(fontSize, theme)}
@@ -26,4 +26,4 @@ export const HelpText = (fontSize, theme) => [
             modified/deleted after.
         </p>
     </Typography>,
-];
+]);

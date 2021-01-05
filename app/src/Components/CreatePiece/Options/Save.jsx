@@ -92,8 +92,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                 <Portal>
                     <StandardModal
                         title={null}
-                        theme={theme}
                         text={message}
+                        theme={theme}
                         closeClick={() => closeModal()}
                     >
                         <MuiButton
@@ -118,9 +118,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
             {modal === 'accept' ? (
                 <Portal>
                     <StandardModal
-                        title={null}
+                        title={message}
                         theme={theme}
-                        text={message}
                         closeClick={() => closeModal()}
                     >
                         <MuiButton

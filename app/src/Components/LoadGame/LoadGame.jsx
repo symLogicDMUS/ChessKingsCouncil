@@ -113,5 +113,3 @@ class LoadGame extends React.Component {
 }
 
 export default LoadGame;
-
-// export default withStyles(styles)(LoadGame);
