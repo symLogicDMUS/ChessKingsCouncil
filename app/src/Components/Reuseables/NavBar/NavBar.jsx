@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import Help from "./Help/Help";
 import { NavBarButton } from "./NavBarButton";
-import { HelpButton } from "./Help/HelpButton";
+import { HelpButton } from "./HelpButton";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBar.jss";
 import {v4 as uuidv4} from "uuid";
 
 export function NavBar(props) {
-    let [isHelpModal, setIsHelpModal] = useState(false);
-    let [firstTime, setFirstTime] = useState(false);
 
     const classes = useStyles({
         style: props.style,
@@ -17,29 +14,12 @@ export function NavBar(props) {
     });
 
     let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
-    if (props.redirectMessage){
+    if (props.redirectMessage) {
         redirectMessage = props.redirectMessage;
     }
 
-    const toggleHelpModal = (boolVal) => {
-        setIsHelpModal(boolVal);
-        setFirstTime(false);
-    };
-
-    const setIsFirstTime = (firstTime) => {
-        setFirstTime(firstTime);
-    };
-
     return (
         <>
-            {(isHelpModal || firstTime) && (
-                <Help
-                    key={uuidv4()}
-                    firstTime={firstTime}
-                    pageName={props.currentPage}
-                    togleHelpModal={toggleHelpModal}
-                />
-            )}
             <Box className={classes.nav_bar}>
                 <HelpButton
                     pageIcon="help"
@@ -48,9 +28,10 @@ export function NavBar(props) {
                     style={props.buttonStyle}
                     parentFlex={props.flexDirection}
                     currentPage={props.currentPage}
-                    togleHelpModal={toggleHelpModal}
-                    setIsFirstTime={setIsFirstTime}
-                />
+                    helpTitle={props.helpTitle}
+                >
+                    {props.helpText}
+                </HelpButton>
                 <NavBarButton
                     path="/"
                     pageName="Home"

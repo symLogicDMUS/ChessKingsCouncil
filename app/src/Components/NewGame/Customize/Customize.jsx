@@ -1,15 +1,11 @@
 import React from "react";
 import MediaQuery from "react-responsive";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
-import Divider from "@material-ui/core/Divider";
-import {getDefs} from "../../../API/getDefs";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
-import {initStandardDefs} from "../../../apiHelpers/initStandardDefs";
 import {SubList} from "./SubList";
-import {NavBar} from "../../Reuseables/NavBar";
+import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {SideBar} from "../../Reuseables/SidBar";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
 import {Dropdown} from "../../Reuseables/Dropdown";
@@ -20,11 +16,10 @@ import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {DisplayBoardModal} from "../../PieceProfiles/DisplayBoardModal/DisplayBoardModal";
-import {navBarWidth} from "../../Reuseables/NavBar.jss";
+import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {navBarButtonWidth} from "../../Reuseables/NavBarButton.jss";
+import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
 import {withStyles} from "@material-ui/core";
 import {
@@ -35,6 +30,7 @@ import {
 } from "./Customize.jss";
 import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
+import {HelpText, HelpTitle} from "./HelpText";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -298,6 +294,8 @@ class Customize extends React.Component {
                                     width: navBarButtonWidth,
                                     justifyContent: "flex-start",
                                 }}
+                                helpTitle={HelpTitle(fontSize, this.state.theme)}
+                                helpText={HelpText(fontSize, this.state.theme)}
                                 theme={this.state.theme}
                             />
                         </SideBar>
@@ -315,6 +313,8 @@ class Customize extends React.Component {
                                         width: "99%",
                                         height: "2.5em",
                                     }}
+                                    helpTitle={HelpTitle(fontSize, this.state.theme)}
+                                    helpText={HelpText(fontSize, this.state.theme)}
                                     redirectMessage={null}
                                     theme={this.state.theme}
                                 />

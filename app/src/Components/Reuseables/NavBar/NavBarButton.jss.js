@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {themes} from "../styles/themes.jss";
+import {themes} from "../../styles/themes.jss";
 import {navBarWidth} from "./NavBar.jss";
 
 export const navBarButtonWidth = navBarWidth * 0.99;

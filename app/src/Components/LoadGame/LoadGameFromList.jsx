@@ -4,15 +4,15 @@ import { Typography } from "@material-ui/core";
 import { fontSize } from "../styles/fontSize.jss";
 import MediaQuery from "react-responsive/src";
 import { Dropdown } from "../Reuseables/Dropdown";
-import { NavBar } from "../Reuseables/NavBar";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import { MuiButton as Button } from "../Reuseables/MuiButton";
-import {MuiDeleteButton as DeleteButton} from "../Reuseables/MuiDeleteButton";
+import { MuiDeleteButton as DeleteButton } from "../Reuseables/MuiDeleteButton";
+import { HelpText, HelpTitle } from "./HelpText";
 import { button, dropdown, useStyles } from "./LoadGameFromList.jss";
 
 export function LoadGameFromList(props) {
     const classes = useStyles({ theme: props.theme, fontSize: fontSize });
-
     const content = (
         <Box className={classes.flexbox}>
             <Box className={classes.content}>
@@ -72,6 +72,8 @@ export function LoadGameFromList(props) {
                         height: "2.25em",
                         justifyContent: "center",
                     }}
+                    helpText={HelpText(fontSize, props.theme)}
+                    helpTitle={HelpTitle(fontSize, props.theme)}
                 />
                 {content}
             </MediaQuery>
@@ -88,6 +90,8 @@ export function LoadGameFromList(props) {
                                 width: "99%",
                                 height: "2.5em",
                             }}
+                            helpTitle={HelpTitle(fontSize, props.theme)}
+                            helpText={HelpText(fontSize, props.theme)}
                             redirectMessage={null}
                             theme={props.theme}
                         />

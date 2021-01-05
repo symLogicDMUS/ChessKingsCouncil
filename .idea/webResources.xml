@@ -5,7 +5,6 @@
       <entry url="file://$PROJECT_DIR$">
         <entryData>
           <resourceRoots>
-            <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Board/RangeLabelComponents" />
             <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Icon/Choose" />
             <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Icon/Upload" />
             <path value="file://$PROJECT_DIR$/app/src/Components/CreatePiece/Options/SaveModals" />

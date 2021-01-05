@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useHistory } from "react-router-dom";
 import { Button, Portal } from "@material-ui/core";
-import { icons } from "../styles/icons/top/icons.jss";
+import { icons } from "../../styles/icons/top/icons.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBarButton.jss";
-import { StandardModal } from "./StandardModal";
-import {MuiButton} from "./MuiButton";
-import {button} from "./StandardModal.jss";
-import {fontSize} from "../styles/fontSize.jss";
+import { StandardModal } from "../StandardModal";
+import {MuiButton} from "../MuiButton";
+import {button} from "../StandardModal.jss";
+import {fontSize} from "../../styles/fontSize.jss";
 
 export function NavBarButton({
     path,

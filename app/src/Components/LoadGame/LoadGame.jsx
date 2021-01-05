@@ -1,20 +1,14 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../Reuseables/NavBar";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { StandardModal } from "../Reuseables/StandardModal";
 import { copy } from "../helpers/copy";
 import MenuItem from "@material-ui/core/MenuItem";
-import { fontSize } from "../styles/fontSize.jss";
 import { LoadGameFromList } from "./LoadGameFromList";
 import "../styles/_backgrounds.scss";
-import {MuiButton as Button} from "../Reuseables/MuiButton";
-import {button} from "../Reuseables/StandardModal.jss";
-import Box from "@material-ui/core/Box";
 
 class LoadGame extends React.Component {
     constructor(props) {

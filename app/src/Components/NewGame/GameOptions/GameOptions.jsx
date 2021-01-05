@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import MediaQuery from "react-responsive/src";
+import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import { PlayAs } from "./PlayAs";
 import { PickType } from "./PickType";
 import { PickName } from "./PickName";
-import { NavBar } from "../../Reuseables/NavBar";
+import { NavBar } from "../../Reuseables/NavBar/NavBar";
 import { invalids } from "../../helpers/invalids";
-import { Background } from "../../Reuseables/Background";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import { MuiButton as PlayGameButton } from "../../Reuseables/MuiButton";
 import { charNotInStr } from "../../helpers/charNotInStr";
 import { getColorLetter } from "../../helpers/getColorLetter";
 import { fontSize } from "../../styles/fontSize.jss";
 import "../../styles/_backgrounds.scss";
+import {HelpText, HelpTitle} from "./HelpText";
+import "../../styles/Scrollbar.scss";
 import { useStyles, submit_button } from "./GameOptions.jss";
 
 export function GameOptions({ setGameOptions }) {
@@ -73,7 +74,7 @@ export function GameOptions({ setGameOptions }) {
     </Box>
 
     return (
-        <>
+        <div className={`scrollbar-${theme}`}>
             <MediaQuery minWidth={768}>
                 <NavBar
                     currentPage="GameOptions"
@@ -84,6 +85,8 @@ export function GameOptions({ setGameOptions }) {
                         width: "100%",
                         height: "2.25em",
                     }}
+                    helpTitle={HelpTitle(fontSize, theme)}
+                    helpText={HelpText(fontSize, theme)}
                     buttonStyle={{
                         fontSize: fontSize,
                         height: "2.25em",
@@ -106,6 +109,8 @@ export function GameOptions({ setGameOptions }) {
                                 width: "99%",
                                 height: "2.5em",
                             }}
+                            helpTitle={HelpTitle}
+                            helpText={HelpText}
                             redirectMessage={null}
                             theme={theme}
                         />
@@ -115,6 +120,6 @@ export function GameOptions({ setGameOptions }) {
                     {options}
                 </PersistentDrawer>
             </MediaQuery>
-        </>
+        </div>
     );
 }

@@ -3,7 +3,6 @@ import {v4 as uuidv4} from "uuid";
 import {Portal} from "@material-ui/core";
 import {Option} from "./Option";
 import {StandardModal} from "../../Reuseables/StandardModal";
-import {MessageModal} from "../../Reuseables/Help/MessageModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
 import {MuiButton} from "../../Reuseables/MuiButton";

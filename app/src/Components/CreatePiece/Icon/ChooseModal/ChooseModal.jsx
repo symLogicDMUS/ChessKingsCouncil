@@ -11,7 +11,6 @@ import { getSetSampleImgs } from "../../../helpers/getSampleImgs";
 import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
 import { Close } from "../../../Reuseables/Close";
 import { MuiButton as Button } from "../../../Reuseables/MuiButton";
-import { close_icon } from "../../../Reuseables/Help/MessageModal.jss";
 import { MuiDeleteButton as DeleteButton } from "../../../Reuseables/MuiDeleteButton";
 import { ImgChoice } from "./ImgChoice";
 import { button, styles } from "./ChooseModal.jss";
@@ -99,8 +98,8 @@ class ChooseModal extends React.Component {
                         <Box className={this.props.classes.top_flexbox}>
                             <Close
                                 theme={this.props.theme}
-                                style={close_icon(fontSize)}
                                 onClick={this.props.closeAll}
+                                style={{fontSize: fontSize, width: '2em', height: '2em'}}
                             />
                         </Box>
                         <Box className={this.props.classes.title_flexbox}>

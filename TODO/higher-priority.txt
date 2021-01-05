@@ -1,6 +1,6 @@
 medium:
-* 'explore without account' text button not working. look at tutorial for anonymous login with Firebase
 * update Firebase security rules for new/removed pages
 
 long:
+* reimplement help modals/button
 * Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.

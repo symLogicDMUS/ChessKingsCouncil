@@ -2,7 +2,7 @@ import React from "react";
 import MediaQuery from "react-responsive/src";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { OVER } from "../helpers/gStatusTypes";
-import { NavBar } from "../Reuseables/NavBar";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
 import Promo from "./Promo/Promo";
 import { isPawn } from "../helpers/isPawn";
 import { AIDisplay } from "./AI/AIDisplay";
@@ -32,15 +32,16 @@ import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import { SideBar } from "../Reuseables/SidBar";
-import { navBarWidth } from "../Reuseables/NavBar.jss";
+import { navBarWidth } from "../Reuseables/NavBar/NavBar.jss";
 import { sideBarWidth } from "../Reuseables/SidBar.jss";
 import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
+import { navBarButtonWidth } from "../Reuseables/NavBar/NavBarButton.jss";
 import { GameInfo } from "./GameInfo/GameInfo";
 import "../styles/_backgrounds.scss";
 import { fontSize } from "../styles/fontSize.jss";
 import { styles } from "./GameRoot.jss";
 import Typography from "@material-ui/core/Typography";
+import {HelpTitle, HelpText} from "./HelpText";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -445,6 +446,8 @@ class GameRoot extends React.Component {
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
+                            helpTitle={HelpTitle}
+                            helpText={HelpText}
                             redirectMessage={gamePageRedirectMessage}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
@@ -465,6 +468,8 @@ class GameRoot extends React.Component {
                                     width: "99%",
                                     height: "2.5em",
                                 }}
+                                helpTitle={HelpTitle}
+                                helpText={HelpText}
                                 redirectMessage={gamePageRedirectMessage}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />

@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {sideBarWidth} from "./SidBar.jss";
+import {sideBarWidth} from "../SidBar.jss";
 
 export const navBarWidth = sideBarWidth * 0.98;
 

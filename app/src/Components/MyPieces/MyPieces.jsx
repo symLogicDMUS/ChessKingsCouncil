@@ -1,24 +1,17 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
 import MediaQuery from "react-responsive";
-import { NavBar } from "../Reuseables/NavBar";
-// import { SearchBar } from "./SearchBar";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
 // import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
 import { styles } from "./MyPieces.jss";
-import { StandardModal } from "../Reuseables/StandardModal";
-import { deleteDef } from "../../API/deleteDef";
 import { getDefs } from "../../API/getDefs";
 import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import "../styles/_backgrounds.scss";
 import { fontSize } from "../styles/fontSize.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import { navBarWidth } from "../Reuseables/NavBar.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
-import { SideBar } from "../Reuseables/SidBar";
 import Typography from "@material-ui/core/Typography";
-import {availWidth} from "../helpers/windowMeasurments";
+import {HelpText, HelpTitle} from "./HelpText";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -65,6 +58,8 @@ class MyPieces extends React.Component {
                             width: "100%",
                             height: "2.25em",
                         }}
+                        helpText={HelpText(fontSize, this.state.theme)}
+                        helpTitle={HelpTitle(fontSize, this.state.theme)}
                         buttonStyle={{
                             fontSize: fontSize,
                             height: "2.25em",
@@ -102,6 +97,8 @@ class MyPieces extends React.Component {
                                     width: "99%",
                                     height: "2.5em",
                                 }}
+                                helpText={HelpText(fontSize, this.state.theme)}
+                                helpTitle={HelpTitle(fontSize, this.state.theme)}
                                 redirectMessage={null}
                                 theme={this.state.theme}
                             />
@@ -115,7 +112,9 @@ class MyPieces extends React.Component {
                                     title="My Pieces"
                                     defs={this.defs}
                                     theme={this.state.theme}
-                                />
+                                >
+                                    <ProfilesTitle>My Pieces</ProfilesTitle>
+                                </PieceProfiles>
                             )}
                         </div>
                     </PersistentDrawer>

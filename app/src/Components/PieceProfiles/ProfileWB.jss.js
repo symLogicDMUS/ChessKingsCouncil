@@ -3,6 +3,17 @@ import {themes} from "../styles/themes.jss";
 
 export const mobileScaler = 0.8;
 
+export const adjustFontSize = (fontSize, screenCase) => {
+    switch (screenCase) {
+        case "desktop":
+            return fontSize;
+        case "mobile":
+            return fontSize * mobileScaler;
+        default:
+            return fontSize;
+    }
+};
+
 export const useStyles = makeStyles({
     profile_wb: props => ({
         fontSize: props.fontSize,

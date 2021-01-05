@@ -6,7 +6,7 @@ import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import {copy} from "../helpers/copy";
-import "../styles/scrollbar.scss";
+import "../styles/Scrollbar.scss";
 import {Profile} from "./Profile";
 import {getDefs} from "../../API/getDefs";
 import {fontSize} from "../styles/fontSize.jss";
@@ -25,14 +25,13 @@ const reducer = (state, action) => {
     }
 }
 
+/*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {
 
     const [state, dispatch] = useReducer(reducer, {});
 
-    const classes = useStyles({ theme: props.theme, style: props.style });
-    const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
-
     useEffect(() => {
+        const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
         getDefs().then(([defs]) => {
             if (defs) {
                 for (const pieceName of standards) {
@@ -44,6 +43,8 @@ export function PieceProfiles(props) {
             }
         });
     }, []);
+
+    const classes = useStyles({ theme: props.theme, style: props.style });
 
     const getProfiles = (screenCase) => {
         let profiles = [];
@@ -110,7 +111,6 @@ export function PieceProfiles(props) {
         return profiles;
     };
 
-    //children is a header or none, depending on the parent page.
     return (
         <div className={`scrollbar-${props.theme}`}>
             <div className={classes.piece_profiles}>

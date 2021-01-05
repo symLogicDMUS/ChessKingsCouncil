@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {HelpText, HelpTitle} from "./HelpText"
 import "../styles/_backgrounds.scss";
 import { fontSize } from "../styles/fontSize.jss";
 import { messageStr } from "./helpers/messageStr";
@@ -13,16 +14,16 @@ import { Icon } from "./Icon/Icon";
 import { Range } from "./Range/Range";
 import { Options } from "./Options/Options";
 import { Location } from "./Location/Location";
-import { NavBar } from "../Reuseables/NavBar";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { SideBar } from "../Reuseables/SidBar";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import MuiAccordion from "../Reuseables/MuiAccordion";
-import { navBarWidth } from "../Reuseables/NavBar.jss";
+import { navBarWidth } from "../Reuseables/NavBar/NavBar.jss";
 import { sideBarWidth } from "../Reuseables/SidBar.jss";
 import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBarButton.jss";
+import { navBarButtonWidth } from "../Reuseables/NavBar/NavBarButton.jss";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
@@ -406,6 +407,8 @@ class CreatePiece extends React.Component {
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
+                            helpTitle={HelpTitle(fontSize, this.state.theme)}
+                            helpText={HelpText(fontSize, this.state.theme)}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
                             isUnsavedChanges={this.isUnsavedChanges}

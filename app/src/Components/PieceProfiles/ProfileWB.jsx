@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Portal } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
@@ -9,14 +10,12 @@ import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable";
 import { ProfileAvatar } from "./ProfileAvatar";
-import { mobileScaler, useStyles } from "./ProfileWB.jss";
-import { Portal } from "@material-ui/core";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
+import {adjustFontSize, useStyles } from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
  * color: is for W or B piece,
- * expand: given to header. opens displayBoard
  * def: spans, offsets, and img of W or B piece
  * */
 export function ProfileWB({
@@ -26,21 +25,10 @@ export function ProfileWB({
     theme,
     screenCase,
 }) {
-    const classes = useStyles({ fontSize: fontSize, theme: theme });
-
     let [modal, setModal] = useState(false);
     let [rangeType, setRangeType] = useState(null);
 
-    const getFontSize = () => {
-        switch (screenCase) {
-            case "desktop":
-                return fontSize;
-            case "mobile":
-                return fontSize * mobileScaler;
-            default:
-                return fontSize;
-        }
-    };
+    const classes = useStyles({ fontSize: fontSize, theme: theme });
 
     const getSpans = (def) => {
         if (def.spans.length === 0) {
@@ -117,7 +105,7 @@ export function ProfileWB({
                         </Box>
                     }
                     style={{
-                        fontSize: getFontSize(),
+                        fontSize: adjustFontSize(fontSize, screenCase),
                         width: screenCase === "desktop" ? "11.55em" : "7.5em",
                         isOutline: true,
                     }}
@@ -151,7 +139,7 @@ export function ProfileWB({
                         </Box>
                     }
                     style={{
-                        fontSize: getFontSize(),
+                        fontSize: adjustFontSize(fontSize, screenCase),
                         width: screenCase === "desktop" ? "11.55em" : "7.5em",
                         isOutline: true,
                     }}
