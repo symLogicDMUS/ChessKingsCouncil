@@ -1,14 +1,17 @@
 import React from "react";
 import {v4 as uuidv4} from "uuid";
-import Backend from "react-dnd-html5-backend";
 import {DndProvider} from "react-dnd";
-import {Square} from "./Square";
-import {Piece} from "./Piece";
-import {GameDisplayBoard} from "./GameDisplayBoard";
+import Backend from "react-dnd-html5-backend";
+import {TouchBackend} from 'react-dnd-touch-backend'
+import {backendOptions} from "./hasNative";
+import MediaQuery from "react-responsive/src";
 import {getPieceImg} from "../../MyPieces/getPieceImg";
 import {getPieceName} from "../../helpers/getPieceName";
 import {rankfiles} from "../../helpers/rankfiles";
 import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
+import {GameDisplayBoard} from "./GameDisplayBoard";
+import {Square} from "./Square";
+import {Piece} from "./Piece";
 import {useStyles} from "./Board.jss";
 
 export function Board({ gameroot }) {
@@ -47,9 +50,16 @@ export function Board({ gameroot }) {
 
     return (
         <>
-            <DndProvider backend={Backend}>
-                <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
-            </DndProvider>
+            <MediaQuery minDeviceWidth={768}>
+                <DndProvider backend={Backend}>
+                    <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
+                </DndProvider>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={767}>
+                <DndProvider backend={TouchBackend} options={backendOptions}>
+                    <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
+                </DndProvider>
+            </MediaQuery>
             <GameDisplayBoard theme={gameroot.state.theme} />
         </>
     );

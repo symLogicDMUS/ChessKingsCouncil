@@ -10,9 +10,9 @@ export const square = (fontSize) => {
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize * mobileScalar,
         },
+        zIndex: 'inherit',
         width: '1em',
         height: '1em',
-        zIndex: 'inherit',
         cursor: 'pointer',
     });
 };

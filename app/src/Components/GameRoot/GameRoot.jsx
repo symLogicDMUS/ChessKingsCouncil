@@ -71,7 +71,7 @@ class GameRoot extends React.Component {
         this.promoChoices = this.gameData["promos"];
         this.playerType = this.gameData["pt"]; //duplicate?
         this.resigned = this.gameStatus.hasResigned();
-        //Note: do not make these state variable. Multiple changes need to be made BEFORE re-rendering:
+        //Note: do not make these state variables. Multiple changes need to be made BEFORE re-rendering:
         this.unsavedProgress = false;
         this.specialCase = "none";
         this.aiDisplay = false;
@@ -232,6 +232,7 @@ class GameRoot extends React.Component {
         this.specialMoves.update(turnData.special_moves);
         this.aiStart = turnData.ai_start;
         this.aiDest = turnData.ai_dest;
+
         if (this.isCouncil)
             this.gameStatus.update(
                 this.board,

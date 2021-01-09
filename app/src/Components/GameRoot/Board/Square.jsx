@@ -5,11 +5,11 @@ import { isLegal } from '../Move/isLegal';
 import { ItemTypes } from "../../helpers/constants";
 import {getInteractiveSqrClass} from "../../styles/getSqrClass.jss";
 import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss"
-import {useStyles} from "../../Reuseables/Square.jss";
+import {square, useStyles} from "../../Reuseables/Square.jss";
 
 export function Square({rf, theme, gameroot, children}) {
 
-    const classes = useStyles({fontSize, theme: theme});
+    const classes = useStyles({fontSize, theme});
 
     const [{ isOver, canDrop }, drop] = useDrop({
       accept: ItemTypes,
