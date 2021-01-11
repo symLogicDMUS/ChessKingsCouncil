@@ -3,7 +3,6 @@ import { SpanArrowButtons } from "./SpanArrowButtons/SpanArrowButtons";
 import { fontSizeAlt4 as fontSize } from "../../styles/fontSize.jss";
 import { Typography } from "@material-ui/core";
 import { angleToText } from "../../helpers/spanToText";
-import { offsetToText } from "../../helpers/offsetToText";
 import ScrollTable from "../../Reuseables/ScrollTable";
 import { useStyles } from "./Range.jss";
 import Box from "@material-ui/core/Box";
@@ -29,10 +28,6 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
             }
         }
         return newSpans;
-    };
-
-    const getOffsetTextLabels = () => {
-        return offsets.map((offset) => offsetToText(offset));
     };
 
     const getFontSize = () => {

@@ -5,9 +5,9 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./AIBoard.jss";
 
-
 export function AIBoard({theme, aiStart, aiDest}) {
     const classes = useStyles({fontSize, theme: theme})
+
     const getBoard = () => {
         let squares = [];
         for (const rf of rankfiles) {

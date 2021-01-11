@@ -1,68 +1,63 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { OVER } from "../helpers/gStatusTypes";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
+import {OVER} from "../helpers/gStatusTypes";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
 import Promo from "./Promo/Promo";
-import { isPawn } from "../helpers/isPawn";
-import { AIDisplay } from "./AI/AIDisplay";
-import { makeMove } from "./Move/makeMove";
-import { saveGame } from "../../API/saveGame";
-import { SaveAs } from "./SaveResignTool/SaveAs";
-import { Board } from "./Board/Board";
-import { StatusBar } from "./StatusBar/StatusBar";
-import { Fen } from "../../game_logic/fenParser/Fen";
-import { update } from "../../game_logic/callHierarchyTop/update";
-import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
-import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
-import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
-import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
-import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
-import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
-import { GameStatusCouncil } from "../../game_logic/council_logic/GameStatusCouncil";
-import { replacePawnIdWithCurrentLoc } from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
-import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
-import { RangeDisplayTool } from "./RangeDisplayTool/RangeDisplayTool";
-import { DisplayMessageOnTimer } from "../Reuseables/DisplayMessageOnTimer";
-import { kingStartingRf, rookStartingRf } from "./sharedData/castleRankfiles";
-import { gameDefsOffsetListsToStrs } from "../../apiHelpers/gameDefsOffsetListsToStrs";
-import { gamePageRedirectMessage } from "./sharedData/gamePageRedirectMessage";
+import {isPawn} from "../helpers/isPawn";
+import {AIDisplay} from "./AI/AIDisplay";
+import {makeMove} from "./Move/makeMove";
+import {saveGame} from "../../API/saveGame";
+import {SaveAs} from "./SaveResignTool/SaveAs";
+import {StatusBar} from "./StatusBar/StatusBar";
+import {Fen} from "../../game_logic/fenParser/Fen";
+import {update} from "../../game_logic/callHierarchyTop/update";
+import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
+import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
+import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
+import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
+import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
+import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
+import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
+import {GameStatusCouncil} from "../../game_logic/council_logic/GameStatusCouncil";
+import {replacePawnIdWithCurrentLoc} from "../../game_logic/JsonRecords/replacePawnIdWithCurrentLoc";
+import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
+import {BoardTool} from "./BoardTool/BoardTool";
+import {DisplayMessageOnTimer} from "../Reuseables/DisplayMessageOnTimer";
+import {rankfiles} from "../helpers/rankfiles";
+import {kingStartingRf, rookStartingRf} from "../helpers/castleRankfiles";
+import {gameDefsOffsetListsToStrs} from "../../apiHelpers/gameDefsOffsetListsToStrs";
 import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import { SideBar } from "../Reuseables/SidBar";
-import { navBarWidth } from "../Reuseables/NavBar/NavBar.jss";
-import { sideBarWidth } from "../Reuseables/SidBar.jss";
-import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBar/NavBarButton.jss";
-import { GameInfo } from "./GameInfo/GameInfo";
-import { fontSize } from "../styles/fontSize.jss";
+import {SideBar} from "../Reuseables/SidBar";
+import {navBarWidth} from "../Reuseables/NavBar/NavBar.jss";
+import {sideBarWidth} from "../Reuseables/SidBar.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
+import {GameInfo} from "./GameInfo/GameInfo";
+import {fontSize} from "../styles/fontSize.jss";
 import Typography from "@material-ui/core/Typography";
 import {HelpTitle, HelpText} from "./HelpText";
+import {Board} from "./GameBoard/Board";
 import "../styles/_backgrounds.scss";
-import { styles } from "./GameRoot.jss";
-import {DndProvider} from "react-dnd";
-import {HTML5Backend} from "react-dnd-html5-backend";
-import {Example} from "./Board/Example";
+import {styles} from "./GameRoot.jss";
+import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
+import {PieceSavedSuccessfully} from "../CreatePiece/animations/PieceSavedSuccessfully";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { bValue: true, messageModal: false, theme: "dark" };
-        this.username = this.props.location.state.username;
+        this.state = {bValue: true, messageModal: false, theme: "dark"};
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
-        this.currentPath = this.props.location.state.currentPath;
         this.gameData = this.props.location.state.gameData;
         this.isCouncil = this.gameType === "council";
         this.board = this.gameData["board"];
-        this.jsonRecords = new JsonRecords(
-            initPawnIds(this.gameData["json_records"], this.board)
-        );
-        if (this.isCouncil)
-            this.gameStatus = new GameStatusCouncil(this.gameData["status"]);
+        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData["json_records"], this.board));
+        if (this.isCouncil) this.gameStatus = new GameStatusCouncil(this.gameData["status"]);
         else this.gameStatus = new GameStatus(this.gameData["status"]);
         this.specialMoves = new SpecialMoves(this.gameData["special_moves"]);
         this.fenObj = new Fen(this.gameData["fen_data"]);
@@ -87,24 +82,19 @@ class GameRoot extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = null;
-        this.hmChildren = { none: null };
+        this.hmChildren = {none: null};
         this.confirmRedirectModal = false;
         this.redirectPath = null;
-        this.redirectMessage = gamePageRedirectMessage;
         this.save = this.save.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
         this.resign = this.resign.bind(this);
+        this.triggerRender = this.triggerRender.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.updateSpecialCase = this.updateSpecialCase.bind(this);
+        this.getRangeBoard = this.getRangeBoard.bind(this);
         this.prepareAiMove = this.prepareAiMove.bind(this);
         this.aiMakeMove = this.aiMakeMove.bind(this);
-        this.toggleNav = this.toggleNav.bind(this);
-        this.toggleMessageModal = this.toggleMessageModal.bind(this);
-        this.setMessageText = this.setMessageText.bind(this);
-        this.setConfirmRedirect = this.setConfirmRedirect.bind(this);
         this.toggleSaveAs = this.toggleSaveAs.bind(this);
         this.changeName = this.changeName.bind(this);
-        this.getBoard = this.getBoard.bind(this);
     }
 
     componentDidMount() {
@@ -117,6 +107,23 @@ class GameRoot extends React.Component {
                 this.triggerRender();
             }
         }
+    }
+
+    /**
+     * @param pieceId: range of piece with id pieceId
+     * @returns binary board where only inRange values set to true
+     */
+    getRangeBoard(pieceId) {
+        if (pieceId[0] !== this.turn) {
+            return getBinaryBoarAllFalse()
+        }
+        let range = this.ranges[pieceId]
+        let inRange = rankfiles.filter(rf => range.includes(rf))
+        let rangeBoard = getBinaryBoarAllFalse()
+        for (let rf of Object.keys(rangeBoard)) {
+            rangeBoard[rf] = inRange.includes(rf);
+        }
+        return rangeBoard;
     }
 
     isGameOver() {
@@ -153,14 +160,6 @@ class GameRoot extends React.Component {
         this.triggerRender();
     }
 
-    getBoard() {
-        return this.board;
-    }
-
-    getTurn() {
-        return this.turn;
-    }
-
     toggleTurn() {
         if (this.turn === "W") {
             this.turn = "B";
@@ -169,21 +168,6 @@ class GameRoot extends React.Component {
         } else {
             console.log("color error");
         }
-    }
-
-    toggleNav(boolVal) {
-        this.navExpanded = boolVal;
-        this.setState({ bValue: !this.state.bValue });
-    }
-
-    toggleMessageModal(boolVal) {
-        this.setState({ messageModal: boolVal });
-    }
-
-    setMessageText(helpTitle, helpText) {
-        this.messageTitle = helpTitle;
-        this.messageText = helpText;
-        this.setState({ messageModal: true });
     }
 
     getCondition() {
@@ -200,7 +184,7 @@ class GameRoot extends React.Component {
     }
 
     triggerRender() {
-        this.setState({ bValue: !this.state.bValue });
+        this.setState({bValue: !this.state.bValue});
     }
 
     updateSpecialCase(specialCase) {
@@ -336,12 +320,6 @@ class GameRoot extends React.Component {
         this.gameName = newName;
     }
 
-    setConfirmRedirect(boolVal, path) {
-        this.confirmRedirectModal = boolVal;
-        this.redirectPath = path;
-        this.triggerRender();
-    }
-
     setUnsavedProgress(boolVal) {
         /**Do not make this a state variable*/
         this.unsavedProgress = boolVal;
@@ -376,10 +354,15 @@ class GameRoot extends React.Component {
                     />
                 )}
                 {this.specialCase === "save-success" && (
-                    <DisplayMessageOnTimer
-                        methodToCallOnFinish={this.updateSpecialCase}
-                        valueToSendOnFinish="none"
-                    />
+                    <AnimatePresencePortal>
+                        <PieceSavedSuccessfully
+                            callback={() => {
+                                this.updateSpecialCase('none')
+                                this.triggerRender()
+                            }}
+                            theme={this.state.theme}
+                        />
+                    </AnimatePresencePortal>
                 )}
             </>
         );
@@ -388,9 +371,7 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <DndProvider backend={HTML5Backend}>
-                    <Example gameroot={this} />
-                </DndProvider>
+                <Board gameroot={this} />
                 {/*<MediaQuery minDeviceWidth={768}>*/}
                 {/*    <PermanentDrawer*/}
                 {/*        theme={this.state.theme}*/}
@@ -398,7 +379,7 @@ class GameRoot extends React.Component {
                 {/*        drawerType="right"*/}
                 {/*        content={*/}
                 {/*            <div>*/}
-                {/*                <Board gameroot={this} />*/}
+                {/*                <GameBoard gameroot={this} />*/}
                 {/*                {this.isAiTurn() && (*/}
                 {/*                    <AIDisplay*/}
                 {/*                        theme={this.state.theme}*/}
@@ -431,7 +412,7 @@ class GameRoot extends React.Component {
                 {/*            updateSpecialCase={this.updateSpecialCase}*/}
                 {/*            theme={this.state.theme}*/}
                 {/*        />*/}
-                {/*        <RangeDisplayTool*/}
+                {/*        <BoardTool*/}
                 {/*            board={this.board}*/}
                 {/*            theme={this.state.theme}*/}
                 {/*            screenCase={'desktop'}*/}
@@ -497,7 +478,7 @@ class GameRoot extends React.Component {
                 {/*            />*/}
                 {/*        }*/}
                 {/*    >*/}
-                {/*        <Board gameroot={this} />*/}
+                {/*        <GameBoard gameroot={this} />*/}
                 {/*        {this.isAiTurn() && (*/}
                 {/*            <AIDisplay*/}
                 {/*                theme={this.state.theme}*/}
@@ -539,11 +520,11 @@ class GameRoot extends React.Component {
                 {/*                    id: "range-display",*/}
                 {/*                    title: (*/}
                 {/*                        <Typography>*/}
-                {/*                            Range Board*/}
+                {/*                            Range GameBoard*/}
                 {/*                        </Typography>*/}
                 {/*                    ),*/}
                 {/*                    body: (*/}
-                {/*                        <RangeDisplayTool*/}
+                {/*                        <BoardTool*/}
                 {/*                            board={this.board}*/}
                 {/*                            theme={this.state.theme}*/}
                 {/*                            screenCase={'mobile'}*/}

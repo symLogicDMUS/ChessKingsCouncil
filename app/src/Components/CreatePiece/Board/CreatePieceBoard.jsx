@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import {v4 as uuidv4} from "uuid";
 import "../../helpers/stepFuncs";
-import { rankfiles } from "./rankfiles";
+import { rankfiles } from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";

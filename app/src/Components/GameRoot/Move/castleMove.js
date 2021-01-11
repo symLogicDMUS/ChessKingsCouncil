@@ -1,5 +1,5 @@
 import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
-import {boardSize, sqrSize} from "../Board/snapToGrid";
+import {boardSize, sqrSize} from "../../Reuseables/Board.jss";
 import {rfToXy} from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 

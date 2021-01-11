@@ -1,5 +1,5 @@
 import {rfToXy} from "../../helpers/crdCnvrt";
-import {boardSize, sqrSize} from "../Board/snapToGrid";
+import {boardSize, sqrSize} from "../GameBoard/DropLayer.jss";
 
 export function updatePieceObj(gameroot, start, dest, dispatch) {
     let id = gameroot.board[start];
