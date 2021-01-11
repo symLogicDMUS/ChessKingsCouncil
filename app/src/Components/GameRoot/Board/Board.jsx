@@ -1,7 +1,7 @@
 import React from "react";
 import {v4 as uuidv4} from "uuid";
 import {DndProvider} from "react-dnd";
-import Backend from "react-dnd-html5-backend";
+import {HTML5Backend} from "react-dnd-html5-backend";
 import {TouchBackend} from 'react-dnd-touch-backend'
 import {backendOptions} from "./hasNative";
 import MediaQuery from "react-responsive/src";
@@ -31,7 +31,7 @@ export function Board({ gameroot }) {
                 );
             } else {
                 id = gameroot.board[rf];
-                pieceImgBase64Str = getPieceImg(id, gameroot.idDict, gameroot.pieceDefs);
+                pieceImgBase64Str = getPieceImg(id, gameroot.idDict, gameroot.defs);
                 squares.push(
                     <Square key={uuidv4()} rf={rf} gameroot={gameroot} theme={gameroot.state.theme}>
                         <Piece
@@ -51,7 +51,7 @@ export function Board({ gameroot }) {
     return (
         <>
             <MediaQuery minDeviceWidth={768}>
-                <DndProvider backend={Backend}>
+                <DndProvider backend={HTML5Backend}>
                     <div className={classes.interactive_board}>{getInteractiveBoard()}</div>
                 </DndProvider>
             </MediaQuery>

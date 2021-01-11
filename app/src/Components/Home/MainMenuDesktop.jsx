@@ -4,9 +4,9 @@ import {PageLink} from "./PageLink";
 import {MuiButton as Button} from "../Reuseables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import {fontSize} from "../styles/fontSize.jss";
-// import "./Home.scss";
 import "../styles/_backgrounds.scss"
 import {useStyles} from "./MainMenuDesktop.jss";
+import {Background} from "../Reuseables/Background";
 
 
 export function MainMenuDesktop(props) {
@@ -15,6 +15,7 @@ export function MainMenuDesktop(props) {
 
     return (
         <>
+            <Background theme={props.theme} />
             <Box className={classes.top}>
                 <Button
                     onClick={props.signOut}

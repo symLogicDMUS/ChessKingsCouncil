@@ -5,14 +5,16 @@ import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./LoginPage.jss";
 import MediaQuery from "react-responsive/src";
+import {Background} from "../Reuseables/Background";
 
 export function LoginPage(props) {
-    let [theme, setTheme] = useState("black");
+    let [theme, setTheme] = useState("tan");
     const classes = useStyles({theme: theme, fontSize: fontSize});
 
     return (
         <>
             <MediaQuery minDeviceWidth={768}>
+                <Background theme={theme} />
                 <div className={classes.login_page}>
                     <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>
                     <StyledFirebaseAuth

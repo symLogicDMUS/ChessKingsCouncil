@@ -79,7 +79,7 @@ export const themes = {
         page_link: '#914baf',
         page_link_hover: '#ffffff',
     },
-    black: {
+    tan: {
         outline: '#000000',
         fill: '#000000',
         text: '#d7bb99',

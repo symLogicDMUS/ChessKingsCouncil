@@ -2,10 +2,10 @@ import React from "react";
 import { useDrop } from 'react-dnd';
 import { move } from '../Move/move';
 import { isLegal } from '../Move/isLegal';
-import { ItemTypes } from "../../helpers/constants";
 import {getInteractiveSqrClass} from "../../styles/getSqrClass.jss";
 import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss"
 import {square, useStyles} from "../../Reuseables/Square.jss";
+import {ItemTypes} from "./ItemTypes";
 
 export function Square({rf, theme, gameroot, children}) {
 

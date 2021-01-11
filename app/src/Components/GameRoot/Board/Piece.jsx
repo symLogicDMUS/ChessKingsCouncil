@@ -2,11 +2,11 @@ import React from "react";
 import {useDrag} from "react-dnd";
 import {usePreview} from "react-dnd-preview";
 import MediaQuery from "react-responsive/src";
-import {useStyles} from "./Piece.jss";
 import {Portal} from "@material-ui/core";
+import {useStyles} from "./Piece.jss";
 
 export function Piece({rf, id, pieceImgBase64Str, alt}) {
-    const classes = useStyles({rf});
+    const classes = useStyles();
     let iType = id.slice(0, 2);
     const [{isDragging}, drag] = useDrag({
         item: {type: iType, pos: rf, id_: id},

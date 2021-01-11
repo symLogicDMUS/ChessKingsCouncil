@@ -9,12 +9,13 @@ import { copy } from "../helpers/copy";
 import MenuItem from "@material-ui/core/MenuItem";
 import { LoadGameFromList } from "./LoadGameFromList";
 import "../styles/_backgrounds.scss";
+import {Background} from "../Reuseables/Background";
 
 class LoadGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: "black",
+            theme: "tan",
             selectedGame: null,
             userChoseGame: false,
         };
@@ -31,7 +32,7 @@ class LoadGame extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "light-background";
+        document.body.className = "tan-background";
         getGames().then(([games]) => {
             if (games) {
                 this.games = games;
@@ -98,6 +99,7 @@ class LoadGame extends React.Component {
 
         return (
             <>
+                <Background theme={this.state.theme} />
                 <LoadGameFromList
                     load={this.load}
                     deleteGame={this.deleteGame}

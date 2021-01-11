@@ -1,7 +1,9 @@
 import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
+import {boardSize, sqrSize} from "../Board/snapToGrid";
+import {rfToXy} from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 
-export function castleMove(gameroot, start, dest) {
+export function castleMove(gameroot, kingStart, kingDest, dispatch, title) {
     /**if castle move, then move the rook as part of castle
     parameters
     ..........
@@ -12,11 +14,23 @@ export function castleMove(gameroot, start, dest) {
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
     
-    if (! gameroot.specialMoves.isCastle([start, dest])) {
+    if (! gameroot.specialMoves.isCastle([kingStart, kingDest])) {
         return;
     }
-
-    const [rStart, rDest] = getRookStartAndDest(dest);
-    ply(gameroot, rStart, rDest);
-    gameroot.specialMoves.removeCastle([start, dest]);
+    const [rookStart, rookDest] = getRookStartAndDest(kingDest);
+    let rookId = gameroot.board[rookStart];
+    let [rookDestX, rookDestY] = rfToXy(rookDest);
+    let [rookLeft, rookTop] = [
+        rookDestX * sqrSize,
+        boardSize - rookDestY * sqrSize,
+    ];
+    dispatch({
+        type: "update",
+        id: rookId,
+        left: rookLeft,
+        top: rookTop,
+        title: title,
+    });
+    ply(gameroot, rookStart, rookDest);
+    gameroot.specialMoves.removeCastle([rookStart, rookDest]);
 }

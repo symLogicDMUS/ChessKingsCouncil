@@ -7,6 +7,12 @@ export function xyToRf(x, y) {
     return r + f;
 }
 
+export function xyToRfMapGrid(x, y) {
+    const r = xMapR[x];
+    const f = xyMapGrid[y].toString(10);
+    return r + f;
+}
+
 export function rfToXy(rf) {
     const x = xMapR.indexOf(rf[0]);
     const y = Number(rf[1]);

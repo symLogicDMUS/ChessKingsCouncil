@@ -3,16 +3,15 @@ import MediaQuery from "react-responsive/src";
 import { MainMenuDesktop } from "./MainMenuDesktop";
 import { MainMenuMobile } from "./MainMenuMobile";
 import "../styles/_backgrounds.scss";
-import "./Home.scss";
 
 export class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { theme: "black" };
+        this.state = { theme: "tan" };
     }
 
     componentDidMount() {
-        document.body.className = "main-menu-background";
+        document.body.className = "tan-background";
     }
 
     render() {

@@ -6,7 +6,7 @@ export function ply(gameroot, start, dest) {
         gameroot.captured = gameroot.board[dest]
     }
     else {
-        gameroot.captured = 'None'
+        gameroot.captured = 'None';
     }
     gameroot.board[dest] = gameroot.board[start]
     gameroot.board[start] = '#'

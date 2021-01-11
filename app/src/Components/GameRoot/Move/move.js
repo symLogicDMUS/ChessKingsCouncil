@@ -1,9 +1,9 @@
 import {makeMove} from "./makeMove";
 import "../../helpers/resolvePlayerType";
 
-export function move(gameroot, start, dest) {
+export function move(gameroot, id, start, dest, left, top, title, dispatch) {
     /* function to move a piece on board from start to dest **/
-    makeMove(gameroot, start, dest);
+    makeMove(gameroot, id, start, dest, left, top, title, dispatch);
     gameroot.toggleTurn();
     gameroot.updateFen(start, dest);
     gameroot.updateTurnData();

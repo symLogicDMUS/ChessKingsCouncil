@@ -6,15 +6,17 @@ import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./CouncilRules.jss";
 import Box from "@material-ui/core/Box";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import {Background} from "../Reuseables/Background";
 
 export function CouncilRules() {
     const classes = useStyles({ fontSize });
     return (
         <div>
             <MediaQuery minDeviceWidth={768}>
+                <Background theme='tan' />
                 <NavBar
                     currentPage="CouncilRules"
-                    theme="black"
+                    theme="tan"
                     style={{
                         fontSize: fontSize,
                         width: "100%",
@@ -112,7 +114,7 @@ export function CouncilRules() {
                                 height: "2.5em",
                             }}
                             redirectMessage={null}
-                            theme="black"
+                            theme="tan"
                         />
                     }
                     appBarContent={

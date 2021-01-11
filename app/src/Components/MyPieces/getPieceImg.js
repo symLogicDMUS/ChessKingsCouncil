@@ -11,5 +11,4 @@ export function getPieceImg(id_, idDict, defs) {
     }
     
     return defs[name][color]["img"];
-
 }

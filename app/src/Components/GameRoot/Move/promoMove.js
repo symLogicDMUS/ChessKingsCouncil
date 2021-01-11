@@ -1,4 +1,4 @@
-export function promoMove(gameroot, start, dest) {
+export function promoMove(gameroot, start, dest, dispatch) {
     if (!gameroot.specialMoves.isPromo([start, dest])) {
         return;
     }
