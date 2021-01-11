@@ -1,9 +1,9 @@
 import React, { useEffect, useState, memo } from 'react';
 import { Piece2 } from './Piece2';
 const styles = {
-    display: 'inline-block',
-    transform: 'rotate(-7deg)',
-    WebkitTransform: 'rotate(-7deg)',
+    // display: 'inline-block',
+    transform: 'rotate(-2deg)',
+    WebkitTransform: 'rotate(-2deg)',
 };
 export const PieceDragPreview = memo(({ src }) => {
     const [tickTock, setTickTock] = useState(false);

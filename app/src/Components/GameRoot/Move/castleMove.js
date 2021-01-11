@@ -3,7 +3,7 @@ import {boardSize, sqrSize} from "../Board/snapToGrid";
 import {rfToXy} from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 
-export function castleMove(gameroot, kingStart, kingDest, dispatch, title) {
+export function castleMove(gameroot, kingStart, kingDest, dispatch, src) {
     /**if castle move, then move the rook as part of castle
     parameters
     ..........
@@ -29,7 +29,7 @@ export function castleMove(gameroot, kingStart, kingDest, dispatch, title) {
         id: rookId,
         left: rookLeft,
         top: rookTop,
-        title: title,
+        src: src,
     });
     ply(gameroot, rookStart, rookDest);
     gameroot.specialMoves.removeCastle([rookStart, rookDest]);

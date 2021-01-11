@@ -28,7 +28,7 @@ export const Container = ({ snapToGrid, gameroot }) => {
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             let [start, dest, left, top] = getCoords(item, delta);
-            move(gameroot, item.id, start, dest, left, top, pieces[item.id].title, dispatch)
+            move(gameroot, item.id, start, dest, left, top, pieces[item.id].src, dispatch)
             return undefined;
         },
     });

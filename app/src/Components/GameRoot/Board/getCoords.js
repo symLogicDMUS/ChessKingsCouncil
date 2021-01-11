@@ -1,6 +1,5 @@
 import {snapToGrid as doSnapToGrid} from "./snapToGrid";
-import {pxPosToXy} from "./pxPosToXy";
-import {xyToRf} from "./crdCnvrt";
+import {pxPosToXy, xyToRf} from "./crdCnvrt";
 
 export const getCoords = (item, delta) => {
     let startLeft = item.left;

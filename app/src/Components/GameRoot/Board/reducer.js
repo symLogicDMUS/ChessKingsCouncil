@@ -10,7 +10,7 @@ export function reducer(state, action) {
                 [action.id]: {
                     top: action.top,
                     left: action.left,
-                    title: action.title,
+                    src: action.src,
                 },
             };
             return pieces;

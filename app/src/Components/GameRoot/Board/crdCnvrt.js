@@ -1,9 +1,13 @@
+import {sqrSize} from "./snapToGrid";
+
 const xMapR = [null, "a", "b", "c", "d", "e", "f", "g", "h"];
-const yMapTop = [null, 7, 6, 5, 4, 3, 2, 1, 0];
+const yMapUnitTop = [null, 7, 6, 5, 4, 3, 2, 1, 0];
+const unitLeftMapX = [1, 2, 3, 4, 5, 6, 7, 8]
+const unitTopMapY = [8, 7, 6, 5, 4, 3, 2, 1]
 
 export function xyToRf(x, y) {
     const r = xMapR[x];
-    const f = yMapTop[y].toString(10);
+    const f = y.toString(10);
     return r + f;
 }
 
@@ -15,13 +19,24 @@ export function rfToXy(rf) {
 
 export function xyToPx(x, y, sqrSize) {
     let left = (x-1)*sqrSize
-    let top = yMapTop[y]*sqrSize
+    let top = yMapUnitTop[y]*sqrSize
     return [left, top]
 }
 
-export function rfToGridLoc(rf) {
-    let [x, y] = rfToXy(rf);
-    return { gridColumn: yMapTop[x], gridRow: yMapTop[y] };
+/**
+ * covert left and top to board with coordinates (x, y) ranging from (1, 1) to (8, 8)
+ * @Parameters:
+ * @param left: position left in px of current dragged item
+ * @param top: position top in px of current dragged item
+ *
+ * @attributes:
+ * @attr unitLeft: the position left if the board was 8px by 8px and each square was 1px by 1px
+ * @attr: unitTop: the position top if the board was 8px by 8px and each square was 1px by 1px
+ */
+export function pxPosToXy(left, top) {
+    let unitLeft = Math.round(left / (sqrSize));
+    let unitTop = Math.round(top / (sqrSize));
+    return [unitLeftMapX[unitLeft], unitTopMapY[unitTop]];
 }
 
 export default { xyToRf, rfToXy };

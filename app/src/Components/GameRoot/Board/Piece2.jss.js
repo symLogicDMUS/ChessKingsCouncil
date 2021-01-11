@@ -1,6 +1,5 @@
 export const styles = {
-    cursor: 'pointer',
-    backgroundColor: '#b1faae',
+    cursor: 'grab',
     width: 62,
     height: 62,
     textAlign: 'center',
