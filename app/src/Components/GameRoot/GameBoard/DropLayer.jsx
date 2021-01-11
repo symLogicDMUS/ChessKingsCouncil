@@ -1,7 +1,7 @@
 import React, {useEffect, useReducer} from "react";
 import {useDrop} from "react-dnd";
-import {move} from "../Move/move";
 import {isLegal} from "../Move/isLegal";
+import {move} from "../Move/move";
 import {ItemTypes} from "./ItemTypes";
 import {getCoords} from "./getCoords";
 import {reducer} from "./reducers/DropLayer";
@@ -36,10 +36,11 @@ export const DropLayer = ({ gameroot, setRangeDisplay }) => {
             if (gameroot.aiColor === gameroot.turn) {
                 gameroot.prepareAiMove();
             }
-            // setRangeDisplay(false)
-            // gameroot.triggerRender();
             return undefined;
         },
+        collect: monitor => {
+            isOver: monitor.isOver()
+        }
     });
 
     return (

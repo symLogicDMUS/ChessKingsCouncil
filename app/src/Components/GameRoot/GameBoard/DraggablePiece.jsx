@@ -13,18 +13,11 @@ export const DraggablePiece = (props) => {
             isDragging: monitor.isDragging(),
         }),
         begin: (monitor) =>  props.setRangeDisplay(id),
-        // end: (monitor) => props.setRangeDisplay(false)
     });
 
     useEffect(() => {
         preview(getEmptyImage(), { captureDraggingState: true });
     }, []);
-
-    useEffect(() => {
-        if (! isDragging) {
-            props.setRangeDisplay(false)
-        }
-    }, [isDragging])
 
     return (
         <div ref={drag} style={updatePosition(left, top, isDragging)}>

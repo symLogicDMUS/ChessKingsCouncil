@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useDragLayer } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
 
-const DragLayer = () => {
+const DragLayer = ({setRangeDisplay}) => {
     const {
         itemType,
         isDragging,
@@ -19,6 +19,12 @@ const DragLayer = () => {
         currentOffset: monitor.getSourceClientOffset(),
         isDragging: monitor.isDragging(),
     }));
+
+    useEffect(() => {
+        if (! isDragging) {
+            setRangeDisplay(false)
+        }
+    }, [isDragging])
 
     const classes = useStyles();
 

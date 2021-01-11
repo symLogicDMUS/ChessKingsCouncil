@@ -4,7 +4,7 @@ export const useStyles = makeStyles({
     custom_drag_layer: props => ({
         position: 'fixed',
         pointerEvents: 'none',
-        zIndex: 3,
+        zIndex: 4,
         left: 0,
         top: 0,
         width: '100%',

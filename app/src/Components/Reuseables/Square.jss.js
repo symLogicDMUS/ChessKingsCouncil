@@ -83,5 +83,5 @@ export const useStyles = makeStyles({
         ...square(props.fontSize, props.type),
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-    })
+    }),
 });

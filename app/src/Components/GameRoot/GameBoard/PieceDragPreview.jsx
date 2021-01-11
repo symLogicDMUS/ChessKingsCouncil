@@ -1,7 +1,7 @@
 import React, { useEffect, useState, memo } from "react";
 import { Piece } from "./Piece";
 
-export const PieceDragPreview = memo(({ src, setRangeDisplay }) => {
+export const PieceDragPreview = memo(({ src }) => {
     const [tickTock, setTickTock] = useState(false);
     useEffect(
         function subscribeToIntervalTick() {

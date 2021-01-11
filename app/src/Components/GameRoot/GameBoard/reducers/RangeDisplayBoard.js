@@ -1,8 +1,8 @@
+import React from "react";
+import {v4 as uuidv4} from "uuid";
 import {rankfiles} from "../../../helpers/rankfiles";
 import {RangeDisplaySquare} from "../RangeDisplaySquare";
-import {v4 as uuidv4} from "uuid";
 import {binaryBoard} from "../../../helpers/binaryBoard";
-import React from "react";
 
 export function reducer(state, action) {
     switch (action.type) {

@@ -6,7 +6,7 @@ import {NavBar} from "../Reuseables/NavBar/NavBar";
 import Promo from "./Promo/Promo";
 import {isPawn} from "../helpers/isPawn";
 import {AIDisplay} from "./AI/AIDisplay";
-import {makeMove} from "./Move/makeMove";
+import {move} from "./Move/move";
 import {saveGame} from "../../API/saveGame";
 import {SaveAs} from "./SaveResignTool/SaveAs";
 import {StatusBar} from "./StatusBar/StatusBar";
@@ -153,7 +153,7 @@ class GameRoot extends React.Component {
 
     aiMakeMove() {
         this.aiDisplay = false;
-        makeMove(this, this.aiStart, this.aiDest);
+        move(this, this.aiStart, this.aiDest);
         this.toggleTurn();
         this.updateFen(this.aiStart, this.aiDest);
         this.updateTurnData();

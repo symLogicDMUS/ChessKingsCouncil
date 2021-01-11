@@ -10,9 +10,10 @@ import { GameDisplayBoard } from "./GameDisplayBoard";
 import { AIDisplay } from "../AI/AIDisplay";
 import { RangeDisplayBoard } from "./RangeDisplayBoard";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import {OnHoverBoard} from "./OnHoverBoard";
 
 export const Board = ({ gameroot }) => {
-    const [rangeBoard, dispatch] = useReducer(reducer, getBinaryBoarAllFalse());
+    const [state, dispatch] = useReducer(reducer, {isDragging: false, rangeBoard: getBinaryBoarAllFalse()});
 
     const setRangeDisplay = (pieceId) => {
         if (pieceId) {
@@ -34,11 +35,12 @@ export const Board = ({ gameroot }) => {
                         gameroot={gameroot}
                         setRangeDisplay={setRangeDisplay}
                     />
-                    <DragLayer />
+                    <DragLayer setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
-                        rangeBoard={rangeBoard}
+                        rangeBoard={state.rangeBoard}
                         theme={gameroot.state.theme}
                     />
+                    <OnHoverBoard theme={gameroot.state.theme} isDragging={state.isDragging} />
                     <GameDisplayBoard theme={gameroot.state.theme} />
                     {gameroot.isAiTurn() && (
                         <AIDisplay
@@ -56,11 +58,12 @@ export const Board = ({ gameroot }) => {
                         gameroot={gameroot}
                         setRangeDisplay={setRangeDisplay}
                     />
-                    <DragLayer />
+                    <DragLayer setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
-                        rangeBoard={rangeBoard}
+                        rangeBoard={state.rangeBoard}
                         theme={gameroot.state.theme}
                     />
+                    <OnHoverBoard theme={gameroot.state.theme} isDragging={state.isDragging} />
                     <GameDisplayBoard theme={gameroot.state.theme} />
                     {gameroot.isAiTurn() && (
                         <AIDisplay
