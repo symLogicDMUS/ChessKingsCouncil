@@ -78,40 +78,40 @@ export function ProfileWB({
                     src={def.img}
                     theme={theme}
                 />
-                {/*<ScrollTable*/}
-                {/*    numRows={5}*/}
-                {/*    listItems={getOffsets(def)}*/}
-                {/*    title={*/}
-                {/*        <Box className={classes.range_header}>*/}
-                {/*            <IconButton*/}
-                {/*                className={classes.range_expand_widget}*/}
-                {/*                onClick={() => {*/}
-                {/*                    setRangeType("offsets");*/}
-                {/*                    setModal(true);*/}
-                {/*                }}*/}
-                {/*            >*/}
-                {/*                <AddIcon*/}
-                {/*                    className={classes.range_expand_icon}*/}
-                {/*                />*/}
-                {/*            </IconButton>*/}
-                {/*            <Box className={classes.box}>*/}
-                {/*                <Typography*/}
-                {/*                    className={classes.range_title}*/}
-                {/*                    noWrap*/}
-                {/*                >*/}
-                {/*                    {resolvePlayerType(color)} Offsets*/}
-                {/*                </Typography>*/}
-                {/*            </Box>*/}
-                {/*        </Box>*/}
-                {/*    }*/}
-                {/*    style={{*/}
-                {/*        fontSize: adjustFontSize(fontSize, screenCase),*/}
-                {/*        width: screenCase === "desktop" ? "11.55em" : "7.5em",*/}
-                {/*        isOutline: true,*/}
-                {/*    }}*/}
-                {/*    buttonStyle={{ borderRadius: 0 }}*/}
-                {/*    theme={theme}*/}
-                {/*/>*/}
+                <ScrollTable
+                    numRows={5}
+                    listItems={getOffsets(def)}
+                    title={
+                        <Box className={classes.range_header}>
+                            <IconButton
+                                className={classes.range_expand_widget}
+                                onClick={() => {
+                                    setRangeType("offsets");
+                                    setModal(true);
+                                }}
+                            >
+                                <AddIcon
+                                    className={classes.range_expand_icon}
+                                />
+                            </IconButton>
+                            <Box className={classes.box}>
+                                <Typography
+                                    className={classes.range_title}
+                                    noWrap
+                                >
+                                    {resolvePlayerType(color)} Offsets
+                                </Typography>
+                            </Box>
+                        </Box>
+                    }
+                    style={{
+                        fontSize: adjustFontSize(fontSize, screenCase),
+                        width: screenCase === "desktop" ? "11.55em" : "7.5em",
+                        isOutline: true,
+                    }}
+                    buttonStyle={{ borderRadius: 0 }}
+                    theme={theme}
+                />
                 <ScrollTable
                     numRows={5}
                     listItems={getSpans(def)}

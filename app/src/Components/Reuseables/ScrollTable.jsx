@@ -1,10 +1,10 @@
 import React, {useEffect, useReducer} from "react";
 import {copy} from "../helpers/copy";
-import Button from "@material-ui/core/Button";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import Box from "@material-ui/core/Box";
-import { useStyles } from "./ScrollTable.jss";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import { useStyles } from "./ScrollTable.jss";
 
 function divideList(listItems, numRows) {
     let aboveView = [];
@@ -114,7 +114,7 @@ function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subH
     }, [listItems])
 
     return (
-        <div>
+        <Box className={classes.scroll_table}>
             <Button
                 onClick={() => dispatch({type: 'scroll-up', numRows: numRows, listItems: listItems})}
                 className={classes.arrow_button}
@@ -137,7 +137,7 @@ function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subH
             >
                 <ArrowDropUpIcon/>
             </Button>
-        </div>
+        </Box>
     )
 }
 

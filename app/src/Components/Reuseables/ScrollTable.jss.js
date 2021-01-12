@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
     scroll_table: props => ({
         ...props.style,
         fontSize: props.style.fontSize,
-        width: props.width,
+        width: props.style.width,
         display: 'flex',
         flexDirection: 'column',
     }),
