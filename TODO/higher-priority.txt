@@ -2,5 +2,4 @@ medium:
 * update Firebase security rules for new/removed pages
 
 long:
-* reimplement help modals/button
-* Add Mobile version of the Board, Square, and Piece components, that uses the Mobile version of React Dnd.
+make sure mobile version of everything works

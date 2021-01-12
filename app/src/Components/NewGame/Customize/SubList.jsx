@@ -21,25 +21,25 @@ export function SubList({subs, theme}) {
                 <Typography className={classes.text} noWrap>Rook</Typography>
             </Box>
             <Box className={classes.piece_value_odd}>
-                <Typography className={classes.text} noWrap>{subs.Rook}{pangram}</Typography>
+                <Typography className={classes.text} noWrap>{subs.Rook}</Typography>
             </Box>
             <Box className={classes.piece_label_even}>
                 <Typography className={classes.text} noWrap>Bishop</Typography>
             </Box>
             <Box className={classes.piece_value_even}>
-                <Typography className={classes.text} noWrap>{subs.Bishop}{pangram}</Typography>
+                <Typography className={classes.text} noWrap>{subs.Bishop}</Typography>
             </Box>
             <Box className={classes.piece_label_odd}>
                 <Typography className={classes.text} noWrap>Knight</Typography>
             </Box>
             <Box className={classes.piece_value_odd}>
-                <Typography className={classes.text} noWrap>{subs.Knight}{pangram}</Typography>
+                <Typography className={classes.text} noWrap>{subs.Knight}</Typography>
             </Box>
             <Box className={classes.piece_label_even}>
                 <Typography className={classes.text} noWrap>Queen</Typography>
             </Box>
             <Box className={classes.piece_value_even}>
-                <Typography className={classes.text} noWrap>{subs.Queen}{pangram}</Typography>
+                <Typography className={classes.text} noWrap>{subs.Queen}</Typography>
             </Box>
         </div>
     );

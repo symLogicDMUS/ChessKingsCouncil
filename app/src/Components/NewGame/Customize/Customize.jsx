@@ -139,13 +139,20 @@ class Customize extends React.Component {
     }
 
     toggleSub(sub, standardPiece) {
-        this.subs[standardPiece] = sub;
-        Object.keys(this.subs).forEach((pieceName) => {
-            if (pieceName !== standardPiece && this.subs[pieceName] === sub)
-                this.subs[pieceName] = null;
-        });
-        this.newReplacement = sub;
-        this.newReplaced = standardPiece;
+        this.subs[standardPiece] = (this.subs[standardPiece] === sub) ? null : sub;
+        if (this.subs[standardPiece]) {
+            Object.keys(this.subs).forEach((pieceName) => {
+                /**if custom piece was previously a sub for different standard piece,that standard piece has no sub. */
+                if (pieceName !== standardPiece && this.subs[pieceName] === sub)
+                    this.subs[pieceName] = null;
+            });
+            this.newReplacement = sub;
+            this.newReplaced = standardPiece;
+        }
+        else {
+            this.newReplacement = null;
+            this.newReplaced = null;
+        }
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -160,6 +167,7 @@ class Customize extends React.Component {
 
     togglePromoAll() {
         this.promoAll = !this.promoAll;
+        //if promoAll now true than add every piece not already a promo to the list
         if (this.promoAll) {
             for (const pieceName of Object.keys(this.defs)) {
                 if (!this.promos.includes(pieceName)) {
@@ -169,7 +177,6 @@ class Customize extends React.Component {
         } else {
             this.promos = [];
         }
-        // this.promoListUpdate = true;
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -183,10 +190,8 @@ class Customize extends React.Component {
     }
 
     render() {
-        // if (this.promoListUpdate) this.divideList();
         return (
             <>
-
                 <div className={this.props.classes.customize}>
                     <MediaQuery minDeviceWidth={768}>
                         <Background theme={this.state.theme} />
@@ -234,7 +239,7 @@ class Customize extends React.Component {
                                 subHeader={
                                     <MuiCheckbox
                                         theme={this.state.theme}
-                                        onClick={() => this.togglePromoAll()}
+                                        onClick={this.togglePromoAll}
                                         style={{fontSize: fontSize * 0.8}}
                                         rootStyle={{
                                             marginLeft: drawerItemWidth * 0.025,

@@ -1,13 +1,8 @@
 short:
-* add z-index to pages with permanent drawer, so that when zoom in isn't ugly
-* change units of box shadow FirebaseAnonymousLoginButton to em
-* spans and offsets are displayed in the wrong tables
-* Standard pieces are being displayed in the piece profiles again
 * Add searchbar back in
 
 medium:
 * change save animation for GameRoot from 'Piece Saved Successfully!' to 'Game Saved Successfully!'
-* make home icon in NavBar same size as other icons
 * add loading animation
 
 long:

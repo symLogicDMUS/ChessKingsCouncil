@@ -1,16 +1,15 @@
 short:
-* decide if radio buttons shaped like chess pieces, or a dropdown, looks better for sub pieces. Would need to shrink the
-  height of dropdown in later case.
-* have confirm modal fly in from the bottom
-* have save successful message for GameRoot and createPiece be animated and use svg Garamond font text
+
+
+
 * make 'Shockwave' color of checkbox match the theme (not pink)
-* consider making the image that Piece component renders, a Material UI Avatar
+
 
 medium:
+* make home icon in NavBar same size as other icons
 * Make functional Components in addition to class components be a default export, to be consistent
 * go and through every document and use the Prettier command..
-* Have clicking the help Icon toggle the help model.
-* make stepFuncDict import the same across components. shouldn't need a dict for both angles as keys, and one func names as keys
+* Help button needs to  toggle help scrollTable
 
 long:
 * add new and different themes
