@@ -102,8 +102,8 @@ export function reducer(state, action) {
     }
 }
 
-function ScrollTable({listItems, numRows, theme, style, buttonStyle, subHeader}) {
-    const classes = useStyles({theme: theme, style: style, buttonStyle: buttonStyle});
+function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subHeader}) {
+    const classes = useStyles({theme: theme, width: width, style: style, buttonStyle: buttonStyle});
 
     const [state, dispatch] = useReducer(reducer, divideList(listItems, numRows));
     const [componentList, componentsDispatch] = useReducer(componentsReducer, renderList(state.inView, numRows, classes))
