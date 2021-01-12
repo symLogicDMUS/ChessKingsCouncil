@@ -1,40 +1,42 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
+import {v4 as uuidv4} from "uuid";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {HelpText, HelpTitle} from "./HelpText"
 import "../styles/_backgrounds.scss";
-import { fontSize } from "../styles/fontSize.jss";
-import { messageStr } from "./helpers/messageStr";
-import { saveDef } from "../../API/saveDef";
-import { copy } from "../helpers/copy";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Options } from "./Options/Options";
-import { Location } from "./Location/Location";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { SideBar } from "../Reuseables/SidBar";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import {fontSize} from "../styles/fontSize.jss";
+import {messageStr} from "./helpers/messageStr";
+import {saveDef} from "../../API/saveDef";
+import {copy} from "../helpers/copy";
+import {Name} from "./Name/Name";
+import {Icon} from "./Icon/Icon";
+import {Range} from "./Range/Range";
+import {Options} from "./Options/Options";
+import {Location} from "./Location/Location";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {SideBar} from "../Reuseables/SidBar";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import MuiAccordion from "../Reuseables/MuiAccordion";
-import { navBarWidth } from "../Reuseables/NavBar/NavBar.jss";
-import { sideBarWidth } from "../Reuseables/SidBar.jss";
-import { drawerWidth } from "../Reuseables/PermanentDrawer.jss";
-import { navBarButtonWidth } from "../Reuseables/NavBar/NavBarButton.jss";
-import { stepFuncDict } from "../helpers/stepFuncs";
-import { outOfBounds as oob } from "../helpers/oob";
-import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
-import { getRotations } from "./helpers/getRotations";
-import { getSpansDict } from "./helpers/getSpansDict";
-import { flipOffsets } from "./helpers/flipOffsets";
-import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { AnimatePresencePortal } from "../Reuseables/AnimatePresencePortal";
-import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
-import { styles } from "./CreatePiece.jss";
+import {navBarWidth} from "../Reuseables/NavBar/NavBar.jss";
+import {sideBarWidth} from "../Reuseables/SidBar.jss";
+import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
+import {stepFuncDict} from "../helpers/stepFuncs";
+import {outOfBounds as oob} from "../helpers/oob";
+import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
+import {getRotations} from "./helpers/getRotations";
+import {getSpansDict} from "./helpers/getSpansDict";
+import {flipOffsets} from "./helpers/flipOffsets";
+import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
+import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
+import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
+import {styles} from "./CreatePiece.jss";
+import {Portal} from "@material-ui/core";
+import {availWidth} from "../helpers/windowMeasurments";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -61,7 +63,7 @@ class CreatePiece extends React.Component {
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
 
         //these are used because of Reset Option.
         this.loadedName = "";
@@ -104,29 +106,29 @@ class CreatePiece extends React.Component {
     }
 
     triggerRender() {
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     isUnsavedChanges() {
         return this.unsavedChanges;
     }
 
-    load({ name, spans, offsets, whiteImg, blackImg }) {
+    load({name, spans, offsets, whiteImg, blackImg}) {
         this.name = name;
         this.offsets = offsets;
         this.spans = getSpansDict(spans);
-        this.whiteAndBlackImgs = { white: whiteImg, black: blackImg };
+        this.whiteAndBlackImgs = {white: whiteImg, black: blackImg};
         this.loadedName = copy(name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
-        this.setState({ unsavedChanges: false });
+        this.setState({unsavedChanges: false});
         this.setLoc("d4");
     }
 
     save() {
         const newPiece = {
-            W: { spans: null, offsets: null, img: null },
-            B: { spans: null, offsets: null, img: null },
+            W: {spans: null, offsets: null, img: null},
+            B: {spans: null, offsets: null, img: null},
         };
         const angles = [];
         for (const s of Object.keys(this.spans)) {
@@ -139,8 +141,8 @@ class CreatePiece extends React.Component {
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
         saveDef(this.name, newPiece).then(([r]) => {
-            this.setState({ unsavedChanges: false });
-            this.setState({ justSaved: true });
+            this.setState({unsavedChanges: false});
+            this.setState({justSaved: true});
         });
     }
 
@@ -156,7 +158,7 @@ class CreatePiece extends React.Component {
             this.name = copy(this.loadedName);
             this.setLoc("d4");
         }
-        this.setState({ unsavedChanges: false });
+        this.setState({unsavedChanges: false});
         this.triggerRender();
     }
 
@@ -171,19 +173,19 @@ class CreatePiece extends React.Component {
             !this.whiteAndBlackImgs.white &&
             !this.whiteAndBlackImgs.black
         ) {
-            this.setState({ unsavedChanges: false });
+            this.setState({unsavedChanges: false});
         } else {
-            this.setState({ unsavedChanges: true });
+            this.setState({unsavedChanges: true});
         }
     }
 
     clear() {
         /*used by Reset Option when not a loaded piece*/
         this.resetOffsetsAndRange();
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
         this.name = "";
         this.location = "d4";
-        this.setState({ unsavedChanges: false });
+        this.setState({unsavedChanges: false});
     }
 
     /**used by Name tool*/
@@ -193,14 +195,14 @@ class CreatePiece extends React.Component {
 
     /**used by Name tool*/
     updateNameFinish() {
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
         this.textInput.current.focus();
     }
 
     /**used by Icon tool*/
     setPieceImg(color, pieceImgBase64Str) {
         this.whiteAndBlackImgs[color] = pieceImgBase64Str;
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by Range tool*/
@@ -212,7 +214,7 @@ class CreatePiece extends React.Component {
             this.spanDisplays[rf] = this.spans[angle];
             rf = stepFunc(rf);
         }
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by Location tool, called by this.setDisplaySpans()*/
@@ -250,7 +252,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by the Location tool. Changes the spans displayed on board when piece location changes*/
@@ -313,7 +315,7 @@ class CreatePiece extends React.Component {
                 {this.state.justSaved && (
                     <AnimatePresencePortal>
                         <PieceSavedSuccessfully
-                            callback={() => this.setState({ justSaved: false })}
+                            callback={() => this.setState({justSaved: false})}
                             theme={this.state.theme}
                         />
                     </AnimatePresencePortal>
@@ -400,7 +402,7 @@ class CreatePiece extends React.Component {
                         <NavBar
                             currentPage="CreatePiece"
                             flexDirection="column"
-                            style={{ width: navBarWidth }}
+                            style={{width: navBarWidth}}
                             buttonStyle={{
                                 fontSize: fontSize * 1.2,
                                 justifyContent: "flex-start",
@@ -422,7 +424,7 @@ class CreatePiece extends React.Component {
                             <NavBar
                                 currentPage="CreatePiece"
                                 flexDirection="column"
-                                style={{ width: "100%" }}
+                                style={{width: "100%"}}
                                 buttonStyle={{
                                     fontSize: fontSize * 1.2,
                                     justifyContent: "flex-start",

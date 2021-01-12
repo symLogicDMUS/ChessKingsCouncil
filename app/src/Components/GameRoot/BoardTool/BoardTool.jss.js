@@ -4,7 +4,7 @@ import {themes} from "../../styles/themes.jss";
 
 
 export const useStyles = makeStyles({
-    range_display_rool: props => ({
+    range_display_tool: props => ({
         fontSize: props.fontSize,
         display: 'flex',
         flexDirection: 'row',

@@ -1,4 +1,6 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {sideBarWidth} from "./SidBar.jss";
+import {drawerWidth} from "./PermanentDrawer.jss";
 
 export const sqrSize = availHeight() * 0.1;  // for dnd context.
 export const boardSize = sqrSize * 8; // for dnd context
@@ -23,8 +25,8 @@ export const dnd_layer = (z) => ({
     width: boardSize,
     height: boardSize,
     position: 'absolute',
-    top: 0,
-    left: 0,
+    top: `calc(55% - ${boardSize*0.5}px)`,
+    left: `calc(45% - ${boardSize*0.5}px)`,
 });
 
 /**

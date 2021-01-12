@@ -11,7 +11,6 @@ import { GameDisplayBoard } from "./GameDisplayBoard";
 import { AIDisplay } from "../AI/AIDisplay";
 import { RangeDisplayBoard } from "./RangeDisplayBoard";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import {AIBoard} from "../AI/AIBoard";
 import {getStartingPieces} from "./getStartingPieces";
 
 export const Board = ({ gameroot }) => {

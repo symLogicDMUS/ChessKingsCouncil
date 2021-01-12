@@ -1,13 +1,9 @@
-import React, {useEffect, useReducer} from "react";
 import {useDrop} from "react-dnd";
 import {isLegal} from "../Move/isLegal";
 import {move} from "../Move/move";
 import {ItemTypes} from "./ItemTypes";
 import {getCoords} from "./getCoords";
-import {reducer} from "./reducers/DropLayer.red";
 import {renderPiece} from "./renderPiece.js";
-import {GameDisplayBoard} from "./GameDisplayBoard";
-import {getStartingPieces} from "./getStartingPieces";
 import {useStyles} from "./DropLayer.jss";
 
 /**

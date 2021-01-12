@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { NavBarButton } from "./NavBarButton";
 import { HelpButton } from "./HelpButton";
 import Box from "@material-ui/core/Box";
-import { useStyles } from "./NavBar.jss";
+import {Portal} from "@material-ui/core";
 import {v4 as uuidv4} from "uuid";
+import { useStyles } from "./NavBar.jss";
+
 
 export function NavBar(props) {
 
@@ -20,6 +22,9 @@ export function NavBar(props) {
 
     return (
         <>
+            {/*<Portal>*/}
+            {/*    <div className={classes.delete_me} />*/}
+            {/*</Portal>*/}
             <Box className={classes.nav_bar}>
                 <HelpButton
                     pageIcon="help"
