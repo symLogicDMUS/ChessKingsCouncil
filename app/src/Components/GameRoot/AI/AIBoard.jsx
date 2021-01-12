@@ -18,9 +18,7 @@ export function AIBoard({theme, aiStart, aiDest}) {
         return squares;
     };
     return (
-        <div
-            className={classes.ai_board}
-        >
+        <div className={classes.ai_board}>
             {getBoard()}
         </div>
     );

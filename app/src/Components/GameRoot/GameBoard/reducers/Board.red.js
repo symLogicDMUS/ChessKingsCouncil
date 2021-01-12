@@ -6,6 +6,8 @@ export function reducer(state, action) {
             return {isDragging: true, rangeBoard: action.getRangeBoard(action.pieceId)};
         case "display-off":
             return {isDragging: false, rangeBoard: getBinaryBoarAllFalse()}
+        case "set-over":
+            return {isDragging: state.isDragging, rangeBoard: state.rangeBoard}
         default:
             throw new Error();
     }

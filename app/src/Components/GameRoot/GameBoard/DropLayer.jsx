@@ -4,21 +4,20 @@ import {isLegal} from "../Move/isLegal";
 import {move} from "../Move/move";
 import {ItemTypes} from "./ItemTypes";
 import {getCoords} from "./getCoords";
-import {reducer} from "./reducers/DropLayer";
+import {reducer} from "./reducers/DropLayer.red";
 import {renderPiece} from "./renderPiece.js";
 import {GameDisplayBoard} from "./GameDisplayBoard";
 import {getStartingPieces} from "./getStartingPieces";
-import { useStyles } from "./DropLayer.jss";
+import {useStyles} from "./DropLayer.jss";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-export const DropLayer = ({ gameroot, setRangeDisplay }) => {
-    const [pieces, dispatch] = useReducer(reducer, getStartingPieces(gameroot));
+export const DropLayer = ({gameroot, pieces, dispatch, setRangeDisplay}) => {
 
     const classes = useStyles();
 
-    const [, drop] = useDrop({
+    const [isOver, drop] = useDrop({
         accept: ItemTypes,
         canDrop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
@@ -38,14 +37,11 @@ export const DropLayer = ({ gameroot, setRangeDisplay }) => {
             }
             return undefined;
         },
-        collect: monitor => {
-            isOver: monitor.isOver()
-        }
     });
 
     return (
         <>
-            <div ref={drop} className={classes.board} >
+            <div ref={drop} className={classes.board}>
                 {Object.keys(pieces).map((key) => renderPiece(pieces[key], key, setRangeDisplay))}
             </div>
         </>

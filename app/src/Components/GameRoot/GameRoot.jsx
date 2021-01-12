@@ -45,6 +45,7 @@ import {styles} from "./GameRoot.jss";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "../CreatePiece/animations/PieceSavedSuccessfully";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
+import {aiMoveComponent} from "./Move/aiMoveComponent";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -151,9 +152,9 @@ class GameRoot extends React.Component {
         );
     }
 
-    aiMakeMove() {
+    aiMakeMove(dispatch) {
         this.aiDisplay = false;
-        move(this, this.aiStart, this.aiDest);
+        aiMoveComponent(this, dispatch, this.aiStart, this.aiDest);
         this.toggleTurn();
         this.updateFen(this.aiStart, this.aiDest);
         this.updateTurnData();

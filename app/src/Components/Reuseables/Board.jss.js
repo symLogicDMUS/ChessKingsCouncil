@@ -23,8 +23,8 @@ export const dnd_layer = (z) => ({
     width: boardSize,
     height: boardSize,
     position: 'absolute',
-    top: availHeight() * 0.5 - boardSize*0.5,
-    left: availWidth() * 0.5 - boardSize*0.5,
+    top: 0,
+    left: 0,
 });
 
 /**

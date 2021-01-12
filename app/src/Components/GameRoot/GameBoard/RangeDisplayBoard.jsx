@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import { reducer } from "./reducers/RangeDisplayBoard";
+import { reducer } from "./reducers/RangeDisplayBoard.red";
 import { rankfiles } from "../../helpers/rankfiles";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { binaryBoard } from "../../helpers/binaryBoard";

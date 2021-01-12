@@ -4,8 +4,11 @@ import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
+import {pxPosToXy, xyToPx} from "./DndCrdCnvrt";
+import {boardSize, sqrSize} from "../../Reuseables/Board.jss";
+import {xyToRf} from "../../../game_logic/coordType/crdCnvrt";
 
-const DragLayer = ({setRangeDisplay}) => {
+const DragLayer = ({setRangeDisplay, setCurrentRf}) => {
     const {
         itemType,
         isDragging,
@@ -43,7 +46,7 @@ const DragLayer = ({setRangeDisplay}) => {
     return (
         <>
             <div className={classes.custom_drag_layer}>
-                <div style={getDragPositions(initialOffset, currentOffset)}>
+                <div style={getDragPositions(initialOffset, currentOffset)} >
                     {renderPieceBeingDragged()}
                 </div>
             </div>
