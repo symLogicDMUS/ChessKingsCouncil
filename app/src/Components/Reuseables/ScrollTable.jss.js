@@ -1,3 +1,4 @@
+import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 
 const list_item = (width, theme) => ({
@@ -12,8 +13,7 @@ const list_item = (width, theme) => ({
     justifyContent: 'flex-start',
 });
 
-export const styles = {
-
+export const useStyles = makeStyles({
     /**NOTE: width is a required prop!*/
     scroll_table: props => ({
         ...props.style,
@@ -55,4 +55,4 @@ export const styles = {
         ...list_item(props.style.width, props.theme),
         backgroundColor: themes[props.theme].even_row,
     }),
-};
+});
