@@ -48,7 +48,9 @@ class ScrollTable extends React.Component {
 
     moveUp() {
         if (this.belowView.length !== 0) {
+            //remove the first item in view
             let firstIn = this.inView.shift();
+
             this.aboveView.push(firstIn);
             let firstBelow = this.belowView.shift();
             this.inView.push(firstBelow);
