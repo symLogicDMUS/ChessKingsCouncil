@@ -4,7 +4,9 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import { useStyles } from "./ScrollTable.jss";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+
+import {useStyles} from "./ScrollTable.jss";
 
 function divideList(listItems, numRows) {
     let aboveView = [];
@@ -32,14 +34,14 @@ function divideList(listItems, numRows) {
 function renderList(inView, numRows, classes) {
     const rows = [];
     for (let i = 0; i < numRows; i++) {
-        if ((i+1) % 2 === 0) {
+        if ((i + 1) % 2 === 0) {
             rows.push(
                 <Box className={classes.list_item_even}>
                     <Typography
                         className={classes.text}
                         noWrap={true}
                     >
-                        {inView}
+                        {inView[i]}
                     </Typography>
                 </Box>
             )
@@ -50,7 +52,7 @@ function renderList(inView, numRows, classes) {
                         className={classes.text}
                         noWrap={true}
                     >
-                        {inView}
+                        {inView[i]}
                     </Typography>
                 </Box>
             )
@@ -74,39 +76,49 @@ export function reducer(state, action) {
         case "update":
             return divideList(action.listItems, action.numRows);
         case 'scroll-up':
-            lists = copy(state)
-            //1. remove the last item in view
-            a = lists.inView.pop()
-            //2. last item in view is first item below view.
-            lists.belowView.unshift(a)
-            //3. remove the last item above view.
-            b = lists.aboveView.pop()
-            //4. last item above view now first item in view
-            lists.inView.unshift(b)
-            //5. this is the new state
-            return lists;
+            if (state.aboveView.length > 0) {
+                lists = copy(state)
+                //1. remove the last item in view
+                a = lists.inView.pop()
+                //2. last item in view is first item below view.
+                lists.belowView.unshift(a)
+                //3. remove the last item above view.
+                b = lists.aboveView.pop()
+                //4. last item above view now first item in view
+                lists.inView.unshift(b)
+                //5. this is the new state
+                return lists;
+            } else {
+                return state;
+            }
         case 'scroll-down':
-            lists = copy(state)
-            //1. remove the first item in view.
-            a = lists.inView.shift()
-            //2. first item in view now last item above view
-            lists.aboveView.push(a)
-            //3. remove the first item below view.
-            b = lists.belowView.shift()
-            //4. first item below view now the last item in view
-            lists.inView.push(b)
-            //5. return the new state.
-            return lists;
+            if (state.belowView.length > 0) {
+                lists = copy(state)
+                //1. remove the first item in view.
+                a = lists.inView.shift()
+                //2. first item in view now last item above view
+                lists.aboveView.push(a)
+                //3. remove the first item below view.
+                b = lists.belowView.shift()
+                //4. first item below view now the last item in view
+                lists.inView.push(b)
+                //5. return the new state.
+                return lists;
+            }
+            else {
+                return state;
+            }
         default:
             throw new Error();
     }
 }
 
+
 function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subHeader}) {
     const classes = useStyles({theme: theme, width: width, style: style, buttonStyle: buttonStyle});
 
     const [state, dispatch] = useReducer(reducer, divideList(listItems, numRows));
-    const [componentList, componentsDispatch] = useReducer(componentsReducer, renderList(state.inView, numRows, classes))
+    const [componentList, componentsDispatch] = useReducer(componentsReducer, renderList(divideList(listItems, numRows), numRows, classes))
 
     useEffect(() => {
         dispatch({type: 'update', listItems: listItems, numRows: numRows})
@@ -135,7 +147,7 @@ function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subH
                 variant="outlined"
                 style={buttonStyle}
             >
-                <ArrowDropUpIcon/>
+                <ArrowDropDownIcon/>
             </Button>
         </Box>
     )

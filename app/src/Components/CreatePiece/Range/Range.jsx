@@ -47,11 +47,11 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
                     <ScrollTable
                         numRows={5}
                         listItems={getPangram()}
-                        width="11.5em"
                         theme={theme}
                         isBorder={true}
                         style={{
                             fontSize: getFontSize(),
+                            width: "11.5em",
                             borderRadius: "0.175em",
                             border: `0.05em solid ${themes[theme].outline}`,
                         }}
