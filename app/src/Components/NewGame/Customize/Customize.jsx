@@ -204,6 +204,7 @@ class Customize extends React.Component {
                                     parentPage="Customize"
                                     defs={this.defs}
                                     promos={this.promos}
+                                    updateParent={this.setDefs}
                                     newReplacement={this.newReplacement}
                                     newReplaced={this.newReplaced}
                                     toggleSub={this.toggleSub}
@@ -331,12 +332,13 @@ class Customize extends React.Component {
                             <PieceProfiles
                                 parentPage="Customize"
                                 defs={this.defs}
-                                updateParent={this.setDefs}
                                 promos={this.promos}
+                                updateParent={this.setDefs}
                                 newReplacement={this.newReplacement}
                                 newReplaced={this.newReplaced}
                                 toggleSub={this.toggleSub}
                                 togglePromo={this.togglePromo}
+                                togglePromoAll={this.togglePromoAll}
                                 theme={this.state.theme}
                             />
                             <MuiAccordion theme={this.state.theme} style={{height: '2.4em'}}>

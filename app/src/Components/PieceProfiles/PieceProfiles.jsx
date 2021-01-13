@@ -40,6 +40,9 @@ export function PieceProfiles(props) {
                     }
                 }
                 dispatch({type: 'load', payload: defs})
+                if (props.updateParent) {
+                    props.updateParent(defs)
+                }
             }
         });
     }, []);
