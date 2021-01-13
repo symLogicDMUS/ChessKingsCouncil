@@ -5,6 +5,19 @@ import {Portal} from "@material-ui/core";
 import {button} from "./StandardModal.jss";
 import {fontSize} from "../styles/fontSize.jss";
 
+/**
+ * motivation is that comes with the 'are you sure yes or no' modal that always occurs
+ * @param onAcceptDelete
+ * @param modalTitle
+ * @param modalText
+ * @param theme
+ * @param style
+ * @param variant
+ * @param startIcon
+ * @param isDisabled
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, variant, startIcon, isDisabled}) {
 
     let [modal, setModal] = useState();

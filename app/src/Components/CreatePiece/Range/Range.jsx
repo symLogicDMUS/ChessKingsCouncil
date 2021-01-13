@@ -1,21 +1,14 @@
 import React from "react";
-import { SpanArrowButtons } from "./SpanArrowButtons/SpanArrowButtons";
-import { fontSizeAlt4 as fontSize } from "../../styles/fontSize.jss";
-import { Typography } from "@material-ui/core";
-import { angleToText } from "../../helpers/spanToText";
-import ScrollTable from "../../Reuseables/ScrollTable";
-import { useStyles } from "./Range.jss";
+import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
+import {fontSizeAlt4 as fontSize} from "../../styles/fontSize.jss";
+import {Typography} from "@material-ui/core";
+import {angleToText} from "../../helpers/spanToText";
+import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
+import {useStyles} from "./Range.jss";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import { themes } from "../../styles/themes.jss";
-
-export function getPangram() {
-    const sentences = [];
-    for (let index = 0; index < 7; index++) {
-        sentences.push("The quick brown fox jumps over the lazy dog.");
-    }
-    return sentences;
-}
+import {themes} from "../../styles/themes.jss";
+import {getPangram} from "../../helpers/getPangram";
 
 export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize });
@@ -46,12 +39,12 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
                     </MediaQuery>
                     <ScrollTable
                         numRows={5}
-                        listItems={getPangram()}
+                        listItems={[...getSpanTextLabels(), ]}
                         theme={theme}
                         isBorder={true}
                         style={{
-                            fontSize: getFontSize(),
                             width: "11.5em",
+                            fontSize: getFontSize(),
                             borderRadius: "0.175em",
                             border: `0.05em solid ${themes[theme].outline}`,
                         }}

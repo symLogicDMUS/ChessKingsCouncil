@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollTable from "../ScrollTable";
+import ScrollTable from "../ScrollTable/ScrollTable";
 import { useStyles } from "./HelpTable.jss";
 
 /**style must include width*/

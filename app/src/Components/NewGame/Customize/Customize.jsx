@@ -9,7 +9,7 @@ import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {SideBar} from "../../Reuseables/SidBar";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
 import {Dropdown} from "../../Reuseables/Dropdown";
-import ScrollTable from "../../Reuseables/ScrollTable";
+import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {Background} from "../../Reuseables/Background";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";

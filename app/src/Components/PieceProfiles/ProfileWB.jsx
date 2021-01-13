@@ -8,7 +8,7 @@ import { resolvePlayerType } from "../helpers/resolvePlayerType";
 import { fontSizeAlt2 as fontSize } from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
-import ScrollTable from "../Reuseables/ScrollTable";
+import ScrollTable from "../Reuseables/ScrollTable/ScrollTable";
 import { ProfileAvatar } from "./ProfileAvatar";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
 import {adjustFontSize, useStyles } from "./ProfileWB.jss";
