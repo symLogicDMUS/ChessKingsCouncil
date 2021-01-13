@@ -22,7 +22,6 @@ export const drawer_component = (fontSize) => ({
     },
 });
 
-
 export const ok_button = (fontSize) => ({
     ...drawer_component(fontSize),
     '@media screen and (max-width: 767px)': {
@@ -66,6 +65,18 @@ export const styles = {
             width: '100%',
         },
         outline: `0.05em solid ${themes[props.theme].outline}`,
+    }),
+    promo_all_container: props => ({
+        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            width: drawerItemWidth,
+            marginLeft: drawerItemMarginLeft,
+            marginTop: drawerItemMarginTopBottom*0.8,
+            marginBottom: drawerItemMarginTopBottom*0.8,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+        },
     }),
     divider: props => ({
         fontSize: props.fontSize,

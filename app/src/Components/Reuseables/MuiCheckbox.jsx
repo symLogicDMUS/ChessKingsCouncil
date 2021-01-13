@@ -22,20 +22,19 @@ export function MuiCheckbox({onClick, checkmarkState, style, rootStyle, circleSt
     const classes = useStyles({style, rootStyle, circleStyle, theme})
 
     return (
-        <FormControlLabel
-            control={
-                <Checkbox
-                    onClick={onClick}
-                    className={classes.circle_container}
-                    icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
-                    checkedIcon={<CheckBoxIcon className={classes.checked}/>}
-                    checked={checkmarkState}
-                    name="checkbox"
-                />
-            }
-            className={classes.checkbox_root}
-            label={<Typography className={classes.text}>{children}</Typography>}
-            labelPlacement='start'
-        />
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        onClick={onClick}
+                        icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
+                        checkedIcon={<CheckBoxIcon className={classes.checked}/>}
+                        checked={checkmarkState}
+                        name="checkbox"
+                    />
+                }
+                className={classes.form_control_label_root}
+                label={<Typography className={classes.text}>{children}</Typography>}
+                labelPlacement='start'
+            />
     );
 }

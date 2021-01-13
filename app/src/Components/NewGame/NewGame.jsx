@@ -30,6 +30,7 @@ class NewGame extends React.Component {
             playerType: "",
             theme: "dark",
         };
+        /*when redirecting to GameRoot page, everything is sent in 1 object like a payload. this.gameData*/
         this.gameData = {};
         this.setGameOptions = this.setGameOptions.bind(this);
         this.loadNewStandard = this.loadNewStandard.bind(this);
@@ -66,47 +67,45 @@ class NewGame extends React.Component {
      */
     loadNewCustom(idDict, defs, promos) {
         this.gameData = copy(newData); //1.
-        this.gameData["game_name"] = this.state.gameName;
-        this.gameData["type"] = this.state.gameType;
-        this.gameData["pt"] = this.state.playerType;
-        this.gameData["promos"] = promos; //4.
-        this.gameData["id_dict"] = idDict; //4.
-
-        this.gameData["piece_defs"] = {}; //4.
+        this.gameData.game_name = this.state.gameName;
+        this.gameData.type = this.state.gameType;
+        this.gameData.pt = this.state.playerType;
+        this.gameData.promos = promos; //4.
+        this.gameData.id_dict = idDict; //4.
+        this.gameData.piece_defs = {}; //4.
         let name;
         for (const id of Object.keys(idDict)) {
-            if (id !== "k" && id !== "p") {
+            if (id !== 'k' && id !== 'p') {
                 name = idDict[id];
-                this.gameData["piece_defs"][name] = defs[name]; //4.
+                this.gameData.piece_defs[name] = defs[name]; //4.
             }
         }
 
         const dataEntry = firstUpdate(
-            this.gameData["board"],
-            this.gameData["json_records"],
-            "W",
-            this.gameData["pt"],
-            this.gameData["piece_defs"],
-            this.gameData["id_dict"]
+            this.gameData.board,
+            this.gameData.json_records,
+            'W',
+            this.gameData.pt,
+            this.gameData.piece_defs,
+            this.gameData.id_dict
         );
-        this.gameData["ranges"] = dataEntry["ranges"];
-        this.gameData["enemy_ranges"] = dataEntry["enemy_ranges"];
-
-        this.setState({ step: "play-game" });
+        this.gameData.ranges = dataEntry.ranges;
+        this.gameData.enemy_ranges = dataEntry.enemy_ranges;
+        this.setState({ step: 'play-game' });
     }
 
     loadNewStandard() {
         this.gameData = copy(newData);
-        this.gameData["game_name"] = this.gameName;
-        this.gameData["pt"] = this.state.playerType;
-        this.gameData["type"] = this.state.gameType;
-        this.gameData["promos"] = copy(standard_promo_names);
-        this.gameData["id_dict"] = copy(standard_id_dict);
-        this.gameData["piece_defs"] = copy(standard_piece_defs);
-        this.gameData["ranges"] = copy(new_standard_ranges);
-        this.gameData["enemy_ranges"] = copy(enemyRanges);
-        if (this.gameType === "council") this.gameData.promos.push("King");
-        this.setState({ step: "play-game" });
+        this.gameData.game_name = this.gameName;
+        this.gameData.pt = this.state.playerType;
+        this.gameData.type = this.state.gameType;
+        this.gameData.promos = copy(standard_promo_names);
+        this.gameData.id_dict = copy(standard_id_dict);
+        this.gameData.piece_defs = copy(standard_piece_defs);
+        this.gameData.ranges = copy(new_standard_ranges);
+        this.gameData.enemy_ranges = copy(enemyRanges);
+        if (this.gameType === 'council') this.gameData.promos.push('King');
+        this.setState({ step: 'play-game' });
     }
 
     play() {
@@ -135,7 +134,9 @@ class NewGame extends React.Component {
                 {this.state.step === "load-new-custom" && (
                     <Customize
                         loadNewCustom={this.loadNewCustom}
+                        playerType={this.state.playerType}
                         theme={this.state.theme}
+
                     />
                 )}
                 {this.state.step === "load-new-standard" &&

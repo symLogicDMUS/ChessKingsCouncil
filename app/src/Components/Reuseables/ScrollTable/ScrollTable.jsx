@@ -8,7 +8,7 @@ import {renderList} from "./renderList";
 import {reducer} from "./reducer.red";
 import {useStyles} from "./ScrollTable.jss";
 
-function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subHeader}) {
+function ScrollTable({listItems, title, numRows, theme, width, style, buttonStyle}) {
     const classes = useStyles({theme: theme, width: width, style: style, buttonStyle: buttonStyle});
 
     const [state, dispatch] = useReducer(reducer, {
@@ -22,6 +22,7 @@ function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subH
 
     return (
         <Box className={classes.scroll_table}>
+            {title ? (title) : null}
             <Button
                 onClick={() => dispatch({type: 'scroll-up', numRows: numRows, classes: classes})}
                 className={classes.arrow_button}
@@ -32,7 +33,6 @@ function ScrollTable({listItems, numRows, theme, width, style, buttonStyle, subH
             >
                 <ArrowDropUpIcon/>
             </Button>
-            {subHeader && (<Box className={classes.sub_header}>{subHeader}</Box>)}
             {state.componentList}
             <Button
                 onClick={() => dispatch({type: 'scroll-down', numRows: numRows, classes: classes})}

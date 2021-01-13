@@ -1,14 +1,14 @@
 import React, {useEffect, useReducer, useState} from "react";
 import {v4 as uuidv4} from "uuid";
+import {copy} from "../helpers/copy";
+import {getDefs} from "../../API/getDefs";
 import MediaQuery from "react-responsive/src";
+import {Profile} from "./Profile";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
-import {copy} from "../helpers/copy";
 import "../styles/Scrollbar.scss";
-import {Profile} from "./Profile";
-import {getDefs} from "../../API/getDefs";
 import {fontSize} from "../styles/fontSize.jss";
 import {useStyles} from "./PieceProfiles.jss";
 
@@ -34,15 +34,15 @@ export function PieceProfiles(props) {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
         getDefs().then(([defs]) => {
             if (defs) {
+                if (props.updateParent) {
+                    props.updateParent(copy(defs))
+                }
                 for (const pieceName of standards) {
                     if (Object.keys(defs).includes(pieceName)) {
                         delete defs[pieceName];
                     }
                 }
                 dispatch({type: 'load', payload: defs})
-                if (props.updateParent) {
-                    props.updateParent(defs)
-                }
             }
         });
     }, []);

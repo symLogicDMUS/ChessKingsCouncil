@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuidv4} from 'uuid';
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -24,20 +25,20 @@ import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
 import {withStyles} from "@material-ui/core";
 import {
     drawer_component,
-    drawer_table_button,
-    drawerItemWidth, ok_button,
+    drawer_table_button, drawerItemMarginLeft, drawerItemMarginTopBottom,
+    drawerItemWidth, ok_button, promo_all_container,
     styles,
 } from "./Customize.jss";
 import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 import {HelpText, HelpTitle} from "./HelpText";
+import Box from "@material-ui/core/Box";
 
 class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             theme: "dark",
-            playerType: "White",
             binaryValue: true,
         };
         this.subs = {
@@ -50,7 +51,6 @@ class Customize extends React.Component {
         this.defs = {};
         this.promos = [];
         this.firstTime = false;
-        this.playerType = "test";
         this.promoAll = false;
         this.newReplacement = null;
         this.newReplaced = null;
@@ -73,7 +73,6 @@ class Customize extends React.Component {
         this.togglePromoAll = this.togglePromoAll.bind(this);
         this.loadIdDict = this.loadIdDict.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
-        this.setPlayerType = this.setPlayerType.bind(this);
     }
 
     componentDidMount() {
@@ -86,13 +85,15 @@ class Customize extends React.Component {
     }
 
     /**
+     * sub: name of a piece making sub.
      * subs is this.subs with key:value pairs reversed.
      * frontend uses standard:sub dict, and backend uses
-     * sub: standard dict
+     * sub:standard dict
      */
-    prepareForSubAssign() {
+    prepareForIdAssign() {
         const names = [];
         const subs = {};
+        //make object who's keys and values are the reverse of this.subs
         Object.entries(this.subs).forEach(([standard, sub]) => {
             if (sub != null) subs[sub] = standard;
         });
@@ -107,6 +108,9 @@ class Customize extends React.Component {
         return [names, subs];
     }
 
+    /**
+     * for each standard piece check all starting pieces and if found make it a pawn promotion (except pawns and kings)
+     */
     setStandardPromos(idDict) {
         for (const [name1, id1] of Object.entries(standardIds)) {
             for (const [id2, name2] of Object.entries(idDict)) {
@@ -122,8 +126,12 @@ class Customize extends React.Component {
         }
     }
 
+    /**
+     * idD
+     * @returns {*|{}}
+     */
     loadIdDict() {
-        const [names, subs] = this.prepareForSubAssign();
+        const [names, subs] = this.prepareForIdAssign();
         return idAssign(names, subs);
     }
 
@@ -134,7 +142,7 @@ class Customize extends React.Component {
             idDict,
             this.defs,
             this.promos,
-            this.state.playerType
+            this.props.playerType
         );
     }
 
@@ -148,8 +156,7 @@ class Customize extends React.Component {
             });
             this.newReplacement = sub;
             this.newReplaced = standardPiece;
-        }
-        else {
+        } else {
             this.newReplacement = null;
             this.newReplaced = null;
         }
@@ -185,16 +192,12 @@ class Customize extends React.Component {
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    setPlayerType(playerType) {
-        this.setState({playerType: playerType});
-    }
-
     render() {
         return (
             <>
                 <div className={this.props.classes.customize}>
                     <MediaQuery minDeviceWidth={768}>
-                        <Background theme={this.state.theme} />
+                        <Background theme={this.state.theme}/>
                         <PermanentDrawer
                             drawerType="right"
                             width={drawerWidth}
@@ -218,8 +221,13 @@ class Customize extends React.Component {
                                 </Typography>
                             }
                         >
+                            <SubList
+                                subs={this.subs}
+                                theme={this.state.theme}
+                            />
                             <ScrollTable
                                 numRows={4}
+                                key={uuidv4()}
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 style={{
@@ -237,44 +245,19 @@ class Customize extends React.Component {
                                         Pawn Promotions
                                     </Typography>
                                 }
-                                subHeader={
-                                    <MuiCheckbox
-                                        theme={this.state.theme}
-                                        onClick={this.togglePromoAll}
-                                        style={{fontSize: fontSize * 0.8}}
-                                        rootStyle={{
-                                            marginLeft: drawerItemWidth * 0.025,
-                                        }}
-                                    >
-                                        Promo All
-                                    </MuiCheckbox>
-                                }
                             />
-                            <SubList
-                                subs={this.subs}
-                                theme={this.state.theme}
-                            />
-                            <Dropdown
-                                updateParent={this.setPlayerType}
-                                list={[
-                                    <MenuItem value="None">
-                                        <em>None</em>
-                                    </MenuItem>,
-                                    <MenuItem value="Test">Test</MenuItem>,
-                                    <MenuItem value="White">White</MenuItem>,
-                                    <MenuItem value="Black">Black</MenuItem>,
-                                ]}
-                                theme={this.state.theme}
-                                style={drawer_component(fontSize)}
-                                overwrite={null}
-                                fullWidth={true}
-                                variant="outlined"
-                                label="Play As"
-                                inputLabel="Play As"
-                                inputId="play-as-input"
-                                selectId="play-as-selected"
-                                labelId="play-as-label"
-                            />
+                            <Box className={this.props.classes.promo_all_container}>
+                                <MuiCheckbox
+                                    theme={this.state.theme}
+                                    onClick={this.togglePromoAll}
+                                    style={{fontSize: fontSize}}
+                                    rootStyle={{
+                                        marginLeft: drawerItemWidth * -0.008,
+                                    }}
+                                >
+                                    Promo All
+                                </MuiCheckbox>
+                            </Box>
                             <Button
                                 onClick={this.accept}
                                 style={ok_button(fontSize)}
@@ -356,88 +339,52 @@ class Customize extends React.Component {
                                         ),
                                     },
                                     {
-                                        id: "promo-list",
+                                        id: "pawn-promo",
                                         title: (
                                             <Typography>
-                                                Promotion List
+                                                Pawn Promotion List
                                             </Typography>
                                         ),
                                         body: (
-                                            <ScrollTable
-                                                numRows={4}
-                                                listItems={this.promos}
-                                                theme={this.state.theme}
-                                                style={{
-                                                    ...drawer_component(
+                                            <>
+                                                <ScrollTable
+                                                    numRows={4}
+                                                    key={uuidv4()}
+                                                    listItems={this.promos}
+                                                    theme={this.state.theme}
+                                                    style={{
+                                                        ...drawer_component(
+                                                            fontSize * mobileScaler,
+                                                        ),
+                                                        marginTop: 0,
+                                                        isOutline: true,
+                                                    }}
+                                                    buttonStyle={drawer_table_button(
                                                         fontSize * mobileScaler,
-                                                    ),
-                                                    marginTop: 0,
-                                                    isOutline: true,
-                                                }}
-                                                buttonStyle={drawer_table_button(
-                                                    fontSize * mobileScaler,
-                                                )}
-                                                subHeader={
-                                                    <MuiCheckbox
-                                                        theme={this.state.theme}
-                                                        onClick={() => this.togglePromoAll()}
-                                                        style={{
-                                                            fontSize:
-                                                                fontSize * 0.8,
-                                                        }}
-                                                        rootStyle={{
-                                                            marginLeft:
-                                                                drawerItemWidth *
-                                                                0.025,
-                                                        }}
-                                                    >
-                                                        Promo All
-                                                    </MuiCheckbox>
-                                                }
-                                            />
+                                                    )}
+                                                />
+                                                <MuiCheckbox
+                                                    theme={this.state.theme}
+                                                    onClick={() => this.togglePromoAll()}
+                                                    style={{
+                                                        fontSize:
+                                                            fontSize * 0.8,
+                                                    }}
+                                                    rootStyle={{
+                                                        marginLeft:
+                                                            drawerItemWidth *
+                                                            0.025,
+                                                    }}
+                                                >
+                                                    Promo All
+                                                </MuiCheckbox>
+                                            </>
                                         ),
                                     },
                                     {
-                                        id: "set-player-type",
-                                        title: (
-                                            <Typography>
-                                                Set Player Type
-                                            </Typography>
-                                        ),
-                                        body: (
-                                            <Dropdown
-                                                updateParent={
-                                                    this.setPlayerType
-                                                }
-                                                list={[
-                                                    <MenuItem value="None">
-                                                        <em>None</em>
-                                                    </MenuItem>,
-                                                    <MenuItem value="Test">
-                                                        Test
-                                                    </MenuItem>,
-                                                    <MenuItem value="White">
-                                                        White
-                                                    </MenuItem>,
-                                                    <MenuItem value="Black">
-                                                        Black
-                                                    </MenuItem>,
-                                                ]}
-                                                theme={this.state.theme}
-                                                style={drawer_component(
-                                                    fontSize
-                                                )}
-                                                overwrite={null}
-                                                fullWidth={true}
-                                                variant="outlined"
-                                                label="Play As"
-                                                inputLabel="Play As"
-                                                inputId="play-as-input"
-                                                selectId="play-as-selected"
-                                                labelId="play-as-label"
-                                            />
-                                        ),
-                                    },
+                                        id: 'promo-',
+
+                                    }
                                 ]}
                             </MuiAccordion>
                             <Button
