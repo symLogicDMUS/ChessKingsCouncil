@@ -1,12 +1,12 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
-export const size = () => availHeight() * 0.1;
+export const promoChoiceSize = availHeight() * 0.1;
 
 const promoChoice = {
     position: 'relative',
-    width: size(),
-    height: size(),
+    width: promoChoiceSize,
+    height: promoChoiceSize,
 };
 
 export const useStyles = makeStyles({

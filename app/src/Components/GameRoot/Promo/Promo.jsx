@@ -1,181 +1,151 @@
-import React from "react";
+import React, { useEffect, useReducer } from "react";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { PromoArrow } from "./PromoArrow";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import {PromoChoice} from "./PromoChoice";
-import {shuffle} from "../../helpers/shuffleArray";
-import {numKings} from "../../helpers/numKings";
-import {standardPieceImgStrs} from "../../helpers/standardPieceImgStrs";
-import {MuiButton as OkButton} from "../../Reuseables/MuiButton";
-import withStyles from "@material-ui/core/styles/withStyles";
-import {ArrowLeft, ArrowRight} from "./HorizontalScrollArrows";
-import {themes} from "../../styles/themes.jss";
-import {ok_button, styles} from "./Promo.jss";
+import { shuffle } from "../../helpers/shuffleArray";
+import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
+import { fontSizeAlt7 as fontSize } from "../../styles/fontSize.jss";
+import { reducer } from "./reducer.red";
+import { ok_button } from "./Promo.jss";
+import { useStyles } from "./Promo.jss";
 
-class Promo extends React.Component {
-    /**
-     * note: once pawn has moved to a backrow square, color has already switched to
-     * the next player before it is promoted. must use what color attribute just was.
-     * */
-    constructor(props) {
-        super(props);
-        this.state = {promoChoice: null};
-        this.aiPromoComplete = false;
-        this.standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
-        this.standardPromoNameDict = {
-            Queen: "q",
-            Rook: "r",
-            Bishop: "b",
-            Knight: "n",
-        };
-        this.onSelect = this.onSelect.bind(this);
-        this.promote = this.promote.bind(this);
-    }
+function Promo(props) {
+    const [state, dispatch] = useReducer(reducer, {
+        promoChoice: null,
+        promoChoices: [],
+    });
 
-    getIdNumber(idChoice) {
+    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
+
+    const getIdNumber = (idChoice) => {
         /**Pawn promotion means we are adding another piece,
          * idNumber is how many of that piece for that color
          * there is now
          **/
-        let matches = Object.values(this.props.board).filter((pieceId) =>
-            pieceId.startsWith(this.props.color + idChoice.toUpperCase())
+        let matches = Object.values(props.board).filter((pieceId) =>
+            pieceId.startsWith(props.color + idChoice.toUpperCase())
         );
         return matches.length + 1;
-    }
+    };
 
-    getNewId(idNumber, idChoice) {
-        return this.props.color + idChoice.toUpperCase() + idNumber;
-    }
+    const getNewId = (idChoice, idNumber) => {
+        return props.color + idChoice.toUpperCase() + idNumber;
+    };
 
-    removePawnHistory() {
-        let pawnId = this.props.board[this.pawnLoc];
-        delete this.props.jsonRecords.pawnHistories[pawnId];
-    }
+    const removePawnHistory = (pawnLoc) => {
+        let pawnId = props.board[pawnLoc];
+        delete props.jsonRecords.pawnHistories[pawnId];
+    };
 
-    replacePawnWithPromo(pawnLoc, newId) {
-        this.props.board[pawnLoc] = newId;
-    }
+    const replacePawnWithPromo = (pawnLoc, newId) => {
+        props.board[pawnLoc] = newId;
+    };
 
-    updateGameRoot() {
-        this.props.updateTurnData();
-        this.props.updateSpecialCase("none");
-        this.props.triggerRender();
-    }
+    const updateGameRoot = () => {
+        props.updateTurnData();
+        props.updateSpecialCase("none");
+        props.triggerRender();
+    };
 
-    promote() {
-        let idNumber = this.getIdNumber(this.state.promoChoice);
-        let newId = this.getNewId(idNumber, this.state.promoChoice);
-        this.removePawnHistory();
-        this.replacePawnWithPromo(this.pawnLoc, newId);
-        this.updateGameRoot();
-    }
+    const promote = (pawnLoc) => {
+        let idNumber = getIdNumber(state.promoChoice);
+        let newId = getNewId(idNumber, state.promoChoice);
+        removePawnHistory(pawnLoc);
+        replacePawnWithPromo(pawnLoc, newId);
+        updateGameRoot();
+    };
 
-    aiPromote() {
-        let ids = this.aiPromoChoices();
+    const aiPromote = (pawnLoc) => {
+        let ids = aiPromoChoices();
         ids = shuffle(ids);
         let idType = ids[0];
-        let idNumber = this.getIdNumber(idType);
-        let newId = this.getNewId(idNumber, idType);
-        this.removePawnHistory();
-        this.replacePawnWithPromo(this.pawnLoc, newId);
-        this.aiPromoComplete = true;
-        this.updateGameRoot();
-    }
+        let idNumber = getIdNumber(idType);
+        let newId = getNewId(idNumber, idType);
+        removePawnHistory(pawnLoc);
+        replacePawnWithPromo(pawnLoc, newId);
+        updateGameRoot();
+    };
 
-    noStandardPieces() {
-        for (const pieceName of Object.values(this.props.idDict)) {
-            if (this.standardPromoNames.includes(pieceName)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    onSelect(key) {
-        this.setState({promoChoice: key});
-    }
-
-    aiPromoChoices() {
+    const aiPromoChoices = () => {
         let pieceName = null;
         let promoChoices = [];
-        for (const id of Object.keys(this.props.idDict)) {
-            pieceName = this.props.idDict[id];
-            if (this.props.promoChoices.includes(pieceName)) {
+        for (const id of Object.keys(props.idDict)) {
+            pieceName = props.idDict[id];
+            if (props.promoChoices.includes(pieceName)) {
                 promoChoices.push(id);
             }
         }
 
         return promoChoices;
-    }
+    };
 
-    getPromoChoices() {
-        let pieceName = null;
-        let pieceImgBase64Str = null;
-        let promoChoices = [];
-
-        if (this.props.isCouncil && numKings(this.props.board, this.props.color === 0)) {
-            const pieceImgStr = standardPieceImgStrs[`${this.props.color}K-svg`];
-            promoChoices.push(
-                <PromoChoice
-                    key={"K"}
-                    pieceImgBase64Str={pieceImgStr}
-                    promoChoice={this.state.promoChoice}
-                    alt="King"
-                />
-            );
-            return promoChoices;
-        }
-
-        for (const id of Object.keys(this.props.idDict)) {
-            pieceName = this.props.idDict[id];
-            if (this.props.promoChoices.includes(pieceName)) {
-                //if (pieceName === "King") pieceImgBase64Str = standardPieceImgStrs[`${this.props.color}K-svg`];
-                pieceImgBase64Str = this.props.pieceDefs[pieceName][this.props.color]["img"];
-                promoChoices.push(
-                    <PromoChoice
-                        key={id}
-                        pieceImgBase64Str={pieceImgBase64Str}
-                        promoChoice={this.state.promoChoice}
-                        alt={pieceName}
-                    />
-                );
+    const noStandardPieces = () => {
+        const standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
+        for (const pieceName of Object.values(props.idDict)) {
+            if (standardPromoNames.includes(pieceName)) {
+                return false;
             }
         }
+        return true;
+    };
 
-        return promoChoices;
-    }
-
-    render() {
-        if (this.props.promoChoices.length === 0 && this.noStandardPieces()) {
-            this.props.updateSpecialCase("none");
+    useEffect(() => {
+        if (props.promoChoices.length === 0 && noStandardPieces()) {
+            props.updateSpecialCase("none");
+        } else {
+            dispatch({
+                type: "new-list",
+                idDict: props.idDict,
+                pieceDefs: props.pieceDefs,
+                promoChoices: props.promoChoices,
+                color: props.color,
+            });
         }
+    }, [props.promoChoices]);
 
-        this.pawnLoc = this.props.pawnLoc;
-        let promoChoices = this.getPromoChoices();
+    useEffect(() => {
+        if (props.color === props.aiColor) {
+            aiPromote(props.pawnLoc);
+        }
+    }, [props.color]);
 
-        return (
-            <div className={this.props.classes.promo_modal}>
-                <div className={this.props.classes.img_group}>
-                    <ScrollMenu
-                        data={promoChoices}
-                        arrowLeft={ArrowLeft}
-                        arrowRight={ArrowRight}
-                        onSelect={this.onSelect}
-                        promoChoice={this.state.promoChoice}
+    const selectPiece = (key) => {
+        dispatch({ type: "select", key: key });
+    };
 
-                    />
-                </div>
-                <OkButton
-                    style={ok_button}
-                    onClick={this.promote}
-                    theme={themes.purple}
-                    variant={"contained"}
-                    isDisabled={!this.state.promoChoice}
-                >
-                    Ok
-                </OkButton>
-                {this.props.color === this.props.aiColor && !this.aiPromoComplete && this.aiPromote()}
+    return (
+        <div className={classes.modal}>
+            <div className={classes.img_group}>
+                <ScrollMenu
+                    data={state.promoChoices}
+                    promoChoice={state.promoChoice}
+                    onSelect={selectPiece}
+                    arrowLeft={
+                        <PromoArrow
+                            icon={<NavigateBeforeIcon />}
+                            theme={props.theme}
+                        />
+                    }
+                    arrowRight={
+                        <PromoArrow
+                            icon={<NavigateNextIcon />}
+                            theme={props.theme}
+                        />
+                    }
+                />
             </div>
-        );
-    }
+            <OkButton
+                onClick={() => promote(props.pawnLoc)}
+                isDisabled={!state.promoChoice}
+                style={ok_button(fontSize)}
+                theme={props.theme}
+                variant={"contained"}
+            >
+                Ok
+            </OkButton>
+        </div>
+    );
 }
 
-export default withStyles(styles)(Promo);
+export default Promo;

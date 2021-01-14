@@ -13,16 +13,16 @@ import { RangeDisplayBoard } from "./RangeDisplayBoard";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import {getStartingPieces} from "./getStartingPieces";
 
-export const Board = ({ gameroot }) => {
+export const Board = ({ gameRoot }) => {
     const [state, rangeDispatch] = useReducer(rangeReducer, {isDragging: false, rangeBoard: getBinaryBoarAllFalse()});
-    const [pieces, piecesDispatch] = useReducer(piecesReducer, getStartingPieces(gameroot));
+    const [pieces, piecesDispatch] = useReducer(piecesReducer, getStartingPieces(gameRoot));
 
     const setRangeDisplay = (pieceId) => {
         if (pieceId) {
             rangeDispatch({
                 type: "display-on",
                 pieceId: pieceId,
-                getRangeBoard: gameroot.getRangeBoard,
+                getRangeBoard: gameRoot.getRangeBoard,
             });
         } else {
             rangeDispatch({ type: "display-off" });
@@ -35,23 +35,23 @@ export const Board = ({ gameroot }) => {
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
                         pieces={pieces}
-                        gameroot={gameroot}
+                        gameRoot={gameRoot}
                         dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
                     />
                     <DragLayer setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
                         rangeBoard={state.rangeBoard}
-                        theme={gameroot.state.theme}
+                        theme={gameRoot.state.theme}
                     />
-                    <GameDisplayBoard theme={gameroot.state.theme} />
-                    {gameroot.isAiTurn() && (
+                    <GameDisplayBoard theme={gameRoot.state.theme} />
+                    {gameRoot.isAiTurn() && (
                         <AIDisplay
                             dispatch={piecesDispatch}
-                            theme={gameroot.state.theme}
-                            aiStart={gameroot.aiStart}
-                            aiDest={gameroot.aiDest}
-                            aiMakeMove={gameroot.aiMakeMove}
+                            theme={gameRoot.state.theme}
+                            aiStart={gameRoot.aiStart}
+                            aiDest={gameRoot.aiDest}
+                            aiMakeMove={gameRoot.aiMakeMove}
                         />
                     )}
                 </DndProvider>
@@ -60,23 +60,23 @@ export const Board = ({ gameroot }) => {
                 <DndProvider backend={TouchBackend}>
                     <DropLayer
                         pieces={pieces}
-                        gameroot={gameroot}
+                        gameRoot={gameRoot}
                         dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
                     />
                     <DragLayer setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
                         rangeBoard={state.rangeBoard}
-                        theme={gameroot.state.theme}
+                        theme={gameRoot.state.theme}
                     />
-                    <GameDisplayBoard theme={gameroot.state.theme} />
-                    {gameroot.isAiTurn() && (
+                    <GameDisplayBoard theme={gameRoot.state.theme} />
+                    {gameRoot.isAiTurn() && (
                         <AIDisplay
                             dispatch={piecesDispatch}
-                            theme={gameroot.state.theme}
-                            aiStart={gameroot.aiStart}
-                            aiDest={gameroot.aiDest}
-                            aiMakeMove={gameroot.aiMakeMove}
+                            theme={gameRoot.state.theme}
+                            aiStart={gameRoot.aiStart}
+                            aiDest={gameRoot.aiDest}
+                            aiMakeMove={gameRoot.aiMakeMove}
                         />
                     )}
                 </DndProvider>

@@ -1,9 +1,9 @@
-export function promoMove(gameroot, start, dest, dispatch) {
-    if (!gameroot.specialMoves.isPromo([start, dest])) {
+export function promoMove(gameRoot, start, dest, dispatch) {
+    if (!gameRoot.specialMoves.isPromo([start, dest])) {
         return;
     }
 
-    gameroot.updateSpecialCase("promo");
-    gameroot.specialMoves.pendingPromo = dest;
-    gameroot.specialMoves.removePromo([start, dest]);
+    gameRoot.isPromo = true;
+    gameRoot.specialMoves.pendingPromo = dest;
+    gameRoot.specialMoves.removePromo([start, dest]);
 }

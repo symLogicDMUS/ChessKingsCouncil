@@ -1,5 +1,8 @@
+short:
+
+
 medium:
-* update Firebase security rules for new/removed pages
+* does Save and SaveAs on GameRoot still work
 
 long:
 make sure mobile version of everything works

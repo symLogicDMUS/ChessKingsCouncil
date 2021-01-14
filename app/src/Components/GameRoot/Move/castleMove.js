@@ -3,7 +3,7 @@ import {boardSize, sqrSize} from "../../Reuseables/Board.jss";
 import {rfToXy} from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 
-export function castleMove(gameroot, kingStart, kingDest, dispatch, src) {
+export function castleMove(gameRoot, kingStart, kingDest, dispatch, src) {
     /**if castle move, then move the rook as part of castle
     parameters
     ..........
@@ -14,11 +14,11 @@ export function castleMove(gameroot, kingStart, kingDest, dispatch, src) {
     note: 1 structure for ranges & pieces. Were seperate in earlier versions
     */
     
-    if (! gameroot.specialMoves.isCastle([kingStart, kingDest])) {
+    if (! gameRoot.specialMoves.isCastle([kingStart, kingDest])) {
         return;
     }
     const [rookStart, rookDest] = getRookStartAndDest(kingDest);
-    let rookId = gameroot.board[rookStart];
+    let rookId = gameRoot.board[rookStart];
     let [rookDestX, rookDestY] = rfToXy(rookDest);
     let [rookLeft, rookTop] = [
         rookDestX * sqrSize,
@@ -31,6 +31,6 @@ export function castleMove(gameroot, kingStart, kingDest, dispatch, src) {
         top: rookTop,
         src: src,
     });
-    ply(gameroot, rookStart, rookDest);
-    gameroot.specialMoves.removeCastle([rookStart, rookDest]);
+    ply(gameRoot, rookStart, rookDest);
+    gameRoot.specialMoves.removeCastle([rookStart, rookDest]);
 }

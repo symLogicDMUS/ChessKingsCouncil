@@ -2,19 +2,19 @@ import { isPiece } from "../../helpers/isPiece";
 
 /**
  * update the board used for game logic/determining allowed moves, as well as its special records, to the move performed
- * @param gameroot
+ * @param gameRoot
  * @param start
  * @param dest
  */
-export function ply(gameroot, start, dest) {
+export function ply(gameRoot, start, dest) {
     /*move piece to new square, capturing piece there if there is**/
-    if (isPiece(gameroot.board[dest])) {
-        gameroot.captured = gameroot.board[dest]
+    if (isPiece(gameRoot.board[dest])) {
+        gameRoot.captured = gameRoot.board[dest]
     }
     else {
-        gameroot.captured = 'None';
+        gameRoot.captured = 'None';
     }
-    gameroot.board[dest] = gameroot.board[start]
-    gameroot.board[start] = '#'
-    gameroot.updateJsonRecords(start, dest)
+    gameRoot.board[dest] = gameRoot.board[start]
+    gameRoot.board[start] = '#'
+    gameRoot.updateJsonRecords(start, dest)
 }

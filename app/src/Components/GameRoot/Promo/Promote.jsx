@@ -28,17 +28,17 @@ class Promote extends React.Component {
     render() {
         return ReactDOM.createPortal(
             <Promo
-                promoChoices={this.props.gameroot.promoChoices}
-                jsonRecords={this.props.gameroot.jsonRecords}
-                board={this.props.gameroot.board}
-                idDict={this.props.gameroot.idDict}
-                pieceDefs={this.props.gameroot.pieceDefs}
-                isCouncil={this.props.gameroot.isCouncil}
-                updateTurnData={this.props.gameroot.updateTurnData}
-                updateSpecialCase={this.props.gameroot.updateSpecialCase}
-                color={this.props.gameroot.getColorLastMove()}
-                aiColor={this.props.gameroot.aiColor}
-                pawnLoc={this.props.gameroot.specialMoves.pendingPromo}
+                promoChoices={this.props.gameRoot.promoChoices}
+                jsonRecords={this.props.gameRoot.jsonRecords}
+                board={this.props.gameRoot.board}
+                idDict={this.props.gameRoot.idDict}
+                pieceDefs={this.props.gameRoot.pieceDefs}
+                isCouncil={this.props.gameRoot.isCouncil}
+                updateTurnData={this.props.gameRoot.updateTurnData}
+                updateSpecialCase={this.props.gameRoot.updateSpecialCase}
+                color={this.props.gameRoot.getColorLastMove()}
+                aiColor={this.props.gameRoot.aiColor}
+                pawnLoc={this.props.gameRoot.specialMoves.pendingPromo}
             />,
             this.el
         );

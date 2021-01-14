@@ -2,8 +2,9 @@ short:
 * Add searchbar back in
 
 medium:
+* make p
+* make click a piece on mini-board load the profile of that piece as a modal
 * change save animation for GameRoot from 'Piece Saved Successfully!' to 'Game Saved Successfully!'
 * add loading animation
 
 long:
-* use Portal for tooltips and Modal, possibly even Promo Modal?

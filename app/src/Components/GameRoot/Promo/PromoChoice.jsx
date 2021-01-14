@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useStyles } from "./PromoChoice.jss";
 
-export function PromoChoice({ selected, key, pieceImgBase64Str, alt }) {
+export function PromoChoice({ selected, id, pieceImgBase64Str, alt }) {
     const classes = useStyles();
-    const className = selected === key ? classes.selected : classes.normal;
+    const className = (selected === id) ? classes.selected : classes.normal;
     return (
         <motion.img
             src={pieceImgBase64Str}

@@ -9,7 +9,7 @@ import {useStyles} from "./DropLayer.jss";
 /**
  * Sits on top of game boards. updated on drop.
  */
-export const DropLayer = ({gameroot, pieces, dispatch, setRangeDisplay}) => {
+export const DropLayer = ({gameRoot, pieces, dispatch, setRangeDisplay}) => {
 
     const classes = useStyles();
 
@@ -18,18 +18,18 @@ export const DropLayer = ({gameroot, pieces, dispatch, setRangeDisplay}) => {
         canDrop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             let [start, dest, left, top] = getCoords(item, delta);
-            return isLegal(gameroot, item, start, dest);
+            return isLegal(gameRoot, item, start, dest);
         },
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             let [start, dest, left, top] = getCoords(item, delta);
-            move(gameroot, item.id, start, dest, left, top, pieces[item.id].src, dispatch)
-            gameroot.toggleTurn();
-            gameroot.updateFen(start, dest);
-            gameroot.updateTurnData();
-            gameroot.setUnsavedProgress(true);
-            if (gameroot.aiColor === gameroot.turn) {
-                gameroot.prepareAiMove();
+            move(gameRoot, item.id, start, dest, left, top, pieces[item.id].src, dispatch)
+            gameRoot.toggleTurn();
+            gameRoot.updateFen(start, dest);
+            gameRoot.updateTurnData();
+            gameRoot.unsavedProgress = true;
+            if (gameRoot.aiColor === gameRoot.turn) {
+                gameRoot.prepareAiMove();
             }
             return undefined;
         },

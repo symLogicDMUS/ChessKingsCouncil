@@ -13,6 +13,7 @@ export function MuiTextField({
     label,
     variant,
     autoComplete,
+    autoFocus
 }) {
     const classes = useStyles({ style: style, theme: theme });
     return (
@@ -23,6 +24,7 @@ export function MuiTextField({
             autoComplete={autoComplete}
             className={classes.input}
             fullWidth={fullWidth}
+            autoFocus={autoFocus}
             variant={variant}
             label={label}
             id={id}
