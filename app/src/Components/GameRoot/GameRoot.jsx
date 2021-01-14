@@ -303,7 +303,7 @@ class GameRoot extends React.Component {
         this.unsavedProgress = boolVal;
     }
 
-    modals(screenCase) {
+    modals() {
         return (
             <>
                 <Portal>
@@ -330,196 +330,197 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>
-                    <PermanentDrawer
-                        theme={this.state.theme}
-                        width={drawerWidth}
-                        drawerType="right"
-                        content={
-                            <Portal>
-                                <Board gameRoot={this}/>
-                            </Portal>
-                        }
-                        appBarContent={
-                            <StatusBar
-                                turn={this.turn}
-                                theme={this.state.theme}
-                                condition={this.getCondition()}
-                                winner={this.gameStatus.winner}
-                            />
-                        }
-                    >
-                        <GameInfo
-                            gameName={this.gameName}
-                            gameType={this.gameType}
-                            playerType={this.playerType}
-                            theme={this.state.theme}
-                        />
-                        <SaveResignTool
-                            save={this.save}
-                            resign={this.resign}
-                            theme={this.state.theme}
-                            changeName={this.changeName}
-                            isSaveMessage={this.state.isSaveMessage}
-                            messageCallback={() => this.setState({isSaveMessage: false})}
-                        />
-                        <BoardTool
-                            board={this.board}
-                            theme={this.state.theme}
-                            screenCase={'desktop'}
-                            allRanges={{...this.ranges, ...this.enemyRanges}}
-                            pieceDefs={this.defs}
-                            idDict={this.idDict}
-                            triggerRender={this.triggerRender}
-                        />
-                    </PermanentDrawer>
+                {this.modals()}
+                {/*<MediaQuery minDeviceWidth={768}>*/}
+                {/*    <PermanentDrawer*/}
+                {/*        theme={this.state.theme}*/}
+                {/*        width={drawerWidth}*/}
+                {/*        drawerType="right"*/}
+                {/*        content={*/}
+                {/*            <Portal>*/}
+                {/*                <Board gameRoot={this}/>*/}
+                {/*            </Portal>*/}
+                {/*        }*/}
+                {/*        appBarContent={*/}
+                {/*            <StatusBar*/}
+                {/*                turn={this.turn}*/}
+                {/*                theme={this.state.theme}*/}
+                {/*                condition={this.getCondition()}*/}
+                {/*                winner={this.gameStatus.winner}*/}
+                {/*            />*/}
+                {/*        }*/}
+                {/*    >*/}
+                {/*        <GameInfo*/}
+                {/*            gameName={this.gameName}*/}
+                {/*            gameType={this.gameType}*/}
+                {/*            playerType={this.playerType}*/}
+                {/*            theme={this.state.theme}*/}
+                {/*        />*/}
+                {/*        <SaveResignTool*/}
+                {/*            save={this.save}*/}
+                {/*            resign={this.resign}*/}
+                {/*            theme={this.state.theme}*/}
+                {/*            changeName={this.changeName}*/}
+                {/*            isSaveMessage={this.state.isSaveMessage}*/}
+                {/*            messageCallback={() => this.setState({isSaveMessage: false})}*/}
+                {/*        />*/}
+                {/*        <BoardTool*/}
+                {/*            board={this.board}*/}
+                {/*            theme={this.state.theme}*/}
+                {/*            screenCase={'desktop'}*/}
+                {/*            allRanges={{...this.ranges, ...this.enemyRanges}}*/}
+                {/*            pieceDefs={this.defs}*/}
+                {/*            idDict={this.idDict}*/}
+                {/*            triggerRender={this.triggerRender}*/}
+                {/*        />*/}
+                {/*    </PermanentDrawer>*/}
 
-                    <SideBar
-                        drawerType="left"
-                        theme={this.state.theme}
-                        width={sideBarWidth}
-                    >
-                        <NavBar
-                            currentPage="GameRoot"
-                            flexDirection="column"
-                            theme={this.state.theme}
-                            style={{
-                                width: navBarWidth,
-                                fontSize: fontSize * 1.5,
-                            }}
-                            buttonStyle={{
-                                fontSize: fontSize * 1.5,
-                                justifyContent: "flex-start",
-                                width: navBarButtonWidth,
-                                height: "2.5em",
-                            }}
-                            helpTitle={HelpTitle(fontSize, this.state.theme)}
-                            helpText={HelpText(fontSize, this.state.theme)}
-                            isUnsavedChanges={this.isUnsavedChanges}
-                        />
-                    </SideBar>
-                    {this.isPromo ? (
-                        <Portal>
-                            <Promo
-                                board={this.board}
-                                idDict={this.idDict}
-                                aiColor={this.aiColor}
-                                pieceDefs={this.defs}
-                                isCouncil={this.isCouncil}
-                                jsonRecords={this.jsonRecords}
-                                color={this.getColorLastMove()}
-                                promoChoices={this.promoChoices}
-                                triggerRender={this.triggerRender}
-                                updateTurnData={this.updateTurnData}
-                                pawnLoc={this.specialMoves.pendingPromo}
-                                updateSpecialCase={this.updateSpecialCase}
-                            />
-                        </Portal>
-                    ) : null}
-                </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
-                    <PersistentDrawer
-                        theme={this.state.theme}
-                        drawer={
-                            <NavBar
-                                currentPage="GameRoot"
-                                flexDirection="column"
-                                theme={this.state.theme}
-                                style={{width: "100%"}}
-                                buttonStyle={{
-                                    fontSize: fontSize * 1.2,
-                                    justifyContent: "flex-start",
-                                    width: "99%",
-                                    height: "2.5em",
-                                }}
-                                helpTitle={HelpTitle(fontSize, this.state.theme)}
-                                helpText={HelpText(fontSize, this.state.theme)}
-                                isUnsavedChanges={this.isUnsavedChanges}
-                            />
-                        }
-                        appBarContent={
-                            <StatusBar
-                                turn={this.turn}
-                                theme={this.state.theme}
-                                condition={this.getCondition()}
-                                winner={this.gameStatus.winner}
-                            />
-                        }
-                    >
-                        {/*<Portal>*/}
-                            <Board gameRoot={this}/>
-                        {/*</Portal>*/}
-                        <MuiAccordion theme={this.state.theme}>
-                            {[
-                                {
-                                    id: "game-info",
-                                    title: <Typography>Game Info</Typography>,
-                                    body: (
-                                        <GameInfo
-                                            gameName={this.gameName}
-                                            gameType={this.gameType}
-                                            playerType={this.playerType}
-                                            theme={this.state.theme}
-                                        />
-                                    ),
-                                },
-                                {
-                                    id: "save-resign",
-                                    title: <Typography>Save/Resign</Typography>,
-                                    body: (
-                                        <SaveResignTool
-                                            save={this.save}
-                                            resign={this.resign}
-                                            toggleSaveAs={this.toggleSaveAs}
-                                            theme={this.state.theme}
-                                            messageCallback={() => this.setState({isSaveMessage: false})}
-                                        />
-                                    ),
-                                },
-                                {
-                                    id: "range-display",
-                                    title: (
-                                        <Typography>
-                                            Range GameBoard
-                                        </Typography>
-                                    ),
-                                    body: (
-                                        <BoardTool
-                                            board={this.board}
-                                            theme={this.state.theme}
-                                            screenCase={'mobile'}
-                                            allRanges={{
-                                                ...this.ranges,
-                                                ...this.enemyRanges,
-                                            }}
-                                            pieceDefs={this.defs}
-                                            idDict={this.idDict}
-                                            triggerRender={this.triggerRender}
-                                        />
-                                    ),
-                                },
-                            ]}
-                        </MuiAccordion>
-                    </PersistentDrawer>
-                    {this.isPromo ? (
-                        <Portal>
-                            <Promo
-                                board={this.board}
-                                idDict={this.idDict}
-                                aiColor={this.aiColor}
-                                pieceDefs={this.defs}
-                                isCouncil={this.isCouncil}
-                                jsonRecords={this.jsonRecords}
-                                color={this.getColorLastMove()}
-                                promoChoices={this.promoChoices}
-                                triggerRender={this.triggerRender}
-                                updateTurnData={this.updateTurnData}
-                                pawnLoc={this.specialMoves.pendingPromo}
-                                updateSpecialCase={this.updateSpecialCase}
-                            />
-                        </Portal>
-                    ) : null}
-                </MediaQuery>
+                {/*    <SideBar*/}
+                {/*        drawerType="left"*/}
+                {/*        theme={this.state.theme}*/}
+                {/*        width={sideBarWidth}*/}
+                {/*    >*/}
+                {/*        <NavBar*/}
+                {/*            currentPage="GameRoot"*/}
+                {/*            flexDirection="column"*/}
+                {/*            theme={this.state.theme}*/}
+                {/*            style={{*/}
+                {/*                width: navBarWidth,*/}
+                {/*                fontSize: fontSize * 1.5,*/}
+                {/*            }}*/}
+                {/*            buttonStyle={{*/}
+                {/*                fontSize: fontSize * 1.5,*/}
+                {/*                justifyContent: "flex-start",*/}
+                {/*                width: navBarButtonWidth,*/}
+                {/*                height: "2.5em",*/}
+                {/*            }}*/}
+                {/*            helpTitle={HelpTitle(fontSize, this.state.theme)}*/}
+                {/*            helpText={HelpText(fontSize, this.state.theme)}*/}
+                {/*            isUnsavedChanges={this.isUnsavedChanges}*/}
+                {/*        />*/}
+                {/*    </SideBar>*/}
+                {/*    {this.isPromo ? (*/}
+                {/*        <Portal>*/}
+                {/*            <Promo*/}
+                {/*                board={this.board}*/}
+                {/*                idDict={this.idDict}*/}
+                {/*                aiColor={this.aiColor}*/}
+                {/*                pieceDefs={this.defs}*/}
+                {/*                isCouncil={this.isCouncil}*/}
+                {/*                jsonRecords={this.jsonRecords}*/}
+                {/*                color={this.getColorLastMove()}*/}
+                {/*                promoChoices={this.promoChoices}*/}
+                {/*                triggerRender={this.triggerRender}*/}
+                {/*                updateTurnData={this.updateTurnData}*/}
+                {/*                pawnLoc={this.specialMoves.pendingPromo}*/}
+                {/*                updateSpecialCase={this.updateSpecialCase}*/}
+                {/*            />*/}
+                {/*        </Portal>*/}
+                {/*    ) : null}*/}
+                {/*</MediaQuery>*/}
+                {/*<MediaQuery maxDeviceWidth={767}>*/}
+                {/*    <PersistentDrawer*/}
+                {/*        theme={this.state.theme}*/}
+                {/*        drawer={*/}
+                {/*            <NavBar*/}
+                {/*                currentPage="GameRoot"*/}
+                {/*                flexDirection="column"*/}
+                {/*                theme={this.state.theme}*/}
+                {/*                style={{width: "100%"}}*/}
+                {/*                buttonStyle={{*/}
+                {/*                    fontSize: fontSize * 1.2,*/}
+                {/*                    justifyContent: "flex-start",*/}
+                {/*                    width: "99%",*/}
+                {/*                    height: "2.5em",*/}
+                {/*                }}*/}
+                {/*                helpTitle={HelpTitle(fontSize, this.state.theme)}*/}
+                {/*                helpText={HelpText(fontSize, this.state.theme)}*/}
+                {/*                isUnsavedChanges={this.isUnsavedChanges}*/}
+                {/*            />*/}
+                {/*        }*/}
+                {/*        appBarContent={*/}
+                {/*            <StatusBar*/}
+                {/*                turn={this.turn}*/}
+                {/*                theme={this.state.theme}*/}
+                {/*                condition={this.getCondition()}*/}
+                {/*                winner={this.gameStatus.winner}*/}
+                {/*            />*/}
+                {/*        }*/}
+                {/*    >*/}
+                {/*        /!*<Portal>*!/*/}
+                {/*            <Board gameRoot={this}/>*/}
+                {/*        /!*</Portal>*!/*/}
+                {/*        <MuiAccordion theme={this.state.theme}>*/}
+                {/*            {[*/}
+                {/*                {*/}
+                {/*                    id: "game-info",*/}
+                {/*                    title: <Typography>Game Info</Typography>,*/}
+                {/*                    body: (*/}
+                {/*                        <GameInfo*/}
+                {/*                            gameName={this.gameName}*/}
+                {/*                            gameType={this.gameType}*/}
+                {/*                            playerType={this.playerType}*/}
+                {/*                            theme={this.state.theme}*/}
+                {/*                        />*/}
+                {/*                    ),*/}
+                {/*                },*/}
+                {/*                {*/}
+                {/*                    id: "save-resign",*/}
+                {/*                    title: <Typography>Save/Resign</Typography>,*/}
+                {/*                    body: (*/}
+                {/*                        <SaveResignTool*/}
+                {/*                            save={this.save}*/}
+                {/*                            resign={this.resign}*/}
+                {/*                            toggleSaveAs={this.toggleSaveAs}*/}
+                {/*                            theme={this.state.theme}*/}
+                {/*                            messageCallback={() => this.setState({isSaveMessage: false})}*/}
+                {/*                        />*/}
+                {/*                    ),*/}
+                {/*                },*/}
+                {/*                {*/}
+                {/*                    id: "range-display",*/}
+                {/*                    title: (*/}
+                {/*                        <Typography>*/}
+                {/*                            Range GameBoard*/}
+                {/*                        </Typography>*/}
+                {/*                    ),*/}
+                {/*                    body: (*/}
+                {/*                        <BoardTool*/}
+                {/*                            board={this.board}*/}
+                {/*                            theme={this.state.theme}*/}
+                {/*                            screenCase={'mobile'}*/}
+                {/*                            allRanges={{*/}
+                {/*                                ...this.ranges,*/}
+                {/*                                ...this.enemyRanges,*/}
+                {/*                            }}*/}
+                {/*                            pieceDefs={this.defs}*/}
+                {/*                            idDict={this.idDict}*/}
+                {/*                            triggerRender={this.triggerRender}*/}
+                {/*                        />*/}
+                {/*                    ),*/}
+                {/*                },*/}
+                {/*            ]}*/}
+                {/*        </MuiAccordion>*/}
+                {/*    </PersistentDrawer>*/}
+                {/*    {this.isPromo ? (*/}
+                {/*        <Portal>*/}
+                {/*            <Promo*/}
+                {/*                board={this.board}*/}
+                {/*                idDict={this.idDict}*/}
+                {/*                aiColor={this.aiColor}*/}
+                {/*                pieceDefs={this.defs}*/}
+                {/*                isCouncil={this.isCouncil}*/}
+                {/*                jsonRecords={this.jsonRecords}*/}
+                {/*                color={this.getColorLastMove()}*/}
+                {/*                promoChoices={this.promoChoices}*/}
+                {/*                triggerRender={this.triggerRender}*/}
+                {/*                updateTurnData={this.updateTurnData}*/}
+                {/*                pawnLoc={this.specialMoves.pendingPromo}*/}
+                {/*                updateSpecialCase={this.updateSpecialCase}*/}
+                {/*            />*/}
+                {/*        </Portal>*/}
+                {/*    ) : null}*/}
+                {/*</MediaQuery>*/}
             </>
         );
     }

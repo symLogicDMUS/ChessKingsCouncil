@@ -1,14 +1,16 @@
-import React, { useEffect, useReducer } from "react";
+import React, {useEffect, useReducer} from "react";
+import Box from "@material-ui/core/Box";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import { PromoArrow } from "./PromoArrow";
+import {PromoArrow} from "./PromoArrow";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import { shuffle } from "../../helpers/shuffleArray";
-import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
-import { fontSizeAlt7 as fontSize } from "../../styles/fontSize.jss";
-import { reducer } from "./reducer.red";
-import { ok_button } from "./Promo.jss";
-import { useStyles } from "./Promo.jss";
+import {shuffle} from "../../helpers/shuffleArray";
+import {MuiButton as OkButton} from "../../Reuseables/MuiButton";
+import {fontSizeAlt7 as fontSize} from "../../styles/fontSize.jss";
+import {reducer} from "./reducer.red";
+import {ok_button, useStyles} from "./Promo.jss";
+import {Portal} from "@material-ui/core";
+import {modal} from "../../helpers/modal.jss";
 
 function Promo(props) {
     const [state, dispatch] = useReducer(reducer, {
@@ -16,7 +18,7 @@ function Promo(props) {
         promoChoices: [],
     });
 
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
+    const classes = useStyles({theme: props.theme, fontSize: fontSize});
 
     const getIdNumber = (idChoice) => {
         /**Pawn promotion means we are adding another piece,
@@ -100,6 +102,7 @@ function Promo(props) {
                 pieceDefs: props.pieceDefs,
                 promoChoices: props.promoChoices,
                 color: props.color,
+                theme: props.theme,
             });
         }
     }, [props.promoChoices]);
@@ -111,40 +114,48 @@ function Promo(props) {
     }, [props.color]);
 
     const selectPiece = (key) => {
-        dispatch({ type: "select", key: key });
+        dispatch({type: "select", key: key});
     };
 
     return (
-        <div className={classes.modal}>
-            <div className={classes.img_group}>
-                <ScrollMenu
-                    data={state.promoChoices}
-                    promoChoice={state.promoChoice}
-                    onSelect={selectPiece}
-                    arrowLeft={
-                        <PromoArrow
-                            icon={<NavigateBeforeIcon />}
-                            theme={props.theme}
-                        />
-                    }
-                    arrowRight={
-                        <PromoArrow
-                            icon={<NavigateNextIcon />}
-                            theme={props.theme}
-                        />
-                    }
-                />
+        <>
+            <Portal>
+                <div style={{...modal, zIndex: 6}}>
+                    <Box className={classes.background} />
+                </div>
+            </Portal>
+            <div className={classes.modal}>
+                <div className={classes.promos}>
+                    <ScrollMenu
+                        data={state.promoChoices}
+                        promoChoice={state.promoChoice}
+                        onSelect={selectPiece}
+                        arrowLeft={
+                            <PromoArrow
+                                icon={<NavigateBeforeIcon/>}
+                                theme={props.theme}
+                            />
+                        }
+                        arrowRight={
+                            <PromoArrow
+                                icon={<NavigateNextIcon/>}
+                                theme={props.theme}
+                            />
+                        }
+                    />
+                    <OkButton
+                        onClick={() => promote(props.pawnLoc)}
+                        isDisabled={!state.promoChoice}
+                        style={ok_button(fontSize)}
+                        theme={props.theme}
+                        variant={"contained"}
+                    >
+                        Ok
+                    </OkButton>
+                </div>
             </div>
-            <OkButton
-                onClick={() => promote(props.pawnLoc)}
-                isDisabled={!state.promoChoice}
-                style={ok_button(fontSize)}
-                theme={props.theme}
-                variant={"contained"}
-            >
-                Ok
-            </OkButton>
-        </div>
+        </>
+
     );
 }
 

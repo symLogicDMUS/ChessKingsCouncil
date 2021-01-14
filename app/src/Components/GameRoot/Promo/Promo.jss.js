@@ -1,9 +1,9 @@
-import {modal} from "../../helpers/modal.jss";
-import {promoChoiceSize} from "./PromoChoice.jss";
+import { modal } from "../../helpers/modal.jss";
+import { promoChoiceSize } from "./PromoChoice.jss";
 import { makeStyles } from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import { themes } from "../../styles/themes.jss";
 
-export const promoChoicesHeight = promoChoiceSize
+export const promoChoicesHeight = promoChoiceSize;
 export const promoChoicesWidth = promoChoiceSize * 4 + promoChoiceSize * 0.2;
 
 export const ok_button = (fontSize) => ({
@@ -15,21 +15,24 @@ export const ok_button = (fontSize) => ({
     borderTopRightRadius: 0,
 });
 
+
 export const useStyles = makeStyles({
-    modal: props => ({
-        ...modal
+    modal: (props) => ({
+        ...modal,
+        zIndex: 7,
     }),
-    img_group: props => ({
-        display: "block",
-        cursor: "pointer",
-        float: "left",
+    promos: (props) => ({
         fontSize: props.fontSize,
         height: promoChoiceSize,
         width: promoChoicesWidth,
-        borderRadius: "0.5em",
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        backgroundColor: themes[props.theme].fill,
-        outline: `0.05em solid ${themes[props.theme].outline}`
+    }),
+    background: (props) => ({
+        height: promoChoiceSize,
+        width: promoChoicesWidth,
+        marginTop: promoChoiceSize * 1.5,
+        borderRadius: "0.05em",
+        backgroundColor: themes[props.theme].modal_fill,
+        outline: `0.05em solid ${themes[props.theme].outline}`,
+        zIndex: -1,
     }),
 });
