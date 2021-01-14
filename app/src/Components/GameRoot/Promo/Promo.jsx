@@ -2,15 +2,13 @@ import React, {useEffect, useReducer} from "react";
 import Box from "@material-ui/core/Box";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import {PromoArrow} from "./PromoArrow";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import {shuffle} from "../../helpers/shuffleArray";
+import {PromoArrow} from "./PromoArrow";
 import {MuiButton as OkButton} from "../../Reuseables/MuiButton";
 import {fontSizeAlt7 as fontSize} from "../../styles/fontSize.jss";
+import {itemStyle, ok_button, useStyles} from "./Promo.jss";
 import {reducer} from "./reducer.red";
-import {ok_button, useStyles} from "./Promo.jss";
-import {Portal} from "@material-ui/core";
-import {modal} from "../../helpers/modal.jss";
 
 function Promo(props) {
     const [state, dispatch] = useReducer(reducer, {
@@ -115,45 +113,53 @@ function Promo(props) {
 
     const selectPiece = (key) => {
         dispatch({type: "select", key: key});
+        dispatch({
+            type: "new-list",
+            idDict: props.idDict,
+            pieceDefs: props.pieceDefs,
+            promoChoices: props.promoChoices,
+            color: props.color,
+            theme: props.theme,
+        });
     };
 
     return (
         <>
-            <Portal>
-                <div style={{...modal, zIndex: 6}}>
-                    <Box className={classes.background} />
-                </div>
-            </Portal>
-            <div className={classes.modal}>
+            <Box className={classes.modal}>
                 <div className={classes.promos}>
-                    <ScrollMenu
-                        data={state.promoChoices}
-                        promoChoice={state.promoChoice}
-                        onSelect={selectPiece}
-                        arrowLeft={
-                            <PromoArrow
-                                icon={<NavigateBeforeIcon/>}
-                                theme={props.theme}
-                            />
-                        }
-                        arrowRight={
-                            <PromoArrow
-                                icon={<NavigateNextIcon/>}
-                                theme={props.theme}
-                            />
-                        }
-                    />
+                    <Box className={classes.img_group}>
+                        <ScrollMenu
+                            data={state.promoChoices}
+                            promoChoice={state.promoChoice}
+                            onSelect={selectPiece}
+                            menuClass={classes.menu}
+                            itemStyle={itemStyle()}
+                            itemClassActive={classes.item_active}
+                            arrowLeft={
+                                <PromoArrow
+                                    icon={<NavigateBeforeIcon/>}
+                                    theme={props.theme}
+                                />
+                            }
+                            arrowRight={
+                                <PromoArrow
+                                    icon={<NavigateNextIcon/>}
+                                    theme={props.theme}
+                                />
+                            }
+                        />
+                    </Box>
                     <OkButton
                         onClick={() => promote(props.pawnLoc)}
+                        style={ok_button(fontSize*0.1, props.theme)}
                         isDisabled={!state.promoChoice}
-                        style={ok_button(fontSize)}
                         theme={props.theme}
                         variant={"contained"}
                     >
                         Ok
                     </OkButton>
                 </div>
-            </div>
+            </Box>
         </>
 
     );

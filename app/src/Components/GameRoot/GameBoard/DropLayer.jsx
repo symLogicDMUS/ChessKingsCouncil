@@ -13,7 +13,7 @@ export const DropLayer = ({gameRoot, pieces, dispatch, setRangeDisplay}) => {
 
     const classes = useStyles();
 
-    const [isOver, drop] = useDrop({
+    const [, drop] = useDrop({
         accept: ItemTypes,
         canDrop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();

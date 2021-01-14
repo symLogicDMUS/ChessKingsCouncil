@@ -17,7 +17,7 @@ export const themes = {
         light_normal: '#ffffff',
         dark_normal: '#a9a9a9',
         light_in_range: '#72e2ff',
-        dark_in_range: '#00CCFF',
+        dark_in_range: '#51e3ff',
         sqr_hover: '#00CCFF',
         page_link: '#a9a9a9',
         page_link_hover: '#ffffff',

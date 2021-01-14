@@ -17,8 +17,8 @@ export function reducer(state, action) {
                             key={id}
                             pieceImgBase64Str={pieceImgBase64Str}
                             promoChoice={state.promoChoice}
-                            alt={pieceName}
                             theme={action.theme}
+                            alt={pieceName}
                         />
                     );
                 }
