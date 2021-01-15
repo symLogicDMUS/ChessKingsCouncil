@@ -73,8 +73,8 @@ class LoadGame extends React.Component {
 
     load() {
         this.gameData = this.games[this.state.selectedGame];
-        this.gameData["defs"] = initEmptyRanges(this.gameData["defs"]);
-        this.gameData["defs"] = offsetStrsToList(this.gameData["defs"]);
+        this.gameData.defs = initEmptyRanges(this.gameData.defs);
+        this.gameData.defs = offsetStrsToList(this.gameData.defs);
         this.gameData = parseData(this.gameData);
         this.setState({ userChoseGame: true });
     }

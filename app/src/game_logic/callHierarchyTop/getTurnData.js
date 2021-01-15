@@ -10,10 +10,10 @@ import {getPins} from "../pins/top/getPins";
 import {convertToRf} from "../coordType/convertToRf"
 import { isEmptyRanges } from "../helpers/isEmptyRanges";
 import { noRanges } from "../fenParser/GameStatus/noRanges";
-import {aiMove} from "../../apiHelpers/aiMove";
+import {getAiMove} from "../../apiHelpers/getAiMove";
 
 
-export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDict) {
+export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
     /**data for player who's turn it is now, at current the.includes(point) game
     calculations:
     ............
@@ -34,23 +34,10 @@ export function getTurnData(board, color, aiColor, jsonRecords, pieceDefs, idDic
     mtRestricts = getMultithreatRestriction(board, npck, color);
     [initRanges, pins, threatArea, mtRestricts] = convertToRf(initRanges, pins, threatArea, mtRestricts)
     finalRanges = getFinalRanges(initRanges, pins, threatArea, finalRanges, mtRestricts); // finalRanges in rf format
-
-    let aiCapture, aiStart, aiDest;
-    if (color === aiColor && ! noRanges(finalRanges)) {
-        [aiCapture, aiStart, aiDest] = aiMove(board, finalRanges, aiColor, specialMoves);
-    }
-    else {
-        [aiCapture, aiStart, aiDest] = [false, false, false]
-    }
-
     specialMoves.convertToRf()
-
     return {
         ranges: finalRanges,
         special_moves: specialMoves.getMoves(),
-        ai_start: aiStart,
-        ai_dest: aiDest,
-        ai_capture: aiCapture,
         npck: npck,
     };
 

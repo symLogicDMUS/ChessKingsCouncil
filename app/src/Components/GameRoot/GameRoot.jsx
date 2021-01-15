@@ -3,7 +3,6 @@ import MediaQuery from "react-responsive/src";
 import {Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Promo from "./Promo/Promo";
 import {saveGame} from "../../API/saveGame";
 import {StatusBar} from "./StatusBar/StatusBar";
 import {Fen} from "../../game_logic/fenParser/Fen";
@@ -12,11 +11,9 @@ import {OVER} from "../helpers/gStatusTypes";
 import {isPawn} from "../helpers/isPawn";
 import {BoardTool} from "./BoardTool/BoardTool";
 import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
-import {aiMoveComponent} from "./Move/aiMoveComponent";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
 import {gameDefsOffsetListsToStrs} from "../../apiHelpers/gameDefsOffsetListsToStrs";
-import {GameStatusCouncil} from "../../game_logic/council_logic/GameStatusCouncil";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
@@ -41,7 +38,6 @@ import {fontSize} from "../styles/fontSize.jss";
 import {HelpTitle, HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
-import {SaveAs} from "./SaveResignTool/SaveAs";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -51,55 +47,36 @@ class GameRoot extends React.Component {
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
         this.gameData = this.props.location.state.gameData;
-        this.isCouncil = this.gameType === "council";
-        this.board = this.gameData["board"];
-        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData["json_records"], this.board));
-        if (this.isCouncil) this.gameStatus = new GameStatusCouncil(this.gameData["status"]);
-        else this.gameStatus = new GameStatus(this.gameData["status"]);
-        this.specialMoves = new SpecialMoves(this.gameData["special_moves"]);
-        this.fenObj = new Fen(this.gameData["fen_data"]);
-        this.turn = this.gameData["color"];
-        this.ranges = this.gameData["ranges"];
-        this.enemyRanges = this.gameData["enemy_ranges"];
-        this.idDict = this.gameData["id_dict"];
-        this.defs = this.gameData["piece_defs"];
-        this.promoChoices = this.gameData["promos"];
-        this.playerType = this.gameData["pt"]; //duplicate?
-        this.resigned = this.gameStatus.hasResigned();
+        this.isCouncil = (this.gameType === "council");
+        this.ranges = this.gameData.ranges;
+        this.board = this.gameData.board;
+        this.turn = this.gameData.color;
+        this.idDict = this.gameData.id_dict;
+        this.defs = this.gameData.piece_defs;
+        this.promoChoices = this.gameData.promos;
+        this.enemyRanges = this.gameData.enemy_ranges;
+        this.playerType = this.gameData.pt; //duplicate?
+        this.fenObj = new Fen(this.gameData.fen_data);
+        this.gameStatus = new GameStatus(this.gameData.status)
+        this.specialMoves = new SpecialMoves(this.gameData.special_moves);
+        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData.json_records, this.board));
+        this.resigned = (this.gameStatus.condition === "resigned");
         //Note: do not make these state variables. Multiple changes need to be made BEFORE re-rendering:
-        this.unsavedProgress = false;
-        this.aiDisplay = false;
-        this.firstMoveCurrent = true;
-        this.firstTime = false;
         this.aiColor = this.setAiColor();
-        this.isPromo = false;
-        this.navExpanded = true;
-        this.helpTitle = null;
-        this.helpText = null;
-        this.hmChildName = null;
-        this.hmChildren = {none: null};
-        this.confirmRedirectModal = false;
-        this.redirectPath = null;
+        this.aiStart = null;
+        this.aiDest = null;
+        this.aiCapture = null;
+        this.unsavedProgress = false;
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
-        this.prepareAiMove = this.prepareAiMove.bind(this);
-        this.aiMakeMove = this.aiMakeMove.bind(this);
         this.changeName = this.changeName.bind(this);
     }
 
     componentDidMount() {
         document.body.className = "dark-background";
-        if (this.firstMoveCurrent) {
-            this.firstMoveCurrent = false;
-            if (this.turn === this.aiColor && this.gameStatus.status !== OVER) {
-                this.updateTurnData();
-                this.prepareAiMove();
-                this.triggerRender();
-            }
-        }
     }
 
     /**
@@ -125,30 +102,6 @@ class GameRoot extends React.Component {
         if (this.playerType === "B") return "W";
     }
 
-    prepareAiMove() {
-        /**NOTE: if game over, conditional in render() will prevent the component rendering that makes ai move. */
-        this.aiDisplay = true;
-    }
-
-    isAiTurn() {
-        return (
-            this.aiDisplay &&
-            this.aiStart &&
-            this.aiDest &&
-            ! this.isPromo
-            && this.gameStatus.status !== OVER
-        );
-    }
-
-    aiMakeMove(dispatch) {
-        this.aiDisplay = false;
-        aiMoveComponent(this, dispatch, this.aiStart, this.aiDest);
-        this.toggleTurn();
-        this.updateFen(this.aiStart, this.aiDest);
-        this.updateTurnData();
-        this.triggerRender();
-    }
-
     toggleTurn() {
         if (this.turn === "W") {
             this.turn = "B";
@@ -157,6 +110,7 @@ class GameRoot extends React.Component {
         } else {
             console.log("color error");
         }
+        this.triggerRender()
     }
 
     getCondition() {
@@ -177,7 +131,7 @@ class GameRoot extends React.Component {
     }
 
     /**
-     * called after a move is made.
+     * called after a move is made. update the game logic so know where other player can now move.
      * */
     updateTurnData() {
         let turnData;
@@ -205,19 +159,26 @@ class GameRoot extends React.Component {
         this.ranges = turnData.ranges;
         this.enemyRanges = turnData.enemy_ranges;
         this.specialMoves.update(turnData.special_moves);
-        this.aiStart = turnData.ai_start;
-        this.aiDest = turnData.ai_dest;
         this.updateGameStatus(turnData);
     }
 
+    /**
+     * update the data that need to keep for Castling, En Passants, and Pawn promotions.
+     * @param start
+     * @param dest
+     */
     updateJsonRecords(start, dest) {
         const pieceId = this.board[dest];
         const fenId = pieceId[1].toLowerCase();
 
+        //if a pawn was captured, delete its history
         if (isPawn(this.captured)) {
             delete this.jsonRecords.pawnHistories[this.captured];
         }
 
+        //if the piece that just moved was a pawn add the destination to its history and restart the non-pawn moves counter.
+        //otherwise it wasn't a pawn that moved so add to the counter, then if it was a king or rook (or sub for a rook)
+        // that moved from its starting position than record this.
         if (fenId === "p") {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
@@ -232,7 +193,7 @@ class GameRoot extends React.Component {
 
     updateGameStatus(turnData) {
         if (this.isCouncil)
-            this.gameStatus.update(
+            this.gameStatus.updateCouncil(
                 this.board,
                 this.ranges,
                 this.getColorLastMove(),
@@ -302,31 +263,7 @@ class GameRoot extends React.Component {
         /**Do not make this a state variable*/
         this.unsavedProgress = boolVal;
     }
-
-    modals() {
-        return (
-            <>
-                <Portal>
-                    <Promo
-                        board={this.board}
-                        idDict={this.idDict}
-                        aiColor={this.aiColor}
-                        pieceDefs={this.defs}
-                        isCouncil={this.isCouncil}
-                        jsonRecords={this.jsonRecords}
-                        color={this.getColorLastMove()}
-                        promoChoices={this.promoChoices}
-                        triggerRender={this.triggerRender}
-                        updateTurnData={this.updateTurnData}
-                        pawnLoc={this.specialMoves.pendingPromo}
-                        updateSpecialCase={this.updateSpecialCase}
-                        theme={this.state.theme}
-                    />
-                </Portal>
-            </>
-        );
-    }
-
+    
     render() {
         return (
             <>
@@ -398,24 +335,7 @@ class GameRoot extends React.Component {
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
-                    {this.isPromo ? (
-                        <Portal>
-                            <Promo
-                                board={this.board}
-                                idDict={this.idDict}
-                                aiColor={this.aiColor}
-                                pieceDefs={this.defs}
-                                isCouncil={this.isCouncil}
-                                jsonRecords={this.jsonRecords}
-                                color={this.getColorLastMove()}
-                                promoChoices={this.promoChoices}
-                                triggerRender={this.triggerRender}
-                                updateTurnData={this.updateTurnData}
-                                pawnLoc={this.specialMoves.pendingPromo}
-                                updateSpecialCase={this.updateSpecialCase}
-                            />
-                        </Portal>
-                    ) : null}
+
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
                     <PersistentDrawer
@@ -501,24 +421,6 @@ class GameRoot extends React.Component {
                             ]}
                         </MuiAccordion>
                     </PersistentDrawer>
-                    {this.isPromo ? (
-                        <Portal>
-                            <Promo
-                                board={this.board}
-                                idDict={this.idDict}
-                                aiColor={this.aiColor}
-                                pieceDefs={this.defs}
-                                isCouncil={this.isCouncil}
-                                jsonRecords={this.jsonRecords}
-                                color={this.getColorLastMove()}
-                                promoChoices={this.promoChoices}
-                                triggerRender={this.triggerRender}
-                                updateTurnData={this.updateTurnData}
-                                pawnLoc={this.specialMoves.pendingPromo}
-                                updateSpecialCase={this.updateSpecialCase}
-                            />
-                        </Portal>
-                    ) : null}
                 </MediaQuery>
             </>
         );

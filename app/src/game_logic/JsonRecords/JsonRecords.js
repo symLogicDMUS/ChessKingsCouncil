@@ -3,12 +3,15 @@ import {mapDictListRfToXy} from "../coordType/mapDictListRfToXy";
 import { mapDictListXyToRf } from "../coordType/mapDictListXyToRf";
 import {getPieceType} from "../pieceType/getPieceType";
 
-
+/**
+ * Data that need to keep for Castling, En passants, and Pawn promotions.
+ *
+ * NOTE: game-logic and component rendering have separate instances of this class use them differently. game-logic makes
+ *       new instance each turn and component side updates its instance. Most of its methods are used by game-logic side.
+ */
 export class JsonRecords {
-    /*contains the necessary info to determine when castles and en-passants can be performed**/
 
     constructor(records) {
-        /*new instance of object created for every update to piece finalRanges i.e. @app.update()**/
         this.rooksMoved = records['rooks_moved']
         this.kingsMoved = records['kings_moved']
         this.pawnHistories = records['pawn_histories']
@@ -16,8 +19,10 @@ export class JsonRecords {
         this.numConsecutiveNonPawnMoves = records['num_consecutive_non_pawn_moves']
     }
 
+    /**
+     * swap the key of each pawnHistory entry with the coordinate of its current location (last list item).
+    **/
     pawnKeysToCurrentRf() {
-        /*swap the key of each pawnHistory entry with the coordinate of its current location**/
         const pawnHistories = {};
         for (const hist of Object.values(this.pawnHistories)) {
             let sqr = hist[hist.length - 1]
@@ -27,7 +32,6 @@ export class JsonRecords {
     }
 
     update(id, start, dest, promoFlag) {
-        /*update json records depending on the piece type of id_ at location start**/
         const pType = getPieceType(id);
         if (pType !== "P") {
             this.numConsecutiveNonPawnMoves += 1
@@ -45,6 +49,7 @@ export class JsonRecords {
         }
     }
 
+
     updateRooksMoved(sqr) {
         /*update rooksMoved because rook that start game at sqr has moved**/
         this.rooksMoved[sqr] = true
@@ -57,9 +62,6 @@ export class JsonRecords {
 
     updatePawnHistory(id, newLoc, promo) {
         /*update location of pawn by appending its new location to its history**/
-        console.log("id", id)
-        console.log("newLoc", newLoc)
-        console.log("promo", promo)
         if (promo) {
             delete this.pawnHistories[id]
         }

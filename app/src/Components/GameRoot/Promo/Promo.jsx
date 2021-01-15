@@ -1,14 +1,14 @@
-import React, {useEffect, useReducer} from "react";
+import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import {shuffle} from "../../helpers/shuffleArray";
-import {PromoArrow} from "./PromoArrow";
-import {MuiButton as OkButton} from "../../Reuseables/MuiButton";
-import {fontSizeAlt7 as fontSize} from "../../styles/fontSize.jss";
-import {itemStyle, ok_button, useStyles} from "./Promo.jss";
-import {reducer} from "./reducer.red";
+import { shuffle } from "../../helpers/shuffleArray";
+import { PromoArrow } from "./PromoArrow";
+import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
+import { fontSizeAlt7 as fontSize } from "../../styles/fontSize.jss";
+import { itemStyle, ok_button, useStyles } from "./Promo.jss";
+import { reducer } from "./reducer.red";
 
 function Promo(props) {
     const [state, dispatch] = useReducer(reducer, {
@@ -16,7 +16,13 @@ function Promo(props) {
         promoChoices: [],
     });
 
-    const classes = useStyles({theme: props.theme, fontSize: fontSize});
+    useEffect(() => {
+        if (props.color === props.aiColor) {
+            aiPromote(props.promoDest);
+        }
+    }, [props.color]);
+
+    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
 
     const getIdNumber = (idChoice) => {
         /**Pawn promotion means we are adding another piece,
@@ -42,18 +48,21 @@ function Promo(props) {
         props.board[pawnLoc] = newId;
     };
 
-    const updateGameRoot = () => {
-        props.updateTurnData();
-        props.updateSpecialCase("none");
-        props.triggerRender();
-    };
-
     const promote = (pawnLoc) => {
         let idNumber = getIdNumber(state.promoChoice);
-        let newId = getNewId(idNumber, state.promoChoice);
+        let newId = getNewId(state.promoChoice, idNumber);
+        let oldId = props.board[pawnLoc];
+        props.piecesDispatch({
+            type: "promote",
+            oldId: oldId,
+            newId: newId,
+            defs: props.pieceDefs,
+            idDict: props.idDict,
+        });
         removePawnHistory(pawnLoc);
         replacePawnWithPromo(pawnLoc, newId);
-        updateGameRoot();
+        props.setIsPromo(false);
+        props.finishMove(props.promoStart, pawnLoc);
     };
 
     const aiPromote = (pawnLoc) => {
@@ -61,10 +70,19 @@ function Promo(props) {
         ids = shuffle(ids);
         let idType = ids[0];
         let idNumber = getIdNumber(idType);
-        let newId = getNewId(idNumber, idType);
-        removePawnHistory(pawnLoc);
+        let newId = getNewId(idType, idNumber);
+        let oldId = props.board[pawnLoc];
+        props.piecesDispatch({
+            type: "promote",
+            oldId: oldId,
+            newId: newId,
+            defs: props.pieceDefs,
+            idDict: props.idDict,
+        });
         replacePawnWithPromo(pawnLoc, newId);
-        updateGameRoot();
+        removePawnHistory(pawnLoc);
+        props.setIsPromo(false);
+        props.finishMove(props.promoStart, pawnLoc);
     };
 
     const aiPromoChoices = () => {
@@ -105,14 +123,8 @@ function Promo(props) {
         }
     }, [props.promoChoices]);
 
-    useEffect(() => {
-        if (props.color === props.aiColor) {
-            aiPromote(props.pawnLoc);
-        }
-    }, [props.color]);
-
     const selectPiece = (key) => {
-        dispatch({type: "select", key: key});
+        dispatch({ type: "select", key: key });
         dispatch({
             type: "new-list",
             idDict: props.idDict,
@@ -137,21 +149,21 @@ function Promo(props) {
                             itemClassActive={classes.item_active}
                             arrowLeft={
                                 <PromoArrow
-                                    icon={<NavigateBeforeIcon/>}
+                                    icon={<NavigateBeforeIcon />}
                                     theme={props.theme}
                                 />
                             }
                             arrowRight={
                                 <PromoArrow
-                                    icon={<NavigateNextIcon/>}
+                                    icon={<NavigateNextIcon />}
                                     theme={props.theme}
                                 />
                             }
                         />
                     </Box>
                     <OkButton
-                        onClick={() => promote(props.pawnLoc)}
-                        style={ok_button(fontSize*0.1, props.theme)}
+                        onClick={() => promote(props.promoDest)}
+                        style={ok_button(fontSize * 0.1, props.theme)}
                         isDisabled={!state.promoChoice}
                         theme={props.theme}
                         variant={"contained"}
@@ -161,7 +173,6 @@ function Promo(props) {
                 </div>
             </Box>
         </>
-
     );
 }
 

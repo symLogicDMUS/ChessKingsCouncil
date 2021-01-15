@@ -1,4 +1,5 @@
-import {copy} from "../../../helpers/copy";
+import { copy } from "../../../helpers/copy";
+import { getPieceImg } from "../../../MyPieces/getPieceImg";
 
 /**
  * dropLayer for the game board
@@ -22,7 +23,16 @@ export function reducer(state, action) {
             return pieces;
         case "remove":
             pieces = copy(state);
-            delete pieces[action.id]
+            delete pieces[action.id];
+            return pieces;
+        case "promote":
+            pieces = copy(state);
+            delete pieces[action.oldId];
+            pieces[action.newId] = {
+                left: action.left,
+                top: action.top,
+                src: getPieceImg(action.newId, action.idDict, action.defs),
+            };
             return pieces;
         default:
             throw new Error();

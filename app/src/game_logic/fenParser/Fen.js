@@ -21,7 +21,7 @@ export class Fen {
     }
 
     UpdateClocks(captured, color, jsonRecords) {
-        if (jsonRecords.numConsecutiveNonPawnMoves === 0 || captured != 'undefined') {
+        if (jsonRecords.numConsecutiveNonPawnMoves === 0 || captured !== 'undefined') {
             this.hmClock = 0
         }
         if (color === 'B') {

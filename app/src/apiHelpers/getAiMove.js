@@ -4,7 +4,7 @@ import {aiMakeMove} from "../game_logic/ai/aiMakeMove";
 import {shuffle} from "../Components/helpers/shuffleArray"
 
 
-export function aiMove(board, ranges, color, specialMoves) {
+export function getAiMove(board, ranges, color, specialMoves) {
     /* **/
     var responseBoard = JSON.parse(JSON.stringify(board))
     var aiRanges = filterEmptyRanges(ranges)

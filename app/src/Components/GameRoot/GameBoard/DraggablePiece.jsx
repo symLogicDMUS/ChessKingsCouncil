@@ -5,14 +5,14 @@ import { updatePosition } from "./DraggablePiece.jss";
 import { Piece } from "./Piece";
 
 export const DraggablePiece = (props) => {
-    const { id, src, left, top } = props;
+    const { id, src, left, top, setRangeDisplay } = props;
     let itemType = id.slice(0, 2);
     const [{ isDragging }, drag, preview] = useDrag({
         item: { type: itemType, id, left, top, src },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
-        begin: (monitor) =>  props.setRangeDisplay(id),
+        begin: (monitor) =>  setRangeDisplay(id),
     });
 
     useEffect(() => {

@@ -10,9 +10,5 @@ export const PieceDragPreview = memo(({ src }) => {
         },
         [tickTock]
     );
-    return (
-        <div>
-            <Piece src={src} />
-        </div>
-    );
+    return <Piece src={src} />
 });

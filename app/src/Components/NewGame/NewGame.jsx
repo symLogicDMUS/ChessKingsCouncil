@@ -89,6 +89,7 @@ class NewGame extends React.Component {
             this.gameData.piece_defs,
             this.gameData.id_dict
         );
+
         this.gameData.ranges = dataEntry.ranges;
         this.gameData.enemy_ranges = dataEntry.enemy_ranges;
         this.setState({ step: 'play-game' });

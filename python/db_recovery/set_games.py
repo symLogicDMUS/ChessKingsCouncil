@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred, {
 def set_games(uid):
     """ """
     data_dict = get_games()
-    db.reference().child('games').set({uid: data_dict})
+    db.reference().child('games').set({uid: data_dict}
 
 
 if __name__ == "__main__":

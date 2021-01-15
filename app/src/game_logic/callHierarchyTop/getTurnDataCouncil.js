@@ -4,16 +4,14 @@ import {getResetPieceDicts} from "../council_logic/getResetPieceDicts";
 import {getKingLocs} from "../threatArea/getKingLocs";
 import {getThreatAreas} from "../council_logic/getThreatAreas";
 import {getFinalRanges} from "../council_logic/getFinalRanges";
-import {aiMove} from "../../apiHelpers/aiMove";
+import {getAiMove} from "../../apiHelpers/getAiMove";
 
-export function getTurnDataCouncil(board, color, aiColor, jsonRecords, pieceDefs, idDict) {
+export function getTurnDataCouncil(board, color, jsonRecords, pieceDefs, idDict) {
     /**data for player who's turn it is now, at current the.includes(point) game
      calculations:
      ............
      final ranges: where every piece of player's pieces can move to.
      status: is it check, checkmate, stalemate or none of these? is the game over?
-     aiStart: the starting square of a move if it is the computer's turn
-     aiDest: the ending square of a move if it is the computer's turn
      ............
      */
     let initRanges, finalRanges, specialMoves;
@@ -23,21 +21,11 @@ export function getTurnDataCouncil(board, color, aiColor, jsonRecords, pieceDefs
     const threatArea = getThreatAreas(board, kLoc, color, pieceDefs, idDict);
     finalRanges = getFinalRanges(initRanges, threatArea, finalRanges);
 
-    let aiCapture, aiStart, aiDest;
-    if (color === aiColor && !noRanges(finalRanges)) {
-        [aiCapture, aiStart, aiDest] = aiMove(board, finalRanges, aiColor, specialMoves);
-    } else {
-        [aiCapture, aiStart, aiDest] = [false, false, false]
-    }
-
     specialMoves.convertToRf()
 
     return {
         ranges: finalRanges,
         special_moves: specialMoves.getMoves(),
-        ai_start: aiStart,
-        ai_dest: aiDest,
-        ai_capture: aiCapture,
         tal: threatArea.length
     };
 }

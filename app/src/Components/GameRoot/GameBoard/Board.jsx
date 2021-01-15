@@ -39,21 +39,13 @@ export const Board = ({ gameRoot }) => {
                         dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
                     />
-                    <DragLayer setRangeDisplay={setRangeDisplay} />
+                    <DragLayer gameRoot={gameRoot} setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
                         rangeBoard={state.rangeBoard}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard theme={gameRoot.state.theme} />
-                    {gameRoot.isAiTurn() && (
-                        <AIDisplay
-                            dispatch={piecesDispatch}
-                            theme={gameRoot.state.theme}
-                            aiStart={gameRoot.aiStart}
-                            aiDest={gameRoot.aiDest}
-                            aiMakeMove={gameRoot.aiMakeMove}
-                        />
-                    )}
+
                 </DndProvider>
             </MediaQuery>
             <MediaQuery maxDeviceHeight={767}>
@@ -64,21 +56,13 @@ export const Board = ({ gameRoot }) => {
                         dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
                     />
-                    <DragLayer setRangeDisplay={setRangeDisplay} />
+                    <DragLayer gameRoot={gameRoot} setRangeDisplay={setRangeDisplay} />
                     <RangeDisplayBoard
                         rangeBoard={state.rangeBoard}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard theme={gameRoot.state.theme} />
-                    {gameRoot.isAiTurn() && (
-                        <AIDisplay
-                            dispatch={piecesDispatch}
-                            theme={gameRoot.state.theme}
-                            aiStart={gameRoot.aiStart}
-                            aiDest={gameRoot.aiDest}
-                            aiMakeMove={gameRoot.aiMakeMove}
-                        />
-                    )}
+
                 </DndProvider>
             </MediaQuery>
         </>

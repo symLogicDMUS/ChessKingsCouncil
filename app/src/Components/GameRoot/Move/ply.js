@@ -1,13 +1,12 @@
 import { isPiece } from "../../helpers/isPiece";
 
 /**
- * update the board used for game logic/determining allowed moves, as well as its special records, to the move performed
+ * update game-logic board and record id of captured piece if there was.
  * @param gameRoot
- * @param start
- * @param dest
+ * @param start: start square rankfile
+ * @param dest: destination square rankfile
  */
 export function ply(gameRoot, start, dest) {
-    /*move piece to new square, capturing piece there if there is**/
     if (isPiece(gameRoot.board[dest])) {
         gameRoot.captured = gameRoot.board[dest]
     }
@@ -16,5 +15,4 @@ export function ply(gameRoot, start, dest) {
     }
     gameRoot.board[dest] = gameRoot.board[start]
     gameRoot.board[start] = '#'
-    gameRoot.updateJsonRecords(start, dest)
 }

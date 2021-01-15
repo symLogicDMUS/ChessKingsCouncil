@@ -22,8 +22,8 @@ export class SpecialMoves {
         }
 
         //will be the location of a pawn that reached the back row and is about to be poromoted
-        this.pendingPromo = null;
-
+        this.promoStart = null;
+        this.promoDest = null;
     }
 
     update(moves) {

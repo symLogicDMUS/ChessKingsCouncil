@@ -1,9 +1,10 @@
-
-
-export function isPiece(id_) {
+/**
+ *
+ * @param id: should always be a string, is piece id, '#', or 'None'
+ * @returns {boolean}
+ */
+export function isPiece(id) {
     /*return true if id matches piece id pattern, otherwise return false **/
-    if (id_.length === 3 && /(W|B)/.test(id_[0]) && /^[A-Z]$/i.test(id_[1]) && /^[1-9]$/i.test(id_[2])) {
-        return true
-    }
-    return false
+    return id.length === 3 && /(W|B)/.test(id[0]) && /^[A-Z]$/i.test(id[1]) && /^[1-9]$/i.test(id[2]);
+
 }

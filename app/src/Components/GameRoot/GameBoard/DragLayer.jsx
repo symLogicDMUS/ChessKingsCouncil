@@ -4,17 +4,14 @@ import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
-import {pxPosToXy, xyToPx} from "./DndCrdCnvrt";
-import {boardSize, sqrSize} from "../../Reuseables/Board.jss";
-import {xyToRf} from "../../../game_logic/coordType/crdCnvrt";
 
-const DragLayer = ({setRangeDisplay, setCurrentRf}) => {
+const DragLayer = ({gameRoot, setRangeDisplay}) => {
     const {
-        itemType,
-        isDragging,
         item,
+        itemType,
         initialOffset,
         currentOffset,
+        isDragging,
     } = useDragLayer((monitor) => ({
         item: monitor.getItem(),
         itemType: monitor.getItemType(),
