@@ -28,7 +28,7 @@ export function xyToPx(x, y, sqrSize) {
  * @Parameters:
  * @param left: position left in px of current dragged item
  * @param top: position top in px of current dragged item
- *
+ * @param sqrSize: depends on screen size
  * @attributes:
  * @attr unitLeft: the position left if the board was 8px by 8px and each square was 1px by 1px
  * @attr: unitTop: the position top if the board was 8px by 8px and each square was 1px by 1px

@@ -4,8 +4,18 @@ import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
+import { SqrMouseIsOver } from "./SqrMouseIsOver";
+import { Portal } from "@material-ui/core";
+import { getSqrDragPositions } from "./getSqrDragPositions";
 
-const DragLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize, theme }) => {
+const DragLayer = ({
+    gameRoot,
+    setRangeDisplay,
+    sqrSize,
+    boardSize,
+    boardPos,
+    theme,
+}) => {
     const {
         item,
         itemType,
@@ -55,6 +65,14 @@ const DragLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize, theme }) => 
                     {renderPieceBeingDragged()}
                 </div>
             </div>
+            <Portal>
+                <SqrMouseIsOver
+                    theme={theme}
+                    sqrSize={sqrSize}
+                    boardPos={boardPos}
+                    currentOffset={currentOffset}
+                />
+            </Portal>
         </>
     );
 };

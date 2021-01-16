@@ -1,9 +1,8 @@
-import {availHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const largeBoardFontSizeDesktop = window.screen.availHeight * 0.095;
 export const largeBoardFontSizeMobile = window.screen.availHeight * 0.066;
 export const smallBoardFontSizeDesktop = largeBoardFontSizeDesktop * 0.501;
-
 
 /**
  * for dnd context
@@ -21,7 +20,19 @@ export const boardSizes = {
     mobile: sqrSizes.mobile * 8,
 }
 
+export const boardPos = {
+    desktop: {
+        left: availWidth() * 0.45 - boardSizes.desktop * 0.5,
+        top: availHeight()*0.5 - boardSizes.desktop * 0.5,
+    },
+    mobile: { //TODO: implement
+        left: null,
+        top: null,
+    }
+}
+
 export const bigBoardMargin = '0.25em';
+export const gameBoardLeft = availWidth() * 0.45 - boardSizes.desktop * 0.5
 
 export const board = (fontSize) => ({
     fontSize: fontSize,
@@ -38,9 +49,9 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     '@media screen and (min-width: 768px)': {
-        position: 'absolute',
-        top: `calc(55% - ${boardSize * 0.5}px)`,
-        left: `calc(45% - ${boardSize * 0.5}px)`,
+        position: 'fixed',
+        top: boardPos.desktop.top,
+        left: boardPos.desktop.left,
     },
     '@media screen and (max-width: 767px)': {
         position: 'fixed',

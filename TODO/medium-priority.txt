@@ -4,6 +4,7 @@ short:
 * what happened to range display squares
 
 medium:
+* add diagrams to help modals
 * make click a piece on mini-board load the profile of that piece as a modal
 * change save animation for GameRoot from 'Piece Saved Successfully!' to 'Game Saved Successfully!'
 * add loading animation

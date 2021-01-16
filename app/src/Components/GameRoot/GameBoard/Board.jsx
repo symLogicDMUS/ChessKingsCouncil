@@ -3,7 +3,7 @@ import MediaQuery from "react-responsive/src";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
-import { sqrSizes, boardSizes } from "../../Reuseables/Board.jss";
+import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
 import { GameDisplayBoard } from "./GameDisplayBoard";
 import DragLayer from "./DragLayer";
 import DropLayer from "./DropLayer";
@@ -36,6 +36,7 @@ export const Board = ({ gameRoot }) => {
                         gameRoot={gameRoot}
                         sqrSize={sqrSizes.desktop}
                         boardSize={boardSizes.desktop}
+                        boardPos={boardPos.desktop}
                         setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
@@ -58,6 +59,7 @@ export const Board = ({ gameRoot }) => {
                         gameRoot={gameRoot}
                         sqrSize={sqrSizes.mobile}
                         boardSize={boardSizes.mobile}
+                        boardPos={boardPos.mobile}
                         setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
