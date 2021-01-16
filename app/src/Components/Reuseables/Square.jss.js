@@ -47,7 +47,7 @@ export const useStyles = makeStyles({
     dark_in_range: props => ({
         ...props.style,
         ...square(props.fontSize, props.type, props.sqrSize),
-        backgroundColor: themes[props.theme].dark_in_range,
+        background: themes[props.theme].dark_in_range,
     }),
     offset: props => ({
         ...props.style,

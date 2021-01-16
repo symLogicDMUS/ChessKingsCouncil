@@ -1,5 +1,8 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {appBarHeight} from "./PersistentDrawer.jss";
 
+export const bigBoardMargin = '0.25em';
+export const mobileBoardPadding = availWidth() * 0.002;
 export const largeBoardFontSizeDesktop = window.screen.availHeight * 0.095;
 export const largeBoardFontSizeMobile = window.screen.availHeight * 0.066;
 export const smallBoardFontSizeDesktop = largeBoardFontSizeDesktop * 0.501;
@@ -26,13 +29,10 @@ export const boardPos = {
         top: availHeight()*0.5 - boardSizes.desktop * 0.5,
     },
     mobile: { //TODO: implement
-        left: null,
-        top: null,
+        left: availWidth()*0.015,
+        top: appBarHeight + availWidth()*0.018,
     }
 }
-
-export const bigBoardMargin = '0.25em';
-export const gameBoardLeft = availWidth() * 0.45 - boardSizes.desktop * 0.5
 
 export const board = (fontSize) => ({
     fontSize: fontSize,
@@ -55,6 +55,8 @@ export const dnd_layer = (boardSize, z) => ({
     },
     '@media screen and (max-width: 767px)': {
         position: 'fixed',
+        // marginTop: boardPos.mobile.top,
+        // marginLeft: boardPos.mobile.left,
     },
 });
 

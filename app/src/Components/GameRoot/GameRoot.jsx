@@ -32,13 +32,13 @@ import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
+import {boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
 import {Board} from "./GameBoard/Board";
 import {GameInfo} from "./GameInfo/GameInfo";
 import {fontSize} from "../styles/fontSize.jss";
-import {HelpTitle, HelpText} from "./HelpText";
+import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
-import {boardSizes} from "../Reuseables/Board.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -264,7 +264,7 @@ class GameRoot extends React.Component {
         /**Do not make this a state variable*/
         this.unsavedProgress = boolVal;
     }
-    
+
     render() {
         return (
             <>
@@ -341,6 +341,7 @@ class GameRoot extends React.Component {
                 <MediaQuery maxDeviceWidth={767}>
                     <PersistentDrawer
                         theme={this.state.theme}
+                        spacing={mobileBoardPadding}
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"
@@ -367,10 +368,13 @@ class GameRoot extends React.Component {
                             />
                         }
                     >
-                        {/*<Portal>*/}
-                            <Board gameRoot={this}/>
-                        {/*</Portal>*/}
-                        <MuiAccordion theme={this.state.theme} rootStyle={{position: 'relative', top: boardSizes.mobile, width: boardSizes.mobile, zIndex: 5}}>
+                        <Board gameRoot={this}/>
+                        <MuiAccordion theme={this.state.theme} rootStyle={{
+                            position: 'relative',
+                            top: boardSizes.mobile,
+                            width: boardSizes.mobile,
+                            zIndex: 5
+                        }}>
                             {[
                                 {
                                     id: "game-info",

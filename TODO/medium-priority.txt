@@ -7,6 +7,8 @@ medium:
 * add diagrams to help modals
 * make click a piece on mini-board load the profile of that piece as a modal
 * change save animation for GameRoot from 'Piece Saved Successfully!' to 'Game Saved Successfully!'
+* put in background images that change with the theme
 * add loading animation
 
 long:
+make load game page be image grid

@@ -1,14 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const drawerWidth = availWidth()*0.45;
+export const appBarHeight = availHeight()*0.086;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
     }),
     appBar: props => ({
+        height: appBarHeight,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

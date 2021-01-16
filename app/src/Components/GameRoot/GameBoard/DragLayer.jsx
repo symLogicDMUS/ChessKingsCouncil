@@ -6,7 +6,6 @@ import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
 import { SqrMouseIsOver } from "./SqrMouseIsOver";
 import { Portal } from "@material-ui/core";
-import { getSqrDragPositions } from "./getSqrDragPositions";
 
 const DragLayer = ({
     gameRoot,

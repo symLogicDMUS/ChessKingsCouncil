@@ -3,7 +3,7 @@ import { useStyles } from "../../Reuseables/Square.jss";
 
 export function RangeDisplaySquare({ isInRange, isLightColorSqr, theme, sqrSize }) {
 
-    const classes = useStyles({ theme, type: "dnd", sqrSize: sqrSize, style: {opacity: '0.6'} });
+    const classes = useStyles({ theme, type: "dnd", sqrSize: sqrSize});
 
     return (
         <div
