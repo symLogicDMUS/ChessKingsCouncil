@@ -55,8 +55,6 @@ export const dnd_layer = (boardSize, z) => ({
     },
     '@media screen and (max-width: 767px)': {
         position: 'fixed',
-        // marginTop: boardPos.mobile.top,
-        // marginLeft: boardPos.mobile.left,
     },
 });
 

@@ -65,13 +65,13 @@ export const useStyles = makeStyles({
     }),
     ai_start: props => ({
         ...square(props.fontSize, props.type, props.sqrSize),
-        backgroundImage: 'url("/Images/sqr/sqr-outline-fdfd35.svg")',
+        backgroundImage: 'url("/Images/sqr/sqr-outline-bebeff.svg")',
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
     }),
     ai_dest: props => ({
         ...square(props.fontSize, props.type, props.sqrSize),
-        backgroundImage: 'url("/Images/sqr/sqr-highlight-fdfd35.svg")',
+        backgroundImage: 'url("/Images/sqr/sqr-highlight-bebeff.svg")',
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
     }),

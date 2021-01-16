@@ -32,9 +32,6 @@ export const useStyles = makeStyles({
         fontSize: props.fontSize,
         width: '100%',
         height: '1.5em',
-        '@media screen and (min-width: 768px)': {
-            marginTop: '-1em',
-        },
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'flex-start',

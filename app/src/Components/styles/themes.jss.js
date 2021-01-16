@@ -21,7 +21,6 @@ export const themes = {
         sqr_text_light: '#a9a9a9',
         sqr_text_dark: '#ffffff',
         sqr_border: '#fae6e6',
-        // sqr_border: '#ffc800',
         sqr_hover: '#00ccff',
         page_link: '#a9a9a9',
         page_link_hover: '#ffffff',

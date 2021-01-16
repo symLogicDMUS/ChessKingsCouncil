@@ -1,19 +1,13 @@
 import React from "react";
+import { Close } from "./Close";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { MuiButton as Button } from "./MuiButton";
-import { Close } from "./Close";
 import { fontSize } from "../styles/fontSize.jss";
-import { button, close_icon, useStyles } from "./StandardModal.jss";
+import { close_icon, useStyles } from "./StandardModal.jss";
+import "../styles/Scrollbar.scss";
 
-export function StandardModal({
-    text,
-    title,
-    theme,
-    closeClick,
-    children
-}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+export function StandardModal({ text, title, theme, closeClick, children }) {
+    const classes = useStyles({ theme: theme, fontSize: fontSize });
 
     return (
         <div className={classes.modal}>
@@ -39,9 +33,7 @@ export function StandardModal({
                 >
                     {text}
                 </Typography>
-                <Box className={classes.buttons}>
-                    {children}
-                </Box>
+                <Box className={classes.buttons}>{children}</Box>
             </Box>
         </div>
     );

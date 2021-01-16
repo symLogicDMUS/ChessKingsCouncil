@@ -1,9 +1,9 @@
 import React, {useEffect, useMemo} from "react";
+import {v4 as uuidv4} from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { binaryBoard } from "../../helpers/binaryBoard";
 import { useStyles } from "./RangeDisplayBoard.jss";
-import {v4 as uuidv4} from "uuid";
 
 export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
 
