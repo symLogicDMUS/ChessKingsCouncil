@@ -1,13 +1,13 @@
 import React from "react";
+import {Avatar} from "@material-ui/core";
+import {fontSizeAlt3 as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./CreatePiecePiece.jss";
 
-export function CreatePiecePiece({pieceImgBase64Str}) {
-    const classes = useStyles()
+export function CreatePiecePiece({pieceImgBase64Str, rf, theme, isLightSqr}) {
+    const classes = useStyles({fontSize: fontSize, theme: theme, isLightSqr: isLightSqr})
     return (
-        <div className={classes.piece}>
-            {pieceImgBase64Str ? (
-                <img src={pieceImgBase64Str} width="100%" height="100%" alt="icon of a piece"/>
-            ) : null}
-        </div>
+        <Avatar className={classes.piece} src={pieceImgBase64Str} alt="icon of a piece">
+            {rf}
+        </Avatar>
     );
 }

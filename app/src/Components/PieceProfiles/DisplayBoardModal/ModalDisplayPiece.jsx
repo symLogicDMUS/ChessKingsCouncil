@@ -1,6 +1,6 @@
 import React from "react";
-import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./ModalDisplayPiece.jss";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function ModalDisplayPiece({pieceImgBase64Str, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize});

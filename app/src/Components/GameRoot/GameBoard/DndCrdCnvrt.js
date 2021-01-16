@@ -33,7 +33,7 @@ export function xyToPx(x, y, sqrSize) {
  * @attr unitLeft: the position left if the board was 8px by 8px and each square was 1px by 1px
  * @attr: unitTop: the position top if the board was 8px by 8px and each square was 1px by 1px
  */
-export function pxPosToXy(left, top) {
+export function pxPosToXy(left, top, sqrSize) {
     let unitLeft = Math.round(left / (sqrSize));
     let unitTop = Math.round(top / (sqrSize));
     return [unitLeftMapX[unitLeft], unitTopMapY[unitTop]];

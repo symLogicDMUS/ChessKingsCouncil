@@ -1,27 +1,29 @@
-import React, { useEffect, useReducer } from "react";
-import { reducer } from "./reducers/RangeDisplayBoard.red";
+import React, {useEffect, useMemo} from "react";
 import { rankfiles } from "../../helpers/rankfiles";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { binaryBoard } from "../../helpers/binaryBoard";
 import { useStyles } from "./RangeDisplayBoard.jss";
+import {v4 as uuidv4} from "uuid";
 
-export function RangeDisplayBoard({ rangeBoard, theme }) {
-    const [squares, dispatch] = useReducer(
-        reducer,
-        rankfiles.map((rf) => (
-            <RangeDisplaySquare
-                theme={theme}
-                isInRange={false}
-                isLightColorSqr={binaryBoard[rf]}
-            />
-        ))
-    );
+export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
 
-    useEffect(() => {
-        dispatch({ type: "update", rangeBoard: rangeBoard, theme: theme });
-    }, [rangeBoard, theme]);
+    const squares = useMemo(() => {
+            const newSquares = []
+            for (let rf of rankfiles) {
+                newSquares.push(
+                    <RangeDisplaySquare
+                        key={uuidv4()}
+                        isInRange={range ? (!!range.includes(rf)) : false}
+                        isLightColorSqr={binaryBoard[rf]}
+                        sqrSize={sqrSize}
+                        theme={theme}
+                    />
+                )
+            }
+            return newSquares;
+    }, [range, theme])
 
-    const classes = useStyles();
+    const classes = useStyles({boardSize: boardSize});
 
     return <div className={classes.board}>{squares}</div>;
 }

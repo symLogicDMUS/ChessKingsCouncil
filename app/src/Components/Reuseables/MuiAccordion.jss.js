@@ -3,7 +3,8 @@ import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
-        width: '100%',
+        width: '98.5%',
+        ...props.rootStyle,
         fontSize: props.fontSize,
         backgroundColor: themes[props.theme].fill,
     }),

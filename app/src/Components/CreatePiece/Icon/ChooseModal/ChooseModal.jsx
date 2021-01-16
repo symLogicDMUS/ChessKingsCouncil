@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useReducer} from "react";
 import { v4 as uuidv4 } from "uuid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -17,6 +17,38 @@ import { button, styles } from "./ChooseModal.jss";
 import { fontSize } from "../../../styles/fontSize.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {MuiCheckbox} from "../../../Reuseables/MuiCheckbox";
+import '../../../styles/Scrollbar.scss';
+import {copy} from "../../../helpers/copy";
+
+// export function reducer(state, action) {
+//     switch (action.type) {
+//         case "fetch":
+//             let imgDict = copy(state.imgDict);
+//             let imgNames = copy(state.imgNames);
+//             getImgDict().then(([result]) => {
+//                 if (!result) {
+//                     imgDict = getSetSampleImgs();
+//                 } else {
+//                     imgDict = result;
+//                 }
+//                 imgDict = filterStandardPieces(imgDict);
+//                 imgNames = Object.keys(imgDict);
+//             });
+//             return {...state, imgDict: imgDict, imgNames: imgNames}
+//         case "":
+//
+//         default:
+//             throw new Error();
+//     }
+// }
+//
+// export function ImgGridModal(props) {
+//     const [state, dispatch] = useReducer(reducer, {imgChoices: {}, imgNames: [], imgChoiceName: null, showNames: false});
+//
+//     useEffect(() => {
+//         dispatch({type: 'fetch'});
+//     }, [])
+// }
 
 class ChooseModal extends React.Component {
     constructor(props) {
@@ -92,7 +124,7 @@ class ChooseModal extends React.Component {
 
     render() {
         return (
-            <>
+            <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
                     <div className={this.props.classes.window}>
                         <Box className={this.props.classes.top_flexbox}>
@@ -153,7 +185,7 @@ class ChooseModal extends React.Component {
                         </Box>
                     </div>
                 </div>
-            </>
+            </div>
         );
     }
 }

@@ -5,8 +5,8 @@ import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { getPieceName } from "../../helpers/getPieceName";
 import { MiniSquare as Square } from "./MiniSquare";
 import { MiniPiece as Piece } from "./MiniPiece";
-import { smallBoardFontSize as fontSize } from "../../styles/fontSize.jss";
 import { useStyles } from "./MiniBoard.jss";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function MiniBoard({
     theme,

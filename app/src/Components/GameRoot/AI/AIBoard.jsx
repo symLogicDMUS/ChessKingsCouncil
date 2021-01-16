@@ -2,17 +2,16 @@ import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import {AiSquare} from "./AISquare";
 import {rankfiles} from "../../helpers/rankfiles";
-import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./AIBoard.jss";
 
-export function AIBoard({theme, aiStart, aiDest}) {
-    const classes = useStyles({fontSize, theme: theme})
+export function AIBoard({theme, sqrSize, boardSize, aiStart, aiDest}) {
+    const classes = useStyles({boardSize: boardSize})
 
     const getBoard = () => {
         let squares = [];
         for (const rf of rankfiles) {
             squares.push(
-                <AiSquare rf={rf} key={uuidv4()} theme={theme} aiStart={aiStart} aiDest={aiDest}/>
+                <AiSquare key={uuidv4()} rf={rf} theme={theme} aiStart={aiStart} aiDest={aiDest} sqrSize={sqrSize}/>
             );
         }
         return squares;

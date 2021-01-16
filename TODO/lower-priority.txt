@@ -1,10 +1,5 @@
 short:
 
-
-
-* make 'Shockwave' color of checkbox match the theme (not pink)
-
-
 medium:
 * make home icon in NavBar same size as other icons
 * Make functional Components in addition to class components be a default export, to be consistent

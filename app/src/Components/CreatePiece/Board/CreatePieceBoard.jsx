@@ -1,24 +1,22 @@
 import React from "react";
-import clsx from "clsx";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import "../../helpers/stepFuncs";
 import { rankfiles } from "../../helpers/rankfiles";
-import {binaryBoard} from "../../helpers/binaryBoard";
+import { binaryBoard } from "../../helpers/binaryBoard";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
-import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
     theme,
-    screenCase,
+    fontSize,
     offsets,
     pieceLoc,
     spanDisplays,
     toggleOffset,
     pieceImgBase64Str,
 }) {
-    const classes = useStyles({fontSize});
+    const classes = useStyles({ fontSize: fontSize });
 
     const getBoard = () => {
         let squares = [];
@@ -34,8 +32,15 @@ export function CreatePieceBoard({
                         toggleOffset={toggleOffset}
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
+                        fontSize={fontSize}
                     >
-                        <Piece pieceImgBase64Str={pieceImgBase64Str} key={uuidv4()} />
+                        <Piece
+                            pieceImgBase64Str={pieceImgBase64Str}
+                            key={uuidv4()}
+                            rf={rf.toUpperCase()}
+                            isLightSqr={binaryBoard[rf]}
+                            theme={theme}
+                        />
                     </Square>
                 );
             } else {
@@ -49,6 +54,7 @@ export function CreatePieceBoard({
                         toggleOffset={toggleOffset}
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
+                        fontSize={fontSize}
                     >
                         {null}
                     </Square>
@@ -58,5 +64,5 @@ export function CreatePieceBoard({
         return squares;
     };
 
-    return <div className={clsx(classes.board, { [classes.board_mobile]: screenCase === 'mobile' } )}>{getBoard()}</div>;
+    return <div className={classes.board}>{getBoard()}</div>;
 }

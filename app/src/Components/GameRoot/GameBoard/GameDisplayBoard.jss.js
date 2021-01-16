@@ -4,6 +4,6 @@ import {game_board} from "../../Reuseables/Board.jss";
 
 export const useStyles = makeStyles({
     board: props => ({
-        ...game_board(0),
+        ...game_board(props.boardSize,0),
     }),
 });

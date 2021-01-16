@@ -3,6 +3,7 @@ import { useDrag } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { updatePosition } from "./DraggablePiece.jss";
 import { Piece } from "./Piece";
+import {sqrSizes} from "../../Reuseables/Board.jss";
 
 export const DraggablePiece = (props) => {
     const { id, src, left, top, setRangeDisplay } = props;
@@ -21,7 +22,7 @@ export const DraggablePiece = (props) => {
 
     return (
         <div ref={drag} style={updatePosition(left, top, isDragging)}>
-            <Piece src={src} />
+            <Piece src={src} sqrSize={props.sqrSize} />
         </div>
     );
 };

@@ -1,17 +1,18 @@
 import { getRookStartAndDest } from "../../helpers/getRookStartAndDest";
-import {boardSize, sqrSize} from "../../Reuseables/Board.jss";
 import {rfToXy} from "../../helpers/crdCnvrt";
 import { ply } from "./ply";
 
 /**
  * if castle move, then move the rook as part of castle
  * @param gameRoot
+ * @param sqrSize
+ * @param boardSize
  * @param pieces
  * @param kingStart
  * @param kingDest
  * @param dispatch
  */
-export function castleMove(gameRoot, pieces, kingStart, kingDest, dispatch) {
+export function castleMove(gameRoot, sqrSize, boardSize, pieces, kingStart, kingDest, dispatch) {
     if (! gameRoot.specialMoves.isCastle([kingStart, kingDest])) {
         return;
     }

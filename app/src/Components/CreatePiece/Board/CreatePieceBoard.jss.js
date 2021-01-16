@@ -8,7 +8,10 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px)': {
             marginLeft: bigBoardMargin,
             marginTop: bigBoardMargin,
+            boxShadow: '0 0 0.1em white'
         },
-        boxShadow: '0 0 0.1em white'
+        '@media screen and (max-width: 767px)': {
+            boxShadow: '0 0 0.05em white'
+        },
     }),
 });

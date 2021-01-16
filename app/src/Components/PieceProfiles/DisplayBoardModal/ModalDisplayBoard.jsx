@@ -6,10 +6,10 @@ import {stepFuncDict2} from "../../helpers/stepFuncs";
 import {outOfBounds} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
 import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
-import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {useStyles} from "./ModalDisplayBoard.jss";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function ModalDisplayBoard({img, rangeType, range, theme, location}) {
 

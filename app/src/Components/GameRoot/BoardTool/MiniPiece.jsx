@@ -1,6 +1,6 @@
 import React from "react";
-import {smallBoardFontSize as fontSize} from "../../styles/fontSize.jss";
 import { useStyles } from "./MiniPiece.jss";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function MiniPiece({ id, toggleDisplayOfPieceRange, pieceImgBase64Str, alt }) {
     const classes = useStyles({fontSize: fontSize});

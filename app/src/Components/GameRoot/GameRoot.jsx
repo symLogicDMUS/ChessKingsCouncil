@@ -38,6 +38,7 @@ import {fontSize} from "../styles/fontSize.jss";
 import {HelpTitle, HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
+import {boardSizes} from "../Reuseables/Board.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -369,7 +370,7 @@ class GameRoot extends React.Component {
                         {/*<Portal>*/}
                             <Board gameRoot={this}/>
                         {/*</Portal>*/}
-                        <MuiAccordion theme={this.state.theme}>
+                        <MuiAccordion theme={this.state.theme} rootStyle={{position: 'relative', top: boardSizes.mobile, width: boardSizes.mobile, zIndex: 5}}>
                             {[
                                 {
                                     id: "game-info",

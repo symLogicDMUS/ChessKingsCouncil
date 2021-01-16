@@ -1,32 +1,25 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
+import MediaQuery from "react-responsive/src";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
-import MediaQuery from "react-responsive/src";
-import { reducer as rangeReducer } from "./reducers/Board.red";
-import { reducer as piecesReducer } from "./reducers/DropLayer.red";
-import DragLayer from "./DragLayer";
-import { DropLayer } from "./DropLayer";
+import { sqrSizes, boardSizes } from "../../Reuseables/Board.jss";
 import { GameDisplayBoard } from "./GameDisplayBoard";
-import { AIDisplay } from "../AI/AIDisplay";
-import { RangeDisplayBoard } from "./RangeDisplayBoard";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import {getStartingPieces} from "./getStartingPieces";
+import DragLayer from "./DragLayer";
+import DropLayer from "./DropLayer";
 
 export const Board = ({ gameRoot }) => {
-    const [state, rangeDispatch] = useReducer(rangeReducer, {isDragging: false, rangeBoard: getBinaryBoarAllFalse()});
-    const [pieces, piecesDispatch] = useReducer(piecesReducer, getStartingPieces(gameRoot));
 
     const setRangeDisplay = (pieceId) => {
-        if (pieceId) {
-            rangeDispatch({
-                type: "display-on",
-                pieceId: pieceId,
-                getRangeBoard: gameRoot.getRangeBoard,
-            });
-        } else {
-            rangeDispatch({ type: "display-off" });
-        }
+        // if (pieceId) {
+        //     dispatch({
+        //         type: "display-on",
+        //         pieceId: pieceId,
+        //         getRangeBoard: gameRoot.getRangeBoard,
+        //     });
+        // } else {
+        //     dispatch({ type: "display-off" });
+        // }
     };
 
     return (
@@ -34,35 +27,45 @@ export const Board = ({ gameRoot }) => {
             <MediaQuery minDeviceHeight={768}>
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
-                        pieces={pieces}
                         gameRoot={gameRoot}
-                        dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
+                        sqrSize={sqrSizes.desktop}
+                        boardSize={boardSizes.desktop}
                     />
-                    <DragLayer gameRoot={gameRoot} setRangeDisplay={setRangeDisplay} />
-                    <RangeDisplayBoard
-                        rangeBoard={state.rangeBoard}
+                    <DragLayer
+                        gameRoot={gameRoot}
+                        sqrSize={sqrSizes.desktop}
+                        boardSize={boardSizes.desktop}
+                        setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
-                    <GameDisplayBoard theme={gameRoot.state.theme} />
-
+                    <GameDisplayBoard
+                        theme={gameRoot.state.theme}
+                        sqrSize={sqrSizes.desktop}
+                        boardSize={boardSizes.desktop}
+                    />
                 </DndProvider>
             </MediaQuery>
             <MediaQuery maxDeviceHeight={767}>
                 <DndProvider backend={TouchBackend}>
                     <DropLayer
-                        pieces={pieces}
                         gameRoot={gameRoot}
-                        dispatch={piecesDispatch}
                         setRangeDisplay={setRangeDisplay}
+                        sqrSize={sqrSizes.mobile}
+                        boardSize={boardSizes.mobile}
                     />
-                    <DragLayer gameRoot={gameRoot} setRangeDisplay={setRangeDisplay} />
-                    <RangeDisplayBoard
-                        rangeBoard={state.rangeBoard}
+                    <DragLayer
+                        gameRoot={gameRoot}
+                        sqrSize={sqrSizes.mobile}
+                        boardSize={boardSizes.mobile}
+                        setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
-                    <GameDisplayBoard theme={gameRoot.state.theme} />
-
+                    <GameDisplayBoard
+                        theme={gameRoot.state.theme}
+                        sqrSize={sqrSizes.mobile}
+                        boardSize={boardSizes.mobile}
+                    />
                 </DndProvider>
             </MediaQuery>
         </>

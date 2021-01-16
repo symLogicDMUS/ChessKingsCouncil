@@ -3,8 +3,8 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {largeBoardFontSize as fontSize} from "../styles/fontSize.jss";
 import { useStyles } from "./MuiAccordion.jss";
+import {largeBoardFontSizeDesktop as fontSize} from "./Board.jss";
 
 /**
  * children of the form:
@@ -24,11 +24,12 @@ import { useStyles } from "./MuiAccordion.jss";
  * @param theme {string}
  * @param children {List}
  * @param style {Object} style object (optional)
+ * @param rootStyle {Object} style object (optional)
  * @returns {JSX.Element}
  * @constructor
  */
-export default function MuiAccordion({theme, style, children }) {
-    const classes = useStyles({theme: theme, style: style, fontSize: fontSize});
+export default function MuiAccordion({theme, style, rootStyle, children }) {
+    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, fontSize: fontSize});
     let [expanded, setExpanded] = useState(null);
     let [allCollapsed, setAllCollapsed] = useState(true);
 

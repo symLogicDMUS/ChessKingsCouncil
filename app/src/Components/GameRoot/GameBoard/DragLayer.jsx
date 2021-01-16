@@ -1,11 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDragLayer } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
 import { useStyles } from "./DragLayer.jss";
 
-const DragLayer = ({gameRoot, setRangeDisplay}) => {
+const DragLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize, theme }) => {
     const {
         item,
         itemType,
@@ -21,16 +21,24 @@ const DragLayer = ({gameRoot, setRangeDisplay}) => {
     }));
 
     useEffect(() => {
-        if (! isDragging) {
-            setRangeDisplay(false)
+        if (!isDragging) {
+            setRangeDisplay(false);
         }
-    }, [isDragging])
+    }, [isDragging]);
 
     const classes = useStyles();
 
     function renderPieceBeingDragged() {
         if (ItemTypes.includes(itemType)) {
-            return <PieceDragPreview src={item.src} />;
+            return (
+                <PieceDragPreview
+                    src={item.src}
+                    sqrSize={sqrSize}
+                    boardSize={boardSize}
+                    range={gameRoot.ranges[item.id]}
+                    theme={theme}
+                />
+            );
         } else {
             return null;
         }
@@ -43,7 +51,7 @@ const DragLayer = ({gameRoot, setRangeDisplay}) => {
     return (
         <>
             <div className={classes.custom_drag_layer}>
-                <div style={getDragPositions(initialOffset, currentOffset)} >
+                <div style={getDragPositions(initialOffset, currentOffset)}>
                     {renderPieceBeingDragged()}
                 </div>
             </div>

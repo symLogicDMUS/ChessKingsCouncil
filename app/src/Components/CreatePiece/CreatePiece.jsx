@@ -37,6 +37,7 @@ import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {styles} from "./CreatePiece.jss";
 import {Portal} from "@material-ui/core";
 import {availWidth} from "../helpers/windowMeasurments";
+import {largeBoardFontSizeDesktop, largeBoardFontSizeMobile} from "../Reuseables/Board.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -336,8 +337,8 @@ class CreatePiece extends React.Component {
                         content={
                             <Board
                                 key={uuidv4()}
-                                screenCase="desktop"
                                 theme={this.state.theme}
+                                fontSize={largeBoardFontSizeDesktop}
                                 toggleOffset={this.toggleOffset}
                                 spanDisplays={this.spanDisplays}
                                 offsets={this.offsetDisplays}
@@ -451,10 +452,10 @@ class CreatePiece extends React.Component {
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
                             pieceLoc={this.location}
+                            fontSize={largeBoardFontSizeMobile}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
-                            screenCase="mobile"
                         />
                         <MuiAccordion theme={this.state.theme}>
                             {[

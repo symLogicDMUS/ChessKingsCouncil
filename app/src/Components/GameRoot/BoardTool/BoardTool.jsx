@@ -2,9 +2,9 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { MiniBoard } from "./MiniBoard";
-import { smallBoardFontSize as fontSize } from "../../styles/fontSize.jss";
 import MediaQuery from "react-responsive/src";
 import { useStyles } from "./BoardTool.jss";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function BoardTool({
     theme,

@@ -1,27 +1,25 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
-import {getOffset} from "../../helpers/getOffset";
-import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
-import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
-import {largeBoardFontSize as fontSize} from "../../styles/fontSize.jss";
-import {useStyles} from "../../Reuseables/Square.jss";
-import {themes} from "../../styles/themes.jss";
+import { v4 as uuidv4 } from "uuid";
+import { getOffset } from "../../helpers/getOffset";
+import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
+import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
+import { themes } from "../../styles/themes.jss";
+import { useStyles } from "../../Reuseables/Square.jss";
 
 export function CreatePieceSquare({
-                                      rf,
-                                      theme,
-                                      pieceLoc,
-                                      toggleOffset,
-                                      isSpan,
-                                      isOffset,
-                                      isLightSqr,
-                                      showSpanText,
-                                      showOffsetText,
-                                      children,
-                                  }) {
+    rf,
+    theme,
+    fontSize,
+    pieceLoc,
+    toggleOffset,
+    isSpan,
+    isOffset,
+    isLightSqr,
+    children,
+}) {
     const classes = useStyles({
         theme: theme,
-        type: 'normal',
+        type: "normal",
         fontSize: fontSize,
         style: {
             display: "flex",
@@ -29,14 +27,14 @@ export function CreatePieceSquare({
             alignItems: "center",
             justifyContent: "center",
             alignContent: "center",
-            "&:hover": {backgroundColor: themes[theme].sqr_hover},
+            "&:hover": { backgroundColor: themes[theme].sqr_hover },
         },
     });
 
     if (isSpan) {
         return (
             <div className={classes.span} key={uuidv4()}>
-                <SpanLabel theme={theme}/>
+                <SpanLabel theme={theme} />
             </div>
         );
     }

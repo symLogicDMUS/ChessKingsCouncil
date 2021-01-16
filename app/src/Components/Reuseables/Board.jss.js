@@ -1,17 +1,30 @@
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {sideBarWidth} from "./SidBar.jss";
-import {drawerWidth} from "./PermanentDrawer.jss";
+import {availHeight} from "../helpers/windowMeasurments";
 
-export const sqrSize = availHeight() * 0.1;  // for dnd context.
-export const boardSize = sqrSize * 8; // for dnd context
+export const largeBoardFontSizeDesktop = window.screen.availHeight * 0.095;
+export const largeBoardFontSizeMobile = window.screen.availHeight * 0.066;
+export const smallBoardFontSizeDesktop = largeBoardFontSizeDesktop * 0.501;
+
+
+/**
+ * for dnd context
+ */
+export const sqrSizes = {
+    desktop: availHeight() * 0.1,
+    mobile: availHeight() * 0.068,
+}
+
+/**
+ * for dnd context
+ */
+export const boardSizes = {
+    desktop: sqrSizes.desktop * 8,
+    mobile: sqrSizes.mobile * 8,
+}
+
 export const bigBoardMargin = '0.25em';
-export const mobileScalar = 0.68;
 
 export const board = (fontSize) => ({
     fontSize: fontSize,
-    '@media screen and (max-width: 767px)': {
-        fontSize: fontSize * mobileScalar,
-    },
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -20,25 +33,28 @@ export const board = (fontSize) => ({
     height: '8em',
 });
 
-export const dnd_layer = (z) => ({
+export const dnd_layer = (boardSize, z) => ({
     zIndex: z,
     width: boardSize,
     height: boardSize,
-    position: 'absolute',
-    top: `calc(55% - ${boardSize*0.5}px)`,
-    left: `calc(45% - ${boardSize*0.5}px)`,
+    '@media screen and (min-width: 768px)': {
+        position: 'absolute',
+        top: `calc(55% - ${boardSize * 0.5}px)`,
+        left: `calc(45% - ${boardSize * 0.5}px)`,
+    },
+    '@media screen and (max-width: 767px)': {
+        position: 'fixed',
+    },
 });
 
 /**
  * the game board has different styles because is only one in drag-and-drop context.
- *
+ * @param boardSize
  * @param z: zIndex
  * @returns styles object
  */
-export const game_board = (z) => ({
-    '@media screen and (min-width: 768px)': {
-        ...dnd_layer(z),
-    },
+export const game_board = (boardSize, z) => ({
+    ...dnd_layer(boardSize, z),
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',

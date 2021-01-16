@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import MediaQuery from "react-responsive/src";
+import React, { useEffect, useReducer, useState } from "react";
 import { useDrop } from "react-dnd";
 import { isLegal } from "../Move/isLegal";
 import { move } from "../Move/move";
@@ -13,28 +12,33 @@ import { AIDisplay } from "../AI/AIDisplay";
 import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
 import { getAiMove } from "../../../apiHelpers/getAiMove";
 import { rfToXy, xyToPx } from "./DndCrdCnvrt";
-import { sqrSize } from "../../Reuseables/Board.jss";
+import { reducer } from "./reducers/DropLayer.red";
+import { getStartingPieces } from "./getStartingPieces";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-export const DropLayer = ({ gameRoot, pieces, dispatch, setRangeDisplay }) => {
+const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
     const [isPromo, setIsPromo] = useState(false);
     const [aiDisplay, setAiDisplay] = useState(false);
+    const [pieces, dispatch] = useReducer(
+        reducer,
+        getStartingPieces(gameRoot, sqrSize)
+    );
 
-    const classes = useStyles();
+    const classes = useStyles({ boardSize: boardSize });
 
     const [, drop] = useDrop({
         accept: ItemTypes,
         canDrop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
-            let [start, dest, left, top] = getCoords(item, delta);
+            let [start, dest, left, top] = getCoords(item, delta, sqrSize);
             return isLegal(gameRoot, item, start, dest);
         },
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
-            let [start, dest, left, top] = getCoords(item, delta);
-            move(gameRoot, item.id, pieces, start, dest, left, top, dispatch);
+            let [start, dest, left, top] = getCoords(item, delta, sqrSize);
+            move(gameRoot, sqrSize, boardSize, item.id, pieces, start, dest, left, top, dispatch);
             if (gameRoot.specialMoves.isPromo([start, dest])) {
                 gameRoot.specialMoves.promoStart = start;
                 gameRoot.specialMoves.promoDest = dest;
@@ -67,12 +71,14 @@ export const DropLayer = ({ gameRoot, pieces, dispatch, setRangeDisplay }) => {
         }
     }, [gameRoot.turn]);
 
-    const aiMoveComponent = (aiStart, aiDest) => {
+    const aiMoveComponent = (aiStart, aiDest, sqrSize) => {
         let [destX, destY] = rfToXy(aiDest);
         let [destLeft, destTop] = xyToPx(destX, destY, sqrSize);
         let pieceId = gameRoot.board[aiStart];
         move(
             gameRoot,
+            sqrSize,
+            boardSize,
             pieceId,
             pieces,
             aiStart,
@@ -101,7 +107,7 @@ export const DropLayer = ({ gameRoot, pieces, dispatch, setRangeDisplay }) => {
         <>
             <div ref={drop} className={classes.board}>
                 {Object.keys(pieces).map((key) =>
-                    renderPiece(pieces[key], key, setRangeDisplay)
+                    renderPiece(pieces[key], key, sqrSize, setRangeDisplay)
                 )}
             </div>
             {isPromo ? (
@@ -128,6 +134,8 @@ export const DropLayer = ({ gameRoot, pieces, dispatch, setRangeDisplay }) => {
             ) : null}
             {aiDisplay ? (
                 <AIDisplay
+                    sqrSize={sqrSize}
+                    boardSize={boardSize}
                     theme={gameRoot.state.theme}
                     aiStart={gameRoot.aiStart}
                     aiDest={gameRoot.aiDest}
@@ -138,3 +146,5 @@ export const DropLayer = ({ gameRoot, pieces, dispatch, setRangeDisplay }) => {
         </>
     );
 };
+
+export default DropLayer;

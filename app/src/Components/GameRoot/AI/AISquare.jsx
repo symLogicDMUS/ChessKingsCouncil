@@ -1,8 +1,8 @@
 import React from "react";
 import {useStyles} from "../../Reuseables/Square.jss";
 
-export function AiSquare({rf, theme, dispatch, aiStart, aiDest}) {
-    const classes = useStyles({theme: theme, type: 'dnd'});
+export function AiSquare({rf, theme, aiStart, aiDest, sqrSize}) {
+    const classes = useStyles({theme: theme, sqrSize: sqrSize, type: 'dnd'});
 
     let className = classes.ai_none;
     if (rf === aiStart) {
