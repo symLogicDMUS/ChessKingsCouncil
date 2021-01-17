@@ -20,15 +20,13 @@ export function enPassantMove(gameRoot, start, dest, dispatch) {
     y: y coordinate unchanged, same as start. returned with x.
     */
 
-    let color = gameRoot.getColorLastMove()
-
     if (gameRoot.specialMoves.isEnPassant([start, dest])) {
         const rf0 = step1sqr0d(start);
         const rf180 = step1sqr180d(start);
-        if (getSqrCase(gameRoot.board, rf0, color) === ENEMY && isPawn(gameRoot.board[rf0]) && gameRoot.jsonRecords.isLastPawnMove(rf0)) {
+        if (getSqrCase(gameRoot.board, rf0, gameRoot.turn) === ENEMY && isPawn(gameRoot.board[rf0]) && gameRoot.jsonRecords.isLastPawnMove(rf0)) {
             capturePawn(rf0, gameRoot, start, dest, dispatch)
         }
-        else if (getSqrCase(gameRoot.board, rf180, color) === ENEMY && isPawn(gameRoot.board[rf180]) && gameRoot.jsonRecords.isLastPawnMove(rf180)) {
+        else if (getSqrCase(gameRoot.board, rf180, gameRoot.turn) === ENEMY && isPawn(gameRoot.board[rf180]) && gameRoot.jsonRecords.isLastPawnMove(rf180)) {
             capturePawn(rf180, gameRoot, start, dest, dispatch)
         }
         gameRoot.jsonRecords.lastPawnMove = dest;

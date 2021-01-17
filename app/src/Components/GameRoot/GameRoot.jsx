@@ -61,7 +61,6 @@ class GameRoot extends React.Component {
         this.gameStatus = new GameStatus(this.gameData.status)
         this.specialMoves = new SpecialMoves(this.gameData.special_moves);
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData.json_records, this.board));
-        this.resigned = (this.gameStatus.condition === "resigned");
         //Note: do not make these state variables. Multiple changes need to be made BEFORE re-rendering:
         this.aiColor = this.setAiColor();
         this.aiStart = null;
@@ -101,22 +100,6 @@ class GameRoot extends React.Component {
         if (this.playerType === "test") return "none";
         if (this.playerType === "W") return "B";
         if (this.playerType === "B") return "W";
-    }
-
-    toggleTurn() {
-        if (this.turn === "W") {
-            this.turn = "B";
-        } else if (this.turn === "B") {
-            this.turn = "W";
-        } else {
-            console.log("color error");
-        }
-        this.triggerRender()
-    }
-
-    getCondition() {
-        if (this.resigned) return "resigned";
-        else return this.gameStatus.condition;
     }
 
     getColorLastMove() {
@@ -160,7 +143,21 @@ class GameRoot extends React.Component {
         this.ranges = turnData.ranges;
         this.enemyRanges = turnData.enemy_ranges;
         this.specialMoves.update(turnData.special_moves);
-        this.updateGameStatus(turnData);
+
+        if (this.isCouncil)
+            this.gameStatus.updateCouncil(
+                this.board,
+                this.ranges,
+                this.getColorLastMove(),
+                turnData.tal
+            );
+        else
+            this.gameStatus.update(
+                this.board,
+                this.ranges,
+                this.getColorLastMove(),
+                turnData.npck
+            );
     }
 
     /**
@@ -191,24 +188,6 @@ class GameRoot extends React.Component {
                 this.jsonRecords.rooksMoved[start] = true;
         }
     }
-
-    updateGameStatus(turnData) {
-        if (this.isCouncil)
-            this.gameStatus.updateCouncil(
-                this.board,
-                this.ranges,
-                this.getColorLastMove(),
-                turnData.tal
-            );
-        else
-            this.gameStatus.update(
-                this.board,
-                this.ranges,
-                this.getColorLastMove(),
-                turnData.npck
-            );
-    }
-
 
     updateFen(start, dest) {
         this.fenObj.update(
@@ -282,7 +261,7 @@ class GameRoot extends React.Component {
                             <StatusBar
                                 turn={this.turn}
                                 theme={this.state.theme}
-                                condition={this.getCondition()}
+                                condition={this.gameStatus.condition}
                                 winner={this.gameStatus.winner}
                             />
                         }
@@ -363,7 +342,7 @@ class GameRoot extends React.Component {
                             <StatusBar
                                 turn={this.turn}
                                 theme={this.state.theme}
-                                condition={this.getCondition()}
+                                condition={this.gameStatus.condition}
                                 winner={this.gameStatus.winner}
                             />
                         }

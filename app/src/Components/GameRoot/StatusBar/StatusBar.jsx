@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Typography} from "@material-ui/core";
 import {capitalize} from "../../helpers/capitalize";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
@@ -8,37 +8,26 @@ import {useStyles} from "./StatusBar.jss";
 import MediaQuery from "react-responsive/src";
 
 export function StatusBar({ turn, winner, condition, theme }) {
+
     const classes = useStyles({ theme: theme, fontSize: fontSize });
 
-    const exclaimMark = () => {
-        if (condition === "checkmate" || condition === "stalemate") return "!";
-        else return null;
-    };
-
-    const getTurn = () => {
+    const getMessage = () => {
         condition = capitalize(condition)
         switch (condition) {
             case "Checkmate":
-                return `${resolvePlayerType(winner)} wins!`;
+                return `Checkmate! ${resolvePlayerType(winner)} wins!`;
             case "Check":
-                return `${resolvePlayerType(turn)}'s turn.`;
+                return `${resolvePlayerType(turn)}'s turn. Check.`;
             case "Stalemate":
-                return "Tie game!";
+                return "Stalemate!";
             case "Resigned":
-                return `${getOppositeColorName(turn)} wins. ${resolvePlayerType(
-                    turn
-                )}`;
+                return `${getOppositeColorName(turn)} wins. ${resolvePlayerType(turn)} resigned.`;
             case "":
                 return `${resolvePlayerType(turn)}'s turn.`;
             default:
-                return (
-                    <div>
-                        ERROR: condition not check, checkmate, stalemate or
-                        none.
-                    </div>
-                );
+                return 'Error: no condition found';
         }
-    };
+    }
 
     return (
         <>
@@ -53,8 +42,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
                     variant="h6"
                     noWrap={true}
                 >
-                    {getTurn()} {condition}
-                    {exclaimMark()}
+                    {getMessage()}
                 </Typography>
             </Typography>
         </>

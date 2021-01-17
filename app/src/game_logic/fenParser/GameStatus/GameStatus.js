@@ -15,9 +15,9 @@ export class GameStatus {
      * 
      */
     constructor(status) {
-        this.status = status['status']
-        this.condition = status['condition']
-        this.winner = status['winner']
+        this.status = status.status;
+        this.condition = status.condition;
+        this.winner = status.winner;
     }
 
     update(board, ranges, enemyColor, npck) {
@@ -30,6 +30,11 @@ export class GameStatus {
          :param ranges: dict, ranges of pieces of color
          :param enemyColor: str, color of king
         */
+
+        if (this.condition === 'resigned') {
+            return;
+        }
+
         if (this.noRanges(ranges)) {
             if (npck > 0) {
                 this.condition = 'checkmate'

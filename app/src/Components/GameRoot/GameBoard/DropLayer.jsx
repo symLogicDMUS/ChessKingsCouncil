@@ -53,7 +53,6 @@ const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
 
     /** where the game logic gets updated after each move */
     useEffect(() => {
-        gameRoot.updateTurnData();
         if (gameRoot.aiColor === gameRoot.turn) {
             if (!noRanges(gameRoot.ranges)) {
                 [
@@ -97,10 +96,17 @@ const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
         }
     };
 
+    /**
+     * end of the move cycles and starts triggers next one, either the event listener of AI making its move
+     * @param start
+     * @param dest
+     */
     const finishMove = (start, dest) => {
-        gameRoot.updateFen(start, dest);
+        gameRoot.turn = (gameRoot.turn === 'W') ? 'B' : 'W';
         gameRoot.unsavedProgress = true;
-        gameRoot.toggleTurn();
+        gameRoot.updateFen(start, dest);
+        gameRoot.updateTurnData();
+        gameRoot.triggerRender();
     };
 
     return (
