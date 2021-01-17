@@ -10,6 +10,7 @@ export const useStyles = makeStyles({
         zIndex: 5,
     },
     window: props => ({
+        cursor: 'grab',
         fontSize: props.fontSize,
         width: '8.09em',
         height: '9.5em',

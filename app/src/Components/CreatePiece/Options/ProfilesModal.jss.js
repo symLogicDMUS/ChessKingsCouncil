@@ -11,6 +11,7 @@ export const close_icon = (fontSize) => ({
 export const useStyles = makeStyles({
     modal: {
         ...modal,
+        zIndex: 7,
     },
     top_bar: props => ({
         height: '2em',

@@ -34,10 +34,8 @@ import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {styles} from "./CreatePiece.jss";
-import {Portal} from "@material-ui/core";
-import {availWidth} from "../helpers/windowMeasurments";
 import {largeBoardFontSizeDesktop, largeBoardFontSizeMobile} from "../Reuseables/Board.jss";
+import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {

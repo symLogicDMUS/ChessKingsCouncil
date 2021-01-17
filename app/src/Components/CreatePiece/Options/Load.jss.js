@@ -1,1 +1,1 @@
-/** see Option.jss */
+/** See Option.jss */

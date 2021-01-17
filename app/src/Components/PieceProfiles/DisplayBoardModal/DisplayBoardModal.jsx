@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -14,7 +15,7 @@ export function DisplayBoardModal({theme, img, pieceName, rangeType, range, colo
 
     return (
         <div className={classes.modal}>
-            <div className={classes.window}>
+            <motion.div drag className={classes.window}>
                 <Box className={classes.top_bar}>
                     <Typography className={classes.title}>
                         {resolvePlayerType(color)} {pieceName} {rangeType}
@@ -26,11 +27,12 @@ export function DisplayBoardModal({theme, img, pieceName, rangeType, range, colo
                 <ModalDisplayBoard
                     img={img}
                     range={range}
+                    pieceName={pieceName}
                     rangeType={rangeType}
                     location="d4"
                     theme={theme}
                 />
-            </div>
+            </motion.div>
         </div>
     );
 }

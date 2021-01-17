@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import {v4 as uuidv4} from 'uuid';
 import {rankfiles} from "../../helpers/rankfiles";
 import {ModalDisplayPiece as Piece} from "./ModalDisplayPiece";
@@ -7,49 +7,66 @@ import {outOfBounds} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
 import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
+import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {useStyles} from "./ModalDisplayBoard.jss";
-import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
-export function ModalDisplayBoard({img, rangeType, range, theme, location}) {
+export function reducer(state, action) {
+    let rf, stepFunc;
+    switch (action.type) {
+        case "spans":
+            let spans = getBinaryBoarAllFalse()
+            for (const funcName of action.range) {
+                stepFunc = stepFuncDict2[funcName];
+                rf = action.location;
+                rf = stepFunc(rf);
+                while (!outOfBounds(rf)) {
+                    spans[rf] = true;
+                    rf = stepFunc(rf);
+                }
+            }
+            return spans;
+        case "offsets":
+            let offsets = getBinaryBoarAllFalse()
+            let [x1, y1] = rfToXy(action.location);
+            let [dx, dy] = [-1, -1];
+            action.range.forEach((xy) => {
+                dx = x1 + xy[0];
+                dy = y1 + xy[1];
+                offsets[xyToRf(dx, dy)] = true;
+            });
+            return offsets;
+        default:
+            throw new Error();
+    }
+}
 
+export function ModalDisplayBoard({img, pieceName, range, rangeType, theme, location}) {
     const classes = useStyles({theme: theme, fontSize: fontSize});
 
-    const getSpans = () => {
-        let rf = location;
-        let stepFunc = null;
-        let spanDisplays = getBinaryBoarAllFalse()
-        for (const funcName of range) {
-            stepFunc = stepFuncDict2[funcName];
-            rf = stepFunc(rf);
-            while (!outOfBounds(rf)) {
-                spanDisplays[rf] = true;
-                rf = stepFunc(rf);
-            }
+    const [state, dispatch] = useReducer(reducer, {spans: getBinaryBoarAllFalse(), offsets: getBinaryBoarAllFalse()})
+
+    useEffect(() => {
+        switch (rangeType) {
+            case 'spans':
+                dispatch({action: 'spans', range: range, location: location});
+                break;
+            case 'offsets':
+                dispatch({action: 'offsets', range: range, location: location})
+                break;
+            default:
+                break;
         }
-        return spanDisplays;
-    }
+    }, [pieceName, range, rangeType])
 
-    const getOffsets = () => {
-        let [x1, y1] = rfToXy(location);
-        let [dx, dy] = [-1, -1];
-        let offsetDisplays = getBinaryBoarAllFalse()
-        range.forEach((xy) => {
-            dx = x1 + xy[0];
-            dy = y1 + xy[1];
-            offsetDisplays[xyToRf(dx, dy)] = true;
-        });
-        return offsetDisplays;
-    }
-
-    const getBoard = (spans, offsets) => {
+    const getBoard = () => {
         let sqrType = null;
         const squares = [];
         for (const rf of rankfiles) {
-            if (spans[rf]) {
+            if (state.spans[rf]) {
                 sqrType = 'span'
             }
-            else if (offsets[rf]) {
+            else if (state.offsets[rf]) {
                 sqrType = 'offset';
             }
             else if (binaryBoard[rf]) {
@@ -71,11 +88,7 @@ export function ModalDisplayBoard({img, rangeType, range, theme, location}) {
         return squares;
     }
 
-    let spans = [];
-    let offsets = [];
-    if (rangeType === "offsets") offsets = getOffsets();
-    else if (rangeType === "spans") spans = getSpans();
-    return <div className={classes.display_board}>{getBoard(spans, offsets)}</div>
+    return <div className={classes.display_board}>{getBoard()}</div>
 }
 
 export default ModalDisplayBoard;

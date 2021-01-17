@@ -1,17 +1,16 @@
 import React from "react";
 import MediaQuery from "react-responsive";
+import Typography from "@material-ui/core/Typography";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
-// import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import { styles } from "./MyPieces.jss";
 import { getDefs } from "../../API/getDefs";
 import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import "../styles/_backgrounds.scss";
 import { fontSize } from "../styles/fontSize.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import Typography from "@material-ui/core/Typography";
 import {HelpText, HelpTitle} from "./HelpText";
+import "../styles/_backgrounds.scss";
+import { styles } from "./MyPieces.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -113,7 +112,9 @@ class MyPieces extends React.Component {
                                     defs={this.defs}
                                     theme={this.state.theme}
                                 >
-                                    <ProfilesTitle>My Pieces</ProfilesTitle>
+                                    <ProfilesTitle theme={this.state.theme}>
+                                        My Pieces
+                                    </ProfilesTitle>
                                 </PieceProfiles>
                             )}
                         </div>

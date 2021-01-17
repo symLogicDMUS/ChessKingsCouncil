@@ -5,7 +5,6 @@ import {themes} from "../styles/themes.jss";
 export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
-        overflowY: 'scroll',
         flexDirection: 'column',
         '@media screen and (min-width: 768px)': {
             height: availHeight() * 0.75,
@@ -21,6 +20,9 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         border: themes[props.theme].outline,
         background: 'red',
+    }),
+    profiles_window: props => ({
+        overflowY: 'scroll',
     }),
     divider: props => ({
         fontSize: props.fontSize,

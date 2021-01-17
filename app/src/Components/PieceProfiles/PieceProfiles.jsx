@@ -119,10 +119,10 @@ export function PieceProfiles(props) {
             <div className={classes.piece_profiles}>
                 {props.children}
                 <MediaQuery minDeviceWidth={768}>
-                    {getProfiles("desktop")}
+                    <div className={classes.profiles_window}>{getProfiles("desktop")}</div>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
-                    {getProfiles("mobile")}
+                    <div className={classes.profiles_window}>{getProfiles("mobile")}</div>
                 </MediaQuery>
             </div>
         </div>

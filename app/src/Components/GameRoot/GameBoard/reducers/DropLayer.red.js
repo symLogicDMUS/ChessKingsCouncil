@@ -27,12 +27,12 @@ export function reducer(state, action) {
             return pieces;
         case "promote":
             pieces = copy(state);
-            delete pieces[action.oldId];
             pieces[action.newId] = {
-                left: action.left,
-                top: action.top,
+                left: pieces[action.oldId].left,
+                top: pieces[action.oldId].top,
                 src: getPieceImg(action.newId, action.idDict, action.defs),
             };
+            delete pieces[action.oldId];
             return pieces;
         default:
             throw new Error();
