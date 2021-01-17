@@ -1,24 +1,25 @@
-import React, { useEffect, useReducer, useState } from "react";
-import { useDrop } from "react-dnd";
-import { isLegal } from "../Move/isLegal";
-import { move } from "../Move/move";
-import { ItemTypes } from "./ItemTypes";
-import { getCoords } from "./getCoords";
-import { renderPiece } from "./renderPiece.js";
-import { useStyles } from "./DropLayer.jss";
-import { Portal } from "@material-ui/core";
+import React, {useEffect, useReducer, useState} from "react";
+import {useDrop} from "react-dnd";
+import {isLegal} from "../Move/isLegal";
+import {move} from "../Move/move";
+import {ItemTypes} from "./ItemTypes";
+import {getCoords} from "./getCoords";
+import {renderPiece} from "./renderPiece.js";
+import {useStyles} from "./DropLayer.jss";
+import {Portal} from "@material-ui/core";
 import Promo from "../Promo/Promo";
-import { AIDisplay } from "../AI/AIDisplay";
-import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
-import { getAiMove } from "../../../apiHelpers/getAiMove";
-import { rfToXy, xyToPx } from "./DndCrdCnvrt";
-import { reducer } from "./reducers/DropLayer.red";
-import { getStartingPieces } from "./getStartingPieces";
+import {AIDisplay} from "../AI/AIDisplay";
+import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
+import {getAiMove} from "../../../apiHelpers/getAiMove";
+import {rfToXy, xyToPx} from "./DndCrdCnvrt";
+import {reducer} from "./reducers/DropLayer.red";
+import {getStartingPieces} from "./getStartingPieces";
+import {OVER} from "../../helpers/gStatusTypes";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
+const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
     const [isPromo, setIsPromo] = useState(false);
     const [aiDisplay, setAiDisplay] = useState(false);
     const [pieces, dispatch] = useReducer(
@@ -26,7 +27,7 @@ const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
         getStartingPieces(gameRoot, sqrSize)
     );
 
-    const classes = useStyles({ boardSize: boardSize });
+    const classes = useStyles({boardSize: boardSize});
 
     const [, drop] = useDrop({
         accept: ItemTypes,
@@ -54,7 +55,7 @@ const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
     /** where the game logic gets updated after each move */
     useEffect(() => {
         if (gameRoot.aiColor === gameRoot.turn) {
-            if (!noRanges(gameRoot.ranges)) {
+            if (!noRanges(gameRoot.ranges) && gameRoot.gameStatus.status !== OVER) {
                 [
                     gameRoot.aiCapture,
                     gameRoot.aiStart,
@@ -65,8 +66,8 @@ const DropLayer = ({ gameRoot, setRangeDisplay, sqrSize, boardSize }) => {
                     gameRoot.aiColor,
                     gameRoot.specialMoves
                 );
+                setAiDisplay(true);
             }
-            setAiDisplay(true);
         }
     }, [gameRoot.turn]);
 

@@ -30,9 +30,9 @@ export function PlayAs({setPlayerType, theme}) {
                         <MenuItem value="None">
                             <em>None</em>
                         </MenuItem>,
-                        <MenuItem value="Test">Test</MenuItem>,
                         <MenuItem value="White">White</MenuItem>,
                         <MenuItem value="Black">Black</MenuItem>,
+                        <MenuItem value="Test">Test</MenuItem>,
                     ]}
                     overwrite={null}
                     variant='outlined'

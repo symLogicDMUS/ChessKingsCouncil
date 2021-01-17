@@ -15,8 +15,7 @@ export function initPawnIds(records, board) {
         id = board[rf]
         pawnHistories[id] = hist
         if (getPieceType(id) !== 'P') {
-            console.log(`ERROR: there is no pawn at {sqr}`)
-            throw Error;
+            throw new Error();
         }
     }
     records['pawn_histories'] = pawnHistories

@@ -1,38 +1,35 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
+import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
-import MenuItem from "@material-ui/core/MenuItem";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {SubList} from "./SubList";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {SideBar} from "../../Reuseables/SidBar";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
-import {Dropdown} from "../../Reuseables/Dropdown";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {Background} from "../../Reuseables/Background";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
-import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
+import {HelpText, HelpTitle} from "./HelpText";
 import {withStyles} from "@material-ui/core";
 import {
     drawer_component,
-    drawer_table_button, drawerItemMarginLeft, drawerItemMarginTopBottom,
-    drawerItemWidth, ok_button, promo_all_container,
+    drawer_table_button,
+    drawerItemWidth, ok_button,
     styles,
 } from "./Customize.jss";
-import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
-import {availHeight} from "../../helpers/windowMeasurments";
-import {HelpText, HelpTitle} from "./HelpText";
-import Box from "@material-ui/core/Box";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -174,10 +171,10 @@ class Customize extends React.Component {
 
     togglePromoAll() {
         this.promoAll = !this.promoAll;
-        //if promoAll now true than add every piece not already a promo to the list
+        // if promoAll now true than add every piece not already a promo to the list
         if (this.promoAll) {
             for (const pieceName of Object.keys(this.defs)) {
-                if (!this.promos.includes(pieceName)) {
+                if (!this.promos.includes(pieceName) && !this.standards.includes(pieceName)) {
                     this.promos.push(pieceName);
                 }
             }

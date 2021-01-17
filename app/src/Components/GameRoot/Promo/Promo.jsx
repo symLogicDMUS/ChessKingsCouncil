@@ -24,11 +24,12 @@ function Promo(props) {
 
     const classes = useStyles({ theme: props.theme, fontSize: fontSize });
 
+    /**
+     * Pawn promotion means we are adding another piece,
+     * idNumber is how many of that piece for that color
+     * there is now
+     **/
     const getIdNumber = (idChoice) => {
-        /**Pawn promotion means we are adding another piece,
-         * idNumber is how many of that piece for that color
-         * there is now
-         **/
         let matches = Object.values(props.board).filter((pieceId) =>
             pieceId.startsWith(props.color + idChoice.toUpperCase())
         );
@@ -39,8 +40,7 @@ function Promo(props) {
         return props.color + idChoice.toUpperCase() + idNumber;
     };
 
-    const removePawnHistory = (pawnLoc) => {
-        let pawnId = props.board[pawnLoc];
+    const removePawnHistory = (pawnId) => {
         delete props.jsonRecords.pawnHistories[pawnId];
     };
 
@@ -52,6 +52,8 @@ function Promo(props) {
         let idNumber = getIdNumber(state.promoChoice);
         let newId = getNewId(state.promoChoice, idNumber);
         let oldId = props.board[pawnLoc];
+        replacePawnWithPromo(pawnLoc, newId);
+        removePawnHistory(oldId);
         props.piecesDispatch({
             type: "promote",
             oldId: oldId,
@@ -59,8 +61,6 @@ function Promo(props) {
             defs: props.pieceDefs,
             idDict: props.idDict,
         });
-        removePawnHistory(pawnLoc);
-        replacePawnWithPromo(pawnLoc, newId);
         props.setIsPromo(false);
         props.finishMove(props.promoStart, pawnLoc);
     };
@@ -72,6 +72,8 @@ function Promo(props) {
         let idNumber = getIdNumber(idType);
         let newId = getNewId(idType, idNumber);
         let oldId = props.board[pawnLoc];
+        replacePawnWithPromo(pawnLoc, newId);
+        removePawnHistory(oldId);
         props.piecesDispatch({
             type: "promote",
             oldId: oldId,
@@ -79,8 +81,6 @@ function Promo(props) {
             defs: props.pieceDefs,
             idDict: props.idDict,
         });
-        replacePawnWithPromo(pawnLoc, newId);
-        removePawnHistory(pawnLoc);
         props.setIsPromo(false);
         props.finishMove(props.promoStart, pawnLoc);
     };
