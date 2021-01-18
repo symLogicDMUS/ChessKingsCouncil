@@ -71,6 +71,12 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
         }
     }, [gameRoot.turn]);
 
+    useEffect(() => {
+        if (gameRoot.state.saveProcess) {
+            gameRoot.save(pieces)
+        }
+    }, [gameRoot.state.saveProcess])
+
     const aiMoveComponent = (aiStart, aiDest, sqrSize) => {
         let [destX, destY] = rfToXy(aiDest);
         let [destLeft, destTop] = xyToPx(destX, destY, sqrSize);

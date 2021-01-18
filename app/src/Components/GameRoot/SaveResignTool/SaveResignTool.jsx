@@ -12,7 +12,7 @@ import {SaveAs} from "./SaveAs";
 import {useStyles} from "./SaveResignTool.jss";
 
 
-export function SaveResignTool({theme, save, resign, changeName, isSaveMessage, messageCallback}) {
+export function SaveResignTool({theme, triggerSaveProcess, resign, changeName, isSaveMessage, messageCallback}) {
     let [saveAs, setSaveAs] = useState(false);
     const classes = useStyles({theme: theme, fontSize: fontSize * 1.6});
 
@@ -23,7 +23,7 @@ export function SaveResignTool({theme, save, resign, changeName, isSaveMessage, 
                     <IconButton
                         className={classes.button}
                         classes={{label: classes.label}}
-                        onClick={save}
+                        onClick={triggerSaveProcess}
                     >
                         <SvgIcon className={classes.icon}>
                             {icons.save(themes[theme].button_text)}
@@ -69,7 +69,7 @@ export function SaveResignTool({theme, save, resign, changeName, isSaveMessage, 
                     <SaveAs
                         changeName={changeName}
                         close={() => setSaveAs(false)}
-                        save={save}
+                        save={triggerSaveProcess}
                         theme={theme}
                     />
                 </Portal>

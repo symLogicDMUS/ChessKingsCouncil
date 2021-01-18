@@ -39,16 +39,18 @@ import {fontSize} from "../styles/fontSize.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
+import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
+import {modal} from "../helpers/modal.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {bValue: true, messageModal: false, theme: "dark"};
+        this.state = {bValue: true, messageModal: false, saveProcess: false, theme: "dark"};
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
         this.gameData = this.props.location.state.gameData;
-        this.isCouncil = (this.gameType === "council");
+        this.img = this.gameData.img;
         this.ranges = this.gameData.ranges;
         this.board = this.gameData.board;
         this.turn = this.gameData.color;
@@ -61,6 +63,7 @@ class GameRoot extends React.Component {
         this.gameStatus = new GameStatus(this.gameData.status)
         this.specialMoves = new SpecialMoves(this.gameData.special_moves);
         this.jsonRecords = new JsonRecords(initPawnIds(this.gameData.json_records, this.board));
+        this.isCouncil = (this.gameType === "council");
         //Note: do not make these state variables. Multiple changes need to be made BEFORE re-rendering:
         this.aiColor = this.setAiColor();
         this.aiStart = null;
@@ -70,6 +73,7 @@ class GameRoot extends React.Component {
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
+        this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
         this.changeName = this.changeName.bind(this);
@@ -112,6 +116,10 @@ class GameRoot extends React.Component {
 
     triggerRender() {
         this.setState({bValue: !this.state.bValue});
+    }
+
+    toggleSaveProcess(bValue) {
+        this.setState({saveProcess: bValue})
     }
 
     /**
@@ -200,10 +208,11 @@ class GameRoot extends React.Component {
         );
     }
 
-    save() {
+    save(pieces) {
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
+        const boardImgBase64Str = getBoardImgBase64Str(pieces, this.board)
         const records = this.jsonRecords.getRecords();
         records.pawn_histories = replacePawnIdWithCurrentLoc(records.pawn_histories);
         const pieceDefs = gameDefsOffsetListsToStrs(this.defs);
@@ -212,6 +221,7 @@ class GameRoot extends React.Component {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
+            img: boardImgBase64Str,
             game_type: this.gameType,
             player_type: this.playerType,
             promos: this.promoChoices,
@@ -220,7 +230,7 @@ class GameRoot extends React.Component {
             id_dict: this.idDict,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({isSaveMessage: true})
+            this.setState({isSaveMessage: true, saveProcess: false})
         });
     }
 
@@ -273,6 +283,7 @@ class GameRoot extends React.Component {
                             theme={this.state.theme}
                         />
                         <SaveResignTool
+                            triggerSaveProcess={() => this.toggleSaveProcess(true)}
                             save={this.save}
                             resign={this.resign}
                             theme={this.state.theme}
@@ -289,8 +300,8 @@ class GameRoot extends React.Component {
                             idDict={this.idDict}
                             triggerRender={this.triggerRender}
                         />
+                        <img src={this.img} style={{width: 250, height: 250}} />
                     </PermanentDrawer>
-
                     <SideBar
                         drawerType="left"
                         theme={this.state.theme}
@@ -315,7 +326,6 @@ class GameRoot extends React.Component {
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
-
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
                     <PersistentDrawer
@@ -372,6 +382,7 @@ class GameRoot extends React.Component {
                                     title: <Typography>Save/Resign</Typography>,
                                     body: (
                                         <SaveResignTool
+                                            triggerSaveProcess={() => this.toggleSaveProcess(true)}
                                             save={this.save}
                                             resign={this.resign}
                                             toggleSaveAs={this.toggleSaveAs}

@@ -24,15 +24,15 @@ export function getBoardImgBase64Str(pieces, board) {
         h: 420,
     };
     let pieceId, left, top, src;
-    let svgPieces = [];
+    let imgTags = [];
     for (const rf of rankfiles) {
         if (board[rf] !== "#") {
             pieceId = board[rf];
             left = rToLeft[rf[0]];
             top = fToTop[rf[1]];
             src = pieces[pieceId].src;
-            svgPieces.push(`<g id="${rf + pieceId}" transform="translate(${left} ${top})"><symbol id="${pieceId}" viewBox="0 0 60 60">${atob(src.split(",")[1])}</symbol><use xlink:href="#${pieceId}" width="35.5"  height="35.5" /></g>`);
+            imgTags.push(`<image id="${pieceId}" xlink:href="${src}" width="56" height="56" transform="translate(${left} ${top})"/>`)
         }
     }
-    return <div>{board_svg_str(svgPieces)}</div>;
+    return `data:image/svg+xml;base64,${btoa(board_svg_str(imgTags))}`;
 }

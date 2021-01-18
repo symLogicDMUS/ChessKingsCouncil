@@ -36,7 +36,6 @@
                     <rect id="rect1458-2-1-3-4-5-3-7-6-7-4-9-7-9-9-3-7-3-7" width="60" height="60" transform="translate(360 420.016)" fill="#eed9bb"/>
                     <rect id="rect1458-2-1-7-6-8-2-8-6-8-2-5-7-6-5-2-4-0-9-3" width="60" height="60" transform="translate(0 420.016)" fill="#eed9bb"/>
                 </g>
-            </g>
             <g id="layer3-3-4-8-8-0-7-0-1-9" transform="translate(0 0)">
                 <g id="g2764-4-9-0-5-2-0-9-1" transform="translate(0 0)">
                     <rect id="rect1458-3-3-5-7-7-2-8-3-3-0-3-2" width="60" height="60" transform="translate(0 120.016)" fill="#d9bc91"/>
@@ -75,7 +74,6 @@
                     <rect id="rect1458-3-4-1-1-3-4-0-2-6-7-2-6-9-6-4" width="60" height="60" transform="translate(120 240.016)" fill="#d9bc91"/>
                     <g id="a8BR1" transform="translate(0 0)">
                         <symbol id="BR1" viewBox="0 0 60 60">
-                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
                             <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="BR.svg" id="svg26" height="100" width="100" version="1.1">
                                 <metadata id="metadata32">
                                     <rdf:RDF>
@@ -103,7 +101,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BR1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="b8BN1" transform="translate(60 0)">
                         <symbol id="BN1" viewBox="0 0 60 60">
@@ -129,7 +127,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BN1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="c8BB1" transform="translate(120 0)">
                         <symbol id="BB1" viewBox="0 0 60 60">
@@ -156,7 +154,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BB1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="d8BQ1" transform="translate(180 0)">
                         <symbol id="BQ1" viewBox="0 0 60 60">
@@ -191,7 +189,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BQ1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="e8BK1" transform="translate(240 0)">
                         <symbol id="BK1" viewBox="0 0 60 60">
@@ -218,7 +216,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BK1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="f8BB2" transform="translate(300 0)">
                         <symbol id="BB2" viewBox="0 0 60 60">
@@ -245,7 +243,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BB2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="g8BN2" transform="translate(360 0)">
                         <symbol id="BN2" viewBox="0 0 60 60">
@@ -271,7 +269,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BN2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="h8BR2" transform="translate(420 0)">
                         <symbol id="BR2" viewBox="0 0 60 60">
@@ -303,7 +301,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#BR2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="a7BP1" transform="translate(0 60)">
                         <symbol id="BP1" viewBox="0 0 60 60">
@@ -323,7 +321,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="b7BP2" transform="translate(60 60)">
                         <symbol id="BP2" viewBox="0 0 60 60">
@@ -343,7 +341,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="c7BP3" transform="translate(120 60)">
                         <symbol id="BP3" viewBox="0 0 60 60">
@@ -363,7 +361,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP3" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="d7BP4" transform="translate(180 60)">
                         <symbol id="BP4" viewBox="0 0 60 60">
@@ -383,7 +381,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP4" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="e7BP5" transform="translate(240 60)">
                         <symbol id="BP5" viewBox="0 0 60 60">
@@ -403,7 +401,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP5" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="f7BP6" transform="translate(300 60)">
                         <symbol id="BP6" viewBox="0 0 60 60">
@@ -423,7 +421,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP6" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="g7BP7" transform="translate(360 60)">
                         <symbol id="BP7" viewBox="0 0 60 60">
@@ -443,7 +441,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP7" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="h7BP8" transform="translate(420 60)">
                         <symbol id="BP8" viewBox="0 0 60 60">
@@ -463,7 +461,7 @@
                                 <path id="path2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.635266,19.752164 c -4.834325,0 -8.750017,3.915625 -8.750017,8.749999 0,1.946876 0.634399,3.740625 1.706437,5.20625 -4.265513,2.450001 -7.174988,7.021874 -7.174988,12.29375 0,4.440625 2.056431,8.400001 5.271962,11.003125 -6.562469,2.318749 -16.209353,12.140623 -16.209353,29.465624 h 50.312498 c 0,-17.325001 -9.646884,-27.146875 -16.209353,-29.465624 3.215531,-2.603124 5.271962,-6.5625 5.271962,-11.003125 0,-5.271876 -2.909649,-9.843749 -7.174988,-12.29375 1.072038,-1.465625 1.706437,-3.259374 1.706437,-5.20625 0,-4.834374 -3.915518,-8.749999 -8.750017,-8.749999 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#BP8" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="a2WP1" transform="translate(0 360)">
                         <symbol id="WP1" viewBox="0 0 60 60">
@@ -483,7 +481,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="b2WP2" transform="translate(60 360)">
                         <symbol id="WP2" viewBox="0 0 60 60">
@@ -503,7 +501,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="c2WP3" transform="translate(120 360)">
                         <symbol id="WP3" viewBox="0 0 60 60">
@@ -523,7 +521,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP3" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="d2WP4" transform="translate(180 360)">
                         <symbol id="WP4" viewBox="0 0 60 60">
@@ -543,7 +541,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP4" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="e2WP5" transform="translate(240 360)">
                         <symbol id="WP5" viewBox="0 0 60 60">
@@ -563,7 +561,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP5" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="f2WP6" transform="translate(300 360)">
                         <symbol id="WP6" viewBox="0 0 60 60">
@@ -583,7 +581,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP6" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="g2WP7" transform="translate(360 360)">
                         <symbol id="WP7" viewBox="0 0 60 60">
@@ -603,7 +601,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP7" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="h2WP8" transform="translate(420 360)">
                         <symbol id="WP8" viewBox="0 0 60 60">
@@ -623,7 +621,7 @@
                                 <path id="path2" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.28125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 51.377087,20.37284 c -4.834374,0 -8.75,3.915625 -8.75,8.749998 0,1.946876 0.634376,3.740626 1.706251,5.20625 -4.265625,2.45 -7.175001,7.021876 -7.175001,12.29375 0,4.440625 2.056251,8.4 5.271876,11.003124 -6.5625,2.31875 -16.209374,12.140624 -16.209374,29.465624 h 50.312496 c 0,-17.325 -9.646874,-27.146874 -16.209373,-29.465624 3.215624,-2.603124 5.271874,-6.562499 5.271874,-11.003124 0,-5.271874 -2.909375,-9.84375 -7.175,-12.29375 1.071876,-1.465624 1.70625,-3.259374 1.70625,-5.20625 0,-4.834373 -3.915624,-8.749998 -8.749999,-8.749998 z" />
                             </svg>
                         </symbol>
-                        <use xlink:href="#WP8" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="a1WR1" transform="translate(0 420)">
                         <symbol id="WR1" viewBox="0 0 60 60">
@@ -651,7 +649,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WR1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="b1WN1" transform="translate(60 420)">
                         <symbol id="WN1" viewBox="0 0 60 60">
@@ -676,7 +674,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WN1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="c1WB1" transform="translate(120 420)">
                         <symbol id="WB1" viewBox="0 0 60 60">
@@ -703,7 +701,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WB1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="d1WQ1" transform="translate(180 420)">
                         <symbol id="WQ1" viewBox="0 0 60 60">
@@ -733,7 +731,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WQ1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="e1WK1" transform="translate(240 420)">
                         <symbol id="WK1" viewBox="0 0 60 60">
@@ -761,7 +759,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WK1" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="f1WB2" transform="translate(300 420)">
                         <symbol id="WB2" viewBox="0 0 60 60">
@@ -788,7 +786,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WB2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="g1WN2" transform="translate(360 420)">
                         <symbol id="WN2" viewBox="0 0 60 60">
@@ -813,7 +811,7 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WN2" width="35.5" height="35.5" />
+                        
                     </g>,
                     <g id="h1WR2" transform="translate(420 420)">
                         <symbol id="WR2" viewBox="0 0 60 60">
@@ -841,9 +839,11 @@
                                 </g>
                             </svg>
                         </symbol>
-                        <use xlink:href="#WR2" width="35.5" height="35.5" />
+                        
                     </g>
                 </g>
+        
+            </g>
             </g>
         </g>
     </g>
