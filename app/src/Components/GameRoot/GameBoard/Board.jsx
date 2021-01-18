@@ -11,15 +11,7 @@ import DropLayer from "./DropLayer";
 export const Board = ({ gameRoot }) => {
 
     const setRangeDisplay = (pieceId) => {
-        // if (pieceId) {
-        //     dispatch({
-        //         type: "display-on",
-        //         pieceId: pieceId,
-        //         getRangeBoard: gameRoot.getRangeBoard,
-        //     });
-        // } else {
-        //     dispatch({ type: "display-off" });
-        // }
+
     };
 
     return (
