@@ -2,7 +2,7 @@ import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
-import {fontSizeAlt2 as fontSize} from "../styles/fontSize.jss";
+import {fontSize0023 as fontSize} from "../styles/fontSize.jss";
 import { useStyles } from "./Profile.jss";
 
 export function Profile({pieceName, expand, defs, theme, screenCase, children }) {

@@ -8,7 +8,7 @@ import {Load} from "./Load";
 import {Erase} from "./Erase";
 import {Reset} from "./Reset";
 import {useStyles} from "./Options.jss";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 
 export function Options({
     load,
@@ -20,7 +20,7 @@ export function Options({
     whiteImg,
     blackImg,
 }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
 
     return (
         <>

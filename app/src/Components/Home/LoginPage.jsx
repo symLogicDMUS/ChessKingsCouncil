@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import * as firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
-import {fontSize} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSize.jss";
 import {useStyles} from "./LoginPage.jss";
 import MediaQuery from "react-responsive/src";
 import {Background} from "../Reuseables/Background";
@@ -10,7 +10,7 @@ import '../styles/_backgrounds.scss';
 
 export function LoginPage(props) {
     let [theme, setTheme] = useState("tan");
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+    const classes = useStyles({theme: theme, fontSize: fontSize002});
 
     useEffect(() => {
         document.body.className = `${theme}-background`

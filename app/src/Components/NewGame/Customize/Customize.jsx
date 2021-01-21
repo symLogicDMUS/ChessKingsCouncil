@@ -20,7 +20,7 @@ import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
-import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize0023 as fontSize} from "../../styles/fontSize.jss";
 import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import {withStyles} from "@material-ui/core";
@@ -378,10 +378,6 @@ class Customize extends React.Component {
                                             </>
                                         ),
                                     },
-                                    {
-                                        id: 'promo-',
-
-                                    }
                                 ]}
                             </MuiAccordion>
                             <Button

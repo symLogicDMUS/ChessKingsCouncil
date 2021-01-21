@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
+import {modal} from "../helpers/modal.jss";
 
 export const button = (fontSize) => ({
     fontSize: fontSize,
@@ -18,12 +19,16 @@ export const dropdown = (fontSize) => ({
     },
 });
 export const useStyles = makeStyles({
+    modal: props => ({
+       ...modal,
+       zIndex: 1,
+    }),
     flexbox: props => ({
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         alignItems: 'center',
-        marginTop: '12em',
+        marginTop: '0.5em',
         '@media screen and (max-width: 767px)': {
             width: '100%',
         },

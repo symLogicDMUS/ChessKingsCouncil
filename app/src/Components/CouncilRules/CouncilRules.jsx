@@ -1,7 +1,7 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { fontSize } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSize.jss";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./CouncilRules.jss";
 import Box from "@material-ui/core/Box";
@@ -9,7 +9,7 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
 
 export function CouncilRules() {
-    const classes = useStyles({ fontSize });
+    const classes = useStyles({ fontSize: fontSize002 });
     return (
         <div>
             <MediaQuery minDeviceWidth={768}>
@@ -18,12 +18,12 @@ export function CouncilRules() {
                     currentPage="CouncilRules"
                     theme="tan"
                     style={{
-                        fontSize: fontSize,
+                        fontSize: fontSize002,
                         width: "100%",
                         height: "2.25em",
                     }}
                     buttonStyle={{
-                        fontSize: fontSize,
+                        fontSize: fontSize002,
                         height: "2.25em",
                         justifyContent: "center",
                     }}
@@ -108,7 +108,7 @@ export function CouncilRules() {
                             flexDirection="column"
                             style={{ width: "100%" }}
                             buttonStyle={{
-                                fontSize: fontSize * 1.2,
+                                fontSize: fontSize002 * 1.2,
                                 justifyContent: "flex-start",
                                 width: "99%",
                                 height: "2.5em",

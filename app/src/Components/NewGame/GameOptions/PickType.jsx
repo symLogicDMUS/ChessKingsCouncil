@@ -1,13 +1,13 @@
 import React from "react";
 import {GameType} from "./GameType";
 import {Typography} from "@material-ui/core";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
 import {useStyles} from "./PickType.jss";
 
 export function PickType({gameType, setGameType, theme}) {
 
-    const classes = useStyles({fontSize: fontSize * 6, theme: theme})
+    const classes = useStyles({fontSize: fontSize002 * 6, theme: theme})
 
     return (
         <>

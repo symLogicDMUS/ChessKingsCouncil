@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {IconButton, Portal, SvgIcon} from "@material-ui/core";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import {icons} from "../../styles/icons/top/icons.jss";
 import {themes} from "../../styles/themes.jss";
 import {AnimatePresencePortal} from "../../Reuseables/AnimatePresencePortal";
@@ -14,7 +14,7 @@ import {useStyles} from "./SaveResignTool.jss";
 
 export function SaveResignTool({theme, triggerSaveProcess, resign, changeName, isSaveMessage, messageCallback}) {
     let [saveAs, setSaveAs] = useState(false);
-    const classes = useStyles({theme: theme, fontSize: fontSize * 1.6});
+    const classes = useStyles({theme: theme, fontSize: fontSize002 * 1.6});
 
     return (
         <>

@@ -6,7 +6,7 @@ import { themes } from "../../styles/themes.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import { icons } from "../../styles/icons/top/icons.jss";
-import { fontSizeAlt2 as fontSize } from "../../styles/fontSize.jss";
+import { fontSize0023 as fontSize } from "../../styles/fontSize.jss";
 import {
     promo_checkbox,
     checkbox_root,

@@ -1,10 +1,10 @@
 import React from "react";
-import {fontSize} from "../../../styles/fontSize.jss";
+import {fontSize002} from "../../../styles/fontSize.jss";
 import { ArrowButton } from "./ArrowButton";
 import { useStyles } from "./SpanArrowButtons.jss";
 
 export function SpanArrowButtons({ spans, toggleSpan, theme }) {
-    const classes = useStyles({theme: theme, fontSize: fontSize*0.95})
+    const classes = useStyles({theme: theme, fontSize: fontSize002*0.95})
 
     const angles = ["135d", "90d", "45d", "180d", "0d", "225d", "270d", "315d"];
 

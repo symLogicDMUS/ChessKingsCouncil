@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {fontSizeAlt2 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize0023 as fontSize} from "../../styles/fontSize.jss";
 import MediaQuery from "react-responsive/src";
 import {useStyles} from "./SubList.jss";
 

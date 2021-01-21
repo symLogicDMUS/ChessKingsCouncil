@@ -10,6 +10,7 @@ import {useStyles} from "./MuiCheckbox.jss";
  * @param onClick
  * @param theme: string
  * @param checkmarkState
+ * @param defaultChecked
  * @param rootStyle: Object
  * @param circleStyle: Object
  * @param style: Object, (style.fontSize is required)
@@ -17,7 +18,7 @@ import {useStyles} from "./MuiCheckbox.jss";
  * @returns {JSX.Element}
  * @constructor
  */
-export function MuiCheckbox({onClick, checkmarkState, style, rootStyle, circleStyle, theme, children}) {
+export function MuiCheckbox({onClick, checkmarkState, defaultChecked, style, rootStyle, circleStyle, theme, children}) {
 
     const classes = useStyles({style, rootStyle, circleStyle, theme})
 
@@ -28,7 +29,8 @@ export function MuiCheckbox({onClick, checkmarkState, style, rootStyle, circleSt
                         onClick={onClick}
                         icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
                         checkedIcon={<CheckBoxIcon className={classes.checked}/>}
-                        checked={checkmarkState}
+                        defaultChecked={defaultChecked}
+                        // checked={checkmarkState}
                         name="checkbox"
                     />
                 }

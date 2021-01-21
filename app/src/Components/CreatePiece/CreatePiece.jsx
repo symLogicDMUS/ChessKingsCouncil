@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {HelpText, HelpTitle} from "./HelpText"
 import "../styles/_backgrounds.scss";
-import {fontSize} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSize.jss";
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
 import {copy} from "../helpers/copy";
@@ -403,15 +403,15 @@ class CreatePiece extends React.Component {
                             flexDirection="column"
                             style={{width: navBarWidth}}
                             buttonStyle={{
-                                fontSize: fontSize * 1.2,
+                                fontSize: fontSize002 * 1.2,
                                 justifyContent: "flex-start",
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            helpTitle={HelpTitle(fontSize, this.state.theme)}
-                            helpText={HelpText(fontSize, this.state.theme)}
+                            helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                            helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
@@ -425,15 +425,15 @@ class CreatePiece extends React.Component {
                                 flexDirection="column"
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize * 1.2,
+                                    fontSize: fontSize002 * 1.2,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
                                 theme={this.state.theme}
                                 redirectMessage={messageStr}
-                                helpTitle={HelpTitle(fontSize, this.state.theme)}
-                                helpText={HelpText(fontSize, this.state.theme)}
+                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                                helpText={HelpText(fontSize002, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }

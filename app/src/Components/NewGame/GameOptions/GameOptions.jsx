@@ -11,7 +11,7 @@ import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import {Background} from "../../Reuseables/Background";
 import "../../styles/_backgrounds.scss";
@@ -29,7 +29,7 @@ export function GameOptions({setGameOptions}) {
         document.body.className = "tan-background";
     });
 
-    const classes = useStyles({fontSize});
+    const classes = useStyles({fontSize: fontSize002});
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
@@ -58,7 +58,7 @@ export function GameOptions({setGameOptions}) {
             onClick={() =>
                 setGameOptions(gameName, gameType, playerType)
             }
-            style={submit_button(fontSize, 0.9, theme)}
+            style={submit_button(fontSize002, 0.9, theme)}
             theme={theme}
             variant={"contained"}
             isDisabled={
@@ -85,14 +85,14 @@ export function GameOptions({setGameOptions}) {
                         flexDirection="row"
                         theme={theme}
                         style={{
-                            fontSize: fontSize,
+                            fontSize: fontSize002,
                             width: "100%",
                             height: "2.25em",
                         }}
-                        helpTitle={HelpTitle(fontSize, theme)}
-                        helpText={HelpText(fontSize, theme)}
+                        helpTitle={HelpTitle(fontSize002, theme)}
+                        helpText={HelpText(fontSize002, theme)}
                         buttonStyle={{
-                            fontSize: fontSize,
+                            fontSize: fontSize002,
                             height: "2.25em",
                             justifyContent: "center",
                         }}
@@ -108,13 +108,13 @@ export function GameOptions({setGameOptions}) {
                                 flexDirection="column"
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize * 1.2,
+                                    fontSize: fontSize002 * 1.2,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle(fontSize, theme)}
-                                helpText={HelpText(fontSize, theme)}
+                                helpTitle={HelpTitle(fontSize002, theme)}
+                                helpText={HelpText(fontSize002, theme)}
                                 redirectMessage={null}
                                 theme={theme}
                             />

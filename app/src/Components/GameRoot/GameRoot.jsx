@@ -35,7 +35,7 @@ import {drawerWidth} from "../Reuseables/PermanentDrawer.jss";
 import {boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
 import {Board} from "./GameBoard/Board";
 import {GameInfo} from "./GameInfo/GameInfo";
-import {fontSize} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSize.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
@@ -312,16 +312,16 @@ class GameRoot extends React.Component {
                             theme={this.state.theme}
                             style={{
                                 width: navBarWidth,
-                                fontSize: fontSize * 1.5,
+                                fontSize: fontSize002 * 1.5,
                             }}
                             buttonStyle={{
-                                fontSize: fontSize * 1.5,
+                                fontSize: fontSize002 * 1.5,
                                 justifyContent: "flex-start",
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle(fontSize, this.state.theme)}
-                            helpText={HelpText(fontSize, this.state.theme)}
+                            helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                            helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
@@ -337,13 +337,13 @@ class GameRoot extends React.Component {
                                 theme={this.state.theme}
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize * 1.2,
+                                    fontSize: fontSize002 * 1.2,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle(fontSize, this.state.theme)}
-                                helpText={HelpText(fontSize, this.state.theme)}
+                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                                helpText={HelpText(fontSize002, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }

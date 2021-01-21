@@ -6,7 +6,7 @@ import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
 import { getDefs } from "../../API/getDefs";
 import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { fontSize } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSize.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";
@@ -53,14 +53,14 @@ class MyPieces extends React.Component {
                         currentPage="MyPieces"
                         theme={this.state.theme}
                         style={{
-                            fontSize: fontSize,
+                            fontSize: fontSize002,
                             width: "100%",
                             height: "2.25em",
                         }}
-                        helpText={HelpText(fontSize, this.state.theme)}
-                        helpTitle={HelpTitle(fontSize, this.state.theme)}
+                        helpText={HelpText(fontSize002, this.state.theme)}
+                        helpTitle={HelpTitle(fontSize002, this.state.theme)}
                         buttonStyle={{
-                            fontSize: fontSize,
+                            fontSize: fontSize002,
                             height: "2.25em",
                             justifyContent: "center",
                         }}
@@ -91,13 +91,13 @@ class MyPieces extends React.Component {
                                 flexDirection="column"
                                 style={{ width: "100%" }}
                                 buttonStyle={{
-                                    fontSize: fontSize * 1.2,
+                                    fontSize: fontSize002 * 1.2,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpText={HelpText(fontSize, this.state.theme)}
-                                helpTitle={HelpTitle(fontSize, this.state.theme)}
+                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
                                 redirectMessage={null}
                                 theme={this.state.theme}
                             />

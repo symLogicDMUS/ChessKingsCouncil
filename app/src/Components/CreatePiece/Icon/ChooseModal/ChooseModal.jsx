@@ -7,11 +7,15 @@ import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
 import { ImgGrid } from "../../../Reuseables/ImgGrid";
 import "../../../styles/Scrollbar.scss";
 import { styles } from "./ChooseModal.jss";
+import { Close } from "../../../Reuseables/Close";
+import { fontSize001685 as fontSize } from "../../../styles/fontSize.jss";
+import Box from "@material-ui/core/Box";
+import {MuiCheckbox} from "../../../Reuseables/MuiCheckbox";
 
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {bValue: false, imgNameChoice: null}
+        this.state = { bValue: false, imgNameChoice: null };
         this.imgDict = {};
         this.deleteImg = this.deleteImg.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
@@ -34,7 +38,7 @@ class ChooseModal extends React.Component {
         deleteImg(imgNameChoice).then(([r]) => {
             this.props.resetImg(this.imgDict[imgNameChoice]);
             delete this.imgDict[imgNameChoice];
-            this.setState({imgNameChoice: null})
+            this.setState({ imgNameChoice: null });
         });
     }
 
@@ -45,10 +49,9 @@ class ChooseModal extends React.Component {
 
     setChoice(imgNameChoice) {
         if (this.state.imgNameChoice === imgNameChoice) {
-            this.setState({imgNameChoice: null})
-        }
-        else {
-            this.setState({imgNameChoice: imgNameChoice})
+            this.setState({ imgNameChoice: null });
+        } else {
+            this.setState({ imgNameChoice: imgNameChoice });
         }
     }
 
@@ -61,11 +64,27 @@ class ChooseModal extends React.Component {
                         imgDict={this.imgDict}
                         imgNameChoice={this.state.imgNameChoice}
                         setChoice={this.setChoice}
-                        onOkClick={() => this.submitChoice(this.state.imgNameChoice)}
-                        onDeleteClick={() => this.deleteImg(this.state.imgNameChoice)}
-                        onClose={this.props.closeAll}
-                        screenCase={this.props.screenCase}
+                        defaultChecked={false}
+                        confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
+                        onOkClick={() =>
+                            this.submitChoice(this.state.imgNameChoice)
+                        }
+                        onDeleteClick={() =>
+                            this.deleteImg(this.state.imgNameChoice)
+                        }
+                        topFlexbox={
+                            <Close
+                                theme={this.props.theme}
+                                onClick={this.props.closeAll}
+                                style={{
+                                    fontSize: fontSize,
+                                    width: "2em",
+                                    height: "2em",
+                                }}
+                            />
+                        }
                         theme={this.props.theme}
+                        screenCase={this.props.screenCase}
                     />
                 </div>
             </div>

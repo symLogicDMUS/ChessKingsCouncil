@@ -1,6 +1,6 @@
 import React from "react";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import {fontSizeAlt4 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize0015 as fontSize} from "../../styles/fontSize.jss";
 import {Typography} from "@material-ui/core";
 import {angleToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";

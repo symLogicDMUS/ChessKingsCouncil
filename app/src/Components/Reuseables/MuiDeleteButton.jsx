@@ -3,7 +3,7 @@ import {MuiButton as Button} from "./MuiButton";
 import {StandardModal} from "./StandardModal";
 import {Portal} from "@material-ui/core";
 import {button} from "./StandardModal.jss";
-import {fontSize} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSize.jss";
 
 /**
  * motivation is that comes with the 'are you sure yes or no' modal that always occurs
@@ -37,7 +37,7 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                                 setModal(false)
                                 onAcceptDelete()
                             }}
-                            style={button(fontSize)}
+                            style={{...button(fontSize002), marginRight: '1em'}}
                             variant={'contained'}
                             theme={theme}
                         >
@@ -45,7 +45,7 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                         </Button>
                         <Button
                             onClick={() => setModal(false)}
-                            style={button(fontSize)}
+                            style={{...button(fontSize002), marginLeft: '1em'}}
                             variant={'contained'}
                             theme={theme}
                         >

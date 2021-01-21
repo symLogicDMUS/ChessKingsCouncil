@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
-import { fontSize } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSize.jss";
 import { deleteDef } from "../../../API/deleteDef";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/MuiDeleteButton";
 import { button, getButtonMargin, useStyles } from "./LoadDeleteHeader.jss";
@@ -24,7 +24,7 @@ export function LoadDeleteHeader({
     const classes = useStyles({
         theme: theme,
         style: style,
-        fontSize: fontSize,
+        fontSize: fontSize002,
     });
 
     const deletePiece = (pieceName) => {
@@ -67,7 +67,7 @@ export function LoadDeleteHeader({
                     <Button
                         theme={theme}
                         startIcon={<StorageIcon />}
-                        style={button(fontSize, theme)}
+                        style={button(fontSize002, theme)}
                         onClick={loadMethod}
                     >
                         Load
@@ -81,7 +81,7 @@ export function LoadDeleteHeader({
                         isDisabled={false}
                         theme={theme}
                         style={{
-                            ...button(fontSize, theme),
+                            ...button(fontSize002, theme),
                             marginLeft: getButtonMargin(screenCase),
                         }}
                     />

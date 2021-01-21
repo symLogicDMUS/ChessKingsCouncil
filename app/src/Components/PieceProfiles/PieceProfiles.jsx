@@ -9,7 +9,7 @@ import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import "../styles/Scrollbar.scss";
-import {fontSize} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSize.jss";
 import {useStyles} from "./PieceProfiles.jss";
 
 const reducer = (state, action) => {
@@ -74,7 +74,7 @@ export function PieceProfiles(props) {
                             def={state[pieceName]}
                             screenCase={screenCase}
                             parentPage={props.parentPage}
-                            style={ld_header_style(fontSize)}
+                            style={ld_header_style(fontSize002)}
                             theme={props.theme}
                         />
                     </Profile>

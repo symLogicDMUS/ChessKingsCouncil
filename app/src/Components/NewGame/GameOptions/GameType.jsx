@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import { useStyles } from "./GameType.jss";
 
 export function GameType({setGameType, gameType, selectedType, theme}) {
-    const classes = useStyles({fontSize: fontSize, theme: theme});
+    const classes = useStyles({fontSize: fontSize002, theme: theme});
     return (
         <motion.img
             className={classes.game_type}

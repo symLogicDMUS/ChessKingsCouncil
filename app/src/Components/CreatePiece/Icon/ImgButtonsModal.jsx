@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import { Close } from "../../Reuseables/Close";
 import { UploadButton } from "./UploadButton";
-import { fontSize } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSize.jss";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
 
@@ -14,7 +14,7 @@ export function ImgButtonsModal({
     showChooseModal,
     close
 }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
 
     return (
         <div className={classes.modal}>
@@ -22,7 +22,7 @@ export function ImgButtonsModal({
                 <Box className={classes.top_flexbox}>
                     <Close
                         theme={theme}
-                        style={close_icon(fontSize)}
+                        style={close_icon(fontSize002)}
                         onClick={close}
                     />
                 </Box>
@@ -31,7 +31,7 @@ export function ImgButtonsModal({
                         color={color}
                         id='choose-img'
                         theme={theme}
-                        style={button(fontSize)}
+                        style={button(fontSize002)}
                         setPieceImg={setPieceImg}
                         close={close}
                     />
@@ -39,7 +39,7 @@ export function ImgButtonsModal({
                         variant='contained'
                         onClick={() => showChooseModal(color)}
                         startIcon={<InsertPhotoIcon fontSize={"inherit"} />}
-                        style={button(fontSize)}
+                        style={button(fontSize002)}
                         theme={theme}
                     >
                         Choose

@@ -7,7 +7,7 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import {Close} from "../Close";
 import {MuiButton} from "../MuiButton";
 import {button, close_icon} from "../StandardModal.jss";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import "../../styles/Scrollbar.scss";
 import {themes} from "../../styles/themes.jss";
 import {useStyles} from "./HelpSlideshow.jss";
@@ -31,13 +31,13 @@ function reducer(state, action) {
 
 export function HelpSlideshow({initialState, title, onClose, theme, children}) {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+    const classes = useStyles({theme: theme, fontSize: fontSize002});
     return (
         <div className={`scrollbar-${theme}`}>
             <div className={classes.modal}>
                 <Box className={classes.window}>
                     <Box className={classes.top_flexbox}>
-                        <Close onClick={onClose} theme={theme} style={close_icon(fontSize)}/>
+                        <Close onClick={onClose} theme={theme} style={close_icon(fontSize002)}/>
                     </Box>
                     <Box>{title}</Box>
                     <Typography paragraph className={classes.content}>
@@ -47,7 +47,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         {state.pos !== 0 ? (
                             <MuiButton
                                 onClick={() => dispatch({type: 'decrement'})}
-                                style={{...button(fontSize), border: `0.05em solid ${themes[theme].outline}`, marginRight: '0.5em'}}
+                                style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginRight: '0.5em'}}
                                 startIcon={ <NavigateBeforeIcon />}
                                 theme={theme}
                             >
@@ -57,7 +57,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         {state.pos !== (state.numSlides - 1) ? (
                             <MuiButton
                                 onClick={() => dispatch({type: 'increment'})}
-                                style={{...button(fontSize), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '0.5em'}}
+                                style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '0.5em'}}
                                 endIcon={<NavigateNextIcon />}
                                 theme={theme}
                             >
@@ -66,7 +66,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         ) : null}
                         <MuiButton
                             onClick={onClose}
-                            style={{...button(fontSize), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '1em'}}
+                            style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '1em'}}
                             startIcon={<CheckCircleOutlineIcon />}
                             theme={theme}
                         >

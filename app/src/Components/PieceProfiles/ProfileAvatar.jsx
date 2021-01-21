@@ -4,7 +4,7 @@ import { Avatar } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ImageIcon from "@material-ui/icons/Image";
 import { resolvePlayerType } from "../helpers/resolvePlayerType";
-import { fontSizeAlt2 as fontSize } from "../styles/fontSize.jss";
+import { fontSize0023 as fontSize } from "../styles/fontSize.jss";
 import { useStyles } from "./ProfileAvatar.jss";
 
 export function ProfileAvatar(props) {

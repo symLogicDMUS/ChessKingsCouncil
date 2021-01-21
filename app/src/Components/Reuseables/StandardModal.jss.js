@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
 
     modal: props => ({
         ...modal,
-        zIndex: 5,
+        zIndex: 6,
     }),
 
     window: props => ({

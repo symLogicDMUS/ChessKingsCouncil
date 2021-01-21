@@ -2,11 +2,11 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import { PageLinkMobile } from "./PageLinkMobile";
 import { SignOutMobile } from "./SignOutMobile";
-import { fontSize } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSize.jss";
 import { useStyles } from "./MainMenuMoblile.jss";
 
 export function MainMenuMobile(props) {
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
+    const classes = useStyles({ theme: props.theme, fontSize: fontSize002 });
     return (
         <div className={classes.main_menu}>
             <img

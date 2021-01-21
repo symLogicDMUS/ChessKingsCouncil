@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
-import {fontSizeAlt7 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize01 as fontSize} from "../../styles/fontSize.jss";
 import {useStyles} from "./PromoArrow.jss";
 
 export function PromoArrow({icon, theme}) {

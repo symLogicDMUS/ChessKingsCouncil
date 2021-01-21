@@ -3,12 +3,12 @@ import MenuItem from "@material-ui/core/MenuItem";
 import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {Dropdown} from "../../Reuseables/Dropdown";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import {useStyles, dropdownStyle} from "./PlayAs.jss";
 
 export function PlayAs({setPlayerType, theme}) {
 
-    const classes = useStyles({fontSize: fontSize * 6, text: 'Play As'});
+    const classes = useStyles({fontSize: fontSize002 * 6, text: 'Play As'});
 
     return (
         <>
@@ -37,7 +37,7 @@ export function PlayAs({setPlayerType, theme}) {
                     overwrite={null}
                     variant='outlined'
                     theme={theme}
-                    style={dropdownStyle(fontSize)}
+                    style={dropdownStyle(fontSize002)}
                     label='Play As'
                     inputLabel='Play As'
                 />

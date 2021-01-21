@@ -7,7 +7,7 @@ import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
 import {MuiButton} from "../../Reuseables/MuiButton";
 import {button} from "../../Reuseables/StandardModal.jss";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
@@ -99,7 +99,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                         <MuiButton
                             onClick={() => save()}
                             variant={'contained'}
-                            style={button(fontSize)}
+                            style={{...button(fontSize002), marginRight: '1em'}}
                             theme={theme}
                         >
                             Yes
@@ -107,7 +107,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                         <MuiButton
                             onClick={() => closeModal()}
                             variant={'contained'}
-                            style={button(fontSize)}
+                            style={{...button(fontSize002), marginLeft: '1em'}}
                             theme={theme}
                         >
                             No
@@ -124,7 +124,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                     >
                         <MuiButton
                             onClick={() => closeModal()}
-                            style={button(fontSize)}
+                            style={button(fontSize002)}
                             variant={'contained'}
                             theme={theme}
                         >

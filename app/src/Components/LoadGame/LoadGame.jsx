@@ -1,15 +1,14 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { copy } from "../helpers/copy";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
-import { copy } from "../helpers/copy";
-import MenuItem from "@material-ui/core/MenuItem";
-import { LoadGameFromList } from "./LoadGameFromList";
-import "../styles/_backgrounds.scss";
 import {Background} from "../Reuseables/Background";
+import { GameChoices } from "./GameChoices";
+import "../styles/_backgrounds.scss";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -20,11 +19,6 @@ class LoadGame extends React.Component {
             userChoseGame: false,
         };
         this.games = {};
-        this.gameList = [
-            <MenuItem value="None">
-                <em>None</em>
-            </MenuItem>,
-        ];
         this.imgDict = {};
         this.load = this.load.bind(this);
         this.isDisabled = this.isDisabled.bind(this);
@@ -41,16 +35,12 @@ class LoadGame extends React.Component {
             } else {
                 this.games = {};
             }
-            this.reset();
+            this.reloadGameImgComponentsDict();
             this.setState({ userChoseGame: false });
         });
     }
 
-    reset() {
-        this.gameList = [];
-        for (const name of Object.keys(this.games)) {
-            this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
-        }
+    reloadGameImgComponentsDict() {
         this.imgDict = {}
         Object.keys(this.games).forEach(gameName => {
             this.imgDict[gameName] = this.games[gameName].img
@@ -65,10 +55,10 @@ class LoadGame extends React.Component {
         this.setState({ selectedGame: gameName });
     }
 
-    deleteGame() {
-        deleteGame(this.state.selectedGame).then(([r]) => {
-            delete this.games[this.state.selectedGame];
-            this.reset();
+    deleteGame(gameName) {
+        deleteGame(gameName).then(([r]) => {
+            delete this.games[gameName];
+            this.reloadGameImgComponentsDict();
             this.setState({
                 selectedGame: "none",
                 userChoseGame: false,
@@ -113,11 +103,11 @@ class LoadGame extends React.Component {
         return (
             <>
                 <Background theme={this.state.theme} />
-                <LoadGameFromList
+                <GameChoices
                     load={this.load}
                     imgDict={this.imgDict}
-                    gameList={this.gameList}
-                    deleteGame={this.deleteGame}
+                    confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
+                    deleteGame={() => this.deleteGame(this.state.selectedGame)}
                     selectedGame={this.state.selectedGame}
                     changeName={this.changeName}
                     isDisabled={this.isDisabled}

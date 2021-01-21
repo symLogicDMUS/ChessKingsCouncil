@@ -3,7 +3,7 @@ import { Close } from "./Close";
 import { v4 as uuidv4 } from "uuid";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "./MuiCheckbox";
-import { fontSize } from "../styles/fontSize.jss";
+import { fontSize001685 as fontSize } from "../styles/fontSize.jss";
 import Typography from "@material-ui/core/Typography";
 import PanoramaIcon from "@material-ui/icons/Panorama";
 import { MuiButton as Button } from "./MuiButton";
@@ -67,7 +67,7 @@ export function ImgGrid(props) {
             props.imgDict,
             props.setChoice,
             props.imgNameChoice,
-            false,
+            props.defaultChecked,
             props.screenCase,
             props.theme
         )
@@ -89,11 +89,7 @@ export function ImgGrid(props) {
     return (
         <div className={classes.window}>
             <Box className={classes.top_flexbox}>
-                <Close
-                    theme={props.theme}
-                    onClick={props.onClose}
-                    style={{ fontSize: fontSize, width: "2em", height: "2em" }}
-                />
+                {props.topFlexbox}
             </Box>
             <Box className={classes.title_flexbox}>
                 <Typography className={classes.title}>{props.title}</Typography>
@@ -118,7 +114,7 @@ export function ImgGrid(props) {
                 </Button>
                 <DeleteButton
                     onAcceptDelete={props.onDeleteClick}
-                    modalTitle={`Are you sure you want to delete this image? ${props.imgNameChoice}?`}
+                    modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.imgNameChoice === null}
                     style={{
                         ...button(fontSize),
@@ -132,6 +128,7 @@ export function ImgGrid(props) {
                     theme={props.theme}
                     style={{ fontSize: fontSize }}
                     rootStyle={{ marginLeft: "2.15em" }}
+                    defaultChecked={props.defaultChecked}
                     onClick={() => dispatch({ type: "toggle-show-names" })}
                 >
                     Show Names

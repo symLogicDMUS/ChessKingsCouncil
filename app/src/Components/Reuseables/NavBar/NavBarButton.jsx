@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBarButton.jss";
 import { StandardModal } from "../StandardModal";
 import {MuiButton} from "../MuiButton";
-import {fontSize} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSize.jss";
 import {button} from "../StandardModal.jss";
 
 export function NavBarButton({
@@ -57,7 +57,7 @@ export function NavBarButton({
                     >
                         <MuiButton
                             onClick={() => goToPage()}
-                            style={button(fontSize)}
+                            style={button(fontSize002)}
                             variant={'contained'}
                             theme={theme}
                         >
@@ -65,7 +65,7 @@ export function NavBarButton({
                         </MuiButton>
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
-                            style={button(fontSize)}
+                            style={button(fontSize002)}
                             variant={'contained'}
                             theme={theme}
                         >

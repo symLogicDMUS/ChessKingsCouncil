@@ -5,7 +5,7 @@ import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { resolvePlayerType } from "../helpers/resolvePlayerType";
-import { fontSizeAlt2 as fontSize } from "../styles/fontSize.jss";
+import { fontSize0023 as fontSize } from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable/ScrollTable";
