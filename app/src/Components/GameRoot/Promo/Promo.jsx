@@ -61,7 +61,6 @@ function Promo(props) {
             defs: props.pieceDefs,
             idDict: props.idDict,
         });
-        props.setIsPromo(false);
         props.finishMove(props.promoStart, pawnLoc);
     };
 
@@ -81,7 +80,6 @@ function Promo(props) {
             defs: props.pieceDefs,
             idDict: props.idDict,
         });
-        props.setIsPromo(false);
         props.finishMove(props.promoStart, pawnLoc);
     };
 

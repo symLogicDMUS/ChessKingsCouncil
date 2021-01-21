@@ -90,10 +90,13 @@ export function reducer(state, action) {
                                     }}
                                 >
                                     <Box
-                                        style={profile_top(
-                                            fontSize0023,
-                                            action.theme
-                                        )}
+                                        style={{
+                                            ...profile_top(
+                                                fontSize0023,
+                                                action.theme
+                                            ),
+                                            justifyContent: "flex-end",
+                                        }}
                                     >
                                         <Close
                                             style={{

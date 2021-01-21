@@ -13,7 +13,6 @@ export const DraggablePiece = (props) => {
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
-        begin: (monitor) =>  setRangeDisplay(id),
     });
 
     useEffect(() => {
@@ -21,7 +20,7 @@ export const DraggablePiece = (props) => {
     }, []);
 
     return (
-        <div ref={drag} style={updatePosition(left, top, isDragging)}>
+        <div ref={drag} style={props.isHidden ? {display: 'none'} : updatePosition(left, top, isDragging)}>
             <Piece src={src} sqrSize={props.sqrSize} />
         </div>
     );

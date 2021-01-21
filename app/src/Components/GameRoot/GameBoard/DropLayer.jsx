@@ -5,7 +5,6 @@ import {move} from "../Move/move";
 import {ItemTypes} from "./ItemTypes";
 import {getCoords} from "./getCoords";
 import {renderPiece} from "./renderPiece.js";
-import {useStyles} from "./DropLayer.jss";
 import {Portal} from "@material-ui/core";
 import Promo from "../Promo/Promo";
 import {AIDisplay} from "../AI/AIDisplay";
@@ -15,16 +14,15 @@ import {rfToXy, xyToPx} from "./DndCrdCnvrt";
 import {reducer} from "./reducers/DropLayer.red";
 import {getStartingPieces} from "./getStartingPieces";
 import {OVER} from "../../helpers/gStatusTypes";
+import {useStyles} from "./DropLayer.jss";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
-    const [isPromo, setIsPromo] = useState(false);
-    const [aiDisplay, setAiDisplay] = useState(false);
-    const [pieces, dispatch] = useReducer(
+const DropLayer = ({gameRoot, sqrSize, boardSize}) => {
+    const [state, dispatch] = useReducer(
         reducer,
-        getStartingPieces(gameRoot, sqrSize)
+        {pieces: getStartingPieces(gameRoot, sqrSize), isPromo: false, aiDisplay: false, hiddenPiece: null}
     );
 
     const classes = useStyles({boardSize: boardSize});
@@ -39,12 +37,12 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             let [start, dest, left, top] = getCoords(item, delta, sqrSize);
-            move(gameRoot, sqrSize, boardSize, item.id, pieces, start, dest, left, top, dispatch);
+            move(gameRoot, sqrSize, boardSize, item.id, state.pieces, start, dest, left, top, dispatch);
             if (gameRoot.specialMoves.isPromo([start, dest])) {
                 gameRoot.specialMoves.promoStart = start;
                 gameRoot.specialMoves.promoDest = dest;
                 gameRoot.specialMoves.removePromo([start, dest]);
-                setIsPromo(true);
+                dispatch({type: 'begin-promo'})
             } else {
                 finishMove(start, dest);
             }
@@ -66,14 +64,14 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
                     gameRoot.aiColor,
                     gameRoot.specialMoves
                 );
-                setAiDisplay(true);
+                dispatch({type: 'ai-begin', board: gameRoot.board, aiStart: gameRoot.aiStart})
             }
         }
     }, [gameRoot.turn]);
 
     useEffect(() => {
         if (gameRoot.state.saveProcess) {
-            gameRoot.save(pieces)
+            gameRoot.save(state.pieces)
         }
     }, [gameRoot.state.saveProcess])
 
@@ -86,7 +84,7 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
             sqrSize,
             boardSize,
             pieceId,
-            pieces,
+            state.pieces,
             aiStart,
             aiDest,
             destLeft,
@@ -97,7 +95,7 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
             gameRoot.specialMoves.promoStart = aiStart;
             gameRoot.specialMoves.promoDest = aiDest;
             gameRoot.specialMoves.removePromo([aiStart, aiDest]);
-            setIsPromo(true);
+            dispatch({type: 'begin-promo'})
         } else {
             finishMove(aiStart, aiDest);
         }
@@ -119,11 +117,11 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
     return (
         <>
             <div ref={drop} className={classes.board}>
-                {Object.keys(pieces).map((key) =>
-                    renderPiece(pieces[key], key, sqrSize, setRangeDisplay)
+                {Object.keys(state.pieces).map((key) =>
+                    renderPiece(state.pieces[key], key, sqrSize, state.hiddenPiece)
                 )}
             </div>
-            {isPromo ? (
+            {state.isPromo ? (
                 <Portal>
                     <Promo
                         board={gameRoot.board}
@@ -139,21 +137,21 @@ const DropLayer = ({gameRoot, setRangeDisplay, sqrSize, boardSize}) => {
                         promoStart={gameRoot.specialMoves.promoStart}
                         promoDest={gameRoot.specialMoves.promoDest}
                         theme={gameRoot.state.theme}
-                        setIsPromo={setIsPromo}
                         finishMove={finishMove}
                         piecesDispatch={dispatch}
                     />
                 </Portal>
             ) : null}
-            {aiDisplay ? (
+            {state.aiDisplay ? (
                 <AIDisplay
+                    aiMoveComponent={aiMoveComponent}
+                    piece={state.pieces[gameRoot.board[gameRoot.aiStart]]}
+                    parentDispatch={dispatch}
+                    aiStart={gameRoot.aiStart}
+                    aiDest={gameRoot.aiDest}
                     sqrSize={sqrSize}
                     boardSize={boardSize}
                     theme={gameRoot.state.theme}
-                    aiStart={gameRoot.aiStart}
-                    aiDest={gameRoot.aiDest}
-                    setAiDisplay={setAiDisplay}
-                    aiMoveComponent={aiMoveComponent}
                 />
             ) : null}
         </>

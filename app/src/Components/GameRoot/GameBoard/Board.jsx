@@ -10,17 +10,12 @@ import DropLayer from "./DropLayer";
 
 export const Board = ({ gameRoot }) => {
 
-    const setRangeDisplay = (pieceId) => {
-
-    };
-
     return (
         <>
             <MediaQuery minDeviceHeight={768}>
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
                         gameRoot={gameRoot}
-                        setRangeDisplay={setRangeDisplay}
                         sqrSize={sqrSizes.desktop}
                         boardSize={boardSizes.desktop}
                     />
@@ -29,7 +24,6 @@ export const Board = ({ gameRoot }) => {
                         sqrSize={sqrSizes.desktop}
                         boardSize={boardSizes.desktop}
                         boardPos={boardPos.desktop}
-                        setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard
@@ -43,7 +37,6 @@ export const Board = ({ gameRoot }) => {
                 <DndProvider backend={TouchBackend}>
                     <DropLayer
                         gameRoot={gameRoot}
-                        setRangeDisplay={setRangeDisplay}
                         sqrSize={sqrSizes.mobile}
                         boardSize={boardSizes.mobile}
                     />
@@ -52,7 +45,6 @@ export const Board = ({ gameRoot }) => {
                         sqrSize={sqrSizes.mobile}
                         boardSize={boardSizes.mobile}
                         boardPos={boardPos.mobile}
-                        setRangeDisplay={setRangeDisplay}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard

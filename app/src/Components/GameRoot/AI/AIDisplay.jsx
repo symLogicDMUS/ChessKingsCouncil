@@ -1,23 +1,59 @@
-import React, {useState, useEffect} from 'react';
-import {AIBoard} from "./AIBoard";
-import {sqrSize} from "../../Reuseables/Board.jss";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Box from "@material-ui/core/Box";
+import { Portal } from "@material-ui/core";
+import { rfToXy, xyToPx } from "../GameBoard/DndCrdCnvrt";
+import { fontSize002 } from "../../styles/fontSize.jss";
+import { useStyles } from "./AIDisplay.jss";
 
-export function AIDisplay({aiStart, aiDest, aiMoveComponent, setAiDisplay, sqrSize, boardSize, theme}) {
+export function AIDisplay({
+    aiStart,
+    aiDest,
+    aiMoveComponent,
+    parentDispatch,
+    piece,
+    sqrSize,
+    boardSize,
+    theme,
+}) {
+    const [isAnimating, setIsAnimating] = useState(true);
+    const classes = useStyles({
+        sqrSize: sqrSize,
+        boardSize: boardSize,
+        fontSize: fontSize002,
+        theme: theme,
+    });
 
-    const [seconds, setSeconds] = useState(1);
+    const getDestPos = () => {
+        const [destX, destY] = rfToXy(aiDest);
+        const [destLeft, destTop] = xyToPx(destX, destY, sqrSize);
+        return { left: destLeft, top: destTop, duration: 5 };
+    };
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setSeconds(seconds => seconds - 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
-
-    if (seconds === 0) {
-        setAiDisplay(false)
-        aiMoveComponent(aiStart, aiDest, sqrSize);
-    }
-
-    return (<AIBoard theme={theme} sqrSize={sqrSize} boardSize={boardSize} aiStart={aiStart} aiDest={aiDest}/>)
-
+    return (
+        <>
+            {isAnimating ? (
+                <Portal>
+                    <Box className={classes.animation_plane}>
+                        <motion.img
+                            src={piece.src}
+                            className={classes.piece}
+                            style={{ left: piece.left, top: piece.top }}
+                            animate={{ ...getDestPos() }}
+                            transition={{ duration: 1 }}
+                            onAnimationComplete={() => {
+                                setIsAnimating(false);
+                                parentDispatch({ type: "ai-finish" });
+                                aiMoveComponent(aiStart, aiDest, sqrSize);
+                            }}
+                        />
+                        <Box
+                            className={classes.start_sqr}
+                            style={{ left: piece.left, top: piece.top }}
+                        />
+                    </Box>
+                </Portal>
+            ) : null}
+        </>
+    );
 }

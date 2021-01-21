@@ -9,7 +9,6 @@ import { Portal } from "@material-ui/core";
 
 const DragLayer = ({
     gameRoot,
-    setRangeDisplay,
     sqrSize,
     boardSize,
     boardPos,
@@ -28,12 +27,6 @@ const DragLayer = ({
         currentOffset: monitor.getSourceClientOffset(),
         isDragging: monitor.isDragging(),
     }));
-
-    useEffect(() => {
-        if (!isDragging) {
-            setRangeDisplay(false);
-        }
-    }, [isDragging]);
 
     const classes = useStyles();
 

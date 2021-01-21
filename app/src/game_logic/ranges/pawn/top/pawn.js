@@ -1,4 +1,4 @@
-import {getEnPassantAlignmentKey} from "../../../ranges/specialMoves/enPassant/getEnPassantAlignmentKey";
+import {getEnPassantAlignmentKey} from "../../specialMoves/enPassant/getEnPassantAlignmentKey";
 import {getPotential1SqrJump} from "../getPotential1SqrJump"
 import {canEnpassant} from "../../specialMoves/enPassant/canEnPassant";
 import {getPotentialCaptures} from "../getPotentialCaptures";
