@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { fontSize } from "../../../styles/fontSize.jss";
+import { fontSize } from "../styles/fontSize.jss";
 import { Tooltip } from "@material-ui/core";
 import { useStyles } from "./ImgChoice.jss";
 

@@ -300,7 +300,6 @@ class GameRoot extends React.Component {
                             idDict={this.idDict}
                             triggerRender={this.triggerRender}
                         />
-                        <img src={this.img} style={{width: 250, height: 250}} />
                     </PermanentDrawer>
                     <SideBar
                         drawerType="left"
