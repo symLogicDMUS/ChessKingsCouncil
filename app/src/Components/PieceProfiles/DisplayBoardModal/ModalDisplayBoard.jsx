@@ -25,7 +25,7 @@ export function reducer(state, action) {
                     rf = stepFunc(rf);
                 }
             }
-            return spans;
+            return {offsets: state.offsets, spans: spans};
         case "offsets":
             let offsets = getBinaryBoarAllFalse()
             let [x1, y1] = rfToXy(action.location);
@@ -35,7 +35,7 @@ export function reducer(state, action) {
                 dy = y1 + xy[1];
                 offsets[xyToRf(dx, dy)] = true;
             });
-            return offsets;
+            return {offsets: offsets, spans: state.spans};
         default:
             throw new Error();
     }
@@ -49,10 +49,10 @@ export function ModalDisplayBoard({img, pieceName, range, rangeType, theme, loca
     useEffect(() => {
         switch (rangeType) {
             case 'spans':
-                dispatch({action: 'spans', range: range, location: location});
+                dispatch({type: 'spans', range: range, location: location});
                 break;
             case 'offsets':
-                dispatch({action: 'offsets', range: range, location: location})
+                dispatch({type: 'offsets', range: range, location: location})
                 break;
             default:
                 break;

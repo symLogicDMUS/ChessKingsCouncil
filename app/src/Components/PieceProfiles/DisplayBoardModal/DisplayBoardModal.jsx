@@ -6,8 +6,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
 import {ModalDisplayBoard} from "./ModalDisplayBoard";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
-import {useStyles} from "./DisplayBoardModal.jss"
 import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
+import {useStyles} from "./DisplayBoardModal.jss"
 
 export function DisplayBoardModal({theme, img, pieceName, rangeType, range, color, close}) {
 

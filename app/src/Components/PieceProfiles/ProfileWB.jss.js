@@ -17,6 +17,7 @@ export const adjustFontSize = (fontSize, screenCase) => {
 export const useStyles = makeStyles({
     profile_wb: props => ({
         fontSize: props.fontSize,
+        zIndex: 'inherit',
         display: 'flex',
         width: '100%',
         flexDirection: 'row',

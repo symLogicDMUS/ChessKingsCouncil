@@ -295,9 +295,9 @@ class GameRoot extends React.Component {
                             board={this.board}
                             theme={this.state.theme}
                             screenCase={'desktop'}
-                            allRanges={{...this.ranges, ...this.enemyRanges}}
                             pieceDefs={this.defs}
                             idDict={this.idDict}
+                            allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
                         />
                     </PermanentDrawer>

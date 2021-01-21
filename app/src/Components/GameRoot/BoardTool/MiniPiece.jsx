@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
+import { smallBoardFontSizeDesktop as fontSize } from "../../Reuseables/Board.jss";
 import { useStyles } from "./MiniPiece.jss";
-import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
-export function MiniPiece({ id, toggleDisplayOfPieceRange, pieceImgBase64Str, alt }) {
-    const classes = useStyles({fontSize: fontSize});
+export function MiniPiece({
+    togglePiece,
+    openProfile,
+    pieceImgBase64Str,
+    alt,
+}) {
+    const classes = useStyles({ fontSize: fontSize });
     return (
-        <img
-            src={pieceImgBase64Str}
-            className={classes.piece}
-            onClick={() => toggleDisplayOfPieceRange(id)}
-            alt={`${alt} (icon of a piece)`}
-        />
+        <>
+            <img
+                src={pieceImgBase64Str}
+                className={classes.piece}
+                onClick={() =>  {
+                    openProfile();
+                    togglePiece();
+                }}
+                alt={`${alt} (icon of a piece)`}
+            />
+        </>
     );
 }

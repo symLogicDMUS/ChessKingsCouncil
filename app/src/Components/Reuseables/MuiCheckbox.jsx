@@ -30,7 +30,7 @@ export function MuiCheckbox({onClick, checkmarkState, defaultChecked, style, roo
                         icon={<CheckBoxOutlineBlankIcon className={classes.unchecked}/>}
                         checkedIcon={<CheckBoxIcon className={classes.checked}/>}
                         defaultChecked={defaultChecked}
-                        // checked={checkmarkState}
+                        checked={checkmarkState}
                         name="checkbox"
                     />
                 }

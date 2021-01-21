@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
+import { getColor } from "../../helpers/getColor";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { getPieceName } from "../../helpers/getPieceName";
 import { MiniSquare as Square } from "./MiniSquare";
 import { MiniPiece as Piece } from "./MiniPiece";
+import { smallBoardFontSizeDesktop as fontSize } from "../../Reuseables/Board.jss";
 import { useStyles } from "./MiniBoard.jss";
-import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
 
 export function MiniBoard({
     theme,
@@ -15,30 +16,17 @@ export function MiniBoard({
     board,
     idDict,
     pieceDefs,
+    rangeBoard,
+    parentDispatch,
+    setProfileModal,
 }) {
-    let [pieceId, setPieceId] = useState(null);
-
-    const classes = useStyles({ theme: theme, fontSize: screenCase === 'mobile' ? fontSize*1.1 : fontSize });
-
-    const toggleDisplayOfPieceRange = (newPieceId) => {
-        /**Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares  */
-        if (pieceId === newPieceId) setPieceId(null);
-        else setPieceId(newPieceId);
-    };
-
-    const isRfPartOfRange = (rf) => {
-        /**use in traversal over all squares. Is rf part of range of last clicked piece*/
-        if (pieceId === null) return false;
-
-        if (!Object.keys(allRanges).includes(pieceId)) return false;
-
-        if (allRanges[pieceId].includes(rf)) return true;
-
-        if (board[rf] === pieceId) return true;
-    };
+    const classes = useStyles({
+        theme: theme,
+        fontSize: screenCase === "mobile" ? fontSize * 1.1 : fontSize,
+    });
 
     const getBoard = () => {
-        let squares = [];
+        const squares = [];
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
                 squares.push(
@@ -46,9 +34,8 @@ export function MiniBoard({
                         key={uuidv4()}
                         rf={rf}
                         theme={theme}
-                        board={board}
                         screenCase={screenCase}
-                        isHighlight={isRfPartOfRange(rf)}
+                        isHighlight={rangeBoard[rf]}
                     >
                         {null}
                     </Square>
@@ -59,22 +46,31 @@ export function MiniBoard({
                         key={uuidv4()}
                         rf={rf}
                         theme={theme}
-                        board={board}
                         screenCase={screenCase}
-                        isHighlight={isRfPartOfRange(rf)}
+                        isHighlight={rangeBoard[rf]}
                     >
                         <Piece
-                            id={board[rf]}
                             key={uuidv4()}
-                            toggleDisplayOfPieceRange={
-                                toggleDisplayOfPieceRange
+                            openProfile={() => setProfileModal(true)}
+                            togglePiece={() =>
+                                parentDispatch({
+                                    type: "toggle-piece",
+                                    rf: rf,
+                                    id: board[rf],
+                                    board: board,
+                                    idDict: idDict,
+                                    pieceDefs: pieceDefs,
+                                    allRanges: allRanges,
+                                    closeProfile: () => setProfileModal(false),
+                                    screenCase: screenCase,
+                                    theme: theme,
+                                })
                             }
                             pieceImgBase64Str={getPieceImg(
                                 board[rf],
                                 idDict,
                                 pieceDefs
                             )}
-                            alt={getPieceName(board[rf], idDict)}
                         />
                     </Square>
                 );
@@ -83,5 +79,5 @@ export function MiniBoard({
         return squares;
     };
 
-    return <div className={classes.board}>{getBoard()}</div>;
+    return <div className={classes.board}>{getBoard()}</div>
 }

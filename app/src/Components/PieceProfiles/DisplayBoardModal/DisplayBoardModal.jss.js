@@ -1,5 +1,4 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 

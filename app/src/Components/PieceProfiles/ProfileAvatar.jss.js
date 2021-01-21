@@ -1,5 +1,4 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
 import {mobileScaler} from "./ProfileWB.jss";
 
