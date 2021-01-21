@@ -2,6 +2,7 @@ import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
+import {Portal, withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
@@ -17,19 +18,21 @@ import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
-import {sideBarHeight, sideBarWidth} from "../../Reuseables/SidBar.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {sideBarHeight} from "../../Reuseables/SidBar.jss";
+import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {fontSize0023 as fontSize} from "../../styles/fontSize.jss";
 import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
+import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpText, HelpTitle} from "./HelpText";
-import {withStyles} from "@material-ui/core";
 import {
     drawer_component,
     drawer_table_button,
     drawerItemWidth, ok_button,
+    app_bar_flexbox,
     styles,
 } from "./Customize.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -37,6 +40,7 @@ class Customize extends React.Component {
         this.state = {
             theme: "dark",
             binaryValue: true,
+            searchText: '',
         };
         this.subs = {
             Rook: null,
@@ -56,7 +60,6 @@ class Customize extends React.Component {
         this.helpText = null;
         this.hmChildName = "none";
         this.hmChildren = {none: null};
-        this.searchText = "";
         this.isTooltip = false;
         this.nameDisp = null;
         this.navExpanded = true;
@@ -69,7 +72,7 @@ class Customize extends React.Component {
         this.togglePromo = this.togglePromo.bind(this);
         this.togglePromoAll = this.togglePromoAll.bind(this);
         this.loadIdDict = this.loadIdDict.bind(this);
-        this.updateSearch = this.updateSearch.bind(this);
+        this.updateSearchText = this.updateSearchText.bind(this);
     }
 
     componentDidMount() {
@@ -123,10 +126,6 @@ class Customize extends React.Component {
         }
     }
 
-    /**
-     * idD
-     * @returns {*|{}}
-     */
     loadIdDict() {
         const [names, subs] = this.prepareForIdAssign();
         return idAssign(names, subs);
@@ -165,7 +164,6 @@ class Customize extends React.Component {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
-        // this.promoListUpdate = true;
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -184,9 +182,8 @@ class Customize extends React.Component {
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
-    updateSearch(searchText) {
-        this.searchText = searchText;
-        this.setState({binaryValue: !this.state.binaryValue});
+    updateSearchText(searchText) {
+        this.setState({searchText: searchText});
     }
 
     render() {
@@ -209,13 +206,22 @@ class Customize extends React.Component {
                                     newReplaced={this.newReplaced}
                                     toggleSub={this.toggleSub}
                                     togglePromo={this.togglePromo}
+                                    searchText={this.state.searchText}
                                     theme={this.state.theme}
+                                    style={{
+                                        position: 'fixed',
+                                        top: '10%',
+                                        left: '19.25%',
+                                    }}
                                 />
                             }
                             appBarContent={
-                                <Typography variant="h6" noWrap>
-                                    Customize Game
-                                </Typography>
+                                <Box style={app_bar_flexbox(fontSize)}>
+                                    <Typography variant="h6" noWrap>
+                                        Customize Game
+                                    </Typography>
+                                    <SearchBox theme={this.state.theme} updateSearchText={this.updateSearchText}/>
+                                </Box>
                             }
                         >
                             <SubList
@@ -313,13 +319,14 @@ class Customize extends React.Component {
                                 parentPage="Customize"
                                 defs={this.defs}
                                 promos={this.promos}
+                                theme={this.state.theme}
                                 updateParent={this.setDefs}
-                                newReplacement={this.newReplacement}
-                                newReplaced={this.newReplaced}
                                 toggleSub={this.toggleSub}
                                 togglePromo={this.togglePromo}
                                 togglePromoAll={this.togglePromoAll}
-                                theme={this.state.theme}
+                                newReplacement={this.newReplacement}
+                                newReplaced={this.newReplaced}
+                                searchText={this.state.searchText}
                             />
                             <MuiAccordion theme={this.state.theme} style={{height: '2.4em'}}>
                                 {[

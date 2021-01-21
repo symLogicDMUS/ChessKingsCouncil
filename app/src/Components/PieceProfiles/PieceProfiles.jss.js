@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         },
         backgroundColor: themes[props.theme].fill,
         border: themes[props.theme].outline,
-        background: 'red',
+        ...props.style,
     }),
     profiles_window: props => ({
         overflowY: 'scroll',

@@ -1,16 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
-import {sideBarWidth} from "./SidBar.jss";
 
 export const drawerWidth = availWidth() * 0.23;
 export const drawerItemWidth = drawerWidth * 0.95;
+export const sideBarWidth = drawerWidth * 0.55;
 const z = 5;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
         zIndex: z,
+        display: 'flex',
     },
     appBar: props =>  ({
         zIndex: z,

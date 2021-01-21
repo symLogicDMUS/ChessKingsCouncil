@@ -1,11 +1,11 @@
-import React from "react";
+import React, {memo} from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
 import {fontSize0023 as fontSize} from "../styles/fontSize.jss";
 import { useStyles } from "./Profile.jss";
 
-export function Profile({pieceName, expand, defs, theme, screenCase, children }) {
+export const Profile = memo(({pieceName, expand, defs, theme, screenCase, children }) => {
     /**children is a header for the profile of the piece */
     const classes = useStyles({theme: theme, fontSize: fontSize});
 
@@ -30,7 +30,6 @@ export function Profile({pieceName, expand, defs, theme, screenCase, children })
                 screenCase={screenCase}
                 theme={theme}
             />
-            {/*<Divider className={classes.divider} />*/}
         </Box>
     );
-}
+});

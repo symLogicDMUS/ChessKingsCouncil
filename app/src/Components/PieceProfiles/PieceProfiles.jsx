@@ -1,24 +1,26 @@
-import React, {useEffect, useReducer, useState} from "react";
+import React, {useEffect, useReducer, memo} from "react";
 import {v4 as uuidv4} from "uuid";
+import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import {getDefs} from "../../API/getDefs";
 import MediaQuery from "react-responsive/src";
-import {Profile} from "./Profile";
+import {fontSize002} from "../styles/fontSize.jss";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import "../styles/Scrollbar.scss";
-import {fontSize002} from "../styles/fontSize.jss";
 import {useStyles} from "./PieceProfiles.jss";
 
 const reducer = (state, action) => {
     switch (action.type) {
         case 'load':
-            return action.payload; // payload == defs
+            // payload == defs
+            return action.payload;
         case 'delete':
             const defs = copy(state)
-            delete defs[action.payload] //payload == pieceName
+            //payload == pieceName
+            delete defs[action.payload]
             return defs;
         default:
             return {}
@@ -49,9 +51,18 @@ export function PieceProfiles(props) {
 
     const classes = useStyles({ theme: props.theme, style: props.style });
 
+    const getPieceNames = () => {
+        if (props.searchText && props.searchText !== '') {
+            return Object.keys(state).filter(pieceName => pieceName.toLowerCase().startsWith(props.searchText))
+        }
+        else {
+            return Object.keys(state);
+        }
+    };
+
     const getProfiles = (screenCase) => {
         let profiles = [];
-        let pieceNames = Object.keys(state);
+        let pieceNames = getPieceNames();
         if (
             props.parentPage === "CreatePiece" ||
             props.parentPage === "MyPieces"
@@ -112,7 +123,7 @@ export function PieceProfiles(props) {
             return <ProfileHeaderError />;
         }
         return profiles;
-    };
+    }
 
     return (
         <div className={`scrollbar-${props.theme}`}>

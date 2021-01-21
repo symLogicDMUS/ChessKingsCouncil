@@ -4,8 +4,13 @@ import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles({
     title_bar: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
         '@media screen and (min-width: 768px)': {
-            width: availWidth() * 0.5,
+            width: availWidth() * 0.4625,
             marginLeft: '3.25%',
         },
         '@media screen and (max-width: 767px)': {
@@ -13,17 +18,7 @@ export const useStyles = makeStyles({
             marginLeft: '3.75%',
         },
         color: themes[props.theme].text,
-    }),
-    divider: props => ({
-        '@media screen and (min-width: 768px)': {
-            width: '77em',
-            marginLeft: '3.25%',
-            marginBottom: '0.75em',
-        },
-        '@media screen and (max-width: 767px)': {
-            width: '100%',
-            marginLeft: '5%',
-            marginBottom: '0.3em',
-        },
+        marginBottom: '0.25em',
+        borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
 });

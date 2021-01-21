@@ -1,30 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Box from "@material-ui/core/Box";
+import {Input, TextField} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import {fontSize0025} from "../styles/fontSize.jss";
 import {useStyles} from "./SearchBox.jss";
 
-export function SearchBox({updateSearch}) {
+export function SearchBox({ updateSearchText, width, theme }) {
 
-    let [userInput, setUserInput] = useState(null)
+    const classes = useStyles({
+        theme: theme,
+        width: width,
+        fontSize: fontSize0025,
+    });
 
-    const classes = useStyles()
-
-    const handleUserInput = (e) => {
-        setUserInput(e.target.value)
-        updateSearch(userInput.toLowerCase());
-    }
+    const handleChange = (e) => {
+        updateSearchText(e.target.value.toLowerCase())
+    };
 
     return (
-        <div className={classes.search_tool}>
-            <img
-                src="/Images/other/magnifying-glass-b6n6n6.svg"
-                className={classes.magnifying_glass}
-                alt="magnifying glass symbol for search boxes"
+        <Box className={classes.search_box}>
+            <SearchIcon className={classes.search_icon} />
+            <Input
+                className={classes.text_field}
+                onChange={handleChange}
+                disableUnderline
+                type="search"
             />
-            <input
-                type="text"
-                value={userInput}
-                onChange={handleUserInput}
-                className={classes.box}
-            />
-        </div>
+        </Box>
     );
 }

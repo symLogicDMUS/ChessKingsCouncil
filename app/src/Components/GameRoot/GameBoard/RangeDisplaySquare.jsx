@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useStyles } from "../../Reuseables/Square.jss";
 
 export function RangeDisplaySquare({ isInRange, isLightColorSqr, theme, sqrSize }) {

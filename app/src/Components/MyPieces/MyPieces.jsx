@@ -18,9 +18,11 @@ class MyPieces extends React.Component {
         this.state = {
             theme: "dark",
             fetched: false,
+            searchText: ''
         };
         this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.updateSearchText = this.updateSearchText.bind(this);
         this.setDefs = this.setDefs.bind(this);
         this.setDefs();
     }
@@ -43,6 +45,10 @@ class MyPieces extends React.Component {
             }
             this.setState({ fetched: true });
         });
+    }
+
+    updateSearchText(searchText) {
+        this.setState({searchText: searchText})
     }
 
     render() {
@@ -70,11 +76,12 @@ class MyPieces extends React.Component {
                             <PieceProfiles
                                 title="My Pieces"
                                 defs={this.defs}
+                                load={() => null}
                                 parentPage="MyPieces"
                                 theme={this.state.theme}
-                                load={() => null}
+                                searchText={this.state.searchText}
                             >
-                                <ProfilesTitle theme={this.state.theme}>
+                                <ProfilesTitle theme={this.state.theme} updateSearchText={this.updateSearchText}>
                                     My Pieces
                                 </ProfilesTitle>
                             </PieceProfiles>

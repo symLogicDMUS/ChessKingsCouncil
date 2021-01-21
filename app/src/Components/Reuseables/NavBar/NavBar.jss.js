@@ -1,7 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {sideBarWidth} from "../SidBar.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth} from "../PermanentDrawer.jss";
+import {drawerWidth, sideBarWidth} from "../PermanentDrawer.jss";
 
 export const navBarWidth = sideBarWidth * 0.98;
 

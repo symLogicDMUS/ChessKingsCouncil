@@ -7,7 +7,7 @@ import {getCoords} from "./getCoords";
 import {renderPiece} from "./renderPiece.js";
 import {Portal} from "@material-ui/core";
 import Promo from "../Promo/Promo";
-import {AIDisplay} from "../AI/AIDisplay";
+import {AIMove} from "./AIMove";
 import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
 import {getAiMove} from "../../../apiHelpers/getAiMove";
 import {rfToXy, xyToPx} from "./DndCrdCnvrt";
@@ -143,7 +143,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize}) => {
                 </Portal>
             ) : null}
             {state.aiDisplay ? (
-                <AIDisplay
+                <AIMove
                     aiMoveComponent={aiMoveComponent}
                     piece={state.pieces[gameRoot.board[gameRoot.aiStart]]}
                     parentDispatch={dispatch}

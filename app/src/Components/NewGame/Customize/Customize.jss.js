@@ -1,6 +1,6 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 
 /* unit % */
@@ -28,6 +28,16 @@ export const ok_button = (fontSize) => ({
         marginTop: '0.5em',
         width: '100%',
     },
+});
+
+export const app_bar_flexbox = (fontSize) => ({
+    fontSize: fontSize,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: `calc(89% - ${sideBarWidth}px)`,
 });
 
 export const drawer_table_button = (fontSize) => ({

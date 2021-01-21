@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
-import { rfToXy, xyToPx } from "../GameBoard/DndCrdCnvrt";
+import { rfToXy, xyToPx } from "./DndCrdCnvrt";
 import { fontSize002 } from "../../styles/fontSize.jss";
-import { useStyles } from "./AIDisplay.jss";
+import { useStyles } from "./AIMove.jss";
 
-export function AIDisplay({
+export function AIMove({
     aiStart,
     aiDest,
     aiMoveComponent,
