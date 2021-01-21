@@ -25,10 +25,12 @@ class LoadGame extends React.Component {
                 <em>None</em>
             </MenuItem>,
         ];
+        this.imgDict = {};
         this.load = this.load.bind(this);
         this.isDisabled = this.isDisabled.bind(this);
         this.changeName = this.changeName.bind(this);
         this.deleteGame = this.deleteGame.bind(this);
+        this.getGameImgDict = this.getGameImgDict.bind(this);
     }
 
     componentDidMount() {
@@ -39,16 +41,20 @@ class LoadGame extends React.Component {
             } else {
                 this.games = {};
             }
-            this.resetGameList();
+            this.reset();
             this.setState({ userChoseGame: false });
         });
     }
 
-    resetGameList() {
+    reset() {
         this.gameList = [];
         for (const name of Object.keys(this.games)) {
             this.gameList.push(<MenuItem value={name}>{name}</MenuItem>);
         }
+        this.imgDict = {}
+        Object.keys(this.games).forEach(gameName => {
+            this.imgDict[gameName] = this.games[gameName].img
+        })
     }
 
     isDisabled() {
@@ -62,13 +68,20 @@ class LoadGame extends React.Component {
     deleteGame() {
         deleteGame(this.state.selectedGame).then(([r]) => {
             delete this.games[this.state.selectedGame];
-            this.resetGameList();
+            this.reset();
             this.setState({
                 selectedGame: "none",
                 userChoseGame: false,
-                confirmDeleteModal: false,
             });
         });
+    }
+
+    getGameImgDict() {
+        const imgDict = {}
+        Object.keys(this.games).forEach(gameName => {
+            imgDict[gameName] = this.games[gameName].img
+        })
+        return imgDict;
     }
 
     load() {
@@ -102,11 +115,12 @@ class LoadGame extends React.Component {
                 <Background theme={this.state.theme} />
                 <LoadGameFromList
                     load={this.load}
+                    imgDict={this.imgDict}
+                    gameList={this.gameList}
                     deleteGame={this.deleteGame}
                     selectedGame={this.state.selectedGame}
                     changeName={this.changeName}
                     isDisabled={this.isDisabled}
-                    gameList={this.gameList}
                     theme={this.state.theme}
                 />
             </>

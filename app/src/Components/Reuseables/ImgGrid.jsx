@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Close } from "./Close";
 import { v4 as uuidv4 } from "uuid";
 import Box from "@material-ui/core/Box";
