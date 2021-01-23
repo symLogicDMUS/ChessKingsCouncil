@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {HelpText, HelpTitle} from "./HelpText"
 import "../styles/_backgrounds.scss";
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
 import {copy} from "../helpers/copy";
@@ -33,7 +33,6 @@ import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {largeBoardFontSizeDesktop, largeBoardFontSizeMobile} from "../Reuseables/Board.jss";
 import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
@@ -335,7 +334,7 @@ class CreatePiece extends React.Component {
                             <Board
                                 key={uuidv4()}
                                 theme={this.state.theme}
-                                fontSize={largeBoardFontSizeDesktop}
+                                fontSize={fontSize0095}
                                 toggleOffset={this.toggleOffset}
                                 spanDisplays={this.spanDisplays}
                                 offsets={this.offsetDisplays}
@@ -449,7 +448,7 @@ class CreatePiece extends React.Component {
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
                             pieceLoc={this.location}
-                            fontSize={largeBoardFontSizeMobile}
+                            fontSize={fontSize0066}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}

@@ -2,16 +2,15 @@ import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
+import {SubList} from "./SubList";
 import {Portal, withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
-import {SubList} from "./SubList";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {SideBar} from "../../Reuseables/SidBar";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {Background} from "../../Reuseables/Background";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
 import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
@@ -21,8 +20,7 @@ import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
-import {fontSize0023 as fontSize} from "../../styles/fontSize.jss";
-import {mobileScaler} from "../../PieceProfiles/ProfileWB.jss";
+import {fontSize00184, fontSize0023, fontSize00276} from "../../styles/fontSizes.jss";
 import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpText, HelpTitle} from "./HelpText";
 import {
@@ -30,9 +28,9 @@ import {
     drawer_table_button,
     drawerItemWidth, ok_button,
     app_bar_flexbox,
-    styles,
+    styles, drawerItemMarginLeft, drawerItemMarginTopBottom,
 } from "./Customize.jss";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {fontSizes} from "../../PieceProfiles/ProfileWB.jss";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -216,7 +214,7 @@ class Customize extends React.Component {
                                 />
                             }
                             appBarContent={
-                                <Box style={app_bar_flexbox(fontSize)}>
+                                <Box style={app_bar_flexbox(fontSize0023)}>
                                     <Typography variant="h6" noWrap>
                                         Customize Game
                                     </Typography>
@@ -234,11 +232,16 @@ class Customize extends React.Component {
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 style={{
-                                    ...drawer_component(fontSize),
-                                    marginTop: 0,
-                                    isOutline: true,
+                                    fontSize: fontSize0023,
+                                    width: drawerItemWidth,
+                                    height: 15,
                                 }}
-                                buttonStyle={drawer_table_button(fontSize)}
+                                buttonStyle={{ borderRadius: 0 }}
+                                addedStyle={{
+                                    marginLeft: drawerItemMarginLeft,
+                                    marginTop: drawerItemMarginTopBottom,
+                                    marginBottom: drawerItemMarginTopBottom,
+                                }}
                                 title={
                                     <Typography
                                         className={
@@ -253,7 +256,7 @@ class Customize extends React.Component {
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
-                                    style={{fontSize: fontSize}}
+                                    style={{fontSize: fontSize0023}}
                                     rootStyle={{
                                         marginLeft: drawerItemWidth * -0.008,
                                     }}
@@ -263,7 +266,7 @@ class Customize extends React.Component {
                             </Box>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button(fontSize)}
+                                style={ok_button(fontSize0023)}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}
@@ -282,12 +285,12 @@ class Customize extends React.Component {
                                 flexDirection="column"
                                 style={{width: navBarWidth}}
                                 buttonStyle={{
-                                    fontSize: fontSize,
+                                    fontSize: fontSize0023,
                                     width: navBarButtonWidth,
                                     justifyContent: "flex-start",
                                 }}
-                                helpTitle={HelpTitle(fontSize, this.state.theme)}
-                                helpText={HelpText(fontSize, this.state.theme)}
+                                helpTitle={HelpTitle(fontSize0023, this.state.theme)}
+                                helpText={HelpText(fontSize0023, this.state.theme)}
                                 theme={this.state.theme}
                             />
                         </SideBar>
@@ -300,13 +303,13 @@ class Customize extends React.Component {
                                     flexDirection="column"
                                     style={{width: "100%"}}
                                     buttonStyle={{
-                                        fontSize: fontSize * 1.2,
+                                        fontSize: fontSize00276,
                                         justifyContent: "flex-start",
                                         width: "99%",
                                         height: "2.5em",
                                     }}
-                                    helpTitle={HelpTitle(fontSize, this.state.theme)}
-                                    helpText={HelpText(fontSize, this.state.theme)}
+                                    helpTitle={HelpTitle(fontSize0023, this.state.theme)}
+                                    helpText={HelpText(fontSize0023, this.state.theme)}
                                     redirectMessage={null}
                                     theme={this.state.theme}
                                 />
@@ -357,26 +360,25 @@ class Customize extends React.Component {
                                                     listItems={this.promos}
                                                     theme={this.state.theme}
                                                     style={{
-                                                        ...drawer_component(
-                                                            fontSize * mobileScaler,
-                                                        ),
-                                                        marginTop: 0,
-                                                        isOutline: true,
+                                                        fontSize: fontSize00184,
+                                                        width: drawerItemWidth,
+                                                        height: 15,
                                                     }}
-                                                    buttonStyle={drawer_table_button(
-                                                        fontSize * mobileScaler,
-                                                    )}
+                                                    buttonStyle={{ borderRadius: 0 }}
+                                                    addedStyle={{
+                                                        marginLeft: drawerItemMarginLeft,
+                                                        marginTop: drawerItemMarginTopBottom,
+                                                        marginBottom: drawerItemMarginTopBottom,
+                                                    }}
                                                 />
                                                 <MuiCheckbox
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
                                                     style={{
-                                                        fontSize:
-                                                            fontSize * 0.8,
+                                                        fontSize: fontSize00184,
                                                     }}
                                                     rootStyle={{
-                                                        marginLeft:
-                                                            drawerItemWidth *
+                                                        marginLeft: drawerItemWidth *
                                                             0.025,
                                                     }}
                                                 >
@@ -389,7 +391,7 @@ class Customize extends React.Component {
                             </MuiAccordion>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button(fontSize)}
+                                style={ok_button(fontSize0023)}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}

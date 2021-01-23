@@ -7,7 +7,7 @@ import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
 import {MuiButton} from "../../Reuseables/MuiButton";
 import {button} from "../../Reuseables/StandardModal.jss";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
@@ -26,20 +26,20 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
     /**see bottom of file*/
     const getSaveStatus = () => {
 
-        if (pieceNameExists) {
-            return "confirm-overwrite";
-        }
-
         if (pieceName === "") {
             return "blank-name";
         }
 
-        if (containsInvalidCharacters(pieceName)) {
-            return "invalid-characters"
-        }
-
         if (standardPieceNames.includes(pieceName.toLowerCase())) {
             return "standard-name";
+        }
+
+        if (pieceNameExists) {
+            return "confirm-overwrite";
+        }
+
+        if (containsInvalidCharacters(pieceName)) {
+            return "invalid-characters"
         }
 
         if (whiteImg === null || blackImg === null) {
@@ -56,7 +56,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
         } else {
             switch (saveStatus) {
                 case 'standard-name':
-                    setMessage('You cannot use the name of one of the 6 standard pieces: King, Pawn, Bishop, Knight, Rook, and Queen')
+                    setMessage('Cannot name: King, Pawn, Bishop, Knight, Rook, or Queen')
                     setModal('accept')
                     break;
                 case 'blank-name':

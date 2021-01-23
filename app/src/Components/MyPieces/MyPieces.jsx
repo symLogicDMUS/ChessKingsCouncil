@@ -6,7 +6,7 @@ import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
 import { getDefs } from "../../API/getDefs";
 import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { fontSize002 } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";

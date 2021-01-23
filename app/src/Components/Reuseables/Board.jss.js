@@ -3,16 +3,13 @@ import {appBarHeight} from "./PersistentDrawer.jss";
 
 export const bigBoardMargin = '0.25em';
 export const mobileBoardPadding = availWidth() * 0.002;
-export const largeBoardFontSizeDesktop = window.screen.availHeight * 0.095;
-export const largeBoardFontSizeMobile = window.screen.availHeight * 0.066;
-export const smallBoardFontSizeDesktop = largeBoardFontSizeDesktop * 0.501;
 
 /**
  * for dnd context
  */
 export const sqrSizes = {
     desktop: availHeight() * 0.1,
-    mobile: availHeight() * 0.07,
+    mobile: availWidth() * 0.12125,
 }
 
 /**
@@ -20,7 +17,7 @@ export const sqrSizes = {
  */
 export const boardSizes = {
     desktop: sqrSizes.desktop * 8,
-    mobile: availHeight()*0.56,
+    mobile: availWidth()*0.97,
 }
 
 export const boardPos = {

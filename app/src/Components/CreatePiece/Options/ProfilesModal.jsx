@@ -4,7 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {Close} from "../../Reuseables/Close";
 import {close_icon, useStyles} from "./ProfilesModal.jss";
 

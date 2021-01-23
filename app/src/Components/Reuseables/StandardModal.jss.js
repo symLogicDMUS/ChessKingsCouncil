@@ -24,8 +24,14 @@ export const useStyles = makeStyles({
 
     window: props => ({
         fontSize: props.fontSize,
-        width: availWidth() * 0.333,
-        height: availHeight() * 0.333,
+        '@media screen and (min-width: 768px)': {
+            width: availWidth() * 0.333,
+            height: availHeight() * 0.333,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: availWidth()*0.98,
+            height: availHeight() * 0.4
+        },
         borderRadius: '0.3em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {ClickAwayListener} from "@material-ui/core";
 import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./Name.jss";
 
 export function Name({inputRef, updateName, updateNameFinish, theme, defaultValue}) {

@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
+import {fontSize0040} from "../../styles/fontSizes.jss";
 
 // em units:
 const profileWidth = 40;
@@ -27,8 +28,8 @@ export const profile_flexbox = (fontSize, theme) => ({
 
 export const profile_top = (fontSize, theme) => ({
     fontSize: fontSize,
-    width: `${profileWidth*0.97}em`,
-    marginLeft: `${profileWidth*0.03}em`,
+    width: `${profileWidth * 0.97}em`,
+    marginLeft: `${profileWidth * 0.03}em`,
     height: '1.5em',
     display: 'flex',
     flexDirection: 'row',
@@ -41,7 +42,7 @@ export const profile_top = (fontSize, theme) => ({
 
 export const useStyles = makeStyles({
         range_display_tool: props => ({
-            fontSize: props.fontSize,
+            fontSize: fontSize0040,
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
@@ -58,13 +59,18 @@ export const useStyles = makeStyles({
         }),
         flex_header: props => ({
             fontSize: props.fontSize,
-            width: '8.05em',
+            width: '10em',
             height: '0.7em',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            border: `0.04em solid ${themes[props.theme].outline}`,
+            '@media screen and (min-width: 768px)': {
+                border: `0.04em solid ${themes[props.theme].outline}`,
+            },
+            '@media screen and (max-width: 767px)': {
+                marginTop: '-1em'
+            },
         }),
         title: props => ({
             fontSize: props.fontSize * 0.48,

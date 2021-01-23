@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../styles/themes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {themes} from "../../styles/themes.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {appBarHeight} from "../PersistentDrawer.jss";
 
 const modalWidth = availWidth() * 0.9;
 const modalHeight = availHeight() * 0.85;
@@ -24,10 +25,17 @@ export const useStyles = makeStyles({
     window: props => ({
         zIndex: 6,
         fontSize: props.fontSize,
-        width: modalWidth,
-        height: modalHeight,
+        '@media screen and (min-width: 768px)': {
+            width: availWidth() * 0.9,
+            height: availHeight() * 0.85,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: availWidth(),
+            height: (availHeight() - appBarHeight),
+        },
         borderRadius: '0.75em',
         backgroundColor: themes[props.theme].fill,
+        ...props.rootStyle,
     }),
     top_flexbox: props => ({
         width: '100%',
@@ -41,7 +49,6 @@ export const useStyles = makeStyles({
     title_flexbox: props => ({
         fontSize: props.fontSize,
         width: '100%',
-        height: '3em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -49,36 +56,37 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         alignContent: 'center',
     }),
-    title: props => ({
-        fontSize: '3em',
-        fontFamily: 'Roboto-Light, Roboto',
-        lineHeight: '0.7em',
-        marginRight: '0.25em',
-        color: themes[props.theme].text,
-    }),
-    title_icon: props => ({
-        fontSize: props.fontSize,
-        height: '3em',
-        width: '3em',
-        marginLeft: '0.25em',
-        color: themes[props.theme].text,
-    }),
+
     img_choices_border: props => ({
-        width: imgChoicesWidth,
-        height: imgChoicesHeight,
-        marginLeft: modalWidth * 0.025,
-        marginRight: modalWidth * 0.025,
-        marginTop: modalHeight * 0.025,
-        marginBottom: modalHeight * 0.025,
+        '@media screen and (min-width: 768px)': {
+            width: imgChoicesWidth,
+            height: imgChoicesHeight,
+            marginLeft: modalWidth * 0.025,
+            marginRight: modalWidth * 0.025,
+            marginTop: modalHeight * 0.025,
+            marginBottom: modalHeight * 0.025,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '31.5em',
+            marginLeft: '1em',
+        },
+        overflow: 'scroll',
         borderRadius: '0.25em',
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: themes[props.theme].modal_fill,
         border: `0.08em solid ${themes[props.theme].outline}`,
+        ...props.itemWindowStyle,
     }),
 
     image_choices: props => ({
         fontSize: props.fontSize,
-        width: '92.5em',
-        height: '35.5em',
+        '@media screen and (min-width: 768px)': {
+            width: '92.5em',
+            height: '35.5em',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '30.5em',
+            height: '44.5em',
+        },
         marginLeft: '1em',
         marginRight: '1em',
         marginTop: '1em',
@@ -88,7 +96,7 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         justifyContent: 'flex-start',
-        overflow: 'scroll',
+        backgroundColor: themes[props.theme].modal_fill,
     }),
     bottom_flexbox: props => ({
         fontSize: props.fontSize,

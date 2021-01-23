@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from "@material-ui/core";
 import {saveImg} from "../../../API/saveImg";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from "../../Reuseables/MuiButton.jss";
 

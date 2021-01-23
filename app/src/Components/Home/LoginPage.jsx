@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import * as firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {useStyles} from "./LoginPage.jss";
 import MediaQuery from "react-responsive/src";
 import {Background} from "../Reuseables/Background";

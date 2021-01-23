@@ -4,14 +4,13 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
+import { ProfileAvatar } from "./ProfileAvatar";
 import { resolvePlayerType } from "../helpers/resolvePlayerType";
-import { fontSize0023 as fontSize } from "../styles/fontSize.jss";
 import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable/ScrollTable";
-import { ProfileAvatar } from "./ProfileAvatar";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import {adjustFontSize, useStyles } from "./ProfileWB.jss";
+import {fontSizes, widths, useStyles, heights} from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
@@ -28,7 +27,7 @@ export function ProfileWB({
     let [modal, setModal] = useState(false);
     let [rangeType, setRangeType] = useState(null);
 
-    const classes = useStyles({ fontSize: fontSize, theme: theme });
+    const classes = useStyles({ fontSize: fontSizes[screenCase], theme: theme });
 
     const getSpans = (def) => {
         if (def.spans.length === 0) {
@@ -105,9 +104,9 @@ export function ProfileWB({
                         </Box>
                     }
                     style={{
-                        fontSize: adjustFontSize(fontSize, screenCase),
-                        width: screenCase === "desktop" ? "11.55em" : "7.5em",
-                        isOutline: true,
+                        width: widths[screenCase],
+                        height: heights[screenCase],
+                        fontSize: fontSizes[screenCase],
                     }}
                     buttonStyle={{ borderRadius: 0 }}
                     theme={theme}
@@ -139,9 +138,9 @@ export function ProfileWB({
                         </Box>
                     }
                     style={{
-                        fontSize: adjustFontSize(fontSize, screenCase),
-                        width: screenCase === "desktop" ? "11.55em" : "7.5em",
-                        isOutline: true,
+                        width: widths[screenCase],
+                        height: heights[screenCase],
+                        fontSize: fontSizes[screenCase],
                     }}
                     buttonStyle={{ borderRadius: 0 }}
                     theme={theme}

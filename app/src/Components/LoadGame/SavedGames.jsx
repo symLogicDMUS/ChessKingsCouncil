@@ -1,15 +1,16 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import {Portal, Typography} from "@material-ui/core";
-import { fontSize002 } from "../styles/fontSize.jss";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { ImgGrid } from "../Reuseables/ImgGrid";
+import PanoramaIcon from "@material-ui/icons/Panorama";
+import {fontSize002} from "../styles/fontSizes.jss";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import { HelpText, HelpTitle } from "./HelpText";
-import { useStyles } from "./GameChoices.jss";
+import {HelpText, HelpTitle} from "./HelpText";
+import {useStyles} from "./SavedGames.jss";
 
-export function GameChoices(props) {
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize002 });
+export function SavedGames(props) {
+    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
 
     return (
         <>
@@ -34,16 +35,21 @@ export function GameChoices(props) {
                     <div className={`scrollbar-${props.theme}`}>
                         <div className={classes.flexbox}>
                             <ImgGrid
-                                title='Load Game'
+                                title={
+                                    <>
+                                        <Typography className={classes.title}>Load Game</Typography>
+                                        <PanoramaIcon className={classes.title_icon} size="large"/>
+                                    </>
+                                }
                                 onClose={null}
                                 topFlexbox={null}
                                 theme={props.theme}
                                 screenCase="desktop"
-                                imgDict={props.imgDict}
                                 defaultChecked={true}
                                 onOkClick={props.load}
-                                onDeleteClick={props.deleteGame}
+                                imgDict={props.imgDict}
                                 setChoice={props.changeName}
+                                onDeleteClick={props.deleteGame}
                                 imgNameChoice={props.selectedGame}
                                 confirmDeleteMessage={props.confirmDeleteMessage}
                             />
@@ -57,7 +63,7 @@ export function GameChoices(props) {
                         <NavBar
                             currentPage="LoadGame"
                             flexDirection="column"
-                            style={{ width: "100%" }}
+                            style={{width: "100%"}}
                             buttonStyle={{
                                 fontSize: fontSize002 * 1.2,
                                 justifyContent: "flex-start",
@@ -76,27 +82,27 @@ export function GameChoices(props) {
                         </Typography>
                     }
                     theme={props.theme}
+                    spacing={0}
                 >
-                    <Portal>
-                        <div className={`scrollbar-${props.theme}`}>
-                            <div className={classes.flexbox}>
-                                <ImgGrid
-                                    title='Load Game'
-                                    onClose={null}
-                                    topFlexbox={null}
-                                    theme={props.theme}
-                                    screenCase="mobile"
-                                    imgDict={props.imgDict}
-                                    defaultChecked={true}
-                                    onOkClick={props.load}
-                                    onDeleteClick={props.deleteGame}
-                                    setChoice={props.changeName}
-                                    imgNameChoice={props.selectedGame}
-                                    confirmDeleteMessage={props.confirmDeleteMessage}
-                                />
-                            </div>
-                        </div>
-                    </Portal>
+                    <ImgGrid
+                        imgDict={props.imgDict}
+                        setChoice={props.changeName}
+                        imgNameChoice={props.selectedGame}
+                        onDeleteClick={props.deleteGame}
+                        onOkClick={props.load}
+                        defaultChecked={true}
+                        theme={props.theme}
+                        screenCase="mobile"
+                        itemWindowStyle={{
+                            height: '48.5em'
+                        }}
+                        confirmDeleteMessage={
+                            props.confirmDeleteMessage
+                        }
+                        topFlexbox={null}
+                        onClose={null}
+                        title={null}
+                    />
                 </PersistentDrawer>
             </MediaQuery>
         </>

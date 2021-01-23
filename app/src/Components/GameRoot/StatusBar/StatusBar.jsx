@@ -3,7 +3,7 @@ import {Typography} from "@material-ui/core";
 import {capitalize} from "../../helpers/capitalize";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
-import {fontSize00301 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize00301 as fontSize} from "../../styles/fontSizes.jss";
 import {useStyles} from "./StatusBar.jss";
 import MediaQuery from "react-responsive/src";
 

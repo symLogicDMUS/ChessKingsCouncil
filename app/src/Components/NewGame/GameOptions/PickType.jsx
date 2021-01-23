@@ -1,13 +1,15 @@
 import React from "react";
-import {GameType} from "./GameType";
-import {Typography} from "@material-ui/core";
-import {fontSize002} from "../../styles/fontSize.jss";
 import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
+import {fontSize012} from "../../styles/fontSizes.jss";
+import {getTextWidth} from "../../helpers/getTextWidth.jss";
+import {fontSizes} from "./GameOptions.jss";
+import {GameType} from "./GameType";
 import {useStyles} from "./PickType.jss";
 
-export function PickType({gameType, setGameType, theme}) {
+export function PickType({gameType, setGameType, theme, screenCase}) {
 
-    const classes = useStyles({fontSize: fontSize002 * 6, theme: theme})
+    const classes = useStyles({fontSize: fontSize012, theme: theme})
 
     return (
         <>
@@ -18,8 +20,7 @@ export function PickType({gameType, setGameType, theme}) {
             >
                 <Typography className={classes.title}>Pick Type</Typography>
             </Box>
-            <Box width='100%'
-                 display='flex'
+            <Box display='flex'
                  flexDirection='row'
                  justifyContent='center'
                  className={classes.game_types}

@@ -3,10 +3,11 @@ import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
-        width: '98.5%',
+        width: '100%',
         ...props.rootStyle,
         fontSize: props.fontSize,
         backgroundColor: themes[props.theme].fill,
+        borderTop: `0.025em solid ${themes[props.theme].outline}`
     }),
     heading: props => ({
         fontSize: theme.typography.pxToRem(15),

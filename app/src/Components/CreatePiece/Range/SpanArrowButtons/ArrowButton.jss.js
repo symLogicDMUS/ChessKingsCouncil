@@ -15,9 +15,9 @@ const buttonPos = {
 const container = (angle, fontSize, theme) => ({
     ...buttonPos[angle],
     fontSize: fontSize,
-    width: '3em',
-    height: '3em',
-    border: `0.06em solid ${themes[theme].outline}`,
+    width: '98%',
+    height: '98%',
+    border: `0.05em solid ${themes[theme].outline}`,
     borderRadius: '0.2em',
 })
 

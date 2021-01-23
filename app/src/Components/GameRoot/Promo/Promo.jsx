@@ -6,7 +6,7 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import { shuffle } from "../../helpers/shuffleArray";
 import { PromoArrow } from "./PromoArrow";
 import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
-import { fontSize01 as fontSize } from "../../styles/fontSize.jss";
+import { fontSize01 as fontSize } from "../../styles/fontSizes.jss";
 import { itemStyle, ok_button, useStyles } from "./Promo.jss";
 import { reducer } from "./reducer.red";
 

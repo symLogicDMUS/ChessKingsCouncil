@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import { Portal, Typography } from "@material-ui/core";
 import { ImgWindow } from "./ImgWindow";
-import { fontSize002 } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSizes.jss";
 import { useStyles } from "./Icon.jss";
 import MediaQuery from "react-responsive";
 import ChooseModal from "./ChooseModal/ChooseModal";

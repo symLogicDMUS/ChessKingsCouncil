@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 import { useStyles } from "./NavBarButton.jss";
 import { StandardModal } from "../StandardModal";
 import {MuiButton} from "../MuiButton";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {button} from "../StandardModal.jss";
 
 export function NavBarButton({

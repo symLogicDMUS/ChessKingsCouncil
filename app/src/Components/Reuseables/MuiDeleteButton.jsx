@@ -3,7 +3,7 @@ import {MuiButton as Button} from "./MuiButton";
 import {StandardModal} from "./StandardModal";
 import {Portal} from "@material-ui/core";
 import {button} from "./StandardModal.jss";
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 /**
  * motivation is that comes with the 'are you sure yes or no' modal that always occurs

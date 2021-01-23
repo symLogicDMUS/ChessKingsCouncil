@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import Typography from "@material-ui/core/Typography";
-import { fontSize002 } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSizes.jss";
 import { icons } from "../styles/icons/top/icons.jss";
 import { useStyles } from "./PageLink.jss";
 

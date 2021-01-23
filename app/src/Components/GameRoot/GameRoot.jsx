@@ -31,15 +31,16 @@ import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
-import {boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
+import {boardPos, boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
 import {Board} from "./GameBoard/Board";
 import {GameInfo} from "./GameInfo/GameInfo";
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {modal} from "../helpers/modal.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -357,8 +358,9 @@ class GameRoot extends React.Component {
                     >
                         <Board gameRoot={this}/>
                         <MuiAccordion theme={this.state.theme} rootStyle={{
-                            position: 'relative',
-                            top: boardSizes.mobile,
+                            position: 'absolute',
+                            top: boardSizes.mobile + boardPos.mobile.top,
+                            left: boardPos.mobile.left,
                             width: boardSizes.mobile,
                             zIndex: 5
                         }}>

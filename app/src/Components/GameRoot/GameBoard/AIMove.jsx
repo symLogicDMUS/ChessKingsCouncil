@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
 import { rfToXy, xyToPx } from "./DndCrdCnvrt";
-import { fontSize002 } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSizes.jss";
 import { useStyles } from "./AIMove.jss";
 
 export function AIMove({

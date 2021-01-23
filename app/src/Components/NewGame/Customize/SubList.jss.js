@@ -42,7 +42,7 @@ export const useStyles = makeStyles({
     }),
     header: props => ({
         width: '100%',
-        ...list_title(props.fontSize, props.theme),
+        ...text(props.theme),
         outline: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
@@ -63,6 +63,6 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        ...text(props.fontSize, props.theme),
+        ...text(props.theme),
     }),
 });

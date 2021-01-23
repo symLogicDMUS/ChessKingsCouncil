@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { smallBoardFontSizeDesktop as fontSize } from "../../Reuseables/Board.jss";
+import React from "react";
+import {fontSize0040} from "../../styles/fontSizes.jss";
 import { useStyles } from "./MiniPiece.jss";
 
 export function MiniPiece({
@@ -8,7 +8,7 @@ export function MiniPiece({
     pieceImgBase64Str,
     alt,
 }) {
-    const classes = useStyles({ fontSize: fontSize });
+    const classes = useStyles({ fontSize: fontSize0040 });
     return (
         <>
             <img

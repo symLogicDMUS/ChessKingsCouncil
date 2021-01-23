@@ -1,10 +1,8 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { Avatar } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import ImageIcon from "@material-ui/icons/Image";
 import { resolvePlayerType } from "../helpers/resolvePlayerType";
-import { fontSize0023 as fontSize } from "../styles/fontSize.jss";
+import { fontSize0023 as fontSize } from "../styles/fontSizes.jss";
 import { useStyles } from "./ProfileAvatar.jss";
 
 export function ProfileAvatar(props) {
@@ -15,14 +13,13 @@ export function ProfileAvatar(props) {
             <Typography className={classes.avatar_title}>
                 {resolvePlayerType(props.color)} Image
             </Typography>
-            <Avatar
-                src={props.src}
-                className={classes.avatar_window}
-                alt={`${props.pieceName} (icon of a piece)`}
-                variant='square'
-            >
-                <ImageIcon />
-            </Avatar>
+            <Box className={classes.avatar_window}>
+                <img
+                    src={props.src}
+                    className={classes.piece_img}
+                    alt={`${props.pieceName} (icon of a piece)`}
+                />
+            </Box>
         </Box>
     );
 }

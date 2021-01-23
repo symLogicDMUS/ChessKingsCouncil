@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-import { fontSize00301 as fontSize } from "../../styles/fontSize.jss";
+import { fontSize00301 as fontSize } from "../../styles/fontSizes.jss";
 import { useStyles } from "./CreatePiecePiece.jss";
 
 export function CreatePiecePiece({ pieceImgBase64Str, rf, theme, isLightSqr }) {

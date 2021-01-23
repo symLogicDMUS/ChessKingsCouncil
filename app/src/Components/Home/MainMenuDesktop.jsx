@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import {PageLink} from "./PageLink";
 import {MuiButton as Button} from "../Reuseables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import "../styles/_backgrounds.scss"
 import {useStyles} from "./MainMenuDesktop.jss";
 import {Background} from "../Reuseables/Background";

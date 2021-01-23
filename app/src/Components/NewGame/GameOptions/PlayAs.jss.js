@@ -1,18 +1,14 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {getTextWidth} from "../../helpers/getTextWidth.jss";
-
-export const dropdownStyle = (fontSize) => ({
-    fontSize: fontSize,
-    width: '18em',
-});
+import {fontSizes} from "./GameOptions.jss";
 
 export const useStyles = makeStyles({
     title: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize,
+            fontSize: fontSizes.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * 0.85,
+            fontSize: fontSizes.mobile,
             width: '100%',
             lineHeight: '1.5em',
         },

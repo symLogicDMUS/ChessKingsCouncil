@@ -1,7 +1,7 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { fontSize002 } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSizes.jss";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./CouncilRules.jss";
 import Box from "@material-ui/core/Box";

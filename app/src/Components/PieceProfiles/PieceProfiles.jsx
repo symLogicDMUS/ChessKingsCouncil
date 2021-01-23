@@ -4,13 +4,14 @@ import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import {getDefs} from "../../API/getDefs";
 import MediaQuery from "react-responsive/src";
-import {fontSize002} from "../styles/fontSize.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import "../styles/Scrollbar.scss";
 import {useStyles} from "./PieceProfiles.jss";
+import {Divider} from "@material-ui/core";
 
 const reducer = (state, action) => {
     switch (action.type) {

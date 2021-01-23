@@ -1,12 +1,10 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
-import { getColor } from "../../helpers/getColor";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
-import { getPieceName } from "../../helpers/getPieceName";
 import { MiniSquare as Square } from "./MiniSquare";
 import { MiniPiece as Piece } from "./MiniPiece";
-import { smallBoardFontSizeDesktop as fontSize } from "../../Reuseables/Board.jss";
+import {fontSize0040} from "../../styles/fontSizes.jss";
 import { useStyles } from "./MiniBoard.jss";
 
 export function MiniBoard({
@@ -20,10 +18,7 @@ export function MiniBoard({
     parentDispatch,
     setProfileModal,
 }) {
-    const classes = useStyles({
-        theme: theme,
-        fontSize: screenCase === "mobile" ? fontSize * 1.1 : fontSize,
-    });
+    const classes = useStyles({theme: theme});
 
     const getBoard = () => {
         const squares = [];

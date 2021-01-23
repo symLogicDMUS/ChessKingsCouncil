@@ -1,18 +1,21 @@
+import {fontSize00184, fontSize0023, fontSize00301} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
 
-export const mobileScaler = 0.8;
+export const fontSizes = {
+    desktop: fontSize0023,
+    mobile: fontSize00184
+}
 
-export const adjustFontSize = (fontSize, screenCase) => {
-    switch (screenCase) {
-        case "desktop":
-            return fontSize;
-        case "mobile":
-            return fontSize * mobileScaler;
-        default:
-            return fontSize;
-    }
-};
+export const widths = {
+    desktop: '11.55em',
+    mobile: 7.5,
+}
+
+export const heights = {
+    desktop: 13.03,
+    mobile: 7.25,
+}
 
 export const useStyles = makeStyles({
     profile_wb: props => ({
@@ -34,11 +37,11 @@ export const useStyles = makeStyles({
     }),
     range_header: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize,
+            fontSize: fontSize0023,
             width: '11.55em',
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * mobileScaler,
+            fontSize: fontSize00301,
             width: '7.5em',
         },
         height: '1.5em',
@@ -48,7 +51,9 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
         flexDirection: 'row-reverse',
         backgroundColor: themes[props.theme].fill,
-        outline: `0.05em solid ${themes[props.theme].outline}`,
+        borderTop: `0.05em solid ${themes[props.theme].outline}`,
+        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
+        borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     box: props => ({
         flexGrow: 100,

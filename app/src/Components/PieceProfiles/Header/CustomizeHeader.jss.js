@@ -1,28 +1,20 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./PieceHeader.jss";
-import {mobileScaler} from "../ProfileWB.jss";
 import {themes} from "../../styles/themes.jss";
+import {fontSize0023, fontSize0025, fontSize00301} from "../../styles/fontSizes.jss";
+import {fontSizes} from "../ProfileWB.jss";
 
-export const promo_checkbox = (fontSize, theme) => ({
-    '@media screen and (min-width: 768px)': {
-        ...text(fontSize * 1.2, theme),
-    },
-    '@media screen and (max-width: 767px)': {
-        ...text(fontSize * 1.3, theme)
-    },
-});
+export const widths = {
+    desktop: '11.55em',
+    mobile: '7.5em'
+}
 
-export const checkbox_root = (fontSize) => ({
-    '@media screen and (min-width: 768px)': {
-        fontSize: fontSize * 1.2,
-    },
-    '@media screen and (max-width: 767px)': {
-        fontSize: fontSize * mobileScaler
-    },
+export const checkbox_root = (theme) => ({
+    ...text(theme),
     marginLeft: '-0.15em',
 });
 
-export const checkbox_circle = (fontSize) => ({
+export const checkbox_circle = () => ({
     '@media screen and (min-width: 768px)': {
         width: '1.5em',
         height: '1.5em',
@@ -33,12 +25,12 @@ export const checkbox_circle = (fontSize) => ({
     },
 });
 
-export const sub_buttons = (fontSize) => ({
+export const sub_buttons = () => ({
     '@media screen and (min-width: 768px)': {
-        fontSize: fontSize * 1.2,
+        fontSize: fontSize0023,
     },
     '@media screen and (max-width: 767px)': {
-        fontSize: fontSize * mobileScaler
+        fontSize: fontSize00301
     },
     width: '11.55em',
     display: 'flex',
@@ -48,37 +40,31 @@ export const sub_buttons = (fontSize) => ({
     flexWrap: 'no-wrap',
 });
 
+
 export const useStyles = makeStyles({
     header: props => ({
         ...header(props.fontSize, props.style, props.theme),
-        justifyContent: 'space-evenly',
         height: '2em',
-        '@media screen and (min-width: 768px)': {
-            width: '100%',
-        },
-        '@media screen and (max-width: 767px)': {
-            width: '95%',
-            marginLeft: '2.75%',
-        },
     }),
-    header_text: props => ({
+    piece_name: props => ({
         '@media screen and (min-width: 768px)': {
-            ...text(props.fontSize * 1.2, props.theme),
-            width: `${11.55 / 1.2}em`,
+            fontSize: fontSize0025,
         },
         '@media screen and (max-width: 767px)': {
-            ...text(props.fontSize * 1.3, props.theme),
-            width: '5em',
+            fontSize: fontSizes.mobile,
         },
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto-Light, Roboto'
     }),
     box: props => ({
         '@media screen and (min-width: 768px)': {
-            width: '11.55em',
+            fontSize: fontSizes.desktop,
+            width: widths.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            width: '8em',
+            fontSize: fontSizes.mobile,
+            width: widths.mobile,
         },
-        fontSize: '1em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -93,5 +79,15 @@ export const useStyles = makeStyles({
         fontSize: '1em',
         width: '1.25em',
         height: '1.25em',
+    }),
+    no_sub: props => ({
+        width: '1.2em',
+        height: '1.2em',
+        color: themes[props.theme].text,
+    }),
+    is_sub: props => ({
+        width: '1.2em',
+        height: '1.2em',
+        color: themes[props.theme].outline,
     }),
 });

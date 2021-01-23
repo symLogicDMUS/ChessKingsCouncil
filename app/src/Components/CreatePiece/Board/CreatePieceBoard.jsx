@@ -35,11 +35,11 @@ export function CreatePieceBoard({
                         fontSize={fontSize}
                     >
                         <Piece
-                            pieceImgBase64Str={pieceImgBase64Str}
                             key={uuidv4()}
+                            theme={theme}
                             rf={rf.toUpperCase()}
                             isLightSqr={binaryBoard[rf]}
-                            theme={theme}
+                            pieceImgBase64Str={pieceImgBase64Str}
                         />
                     </Square>
                 );

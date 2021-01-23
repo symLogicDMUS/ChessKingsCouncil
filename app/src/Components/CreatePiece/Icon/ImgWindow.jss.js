@@ -1,14 +1,14 @@
+import {fontSize002, fontSize00236} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
 
 export const useStyles = makeStyles({
     img_window: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize,
+            fontSize: fontSize002,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize*1.18,
+            fontSize: fontSize00236,
         },
         width: "9.5em",
         height: "9.5em",

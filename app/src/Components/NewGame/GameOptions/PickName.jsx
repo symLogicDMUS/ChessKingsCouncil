@@ -1,12 +1,12 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import { MuiTextField } from "../../Reuseables/MuiTextField";
-import Box from "@material-ui/core/Box";
-import {fontSize002} from "../../styles/fontSize.jss";
-import { useStyles, text_field } from "./PickName.jss";
+import { useStyles} from "./PickName.jss";
+import {fontSizes, input_style} from "./GameOptions.jss";
 
-export function PickName({ setGameName, gameName, theme }) {
-    const classes = useStyles({ fontSize: fontSize002*6, text: "Game Name" });
+export function PickName({ setGameName, gameName, theme, screenCase }) {
+    const classes = useStyles({ text: "Game Name" });
 
     return (
         <>
@@ -27,7 +27,7 @@ export function PickName({ setGameName, gameName, theme }) {
                     onChange={setGameName}
                     autoComplete={""}
                     theme={theme}
-                    style={text_field(fontSize002)}
+                    style={input_style('Game Name', fontSizes[screenCase], 'Garamond', theme)}
                     id={"pick-game-name"}
                     label={"Pick game name"}
                     variant={"outlined"}

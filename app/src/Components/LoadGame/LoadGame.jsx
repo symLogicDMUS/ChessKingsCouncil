@@ -7,7 +7,7 @@ import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { parseData } from "../../apiHelpers/parseData";
 import {Background} from "../Reuseables/Background";
-import { GameChoices } from "./GameChoices";
+import { SavedGames } from "./SavedGames";
 import "../styles/_backgrounds.scss";
 
 class LoadGame extends React.Component {
@@ -103,7 +103,7 @@ class LoadGame extends React.Component {
         return (
             <>
                 <Background theme={this.state.theme} />
-                <GameChoices
+                <SavedGames
                     load={this.load}
                     imgDict={this.imgDict}
                     confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}

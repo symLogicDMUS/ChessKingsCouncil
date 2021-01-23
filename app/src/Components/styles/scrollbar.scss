@@ -54,7 +54,7 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: #474747;
+        background: #222222;
         opacity: 0.5%;
     }
 
@@ -71,11 +71,11 @@
 
     /* Corner */
     ::-webkit-scrollbar-corner {
-        background: #222222;
+        background: #0b0b0b;
     }
 
     /* Resizer */
     ::-webkit-resizer {
-        background: #111;
+        background: #000000;
     }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {fontSize01 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize01 as fontSize} from "../../styles/fontSizes.jss";
 import { useStyles } from "./PromoChoice.jss";
 
 export function PromoChoice({ promoChoice, id, pieceImgBase64Str, alt, theme }) {

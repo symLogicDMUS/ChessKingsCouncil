@@ -1,14 +1,12 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {fontSize0023 as fontSize} from "../../styles/fontSize.jss";
+import {fontSize0023} from "../../styles/fontSizes.jss";
 import MediaQuery from "react-responsive/src";
 import {useStyles} from "./SubList.jss";
 
-const pangram = 'The quick brown fox jumps over the lazy dog.';
-
 export function SubList({subs, theme}) {
-    const classes = useStyles({fontSize: fontSize, theme: theme})
+    const classes = useStyles({fontSize: fontSize0023, theme: theme})
 
     return (
         <div className={classes.sub_list}>

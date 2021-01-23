@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import { PageLinkMobile } from "./PageLinkMobile";
 import { SignOutMobile } from "./SignOutMobile";
-import { fontSize002 } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSizes.jss";
 import { useStyles } from "./MainMenuMoblile.jss";
 
 export function MainMenuMobile(props) {

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Customize from "./Customize/Customize";
 import { GameOptions } from "./GameOptions/GameOptions";
 import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
+import { copy } from "../helpers/copy";
 import {
     newData,
     new_standard_ranges,
@@ -11,8 +12,6 @@ import {
     standard_piece_defs,
     standard_promo_names,
 } from "./NewData";
-import { copy } from "../helpers/copy";
-import { styles } from "./NewGame.jss";
 
 /**
  * NewGame selects what CreatPiece created, then sends it to the backend which

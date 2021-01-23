@@ -4,7 +4,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useStyles } from "./MuiAccordion.jss";
-import {largeBoardFontSizeDesktop as fontSize} from "./Board.jss";
+import {fontSize0095 as fontSize} from "../styles/fontSizes.jss";
 
 /**
  * children of the form:

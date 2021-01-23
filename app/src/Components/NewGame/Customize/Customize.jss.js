@@ -67,14 +67,16 @@ export const styles = {
         width: availWidth(),
     },
     list_title: props => ({
-        ...list_title(props.fontSize, props.theme),
+        ...text(props.theme),
         '@media screen and (min-width: 768px)': {
             width: drawerItemWidth,
         },
         '@media screen and (max-width: 767px)': {
             width: '100%',
         },
-        outline: `0.05em solid ${themes[props.theme].outline}`,
+        borderTop: `0.05em solid ${themes[props.theme].outline}`,
+        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
+        borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     promo_all_container: props => ({
         fontSize: props.fontSize,

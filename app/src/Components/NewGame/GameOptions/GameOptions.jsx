@@ -8,15 +8,15 @@ import {PickName} from "./PickName";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {invalids} from "../../helpers/invalids";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
-import {MuiButton as PlayGameButton} from "../../Reuseables/MuiButton";
+import {MuiButton} from "../../Reuseables/MuiButton";
 import {charNotInStr} from "../../helpers/charNotInStr";
 import {getColorLetter} from "../../helpers/getColorLetter";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {HelpText, HelpTitle} from "./HelpText";
 import {Background} from "../../Reuseables/Background";
 import "../../styles/_backgrounds.scss";
 import "../../styles/Scrollbar.scss";
-import {useStyles, submit_button} from "./GameOptions.jss";
+import {useStyles, play_button} from "./GameOptions.jss";
 
 export function GameOptions({setGameOptions}) {
 
@@ -34,50 +34,20 @@ export function GameOptions({setGameOptions}) {
     const setGameName = (e) => {
         updateGameName(e.target.value);
     };
+
     const setPlayerType = (typePlayer) => {
         if (typePlayer !== "Test") updatePlayerType(getColorLetter(typePlayer));
         else updatePlayerType(typePlayer);
     };
+
     const setGameType = (gameType) => {
         updateGameType(gameType);
     };
 
-    const options = <Box className={classes.game_options}>
-        <PickName
-            setGameName={setGameName}
-            gameName={gameName}
-            theme={theme}
-        />
-        <PickType
-            setGameType={setGameType}
-            gameType={gameType}
-            theme={theme}
-        />
-        <PlayAs setPlayerType={setPlayerType} theme={theme}/>
-        <PlayGameButton
-            onClick={() =>
-                setGameOptions(gameName, gameType, playerType)
-            }
-            style={submit_button(fontSize002, 0.9, theme)}
-            theme={theme}
-            variant={"contained"}
-            isDisabled={
-                !(
-                    playerType &&
-                    gameType &&
-                    gameName !== "" &&
-                    invalids.every((c) => charNotInStr(c, gameName))
-                )
-            }
-        >
-            Play
-        </PlayGameButton>
-    </Box>
-
     return (
 
         <>
-            <Background theme={theme}/>
+            {/*<Background theme={theme}/>*/}
             <div className={`scrollbar-${theme}`}>
                 <MediaQuery minWidth={768}>
                     <NavBar
@@ -97,7 +67,38 @@ export function GameOptions({setGameOptions}) {
                             justifyContent: "center",
                         }}
                     />
-                    {options}
+                    <Box className={classes.game_options}>
+                        <PickName
+                            setGameName={setGameName}
+                            gameName={gameName}
+                            theme={theme}
+                            screenCase='desktop'
+                        />
+                        <PickType
+                            setGameType={setGameType}
+                            gameType={gameType}
+                            theme={theme}
+                            screenCase='desktop'
+                        />
+                        <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='desktop'/>
+                        <MuiButton
+                            onClick={() => setGameOptions(gameName, gameType, playerType)}
+                            style={play_button(theme)}
+                            variant="contained"
+                            theme={theme}
+                            isDisabled={
+                                !(
+                                    playerType &&
+                                    gameType &&
+                                    gameName !== "" &&
+                                    invalids.every((c) => charNotInStr(c, gameName))
+                                )
+                            }
+                            screenCase='desktop'
+                        >
+                            Play
+                        </MuiButton>
+                    </Box>
                 </MediaQuery>
                 <MediaQuery maxWidth={767}>
                     <PersistentDrawer
@@ -121,7 +122,40 @@ export function GameOptions({setGameOptions}) {
                         }
                         appBarContent={<Typography variant='h6' noWrap>Game Options</Typography>}
                     >
-                        {options}
+                        <Box className={classes.game_options}>
+                            <PickName
+                                setGameName={setGameName}
+                                gameName={gameName}
+                                theme={theme}
+                                screenCase='mobile'
+                            />
+                            <PickType
+                                setGameType={setGameType}
+                                gameType={gameType}
+                                theme={theme}
+                                screenCase='mobile'
+                            />
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='mobile'/>
+                            <MuiButton
+                                onClick={() =>
+                                    setGameOptions(gameName, gameType, playerType)
+                                }
+                                style={play_button(theme)}
+                                theme={theme}
+                                variant={"contained"}
+                                isDisabled={
+                                    !(
+                                        playerType &&
+                                        gameType &&
+                                        gameName !== "" &&
+                                        invalids.every((c) => charNotInStr(c, gameName))
+                                    )
+                                }
+                                screenCase='mobile'
+                            >
+                                Play
+                            </MuiButton>
+                        </Box>
                     </PersistentDrawer>
                 </MediaQuery>
             </div>

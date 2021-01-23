@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {IconButton, Portal, SvgIcon} from "@material-ui/core";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {icons} from "../../styles/icons/top/icons.jss";
 import {themes} from "../../styles/themes.jss";
 import {AnimatePresencePortal} from "../../Reuseables/AnimatePresencePortal";

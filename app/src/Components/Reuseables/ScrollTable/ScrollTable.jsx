@@ -8,8 +8,8 @@ import {renderList} from "./renderList";
 import {reducer} from "./reducer.red";
 import {useStyles} from "./ScrollTable.jss";
 
-function ScrollTable({listItems, title, numRows, theme, width, style, buttonStyle}) {
-    const classes = useStyles({theme: theme, width: width, style: style, buttonStyle: buttonStyle});
+function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, addedStyle}) {
+    const classes = useStyles({theme: theme, style: style, addedStyle, numRows: numRows});
 
     const [state, dispatch] = useReducer(reducer, {
         dataLists: divideList(listItems, numRows),

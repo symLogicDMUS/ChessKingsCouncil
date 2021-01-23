@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import { Close } from "../../Reuseables/Close";
 import { UploadButton } from "./UploadButton";
-import { fontSize002 } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSizes.jss";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
 

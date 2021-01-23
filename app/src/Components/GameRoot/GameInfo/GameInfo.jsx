@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./GameInfo.jss";
 
 export function GameInfo({theme, gameName, gameType, playerType}) {

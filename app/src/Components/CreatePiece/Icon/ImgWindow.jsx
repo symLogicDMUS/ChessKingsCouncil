@@ -1,12 +1,11 @@
 import React from "react";
-import {Avatar, SvgIcon} from "@material-ui/core";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {Avatar} from "@material-ui/core";
 import ImageIcon from '@material-ui/icons/Image';
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./ImgWindow.jss";
 
 export function ImgWindow({color, setColorAndImgButtons, src, theme}) {
-    const classes = useStyles({fontSize: fontSize002, theme: theme});
+    const classes = useStyles({theme: theme});
     return (
         <>
             {src ? (

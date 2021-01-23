@@ -1,13 +1,14 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {getTextWidth} from "../../helpers/getTextWidth.jss";
+import {fontSizes} from "./GameOptions.jss";
 
 export const useStyles = makeStyles({
     title: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize,
+            fontSize: fontSizes.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * 0.85,
+            fontSize: fontSizes.mobile,
             lineHeight: '1.5em',
         },
         fontFamily: 'Garamond',
@@ -16,6 +17,11 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '100%',
+        '@media screen and (min-width: 768px)': {
+            width: '100%',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: getTextWidth('Game Name', fontSizes.mobile, 'Garamond'),
+        },
     }),
 });

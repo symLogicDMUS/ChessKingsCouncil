@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, useState} from "react";
+import React, {useEffect, useReducer} from "react";
 import {v4 as uuidv4} from 'uuid';
 import {rankfiles} from "../../helpers/rankfiles";
 import {ModalDisplayPiece as Piece} from "./ModalDisplayPiece";
@@ -7,7 +7,7 @@ import {outOfBounds} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
 import {ModalDisplaySquare as Square} from "./ModalDisplaySquare";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {smallBoardFontSizeDesktop as fontSize} from "../../Reuseables/Board.jss";
+import {fontSize0040} from "../../styles/fontSizes.jss";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {useStyles} from "./ModalDisplayBoard.jss";
 
@@ -42,7 +42,7 @@ export function reducer(state, action) {
 }
 
 export function ModalDisplayBoard({img, pieceName, range, rangeType, theme, location}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+    const classes = useStyles({theme: theme, fontSize: fontSize0040});
 
     const [state, dispatch] = useReducer(reducer, {spans: getBinaryBoarAllFalse(), offsets: getBinaryBoarAllFalse()})
 

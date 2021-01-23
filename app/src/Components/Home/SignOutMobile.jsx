@@ -3,7 +3,7 @@ import {AccountCircle} from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {fontSize0048 as fontSize} from "../styles/fontSize.jss";
+import {fontSize0040 as fontSize} from "../styles/fontSizes.jss";
 import { useStyles } from "./PageLinkMobile.jss";
 
 export function SignOutMobile({signOut, theme}) {

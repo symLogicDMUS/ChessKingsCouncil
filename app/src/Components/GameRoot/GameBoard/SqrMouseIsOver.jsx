@@ -1,6 +1,6 @@
 import React from "react";
 import {pxPosToXy, xyToPx} from "./DndCrdCnvrt";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./SqrMouseIsOver.jss";
 
 export function SqrMouseIsOver({theme, sqrSize, boardPos, currentOffset}) {

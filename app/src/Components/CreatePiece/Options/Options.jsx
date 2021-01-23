@@ -8,7 +8,7 @@ import {Load} from "./Load";
 import {Erase} from "./Erase";
 import {Reset} from "./Reset";
 import {useStyles} from "./Options.jss";
-import {fontSize002} from "../../styles/fontSize.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function Options({
     load,

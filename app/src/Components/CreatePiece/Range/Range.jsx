@@ -1,17 +1,15 @@
 import React from "react";
-import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import {fontSize0015 as fontSize} from "../../styles/fontSize.jss";
-import {Typography} from "@material-ui/core";
-import {angleToText} from "../../helpers/spanToText";
-import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {useStyles} from "./Range.jss";
 import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
-import {themes} from "../../styles/themes.jss";
-import {getPangram} from "../../helpers/getPangram";
+import {angleToText} from "../../helpers/spanToText";
+import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
+import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
+import {widths, heights, fontSizes, useStyles} from "./Range.jss";
+import {offsetToText} from "../../helpers/offsetToText";
 
-export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase }) {
+    const classes = useStyles({ theme: theme, styles: styles });
 
     const getSpanTextLabels = () => {
         const newSpans = [];
@@ -23,12 +21,9 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
         return newSpans;
     };
 
-    const getFontSize = () => {
-        switch (screenCase) {
-            case 'desktop': return fontSize * 1.089;
-            case 'mobile': return fontSize * 1.32;
-        }
-    }
+    const getOffsetTextLabels = () => {
+        return offsets.map((offset) => offsetToText(offset));
+    };
 
     return (
         <>
@@ -39,16 +34,14 @@ export function Range({ spans, offsets, toggleSpan, theme, screenCase }) {
                     </MediaQuery>
                     <ScrollTable
                         numRows={5}
-                        listItems={[...getSpanTextLabels(), ]}
                         theme={theme}
-                        isBorder={true}
                         style={{
-                            width: "11.5em",
-                            fontSize: getFontSize(),
-                            borderRadius: "0.175em",
-                            border: `0.05em solid ${themes[theme].outline}`,
+                            width: widths[screenCase],
+                            height: heights[screenCase],
+                            fontSize: fontSizes[screenCase],
                         }}
                         buttonStyle={{borderRadius: 0}}
+                        listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
                     />
                     <SpanArrowButtons
                         spans={spans}

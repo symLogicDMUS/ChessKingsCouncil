@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
 import {modal} from "../helpers/modal.jss";
+import {themes} from "../styles/themes.jss";
 
 export const button = (fontSize) => ({
     fontSize: fontSize,
@@ -8,16 +9,6 @@ export const button = (fontSize) => ({
     height: '2em',
 });
 
-export const dropdown = (fontSize) => ({
-    fontSize: fontSize,
-    height: '2em',
-    '@media screen and (min-width: 768px)': {
-        width: getTextWidth('Load Game', fontSize * 8, 'Garamond'),
-    },
-    '@media screen and (max-width: 767px)': {
-        width: getTextWidth('Load Game', fontSize * 5.6, 'Garamond'),
-    },
-});
 export const useStyles = makeStyles({
     modal: props => ({
        ...modal,
@@ -26,8 +17,8 @@ export const useStyles = makeStyles({
     flexbox: props => ({
         display: 'flex',
         flexDirection: 'column',
-        // justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
         marginTop: '0.5em',
         '@media screen and (max-width: 767px)': {
             width: '100%',
@@ -50,16 +41,18 @@ export const useStyles = makeStyles({
         },
     }),
     title: props => ({
-        '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize * 8,
-        },
-        '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * 5.6,
-            width: '100%',
-        },
-        fontFamily: 'Garamond',
-        lineHeight: '70%',
-        textAlign: 'center',
+        fontSize: '3em',
+        fontFamily: 'Roboto-Light, Roboto',
+        lineHeight: '0.7em',
+        marginRight: '0.25em',
+        color: themes[props.theme].text,
+    }),
+    title_icon: props => ({
+        fontSize: props.fontSize,
+        height: '3em',
+        width: '3em',
+        marginLeft: '0.25em',
+        color: themes[props.theme].text,
     }),
     buttons: props => ({
         fontSize: props.fontSize,

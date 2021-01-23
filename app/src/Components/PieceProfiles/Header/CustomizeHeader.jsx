@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
@@ -6,40 +6,16 @@ import { themes } from "../../styles/themes.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import { icons } from "../../styles/icons/top/icons.jss";
-import { fontSize0023 as fontSize } from "../../styles/fontSize.jss";
+import { fontSize0023 } from "../../styles/fontSizes.jss";
+import IconButton from "@material-ui/core/IconButton";
+import { reducer } from "./CustomizeHeader.red";
 import {
-    promo_checkbox,
+    checkbox_circle,
     checkbox_root,
     sub_buttons,
     useStyles,
-    checkbox_circle,
 } from "./CustomizeHeader.jss";
-import IconButton from "@material-ui/core/IconButton";
-
-export function reducer(state, action) {
-    switch (action.type) {
-        case "sub":
-            const newColors = {queen: '', rook: '', bishop: '', knight: ''}
-            for (let piece of Object.keys(newColors)) {
-                if (action.newReplaced === piece) {
-                    newColors[piece] = themes[action.theme].text;
-                }
-                else {
-                    newColors[piece] = themes[action.theme].outline;
-                }
-            }
-            return newColors;
-        case "not-sub":
-            return {
-                queen: themes[action.theme].outline,
-                rook: themes[action.theme].outline,
-                bishop: themes[action.theme].outline,
-                knight: themes[action.theme].outline,
-            };
-        default:
-            throw new Error();
-    }
-}
+import { text } from "./PieceHeader.jss";
 
 export function CustomizeHeader({
     pieceName,
@@ -50,17 +26,18 @@ export function CustomizeHeader({
     togglePromo,
     theme,
 }) {
-    let [subSelection, setSubSelection] = useState(null);
-
-    let [colors, dispatch] = useReducer(reducer, {
-        queen: themes[theme].outline,
-        rook: themes[theme].outline,
-        bishop: themes[theme].outline,
-        knight: themes[theme].outline,
+    let [state, dispatch] = useReducer(reducer, {
+        subSelection: null,
+        colors: {
+            Queen: "none",
+            Rook: "none",
+            Bishop: "none",
+            Knight: "none",
+            noSymbol: themes[theme].text,
+        },
     });
 
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
-
+    const classes = useStyles({ theme: theme, fontSize: fontSize0023 });
 
     useEffect(() => {
         /** If sub just made and this piece not the sub and the piece being subbed for is what this piece was previously
@@ -69,46 +46,64 @@ export function CustomizeHeader({
         if (
             newReplacement !== null &&
             pieceName !== newReplacement &&
-            newReplaced === subSelection
+            newReplaced === state.subSelection
         ) {
-            dispatch({type: 'no-sub', theme: theme})
-            setSubSelection(null);
-        }
+            dispatch({ type: "no-sub", theme: theme });
+        } else if (newReplaced !== null && newReplacement === pieceName) {
         /**If a sub just made and this piece is the sub set it's state to piece it's subbing for*/
-        else if (newReplaced !== null && newReplacement === pieceName) {
-            dispatch({type: 'sub', theme: theme, newReplaced: newReplaced})
-            setSubSelection(newReplaced);
+            dispatch({ type: "sub", theme: theme, newReplaced: newReplaced });
         }
     }, [newReplacement, newReplaced]);
 
     return (
         <>
             <div className={classes.header}>
-                <Typography className={classes.header_text} variant="h6" noWrap>
-                    {pieceName}
-                </Typography>
-                <Box className={classes.box}>
+                <Box className={classes.box} style={{ marginRight: "1.55em" }}>
+                    <Typography
+                        className={classes.piece_name}
+                        variant="h6"
+                        noWrap
+                    >
+                        {pieceName}
+                    </Typography>
+                </Box>
+                <Box className={classes.box} style={{ marginRight: "1.5em" }}>
                     <MuiCheckbox
                         onClick={() => togglePromo(pieceName)}
                         checkmarkState={isCheckmark}
-                        rootStyle={checkbox_root(fontSize)}
-                        circleStyle={checkbox_circle(fontSize)}
-                        style={promo_checkbox(fontSize, theme)}
+                        rootStyle={checkbox_root(theme)}
+                        circleStyle={checkbox_circle()}
+                        style={text(theme)}
                         theme={theme}
                     >
                         Promotion
                     </MuiCheckbox>
                 </Box>
-                <Box style={sub_buttons(fontSize)}>
-                    <IconButton>
-                        <BlockIcon />
+                <Box style={sub_buttons()}>
+                    <IconButton
+                        onClick={() => {
+                            toggleSub(null, state.subSelection)
+                            dispatch({type: "no-sub", theme: theme})
+                        }}
+                        style={{ width: "1em", height: "1em" }}
+                    >
+                        <BlockIcon
+                            style={{
+                                width: "1.2em",
+                                height: "1.2em",
+                                color: state.colors.noSymbol,
+                            }}
+                        />
                     </IconButton>
                     <IconButton
                         onClick={() => toggleSub(pieceName, "Queen")}
                         className={classes.sub_button}
                     >
                         <SvgIcon className={classes.sub_icon}>
-                            {icons.queen_outline(colors.queen)}
+                            {icons.queen_outline(
+                                themes[theme].outline,
+                                state.colors.Queen
+                            )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
@@ -116,7 +111,10 @@ export function CustomizeHeader({
                         className={classes.sub_button}
                     >
                         <SvgIcon className={classes.sub_icon}>
-                            {icons.rook_outline(colors.rook)}
+                            {icons.rook_outline(
+                                themes[theme].outline,
+                                state.colors.Rook
+                            )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
@@ -124,7 +122,10 @@ export function CustomizeHeader({
                         className={classes.sub_button}
                     >
                         <SvgIcon className={classes.sub_icon}>
-                            {icons.knight_outline(colors.knight)}
+                            {icons.knight_outline(
+                                themes[theme].outline,
+                                state.colors.Knight
+                            )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
@@ -132,7 +133,10 @@ export function CustomizeHeader({
                         className={classes.sub_button}
                     >
                         <SvgIcon className={classes.sub_icon}>
-                            {icons.bishop_outline(colors.bishop)}
+                            {icons.bishop_outline(
+                                themes[theme].outline,
+                                state.colors.Bishop
+                            )}
                         </SvgIcon>
                     </IconButton>
                 </Box>

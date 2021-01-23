@@ -2,7 +2,7 @@ import React from "react";
 import { Close } from "./Close";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { fontSize002 } from "../styles/fontSize.jss";
+import { fontSize002 } from "../styles/fontSizes.jss";
 import { close_icon, useStyles } from "./StandardModal.jss";
 import "../styles/Scrollbar.scss";
 

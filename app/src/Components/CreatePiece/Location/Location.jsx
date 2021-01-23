@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import { LocationButton } from "./LocationButton";
-import { fontSize002 } from "../../styles/fontSize.jss";
+import { fontSize002 } from "../../styles/fontSizes.jss";
 import { useStyles } from "./Location.jss";
 import { v4 as uuidv4 } from "uuid";
 import MediaQuery from "react-responsive/src";

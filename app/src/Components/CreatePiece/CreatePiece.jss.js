@@ -1,10 +1,10 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {largeBoardFontSizeDesktop} from "../Reuseables/Board.jss";
+import {fontSize0095} from "../styles/fontSizes.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
-export const sqrFontSize = largeBoardFontSizeDesktop * 0.25;
+export const sqrFontSize = fontSize0095 * 0.25;
 export const lineHeight = 0.7; //em
 export const margin = 1.1; //em
 
