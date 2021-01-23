@@ -9,6 +9,9 @@ export const square = (fontSize, type, sqrSize) => {
             width: sqrSize,
             height: sqrSize,
             cursor: 'pointer',
+            lineHeight: 0,
+            border: 'none',
+            outline: 'none'
         }
     }
 

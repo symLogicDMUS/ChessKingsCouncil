@@ -191,7 +191,7 @@ class Customize extends React.Component {
             <>
                 <div className={this.props.classes.customize}>
                     <MediaQuery minDeviceWidth={768}>
-                        <Background theme={this.state.theme}/>
+
                         <PermanentDrawer
                             drawerType="right"
                             width={drawerWidth}

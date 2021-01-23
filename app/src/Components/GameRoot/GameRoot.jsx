@@ -328,7 +328,7 @@ class GameRoot extends React.Component {
                 <MediaQuery maxDeviceWidth={767}>
                     <PersistentDrawer
                         theme={this.state.theme}
-                        spacing={mobileBoardPadding}
+                        spacing={0}
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"

@@ -12,7 +12,7 @@ export const smallBoardFontSizeDesktop = largeBoardFontSizeDesktop * 0.501;
  */
 export const sqrSizes = {
     desktop: availHeight() * 0.1,
-    mobile: availHeight() * 0.068,
+    mobile: availHeight() * 0.07,
 }
 
 /**
@@ -20,7 +20,7 @@ export const sqrSizes = {
  */
 export const boardSizes = {
     desktop: sqrSizes.desktop * 8,
-    mobile: sqrSizes.mobile * 8,
+    mobile: availHeight()*0.56,
 }
 
 export const boardPos = {
@@ -30,7 +30,7 @@ export const boardPos = {
     },
     mobile: { //TODO: implement
         left: availWidth()*0.015,
-        top: appBarHeight + availWidth()*0.018,
+        top: appBarHeight + availWidth()*0.016,
     }
 }
 
@@ -55,6 +55,8 @@ export const dnd_layer = (boardSize, z) => ({
     },
     '@media screen and (max-width: 767px)': {
         position: 'fixed',
+        top: boardPos.mobile.top,
+        left: boardPos.mobile.left,
     },
 });
 

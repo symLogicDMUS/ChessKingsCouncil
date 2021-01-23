@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {game_board} from "../../Reuseables/Board.jss";
+import {boardPos, game_board} from "../../Reuseables/Board.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
