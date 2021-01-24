@@ -10,6 +10,7 @@ import {AnimatePresencePortal} from "../../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "../../CreatePiece/animations/PieceSavedSuccessfully";
 import {SaveAs} from "./SaveAs";
 import {useStyles} from "./SaveResignTool.jss";
+import {GameSavedSuccessfully} from "../../CreatePiece/animations/GameSavedSuccessfully";
 
 
 export function SaveResignTool({theme, triggerSaveProcess, resign, changeName, isSaveMessage, messageCallback}) {
@@ -58,7 +59,7 @@ export function SaveResignTool({theme, triggerSaveProcess, resign, changeName, i
             </Box>
             {isSaveMessage ? (
                 <AnimatePresencePortal>
-                    <PieceSavedSuccessfully
+                    <GameSavedSuccessfully
                         callback={messageCallback}
                         theme={theme}
                     />

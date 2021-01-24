@@ -32,15 +32,15 @@ import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {boardPos, boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
-import {Board} from "./GameBoard/Board";
-import {GameInfo} from "./GameInfo/GameInfo";
+import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpText, HelpTitle} from "./HelpText";
+import {modal} from "../helpers/modal.jss";
+import {Board} from "./GameBoard/Board";
+import {GameInfo} from "./GameInfo/GameInfo";
 import "../styles/_backgrounds.scss";
 import {styles} from "./GameRoot.jss";
-import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
-import {modal} from "../helpers/modal.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
