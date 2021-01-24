@@ -6,12 +6,20 @@ export const getImgItems = (
     imgDict,
     setChoice,
     imgNameChoice,
+    searchText,
     showNames,
     screenCase,
     theme
 ) => {
+    let names;
+    if (searchText && searchText !== '') {
+        names = Object.keys(imgDict).filter(name => name.toLowerCase().startsWith(searchText))
+    }
+    else {
+        names = Object.keys(imgDict);
+    }
     let imgItems = [];
-    Object.keys(imgDict).forEach((name) => {
+    names.forEach((name) => {
         imgItems.push(
             <ImgChoice
                 name={name}

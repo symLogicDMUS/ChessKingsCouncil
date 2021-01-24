@@ -48,13 +48,13 @@ export const useStyles = makeStyles({
     }),
     title_flexbox: props => ({
         fontSize: props.fontSize,
-        width: '100%',
+        width: imgChoicesWidth,
+        marginLeft: modalWidth * 0.025,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignItems: 'center',
-        justifyContent: 'center',
-        alignContent: 'center',
+        justifyContent: 'flex-end',
     }),
 
     img_choices_border: props => ({

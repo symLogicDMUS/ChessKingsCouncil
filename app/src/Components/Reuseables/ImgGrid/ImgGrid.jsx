@@ -17,6 +17,7 @@ export function ImgGrid(props) {
             props.imgDict,
             props.setChoice,
             props.imgNameChoice,
+            props.searchText,
             props.defaultChecked,
             props.screenCase,
             props.theme
@@ -29,10 +30,11 @@ export function ImgGrid(props) {
             imgDict: props.imgDict,
             setChoice: props.setChoice,
             imgNameChoice: props.imgNameChoice,
+            searchText: props.searchText,
             screenCase: props.screenCase,
             theme: props.theme,
         });
-    }, [props.imgDict, props.imgNameChoice, state.showNames, props.theme]);
+    }, [props.imgDict, props.imgNameChoice, props.searchText, state.showNames, props.theme]);
 
     const classes = useStyles({
         theme: props.theme,

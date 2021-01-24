@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
+import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
+import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import PanoramaIcon from "@material-ui/icons/Panorama";
 import {fontSize002} from "../styles/fontSizes.jss";
@@ -11,6 +13,12 @@ import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+
+    const [searchText, setSearchText] = useState("");
+
+    const updateSearchText = (newText) => {
+        setSearchText(newText)
+    };
 
     return (
         <>
@@ -37,8 +45,11 @@ export function SavedGames(props) {
                             <ImgGrid
                                 title={
                                     <>
-                                        <Typography className={classes.title}>Load Game</Typography>
-                                        <PanoramaIcon className={classes.title_icon} size="large"/>
+                                        <Box className={classes.title_box}>
+                                            <Typography className={classes.title}>Images</Typography>
+                                            <PanoramaIcon className={classes.title_icon} size="large"/>
+                                        </Box>
+                                        <SearchBox updateSearchText={updateSearchText} theme={props.theme}/>
                                     </>
                                 }
                                 onClose={null}
@@ -46,6 +57,7 @@ export function SavedGames(props) {
                                 theme={props.theme}
                                 screenCase="desktop"
                                 defaultChecked={true}
+                                searchText={searchText}
                                 onOkClick={props.load}
                                 imgDict={props.imgDict}
                                 setChoice={props.changeName}

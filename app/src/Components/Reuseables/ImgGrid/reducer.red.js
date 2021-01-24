@@ -7,6 +7,7 @@ export function reducer(state, action) {
                 action.imgDict,
                 action.setChoice,
                 action.imgNameChoice,
+                action.searchText,
                 state.showNames,
                 action.screenCase,
                 action.theme

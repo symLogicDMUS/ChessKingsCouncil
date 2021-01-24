@@ -1,6 +1,6 @@
 import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
-import {fontSize0015, fontSize0016, fontSize002} from "../../../styles/fontSizes.jss";
+import {fontSize0015, fontSize0016} from "../../../styles/fontSizes.jss";
 
 
 export const styles = {
@@ -17,7 +17,7 @@ export const styles = {
     }),
     title_icon: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize002,
+            fontSize: fontSize0016,
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize0015,
@@ -26,5 +26,13 @@ export const styles = {
         width: '3em',
         marginLeft: '0.25em',
         color: themes[props.theme].text,
+    }),
+    title_box: props => ({
+        width: '11em',
+        display: 'flex',
+        alignItems: 'center',
+        marginRight: '12em',
+        alignContent: 'center',
+        justifyContent: 'center'
     }),
 };

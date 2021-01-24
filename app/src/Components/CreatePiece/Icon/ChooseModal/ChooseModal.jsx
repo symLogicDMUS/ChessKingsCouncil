@@ -1,27 +1,30 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
-import withStyles from "@material-ui/core/styles/withStyles";
 import PanoramaIcon from "@material-ui/icons/Panorama";
+import withStyles from "@material-ui/core/styles/withStyles";
 import {getImgDict} from "../../../../API/getImgDict";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getSetSampleImgs} from "../../../helpers/getSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
+import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
 import {fontSize001725} from "../../../styles/fontSizes.jss";
-import {Close} from "../../../Reuseables/Close";
 import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
+import {SearchBox} from "../../../Reuseables/SearchBox";
+import {Close} from "../../../Reuseables/Close";
 import "../../../styles/Scrollbar.scss";
 import {styles} from "./ChooseModal.jss";
-import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
-import MediaQuery from "react-responsive/src";
 
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {bValue: false, imgNameChoice: null};
+        this.state = {imgNameChoice: null, searchText: '', bValue: false};
         this.imgDict = {};
         this.deleteImg = this.deleteImg.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
         this.setChoice = this.setChoice.bind(this);
+        this.updateSearchText = this.updateSearchText.bind(this);
     }
 
     componentDidMount() {
@@ -44,6 +47,7 @@ class ChooseModal extends React.Component {
         });
     }
 
+
     submitChoice(imgNameChoice) {
         this.props.setPieceImg(this.props.color, this.imgDict[imgNameChoice]);
         this.props.closeAll();
@@ -57,6 +61,10 @@ class ChooseModal extends React.Component {
         }
     }
 
+    updateSearchText(searchText) {
+        this.setState({searchText: searchText})
+    }
+
     render() {
         return (
             <div className={`scrollbar-${this.props.theme}`}>
@@ -65,13 +73,17 @@ class ChooseModal extends React.Component {
                         <ImgGrid
                             title={
                                 <>
-                                    <Typography className={this.props.classes.title}>Images</Typography>
-                                    <PanoramaIcon className={this.props.classes.title_icon} size="large"/>
+                                    <Box className={this.props.classes.title_box}>
+                                        <Typography className={this.props.classes.title}>Images</Typography>
+                                        <PanoramaIcon className={this.props.classes.title_icon} size="large"/>
+                                    </Box>
+                                    <SearchBox updateSearchText={this.updateSearchText} theme={this.props.theme}/>
                                 </>
                             }
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
                             defaultChecked={false}
+                            searchText={this.state.searchText}
                             confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
@@ -96,18 +108,13 @@ class ChooseModal extends React.Component {
                     </MediaQuery>
                     <MediaQuery maxDeviceHeight={767}>
                         <ImgGrid
-                            title={
-                                <>
-                                    <Typography className={this.props.classes.title}>Images</Typography>
-                                    <PanoramaIcon className={this.props.classes.title_icon} size="large"/>
-                                </>
-                            }
-                            rootStyle={{marginTop: appBarHeight}}
-                            imgNameChoice={this.state.imgNameChoice}
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
+                            imgNameChoice={this.state.imgNameChoice}
+                            rootStyle={{marginTop: appBarHeight}}
+                            screenCase={this.props.screenCase}
+                            theme={this.props.theme}
                             defaultChecked={false}
-                            confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
                             }
@@ -125,8 +132,16 @@ class ChooseModal extends React.Component {
                                     }}
                                 />
                             }
-                            theme={this.props.theme}
-                            screenCase={this.props.screenCase}
+                            title={
+                                <>
+                                    <Typography className={this.props.classes.title}>Images</Typography>
+                                    <PanoramaIcon className={this.props.classes.title_icon} size="large"/>
+                                    <SearchBox updateSearchText={this.updateSearchText} theme={this.props.theme}/>
+                                </>
+                            }
+                            confirmDeleteMessage={
+                                `Are you sure you want to delete image ${this.state.imgNameChoice}?`
+                            }
                         />
                     </MediaQuery>
                 </div>
