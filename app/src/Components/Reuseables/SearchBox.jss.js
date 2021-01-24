@@ -15,7 +15,7 @@ export const text_field = (fontSize, theme) => ({
 export const useStyles = makeStyles({
     search_box: props => ({
         fontSize: props.fontSize,
-        width: '20em',
+        width: props.width ? props.width : '20em',
         height: '1.25em',
         margin: '0.5em',
         marginRight: 0,

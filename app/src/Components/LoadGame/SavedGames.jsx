@@ -89,9 +89,16 @@ export function SavedGames(props) {
                         />
                     }
                     appBarContent={
-                        <Typography variant="h6" noWrap>
-                            Load Game
-                        </Typography>
+                        <>
+                            <Typography variant="h6" noWrap>
+                                Load Game
+                            </Typography>
+                            <SearchBox
+                                width='11em'
+                                theme={props.theme}
+                                updateSearchText={updateSearchText}
+                            />
+                        </>
                     }
                     theme={props.theme}
                     spacing={0}
@@ -103,6 +110,7 @@ export function SavedGames(props) {
                         onDeleteClick={props.deleteGame}
                         onOkClick={props.load}
                         defaultChecked={true}
+                        searchText={searchText}
                         theme={props.theme}
                         screenCase="mobile"
                         itemWindowStyle={{
