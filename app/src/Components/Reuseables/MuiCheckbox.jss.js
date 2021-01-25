@@ -21,15 +21,18 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         ...props.style,
+        ...props.textStyle,
         color: themes[props.theme].text,
     }),
     unchecked: props => ({
         ...props.style,
+        ...props.checkboxStyle,
         ...checkbox,
         color: themes[props.theme].text,
     }),
     checked: props => ({
         ...props.style,
+        ...props.checkboxStyle,
         ...checkbox,
         color: themes[props.theme].text,
     }),

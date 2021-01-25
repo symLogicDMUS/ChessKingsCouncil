@@ -11,6 +11,8 @@ import NewGame from "./Components/NewGame/NewGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
+import {GameOptions} from "./Components/NewGame/GameOptions/GameOptions";
+import Customize from "./Components/NewGame/Customize/Customize";
 
 export class App extends React.Component {
     constructor(props) {
@@ -76,13 +78,13 @@ export class App extends React.Component {
                 <Router>
                     <Switch>
                         <Route exact path="/" exact strict render={() => <Home signOut={this.signOut}/>}/>
-                        <Route exact path="/NewGame" exact strict render={() => <NewGame/>}/>
+                        <Route exact path="/NewGame" exact strict render={() => <GameOptions/>}/>
                         <Route exact path="/LoadGame" exact strict render={() => <LoadGame/>}/>
-                        <Route exact path="/LoadGame/Play" exact strict render={(props) => <GameRoot {...props} />}/>
-                        <Route exact path="/NewGame/Play" exact strict render={(props) => <GameRoot {...props} />}/>
+                        <Route exact path="/Customize" exact strict render={(props) => <Customize {...props} />}/>
+                        <Route exact path="/Play" exact strict render={(props) => <GameRoot {...props} />}/>
                         <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece {...props} />}/>
-                        <Route exact path="/CouncilRules" exact component={CouncilRules}/>
                         <Route exact path="/MyPieces" exact strict render={() => <MyPieces/>}/>
+                        <Route exact path="/CouncilRules" exact component={CouncilRules}/>
                     </Switch>
                 </Router>
             );

@@ -1,13 +1,13 @@
-import React, {useReducer, useState} from "react";
+import React, { useReducer, useState } from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import Typography from "@material-ui/core/Typography";
-import {fontSize0023, fontSize0040} from "../../styles/fontSizes.jss";
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
-import {MiniBoard} from "./MiniBoard";
-import {reducer} from "./BoardTool.red";
-import {useStyles} from "./BoardTool.jss";
+import { fontSize0023 } from "../../styles/fontSizes.jss";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
+import { MiniBoard } from "./MiniBoard";
+import { reducer } from "./BoardTool.red";
+import { useStyles } from "./BoardTool.jss";
 
 export function BoardTool({
     theme,
@@ -26,14 +26,14 @@ export function BoardTool({
     const [profileModal, setProfileModal] = useState(false);
     const [showProfileOnClick, setShowProfileOnClick] = useState(true);
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const toggleShowProfileOnClick = () => {
         setShowProfileOnClick(!showProfileOnClick);
     };
 
     return (
-        <div className={classes.range_display_tool}>
+        <div className={classes.board_tool}>
             <MediaQuery minDeviceWidth={768}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>

@@ -15,7 +15,7 @@ import {GameSavedSuccessfully} from "../../CreatePiece/animations/GameSavedSucce
 
 export function SaveResignTool({theme, triggerSaveProcess, resign, changeName, isSaveMessage, messageCallback}) {
     let [saveAs, setSaveAs] = useState(false);
-    const classes = useStyles({theme: theme, fontSize: fontSize002 * 1.6});
+    const classes = useStyles({theme: theme});
 
     return (
         <>

@@ -52,10 +52,17 @@ export const drawer_table_button = (fontSize) => ({
     disableElevation: true,
 });
 
-export const list_title = (fontSize, theme) => ({
-    textAlign: 'center',
-    ...text(fontSize, theme),
-    backgroundColor: themes[theme].fill,
+export const list_title = (theme) => ({
+    ...text(theme),
+    '@media screen and (min-width: 768px)': {
+        width: drawerItemWidth,
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '100%',
+    },
+    borderTop: `0.05em solid ${themes[theme].outline}`,
+    borderLeft: `0.05em solid ${themes[theme].outline}`,
+    borderRight: `0.05em solid ${themes[theme].outline}`,
 });
 
 export const styles = {
@@ -67,16 +74,7 @@ export const styles = {
         width: availWidth(),
     },
     list_title: props => ({
-        ...text(props.theme),
-        '@media screen and (min-width: 768px)': {
-            width: drawerItemWidth,
-        },
-        '@media screen and (max-width: 767px)': {
-            width: '100%',
-        },
-        borderTop: `0.05em solid ${themes[props.theme].outline}`,
-        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
-        borderRight: `0.05em solid ${themes[props.theme].outline}`,
+
     }),
     promo_all_container: props => ({
         fontSize: props.fontSize,

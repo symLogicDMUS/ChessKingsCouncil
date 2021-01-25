@@ -2,6 +2,8 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {text} from "../../PieceProfiles/Header/PieceHeader.jss"
 import {themes} from "../../styles/themes.jss";
 import {drawer_component, list_title} from "./Customize.jss";
+import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
+import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 
 export const piece_label = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -63,6 +65,12 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        ...text(props.theme),
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSize0023,
+        },
+        fontFamily: 'Roboto-Light, Roboto',
     }),
 });

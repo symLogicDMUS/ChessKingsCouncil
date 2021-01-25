@@ -4,7 +4,6 @@ import { rankfiles } from "../../helpers/rankfiles";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { MiniSquare as Square } from "./MiniSquare";
 import { MiniPiece as Piece } from "./MiniPiece";
-import {fontSize0040} from "../../styles/fontSizes.jss";
 import { useStyles } from "./MiniBoard.jss";
 
 export function MiniBoard({

@@ -1,17 +1,22 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {availWidth} from "../helpers/windowMeasurments";
+import {fontSizes} from "./PieceProfiles.jss";
+
+export const profileHeight = 31.5;
 
 export const useStyles = makeStyles({
     profile: props => ({
-        fontSize: props.fontSize,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-    }),
-    divider: props => ({
-        fontSize: props.fontSize,
-        width: '37em',
-        marginLeft: '1.35em',
-        marginTop: '0.75em',
-        marginBottom: '0.75em',
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
+            justifyContent: 'space-evenly',
+            height: `${profileHeight}em`,
+            width: availWidth(),
+        },
     }),
 });

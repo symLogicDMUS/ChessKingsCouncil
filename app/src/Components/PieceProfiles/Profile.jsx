@@ -2,12 +2,11 @@ import React, {memo} from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB";
-import {fontSize0023} from "../styles/fontSizes.jss";
 import { useStyles } from "./Profile.jss";
 
 export const Profile = memo(({pieceName, expand, defs, theme, screenCase, children }) => {
     /**children is a header for the profile of the piece */
-    const classes = useStyles({theme: theme, fontSize: fontSize0023});
+    const classes = useStyles({theme: theme});
 
     return (
         <Box className={classes.profile}>

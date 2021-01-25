@@ -1,6 +1,22 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
+import {fontSize0023, fontSize00384} from "../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+
+export const fontSizes = {
+    desktop: fontSize0023,
+    mobile: fontSize00384
+}
+
+export const heights = {
+    desktop: 13.03,
+    mobile: 9,
+}
+
+export const widths = {
+    desktop: '11.55em',
+    mobile: '7.5em',
+}
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
@@ -13,7 +29,7 @@ export const useStyles = makeStyles({
             marginTop: '0.25em',
         },
         '@media screen and (max-width: 767px)': {
-            height: availHeight()*0.569,
+            height: availHeight()*0.65,
             width: availWidth(),
             marginTop: '0.05em',
         },

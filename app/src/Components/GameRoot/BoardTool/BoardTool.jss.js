@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerItemWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
+import {fontSize00457} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
-import {fontSize0040} from "../../styles/fontSizes.jss";
 
 // em units:
 const profileWidth = 40;
@@ -41,14 +41,15 @@ export const profile_top = (fontSize, theme) => ({
 
 
 export const useStyles = makeStyles({
-        range_display_tool: props => ({
-            fontSize: fontSize0040,
+        board_tool: props => ({
+            fontSize: fontSize00457,
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
             '@media screen and (min-width: 768px)': {
-                width: {drawerItemWidth},
+                width: drawerItemWidth,
+                marginLeft: '5%',
                 height: '8em',
             },
             '@media screen and (max-width: 767px)': {

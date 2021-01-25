@@ -2,7 +2,7 @@ short:
 
 
 medium:
-* does Save and SaveAs on GameRoot still work
+
 
 long:
 make sure mobile version of everything works

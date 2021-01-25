@@ -35,10 +35,10 @@ export const ld_header_style = (fontSize, screenCase) => ({
 
 export const useStyles = makeStyles({
     header: props => ({
-        ...header(props.fontSize, props.style, props.theme),
+        ...header(props.style, props.theme),
     }),
     piece_name: props => ({
-        ...text(props.fontSize * 1.25, props.theme),
+        ...text(props.theme),
     }),
     buttons_flexbox: props => ({
         display: 'flex',

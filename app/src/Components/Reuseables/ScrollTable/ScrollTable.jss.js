@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes.jss";
-import {fontSize0023} from "../../styles/fontSizes.jss";
 
 const getArrowButtonHeight = (tableHeight) => tableHeight * 0.08;
 
@@ -56,7 +55,6 @@ export const useStyles = makeStyles({
     }),
     /*child of list items*/
     text: (props) => ({
-        fontSize: "1em",
         maxWidth: "97.5%",
         marginLeft: "2.5%",
         color: themes[props.theme].text,

@@ -1,36 +1,39 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {fontSize0023, fontSize00301} from "../styles/fontSizes.jss";
 import {imgFillDiv} from "../Reuseables/imgFillDiv.jss";
-
-const size = '11.55em'
+import {fontSizes, heights, widths as avatarSize, widths} from "./PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0023
+            fontSize: fontSizes.desktop,
+            height: `${heights.desktop}`,
+            width: avatarSize.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00301,
+            fontSize: fontSizes.mobile,
+            height: `${heights.mobile}`,
+            width: avatarSize.mobile,
+            marginTop: '-0.5em'
         },
-        height: '12.75em',
-        width: size,
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_title: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0023,
+            fontSize: fontSizes.desktop,
+            width: widths.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00301,
+            fontSize: fontSizes.mobile,
+            width: widths.mobile,
         },
-        height: '1.5em',
         width: '100%',
+        height: '1.5em',
         textAlign: 'center',
-        color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill,
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderLeft: `0.05em solid ${themes[props.theme].outline}`,
@@ -38,13 +41,15 @@ export const useStyles = makeStyles({
     }),
     avatar_window: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0023,
+            fontSize: fontSizes.desktop,
+            width: avatarSize.desktop,
+            height: avatarSize.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00301,
+            fontSize: fontSizes.mobile,
+            width: avatarSize.mobile,
+            height: avatarSize.mobile,
         },
-        width: size,
-        height: size,
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,

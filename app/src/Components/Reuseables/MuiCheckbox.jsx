@@ -12,15 +12,16 @@ import {useStyles} from "./MuiCheckbox.jss";
  * @param checkmarkState
  * @param defaultChecked
  * @param rootStyle: Object
- * @param circleStyle: Object
+ * @param checkboxStyle: Object
+ * @param textStyle
  * @param style: Object, (style.fontSize is required)
  * @param children: string, text for form label
  * @returns {JSX.Element}
  * @constructor
  */
-export function MuiCheckbox({onClick, checkmarkState, defaultChecked, style, rootStyle, circleStyle, theme, children}) {
+export function MuiCheckbox({onClick, checkmarkState, defaultChecked, style, rootStyle, checkboxStyle, textStyle, theme, children}) {
 
-    const classes = useStyles({style, rootStyle, circleStyle, theme})
+    const classes = useStyles({style, rootStyle, checkboxStyle, textStyle, theme})
 
     return (
             <FormControlLabel

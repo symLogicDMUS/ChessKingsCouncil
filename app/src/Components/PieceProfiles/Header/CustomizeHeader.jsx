@@ -1,21 +1,16 @@
 import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
 import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
 import { themes } from "../../styles/themes.jss";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import BlockIcon from "@material-ui/icons/Block";
 import { icons } from "../../styles/icons/top/icons.jss";
-import { fontSize0023 } from "../../styles/fontSizes.jss";
 import IconButton from "@material-ui/core/IconButton";
 import { reducer } from "./CustomizeHeader.red";
-import {
-    checkbox_circle,
-    checkbox_root,
-    sub_buttons,
-    useStyles,
-} from "./CustomizeHeader.jss";
 import { text } from "./PieceHeader.jss";
+import {checkbox_root, checkbox_style, checkbox_text, useStyles} from "./CustomizeHeader.jss";
 
 export function CustomizeHeader({
     pieceName,
@@ -24,6 +19,7 @@ export function CustomizeHeader({
     newReplaced,
     toggleSub,
     togglePromo,
+    screenCase,
     theme,
 }) {
     let [state, dispatch] = useReducer(reducer, {
@@ -37,7 +33,7 @@ export function CustomizeHeader({
         },
     });
 
-    const classes = useStyles({ theme: theme, fontSize: fontSize0023 });
+    const classes = useStyles({ theme: theme });
 
     useEffect(() => {
         /** If sub just made and this piece not the sub and the piece being subbed for is what this piece was previously
@@ -58,7 +54,7 @@ export function CustomizeHeader({
     return (
         <>
             <div className={classes.header}>
-                <Box className={classes.box} style={{ marginRight: "1.55em" }}>
+                <Box className={classes.box} style={{ marginRight: (screenCase === 'desktop') ? "1.55em" : 0 }}>
                     <Typography
                         className={classes.piece_name}
                         variant="h6"
@@ -67,30 +63,35 @@ export function CustomizeHeader({
                         {pieceName}
                     </Typography>
                 </Box>
-                <Box className={classes.box} style={{ marginRight: "1.5em" }}>
+                <Box className={classes.box} style={{ marginRight: (screenCase === 'desktop') ? "1.5em" : 0 }}>
                     <MuiCheckbox
                         onClick={() => togglePromo(pieceName)}
                         checkmarkState={isCheckmark}
+                        style={checkbox_style()}
                         rootStyle={checkbox_root(theme)}
-                        circleStyle={checkbox_circle()}
-                        style={text(theme)}
+                        checkboxStyle={{
+                            transform:
+                                screenCase === 'mobile' ?
+                                'translate(-0.35em, 0)' :
+                                'none'
+                        }}
                         theme={theme}
                     >
-                        Promotion
+                        <MediaQuery minDeviceHeight={768}>Promotion</MediaQuery>
+                        <MediaQuery maxDeviceHeight={767}>Promo</MediaQuery>
                     </MuiCheckbox>
                 </Box>
-                <Box style={sub_buttons()}>
+                <Box  className={classes.box} style={{justifyContent: 'space-between', alignItems: 'center'}}>
                     <IconButton
                         onClick={() => {
                             toggleSub(null, state.subSelection)
                             dispatch({type: "no-sub", theme: theme})
                         }}
-                        style={{ width: "1em", height: "1em" }}
+                        className={classes.no_sub_button}
                     >
                         <BlockIcon
+                            className={classes.no_sub_icon}
                             style={{
-                                width: "1.2em",
-                                height: "1.2em",
                                 color: state.colors.noSymbol,
                             }}
                         />

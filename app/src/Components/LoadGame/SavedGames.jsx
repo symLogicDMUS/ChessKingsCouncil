@@ -4,6 +4,7 @@ import MediaQuery from "react-responsive/src";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import PanoramaIcon from "@material-ui/icons/Panorama";
+import StorageIcon from '@material-ui/icons/Storage';
 import {fontSize002} from "../styles/fontSizes.jss";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
@@ -46,8 +47,8 @@ export function SavedGames(props) {
                                 title={
                                     <>
                                         <Box className={classes.title_box}>
-                                            <Typography className={classes.title}>Images</Typography>
-                                            <PanoramaIcon className={classes.title_icon} size="large"/>
+                                            <Typography className={classes.title}>Load Game</Typography>
+                                            <StorageIcon className={classes.title_icon} size="large"/>
                                         </Box>
                                         <SearchBox updateSearchText={updateSearchText} theme={props.theme}/>
                                     </>

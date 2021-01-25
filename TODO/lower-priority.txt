@@ -4,7 +4,7 @@ medium:
 * make home icon in NavBar same size as other icons
 * Make functional Components in addition to class components be a default export, to be consistent
 * go and through every document and use the Prettier command..
-* Help button needs to  toggle help scrollTable
+* Help button needs to toggle help scrollTable
 
 long:
 * add new and different themes

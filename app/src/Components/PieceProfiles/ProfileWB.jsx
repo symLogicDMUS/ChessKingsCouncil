@@ -10,7 +10,8 @@ import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable/ScrollTable";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import {fontSizes, widths, useStyles, heights} from "./ProfileWB.jss";
+import {useStyles} from "./ProfileWB.jss";
+import {fontSizes, heights, widths} from "./PieceProfiles.jss";
 
 /**
  * className: profileWB class
@@ -27,7 +28,7 @@ export function ProfileWB({
     let [modal, setModal] = useState(false);
     let [rangeType, setRangeType] = useState(null);
 
-    const classes = useStyles({ fontSize: fontSizes[screenCase], theme: theme });
+    const classes = useStyles({ theme: theme });
 
     const getSpans = (def) => {
         if (def.spans.length === 0) {

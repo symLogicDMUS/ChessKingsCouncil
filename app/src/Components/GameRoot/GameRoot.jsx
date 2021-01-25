@@ -1,75 +1,89 @@
 import React from "react";
-import MediaQuery from "react-responsive/src";
 import {Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
-import {StatusBar} from "./StatusBar/StatusBar";
-import {Fen} from "../../game_logic/fenParser/Fen";
 import {rankfiles} from "../helpers/rankfiles";
 import {OVER} from "../helpers/gStatusTypes";
 import {isPawn} from "../helpers/isPawn";
-import {BoardTool} from "./BoardTool/BoardTool";
-import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
 import {gameDefsOffsetListsToStrs} from "../../apiHelpers/gameDefsOffsetListsToStrs";
-import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
-import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {kingStartingRf, rookStartingRf} from "../helpers/castleRankfiles";
 import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
 import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
 import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
 import {update} from "../../game_logic/callHierarchyTop/update";
-import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
+import {Board} from "./GameBoard/Board";
+import {GameInfo} from "./GameInfo/GameInfo";
+import {BoardTool} from "./BoardTool/BoardTool";
+import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
+import {Fen} from "../../game_logic/fenParser/Fen";
+import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
+import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
+import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {navBarWidth} from "../Reuseables/NavBar/NavBar.jss";
 import {SideBar} from "../Reuseables/SidBar";
+import {StatusBar} from "./StatusBar/StatusBar";
 import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import {navBarWidth} from "../Reuseables/NavBar/NavBar.jss";
+import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
 import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
-import {boardPos, boardSizes, mobileBoardPadding} from "../Reuseables/Board.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {boardPos, boardSizes} from "../Reuseables/Board.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpText, HelpTitle} from "./HelpText";
-import {modal} from "../helpers/modal.jss";
-import {Board} from "./GameBoard/Board";
-import {GameInfo} from "./GameInfo/GameInfo";
 import "../styles/_backgrounds.scss";
+import {copy} from "../helpers/copy";
+import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {bValue: true, messageModal: false, saveProcess: false, theme: "dark"};
+        this.state = {
+            bValue: true,
+            messageModal: false,
+            saveProcess: false,
+            theme: "dark",
+        };
+        this.unsavedProgress = false;
+
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
-        this.gameData = this.props.location.state.gameData;
-        this.img = this.gameData.img;
-        this.ranges = this.gameData.ranges;
-        this.board = this.gameData.board;
-        this.turn = this.gameData.color;
-        this.idDict = this.gameData.id_dict;
-        this.defs = this.gameData.piece_defs;
-        this.promoChoices = this.gameData.promos;
-        this.enemyRanges = this.gameData.enemy_ranges;
-        this.playerType = this.gameData.pt; //duplicate?
-        this.fenObj = new Fen(this.gameData.fen_data);
-        this.gameStatus = new GameStatus(this.gameData.status)
-        this.specialMoves = new SpecialMoves(this.gameData.special_moves);
-        this.jsonRecords = new JsonRecords(initPawnIds(this.gameData.json_records, this.board));
-        this.isCouncil = (this.gameType === "council");
-        //Note: do not make these state variables. Multiple changes need to be made BEFORE re-rendering:
-        this.aiColor = this.setAiColor();
+
+        let gameData;
+        if (this.gameType === "Custom") {
+            gameData = this.props.location.state.gameData;
+        } else {
+            gameData = copy(newData);
+        }
+        this.img = gameData.img;
+        this.board = gameData.board;
+        this.turn = gameData.color;
+        this.fenObj = new Fen(gameData.fen_data);
+        this.gameStatus = new GameStatus(gameData.status);
+        this.specialMoves = new SpecialMoves(gameData.special_moves);
+        this.jsonRecords = new JsonRecords(
+            initPawnIds(gameData.json_records, this.board)
+        );
+        this.idDict = gameData.id_dict;
+        this.defs = gameData.piece_defs;
+        this.ranges = gameData.ranges;
+        this.promoChoices = gameData.promos;
+        this.enemyRanges = gameData.enemy_ranges;
         this.aiStart = null;
         this.aiDest = null;
         this.aiCapture = null;
-        this.unsavedProgress = false;
+        if (this.playerType === "test") this.aiColor = "none";
+        else if (this.playerType === "W") this.aiColor =  "B";
+        else if (this.playerType === "B") this.aiColor =  "W";
+        if (this.gameType === "council") this.promoChoices.push("King");
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
@@ -89,21 +103,15 @@ class GameRoot extends React.Component {
      */
     getRangeBoard(pieceId) {
         if (pieceId[0] !== this.turn) {
-            return getBinaryBoarAllFalse()
+            return getBinaryBoarAllFalse();
         }
-        let range = this.ranges[pieceId]
-        let inRange = rankfiles.filter(rf => range.includes(rf))
-        let rangeBoard = getBinaryBoarAllFalse()
+        let range = this.ranges[pieceId];
+        let inRange = rankfiles.filter((rf) => range.includes(rf));
+        let rangeBoard = getBinaryBoarAllFalse();
         for (let rf of Object.keys(rangeBoard)) {
             rangeBoard[rf] = inRange.includes(rf);
         }
         return rangeBoard;
-    }
-
-    setAiColor() {
-        if (this.playerType === "test") return "none";
-        if (this.playerType === "W") return "B";
-        if (this.playerType === "B") return "W";
     }
 
     getColorLastMove() {
@@ -119,7 +127,7 @@ class GameRoot extends React.Component {
     }
 
     toggleSaveProcess(bValue) {
-        this.setState({saveProcess: bValue})
+        this.setState({saveProcess: bValue});
     }
 
     /**
@@ -152,7 +160,7 @@ class GameRoot extends React.Component {
         this.enemyRanges = turnData.enemy_ranges;
         this.specialMoves.update(turnData.special_moves);
 
-        if (this.isCouncil)
+        if (this.gameType === "council")
             this.gameStatus.updateCouncil(
                 this.board,
                 this.ranges,
@@ -212,9 +220,11 @@ class GameRoot extends React.Component {
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
-        const boardImgBase64Str = getBoardImgBase64Str(pieces, this.board)
+        const boardImgBase64Str = getBoardImgBase64Str(pieces, this.board);
         const records = this.jsonRecords.getRecords();
-        records.pawn_histories = replacePawnIdWithCurrentLoc(records.pawn_histories);
+        records.pawn_histories = replacePawnIdWithCurrentLoc(
+            records.pawn_histories
+        );
         const pieceDefs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
 
@@ -230,7 +240,7 @@ class GameRoot extends React.Component {
             id_dict: this.idDict,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({isSaveMessage: true, saveProcess: false})
+            this.setState({isSaveMessage: true, saveProcess: false});
         });
     }
 
@@ -283,18 +293,22 @@ class GameRoot extends React.Component {
                             theme={this.state.theme}
                         />
                         <SaveResignTool
-                            triggerSaveProcess={() => this.toggleSaveProcess(true)}
+                            triggerSaveProcess={() =>
+                                this.toggleSaveProcess(true)
+                            }
                             save={this.save}
                             resign={this.resign}
                             theme={this.state.theme}
                             changeName={this.changeName}
                             isSaveMessage={this.state.isSaveMessage}
-                            messageCallback={() => this.setState({isSaveMessage: false})}
+                            messageCallback={() =>
+                                this.setState({isSaveMessage: false})
+                            }
                         />
                         <BoardTool
                             board={this.board}
                             theme={this.state.theme}
-                            screenCase={'desktop'}
+                            screenCase={"desktop"}
                             pieceDefs={this.defs}
                             idDict={this.idDict}
                             allRanges={{...this.ranges, ...this.enemyRanges}}
@@ -342,8 +356,14 @@ class GameRoot extends React.Component {
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
-                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpTitle={HelpTitle(
+                                    fontSize002,
+                                    this.state.theme
+                                )}
+                                helpText={HelpText(
+                                    fontSize002,
+                                    this.state.theme
+                                )}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }
@@ -357,13 +377,16 @@ class GameRoot extends React.Component {
                         }
                     >
                         <Board gameRoot={this}/>
-                        <MuiAccordion theme={this.state.theme} rootStyle={{
-                            position: 'absolute',
-                            top: boardSizes.mobile + boardPos.mobile.top,
-                            left: boardPos.mobile.left,
-                            width: boardSizes.mobile,
-                            zIndex: 5
-                        }}>
+                        <MuiAccordion
+                            theme={this.state.theme}
+                            rootStyle={{
+                                position: "absolute",
+                                top: boardSizes.mobile + boardPos.mobile.top,
+                                left: boardPos.mobile.left,
+                                width: boardSizes.mobile,
+                                zIndex: 5,
+                            }}
+                        >
                             {[
                                 {
                                     id: "game-info",
@@ -382,27 +405,31 @@ class GameRoot extends React.Component {
                                     title: <Typography>Save/Resign</Typography>,
                                     body: (
                                         <SaveResignTool
-                                            triggerSaveProcess={() => this.toggleSaveProcess(true)}
+                                            triggerSaveProcess={() =>
+                                                this.toggleSaveProcess(true)
+                                            }
                                             save={this.save}
                                             resign={this.resign}
                                             toggleSaveAs={this.toggleSaveAs}
                                             theme={this.state.theme}
-                                            messageCallback={() => this.setState({isSaveMessage: false})}
+                                            messageCallback={() =>
+                                                this.setState({
+                                                    isSaveMessage: false,
+                                                })
+                                            }
                                         />
                                     ),
                                 },
                                 {
                                     id: "range-display",
                                     title: (
-                                        <Typography>
-                                            Range GameBoard
-                                        </Typography>
+                                        <Typography>Range GameBoard</Typography>
                                     ),
                                     body: (
                                         <BoardTool
                                             board={this.board}
                                             theme={this.state.theme}
-                                            screenCase={'mobile'}
+                                            screenCase={"mobile"}
                                             allRanges={{
                                                 ...this.ranges,
                                                 ...this.enemyRanges,

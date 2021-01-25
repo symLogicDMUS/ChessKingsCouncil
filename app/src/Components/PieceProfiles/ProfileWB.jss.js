@@ -1,48 +1,36 @@
-import {fontSize00184, fontSize0023, fontSize00301} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
-
-export const fontSizes = {
-    desktop: fontSize0023,
-    mobile: fontSize00184
-}
-
-export const widths = {
-    desktop: '11.55em',
-    mobile: 7.5,
-}
-
-export const heights = {
-    desktop: 13.03,
-    mobile: 7.25,
-}
+import {profileHeight} from "./Profile.jss";
+import {fontSizes, widths} from "./PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     profile_wb: props => ({
-        fontSize: props.fontSize,
         zIndex: 'inherit',
         display: 'flex',
-        width: '100%',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        justifyContent: 'space-evenly',
         '@media screen and (min-width: 768px)': {
+            width: '100%',
+            fontSize: fontSizes.desktop,
+            flexDirection: 'row',
+            flexWrap: 'no-wrap',
+            justifyContent: 'space-evenly',
             marginBottom: '0.7em',
             marginTop: '0.7em',
         },
         '@media screen and (max-width: 767px)': {
-            marginBottom: '0.35em',
-            marginTop: '0.35em',
+            fontSize: fontSizes.mobile,
+            height: `${profileHeight*0.85}`,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
         },
     }),
     range_header: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0023,
-            width: '11.55em',
+            fontSize: fontSizes.desktop,
+            width: widths.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00301,
-            width: '7.5em',
+            fontSize: fontSizes.mobile,
+            width: widths.mobile,
         },
         height: '1.5em',
         display: 'flex',
@@ -50,6 +38,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
         flexDirection: 'row-reverse',
+        fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderLeft: `0.05em solid ${themes[props.theme].outline}`,

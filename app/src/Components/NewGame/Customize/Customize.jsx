@@ -1,14 +1,16 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
+import {Redirect} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
-import {SubList} from "./SubList";
-import {Portal, withStyles} from "@material-ui/core";
+import {withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
-import {NavBar} from "../../Reuseables/NavBar/NavBar";
+import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
+import {SubList} from "./SubList";
 import {SideBar} from "../../Reuseables/SidBar";
+import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {MuiButton as Button} from "../../Reuseables/MuiButton";
@@ -20,26 +22,40 @@ import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
-import {fontSize00184, fontSize0023, fontSize00276} from "../../styles/fontSizes.jss";
+import {
+    fontSize0016,
+    fontSize00184,
+    fontSize0023,
+    fontSize00276,
+    fontSize00384,
+    fontSize0040
+} from "../../styles/fontSizes.jss";
 import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpText, HelpTitle} from "./HelpText";
+import {copy} from "../../helpers/copy";
+import {newData} from "../NewData";
 import {
-    drawer_component,
-    drawer_table_button,
-    drawerItemWidth, ok_button,
+    ok_button,
     app_bar_flexbox,
-    styles, drawerItemMarginLeft, drawerItemMarginTopBottom,
+    drawerItemWidth,
+    drawerItemMarginLeft,
+    drawerItemMarginTopBottom,
+    styles, list_title
 } from "./Customize.jss";
-import {fontSizes} from "../../PieceProfiles/ProfileWB.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
 
 class Customize extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             theme: "dark",
-            binaryValue: true,
             searchText: '',
+            redirect: false,
+            binaryValue: true,
         };
+        this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
         this.subs = {
             Rook: null,
             Bishop: null,
@@ -47,6 +63,7 @@ class Customize extends React.Component {
             Knight: null,
         };
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.gameData = {}
         this.defs = {};
         this.promos = [];
         this.firstTime = false;
@@ -82,6 +99,55 @@ class Customize extends React.Component {
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
+    accept() {
+        this.idDict = this.loadIdDict();
+        this.setStandardPromos();
+        this.bundleGameData();
+        this.setState({redirect: true})
+    }
+
+    /**
+     * called by this.accept()
+     * because will redirect to another page, combine game data into one object to make it easier.
+     *
+     * 1. set the game name, game type and player type, given as props.
+     * 2. get new (standard) game data. Some part will be overridden by customization.
+     * 3. override pawn promotions and id dictionary with what user put for these.
+     * 4. build the piece definitions using the id dictionary, and overriding the standard piece definition dictionary.
+     * 5. because using pieces that user created, don't know starting ranges until gone through game logic.
+     * 6. set the starting ranges + enemy ranges, with what game logic determined.
+     * note: when this method finishes,the parent method then sets the state that cases redirect to new page.
+     */
+    bundleGameData() {
+        this.game_name = this.props.gameName; //1.
+        this.type = this.props.gameType; //1.
+        this.pt = this.props.playerType; //1.
+        this.gameData = copy(newData); //2.
+        this.gameData.promos = this.promos; //3.
+        this.gameData.id_dict = this.idDict; //3.
+        this.gameData.piece_defs = {}; //4.
+        let name; //4.
+        for (const id of Object.keys(this.idDict)) { //4.
+            if (id !== 'k' && id !== 'p') { //4.
+                name = this.idDict[id]; //4.
+                this.gameData.piece_defs[name] = this.defs[name]; //4.
+            }
+        }
+
+        //5.
+        const dataEntry = firstUpdate(
+            this.gameData.board,
+            this.gameData.json_records,
+            'W',
+            this.pt,
+            this.gameData.piece_defs,
+            this.gameData.id_dict
+        );
+        //6.
+        this.gameData.ranges = dataEntry.ranges;
+        this.gameData.enemy_ranges = dataEntry.enemy_ranges;
+    }
+
     /**
      * sub: name of a piece making sub.
      * subs is this.subs with key:value pairs reversed.
@@ -109,9 +175,9 @@ class Customize extends React.Component {
     /**
      * for each standard piece check all starting pieces and if found make it a pawn promotion (except pawns and kings)
      */
-    setStandardPromos(idDict) {
+    setStandardPromos() {
         for (const [name1, id1] of Object.entries(standardIds)) {
-            for (const [id2, name2] of Object.entries(idDict)) {
+            for (const [id2, name2] of Object.entries(this.idDict)) {
                 if (
                     name1 === name2 &&
                     id1 === id2 &&
@@ -127,17 +193,6 @@ class Customize extends React.Component {
     loadIdDict() {
         const [names, subs] = this.prepareForIdAssign();
         return idAssign(names, subs);
-    }
-
-    accept() {
-        const idDict = this.loadIdDict();
-        this.setStandardPromos(idDict);
-        this.props.loadNewCustom(
-            idDict,
-            this.defs,
-            this.promos,
-            this.props.playerType
-        );
     }
 
     toggleSub(sub, standardPiece) {
@@ -184,12 +239,29 @@ class Customize extends React.Component {
         this.setState({searchText: searchText});
     }
 
+    play() {
+        return (
+            <Redirect
+                to={{
+                    pathname: "/Play",
+                    state: {
+                        currentPath: "/Customize",
+                        gameName: copy(this.gameName),
+                        gameType: copy(this.gameType),
+                        playerType: copy(this.playerType),
+                        gameData: copy(this.gameData),
+                    },
+                }}
+            />
+        );
+    }
+
     render() {
         return (
             <>
+                {this.state.redirect ? (this.play()) : null}
                 <div className={this.props.classes.customize}>
                     <MediaQuery minDeviceWidth={768}>
-
                         <PermanentDrawer
                             drawerType="right"
                             width={drawerWidth}
@@ -227,7 +299,7 @@ class Customize extends React.Component {
                                 theme={this.state.theme}
                             />
                             <ScrollTable
-                                numRows={4}
+                                numRows={6}
                                 key={uuidv4()}
                                 listItems={this.promos}
                                 theme={this.state.theme}
@@ -243,11 +315,7 @@ class Customize extends React.Component {
                                     marginBottom: drawerItemMarginTopBottom,
                                 }}
                                 title={
-                                    <Typography
-                                        className={
-                                            this.props.classes.list_title
-                                        }
-                                    >
+                                    <Typography style={list_title(this.state.theme)}>
                                         Pawn Promotions
                                     </Typography>
                                 }
@@ -331,7 +399,7 @@ class Customize extends React.Component {
                                 newReplaced={this.newReplaced}
                                 searchText={this.state.searchText}
                             />
-                            <MuiAccordion theme={this.state.theme} style={{height: '2.4em'}}>
+                            <MuiAccordion theme={this.state.theme} style={{height: '2em', margin: 0}}>
                                 {[
                                     {
                                         id: "sub-list",
@@ -360,26 +428,24 @@ class Customize extends React.Component {
                                                     listItems={this.promos}
                                                     theme={this.state.theme}
                                                     style={{
-                                                        fontSize: fontSize00184,
-                                                        width: drawerItemWidth,
-                                                        height: 15,
+                                                        fontSize: fontSize0016,
+                                                        width: availWidth()*0.48,
+                                                        height: 10,
                                                     }}
                                                     buttonStyle={{ borderRadius: 0 }}
                                                     addedStyle={{
-                                                        marginLeft: drawerItemMarginLeft,
-                                                        marginTop: drawerItemMarginTopBottom,
-                                                        marginBottom: drawerItemMarginTopBottom,
+                                                        marginBottom: '2em'
                                                     }}
                                                 />
                                                 <MuiCheckbox
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
                                                     style={{
-                                                        fontSize: fontSize00184,
+                                                        fontSize: fontSize00384,
                                                     }}
                                                     rootStyle={{
-                                                        marginLeft: drawerItemWidth *
-                                                            0.025,
+                                                        flexGrow: 20,
+                                                        marginLeft: drawerItemWidth * 0.025,
                                                     }}
                                                 >
                                                     Promo All

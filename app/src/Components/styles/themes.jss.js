@@ -50,7 +50,7 @@ export const themes = {
         modal_fill: '#111111',
         img_border: '#d7bb99',
         even_row: '#1b1b1b',
-        odd_row: '#3d3d3d',
+        odd_row: '#252525',
         text_alt: '#edc9a2ff',
         text_alt2: '#d7bb99',
         span: '#ecc125',

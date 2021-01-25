@@ -6,11 +6,11 @@ import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
 import { copy } from "../helpers/copy";
 import {
     newData,
-    new_standard_ranges,
+    newStandardRanges,
     enemyRanges,
-    standard_id_dict,
-    standard_piece_defs,
-    standard_promo_names,
+    standardIdDict,
+    standardPieceDefs,
+    standardPromoNames,
 } from "./NewData";
 
 /**
@@ -99,10 +99,10 @@ class NewGame extends React.Component {
         this.gameData.game_name = this.gameName;
         this.gameData.pt = this.state.playerType;
         this.gameData.type = this.state.gameType;
-        this.gameData.promos = copy(standard_promo_names);
-        this.gameData.id_dict = copy(standard_id_dict);
-        this.gameData.piece_defs = copy(standard_piece_defs);
-        this.gameData.ranges = copy(new_standard_ranges);
+        this.gameData.promos = copy(standardPromoNames);
+        this.gameData.id_dict = copy(standardIdDict);
+        this.gameData.piece_defs = copy(standardPieceDefs);
+        this.gameData.ranges = copy(newStandardRanges);
         this.gameData.enemy_ranges = copy(enemyRanges);
         if (this.gameType === 'council') this.gameData.promos.push('King');
         this.setState({ step: 'play-game' });
@@ -136,7 +136,6 @@ class NewGame extends React.Component {
                         loadNewCustom={this.loadNewCustom}
                         playerType={this.state.playerType}
                         theme={this.state.theme}
-
                     />
                 )}
                 {this.state.step === "load-new-standard" &&

@@ -42,18 +42,18 @@ export const useStyles = makeStyles({
         },
     }),
     title_box: props => ({
-        width: '11em',
+        width: '15em',
         display: 'flex',
         alignItems: 'center',
-        marginRight: '12em',
+        marginRight: '10em',
         alignContent: 'center',
         justifyContent: 'center'
     }),
     title: props => ({
         fontSize: '2em',
-        fontFamily: 'Roboto-Light, Roboto',
         lineHeight: '0.7em',
         marginRight: '0.25em',
+        fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
     }),
     title_icon: props => ({

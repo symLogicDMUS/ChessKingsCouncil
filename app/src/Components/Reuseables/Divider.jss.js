@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSizes} from "../PieceProfiles/ProfileWB.jss";
 import {widths} from "../PieceProfiles/Header/CustomizeHeader.jss";
+import {fontSizes} from "../PieceProfiles/PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     divider: props => ({

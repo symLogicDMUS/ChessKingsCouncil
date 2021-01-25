@@ -21,11 +21,8 @@ export function LoadDeleteHeader({
     style,
 }) {
     let history = useHistory();
-    const classes = useStyles({
-        theme: theme,
-        style: style,
-        fontSize: fontSize002,
-    });
+
+    const classes = useStyles({theme: theme, style: style});
 
     const deletePiece = (pieceName) => {
         deleteDef(pieceName).then(([r]) => {
