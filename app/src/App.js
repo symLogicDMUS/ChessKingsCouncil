@@ -6,12 +6,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Home} from "./Components/Home/Home";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import CreatePiece from "./Components/CreatePiece/CreatePiece";
-import LoadGame from "./Components/LoadGame/LoadGame";
 import NewGame from "./Components/NewGame/NewGame";
+import LoadGame from "./Components/LoadGame/LoadGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
-import {GameOptions} from "./Components/NewGame/GameOptions/GameOptions";
 import Customize from "./Components/NewGame/Customize/Customize";
 
 export class App extends React.Component {
@@ -78,7 +77,7 @@ export class App extends React.Component {
                 <Router>
                     <Switch>
                         <Route exact path="/" exact strict render={() => <Home signOut={this.signOut}/>}/>
-                        <Route exact path="/NewGame" exact strict render={() => <GameOptions/>}/>
+                        <Route exact path="/NewGame" exact strict render={() => <NewGame/>}/>
                         <Route exact path="/LoadGame" exact strict render={() => <LoadGame/>}/>
                         <Route exact path="/Customize" exact strict render={(props) => <Customize {...props} />}/>
                         <Route exact path="/Play" exact strict render={(props) => <GameRoot {...props} />}/>

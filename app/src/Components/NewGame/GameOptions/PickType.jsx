@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import {fontSize012} from "../../styles/fontSizes.jss";
 import {getTextWidth} from "../../helpers/getTextWidth.jss";
-import {fontSizes} from "./GameOptions.jss";
+import {fontSizes} from "../NewGame.jss";
 import {GameType} from "./GameType";
 import {useStyles} from "./PickType.jss";
 

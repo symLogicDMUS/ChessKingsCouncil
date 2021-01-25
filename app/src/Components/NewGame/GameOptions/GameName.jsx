@@ -2,10 +2,10 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import { MuiTextField } from "../../Reuseables/MuiTextField";
-import { useStyles} from "./PickName.jss";
-import {fontSizes, input_style} from "./GameOptions.jss";
+import { useStyles} from "./GameName.jss";
+import {fontSizes, input_style} from "../NewGame.jss";
 
-export function PickName({ setGameName, gameName, theme, screenCase }) {
+export function GameName({ setGameName, gameName, theme, screenCase }) {
     const classes = useStyles({ text: "Game Name" });
 
     return (

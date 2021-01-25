@@ -17,7 +17,7 @@ export function MiniBoard({
     parentDispatch,
     setProfileModal,
 }) {
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     const getBoard = () => {
         const squares = [];
@@ -37,8 +37,8 @@ export function MiniBoard({
             } else {
                 squares.push(
                     <Square
-                        key={uuidv4()}
                         rf={rf}
+                        key={uuidv4()}
                         theme={theme}
                         screenCase={screenCase}
                         isHighlight={rangeBoard[rf]}
@@ -73,5 +73,5 @@ export function MiniBoard({
         return squares;
     };
 
-    return <div className={classes.board}>{getBoard()}</div>
+    return <div className={classes.board}>{getBoard()}</div>;
 }

@@ -1,23 +1,20 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import {Portal} from "@material-ui/core";
-import {Close} from "../../Reuseables/Close";
-import {themes} from "../../styles/themes.jss";
-import {getColor} from "../../helpers/getColor";
-import {rankfiles} from "../../helpers/rankfiles";
-import {getPieceName} from "../../helpers/getPieceName";
-import Typography from "@material-ui/core/Typography";
-import {fontSize0023} from "../../styles/fontSizes.jss";
-import {profile_flexbox, profile_top} from "./BoardTool.jss";
-import {getColorName} from "../../helpers/getColorName";
-import {ProfileWB} from "../../PieceProfiles/ProfileWB";
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {isSpecial} from "../../helpers/isSpecial";
+import { Portal } from "@material-ui/core";
+import { getColor } from "../../helpers/getColor";
+import { rankfiles } from "../../helpers/rankfiles";
+import { getPieceName } from "../../helpers/getPieceName";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { isSpecial } from "../../helpers/isSpecial";
+import { ProfileWBModal } from "../../PieceProfiles/ProfileWBModal";
+import { NoProfile } from "../../PieceProfiles/NoProfile";
+import {fontSizes} from "../../PieceProfiles/ProfileWBModal.jss";
 
 export function reducer(state, action) {
     switch (action.type) {
         case "toggle-piece":
-            /**Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares  */
+            /**
+             * Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares
+             * */
             if (state.pieceId === action.id) {
                 return {
                     profile: null,
@@ -39,78 +36,22 @@ export function reducer(state, action) {
                     profile: (
                         <Portal>
                             {def ? (
-                                <Box
-                                    style={profile_flexbox(
-                                        fontSize0023,
-                                        action.theme
-                                    )}
-                                >
-                                    <Box
-                                        style={profile_top(
-                                            fontSize0023,
-                                            action.theme
-                                        )}
-                                    >
-                                        <Typography variant="h6">
-                                            {getColorName(color)} {pieceName}
-                                        </Typography>
-                                        <Close
-                                            style={{
-                                                fontSize: fontSize0023,
-                                                width: "1.5em",
-                                                height: "1.5em",
-                                            }}
-                                            onClick={action.closeProfile}
-                                            theme={action.theme}
-                                        />
-                                    </Box>
-                                    <ProfileWB
-                                        def={def}
-                                        color={color}
-                                        pieceName={pieceName}
-                                        theme={action.theme}
-                                        screenCase={action.screenCase}
-                                    />
-                                </Box>
+                                <ProfileWBModal
+                                    def={def}
+                                    color={color}
+                                    pieceName={pieceName}
+                                    theme={action.theme}
+                                    screenCase={action.screenCase}
+                                    closeProfile={action.closeProfile}
+                                />
                             ) : (
-                                <Box
-                                    style={{
-                                        ...profile_flexbox(
-                                            fontSize0023,
-                                            action.theme
-                                        ),
-                                        height: "4.6em",
-                                    }}
-                                >
-                                    <Box
-                                        style={{
-                                            ...profile_top(
-                                                fontSize0023,
-                                                action.theme
-                                            ),
-                                            justifyContent: "flex-end",
-                                        }}
-                                    >
-                                        <Close
-                                            style={{
-                                                fontSize: fontSize0023,
-                                                width: "1.5em",
-                                                height: "1.5em",
-                                            }}
-                                            onClick={action.closeProfile}
-                                            theme={action.theme}
-                                        />
-                                    </Box>
-                                    <Typography
-                                        variant="h6"
-                                        style={{
-                                            fontSize: fontSize0023 * 2,
-                                            color: themes[action.theme].text,
-                                        }}
-                                    >
-                                        No profile for {pieceName}
-                                    </Typography>
-                                </Box>
+                                <NoProfile
+                                    color={color}
+                                    pieceName={pieceName}
+                                    theme={action.theme}
+                                    screenCase={action.screenCase}
+                                    closeProfile={action.closeProfile}
+                                />
                             )}
                         </Portal>
                     ),

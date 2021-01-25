@@ -1,4 +1,11 @@
-import {fontSize00224, fontSize00288, fontSize0032, fontSize00384} from "../../styles/fontSizes.jss";
+import {
+    fontSize00224,
+    fontSize0025,
+    fontSize0028,
+    fontSize00288,
+    fontSize0032,
+    fontSize0034
+} from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
@@ -26,12 +33,14 @@ export const useStyles = makeStyles({
     option: props => ({
         '@media screen and (min-width: 768px)': {
             fontSize: fontSize0032,
+            width: '3.5em',
+            height: '3.5em',
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00384,
+            fontSize: fontSize0034,
+            width: '4em',
+            height: '4em',
         },
-        width: '3.5em',
-        height: '3.5em',
         color: themes[props.theme].button_text,
         border: '0.05em solid #2b2b2b',
     }),
@@ -58,7 +67,7 @@ export const useStyles = makeStyles({
             fontSize: fontSize00224,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: fontSize00288,
+            fontSize: fontSize0025,
         },
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,

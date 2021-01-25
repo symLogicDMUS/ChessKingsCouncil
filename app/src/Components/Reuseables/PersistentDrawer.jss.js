@@ -11,6 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     appBar: props => ({
         height: appBarHeight,
+        zIndex: 7,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

@@ -1,9 +1,8 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSize00301, fontSize00457} from "../../styles/fontSizes.jss";
 import {board} from "../../Reuseables/Board.jss";
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
-import {fontSize00301, fontSize00457} from "../../styles/fontSizes.jss";
-
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -13,11 +12,11 @@ export const useStyles = makeStyles({
     board: props => ({
         '@media screen and (min-width: 768px)': {
             ...board(fontSize00457),
-            outline: `0.04em solid ${themes[props.theme].outline}`
         },
         '@media screen and (max-width: 767px)': {
             ...board(fontSize00301),
-            marginTop: '-0.5em'
+            marginTop: '-1em'
         },
+        outline: `0.075em solid ${themes[props.theme].outline}`
     }),
 })

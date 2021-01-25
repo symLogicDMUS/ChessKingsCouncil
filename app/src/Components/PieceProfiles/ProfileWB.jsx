@@ -10,8 +10,8 @@ import { stepFuncNamesToText } from "../helpers/spanToText";
 import { offsetToText } from "../helpers/offsetToText";
 import ScrollTable from "../Reuseables/ScrollTable/ScrollTable";
 import { DisplayBoardModal } from "./DisplayBoardModal/DisplayBoardModal";
-import {useStyles} from "./ProfileWB.jss";
 import {fontSizes, heights, widths} from "./PieceProfiles.jss";
+import {useStyles} from "./ProfileWB.jss";
 
 /**
  * className: profileWB class
@@ -74,8 +74,8 @@ export function ProfileWB({
             <div className={classes.profile_wb}>
                 <ProfileAvatar
                     pieceName={pieceName}
-                    color={color}
                     src={def.img}
+                    color={color}
                     theme={theme}
                 />
                 <ScrollTable

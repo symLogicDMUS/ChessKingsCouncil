@@ -6,7 +6,7 @@ import { fontSize0023 as fontSize } from "../styles/fontSizes.jss";
 import { useStyles } from "./ProfileAvatar.jss";
 
 export function ProfileAvatar(props) {
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
+    const classes = useStyles({ theme: props.theme, styleOverride: props.styleOverride });
 
     return (
         <Box className={classes.profile_avatar} backgroundColor='red'>

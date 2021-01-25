@@ -22,6 +22,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
+        
     }),
     range_header: props => ({
         '@media screen and (min-width: 768px)': {

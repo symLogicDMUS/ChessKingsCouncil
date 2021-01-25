@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {Dropdown} from "../../Reuseables/Dropdown";
 import {fontSize012} from "../../styles/fontSizes.jss";
-import {fontSizes, input_style} from "./GameOptions.jss";
+import {fontSizes, input_style} from "../NewGame.jss";
 import {useStyles} from "./PlayAs.jss";
 
 export function PlayAs({setPlayerType, theme, screenCase}) {

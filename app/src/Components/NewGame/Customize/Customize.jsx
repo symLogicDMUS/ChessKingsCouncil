@@ -27,7 +27,7 @@ import {
     fontSize00184,
     fontSize0023,
     fontSize00276,
-    fontSize00384,
+    fontSize0034,
     fontSize0040
 } from "../../styles/fontSizes.jss";
 import {SearchBox} from "../../Reuseables/SearchBox";
@@ -441,7 +441,7 @@ class Customize extends React.Component {
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
                                                     style={{
-                                                        fontSize: fontSize00384,
+                                                        fontSize: fontSize0034,
                                                     }}
                                                     rootStyle={{
                                                         flexGrow: 20,

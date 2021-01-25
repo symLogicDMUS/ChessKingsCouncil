@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {getTextWidth} from "../../helpers/getTextWidth.jss";
-import {fontSizes} from "./GameOptions.jss";
+import {fontSizes} from "../NewGame.jss";
 
 export const useStyles = makeStyles({
     title: props => ({

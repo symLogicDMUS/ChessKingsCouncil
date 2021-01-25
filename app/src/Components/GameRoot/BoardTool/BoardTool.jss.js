@@ -1,44 +1,18 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {fontSize00457} from "../../styles/fontSizes.jss";
+import {fontSize00219, fontSize00457} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 // em units:
-const profileWidth = 40;
-const profileHeight = 16.6;
+export const profileWidth = {
+    desktop: 30,
+    mobile: 8,
+}
 
-export const profile_flexbox = (fontSize, theme) => ({
-    zIndex: 5,
-    fontSize: fontSize,
-    width: `${profileWidth}em`,
-    height: `${profileHeight}em`,
-    marginTop: `${-profileHeight * 0.5}em`,
-    marginLeft: `${-profileWidth * 0.5}em`,
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: themes[theme].fill,
-    border: `0.05em solid ${themes[theme].outline}`,
-    borderRadius: '0.5em',
-})
-
-export const profile_top = (fontSize, theme) => ({
-    fontSize: fontSize,
-    width: `${profileWidth * 0.97}em`,
-    marginLeft: `${profileWidth * 0.03}em`,
-    height: '1.5em',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'no-wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    color: themes[theme].text,
-});
-
+export const profileHeight = {
+    desktop: 12.15,
+    mobile: 20,
+}
 
 export const useStyles = makeStyles({
         board_tool: props => ({
@@ -59,7 +33,7 @@ export const useStyles = makeStyles({
             },
         }),
         flex_header: props => ({
-            fontSize: props.fontSize,
+            fontSize: fontSize00457,
             width: '10em',
             height: '0.7em',
             display: 'flex',
@@ -70,11 +44,13 @@ export const useStyles = makeStyles({
                 border: `0.04em solid ${themes[props.theme].outline}`,
             },
             '@media screen and (max-width: 767px)': {
-                marginTop: '-1em'
+                justifyContent: 'center',
+                marginTop: '-1em',
             },
+            border: '1px dashed #1faae',
         }),
         title: props => ({
-            fontSize: props.fontSize * 0.48,
+            fontSize: fontSize00219,
             fontFamily: 'Roboto-Light, Roboto',
             color: themes[props.theme].text,
             height: '1em',

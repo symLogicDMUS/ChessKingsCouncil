@@ -48,8 +48,8 @@ export function BoardTool({
                 pieceDefs={pieceDefs}
                 allRanges={allRanges}
                 screenCase={screenCase}
-                rangeBoard={state.rangeBoard}
                 parentDispatch={dispatch}
+                rangeBoard={state.rangeBoard}
                 setProfileModal={setProfileModal}
             />
             <Box className={classes.flex_header}>

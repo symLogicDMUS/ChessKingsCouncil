@@ -1,149 +1,183 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-import Customize from "./Customize/Customize";
-import { GameOptions } from "./GameOptions/GameOptions";
-import { firstUpdate } from "../../game_logic/callHierarchyTop/firstUpdate";
-import { copy } from "../helpers/copy";
-import {
-    newData,
-    newStandardRanges,
-    enemyRanges,
-    standardIdDict,
-    standardPieceDefs,
-    standardPromoNames,
-} from "./NewData";
+import React, {useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
+import MediaQuery from "react-responsive/src";
+import {Typography} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import {PlayAs} from "./GameOptions/PlayAs";
+import {PickType} from "./GameOptions/PickType";
+import {GameName} from "./GameOptions/GameName";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {invalids} from "../helpers/invalids";
+import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import {MuiButton} from "../Reuseables/MuiButton";
+import {charNotInStr} from "../helpers/charNotInStr";
+import {getColorLetter} from "../helpers/getColorLetter";
+import {fontSize002} from "../styles/fontSizes.jss";
+import {HelpText, HelpTitle} from "./GameOptions/HelpText";
+import "../styles/_backgrounds.scss";
+import "../styles/Scrollbar.scss";
+import {useStyles, play_button} from "./NewGame.jss";
 
-/**
- * NewGame selects what CreatPiece created, then sends it to the backend which
- * assigns ids to piece-names for pieces the player chose for that game. the
- * id:piece-Name arrangement is unique to that game, and is stored in game-Name.defs
- * in the game's folder.
- */
-class NewGame extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            step: "set-options",
-            gameName: "",
-            gameType: "",
-            playerType: "",
-            theme: "dark",
-        };
-        /*when redirecting to GameRoot page, everything is sent in 1 object like a payload. this.gameData*/
-        this.gameData = {};
-        this.setGameOptions = this.setGameOptions.bind(this);
-        this.loadNewStandard = this.loadNewStandard.bind(this);
-        this.loadNewCustom = this.loadNewCustom.bind(this);
-    }
+function NewGame() {
+    let history = useHistory();
 
-    componentDidMount() {
-        document.body.className = "new-game-body";
-    }
+    let [gameName, updateGameName] = useState("");
+    let [gameType, updateGameType] = useState(null);
+    let [playerType, updatePlayerType] = useState(null);
+    let [theme, setTheme] = useState("tan");
 
-    setGameOptions(gameName, gameType, playerType) {
-        const nextStep =
-            gameType === "Custom" ? "load-new-custom" : "load-new-standard";
-        this.setState({
-            gameName: gameName,
-            gameType: gameType,
-            playerType: playerType,
-            step: nextStep,
-        });
-    }
+    useEffect(() => {
+        document.body.className = "tan-background";
+    });
 
-    /**
-     * first declare the data we don't need then backend for, then get rest of data from backend.
-     *
-     * load the data for new-game but then change the idDict to
-     * one chosen by customise. note: unlike loadNewCouncil and
-     * loadNewStandard, loadNewCustom is called from child.
-     *
-     * 1. set data that is same for any new game
-     * 2. set what the player will play as: W, B, or test
-     * 4. set data that is unique to this game.
-     * 5. format the data that backend needs together into an object.
-     * 6. get the starting ranges for our custom new game from the backend, then update state
-     */
-    loadNewCustom(idDict, defs, promos) {
-        this.gameData = copy(newData); //1.
-        this.gameData.game_name = this.state.gameName;
-        this.gameData.type = this.state.gameType;
-        this.gameData.pt = this.state.playerType;
-        this.gameData.promos = promos; //4.
-        this.gameData.id_dict = idDict; //4.
-        this.gameData.piece_defs = {}; //4.
-        let name;
-        for (const id of Object.keys(idDict)) {
-            if (id !== 'k' && id !== 'p') {
-                name = idDict[id];
-                this.gameData.piece_defs[name] = defs[name]; //4.
-            }
+    const classes = useStyles({fontSize: fontSize002});
+
+
+    const setGameName = (e) => {
+        updateGameName(e.target.value);
+    };
+
+    const setPlayerType = (typePlayer) => {
+        if (typePlayer !== "Test") updatePlayerType(getColorLetter(typePlayer));
+        else updatePlayerType(typePlayer);
+    };
+
+    const setGameType = (gameType) => {
+        updateGameType(gameType);
+    };
+
+    const finish = () => {
+        if (gameType === 'Custom') {
+            history.push("/Customize", {
+                gameName: gameName,
+                gameType: gameType,
+                playerType: playerType
+            });
         }
+        else {
+            history.push("/Play", {
+                gameName: gameName,
+                gameType: gameType,
+                playerType: playerType
+            });
+        }
+    };
 
-        const dataEntry = firstUpdate(
-            this.gameData.board,
-            this.gameData.json_records,
-            'W',
-            this.gameData.pt,
-            this.gameData.piece_defs,
-            this.gameData.id_dict
-        );
+    return (
 
-        this.gameData.ranges = dataEntry.ranges;
-        this.gameData.enemy_ranges = dataEntry.enemy_ranges;
-        this.setState({ step: 'play-game' });
-    }
-
-    loadNewStandard() {
-        this.gameData = copy(newData);
-        this.gameData.game_name = this.gameName;
-        this.gameData.pt = this.state.playerType;
-        this.gameData.type = this.state.gameType;
-        this.gameData.promos = copy(standardPromoNames);
-        this.gameData.id_dict = copy(standardIdDict);
-        this.gameData.piece_defs = copy(standardPieceDefs);
-        this.gameData.ranges = copy(newStandardRanges);
-        this.gameData.enemy_ranges = copy(enemyRanges);
-        if (this.gameType === 'council') this.gameData.promos.push('King');
-        this.setState({ step: 'play-game' });
-    }
-
-    play() {
-        return (
-            <Redirect
-                to={{
-                    pathname: "/NewGame/Play",
-                    state: {
-                        currentPath: "/NewGame/Play",
-                        gameName: copy(this.state.gameName),
-                        gameType: copy(this.state.gameType),
-                        playerType: copy(this.state.playerType),
-                        gameData: copy(this.gameData),
-                    },
-                }}
-            />
-        );
-    }
-
-    render() {
-        return (
-            <>
-                {this.state.step === "set-options" && (
-                    <GameOptions setGameOptions={this.setGameOptions} />
-                )}
-                {this.state.step === "load-new-custom" && (
-                    <Customize
-                        loadNewCustom={this.loadNewCustom}
-                        playerType={this.state.playerType}
-                        theme={this.state.theme}
+        <>
+            {/*<Background theme={theme}/>*/}
+            <div className={`scrollbar-${theme}`}>
+                <MediaQuery minWidth={768}>
+                    <NavBar
+                        currentPage="GameOptions"
+                        flexDirection="row"
+                        theme={theme}
+                        style={{
+                            fontSize: fontSize002,
+                            width: "100%",
+                            height: "2.25em",
+                        }}
+                        helpTitle={HelpTitle(fontSize002, theme)}
+                        helpText={HelpText(fontSize002, theme)}
+                        buttonStyle={{
+                            fontSize: fontSize002,
+                            height: "2.25em",
+                            justifyContent: "center",
+                        }}
                     />
-                )}
-                {this.state.step === "load-new-standard" &&
-                    this.loadNewStandard()}
-                {this.state.step === "play-game" && this.play()}
-            </>
-        );
-    }
+                    <Box className={classes.new_game}>
+                        <GameName
+                            setGameName={setGameName}
+                            gameName={gameName}
+                            theme={theme}
+                            screenCase='desktop'
+                        />
+                        <PickType
+                            setGameType={setGameType}
+                            gameType={gameType}
+                            theme={theme}
+                            screenCase='desktop'
+                        />
+                        <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='desktop'/>
+                        <MuiButton
+                            onClick={finish}
+                            style={play_button(theme)}
+                            variant="contained"
+                            theme={theme}
+                            isDisabled={
+                                !(
+                                    playerType &&
+                                    gameType &&
+                                    gameName !== "" &&
+                                    invalids.every((c) => charNotInStr(c, gameName))
+                                )
+                            }
+                            screenCase='desktop'
+                        >
+                            Play
+                        </MuiButton>
+                    </Box>
+                </MediaQuery>
+                <MediaQuery maxWidth={767}>
+                    <PersistentDrawer
+                        theme={theme}
+                        drawer={
+                            <NavBar
+                                currentPage="GameOptions"
+                                flexDirection="column"
+                                style={{width: "100%"}}
+                                buttonStyle={{
+                                    fontSize: fontSize002 * 1.2,
+                                    justifyContent: "flex-start",
+                                    width: "99%",
+                                    height: "2.5em",
+                                }}
+                                helpTitle={HelpTitle(fontSize002, theme)}
+                                helpText={HelpText(fontSize002, theme)}
+                                redirectMessage={null}
+                                theme={theme}
+                            />
+                        }
+                        appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}
+                    >
+                        <Box className={classes.new_game}>
+                            <GameName
+                                setGameName={setGameName}
+                                gameName={gameName}
+                                theme={theme}
+                                screenCase='mobile'
+                            />
+                            <PickType
+                                setGameType={setGameType}
+                                gameType={gameType}
+                                theme={theme}
+                                screenCase='mobile'
+                            />
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='mobile'/>
+                            <MuiButton
+                                onClick={finish}
+                                style={play_button(theme)}
+                                theme={theme}
+                                variant={"contained"}
+                                isDisabled={
+                                    !(
+                                        playerType &&
+                                        gameType &&
+                                        gameName !== "" &&
+                                        invalids.every((c) => charNotInStr(c, gameName))
+                                    )
+                                }
+                                screenCase='mobile'
+                            >
+                                Play
+                            </MuiButton>
+                        </Box>
+                    </PersistentDrawer>
+                </MediaQuery>
+            </div>
+        </>
+    );
 }
 
 export default NewGame;
