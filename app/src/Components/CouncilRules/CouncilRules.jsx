@@ -1,12 +1,12 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
+import Typography from "@material-ui/core/Typography";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { fontSize002 } from "../styles/fontSizes.jss";
-import Typography from "@material-ui/core/Typography";
-import { useStyles } from "./CouncilRules.jss";
-import Box from "@material-ui/core/Box";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
+import { useStyles } from "./CouncilRules.jss";
 
 export function CouncilRules() {
     const classes = useStyles({ fontSize: fontSize002 });
@@ -122,7 +122,7 @@ export function CouncilRules() {
                             Council Rules
                         </Typography>
                     }
-                    theme="black"
+                    theme="tan"
                 >
                     <div className={classes.council_rules}>
                         <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg' />

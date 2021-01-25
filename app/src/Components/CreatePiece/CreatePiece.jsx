@@ -1,11 +1,10 @@
 import React from "react";
 import {v4 as uuidv4} from "uuid";
+import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {HelpText, HelpTitle} from "./HelpText"
-import "../styles/_backgrounds.scss";
-import {fontSize002, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
 import {copy} from "../helpers/copy";
@@ -33,6 +32,7 @@ import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
+import {fontSize002, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
 import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
@@ -271,9 +271,9 @@ class CreatePiece extends React.Component {
     /**used by the Reset Option button. called by this.eraseRange() and this.clear().*/
     resetOffsetsAndRange() {
         this.spans = {
-            "90d": false,
-            "45d": false,
-            "0d": false,
+            "90d":  false,
+            "45d":  false,
+            "0d":   false,
             "315d": false,
             "270d": false,
             "225d": false,
@@ -324,8 +324,8 @@ class CreatePiece extends React.Component {
     render() {
         return (
             <>
+                {this.modals()}
                 <MediaQuery minDeviceWidth={768}>
-                    {this.modals()}
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}

@@ -1,11 +1,9 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import TextField from "@material-ui/core/TextField";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {MuiTextField} from "../../Reuseables/MuiTextField";
@@ -14,7 +12,7 @@ import {button, useStyles} from "./SaveAs.jss";
 
 export function SaveAs({changeName, save, close, theme}) {
 
-    const classes = useStyles({fontSize: fontSize002, theme: theme});
+    const classes = useStyles({theme: theme});
 
     const handleChange = (e) => {
         changeName(e.target.value);
@@ -49,14 +47,14 @@ export function SaveAs({changeName, save, close, theme}) {
                             close();
                             save();
                         }}
-                        style={button(fontSize002, theme)}
+                        style={button(theme)}
                         startIcon={<CheckCircleOutlineIcon/>}
                     >
                         Ok
                     </Button>
                     <Button
                         onClick={close}
-                        style={button(fontSize002, theme)}
+                        style={button(theme)}
                         startIcon={<HighlightOffIcon/>}
                     >
                         Cancel

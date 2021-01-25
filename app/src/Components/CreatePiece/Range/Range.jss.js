@@ -9,7 +9,7 @@ export const fontSizes = {
 
 export const widths = {
     desktop: '9.5em',
-    mobile: 8.5,
+    mobile: '9.5em',
 }
 
 /**
@@ -17,7 +17,7 @@ export const widths = {
  */
 export const heights = {
     desktop: 9.5,
-    mobile: 8.5,
+    mobile: 9.5,
 }
 
 export const useStyles = makeStyles({

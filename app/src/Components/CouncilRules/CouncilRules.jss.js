@@ -1,6 +1,14 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
+import {
+    fontSize0016,
+    fontSize002,
+    fontSize0023,
+    fontSize00301,
+    fontSize0060,
+    fontSize01
+} from "../styles/fontSizes.jss";
 
 export const parchment = () => ({
     '@media screen and (min-width: 768px)': {
@@ -37,10 +45,10 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize * desktopScaler,
+            fontSize: fontSize0016
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * mobileScaler,
+            fontSize: fontSize0060,
         },
         color: 'black',
         fontFamily: 'Garamond',
@@ -62,7 +70,7 @@ export const useStyles = makeStyles({
         height: '5%',
     }),
     kings_flexbox: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         '@media screen and (min-width: 768px)': {
             width: getTextWidth('Council of Kings', props.fontSize * desktopScaler, 'Garamond'),
         },
@@ -77,21 +85,21 @@ export const useStyles = makeStyles({
     }),
     king_icon: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize * 5,
+            fontSize: fontSize01,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize * 1.5,
+            fontSize: fontSize00301,
         },
         width: '1em',
         height: '1em'
     }),
     paragraph: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize * 1.5,
+            fontSize: fontSize00301,
             width: getTextWidth('Council of Kings', props.fontSize * desktopScaler, 'Garamond'),
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize*1.15,
+            fontSize: fontSize0023,
             width: getTextWidth('Council of Kings', props.fontSize * mobileScaler, 'Garamond'),
             flexGrow: 100,
         },

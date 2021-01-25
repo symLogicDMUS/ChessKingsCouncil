@@ -1,11 +1,16 @@
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 
-export const button = (fontSize, theme) => ({
-    fontSize: fontSize,
+export const button = (theme) => ({
+    '@media screen and (min-width: 768px)': {
+        fontSize: fontSize002
+    },
+    '@media screen and (max-width: 767px)': {
+        fontSize: fontSize0023
+    },
     color: themes[theme].text,
-    // border: `0.05em solid ${themes[theme].outline}`
 });
 
 export const useStyles = makeStyles({
@@ -13,8 +18,14 @@ export const useStyles = makeStyles({
         ...modal
     },
     dialog_window: props => ({
-        width: '27%',
-        height: '27%',
+        '@media screen and (min-width: 768px)': {
+            width: '27%',
+            height: '27%',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+            height: '40%',
+        },
         backgroundColor: themes[props.theme].modal_fill,
     }),
     title: props => ({
@@ -22,8 +33,15 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     dialog_actions: props => ({
-        fontSize: props.fontSize,
-        width: '22em',
-        marginLeft: '1.5em'
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize002,
+            width: '22em',
+            marginLeft: '1.5em',
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSize0023,
+            marginRight: '3.5%',
+            width: '97.5%',
+        },
     }),
 });

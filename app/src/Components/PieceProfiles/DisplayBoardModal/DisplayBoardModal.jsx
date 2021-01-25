@@ -4,12 +4,12 @@ import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import {ModalDisplayBoard} from "./ModalDisplayBoard";
+import {ProfileRangeBoard} from "./ProfileRangeBoard";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {fontSize0040} from "../../styles/fontSizes.jss";
 import {useStyles} from "./DisplayBoardModal.jss"
 
-export function DisplayBoardModal({theme, img, pieceName, rangeType, range, color, close}) {
+export function DisplayBoardModal({theme, src, pieceName, rangeType, range, color, close}) {
 
     const classes = useStyles({theme: theme, fontSize: fontSize0040});
 
@@ -24,13 +24,14 @@ export function DisplayBoardModal({theme, img, pieceName, rangeType, range, colo
                         <CloseIcon />
                     </IconButton>
                 </Box>
-                <ModalDisplayBoard
-                    img={img}
+                <ProfileRangeBoard
+                    src={src}
                     range={range}
                     pieceName={pieceName}
                     rangeType={rangeType}
                     location="d4"
                     theme={theme}
+                    isModal={true}
                 />
             </motion.div>
         </div>

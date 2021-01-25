@@ -410,8 +410,9 @@ class GameRoot extends React.Component {
                                             }
                                             save={this.save}
                                             resign={this.resign}
-                                            toggleSaveAs={this.toggleSaveAs}
                                             theme={this.state.theme}
+                                            changeName={this.changeName}
+                                            isSaveMessage={this.state.isSaveMessage}
                                             messageCallback={() =>
                                                 this.setState({
                                                     isSaveMessage: false,
