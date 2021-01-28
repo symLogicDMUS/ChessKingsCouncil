@@ -1,13 +1,15 @@
-import React, { useReducer, useState } from "react";
-import Box from "@material-ui/core/Box";
+import React, {useMemo, useReducer, useState} from "react";
 import MediaQuery from "react-responsive/src";
+import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
+import {addRangeImgToDefs} from "./addRangeImgToDefs";
+import {fontSize0023} from "../../styles/fontSizes.jss";
 import Typography from "@material-ui/core/Typography";
-import { fontSize0023 } from "../../styles/fontSizes.jss";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
-import { MiniBoard } from "./MiniBoard";
-import { reducer } from "./BoardTool.red";
-import { useStyles } from "./BoardTool.jss";
+import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
+import Box from "@material-ui/core/Box";
+import {MiniBoard} from "./MiniBoard";
+import {reducer} from "./BoardTool.red";
+import {useStyles} from "./BoardTool.jss";
+
 
 export function BoardTool({
     theme,
@@ -32,6 +34,8 @@ export function BoardTool({
         setShowProfileOnClick(!showProfileOnClick);
     };
 
+    const defs = useMemo(() => addRangeImgToDefs(pieceDefs, theme), [pieceDefs, theme])
+
     return (
         <div className={classes.board_tool}>
             <MediaQuery minDeviceWidth={768}>
@@ -45,7 +49,7 @@ export function BoardTool({
                 theme={theme}
                 board={board}
                 idDict={idDict}
-                pieceDefs={pieceDefs}
+                pieceDefs={defs}
                 allRanges={allRanges}
                 screenCase={screenCase}
                 parentDispatch={dispatch}
