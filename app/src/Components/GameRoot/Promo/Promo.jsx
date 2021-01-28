@@ -6,9 +6,10 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import { shuffle } from "../../helpers/shuffleArray";
 import { PromoArrow } from "./PromoArrow";
 import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
-import { fontSize01 as fontSize } from "../../styles/fontSizes.jss";
 import { itemStyle, ok_button, useStyles } from "./Promo.jss";
 import { reducer } from "./reducer.red";
+import MediaQuery from "react-responsive/src";
+import {fontSize0015, fontSize002, fontSize01} from "../../styles/fontSizes.jss";
 
 function Promo(props) {
     const [state, dispatch] = useReducer(reducer, {
@@ -22,7 +23,7 @@ function Promo(props) {
         }
     }, [props.color]);
 
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize });
+    const classes = useStyles({ theme: props.theme});
 
     /**
      * Pawn promotion means we are adding another piece,
@@ -159,15 +160,28 @@ function Promo(props) {
                             }
                         />
                     </Box>
-                    <OkButton
-                        onClick={() => promote(props.promoDest)}
-                        style={ok_button(fontSize * 0.1, props.theme)}
-                        isDisabled={!state.promoChoice}
-                        theme={props.theme}
-                        variant={"contained"}
-                    >
-                        Ok
-                    </OkButton>
+                    <MediaQuery minDeviceHeight={768}>
+                        <OkButton
+                            onClick={() => promote(props.promoDest)}
+                            style={ok_button('desktop', props.theme)}
+                            isDisabled={!state.promoChoice}
+                            theme={props.theme}
+                            variant={"contained"}
+                        >
+                            Ok
+                        </OkButton>
+                    </MediaQuery>
+                    <MediaQuery maxDeviceHeight={767}>
+                        <OkButton
+                            onClick={() => promote(props.promoDest)}
+                            style={ok_button('mobile', props.theme)}
+                            isDisabled={!state.promoChoice}
+                            theme={props.theme}
+                            variant={"contained"}
+                        >
+                            Ok
+                        </OkButton>
+                    </MediaQuery>
                 </div>
             </Box>
         </>

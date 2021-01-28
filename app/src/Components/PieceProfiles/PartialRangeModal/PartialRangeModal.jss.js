@@ -15,6 +15,7 @@ export const close_style = () => ({
 });
 export const useStyles = makeStyles({
     partial_range_board: props => ({
+        zIndex: 'inherit',
         '@media screen and (min-width: 768px)': {
             ...board(fontSizes.desktop)
         },
@@ -23,6 +24,7 @@ export const useStyles = makeStyles({
         },
     }),
     top: props => ({
+        zIndex: 'inherit',
         fontSize: fontSize0025,
         width: '100%',
         height: '1.5em',
@@ -33,6 +35,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     title: props => ({
+        zIndex: 'inherit',
         fontSize: fontSize0025,
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',

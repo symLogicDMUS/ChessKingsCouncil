@@ -1,11 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
-import {promoChoiceSize} from "./PromoChoice.jss";
+import {promoChoicesSize} from "./Promo.jss";
 
 export const useStyles = makeStyles((theme) => ({
     button: props => ({
         fontSize: props.fontSize,
-        height: promoChoiceSize*1.04,
+        '@media screen and (min-width: 768px)': {
+            height: promoChoicesSize.desktop*1.04,
+        },
+        '@media screen and (max-width: 767px)': {
+            height: promoChoicesSize.mobile,
+        },
         width: '0.1em',
         lineHeight: 0,
         minWidth: 0,

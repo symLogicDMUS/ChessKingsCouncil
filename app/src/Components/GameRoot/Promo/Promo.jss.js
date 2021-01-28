@@ -1,20 +1,42 @@
 import {modal} from "../../helpers/modal.jss";
-import {promoChoiceSize} from "./PromoChoice.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import {
+    fontSize002,
+    fontSize00301,
+    fontSize01
+} from "../../styles/fontSizes.jss";
+import {availHeight} from "../../helpers/windowMeasurments";
 
-export const promoChoicesHeight = promoChoiceSize;
-export const promoChoicesWidth = promoChoiceSize * 4 + promoChoiceSize * 0.2;
+export const buttonHeight = {
+    desktop: '1em',
+    mobile: '1.5em'
+}
 
-export const ok_button = (fontSize, theme) => ({
-    fontSize: fontSize,
-    width: promoChoicesWidth,
-    height: promoChoicesHeight * 0.18,
+export const fontSizes = {
+    desktop: fontSize00301,
+    mobile: fontSize002,
+}
+
+// export const promoChoiceSize = availHeight() * 0.2;
+export const promoChoicesSize = {
+    desktop: availHeight() * 0.2,
+    mobile: availHeight() * 0.16,
+}
+
+export const promoChoicesWidth = {
+    desktop: promoChoicesSize.desktop * 4 + promoChoicesSize.desktop * 0.2,
+    mobile: promoChoicesSize.mobile * 2 + promoChoicesSize.mobile * 0.16,
+}
+
+export const ok_button = (screenCase, theme) => ({
+    fontSize: fontSizes[screenCase],
+    width: promoChoicesWidth[screenCase],
+    height: buttonHeight[screenCase],
     borderRadius: "0.8em",
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     backgroundColor: themes[theme].fill,
-    // border: `0.01em solid ${themes[theme].outline}`
 });
 
 export const itemStyle = () => ({
@@ -32,15 +54,26 @@ export const useStyles = makeStyles({
         justifyContent: 'space-evenly',
     }),
     menu: props => ({
-        fontSize: props.fontSize,
-        height: promoChoiceSize*1.05,
+        fontSize: fontSize01,
+        '@media screen and (min-width: 768px)': {
+            height: promoChoicesSize.desktop * 1.085,
+        },
+        '@media screen and (max-width: 767px)': {
+            height: promoChoicesSize.mobile,
+        },
         backgroundColor: themes[props.theme].odd_row,
         borderRadius: '0.1em'
     }),
     img_group: (props) => ({
         fontSize: props.fontSize,
-        height: promoChoiceSize,
-        width: promoChoicesWidth,
+        '@media screen and (min-width: 768px)': {
+            height: promoChoicesSize.desktop,
+            width: promoChoicesWidth.desktop,
+        },
+        '@media screen and (max-width: 767px)': {
+            height: promoChoicesSize.mobile,
+            width: promoChoicesWidth.mobile,
+        },
     }),
     item_active: props => ({
         outline: 'none',

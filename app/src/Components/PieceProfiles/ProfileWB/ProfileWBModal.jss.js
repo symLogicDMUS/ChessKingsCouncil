@@ -2,10 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {
     fontSize0015,
     fontSize0023,
-    fontSize00301,
     fontSize0032,
-    fontSize00457,
-    fontSize0046
 } from "../../styles/fontSizes.jss";
 import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.jss";
 import {themes} from "../../styles/themes.jss";

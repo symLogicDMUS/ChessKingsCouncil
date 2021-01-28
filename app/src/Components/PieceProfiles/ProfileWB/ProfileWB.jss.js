@@ -7,7 +7,7 @@ import {modal} from "../../helpers/modal.jss";
 export const useStyles = makeStyles({
     modal: props => ({
        ...modal,
-       zIndex: 7,
+       zIndex: 9,
     }),
     profile_wb: props => ({
         zIndex: 'inherit',
