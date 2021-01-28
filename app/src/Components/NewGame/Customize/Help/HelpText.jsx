@@ -1,7 +1,9 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import Typography from "@material-ui/core/Typography";
-import { help_text, help_title } from "../../Reuseables/NavBar/HelpText.jss";
+import { help_text, help_title } from "../../../Reuseables/NavBar/HelpText.jss";
+import {SubExample} from "./SubExample";
+import {PromoCheckboxExample} from "../PromoCheckboxExample";
 
 export const HelpTitle = (fontSize, theme) => (
     <Typography variant="h6" style={{ ...help_title(fontSize, theme) }}>
@@ -25,6 +27,7 @@ export const HelpText = (fontSize, theme) => ([
                 each piece. Select the icon of the piece you want to substitute
                 for.
             </li>
+            <SubExample theme={theme} />
             <li>
                 A piece that a Pawn can be promoted to when it reaches the back
                 row. A prompt will appear when a Pawn reaches the back row that
@@ -37,6 +40,7 @@ export const HelpText = (fontSize, theme) => ([
                 top of the window to add all your pieces to the list, but if you
                 have more than 20 pieces than only the first 20 will be added.
             </li>
+            <PromoCheckboxExample theme={theme} />
         </ol>
         <p>
             Each game contains its own record of the pieces included in it,

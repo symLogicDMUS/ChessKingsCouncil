@@ -1,7 +1,9 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Typography } from "@material-ui/core";
-import { help_text, help_title } from "../Reuseables/NavBar/HelpText.jss";
+import { help_text, help_title } from "../../Reuseables/NavBar/HelpText.jss";
+import {SaveResignExample} from "./SaveResignExample";
+import {GameInfoExample} from "./GameInfoExample";
 
 export const HelpTitle = (fontSize, theme) => (
     <Typography variant="h6" style={{ ...help_title(fontSize, theme) }}>
@@ -25,10 +27,12 @@ export const HelpText = (fontSize, theme) => [
             (white, black or test) are listed in the sidebar on desktop and the
             bottom accordion on mobile.
         </p>
+        <GameInfoExample theme={theme} />
         <p>
             Games are not saved automatically. Any moves including resigning the
             game, don't take effect until the saved button is pressed.
         </p>
+        <SaveResignExample theme={theme} />
         <p>
             If you save the game with a different name, than another copy of the
             game will still exist with the name you originally gave.

@@ -30,7 +30,9 @@ export const piece_value = (fontSize, theme) => ({
     flexWrap: 'no-wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: '0.5em'
+    paddingLeft: '0.5em',
+    color: themes[theme].text,
+    fontFamily: 'Roboto-Light, Roboto',
 });
 
 export const useStyles = makeStyles({

@@ -23,7 +23,7 @@ import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {SearchBox} from "../../Reuseables/SearchBox";
-import {HelpText, HelpTitle} from "./HelpText";
+import {HelpText, HelpTitle} from "./Help/HelpText";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
 import {

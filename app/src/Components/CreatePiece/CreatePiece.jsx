@@ -4,7 +4,7 @@ import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {HelpText, HelpTitle} from "./HelpText"
+import {HelpText, HelpTitle} from "./Help/HelpText"
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
 import {copy} from "../helpers/copy";

@@ -6,12 +6,14 @@ export const useStyles = makeStyles({
     img_window: props => ({
         '@media screen and (min-width: 768px)': {
             fontSize: fontSize002,
+            width: "9em",
+            height: "9em",
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize00236,
+            width: "9.5em",
+            height: "9.5em",
         },
-        width: "9.5em",
-        height: "9.5em",
         display: 'flex',
         alignItems: 'center',
         cursor: 'pointer',
@@ -20,7 +22,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
     }),
     img_label: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         display: 'flex',
         direction: 'row',
         alignItems: 'center',
@@ -28,12 +30,12 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         color: themes[props.theme].text,
         padding: 0,
     }),
     text: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
         marginLeft: '0.1em',

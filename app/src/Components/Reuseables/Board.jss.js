@@ -8,7 +8,7 @@ export const mobileBoardPadding = availWidth() * 0.002;
  * for dnd context
  */
 export const sqrSizes = {
-    desktop: availHeight() * 0.1,
+    desktop: availHeight() * 0.095,
     mobile: availWidth() * 0.12125,
 }
 

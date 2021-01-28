@@ -8,23 +8,23 @@ export const fontSizes = {
 }
 
 export const widths = {
-    desktop: '9.5em',
-    mobile: '9.5em',
+    desktop: '9em',
+    mobile: '9em',
 }
 
 /**
  * @type {{desktop: em units, mobile: em units}}
  */
 export const heights = {
-    desktop: 9.5,
-    mobile: 9.5,
+    desktop: 9,
+    mobile: 9,
 }
 
 export const useStyles = makeStyles({
     range_tool: props => ({
-        ...tool(props.fontSize, props.theme),
+        ...tool(fontSize002, props.theme),
         justifyContent: 'center',
-        height: '14.5em',
+        height: '10.5em',
         ...props.styles,
     }),
     box: props => ({

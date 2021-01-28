@@ -14,7 +14,7 @@ export function ImgButtonsModal({
     showChooseModal,
     close
 }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: theme });
 
     return (
         <div className={classes.modal}>

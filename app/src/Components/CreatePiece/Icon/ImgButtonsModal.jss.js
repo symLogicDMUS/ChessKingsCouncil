@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const close_icon = (fontSize) => ({
     fontSize: fontSize,
@@ -23,7 +24,7 @@ export const useStyles = makeStyles({
 
     window: props => ({
         zIndex: 2,
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '15em',
         height: '6em',
         backgroundColor: themes[props.theme].fill,
@@ -32,7 +33,7 @@ export const useStyles = makeStyles({
     }),
 
     top_flexbox: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '100%',
         height: '2em',
         display: 'flex',
@@ -43,7 +44,7 @@ export const useStyles = makeStyles({
     }),
 
     button_group: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly',

@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
         fontSize: props.fontSize,
         '@media screen and (min-width: 768px)': {
             width: '60%',
-            height: '60%',
+            height: '64.5%',
         },
         '@media screen and (max-width: 767px)': {
             width: '100%',
@@ -32,6 +32,8 @@ export const useStyles = makeStyles({
         fontSize: props.fontSize,
         width: '100%',
         height: '1.5em',
+        position: 'relative',
+        top: '-3.5%',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'flex-start',

@@ -36,7 +36,7 @@ import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {HelpText, HelpTitle} from "./HelpText";
+import {HelpText, HelpTitle} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";

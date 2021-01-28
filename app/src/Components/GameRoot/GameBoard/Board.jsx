@@ -1,12 +1,12 @@
-import React, { useReducer } from "react";
-import MediaQuery from "react-responsive/src";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { TouchBackend } from "react-dnd-touch-backend";
-import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
-import { GameDisplayBoard } from "./GameDisplayBoard";
+import React from "react";
 import DragLayer from "./DragLayer";
 import DropLayer from "./DropLayer";
+import { DndProvider } from "react-dnd";
+import MediaQuery from "react-responsive/src";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
+import { GameDisplayBoard } from "./GameDisplayBoard";
+import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
 
 export const Board = ({ gameRoot }) => {
 

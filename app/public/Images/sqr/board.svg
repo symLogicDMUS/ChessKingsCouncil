@@ -8,7 +8,7 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="deleteMe.svg"
+   sodipodi:docname="board.svg"
    id="svg611"
    version="1.1"
    viewBox="0 0 480 480"
@@ -538,7 +538,7 @@
               <dc:format>image/svg+xml</dc:format>
               <dc:type
                  rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-              <dc:title />
+              <dc:title></dc:title>
             </cc:Work>
           </rdf:RDF>
         </metadata>

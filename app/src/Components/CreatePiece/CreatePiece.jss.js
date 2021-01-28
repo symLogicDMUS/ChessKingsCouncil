@@ -13,7 +13,7 @@ export const tool = (fontSize, theme) => ({
     '@media screen and (min-width: 768px)': {
         backgroundColor: themes[theme].fill,
         width: '100%',
-        marginBottom: '3.5%',
+        marginBottom: '5%',
     },
     '@media screen and (max-width: 767px)': {
         width: '100%',
