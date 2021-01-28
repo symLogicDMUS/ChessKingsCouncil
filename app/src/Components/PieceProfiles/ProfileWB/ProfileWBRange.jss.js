@@ -63,7 +63,7 @@ export const useStyles = makeStyles({
         },
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,
-        border: `0.05em solid ${themes[props.theme].outline}`,
+        outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     board_img: props => ({
         width: '100%',

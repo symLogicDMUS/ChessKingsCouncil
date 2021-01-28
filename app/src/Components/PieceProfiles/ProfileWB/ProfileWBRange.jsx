@@ -19,7 +19,9 @@ export const ProfileWBRange = ({
                 rangeType={rangeType}
                 openRangeModal={openRangeModal}
             />
-            <img src={src} className={classes.board_img} alt='range of piece shown as board' />
+            <Box className={classes.board_window}>
+                <img src={src} className={classes.board_img} alt='range of piece shown as board' />
+            </Box>
         </Box>
     );
 }

@@ -14,6 +14,7 @@ export const themes = {
         even_row: '#414141',
         odd_row: '#474747',
         span: '#ec2525',
+        span_alt: '#c60116',
         offset: '#a70000',
         light_normal: '#f0f0ff',
         dark_normal: '#a9a9b8',

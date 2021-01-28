@@ -29,15 +29,14 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
                     <div className={classes.modal}>
                         <Box className={classes.range_modal}>
                             <PartialRangeModal
-                                theme={theme}
-                                src={def.img}
-                                color={color}
-                                offsets={def.offsets}
-                                pieceName={pieceName}
-                                screenCase={screenCase}
+                                range={(state.rangeType === 'span') ? def.spans : def.offsets}
                                 rangeType={state.rangeType}
                                 close={() => dispatch({ type: "close" })}
-                                range={(state.rangeType === 'span') ? def.spans : def.offsets}
+                                src={def.img}
+                                color={color}
+                                theme={theme}
+                                pieceName={pieceName}
+                                screenCase={screenCase}
                             />
                         </Box>
                     </div>

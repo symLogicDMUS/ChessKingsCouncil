@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuidv4} from 'uuid';
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import { fontSize0040 } from "../../styles/fontSizes.jss";
 import { heights } from "../PieceProfiles.jss";
@@ -18,9 +19,10 @@ export function RangeList({
         for (const span of range) {
             spanListItems.push(
                 <RangeListItem
+                    key={uuidv4()}
                     theme={theme}
                     rangeText={stepFuncNamesToText[span]}
-                    onClick={parentDispatch({
+                    onClick={() => parentDispatch({
                         type: "span",
                         span: span,
                     })}
@@ -35,9 +37,10 @@ export function RangeList({
         for (const offset of range) {
             offsetListItems.push(
                 <RangeListItem
+                    key={uuidv4()}
                     theme={theme}
                     rangeText={offsetToText(offset)}
-                    onClick={parentDispatch({
+                    onClick={() => parentDispatch({
                         type: "offset",
                         offset: offset,
                     })}
