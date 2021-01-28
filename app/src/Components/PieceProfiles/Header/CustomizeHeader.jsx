@@ -1,60 +1,66 @@
-import React, { useEffect, useReducer } from "react";
+import React, { memo, useMemo } from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
 import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
-import { themes } from "../../styles/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
-import { reducer } from "./CustomizeHeader.red";
-import { text } from "./PieceHeader.jss";
-import {checkbox_root, checkbox_style, checkbox_text, useStyles} from "./CustomizeHeader.jss";
+import {
+    checkbox_root,
+    checkbox_style,
+    useStyles,
+} from "./CustomizeHeader.jss";
+import { themes } from "../../styles/themes.jss";
 
-export function CustomizeHeader({
-    pieceName,
-    isCheckmark,
-    newReplacement,
-    newReplaced,
+export const CustomizeHeader = ({
+    subs,
+    promos,
     toggleSub,
     togglePromo,
+    pieceName,
     screenCase,
     theme,
-}) {
-    let [state, dispatch] = useReducer(reducer, {
-        subSelection: null,
-        colors: {
-            Queen: "none",
-            Rook: "none",
-            Bishop: "none",
-            Knight: "none",
-            noSymbol: themes[theme].text,
-        },
-    });
-
+}) => {
     const classes = useStyles({ theme: theme });
 
-    useEffect(() => {
-        /** If sub just made and this piece not the sub and the piece being subbed for is what this piece was previously
-         * subbing for,than this piece has no sub.
-         * */
-        if (
-            newReplacement !== null &&
-            pieceName !== newReplacement &&
-            newReplaced === state.subSelection
-        ) {
-            dispatch({ type: "no-sub", theme: theme });
-        } else if (newReplaced !== null && newReplacement === pieceName) {
-        /**If a sub just made and this piece is the sub set it's state to piece it's subbing for*/
-            dispatch({ type: "sub", theme: theme, newReplaced: newReplaced });
+    const getColors = () => {
+        const colors = { Queen: "", Rook: "", Bishop: "", Knight: "" };
+        for (const standardPieceName of Object.keys(subs)) {
+            if (subs[standardPieceName] === pieceName) {
+                colors[standardPieceName] = themes[theme].text;
+            } else {
+                colors[standardPieceName] = 'none';
+            }
         }
-    }, [newReplacement, newReplaced]);
+        return colors;
+    };
+    const colors = useMemo(() => getColors(), [subs]);
+
+    const getIsPromo = () => {
+        return promos.includes(pieceName);
+    };
+    const isCheckmark = useMemo(() => getIsPromo(), [promos]);
+
+    const getSelectedSub = () => {
+        for (const standardPieceName of Object.keys(colors)) {
+            if (colors[standardPieceName] === themes[theme].text) {
+                return standardPieceName;
+            }
+        }
+        return null;
+    };
 
     return (
         <>
             <div className={classes.header}>
-                <Box className={classes.box} style={{ marginRight: (screenCase === 'desktop') ? "1.55em" : 0 }}>
+                <Box
+                    className={classes.box}
+                    style={{
+                        marginRight: screenCase === "desktop" ? "1.55em" : 0,
+                    }}
+                >
                     <Typography
                         className={classes.piece_name}
                         variant="h6"
@@ -63,7 +69,12 @@ export function CustomizeHeader({
                         {pieceName}
                     </Typography>
                 </Box>
-                <Box className={classes.box} style={{ marginRight: (screenCase === 'desktop') ? "1.5em" : 0 }}>
+                <Box
+                    className={classes.box}
+                    style={{
+                        marginRight: screenCase === "desktop" ? "1.5em" : 0,
+                    }}
+                >
                     <MuiCheckbox
                         onClick={() => togglePromo(pieceName)}
                         checkmarkState={isCheckmark}
@@ -71,9 +82,9 @@ export function CustomizeHeader({
                         rootStyle={checkbox_root(theme)}
                         checkboxStyle={{
                             transform:
-                                screenCase === 'mobile' ?
-                                'translate(-0.35em, 0)' :
-                                'none'
+                                screenCase === "mobile"
+                                    ? "translate(-0.35em, 0)"
+                                    : "none",
                         }}
                         theme={theme}
                     >
@@ -81,18 +92,26 @@ export function CustomizeHeader({
                         <MediaQuery maxDeviceHeight={767}>Promo</MediaQuery>
                     </MuiCheckbox>
                 </Box>
-                <Box  className={classes.box} style={{justifyContent: 'space-between', alignItems: 'center'}}>
+                <Box
+                    className={classes.box}
+                    style={{
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                >
                     <IconButton
                         onClick={() => {
-                            toggleSub(null, state.subSelection)
-                            dispatch({type: "no-sub", theme: theme})
+                            const selectedSub = getSelectedSub();
+                            if (selectedSub) {
+                                toggleSub(null, selectedSub);
+                            }
                         }}
                         className={classes.no_sub_button}
                     >
                         <BlockIcon
                             className={classes.no_sub_icon}
                             style={{
-                                color: state.colors.noSymbol,
+                                color: getSelectedSub() ? themes[theme].outline : themes[theme].text,
                             }}
                         />
                     </IconButton>
@@ -103,7 +122,7 @@ export function CustomizeHeader({
                         <SvgIcon className={classes.sub_icon}>
                             {icons.queen_outline(
                                 themes[theme].outline,
-                                state.colors.Queen
+                                colors.Queen
                             )}
                         </SvgIcon>
                     </IconButton>
@@ -114,7 +133,7 @@ export function CustomizeHeader({
                         <SvgIcon className={classes.sub_icon}>
                             {icons.rook_outline(
                                 themes[theme].outline,
-                                state.colors.Rook
+                                colors.Rook
                             )}
                         </SvgIcon>
                     </IconButton>
@@ -125,7 +144,7 @@ export function CustomizeHeader({
                         <SvgIcon className={classes.sub_icon}>
                             {icons.knight_outline(
                                 themes[theme].outline,
-                                state.colors.Knight
+                                colors.Knight,
                             )}
                         </SvgIcon>
                     </IconButton>
@@ -136,7 +155,7 @@ export function CustomizeHeader({
                         <SvgIcon className={classes.sub_icon}>
                             {icons.bishop_outline(
                                 themes[theme].outline,
-                                state.colors.Bishop
+                                colors.Bishop
                             )}
                         </SvgIcon>
                     </IconButton>
@@ -144,4 +163,4 @@ export function CustomizeHeader({
             </div>
         </>
     );
-}
+};

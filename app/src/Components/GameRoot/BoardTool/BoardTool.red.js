@@ -4,10 +4,9 @@ import { getColor } from "../../helpers/getColor";
 import { rankfiles } from "../../helpers/rankfiles";
 import { getPieceName } from "../../helpers/getPieceName";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { ProfileWBModal } from "../../PieceProfiles/ProfileWB/ProfileWBModal";
+import { NoProfile } from "../../PieceProfiles/ProfileWB/NoProfile";
 import { isSpecial } from "../../helpers/isSpecial";
-import { ProfileWBModal } from "../../PieceProfiles/ProfileWBModal";
-import { NoProfile } from "../../PieceProfiles/NoProfile";
-import {fontSizes} from "../../PieceProfiles/ProfileWBModal.jss";
 
 export function reducer(state, action) {
     switch (action.type) {

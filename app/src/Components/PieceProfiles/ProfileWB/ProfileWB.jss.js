@@ -1,9 +1,14 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {themes} from "../styles/themes.jss";
-import {profileHeight} from "./Profile.jss";
-import {fontSizes, widths} from "./PieceProfiles.jss";
+import {fontSizes, widths} from "../PieceProfiles.jss";
+import {themes} from "../../styles/themes.jss";
+import {profileHeight} from "../Profile.jss";
+import {modal} from "../../helpers/modal.jss";
 
 export const useStyles = makeStyles({
+    modal: props => ({
+       ...modal,
+       zIndex: 7,
+    }),
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
@@ -45,37 +50,20 @@ export const useStyles = makeStyles({
         borderLeft: `0.05em solid ${themes[props.theme].outline}`,
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
-    box: props => ({
-        flexGrow: 100,
-    }),
-    /*Parts of the range table's header: */
-    range_title: props => ({
-        fontSize: '0.85em',
-        fontFamily: 'Roboto-Light, Roboto',
-        color: themes[props.theme].text,
+    range_modal: props => ({
         '@media screen and (min-width: 768px)': {
-            textAlign: 'center',
-            paddingLeft: '2em',
+            fontSize: fontSizes.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            textAlign: 'left',
-            paddingLeft: '1em',
+            fontSize: fontSizes.mobile,
         },
-    }),
-    range_expand_widget: props => ({
-        fontSize: '1em',
-        width: '1.5em',
-        height: '1.5em',
-        color: themes[props.theme].text,
-    }),
-    range_expand_icon: props => ({
-        '@media screen and (min-width: 768px)': {
-            width: '1em',
-            height: '1em',
-        },
-        '@media screen and (max-width: 767px)': {
-            width: '0.7em',
-            height: '0.7em',
-        },
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: '0.25em',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.1em solid ${themes[props.theme].outline}`,
     }),
 })

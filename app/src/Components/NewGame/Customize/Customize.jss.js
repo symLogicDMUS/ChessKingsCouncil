@@ -2,6 +2,7 @@ import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
+import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
 
 /* unit % */
 export const drawerItemWidth = drawerWidth * 0.86;
@@ -52,6 +53,19 @@ export const drawer_table_button = (fontSize) => ({
     disableElevation: true,
 });
 
+export const promo_all_checkbox_container = () => ({
+    fontSize: fontSizes.desktop,
+    '@media screen and (min-width: 768px)': {
+        width: drawerItemWidth,
+        marginLeft: drawerItemMarginLeft,
+        marginTop: drawerItemMarginTopBottom*0.8,
+        marginBottom: drawerItemMarginTopBottom*0.8,
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '100%',
+    },
+});
+
 export const list_title = (theme) => ({
     ...text(theme),
     '@media screen and (min-width: 768px)': {
@@ -73,25 +87,4 @@ export const styles = {
         height: availHeight() * 0.95,
         width: availWidth(),
     },
-    list_title: props => ({
-
-    }),
-    promo_all_container: props => ({
-        fontSize: props.fontSize,
-        '@media screen and (min-width: 768px)': {
-            width: drawerItemWidth,
-            marginLeft: drawerItemMarginLeft,
-            marginTop: drawerItemMarginTopBottom*0.8,
-            marginBottom: drawerItemMarginTopBottom*0.8,
-        },
-        '@media screen and (max-width: 767px)': {
-            width: '100%',
-        },
-    }),
-    divider: props => ({
-        fontSize: props.fontSize,
-        width: '100%',
-        marginTop: '0.75em',
-        marginBottom: '0.75em',
-    }),
 };

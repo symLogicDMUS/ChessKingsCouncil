@@ -24,11 +24,9 @@ import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {
     fontSize0016,
-    fontSize00184,
     fontSize0023,
     fontSize00276,
     fontSize0034,
-    fontSize0040
 } from "../../styles/fontSizes.jss";
 import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpText, HelpTitle} from "./HelpText";
@@ -40,7 +38,7 @@ import {
     drawerItemWidth,
     drawerItemMarginLeft,
     drawerItemMarginTopBottom,
-    styles, list_title
+    list_title, promo_all_checkbox_container
 } from "./Customize.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 
@@ -260,7 +258,7 @@ class Customize extends React.Component {
         return (
             <>
                 {this.state.redirect ? (this.play()) : null}
-                <div className={this.props.classes.customize}>
+                <div> {/*className={this.props.classes.customize}*/}
                     <MediaQuery minDeviceWidth={768}>
                         <PermanentDrawer
                             drawerType="right"
@@ -270,6 +268,7 @@ class Customize extends React.Component {
                                 <PieceProfiles
                                     parentPage="Customize"
                                     defs={this.defs}
+                                    subs={this.subs}
                                     promos={this.promos}
                                     updateParent={this.setDefs}
                                     newReplacement={this.newReplacement}
@@ -320,7 +319,7 @@ class Customize extends React.Component {
                                     </Typography>
                                 }
                             />
-                            <Box className={this.props.classes.promo_all_container}>
+                            <Box style={promo_all_checkbox_container()}>
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
@@ -389,6 +388,7 @@ class Customize extends React.Component {
                             <PieceProfiles
                                 parentPage="Customize"
                                 defs={this.defs}
+                                subs={this.subs}
                                 promos={this.promos}
                                 theme={this.state.theme}
                                 updateParent={this.setDefs}
@@ -471,5 +471,5 @@ class Customize extends React.Component {
         );
     }
 }
-
-export default withStyles(styles)(Customize);
+export default Customize;
+// export default withStyles(styles)(Customize);

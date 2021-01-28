@@ -6,9 +6,9 @@ import {
     fontSize0032,
     fontSize00457,
     fontSize0046
-} from "../styles/fontSizes.jss";
-import {profileHeight, profileWidth} from "../GameRoot/BoardTool/BoardTool.jss";
-import {themes} from "../styles/themes.jss";
+} from "../../styles/fontSizes.jss";
+import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const fontSizes = {
     desktop: fontSize0032,

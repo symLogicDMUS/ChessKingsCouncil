@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize0015, fontSize0023, fontSize00457} from "../styles/fontSizes.jss";
-import {profileHeight, profileWidth} from "../GameRoot/BoardTool/BoardTool.jss";
-import {themes} from "../styles/themes.jss";
+import {fontSize0015, fontSize0023, fontSize00457} from "../../styles/fontSizes.jss";
+import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.jss";
+import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "./ProfileWBModal.jss";
 
 export const close_icon = () => ({

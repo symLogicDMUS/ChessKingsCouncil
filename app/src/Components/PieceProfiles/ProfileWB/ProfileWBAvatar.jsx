@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { resolvePlayerType } from "../helpers/resolvePlayerType";
-import { useStyles } from "./ProfileAvatar.jss";
+import { resolvePlayerType } from "../../helpers/resolvePlayerType";
+import { useStyles } from "./ProfileWBAvatar.jss";
 
-export function ProfileAvatar(props) {
+export function ProfileWBAvatar(props) {
     const classes = useStyles({ theme: props.theme });
 
     return (

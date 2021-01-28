@@ -24,12 +24,12 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         '@media screen and (min-width: 768px)': {
             height: availHeight() * 0.75,
-            width: availWidth()*0.5,
+            width: availWidth() * 0.5,
             marginLeft: '0.25em',
             marginTop: '0.25em',
         },
         '@media screen and (max-width: 767px)': {
-            height: availHeight()*0.65,
+            height: availHeight() * 0.65,
             width: availWidth(),
             marginTop: '0.05em',
         },

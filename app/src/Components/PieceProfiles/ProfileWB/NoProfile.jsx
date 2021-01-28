@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Close} from "../Reuseables/Close";
+import {Close} from "../../Reuseables/Close";
 import Typography from "@material-ui/core/Typography";
 import {close_icon, useStyles} from "./NoProfile.jss";
 
