@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import "../styles/_backgrounds.scss";
+import "../styles/Scrollbar.scss";
 import { useHistory } from "react-router-dom";
 import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
@@ -14,8 +16,6 @@ import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpText, HelpTitle} from "./GameOptions/HelpText";
-import "../styles/_backgrounds.scss";
-import "../styles/Scrollbar.scss";
 import {useStyles, play_button} from "./NewGame.jss";
 
 function NewGame() {

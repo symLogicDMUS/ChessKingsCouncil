@@ -11,7 +11,14 @@ export const HelpTitle = (fontSize, theme) => (
 
 export const HelpText = (fontSize, theme) => ([
      <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
-        <p>The Site Has 3 Types of Games:</p>
+        <p>Game Name:</p>
+        <p>
+            Type the name of the game. Note that the game is not saved until the Save or Save As button in used in the game. If
+            you use the Save As button to give a different name than here, the name given here will be discarded.
+        </p>
+    </Typography>,
+    <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+        <p>Pick Type:</p>
         <ol>
             <li><i>Standard</i>: Regular Chess. Chess is played by millions of people all over the world.</li>
             <li>
@@ -27,15 +34,9 @@ export const HelpText = (fontSize, theme) => ([
             </li>
         </ol>
     </Typography>,
-     <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
-        <p>Picking a Name:</p>
-        <p>
-            Type the name of the game. The game is not saved until the Save or Save As button in used in the game. If
-            you use the Save As button to give a different name than here, the name given here will be discarded.
-        </p>
-    </Typography>,
-     <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
-        <p>Player Type:</p>
+
+    <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+        <p>Play As:</p>
         <p>
             You can play as black or white as usual, but there is also the 'Test' option, to test the game or pieces
             that you created to see if you like it, demonstrate a sequence of moves to someone, or in the developer's

@@ -6,14 +6,20 @@ import Typography from "@material-ui/core/Typography";
 import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
 import {IncorrectNameEntryExamples} from "./IncorrectNameEntryExamples";
 import {getSpanRangeBoardExample} from "./getSpanRangeBoardExample";
-import {availHeight} from "../../helpers/windowMeasurments";
-import {fontSize00301} from "../../styles/fontSizes.jss";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
 import {ImgWindowExamples} from "./ImgWindowExamples";
 import {ImgButtonsExample} from "./ImgButtonsExample";
 import {RangeToolExample} from "./RangeToolExample";
 import {offsetExample1} from "./offsetExample1";
 import {offsetExample2} from "./offsetExample2";
 import {getOffsetRangeBoardExample} from "./getOffsetRangeBoardExample";
+import {fourLocationsBoard} from "./fourLocationBoard";
+import {LocationButtonsExample} from "./LocationButtonsExample";
+import {Load} from "../Options/Load";
+import {Option} from "../Options/Option";
+import {Button} from "@material-ui/core";
+import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 
 export const HelpTitle = (fontSize, theme) => (
     <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
@@ -34,24 +40,30 @@ export const HelpText = (fontSize, theme) => [
     <div>
         <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             Click of the image windows to upload an image from your computer or
-            choose from an image already uploaded The image of a piece can be
-            any image. An an image without square dimensions will be displayed
-            with its width the length of a square. I recommend using the same
-            image colored differently for white and black versions of same
-            piece.
+            choose from an image already uploaded.
         </Typography>
         <ImgWindowExamples theme={theme}/>
+        <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
+            The image of a piece can be any image. An an image without square
+            dimensions will be displayed with its width the length of a square.
+            I recommend using the same image colored differently for white and
+            black versions of the same piece.
+        </Typography>
         <Typography key={uuidv4()} style={help_text(fontSize, theme)}>
             <p>
                 Choose images for the white and black versions of your piece.
                 Click the Choose button to choose from a list of provided images
-                or the Upload button to upload your own. An image that is not
-                square dimentions will be reformatted to be, so it can fit on a
-                square. its width the length of a square. The following
-                guidelines are recommended for picking an image:
+                or the Upload button to upload your own.
             </p>
         </Typography>
         <ImgButtonsExample theme={theme}/>
+        <Typography key={uuidv4()} style={help_text(fontSize, theme)}>
+            <p>
+                An image that is not square dimensions will be reformatted to
+                be, so it can fit on a square. The following guidelines are
+                recommended for picking an image:
+            </p>
+        </Typography>
         <Typography key={uuidv4()} style={help_text(fontSize, theme)}>
             <ol>
                 <li>
@@ -114,7 +126,6 @@ export const HelpText = (fontSize, theme) => [
                 Now wherever the piece is in a game, whichever square is that
                 offset from the location is somewhere the piece can move. Click
                 the same square again to remove the offset.
-
             </p>
         </Typography>
 
@@ -151,7 +162,7 @@ export const HelpText = (fontSize, theme) => [
             />
             <RangeToolExample theme={theme}/>
         </Box>
-        <Typography>
+        <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             <p>
                 When you add an offset or a span to your piece, you are adding
                 it to the white version of the piece. The black version becomes
@@ -166,29 +177,31 @@ export const HelpText = (fontSize, theme) => [
                 the same, the black version of this piece would be useless.{" "}
             </p>
         </Typography>
-        <Box style={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'nowrap',
-            alignItems: 'center',
-            justifyContent: 'space-around',
-        }}>
+        <Box
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "nowrap",
+                alignItems: "center",
+                justifyContent: "space-around",
+            }}
+        >
             {offsetExample1(
                 themes[theme].light_normal,
                 themes[theme].dark_normal,
                 themes[theme].offset,
-                availHeight()*0.25,
-                availHeight()*0.25,
+                availHeight() * 0.25,
+                availHeight() * 0.25
             )}
             {offsetExample2(
                 themes[theme].light_normal,
                 themes[theme].dark_normal,
                 themes[theme].offset,
-                availHeight()*0.25,
-                availHeight()*0.25,
+                availHeight() * 0.25,
+                availHeight() * 0.25
             )}
         </Box>
-        <Typography>
+        <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             <p>
                 Another example off adding range is if you click the square that
                 is 2 up and 1 to the left from the piece’s location, than “+2,
@@ -210,11 +223,32 @@ export const HelpText = (fontSize, theme) => [
                 You can position the piece in one of 4 locations in the center
                 of the board: D4, D5, E4, or E5.{" "}
             </p>
+        </Typography>
+        <Box
+            style={{
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "nowrap",
+                alignItems: "center",
+                justifyContent: "space-around",
+            }}
+        >
+            {fourLocationsBoard(
+                availHeight() * 0.25,
+                availHeight() * 0.25,
+                themes[theme].light_normal,
+                themes[theme].dark_normal
+            )}
+        </Box>
+        <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             <p>
                 You can use the location buttons to switch to any of the 4
                 locations at any time. You will be able to see how the piece can
                 move from that location and add to its range from that location.
             </p>
+        </Typography>
+        <LocationButtonsExample theme={theme}/>
+        <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             <p>
                 These are the 4 squares that allow for the most symmetric
                 customization. For example, if you have an offset of 2 squares
@@ -246,22 +280,47 @@ export const HelpText = (fontSize, theme) => [
                     <i>Load:</i> Opens a list of previously created pieces. You
                     also have the option to delete them. This is the same as the
                     'My Pieces' page
+                    < br/>
+                    <Option
+                        iconType="load"
+                        theme={theme}
+                        key={uuidv4()}
+                    />
                 </li>
                 <li>
                     <i>Save</i>: Saves the piece. You can now add the piece as a
                     Pawn promotion option or a substitute for a regular piece,
                     when starting a new game. The piece can't be saved if the
                     name or image icons are blank.
+                    < br/>
+                    <Option
+                        iconType="save"
+                        theme={theme}
+                        key={uuidv4()}
+                    />
                 </li>
                 <li>
                     <i>Reset</i>: If you loaded a previously created piece than
                     this will reset the piece's profile to the last time you
                     saved it. If you're editing a new piece, the Reset option is
                     the same as the Erase option.
+                    < br/>
+                    <Option
+                        iconType="reset"
+                        theme={theme}
+                        key={uuidv4()}
+                    />
                 </li>
                 <li>
                     <i>Erase:</i> The Erase option removes all ranges and makes
                     the name and image icons blank.
+                    < br/>
+                    <Option
+                        iconType="erase"
+                        theme={theme}
+                        key={uuidv4()}
+                    />
+
                 </li>
             </ul>
         </Typography>
@@ -270,6 +329,17 @@ export const HelpText = (fontSize, theme) => [
         <Typography key={uuidv4()} paragraph style={help_text(fontSize, theme)}>
             Remember: You can return to the help menu any time through the Help
             option on the NavBar
+            <Button className={{display: 'inline-block', borderRadius: 0, background: themes[theme].fill}}>
+                <Box style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    width: '3em',
+                }}>
+                    <ContactSupportIcon style={{fontSize: fontSize002,}}/>
+                    <Typography style={{color: themes[theme].outline}}>Help</Typography>
+                </Box>
+            </Button>
         </Typography>
     </div>,
 ];
