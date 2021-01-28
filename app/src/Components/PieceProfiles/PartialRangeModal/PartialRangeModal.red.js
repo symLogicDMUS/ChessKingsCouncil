@@ -17,7 +17,7 @@ export function reducer(state, action) {
                 rf = stepFunc(rf);
             }
             return {
-                location: state.location,
+                ...state,
                 board: getPartialRangeBoardComponent(
                     newBoard,
                     state.location,
@@ -33,7 +33,7 @@ export function reducer(state, action) {
             let dy = y1 + action.offset[1];
             newBoard[xyToRf(dx, dy)] = true;
             return {
-                location: state.location,
+                ...state,
                 board: getPartialRangeBoardComponent(
                     newBoard,
                     state.location,
