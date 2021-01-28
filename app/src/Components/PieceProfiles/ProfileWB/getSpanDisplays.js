@@ -3,9 +3,7 @@ import {stepFuncDict2} from "../../helpers/stepFuncs";
 import {outOfBounds as oob} from "../../helpers/oob";
 
 function getSpanDisplay(spanDisplays, funcName, location) {
-    console.log('funcName', funcName)
     const stepFunc = stepFuncDict2[funcName];
-    console.log('stepFunc', stepFunc)
     let rf = stepFunc(location);
     while (!oob(rf)) {
         spanDisplays[rf] = true;

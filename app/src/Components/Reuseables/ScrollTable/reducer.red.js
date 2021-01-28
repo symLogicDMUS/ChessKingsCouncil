@@ -1,6 +1,10 @@
 import {divideList} from "./divideList";
 import {renderList} from "./renderList";
 import {copy} from "../../helpers/copy";
+import {listContainsComponent} from "../../helpers/listContainsComponent";
+import {objectContainsListContainingComponent} from "../../helpers/objectContainsListContainingComponent";
+import {cloneComponentLists} from "../../helpers/cloneComponentLists";
+
 
 export function reducer(state, action) {
     let lists, a, b;
@@ -10,7 +14,11 @@ export function reducer(state, action) {
             return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes)};
         case 'scroll-up':
             if (state.dataLists.aboveView.length > 0) {
-                lists = copy(state.dataLists)
+                if (objectContainsListContainingComponent(state.dataLists)) {
+                    lists = cloneComponentLists(state.dataLists)
+                } else {
+                    lists = copy(state.dataLists)
+                }
                 //1. remove the last item in view
                 a = lists.inView.pop()
                 //2. last item in view is first item below view.
@@ -26,7 +34,11 @@ export function reducer(state, action) {
             }
         case 'scroll-down':
             if (state.dataLists.belowView.length > 0) {
-                lists = copy(state.dataLists)
+                if (objectContainsListContainingComponent(state.dataLists)) {
+                    lists = cloneComponentLists(state.dataLists)
+                } else {
+                    lists = copy(state.dataLists)
+                }
                 //1. remove the first item in view.
                 a = lists.inView.shift()
                 //2. first item in view now last item above view
