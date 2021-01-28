@@ -58,7 +58,7 @@ class GameRoot extends React.Component {
         this.playerType = this.props.location.state.playerType;
 
         let gameData;
-        if (this.gameType === "Custom") {
+        if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
             gameData = this.props.location.state.gameData;
         } else {
             gameData = copy(newData);

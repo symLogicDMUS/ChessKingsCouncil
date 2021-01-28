@@ -3,6 +3,7 @@ import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
+import {fontSize0023} from "../../styles/fontSizes.jss";
 
 /* unit % */
 export const drawerItemWidth = drawerWidth * 0.86;
@@ -54,16 +55,9 @@ export const drawer_table_button = (fontSize) => ({
 });
 
 export const promo_all_checkbox_container = () => ({
-    fontSize: fontSizes.desktop,
-    '@media screen and (min-width: 768px)': {
-        width: drawerItemWidth,
-        marginLeft: drawerItemMarginLeft,
-        marginTop: drawerItemMarginTopBottom*0.8,
-        marginBottom: drawerItemMarginTopBottom*0.8,
-    },
-    '@media screen and (max-width: 767px)': {
-        width: '100%',
-    },
+    ...drawer_component(fontSize0023),
+    display: 'flex',
+    justifyContent: 'center',
 });
 
 export const list_title = (theme) => ({

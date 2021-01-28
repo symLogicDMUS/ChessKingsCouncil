@@ -1,7 +1,7 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import { fontSize0040 } from "../../styles/fontSizes.jss";
+import {fontSize00301, fontSize0040} from "../../styles/fontSizes.jss";
 import { heights } from "../PieceProfiles.jss";
 import { RangeListItem } from "../RangeListItem";
 import { stepFuncNamesToText } from "../../helpers/spanToText";
@@ -58,9 +58,9 @@ export function RangeList({
                     listItems={getOffsetListItems()}
                     theme={theme}
                     style={{
-                        width: "8em",
-                        height: heights[screenCase],
-                        fontSize: fontSize0040,
+                        width: "100%",
+                        height: 8,
+                        fontSize: fontSize00301,
                     }}
                     buttonStyle={{ borderRadius: 0 }}
                     rowStyle={{ cursor: "pointer" }}
@@ -72,9 +72,9 @@ export function RangeList({
                     listItems={getSpanListItems()}
                     theme={theme}
                     style={{
-                        width: "8em",
-                        height: heights[screenCase],
-                        fontSize: fontSize0040,
+                        width: "100%",
+                        height: 8,
+                        fontSize: fontSize00301,
                     }}
                     buttonStyle={{ borderRadius: 0 }}
                     rowStyle={{ cursor: "pointer" }}

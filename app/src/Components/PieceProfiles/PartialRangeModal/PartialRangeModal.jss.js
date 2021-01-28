@@ -12,7 +12,6 @@ export const close_style = () => ({
     fontSize: fontSize0025,
     height: '1em',
     width: '1em',
-    border: '1px dashed hotpink',
 });
 export const useStyles = makeStyles({
     partial_range_board: props => ({
@@ -26,7 +25,7 @@ export const useStyles = makeStyles({
     top: props => ({
         fontSize: fontSize0025,
         width: '100%',
-        height: heights.desktop,
+        height: '1.5em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',

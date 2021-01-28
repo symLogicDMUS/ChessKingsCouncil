@@ -87,9 +87,9 @@ class LoadGame extends React.Component {
             return (
                 <Redirect
                     to={{
-                        pathname: "/LoadGame/Play",
+                        pathname: "/Play",
                         state: {
-                            currentPath: "/LoadGame/Play",
+                            currentPath: "/LoadGame",
                             gameName: copy(this.state.selectedGame),
                             gameType: copy(this.gameData.type),
                             playerType: copy(this.gameData.pt),

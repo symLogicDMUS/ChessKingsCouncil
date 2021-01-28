@@ -3,7 +3,6 @@ import {v4 as uuidv4} from 'uuid';
 import {Redirect} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
-import {withStyles} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
@@ -22,16 +21,17 @@ import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
+import {SearchBox} from "../../Reuseables/SearchBox";
+import {HelpText, HelpTitle} from "./HelpText";
+import {copy} from "../../helpers/copy";
+import {newData} from "../NewData";
 import {
     fontSize0016,
     fontSize0023,
     fontSize00276,
     fontSize0034,
 } from "../../styles/fontSizes.jss";
-import {SearchBox} from "../../Reuseables/SearchBox";
-import {HelpText, HelpTitle} from "./HelpText";
-import {copy} from "../../helpers/copy";
-import {newData} from "../NewData";
 import {
     ok_button,
     app_bar_flexbox,
@@ -40,7 +40,6 @@ import {
     drawerItemMarginTopBottom,
     list_title, promo_all_checkbox_container
 } from "./Customize.jss";
-import {availWidth} from "../../helpers/windowMeasurments";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -314,7 +313,7 @@ class Customize extends React.Component {
                                     marginBottom: drawerItemMarginTopBottom,
                                 }}
                                 title={
-                                    <Typography style={list_title(this.state.theme)}>
+                                    <Typography style={{...list_title(this.state.theme), textAlign: 'center'}}>
                                         Pawn Promotions
                                     </Typography>
                                 }

@@ -15,6 +15,8 @@ export const piece_label = (fontSize, theme) => ({
     flexWrap: 'no-wrap',
     alignItems: 'center',
     justifyContent: 'center',
+    color: themes[theme].text,
+    fontFamily: 'Roboto-Light, Roboto',
     borderRight: `0.08em solid ${themes[theme].outline}`,
 });
 
@@ -45,6 +47,7 @@ export const useStyles = makeStyles({
     header: props => ({
         width: '100%',
         ...text(props.theme),
+        textAlign: 'center',
         outline: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
