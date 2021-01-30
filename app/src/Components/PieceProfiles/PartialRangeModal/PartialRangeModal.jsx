@@ -1,11 +1,11 @@
 import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import {getColorName} from "../../helpers/getColorName";
 import {Close} from "../../Reuseables/Close";
 import { RangeList } from "./RangeList";
-import {getColorName} from "../../helpers/getColorName";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import { getPartialRangeBoardComponent } from "./getPartialRangeBoardComponent";
+import {PartialRangeBoard} from "./PartialRangeBoard";
 import { reducer } from "./PartialRangeModal.red";
 import { close_style, useStyles } from "./PartialRangeModal.jss";
 
@@ -23,13 +23,7 @@ export function PartialRangeModal({
         location: "d4",
         src: src,
         theme: theme,
-        board: getPartialRangeBoardComponent(
-            getBinaryBoarAllFalse(),
-            "d4",
-            src,
-            theme,
-            null
-        ),
+        board: getBinaryBoarAllFalse(),
     });
 
     const classes = useStyles({ theme: theme});
@@ -40,9 +34,14 @@ export function PartialRangeModal({
                 <Typography className={classes.title}>{getColorName(color)} {pieceName}</Typography>
                 <Close onClick={close} theme={theme} style={close_style()} />
             </Box>
-            <div className={classes.partial_range_board}>
-                {state.board}
-            </div>
+            <PartialRangeBoard
+                parentDispatch={dispatch}
+                boardObj={state.board}
+                location={state.location}
+                rangeType={rangeType}
+                src={state.src}
+                theme={theme}
+            />
             <RangeList
                 range={range}
                 rangeType={rangeType}

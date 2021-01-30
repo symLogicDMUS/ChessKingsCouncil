@@ -18,13 +18,9 @@ export function reducer(state, action) {
             }
             return {
                 ...state,
-                board: getPartialRangeBoardComponent(
-                    newBoard,
-                    state.location,
-                    state.src,
-                    state.theme,
-                    action.type,
-                ),
+                range: action.span,
+                rangeType: action.type,
+                board: newBoard,
             };
         case "offset":
             newBoard = getBinaryBoarAllFalse();
@@ -34,14 +30,32 @@ export function reducer(state, action) {
             newBoard[xyToRf(dx, dy)] = true;
             return {
                 ...state,
-                board: getPartialRangeBoardComponent(
-                    newBoard,
-                    state.location,
-                    state.src,
-                    state.theme,
-                    action.type,
-                ),
+                range: action.offset,
+                rangeType: action.type,
+                board: newBoard,
             };
+        case 'set-location':
+            const location = action.newLoc;
+            newBoard = getBinaryBoarAllFalse();
+            if (state.rangeType === 'span') {
+                const stepFunc = stepFuncDict2[state.range];
+                let rf = stepFunc(location);
+                while (!oob(rf)) {
+                    newBoard[rf] = true;
+                    rf = stepFunc(rf);
+                }
+            }
+            else if (state.rangeType === 'offset') {
+                let [x1, y1] = rfToXy(location);
+                let dx = x1 + state.range[0];
+                let dy = y1 + state.range[1];
+                newBoard[xyToRf(dx, dy)] = true;
+            }
+            return {
+                ...state,
+                location: location,
+                board: newBoard,
+            }
         default:
             throw new Error();
     }

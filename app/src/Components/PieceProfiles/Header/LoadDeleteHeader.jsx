@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { fontSize002 } from "../../styles/fontSizes.jss";
 import { deleteDef } from "../../../API/deleteDef";
+import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/MuiDeleteButton";
 import { button, getButtonMargin, useStyles } from "./LoadDeleteHeader.jss";
 

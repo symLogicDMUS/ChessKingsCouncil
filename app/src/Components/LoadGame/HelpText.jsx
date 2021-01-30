@@ -16,14 +16,14 @@ export const HelpText = (fontSize, theme) => ([
         style={help_text(fontSize, theme)}
     >
         <p>
-            Currently, all game Categories (Standard, Custom, and Council) are
-            grouped together in 1 dropdown menu. In the future, saved games will
-            be displayed in a grid of images of each game's current board.
+            Each game has an image of the current position of the board, and the name under the image. You can turn the
+            names on and off with the Show Names checkbox. Currently, all game Categories (Standard, Custom, and Council)
+            are together in 1 group.
         </p>
         <p>
-            Each game contains its own record of the pieces included in it,
-            which dosn't change even if the universal record of those pieces are
-            modified/deleted after.
+            Remember that there is a record of all created pieces,  for adding to new games, as well as each game's
+            personal record of the pieces included in it. The game's person record of pieces doesn't change if any of
+            those pieces in the record of all pieces, is modified/deleted after.
         </p>
     </Typography>,
 ]);

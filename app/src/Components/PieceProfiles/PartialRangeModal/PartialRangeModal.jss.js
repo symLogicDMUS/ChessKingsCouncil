@@ -1,8 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize0025, fontSize00301, fontSize0040} from "../../styles/fontSizes.jss";
-import {board} from "../../Reuseables/Board.jss";
 import {themes} from "../../styles/themes.jss";
-import {heights} from "../PieceProfiles.jss";
 
 export const fontSizes = {
     desktop: fontSize0040,
@@ -14,15 +12,6 @@ export const close_style = () => ({
     width: '1em',
 });
 export const useStyles = makeStyles({
-    partial_range_board: props => ({
-        zIndex: 'inherit',
-        '@media screen and (min-width: 768px)': {
-            ...board(fontSizes.desktop)
-        },
-        '@media screen and (max-width: 767px)': {
-            ...board(fontSizes.mobile)
-        },
-    }),
     top: props => ({
         zIndex: 'inherit',
         fontSize: fontSize0025,

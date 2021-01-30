@@ -5,7 +5,7 @@ import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "./PartialRangePiece";
 import {PartialRangeSquare as Square} from "./PartialRangeSquare";
 
-export const getPartialRangeBoardComponent = (boardObj, location, src, theme, rangeType) => {
+export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location, src, theme, rangeType) => {
     const squares = [];
     for (let rf of rankfiles) {
         if (rf === location) {
@@ -17,6 +17,7 @@ export const getPartialRangeBoardComponent = (boardObj, location, src, theme, ra
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}
                     isLightSqr={binaryBoard[rf]}
+                    onClick={() => parentDispatch({type: 'set-location', newLoc: rf})}
                 >
                     <Piece
                         src={src}
@@ -33,6 +34,7 @@ export const getPartialRangeBoardComponent = (boardObj, location, src, theme, ra
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}
                     isLightSqr={binaryBoard[rf]}
+                    onClick={() => parentDispatch({type: 'set-location', newLoc: rf})}
                 >
                     {null}
                 </Square>
