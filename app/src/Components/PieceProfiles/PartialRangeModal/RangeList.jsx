@@ -1,17 +1,15 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
+import {RangeListItem} from "../RangeListItem";
+import {offsetToText} from "../../helpers/offsetToText";
+import {stepFuncNamesToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {fontSize00301, fontSize0040} from "../../styles/fontSizes.jss";
-import { heights } from "../PieceProfiles.jss";
-import { RangeListItem } from "../RangeListItem";
-import { stepFuncNamesToText } from "../../helpers/spanToText";
-import { offsetToText } from "../../helpers/offsetToText";
+import {buttonStyle, rangeListStyle, rowStyle} from "./RangeList.jss";
 
 export function RangeList({
     range,
     rangeType,
     parentDispatch,
-    screenCase,
     theme,
 }) {
     const getSpanListItems = () => {
@@ -55,31 +53,24 @@ export function RangeList({
             {rangeType === "offset" ? (
                 <ScrollTable
                     numRows={5}
-                    listItems={getOffsetListItems()}
                     theme={theme}
-                    style={{
-                        width: "100%",
-                        height: 8,
-                        fontSize: fontSize00301,
-                    }}
-                    buttonStyle={{ borderRadius: 0 }}
-                    rowStyle={{ cursor: "pointer" }}
+                    rowStyle={rowStyle()}
+                    style={rangeListStyle()}
+                    buttonStyle={buttonStyle()}
+                    listItems={getOffsetListItems()}
                 />
             ) : null}
             {rangeType === "span" ? (
                 <ScrollTable
                     numRows={5}
-                    listItems={getSpanListItems()}
                     theme={theme}
-                    style={{
-                        width: "100%",
-                        height: 8,
-                        fontSize: fontSize00301,
-                    }}
-                    buttonStyle={{ borderRadius: 0 }}
-                    rowStyle={{ cursor: "pointer" }}
+                    rowStyle={rowStyle()}
+                    style={rangeListStyle()}
+                    buttonStyle={buttonStyle()}
+                    listItems={getSpanListItems()}
                 />
             ) : null}
         </>
     );
 }
+

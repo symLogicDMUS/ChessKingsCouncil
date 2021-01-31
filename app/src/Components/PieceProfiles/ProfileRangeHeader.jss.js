@@ -27,21 +27,28 @@ export const useStyles = makeStyles({
         fontSize: '0.85em',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
+        textAlign: 'center',
+        flexGrow: 3,
         '@media screen and (min-width: 768px)': {
-            textAlign: 'center',
             paddingLeft: '2em',
         },
         '@media screen and (max-width: 767px)': {
-            textAlign: 'left',
-            paddingLeft: '1em',
+            marginLeft: '0.5em',
         },
-        flexGrow: 3
     }),
     expand_widget: props => ({
-        fontSize: '1em',
-        width: '1.5em',
-        height: '1.5em',
-        marginLeft: '1em',
+        '@media screen and (min-width: 768px)': {
+            fontSize: '1em',
+            width: '1.5em',
+            height: '1.5em',
+            marginLeft: '1em',
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: '0.25em',
+            width: '1.5em',
+            height: '1.5em',
+            marginLeft: '1em',
+        },
         cursor: 'pointer',
         color: themes[props.theme].text,
     }),

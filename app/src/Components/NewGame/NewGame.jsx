@@ -14,8 +14,10 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {MuiButton} from "../Reuseables/MuiButton";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
-import {fontSize002} from "../styles/fontSizes.jss";
-import {HelpText, HelpTitle} from "./GameOptions/HelpText";
+import {Background} from "../Reuseables/Background";
+import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
+import {HelpText} from "./GameOptions/HelpText";
+import {HelpTitle} from "../Reuseables/HelpTitle";
 import {useStyles, play_button} from "./NewGame.jss";
 
 function NewGame() {
@@ -66,9 +68,9 @@ function NewGame() {
     return (
 
         <>
-            {/*<Background theme={theme}/>*/}
             <div className={`scrollbar-${theme}`}>
                 <MediaQuery minWidth={768}>
+                    {/*<Background theme={theme}/>*/}
                     <NavBar
                         currentPage="GameOptions"
                         flexDirection="row"
@@ -78,8 +80,8 @@ function NewGame() {
                             width: "100%",
                             height: "2.25em",
                         }}
-                        helpTitle={HelpTitle(fontSize002, theme)}
                         helpText={HelpText(fontSize002, theme)}
+                        helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                         buttonStyle={{
                             fontSize: fontSize002,
                             height: "2.25em",
@@ -128,13 +130,13 @@ function NewGame() {
                                 flexDirection="column"
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize002 * 1.2,
+                                    fontSize: fontSize0024,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle(fontSize002, theme)}
                                 helpText={HelpText(fontSize002, theme)}
+                                helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}
                                 theme={theme}
                             />

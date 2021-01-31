@@ -1,4 +1,4 @@
-export const range_board_svg_str = (piece, light_sqr_fill, dark_sqr_fill) => (`
+export const rangeBoardSvgStr = (piece, light_sqr_fill, dark_sqr_fill) => (`
 <svg id="range_board_svg" xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
   <rect id="b8" width="60" height="60" transform="translate(60)" fill=${light_sqr_fill}/>
   <rect id="d8" width="60" height="60" transform="translate(180)" fill=${light_sqr_fill}/>

@@ -9,7 +9,7 @@ export const help_text = (fontSize, theme) => ({
 });
 
 export const help_title = (fontSize, theme) => ({
-    fontSize: fontSize*1.2,
+    fontSize: fontSize,
     fontFamily: 'Roboto-Light, Roboto',
     textAlign: 'center',
     color: themes[theme].text,

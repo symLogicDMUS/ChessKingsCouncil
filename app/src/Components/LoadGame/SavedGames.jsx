@@ -3,13 +3,13 @@ import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
-import PanoramaIcon from "@material-ui/icons/Panorama";
 import StorageIcon from '@material-ui/icons/Storage';
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {HelpText, HelpTitle} from "./HelpText";
+import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpText} from "./HelpText";
 import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
@@ -29,16 +29,16 @@ export function SavedGames(props) {
                     theme={props.theme}
                     style={{
                         fontSize: fontSize002,
-                        width: "100%",
                         height: "2.25em",
+                        width: "100%",
                     }}
                     buttonStyle={{
                         fontSize: fontSize002,
-                        height: "2.25em",
                         justifyContent: "center",
+                        height: "2.25em",
                     }}
                     helpText={HelpText(fontSize002, props.theme)}
-                    helpTitle={HelpTitle(fontSize002, props.theme)}
+                    helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                 />
                 <Portal>
                     <div className={`scrollbar-${props.theme}`}>
@@ -78,13 +78,13 @@ export function SavedGames(props) {
                             flexDirection="column"
                             style={{width: "100%"}}
                             buttonStyle={{
-                                fontSize: fontSize002 * 1.2,
+                                fontSize: fontSize0024,
                                 justifyContent: "flex-start",
                                 width: "99%",
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle(fontSize002, props.theme)}
                             helpText={HelpText(fontSize002, props.theme)}
+                            helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                             redirectMessage={null}
                             theme={props.theme}
                         />

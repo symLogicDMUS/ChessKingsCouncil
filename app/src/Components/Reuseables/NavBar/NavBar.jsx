@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavBarButton } from "./NavBarButton";
 import { HelpButton } from "./HelpButton";
 import Box from "@material-ui/core/Box";

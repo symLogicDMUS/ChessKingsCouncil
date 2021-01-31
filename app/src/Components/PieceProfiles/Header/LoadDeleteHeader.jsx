@@ -13,12 +13,13 @@ import { button, getButtonMargin, useStyles } from "./LoadDeleteHeader.jss";
 export function LoadDeleteHeader({
     def,
     load,
+    theme,
+    style,
     dispatch,
     pieceName,
     parentPage,
     screenCase,
-    theme,
-    style,
+    toggleModal,
 }) {
     let history = useHistory();
 
@@ -32,7 +33,7 @@ export function LoadDeleteHeader({
 
     let loadMethod;
     if (parentPage === "CreatePiece") {
-        loadMethod = () =>
+        loadMethod = () => {
             load({
                 name: pieceName,
                 whiteImg: def.W.img,
@@ -40,6 +41,8 @@ export function LoadDeleteHeader({
                 spans: def.W.spans,
                 offsets: def.W.offsets,
             });
+            toggleModal()
+        }
     } else {
         loadMethod = () =>
             history.push({

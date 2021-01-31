@@ -1,15 +1,11 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import Typography from "@material-ui/core/Typography";
-import { help_text, help_title } from "../../../Reuseables/NavBar/HelpText.jss";
 import {SubExample} from "./SubExample";
+import Typography from "@material-ui/core/Typography";
 import {PromoCheckboxExample} from "../PromoCheckboxExample";
-
-export const HelpTitle = (fontSize, theme) => (
-    <Typography variant="h6" style={{ ...help_title(fontSize, theme) }}>
-        Creating a Custom Game
-    </Typography>
-);
+import { help_text, } from "../../../Reuseables/NavBar/HelpText.jss";
+import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
+import {HelpButtonReminder} from "../../../Reuseables/NavBar/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography
@@ -45,7 +41,9 @@ export const HelpText = (fontSize, theme) => ([
         <p>
             Each game contains its own record of the pieces included in it,
             which doesn't change if the universal record of those pieces
-            aremodified/deleted after.
+            are modified/deleted after.
         </p>
-    </Typography>
+    </Typography>,
+    <ProfileHelpText theme={theme}/>,
+    <HelpButtonReminder theme={theme} />
 ]);

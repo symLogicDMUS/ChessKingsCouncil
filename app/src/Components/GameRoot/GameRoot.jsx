@@ -35,8 +35,9 @@ import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
 import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
-import {HelpText, HelpTitle} from "./Help/HelpText";
+import {fontSize002, fontSize0024, fontSize00301} from "../styles/fontSizes.jss";
+import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
@@ -311,6 +312,7 @@ class GameRoot extends React.Component {
                             screenCase={"desktop"}
                             pieceDefs={this.defs}
                             idDict={this.idDict}
+                            start={this.aiStart}
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
                         />
@@ -326,15 +328,15 @@ class GameRoot extends React.Component {
                             theme={this.state.theme}
                             style={{
                                 width: navBarWidth,
-                                fontSize: fontSize002 * 1.5,
+                                fontSize: fontSize00301,
                             }}
                             buttonStyle={{
-                                fontSize: fontSize002 * 1.5,
+                                fontSize: fontSize00301,
                                 justifyContent: "flex-start",
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
-                            helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                            helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
@@ -351,19 +353,13 @@ class GameRoot extends React.Component {
                                 theme={this.state.theme}
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize002 * 1.2,
+                                    fontSize: fontSize0024,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
-                                helpTitle={HelpTitle(
-                                    fontSize002,
-                                    this.state.theme
-                                )}
-                                helpText={HelpText(
-                                    fontSize002,
-                                    this.state.theme
-                                )}
+                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }

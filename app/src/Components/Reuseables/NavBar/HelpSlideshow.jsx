@@ -1,33 +1,22 @@
 import React, {useReducer} from "react";
+import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import {Close} from "../Close";
-import {MuiButton} from "../MuiButton";
-import {button, close_icon} from "../StandardModal.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
+import {close_icon} from "../StandardModal.jss";
+import {MuiButton} from "../MuiButton";
 import "../../styles/Scrollbar.scss";
-import {themes} from "../../styles/themes.jss";
-import {useStyles} from "./HelpSlideshow.jss";
-
-function reducer(state, action) {
-    switch (action.type) {
-        case 'increment':
-            if (state.pos === state.numSlides) {
-                return {numSlides: state.numSlides, pos: 0}
-            }
-            return {numSlides: state.numSlides, pos: state.pos + 1};
-        case 'decrement':
-            if (state.pos === 0) {
-                return {numSlides: state.numSlides, pos: state.numSlides - 1}
-            }
-            return {numSlides: state.numSlides, pos: state.pos - 1};
-        default:
-            throw new Error();
-    }
-}
+import {Close} from "../Close";
+import {reducer} from "./HelpSlideshow.red";
+import {
+    done_button,
+    next_button,
+    previous_button,
+    useStyles
+} from "./HelpSlideshow.jss";
 
 export function HelpSlideshow({initialState, title, onClose, theme, children}) {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -35,7 +24,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
     return (
         <div className={`scrollbar-${theme}`}>
             <div className={classes.modal}>
-                <Box className={classes.window}>
+                <div className={classes.window}>
                     <Box className={classes.top_flexbox}>
                         <Close onClick={onClose} theme={theme} style={close_icon(fontSize002)}/>
                     </Box>
@@ -46,34 +35,34 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                     <Box className={classes.buttons}>
                         {state.pos !== 0 ? (
                             <MuiButton
-                                onClick={() => dispatch({type: 'decrement'})}
-                                style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginRight: '0.5em'}}
-                                startIcon={ <NavigateBeforeIcon />}
                                 theme={theme}
+                                style={previous_button(theme)}
+                                startIcon={ <NavigateBeforeIcon />}
+                                onClick={() => dispatch({type: 'decrement'})}
                             >
                                 Previous
                             </MuiButton>
                         ) : null}
                         {state.pos !== (state.numSlides - 1) ? (
                             <MuiButton
-                                onClick={() => dispatch({type: 'increment'})}
-                                style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '0.5em'}}
-                                endIcon={<NavigateNextIcon />}
                                 theme={theme}
+                                style={next_button(theme)}
+                                endIcon={<NavigateNextIcon />}
+                                onClick={() => dispatch({type: 'increment'})}
                             >
                                 Next
                             </MuiButton>
                         ) : null}
                         <MuiButton
-                            onClick={onClose}
-                            style={{...button(fontSize002), border: `0.05em solid ${themes[theme].outline}`, marginLeft: '1em'}}
-                            startIcon={<CheckCircleOutlineIcon />}
                             theme={theme}
+                            style={done_button(theme)}
+                            startIcon={<CheckCircleOutlineIcon />}
+                            onClick={onClose}
                         >
                             Done
                         </MuiButton>
                     </Box>
-                </Box>
+                </div>
             </div>
         </div>
     );

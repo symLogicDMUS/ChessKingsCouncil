@@ -1,13 +1,8 @@
 import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
-import {help_text, help_title} from "../Reuseables/NavBar/HelpText.jss";
-
-export const HelpTitle = (fontSize, theme) => (
-    <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
-        Loading a Previously Saved Game
-    </Typography>
-);
+import {help_text} from "../Reuseables/NavBar/HelpText.jss";
+import {HelpButtonReminder} from "../Reuseables/NavBar/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography
@@ -26,4 +21,5 @@ export const HelpText = (fontSize, theme) => ([
             those pieces in the record of all pieces, is modified/deleted after.
         </p>
     </Typography>,
+    <HelpButtonReminder theme={theme} />
 ]);

@@ -2,6 +2,7 @@ import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
+import {HelpButtonReminder} from "../../Reuseables/NavBar/HelpButtonReminder";
 
 export const HelpTitle = (fontSize, theme) => (
     <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
@@ -44,4 +45,5 @@ export const HelpText = (fontSize, theme) => ([
             check that a new feature works after it is updated/added.
         </p>
     </Typography>,
+    <HelpButtonReminder theme={theme} />
 ])

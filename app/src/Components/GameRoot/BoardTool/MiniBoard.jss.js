@@ -4,6 +4,11 @@ import {board} from "../../Reuseables/Board.jss";
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
 
+export const fontSizes = {
+    desktop: fontSize00457,
+    mobile: fontSize00301,
+}
+
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
@@ -17,6 +22,6 @@ export const useStyles = makeStyles({
             ...board(fontSize00301),
             marginTop: '-1em'
         },
-        outline: `0.075em solid ${themes[props.theme].outline}`
+        outline: `0.04em solid ${themes[props.theme].outline}`
     }),
 })

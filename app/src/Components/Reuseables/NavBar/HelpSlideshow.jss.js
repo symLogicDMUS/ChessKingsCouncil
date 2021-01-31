@@ -1,16 +1,36 @@
-import {makeStyles} from "@material-ui/core/styles";
+import {button} from "../StandardModal.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
+import {makeStyles} from "@material-ui/core/styles";
 import {availHeight} from "../../helpers/windowMeasurments";
+import {fontSize002} from "../../styles/fontSizes.jss";
+
+export const previous_button = (theme) => ({
+    ...button(fontSize002),
+    marginRight: '0.5em',
+    border: `0.05em solid ${themes[theme].outline}`,
+});
+
+export const next_button = (theme) => ({
+    ...button(fontSize002),
+    marginLeft: '0.5em',
+    border: `0.05em solid ${themes[theme].outline}`,
+});
+
+export const done_button = (theme) => ({
+    ...button(fontSize002),
+    marginLeft: '1em',
+    border: `0.05em solid ${themes[theme].outline}`,
+});
 
 export const useStyles = makeStyles({
     modal: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         ...modal,
         zIndex: 10,
     }),
     window: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         '@media screen and (min-width: 768px)': {
             width: '60%',
             height: '64.5%',
@@ -40,7 +60,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     content: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '98%',
         '@media screen and (min-width: 768px)': {
             height: '20em',

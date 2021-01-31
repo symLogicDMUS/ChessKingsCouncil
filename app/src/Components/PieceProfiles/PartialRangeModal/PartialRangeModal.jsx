@@ -1,11 +1,12 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import {getColorName} from "../../helpers/getColorName";
 import {Close} from "../../Reuseables/Close";
 import { RangeList } from "./RangeList";
 import {PartialRangeBoard} from "./PartialRangeBoard";
+import {getColorName} from "../../helpers/getColorName";
+import { getBinaryBoarAllFalse } from
+        "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./PartialRangeModal.red";
 import { close_style, useStyles } from "./PartialRangeModal.jss";
 

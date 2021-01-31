@@ -23,7 +23,8 @@ import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {SearchBox} from "../../Reuseables/SearchBox";
-import {HelpText, HelpTitle} from "./Help/HelpText";
+import {HelpTitle} from "../../Reuseables/HelpTitle";
+import {HelpText} from "./Help/HelpText";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
 import {
@@ -355,8 +356,8 @@ class Customize extends React.Component {
                                     width: navBarButtonWidth,
                                     justifyContent: "flex-start",
                                 }}
-                                helpTitle={HelpTitle(fontSize0023, this.state.theme)}
                                 helpText={HelpText(fontSize0023, this.state.theme)}
+                                helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
                             />
                         </SideBar>
@@ -374,8 +375,8 @@ class Customize extends React.Component {
                                         width: "99%",
                                         height: "2.5em",
                                     }}
-                                    helpTitle={HelpTitle(fontSize0023, this.state.theme)}
                                     helpText={HelpText(fontSize0023, this.state.theme)}
+                                    helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
                                     theme={this.state.theme}
                                 />

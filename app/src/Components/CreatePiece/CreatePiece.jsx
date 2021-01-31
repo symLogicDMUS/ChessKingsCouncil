@@ -4,7 +4,8 @@ import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {HelpText, HelpTitle} from "./Help/HelpText"
+import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpText} from "./Help/HelpText"
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
 import {copy} from "../helpers/copy";
@@ -32,7 +33,7 @@ import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {fontSize002, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0024, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
 import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
@@ -401,14 +402,14 @@ class CreatePiece extends React.Component {
                             flexDirection="column"
                             style={{width: navBarWidth}}
                             buttonStyle={{
-                                fontSize: fontSize002 * 1.2,
+                                fontSize: fontSize0024,
                                 justifyContent: "flex-start",
                                 width: navBarButtonWidth,
                                 height: "2.5em",
                             }}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                            helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
@@ -423,14 +424,14 @@ class CreatePiece extends React.Component {
                                 flexDirection="column"
                                 style={{width: "100%"}}
                                 buttonStyle={{
-                                    fontSize: fontSize002 * 1.2,
+                                    fontSize: fontSize0024,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
                                 theme={this.state.theme}
                                 redirectMessage={messageStr}
-                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                                helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSize002, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />

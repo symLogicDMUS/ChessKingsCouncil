@@ -1,10 +1,9 @@
-import {getOffsetDisplays} from "../../PieceProfiles/ProfileWB/getOffsetDisplays";
+import {dockerSrcBlue, dockerSrcRed} from "./dockerSrcStr";
 import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
-import {src} from "./dockerSrcStr";
 
-export function getOffsetRangeBoardExample({theme}) {
+export function getSpanRangeBoardDockerExample({theme, color}) {
     const fToTop = {
         8: 0,
         7: 60,
@@ -25,21 +24,9 @@ export function getOffsetRangeBoardExample({theme}) {
         g: 360,
         h: 420,
     };
-    const range = [
-        [-2,1],
-        [0,1],
-        [-1,1],
-        [1,1],
-        [2,1],
-        [-1,2],
-        [0,2],
-        [1,2],
-        [1,3]
-    ]
-    let rangeBoard = getOffsetDisplays(range, 'd4')
+    const src = (color === 'W') ? dockerSrcBlue : dockerSrcRed;
     const light_sqr_fill = themes[theme].even_row;
     const dark_sqr_fill = themes[theme].odd_row;
-    const range_fill = themes[theme].offset
     let left, top;
     let imgStr = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480">`
     for (const rf of rankfiles) {
@@ -47,13 +34,10 @@ export function getOffsetRangeBoardExample({theme}) {
         top = fToTop[rf[1]];
         if (rf === 'd4') {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${binaryBoard[rf] ? light_sqr_fill : dark_sqr_fill}"/>`
-            imgStr += `<image id="Dragon" xlink:href="${src}" width="60" height="60" transform="translate(${left} ${top})"/>`;
-        } else if (rangeBoard[rf]) {
-            imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${range_fill}"/>`;
+            imgStr += `<image id="Docker" xlink:href="${src}" width="60" height="60" transform="translate(${left} ${top})"/>`;
         } else if (binaryBoard[rf]) {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${light_sqr_fill}"/>`;
-        }
-        else {
+        } else {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${dark_sqr_fill}"/>`;
         }
     }

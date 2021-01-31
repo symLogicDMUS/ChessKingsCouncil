@@ -94,6 +94,7 @@ export function PieceProfiles(props) {
                             screenCase={screenCase}
                             parentPage={props.parentPage}
                             style={ld_header_style(fontSize002)}
+                            toggleModal={props.toggleModal}
                             theme={props.theme}
                         />
                     </Profile>

@@ -1,15 +1,15 @@
 import React, {useMemo, useReducer, useState} from "react";
 import MediaQuery from "react-responsive/src";
-import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
 import {addRangeImgToDefs} from "./addRangeImgToDefs";
 import {fontSize0023} from "../../styles/fontSizes.jss";
 import Typography from "@material-ui/core/Typography";
 import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
+import {getBinaryBoarAllFalse} from
+        "../../helpers/getBinaryBoardAllFalse";
 import Box from "@material-ui/core/Box";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
 import {useStyles} from "./BoardTool.jss";
-
 
 export function BoardTool({
     theme,
@@ -18,6 +18,7 @@ export function BoardTool({
     allRanges,
     pieceDefs,
     idDict,
+    start,
 }) {
     const [state, dispatch] = useReducer(reducer, {
         profile: null,

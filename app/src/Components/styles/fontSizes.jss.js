@@ -19,6 +19,7 @@ export const fontSize00288 = window.screen.availHeight * 0.0288;
 export const fontSize00301 = window.screen.availHeight * 0.0301;
 export const fontSize0032 = window.screen.availHeight * 0.032;
 export const fontSize0034 = window.screen.availHeight * 0.034;
+export const fontSize00392 = window.screen.availHeight * 0.0392;
 export const fontSize0040 = window.screen.availHeight * 0.04;
 export const fontSize0046 = window.screen.availHeight * 0.046;
 export const fontSize00457 = window.screen.availHeight * 0.0457;

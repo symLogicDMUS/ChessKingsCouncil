@@ -1,13 +1,13 @@
-import React, {memo, useReducer} from "react";
+import React, {useReducer} from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
 import { ProfileWBAvatar } from "./ProfileWBAvatar";
 import { ProfileWBRange } from "./ProfileWBRange";
-import { PartialRangeModal } from "../PartialRangeModal/PartialRangeModal";
+import { PartialRangeModal } from
+        "../PartialRangeModal/PartialRangeModal";
 import { reducer } from "./ProfileWB.red";
 import { useStyles } from "./ProfileWB.jss";
-import {getRangeBoardImgStr} from "./getRangeBoardImgStr";
 
 /**
  * className: profileWB class
@@ -29,14 +29,14 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
                     <div className={classes.modal}>
                         <Box className={classes.range_modal}>
                             <PartialRangeModal
-                                range={(state.rangeType === 'span') ? def.spans : def.offsets}
+                                screenCase={screenCase}
                                 rangeType={state.rangeType}
+                                range={(state.rangeType === 'span') ? def.spans : def.offsets}
                                 close={() => dispatch({ type: "close" })}
+                                pieceName={pieceName}
                                 src={def.img}
                                 color={color}
                                 theme={theme}
-                                pieceName={pieceName}
-                                screenCase={screenCase}
                             />
                         </Box>
                     </div>

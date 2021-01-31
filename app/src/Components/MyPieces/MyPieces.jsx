@@ -1,14 +1,15 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
+import { getDefs } from "../../API/getDefs";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import { getDefs } from "../../API/getDefs";
 import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { fontSize002 } from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {HelpText, HelpTitle} from "./HelpText";
+import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
+import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
 import { styles } from "./MyPieces.jss";
 
@@ -64,7 +65,7 @@ class MyPieces extends React.Component {
                             height: "2.25em",
                         }}
                         helpText={HelpText(fontSize002, this.state.theme)}
-                        helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                        helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                         buttonStyle={{
                             fontSize: fontSize002,
                             height: "2.25em",
@@ -76,7 +77,6 @@ class MyPieces extends React.Component {
                             <PieceProfiles
                                 title="My Pieces"
                                 defs={this.defs}
-                                load={() => null}
                                 parentPage="MyPieces"
                                 theme={this.state.theme}
                                 searchText={this.state.searchText}
@@ -98,13 +98,13 @@ class MyPieces extends React.Component {
                                 flexDirection="column"
                                 style={{ width: "100%" }}
                                 buttonStyle={{
-                                    fontSize: fontSize002 * 1.2,
+                                    fontSize: fontSize0024,
                                     justifyContent: "flex-start",
                                     width: "99%",
                                     height: "2.5em",
                                 }}
                                 helpText={HelpText(fontSize002, this.state.theme)}
-                                helpTitle={HelpTitle(fontSize002, this.state.theme)}
+                                helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}
                             />
