@@ -1,6 +1,24 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {getTextWidth} from "../../helpers/getTextWidth.jss";
-import {fontSizes} from "../NewGame.jss";
+import {fontSizes, input_style} from "../NewGame.jss";
+
+export const textFieldStyle = {
+    root: {
+        normal: {},
+        focused: {},
+        hover: {}
+    },
+    outline: {
+        normal: {},
+        focused: {},
+        hover: {}
+
+    },
+    text: {
+        normal: {},
+        focused: {},
+        hover: {}
+    }
+}
 
 export const useStyles = makeStyles({
     title: props => ({

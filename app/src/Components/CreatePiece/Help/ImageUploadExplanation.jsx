@@ -11,8 +11,7 @@ export function ImageUploadExplanation(props) {
     return <div>
         <Typography variant='h6' className={classes.sub_title}>Uploading an Image</Typography>
         <Typography paragraph style={help_text(props.fontSize, props.theme)}>
-            Click of the image windows to upload an image from your computer or
-            choose from an image already uploaded.
+            Click the white or black image window to choose the white or black image for your piece
         </Typography>
         <ImgWindowExamples theme={props.theme}/>
         <Typography paragraph style={help_text(props.fontSize, props.theme)}>
@@ -23,7 +22,6 @@ export function ImageUploadExplanation(props) {
         </Typography>
         <Typography style={help_text(props.fontSize, props.theme)}>
             <p>
-                Choose images for the white and black versions of your piece.
                 Click the Choose button to choose from a list of provided images
                 or the Upload button to upload your own.
             </p>
@@ -41,7 +39,7 @@ export function ImageUploadExplanation(props) {
                 <li>
                     Don't pick images you've used for other pieces. If you do,
                     don't use both pieces in the same game unless you're trying
-                    to be confusing.{" "}
+                    to be confusing.
                 </li>
                 <li>
                     Pick 2 images that look similar but are colored differently.

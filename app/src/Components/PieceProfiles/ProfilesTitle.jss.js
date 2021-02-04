@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     title_bar: props => ({
@@ -20,5 +21,8 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         marginBottom: '0.25em',
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
+    }),
+    title: props => ({
+       fontSize: fontSize002
     }),
 });

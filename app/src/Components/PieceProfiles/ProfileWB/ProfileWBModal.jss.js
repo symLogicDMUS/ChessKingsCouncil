@@ -47,17 +47,17 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'no-wrap',
     }),
-    profile_flexbox: props => ({
+    profile_wb_modal: props => ({
         zIndex: 8,
         fontSize: fontSizes.desktop,
         position: 'fixed',
-        left: '50%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: '0.5em',
         '@media screen and (min-width: 768px)': {
             top: '50%',
+            left: '50%',
             width: `${profileWidth.desktop}em`,
             height: `${profileHeight.desktop}em`,
             marginLeft: `${-profileWidth.desktop * 0.5}em`,
@@ -65,10 +65,11 @@ export const useStyles = makeStyles({
             justifyContent: 'flex-start',
         },
         '@media screen and (max-width: 767px)': {
-            top: 0,
+            top: '5%',
+            left: '100%',
             width: `${profileWidth.mobile}em`,
             height: `${profileHeight.mobile}em`,
-            marginLeft: `${-profileWidth.mobile * 0.5}em`,
+            marginLeft: `${-profileWidth.mobile}em`,
             justifyContent: 'space-between',
         },
         backgroundColor: themes[props.theme].fill,

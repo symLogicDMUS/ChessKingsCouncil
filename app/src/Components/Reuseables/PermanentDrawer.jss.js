@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export const drawerWidth = availWidth() * 0.23;
 export const drawerItemWidth = drawerWidth * 0.95;
@@ -12,9 +13,17 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         display: 'flex',
     },
-    appBar: props =>  ({
+    appBar: props => ({
         zIndex: z,
         width: `calc(100% - ${sideBarWidth}px)`,
+        fontSize: fontSize002,
+        height: '3em',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        background: themes[props.theme].fill,
     }),
     drawer: props => ({
         zIndex: z,
@@ -27,11 +36,13 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
     }),
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
+    toolbar: {
+        fontSize: fontSize002,
+        height: '3em',
+    },
     appbar_content: props => ({
         zIndex: z,
         color: themes[props.theme].text,
-        backgroundColor: themes[props.theme].fill,
         fontFamily: 'Roboto-Light, Roboto',
     }),
 }));

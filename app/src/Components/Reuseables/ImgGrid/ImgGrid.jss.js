@@ -4,7 +4,7 @@ import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {appBarHeight} from "../PersistentDrawer.jss";
 
 const modalWidth = availWidth() * 0.9;
-const modalHeight = availHeight() * 0.85;
+const modalHeight = availHeight() * 0.8;
 const imgChoicesWidth = modalWidth * 0.95;
 const imgChoicesHeight = modalHeight * 0.75;
 
@@ -21,17 +21,27 @@ export const button = (fontSize) => ({
     marginBottom: '0.75em',
 });
 
+export const heights = {
+    desktop: availHeight() * 0.81,
+    mobile: availHeight() - appBarHeight,
+}
+
+export const widths = {
+    desktop: availWidth() * 0.9,
+    mobile: availWidth(),
+};
+
 export const useStyles = makeStyles({
     window: props => ({
         zIndex: 6,
         fontSize: props.fontSize,
         '@media screen and (min-width: 768px)': {
-            width: availWidth() * 0.9,
-            height: availHeight() * 0.85,
+            width: widths.desktop,
+            height: heights.desktop,
         },
         '@media screen and (max-width: 767px)': {
-            width: availWidth(),
-            height: (availHeight() - appBarHeight),
+            width: widths.mobile,
+            height: heights.mobile,
         },
         borderRadius: '0.75em',
         backgroundColor: themes[props.theme].fill,

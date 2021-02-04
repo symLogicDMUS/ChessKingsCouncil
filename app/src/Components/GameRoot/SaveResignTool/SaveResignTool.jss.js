@@ -1,4 +1,5 @@
 import {
+    fontSize002,
     fontSize00224,
     fontSize0025,
     fontSize0028,
@@ -12,15 +13,16 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     save_resign_tool: props => ({
+        fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         '@media screen and (min-width: 768px)': {
             width: drawerItemWidth,
-            height: '7em',
-            marginLeft: '5%',
-            marginBottom: '4%',
+            height: '5em',
+            marginLeft: '1em',
+            marginBottom: '1em',
             alignItems: 'flex-start',
             backgroundColor: themes[props.theme].fill,
         },
@@ -32,9 +34,9 @@ export const useStyles = makeStyles({
     }),
     option: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0032,
-            width: '3.5em',
-            height: '3.5em',
+            fontSize: fontSize002,
+            width: '5em',
+            height: '5em',
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize0034,
@@ -45,9 +47,10 @@ export const useStyles = makeStyles({
         border: '0.05em solid #2b2b2b',
     }),
     button: props => ({
+        fontSize: fontSize002,
         marginTop: '0.3em',
-        width: '120%',
-        height: '120%',
+        width: '4.95em',
+        height: '4.95em',
         '&:hover': {
             background: 'none'
         },
@@ -58,8 +61,8 @@ export const useStyles = makeStyles({
         border: 'black',
     }),
     icon: props => ({
-        width: '90%',
-        height: '90%',
+        width: '82.5%',
+        height: '82.5%',
         color: themes[props.theme].text,
     }),
     text: props => ({

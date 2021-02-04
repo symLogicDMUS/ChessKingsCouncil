@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import {fourLocationsBoard} from "./fourLocationBoard";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
-import {LocationButtonsExample} from "./LocationButtonsExample";
+import {LocationToolExample} from "./LocationToolExample";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {flex_row} from "./HelpText.jss";
@@ -39,7 +39,7 @@ export function LocationToolExplanation(props) {
                 the square the piece is at, is highlighted.
             </p>
         </Typography>
-        <LocationButtonsExample theme={props.theme}/>
+        <LocationToolExample theme={props.theme}/>
         <Typography paragraph style={help_text(props.fontSize, props.theme)}>
             <p>
                 These are the 4 squares that allow for the most symmetric

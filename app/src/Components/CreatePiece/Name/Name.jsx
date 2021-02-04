@@ -1,12 +1,10 @@
-import React, {useState} from "react";
-import {ClickAwayListener} from "@material-ui/core";
+import React from "react";
 import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
-import {fontSize002} from "../../styles/fontSizes.jss";
-import {useStyles} from "./Name.jss";
+import {text_field_style, useStyles} from "./Name.jss";
 
 export function Name({inputRef, updateName, updateNameFinish, theme, defaultValue}) {
 
-    const classes = useStyles({theme: theme, fontSize: fontSize002})
+    const classes = useStyles({theme: theme})
 
     const handleInput = (e) => {
         updateName(e.target.value)
@@ -18,14 +16,17 @@ export function Name({inputRef, updateName, updateNameFinish, theme, defaultValu
                 inputRef={inputRef}
                 onChange={handleInput}
                 defaultValue={defaultValue}
-                autoComplete="off"
-                style={{width: '100%'}}
+                genStyle={{width: '100%'}}
+                style={text_field_style}
                 placeholder='Enter name of piece...'
-                id="game-name"
                 label="Piece Name"
+                autoComplete="off"
                 variant="outlined"
+                id="game-name"
                 theme={theme}
             />
         </div>
     );
 }
+
+

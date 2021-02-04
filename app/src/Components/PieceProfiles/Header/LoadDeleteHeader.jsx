@@ -63,28 +63,30 @@ export function LoadDeleteHeader({
                 <Typography className={classes.piece_name}>
                     {pieceName}
                 </Typography>
-                <Box className={classes.buttons_flexbox}>
-                    <Button
-                        theme={theme}
-                        startIcon={<StorageIcon />}
-                        style={button(fontSize002, theme)}
-                        onClick={loadMethod}
-                    >
-                        Load
-                    </Button>
-                    <DeleteButton
-                        onAcceptDelete={() => deletePiece(pieceName)}
-                        modalTitle={`You are asking to delete piece ${pieceName}.`}
-                        modalText={`Game in progress will no be effected but the record of the piece for new games will be 
+                <Box className={classes.buttons_outer_flexbox}>
+                    <Box className={classes.buttons_inner_flexbox}>
+                        <Button
+                            theme={theme}
+                            startIcon={<StorageIcon style={{fontSize: fontSize002}} />}
+                            style={button(fontSize002, theme)}
+                            onClick={loadMethod}
+                        >
+                            Load
+                        </Button>
+                        <DeleteButton
+                            onAcceptDelete={() => deletePiece(pieceName)}
+                            modalTitle={`You are asking to delete piece ${pieceName}.`}
+                            modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                        startIcon={<DeleteForever />}
-                        isDisabled={false}
-                        theme={theme}
-                        style={{
-                            ...button(fontSize002, theme),
-                            marginLeft: getButtonMargin(screenCase),
-                        }}
-                    />
+                            startIcon={<DeleteForever style={{fontSize: fontSize002}} />}
+                            isDisabled={false}
+                            theme={theme}
+                            style={{
+                                ...button(fontSize002, theme),
+                                marginLeft: getButtonMargin(screenCase),
+                            }}
+                        />
+                    </Box>
                 </Box>
             </div>
         </>

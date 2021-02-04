@@ -1,6 +1,27 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {tool, tool_flexbox} from "../CreatePiece.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
+import {tool, tool_flexbox} from "../CreatePiece.jss";
+import {fontSize00184, fontSize002}
+from "../../styles/fontSizes.jss";
+
+const textStyle = {
+    fontSize: fontSize002,
+}
+
+export const text_field_style = {
+    text: {
+        normal: {...textStyle},
+        hover: {...textStyle},
+        focused: {...textStyle}
+    },
+    root: {
+        normal: {...textStyle},
+        hover: {...textStyle},
+        focused: {...textStyle}
+
+    }
+}
+
 
 export const useStyles = makeStyles({
     name: props => ({
@@ -9,7 +30,7 @@ export const useStyles = makeStyles({
             marginBottom: '2.5%',
         },
         '@media screen and (max-width: 767px)': {
-            ...tool(props.fontSize, props.theme)
+            ...tool(fontSize002, props.theme)
         },
         height: availHeight() * 0.08,
     }),

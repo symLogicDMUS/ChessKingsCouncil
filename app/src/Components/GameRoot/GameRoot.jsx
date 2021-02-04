@@ -324,18 +324,8 @@ class GameRoot extends React.Component {
                     >
                         <NavBar
                             currentPage="GameRoot"
-                            flexDirection="column"
+                            screenCase='desktop'
                             theme={this.state.theme}
-                            style={{
-                                width: navBarWidth,
-                                fontSize: fontSize00301,
-                            }}
-                            buttonStyle={{
-                                fontSize: fontSize00301,
-                                justifyContent: "flex-start",
-                                width: navBarButtonWidth,
-                                height: "2.5em",
-                            }}
                             helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
@@ -349,15 +339,8 @@ class GameRoot extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"
-                                flexDirection="column"
+                                screenCase='mobile'
                                 theme={this.state.theme}
-                                style={{width: "100%"}}
-                                buttonStyle={{
-                                    fontSize: fontSize0024,
-                                    justifyContent: "flex-start",
-                                    width: "99%",
-                                    height: "2.5em",
-                                }}
                                 helpText={HelpText(fontSize002, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}

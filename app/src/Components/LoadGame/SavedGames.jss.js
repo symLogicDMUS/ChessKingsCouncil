@@ -1,8 +1,17 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
+import {fontSize0015, fontSize0016} from "../styles/fontSizes.jss";
+import {heights, widths} from "../Reuseables/ImgGrid/ImgGrid.jss";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSize0015, fontSize0016} from "../styles/fontSizes.jss";
+
+export const imgGridRootStyle = () => ({
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    marginLeft: widths.desktop*-0.5,
+    marginTop: heights.desktop*-0.465,
+});
 
 export const button = (fontSize) => ({
     fontSize: fontSize,
@@ -12,18 +21,16 @@ export const button = (fontSize) => ({
 
 export const useStyles = makeStyles({
     modal: props => ({
-       ...modal,
-       zIndex: 1,
+        ...modal,
+        zIndex: 1,
     }),
     flexbox: props => ({
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'flex-start',
         marginTop: '0.5em',
-        '@media screen and (max-width: 767px)': {
-            width: '100%',
-        },
     }),
     content: props => ({
         fontSize: props.fontSize,

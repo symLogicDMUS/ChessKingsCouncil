@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../styles/themes.jss";
 import {availHeight} from "../helpers/windowMeasurments";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export const sideBarHeight = availHeight() * 0.9;
 const z = 5;
@@ -20,7 +21,10 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         backgroundColor: themes[props.theme].fill,
     }),
-    toolbar: theme.mixins.toolbar,
+    toolbar: {
+        fontSize: fontSize002,
+        height: '3em',
+    },
     appbar: {
         zIndex: z,
         color: '#b6b6b6',

@@ -10,7 +10,9 @@ import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
-import {useStyles} from "./SavedGames.jss";
+import {imgGridRootStyle, useStyles} from "./SavedGames.jss";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
@@ -26,17 +28,8 @@ export function SavedGames(props) {
             <MediaQuery minWidth={768}>
                 <NavBar
                     currentPage="LoadGame"
+                    screenCase='desktop'
                     theme={props.theme}
-                    style={{
-                        fontSize: fontSize002,
-                        height: "2.25em",
-                        width: "100%",
-                    }}
-                    buttonStyle={{
-                        fontSize: fontSize002,
-                        justifyContent: "center",
-                        height: "2.25em",
-                    }}
                     helpText={HelpText(fontSize002, props.theme)}
                     helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                 />
@@ -53,6 +46,7 @@ export function SavedGames(props) {
                                         <SearchBox updateSearchText={updateSearchText} theme={props.theme}/>
                                     </>
                                 }
+                                rootStyle={imgGridRootStyle()}
                                 onClose={null}
                                 topFlexbox={null}
                                 theme={props.theme}
@@ -75,14 +69,7 @@ export function SavedGames(props) {
                     drawer={
                         <NavBar
                             currentPage="LoadGame"
-                            flexDirection="column"
-                            style={{width: "100%"}}
-                            buttonStyle={{
-                                fontSize: fontSize0024,
-                                justifyContent: "flex-start",
-                                width: "99%",
-                                height: "2.5em",
-                            }}
+                            screenCase="mobile"
                             helpText={HelpText(fontSize002, props.theme)}
                             helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                             redirectMessage={null}

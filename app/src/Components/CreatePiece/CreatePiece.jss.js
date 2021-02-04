@@ -1,12 +1,17 @@
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSize0095} from "../styles/fontSizes.jss";
+import {fontSize00219, fontSize0095} from "../styles/fontSizes.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const sqrFontSize = fontSize0095 * 0.25;
-export const lineHeight = 0.7; //em
-export const margin = 1.1; //em
+export const lineHeight = 0.7; // em
+export const margin = 1.1; // em
+
+export const app_bar_title = () => ({
+    fontSize: fontSize00219,
+    marginLeft: '0.25em'
+});
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -56,11 +61,6 @@ export const tool_title = (theme) => ({
 })
 
 export const styles = {
-    create_piece_body: {
-        backgroundImage: 'url("/Images/Backgrounds/y-so-serious.png")',
-        backgroundRepeat: "repeat",
-        objectFit: "none",
-    },
     modal: {
         ...modal,
     },

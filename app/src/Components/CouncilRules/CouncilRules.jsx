@@ -15,18 +15,9 @@ export function CouncilRules() {
             <MediaQuery minDeviceWidth={768}>
                 <Background theme='tan' />
                 <NavBar
-                    currentPage="CouncilRules"
                     theme="tan"
-                    style={{
-                        fontSize: fontSize002,
-                        width: "100%",
-                        height: "2.25em",
-                    }}
-                    buttonStyle={{
-                        fontSize: fontSize002,
-                        height: "2.25em",
-                        justifyContent: "center",
-                    }}
+                    currentPage="CouncilRules"
+                    screenCase='desktop'
                     unsavedChanges={false}
                 />
                 <div className={classes.council_rules}>
@@ -105,14 +96,7 @@ export function CouncilRules() {
                     drawer={
                         <NavBar
                             currentPage="CouncilRules"
-                            flexDirection="column"
-                            style={{ width: "100%" }}
-                            buttonStyle={{
-                                fontSize: fontSize002 * 1.2,
-                                justifyContent: "flex-start",
-                                width: "99%",
-                                height: "2.5em",
-                            }}
+                            screenCase='mobile'
                             redirectMessage={null}
                             theme="tan"
                         />

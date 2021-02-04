@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from "react";
+import React, {useMemo} from "react";
 import {v4 as uuidv4} from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";

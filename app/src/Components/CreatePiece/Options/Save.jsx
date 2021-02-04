@@ -97,7 +97,10 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                         closeClick={() => closeModal()}
                     >
                         <MuiButton
-                            onClick={() => save()}
+                            onClick={() => {
+                                save()
+                                closeModal()
+                            }}
                             variant={'contained'}
                             style={{...button(fontSize002), marginRight: '1em'}}
                             theme={theme}

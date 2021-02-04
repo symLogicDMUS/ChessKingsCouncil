@@ -1,12 +1,13 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
-import { MuiTextField } from "../../Reuseables/MuiTextField";
-import { useStyles} from "./GameName.jss";
+import {Typography} from "@material-ui/core";
+import {MuiTextField} from "../../Reuseables/MuiTextField";
 import {fontSizes, input_style} from "../NewGame.jss";
+import {useStyles} from "./GameName.jss";
+import {fontSize001725, fontSize0018, fontSize00184, fontSize002} from "../../styles/fontSizes.jss";
 
-export function GameName({ setGameName, gameName, theme, screenCase }) {
-    const classes = useStyles({ text: "Game Name" });
+export function GameName({setGameName, gameName, theme, screenCase}) {
+    const classes = useStyles({text: "Game Name"});
 
     return (
         <>
@@ -23,14 +24,46 @@ export function GameName({ setGameName, gameName, theme, screenCase }) {
                  justifyContent='center'
             >
                 <MuiTextField
+                    theme={theme}
                     value={gameName}
                     onChange={setGameName}
-                    autoComplete={""}
-                    theme={theme}
-                    style={input_style('Game Name', fontSizes[screenCase], 'Garamond', theme)}
                     id={"pick-game-name"}
                     label={"Pick game name"}
                     variant={"outlined"}
+                    autoComplete={""}
+                    style={{
+                        text: {
+                            normal: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+                            },
+                            hover: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+                            },
+                            focused: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+
+                            },
+                        },
+                        root: {
+                            normal: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+                            },
+                            hover: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+                            },
+                            focused: {
+                                fontSize: fontSize0018,
+                                height: '1em'
+
+                            },
+                        }
+                    }}
+                    genStyle={input_style('Game Name', fontSizes[screenCase], 'Garamond', theme)}
                 />
             </Box>
         </>

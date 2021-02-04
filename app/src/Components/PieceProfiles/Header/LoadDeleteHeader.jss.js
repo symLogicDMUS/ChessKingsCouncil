@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./PieceHeader.jss";
 import {themes} from "../../styles/themes.jss";
+import {fontSizes, widths} from "../PieceProfiles.jss";
 
 export const getButtonMargin = (screenCase) => {
     switch (screenCase) {
@@ -40,12 +41,27 @@ export const useStyles = makeStyles({
     piece_name: props => ({
         ...text(props.theme),
     }),
-    buttons_flexbox: props => ({
+    buttons_outer_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         justifyContent: 'flex-end',
         alignItems: 'center',
         flexGrow: 3,
+    }),
+    buttons_inner_flexbox: props => ({
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
+            width: widths.desktop,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
+            width: widths.mobile,
+        },
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }),
 });

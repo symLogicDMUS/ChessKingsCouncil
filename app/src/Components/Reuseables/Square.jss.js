@@ -20,6 +20,7 @@ export const square = (fontSize, type, sqrSize) => {
         zIndex: 'inherit',
         width: '1em',
         height: '1em',
+        margin: 0,
         cursor: 'pointer',
     });
 };

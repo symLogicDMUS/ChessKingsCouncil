@@ -5,9 +5,9 @@ import {
     fontSize0016,
     fontSize002,
     fontSize0023,
-    fontSize00301,
-    fontSize0060,
-    fontSize01
+    fontSize00301, fontSize0040, fontSize0050,
+    fontSize0060, fontSize0066,
+    fontSize01, fontSize018
 } from "../styles/fontSizes.jss";
 
 export const parchment = () => ({
@@ -45,7 +45,7 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize0016
+            fontSize: fontSize018,
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize0060,
@@ -72,10 +72,10 @@ export const useStyles = makeStyles({
     kings_flexbox: props => ({
         fontSize: fontSize002,
         '@media screen and (min-width: 768px)': {
-            width: getTextWidth('Council of Kings', props.fontSize * desktopScaler, 'Garamond'),
+            width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
         '@media screen and (max-width: 767px)': {
-            width: getTextWidth('Council of Kings', props.fontSize * mobileScaler, 'Garamond'),
+            width: getTextWidth('Council of Kings', fontSize0060, 'Garamond'),
         },
         display: 'flex',
         flexDirection: 'row',
@@ -96,11 +96,11 @@ export const useStyles = makeStyles({
     paragraph: props => ({
         '@media screen and (min-width: 768px)': {
             fontSize: fontSize00301,
-            width: getTextWidth('Council of Kings', props.fontSize * desktopScaler, 'Garamond'),
+            width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSize0023,
-            width: getTextWidth('Council of Kings', props.fontSize * mobileScaler, 'Garamond'),
+            width: getTextWidth('Council of Kings', fontSize0060, 'Garamond'),
             flexGrow: 100,
         },
         fontFamily: 'Garamond',

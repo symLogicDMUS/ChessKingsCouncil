@@ -34,7 +34,7 @@ import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {fontSize002, fontSize0024, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
-import {styles} from "./CreatePiece.jss";
+import {app_bar_title, styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -301,10 +301,11 @@ class CreatePiece extends React.Component {
      * @param deletedBase64ImgStr (str)
      */
     resetImg(deletedBase64ImgStr) {
-        if (this.whiteAndBlackImgs["white"] === deletedBase64ImgStr)
-            this.whiteAndBlackImgs["white"] = null;
-        if (this.whiteAndBlackImgs["black"] === deletedBase64ImgStr)
-            this.whiteAndBlackImgs["black"] = null;
+        if (this.whiteAndBlackImgs.white === deletedBase64ImgStr)
+            this.whiteAndBlackImgs.white = null;
+        if (this.whiteAndBlackImgs.black === deletedBase64ImgStr)
+            this.whiteAndBlackImgs.black = null;
+        this.triggerRender()
     }
 
     modals() {
@@ -346,7 +347,7 @@ class CreatePiece extends React.Component {
                             />
                         }
                         appBarContent={
-                            <Typography variant="h6" noWrap>
+                            <Typography style={app_bar_title()} variant="h6" noWrap>
                                 Create Piece
                             </Typography>
                         }
@@ -358,6 +359,7 @@ class CreatePiece extends React.Component {
                             inputRef={this.textInput}
                             defaultValue={this.name}
                             theme={this.state.theme}
+                            screenCase='desktop'
                         />
                         <Icon
                             key={uuidv4()}
@@ -399,14 +401,7 @@ class CreatePiece extends React.Component {
                     >
                         <NavBar
                             currentPage="CreatePiece"
-                            flexDirection="column"
-                            style={{width: navBarWidth}}
-                            buttonStyle={{
-                                fontSize: fontSize0024,
-                                justifyContent: "flex-start",
-                                width: navBarButtonWidth,
-                                height: "2.5em",
-                            }}
+                            screenCase="desktop"
                             theme={this.state.theme}
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
@@ -421,14 +416,7 @@ class CreatePiece extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="CreatePiece"
-                                flexDirection="column"
-                                style={{width: "100%"}}
-                                buttonStyle={{
-                                    fontSize: fontSize0024,
-                                    justifyContent: "flex-start",
-                                    width: "99%",
-                                    height: "2.5em",
-                                }}
+                                screenCase="mobile"
                                 theme={this.state.theme}
                                 redirectMessage={messageStr}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
@@ -469,6 +457,7 @@ class CreatePiece extends React.Component {
                                             inputRef={this.textInput}
                                             defaultValue={this.name}
                                             theme={this.state.theme}
+                                            screenCase='mobile'
                                         />
                                     ),
                                 },
@@ -480,6 +469,7 @@ class CreatePiece extends React.Component {
                                             key={"Icon"}
                                             theme={this.state.theme}
                                             setPieceImg={this.setPieceImg}
+                                            resetImg={this.resetImg}
                                             whiteAndBlackImgs={
                                                 this.whiteAndBlackImgs
                                             }

@@ -349,13 +349,7 @@ class Customize extends React.Component {
                         >
                             <NavBar
                                 currentPage="Customize"
-                                flexDirection="column"
-                                style={{width: navBarWidth}}
-                                buttonStyle={{
-                                    fontSize: fontSize0023,
-                                    width: navBarButtonWidth,
-                                    justifyContent: "flex-start",
-                                }}
+                                screenCase='desktop'
                                 helpText={HelpText(fontSize0023, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
@@ -367,14 +361,7 @@ class Customize extends React.Component {
                             drawer={
                                 <NavBar
                                     currentPage="Customize"
-                                    flexDirection="column"
-                                    style={{width: "100%"}}
-                                    buttonStyle={{
-                                        fontSize: fontSize00276,
-                                        justifyContent: "flex-start",
-                                        width: "99%",
-                                        height: "2.5em",
-                                    }}
+                                    screenCase='mobile'
                                     helpText={HelpText(fontSize0023, this.state.theme)}
                                     helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}

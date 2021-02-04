@@ -39,6 +39,9 @@ export function ProfileHelpText(props) {
             <ProfileExampleDocker theme={props.theme} />
         </Box>
         <Typography paragraph style={help_text(fontSize002, props.theme)}>
+            Asymmetric pieces such as Docker shouldn't be used as Pawn promotions.
+        </Typography>
+        <Typography paragraph style={help_text(fontSize002, props.theme)}>
             To view the real (text) definitions of the spans or offsets you can click the<Icb theme={props.theme}/> Icon at the top
             of the span or offset list to view a list of span or offset definitions with its own board diagram. Click any
             square on this diagram and it will change the location of the piece in the diagram. Click any of the definitions
@@ -53,5 +56,6 @@ export function ProfileHelpText(props) {
                 />
             </Box>
         </Box>
+
     </div>;
 }

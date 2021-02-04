@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
+import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import {capitalize} from "../../helpers/capitalize";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import {getOppositeColorName} from "../../helpers/getOppositeColorName";
 import {fontSize00301 as fontSize} from "../../styles/fontSizes.jss";
 import {useStyles} from "./StatusBar.jss";
-import MediaQuery from "react-responsive/src";
 
 export function StatusBar({ turn, winner, condition, theme }) {
 
@@ -31,12 +32,16 @@ export function StatusBar({ turn, winner, condition, theme }) {
 
     return (
         <>
-            <Typography
+            <Box
                 className={classes.header}
                 variant="h6"
                 noWrap
             >
-                <MediaQuery minDeviceWidth={768}>Play Game</MediaQuery>
+                <MediaQuery minDeviceWidth={768}>
+                    <Typography variant='h6' className={classes.page_name}>
+                        Play Game
+                    </Typography>
+                </MediaQuery>
                 <Typography
                     className={classes.status_bar}
                     variant="h6"
@@ -44,7 +49,8 @@ export function StatusBar({ turn, winner, condition, theme }) {
                 >
                     {getMessage()}
                 </Typography>
-            </Typography>
+                <Box className={classes.flex_end} />
+            </Box>
         </>
     );
 }

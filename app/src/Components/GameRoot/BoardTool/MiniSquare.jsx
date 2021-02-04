@@ -1,7 +1,7 @@
 import React from "react";
-import {fontSizes} from "./MiniBoard.jss";
 import {getSqrClass} from "../../styles/getSqrClass.jss";
 import {useStyles} from "../../Reuseables/Square.jss";
+import {fontSizes} from "./BoardTool.jss";
 
 export function MiniSquare({ rf, theme, isHighlight, screenCase, children }) {
     const classes = useStyles({ fontSize: fontSizes[screenCase], theme: theme, type: 'normal'});

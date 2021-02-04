@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Portal } from "@material-ui/core";
-import { icons } from "../../styles/icons/top/icons.jss";
-import SvgIcon from "@material-ui/core/SvgIcon";
 import Box from "@material-ui/core/Box";
-import { useStyles } from "./NavBarButton.jss";
-import { StandardModal } from "../StandardModal";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import {Button, Portal, Typography} from "@material-ui/core";
+import { icons } from "../../styles/icons/top/icons.jss";
 import {MuiButton} from "../MuiButton";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {button} from "../StandardModal.jss";
+import { StandardModal } from "../StandardModal";
+import {fontSize002} from "../../styles/fontSizes.jss";
+import {getHoverColor, useStyles} from "./NavBarButton.jss";
 
 export function NavBarButton({
     path,
     pageName,
     pageIcon,
-    theme,
-    style,
-    parentFlex,
+    currentPage,
+    screenCase,
     isLocalLink,
     isUnsavedChanges,
+    theme,
 }) {
     let history = useHistory();
     let [hover, setHover] = useState(false);
@@ -26,8 +26,8 @@ export function NavBarButton({
 
     const classes = useStyles({
         theme: theme,
-        style: style,
-        parentFlex: parentFlex,
+        currentPage: currentPage,
+        screenCase: screenCase
     });
 
     const goToPage = () => {
@@ -77,18 +77,18 @@ export function NavBarButton({
             <Button
                 onClick={() => tryRedirect()}
                 className={classes.nav_bar_button}
+                style={hover ? getHoverColor(theme) : null}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
                 <Box className={classes.box}>
-                    <SvgIcon
-                        className={hover ? classes.icon_hover : classes.icon}
+                    <SvgIcon className={hover ? classes.icon_hover : classes.icon}
                     >
                         {icons[pageIcon]}
                     </SvgIcon>
-                    <div className={hover ? classes.text_hover : classes.text}>
+                    <Typography className={hover ? classes.text_hover : classes.text}>
                         {pageName}
-                    </div>
+                    </Typography>
                 </Box>
             </Button>
         </>

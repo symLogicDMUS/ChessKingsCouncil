@@ -36,7 +36,7 @@ export function UploadButton({color, id, setPieceImg, close, theme, style}) {
             variant="contained"
             component="label"
             className={classes.button}
-            startIcon={<CloudUploadIcon/>}
+            startIcon={<CloudUploadIcon style={{fontSize: 'inherit'}}/>}
         >
             Upload
             <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>

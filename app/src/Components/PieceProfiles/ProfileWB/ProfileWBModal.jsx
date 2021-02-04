@@ -17,9 +17,9 @@ export function ProfileWBModal({
     const classes = useStyles({ theme: theme });
 
     return (
-        <Box className={classes.profile_flexbox}>
+        <Box className={classes.profile_wb_modal}>
             <Box className={classes.profile_top}>
-                <Typography variant="h6" className={classes.header}>
+                <Typography variant="h6" noWrap className={classes.header}>
                     {getColorName(color)} {pieceName}
                 </Typography>
                 <Close

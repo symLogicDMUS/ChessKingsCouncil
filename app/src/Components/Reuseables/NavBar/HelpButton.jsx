@@ -1,23 +1,21 @@
 import React, {useEffect, useState} from "react";
-import {
-    findDidUserVisitPage,
-    recordUserVisitedPage
-} from "../../../API/findRecordDidUserVisitPage";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {Button, Portal} from "@material-ui/core";
-import {useStyles} from "./NavBarButton.jss";
+import {findDidUserVisitPage, recordUserVisitedPage
+} from "../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
+import {getHoverColor, useStyles} from "./NavBarButton.jss";
 
 
-export function HelpButton({currentPage, style, theme, parentFlex, helpTitle, children}) {
+export function HelpButton({currentPage, theme, screenCase, helpTitle, children}) {
 
     let [hover, setHover] = useState(false);
     let [modal, setModal] = useState(false);
     let [isFirstTime, setIsFirstTime] = useState(false);
 
-    const classes = useStyles({style: style, theme: theme, parentFlex: parentFlex})
+    const classes = useStyles({theme: theme, screenCase: screenCase })
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {
@@ -46,8 +44,9 @@ export function HelpButton({currentPage, style, theme, parentFlex, helpTitle, ch
                 </Portal>
             ) : null}
             <Button
-                className={classes.nav_bar_button}
                 onClick={() => setModal(! modal)}
+                className={classes.nav_bar_button}
+                style={hover ? getHoverColor(theme) : null}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >

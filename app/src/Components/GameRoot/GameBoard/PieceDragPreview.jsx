@@ -2,8 +2,6 @@ import React, {memo, useEffect, useState} from "react";
 import {Piece} from "./Piece";
 import {Portal} from "@material-ui/core";
 import {RangeDisplayBoard} from "./RangeDisplayBoard";
-import {SqrMouseIsOver} from "./SqrMouseIsOver";
-import {getDragPositions} from "./getDragPositions";
 
 export const PieceDragPreview = memo(({src, sqrSize, boardSize, range, theme}) => {
     const [tickTock, setTickTock] = useState(false);

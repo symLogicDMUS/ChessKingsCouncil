@@ -18,7 +18,6 @@ export function BoardTool({
     allRanges,
     pieceDefs,
     idDict,
-    start,
 }) {
     const [state, dispatch] = useReducer(reducer, {
         profile: null,

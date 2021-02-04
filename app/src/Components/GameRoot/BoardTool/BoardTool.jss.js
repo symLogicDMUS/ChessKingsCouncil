@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {fontSize00219, fontSize00457} from "../../styles/fontSizes.jss";
+import {fontSize00219, fontSize00301, fontSize00435} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 // em units:
@@ -14,14 +14,19 @@ export const profileHeight = {
     mobile: 20,
 }
 
+export const fontSizes = {
+    desktop: fontSize00435,
+    mobile: fontSize00301,
+}
+
 export const useStyles = makeStyles({
         board_tool: props => ({
-            fontSize: fontSize00457,
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
             '@media screen and (min-width: 768px)': {
+                fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
                 height: '8em',
@@ -33,15 +38,15 @@ export const useStyles = makeStyles({
             },
         }),
         flex_header: props => ({
-            fontSize: fontSize00457,
-            width: '10em',
+            fontSize: fontSizes.desktop,
+            width: '8em',
             height: '0.7em',
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
             '@media screen and (min-width: 768px)': {
-                border: `0.04em solid ${themes[props.theme].outline}`,
+                outline: `0.04em solid ${themes[props.theme].outline}`,
             },
             '@media screen and (max-width: 767px)': {
                 justifyContent: 'center',

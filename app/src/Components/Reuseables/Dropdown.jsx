@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import { fontSize002 } from "../styles/fontSizes.jss";
+import Select from "@material-ui/core/Select";
 import { useStyles } from "./MuiInput.jss";
 
 export function Dropdown({
@@ -11,6 +10,7 @@ export function Dropdown({
     theme,
     label,
     style,
+    genStyle,
     inputLabel,
     variant,
     inputId,
@@ -22,6 +22,7 @@ export function Dropdown({
     let [selected, setSelected] = useState("");
     const classes = useStyles({
         style: style,
+        genStyle: genStyle,
         theme: theme,
     });
 

@@ -54,10 +54,12 @@ export const useStyles = makeStyles({
     }),
     expand_icon: props => ({
         '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
             width: '1em',
             height: '1em',
         },
         '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
             width: '0.7em',
             height: '0.7em',
         },

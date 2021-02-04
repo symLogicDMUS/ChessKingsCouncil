@@ -72,3 +72,4 @@ export function getOffsetRangeBoardDockerExample({theme, color}) {
     imgStr += `</svg>`;
     return `data:image/svg+xml;base64,` + btoa(imgStr);
 }
+

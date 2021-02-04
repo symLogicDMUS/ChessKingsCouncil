@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "../MuiCheckbox";
 import { MuiButton as Button } from "../MuiButton";
-import { fontSize001685 as fontSize } from "../../styles/fontSizes.jss";
+import {fontSize001685} from "../../styles/fontSizes.jss";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { MuiDeleteButton as DeleteButton } from "../MuiDeleteButton";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
@@ -38,7 +38,7 @@ export function ImgGrid(props) {
 
     const classes = useStyles({
         theme: props.theme,
-        fontSize: fontSize,
+        fontSize: fontSize001685,
         rootStyle: props.rootStyle,
         itemWindowStyle: props.itemWindowStyle,
     });
@@ -58,12 +58,12 @@ export function ImgGrid(props) {
                         onClick={props.onOkClick}
                         isDisabled={props.imgNameChoice === null}
                         style={{
-                            ...button(fontSize),
+                            ...button(fontSize001685),
                             marginRight: "1em",
                         }}
                         variant="outlined"
                         theme={props.theme}
-                        startIcon={<CheckCircleOutlineIcon />}
+                        startIcon={<CheckCircleOutlineIcon style={{fontSize: fontSize001685}} />}
                     >
                         Ok
                     </Button>
@@ -72,16 +72,16 @@ export function ImgGrid(props) {
                         modalTitle={props.confirmDeleteMessage}
                         isDisabled={props.imgNameChoice === null}
                         style={{
-                            ...button(fontSize),
+                            ...button(fontSize001685),
                             marginLeft: "1em",
                         }}
-                        startIcon={<DeleteForeverIcon />}
+                        startIcon={<DeleteForeverIcon style={{fontSize: fontSize001685}} />}
                         theme={props.theme}
                         variant="outlined"
                     />
                     <MuiCheckbox
                         theme={props.theme}
-                        style={{ fontSize: fontSize }}
+                        style={{ fontSize: fontSize001685 }}
                         rootStyle={{ marginLeft: "2.15em" }}
                         defaultChecked={props.defaultChecked}
                         onClick={() => dispatch({ type: "toggle-show-names" })}

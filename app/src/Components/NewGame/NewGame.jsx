@@ -72,21 +72,11 @@ function NewGame() {
                 <MediaQuery minWidth={768}>
                     {/*<Background theme={theme}/>*/}
                     <NavBar
-                        currentPage="GameOptions"
-                        flexDirection="row"
-                        theme={theme}
-                        style={{
-                            fontSize: fontSize002,
-                            width: "100%",
-                            height: "2.25em",
-                        }}
+                        currentPage="NewGame"
+                        screenCase='desktop'
                         helpText={HelpText(fontSize002, theme)}
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
-                        buttonStyle={{
-                            fontSize: fontSize002,
-                            height: "2.25em",
-                            justifyContent: "center",
-                        }}
+                        theme={theme}
                     />
                     <Box className={classes.new_game}>
                         <GameName
@@ -127,14 +117,7 @@ function NewGame() {
                         drawer={
                             <NavBar
                                 currentPage="GameOptions"
-                                flexDirection="column"
-                                style={{width: "100%"}}
-                                buttonStyle={{
-                                    fontSize: fontSize0024,
-                                    justifyContent: "flex-start",
-                                    width: "99%",
-                                    height: "2.5em",
-                                }}
+                                screenCase='mobile'
                                 helpText={HelpText(fontSize002, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}

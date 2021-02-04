@@ -1,18 +1,13 @@
-import React from "react";
-import { NavBarButton } from "./NavBarButton";
-import { HelpButton } from "./HelpButton";
-import Box from "@material-ui/core/Box";
+import React, {useEffect, useReducer} from "react";
 import {v4 as uuidv4} from "uuid";
-import { useStyles } from "./NavBar.jss";
-
+import Box from "@material-ui/core/Box";
+import {HelpButton} from "./HelpButton";
+import {NavBarButton} from "./NavBarButton";
+import {useStyles} from "./NavBar.jss";
 
 export function NavBar(props) {
 
-    const classes = useStyles({
-        style: props.style,
-        theme: props.theme,
-        flexDirection: props.flexDirection,
-    });
+    const classes = useStyles({currentPage: props.currentPage, screenCase: props.screenCase});
 
     let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
     if (props.redirectMessage) {
@@ -26,9 +21,8 @@ export function NavBar(props) {
                     pageIcon="help"
                     key={uuidv4()}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
                     currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     helpTitle={props.helpTitle}
                 >
                     {props.helpText}
@@ -41,8 +35,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -52,8 +46,8 @@ export function NavBar(props) {
                     className="new_game"
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -64,8 +58,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -76,8 +70,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -88,8 +82,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -100,8 +94,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -112,8 +106,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -124,8 +118,8 @@ export function NavBar(props) {
                     key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
-                    style={props.buttonStyle}
-                    parentFlex={props.flexDirection}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
             </Box>

@@ -38,7 +38,7 @@ export function ImgButtonsModal({
                     <Button
                         variant='contained'
                         onClick={() => showChooseModal(color)}
-                        startIcon={<InsertPhotoIcon fontSize={"inherit"} />}
+                        startIcon={<InsertPhotoIcon style={{fontSize: 'inherit'}} />}
                         style={button(fontSize002)}
                         theme={theme}
                     >

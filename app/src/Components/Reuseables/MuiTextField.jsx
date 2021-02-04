@@ -3,19 +3,20 @@ import TextField from "@material-ui/core/TextField";
 import { useStyles } from "./MuiInput.jss";
 
 export function MuiTextField({
-    onChange,
-    inputRef,
-    defaultValue,
+    id,
     theme,
     style,
-    fullWidth,
-    id,
     label,
     variant,
+    onChange,
+    genStyle,
+    inputRef,
+    autoFocus,
+    fullWidth,
+    defaultValue,
     autoComplete,
-    autoFocus
 }) {
-    const classes = useStyles({ style: style, theme: theme });
+    const classes = useStyles({ style: style, genStyle: genStyle, theme: theme });
     return (
         <TextField
             onChange={onChange}

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { fontSize002 } from "../../styles/fontSizes.jss";
+import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 import { Tooltip } from "@material-ui/core";
 import { useStyles } from "./ImgChoice.jss";
 
@@ -23,7 +23,7 @@ export function ImgChoice({
                     className={isSelected ? classes.selected : classes.normal}
                 >
                     {! showName ? (
-                        <Tooltip title={name}>
+                        <Tooltip title={name} classes={{tooltip: classes.tooltip}}>
                             <motion.img
                                 src={base64ImgStr}
                                 whileHover={{ scale: 1.3 }}

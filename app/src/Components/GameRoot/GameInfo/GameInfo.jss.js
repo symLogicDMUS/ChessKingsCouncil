@@ -13,8 +13,8 @@ export const useStyles = makeStyles({
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (min-width: 768px)': {
             width: drawerItemWidth,
-            marginBottom: '5%',
-            marginLeft: '5%',
+            marginBottom: '1em',
+            marginLeft: '1em',
             alignItems: 'flex-end',
         },
         '@media screen and (max-width: 767px)': {

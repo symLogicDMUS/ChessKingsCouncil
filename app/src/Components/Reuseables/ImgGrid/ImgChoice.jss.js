@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {imgFillDiv} from "../imgFillDiv.jss";
+import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 
 export const img_container = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -46,5 +47,8 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
+    }),
+    tooltip: props => ({
+        fontSize: fontSize0016
     }),
 });

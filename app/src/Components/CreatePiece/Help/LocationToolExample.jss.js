@@ -1,11 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {tool, tool_title, tool_flexbox, toolWidth} from "../CreatePiece.jss";
-
-export const locationToolWidth = () => toolWidth(); //change later
-export const locationToolHeight = () => availHeight() * 0.095
-export const locationToolTop = () => availHeight() * 0.67;
-export const locationToolLeft = () => availWidth() * 0.57;
+import {tool, tool_flexbox, tool_title} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     location_tool: (props) => ({
@@ -20,13 +14,13 @@ export const useStyles = makeStyles({
             ...tool_flexbox,
         },
         '@media screen and (max-width: 767px)': {
-            width: '15em',
-            height: '15em',
+            width: '100em',
+            height: '5em',
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            alignItems: 'flex-start',
-            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            justifyContent: 'center',
         },
     }),
 });
