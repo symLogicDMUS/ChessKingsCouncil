@@ -39,6 +39,7 @@ export function PartialRangeModal({
                 parentDispatch={dispatch}
                 boardObj={state.board}
                 location={state.location}
+                screenCase={screenCase}
                 rangeType={rangeType}
                 src={state.src}
                 theme={theme}

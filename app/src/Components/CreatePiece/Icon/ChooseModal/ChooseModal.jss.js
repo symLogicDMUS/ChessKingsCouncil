@@ -31,8 +31,7 @@ export const styles = {
         width: '11em',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         marginRight: '12em',
-        alignContent: 'center',
-        justifyContent: 'center'
     }),
 };

@@ -38,7 +38,6 @@ export function ImgGrid(props) {
 
     const classes = useStyles({
         theme: props.theme,
-        fontSize: fontSize001685,
         rootStyle: props.rootStyle,
         itemWindowStyle: props.itemWindowStyle,
     });

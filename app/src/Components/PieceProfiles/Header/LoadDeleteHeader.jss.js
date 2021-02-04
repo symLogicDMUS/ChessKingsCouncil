@@ -57,6 +57,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
+            marginRight: '0.5em'
         },
         display: 'flex',
         flexDirection: 'row',

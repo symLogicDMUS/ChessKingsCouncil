@@ -17,10 +17,8 @@ import PermanentDrawer from "../../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
-import {navBarWidth} from "../../Reuseables/NavBar/NavBar.jss";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {navBarButtonWidth} from "../../Reuseables/NavBar/NavBarButton.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpTitle} from "../../Reuseables/HelpTitle";
@@ -30,7 +28,6 @@ import {newData} from "../NewData";
 import {
     fontSize0016,
     fontSize0023,
-    fontSize00276,
     fontSize0034,
 } from "../../styles/fontSizes.jss";
 import {

@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
+import "../styles/_backgrounds.scss"
 import {PageLink} from "./PageLink";
 import {MuiButton as Button} from "../Reuseables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import {fontSize002} from "../styles/fontSizes.jss";
-import "../styles/_backgrounds.scss"
-import {useStyles} from "./MainMenuDesktop.jss";
 import {Background} from "../Reuseables/Background";
+import {useStyles} from "./MainMenuDesktop.jss";
 
 
 export function MainMenuDesktop(props) {

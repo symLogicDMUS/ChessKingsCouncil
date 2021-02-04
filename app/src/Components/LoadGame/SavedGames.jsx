@@ -4,15 +4,13 @@ import MediaQuery from "react-responsive/src";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import StorageIcon from '@material-ui/icons/Storage';
-import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
+import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {imgGridRootStyle, useStyles} from "./SavedGames.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});

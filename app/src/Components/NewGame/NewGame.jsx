@@ -116,7 +116,7 @@ function NewGame() {
                         theme={theme}
                         drawer={
                             <NavBar
-                                currentPage="GameOptions"
+                                currentPage="NewGame"
                                 screenCase='mobile'
                                 helpText={HelpText(fontSize002, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}

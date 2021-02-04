@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
+import {Button, Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import {Button, Portal} from "@material-ui/core";
 import {findDidUserVisitPage, recordUserVisitedPage
 } from "../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {getHoverColor, useStyles} from "./NavBarButton.jss";
-
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, children}) {
 
@@ -19,12 +18,13 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {
-            recordUserVisitedPage(currentPage).then(([res]) => {
+            recordUserVisitedPage(currentPage).then(([r]) => {
+
                 const firstTime = !exists;
                 setIsFirstTime(firstTime);
             });
         });
-    })
+    }, [currentPage])
 
     return (
         <>

@@ -1,13 +1,13 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { copy } from "../helpers/copy";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
+import { Background } from "../Reuseables/Background";
 import { parseData } from "../../apiHelpers/parseData";
-import {Background} from "../Reuseables/Background";
 import { SavedGames } from "./SavedGames";
+import { copy } from "../helpers/copy";
 import "../styles/_backgrounds.scss";
 
 class LoadGame extends React.Component {

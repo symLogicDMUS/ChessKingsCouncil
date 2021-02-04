@@ -1,17 +1,17 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
-import { getDefs } from "../../API/getDefs";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
+import {getDefs} from "../../API/getDefs";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
+import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
-import { styles } from "./MyPieces.jss";
+import {styles} from "./MyPieces.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class MyPieces extends React.Component {
             } else {
                 this.defs = {};
             }
-            this.setState({ fetched: true });
+            this.setState({fetched: true});
         });
     }
 
@@ -72,7 +72,11 @@ class MyPieces extends React.Component {
                                 theme={this.state.theme}
                                 searchText={this.state.searchText}
                             >
-                                <ProfilesTitle theme={this.state.theme} updateSearchText={this.updateSearchText}>
+                                <ProfilesTitle
+                                    screenCase='desktop'
+                                    theme={this.state.theme}
+                                    updateSearchText={this.updateSearchText}
+                                >
                                     My Pieces
                                 </ProfilesTitle>
                             </PieceProfiles>
@@ -103,8 +107,13 @@ class MyPieces extends React.Component {
                                     title="My Pieces"
                                     defs={this.defs}
                                     theme={this.state.theme}
+                                    searchText={this.state.searchText}
                                 >
-                                    <ProfilesTitle theme={this.state.theme}>
+                                    <ProfilesTitle
+                                        screenCase='mobile'
+                                        theme={this.state.theme}
+                                        updateSearchText={this.updateSearchText}
+                                    >
                                         My Pieces
                                     </ProfilesTitle>
                                 </PieceProfiles>

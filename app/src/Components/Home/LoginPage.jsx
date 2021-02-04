@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
+import MediaQuery from "react-responsive/src";
 import * as firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {useStyles} from "./LoginPage.jss";
-import MediaQuery from "react-responsive/src";
 import {Background} from "../Reuseables/Background";
 import '../styles/_backgrounds.scss';
+import {useStyles} from "./LoginPage.jss";
 
 export function LoginPage(props) {
     let [theme, setTheme] = useState("tan");

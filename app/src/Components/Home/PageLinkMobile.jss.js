@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export const page_icon = (fontSize) => ({
     fontSize: fontSize,
@@ -21,6 +22,8 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        fontSize: fontSize002,
+        marginBottom: '0.25em',
     }),
     page_icon_normal: props => ({
         ...page_icon(props.fontSize),

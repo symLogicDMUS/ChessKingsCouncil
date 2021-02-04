@@ -6,7 +6,7 @@ import { fontSize002 } from "../styles/fontSizes.jss";
 import { useStyles } from "./MainMenuMoblile.jss";
 
 export function MainMenuMobile(props) {
-    const classes = useStyles({ theme: props.theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: props.theme });
     return (
         <div className={classes.main_menu}>
             <img
