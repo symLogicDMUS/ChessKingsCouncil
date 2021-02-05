@@ -6,7 +6,7 @@ import PanoramaIcon from "@material-ui/icons/Panorama";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
-import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
+import {getSetSampleImgs} from "../../../../API/getSetSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
 import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
 import {fontSize001725} from "../../../styles/fontSizes.jss";
@@ -30,7 +30,7 @@ class ChooseModal extends React.Component {
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
-                this.imgDict = sampleBase64ImgStrs;
+                this.imgDict = getSetSampleImgs();
             } else {
                 this.imgDict = imgDict;
             }
@@ -46,7 +46,6 @@ class ChooseModal extends React.Component {
             this.setState({imgNameChoice: null});
         });
     }
-
 
     submitChoice(imgNameChoice) {
         this.props.setPieceImg(this.props.color, this.imgDict[imgNameChoice]);
