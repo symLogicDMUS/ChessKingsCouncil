@@ -95,10 +95,10 @@ export function CouncilRules() {
                 <PersistentDrawer
                     drawer={
                         <NavBar
-                            currentPage="CouncilRules"
-                            screenCase='mobile'
-                            redirectMessage={null}
-                            theme="tan"
+                        theme="tan"
+                        currentPage="CouncilRules"
+                        screenCase='mobile'
+                        unsavedChanges={false}
                         />
                     }
                     appBarContent={
