@@ -24,7 +24,6 @@ export const useStyles = makeStyles({
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            border: '1px dashed red',
             '@media screen and (min-width: 768px)': {
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
@@ -54,7 +53,6 @@ export const useStyles = makeStyles({
                 justifyContent: 'center',
                 alignItems: "center",
             },
-            border: '1px dashed #1faae',
         }),
         title: props => ({
             fontSize: fontSize00219,
