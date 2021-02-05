@@ -1,22 +1,34 @@
 import React from "react";
 import {Grid} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import {themes} from "../styles/themes.jss";
 import Skeleton from "@material-ui/lab/Skeleton";
 import { useStyles } from "./MuiSkeleton.jss";
 
-
 export function MuiSkeleton(props) {
+    const classes = useStyles({theme: props.theme});
     return (
-        <Grid container wrap="nowrap" classes={props.classesObj}>
-            {(Array.from(new Array(3))).map((index) => (
-                <Box key={index} width={210} marginRight={0.5} my={5}>
-                    <Skeleton variant="rect" width={210} height={118} />
-                    <Box pt={0.5}>
-                        <Skeleton />
-                        <Skeleton width="60%" />
+        <Box classes={props.classesObj}>
+            <Grid container wrap="nowrap" classes={{root: classes.row}}>
+                {(Array.from(new Array(6))).map((index) => (
+                    <Box key={index} classes={{root: classes.load_box_container}}>
+                        <Skeleton variant="rect" classes={{root: classes.load_box}} />
+                        <Box pt={1}>
+                            <Skeleton classes={{root: classes.underline}} />
+                        </Box>
                     </Box>
-                </Box>
-            ))}
-        </Grid>
+                ))}
+            </Grid>
+            <Grid container wrap="nowrap">
+                {(Array.from(new Array(6))).map((index) => (
+                    <Box key={index} classes={{root: classes.load_box_container}}>
+                        <Skeleton variant="rect" classes={{root: classes.load_box}} />
+                        <Box pt={1}>
+                            <Skeleton classes={{root: classes.underline}} />
+                        </Box>
+                    </Box>
+                ))}
+            </Grid>
+        </Box>
     );
 }

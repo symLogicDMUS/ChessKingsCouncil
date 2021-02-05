@@ -55,7 +55,7 @@ export function ImgGrid(props) {
                             {state.imgItems}
                         </Box>
                     ) : (
-                        <MuiSkeleton classesObj={{root: classes.image_choices}} />
+                        <MuiSkeleton classesObj={{root: classes.image_choices}} theme={props.theme} />
                     )}
                 </Box>
                 <Box className={classes.bottom_flexbox}>
