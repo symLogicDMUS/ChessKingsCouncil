@@ -19,7 +19,7 @@ export const example_box = (screenCase) => {
                 flexDirection: "row",
                 flexWrap: "nowrap",
                 alignItems: "center",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
             }
         case 'mobile':
             return {

@@ -1,8 +1,8 @@
-import {fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize00219, fontSize0023, fontSize00301, fontSize0032} from "../../styles/fontSizes.jss";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const fontSizes = {
-    desktop: fontSize00301,
+    desktop: fontSize002,
     mobile: fontSize0023,
 }
 export const widths = {
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
     }),
     span_arrow_buttons: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSizes.desktop,
+            fontSize: fontSize00219,
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,

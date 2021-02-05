@@ -29,7 +29,8 @@ export function RangeToolExample({theme}) {
     The ArrowButton component needs
     a function that takes a single
     argument to not crash, but we
-    aren't using it here.
+    aren't actually using it, since
+    this component is only a diagram.
     */
     const doNothing = (span) => {
         return null;

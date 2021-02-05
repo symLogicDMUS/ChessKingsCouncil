@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {buttonSizeEm, fontSizes} from "./SpanArrowButtons.jss";
+import {fontSizes} from "./SpanArrowButtons.jss";
 import {themes} from "../../../styles/themes.jss";
 
 

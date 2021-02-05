@@ -17,7 +17,10 @@ export function OptionsToolExplanation(props) {
                     that you can do the same things as the 'My Pieces' page
                     without losing your unsaved work.
                     <br/>
+                    <br/>
                     <Option iconType="load" theme={props.theme}/>
+                    <br/>
+                    <br/>
                 </li>
                 <li>
                     <i>Save</i>: Saves the piece. You can now add the piece as a
@@ -25,7 +28,10 @@ export function OptionsToolExplanation(props) {
                     when starting a new game. The piece can't be saved if the
                     name or image icons are blank.
                     <br/>
+                    <br/>
                     <Option iconType="save" theme={props.theme}/>
+                    <br/>
+                    <br/>
                 </li>
                 <li>
                     <i>Reset</i>: If you loaded a previously created piece than
@@ -33,13 +39,19 @@ export function OptionsToolExplanation(props) {
                     saved it. If you're editing a new piece, the Reset option is
                     the same as the Erase option.
                     <br/>
+                    <br/>
                     <Option iconType="reset" theme={props.theme}/>
+                    <br/>
+                    <br/>
                 </li>
                 <li>
                     <i>Erase:</i> The Erase option removes all ranges and makes
                     the name and image icons blank.
                     <br/>
+                    <br/>
                     <Option iconType="erase" theme={props.theme}/>
+                    <br/>
+                    <br/>
                 </li>
             </ul>
         </Typography>
