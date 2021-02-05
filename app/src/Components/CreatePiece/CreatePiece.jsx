@@ -33,7 +33,7 @@ import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {fontSize002, fontSize0024, fontSize0066, fontSize0095} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0024, fontSize0067, fontSize0095} from "../styles/fontSizes.jss";
 import {app_bar_title, styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
@@ -437,7 +437,7 @@ class CreatePiece extends React.Component {
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
                             pieceLoc={this.location}
-                            fontSize={fontSize0066}
+                            fontSize={fontSize0067}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}

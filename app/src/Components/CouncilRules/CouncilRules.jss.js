@@ -6,7 +6,7 @@ import {
     fontSize002,
     fontSize0023,
     fontSize00301, fontSize0040, fontSize0050,
-    fontSize0060, fontSize0066,
+    fontSize0060, fontSize0067,
     fontSize01, fontSize018
 } from "../styles/fontSizes.jss";
 
