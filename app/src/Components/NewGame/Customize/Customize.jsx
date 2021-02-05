@@ -25,19 +25,16 @@ import {HelpTitle} from "../../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
+import {fontSize0016, fontSize0023, fontSize0034,} from "../../styles/fontSizes.jss";
 import {
-    fontSize0016,
-    fontSize0023,
-    fontSize0034,
-} from "../../styles/fontSizes.jss";
-import {
-    ok_button,
     app_bar_flexbox,
-    drawerItemWidth,
     drawerItemMarginLeft,
     drawerItemMarginTopBottom,
-    list_title, promo_all_checkbox_container
+    drawerItemWidth,
+    ok_button,
+    promo_all_checkbox_container
 } from "./Customize.jss";
+import {ListTitle} from "./ListTitle";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -311,9 +308,7 @@ class Customize extends React.Component {
                                     marginBottom: drawerItemMarginTopBottom,
                                 }}
                                 title={
-                                    <Typography style={{...list_title(this.state.theme), textAlign: 'center'}}>
-                                        Pawn Promotions
-                                    </Typography>
+                                    <ListTitle theme={this.state.theme}>Pawn Promotions</ListTitle>
                                 }
                             />
                             <Box style={promo_all_checkbox_container()}>

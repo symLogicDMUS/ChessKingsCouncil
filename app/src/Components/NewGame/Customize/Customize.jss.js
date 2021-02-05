@@ -60,19 +60,6 @@ export const promo_all_checkbox_container = () => ({
     justifyContent: 'center',
 });
 
-export const list_title = (theme) => ({
-    ...text(theme),
-    '@media screen and (min-width: 768px)': {
-        width: drawerItemWidth,
-    },
-    '@media screen and (max-width: 767px)': {
-        width: '100%',
-    },
-    borderTop: `0.05em solid ${themes[theme].outline}`,
-    borderLeft: `0.05em solid ${themes[theme].outline}`,
-    borderRight: `0.05em solid ${themes[theme].outline}`,
-});
-
 export const styles = {
     customize: {
         display: 'flex',

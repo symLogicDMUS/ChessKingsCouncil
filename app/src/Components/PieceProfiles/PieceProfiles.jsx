@@ -148,7 +148,3 @@ export function PieceProfiles(props) {
         </div>
     );
 }
-
-
-
-
