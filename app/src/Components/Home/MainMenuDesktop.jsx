@@ -11,7 +11,7 @@ import {useStyles} from "./MainMenuDesktop.jss";
 
 export function MainMenuDesktop(props) {
 
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme});
 
     return (
         <>
@@ -19,7 +19,8 @@ export function MainMenuDesktop(props) {
             <Box className={classes.top}>
                 <Button
                     onClick={props.signOut}
-                    startIcon={<AccountBoxIcon />}
+                    startIcon={<AccountBoxIcon style={{fontSize: fontSize002}} />}
+                    classesObj={{root: classes.sign_out_button}}
                     theme={props.theme}
                     variant="contained"
                 >
