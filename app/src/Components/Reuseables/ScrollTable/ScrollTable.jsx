@@ -8,6 +8,18 @@ import {renderList} from "./renderList";
 import {reducer} from "./reducer.red";
 import {useStyles} from "./ScrollTable.jss";
 
+/**
+ * The style prop must include width and fontSize!
+ * @param listItems
+ * @param title
+ * @param numRows
+ * @param theme
+ * @param style
+ * @param buttonStyle
+ * @param addedStyle
+ * @returns {JSX.Element}
+ * @constructor
+ */
 function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, addedStyle}) {
     const classes = useStyles({theme: theme, style: style, addedStyle, numRows: numRows});
 
@@ -31,7 +43,7 @@ function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, adde
                 variant="outlined"
                 style={buttonStyle}
             >
-                <ArrowDropUpIcon/>
+                <ArrowDropUpIcon style={{fontSize: style.fontSize}} />
             </Button>
             {state.componentList}
             <Button
@@ -42,7 +54,7 @@ function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, adde
                 variant="outlined"
                 style={buttonStyle}
             >
-                <ArrowDropDownIcon/>
+                <ArrowDropDownIcon style={{fontSize: style.fontSize}}/>
             </Button>
         </Box>
     )

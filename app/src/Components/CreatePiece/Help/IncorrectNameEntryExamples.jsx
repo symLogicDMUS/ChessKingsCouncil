@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {TextField} from "@material-ui/core";
-import { useStyles} from "./IncorrectNameEntryExamples.jss";
+import {TextField, Typography} from "@material-ui/core";
+import {useStyles} from "./IncorrectNameEntryExamples.jss";
 
-export function IncorrectNameEntryExamples({theme}) {
-    const classes = useStyles({theme});
+export function IncorrectNameEntryExamples({fontSize, theme}) {
+    const classes = useStyles({fontSize: fontSize, theme: theme});
     return (
         <Box className={classes.incorrect_name_entry_examples}>
             <TextField
@@ -14,14 +14,14 @@ export function IncorrectNameEntryExamples({theme}) {
                 id="standard-name-error"
                 variant='outlined'
                 defaultValue="Queen"
-                helperText="Error: standard piece name"
+                helperText={<Typography style={{fontSize: fontSize}}>Error: standard piece name</Typography>}
             />
             <TextField
                 error
                 className={classes.incorrect_entry}
                 id="name-blank-error"
                 variant='outlined'
-                helperText="Error: name field blank"
+                helperText={<Typography style={{fontSize: fontSize}}>Error: name field blank</Typography>}
             />
             <TextField
                 error
@@ -30,7 +30,7 @@ export function IncorrectNameEntryExamples({theme}) {
                 id="invalid-characters-error"
                 variant='outlined'
                 defaultValue=".#$[]"
-                helperText="Error: invalid characters"
+                helperText={<Typography style={{fontSize: fontSize}}>Error: invalid characters</Typography>}
             />
         </Box>
     )

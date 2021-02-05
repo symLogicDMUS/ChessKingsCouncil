@@ -17,6 +17,6 @@ export function InvalidNameExplanation(props) {
             Pawn. The name cannot contain the characters . # $ [ ] . The name
             cannot be left blank.
         </Typography>
-        <IncorrectNameEntryExamples theme={props.theme}/>
+        <IncorrectNameEntryExamples theme={props.theme} fontSize={props.fontSize}/>
     </div>;
 }

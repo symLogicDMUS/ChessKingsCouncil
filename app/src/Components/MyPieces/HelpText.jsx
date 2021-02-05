@@ -26,7 +26,7 @@ export const HelpText = (fontSize, theme) => ([
                 Click the Load button to go to the Create Piece page with that piece and further edit it.
                 <Button
                     theme={theme}
-                    startIcon={<Storage/>}
+                    startIcon={<Storage style={{fontSize: fontSize002, width: '1em'}}/>}
                     style={{...button(fontSize002, theme), marginLeft: '1.2em'}}
                 >
                     Load
@@ -36,7 +36,7 @@ export const HelpText = (fontSize, theme) => ([
                 started with that piece.
                 <Button
                     theme={theme}
-                    startIcon={<DeleteForever/>}
+                    startIcon={<DeleteForever style={{fontSize: fontSize002, width: '1em'}}/>}
                     style={{...button(fontSize002, theme), marginLeft: '1.2em'}}
                 >
                     Delete

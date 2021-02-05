@@ -24,6 +24,7 @@ export function ProfileHelpText(props) {
             variant='h6'
             className={classes.profile_help_text}
             style={{
+                fontSize: fontSize002,
                 fontFamily: 'Roboto-Light, Roboto',
                 color: themes[props.theme].text,
             }}
