@@ -58,6 +58,7 @@ export const useStyles = makeStyles({
         maxWidth: "97.5%",
         marginLeft: "2.5%",
         color: themes[props.theme].text,
+        fontSize: props.style.fontSize,
         fontFamily: "Roboto-Light, Roboto",
     }),
 });
