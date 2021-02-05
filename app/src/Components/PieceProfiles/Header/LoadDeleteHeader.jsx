@@ -68,7 +68,7 @@ export function LoadDeleteHeader({
                         <Button
                             theme={theme}
                             startIcon={<StorageIcon style={{fontSize: fontSize002}} />}
-                            style={button(fontSize002, theme)}
+                            classesObj={{root: classes.load_button}}
                             onClick={loadMethod}
                         >
                             Load
@@ -79,12 +79,9 @@ export function LoadDeleteHeader({
                             modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
                             startIcon={<DeleteForever style={{fontSize: fontSize002}} />}
+                            classesObj={{root: classes.delete_button}}
                             isDisabled={false}
                             theme={theme}
-                            style={{
-                                ...button(fontSize002, theme),
-                                marginLeft: getButtonMargin(screenCase),
-                            }}
                         />
                     </Box>
                 </Box>

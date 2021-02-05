@@ -53,6 +53,12 @@ export const useStyles = makeStyles({
             height: '1.5em',
             marginLeft: '1em',
         },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: '0.25em',
+            width: '1.5em',
+            height: '1.5em',
+            marginLeft: '1em',
+        },
         cursor: 'pointer',
         color: themes[props.theme].text,
     }),
@@ -64,6 +70,11 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
+            width: '0.7em',
+            height: '0.7em',
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
             width: '0.7em',
             height: '0.7em',
         },

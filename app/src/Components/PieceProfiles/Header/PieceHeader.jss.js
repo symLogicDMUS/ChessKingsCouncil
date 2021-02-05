@@ -29,6 +29,11 @@ export const header = (style, theme) => ({
         marginLeft: '1em',
         justifyContent: 'flex-start',
     },
+    "@media (aspect-ratio: 375/812)": {
+        width: '100%',
+        fontSize: fontSizes.ipx,
+        justifyContent: 'center',
+    },
     // border: '1px dashed #b1faae',
 });
 
@@ -38,6 +43,9 @@ export const text = (theme) => ({
     },
     '@media screen and (max-width: 767px)': {
         fontSize: fontSizes.mobile,
+    },
+    "@media (aspect-ratio: 375/812)": {
+        fontSize: fontSizes.ipx,
     },
     fontFamily: 'Roboto-Light, Roboto',
     color: themes[theme].text,

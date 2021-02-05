@@ -27,7 +27,7 @@ export const HelpText = (fontSize, theme) => ([
                 <Button
                     theme={theme}
                     startIcon={<Storage style={{fontSize: fontSize002, width: '1em'}}/>}
-                    style={{...button(fontSize002, theme), marginLeft: '1.2em'}}
+                    style={{...button(theme), marginLeft: '1.2em'}}
                 >
                     Load
                 </Button>
@@ -37,7 +37,7 @@ export const HelpText = (fontSize, theme) => ([
                 <Button
                     theme={theme}
                     startIcon={<DeleteForever style={{fontSize: fontSize002, width: '1em'}}/>}
-                    style={{...button(fontSize002, theme), marginLeft: '1.2em'}}
+                    style={{...button(theme), marginLeft: '1.2em'}}
                 >
                     Delete
                 </Button>
