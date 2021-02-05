@@ -7,7 +7,7 @@ import {availHeight} from "../../helpers/windowMeasurments";
 import {LocationToolExample} from "./LocationToolExample";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
-import {flex_row} from "./HelpText.jss";
+import {example_box} from "./HelpText.jss";
 import {useStyles} from "../../Reuseables/SubTitle.jss";
 
 export function LocationToolExplanation(props) {
@@ -23,7 +23,7 @@ export function LocationToolExplanation(props) {
                 of the board: D4, D5, E4, or E5.
             </p>
         </Typography>
-        <Box style={{...flex_row(), justifyContent: "space-around"}}>
+        <Box style={{...example_box(), justifyContent: "space-around"}}>
             {fourLocationsBoard(
                 availHeight() * 0.25,
                 availHeight() * 0.25,

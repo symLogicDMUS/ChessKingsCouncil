@@ -1,5 +1,4 @@
 import React, {useReducer} from "react";
-import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -11,12 +10,7 @@ import {MuiButton} from "../MuiButton";
 import "../../styles/Scrollbar.scss";
 import {Close} from "../Close";
 import {reducer} from "./HelpSlideshow.red";
-import {
-    done_button,
-    next_button,
-    previous_button,
-    useStyles
-} from "./HelpSlideshow.jss";
+import {useStyles} from "./HelpSlideshow.jss";
 
 export function HelpSlideshow({initialState, title, onClose, theme, children}) {
     const [state, dispatch] = useReducer(reducer, initialState);
@@ -26,9 +20,13 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
             <div className={classes.modal}>
                 <div className={classes.window}>
                     <Box className={classes.top_flexbox}>
-                        <Close onClick={onClose} theme={theme} style={close_icon(fontSize002)}/>
+                        <Box className={classes.x_symbol_flexbox}>
+                            <Close onClick={onClose} theme={theme} style={close_icon(fontSize002)}/>
+                        </Box>
+                        <Box className={classes.title_flexbox}>
+                            {title}
+                        </Box>
                     </Box>
-                    <Box>{title}</Box>
                     <Typography paragraph className={classes.content}>
                         {children[state.pos]}
                     </Typography>
@@ -36,8 +34,8 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         {state.pos !== 0 ? (
                             <MuiButton
                                 theme={theme}
-                                style={previous_button(theme)}
-                                startIcon={ <NavigateBeforeIcon />}
+                                classesObj={{root: classes.previous_button}}
+                                startIcon={ <NavigateBeforeIcon style={{fontSize: fontSize002}} />}
                                 onClick={() => dispatch({type: 'decrement'})}
                             >
                                 Previous
@@ -46,8 +44,8 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         {state.pos !== (state.numSlides - 1) ? (
                             <MuiButton
                                 theme={theme}
-                                style={next_button(theme)}
-                                endIcon={<NavigateNextIcon />}
+                                classesObj={{root: classes.next_button}}
+                                endIcon={<NavigateNextIcon style={{fontSize: fontSize002}} />}
                                 onClick={() => dispatch({type: 'increment'})}
                             >
                                 Next
@@ -55,8 +53,8 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         ) : null}
                         <MuiButton
                             theme={theme}
-                            style={done_button(theme)}
-                            startIcon={<CheckCircleOutlineIcon />}
+                            classesObj={{root: classes.done_button}}
+                            startIcon={<CheckCircleOutlineIcon style={{fontSize: fontSize002}} />}
                             onClick={onClose}
                         >
                             Done

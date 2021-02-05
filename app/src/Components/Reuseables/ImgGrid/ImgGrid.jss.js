@@ -127,4 +127,12 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
     }),
+    ok_button: props => ({
+        ...button(fontSize001685),
+        marginRight: "1em",
+    }),
+    delete_button: props => ({
+        ...button(fontSize001685),
+        marginLeft: "1em",
+    }),
 });

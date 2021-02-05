@@ -32,28 +32,6 @@ export const ok_button = (fontSize) => ({
     },
 });
 
-export const app_bar_flexbox = (fontSize) => ({
-    fontSize: fontSize,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: `calc(89% - ${sideBarWidth}px)`,
-});
-
-export const drawer_table_button = (fontSize) => ({
-    fontSize: fontSize,
-    '@media screen and (min-width: 768px)': {
-        width: drawerItemWidth,
-        borderTopLeftRadius: '0.1em',
-        borderTopRightRadius: '0.1em',
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-    },
-    disableElevation: true,
-});
-
 export const promo_all_checkbox_container = () => ({
     ...drawer_component(fontSize0023),
     display: 'flex',

@@ -1,7 +1,6 @@
 import React from "react";
 import {angleToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-
 import {ArrowButton} from "../Range/SpanArrowButtons/ArrowButton";
 import {useStyles, widths, heights, fontSizes} from "./RangeToolExample.jss";
 

@@ -12,13 +12,14 @@ import {fontSize002} from "../styles/fontSizes.jss";
  * @param modalText
  * @param theme
  * @param style
+ * @param classesObj
  * @param variant
  * @param startIcon
  * @param isDisabled
  * @returns {JSX.Element}
  * @constructor
  */
-export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, variant, startIcon, isDisabled}) {
+export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled}) {
 
     let [modal, setModal] = useState();
 
@@ -58,6 +59,7 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                 onClick={() => setModal(true)}
                 isDisabled={isDisabled}
                 startIcon={startIcon}
+                classesObj={classesObj}
                 variant={variant}
                 style={style}
                 theme={theme}

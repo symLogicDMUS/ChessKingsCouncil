@@ -1,18 +1,34 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
-import {ProfileHelpTextAlt} from
-        "../../PieceProfiles/Help/ProfileHelpTextAlt";
-import {getSpanRangeBoardDragonExample} from
-        "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
-import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
+import MediaQuery from "react-responsive/src";
+import {Typography} from "@material-ui/core";
+import {example_box} from "./HelpText.jss";
 import {RangeToolExample} from "./RangeToolExample";
-import {flex_row} from "./HelpText.jss";
-import { useStyles } from "../../Reuseables/SubTitle.jss";
+import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
+import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {ProfileHelpTextAlt} from "../../PieceProfiles/Help/ProfileHelpTextAlt";
+import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
+import {img_example} from "./OffsetsAndSpansExplanation.jss";
+import {useStyles} from "../../Reuseables/SubTitle.jss";
+
 
 export function OffsetsAndSpansExplanation(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+
+    const getExamples = (screenCase) => {
+        return (
+            <Box style={example_box(screenCase)}>
+                <img
+                    src={getSpanRangeBoardDragonExample({theme: props.theme})}
+                    alt="span board for dragon"
+                    style={img_example()}
+                />
+                <RangeToolExample theme={props.theme}/>
+            </Box>
+        )
+    };
+
+
     return (
         <div>
             <Typography variant='h6' className={classes.sub_title}>
@@ -45,18 +61,8 @@ export function OffsetsAndSpansExplanation(props) {
                     range and click it again to remove it.
                 </p>
             </Typography>
-            <Box style={flex_row()}>
-                <img
-                    src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                    alt="span board for dragon"
-                    style={{
-                        fontSize: fontSize00301,
-                        width: "9em",
-                        height: "9em",
-                    }}
-                />
-                <RangeToolExample theme={props.theme}/>
-            </Box>
+            <MediaQuery minDeviceHeight={768}>{getExamples('desktop')}</MediaQuery>
+            <MediaQuery maxDeviceHeight={767}>{getExamples('mobile')}</MediaQuery>
             <Typography paragraph style={help_text(props.fontSize, props.theme)}>
                 <p>
                     Spans take precedence over offsets, i.e. if you turn on a span it will overwrite any offsets lying

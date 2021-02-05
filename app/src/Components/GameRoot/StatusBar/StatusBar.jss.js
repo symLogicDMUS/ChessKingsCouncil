@@ -18,6 +18,7 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         color: themes[props.theme].text,
         width: '9.5em',
+        marginLeft: '0.8em',
     }),
     status_bar: props => ({
         zIndex: 4,

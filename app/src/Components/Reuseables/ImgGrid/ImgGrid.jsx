@@ -6,9 +6,9 @@ import {fontSize001685} from "../../styles/fontSizes.jss";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { MuiDeleteButton as DeleteButton } from "../MuiDeleteButton";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import { button, useStyles } from "./ImgGrid.jss";
 import { getImgItems } from "./getImgItems";
 import { reducer } from "./reducer.red";
+import { button, useStyles } from "./ImgGrid.jss";
 
 export function ImgGrid(props) {
     let [state, dispatch] = useReducer(
@@ -55,13 +55,10 @@ export function ImgGrid(props) {
                 <Box className={classes.bottom_flexbox}>
                     <Button
                         onClick={props.onOkClick}
-                        isDisabled={props.imgNameChoice === null}
-                        style={{
-                            ...button(fontSize001685),
-                            marginRight: "1em",
-                        }}
                         variant="outlined"
                         theme={props.theme}
+                        isDisabled={props.imgNameChoice === null}
+                        classesObj={{root: classes.ok_button}}
                         startIcon={<CheckCircleOutlineIcon style={{fontSize: fontSize001685}} />}
                     >
                         Ok
@@ -70,10 +67,7 @@ export function ImgGrid(props) {
                         onAcceptDelete={props.onDeleteClick}
                         modalTitle={props.confirmDeleteMessage}
                         isDisabled={props.imgNameChoice === null}
-                        style={{
-                            ...button(fontSize001685),
-                            marginLeft: "1em",
-                        }}
+                        classesObj={{root: classes.delete_button}}
                         startIcon={<DeleteForeverIcon style={{fontSize: fontSize001685}} />}
                         theme={props.theme}
                         variant="outlined"

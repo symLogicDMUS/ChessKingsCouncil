@@ -1,5 +1,4 @@
-import {fontSize002, fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
-import {tool, tool_flexbox, tool_title} from "../CreatePiece.jss";
+import {fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const fontSizes = {

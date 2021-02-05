@@ -35,6 +35,7 @@ import {
     promo_all_checkbox_container
 } from "./Customize.jss";
 import {ListTitle} from "./ListTitle";
+import {AppBarContent} from "./AppBarContent";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -279,12 +280,12 @@ class Customize extends React.Component {
                                 />
                             }
                             appBarContent={
-                                <Box style={app_bar_flexbox(fontSize0023)}>
-                                    <Typography variant="h6" noWrap>
-                                        Customize Game
-                                    </Typography>
-                                    <SearchBox theme={this.state.theme} updateSearchText={this.updateSearchText}/>
-                                </Box>
+                                <AppBarContent
+                                    updateSearchText={this.updateSearchText}
+                                    theme={this.state.theme}
+                                >
+                                    Customize Game
+                                </AppBarContent>
                             }
                         >
                             <SubList

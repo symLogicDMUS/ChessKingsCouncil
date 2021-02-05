@@ -9,14 +9,29 @@ export const inline_text = (fontSize, theme) => ({
     position: "relative",
     left: "-1em",
 });
-export const flex_row = () => ({
-    width: "100%",
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "nowrap",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-});
+export const example_box = (screenCase) => {
+
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                width: "100%",
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "nowrap",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+            }
+        case 'mobile':
+            return {
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: 'center'
+            }
+    }
+
+};
 export const button = (theme) => ({
     display: "inline-block",
     borderRadius: 0,
@@ -30,6 +45,7 @@ export const button_content = () => ({
     width: "3em",
 });
 export const button_text = (theme) => ({
+    fontSize: fontSize002,
     color: themes[theme].outline,
     marginLeft: '0.5em'
 });

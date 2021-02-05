@@ -44,5 +44,8 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
+        width: `calc(99.99% - ${drawerWidth}px)`,
+        // fontSize: fontSize002,
+        // height: '3em',
     }),
 }));
