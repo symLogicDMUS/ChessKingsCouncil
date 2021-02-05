@@ -26,14 +26,6 @@ export const button = (fontSize, theme) => ({
     border: `0.05em solid ${themes[theme].outline}`
 });
 
-export const ld_header_style = (fontSize, screenCase) => ({
-    justifyContent: "right",
-    marginLeft: '3.25%',
-    marginTop: '0.5em',
-    marginBottom: '0.5em',
-    width: screenCase === 'desktop' ? '93.25%' : '94%'
-});
-
 export const useStyles = makeStyles({
     header: props => ({
         ...header(props.style, props.theme),

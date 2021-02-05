@@ -9,7 +9,6 @@ import {fontSize002} from "../styles/fontSizes.jss";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
 import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
 import {reducer} from "./PieceProfiles.red";
@@ -99,7 +98,6 @@ export function PieceProfiles(props) {
                             def={state[pieceName]}
                             screenCase={screenCase}
                             parentPage={props.parentPage}
-                            style={ld_header_style(fontSize002)}
                             toggleModal={props.toggleModal}
                             theme={props.theme}
                         />

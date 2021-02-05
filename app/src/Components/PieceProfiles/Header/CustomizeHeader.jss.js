@@ -65,12 +65,12 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
     }),
     sub_button: props => ({
-        fontSize: '1em',
+        fontSize: fontSize0028,
         width: '1.5em',
         height: '1.5em',
     }),
     sub_icon: props => ({
-        fontSize: '1em',
+        fontSize: fontSize0028,
         '@media screen and (min-width: 768px)': {
             width: '1.25em',
             height: '1.25em',
@@ -81,6 +81,7 @@ export const useStyles = makeStyles({
         },
     }),
     no_sub_icon: props => ({
+        fontSize: fontSize0028,
         '@media screen and (min-width: 768px)': {
             width: '1.2em',
             height: '1.2em',
