@@ -10,6 +10,7 @@ import Box from "@material-ui/core/Box";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
 import {useStyles} from "./BoardTool.jss";
+import {fontSizes} from "../../CreatePiece/Help/RangeToolExample.jss";
 
 export function BoardTool({
     theme,
@@ -59,8 +60,8 @@ export function BoardTool({
             <Box className={classes.flex_header}>
                 <MuiCheckbox
                     onClick={toggleShowProfileOnClick}
-                    style={{ fontSize: fontSize0023 }}
-                    rootStyle={{ fontSize: fontSize0023 }}
+                    style={{ fontSize: fontSizes[screenCase] }}
+                    rootStyle={{ fontSize: fontSizes[screenCase], border: '1px dashed #b1faae',}}
                     defaultChecked={showProfileOnClick}
                     theme={theme}
                 >

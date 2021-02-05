@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {fontSize00219, fontSize00301, fontSize00435} from "../../styles/fontSizes.jss";
+import {fontSize00219, fontSize00292, fontSize00435} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 // em units:
@@ -16,41 +16,43 @@ export const profileHeight = {
 
 export const fontSizes = {
     desktop: fontSize00435,
-    mobile: fontSize00301,
+    mobile: fontSize00292,
 }
 
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             flexDirection: 'row',
-            flexWrap: 'wrap',
             justifyContent: 'center',
+            border: '1px dashed red',
             '@media screen and (min-width: 768px)': {
+                flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
                 height: '8em',
             },
             '@media screen and (max-width: 767px)': {
+                flex: 'nowrap',
                 width: '100%',
                 height: '100%',
                 alignItems: 'center'
             },
         }),
         flex_header: props => ({
-            fontSize: fontSizes.desktop,
-            width: '8em',
-            height: '0.7em',
             display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
             '@media screen and (min-width: 768px)': {
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: fontSizes.desktop,
                 outline: `0.04em solid ${themes[props.theme].outline}`,
+                height: '0.7em',
+                width: '8em',
             },
             '@media screen and (max-width: 767px)': {
                 justifyContent: 'center',
-                marginTop: '-1em',
+                alignItems: "center",
             },
             border: '1px dashed #1faae',
         }),

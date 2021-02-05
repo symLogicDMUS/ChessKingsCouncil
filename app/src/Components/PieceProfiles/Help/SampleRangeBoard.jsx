@@ -6,13 +6,13 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "../PartialRangeModal/PartialRangePiece";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {fontSize00301, fontSize00276} from "../../styles/fontSizes.jss";
+import {fontSize00301, fontSize00276, fontSize0025} from "../../styles/fontSizes.jss";
 import {board} from "../../Reuseables/Board.jss";
 import {useStyles} from "../../Reuseables/Square.jss";
 
 export const fontSizes = {
     desktop: fontSize00301,
-    mobile: fontSize00276,
+    mobile: fontSize0025,
 }
 
 export function SampleRangeBoard({theme}) {
