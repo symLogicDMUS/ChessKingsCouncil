@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "../MuiCheckbox";
+import Skeleton from '@material-ui/lab/Skeleton';
 import { MuiButton as Button } from "../MuiButton";
 import {fontSize001685} from "../../styles/fontSizes.jss";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -8,7 +9,8 @@ import { MuiDeleteButton as DeleteButton } from "../MuiDeleteButton";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { getImgItems } from "./getImgItems";
 import { reducer } from "./reducer.red";
-import { button, useStyles } from "./ImgGrid.jss";
+import {button, deleteMe, useStyles} from "./ImgGrid.jss";
+import {MuiSkeleton} from "../MuiSkeleton";
 
 export function ImgGrid(props) {
     let [state, dispatch] = useReducer(
@@ -48,9 +50,13 @@ export function ImgGrid(props) {
                 <Box className={classes.top_flexbox}>{props.topFlexbox}</Box>
                 <Box className={classes.title_flexbox}>{props.title}</Box>
                 <Box className={classes.img_choices_border}>
-                    <Box className={classes.image_choices}>
-                        {state.imgItems}
-                    </Box>
+                    {props.loaded ? (
+                        <Box className={classes.image_choices}>
+                            {state.imgItems}
+                        </Box>
+                    ) : (
+                        <MuiSkeleton classesObj={{root: classes.image_choices}} />
+                    )}
                 </Box>
                 <Box className={classes.bottom_flexbox}>
                     <Button

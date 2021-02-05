@@ -19,7 +19,7 @@ import {styles} from "./ChooseModal.jss";
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {imgNameChoice: null, searchText: '', bValue: false};
+        this.state = {imgNameChoice: null, searchText: '', loaded: false};
         this.imgDict = {};
         this.deleteImg = this.deleteImg.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
@@ -35,7 +35,7 @@ class ChooseModal extends React.Component {
                 this.imgDict = imgDict;
             }
             this.imgDict = filterStandardPieces(this.imgDict);
-            this.setState({bValue: !this.state.bValue});
+            this.setState({loaded: true});
         });
     }
 
@@ -81,6 +81,7 @@ class ChooseModal extends React.Component {
                             }
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
+                            loaded={this.state.loaded}
                             defaultChecked={false}
                             searchText={this.state.searchText}
                             confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
@@ -114,6 +115,7 @@ class ChooseModal extends React.Component {
                             screenCase={this.props.screenCase}
                             theme={this.props.theme}
                             defaultChecked={false}
+                            loaded={this.state.loaded}
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
                             }

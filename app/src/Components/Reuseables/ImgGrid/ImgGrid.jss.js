@@ -32,6 +32,28 @@ export const widths = {
     mobile: availWidth(),
 };
 
+export const deleteMe = (theme) => ({
+    fontSize: fontSize001685,
+    '@media screen and (min-width: 768px)': {
+        width: '92.5em',
+        height: '35.5em',
+    },
+    '@media screen and (max-width: 767px)': {
+        width: '30.5em',
+        height: '43.5em',
+    },
+    marginLeft: '1em',
+    marginRight: '1em',
+    marginTop: '1em',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
+    alignContent: 'flex-start',
+    justifyContent: 'flex-start',
+    backgroundColor: themes[theme].modal_fill,
+});
+
 export const useStyles = makeStyles({
     window: props => ({
         zIndex: 6,
