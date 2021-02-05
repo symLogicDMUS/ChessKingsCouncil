@@ -5,6 +5,7 @@ export const fontSize001685 = window.screen.availHeight * 0.01685;
 export const fontSize001725 = window.screen.availHeight * 0.01725;
 export const fontSize0018 = window.screen.availHeight * 0.018;
 export const fontSize00184 = window.screen.availHeight * 0.0184;
+export const fontSize0019 = window.screen.availHeight * 0.019;
 export const fontSize002 = window.screen.availHeight * 0.02;
 export const fontSize00219 = window.screen.availHeight * 0.0219;
 export const fontSize00224 = window.screen.availHeight * 0.0224;
