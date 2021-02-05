@@ -19,6 +19,7 @@ export function CouncilRules() {
                     currentPage="CouncilRules"
                     screenCase='desktop'
                     unsavedChanges={false}
+                    helpText={[]}
                 />
                 <div className={classes.council_rules}>
                     <Box className={classes.parchment_desktop}>
@@ -95,10 +96,11 @@ export function CouncilRules() {
                 <PersistentDrawer
                     drawer={
                         <NavBar
-                        theme="tan"
-                        currentPage="CouncilRules"
-                        screenCase='mobile'
-                        unsavedChanges={false}
+                            theme="tan"
+                            currentPage="CouncilRules"
+                            screenCase='mobile'
+                            unsavedChanges={false}
+                            helpText={[]}
                         />
                     }
                     appBarContent={
