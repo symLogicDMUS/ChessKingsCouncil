@@ -61,7 +61,7 @@ export function BoardTool({
                 <MuiCheckbox
                     onClick={toggleShowProfileOnClick}
                     style={{ fontSize: fontSizes[screenCase] }}
-                    rootStyle={{ fontSize: fontSizes[screenCase], border: '1px dashed #b1faae',}}
+                    rootStyle={{ fontSize: fontSizes[screenCase]}}
                     defaultChecked={showProfileOnClick}
                     theme={theme}
                 >
