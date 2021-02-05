@@ -31,10 +31,35 @@ export const useStyles = makeStyles((theme) => ({
         textTransform: "none",
         verticalAlign: "middle",
         fontFamily: "Roboto,Helvetica,Arial,sans-serif",
+        "@media (max-width:2559px) and (min-width:1920px)": {
+            position: 'relative',
+            top: '-0.1em'
+        },
+        "@media (max-width:3839px) and (min-width:2560px)": {
+            position: 'relative',
+            top: '-0.5em',
+        },
+        "@media (min-width:3840px)": {
+            position: 'relative',
+            top: '-1.275em',
+        },
     }),
     anonymous_icon: (props) => ({
+        fontSize: theme.typography.pxToRem(14),
         width: theme.typography.pxToRem(18),
         height: theme.typography.pxToRem(18),
         verticalAlign: "middle",
+        "@media (max-width:2559px) and (min-width:1920px)": {
+            position: 'relative',
+            top: '-0.1em'
+        },
+        "@media (max-width:3839px) and (min-width:2560px)": {
+            position: 'relative',
+            top: '-0.5em',
+        },
+        "@media (min-width:3840px)": {
+            position: 'relative',
+            top: '-1.275em',
+        },
     }),
 }));

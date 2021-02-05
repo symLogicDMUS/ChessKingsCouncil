@@ -92,6 +92,7 @@ export function SavedGames(props) {
                 >
                     <ImgGrid
                         imgDict={props.imgDict}
+                        loaded={props.loaded}
                         setChoice={props.changeName}
                         imgNameChoice={props.selectedGame}
                         onDeleteClick={props.deleteGame}
