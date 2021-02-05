@@ -36,7 +36,7 @@ def get_data(location, game_name):
     json.dumps(id_dict)
     f.close()
 
-    f = open("./{}/{}/{}.defs".format(location, game_name, game_name), 'r')
+    f = open("./{}/{}/{}.sampleDefs".format(location, game_name, game_name), 'r')
     data = f.read()
     piece_defs = json.loads(data)
     json.dumps(piece_defs)
@@ -54,7 +54,7 @@ def get_data(location, game_name):
             "pt": player_type,
             "status": status,
             "ids": id_dict,
-            "defs": piece_defs,
+            "sampleDefs": piece_defs,
             "promos": promo_choices}
 
 

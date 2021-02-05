@@ -4,9 +4,9 @@ import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import PanoramaIcon from "@material-ui/icons/Panorama";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {getImgDict} from "../../../../API/getImgDict";
 import {deleteImg} from "../../../../API/deleteImg";
-import {getSetSampleImgs} from "../../../helpers/getSampleImgs";
+import {getImgDict} from "../../../../API/getImgDict";
+import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
 import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
 import {fontSize001725} from "../../../styles/fontSizes.jss";
@@ -30,7 +30,7 @@ class ChooseModal extends React.Component {
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
-                this.imgDict = getSetSampleImgs();
+                this.imgDict = sampleBase64ImgStrs;
             } else {
                 this.imgDict = imgDict;
             }

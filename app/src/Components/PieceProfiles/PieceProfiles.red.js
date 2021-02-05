@@ -3,7 +3,7 @@ import {copy} from "../helpers/copy";
 export const reducer = (state, action) => {
     switch (action.type) {
         case 'load':
-            // payload == defs
+            // payload == sampleDefs
             return action.payload;
         case 'delete':
             const defs = copy(state)

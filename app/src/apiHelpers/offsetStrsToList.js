@@ -19,7 +19,7 @@ export function offsetStrsToList(pieceDefs) {
 if (require.main === module) {
     //TODO: implement test
 
-    import {pieceDefs} from "../testObjects/defs/defs1";
+    import {pieceDefs} from "../testObjects/sampleDefs/defs1";
     import {initEmptyRanges} from "./initEmptyRanges";
     
     pieceDefs = initEmptyRanges(pieceDefs)

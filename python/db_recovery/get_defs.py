@@ -2,15 +2,15 @@ import json
 
 
 def get_defs():
-    """get the JSON object inside defs.json"""
-    f = open("./test_objects/defs/defs.json", 'r')
+    """get the JSON object inside sampleDefs.json"""
+    f = open("./test_objects/sampleDefs/sampleDefs.json", 'r')
     data = f.read()
-    defs = json.loads(data)
-    json.dumps(defs, indent=4, sort_keys=True)
-    return defs
+    sampleDefs = json.loads(data)
+    json.dumps(sampleDefs, indent=4, sort_keys=True)
+    return sampleDefs
 
 
 if __name__ == "__main__":
-    defs = get_defs()
-    for piece_name in defs.keys():
+    sampleDefs = get_defs()
+    for piece_name in sampleDefs.keys():
         print(piece_name)

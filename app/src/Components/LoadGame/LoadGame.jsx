@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
+import {sampleGames} from "../../API/apiHelpers/sampleGames";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { Background } from "../Reuseables/Background";
 import { parseData } from "../../apiHelpers/parseData";
@@ -17,6 +18,7 @@ class LoadGame extends React.Component {
             theme: "tan",
             selectedGame: null,
             userChoseGame: false,
+            firstVisit: false,
         };
         this.games = {};
         this.imgDict = {};
@@ -33,7 +35,7 @@ class LoadGame extends React.Component {
             if (games) {
                 this.games = games;
             } else {
-                this.games = {};
+                this.games = sampleGames;
             }
             this.reloadGameImgComponentsDict();
             this.setState({ userChoseGame: false });

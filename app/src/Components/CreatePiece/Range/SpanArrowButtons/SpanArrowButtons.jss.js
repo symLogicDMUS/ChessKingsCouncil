@@ -6,6 +6,8 @@ export const fontSizes = {
     mobile: fontSize0023,
 }
 
+export const buttonSizeEm = 3
+
 export const useStyles = makeStyles({
     span_arrow_buttons: props => ({
         '@media screen and (min-width: 768px)': {

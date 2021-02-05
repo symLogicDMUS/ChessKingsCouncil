@@ -42,42 +42,42 @@ def get_local_imgs():
 
 
 def get_local_defs():
-    f = open("./local_data/defs.json", 'r')
+    f = open("./local_data/sampleDefs.json", 'r')
     data = f.read()
-    defs = json.loads(data)
-    json.dumps(defs, indent=4, sort_keys=True)
-    return defs
+    sampleDefs = json.loads(data)
+    json.dumps(sampleDefs, indent=4, sort_keys=True)
+    return sampleDefs
 
 
 @app.route('/get_defs', methods=['GET', 'POST'])
 def get_defs():
-    """get the JSON object inside defs.json"""
-    f = open("./local_data/defs.json", 'r')
+    """get the JSON object inside sampleDefs.json"""
+    f = open("./local_data/sampleDefs.json", 'r')
     data = f.read()
-    defs = json.loads(data)
-    json.dumps(defs, indent=4, sort_keys=True)
-    return jsonify(defs)
+    sampleDefs = json.loads(data)
+    json.dumps(sampleDefs, indent=4, sort_keys=True)
+    return jsonify(sampleDefs)
 
 
 @app.route('/save_def', methods=['POST', 'GET'])
 def save_def():
-    """save a piece definition to defs.json"""
+    """save a piece definition to sampleDefs.json"""
     data = request.load(as_text=True)
     data = json.loads(data)
-    defs = get_local_defs()
-    defs[data['piece_name']] = data['piece_def']
-    write_json(defs, "./local_data/defs.json")
+    sampleDefs = get_local_defs()
+    sampleDefs[data['piece_name']] = data['piece_def']
+    write_json(sampleDefs, "./local_data/sampleDefs.json")
     return "SUCCESSFULLY SAVED PIECE!", 201
 
 
 @app.route('/delete_def', methods=['POST', 'GET'])
 def delete_def():
-    """deleting a piece definition from defs.json"""
+    """deleting a piece definition from sampleDefs.json"""
     data = request.load(as_text=True)
     data = json.loads(data)
-    defs = get_local_defs()
-    del defs[data['piece_def']]
-    write_json(defs, './local_data/defs.json')
+    sampleDefs = get_local_defs()
+    del sampleDefs[data['piece_def']]
+    write_json(sampleDefs, './local_data/sampleDefs.json')
     return "SUCCESSFULLY DELETED PIECE", 200
 
 
@@ -104,7 +104,7 @@ def delete_game():
     data = json.loads(data)
     data_dict = get_local_games()
     del data_dict[data['game_name']]
-    write_json(data_dict, './local_data/defs.json')
+    write_json(data_dict, './local_data/sampleDefs.json')
 
 
 @app.route('/get_games', methods=['GET',  'POST'])

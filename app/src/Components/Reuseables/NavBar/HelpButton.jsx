@@ -3,7 +3,8 @@ import Box from "@material-ui/core/Box";
 import {Button, Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import {findDidUserVisitPage, recordUserVisitedPage
+import {
+    findDidUserVisitPage, recordUserVisitedPage
 } from "../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {getHoverColor, useStyles} from "./NavBarButton.jss";
@@ -14,12 +15,11 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
     let [modal, setModal] = useState(false);
     let [isFirstTime, setIsFirstTime] = useState(false);
 
-    const classes = useStyles({theme: theme, screenCase: screenCase })
+    const classes = useStyles({theme: theme, screenCase: screenCase})
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {
             recordUserVisitedPage(currentPage).then(([r]) => {
-
                 const firstTime = !exists;
                 setIsFirstTime(firstTime);
             });
@@ -44,7 +44,7 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
                 </Portal>
             ) : null}
             <Button
-                onClick={() => setModal(! modal)}
+                onClick={() => setModal(!modal)}
                 className={classes.nav_bar_button}
                 style={hover ? getHoverColor(theme) : null}
                 onMouseEnter={() => setHover(true)}

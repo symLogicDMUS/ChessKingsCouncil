@@ -34,7 +34,8 @@ export const useStyles = makeStyles({
             marginTop: '0.05em',
         },
         backgroundColor: themes[props.theme].fill,
-        border: themes[props.theme].outline,
+        border: `0.12em solid ${themes[props.theme].odd_row}`,
+        borderRadius: '0.35em',
         ...props.style,
     }),
     profiles_window: props => ({

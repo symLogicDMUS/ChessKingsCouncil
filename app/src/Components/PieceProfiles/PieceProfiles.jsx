@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer, Profiler, useMemo} from "react";
+import React, {useEffect, useReducer} from "react";
 import {v4 as uuidv4} from "uuid";
 import "../styles/Scrollbar.scss";
 import {Profile} from "./Profile";
@@ -11,6 +11,7 @@ import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {ld_header_style} from "./Header/LoadDeleteHeader.jss";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
+import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
 
@@ -21,38 +22,43 @@ export function PieceProfiles(props) {
     useEffect(() => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
         const colors = ["W", "B"];
-        getDefs().then(([defs]) => {
-            if (defs) {
-                if (props.updateParent) {
-                    props.updateParent(copy(defs));
-                }
-                for (const pieceName of standards) {
-                    if (Object.keys(defs).includes(pieceName)) {
-                        delete defs[pieceName];
-                    }
-                }
-                for (const pieceName of Object.keys(defs)) {
-                    for (const color of colors) {
-                        defs[pieceName][color].span_img = getRangeBoardImgStr(
-                            defs[pieceName][color].img,
-                            "d4",
-                            "span",
-                            defs[pieceName][color].spans,
-                            pieceName,
-                            props.theme,
-                        );
-                        defs[pieceName][color].offset_img = getRangeBoardImgStr(
-                            defs[pieceName][color].img,
-                            'd4',
-                            'offset',
-                            defs[pieceName][color].offsets,
-                            pieceName,
-                            props.theme
-                        )
-                    }
-                }
-                dispatch({type: "load", payload: defs});
+        getDefs().then(([result]) => {
+            let defs;
+            if (!result) {
+                defs = sampleDefs;
             }
+            else {
+                defs = result;
+            }
+            if (props.updateParent) {
+                props.updateParent(copy(defs));
+            }
+            for (const pieceName of standards) {
+                if (Object.keys(defs).includes(pieceName)) {
+                    delete defs[pieceName];
+                }
+            }
+            for (const pieceName of Object.keys(defs)) {
+                for (const color of colors) {
+                    defs[pieceName][color].span_img = getRangeBoardImgStr(
+                        defs[pieceName][color].img,
+                        "d4",
+                        "span",
+                        defs[pieceName][color].spans,
+                        pieceName,
+                        props.theme,
+                    );
+                    defs[pieceName][color].offset_img = getRangeBoardImgStr(
+                        defs[pieceName][color].img,
+                        'd4',
+                        'offset',
+                        defs[pieceName][color].offsets,
+                        pieceName,
+                        props.theme
+                    )
+                }
+            }
+            dispatch({type: "load", payload: defs});
         });
     }, []);
 

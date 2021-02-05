@@ -10,8 +10,8 @@ firebase_admin.initialize_app(cred, {
 
 def set_defs(uid):
     """reinitialize piece definitions for user"""
-    defs = get_defs()
-    db.reference().child('defs').set({uid: defs})
+    sampleDefs = get_defs()
+    db.reference().child('sampleDefs').set({uid: sampleDefs})
 
 
 if __name__ == "__main__":

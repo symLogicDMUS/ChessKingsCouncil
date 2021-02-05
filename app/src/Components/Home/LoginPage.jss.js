@@ -11,14 +11,14 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end",
         width: "100%",
         '@media screen and (min-width: 768px)': {
-            height: availHeight()*0.85,
+            height: availHeight()*0.81,
         },
         '@media screen and (max-width: 767px)': {
             height: availHeight()*0.95
         },
     }),
     app_title_desktop: (props) => ({
-        width: availWidth() * 0.75,
+        width: availWidth() * 0.8,
     }),
     app_title_mobile: (props) => ({
         width: availWidth() * 0.85,
@@ -26,6 +26,5 @@ export const useStyles = makeStyles((theme) => ({
     auth_buttons: props => ({
         fontSize: fontSize002,
         width: '16em',
-        border: '1px dashed black',
     }),
 }));

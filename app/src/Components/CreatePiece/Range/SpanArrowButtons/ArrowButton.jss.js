@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {buttonSizeEm, fontSizes} from "./SpanArrowButtons.jss";
 import {themes} from "../../../styles/themes.jss";
-import {fontSizes} from "./SpanArrowButtons.jss";
+
 
 const buttonPos = {
     "135d": {gridRow: 1, gridColumn: 1},
@@ -15,9 +16,6 @@ const buttonPos = {
 
 const container = (angle, theme) => ({
     ...buttonPos[angle],
-    fontSize: fontSizes.desktop,
-    width: '2.75em',
-    height: '2.75em',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
@@ -25,6 +23,16 @@ const container = (angle, theme) => ({
     justifyContent: 'center',
     borderRadius: '0.2em',
     border: `0.05em solid ${themes[theme].outline}`,
+    '@media screen and (min-width: 768px)': {
+        fontSize: fontSizes.desktop,
+        width: '2.75em',
+        height: '2.75em',
+    },
+    '@media screen and (max-width: 767px)': {
+        fontSize: fontSizes.mobile,
+        width: '2.75em',
+        height: '2.75em',
+    },
 })
 
 export const useStyles = makeStyles({

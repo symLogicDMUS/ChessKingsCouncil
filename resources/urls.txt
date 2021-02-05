@@ -1,0 +1,2 @@
+https://custom-chess-dev1-default-rtdb.firebaseapp.com/__/auth/handler
+https://custom-chess-dev1.firebaseapp.com/__/auth/handler

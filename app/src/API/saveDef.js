@@ -1,7 +1,8 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {gameDefsOffsetListsToStrs} from "../apiHelpers/gameDefsOffsetListsToStrs"
+import {gameDefsOffsetListsToStrs}
+from "../apiHelpers/gameDefsOffsetListsToStrs"
 
 
 async function savePieceDefToDb(pieceName, pieceDef) {

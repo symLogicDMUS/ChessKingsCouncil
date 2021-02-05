@@ -10,8 +10,6 @@ async function getGamesFromDb() {
     });
 }
 
-
-
 export function getGames() {
     return Promise.all([getGamesFromDb()])
 }

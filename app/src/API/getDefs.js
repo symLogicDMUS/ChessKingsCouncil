@@ -3,6 +3,7 @@ import "firebase/database";
 import "firebase/auth";
 import {initEmptyRanges} from "../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
+import {context} from "../App";
 
 
 async function getPieceDefsFromDb() {

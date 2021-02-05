@@ -37,7 +37,7 @@ def get_local_game(game_name):
     json.dumps(id_dict)
     f.close()
 
-    f = open("./example_games/{}/{}.defs".format(game_name, game_name), 'r')
+    f = open("./example_games/{}/{}.sampleDefs".format(game_name, game_name), 'r')
     data = f.read()
     piece_defs = json.loads(data)
     json.dumps(piece_defs)
@@ -55,7 +55,7 @@ def get_local_game(game_name):
         "type": game_type,
         "pt": player_type,
         "promos": promo_choices,
-        "defs": piece_defs,
+        "sampleDefs": piece_defs,
         "ids": id_dict
     }
 
