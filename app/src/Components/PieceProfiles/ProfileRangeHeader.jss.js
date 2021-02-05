@@ -12,6 +12,10 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
+            width: widths.mobile,
+        },
         height: '1.5em',
         display: 'flex',
         flexWrap: 'no-wrap',

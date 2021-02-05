@@ -1,12 +1,10 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {bigBoardMargin} from "../../Reuseables/Board.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
-
     /** either label label or grid is displayed, conditionally.*/
     header: props => ({
         width: availWidth()*0.98 - (sideBarWidth + drawerWidth),

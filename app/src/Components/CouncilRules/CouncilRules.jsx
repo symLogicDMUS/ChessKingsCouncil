@@ -2,24 +2,36 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import Typography from "@material-ui/core/Typography";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { fontSize002 } from "../styles/fontSizes.jss";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {fontSize002} from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
-import { useStyles } from "./CouncilRules.jss";
+import {useStyles} from "./CouncilRules.jss";
+import {themes} from "../styles/themes.jss";
 
 export function CouncilRules() {
-    const classes = useStyles({ fontSize: fontSize002 });
+    const classes = useStyles({fontSize: fontSize002});
+
+    const helpText = <Typography
+        style={{
+            fontSize: fontSize002,
+            color: themes.tan.text
+        }}
+        variant='h6'
+    >
+        No help content for this page.
+    </Typography>
+
     return (
         <div>
             <MediaQuery minDeviceWidth={768}>
-                <Background theme='tan' />
+                <Background theme='tan'/>
                 <NavBar
                     theme="tan"
                     currentPage="CouncilRules"
                     screenCase='desktop'
                     unsavedChanges={false}
-                    helpText={[]}
+                    helpText={[helpText]}
                 />
                 <div className={classes.council_rules}>
                     <Box className={classes.parchment_desktop}>
@@ -100,7 +112,14 @@ export function CouncilRules() {
                             currentPage="CouncilRules"
                             screenCase='mobile'
                             unsavedChanges={false}
-                            helpText={[]}
+                            helpText={[
+                                <Typography
+                                    style={{fontSize: fontSize002, color: themes.tan.text}}
+                                    variant='h6'
+                                >
+                                    No help content for this page.
+                                </Typography>
+                            ]}
                         />
                     }
                     appBarContent={
@@ -111,7 +130,7 @@ export function CouncilRules() {
                     theme="tan"
                 >
                     <div className={classes.council_rules}>
-                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg' />
+                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg'/>
                         <Box className={classes.parchment_mobile}>
                             <Typography className={classes.title} noWrap>
                                 Council of Kings
@@ -180,7 +199,7 @@ export function CouncilRules() {
                                 </ul>
                             </Typography>
                         </Box>
-                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-bottom.svg' />
+                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-bottom.svg'/>
                     </div>
                 </PersistentDrawer>
             </MediaQuery>

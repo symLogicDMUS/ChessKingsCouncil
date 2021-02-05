@@ -2,8 +2,8 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { getGames } from "../../API/getGames";
 import { deleteGame } from "../../API/deleteGame";
+import {getSetSampleGames} from "../../API/getSetSampleGames";
 import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
-import {sampleGames} from "../../API/apiHelpers/sampleGames";
 import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
 import { Background } from "../Reuseables/Background";
 import { parseData } from "../../apiHelpers/parseData";
@@ -36,7 +36,7 @@ class LoadGame extends React.Component {
             if (games) {
                 this.games = games;
             } else {
-                this.games = sampleGames;
+                this.games = getSetSampleGames();
             }
             this.reloadGameImgComponentsDict();
             this.setState({ loaded: true });

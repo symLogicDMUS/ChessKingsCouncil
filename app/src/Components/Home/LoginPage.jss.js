@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
         width: availWidth() * 0.8,
     }),
     app_title_mobile: (props) => ({
-        width: availWidth() * 0.85,
+        width: availWidth() * 0.8,
     }),
     auth_buttons: props => ({
         fontSize: fontSize002,

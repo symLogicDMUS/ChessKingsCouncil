@@ -16,6 +16,12 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             marginTop: '-0.5em'
         },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
+            height: `${heights.mobile}em`,
+            width: avatarSize.mobile,
+            marginTop: '-0.5em'
+        },
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
@@ -27,6 +33,10 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
+            width: widths.mobile,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
             width: widths.mobile,
         },
         width: '100%',
@@ -47,6 +57,11 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
+            width: avatarSize.mobile,
+            height: avatarSize.mobile,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },

@@ -1,6 +1,6 @@
 import React, {memo, useEffect} from "react";
 import Box from "@material-ui/core/Box";
-import { ProfileRangeHeader } from "../ProfileRangeHeader";
+import { ProfileWBRangeHeader } from "../ProfileWBRangeHeader";
 import { useStyles } from "./ProfileWBRange.jss";
 
 export const ProfileWBRange = ({
@@ -13,7 +13,7 @@ export const ProfileWBRange = ({
     const classes = useStyles({ theme });
     return (
         <Box className={classes.profile_wb_range}>
-            <ProfileRangeHeader
+            <ProfileWBRangeHeader
                 theme={theme}
                 color={color}
                 rangeType={rangeType}
