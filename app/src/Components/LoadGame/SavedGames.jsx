@@ -44,13 +44,14 @@ export function SavedGames(props) {
                                         <SearchBox updateSearchText={updateSearchText} theme={props.theme}/>
                                     </>
                                 }
-                                rootStyle={imgGridRootStyle()}
                                 onClose={null}
                                 topFlexbox={null}
                                 theme={props.theme}
                                 screenCase="desktop"
                                 defaultChecked={true}
+                                rootStyle={imgGridRootStyle()}
                                 searchText={searchText}
+                                loaded={props.loaded}
                                 onOkClick={props.load}
                                 imgDict={props.imgDict}
                                 setChoice={props.changeName}

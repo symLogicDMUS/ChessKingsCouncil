@@ -19,6 +19,7 @@ class LoadGame extends React.Component {
             selectedGame: null,
             userChoseGame: false,
             firstVisit: false,
+            loaded: false,
         };
         this.games = {};
         this.imgDict = {};
@@ -38,7 +39,7 @@ class LoadGame extends React.Component {
                 this.games = sampleGames;
             }
             this.reloadGameImgComponentsDict();
-            this.setState({ userChoseGame: false });
+            this.setState({ loaded: true });
         });
     }
 
@@ -108,6 +109,7 @@ class LoadGame extends React.Component {
                 <SavedGames
                     load={this.load}
                     imgDict={this.imgDict}
+                    loaded={this.state.loaded}
                     confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
                     deleteGame={() => this.deleteGame(this.state.selectedGame)}
                     selectedGame={this.state.selectedGame}
