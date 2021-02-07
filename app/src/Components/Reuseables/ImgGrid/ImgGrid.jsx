@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, {useEffect, useMemo, useReducer} from "react";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "../MuiCheckbox";
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -9,7 +9,7 @@ import { MuiDeleteButton as DeleteButton } from "../MuiDeleteButton";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { getImgItems } from "./getImgItems";
 import { reducer } from "./reducer.red";
-import {button, deleteMe, useStyles} from "./ImgGrid.jss";
+import {useStyles} from "./ImgGrid.jss";
 import {MuiSkeleton} from "../MuiSkeleton";
 
 export function ImgGrid(props) {

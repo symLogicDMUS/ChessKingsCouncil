@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
 import { Portal, Typography } from "@material-ui/core";
 import { ImgWindow } from "./ImgWindow";
-import { fontSize002 } from "../../styles/fontSizes.jss";
 import { useStyles } from "./Icon.jss";
 import MediaQuery from "react-responsive";
 import ChooseModal from "./ChooseModal/ChooseModal";
+import { fontSize002 } from "../../styles/fontSizes.jss";
 import { ImgButtonsModal } from "./ImgButtonsModal";
 
 export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
-    let [color, setColor] = useState(null);
-    let [imgButtonsModal, toggleImgButtonsModal] = useState(false);
-    let [chooseModal, toggleChooseModal] = useState(false);
+    const [color, setColor] = useState(null);
+    const [imgButtonsModal, toggleImgButtonsModal] = useState(false);
+    const [chooseModal, toggleChooseModal] = useState(false);
     const classes = useStyles({ theme: theme, fontSize: fontSize002 });
 
     return (

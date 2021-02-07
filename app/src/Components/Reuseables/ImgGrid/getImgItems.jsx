@@ -34,7 +34,9 @@ export const getImgItems = (
         );
     });
     return {
-        showNames: showNames,
         imgItems: imgItems,
+        imgDict: imgDict,
+        imgNameChoice: imgNameChoice,
+        showNames: showNames,
     };
 };

@@ -96,15 +96,14 @@ class ChooseModal extends React.Component {
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
                             loaded={this.state.loaded}
-                            defaultChecked={false}
+                            imgNameChoice={this.state.imgNameChoice}
                             searchText={this.state.searchText}
+                            defaultChecked={false}
                             confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
                             }
-                            onDeleteClick={() =>
-                                this.deleteImg(this.state.imgNameChoice)
-                            }
+                            onDeleteClick={() => this.deleteImg(this.state.imgNameChoice)}
                             topFlexbox={
                                 <Close
                                     theme={this.props.theme}

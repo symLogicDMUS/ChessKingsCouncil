@@ -300,10 +300,12 @@ class CreatePiece extends React.Component {
      * @param deletedBase64ImgStr (str)
      */
     resetImg(deletedBase64ImgStr) {
-        if (this.whiteAndBlackImgs.white === deletedBase64ImgStr)
+        if (this.whiteAndBlackImgs.white === deletedBase64ImgStr) {
             this.whiteAndBlackImgs.white = null;
-        if (this.whiteAndBlackImgs.black === deletedBase64ImgStr)
+        }
+        if (this.whiteAndBlackImgs.black === deletedBase64ImgStr) {
             this.whiteAndBlackImgs.black = null;
+        }
         this.triggerRender()
     }
 
@@ -360,7 +362,7 @@ class CreatePiece extends React.Component {
                             screenCase={resolveScreenCase('desktop')}
                         />
                         <Icon
-                            key={uuidv4()}
+                            key={'Icon-Desktop'}
                             theme={this.state.theme}
                             resetImg={this.resetImg}
                             setPieceImg={this.setPieceImg}
@@ -463,15 +465,12 @@ class CreatePiece extends React.Component {
                                     title: <Typography>Icon</Typography>,
                                     body: (
                                         <Icon
-                                            key={"Icon"}
+                                            key={"Icon-Mobile"}
                                             theme={this.state.theme}
                                             setPieceImg={this.setPieceImg}
                                             resetImg={this.resetImg}
                                             whiteAndBlackImgs={
                                                 this.whiteAndBlackImgs
-                                            }
-                                            showChooseModal={
-                                                this.showChooseModal
                                             }
                                         />
                                     ),

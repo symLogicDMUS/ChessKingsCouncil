@@ -34,16 +34,17 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
             return "standard-name";
         }
 
-        if (pieceNameExists) {
-            return "confirm-overwrite";
-        }
-
         if (containsInvalidCharacters(pieceName)) {
             return "invalid-characters"
         }
 
         if (whiteImg === null || blackImg === null) {
             return "no-icon";
+        }
+
+        //must be last if statement
+        if (pieceNameExists) {
+            return "confirm-overwrite";
         }
 
         return "ready";
