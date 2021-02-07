@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
+import {fontSize0025} from "../styles/fontSizes.jss";
 
 export const text_field = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -14,9 +15,7 @@ export const text_field = (fontSize, theme) => ({
  */
 export const useStyles = makeStyles({
     search_box: props => ({
-        fontSize: props.fontSize,
-        width: props.width ? props.width : '20em',
-        height: '1.25em',
+        fontSize: fontSize0025,
         margin: '0.5em',
         marginRight: 0,
         display: 'flex',
@@ -25,11 +24,13 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: '0.15em',
-        color: themes[props.theme].text,
+        height: '1.25em',
+        width: props.width ? props.width : '20em',
         backgroundColor: themes[props.theme].odd_row,
+        color: themes[props.theme].text,
     }),
     search_icon: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize0025,
         color: themes[props.theme].text,
         width: '1.5em',
         height: '1em',
@@ -38,7 +39,7 @@ export const useStyles = makeStyles({
         height: '1em',
         width: '3em',
         flexGrow: 100,
-        fontSize: props.fontSize*0.8,
+        fontSize: fontSize0025*0.8,
         color: themes[props.theme].text,
         verticalAlign: 'center',
     }),

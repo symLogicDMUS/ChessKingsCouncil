@@ -41,7 +41,7 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
-        document.body.className = "main-menu-background";
+        // document.body.className = "main-menu-background";
         firebase.auth().onAuthStateChanged((user) => {
             this.setState({isSignedIn: !!user});
             if (user) {

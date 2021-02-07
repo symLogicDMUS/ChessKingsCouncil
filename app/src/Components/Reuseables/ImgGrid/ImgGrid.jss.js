@@ -25,34 +25,13 @@ export const button = (fontSize) => ({
 export const heights = {
     desktop: availHeight() * 0.81,
     mobile: availHeight() - appBarHeight,
+    ipx: availHeight() - appBarHeight*0.825,
 }
 
 export const widths = {
     desktop: availWidth() * 0.9,
     mobile: availWidth(),
 };
-
-export const deleteMe = (theme) => ({
-    fontSize: fontSize001685,
-    '@media screen and (min-width: 768px)': {
-        width: '92.5em',
-        height: '35.5em',
-    },
-    '@media screen and (max-width: 767px)': {
-        width: '30.5em',
-        height: '43.5em',
-    },
-    marginLeft: '1em',
-    marginRight: '1em',
-    marginTop: '1em',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start',
-    justifyContent: 'flex-start',
-    backgroundColor: themes[theme].modal_fill,
-});
 
 export const useStyles = makeStyles({
     window: props => ({
@@ -65,6 +44,9 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             width: widths.mobile,
             height: heights.mobile,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            height: heights.ipx,
         },
         borderRadius: '0.75em',
         backgroundColor: themes[props.theme].fill,
@@ -98,6 +80,10 @@ export const useStyles = makeStyles({
     }),
 
     img_choices_border: props => ({
+        overflow: 'scroll',
+        borderRadius: '0.25em',
+        backgroundColor: themes[props.theme].modal_fill,
+        border: `0.08em solid ${themes[props.theme].outline}`,
         '@media screen and (min-width: 768px)': {
             width: imgChoicesWidth,
             height: imgChoicesHeight,
@@ -110,10 +96,10 @@ export const useStyles = makeStyles({
             width: '31.5em',
             marginLeft: '1em',
         },
-        overflow: 'scroll',
-        borderRadius: '0.25em',
-        backgroundColor: themes[props.theme].modal_fill,
-        border: `0.08em solid ${themes[props.theme].outline}`,
+        "@media (aspect-ratio: 375/812)": {
+            width: '26.25em',
+            marginLeft: '0.5em',
+        },
         ...props.itemWindowStyle,
     }),
 
@@ -126,6 +112,10 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             width: '30.5em',
             height: '43.5em',
+        },
+        "@media (aspect-ratio: 375/812)": {
+            width: '25.25em',
+            height: '44.5em',
         },
         marginLeft: '1em',
         marginRight: '1em',
@@ -147,14 +137,23 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        "@media (aspect-ratio: 375/812)": {
+            width: '26.25em',
+            justifyContent: 'space-evenly',
+        },
     }),
     ok_button: props => ({
         ...button(fontSize001685),
         marginRight: "1em",
+        "@media (aspect-ratio: 375/812)": {
+            marginRight: "0.25em",
+        },
     }),
     delete_button: props => ({
         ...button(fontSize001685),
         marginLeft: "1em",
+        "@media (aspect-ratio: 375/812)": {
+            marginLeft: "0.25em",
+        },
     }),
 });

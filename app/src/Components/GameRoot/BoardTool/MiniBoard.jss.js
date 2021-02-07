@@ -12,6 +12,10 @@ export const useStyles = makeStyles({
             ...board(fontSizes.mobile),
             marginTop: '-1em'
         },
+        "@media (aspect-ratio: 375/812)": {
+            marginTop: '-1em',
+            ...board(fontSizes.ipx)
+        },
         outline: `0.04em solid ${themes[props.theme].outline}`
     }),
 })

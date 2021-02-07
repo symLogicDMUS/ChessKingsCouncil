@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize002, fontSize0024,} from "../../styles/fontSizes.jss";
+import {fontSize0019, fontSize002, fontSize0023, fontSize00236, fontSize0024} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {navBarWidth} from "./NavBar.jss";
 
@@ -20,6 +20,12 @@ export const text = (screenCase) => {
                 marginRight: margin,
                 marginTop: '0.15em',
             }
+        case 'ipx':
+            return {
+                fontSize: fontSize0019,
+                marginRight: margin,
+                marginTop: '0.15em',
+            }
         default:
             throw new Error('no screen case given')
     }
@@ -36,6 +42,11 @@ export const icon = (screenCase) => {
         case 'mobile':
             return {
                 fontSize: fontSize0024,
+                marginRight: margin,
+            }
+        case 'ipx':
+            return {
+                fontSize: fontSize0023,
                 marginRight: margin,
             }
         default:
@@ -103,6 +114,13 @@ const getStyle = (screenCase, currentPage) => {
         case 'mobile':
             return {
                 fontSize: fontSize0024,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.5em"
+            }
+        case 'ipx':
+            return {
+                fontSize: fontSize00236,
                 justifyContent: "flex-start",
                 width: "99%",
                 height: "2.5em"

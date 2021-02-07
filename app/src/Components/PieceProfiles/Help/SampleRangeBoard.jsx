@@ -58,12 +58,12 @@ export function SampleRangeBoard({theme}) {
 
     return (
         <div>
-            <MediaQuery minDeviceHeight={768}>
+            <MediaQuery minDeviceWidth={768}>
                 <div style={board(fontSizes.desktop)}>
                     {getBoard()}
                 </div>
             </MediaQuery>
-            <MediaQuery maxDeviceHeight={767}>
+            <MediaQuery maxDeviceWidth={767}>
                 <div style={board(fontSizes.mobile)}>
                     {getBoard()}
                 </div>

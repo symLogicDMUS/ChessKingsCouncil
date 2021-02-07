@@ -14,8 +14,8 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {MuiButton} from "../Reuseables/MuiButton";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
-import {Background} from "../Reuseables/Background";
-import {fontSize002, fontSize0024} from "../styles/fontSizes.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
+import {fontSize002} from "../styles/fontSizes.jss";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {useStyles, play_button} from "./NewGame.jss";
@@ -73,7 +73,7 @@ function NewGame() {
                     {/*<Background theme={theme}/>*/}
                     <NavBar
                         currentPage="NewGame"
-                        screenCase='desktop'
+                        screenCase={resolveScreenCase('desktop')}
                         helpText={HelpText(fontSize002, theme)}
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                         theme={theme}
@@ -83,15 +83,15 @@ function NewGame() {
                             setGameName={setGameName}
                             gameName={gameName}
                             theme={theme}
-                            screenCase='desktop'
+                            screenCase={resolveScreenCase('desktop')}
                         />
                         <PickType
                             setGameType={setGameType}
                             gameType={gameType}
                             theme={theme}
-                            screenCase='desktop'
+                            screenCase={resolveScreenCase('desktop')}
                         />
-                        <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='desktop'/>
+                        <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase={resolveScreenCase('desktop')}/>
                         <MuiButton
                             onClick={finish}
                             style={play_button(theme)}
@@ -105,7 +105,6 @@ function NewGame() {
                                     invalids.every((c) => charNotInStr(c, gameName))
                                 )
                             }
-                            screenCase='desktop'
                         >
                             Play
                         </MuiButton>
@@ -117,7 +116,7 @@ function NewGame() {
                         drawer={
                             <NavBar
                                 currentPage="NewGame"
-                                screenCase='mobile'
+                                screenCase={resolveScreenCase('mobile')}
                                 helpText={HelpText(fontSize002, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}
@@ -131,15 +130,15 @@ function NewGame() {
                                 setGameName={setGameName}
                                 gameName={gameName}
                                 theme={theme}
-                                screenCase='mobile'
+                                screenCase={resolveScreenCase('mobile')}
                             />
                             <PickType
                                 setGameType={setGameType}
                                 gameType={gameType}
                                 theme={theme}
-                                screenCase='mobile'
+                                screenCase={resolveScreenCase('mobile')}
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase='mobile'/>
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase={resolveScreenCase('mobile')}/>
                             <MuiButton
                                 onClick={finish}
                                 style={play_button(theme)}
@@ -153,7 +152,7 @@ function NewGame() {
                                         invalids.every((c) => charNotInStr(c, gameName))
                                     )
                                 }
-                                screenCase='mobile'
+                                screenCase={resolveScreenCase('mobile')}
                             >
                                 Play
                             </MuiButton>

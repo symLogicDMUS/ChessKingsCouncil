@@ -18,24 +18,25 @@ import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
-import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
-import {SearchBox} from "../../Reuseables/SearchBox";
 import {HelpTitle} from "../../Reuseables/HelpTitle";
+import {AppBarContent} from "./AppBarContent";
 import {HelpText} from "./Help/HelpText";
+import {ListTitle} from "./ListTitle";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
-import {fontSize0016, fontSize0023, fontSize0034,} from "../../styles/fontSizes.jss";
 import {
-    app_bar_flexbox,
+    fontSize0016,
+    fontSize0023,
+    fontSize00301
+} from "../../styles/fontSizes.jss";
+import {
     drawerItemMarginLeft,
     drawerItemMarginTopBottom,
     drawerItemWidth,
     ok_button,
     promo_all_checkbox_container
 } from "./Customize.jss";
-import {ListTitle} from "./ListTitle";
-import {AppBarContent} from "./AppBarContent";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -257,7 +258,6 @@ class Customize extends React.Component {
                     <MediaQuery minDeviceWidth={768}>
                         <PermanentDrawer
                             drawerType="right"
-                            width={drawerWidth}
                             theme={this.state.theme}
                             content={
                                 <PieceProfiles
@@ -337,7 +337,6 @@ class Customize extends React.Component {
                         <SideBar
                             theme={this.state.theme}
                             drawerType="left"
-                            width={sideBarWidth}
                             height={sideBarHeight}
                         >
                             <NavBar
@@ -421,7 +420,7 @@ class Customize extends React.Component {
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
                                                     style={{
-                                                        fontSize: fontSize0034,
+                                                        fontSize: fontSize00301,
                                                     }}
                                                     rootStyle={{
                                                         flexGrow: 20,

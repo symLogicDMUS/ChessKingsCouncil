@@ -9,14 +9,14 @@ import { useStyles } from "./CreatePieceBoard.jss";
 
 export function CreatePieceBoard({
     theme,
-    fontSize,
     offsets,
     pieceLoc,
     spanDisplays,
     toggleOffset,
     pieceImgBase64Str,
+    screenCase,
 }) {
-    const classes = useStyles({ fontSize: fontSize });
+    const classes = useStyles();
 
     const getBoard = () => {
         let squares = [];
@@ -32,7 +32,7 @@ export function CreatePieceBoard({
                         toggleOffset={toggleOffset}
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
-                        fontSize={fontSize}
+                        screenCase={screenCase}
                     >
                         <Piece
                             key={uuidv4()}
@@ -54,7 +54,7 @@ export function CreatePieceBoard({
                         toggleOffset={toggleOffset}
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
-                        fontSize={fontSize}
+                        screenCase={screenCase}
                     >
                         {null}
                     </Square>

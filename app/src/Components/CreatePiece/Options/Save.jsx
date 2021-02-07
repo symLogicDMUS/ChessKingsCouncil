@@ -63,7 +63,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                     setMessage('You cannot leave the name field blank')
                     setModal('accept')
                     break;
-                case 'invalid-character':
+                case 'invalid-characters':
                     setMessage('a piece name cannot contain characters ".", "#", "$", "[", or "]"')
                     setModal('accept')
                     break;

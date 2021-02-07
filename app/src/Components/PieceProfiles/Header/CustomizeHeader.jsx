@@ -88,8 +88,8 @@ export const CustomizeHeader = ({
                         }}
                         theme={theme}
                     >
-                        <MediaQuery minDeviceHeight={768}>Promotion</MediaQuery>
-                        <MediaQuery maxDeviceHeight={767}>Promo</MediaQuery>
+                        <MediaQuery minDeviceWidth={768}>Promotion</MediaQuery>
+                        <MediaQuery maxDeviceWidth={767}>Promo</MediaQuery>
                     </MuiCheckbox>
                 </Box>
                 <Box

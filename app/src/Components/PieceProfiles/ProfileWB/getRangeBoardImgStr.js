@@ -53,6 +53,5 @@ export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, 
         }
     }
     imgStr += `</svg>`;
-    console.log(imgStr)
     return `data:image/svg+xml;base64,` + btoa(imgStr);
 }

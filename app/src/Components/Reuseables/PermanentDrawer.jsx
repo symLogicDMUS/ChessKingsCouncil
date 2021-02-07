@@ -6,14 +6,13 @@ import Toolbar from "@material-ui/core/Toolbar";
 import {useStyles} from "./PermanentDrawer.jss";
 
 export default function PermanentDrawer({
-    width,
     theme,
     content,
     drawerType,
     appBarContent,
     children
 }) {
-    const classes = useStyles({drawerType: drawerType, width: width, theme: theme});
+    const classes = useStyles({drawerType: drawerType, theme: theme});
 
     return (
         <div className={classes.root}>

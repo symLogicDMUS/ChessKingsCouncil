@@ -1,9 +1,11 @@
-import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../styles/themes.jss";
+import {makeStyles} from "@material-ui/core/styles"
 import {availHeight} from "../helpers/windowMeasurments";
 import {fontSize002} from "../styles/fontSizes.jss";
+import {drawerWidth} from "./PermanentDrawer.jss";
 
 export const sideBarHeight = availHeight() * 0.9;
+export const sideBarWidth = drawerWidth * 0.55;
 const z = 5;
 
 export const useStyles = makeStyles((theme) => ({
@@ -17,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
         flexShrink: 0,
     },
     drawerPaper: props => ({
-        width: props.width,
+        width: sideBarWidth,
         zIndex: z,
         backgroundColor: themes[props.theme].fill,
     }),

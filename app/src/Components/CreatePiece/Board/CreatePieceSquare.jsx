@@ -4,14 +4,15 @@ import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
 import { themes } from "../../styles/themes.jss";
+import {fontSizes} from "./CreatePieceBoard.jss";
 import { useStyles } from "../../Reuseables/Square.jss";
 
 export function CreatePieceSquare({
     rf,
     theme,
-    fontSize,
     pieceLoc,
     toggleOffset,
+    screenCase,
     isSpan,
     isOffset,
     isLightSqr,
@@ -20,7 +21,7 @@ export function CreatePieceSquare({
     const classes = useStyles({
         theme: theme,
         type: "normal",
-        fontSize: fontSize,
+        fontSize: fontSizes[screenCase],
         style: {
             display: "flex",
             flexDirection: "column",

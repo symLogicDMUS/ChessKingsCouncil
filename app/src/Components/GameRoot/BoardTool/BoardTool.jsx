@@ -11,6 +11,7 @@ import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
 import {useStyles} from "./BoardTool.jss";
 import {fontSizes} from "../../CreatePiece/Help/RangeToolExample.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export function BoardTool({
     theme,
@@ -60,8 +61,8 @@ export function BoardTool({
             <Box className={classes.flex_header}>
                 <MuiCheckbox
                     onClick={toggleShowProfileOnClick}
-                    style={{ fontSize: fontSizes[screenCase] }}
-                    rootStyle={{ fontSize: fontSizes[screenCase]}}
+                    style={{ fontSize: fontSizes[resolveScreenCase(screenCase)] }}
+                    rootStyle={{ fontSize: fontSizes[resolveScreenCase(screenCase)]}}
                     defaultChecked={showProfileOnClick}
                     theme={theme}
                 >

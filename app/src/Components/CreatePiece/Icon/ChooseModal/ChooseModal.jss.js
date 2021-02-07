@@ -2,6 +2,13 @@ import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
 import {fontSize0015, fontSize0016} from "../../../styles/fontSizes.jss";
 
+export const searchBoxSpecialCase = (screenCase) => {
+    return {
+        position: 'relative',
+        left: -50,
+    }
+
+}
 
 export const styles = {
     modal: props => ({

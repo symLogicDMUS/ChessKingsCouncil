@@ -27,12 +27,12 @@ export const useStyles = makeStyles((theme) => ({
     }),
     drawer: props => ({
         zIndex: z,
-        width: props.width,
+        width: drawerWidth,
         flexShrink: 0,
     }),
     drawerPaper: props => ({
         zIndex: z,
-        width: props.width,
+        width: drawerWidth,
         backgroundColor: themes[props.theme].fill,
     }),
     // necessary for content to be below app bar

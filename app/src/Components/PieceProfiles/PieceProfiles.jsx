@@ -5,12 +5,11 @@ import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import {getDefs} from "../../API/getDefs";
 import MediaQuery from "react-responsive/src";
-import {fontSize002} from "../styles/fontSizes.jss";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
-import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
+import {getSetSampleDefs} from "../../API/getSetSampleDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
 
@@ -24,7 +23,7 @@ export function PieceProfiles(props) {
         getDefs().then(([result]) => {
             let defs;
             if (!result) {
-                defs = sampleDefs;
+                defs = getSetSampleDefs();
             }
             else {
                 defs = result;

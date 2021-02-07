@@ -30,7 +30,7 @@ import {StatusBar} from "./StatusBar/StatusBar";
 import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
+import {sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
@@ -40,6 +40,7 @@ import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -51,7 +52,6 @@ class GameRoot extends React.Component {
             theme: "dark",
         };
         this.unsavedProgress = false;
-
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
@@ -269,7 +269,6 @@ class GameRoot extends React.Component {
                 <MediaQuery minDeviceWidth={768}>
                     <PermanentDrawer
                         theme={this.state.theme}
-                        width={drawerWidth}
                         drawerType="right"
                         content={
                             <Portal>
@@ -307,10 +306,10 @@ class GameRoot extends React.Component {
                         <BoardTool
                             board={this.board}
                             theme={this.state.theme}
-                            screenCase={"desktop"}
                             pieceDefs={this.defs}
                             idDict={this.idDict}
                             start={this.aiStart}
+                            screenCase={resolveScreenCase('desktop')}
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
                         />
@@ -318,12 +317,11 @@ class GameRoot extends React.Component {
                     <SideBar
                         drawerType="left"
                         theme={this.state.theme}
-                        width={sideBarWidth}
                     >
                         <NavBar
                             currentPage="GameRoot"
-                            screenCase='desktop'
                             theme={this.state.theme}
+                            screenCase={resolveScreenCase('desktop')}
                             helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
@@ -337,8 +335,8 @@ class GameRoot extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"
-                                screenCase='mobile'
                                 theme={this.state.theme}
+                                screenCase={resolveScreenCase('mobile')}
                                 helpText={HelpText(fontSize002, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
@@ -407,7 +405,7 @@ class GameRoot extends React.Component {
                                         <BoardTool
                                             board={this.board}
                                             theme={this.state.theme}
-                                            screenCase={"mobile"}
+                                            screenCase={resolveScreenCase('mobile')}
                                             allRanges={{
                                                 ...this.ranges,
                                                 ...this.enemyRanges,

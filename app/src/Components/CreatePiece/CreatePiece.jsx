@@ -20,9 +20,6 @@ import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import MuiAccordion from "../Reuseables/MuiAccordion";
-import {navBarWidth} from "../Reuseables/NavBar/NavBar.jss";
-import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
-import {navBarButtonWidth} from "../Reuseables/NavBar/NavBarButton.jss";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
@@ -30,11 +27,13 @@ import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {fontSize002, fontSize0024, fontSize0067, fontSize0095} from "../styles/fontSizes.jss";
 import {app_bar_title, styles} from "./CreatePiece.jss";
+
+
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -331,12 +330,11 @@ class CreatePiece extends React.Component {
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}
-                        width={drawerWidth}
                         content={
                             <Board
                                 key={uuidv4()}
                                 theme={this.state.theme}
-                                fontSize={fontSize0095}
+                                screenCase={resolveScreenCase('desktop')}
                                 toggleOffset={this.toggleOffset}
                                 spanDisplays={this.spanDisplays}
                                 offsets={this.offsetDisplays}
@@ -359,7 +357,7 @@ class CreatePiece extends React.Component {
                             inputRef={this.textInput}
                             defaultValue={this.name}
                             theme={this.state.theme}
-                            screenCase='desktop'
+                            screenCase={resolveScreenCase('desktop')}
                         />
                         <Icon
                             key={uuidv4()}
@@ -374,7 +372,7 @@ class CreatePiece extends React.Component {
                             spans={this.spans}
                             offsets={this.offsets}
                             toggleSpan={this.toggleSpan}
-                            screenCase="desktop"
+                            screenCase={resolveScreenCase("desktop")}
                         />
                         <Location
                             key={uuidv4()}
@@ -397,15 +395,14 @@ class CreatePiece extends React.Component {
                     <SideBar
                         theme={this.state.theme}
                         drawerType="left"
-                        width={sideBarWidth}
                     >
                         <NavBar
                             currentPage="CreatePiece"
-                            screenCase="desktop"
+                            screenCase={resolveScreenCase('desktop')}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
-                            helpText={HelpText(fontSize002, this.state.theme)}
+                            helpText={HelpText(this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
@@ -416,11 +413,11 @@ class CreatePiece extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="CreatePiece"
-                                screenCase="mobile"
-                                theme={this.state.theme}
                                 redirectMessage={messageStr}
+                                theme={this.state.theme}
+                                screenCase={resolveScreenCase('mobile')}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
-                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpText={HelpText(this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }
@@ -437,8 +434,8 @@ class CreatePiece extends React.Component {
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
                             pieceLoc={this.location}
-                            fontSize={fontSize0067}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+                            screenCase={resolveScreenCase('mobile')}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
                         />
@@ -457,7 +454,7 @@ class CreatePiece extends React.Component {
                                             inputRef={this.textInput}
                                             defaultValue={this.name}
                                             theme={this.state.theme}
-                                            screenCase='mobile'
+                                            screenCase={resolveScreenCase('mobile')}
                                         />
                                     ),
                                 },
@@ -489,7 +486,7 @@ class CreatePiece extends React.Component {
                                             spans={this.spans}
                                             offsets={this.offsets}
                                             toggleSpan={this.toggleSpan}
-                                            screenCase="mobile"
+                                            screenCase={resolveScreenCase('mobile')}
                                         />
                                     ),
                                 },

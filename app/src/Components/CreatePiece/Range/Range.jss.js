@@ -5,11 +5,13 @@ import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 export const fontSizes = {
     desktop: fontSize002,
     mobile: fontSize0023,
+    ipx: fontSize002,
 }
 
 export const widths = {
     desktop: '9em',
     mobile: '9em',
+    ipx: '9em',
 }
 
 /**
@@ -18,6 +20,7 @@ export const widths = {
 export const heights = {
     desktop: 9,
     mobile: 9,
+    ipx: 9,
 }
 
 export const useStyles = makeStyles({

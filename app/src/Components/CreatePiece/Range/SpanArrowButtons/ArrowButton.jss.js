@@ -15,7 +15,18 @@ const buttonPos = {
 };
 
 const container = (angle, theme) => ({
+    '@media screen and (min-width: 768px)': {
+        fontSize: fontSizes.desktop,
+    },
+    '@media screen and (max-width: 767px)': {
+        fontSize: fontSizes.mobile,
+    },
+    "@media (aspect-ratio: 375/812)": {
+        fontSize: fontSizes.ipx,
+    },
     ...buttonPos[angle],
+    width: '2.75em',
+    height: '2.75em',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
@@ -23,16 +34,6 @@ const container = (angle, theme) => ({
     justifyContent: 'center',
     borderRadius: '0.2em',
     border: `0.05em solid ${themes[theme].outline}`,
-    '@media screen and (min-width: 768px)': {
-        fontSize: fontSizes.desktop,
-        width: '2.75em',
-        height: '2.75em',
-    },
-    '@media screen and (max-width: 767px)': {
-        fontSize: fontSizes.mobile,
-        width: '2.75em',
-        height: '2.75em',
-    },
 })
 
 export const useStyles = makeStyles({
@@ -51,14 +52,32 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button: props => ({
-        fontSize: fontSizes.desktop,
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
+
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
+        },
         width: '2.75em',
         height: '2.75em',
         color: themes[props.theme].text,
     }),
 
     vector: (props) => ({
-        fontSize: fontSizes.desktop,
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSizes.desktop,
+
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
+        },
         width: '2em',
         height: '2em',
         color: themes[props.theme].text,

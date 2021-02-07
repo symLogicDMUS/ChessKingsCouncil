@@ -14,6 +14,9 @@ export const useStyles = makeStyles({
             width: "9.5em",
             height: "9.5em",
         },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSize002,
+        },
         display: 'flex',
         alignItems: 'center',
         cursor: 'pointer',

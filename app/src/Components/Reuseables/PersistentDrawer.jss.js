@@ -2,16 +2,21 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
-export const drawerWidth = availWidth()*0.45;
-export const appBarHeight = availHeight()*0.086;
+export const drawerWidth = availWidth() * 0.5;
+export const appBarHeight = availHeight() * 0.086;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
     }),
     appBar: props => ({
-        height: appBarHeight,
         zIndex: 7,
+        '@media screen and (max-width: 767px)': {
+            height: appBarHeight,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            height: appBarHeight*0.825,
+        },
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -66,6 +71,6 @@ export const useStyles = makeStyles((theme) => ({
         marginLeft: 0,
     }),
     open_close_icons: props => ({
-       color: themes[props.theme].text,
+        color: themes[props.theme].text,
     }),
 }));

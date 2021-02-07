@@ -1,7 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSize001725, fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
-import {imgFillDiv} from "../imgFillDiv.jss";
-import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 
 export const img_container = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -27,20 +26,45 @@ export const useStyles = makeStyles({
        justifyContent: 'center',
     }),
     normal: props => ({
-        ...img_container(props.fontSize, props.theme),
+        '@media screen and (min-width: 768px)': {
+            ...img_container(fontSize002, props.theme),
+        },
+        '@media screen and (max-width: 767px)': {
+            ...img_container(fontSize002, props.theme),
+        },
+        "@media (aspect-ratio: 375/812)": {
+            ...img_container(fontSize001725, props.theme),
+
+        },
     }),
     selected: props => ({
-        ...img_container(props.fontSize, props.theme),
+        '@media screen and (min-width: 768px)': {
+            ...img_container(fontSize002, props.theme),
+        },
+        '@media screen and (max-width: 767px)': {
+            ...img_container(fontSize002, props.theme),
+        },
+        "@media (aspect-ratio: 375/812)": {
+            ...img_container(fontSize001725, props.theme),
+
+        },
         boxShadow: "0 0 0.5em white",
     }),
     img: props => ({
-        // ...imgFillDiv,
-        fontSize: props.fontSize,
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize002,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSize002,
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSize001725,
+        },
         width: '9em',
         height: '9em',
     }),
     img_name: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '10em',
         position: 'relative',
         top: '-1em',
@@ -49,6 +73,6 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     tooltip: props => ({
-        fontSize: fontSize0016
+        fontSize: fontSize001725
     }),
 });

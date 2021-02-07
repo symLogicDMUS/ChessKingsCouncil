@@ -1,16 +1,17 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
+import {fontSize0018, fontSize002, fontSize0035} from "../../styles/fontSizes.jss";
 
 export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: props.fontSize,
+            fontSize: fontSize002,
         },
         '@media screen and (max-width: 767px)': {
-            fontSize: props.fontSize*1.75,
-            margin: '0.2em'
+            fontSize: fontSize0035,
+            margin: '0.25em'
         },
         width: '3.5em',
         height: '3.5em',
@@ -34,7 +35,12 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     text: props => ({
-        fontSize: props.fontSize*0.9,
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize002,
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSize0035,
+        },
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,
     }),

@@ -10,8 +10,6 @@ export function SearchBox({ updateSearchText, width, theme, style }) {
     const classes = useStyles({
         theme: theme,
         width: width,
-        style: style,
-        fontSize: fontSize0025,
     });
 
     const handleChange = (e) => {
@@ -19,13 +17,14 @@ export function SearchBox({ updateSearchText, width, theme, style }) {
     };
 
     return (
-        <Box className={classes.search_box}>
+        <Box className={classes.search_box} style={style}>
             <SearchIcon className={classes.search_icon} />
             <Input
                 className={classes.text_field}
                 onChange={handleChange}
                 disableUnderline
                 type="search"
+
             />
         </Box>
     );

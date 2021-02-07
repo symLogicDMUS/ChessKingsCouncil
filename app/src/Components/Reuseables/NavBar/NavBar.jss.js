@@ -73,6 +73,12 @@ const getStyle = (screenCase, currentPage) => {
                 flexDirection: 'column',
                 width: "100%",
             }
+        case 'ipx':
+            return {
+                display: 'flex',
+                flexDirection: 'column',
+                width: "100%",
+            }
         default:
             throw new Error("no screen type given")
     }

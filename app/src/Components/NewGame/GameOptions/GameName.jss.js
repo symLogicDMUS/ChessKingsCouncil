@@ -1,24 +1,38 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSizes, input_style} from "../NewGame.jss";
+import {fontSizes} from "../NewGame.jss";
 
-export const textFieldStyle = {
-    root: {
-        normal: {},
-        focused: {},
-        hover: {}
-    },
-    outline: {
-        normal: {},
-        focused: {},
-        hover: {}
-
-    },
+export const textFieldStyle = (fontSize) => ({
     text: {
-        normal: {},
-        focused: {},
-        hover: {}
+        normal: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        hover: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        focused: {
+            fontSize: fontSize,
+            height: '1em'
+
+        },
+    },
+    root: {
+        normal: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        hover: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        focused: {
+            fontSize: fontSize,
+            height: '1em'
+
+        },
     }
-}
+})
 
 export const useStyles = makeStyles({
     title: props => ({
@@ -27,6 +41,11 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
+            width: '100%',
+            textAlign: 'center'
+        },
+        "@media (aspect-ratio: 375/812)": {
+            fontSize: fontSizes.ipx,
             width: '100%',
             textAlign: 'center'
         },

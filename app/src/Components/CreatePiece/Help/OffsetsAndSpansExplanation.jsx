@@ -61,8 +61,8 @@ export function OffsetsAndSpansExplanation(props) {
                     range and click it again to remove it.
                 </p>
             </Typography>
-            <MediaQuery minDeviceHeight={768}>{getExamples('desktop')}</MediaQuery>
-            <MediaQuery maxDeviceHeight={767}>{getExamples('mobile')}</MediaQuery>
+            <MediaQuery minDeviceWidth={768}>{getExamples('desktop')}</MediaQuery>
+            <MediaQuery maxDeviceWidth={767}>{getExamples('mobile')}</MediaQuery>
             <Typography paragraph style={help_text(props.fontSize, props.theme)}>
                 <p>
                     Spans take precedence over offsets, i.e. if you turn on a span it will overwrite any offsets lying

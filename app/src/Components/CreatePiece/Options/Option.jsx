@@ -8,7 +8,7 @@ import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./Option.jss";
 
 export function Option({onClick, iconType, theme}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize002})
+    const classes = useStyles({theme: theme})
     return (
         <Button className={classes.option} >
             <IconButton className={classes.button} classes={{label: classes.label}} onClick={onClick}>
