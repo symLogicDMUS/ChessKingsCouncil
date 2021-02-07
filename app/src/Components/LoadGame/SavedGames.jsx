@@ -51,7 +51,7 @@ export function SavedGames(props) {
                                 defaultChecked={true}
                                 rootStyle={imgGridRootStyle()}
                                 searchText={searchText}
-                                loaded={props.loaded}
+                                loaded={false} /*props.loaded*/
                                 onOkClick={props.load}
                                 imgDict={props.imgDict}
                                 setChoice={props.changeName}
@@ -92,7 +92,7 @@ export function SavedGames(props) {
                 >
                     <ImgGrid
                         imgDict={props.imgDict}
-                        loaded={props.loaded}
+                        loaded={false} /*props.loaded*/
                         setChoice={props.changeName}
                         imgNameChoice={props.selectedGame}
                         onDeleteClick={props.deleteGame}

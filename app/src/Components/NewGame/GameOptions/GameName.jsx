@@ -4,6 +4,7 @@ import {Typography} from "@material-ui/core";
 import {MuiTextField} from "../../Reuseables/MuiTextField";
 import {fontSizes, input_style} from "../NewGame.jss";
 import {textFieldStyle, useStyles} from "./GameName.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export function GameName({setGameName, gameName, theme, screenCase}) {
     const classes = useStyles({text: "Game Name"});
@@ -30,8 +31,8 @@ export function GameName({setGameName, gameName, theme, screenCase}) {
                     label={"Pick game name"}
                     variant={"outlined"}
                     autoComplete={""}
-                    style={textFieldStyle(fontSizes[screenCase]*0.2)}
-                    genStyle={input_style('Game Name', fontSizes[screenCase], 'Garamond', theme)}
+                    style={textFieldStyle(fontSizes[resolveScreenCase(screenCase)]*0.2)}
+                    genStyle={input_style('Game Name', fontSizes[resolveScreenCase(screenCase)], 'Garamond', theme)}
                 />
             </Box>
         </>

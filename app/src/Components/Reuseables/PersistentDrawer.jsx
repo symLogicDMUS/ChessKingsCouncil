@@ -9,13 +9,12 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import {fontSize002} from "../styles/fontSizes.jss";
 import {useStyles} from "./PersistentDrawer.jss";
 
 export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, children}) {
     const [open, setOpen] = React.useState(false);
     const muiTheme = useTheme();
-    const classes = useStyles({theme: theme, fontSize: fontSize002, spacing: spacing});
+    const classes = useStyles({theme: theme, spacing: spacing});
 
     const handleDrawerOpen = () => {
         setOpen(true);

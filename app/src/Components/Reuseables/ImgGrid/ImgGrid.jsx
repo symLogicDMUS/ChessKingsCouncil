@@ -45,7 +45,7 @@ export function ImgGrid(props) {
     });
 
     return (
-        <div className={`scrollbar-${props.theme}`}>
+        <div> {/*className={`scrollbar-${props.theme}`}*/}
             <div className={classes.window}>
                 <Box className={classes.top_flexbox}>{props.topFlexbox}</Box>
                 <Box className={classes.title_flexbox}>{props.title}</Box>
@@ -55,7 +55,8 @@ export function ImgGrid(props) {
                             {state.imgItems}
                         </Box>
                     ) : (
-                        <MuiSkeleton classesObj={{root: classes.image_choices}} theme={props.theme} />
+                        <div />
+                        // <MuiSkeleton classesObj={{root: classes.image_choices}} theme={props.theme} />
                     )}
                 </Box>
                 <Box className={classes.bottom_flexbox}>

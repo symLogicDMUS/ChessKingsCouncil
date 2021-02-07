@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize001725, fontSize002} from "../../styles/fontSizes.jss";
+import {fontSize001725, fontSize002, fontSizeW095} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const img_container = (fontSize, theme) => ({
@@ -30,11 +30,22 @@ export const useStyles = makeStyles({
             ...img_container(fontSize002, props.theme),
         },
         '@media screen and (max-width: 767px)': {
-            ...img_container(fontSize002, props.theme),
+            // ...img_container(fontSize002, props.theme),
+            fontSize: fontSizeW095,
+            width: '0.42em',
+            height: '0.42em',
+            margin: '0.025em',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '0.015em',
+            border: `0.0025em solid ${themes[props.theme].outline}`,
+            backgroundColor: themes[props.theme].fill,
+
         },
         "@media (aspect-ratio: 375/812)": {
             ...img_container(fontSize001725, props.theme),
-
         },
     }),
     selected: props => ({

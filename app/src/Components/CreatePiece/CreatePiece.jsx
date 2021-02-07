@@ -32,6 +32,8 @@ import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {app_bar_title, styles} from "./CreatePiece.jss";
+import {availWidth} from "../helpers/windowMeasurments";
+import {fontSizeW095} from "../styles/fontSizes.jss";
 
 
 

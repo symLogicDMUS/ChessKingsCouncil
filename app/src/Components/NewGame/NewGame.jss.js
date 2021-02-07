@@ -12,14 +12,14 @@ import {
 
 export const fontSizes = {
     desktop: fontSize012,
-    mobile: fontSize01,
+    mobile: window.screen.availWidth*0.185,
     ipx: fontSize0085,
 }
 
 export const input_style = (text, fontSize, fontFamily, theme) => ({
     fontSize: fontSize,
     color: themes[theme].text,
-    width: getTextWidth(text, fontSize, fontFamily) * 0.95,
+    width: getTextWidth(text, fontSize, fontFamily) * 0.9,
 })
 
 export const play_button = (theme) => ({

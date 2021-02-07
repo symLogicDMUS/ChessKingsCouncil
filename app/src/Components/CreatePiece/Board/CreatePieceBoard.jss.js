@@ -1,10 +1,11 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {bigBoardMargin, board} from "../../Reuseables/Board.jss";
-import {fontSize0055, fontSize0067, fontSize0095} from "../../styles/fontSizes.jss";
+import {fontSize0055, fontSize0095} from "../../styles/fontSizes.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
 
 export const fontSizes = {
     desktop: fontSize0095,
-    mobile: fontSize0067,
+    mobile: availWidth()*0.124,
     ipx: fontSize0055,
 }
 
@@ -18,7 +19,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             ...board(fontSizes.mobile),
-            boxShadow: '0 0 0.05em white'
+            // marginLeft: '-0.12em',
         },
         "@media (aspect-ratio: 375/812)": {
             ...board(fontSizes.ipx)

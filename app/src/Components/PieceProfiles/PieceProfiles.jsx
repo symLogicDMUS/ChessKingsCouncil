@@ -25,8 +25,7 @@ export function PieceProfiles(props) {
             let defs;
             if (!result) {
                 defs = getSetSampleDefs();
-            }
-            else {
+            } else {
                 defs = result;
             }
             if (props.updateParent) {
@@ -139,10 +138,22 @@ export function PieceProfiles(props) {
             <div className={classes.piece_profiles}>
                 {props.children}
                 <MediaQuery minDeviceWidth={768}>
-                    <div className={classes.profiles_window}>{getProfiles('desktop')}</div>
+                    <div className={classes.profiles_window}>
+                        {state.loaded ? (
+                            getProfiles('desktop')
+                        ) : (
+                            <ProfileSkeleton theme={props.theme}/>
+                        )}
+                    </div>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
-                    <div className={classes.profiles_window}>{getProfiles('mobile')}</div>
+                    <div className={classes.profiles_window}>
+                        {state.loaded ? (
+                            getProfiles('mobile')
+                        ) : (
+                            <ProfileSkeleton theme={props.theme}/>
+                        )}
+                    </div>
                 </MediaQuery>
             </div>
         </div>

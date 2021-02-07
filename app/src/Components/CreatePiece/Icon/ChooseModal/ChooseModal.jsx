@@ -128,7 +128,7 @@ class ChooseModal extends React.Component {
                             screenCase={this.props.screenCase}
                             theme={this.props.theme}
                             defaultChecked={false}
-                            loaded={this.state.loaded}
+                            loaded={false} /*this.state.loaded*/
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
                             }

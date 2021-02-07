@@ -3,19 +3,17 @@ import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const drawerWidth = availWidth() * 0.5;
-export const appBarHeight = availHeight() * 0.086;
+export const appBarHeight = 55;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
+        justifyContent: 'center',
     }),
     appBar: props => ({
         zIndex: 7,
         '@media screen and (max-width: 767px)': {
             height: appBarHeight,
-        },
-        "@media (aspect-ratio: 375/812)": {
-            height: appBarHeight*0.825,
         },
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,

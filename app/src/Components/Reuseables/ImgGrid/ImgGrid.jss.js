@@ -1,5 +1,5 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {fontSize001685} from "../../styles/fontSizes.jss";
+import {fontSize001685, fontSize0085, fontSizeW085, fontSizeW090, fontSizeW095} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
@@ -25,7 +25,7 @@ export const button = (fontSize) => ({
 export const heights = {
     desktop: availHeight() * 0.81,
     mobile: availHeight() - appBarHeight,
-    ipx: availHeight() - appBarHeight*0.825,
+    ipx: availHeight() - appBarHeight * 0.825,
 }
 
 export const widths = {
@@ -81,9 +81,9 @@ export const useStyles = makeStyles({
 
     img_choices_border: props => ({
         overflow: 'scroll',
-        borderRadius: '0.25em',
+        borderRadius: '0.015em',
         backgroundColor: themes[props.theme].modal_fill,
-        border: `0.08em solid ${themes[props.theme].outline}`,
+        border: `0.002em solid ${themes[props.theme].outline}`,
         '@media screen and (min-width: 768px)': {
             width: imgChoicesWidth,
             height: imgChoicesHeight,
@@ -93,8 +93,10 @@ export const useStyles = makeStyles({
             marginBottom: modalHeight * 0.025,
         },
         '@media screen and (max-width: 767px)': {
-            width: '31.5em',
-            marginLeft: '1em',
+            fontSize: fontSizeW095,
+            width: '1em',
+            height: availHeight() * 0.75,
+            marginLeft: '0.025em',
         },
         "@media (aspect-ratio: 375/812)": {
             width: '26.25em',
@@ -104,22 +106,27 @@ export const useStyles = makeStyles({
     }),
 
     image_choices: props => ({
-        fontSize: fontSize001685,
         '@media screen and (min-width: 768px)': {
+            fontSize: fontSize001685,
             width: '92.5em',
             height: '35.5em',
+            marginLeft: '1em',
+            marginRight: '1em',
+            marginTop: '1em',
         },
         '@media screen and (max-width: 767px)': {
-            width: '30.5em',
-            height: '43.5em',
+            fontSize: fontSizeW090,
+            height: availHeight() * 0.65,
+            width: '1em',
+            marginLeft: '0.025em',
+            marginRight: '0.025em',
+            marginTop: '0.025em',
         },
         "@media (aspect-ratio: 375/812)": {
             width: '25.25em',
             height: '44.5em',
         },
-        marginLeft: '1em',
-        marginRight: '1em',
-        marginTop: '1em',
+
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
