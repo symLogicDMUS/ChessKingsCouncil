@@ -9,17 +9,26 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',
-        justifyContent: 'center',
-        width: '100%',
+        '@media screen and (min-width: 768px)': {
+            flexWrap: 'wrap',
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '100%',
+            flexWrap: 'nowrap',
+            justifyContent: 'center',
+        },
     }),
     profile_header: props => ({
-        width: '95%',
-        height: '5em',
-        marginTop: '-0.5em',
-        marginBottom: '-0.1.75em',
-        marginLeft: '2.5%',
         backgroundColor: themes[props.theme].odd_row,
+        '@media screen and (min-width: 768px)': {
+            width: '95%',
+            marginLeft: '2.5%',
+        },
+        '@media screen and (max-width: 767px)': {
+            height: '3.5em',
+            marginTop: '-0.5em',
+            marginBottom: '-0.75em',
+        },
     }),
     profile_wb: props => ({
         zIndex: 'inherit',
@@ -28,12 +37,14 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px)': {
             fontSize: fontSizes.desktop,
             justifyContent: 'space-evenly',
+            flexDirection: 'row',
+            marginLeft: '2.5%',
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
             flexDirection: 'column',
             alignItems: 'center',
-            marginLeft: '3.5%'
+            marginLeft: '3.5%',
         },
     }),
     item: props => ({
@@ -48,7 +59,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px)': {
             fontSize: fontSizes.desktop,
             height: '3.5em',
-            width: '12em',
+            width: '11em',
             marginTop: '-0.4em',
             marginBottom: '-0.4em',
         },
@@ -72,7 +83,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
         '@media screen and (min-width: 768px)': {
             fontSize: fontSizes.desktop,
-            width: '12em',
+            width: '11em',
             height: '18em',
             marginTop: '-4em',
             marginBottom: '-2em',
