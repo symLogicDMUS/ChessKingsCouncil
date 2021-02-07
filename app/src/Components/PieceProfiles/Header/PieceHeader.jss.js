@@ -34,7 +34,6 @@ export const header = (style, theme) => ({
         fontSize: fontSizes.ipx,
         justifyContent: 'center',
     },
-    // border: '1px dashed #b1faae',
 });
 
 export const text = (theme) => ({
