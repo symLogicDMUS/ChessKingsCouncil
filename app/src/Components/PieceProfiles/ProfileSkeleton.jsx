@@ -7,7 +7,7 @@ export function ProfileSkeleton({theme}) {
     const classes = useStyles({theme});
     return (
         <div className={classes.profile}>
-            {/*<Skeleton className={classes.profile_header}/>*/}
+            <Skeleton className={classes.profile_header}/>
             <Box className={classes.profile_wb}>
                 <Box className={classes.item}>
                     <Skeleton className={classes.item_header}/>

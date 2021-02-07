@@ -5,6 +5,7 @@ import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import {getDefs} from "../../API/getDefs";
 import MediaQuery from "react-responsive/src";
+import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
@@ -12,11 +13,10 @@ import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
 import {getSetSampleDefs} from "../../API/getSetSampleDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
-import {ProfileSkeleton} from "./ProfileSkeleton";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {
-    const [state, dispatch] = useReducer(reducer, {});
+    const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
 
     useEffect(() => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
@@ -65,11 +65,11 @@ export function PieceProfiles(props) {
 
     const getPieceNames = () => {
         if (props.searchText && props.searchText !== "") {
-            return Object.keys(state).filter((pieceName) =>
+            return Object.keys(state.defs).filter((pieceName) =>
                 pieceName.toLowerCase().startsWith(props.searchText)
             );
         } else {
-            return Object.keys(state);
+            return Object.keys(state.defs);
         }
     };
 
@@ -83,8 +83,8 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        defs={state}
                         key={uuidv4()}
+                        defs={state.defs}
                         pieceName={pieceName}
                         expand={props.expand}
                         theme={props.theme}
@@ -95,8 +95,8 @@ export function PieceProfiles(props) {
                             load={props.load}
                             dispatch={dispatch}
                             pieceName={pieceName}
-                            def={state[pieceName]}
                             screenCase={screenCase}
+                            def={state.defs[pieceName]}
                             parentPage={props.parentPage}
                             toggleModal={props.toggleModal}
                             theme={props.theme}
@@ -108,7 +108,7 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        defs={state}
+                        defs={state.defs}
                         key={uuidv4()}
                         pieceName={pieceName}
                         theme={props.theme}
@@ -139,10 +139,10 @@ export function PieceProfiles(props) {
             <div className={classes.piece_profiles}>
                 {props.children}
                 <MediaQuery minDeviceWidth={768}>
-                    <div className={classes.profiles_window}><ProfileSkeleton theme={props.theme} /></div> {/*{getProfiles('desktop')}*/}
+                    <div className={classes.profiles_window}>{getProfiles('desktop')}</div>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={767}>
-                    <div className={classes.profiles_window}><ProfileSkeleton theme={props.theme} /></div> {/*{getProfiles('mobile')}*/}
+                    <div className={classes.profiles_window}>{getProfiles('mobile')}</div>
                 </MediaQuery>
             </div>
         </div>

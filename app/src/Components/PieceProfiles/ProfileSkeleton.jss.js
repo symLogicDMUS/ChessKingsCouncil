@@ -21,11 +21,13 @@ export const useStyles = makeStyles({
     profile_header: props => ({
         backgroundColor: themes[props.theme].odd_row,
         '@media screen and (min-width: 768px)': {
-            width: '95%',
-            marginLeft: '2.5%',
+            height: '4em',
+            width: '89%',
+            marginLeft: '5.1%',
         },
         '@media screen and (max-width: 767px)': {
             height: '3.5em',
+            width: '95%',
             marginTop: '-0.5em',
             marginBottom: '-0.75em',
         },

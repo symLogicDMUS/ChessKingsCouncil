@@ -4,12 +4,12 @@ export const reducer = (state, action) => {
     switch (action.type) {
         case 'load':
             // payload == sampleDefs
-            return action.payload;
+            return {loaded: true, defs: action.payload}
         case 'delete':
-            const defs = copy(state)
+            const defs = copy(state.defs)
             //payload == pieceName
             delete defs[action.payload]
-            return defs;
+            return {...state, defs: defs};
         default:
             return {}
     }
