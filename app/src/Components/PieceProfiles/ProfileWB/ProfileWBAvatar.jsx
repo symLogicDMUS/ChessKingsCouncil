@@ -8,7 +8,7 @@ export function ProfileWBAvatar(props) {
     const classes = useStyles({ theme: props.theme });
 
     return (
-        <Box className={classes.profile_avatar} backgroundColor='red'>
+        <Box className={classes.profile_avatar}>
             <Typography className={classes.avatar_title}>
                 {resolvePlayerType(props.color)} Image
             </Typography>

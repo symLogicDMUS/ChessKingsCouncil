@@ -44,6 +44,6 @@ export const HelpText = (fontSize, theme) => ([
             are modified/deleted after.
         </p>
     </Typography>,
-    <ProfileHelpText theme={theme}/>,
+    <ProfileHelpText fontSize={fontSize} theme={theme}/>,
     <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ]);

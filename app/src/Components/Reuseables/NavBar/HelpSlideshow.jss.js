@@ -51,6 +51,7 @@ export const useStyles = makeStyles({
         marginTop: '1vh',
         marginBottom: '1vh',
         alignSelf: 'flex-end',
+        border: '1px dashed red',
     }),
     content: props => ({
         overflow: 'scroll',
@@ -58,7 +59,6 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 767px)': {
-            borderTop: themes[props.theme].text,
             width: '95vw',
             height: '82.5vh',
             marginLeft: 'auto',

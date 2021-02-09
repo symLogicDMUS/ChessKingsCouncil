@@ -1,22 +1,26 @@
-import React, {memo} from "react";
+import React from "react";
 import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
-import {ProfileWBExampleDocker} from "./ProfileWBExampleDocker";
-import { useStyles } from "../Profile.jss";
+import {SpanExamplesDocker} from "./SpanExamplesDocker";
+import {OffsetExamplesDocker} from "./OffsetExamplesDocker";
+import {AvatarExamplesDocker} from "./AvatarExamplesDocker";
+import { useStyles } from "./ProfileHelpText.jss";
 
 export const ProfileExampleDocker = ({theme})  => {
     /**children is a header for the profile of the piece */
     const classes = useStyles({theme: theme});
 
     return (
-        <Box className={classes.profile} style={{width: '100%'}}>
-            <ProfileWBExampleDocker
-                color="W"
+        <Box className={classes.profile}>
+            <AvatarExamplesDocker
                 key={uuidv4()}
                 theme={theme}
             />
-            <ProfileWBExampleDocker
-                color="B"
+            <SpanExamplesDocker
+                key={uuidv4()}
+                theme={theme}
+            />
+            <OffsetExamplesDocker
                 key={uuidv4()}
                 theme={theme}
             />

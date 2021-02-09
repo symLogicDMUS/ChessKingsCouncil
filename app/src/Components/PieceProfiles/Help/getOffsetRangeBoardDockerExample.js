@@ -4,7 +4,7 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {dockerSrcBlue, dockerSrcRed} from "./dockerSrcStr";
 
-export function getOffsetRangeBoardDockerExample({theme, color}) {
+export function getOffsetRangeBoardDockerExample(theme, color) {
     const fToTop = {
         8: 0,
         7: 60,

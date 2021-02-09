@@ -3,7 +3,7 @@ import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 
-export function getSpanRangeBoardDockerExample({theme, color}) {
+export function getSpanRangeBoardDockerExample(theme, color) {
     const fToTop = {
         8: 0,
         7: 60,

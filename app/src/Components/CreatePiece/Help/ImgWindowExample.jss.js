@@ -1,4 +1,4 @@
-import {fontSize002, fontSize00236, fontSizeW041,} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSizeW041} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
@@ -31,18 +31,18 @@ export const useStyles = makeStyles({
     }),
     img_window1: props => ({
         ...img_window(props.theme),
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize002,
+            width: "9em",
+            height: "9em",
+            marginRight: '1vw',
+        },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizeW041,
             width: '1em',
             height: '1em',
             borderRadius: '0.035em',
             border: "0.0075em solid #2b2b2b",
-        },
-        '@media screen and (min-width: 768px)': {
-            fontSize: fontSize002,
-            width: "9em",
-            height: "9em",
-            marginRight: '1vw',
         },
     }),
     img_window2: props => ({

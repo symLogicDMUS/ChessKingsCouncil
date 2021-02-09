@@ -1,8 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSizes, widths, widths as avatarSize} from "../PieceProfiles.jss";
 import {themes} from "../../styles/themes.jss";
-import {modal} from "../../helpers/modal.jss";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
 
 export const heights = {
     desktop: 13.03,
