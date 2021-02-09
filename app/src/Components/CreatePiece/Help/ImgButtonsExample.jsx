@@ -9,7 +9,8 @@ export function ImgButtonsExample({theme}) {
     const classes = useStyles({theme});
     return (
         <Box style={{
-            width: '100%', display: 'flex',
+            width: '100%',
+            display: 'flex',
             flexDirection: 'row',
             flexWrap: 'nowrap',
             alignItems: 'center',

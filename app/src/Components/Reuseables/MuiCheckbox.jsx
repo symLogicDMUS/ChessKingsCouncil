@@ -27,6 +27,7 @@ export function MuiCheckbox({
     rootStyle,
     checkboxStyle,
     textStyle,
+    classesObj,
     theme,
     children,
 }) {
@@ -54,6 +55,7 @@ export function MuiCheckbox({
                     name="checkbox"
                 />
             }
+            classes={classesObj}
             className={classes.form_control_label_root}
             label={<Typography className={classes.text}>{children}</Typography>}
             labelPlacement="start"

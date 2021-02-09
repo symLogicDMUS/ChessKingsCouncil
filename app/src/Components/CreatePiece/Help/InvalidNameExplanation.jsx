@@ -6,7 +6,7 @@ import {fontSize002} from "../../styles/fontSizes.jss";
 import { useStyles } from "../../Reuseables/SubTitle.jss";
 
 export function InvalidNameExplanation(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
     return <div>
         <Typography variant='h6' className={classes.sub_title}>
             Invalid Piece Name

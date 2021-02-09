@@ -6,7 +6,7 @@ import {Option} from "../Options/Option";
 import { useStyles } from "../../Reuseables/SubTitle.jss";
 
 export function OptionsToolExplanation(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
     return <div>
         <Typography variant='h6' className={classes.sub_title}>Options</Typography>
         <Typography paragraph style={help_text(props.fontSize, props.theme)}>

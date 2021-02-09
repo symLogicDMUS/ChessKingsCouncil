@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import Typography from "@material-ui/core/Typography";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./CouncilRules.jss";
@@ -114,7 +114,7 @@ export function CouncilRules() {
                             unsavedChanges={false}
                             helpText={[
                                 <Typography
-                                    style={{fontSize: fontSize002, color: themes.tan.text}}
+                                    style={{fontSize: fontSizeW0045, color: themes.tan.text}}
                                     variant='h6'
                                 >
                                     No help content for this page.

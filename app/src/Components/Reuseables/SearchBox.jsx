@@ -24,7 +24,6 @@ export function SearchBox({ updateSearchText, width, theme, style }) {
                 onChange={handleChange}
                 disableUnderline
                 type="search"
-
             />
         </Box>
     );

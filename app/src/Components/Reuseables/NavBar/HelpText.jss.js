@@ -5,7 +5,8 @@ export const help_text = (fontSize, theme) => ({
     fontSize: fontSize,
     fontFamily: 'Roboto-Light, Roboto',
     color: themes[theme].text,
-    margin: '0.75em',
+    width: '95%',
+    margin: 'auto'
 });
 
 export const help_title = (fontSize, theme) => ({

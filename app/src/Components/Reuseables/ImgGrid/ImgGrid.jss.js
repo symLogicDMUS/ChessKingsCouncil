@@ -65,11 +65,11 @@ export const useStyles = makeStyles({
         fontSize: fontSize001685,
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'no-wrap',
         alignItems: 'center',
         '@media screen and (min-width: 768px)': {
             width: imgChoicesWidth,
             marginLeft: modalWidth * 0.025,
+            flexWrap: 'no-wrap',
             justifyContent: 'flex-end',
         },
         '@media screen and (max-width: 767px)': {
@@ -127,17 +127,20 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].modal_fill,
     }),
     bottom_flexbox: props => ({
-        fontSize: fontSize001685,
-        width: imgChoicesWidth,
-        marginLeft: modalWidth * 0.025,
-        marginRight: modalWidth * 0.25,
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        "@media (max-aspect-ratio: 1/2)": {
-            width: '26.25em',
-            justifyContent: 'space-evenly',
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize001685,
+            width: imgChoicesWidth,
+            marginLeft: modalWidth * 0.025,
+            marginRight: modalWidth * 0.25,
+            flexWrap: 'no-wrap',
+            alignItems: 'center',
+        },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizeW095,
+            marginLeft: '0.025em',
+            width: '1em',
         },
     }),
     ok_button: props => ({
@@ -153,5 +156,10 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             marginLeft: "0.25em",
         },
+    }),
+    show_names: props => ({
+        fontSize: fontSize001685,
+        marginLeft: "auto",
+        marginRight: "auto",
     }),
 });

@@ -1,18 +1,20 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-
-export const incorrect_entry = (theme) => ({
-    color: themes[theme].text,
-    fontFamily: 'Roboto-Light, Roboto'
-})
+import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     incorrect_name_entry_examples: props => ({
         display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-evenly',
+        height: availHeight() * 0.55,
+        '@media screen and (min-width: 768px)': {
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
+        },
+        '@media screen and (max-width: 767px)': {
+            flexDirection: 'column',
+        },
     }),
     incorrect_entry: props => ({
         "& .MuiInputLabel-root": {

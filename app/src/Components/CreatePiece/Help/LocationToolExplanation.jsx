@@ -5,13 +5,12 @@ import {fourLocationsBoard} from "./fourLocationBoard";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 import {LocationToolExample} from "./LocationToolExample";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {example_box} from "./HelpText.jss";
-import {useStyles} from "../../Reuseables/SubTitle.jss";
+import {useStyles} from "./LocationToolExplaination.jss";
 
 export function LocationToolExplanation(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
 
     return <div>
         <Typography variant='h6' className={classes.sub_title}>
@@ -23,7 +22,7 @@ export function LocationToolExplanation(props) {
                 of the board: D4, D5, E4, or E5.
             </p>
         </Typography>
-        <Box style={{...example_box(), justifyContent: "space-around"}}>
+        <Box className={classes.flexbox}>
             {fourLocationsBoard(
                 availHeight() * 0.25,
                 availHeight() * 0.25,

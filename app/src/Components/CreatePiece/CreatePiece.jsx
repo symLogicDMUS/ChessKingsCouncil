@@ -33,7 +33,14 @@ import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {app_bar_title, styles} from "./CreatePiece.jss";
 import {availWidth} from "../helpers/windowMeasurments";
-import {fontSize002, fontSizeW095} from "../styles/fontSizes.jss";
+import {
+    fontSize002,
+    fontSizeW003224,
+    fontSizeW0035,
+    fontSizeW004, fontSizeW0045,
+    fontSizeW04,
+    fontSizeW095
+} from "../styles/fontSizes.jss";
 import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 
 
@@ -407,7 +414,7 @@ class CreatePiece extends React.Component {
                             theme={this.state.theme}
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
-                            helpText={HelpText(this.state.theme)}
+                            helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
@@ -422,7 +429,7 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 screenCase={resolveScreenCase('mobile')}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
-                                helpText={HelpText(this.state.theme)}
+                                helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />
                         }

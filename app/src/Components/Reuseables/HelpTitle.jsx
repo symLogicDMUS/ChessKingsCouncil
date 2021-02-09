@@ -6,7 +6,7 @@ import { useStyles } from "./HelpTitle.jss";
 export const HelpTitle = ({theme, children}) => {
     const classes = useStyles({theme});
     return (
-        <Typography variant="h1" className={classes.help_title}>
+        <Typography variant="h6" className={classes.help_title}>
             {children}
         </Typography>
     )

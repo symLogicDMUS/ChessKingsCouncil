@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {header, text} from "./PieceHeader.jss";
+import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {
     fontSize0024,

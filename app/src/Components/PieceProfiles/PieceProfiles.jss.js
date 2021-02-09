@@ -1,12 +1,12 @@
-import {makeStyles} from "@material-ui/core/styles";
-import {fontSize001685, fontSize00219, fontSize0023, fontSize0034} from "../styles/fontSizes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {fontSize0023,fontSizeW006,fontSizeW0062} from "../styles/fontSizes.jss";
 
 export const fontSizes = {
     desktop: fontSize0023,
-    mobile: fontSize0034,
-    ipx: fontSize00219,
+    mobile: fontSizeW0062,
+    ipx: fontSizeW006,
 }
 
 export const heights = {

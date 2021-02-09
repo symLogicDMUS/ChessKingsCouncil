@@ -20,9 +20,11 @@ export const useStyles = makeStyles({
         margin: '0.75em',
     }),
     range_board_example: props => ({
-        fontSize: fontSize00301,
-        width: "9em",
-        height: "9em",
+        '@media screen and (min-width: 768px)': {
+            fontSize: fontSize00301,
+            width: "9em",
+            height: "9em",
+        },
     }),
     icon_button: props => ({
         display: "inline-flex",

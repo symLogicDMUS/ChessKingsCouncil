@@ -7,7 +7,7 @@ import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
@@ -91,7 +91,7 @@ class MyPieces extends React.Component {
                             <NavBar
                                 currentPage="MyPieces"
                                 flexDirection="column"
-                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}

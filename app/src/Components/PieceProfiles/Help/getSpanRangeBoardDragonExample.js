@@ -4,7 +4,7 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {src} from "./dragonSrcStr";
 
-export function getSpanRangeBoardDragonExample({theme, color}) {
+export function getSpanRangeBoardDragonExample({theme}) {
     const fToTop = {
         8: 0,
         7: 60,

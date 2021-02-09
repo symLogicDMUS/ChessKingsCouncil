@@ -1,9 +1,9 @@
-import {fontSize002, fontSize00219, fontSize0023, fontSize00301, fontSize0032} from "../../styles/fontSizes.jss";
+import {fontSize0019, fontSize002} from "../../styles/fontSizes.jss";
 import { makeStyles } from "@material-ui/core/styles";
 
 export const fontSizes = {
     desktop: fontSize002,
-    mobile: fontSize0023,
+    mobile: fontSize0019,
 }
 export const widths = {
     desktop: '9em',
@@ -17,17 +17,20 @@ export const heights = {
 
 export const useStyles = makeStyles({
     range_tool: props => ({
-        fontSize: fontSizes.desktop,
-        width: '22.5em',
+        width: '95%',
+        margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
+        '@media screen and (min-width: 768px)': {
+            justifyContent: 'center',
+        },
+        '@media screen and (max-width: 767px)': {
+            justifyContent: 'space-between',
+        },
     }),
     span_arrow_buttons: props => ({
         '@media screen and (min-width: 768px)': {
-            fontSize: fontSize00219,
+            fontSize: fontSizes.desktop,
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,

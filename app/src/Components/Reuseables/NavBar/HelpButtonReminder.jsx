@@ -7,9 +7,9 @@ import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import React from "react";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
-export function HelpButtonReminder({theme}) {
+export function HelpButtonReminder({fontSize, theme}) {
     return <div>
-        <Typography paragraph style={help_text(fontSize002, theme)}>
+        <Typography paragraph style={help_text(fontSize, theme)}>
             Remember: You can return to the help menu any time through the Help
             option on the NavBar
             <Button style={button(theme)}>

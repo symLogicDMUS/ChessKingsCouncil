@@ -15,7 +15,7 @@ export const header = (style, theme) => ({
     backgroundColor: themes[theme].fill,
     '@media screen and (max-width: 767px)': {
         fontSize: fontSizes.mobile,
-        width: '100%',
+        width: '93.5%',
     },
     "@media (max-width:1919px) and (min-width:768px)": {
         fontSize: fontSizes.desktop,
@@ -30,9 +30,9 @@ export const header = (style, theme) => ({
         justifyContent: 'flex-start',
     },
     "@media (max-aspect-ratio: 1/2)": {
-        width: '100%',
+        width: '94%',
         fontSize: fontSizes.ipx,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
     },
 });
 

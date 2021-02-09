@@ -33,7 +33,7 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
@@ -337,7 +337,7 @@ class GameRoot extends React.Component {
                                 currentPage="GameRoot"
                                 theme={this.state.theme}
                                 screenCase={resolveScreenCase('mobile')}
-                                helpText={HelpText(fontSize002, this.state.theme)}
+                                helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
                             />

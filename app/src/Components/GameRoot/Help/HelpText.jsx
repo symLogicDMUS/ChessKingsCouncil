@@ -46,5 +46,5 @@ export const HelpText = (fontSize, theme) => [
             will still be available, if you saved it as well.
         </p>
     </Typography>,
-    <HelpButtonReminder theme={theme} />
+    <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ];

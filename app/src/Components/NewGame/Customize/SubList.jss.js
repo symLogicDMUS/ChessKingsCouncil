@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {text} from "../../PieceProfiles/Header/PieceHeader.jss"
+import {text} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {themes} from "../../styles/themes.jss";
 import {drawer_component, list_title} from "./Customize.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";

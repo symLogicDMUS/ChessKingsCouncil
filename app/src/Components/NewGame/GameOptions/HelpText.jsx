@@ -45,5 +45,5 @@ export const HelpText = (fontSize, theme) => ([
             check that a new feature works after it is updated/added.
         </p>
     </Typography>,
-    <HelpButtonReminder theme={theme} />
+    <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ])

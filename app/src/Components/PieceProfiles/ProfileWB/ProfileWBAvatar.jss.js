@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
-            marginTop: '-0.5em'
+            // marginTop: '-0.5em'
         },
         display: 'flex',
         flexDirection: 'column',

@@ -15,7 +15,7 @@ import {MuiButton} from "../Reuseables/MuiButton";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {resolveScreenCase} from "../helpers/resolveScreenCase";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {useStyles, play_button} from "./NewGame.jss";
@@ -117,7 +117,7 @@ function NewGame() {
                             <NavBar
                                 currentPage="NewGame"
                                 screenCase={resolveScreenCase('mobile')}
-                                helpText={HelpText(fontSize002, theme)}
+                                helpText={HelpText(fontSizeW0045, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}
                                 theme={theme}

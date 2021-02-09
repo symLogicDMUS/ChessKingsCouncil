@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive/src";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import StorageIcon from '@material-ui/icons/Storage';
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
 import {HelpTitle} from "../Reuseables/HelpTitle";
@@ -69,7 +69,7 @@ export function SavedGames(props) {
                         <NavBar
                             currentPage="LoadGame"
                             screenCase="mobile"
-                            helpText={HelpText(fontSize002, props.theme)}
+                            helpText={HelpText(fontSizeW0045, props.theme)}
                             helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                             redirectMessage={null}
                             theme={props.theme}
@@ -80,11 +80,6 @@ export function SavedGames(props) {
                             <Typography variant="h6" noWrap>
                                 Load Game
                             </Typography>
-                            <SearchBox
-                                width='11em'
-                                theme={props.theme}
-                                updateSearchText={updateSearchText}
-                            />
                         </>
                     }
                     theme={props.theme}
@@ -109,7 +104,14 @@ export function SavedGames(props) {
                         }
                         topFlexbox={null}
                         onClose={null}
-                        title={null}
+                        title={
+                            <SearchBox
+                                width='100%'
+                                style={{marginTop: '-0.5em', marginBottom: '0.75em'}}
+                                theme={props.theme}
+                                updateSearchText={updateSearchText}
+                            />
+                        }
                     />
                 </PersistentDrawer>
             </MediaQuery>

@@ -1,5 +1,5 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
+import {text} from "../../PieceProfiles/Header/ProfileHeader.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";

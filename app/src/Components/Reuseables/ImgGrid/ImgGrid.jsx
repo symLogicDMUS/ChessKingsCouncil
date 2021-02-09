@@ -7,9 +7,9 @@ import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { MuiDeleteButton as DeleteButton } from "../MuiDeleteButton";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import { getImgItems } from "./getImgItems";
+import {MuiSkeleton} from "../MuiSkeleton";
 import { reducer } from "./reducer.red";
 import {useStyles} from "./ImgGrid.jss";
-import {MuiSkeleton} from "../MuiSkeleton";
 
 export function ImgGrid(props) {
     let [state, dispatch] = useReducer(
@@ -80,7 +80,7 @@ export function ImgGrid(props) {
                     <MuiCheckbox
                         theme={props.theme}
                         style={{ fontSize: fontSize001685 }}
-                        rootStyle={{ marginLeft: "2.15em" }}
+                        classesObj={{root: classes.show_names}}
                         defaultChecked={props.defaultChecked}
                         onClick={() => dispatch({ type: "toggle-show-names" })}
                     >

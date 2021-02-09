@@ -2,11 +2,10 @@ import React from "react";
 import {v4 as uuidv4} from "uuid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {getOffsetRangeBoardKnightExample} from
-        "./getOffsetRangeBoardKnightExample";
-import {useStyles} from "./ProfileHelpText.jss";
+import {getOffsetRangeBoardKnightExample} from "./getOffsetRangeBoardKnightExample";
+import { useStyles } from "../../CreatePiece/Help/ImgWindowExample.jss";
 
-export function ProfileHelpTextAlt(props) {
+export function KnightRangeExamples(props) {
     const classes = useStyles({theme: props.theme});
     return <div>
         <Typography key={uuidv4()} paragraph className={classes.text}>
@@ -14,16 +13,16 @@ export function ProfileHelpTextAlt(props) {
             horizontal and 1 square vertical, or 1 square vertical and 2
             squares horizontal.
         </Typography>
-        <Box className={classes.profile_help_text}>
+        <Box className={classes.flexbox}>
             <img
                 src={getOffsetRangeBoardKnightExample({theme: props.theme, color: "W"})}
-                className={classes.range_board_example}
-                alt="offset board for white Docker"
+                className={classes.img_window1}
+                alt="offset board for white Knight"
             />
             <img
                 src={getOffsetRangeBoardKnightExample({theme: props.theme, color: "B"})}
-                className={classes.range_board_example}
-                alt="offset board for black Docker"
+                className={classes.img_window2}
+                alt="offset board for black Knight"
             />
         </Box>
     </div>;

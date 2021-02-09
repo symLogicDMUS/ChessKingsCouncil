@@ -1,8 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {header, text} from "./PieceHeader.jss";
+import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {fontSize002, fontSize001685} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize001685, fontSizeW0031} from "../../styles/fontSizes.jss";
 
 export const getButtonMargin = (screenCase) => {
     switch (screenCase) {
@@ -31,10 +31,10 @@ export const button = (theme) => ({
 export const useStyles = makeStyles({
     header: props => ({
         ...header(props.style, props.theme),
+        justifyContent: 'space-between',
     }),
     piece_name: props => ({
         ...text(props.theme),
-        marginLeft: '0.5em'
     }),
     buttons_outer_flexbox: props => ({
         display: 'flex',
@@ -61,17 +61,16 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
-            marginRight: '0.5em'
+            // marginRight: '0.5em'
         },
-        marginLeft: '1em'
+        marginLeft: '1em',
     }),
     load_button: props => ({
        ...button(props.theme),
         "@media (max-aspect-ratio: 1/2)": {
-            fontSize: fontSize001685,
+            fontSize: fontSizeW0031,
             width: '6.9em',
-            height: '1.9em',
-            maxWidth: '100em',
+            height: '2.2em',
         },
     }),
     delete_button: props => ({
@@ -89,12 +88,20 @@ export const useStyles = makeStyles({
             marginLeft: "0.9em",
         },
         "@media (max-aspect-ratio: 1/2)": {
-            fontSize: fontSize001685,
+            fontSize: fontSizeW0031,
             width: '6.9em',
-            height: '1.9em',
+            height: '2.2em',
             maxWidth: '100em',
             marginLeft: 0
         },
         border: `0.05em solid ${themes[props.theme].outline}`
+    }),
+    icon: props => ({
+       '@media screen and (min-width: 768px)': {
+           fontSize: fontSizes.desktop,
+       },
+        '@media screen and (max-width: 767px)': {
+            fontSize: fontSizes.mobile,
+        },
     }),
 });

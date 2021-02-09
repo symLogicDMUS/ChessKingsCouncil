@@ -25,13 +25,13 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
-            marginTop: '-0.5em'
+            // marginTop: '-0.5em'
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
-            marginTop: '-0.5em'
+            // marginTop: '-3vh'
         },
         display: 'flex',
         flexDirection: 'column',

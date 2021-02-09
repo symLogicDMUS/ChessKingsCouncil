@@ -21,5 +21,5 @@ export const HelpText = (fontSize, theme) => ([
             those pieces in the record of all pieces, is modified/deleted after.
         </p>
     </Typography>,
-    <HelpButtonReminder theme={theme} />
+    <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ]);

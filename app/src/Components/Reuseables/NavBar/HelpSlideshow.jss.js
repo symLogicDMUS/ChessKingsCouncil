@@ -2,7 +2,7 @@ import {button} from "../StandardModal.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
@@ -12,24 +12,21 @@ export const useStyles = makeStyles({
         zIndex: 10,
     }),
     window: props => ({
-        display: 'grid',
         fontSize: fontSize002,
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (min-width: 768px)': {
-            gridTemplateRows: '3.5em 20em 3.5em',
-            width: '55em',
+            width: availWidth() * 0.66667,
+            height: availHeight() * 0.66667,
         },
         '@media screen and (max-width: 767px)': {
             width: '100%',
-            gridTemplateRows: '3.5em 41em 3.5em',
             height: availHeight(),
         },
     }),
     top_flexbox: props => ({
-        gridRow: 1,
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
@@ -48,36 +45,42 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     title_flexbox: props => ({
-        width: '100%',
-        alignSelf: 'flex-end'
+        width: '95%',
+        fontSize: fontSize002,
+        margin: 'auto',
+        marginTop: '1vh',
+        marginBottom: '1vh',
+        alignSelf: 'flex-end',
     }),
     content: props => ({
-        fontSize: fontSize002,
-        gridRow: 2,
-        width: '98%',
         overflow: 'scroll',
+        fontSize: fontSize002,
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 767px)': {
             borderTop: themes[props.theme].text,
+            width: '95vw',
+            height: '82.5vh',
+            marginLeft: 'auto',
+            marginRight: 'auto',
         },
         '@media screen and (min-width: 768px)': {
-            marginLeft: '0.5em',
-            marginRight: '0.5em'
+            width: availWidth() * 0.66667*0.95,
+            height: availHeight() * 0.66667*0.95*0.79,
+            marginLeft: '2.5%',
         },
     }),
     buttons: props => ({
-        gridRow: 3,
-        width: '98%',
+        width: '95%',
         display: 'flex',
+        margin: 'auto',
+        position: 'relative',
+        top: '0.6vh',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: fontSize002,
-        marginLeft: '0.5em',
-        marginRight: '0.5em',
-        marginTop: '-0.45em',
     }),
     previous_button: props => ({
         ...button(fontSize002),

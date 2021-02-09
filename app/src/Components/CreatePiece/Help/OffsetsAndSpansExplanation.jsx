@@ -6,14 +6,14 @@ import {example_box} from "./HelpText.jss";
 import {RangeToolExample} from "./RangeToolExample";
 import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
-import {ProfileHelpTextAlt} from "../../PieceProfiles/Help/ProfileHelpTextAlt";
+import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples";
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
 import {img_example} from "./OffsetsAndSpansExplanation.jss";
 import {useStyles} from "../../Reuseables/SubTitle.jss";
 
 
 export function OffsetsAndSpansExplanation(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
 
     const getExamples = (screenCase) => {
         return (
@@ -31,14 +31,14 @@ export function OffsetsAndSpansExplanation(props) {
 
     return (
         <div>
-            <Typography variant='h6' className={classes.sub_title}>
+            <Typography variant='subtitle2' className={classes.sub_title}>
                 Offsets and Spans
             </Typography>
             <Typography style={help_text(props.fontSize, props.theme)}>
                 The range of a piece is how it can move. I define ranges as 2
                 separate types: <i>offsets and spans</i>
             </Typography>
-            <ProfileHelpTextAlt theme={props.theme}/>
+            <KnightRangeExamples theme={props.theme}/>
             <Typography paragraph style={help_text(props.fontSize, props.theme)}>
                 <p>
                     Click on a square and the app will measure how many squares X to
@@ -61,8 +61,26 @@ export function OffsetsAndSpansExplanation(props) {
                     range and click it again to remove it.
                 </p>
             </Typography>
-            <MediaQuery minDeviceWidth={768}>{getExamples('desktop')}</MediaQuery>
-            <MediaQuery maxDeviceWidth={767}>{getExamples('mobile')}</MediaQuery>
+            <MediaQuery minDeviceWidth={768}>
+                <Box style={example_box('desktop')}>
+                    <RangeToolExample theme={props.theme}/>
+                    <img
+                        src={getSpanRangeBoardDragonExample({theme: props.theme})}
+                        alt="span board for dragon"
+                        style={img_example()}
+                    />
+                </Box>
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={767}>
+                <Box style={example_box('mobile')}>
+                    <RangeToolExample theme={props.theme}/>
+                    <img
+                        src={getSpanRangeBoardDragonExample({theme: props.theme})}
+                        alt="span board for dragon"
+                        style={img_example()}
+                    />
+                </Box>
+            </MediaQuery>
             <Typography paragraph style={help_text(props.fontSize, props.theme)}>
                 <p>
                     Spans take precedence over offsets, i.e. if you turn on a span it will overwrite any offsets lying

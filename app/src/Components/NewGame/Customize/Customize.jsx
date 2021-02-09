@@ -28,7 +28,7 @@ import {newData} from "../NewData";
 import {
     fontSize0016,
     fontSize0023,
-    fontSize00301
+    fontSize00301, fontSizeW0045
 } from "../../styles/fontSizes.jss";
 import {
     drawerItemMarginLeft,
@@ -354,7 +354,7 @@ class Customize extends React.Component {
                                 <NavBar
                                     currentPage="Customize"
                                     screenCase='mobile'
-                                    helpText={HelpText(fontSize0023, this.state.theme)}
+                                    helpText={HelpText(fontSizeW0045, this.state.theme)}
                                     helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
                                     theme={this.state.theme}

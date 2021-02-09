@@ -50,6 +50,7 @@ export function PieceProfiles(props) {
                 )
             }
         }
+        dispatch({type: "load", payload: defs});
         // getDefs().then(([result]) => {
         //     let defs;
         //     if (!result) {

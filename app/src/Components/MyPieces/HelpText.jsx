@@ -45,5 +45,5 @@ export const HelpText = (fontSize, theme) => ([
         </ol>
     </Typography>,
     <ProfileHelpText theme={theme}/>,
-    <HelpButtonReminder theme={theme} />
+    <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ]);

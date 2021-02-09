@@ -1,4 +1,4 @@
-import {text} from "../../PieceProfiles/Header/PieceHeader.jss";
+import {text} from "../../PieceProfiles/Header/ProfileHeader.jss";
 import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {drawerItemWidth} from "./Customize.jss";

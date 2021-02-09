@@ -7,9 +7,9 @@ import { useStyles } from "../../Reuseables/SubTitle.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function ImageUploadExplanation(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
     return <div>
-        <Typography variant='h6' className={classes.sub_title}>Uploading an Image</Typography>
+        <Typography variant='subtitle2' className={classes.sub_title}>Uploading an Image</Typography>
         <Typography paragraph style={help_text(props.fontSize, props.theme)}>
             Click the white or black image window to choose the white or black image for your piece
         </Typography>

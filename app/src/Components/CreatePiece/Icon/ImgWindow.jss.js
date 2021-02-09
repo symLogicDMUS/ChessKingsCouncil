@@ -1,10 +1,7 @@
 import {
     fontSize002,
     fontSize00236,
-    fontSizeW035,
-    fontSizeW04,
     fontSizeW041,
-    fontSizeW042
 } from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";

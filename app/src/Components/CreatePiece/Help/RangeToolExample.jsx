@@ -1,7 +1,8 @@
 import React from "react";
+import MediaQuery from "react-responsive/src";
 import {angleToText} from "../../helpers/spanToText";
+import {ArrowButtonExample} from "./ArrowButtomExample";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {ArrowButton} from "../Range/SpanArrowButtons/ArrowButton";
 import {useStyles, widths, heights, fontSizes} from "./RangeToolExample.jss";
 
 export function RangeToolExample({theme}) {
@@ -25,38 +26,40 @@ export function RangeToolExample({theme}) {
         return newSpans;
     };
 
-    /*
-    The ArrowButton component needs
-    a function that takes a single
-    argument to not crash, but we
-    aren't actually using it, since
-    this component is only a diagram.
-    */
-    const doNothing = (span) => {
-        return null;
-    };
-
     return (
         <div className={classes.range_tool}>
-            <ScrollTable
-                numRows={5}
-                theme={theme}
-                style={{
-                    width: widths.desktop,
-                    height: heights.desktop,
-                    fontSize: fontSizes.desktop,
-                }}
-                buttonStyle={{borderRadius: 0}}
-                listItems={getSpanTextLabels()}
-            />
+            <MediaQuery minDeviceWidth={768}>
+                <ScrollTable
+                    numRows={5}
+                    theme={theme}
+                    style={{
+                        width: widths.desktop,
+                        height: heights.desktop,
+                        fontSize: fontSizes.desktop,
+                    }}
+                    buttonStyle={{borderRadius: 0}}
+                    listItems={getSpanTextLabels()}
+                />
+            </MediaQuery>
+            <MediaQuery maxDeviceWidth={767}>
+                <ScrollTable
+                    numRows={5}
+                    theme={theme}
+                    style={{
+                        width: widths.mobile,
+                        height: heights.mobile,
+                        fontSize: fontSizes.mobile,
+                    }}
+                    buttonStyle={{borderRadius: 0}}
+                    listItems={getSpanTextLabels()}
+                />
+            </MediaQuery>
             <div className={classes.span_arrow_buttons}>
                 {spans.map(angle =>
-                    <ArrowButton
+                    <ArrowButtonExample
                         key={angle}
                         angle={angle}
-                        isActive={true}
                         theme={theme}
-                        toggleSpan={doNothing}
                     />
                 )}
             </div>
