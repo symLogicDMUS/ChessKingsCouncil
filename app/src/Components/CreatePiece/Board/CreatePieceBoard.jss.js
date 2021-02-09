@@ -5,8 +5,8 @@ import {availWidth} from "../../helpers/windowMeasurments";
 
 export const fontSizes = {
     desktop: fontSize0095,
-    mobile: availWidth()*0.124,
-    ipx: fontSize0055,
+    mobile: availWidth()*0.12,
+    ipx: availWidth()*0.12,
 }
 
 export const useStyles = makeStyles({
@@ -19,9 +19,9 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             ...board(fontSizes.mobile),
-            // marginLeft: '-0.12em',
+            marginTop: '-0.12em',
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             ...board(fontSizes.ipx)
         },
     }),

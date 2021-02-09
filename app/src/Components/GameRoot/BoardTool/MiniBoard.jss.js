@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
             ...board(fontSizes.mobile),
             marginTop: '-1em'
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             marginTop: '-1em',
             ...board(fontSizes.ipx)
         },

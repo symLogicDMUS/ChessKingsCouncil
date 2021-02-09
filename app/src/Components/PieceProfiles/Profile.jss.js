@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
             height: `${profileHeight}em`,
             width: availWidth(),
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             height: `${profileHeight*1.1}em`,
         }

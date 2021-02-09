@@ -1,10 +1,10 @@
-import {fontSize002, fontSize0023} from "../../../styles/fontSizes.jss";
+import {fontSize002, fontSize00224, fontSize0023, fontSizeW005} from "../../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles"
 
 export const fontSizes = {
     desktop: fontSize002,
     mobile: fontSize0023,
-    ipx: fontSize002,
+    ipx: fontSizeW005,
 }
 
 export const buttonSizeEm = 3
@@ -17,8 +17,9 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (aspect-ratio: 375/812)": {
-            fontSize: fontSizes.ipx
+        "@media (max-aspect-ratio: 1/2)": {
+            fontSize: fontSizes.ipx,
+            marginBottom: '0.5em',
         },
         display: 'grid',
         gridTemplateColumns: "repeat(3, 2.85em)",

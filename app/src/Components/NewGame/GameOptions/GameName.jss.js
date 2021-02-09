@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
             width: '100%',
             textAlign: 'center'
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             width: '100%',
             textAlign: 'center'

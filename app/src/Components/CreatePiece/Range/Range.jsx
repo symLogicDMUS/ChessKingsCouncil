@@ -5,8 +5,9 @@ import MediaQuery from "react-responsive/src";
 import {angleToText} from "../../helpers/spanToText";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {widths, heights, fontSizes, useStyles} from "./Range.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {offsetToText} from "../../helpers/offsetToText";
+import {widths, heights, fontSizes, useStyles} from "./Range.jss";
 
 export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase }) {
     const classes = useStyles({ theme: theme, styles: styles });
@@ -36,9 +37,9 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
                         numRows={5}
                         theme={theme}
                         style={{
-                            width: widths[screenCase],
-                            height: heights[screenCase],
-                            fontSize: fontSizes[screenCase],
+                            width: widths[resolveScreenCase(screenCase)],
+                            height: heights[resolveScreenCase(screenCase)],
+                            fontSize: fontSizes[resolveScreenCase(screenCase)],
                         }}
                         buttonStyle={{borderRadius: 0}}
                         listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}

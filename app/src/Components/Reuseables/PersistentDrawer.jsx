@@ -9,7 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import {useStyles} from "./PersistentDrawer.jss";
+import {appBarHeight, useStyles} from "./PersistentDrawer.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, children}) {
     const [open, setOpen] = React.useState(false);

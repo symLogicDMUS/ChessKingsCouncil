@@ -49,7 +49,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
                 >
                     {getMessage()}
                 </Typography>
-                <Box className={classes.flex_end} />
+
             </Box>
         </>
     );

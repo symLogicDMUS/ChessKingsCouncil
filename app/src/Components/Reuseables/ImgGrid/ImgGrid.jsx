@@ -1,7 +1,6 @@
-import React, {useEffect, useMemo, useReducer} from "react";
+import React, {useEffect, useReducer} from "react";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "../MuiCheckbox";
-import Skeleton from '@material-ui/lab/Skeleton';
 import { MuiButton as Button } from "../MuiButton";
 import {fontSize001685} from "../../styles/fontSizes.jss";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -45,7 +44,7 @@ export function ImgGrid(props) {
     });
 
     return (
-        <div> {/*className={`scrollbar-${props.theme}`}*/}
+        <div className={`scrollbar-${props.theme}`}>
             <div className={classes.window}>
                 <Box className={classes.top_flexbox}>{props.topFlexbox}</Box>
                 <Box className={classes.title_flexbox}>{props.title}</Box>
@@ -55,8 +54,7 @@ export function ImgGrid(props) {
                             {state.imgItems}
                         </Box>
                     ) : (
-                        <div />
-                        // <MuiSkeleton classesObj={{root: classes.image_choices}} theme={props.theme} />
+                        <MuiSkeleton classesObj={{root: classes.image_choices}} theme={props.theme} />
                     )}
                 </Box>
                 <Box className={classes.bottom_flexbox}>

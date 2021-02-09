@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flexGrow: 3,
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             flexGrow: 0,
             marginLeft: '1em',
         },
@@ -67,7 +67,7 @@ export const useStyles = makeStyles({
     }),
     load_button: props => ({
        ...button(props.theme),
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSize001685,
             width: '6.9em',
             height: '1.9em',
@@ -88,7 +88,7 @@ export const useStyles = makeStyles({
             maxWidth: '100em',
             marginLeft: "0.9em",
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSize001685,
             width: '6.9em',
             height: '1.9em',

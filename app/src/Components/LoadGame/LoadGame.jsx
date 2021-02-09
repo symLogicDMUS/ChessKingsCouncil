@@ -1,17 +1,19 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-import { getGames } from "../../API/getGames";
-import { deleteGame } from "../../API/deleteGame";
-import {getSetSampleGames} from "../../API/getSetSampleGames";
-import { initEmptyRanges } from "../../apiHelpers/initEmptyRanges";
-import { offsetStrsToList } from "../../apiHelpers/offsetStrsToList";
-import { Background } from "../Reuseables/Background";
-import { parseData } from "../../apiHelpers/parseData";
-import { SavedGames } from "./SavedGames";
-import { copy } from "../helpers/copy";
+import {Redirect} from "react-router-dom";
+import {getGames} from "../../API/getGames";
+import {deleteGame} from "../../API/deleteGame";
+import {sampleGames} from "../../API/apiHelpers/sampleGames";
+import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
+import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
+import {Background} from "../Reuseables/Background";
+import {parseData} from "../../apiHelpers/parseData";
+import {SavedGames} from "./SavedGames";
+import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
 
 class LoadGame extends React.Component {
+    sampleGames;
+
     constructor(props) {
         super(props);
         this.state = {
@@ -32,15 +34,18 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "tan-background";
-        getGames().then(([games]) => {
-            if (games) {
-                this.games = games;
-            } else {
-                this.games = getSetSampleGames();
-            }
-            this.reloadGameImgComponentsDict();
-            this.setState({ loaded: true });
-        });
+        this.games = sampleGames;
+        this.reloadGameImgComponentsDict();
+        this.setState({loaded: true});
+        // getGames().then(([games]) => {
+        //     if (games) {
+        //         this.games = games;
+        //     } else {
+        //         this.games = getSetSampleGames();
+        //     }
+        //     this.reloadGameImgComponentsDict();
+        //     this.setState({ loaded: true });
+        // });
     }
 
     reloadGameImgComponentsDict() {
@@ -55,7 +60,7 @@ class LoadGame extends React.Component {
     }
 
     changeName(gameName) {
-        this.setState({ selectedGame: gameName });
+        this.setState({selectedGame: gameName});
     }
 
     deleteGame(gameName) {
@@ -82,7 +87,7 @@ class LoadGame extends React.Component {
         this.gameData.defs = initEmptyRanges(this.gameData.defs);
         this.gameData.defs = offsetStrsToList(this.gameData.defs);
         this.gameData = parseData(this.gameData);
-        this.setState({ userChoseGame: true });
+        this.setState({userChoseGame: true});
     }
 
     render() {
@@ -105,7 +110,7 @@ class LoadGame extends React.Component {
 
         return (
             <>
-                <Background theme={this.state.theme} />
+                <Background theme={this.state.theme}/>
                 <SavedGames
                     load={this.load}
                     imgDict={this.imgDict}

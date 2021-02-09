@@ -2,8 +2,15 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
-export const drawerWidth = availWidth() * 0.5;
+export const appBarHeightG4 = 30;
 export const appBarHeight = 55;
+export const drawerWidth = availWidth() * 0.51;
+
+export const pageTitleStyle = () => ({
+    fontSize: appBarHeight * 0.333,
+    height: '1em',
+    lineHeight: '1em',
+});
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({

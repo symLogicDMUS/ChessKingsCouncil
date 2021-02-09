@@ -33,7 +33,8 @@ import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {app_bar_title, styles} from "./CreatePiece.jss";
 import {availWidth} from "../helpers/windowMeasurments";
-import {fontSizeW095} from "../styles/fontSizes.jss";
+import {fontSize002, fontSizeW095} from "../styles/fontSizes.jss";
+import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 
 
 
@@ -426,7 +427,7 @@ class CreatePiece extends React.Component {
                             />
                         }
                         appBarContent={
-                            <Typography variant="h6" noWrap>
+                            <Typography variant="h6" noWrap style={pageTitleStyle()} >
                                 Create Piece
                             </Typography>
                         }

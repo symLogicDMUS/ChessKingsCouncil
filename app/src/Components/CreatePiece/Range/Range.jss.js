@@ -1,11 +1,11 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
-import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize0023, fontSizeW005} from "../../styles/fontSizes.jss";
 
 export const fontSizes = {
     desktop: fontSize002,
     mobile: fontSize0023,
-    ipx: fontSize002,
+    ipx: fontSizeW005,
 }
 
 export const widths = {
@@ -32,6 +32,11 @@ export const useStyles = makeStyles({
     }),
     box: props => ({
         ...tool_flexbox,
+        '@media (max-aspect-ratio: 1/2)': {
+            flexDirection: 'column-reverse',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+        },
     }),
     title: props => ({
         ...tool_title(props.theme),

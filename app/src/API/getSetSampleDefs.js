@@ -3,6 +3,6 @@ import {sampleDefs} from "./apiHelpers/sampleDefs";
 import {dbSampleDefs} from "./apiHelpers/dbSampleDefs";
 
 export async function getSetSampleDefs() {
-    const result = await saveDefs(dbSampleDefs);
+    // const result = await saveDefs(dbSampleDefs);
     return sampleDefs;
 }

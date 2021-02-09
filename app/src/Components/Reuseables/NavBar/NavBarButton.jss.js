@@ -29,7 +29,6 @@ export const text = (screenCase) => {
         default:
             throw new Error('no screen case given')
     }
-
 };
 
 export const icon = (screenCase) => {

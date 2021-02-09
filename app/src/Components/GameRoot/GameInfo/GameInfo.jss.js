@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             width: '100%',
-            height: '50%',
+            height: '7.5em',
             alignItems: 'center',
         },
     }),

@@ -29,7 +29,7 @@ export const header = (style, theme) => ({
         marginLeft: '1em',
         justifyContent: 'flex-start',
     },
-    "@media (aspect-ratio: 375/812)": {
+    "@media (max-aspect-ratio: 1/2)": {
         width: '100%',
         fontSize: fontSizes.ipx,
         justifyContent: 'center',
@@ -43,7 +43,7 @@ export const text = (theme) => ({
     '@media screen and (max-width: 767px)': {
         fontSize: fontSizes.mobile,
     },
-    "@media (aspect-ratio: 375/812)": {
+    "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
     },
     fontFamily: 'Roboto-Light, Roboto',

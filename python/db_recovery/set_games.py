@@ -17,6 +17,4 @@ def set_games(uid):
 
 if __name__ == "__main__":
     # uid.txt not included in git repos
-    f = open("uid2.txt", "r")
-    uid = f.readline()
-    set_games(uid)
+    pass

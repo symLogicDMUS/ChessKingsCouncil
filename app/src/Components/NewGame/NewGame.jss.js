@@ -33,7 +33,7 @@ export const play_button = (theme) => ({
         width: getTextWidth('Play As', fontSizes.mobile, 'Garamond'),
         margin: '2.5em'
     },
-    "@media (aspect-ratio: 375/812)": {
+    "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSize0018,
         width: getTextWidth('Play As', fontSizes.ipx, 'Garamond'),
         margin: '2.5em'

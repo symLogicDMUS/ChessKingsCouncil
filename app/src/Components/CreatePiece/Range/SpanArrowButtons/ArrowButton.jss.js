@@ -21,7 +21,7 @@ const container = (angle, theme) => ({
     '@media screen and (max-width: 767px)': {
         fontSize: fontSizes.mobile,
     },
-    "@media (aspect-ratio: 375/812)": {
+    "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
     },
     ...buttonPos[angle],
@@ -59,7 +59,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
         width: '2.75em',
@@ -75,7 +75,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
         width: '2em',

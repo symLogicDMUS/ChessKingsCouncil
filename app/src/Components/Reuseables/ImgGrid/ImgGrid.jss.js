@@ -1,5 +1,5 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {fontSize001685, fontSize0085, fontSizeW085, fontSizeW090, fontSizeW095} from "../../styles/fontSizes.jss";
+import {fontSize001685, fontSizeW0855, fontSizeW090, fontSizeW095, fontSizeW0992} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
@@ -45,7 +45,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             height: heights.mobile,
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             height: heights.ipx,
         },
         borderRadius: '0.75em',
@@ -98,10 +98,6 @@ export const useStyles = makeStyles({
             height: availHeight() * 0.75,
             marginLeft: '0.025em',
         },
-        "@media (aspect-ratio: 375/812)": {
-            width: '26.25em',
-            marginLeft: '0.5em',
-        },
         ...props.itemWindowStyle,
     }),
 
@@ -116,17 +112,12 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 767px)': {
             fontSize: fontSizeW090,
-            height: availHeight() * 0.65,
             width: '1em',
+            height: availHeight() * 0.65,
             marginLeft: '0.025em',
             marginRight: '0.025em',
             marginTop: '0.025em',
         },
-        "@media (aspect-ratio: 375/812)": {
-            width: '25.25em',
-            height: '44.5em',
-        },
-
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -144,7 +135,7 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignItems: 'center',
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             width: '26.25em',
             justifyContent: 'space-evenly',
         },
@@ -152,14 +143,14 @@ export const useStyles = makeStyles({
     ok_button: props => ({
         ...button(fontSize001685),
         marginRight: "1em",
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             marginRight: "0.25em",
         },
     }),
     delete_button: props => ({
         ...button(fontSize001685),
         marginLeft: "1em",
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             marginLeft: "0.25em",
         },
     }),

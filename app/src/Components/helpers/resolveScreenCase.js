@@ -4,9 +4,9 @@
  */
 export function resolveScreenCase(originalCase) {
 
-    /*Iphone X*/
+    /*tall phones*/
     if (
-        (window.screen.availWidth / window.screen.availHeight).toPrecision(4) === '0.4618'
+        (window.screen.availWidth / window.screen.availHeight) <= 0.5
     ) {
         return 'ipx';
     }

@@ -24,6 +24,11 @@ export const useStyles = makeStyles({
             justifyContent: 'space-evenly',
 
         },
+        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)':{
+            width: '100%',
+            flexWrap: 'nowrap',
+            marginTop: '-2em'
+        }
     }),
     title: props => ({
         ...tool_title(props.theme),

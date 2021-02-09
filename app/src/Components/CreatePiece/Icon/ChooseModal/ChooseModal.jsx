@@ -1,25 +1,26 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import { Typography } from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import PanoramaIcon from "@material-ui/icons/Panorama";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { deleteImg } from "../../../../API/deleteImg";
-import { getImgDict } from "../../../../API/getImgDict";
-import { getSetSampleImgs } from "../../../../API/getSetSampleImgs";
-import { filterStandardPieces } from "../../../helpers/filterStandardPieces";
-import { appBarHeight } from "../../../Reuseables/PersistentDrawer.jss";
-import { fontSize001725 } from "../../../styles/fontSizes.jss";
-import { ImgGrid } from "../../../Reuseables/ImgGrid/ImgGrid";
-import { SearchBox } from "../../../Reuseables/SearchBox";
-import { Close } from "../../../Reuseables/Close";
+import {deleteImg} from "../../../../API/deleteImg";
+import {getImgDict} from "../../../../API/getImgDict";
+import {getSetSampleImgs} from "../../../../API/getSetSampleImgs";
+import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
+import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
+import {fontSize001725} from "../../../styles/fontSizes.jss";
+import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
+import {SearchBox} from "../../../Reuseables/SearchBox";
+import {Close} from "../../../Reuseables/Close";
 import "../../../styles/Scrollbar.scss";
 import {styles} from "./ChooseModal.jss";
+import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 
 class ChooseModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { imgNameChoice: null, searchText: "", loaded: false };
+        this.state = {imgNameChoice: null, searchText: "", loaded: false};
         this.imgDict = {};
         this.deleteImg = this.deleteImg.bind(this);
         this.submitChoice = this.submitChoice.bind(this);
@@ -28,22 +29,24 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        getImgDict().then(([imgDict]) => {
-            if (!imgDict) {
-                this.imgDict = getSetSampleImgs();
-            } else {
-                this.imgDict = imgDict;
-            }
-            this.imgDict = filterStandardPieces(this.imgDict);
-            this.setState({ loaded: true });
-        });
+        this.imgDict = sampleBase64ImgStrs;
+        this.setState({loaded: true});
+        // getImgDict().then(([imgDict]) => {
+        //     if (!imgDict) {
+        //         this.imgDict = getSetSampleImgs();
+        //     } else {
+        //         this.imgDict = imgDict;
+        //     }
+        //     this.imgDict = filterStandardPieces(this.imgDict);
+        //     this.setState({ loaded: true });
+        // });
     }
 
     deleteImg(imgNameChoice) {
         deleteImg(imgNameChoice).then(([r]) => {
             this.props.resetImg(this.imgDict[imgNameChoice]);
             delete this.imgDict[imgNameChoice];
-            this.setState({ imgNameChoice: null });
+            this.setState({imgNameChoice: null});
         });
     }
 
@@ -54,14 +57,14 @@ class ChooseModal extends React.Component {
 
     setChoice(imgNameChoice) {
         if (this.state.imgNameChoice === imgNameChoice) {
-            this.setState({ imgNameChoice: null });
+            this.setState({imgNameChoice: null});
         } else {
-            this.setState({ imgNameChoice: imgNameChoice });
+            this.setState({imgNameChoice: imgNameChoice});
         }
     }
 
     updateSearchText(searchText) {
-        this.setState({ searchText: searchText });
+        this.setState({searchText: searchText});
     }
 
     render() {
@@ -124,11 +127,11 @@ class ChooseModal extends React.Component {
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
                             imgNameChoice={this.state.imgNameChoice}
-                            rootStyle={{ marginTop: appBarHeight }}
+                            rootStyle={{marginTop: appBarHeight}}
                             screenCase={this.props.screenCase}
                             theme={this.props.theme}
                             defaultChecked={false}
-                            loaded={false} /*this.state.loaded*/
+                            loaded={this.state.loaded} /*this.state.loaded*/
                             onOkClick={() =>
                                 this.submitChoice(this.state.imgNameChoice)
                             }

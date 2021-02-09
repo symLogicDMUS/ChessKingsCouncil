@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             width: widths.mobile,
         },
@@ -53,7 +53,7 @@ export const useStyles = makeStyles({
             height: '1.5em',
             marginLeft: '1em',
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: '0.25em',
             width: '1.5em',
             height: '1.5em',
@@ -73,7 +73,7 @@ export const useStyles = makeStyles({
             width: '0.7em',
             height: '0.7em',
         },
-        "@media (aspect-ratio: 375/812)": {
+        "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             width: '0.7em',
             height: '0.7em',

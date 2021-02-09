@@ -38,6 +38,9 @@ export const useStyles = makeStyles({
                 height: '100%',
                 alignItems: 'center'
             },
+            '@media (max-aspect-ratio: 1/2)': {
+                flexDirection: 'column',
+            },
         }),
         flex_header: props => ({
             display: 'flex',

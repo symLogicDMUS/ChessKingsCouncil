@@ -2,9 +2,6 @@ import {
     fontSize002,
     fontSize00224,
     fontSize0025,
-    fontSize0028,
-    fontSize00288,
-    fontSize0032,
     fontSize0034
 } from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
@@ -74,6 +71,6 @@ export const useStyles = makeStyles({
         },
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,
-        width: '120%',
+        width: '4em',
     }),
 })

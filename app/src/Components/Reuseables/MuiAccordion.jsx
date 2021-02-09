@@ -3,7 +3,6 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {fontSize0095 as fontSize} from "../styles/fontSizes.jss";
 import { useStyles } from "./MuiAccordion.jss";
 
 /**
@@ -29,7 +28,7 @@ import { useStyles } from "./MuiAccordion.jss";
  * @constructor
  */
 export default function MuiAccordion({theme, style, rootStyle, children }) {
-    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, fontSize: fontSize});
+    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, numTabs: children.length});
     let [expanded, setExpanded] = useState(null);
     let [allCollapsed, setAllCollapsed] = useState(true);
 
@@ -53,7 +52,8 @@ export default function MuiAccordion({theme, style, rootStyle, children }) {
                         className={classes.accordion_tab}
                     >
                         <AccordionSummary
-                            expandIcon={<ExpandMoreIcon className={classes.expand_icon} />}
+                            classes={{content: classes.accordion_summary, expandIcon: classes.expand_icon}}
+                            expandIcon={<ExpandMoreIcon  />}
                             aria-controls="panel1a-content"
                             id={children[i].id}
                         >
