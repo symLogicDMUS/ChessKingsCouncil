@@ -1,19 +1,21 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {board} from "../../Reuseables/Board.jss";
 import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
 import {
     fontSize002,
     fontSize00219,
-    fontSize0023, fontSizeW0048,
+    fontSize0023,
+    fontSizeW0028,
+    fontSizeW0031,
+    fontSizeW0045,
     fontSizeW005,
-    fontSizeW0055,
 } from "../../styles/fontSizes.jss";
 
 
 export const fontSizes = {
     desktop: fontSize0023,
-    mobile: fontSizeW0048,
+    mobile: fontSizeW0045,
     ipx: fontSizeW005,
 }
 
@@ -30,6 +32,12 @@ export const heights = {
 export const useStyles = makeStyles({
     profile_help_text: props => ({
         '@media screen and (max-width: 767px)': {
+            height: '225vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'space-evenly',
+        },
+        '@media (max-aspect-ratio: 1/2)': {
             height: '200vh',
             display: 'flex',
             flexDirection: 'column',
@@ -83,10 +91,16 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     flex_column: props => ({
-        width: board(fontSizes.desktop).width,
         display: "flex",
         flexDirection: "column",
-        border: '1px dashed #blfaae',
+        '@media screen and (min-width: 768px)': {
+            width: board(fontSizes.desktop).width,
+        },
+        '@media screen and (max-width: 767px)': {
+            width: '95%',
+            margin: 'auto',
+            alignItems: 'center',
+        },
     }),
     profile: props => ({
         width: '95%',
@@ -97,11 +111,16 @@ export const useStyles = makeStyles({
             justifyContent: 'center',
         },
         '@media screen and (max-width: 767px)': {
+            height: '80vh',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+        },
+        '@media (max-aspect-ratio: 1/2)': {
             height: '70vh',
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        border: '1px dashed red',
+
     }),
     item: props => ({
         '@media screen and (min-width: 768px)': {
@@ -119,7 +138,6 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: widths.mobile,
-            // marginTop: '-0.5em'
         },
         display: 'flex',
         flexDirection: 'column',

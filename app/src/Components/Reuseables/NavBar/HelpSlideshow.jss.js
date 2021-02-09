@@ -51,7 +51,6 @@ export const useStyles = makeStyles({
         marginTop: '1vh',
         marginBottom: '1vh',
         alignSelf: 'flex-end',
-        border: '1px dashed red',
     }),
     content: props => ({
         overflow: 'scroll',

@@ -15,9 +15,9 @@ export const fontSizes = {
     mobile: fontSize0025,
 }
 
-export function SampleRangeBoard({theme}) {
+export function SampleRangeBoard({fontSize, theme}) {
 
-    const classes = useStyles({theme: theme, fontSize: fontSizes.desktop, type: 'normal'});
+    const classes = useStyles({theme: theme, fontSize: fontSize, type: 'normal'});
 
     const locationC3 = 'c3'
     const rangeTypeSpan = 'span';
@@ -57,17 +57,8 @@ export function SampleRangeBoard({theme}) {
 
 
     return (
-        <div>
-            <MediaQuery minDeviceWidth={768}>
-                <div style={board(fontSizes.desktop)}>
-                    {getBoard()}
-                </div>
-            </MediaQuery>
-            <MediaQuery maxDeviceWidth={767}>
-                <div style={board(fontSizes.mobile)}>
-                    {getBoard()}
-                </div>
-            </MediaQuery>
+        <div style={board(fontSize)}>
+            {getBoard()}
         </div>
     );
 }

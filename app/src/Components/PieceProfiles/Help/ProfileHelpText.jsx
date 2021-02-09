@@ -1,20 +1,22 @@
 import React, {useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import {SampleRangeList} from "./SampleRangeList";
 import {SampleRangeBoard} from "./SampleRangeBoard";
 import {ProfileExampleDocker} from "./ProfileExampleDocker";
 import {IconButtonExample as Icb} from "./IconButtonExample";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {themes} from "../../styles/themes.jss";
-import {useStyles} from "./ProfileHelpText.jss";
+import {fontSizes, useStyles} from "./ProfileHelpText.jss";
 
 export function ProfileHelpText(props) {
     const [board, setBoard] = useState(<div />);
 
-    useEffect(() => {
-        setBoard(<SampleRangeBoard theme={props.theme} />)
-    }, [props.theme]);
+    // useEffect(() => {
+    //     setBoard(<SampleRangeBoard theme={props.theme} fontSize={} />)
+    // }, [props.theme]);
 
     const classes = useStyles({theme: props.theme});
 
@@ -47,14 +49,18 @@ export function ProfileHelpText(props) {
             and it will highlight that definition from the current location. Below is an example after user clicked the span
             'Upper Right'.
         </Typography>
-        <Box className={classes.flexbox} style={{justifyContent: "center", alignItems: 'center', width: '80%'}}>
+        <Box className={classes.flexbox} >
             <Box className={classes.flex_column}>
-                {board}
+                <MediaQuery minDeviceWidth={768}>
+                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('desktop')]} />
+                </MediaQuery>
+                <MediaQuery maxDeviceWidth={767}>
+                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('mobile')]} />
+                </MediaQuery>
                 <SampleRangeList
                     theme={props.theme}
                 />
             </Box>
         </Box>
-
     </div>;
 }
