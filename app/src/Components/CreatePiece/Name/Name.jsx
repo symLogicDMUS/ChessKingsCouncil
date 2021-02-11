@@ -2,7 +2,7 @@ import React from "react";
 import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
 import {text_field_style, useStyles} from "./Name.jss";
 
-export function Name({inputRef, updateName, updateNameFinish, theme, defaultValue}) {
+export function Name({inputRef, updateName, updateNameFinish, theme, defaultValue, screenCase}) {
 
     const classes = useStyles({theme: theme})
 
@@ -17,7 +17,7 @@ export function Name({inputRef, updateName, updateNameFinish, theme, defaultValu
                 onChange={handleInput}
                 defaultValue={defaultValue}
                 genStyle={{width: '100%'}}
-                style={text_field_style}
+                style={text_field_style(screenCase)}
                 placeholder='Enter name of piece...'
                 label="Piece Name"
                 autoComplete="off"

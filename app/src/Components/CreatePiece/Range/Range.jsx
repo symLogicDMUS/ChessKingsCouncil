@@ -30,16 +30,16 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
         <>
             <div className={classes.range_tool}>
                 <Box className={classes.box}>
-                    <MediaQuery minDeviceWidth={768}>
+                    <MediaQuery minAspectRatio={'16/9'}>
                         <Typography className={classes.title}>Range</Typography>
                     </MediaQuery>
                     <ScrollTable
                         numRows={5}
                         theme={theme}
                         style={{
-                            width: widths[resolveScreenCase(screenCase)],
-                            height: heights[resolveScreenCase(screenCase)],
-                            fontSize: fontSizes[resolveScreenCase(screenCase)],
+                            width: widths[screenCase],
+                            height: heights[screenCase],
+                            fontSize: fontSizes[screenCase],
                         }}
                         buttonStyle={{borderRadius: 0}}
                         listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}

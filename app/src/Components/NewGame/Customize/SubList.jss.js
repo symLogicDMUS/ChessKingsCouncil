@@ -1,12 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {text} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {themes} from "../../styles/themes.jss";
-import {drawer_component, list_title} from "./Customize.jss";
+import {drawer_component, drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
-import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
+import {fontSize0023} from "../../styles/fontSizes.jss";
 
-export const piece_label = (fontSize, theme) => ({
-    fontSize: fontSize,
+export const piece_label = (theme) => ({
+    fontSize: fontSize0023,
     width: '25%',
     height: '1.75em',
     textAlign: 'center',
@@ -20,8 +20,8 @@ export const piece_label = (fontSize, theme) => ({
     borderRight: `0.08em solid ${themes[theme].outline}`,
 });
 
-export const piece_value = (fontSize, theme) => ({
-    fontSize: fontSize,
+export const piece_value = (theme) => ({
+    fontSize: fontSize0023,
     width: '75%',
     height: '1.75em',
     textAlign: 'center',
@@ -37,9 +37,18 @@ export const piece_value = (fontSize, theme) => ({
 
 export const useStyles = makeStyles({
     sub_list: props => ({
-        ...drawer_component(props.fontSize),
-        '@media screen and (max-width: 767px)': {
-            height: '7em',
+        '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSize0023,
+            width: drawerItemWidth,
+            marginLeft: drawerItemMarginLeft,
+            marginTop: drawerItemMarginTopBottom,
+            marginBottom: drawerItemMarginTopBottom,
+            fontFamily: 'Roboto-Light, Roboto',
+        },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSize0023,
+            fontFamily: 'Roboto-Light, Roboto',
+            width: '100%'
         },
         display: 'flex',
         flexDirection: 'row',
@@ -54,26 +63,26 @@ export const useStyles = makeStyles({
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
     piece_label_even: props => ({
-        ...piece_label(props.fontSize, props.theme),
+        ...piece_label(props.theme),
         backgroundColor: themes[props.theme].even_row,
     }),
     piece_label_odd: props => ({
-        ...piece_label(props.fontSize, props.theme),
+        ...piece_label(props.theme),
         backgroundColor: themes[props.theme].odd_row,
     }),
     piece_value_even: props => ({
-        ...piece_value(props.fontSize, props.theme),
+        ...piece_value(props.theme),
         backgroundColor: themes[props.theme].even_row,
     }),
     piece_value_odd: props => ({
-        ...piece_value(props.fontSize, props.theme),
+        ...piece_value(props.theme),
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,
         },
         fontFamily: 'Roboto-Light, Roboto',

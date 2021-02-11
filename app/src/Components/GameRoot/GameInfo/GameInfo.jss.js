@@ -11,23 +11,23 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: drawerItemWidth,
             marginBottom: '1em',
             marginLeft: '1em',
             alignItems: 'flex-end',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '7.5em',
             alignItems: 'center',
         },
     }),
     cell: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0024,
         },
         width: '50%',

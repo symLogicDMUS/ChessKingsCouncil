@@ -1,42 +1,159 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {text} from "../../PieceProfiles/Header/ProfileHeader.jss";
 import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {themes} from "../../styles/themes.jss";
-import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
-import {fontSize0023} from "../../styles/fontSizes.jss";
+import {fontSize0016, fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
+import {def} from "../../PieceProfiles/Help/dockerDef";
+import {checkbox} from "../../PieceProfiles/Header/CustomizeHeader.jss";
 
-/* unit % */
 export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
 export const drawerItemMarginLeft = '7%';
 
-export const drawer_component = (fontSize) => ({
-    fontSize: fontSize,
-    fontFamily: 'Roboto-Light, Roboto',
-    '@media screen and (min-width: 768px)': {
-        width: drawerItemWidth,
-        marginLeft: drawerItemMarginLeft,
-        marginTop: drawerItemMarginTopBottom,
-        marginBottom: drawerItemMarginTopBottom,
-    },
-    '@media screen and (max-width: 767px)': {
-        width: '100%',
-    },
+export const accordion = () => ({
+    height: '2em',
+    margin: 0
 });
 
-export const ok_button = (fontSize) => ({
-    ...drawer_component(fontSize),
-    '@media screen and (max-width: 767px)': {
-        marginTop: '0.5em',
-        width: '100%',
-    },
+export const drawer_component = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                width: drawerItemWidth,
+                marginLeft: drawerItemMarginLeft,
+                marginTop: drawerItemMarginTopBottom,
+                marginBottom: drawerItemMarginTopBottom,
+            }
+        default:
+            return {
+                width: '100%'
+            }
+    }
+};
+
+export const ok_button = (screenCase) => {
+    switch (screenCase) {
+        case 'mobile':
+            return {
+                ...drawer_component(screenCase),
+                fontSize: fontSize0023,
+                fontFamily: 'Roboto-Light, Roboto',
+                width: '100%',
+                marginTop: '0.5em',
+            }
+        default:
+            return {
+                ...drawer_component(screenCase),
+                fontSize: fontSize0023,
+                fontFamily: 'Roboto-Light, Roboto',
+            }
+    }
+};
+
+export const promo_all_container = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                display: 'flex',
+                fontSize: fontSize0023,
+                justifyContent: 'center',
+                ...drawer_component(screenCase),
+            }
+        default:
+            return {
+                display: 'flex',
+                fontSize: fontSize0023,
+                justifyContent: 'center',
+            }
+    }
+};
+
+export const promo_all_root = () => ({
+    marginRight: 'auto',
+    flexGrow: 2,
 });
 
-export const promo_all_checkbox_container = () => ({
-    ...drawer_component(fontSize0023),
-    display: 'flex',
-    justifyContent: 'center',
-});
+export const promo_all_checkbox = (screenCase) => {
+    return {
+        ...checkbox(screenCase),
+        transform: 'none'
+    }
+};
+
+export const promo_all_gen = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                fontSize: fontSize00301,
+            }
+        default:
+            return {
+                fontSize: fontSize0023
+            }
+    }
+};
+
+export const scroll_table = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                fontSize: fontSize0023,
+                width: drawerItemWidth,
+                height: 15,
+            }
+        default:
+            return {
+                fontSize: fontSize0016,
+                width: availWidth() * 0.48,
+                height: 10,
+            }
+    }
+};
+
+
+export const scroll_table_button = () => {
+    return {
+        borderRadius: 0
+    }
+};
+
+export const scroll_table_added = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                margin: 'auto',
+            }
+        default:
+            return {
+                marginBottom: '2em'
+            }
+    }
+};
+
+export const pawn_promotion = (screenCase) => {
+    switch (screenCase) {
+        case 'mobile':
+            return {
+                fontSize: fontSize0016,
+                height: '10em',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }
+        default:
+            return null
+    }
+};
+
+export const piece_profiles = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                margin: 'auto'
+            }
+        default:
+            return null
+    }
+};
 
 export const styles = {
     customize: {

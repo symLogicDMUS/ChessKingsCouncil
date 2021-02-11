@@ -51,10 +51,10 @@ export function ProfileHelpText(props) {
         </Typography>
         <Box className={classes.flexbox} >
             <Box className={classes.flex_column}>
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'16/9'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('desktop')]} />
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('mobile')]} />
                 </MediaQuery>
                 <SampleRangeList

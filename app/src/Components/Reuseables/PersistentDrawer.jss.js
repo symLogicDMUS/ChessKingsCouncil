@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {availWidth} from "../helpers/windowMeasurments";
 
 export const appBarHeightG4 = 30;
 export const appBarHeight = 55;
@@ -19,8 +19,9 @@ export const useStyles = makeStyles((theme) => ({
     }),
     appBar: props => ({
         zIndex: 7,
-        '@media screen and (max-width: 767px)': {
-            height: appBarHeight,
+        height: appBarHeight,
+        '@media (aspect-ratio: 1024/1366)':{
+            height: 62
         },
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
@@ -67,6 +68,8 @@ export const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
+        display: 'flex',
+        flexDirection: 'column',
     }),
     contentShift: props => ({
         transition: theme.transitions.create('margin', {

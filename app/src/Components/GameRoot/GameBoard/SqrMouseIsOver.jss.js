@@ -7,10 +7,10 @@ export const useStyles = makeStyles({
         position: 'absolute',
         width: props.sqrSize,
         height: props.sqrSize,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             border: `0.35em solid ${themes[props.theme].sqr_border}`
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             border: `0.2em solid ${themes[props.theme].sqr_border}`
         },
     }),

@@ -21,7 +21,7 @@ import {useStyles} from "./ScrollTable.jss";
  * @constructor
  */
 function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, addedStyle}) {
-    const classes = useStyles({theme: theme, style: style, addedStyle, numRows: numRows});
+    const classes = useStyles({theme: theme, style: style, addedStyle: addedStyle, numRows: numRows});
 
     const [state, dispatch] = useReducer(reducer, {
         dataLists: divideList(listItems, numRows),

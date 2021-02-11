@@ -7,6 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
+import {checkbox, checkbox_gen, checkbox_root} from "../../PieceProfiles/Header/CustomizeHeader.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
+import {DrawerContent} from "../../Reuseables/DrawerContent";
 import {SubList} from "./SubList";
 import {SideBar} from "../../Reuseables/SidBar";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
@@ -18,25 +21,23 @@ import PersistentDrawer from "../../Reuseables/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import MuiAccordion from "../../Reuseables/MuiAccordion";
 import {sideBarHeight} from "../../Reuseables/SidBar.jss";
-import {availWidth} from "../../helpers/windowMeasurments";
 import {HelpTitle} from "../../Reuseables/HelpTitle";
 import {AppBarContent} from "./AppBarContent";
 import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
-import {
-    fontSize0016,
-    fontSize0023,
-    fontSize00301, fontSizeW0045
+import {fontSize0023, fontSizeW0045
 } from "../../styles/fontSizes.jss";
 import {
-    drawerItemMarginLeft,
-    drawerItemMarginTopBottom,
-    drawerItemWidth,
-    ok_button,
-    promo_all_checkbox_container
+    accordion, drawer_component,
+    ok_button, pawn_promotion, piece_profiles, promo_all_checkbox,
+    promo_all_container, promo_all_root,
+    scroll_table,
+    scroll_table_added,
+    scroll_table_button
 } from "./Customize.jss";
+
 
 class Customize extends React.Component {
     constructor(props) {
@@ -255,29 +256,27 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? (this.play()) : null}
                 <div> {/*className={this.props.classes.customize}*/}
-                    <MediaQuery minDeviceWidth={768}>
+                    <MediaQuery minAspectRatio={'16/9'}>
                         <PermanentDrawer
                             drawerType="right"
                             theme={this.state.theme}
                             content={
-                                <PieceProfiles
-                                    parentPage="Customize"
-                                    defs={this.defs}
-                                    subs={this.subs}
-                                    promos={this.promos}
-                                    updateParent={this.setDefs}
-                                    newReplacement={this.newReplacement}
-                                    newReplaced={this.newReplaced}
-                                    toggleSub={this.toggleSub}
-                                    togglePromo={this.togglePromo}
-                                    searchText={this.state.searchText}
-                                    theme={this.state.theme}
-                                    style={{
-                                        position: 'fixed',
-                                        top: '10%',
-                                        left: '19.25%',
-                                    }}
-                                />
+                                <DrawerContent>
+                                    <PieceProfiles
+                                        parentPage="Customize"
+                                        defs={this.defs}
+                                        subs={this.subs}
+                                        promos={this.promos}
+                                        updateParent={this.setDefs}
+                                        newReplacement={this.newReplacement}
+                                        newReplaced={this.newReplaced}
+                                        toggleSub={this.toggleSub}
+                                        togglePromo={this.togglePromo}
+                                        searchText={this.state.searchText}
+                                        theme={this.state.theme}
+                                        style={piece_profiles('desktop')}
+                                    />
+                                </DrawerContent>
                             }
                             appBarContent={
                                 <AppBarContent
@@ -297,36 +296,27 @@ class Customize extends React.Component {
                                 key={uuidv4()}
                                 listItems={this.promos}
                                 theme={this.state.theme}
-                                style={{
-                                    fontSize: fontSize0023,
-                                    width: drawerItemWidth,
-                                    height: 15,
-                                }}
-                                buttonStyle={{ borderRadius: 0 }}
-                                addedStyle={{
-                                    marginLeft: drawerItemMarginLeft,
-                                    marginTop: drawerItemMarginTopBottom,
-                                    marginBottom: drawerItemMarginTopBottom,
-                                }}
+                                buttonStyle={scroll_table_button()}
+                                style={scroll_table('desktop')}
+                                addedStyle={drawer_component('desktop')}
                                 title={
                                     <ListTitle theme={this.state.theme}>Pawn Promotions</ListTitle>
                                 }
                             />
-                            <Box style={promo_all_checkbox_container()}>
+                            <Box style={promo_all_container('desktop')}>
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
-                                    style={{fontSize: fontSize0023}}
-                                    rootStyle={{
-                                        marginLeft: drawerItemWidth * -0.008,
-                                    }}
+                                    rootStyle={checkbox_root(resolveScreenCase('desktop'))}
+                                    checkboxStyle={checkbox(resolveScreenCase('desktop'))}
+                                    style={checkbox_gen(resolveScreenCase('desktop'))}
                                 >
                                     Promo All
                                 </MuiCheckbox>
                             </Box>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button(fontSize0023)}
+                                style={ok_button('desktop')}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}
@@ -348,7 +338,7 @@ class Customize extends React.Component {
                             />
                         </SideBar>
                     </MediaQuery>
-                    <MediaQuery maxDeviceWidth={767}>
+                    <MediaQuery maxAspectRatio={'1/1'}>
                         <PersistentDrawer
                             drawer={
                                 <NavBar
@@ -378,7 +368,7 @@ class Customize extends React.Component {
                                 newReplaced={this.newReplaced}
                                 searchText={this.state.searchText}
                             />
-                            <MuiAccordion theme={this.state.theme} style={{height: '2em', margin: 0}}>
+                            <MuiAccordion theme={this.state.theme} >
                                 {[
                                     {
                                         id: "sub-list",
@@ -400,43 +390,33 @@ class Customize extends React.Component {
                                             </Typography>
                                         ),
                                         body: (
-                                            <>
+                                            <div style={pawn_promotion('mobile')}>
                                                 <ScrollTable
                                                     numRows={4}
                                                     key={uuidv4()}
                                                     listItems={this.promos}
                                                     theme={this.state.theme}
-                                                    style={{
-                                                        fontSize: fontSize0016,
-                                                        width: availWidth()*0.48,
-                                                        height: 10,
-                                                    }}
-                                                    buttonStyle={{ borderRadius: 0 }}
-                                                    addedStyle={{
-                                                        marginBottom: '2em'
-                                                    }}
+                                                    buttonStyle={scroll_table_button()}
+                                                    style={scroll_table('mobile')}
+                                                    addedStyle={scroll_table_added('mobile')}
                                                 />
-                                                <MuiCheckbox
-                                                    theme={this.state.theme}
-                                                    onClick={() => this.togglePromoAll()}
-                                                    style={{
-                                                        fontSize: fontSize00301,
-                                                    }}
-                                                    rootStyle={{
-                                                        flexGrow: 20,
-                                                        marginLeft: drawerItemWidth * 0.025,
-                                                    }}
-                                                >
-                                                    Promo All
-                                                </MuiCheckbox>
-                                            </>
+                                                    <MuiCheckbox
+                                                        theme={this.state.theme}
+                                                        rootStyle={promo_all_root()}
+                                                        onClick={() => this.togglePromoAll()}
+                                                        checkboxStyle={promo_all_checkbox('mobile')}
+                                                        style={checkbox_gen('mobile')}
+                                                    >
+                                                        Promo All
+                                                    </MuiCheckbox>
+                                            </div>
                                         ),
                                     },
                                 ]}
                             </MuiAccordion>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button(fontSize0023)}
+                                style={ok_button('mobile')}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}

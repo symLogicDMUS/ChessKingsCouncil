@@ -1,34 +1,37 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
+import {fontSize00184, fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     options_tool: (props) => ({
-        ...tool(props.fontSize, props.theme),
-        '@media screen and (min-width: 768px)': {
+        ...tool(fontSize00184, props.theme),
+        '@media (min-aspect-ratio: 16/9)': {
             height: '5.5em',
         },
     }),
     options_flexbox: props => ({
-        fontSize: props.fontSize,
-        '@media screen and (min-width: 768px)': {
+        fontSize: fontSize00184,
+        '@media (min-aspect-ratio: 16/9)': {
             ...tool_flexbox,
         },
-        '@media screen and (max-width: 767px)': {
-            width: '15em',
-            height: '15em',
+        '@media (max-aspect-ratio: 1/1)': {
+            width: '16em',
+            height: '16em',
+            marginTop: '-2em',
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             alignItems: 'flex-start',
             justifyContent: 'space-evenly',
-
         },
-        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)':{
+        '@media (max-aspect-ratio: 1/2), (aspect-ratio: 1024/1366)': {
             width: '100%',
-            flexWrap: 'nowrap',
-            marginTop: '-2em'
-        }
+            height: '100%',
+            marginTop: 0,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            alignItems: 'center',
+        },
     }),
     title: props => ({
         ...tool_title(props.theme),

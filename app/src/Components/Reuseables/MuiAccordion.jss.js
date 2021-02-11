@@ -1,61 +1,41 @@
-import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {fontSize00184, fontSize002, fontSize0095} from "../styles/fontSizes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {appBarHeight} from "./PersistentDrawer.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {fontSize0040, fontSize008} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         width: '100%',
-        fontSize: fontSize0095,
         backgroundColor: themes[props.theme].fill,
         borderTop: `0.025em solid ${themes[props.theme].outline}`,
         ...props.rootStyle,
     }),
-    heading: props => ({
-        fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
-    }),
     accordion_tab: props => ({
-        fontSize: fontSize0095,
+        width: '100%',
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill,
         border: themes[props.theme].outline,
-        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)': {
-            fontSize: (availHeight() - (availWidth() + appBarHeight)) / props.numTabs,
-            height: '1em',
-            '& .Mui-expanded': {
-                marginTop: '-5%',
-                marginBottom: 0,
-                height: '0.5em',
-                backgroundColor: themes[props.theme].fill,
-            },
-        },
     }),
     accordion_body: props => ({
-        fontSize: fontSize0095,
-        marginTop: '-0.25em',
-        height: availHeight() - (availWidth() + appBarHeight),
-        backgroundColor: themes[props.theme].fill,
+        marginTop: '-2vh',
         flexGrow: 10,
-        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)': {
-            marginTop: 0,
-        },
+        backgroundColor: themes[props.theme].fill,
         ...props.style, // keep as last thing in object
     }),
     accordion_summary: props => ({
-        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSize00184,
-            marginTop: '-1.75em',
-        }
+        '@media (aspect-ratio: 1024/1366)': {
+            fontSize: fontSize008,
+            height: '1em'
+        },
+    }),
+    accordion_summary_content: props => ({
+       color: themes[props.theme].text,
     }),
     expand_icon: props => ({
         color: themes[props.theme].text,
-        '@media (min-aspect-ratio: 320/568) and (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize00184,
-            marginTop: '-2.75em',
-            width: '0.5em',
-            height: '0.5em',
+        '@media (aspect-ratio: 1024/1366)': {
+            fontSize: fontSize0040,
+            width: '1em',
+            height: '1em',
         },
     }),
 }));

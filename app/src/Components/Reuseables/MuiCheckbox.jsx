@@ -13,7 +13,10 @@ import { useStyles } from "./MuiCheckbox.jss";
  * @param defaultChecked
  * @param rootStyle: Object
  * @param checkboxStyle: Object
- * @param textStyle
+ * @param textStyle: Object
+ * @param textVariant: string
+ * @param classesObj: Object
+ * @param surroundingCircleStyle: Object
  * @param style: Object, (style.fontSize is required)
  * @param children: string, text for form label
  * @returns {JSX.Element}
@@ -23,12 +26,14 @@ export function MuiCheckbox({
     onClick,
     checkmarkState,
     defaultChecked,
-    style,
     rootStyle,
-    checkboxStyle,
-    textStyle,
-    classesObj,
     theme,
+    classesObj,
+    textVariant,
+    style,
+    textStyle,
+    checkboxStyle,
+    surroundingCircleStyle,
     children,
 }) {
     const classes = useStyles({
@@ -49,15 +54,18 @@ export function MuiCheckbox({
                             className={classes.unchecked}
                         />
                     }
-                    checkedIcon={<CheckBoxIcon className={classes.checked} />}
-                    defaultChecked={defaultChecked}
+                    checkedIcon={
+                        <CheckBoxIcon className={classes.checked} />
+                    }
                     checked={checkmarkState}
+                    defaultChecked={defaultChecked}
+                    style={surroundingCircleStyle}
                     name="checkbox"
                 />
             }
             classes={classesObj}
             className={classes.form_control_label_root}
-            label={<Typography className={classes.text}>{children}</Typography>}
+            label={<Typography className={classes.text} variant={textVariant}>{children}</Typography>}
             labelPlacement="start"
         />
     );

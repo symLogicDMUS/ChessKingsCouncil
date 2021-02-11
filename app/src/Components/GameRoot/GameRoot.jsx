@@ -39,7 +39,7 @@ import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
-import {styles} from "./GameRoot.jss";
+import {accordion_root, styles} from "./GameRoot.jss";
 import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 class GameRoot extends React.Component {
@@ -266,7 +266,7 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'16/9'}>
                     <PermanentDrawer
                         theme={this.state.theme}
                         drawerType="right"
@@ -328,7 +328,7 @@ class GameRoot extends React.Component {
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}
@@ -354,13 +354,7 @@ class GameRoot extends React.Component {
                         <Board gameRoot={this}/>
                         <MuiAccordion
                             theme={this.state.theme}
-                            rootStyle={{
-                                position: "absolute",
-                                top: boardSizes.mobile + boardPos.mobile.top,
-                                left: boardPos.mobile.left,
-                                width: boardSizes.mobile,
-                                zIndex: 5,
-                            }}
+                            rootStyle={accordion_root()}
                         >
                             {[
                                 {

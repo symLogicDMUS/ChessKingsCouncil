@@ -7,20 +7,32 @@ export const profileHeight = 31.5;
 export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
-        flexDirection: 'row',
         flexWrap: 'wrap',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
+            width: '94%',
+            margin: 'auto',
+            flexDirection: 'column',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
-            justifyContent: 'space-evenly',
             height: `${profileHeight}em`,
-            width: availWidth(),
+            width: '98%',
+            margin: 'auto',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             height: `${profileHeight}em`,
-        }
+            flexDirection: 'row',
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            width: '95.5%',
+            height: 'unset',
+            margin: 'auto',
+            flexDirection: 'column',
+        },
     }),
 });

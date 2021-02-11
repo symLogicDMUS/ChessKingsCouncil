@@ -167,7 +167,7 @@ export function PieceProfiles(props) {
         <div className={`scrollbar-${props.theme}`}>
             <div className={classes.piece_profiles}>
                 {props.children}
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'16/9'}>
                     <div className={classes.profiles_window}>
                         {state.loaded ? (
                             getProfiles('desktop')
@@ -176,7 +176,7 @@ export function PieceProfiles(props) {
                         )}
                     </div>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
                     <div className={classes.profiles_window}>
                         {state.loaded ? (
                             getProfiles('mobile')

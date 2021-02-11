@@ -10,17 +10,17 @@ export const useStyles = makeStyles({
     header: props => ({
         display: "flex",
         flexDirection: "row",
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: availWidth() * 0.98 - (sideBarWidth + drawerWidth),
             justifyContent: "space-between",
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: availWidth() * 0.85,
             justifyContent: 'center',
         },
     }),
     page_name: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '9.5em',
             marginLeft: '0.8em',
@@ -29,11 +29,11 @@ export const useStyles = makeStyles({
     }),
     status_bar: props => ({
         zIndex: 4,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '15em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: appBarHeight * 0.333,
             marginRight: '2em',
         },
@@ -41,7 +41,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     flex_end: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: '9.5em',
         },
     }),

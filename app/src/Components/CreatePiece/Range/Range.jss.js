@@ -1,17 +1,19 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
-import {fontSize002, fontSize0023, fontSizeW005} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize0023, fontSizeW0047, fontSizeW0045} from "../../styles/fontSizes.jss";
 
 export const fontSizes = {
     desktop: fontSize002,
     mobile: fontSize0023,
-    ipx: fontSizeW005,
+    ipx: fontSizeW0047,
+    ipad: fontSizeW0045,
 }
 
 export const widths = {
     desktop: '9em',
     mobile: '9em',
     ipx: '9em',
+    ipad: '9em',
 }
 
 /**
@@ -21,6 +23,7 @@ export const heights = {
     desktop: 9,
     mobile: 9,
     ipx: 9,
+    ipad: 9,
 }
 
 export const useStyles = makeStyles({

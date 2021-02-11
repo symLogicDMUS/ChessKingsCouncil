@@ -6,37 +6,34 @@ import Toolbar from "@material-ui/core/Toolbar";
 import {useStyles} from "./PermanentDrawer.jss";
 
 export default function PermanentDrawer({
-    theme,
-    content,
-    drawerType,
-    appBarContent,
-    children
-}) {
+                                            theme,
+                                            content,
+                                            drawerType,
+                                            appBarContent,
+                                            children
+                                        }) {
     const classes = useStyles({drawerType: drawerType, theme: theme});
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar className={classes.appbar_content}>
                     {appBarContent}
                 </Toolbar>
             </AppBar>
             <Drawer
-                className={classes.drawer}
                 variant="permanent"
                 classes={{
                     paper: classes.drawerPaper,
                 }}
                 anchor={drawerType}
             >
-                <div className={classes.toolbar} />
+                <div className={classes.toolbar}/>
                 {children}
             </Drawer>
-            <main>
-                <div className={classes.toolbar} />
-                {content}
-            </main>
+            <div className={classes.toolbar}/>
+            {content}
         </div>
     );
 }

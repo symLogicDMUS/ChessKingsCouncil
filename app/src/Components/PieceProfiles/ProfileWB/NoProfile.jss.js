@@ -6,11 +6,11 @@ import {fontSizes} from "./ProfileWBModal.jss";
 
 export const close_icon = () => ({
     fontSize: fontSize0023,
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         width: "0.5em",
         height: "0.5em",
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         width: "0.5em",
         height: "0.5em",
     },
@@ -18,11 +18,11 @@ export const close_icon = () => ({
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             height: '0.5em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             height: '1.5em',
         },
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             borderRadius: '0.25em',
             width: `${profileWidth.desktop}em`,
@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
             marginLeft: `${-profileWidth.desktop * 0.5}em`,
             marginTop: `${-profileHeight.desktop * 0.18 * 0.5}em`,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             borderRadius: '0.5em',
             width: `${profileWidth.mobile * 4}em`,
@@ -77,10 +77,10 @@ export const useStyles = makeStyles({
         lineHeight: '1em',
     }),
     inline_piece: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile * 2,
         },
         width: '1.1em',

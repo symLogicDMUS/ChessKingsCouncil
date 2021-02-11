@@ -1,16 +1,15 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {fontSize0023} from "../../styles/fontSizes.jss";
 import MediaQuery from "react-responsive/src";
 import {useStyles} from "./SubList.jss";
 
 export function SubList({subs, theme}) {
-    const classes = useStyles({fontSize: fontSize0023, theme: theme})
+    const classes = useStyles({theme: theme})
 
     return (
         <div className={classes.sub_list}>
-            <MediaQuery minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'16/9'}>
                 <Box className={classes.header}>
                     Subs
                 </Box>

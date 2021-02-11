@@ -1,7 +1,7 @@
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSize00219, fontSize0095} from "../styles/fontSizes.jss";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {fontSize00219, fontSize0025, fontSize0095} from "../styles/fontSizes.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const sqrFontSize = fontSize0095 * 0.25;
@@ -15,12 +15,12 @@ export const app_bar_title = () => ({
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         backgroundColor: themes[theme].fill,
         width: '100%',
-        marginBottom: '5%',
+        marginBottom: '3vh',
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',
         display: 'flex',
@@ -34,17 +34,18 @@ export const tool = (fontSize, theme) => ({
 export const tool_flexbox = {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     flexWrap: 'wrap',
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',
         alignItems: 'flex-start',
+        justifyContent: 'space-between',
     },
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         width: '93%',
         marginLeft: '3.5%',
         alignItems: 'center',
+        justifyContent: 'space-between',
     },
 }
 
@@ -70,5 +71,10 @@ export const styles = {
     box: props => ({
         fontSize: props.fontSize,
         display: 'flex',
+    }),
+    accordion_title: props => ({
+        '@media (aspect-ratio: 1024/1366)': {
+            fontSize: fontSize0025
+        },
     }),
 };

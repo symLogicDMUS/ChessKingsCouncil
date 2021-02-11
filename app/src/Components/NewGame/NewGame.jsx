@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
+import {v4 as uuidv4} from 'uuid';
+import {useHistory} from "react-router-dom";
 import "../styles/_backgrounds.scss";
 import "../styles/Scrollbar.scss";
-import { useHistory } from "react-router-dom";
 import MediaQuery from "react-responsive/src";
-import {Typography} from "@material-ui/core";
+import {Portal, Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
@@ -18,7 +19,9 @@ import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
-import {useStyles, play_button} from "./NewGame.jss";
+import {Background} from "../Reuseables/Background";
+import {themes} from "../styles/themes.jss";
+import {useStyles} from "./NewGame.jss";
 
 function NewGame() {
     let history = useHistory();
@@ -32,8 +35,7 @@ function NewGame() {
         document.body.className = "tan-background";
     });
 
-    const classes = useStyles({fontSize: fontSize002});
-
+    const classes = useStyles();
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
@@ -55,8 +57,7 @@ function NewGame() {
                 gameType: gameType,
                 playerType: playerType
             });
-        }
-        else {
+        } else {
             history.push("/Play", {
                 gameName: gameName,
                 gameType: gameType,
@@ -69,8 +70,8 @@ function NewGame() {
 
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minWidth={768}>
-                    {/*<Background theme={theme}/>*/}
+                <MediaQuery minAspectRatio={'16/9'}>
+                    <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
                         screenCase={resolveScreenCase('desktop')}
@@ -80,37 +81,45 @@ function NewGame() {
                     />
                     <Box className={classes.new_game}>
                         <GameName
-                            setGameName={setGameName}
-                            gameName={gameName}
+                            key={uuidv4()}
                             theme={theme}
-                            screenCase={resolveScreenCase('desktop')}
+                            gameName={gameName}
+                            setGameName={setGameName}
                         />
                         <PickType
-                            setGameType={setGameType}
+                            key={uuidv4()}
+                            theme={theme}
                             gameType={gameType}
-                            theme={theme}
-                            screenCase={resolveScreenCase('desktop')}
+                            setGameType={setGameType}
                         />
-                        <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase={resolveScreenCase('desktop')}/>
-                        <MuiButton
-                            onClick={finish}
-                            style={play_button(theme)}
-                            variant="contained"
+                        <PlayAs
                             theme={theme}
-                            isDisabled={
-                                !(
-                                    playerType &&
-                                    gameType &&
-                                    gameName !== "" &&
-                                    invalids.every((c) => charNotInStr(c, gameName))
-                                )
-                            }
+                            key={uuidv4()}
+                            setPlayerType={setPlayerType}
                         >
-                            Play
-                        </MuiButton>
+                            <MuiButton
+                                key={uuidv4()}
+                                onClick={finish}
+                                classesObj={{root: classes.play_button}}
+                                style={{color: themes[theme].button_fill}}
+                                variant="contained"
+                                theme={theme}
+                                isDisabled={
+                                    !(
+                                        playerType &&
+                                        gameType &&
+                                        gameName !== "" &&
+                                        invalids.every((c) => charNotInStr(c, gameName))
+                                    )
+                                }
+                            >
+                                Play
+                            </MuiButton>
+                        </PlayAs>
                     </Box>
                 </MediaQuery>
-                <MediaQuery maxWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
+                    <Background theme={theme} appBar={true}/>
                     <PersistentDrawer
                         theme={theme}
                         drawer={
@@ -127,35 +136,36 @@ function NewGame() {
                     >
                         <Box className={classes.new_game}>
                             <GameName
-                                setGameName={setGameName}
-                                gameName={gameName}
                                 theme={theme}
-                                screenCase={resolveScreenCase('mobile')}
+                                key={uuidv4()}
+                                gameName={gameName}
+                                setGameName={setGameName}
                             />
                             <PickType
-                                setGameType={setGameType}
+                                theme={theme}
                                 gameType={gameType}
-                                theme={theme}
-                                screenCase={resolveScreenCase('mobile')}
+                                setGameType={setGameType}
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} screenCase={resolveScreenCase('mobile')}/>
-                            <MuiButton
-                                onClick={finish}
-                                style={play_button(theme)}
-                                theme={theme}
-                                variant={"contained"}
-                                isDisabled={
-                                    !(
-                                        playerType &&
-                                        gameType &&
-                                        gameName !== "" &&
-                                        invalids.every((c) => charNotInStr(c, gameName))
-                                    )
-                                }
-                                screenCase={resolveScreenCase('mobile')}
-                            >
-                                Play
-                            </MuiButton>
+                            <PlayAs setPlayerType={setPlayerType} theme={theme}>
+                                <MuiButton
+                                    theme={theme}
+                                    onClick={finish}
+                                    variant={"contained"}
+                                    classesObj={{root: classes.play_button}}
+                                    style={{color: themes[theme].button_fill}}
+                                    isDisabled={
+                                        !(
+                                            playerType &&
+                                            gameType &&
+                                            gameName !== "" &&
+                                            invalids.every((c) => charNotInStr(c, gameName))
+                                        )
+                                    }
+                                    screenCase={resolveScreenCase('mobile')}
+                                >
+                                    Play
+                                </MuiButton>
+                            </PlayAs>
                         </Box>
                     </PersistentDrawer>
                 </MediaQuery>

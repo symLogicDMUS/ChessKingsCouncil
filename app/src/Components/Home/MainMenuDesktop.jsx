@@ -15,7 +15,7 @@ export function MainMenuDesktop(props) {
 
     return (
         <>
-            <Background theme={props.theme} />
+            <Background theme={props.theme} isFixed={true} />
             <Box className={classes.top}>
                 <Button
                     onClick={props.signOut}

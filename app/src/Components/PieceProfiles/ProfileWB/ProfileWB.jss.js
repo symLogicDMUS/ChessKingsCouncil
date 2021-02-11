@@ -12,30 +12,44 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: '100%',
             fontSize: fontSizes.desktop,
+            marginTop: '0.7em',
+            marginBottom: '0.7em',
             flexDirection: 'row',
             flexWrap: 'no-wrap',
-            justifyContent: 'space-evenly',
-            marginBottom: '0.7em',
-            marginTop: '0.7em',
+            justifyContent: 'space-between',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             height: `${profileHeight*0.85}`,
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
+        '@media (aspect-ratio: 1024/1366)':{
+            width: '100%',
+            fontSize: fontSizes.ipad,
+            flexDirection: 'row',
+            flexWrap: 'no-wrap',
+            justifyContent: 'space-between',
+            marginBottom: '0.7em',
+            marginTop: '0.7em',
+
+        },
     }),
     range_header: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            width: widths.ipad,
         },
         height: '1.5em',
         display: 'flex',
@@ -50,11 +64,14 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     range_modal: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
         },
         display: 'flex',
         flexDirection: 'column',

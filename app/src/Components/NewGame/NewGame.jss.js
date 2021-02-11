@@ -1,59 +1,116 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {getTextWidth} from "../helpers/getTextWidth.jss";
-import {themes} from "../styles/themes.jss";
 import {
     fontSize012,
     fontSize0016,
     fontSize0018,
     fontSize01,
-    fontSize0095, fontSize0085
+    fontSizeW018, fontSizeW0185, fontSizeW0182, fontSize00236, fontSize002,
 } from "../styles/fontSizes.jss";
-
 
 export const fontSizes = {
     desktop: fontSize012,
-    mobile: window.screen.availWidth*0.185,
-    ipx: fontSize0085,
+    mobile: fontSizeW0182,
+    ipx: fontSizeW018,
+    ipad: fontSize012,
 }
 
-export const input_style = (text, fontSize, fontFamily, theme) => ({
-    fontSize: fontSize,
-    color: themes[theme].text,
-    width: getTextWidth(text, fontSize, fontFamily) * 0.9,
+export const textFieldStyle = (fontSize) => ({
+    text: {
+        normal: {
+            fontSize: fontSize,
+            height: '1em',
+        },
+        hover: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        focused: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+    },
+    root: {
+        normal: {
+            fontSize: fontSize,
+            height: '1em',
+        },
+        hover: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+        focused: {
+            fontSize: fontSize,
+            height: '1em'
+        },
+    }
 })
 
-export const play_button = (theme) => ({
-    '@media screen and (min-width: 768px)': {
-        fontSize: fontSize0016,
-        width: getTextWidth('Play As', fontSizes.desktop, 'Garamond'),
-        margin: '2em'
-    },
-    '@media screen and (max-width: 767px)': {
-        fontSize: fontSize0018,
-        width: getTextWidth('Play As', fontSizes.mobile, 'Garamond'),
-        margin: '2.5em'
-    },
-    "@media (max-aspect-ratio: 1/2)": {
-        fontSize: fontSize0018,
-        width: getTextWidth('Play As', fontSizes.ipx, 'Garamond'),
-        margin: '2.5em'
-    },
-    color: themes[theme].button_fill,
-    alignSelf: 'center'
-})
+export const textFieldGenStyle = {
+    width: '100%',
+}
 
 export const useStyles = makeStyles({
     new_game: props => ({
         width: '100%',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        '@media screen and (min-width: 768px)': {
+        '@media and (min-aspect-ratio 16/9)': {
             justifyContent: 'center',
             alignContent: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media and (max-aspect-ratio 1/1)': {
             justifyContent: 'space-evenly',
             alignContent: 'space-evenly',
         },
+
+    }),
+    item: props => ({
+        margin: 'auto'
+    }),
+    title: props => ({
+        '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSizes.desktop,
+        },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizes.mobile,
+            textAlign: 'center'
+        },
+        "@media (max-aspect-ratio: 1/2)": {
+            fontSize: fontSizes.ipx,
+            textAlign: 'center'
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            textAlign: 'center'
+        },
+        fontFamily: 'Garamond',
+        lineHeight: '1em',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    }),
+    game_types: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        width: '100%',
+    }),
+    play_button: props => ({
+        '@media (min-aspect-ratio 16/9)': {
+            fontSize: fontSize0016,
+            margin: '4em',
+        },
+        '@media (max-aspect-ratio 1/1)': {
+            fontSize: fontSize0018,
+            margin: '4em',
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSize002,
+            margin: '3em',
+        },
+        width: '100%',
     }),
 });

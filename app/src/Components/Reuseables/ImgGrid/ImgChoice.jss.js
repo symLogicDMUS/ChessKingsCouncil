@@ -9,7 +9,7 @@ export const img_container = (theme, isSelected) => ({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: isSelected ? themes[theme].odd_row : themes[theme].even_row,
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         fontSize: fontSize002,
         width: '10em',
         height: '10em',
@@ -17,7 +17,7 @@ export const img_container = (theme, isSelected) => ({
         borderRadius: '0.25em',
         border: isSelected ? `0.08em solid ${themes[theme].text_alt}` : `0.08em solid ${themes[theme].outline}`,
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizeW0992,
         width: '0.38em',
         height: '0.38em',
@@ -50,12 +50,12 @@ export const useStyles = makeStyles({
         ...img_container(props.theme, true),
     }),
     img: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '9em',
             height: '9em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0992,
             width: '0.361em',
             height: '0.361em',
@@ -70,13 +70,13 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '10em',
             position: 'relative',
             top: '-0.45em',
         },
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '10em',
             position: 'relative',

@@ -7,10 +7,10 @@ export function MuiSkeleton(props) {
     const classes = useStyles({theme: props.theme});
     return (
         <div>
-            <MediaQuery minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'16/9'}>
                 <FlashingBoxes numRows={2} boxesPerRow={6} theme={props.theme} />
             </MediaQuery>
-            <MediaQuery maxDeviceWidth={767}>
+            <MediaQuery maxAspectRatio={'1/1'}>
                 <FlashingBoxes numRows={3} boxesPerRow={2} theme={props.theme} />
             </MediaQuery>
         </div>

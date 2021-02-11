@@ -57,7 +57,6 @@ export const desktopStyleByPage = (currentPage) => {
                 flexDirection: 'row',
                 flexWrap: 'nowrap',
             }
-
     }
 };
 
@@ -72,6 +71,12 @@ const getStyle = (screenCase, currentPage) => {
                 width: "100%",
             }
         case 'ipx':
+            return {
+                display: 'flex',
+                flexDirection: 'column',
+                width: "100%",
+            }
+        case 'ipad':
             return {
                 display: 'flex',
                 flexDirection: 'column',

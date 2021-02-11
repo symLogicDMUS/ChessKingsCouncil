@@ -110,7 +110,6 @@ class LoadGame extends React.Component {
 
         return (
             <>
-                <Background theme={this.state.theme}/>
                 <SavedGames
                     load={this.load}
                     imgDict={this.imgDict}

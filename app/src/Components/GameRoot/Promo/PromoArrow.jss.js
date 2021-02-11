@@ -5,10 +5,10 @@ import {promoChoicesSize} from "./Promo.jss";
 export const useStyles = makeStyles((theme) => ({
     button: props => ({
         fontSize: props.fontSize,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             height: promoChoicesSize.desktop*1.04,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             height: promoChoicesSize.mobile,
         },
         width: '0.1em',

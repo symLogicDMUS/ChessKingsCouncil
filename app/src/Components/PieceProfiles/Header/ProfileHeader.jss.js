@@ -1,6 +1,21 @@
 import React from "react";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "../PieceProfiles.jss";
+import {fontSizeW005, fontSizeW0055} from "../../styles/fontSizes.jss";
+
+export const headerFontSizes = {
+    desktop: fontSizes.desktop,
+    mobile: fontSizeW0055,
+    ipx: fontSizeW005,
+    ipad: fontSizes.ipad,
+}
+
+export const titleFontSizes = {
+    desktop: headerFontSizes.desktop* 0.8,
+    mobile: headerFontSizes.mobile*0.8,
+    ipx: headerFontSizes.ipx*0.8,
+    ipad: headerFontSizes.ipad*0.8
+}
 
 /**
  * Shared by custom-game (Customize) and LoadDelete (MyPieces, LoadModal in CreatePiece) headers
@@ -8,43 +23,42 @@ import {fontSizes} from "../PieceProfiles.jss";
 
 export const header = (style, theme) => ({
     ...style,
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'no-wrap',
     alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: themes[theme].fill,
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
-        width: '93.5%',
     },
-    "@media (max-width:1919px) and (min-width:768px)": {
+    '@media (min-aspect-ratio: 16/9)': {
+        marginTop: '1em',
         fontSize: fontSizes.desktop,
-        width: '37.5em',
-        marginLeft: '1.3em',
-        justifyContent: 'flex-start',
-    },
-    '@media screen and (min-width: 1920px)': {
-        fontSize: fontSizes.desktop,
-        width: '36.5em',
-        marginLeft: '1em',
-        justifyContent: 'flex-start',
     },
     "@media (max-aspect-ratio: 1/2)": {
-        width: '94%',
+        marginTop: '0.25em',
         fontSize: fontSizes.ipx,
-        justifyContent: 'space-between',
+    },
+    '@media (aspect-ratio: 1024/1366)': {
+        marginTop: '0.5em',
+        fontSize: fontSizes.ipad,
     },
 });
 
 export const text = (theme) => ({
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         fontSize: fontSizes.desktop,
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
+    },
+    '@media (aspect-ratio: 1024/1366)': {
+        fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',
     color: themes[theme].text,

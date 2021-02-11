@@ -1,14 +1,12 @@
-import React, {useState} from "react";
-import {v4 as uuidv4} from "uuid";
-import MediaQuery from "react-responsive/src";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
+import MediaQuery from "react-responsive/src";
 import {Save} from "./Save";
 import {Load} from "./Load";
 import {Erase} from "./Erase";
 import {Reset} from "./Reset";
 import {useStyles} from "./Options.jss";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function Options({
     load,
@@ -20,13 +18,13 @@ export function Options({
     whiteImg,
     blackImg,
 }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: theme });
 
     return (
         <>
             <div className={classes.options_tool}>
                 <Box className={classes.options_flexbox}>
-                    <MediaQuery minDeviceWidth={768}>
+                    <MediaQuery minAspectRatio={'16/9'}>
                         <Typography className={classes.title}>
                             Options
                         </Typography>

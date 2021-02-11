@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSizes} from "./SpanArrowButtons.jss";
 import {themes} from "../../../styles/themes.jss";
+import {fontSizes} from "../Range.jss";
 
 
 const buttonPos = {
@@ -15,14 +15,17 @@ const buttonPos = {
 };
 
 const container = (angle, theme) => ({
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         fontSize: fontSizes.desktop,
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
+    },
+    '@media (aspect-ratio: 1024/1366)':{
+        fontSize: fontSizes.ipad,
     },
     ...buttonPos[angle],
     width: '2.75em',
@@ -52,15 +55,17 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
-
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
         },
         width: '2.75em',
         height: '2.75em',
@@ -68,15 +73,17 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
-
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad
         },
         width: '2em',
         height: '2em',

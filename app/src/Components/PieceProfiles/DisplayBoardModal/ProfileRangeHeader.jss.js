@@ -4,11 +4,11 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },

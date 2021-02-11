@@ -16,11 +16,11 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: availWidth() * 0.66667,
             height: availHeight() * 0.66667,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: availHeight(),
         },
@@ -57,13 +57,13 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '95vw',
             height: '82.5vh',
             marginLeft: 'auto',
             marginRight: 'auto',
         },
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: availWidth() * 0.66667*0.95,
             height: availHeight() * 0.66667*0.95*0.79,
             marginLeft: '2.5%',

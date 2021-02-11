@@ -14,11 +14,11 @@ export const fontSizes = {
 
 export const close_icon = () => ({
     fontSize: fontSize0023,
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         width: "1.5em",
         height: "1.5em",
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         width: "0.5em",
         height: "0.5em",
     },
@@ -26,7 +26,7 @@ export const close_icon = () => ({
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: `${profileWidth.desktop * 0.97}em`,
             marginLeft: `${profileWidth.desktop * 0.03}em`,
@@ -34,7 +34,7 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             fontSize: fontSizes.mobile,
             marginLeft: `${profileWidth.mobile * 0.03}em`,
@@ -55,7 +55,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         borderRadius: '0.5em',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             top: '50%',
             left: '50%',
             width: `${profileWidth.desktop}em`,
@@ -64,7 +64,7 @@ export const useStyles = makeStyles({
             marginTop: `${-profileHeight.desktop * 0.5}em`,
             justifyContent: 'flex-start',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             top: '5%',
             left: '100%',
             width: `${profileWidth.mobile}em`,
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             marginLeft: '0.5em',
         },
     }),

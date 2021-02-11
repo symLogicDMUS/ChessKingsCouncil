@@ -25,14 +25,12 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'flex-start',
         background: themes[props.theme].fill,
     }),
-    drawer: props => ({
-        zIndex: z,
-        width: drawerWidth,
-        flexShrink: 0,
-    }),
     drawerPaper: props => ({
         zIndex: z,
         width: drawerWidth,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: "flex-start",
         backgroundColor: themes[props.theme].fill,
     }),
     // necessary for content to be below app bar
@@ -44,8 +42,6 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
-        width: `calc(99.99% - ${drawerWidth}px)`,
-        // fontSize: fontSize002,
-        // height: '3em',
+        width: `calc(100% - ${drawerWidth}px)`,
     }),
 }));

@@ -55,7 +55,7 @@ class MyPieces extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'16/9'}>
                     <NavBar
                         currentPage="MyPieces"
                         theme={this.state.theme}
@@ -83,7 +83,7 @@ class MyPieces extends React.Component {
                         )}
                     </div>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}

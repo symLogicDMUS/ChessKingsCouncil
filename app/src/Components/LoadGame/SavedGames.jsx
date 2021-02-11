@@ -11,6 +11,7 @@ import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {imgGridRootStyle, useStyles} from "./SavedGames.jss";
+import {Background} from "../Reuseables/Background";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
@@ -23,7 +24,8 @@ export function SavedGames(props) {
 
     return (
         <>
-            <MediaQuery minWidth={768}>
+            <MediaQuery minAspectRatio={'16/9'}>
+                <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
                     currentPage="LoadGame"
                     screenCase='desktop'
@@ -63,7 +65,8 @@ export function SavedGames(props) {
                     </div>
                 </Portal>
             </MediaQuery>
-            <MediaQuery maxWidth={767}>
+            <MediaQuery maxAspectRatio={'1/1'}>
+                <Background theme={props.theme} appBar={true} currentPage='LoadGame'/>
                 <PersistentDrawer
                     drawer={
                         <NavBar

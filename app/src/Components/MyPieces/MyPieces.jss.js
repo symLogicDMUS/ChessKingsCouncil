@@ -6,13 +6,13 @@ export const styles = {
         width: availWidth(),
         height: availHeight() * 0.8,
         overflowX: 'hidden',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '100%',
         },

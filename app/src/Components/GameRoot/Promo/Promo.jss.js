@@ -55,10 +55,10 @@ export const useStyles = makeStyles({
     }),
     menu: props => ({
         fontSize: fontSize01,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             height: promoChoicesSize.desktop * 1.085,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             height: promoChoicesSize.mobile,
         },
         backgroundColor: themes[props.theme].odd_row,
@@ -66,11 +66,11 @@ export const useStyles = makeStyles({
     }),
     img_group: (props) => ({
         fontSize: props.fontSize,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             height: promoChoicesSize.desktop,
             width: promoChoicesWidth.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             height: promoChoicesSize.mobile,
             width: promoChoicesWidth.mobile,
         },

@@ -8,6 +8,7 @@ import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
 import {getSetSampleImgs} from "../../../../API/getSetSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
+import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
 import {fontSize001725} from "../../../styles/fontSizes.jss";
 import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
@@ -15,7 +16,6 @@ import {SearchBox} from "../../../Reuseables/SearchBox";
 import {Close} from "../../../Reuseables/Close";
 import "../../../styles/Scrollbar.scss";
 import {styles} from "./ChooseModal.jss";
-import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 
 class ChooseModal extends React.Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class ChooseModal extends React.Component {
         return (
             <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
-                    <MediaQuery minDeviceWidth={768}>
+                    <MediaQuery minAspectRatio={'16/9'}>
                         <ImgGrid
                             title={
                                 <>
@@ -122,7 +122,7 @@ class ChooseModal extends React.Component {
                             screenCase={this.props.screenCase}
                         />
                     </MediaQuery>
-                    <MediaQuery maxDeviceWidth={767}>
+                    <MediaQuery maxAspectRatio={'1/1'}>
                         <ImgGrid
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}

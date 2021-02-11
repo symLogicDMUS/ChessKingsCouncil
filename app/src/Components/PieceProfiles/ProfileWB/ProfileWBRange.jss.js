@@ -14,12 +14,12 @@ export const sqrSize = {
 
 export const useStyles = makeStyles({
     profile_wb_range: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
@@ -29,24 +29,33 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
-            // marginTop: '-3vh'
         },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            height: `${heights.ipad}em`,
+            width: avatarSize.ipad,
+        },
+        // margin: 'auto',
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
     }),
     title: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
             width: widths.mobile,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            width: widths.ipad,
         },
         width: '100%',
         height: '1.5em',
@@ -59,12 +68,12 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     board_window: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
@@ -73,6 +82,11 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            width: avatarSize.ipad,
+            height: avatarSize.ipad,
         },
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,

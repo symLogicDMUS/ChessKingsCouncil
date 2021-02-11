@@ -31,18 +31,10 @@ import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {app_bar_title, styles} from "./CreatePiece.jss";
-import {availWidth} from "../helpers/windowMeasurments";
-import {
-    fontSize002,
-    fontSizeW003224,
-    fontSizeW0035,
-    fontSizeW004, fontSizeW0045,
-    fontSizeW04,
-    fontSizeW095
-} from "../styles/fontSizes.jss";
 import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
-
+import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
+import {app_bar_title, styles} from "./CreatePiece.jss";
+import {DrawerContent} from "../Reuseables/DrawerContent";
 
 
 class CreatePiece extends React.Component {
@@ -110,6 +102,7 @@ class CreatePiece extends React.Component {
 
     componentDidMount() {
         document.body.className = "dark-background";
+        console.log(document.getElementById('root'))
     }
 
     triggerRender() {
@@ -338,23 +331,26 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.modals()}
-                <MediaQuery minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'16/9'}>
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}
                         content={
-                            <Board
-                                key={uuidv4()}
-                                theme={this.state.theme}
-                                screenCase={resolveScreenCase('desktop')}
-                                toggleOffset={this.toggleOffset}
-                                spanDisplays={this.spanDisplays}
-                                offsets={this.offsetDisplays}
-                                pieceLoc={this.location}
-                                pieceImgBase64Str={
-                                    this.whiteAndBlackImgs["white"]
-                                }
-                            />
+                            <DrawerContent>
+                                <Board
+                                    key='board'
+                                    // key={uuidv4()}
+                                    theme={this.state.theme}
+                                    screenCase={resolveScreenCase('desktop')}
+                                    toggleOffset={this.toggleOffset}
+                                    spanDisplays={this.spanDisplays}
+                                    offsets={this.offsetDisplays}
+                                    pieceLoc={this.location}
+                                    pieceImgBase64Str={
+                                        this.whiteAndBlackImgs["white"]
+                                    }
+                                />
+                            </DrawerContent>
                         }
                         appBarContent={
                             <Typography style={app_bar_title()} variant="h6" noWrap>
@@ -410,16 +406,16 @@ class CreatePiece extends React.Component {
                     >
                         <NavBar
                             currentPage="CreatePiece"
-                            screenCase={resolveScreenCase('desktop')}
                             theme={this.state.theme}
                             redirectMessage={messageStr}
+                            screenCase={resolveScreenCase('desktop')}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={767}>
+                <MediaQuery maxAspectRatio={'1/1'}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         drawer={
@@ -455,7 +451,7 @@ class CreatePiece extends React.Component {
                             {[
                                 {
                                     id: "name",
-                                    title: <Typography>Name</Typography>,
+                                    title: <Typography className={this.props.classes.accordion_title}>Name</Typography>,
                                     body: (
                                         <Name
                                             key={uuidv4()}
@@ -472,7 +468,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "icon",
-                                    title: <Typography>Icon</Typography>,
+                                    title: <Typography className={this.props.classes.accordion_title}>Icon</Typography>,
                                     body: (
                                         <Icon
                                             key={"Icon-Mobile"}
@@ -487,7 +483,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "range",
-                                    title: <Typography>Range</Typography>,
+                                    title: <Typography className={this.props.classes.accordion_title}>Range</Typography>,
                                     body: (
                                         <Range
                                             key={"Range"}
@@ -501,7 +497,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "location",
-                                    title: <Typography>Location</Typography>,
+                                    title: <Typography className={this.props.classes.accordion_title}>Location</Typography>,
                                     body: (
                                         <Location
                                             key={"Location"}
@@ -513,7 +509,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "options",
-                                    title: <Typography>Options</Typography>,
+                                    title: <Typography className={this.props.classes.accordion_title}>Options</Typography>,
                                     body: (
                                         <Options
                                             key={"Options"}

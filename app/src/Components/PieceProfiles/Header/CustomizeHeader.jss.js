@@ -1,92 +1,151 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
+import {fontSizes, widths} from "../PieceProfiles.jss";
 import {
-    fontSize0024,
-    fontSize0025, fontSize0026,
-    fontSize0028
+    fontSize0025,
+    fontSize0028,
+    fontSizeW003224,
+    fontSizeW0048
 } from "../../styles/fontSizes.jss";
-import {fontSizes} from "../PieceProfiles.jss";
 
-export const widths = {
-    desktop: '11.55em',
-    mobile: '7.5em'
-}
+export const checkbox_root = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                marginLeft: '-0.15em',
+            }
+        case 'ipad':
+            return {
+                marginLeft: '-0.15em',
+            }
+        default:
+            return null;
+    }
+};
 
-export const checkbox_root = (theme) => ({
-    ...text(theme),
-    '@media screen and (min-width: 768px)': {
-        marginLeft: '-0.15em',
-    },
+export const checkbox = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                fontSize: fontSize0025,
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSizeW003224,
+                margin: 'auto',
+            }
+        default:
+            return {
+                fontSize: fontSizeW0048,
+                transform: 'translate(-0.35em, 0)',
+            }
+    }
+};
+
+
+
+export const checkbox_gen = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                fontSize: fontSize0025
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSizeW003224
+            }
+        default:
+            return {
+                fontSize: fontSizeW0048,
+                marginRight: 'auto'
+            }
+    }
+};
+
+export const iconButtonsStyle = () => ({
+    justifyContent: "space-between",
+    alignItems: "center",
 });
 
-export const checkbox_style = () => ({
-    '@media screen and (min-width: 768px)': {
-        fontSize: fontSizes.desktop,
-    },
-    '@media screen and (max-width: 767px)': {
-        fontSize: fontSize0028,
-    },
-});
+
 
 export const useStyles = makeStyles({
     header: props => ({
         ...header(props.style, props.theme),
-        justifyContent: 'space-between',
         height: '2em',
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-            marginTop: '0.75em',
-            width: '94%'
         },
     }),
     piece_name: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize0025,
         },
-        '@media screen and (max-width: 767px)': {
-            fontSize: fontSize0026,
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizeW0048,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW003224,
         },
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
     }),
     box: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
+            width: 'unset',
         },
+        '@media (aspect-ratio: 1024/1366)': {
+            fontSize: fontSizes.ipad,
+            width: widths.ipad,
+        },
+        // border: '1px dashed red',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         justifyContent: 'flex-start',
+        alignItems: 'baseline'
     }),
     sub_button: props => ({
         fontSize: fontSize0028,
         width: '1.5em',
         height: '1.5em',
     }),
+    checkbox_text: props => ({
+       '@media (min-aspect-ratio: 16/9)': {
+           fontSize: fontSize0025,
+       },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizeW0048,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW003224,
+        },
+    }),
     sub_icon: props => ({
         fontSize: fontSize0028,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: '1.25em',
             height: '1.25em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '1em',
             height: '1em',
         },
     }),
     no_sub_icon: props => ({
         fontSize: fontSize0028,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: '1.2em',
             height: '1.2em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '1em',
             height: '1em',
         },

@@ -4,6 +4,13 @@
  */
 export function resolveScreenCase(originalCase) {
 
+    /*ipad*/
+    if (
+        (window.screen.availWidth / window.screen.availHeight).toPrecision(4) === '0.7496'
+    ) {
+        return 'ipad';
+    }
+
     /*tall phones*/
     if (
         (window.screen.availWidth / window.screen.availHeight) <= 0.5

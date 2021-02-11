@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: drawerItemWidth,
             height: '5em',
             marginLeft: '1em',
@@ -25,7 +25,7 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
             backgroundColor: themes[props.theme].fill,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '100%',
             flexWrap: 'wrap',
@@ -40,13 +40,13 @@ export const useStyles = makeStyles({
         },
     }),
     option: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
             border: '0.05em solid #2b2b2b',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0034,
             width: '4em',
             height: '4em',
@@ -80,10 +80,10 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     text: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize00224,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0025,
         },
         fontFamily: 'Roboto-Light, Roboto',

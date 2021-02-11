@@ -4,22 +4,13 @@ import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
 import {fontSize002, fontSize001685, fontSizeW0031} from "../../styles/fontSizes.jss";
 
-export const getButtonMargin = (screenCase) => {
-    switch (screenCase) {
-        case "desktop":
-            return "0.5em";
-        case "mobile":
-            return "0.9em";
-    }
-};
-
 export const button = (theme) => ({
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         fontSize: fontSize002,
         width: '6.1em',
         height: '2em',
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSize002,
         width: '6.9em',
         height: '1.9em',
@@ -54,11 +45,11 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
             // marginRight: '0.5em'
@@ -66,21 +57,34 @@ export const useStyles = makeStyles({
         marginLeft: '1em',
     }),
     load_button: props => ({
-       ...button(props.theme),
+        '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSize002,
+            width: '6.1em',
+            height: '2em',
+            marginRight: '0.5em',
+        },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSize002,
+            width: '6.9em',
+            height: '1.9em',
+            maxWidth: '100em',
+            marginRight: '0.9em',
+        },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizeW0031,
             width: '6.9em',
             height: '2.2em',
         },
+        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     delete_button: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
             marginLeft: "0.5em",
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '6.9em',
             height: '1.9em',
@@ -97,11 +101,11 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`
     }),
     icon: props => ({
-       '@media screen and (min-width: 768px)': {
-           fontSize: fontSizes.desktop,
+       '@media (min-aspect-ratio: 16/9)': {
+           fontSize: fontSize002,
        },
-        '@media screen and (max-width: 767px)': {
-            fontSize: fontSizes.mobile,
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSize002,
         },
     }),
 });

@@ -6,6 +6,36 @@ import {navBarWidth} from "./NavBar.jss";
 export const navBarButtonWidth = navBarWidth * 0.99;
 const margin = '0.4em'
 
+const getStyle = (screenCase, currentPage) => {
+    switch (screenCase) {
+        case 'desktop':
+            return desktopStyleByPage(currentPage)
+        case 'mobile':
+            return {
+                fontSize: fontSize0024,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.5em"
+            }
+        case 'ipx':
+            return {
+                fontSize: fontSize00236,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.5em"
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSize00236,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.5em"
+            }
+        default:
+            throw new Error('no screen type given')
+    }
+};
+
 export const text = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
@@ -23,6 +53,12 @@ export const text = (screenCase) => {
         case 'ipx':
             return {
                 fontSize: fontSize0019,
+                marginRight: margin,
+                marginTop: '0.15em',
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSize002,
                 marginRight: margin,
                 marginTop: '0.15em',
             }
@@ -44,6 +80,11 @@ export const icon = (screenCase) => {
                 marginRight: margin,
             }
         case 'ipx':
+            return {
+                fontSize: fontSize0023,
+                marginRight: margin,
+            }
+        case 'ipad':
             return {
                 fontSize: fontSize0023,
                 marginRight: margin,
@@ -105,29 +146,6 @@ const desktopStyleByPage = (currentPage) => {
 export const getHoverColor = (theme) => ({
     backgroundColor: themes[theme].button_hover_fill
 });
-
-const getStyle = (screenCase, currentPage) => {
-    switch (screenCase) {
-        case 'desktop':
-            return desktopStyleByPage(currentPage)
-        case 'mobile':
-            return {
-                fontSize: fontSize0024,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.5em"
-            }
-        case 'ipx':
-            return {
-                fontSize: fontSize00236,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.5em"
-            }
-        default:
-            throw new Error('no screen type given')
-    }
-};
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({

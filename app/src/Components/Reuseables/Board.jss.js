@@ -51,12 +51,12 @@ export const dnd_layer = (boardSize, z) => ({
     zIndex: z,
     width: boardSize,
     height: boardSize,
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         position: 'fixed',
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         position: 'fixed',
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,

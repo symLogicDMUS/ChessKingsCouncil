@@ -11,11 +11,11 @@ import {
 } from "../styles/fontSizes.jss";
 
 export const parchment = () => ({
-    '@media screen and (min-width: 768px)': {
+    '@media (min-aspect-ratio: 16/9)': {
         width: availWidth() * 0.8,
         height: availHeight() * 0.8,
     },
-    '@media screen and (max-width: 767px)': {
+    '@media (max-aspect-ratio: 1/1)': {
         width: '95%',
         flexGrow: 100,
     },
@@ -30,11 +30,11 @@ const mobileScaler = 3;
 export const useStyles = makeStyles({
 
     council_rules: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: '100%',
             height: availHeight(),
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '99%',
             height: availHeight() * 0.88,
         },
@@ -44,10 +44,10 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
     }),
     title: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize018,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0060,
         },
         color: 'black',
@@ -71,10 +71,10 @@ export const useStyles = makeStyles({
     }),
     kings_flexbox: props => ({
         fontSize: fontSize002,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: getTextWidth('Council of Kings', fontSize0060, 'Garamond'),
         },
         display: 'flex',
@@ -84,21 +84,21 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     king_icon: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize01,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize00301,
         },
         width: '1em',
         height: '1em'
     }),
     paragraph: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize00301,
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,
             width: getTextWidth('Council of Kings', fontSize0060, 'Garamond'),
             flexGrow: 100,

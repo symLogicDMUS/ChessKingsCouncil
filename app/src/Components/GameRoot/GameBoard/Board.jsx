@@ -13,7 +13,7 @@ export const Board = ({ gameRoot }) => {
 
     return (
         <>
-            <MediaQuery minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'16/9'}>
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
                         gameRoot={gameRoot}
@@ -34,7 +34,7 @@ export const Board = ({ gameRoot }) => {
                     />
                 </DndProvider>
             </MediaQuery>
-            <MediaQuery maxDeviceWidth={767}>
+            <MediaQuery maxAspectRatio={'1/1'}>
                 <DndProvider backend={TouchBackend}>
                     <DropLayer
                         gameRoot={gameRoot}

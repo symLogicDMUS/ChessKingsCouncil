@@ -9,23 +9,23 @@ const fontSizes = {
 
 export const useStyles = makeStyles({
     row: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             marginBottom: '5.5em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             marginBottom: '3.5em',
         },
     }),
     load_box_container: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '10em',
             marginRight: '3em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: '10em',
             height: '10em',
@@ -35,14 +35,14 @@ export const useStyles = makeStyles({
         },
     }),
     load_box: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '10em',
             borderRadius: '0.35em',
             backgroundColor: themes[props.theme].even_row
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: '10em',
             height: '10em',
@@ -51,13 +51,13 @@ export const useStyles = makeStyles({
         },
     }),
     underline: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '2em',
             backgroundColor: themes[props.theme].even_row
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: '10em',
             height: '2em',

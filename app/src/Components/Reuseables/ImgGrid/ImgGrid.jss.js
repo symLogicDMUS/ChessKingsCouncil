@@ -37,11 +37,11 @@ export const useStyles = makeStyles({
     window: props => ({
         zIndex: 6,
         fontSize: fontSize001685,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: widths.desktop,
             height: heights.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: widths.mobile,
             height: heights.mobile,
         },
@@ -66,13 +66,13 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: imgChoicesWidth,
             marginLeft: modalWidth * 0.025,
             flexWrap: 'no-wrap',
             justifyContent: 'flex-end',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: availWidth() * 0.95,
             marginLeft: modalWidth * 0.025,
             justifyContent: 'space-between',
@@ -84,7 +84,7 @@ export const useStyles = makeStyles({
         borderRadius: '0.015em',
         backgroundColor: themes[props.theme].modal_fill,
         border: `0.002em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: imgChoicesWidth,
             height: imgChoicesHeight,
             marginLeft: modalWidth * 0.025,
@@ -92,7 +92,7 @@ export const useStyles = makeStyles({
             marginTop: modalHeight * 0.025,
             marginBottom: modalHeight * 0.025,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW095,
             width: '1em',
             height: availHeight() * 0.75,
@@ -102,7 +102,7 @@ export const useStyles = makeStyles({
     }),
 
     image_choices: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize001685,
             width: '92.5em',
             height: '35.5em',
@@ -110,7 +110,7 @@ export const useStyles = makeStyles({
             marginRight: '1em',
             marginTop: '1em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW090,
             width: '1em',
             height: availHeight() * 0.65,
@@ -129,7 +129,7 @@ export const useStyles = makeStyles({
     bottom_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize001685,
             width: imgChoicesWidth,
             marginLeft: modalWidth * 0.025,
@@ -137,7 +137,7 @@ export const useStyles = makeStyles({
             flexWrap: 'no-wrap',
             alignItems: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW095,
             marginLeft: '0.025em',
             width: '1em',

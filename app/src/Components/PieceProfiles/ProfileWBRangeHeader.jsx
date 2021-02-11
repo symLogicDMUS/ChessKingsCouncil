@@ -4,7 +4,7 @@ import AddIcon from "@material-ui/icons/Add";
 import {Typography} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import {getColorName} from "../helpers/getColorName";
-import {useStyles} from "./ProfileRangeHeader.jss";
+import {useStyles} from "./ProfileWBRangeHeader.jss";
 
 export const ProfileWBRangeHeader = memo(({theme, rangeType, color, openRangeModal}) => {
     const classes = useStyles({theme});

@@ -1,32 +1,36 @@
-import React, { memo, useMemo } from "react";
+import React, {useMemo} from "react";
 import Box from "@material-ui/core/Box";
-import MediaQuery from "react-responsive/src";
+import { useMediaQuery } from 'react-responsive'
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
-import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
-import { icons } from "../../styles/icons/top/icons.jss";
+import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
+import {icons} from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
+import {themes} from "../../styles/themes.jss";
 import {
     checkbox_root,
-    checkbox_style,
-    useStyles,
+    checkbox_gen,
+    checkbox,
+    iconButtonsStyle,
+    useStyles
 } from "./CustomizeHeader.jss";
-import { themes } from "../../styles/themes.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
+
 
 export const CustomizeHeader = ({
-    subs,
-    promos,
-    toggleSub,
-    togglePromo,
-    pieceName,
-    screenCase,
-    theme,
-}) => {
-    const classes = useStyles({ theme: theme });
+                                    subs,
+                                    promos,
+                                    toggleSub,
+                                    togglePromo,
+                                    pieceName,
+                                    screenCase,
+                                    theme,
+                                }) => {
+    const classes = useStyles({theme: theme});
 
     const getColors = () => {
-        const colors = { Queen: "", Rook: "", Bishop: "", Knight: "" };
+        const colors = {Queen: "", Rook: "", Bishop: "", Knight: ""};
         for (const standardPieceName of Object.keys(subs)) {
             if (subs[standardPieceName] === pieceName) {
                 colors[standardPieceName] = themes[theme].text;
@@ -57,9 +61,6 @@ export const CustomizeHeader = ({
             <div className={classes.header}>
                 <Box
                     className={classes.box}
-                    style={{
-                        marginRight: screenCase === "desktop" ? "1.55em" : 0,
-                    }}
                 >
                     <Typography
                         className={classes.piece_name}
@@ -69,35 +70,25 @@ export const CustomizeHeader = ({
                         {pieceName}
                     </Typography>
                 </Box>
-                <Box
-                    className={classes.box}
-                    style={{
-                        marginRight: screenCase === "desktop" ? "1.5em" : 0,
-                    }}
-                >
+                <Box className={classes.box} >
                     <MuiCheckbox
-                        onClick={() => togglePromo(pieceName)}
                         checkmarkState={isCheckmark}
-                        style={checkbox_style()}
-                        rootStyle={checkbox_root(theme)}
-                        checkboxStyle={{
-                            transform:
-                                screenCase === "mobile"
-                                    ? "translate(-0.35em, 0)"
-                                    : "none",
-                        }}
+                        onClick={() => togglePromo(pieceName)}
+                        rootStyle={checkbox_root(resolveScreenCase(screenCase))}
+                        checkboxStyle={checkbox(resolveScreenCase(screenCase))}
+                        style={checkbox_gen(resolveScreenCase(screenCase))}
                         theme={theme}
                     >
-                        <MediaQuery minDeviceWidth={768}>Promotion</MediaQuery>
-                        <MediaQuery maxDeviceWidth={767}>Promo</MediaQuery>
+                        {screenCase === 'mobile' ? (
+                            <Typography classes={{root: classes.checkbox_text}}>Promo</Typography>
+                        ) : (
+                            <Typography classes={{root: classes.checkbox_text}}>Promotion</Typography>
+                        )}
                     </MuiCheckbox>
                 </Box>
                 <Box
                     className={classes.box}
-                    style={{
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                    }}
+                    style={iconButtonsStyle()}
                 >
                     <IconButton
                         onClick={() => {

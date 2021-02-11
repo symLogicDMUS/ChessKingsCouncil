@@ -52,8 +52,8 @@ export default function MuiAccordion({theme, style, rootStyle, children }) {
                         className={classes.accordion_tab}
                     >
                         <AccordionSummary
-                            classes={{content: classes.accordion_summary, expandIcon: classes.expand_icon}}
-                            expandIcon={<ExpandMoreIcon  />}
+                            className={classes.accordion_summary}
+                            expandIcon={<ExpandMoreIcon className={classes.expand_icon}  />}
                             aria-controls="panel1a-content"
                             id={children[i].id}
                         >

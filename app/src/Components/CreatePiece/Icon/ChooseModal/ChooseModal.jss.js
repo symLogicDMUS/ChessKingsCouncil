@@ -15,10 +15,10 @@ export const styles = {
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize0016,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0015,
         },
         height: '3em',

@@ -21,18 +21,18 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             justifyContent: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
     }),
     span_arrow_buttons: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
         display: 'grid',

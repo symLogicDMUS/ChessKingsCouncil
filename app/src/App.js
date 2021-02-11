@@ -13,6 +13,7 @@ import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
 import Customize from "./Components/NewGame/Customize/Customize";
 
+
 export class App extends React.Component {
     constructor(props) {
         super(props);

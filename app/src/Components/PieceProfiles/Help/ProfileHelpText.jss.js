@@ -31,7 +31,7 @@ export const heights = {
 
 export const useStyles = makeStyles({
     profile_help_text: props => ({
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             height: '225vh',
             display: 'flex',
             flexDirection: 'column',
@@ -49,10 +49,10 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             justifyContent: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
     }),
@@ -62,13 +62,13 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     range_board_example: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: "9em",
             height: "9em",
             marginLeft: '1vw',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: '1em',
             height: '1em',
@@ -93,10 +93,10 @@ export const useStyles = makeStyles({
     flex_column: props => ({
         display: "flex",
         flexDirection: "column",
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             width: board(fontSizes.desktop).width,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             width: '95%',
             margin: 'auto',
             alignItems: 'center',
@@ -106,11 +106,11 @@ export const useStyles = makeStyles({
         width: '95%',
         margin: 'auto',
         display: 'flex',
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             flexDirection: 'row',
             justifyContent: 'center',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             height: '80vh',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -123,12 +123,12 @@ export const useStyles = makeStyles({
 
     }),
     item: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             height: `${heights.mobile}em`,
             width: widths.mobile,
@@ -144,12 +144,12 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     window: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
             height: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
             height: widths.mobile,
@@ -167,11 +167,11 @@ export const useStyles = makeStyles({
         ...imgFillDiv,
     }),
     title: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
@@ -194,11 +194,11 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     header: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
@@ -217,13 +217,13 @@ export const useStyles = makeStyles({
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     expand_widget: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: '1em',
             width: '1.5em',
             height: '1.5em',
             marginLeft: '1em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: '0.25em',
             width: '1.5em',
             height: '1.5em',
@@ -239,12 +239,12 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     expand_icon: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSizes.desktop,
             width: '1em',
             height: '1em',
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: '0.7em',
             height: '0.7em',

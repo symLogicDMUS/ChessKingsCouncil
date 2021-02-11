@@ -25,14 +25,14 @@ export const useStyles = makeStyles({
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            '@media screen and (min-width: 768px)': {
+            '@media (min-aspect-ratio: 16/9)': {
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
                 height: '8em',
             },
-            '@media screen and (max-width: 767px)': {
+            '@media (max-aspect-ratio: 1/1)': {
                 flex: 'nowrap',
                 width: '100%',
                 height: '100%',
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         }),
         flex_header: props => ({
             display: 'flex',
-            '@media screen and (min-width: 768px)': {
+            '@media (min-aspect-ratio: 16/9)': {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -53,7 +53,7 @@ export const useStyles = makeStyles({
                 height: '0.7em',
                 width: '8em',
             },
-            '@media screen and (max-width: 767px)': {
+            '@media (max-aspect-ratio: 1/1)': {
                 justifyContent: 'center',
                 alignItems: "center",
             },

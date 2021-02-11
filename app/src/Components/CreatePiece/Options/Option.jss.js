@@ -6,12 +6,15 @@ export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0035,
             margin: '0.25em'
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            margin: 'auto'
         },
         width: '3.5em',
         height: '3.5em',
@@ -35,10 +38,10 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     text: props => ({
-        '@media screen and (min-width: 768px)': {
+        '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
         },
-        '@media screen and (max-width: 767px)': {
+        '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0035,
         },
         fontFamily: 'Roboto-Light, Roboto',
