@@ -16,7 +16,8 @@ async function saveGameToDb(gameName, data) {
             'promos': data.promos,
             'json': data.json_records,
             'defs': data.piece_defs,
-            'ids': data.id_dict
+            'ids': data.id_dict,
+            'captured': data.captured,
         }
     });
 }

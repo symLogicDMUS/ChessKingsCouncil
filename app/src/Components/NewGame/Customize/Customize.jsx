@@ -255,7 +255,7 @@ class Customize extends React.Component {
         return (
             <>
                 {this.state.redirect ? (this.play()) : null}
-                <div> {/*className={this.props.classes.customize}*/}
+                <div>
                     <MediaQuery minAspectRatio={'16/9'}>
                         <PermanentDrawer
                             drawerType="right"
@@ -372,9 +372,7 @@ class Customize extends React.Component {
                                 {[
                                     {
                                         id: "sub-list",
-                                        title: (
-                                            <Typography>Sub List</Typography>
-                                        ),
+                                        title: 'Sub List',
                                         body: (
                                             <SubList
                                                 subs={this.subs}
@@ -384,11 +382,7 @@ class Customize extends React.Component {
                                     },
                                     {
                                         id: "pawn-promo",
-                                        title: (
-                                            <Typography>
-                                                Pawn Promotion List
-                                            </Typography>
-                                        ),
+                                        title: 'Pawn Promotion List',
                                         body: (
                                             <div style={pawn_promotion('mobile')}>
                                                 <ScrollTable
@@ -431,4 +425,3 @@ class Customize extends React.Component {
     }
 }
 export default Customize;
-// export default withStyles(styles)(Customize);

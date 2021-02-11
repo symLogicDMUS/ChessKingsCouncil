@@ -1,4 +1,5 @@
 import { isPiece } from "../../helpers/isPiece";
+import {getColor} from "../../helpers/getColor";
 
 /**
  * update game-logic board and record id of captured piece if there was.

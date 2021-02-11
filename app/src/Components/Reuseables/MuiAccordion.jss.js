@@ -1,6 +1,6 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize0040, fontSize008} from "../styles/fontSizes.jss";
+import {fontSize0025, fontSize0040, fontSize008} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -15,11 +15,16 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
         border: themes[props.theme].outline,
     }),
+    accordion_title: props => ({
+        '@media (aspect-ratio: 1024/1366)': {
+            fontSize: fontSize0025
+        },
+    }),
     accordion_body: props => ({
         marginTop: '-2vh',
         flexGrow: 10,
         backgroundColor: themes[props.theme].fill,
-        ...props.style, // keep as last thing in object
+        ...props.style,
     }),
     accordion_summary: props => ({
         '@media (aspect-ratio: 1024/1366)': {

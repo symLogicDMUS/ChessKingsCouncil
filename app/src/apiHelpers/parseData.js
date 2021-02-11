@@ -52,5 +52,6 @@ export function parseData(data) {
         promos: data.promos,
         type: data.type,
         pt: playerColor,
+        captured: data.captured,
     };
 }

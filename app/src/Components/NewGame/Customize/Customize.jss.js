@@ -1,7 +1,6 @@
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {fontSize0016, fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
-import {def} from "../../PieceProfiles/Help/dockerDef";
 import {checkbox} from "../../PieceProfiles/Header/CustomizeHeader.jss";
 
 export const drawerItemWidth = drawerWidth * 0.86;
@@ -78,19 +77,6 @@ export const promo_all_checkbox = (screenCase) => {
     }
 };
 
-export const promo_all_gen = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return {
-                fontSize: fontSize00301,
-            }
-        default:
-            return {
-                fontSize: fontSize0023
-            }
-    }
-};
-
 export const scroll_table = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
@@ -153,14 +139,4 @@ export const piece_profiles = (screenCase) => {
         default:
             return null
     }
-};
-
-export const styles = {
-    customize: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        height: availHeight() * 0.95,
-        width: availWidth(),
-    },
 };

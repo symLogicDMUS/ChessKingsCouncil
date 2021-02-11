@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {fontSize00219, fontSize00276, fontSize00292, fontSize00435} from "../../styles/fontSizes.jss";
+import {fontSize00219, fontSize00276, fontSize00292, fontSize00435, fontSize0046} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 // em units:
@@ -15,7 +15,7 @@ export const profileHeight = {
 }
 
 export const fontSizes = {
-    desktop: fontSize00435,
+    desktop: fontSize0046,
     mobile: fontSize00292,
     ipx: fontSize00276,
 }
@@ -30,6 +30,7 @@ export const useStyles = makeStyles({
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
+                marginBottom: '5vw',
                 height: '8em',
             },
             '@media (max-aspect-ratio: 1/1)': {

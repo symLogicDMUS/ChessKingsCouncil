@@ -4,6 +4,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { useStyles } from "./MuiAccordion.jss";
+import Typography from "@material-ui/core/Typography";
 
 /**
  * children of the form:
@@ -57,7 +58,7 @@ export default function MuiAccordion({theme, style, rootStyle, children }) {
                             aria-controls="panel1a-content"
                             id={children[i].id}
                         >
-                            {children[i].title}
+                            <Typography className={classes.accordion_title}>{children[i].title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.accordion_body}>
                             {children[i].body}
