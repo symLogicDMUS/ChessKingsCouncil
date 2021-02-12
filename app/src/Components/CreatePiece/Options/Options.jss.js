@@ -24,11 +24,6 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'space-evenly',
         },
-        '@media (max-aspect-ratio: 1/2), (aspect-ratio: 1024/1366)': {
-            width: '100%',
-            height: '100%',
-            marginTop: 0,
-        },
         '@media (aspect-ratio: 1024/1366)':{
             alignItems: 'center',
         },

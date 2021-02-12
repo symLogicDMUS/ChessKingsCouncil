@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
-import {Input, TextField} from "@material-ui/core";
+import {Input} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import {fontSize0025} from "../styles/fontSizes.jss";
 import {useStyles} from "./SearchBox.jss";
 
 export function SearchBox({ updateSearchText, width, theme, style }) {

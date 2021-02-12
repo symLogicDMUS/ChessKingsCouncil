@@ -1,7 +1,8 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {fontSize00219, fontSize00276, fontSize00292, fontSize00435, fontSize0046} from "../../styles/fontSizes.jss";
+import {fontSize00219, fontSize00276, fontSize00292} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 // em units:
 export const profileWidth = {
@@ -15,10 +16,14 @@ export const profileHeight = {
 }
 
 export const fontSizes = {
-    desktop: fontSize0046,
+    desktop: drawerItemWidth*0.125,
     mobile: fontSize00292,
     ipx: fontSize00276,
 }
+
+export const show_profile = (screenCase) => ({
+    fontSize : fontSizes[resolveScreenCase(screenCase)]
+});
 
 export const useStyles = makeStyles({
         board_tool: props => ({

@@ -23,15 +23,15 @@ export const useStyles = makeStyles({
             fontSize: fontSize0035,
             width: '8em',
             height: '8em',
+            marginTop: '-3vh',
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
             alignItems: 'flex-start',
             justifyContent: 'space-evenly',
         },
-        '@media (aspect-ratio: 1024/1366)':{
-            fontSize: fontSize002,
-            ...tool_flexbox,
+        '@media (max-aspect-ratio: 1/2)': {
+            marginTop: 0,
         },
     }),
 });

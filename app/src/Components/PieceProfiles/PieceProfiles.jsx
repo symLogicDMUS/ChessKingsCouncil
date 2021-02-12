@@ -9,7 +9,9 @@ import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
+import {getSetSampleDefs} from "../../API/getSetSampleDefs";
 import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
+import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
 

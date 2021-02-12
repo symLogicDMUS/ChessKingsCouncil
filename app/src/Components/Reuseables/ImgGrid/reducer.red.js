@@ -9,7 +9,6 @@ export function reducer(state, action) {
                 action.imgNameChoice,
                 action.searchText,
                 state.showNames,
-                action.screenCase,
                 action.theme
             );
         case "toggle-show-names":

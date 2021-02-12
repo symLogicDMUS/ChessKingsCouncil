@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     accordion_body: props => ({
-        marginTop: '-2vh',
+        // marginTop: '-2vh',
         flexGrow: 10,
         backgroundColor: themes[props.theme].fill,
         ...props.style,

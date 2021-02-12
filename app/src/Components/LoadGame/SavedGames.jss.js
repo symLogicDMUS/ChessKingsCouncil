@@ -19,6 +19,17 @@ export const button = (fontSize) => ({
     height: '2em',
 });
 
+export const search_box = (screenCase) => {
+    switch (screenCase) {
+        case 'mobile':
+            return {
+                marginTop: '-0.5em', marginBottom: '0.75em'
+            }
+        default:
+            return null;
+    }
+};
+
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,

@@ -15,7 +15,7 @@ import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
 import {SearchBox} from "../../../Reuseables/SearchBox";
 import {Close} from "../../../Reuseables/Close";
 import "../../../styles/Scrollbar.scss";
-import {styles} from "./ChooseModal.jss";
+import {close_icon, img_grid_root, styles} from "./ChooseModal.jss";
 
 class ChooseModal extends React.Component {
     constructor(props) {
@@ -111,15 +111,10 @@ class ChooseModal extends React.Component {
                                 <Close
                                     theme={this.props.theme}
                                     onClick={this.props.closeAll}
-                                    style={{
-                                        fontSize: fontSize001725,
-                                        width: "2em",
-                                        height: "2em",
-                                    }}
+                                    style={close_icon('desktop')}
                                 />
                             }
                             theme={this.props.theme}
-                            screenCase={this.props.screenCase}
                         />
                     </MediaQuery>
                     <MediaQuery maxAspectRatio={'1/1'}>
@@ -127,8 +122,7 @@ class ChooseModal extends React.Component {
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}
                             imgNameChoice={this.state.imgNameChoice}
-                            rootStyle={{marginTop: appBarHeight}}
-                            screenCase={this.props.screenCase}
+                            rootStyle={img_grid_root('mobile')}
                             theme={this.props.theme}
                             defaultChecked={false}
                             loaded={this.state.loaded} /*this.state.loaded*/
@@ -142,11 +136,7 @@ class ChooseModal extends React.Component {
                                 <Close
                                     theme={this.props.theme}
                                     onClick={this.props.closeAll}
-                                    style={{
-                                        fontSize: fontSize001725,
-                                        width: "2em",
-                                        height: "2em",
-                                    }}
+                                    style={close_icon('mobile')}
                                 />
                             }
                             title={
@@ -165,7 +155,6 @@ class ChooseModal extends React.Component {
                                     <SearchBox
                                         theme={this.props.theme}
                                         updateSearchText={this.updateSearchText}
-                                        style={{color: 'green'}}
                                     />
                                 </>
                             }

@@ -1,6 +1,5 @@
 import React from "react";
 import {Portal} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
@@ -31,16 +30,16 @@ import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
+import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
-import {accordion_root, styles} from "./GameRoot.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
-import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {getPieceImg} from "../MyPieces/getPieceImg";
+import {accordion_root, styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -76,19 +75,21 @@ class GameRoot extends React.Component {
         this.promoChoices = gameData.promos;
         this.enemyRanges = gameData.enemy_ranges;
         this.capturedIds = gameData.captured;
+        if (! this.capturedIds) this.capturedIds = copy(newData.captured)
+        if (! this.capturedIds.W) this.capturedIds.W = []
+        if (! this.capturedIds.B) this.capturedIds.B = []
         this.capturedDict = {
             W: this.capturedIds.W.map(id => getPieceImg(id, this.idDict, this.defs)),
             B: this.capturedIds.B.map(id => getPieceImg(id, this.idDict, this.defs)),
         }
         this.captured = ''
-        this.aiStart = null;
-        this.aiDest = null;
-        this.aiCapture = null;
         if (this.playerType === "test") this.aiColor = "none";
         else if (this.playerType === "W") this.aiColor =  "B";
         else if (this.playerType === "B") this.aiColor =  "W";
         if (this.gameType === "council") this.promoChoices.push("King");
-
+        this.aiStart = null;
+        this.aiDest = null;
+        this.aiCapture = null;
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
