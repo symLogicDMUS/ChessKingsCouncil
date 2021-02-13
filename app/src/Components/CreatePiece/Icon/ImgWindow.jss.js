@@ -12,13 +12,6 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize002,
-            width: "9em",
-            height: "9em",
-            border: "0.05em solid #2b2b2b",
-            borderRadius: '0.2em',
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize00236,
             width: "9.5em",
@@ -33,13 +26,20 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW04,
             width: '1em',
             height: '1em',
             margin: 'auto',
             borderRadius: '0.035em',
             border: `0.005em solid ${themes[props.theme].outline}`,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize002,
+            width: "9em",
+            height: "9em",
+            border: "0.05em solid #2b2b2b",
+            borderRadius: '0.2em',
         },
     }),
     img_label: props => ({
@@ -51,27 +51,27 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize002,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize002,
         },
         color: themes[props.theme].text,
         padding: 0,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize002,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize002,
         },
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',

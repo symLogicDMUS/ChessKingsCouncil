@@ -17,20 +17,20 @@ export const Board = ({ gameRoot }) => {
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
                         gameRoot={gameRoot}
-                        sqrSize={sqrSizes[resolveScreenCase('desktop')]}
-                        boardSize={boardSizes[resolveScreenCase('desktop')]}
+                        sqrSize={sqrSizes['desktop']}
+                        boardSize={boardSizes['desktop']}
                     />
                     <DragLayer
                         gameRoot={gameRoot}
-                        sqrSize={sqrSizes[resolveScreenCase('desktop')]}
-                        boardSize={boardSizes[resolveScreenCase('desktop')]}
-                        boardPos={boardPos[resolveScreenCase('desktop')]}
+                        sqrSize={sqrSizes['desktop']}
+                        boardSize={boardSizes['desktop']}
+                        boardPos={boardPos['desktop']}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard
                         theme={gameRoot.state.theme}
-                        sqrSize={sqrSizes[resolveScreenCase('desktop')]}
-                        boardSize={boardSizes[resolveScreenCase('desktop')]}
+                        sqrSize={sqrSizes['desktop']}
+                        boardSize={boardSizes['desktop']}
                     />
                 </DndProvider>
             </MediaQuery>

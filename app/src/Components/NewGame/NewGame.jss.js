@@ -81,7 +81,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             textAlign: 'center'
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             textAlign: 'center'
         },
@@ -107,7 +107,7 @@ export const useStyles = makeStyles({
             fontSize: fontSize0018,
             margin: '4em',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSize002,
             margin: '3em',
         },

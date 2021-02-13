@@ -49,11 +49,11 @@ export function OffsetsAndSpansExplanation(props) {
                 </p>
             </Typography>
             <MediaQuery minAspectRatio={'1001/1000'}>
-                <Box style={example_box(resolveScreenCase('desktop'))}>
+                <Box style={example_box('desktop')}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                        style={img_example(resolveScreenCase('desktop'), props.theme)}
+                        style={img_example('desktop', props.theme)}
                         alt="span board for dragon"
                     />
                 </Box>

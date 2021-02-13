@@ -11,9 +11,6 @@ export const useStyles = makeStyles({
     }),
     options_flexbox: props => ({
         fontSize: fontSize00184,
-        '@media (min-aspect-ratio: 1001/1000)': {
-            ...tool_flexbox,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             width: '16em',
             height: '16em',
@@ -24,8 +21,11 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'space-evenly',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             alignItems: 'center',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            ...tool_flexbox,
         },
     }),
     title: props => ({

@@ -41,7 +41,7 @@ export function ProfileHelpText(props) {
         <Box className={classes.flexbox} >
             <Box className={classes.partial_range_example}>
                 <MediaQuery minAspectRatio={'1001/1000'}>
-                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('desktop')]} />
+                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes['desktop']} />
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('mobile')]} />

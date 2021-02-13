@@ -74,7 +74,7 @@ function NewGame() {
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
-                        screenCase={resolveScreenCase('desktop')}
+                        screenCase='desktop'
                         helpText={HelpText(fontSize002, theme)}
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                         theme={theme}

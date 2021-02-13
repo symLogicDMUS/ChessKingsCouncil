@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
             height: `${profileHeight}em`,
             flexDirection: 'row',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: '95.5%',
             height: 'unset',

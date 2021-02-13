@@ -5,7 +5,6 @@ import MediaQuery from "react-responsive/src";
 import {angleToText} from "../../helpers/spanToText";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {offsetToText} from "../../helpers/offsetToText";
 import {widths, heights, fontSizes, useStyles} from "./Range.jss";
 

@@ -1,6 +1,8 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize0025, fontSize0040, fontSize008} from "../styles/fontSizes.jss";
+import {availHeight} from "../helpers/windowMeasurments";
+import {appBarHeight} from "./PersistentDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -16,8 +18,8 @@ export const useStyles = makeStyles((theme) => ({
         border: themes[props.theme].outline,
     }),
     accordion_title: props => ({
-        '@media (aspect-ratio: 1024/1366)': {
-            fontSize: fontSize0025
+        "@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)": {
+            fontSize: ((availHeight() - appBarHeight) * 0.4 * 0.3) / props.numTabs,
         },
     }),
     accordion_body: props => ({
@@ -27,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
         ...props.style,
     }),
     accordion_summary: props => ({
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize008,
             height: '1em'
         },
@@ -37,7 +39,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     expand_icon: props => ({
         color: themes[props.theme].text,
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0040,
             width: '1em',
             height: '1em',

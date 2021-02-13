@@ -15,17 +15,17 @@ const buttonPos = {
 };
 
 const container = (angle, theme) => ({
-    '@media (min-aspect-ratio: 1001/1000)': {
-        fontSize: fontSizes.desktop,
-    },
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
     },
-    '@media (aspect-ratio: 1024/1366)':{
+    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSizes.ipad,
+    },
+    '@media (min-aspect-ratio: 1001/1000)': {
+        fontSize: fontSizes.desktop,
     },
     ...buttonPos[angle],
     width: '2.75em',
@@ -55,17 +55,17 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         width: '2.75em',
         height: '2.75em',
@@ -73,17 +73,17 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         width: '2em',
         height: '2em',

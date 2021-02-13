@@ -317,7 +317,7 @@ class GameRoot extends React.Component {
                             pieceDefs={this.defs}
                             idDict={this.idDict}
                             start={this.aiStart}
-                            screenCase={resolveScreenCase('desktop')}
+                            screenCase='desktop'
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
                         />
@@ -330,7 +330,7 @@ class GameRoot extends React.Component {
                         <NavBar
                             currentPage="GameRoot"
                             theme={this.state.theme}
-                            screenCase={resolveScreenCase('desktop')}
+                            screenCase='desktop'
                             helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}

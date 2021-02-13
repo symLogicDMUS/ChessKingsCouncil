@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             marginTop: '-1.5vh',
             borderTop: `0.085em solid ${themes[props.theme].outline}`,
             borderBottom: `0.085em solid ${themes[props.theme].outline}`,

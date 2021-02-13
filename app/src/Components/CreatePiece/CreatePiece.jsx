@@ -33,7 +33,7 @@ import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
-import {app_bar_title, styles} from "./CreatePiece.jss";
+import {accordion_style, app_bar_title, styles} from "./CreatePiece.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
 
 
@@ -341,7 +341,7 @@ class CreatePiece extends React.Component {
                                     key='board'
                                     // key={uuidv4()}
                                     theme={this.state.theme}
-                                    screenCase={resolveScreenCase('desktop')}
+                                    screenCase='desktop'
                                     toggleOffset={this.toggleOffset}
                                     spanDisplays={this.spanDisplays}
                                     offsets={this.offsetDisplays}
@@ -365,7 +365,7 @@ class CreatePiece extends React.Component {
                             inputRef={this.textInput}
                             defaultValue={this.name}
                             theme={this.state.theme}
-                            screenCase={resolveScreenCase('desktop')}
+                            screenCase='desktop'
                         />
                         <Icon
                             key={'Icon-Desktop'}
@@ -380,7 +380,7 @@ class CreatePiece extends React.Component {
                             spans={this.spans}
                             offsets={this.offsets}
                             toggleSpan={this.toggleSpan}
-                            screenCase={resolveScreenCase("desktop")}
+                            screenCase='desktop'
                         />
                         <Location
                             key={uuidv4()}
@@ -408,7 +408,7 @@ class CreatePiece extends React.Component {
                             currentPage="CreatePiece"
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            screenCase={resolveScreenCase('desktop')}
+                            screenCase='desktop'
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
@@ -447,7 +447,7 @@ class CreatePiece extends React.Component {
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
                         />
-                        <MuiAccordion theme={this.state.theme}>
+                        <MuiAccordion theme={this.state.theme} rootStyle={accordion_style(resolveScreenCase('mobile'))}>
                             {[
                                 {
                                     id: "name",

@@ -1,5 +1,6 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
+import {fontSizes} from "./Board/CreatePieceBoard.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {fontSize00219, fontSize0025, fontSize0095} from "../styles/fontSizes.jss";
 
@@ -13,13 +14,23 @@ export const app_bar_title = () => ({
     marginLeft: '0.25em'
 });
 
+export const accordion_style = (screenCase) => {
+    switch (screenCase) {
+        case 'mobile':
+            return {
+                width: fontSizes[screenCase] * 8,
+            }
+        case 'ipad':
+            return {
+                width: fontSizes[screenCase] * 8,
+            }
+        default:
+            return null;
+    }
+};
+
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
-    '@media (min-aspect-ratio: 1001/1000)': {
-        backgroundColor: themes[theme].fill,
-        width: '100%',
-        marginBottom: '3vh',
-    },
     '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',
@@ -29,12 +40,14 @@ export const tool = (fontSize, theme) => ({
         justifyContent: 'center',
         alignItems: 'flex-start',
     },
+    '@media (min-aspect-ratio: 1001/1000)': {
+        backgroundColor: themes[theme].fill,
+        width: '100%',
+        marginBottom: '3vh',
+    },
 })
 
 export const tool_flexbox = {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',
@@ -47,6 +60,9 @@ export const tool_flexbox = {
         alignItems: 'center',
         justifyContent: 'space-between',
     },
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
 }
 
 /**
@@ -73,7 +89,7 @@ export const styles = {
         display: 'flex',
     }),
     accordion_title: props => ({
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0025
         },
     }),

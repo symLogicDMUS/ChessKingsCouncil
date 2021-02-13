@@ -32,8 +32,8 @@ export const SampleRangeList = memo(({ theme }) => {
                     ))}
                     theme={theme}
                     rowStyle={range_list_row_style()}
-                    buttonStyle={range_list_button_style(resolveScreenCase('desktop'))}
-                    style={range_list_gen_style(resolveScreenCase('desktop'))}
+                    buttonStyle={range_list_button_style('desktop')}
+                    style={range_list_gen_style('desktop')}
                 />
             </MediaQuery>
             <MediaQuery maxAspectRatio={'1/1'}>
@@ -48,8 +48,8 @@ export const SampleRangeList = memo(({ theme }) => {
                     ))}
                     theme={theme}
                     rowStyle={range_list_row_style()}
-                    buttonStyle={range_list_button_style(resolveScreenCase('desktop'))}
-                    style={range_list_gen_style(resolveScreenCase('desktop'))}
+                    buttonStyle={range_list_button_style('desktop')}
+                    style={range_list_gen_style('desktop')}
                 />
             </MediaQuery>
         </div>

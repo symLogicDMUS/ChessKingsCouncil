@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'space-around',
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: `${profileWidth.ipad * 0.95}em`,
             marginLeft: `${profileWidth.ipad * 0.03}em`,
@@ -84,7 +84,7 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'space-between',
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             top: '50%',
             left: '50%',
             fontSize: fontSizes.ipad,
@@ -105,7 +105,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             width: `${profileWidth.mobile * 0.925}em`,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             width: `${profileWidth.ipad * 0.925}em`,
         },
         display: 'flex',

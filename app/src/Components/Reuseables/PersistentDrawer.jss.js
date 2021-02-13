@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
     appBar: props => ({
         zIndex: 7,
         height: appBarHeight,
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             height: 62
         },
         transition: theme.transitions.create(['margin', 'width'], {
@@ -69,6 +69,7 @@ export const useStyles = makeStyles((theme) => ({
         marginLeft: -drawerWidth,
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center',
     }),
     contentShift: props => ({
         transition: theme.transitions.create('margin', {

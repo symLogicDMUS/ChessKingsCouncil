@@ -5,9 +5,6 @@ export const buttonSizeEm = 3
 
 export const useStyles = makeStyles({
     span_arrow_buttons: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
@@ -15,8 +12,11 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             marginBottom: '0.5em',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         display: 'grid',
         gridTemplateColumns: "repeat(3, 2.85em)",

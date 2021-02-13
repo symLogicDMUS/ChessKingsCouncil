@@ -70,7 +70,7 @@ export const dnd_layer = (boardSize, z) => ({
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    '@media (aspect-ratio: 1024/1366)':{
+    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
         top: boardPos.ipad.top,
         left: boardPos.ipad.left,
     },

@@ -16,9 +16,6 @@ export const useStyles = makeStyles({
         ...tool_title(props.theme),
     }),
     box: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            ...tool_flexbox,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0035,
             width: '8em',
@@ -32,6 +29,9 @@ export const useStyles = makeStyles({
         },
         '@media (max-aspect-ratio: 1/2)': {
             marginTop: 0,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            ...tool_flexbox,
         },
     }),
 });

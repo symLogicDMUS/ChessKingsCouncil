@@ -56,14 +56,6 @@ export const useStyles = makeStyles({
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            '@media (min-aspect-ratio: 1001/1000)': {
-                flexWrap: 'wrap',
-                fontSize: fontSizes.desktop,
-                width: drawerItemWidth,
-                marginLeft: '5%',
-                marginBottom: '5vw',
-                height: '8em',
-            },
             '@media (max-aspect-ratio: 1/1)': {
                 flex: 'nowrap',
                 width: '100%',
@@ -72,8 +64,16 @@ export const useStyles = makeStyles({
             '@media (max-aspect-ratio: 1/2)': {
                 flexDirection: 'column',
             },
-            '@media (aspect-ratio: 1024/1366)':{
+            '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
                 fontSize: fontSizes.ipad,
+                height: '8em',
+            },
+            '@media (min-aspect-ratio: 1001/1000)': {
+                flexWrap: 'wrap',
+                fontSize: fontSizes.desktop,
+                width: drawerItemWidth,
+                marginLeft: '5%',
+                marginBottom: '5vw',
                 height: '8em',
             },
         }),

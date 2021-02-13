@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             justifyContent: 'center',
         },
     }),
@@ -41,7 +41,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             marginLeft: 'auto',
             marginRight: 'auto'
         },

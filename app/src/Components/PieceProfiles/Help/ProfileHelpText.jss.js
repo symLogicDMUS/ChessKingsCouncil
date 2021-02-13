@@ -48,7 +48,7 @@ export const item_title = (theme) => ({
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: titleFontSizes.ipx,
     },
-    '@media (aspect-ratio: 1024/1366)': {
+    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
         fontSize: titleFontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',
@@ -142,7 +142,7 @@ export const useStyles = makeStyles({
             margin: 'auto',
             alignItems: 'center',
         },
-        '@media (aspect-ratio: 1024/1366)':{
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
             flexDirection: 'row',
         },
     }),
@@ -165,7 +165,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             height: '100vh',
         },
     }),
@@ -186,7 +186,7 @@ export const useStyles = makeStyles({
             height: `${heights.mobile}em`,
             width: widths.mobile,
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             height: `${heights.mobile}em`,
             width: widths.mobile,
@@ -211,7 +211,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             height: widths.mobile,
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: widths.mobile,
             height: widths.mobile,
@@ -237,7 +237,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -268,7 +268,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (aspect-ratio: 1024/1366)': {
+        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.ipad,
         },
         marginLeft: 'auto',

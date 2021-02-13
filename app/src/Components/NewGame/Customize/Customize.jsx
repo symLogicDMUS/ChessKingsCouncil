@@ -314,9 +314,9 @@ class Customize extends React.Component {
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
-                                    rootStyle={promo_all_root(resolveScreenCase('desktop'))}
-                                    checkboxStyle={promo_all_checkbox(resolveScreenCase('desktop'))}
-                                    style={promo_all_gen(resolveScreenCase('desktop'))}
+                                    rootStyle={promo_all_root('desktop')}
+                                    checkboxStyle={promo_all_checkbox('desktop')}
+                                    style={promo_all_gen('desktop')}
                                 >
                                     Promo All
                                 </MuiCheckbox>
