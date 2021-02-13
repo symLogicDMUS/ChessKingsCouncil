@@ -11,7 +11,7 @@ import {
 } from "../styles/fontSizes.jss";
 
 export const parchment = () => ({
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         width: availWidth() * 0.8,
         height: availHeight() * 0.8,
     },
@@ -30,7 +30,7 @@ const mobileScaler = 3;
 export const useStyles = makeStyles({
 
     council_rules: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: '100%',
             height: availHeight(),
         },
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
     }),
     title: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize018,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -71,7 +71,7 @@ export const useStyles = makeStyles({
     }),
     kings_flexbox: props => ({
         fontSize: fontSize002,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -84,7 +84,7 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     king_icon: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize01,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -94,7 +94,7 @@ export const useStyles = makeStyles({
         height: '1em'
     }),
     paragraph: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize00301,
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },

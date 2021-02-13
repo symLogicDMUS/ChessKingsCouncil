@@ -37,7 +37,7 @@ export const piece_value = (theme) => ({
 
 export const useStyles = makeStyles({
     sub_list: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize0023,
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

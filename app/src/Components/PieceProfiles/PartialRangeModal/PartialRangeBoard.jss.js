@@ -5,7 +5,7 @@ import {fontSizes} from "./PartialRangeModal.jss";
 export const useStyles = makeStyles({
     board: props => ({
         zIndex: 'inherit',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...board(fontSizes.desktop)
         },
         '@media (max-aspect-ratio: 1/1)': {

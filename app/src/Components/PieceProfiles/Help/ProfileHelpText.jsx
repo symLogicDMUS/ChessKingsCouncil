@@ -40,7 +40,7 @@ export function ProfileHelpText(props) {
         </Typography>
         <Box className={classes.flexbox} >
             <Box className={classes.partial_range_example}>
-                <MediaQuery minAspectRatio={'16/9'}>
+                <MediaQuery minAspectRatio={'1001/1000'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('desktop')]} />
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>

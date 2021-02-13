@@ -12,7 +12,7 @@ export const img_container = (theme, isSelected) => ({
     fontSize: fontSize002,
     borderRadius: '0.3em',
     backgroundColor: isSelected ? themes[theme].odd_row : themes[theme].even_row,
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         width: '10em',
         height: '10em',
         margin: '1em',
@@ -42,7 +42,7 @@ export const useStyles = makeStyles({
         ...img_container(props.theme, true),
     }),
     img: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '9em',
             height: '9em',
@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '10em',
             position: 'relative',

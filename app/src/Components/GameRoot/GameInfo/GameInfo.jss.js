@@ -11,7 +11,7 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: drawerItemWidth,
             marginBottom: '1em',
             marginLeft: '1em',
@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
         },
     }),
     cell: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
         },
         '@media (max-aspect-ratio: 1/1)': {

@@ -39,7 +39,7 @@ export const subtitle = (fontSize, theme) => ({
 });
 
 export const item_title = (theme) => ({
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: titleFontSizes.desktop,
     },
     '@media (max-aspect-ratio: 1/1)': {
@@ -91,7 +91,7 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: '60%',
             justifyContent: 'space-between',
         },
@@ -101,7 +101,7 @@ export const useStyles = makeStyles({
         },
     }),
     range_board_example: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: "9em",
             height: "9em",
@@ -131,7 +131,7 @@ export const useStyles = makeStyles({
     }),
     partial_range_example: props => ({
         display: "flex",
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             flexDirection: "row",
             width: '95%',
             justifyContent: 'space-evenly',
@@ -150,7 +150,7 @@ export const useStyles = makeStyles({
         width: '95%',
         margin: 'auto',
         display: 'flex',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: '125vh',
             flexDirection: 'column',
             flexWrap: 'wrap',
@@ -170,7 +170,7 @@ export const useStyles = makeStyles({
         },
     }),
     item: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: widths.desktop,
@@ -196,7 +196,7 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     window: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
             height: widths.desktop,
@@ -228,7 +228,7 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     header: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -259,7 +259,7 @@ export const useStyles = makeStyles({
         ...item_title(props.theme)
     }),
     expand_widget: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

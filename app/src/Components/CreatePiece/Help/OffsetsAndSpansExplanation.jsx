@@ -48,7 +48,7 @@ export function OffsetsAndSpansExplanation(props) {
                     range and click it again to remove it.
                 </p>
             </Typography>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <Box style={example_box(resolveScreenCase('desktop'))}>
                     <RangeToolExample theme={props.theme}/>
                     <img

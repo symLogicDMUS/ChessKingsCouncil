@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
-            '@media (min-aspect-ratio: 16/9)': {
+            '@media (min-aspect-ratio: 1001/1000)': {
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
@@ -82,7 +82,7 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            '@media (min-aspect-ratio: 16/9)': {
+            '@media (min-aspect-ratio: 1001/1000)': {
                 fontSize: fontSizes.desktop,
                 height: '0.7em',
                 width: '8em',

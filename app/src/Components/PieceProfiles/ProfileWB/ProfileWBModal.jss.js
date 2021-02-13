@@ -15,7 +15,7 @@ export const fontSizes = {
 
 export const close_icon = () => ({
     fontSize: fontSize0023,
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         width: "1.5em",
         height: "1.5em",
     },
@@ -27,7 +27,7 @@ export const close_icon = () => ({
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: `${profileWidth.desktop * 0.97}em`,
             marginLeft: `${profileWidth.desktop * 0.03}em`,
@@ -63,7 +63,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '0.5em',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             top: '50%',
             left: '50%',
             fontSize: fontSizes.desktop,
@@ -99,7 +99,7 @@ export const useStyles = makeStyles({
         border: `0.075em solid ${themes[props.theme].outline}`,
     }),
     wb_container: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: `${profileWidth.desktop * 0.925}em`,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -121,7 +121,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             marginLeft: '0.5em',
         },
     }),

@@ -2,10 +2,8 @@ import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {
-    fontSize0018,
-    fontSize002,
-    fontSize00224,
-    fontSize0023, fontSize0025, fontSize0026, fontSize0027, fontSize00276,
+    fontSize0023,
+    fontSize0027,
     fontSizeW006,
     fontSizeW0062
 } from "../styles/fontSizes.jss";
@@ -33,7 +31,7 @@ export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: availHeight() * 0.75,
             width: availWidth() * 0.5,
         },

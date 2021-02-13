@@ -12,7 +12,7 @@ export const fontSizes = {
 
 export const useStyles = makeStyles({
     board: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...board(fontSizes.desktop),
             margin: 'auto',
             boxShadow: '0 0 0.1em white'

@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexWrap: 'wrap',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: '94%',
             margin: 'auto',

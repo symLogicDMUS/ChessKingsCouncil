@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: '100%',
             fontSize: fontSizes.desktop,
             marginTop: '0.7em',
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
         },
     }),
     range_header: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -64,7 +64,7 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     range_modal: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

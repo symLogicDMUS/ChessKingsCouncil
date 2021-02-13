@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: drawerItemWidth,
             height: '5em',
             marginLeft: '1em',
@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
@@ -79,7 +79,7 @@ export const useStyles = makeStyles({
         '&:hover': {
             background: 'none'
         },
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '4.9em',
             height: '4.9em',
@@ -112,7 +112,7 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     icon: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '3em',
             height: '3em',
@@ -135,7 +135,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize00224,
         },
         '@media (max-aspect-ratio: 1/1)': {

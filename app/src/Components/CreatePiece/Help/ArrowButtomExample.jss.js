@@ -15,7 +15,7 @@ const buttonPos = {
 
 export const useStyles = makeStyles({
     container: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -37,7 +37,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].span}`,
     }),
     arrow_button: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
 
         },

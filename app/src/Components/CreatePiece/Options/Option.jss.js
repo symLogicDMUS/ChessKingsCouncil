@@ -8,7 +8,7 @@ export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -41,7 +41,7 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
         },
         '@media (max-aspect-ratio: 1/1)': {

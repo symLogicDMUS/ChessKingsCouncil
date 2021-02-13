@@ -6,7 +6,7 @@ import {headerFontSizes, titleFontSizes} from "./Header/ProfileHeader.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles({
     }),
     /*Parts of the range table's header: */
     title: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: titleFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -50,7 +50,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     expand_widget: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

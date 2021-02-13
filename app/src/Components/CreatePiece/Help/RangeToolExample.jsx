@@ -28,7 +28,7 @@ export function RangeToolExample({theme}) {
 
     return (
         <div className={classes.range_tool}>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <ScrollTable
                     numRows={5}
                     theme={theme}

@@ -17,7 +17,7 @@ export class Home extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minAspectRatio={'16/9'}>
+                <MediaQuery minAspectRatio={'1001/1000'}>
                     <MainMenuDesktop
                         signOut={this.props.signOut}
                         theme={this.state.theme}

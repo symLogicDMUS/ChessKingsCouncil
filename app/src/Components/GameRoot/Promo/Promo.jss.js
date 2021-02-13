@@ -55,7 +55,7 @@ export const useStyles = makeStyles({
     }),
     menu: props => ({
         fontSize: fontSize01,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: promoChoicesSize.desktop * 1.085,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -66,7 +66,7 @@ export const useStyles = makeStyles({
     }),
     img_group: (props) => ({
         fontSize: props.fontSize,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: promoChoicesSize.desktop,
             width: promoChoicesWidth.desktop,
         },

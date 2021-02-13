@@ -70,7 +70,7 @@ export const useStyles = makeStyles({
         margin: 'auto'
     }),
     title: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

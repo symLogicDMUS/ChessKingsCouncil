@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "flex-end",
         width: "100%",
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: availHeight()*0.81,
         },
         '@media (max-aspect-ratio: 1/1)': {

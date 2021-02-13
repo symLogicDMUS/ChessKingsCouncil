@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             justifyContent: 'center',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles({
     }),
     img_window1: props => ({
         ...img_window(props.theme),
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",
@@ -54,7 +54,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: "0.0075em solid #2b2b2b",
         },
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",

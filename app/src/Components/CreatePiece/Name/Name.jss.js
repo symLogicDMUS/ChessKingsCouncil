@@ -27,7 +27,7 @@ export const text_field_style = (screenCase) => ({
 
 export const useStyles = makeStyles({
     name: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...tool_flexbox,
             marginBottom: '2.5%',
         },

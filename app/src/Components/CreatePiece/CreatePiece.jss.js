@@ -15,7 +15,7 @@ export const app_bar_title = () => ({
 
 export const tool = (fontSize, theme) => ({
     fontSize: fontSize,
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         backgroundColor: themes[theme].fill,
         width: '100%',
         marginBottom: '3vh',
@@ -41,7 +41,7 @@ export const tool_flexbox = {
         alignItems: 'flex-start',
         justifyContent: 'space-between',
     },
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         width: '93%',
         marginLeft: '3.5%',
         alignItems: 'center',

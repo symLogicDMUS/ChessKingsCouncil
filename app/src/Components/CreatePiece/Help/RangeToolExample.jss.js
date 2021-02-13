@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
         // margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             justifyContent: 'center',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
         },
     }),
     span_arrow_buttons: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             marginLeft: 'auto',
             marginRight: 'auto'

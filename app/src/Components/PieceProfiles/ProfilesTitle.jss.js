@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: availWidth() * 0.4625,
             marginLeft: '3.25%',

@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'space-evenly',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: '50em',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -75,7 +75,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize0016,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -93,7 +93,7 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '1.8em',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
         },
         '@media (max-aspect-ratio: 1/1)': {

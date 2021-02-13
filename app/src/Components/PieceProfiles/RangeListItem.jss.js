@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
         '&:hover':{
             color: themes[props.theme].sqr_hover,
         },
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {

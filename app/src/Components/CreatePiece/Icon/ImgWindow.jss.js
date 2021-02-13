@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",
@@ -51,7 +51,7 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -64,7 +64,7 @@ export const useStyles = makeStyles({
         padding: 0,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
         },
         '@media (max-aspect-ratio: 1/1)': {

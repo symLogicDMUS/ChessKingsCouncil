@@ -11,7 +11,7 @@ export function PromoCheckboxExample({theme}) {
                 rootStyle={{...checkbox_root(theme), marginRight: '1.5em'}}
                 theme={theme}
             >
-                <MediaQuery minAspectRatio={'16/9'}>Promotion</MediaQuery>
+                <MediaQuery minAspectRatio={'1001/1000'}>Promotion</MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>Promo</MediaQuery>
             </MuiCheckbox>
             <MuiCheckbox

@@ -9,7 +9,7 @@ export function SubList({subs, theme}) {
 
     return (
         <div className={classes.sub_list}>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <Box className={classes.header}>
                     Subs
                 </Box>

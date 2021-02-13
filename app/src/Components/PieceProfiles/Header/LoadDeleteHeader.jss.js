@@ -40,7 +40,7 @@ export const delete_icon = (screenCase) => {
 };
 
 export const button = (theme) => ({
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: fontSize002,
         width: '6.1em',
         height: '2em',
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -95,7 +95,7 @@ export const useStyles = makeStyles({
         marginLeft: '1em',
     }),
     load_button: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
@@ -121,7 +121,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     delete_button: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',

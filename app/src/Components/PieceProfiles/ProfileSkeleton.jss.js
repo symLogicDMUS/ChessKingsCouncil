@@ -9,7 +9,7 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             flexWrap: 'wrap',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
     }),
     profile_header: props => ({
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: '4em',
             width: '89%',
             marginLeft: '5.1%',
@@ -36,7 +36,7 @@ export const useStyles = makeStyles({
         zIndex: 'inherit',
         width: '95%',
         display: 'flex',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             justifyContent: 'space-evenly',
             flexDirection: 'row',
@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
     item_header: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             height: '3.5em',
             width: '11em',
@@ -83,7 +83,7 @@ export const useStyles = makeStyles({
     item_content: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: '11em',
             height: '18em',

@@ -41,6 +41,8 @@ import {
     scroll_table_button,
     scroll_table,
 } from "./Customize.jss";
+import {sampleDefs} from "../../../API/apiHelpers/sampleDefs";
+import {getSetSampleDefs} from "../../../API/getSetSampleDefs";
 
 
 class Customize extends React.Component {
@@ -63,7 +65,8 @@ class Customize extends React.Component {
         };
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.gameData = {}
-        this.defs = {};
+        // this.defs = {};
+        this.defs = copy(sampleDefs)
         this.promos = [];
         this.firstTime = false;
         this.promoAll = false;
@@ -94,7 +97,7 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = defs;
+        // this.defs = defs;
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -260,7 +263,7 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? (this.play()) : null}
                 <div>
-                    <MediaQuery minAspectRatio={'16/9'}>
+                    <MediaQuery minAspectRatio={'1001/1000'}>
                         <PermanentDrawer
                             drawerType="right"
                             theme={this.state.theme}

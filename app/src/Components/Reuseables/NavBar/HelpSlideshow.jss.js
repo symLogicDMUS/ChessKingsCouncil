@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: availWidth() * 0.66667,
             height: availHeight() * 0.66667,
         },
@@ -63,7 +63,7 @@ export const useStyles = makeStyles({
             marginLeft: 'auto',
             marginRight: 'auto',
         },
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: availWidth() * 0.66667*0.95,
             height: availHeight() * 0.66667*0.95*0.79,
             marginLeft: '2.5%',

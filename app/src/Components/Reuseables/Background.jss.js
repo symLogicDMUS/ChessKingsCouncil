@@ -28,7 +28,7 @@ export const useStyles = makeStyles((theme) => ({
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             top: '1%',
         },
         '@media (max-aspect-ratio: 1/1)': {

@@ -70,7 +70,7 @@ function NewGame() {
 
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minAspectRatio={'16/9'}>
+                <MediaQuery minAspectRatio={'1001/1000'}>
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
@@ -96,25 +96,27 @@ function NewGame() {
                             theme={theme}
                             key={uuidv4()}
                             setPlayerType={setPlayerType}
-                        />
-                        <MuiButton
-                            key={uuidv4()}
-                            onClick={finish}
-                            classesObj={{root: classes.play_button}}
-                            style={{color: themes[theme].button_fill}}
-                            variant="contained"
-                            theme={theme}
-                            isDisabled={
-                                !(
-                                    playerType &&
-                                    gameType &&
-                                    gameName !== "" &&
-                                    invalids.every((c) => charNotInStr(c, gameName))
-                                )
-                            }
                         >
-                            Play
-                        </MuiButton>
+                            <MuiButton
+                                key={uuidv4()}
+                                onClick={finish}
+                                classesObj={{root: classes.play_button}}
+                                style={{color: themes[theme].button_fill}}
+                                variant="contained"
+                                theme={theme}
+                                isDisabled={
+                                    !(
+                                        playerType &&
+                                        gameType &&
+                                        gameName !== "" &&
+                                        invalids.every((c) => charNotInStr(c, gameName))
+                                    )
+                                }
+                            >
+                                Play
+                            </MuiButton>
+                        </PlayAs>
+
                     </Box>
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>

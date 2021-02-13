@@ -40,7 +40,7 @@ export function BoardTool({
 
     return (
         <div className={classes.board_tool}>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>
                         Range Display

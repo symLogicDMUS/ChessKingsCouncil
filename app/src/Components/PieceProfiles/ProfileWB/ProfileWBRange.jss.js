@@ -14,7 +14,7 @@ export const sqrSize = {
 
 export const useStyles = makeStyles({
     profile_wb_range: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
@@ -41,7 +41,7 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     title: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -68,7 +68,7 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     board_window: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,

@@ -5,13 +5,13 @@ import {fontSize00184, fontSize002} from "../../styles/fontSizes.jss";
 export const useStyles = makeStyles({
     options_tool: (props) => ({
         ...tool(fontSize00184, props.theme),
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: '5.5em',
         },
     }),
     options_flexbox: props => ({
         fontSize: fontSize00184,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...tool_flexbox,
         },
         '@media (max-aspect-ratio: 1/1)': {

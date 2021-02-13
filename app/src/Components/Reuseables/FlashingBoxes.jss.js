@@ -9,7 +9,7 @@ const fontSizes = {
 
 export const useStyles = makeStyles({
     row: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             marginBottom: '5.5em',
         },
@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         },
     }),
     load_box_container: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '10em',
@@ -35,7 +35,7 @@ export const useStyles = makeStyles({
         },
     }),
     load_box: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '10em',
@@ -51,7 +51,7 @@ export const useStyles = makeStyles({
         },
     }),
     underline: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: '10em',
             height: '2em',

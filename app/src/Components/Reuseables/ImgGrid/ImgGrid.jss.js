@@ -57,7 +57,7 @@ export const ifIpad = (screenCase) => {
 
 export const useStyles = makeStyles({
     window: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: widths.desktop,
             height: heights.desktop,
         },
@@ -72,7 +72,7 @@ export const useStyles = makeStyles({
         ...props.rootStyle,
     }),
     top_flexbox: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             height: '2em',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -90,7 +90,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: imgChoicesWidth,
             marginLeft: modalWidth * 0.025,
             flexWrap: 'no-wrap',
@@ -109,7 +109,7 @@ export const useStyles = makeStyles({
         borderRadius: '0.015em',
         backgroundColor: themes[props.theme].modal_fill,
         border: `0.002em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: imgChoicesWidth,
             height: imgChoicesHeight,
             marginLeft: modalWidth * 0.025,
@@ -125,7 +125,7 @@ export const useStyles = makeStyles({
     }),
 
     image_choices: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
             width: '92.5em',
             height: '35.5em',
@@ -151,7 +151,7 @@ export const useStyles = makeStyles({
     bottom_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
             width: imgChoicesWidth,
             marginLeft: modalWidth * 0.025,
@@ -168,7 +168,7 @@ export const useStyles = makeStyles({
         },
     }),
     ok_button: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...button(fontSize001685),
             marginRight: "1em",
         },
@@ -179,7 +179,7 @@ export const useStyles = makeStyles({
         },
     }),
     delete_button: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             ...button(fontSize001685),
             marginLeft: "2em",
         },
@@ -190,7 +190,7 @@ export const useStyles = makeStyles({
         },
     }),
     button_icon: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -200,7 +200,7 @@ export const useStyles = makeStyles({
         minWidth: 'unset',
     }),
     show_names: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
             marginLeft: "2em",
         },

@@ -22,11 +22,7 @@ export function PieceProfiles(props) {
     useEffect(() => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
         const colors = ["W", "B"];
-        let defs;
-        defs = sampleDefs;
-        if (props.updateParent) {
-            props.updateParent(copy(defs));
-        }
+        const defs = copy(sampleDefs);
         for (const pieceName of standards) {
             if (Object.keys(defs).includes(pieceName)) {
                 delete defs[pieceName];
@@ -169,7 +165,7 @@ export function PieceProfiles(props) {
         <div className={`scrollbar-${props.theme}`}>
             <div className={classes.piece_profiles}>
                 {props.children}
-                <MediaQuery minAspectRatio={'16/9'}>
+                <MediaQuery minAspectRatio={'1001/1000'}>
                     <div className={classes.profiles_window}>
                         {state.loaded ? (
                             getProfiles('desktop')

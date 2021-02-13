@@ -274,7 +274,7 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minAspectRatio={'16/9'}>
+                <MediaQuery minAspectRatio={'1001/1000'}>
                     <PermanentDrawer
                         theme={this.state.theme}
                         drawerType="right"

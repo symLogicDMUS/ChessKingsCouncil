@@ -58,7 +58,7 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     position: 'fixed',
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,
     },

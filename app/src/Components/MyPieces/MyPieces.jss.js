@@ -7,7 +7,7 @@ export const styles = {
         width: '100vw',
         height: availHeight() * 0.8,
         overflowX: 'hidden',
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',

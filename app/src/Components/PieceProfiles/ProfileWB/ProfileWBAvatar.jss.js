@@ -6,7 +6,7 @@ import {fontSizes, heights, widths as avatarSize} from "../PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_header: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -57,7 +57,7 @@ export const useStyles = makeStyles({
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     avatar_title: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: titleFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -74,7 +74,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     avatar_window: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,

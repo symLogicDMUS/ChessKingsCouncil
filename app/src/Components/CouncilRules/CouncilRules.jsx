@@ -24,7 +24,7 @@ export function CouncilRules() {
 
     return (
         <div>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <Background theme='tan'/>
                 <NavBar
                     theme="tan"

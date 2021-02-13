@@ -44,7 +44,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
             ) : null}
             <div className={classes.icon_tool}>
                 <Box className={classes.flexbox}>
-                    <MediaQuery minAspectRatio={'16/9'}>
+                    <MediaQuery minAspectRatio={'1001/1000'}>
                         <Typography className={classes.title}>Icon</Typography>
                     </MediaQuery>
                     <ImgWindow

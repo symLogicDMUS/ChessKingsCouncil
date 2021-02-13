@@ -33,7 +33,7 @@ export const header = (style, theme) => ({
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         marginTop: '1em',
         fontSize: fontSizes.desktop,
     },
@@ -48,7 +48,7 @@ export const header = (style, theme) => ({
 });
 
 export const text = (theme) => ({
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: fontSizes.desktop,
     },
     '@media (max-aspect-ratio: 1/1)': {

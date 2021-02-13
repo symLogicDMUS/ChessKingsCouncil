@@ -18,7 +18,7 @@ export function LoginPage(props) {
 
     return (
         <>
-            <MediaQuery minAspectRatio={'16/9'}>
+            <MediaQuery minAspectRatio={'1001/1000'}>
                 <Background theme={theme} />
                 <div className={classes.login_page}>
                     <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>

@@ -4,7 +4,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 
 export const button = (theme) => ({
-    '@media (min-aspect-ratio: 16/9)': {
+    '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: fontSize002
     },
     '@media (max-aspect-ratio: 1/1)': {
@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
         ...modal
     },
     dialog_window: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             width: '27%',
             height: '27%',
         },
@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     dialog_actions: props => ({
-        '@media (min-aspect-ratio: 16/9)': {
+        '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
             width: '22em',
             marginLeft: '1.5em',
