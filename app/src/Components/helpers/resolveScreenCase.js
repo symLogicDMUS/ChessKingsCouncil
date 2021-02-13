@@ -13,7 +13,7 @@ export function resolveScreenCase(originalCase) {
 
     /*tablets*/
     if (
-        (window.screen.availWidth / window.screen.availHeight) >= 0.75
+        (window.screen.availWidth / window.screen.availHeight) >= 0.69
         && (window.screen.availWidth / window.screen.availHeight) < 1
     ) {
         return 'ipad';

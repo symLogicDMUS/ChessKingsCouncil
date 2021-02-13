@@ -21,7 +21,7 @@ const container = (angle, theme) => ({
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSizes.ipad,
     },
     '@media (min-aspect-ratio: 1001/1000)': {
@@ -61,7 +61,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
         },
         '@media (min-aspect-ratio: 1001/1000)': {
@@ -79,7 +79,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad
         },
         '@media (min-aspect-ratio: 1001/1000)': {

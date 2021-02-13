@@ -40,7 +40,7 @@ export const useStyles = makeStyles({
             width: availWidth(),
             marginTop: '0.05em',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             height: availHeight() * 0.65,
             width: availWidth() * 0.95,
             marginLeft: 'auto',

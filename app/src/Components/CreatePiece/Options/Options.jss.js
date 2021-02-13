@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'space-evenly',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             alignItems: 'center',
         },
         '@media (min-aspect-ratio: 1001/1000)': {

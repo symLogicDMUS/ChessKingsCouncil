@@ -37,7 +37,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizeW00238,
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             marginTop: '-2vh',
             width: '100%',
             height: '100%',
@@ -67,7 +67,7 @@ export const useStyles = makeStyles({
             height: '10em',
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
             width: '7em',
             height: '7em',
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             height: '9.5em',
             marginTop: '1em',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
             width: '4.95em',
             height: '4.95em',
@@ -127,7 +127,7 @@ export const useStyles = makeStyles({
             width: '6em',
             height: '6em',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
             width: '4.2075em',
             height: '4.2075em',
@@ -144,7 +144,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/2)': {
             fontSize: fontSizeW0056,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
         },
         fontFamily: 'Roboto-Light, Roboto',

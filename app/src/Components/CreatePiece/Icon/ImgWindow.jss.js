@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
             fontSize: fontSize00236,
             width: "9.5em",
             height: "9.5em",
@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW04,
             width: '1em',
             height: '1em',
@@ -51,10 +51,13 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media (max-aspect-ratio: 1/2)': {
             fontSize: fontSize0023
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
+            fontSize: fontSize0023
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
         },
         '@media (min-aspect-ratio: 1001/1000)': {
@@ -64,10 +67,10 @@ export const useStyles = makeStyles({
         padding: 0,
     }),
     text: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
             fontSize: fontSize0023
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
         },
         '@media (min-aspect-ratio: 1001/1000)': {

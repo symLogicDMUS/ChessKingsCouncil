@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
             fontSize: fontSize0035,
             margin: '0.25em'
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSize00301,
             margin: 'auto'
         },

@@ -27,7 +27,7 @@ export const boardSizes = {
 export const boardPos = {
     desktop: {
         left: availWidth() * 0.45 - boardSizes.desktop * 0.5,
-        top: availHeight()*0.5 - boardSizes.desktop * 0.5,
+        top: availHeight()*0.47 - boardSizes.desktop * 0.5,
     },
     mobile: {
         left: availWidth()*0.015,
@@ -70,7 +70,7 @@ export const dnd_layer = (boardSize, z) => ({
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         top: boardPos.ipad.top,
         left: boardPos.ipad.left,
     },

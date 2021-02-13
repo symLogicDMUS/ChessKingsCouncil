@@ -15,7 +15,7 @@ const location_button = (theme, rf) => ({
         order : buttonOrderMobile[rf],
         margin: 'auto',
     },
-    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSize0036,
         margin: 'auto',
     },

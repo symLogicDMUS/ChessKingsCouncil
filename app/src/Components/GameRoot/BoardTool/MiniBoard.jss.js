@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
             marginTop: '0.1em',
             ...board(fontSizes.ipx),
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             ...board(fontSizes.ipad),
         },
         '@media (min-aspect-ratio: 1001/1000)': {

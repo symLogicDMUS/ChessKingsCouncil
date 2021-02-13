@@ -41,7 +41,7 @@ export const header = (style, theme) => ({
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
+    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
         marginTop: '0.5em',
         fontSize: fontSizes.ipad,
     },
@@ -57,7 +57,7 @@ export const text = (theme) => ({
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
+    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',

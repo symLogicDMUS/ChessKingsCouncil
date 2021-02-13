@@ -82,7 +82,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
         color: themes[props.theme].text,
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: 'unset',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)': {
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -120,7 +120,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
     }),

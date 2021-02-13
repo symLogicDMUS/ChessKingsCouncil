@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
@@ -42,7 +42,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -66,7 +66,7 @@ export const useStyles = makeStyles({
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: titleFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: titleFontSizes.ipad,
         },
         fontFamily: 'Roboto-Light, Roboto',
@@ -89,7 +89,7 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: avatarSize.ipad,
             height: avatarSize.ipad,

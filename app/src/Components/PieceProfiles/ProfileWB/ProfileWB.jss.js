@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             width: '100%',
             fontSize: fontSizes.ipad,
             flexDirection: 'row',
@@ -47,7 +47,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -70,7 +70,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
         },
         display: 'flex',

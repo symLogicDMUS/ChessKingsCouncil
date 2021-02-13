@@ -88,7 +88,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -110,7 +110,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -136,7 +136,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media (min-aspect-ratio: 3/4) and (max-aspect-ratio: 1/1)':{
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',
