@@ -29,8 +29,7 @@ export const accordion_style = (screenCase) => {
     }
 };
 
-export const tool = (fontSize, theme) => ({
-    fontSize: fontSize,
+export const tool = (theme) => ({
     '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',

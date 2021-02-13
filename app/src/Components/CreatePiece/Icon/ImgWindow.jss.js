@@ -5,6 +5,9 @@ import {
 } from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import {availHeight} from "../../helpers/windowMeasurments";
+import {fontSizes} from "../Board/CreatePieceBoard.jss";
+import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -12,13 +15,6 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
-            fontSize: fontSize00236,
-            width: "9.5em",
-            height: "9.5em",
-            borderRadius: '0.2em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
-        },
         '@media (max-aspect-ratio: 1/2)': {
             fontSize: fontSizeW041,
             width: '1em',
@@ -26,8 +22,15 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
+        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSize00236,
+            width: "9em",
+            height: "9em",
+            borderRadius: '0.2em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
+        },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSizeW04,
+            fontSize: availHeight() - (appBarHeight + availHeight() * 0.075 + fontSizes.ipad*8 + availHeight() * 0.04),
             width: '1em',
             height: '1em',
             margin: 'auto',
@@ -54,7 +57,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/2)': {
             fontSize: fontSize0023
         },
-        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
+        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
             fontSize: fontSize0023
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
@@ -67,7 +70,7 @@ export const useStyles = makeStyles({
         padding: 0,
     }),
     text: props => ({
-        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
+        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
             fontSize: fontSize0023
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{

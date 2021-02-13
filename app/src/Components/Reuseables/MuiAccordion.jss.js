@@ -17,8 +17,9 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
         border: themes[props.theme].outline,
     }),
+    //when numTabs > 2
     accordion_title: props => ({
-        "@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)": {
+        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
             fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.45 * 0.3) / props.numTabs,
             minHeight: 'unset',
         },
@@ -33,8 +34,9 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
         ...props.style,
     }),
+    //when numTabs > 2
     accordion_summary: props => ({
-        "@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)": {
+        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
             fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.45) / props.numTabs,
             height: '1em',
             minHeight: 'unset',

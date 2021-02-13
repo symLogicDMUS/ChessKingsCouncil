@@ -1,20 +1,28 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
 import {
-    fontSize002, fontSize00301, fontSize0035
+    fontSize0015, fontSize00184,
+    fontSize002, fontSize0024, fontSize0025,
+    fontSize00301,
+    fontSize0035,
+    fontSizeW0024,
+    fontSizeW0028,
+    fontSizeW0031,
+    fontSizeW003224, fontSizeW004,
+    fontSizeW0045
 } from "../../styles/fontSizes.jss";
 
 export const optionButtonSize = 3.5;
 
 export const useStyles = makeStyles({
     option: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0035,
-            margin: '0.25em'
+        '@media (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSize0024,
+            margin: '0.25em',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSize00301,
-            margin: 'auto'
+            fontSize: fontSizeW0031,
+            margin: '0.5em',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,
@@ -43,8 +51,11 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     text: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0035,
+        '@media (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSize0025,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizeW004,
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize002,

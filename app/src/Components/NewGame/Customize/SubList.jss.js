@@ -1,7 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {text} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {themes} from "../../styles/themes.jss";
-import {drawer_component, drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
+import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
 import {fontSize0023} from "../../styles/fontSizes.jss";
 
@@ -37,6 +37,13 @@ export const piece_value = (theme) => ({
 
 export const useStyles = makeStyles({
     sub_list: props => ({
+
+        '@media (max-aspect-ratio: 1/1)': {
+            marginTop: '-2vh',
+            fontSize: fontSize0023,
+            fontFamily: 'Roboto-Light, Roboto',
+            width: '100%'
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize0023,
             width: drawerItemWidth,
@@ -44,12 +51,6 @@ export const useStyles = makeStyles({
             marginTop: drawerItemMarginTopBottom,
             marginBottom: drawerItemMarginTopBottom,
             fontFamily: 'Roboto-Light, Roboto',
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            marginTop: '-2vh',
-            fontSize: fontSize0023,
-            fontFamily: 'Roboto-Light, Roboto',
-            width: '100%'
         },
         display: 'flex',
         flexDirection: 'row',
@@ -80,11 +81,11 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         fontFamily: 'Roboto-Light, Roboto',
     }),

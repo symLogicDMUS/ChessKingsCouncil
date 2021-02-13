@@ -5,7 +5,7 @@ import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
-        ...tool(props.fontSize, props.theme),
+        ...tool(props.theme),
         justifyContent: 'space-between',
     }),
     title: props => ({

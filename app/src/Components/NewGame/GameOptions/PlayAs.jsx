@@ -12,11 +12,7 @@ export function PlayAs({setPlayerType, theme, children}) {
 
     return (
         <div className={classes.item}>
-            <Box width='100%'
-                 display='flex'
-                 flexDirection='row'
-                 justifyContent='center'
-            >
+            <Box className={classes.player_types}>
                 <Typography className={classes.title}>
                     Play As
                     <Dropdown
@@ -25,9 +21,9 @@ export function PlayAs({setPlayerType, theme, children}) {
                             <MenuItem value="None">
                                 <em>None</em>
                             </MenuItem>,
-                            <MenuItem value="White" style={{fontSize: fontSize0018}}>White</MenuItem>,
-                            <MenuItem value="Black" style={{fontSize: fontSize0018}}>Black</MenuItem>,
-                            <MenuItem value="Test" style={{fontSize: fontSize0018}}>Test</MenuItem>,
+                            <MenuItem value="White" classes={{root: classes.player_type}}>White</MenuItem>,
+                            <MenuItem value="Black" classes={{root: classes.player_type}}>Black</MenuItem>,
+                            <MenuItem value="Test" classes={{root: classes.player_type}}>Test</MenuItem>,
                         ]}
                         overwrite={null}
                         variant='outlined'

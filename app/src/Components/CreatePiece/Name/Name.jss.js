@@ -27,16 +27,11 @@ export const text_field_style = (screenCase) => ({
 
 export const useStyles = makeStyles({
     name: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            ...tool(fontSize002, props.theme)
-        },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            ...tool(fontSize0024, props.theme)
-        },
+        ...tool(props.theme),
         '@media (min-aspect-ratio: 1001/1000)': {
             ...tool_flexbox,
             marginBottom: '2.5%',
         },
-        height: availHeight() * 0.08,
+        // height: availHeight() * 0.08,
     }),
 });

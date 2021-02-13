@@ -15,28 +15,36 @@ const buttonPos = {
 };
 
 const container = (angle, theme) => ({
-    '@media (max-aspect-ratio: 1/1)': {
-        fontSize: fontSizes.mobile,
-    },
     "@media (max-aspect-ratio: 1/2)": {
         fontSize: fontSizes.ipx,
+        width: '2.75em',
+        height: '2.75em',
+        borderRadius: '0.2em',
+        border: `0.05em solid ${themes[theme].outline}`,
+    },
+    '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+        fontSize: fontSizes.mobile,
+        width: '2.75em',
+        height: '2.75em',
+        borderRadius: '0.2em',
+        border: `0.05em solid ${themes[theme].outline}`,
     },
     '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSizes.ipad,
+        width: '1em',
+        height: '1em',
+        borderRadius: '0.08em',
+        border: `0.02em solid ${themes[theme].outline}`,
     },
     '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: fontSizes.desktop,
     },
     ...buttonPos[angle],
-    width: '2.75em',
-    height: '2.75em',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: '0.2em',
-    border: `0.05em solid ${themes[theme].outline}`,
 })
 
 export const useStyles = makeStyles({
@@ -55,38 +63,46 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
-        },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
+            width: '2.75em',
+            height: '2.75em',
+        },
+        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSizes.mobile,
+            width: '2.75em',
+            height: '2.75em',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
+            width: '1em',
+            height: '1em',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
-        width: '2.75em',
-        height: '2.75em',
         color: themes[props.theme].text,
     }),
 
     vector: (props) => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
-        },
         "@media (max-aspect-ratio: 1/2)": {
             fontSize: fontSizes.ipx,
+            width: '2em',
+            height: '2em',
+        },
+        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSizes.mobile,
+            width: '2em',
+            height: '2em',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSizes.ipad
+            fontSize: fontSizes.ipad,
+            width: '0.75em',
+            height: '0.75em',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
         },
-        width: '2em',
-        height: '2em',
         color: themes[props.theme].text,
     }),
 });

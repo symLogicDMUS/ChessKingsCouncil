@@ -61,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     content: props => ({
         flexGrow: 1,
-        padding: '2vh',
+        // padding: '2vh',
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

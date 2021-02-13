@@ -57,13 +57,13 @@ export const ifIpad = (screenCase) => {
 
 export const useStyles = makeStyles({
     window: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            width: widths.desktop,
-            height: heights.desktop,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             width: widths.mobile,
             height: heights.mobile,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            width: widths.desktop,
+            height: heights.desktop,
         },
         zIndex: 6,
         fontSize: fontSize001685,
@@ -72,11 +72,11 @@ export const useStyles = makeStyles({
         ...props.rootStyle,
     }),
     top_flexbox: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            height: '2em',
-        },
         '@media (max-aspect-ratio: 1/1)': {
             height: heights.mobile * 0.05,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            height: '2em',
         },
         width: '100%',
         display: 'flex',
@@ -90,17 +90,17 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        '@media (min-aspect-ratio: 1001/1000)': {
-            width: imgChoicesWidth,
-            marginLeft: modalWidth * 0.025,
-            flexWrap: 'no-wrap',
-            justifyContent: 'flex-end',
-        },
         '@media (max-aspect-ratio: 1/1)': {
             width: widths.mobile * 0.95,
             marginLeft: widths.mobile * 0.025,
             height: heights.mobile * 0.07,
             justifyContent: 'space-between',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            width: imgChoicesWidth,
+            marginLeft: modalWidth * 0.025,
+            flexWrap: 'no-wrap',
+            justifyContent: 'flex-end',
         },
     }),
 
@@ -109,6 +109,11 @@ export const useStyles = makeStyles({
         borderRadius: '0.015em',
         backgroundColor: themes[props.theme].modal_fill,
         border: `0.002em solid ${themes[props.theme].outline}`,
+        '@media (max-aspect-ratio: 1/1)': {
+            width: widths.mobile * 0.95,
+            height: heights.mobile * 0.8,
+            marginLeft: widths.mobile * 0.025,
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             width: imgChoicesWidth,
             height: imgChoicesHeight,
@@ -117,14 +122,16 @@ export const useStyles = makeStyles({
             marginTop: modalHeight * 0.025,
             marginBottom: modalHeight * 0.025,
         },
-        '@media (max-aspect-ratio: 1/1)': {
-            width: widths.mobile * 0.95,
-            height: heights.mobile * 0.8,
-            marginLeft: widths.mobile * 0.025,
-        },
     }),
 
     image_choices: props => ({
+        '@media (max-aspect-ratio: 1/1)': {
+            width: widths.mobile * 0.95 * 0.95,
+            height: heights.mobile * 0.8 * 0.95,
+            marginLeft: widths.mobile * 0.025 * 0.95,
+            marginRight: widths.mobile * 0.025 * 0.95,
+            marginTop: widths.mobile * 0.025 * 0.95,
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
             width: '92.5em',
@@ -132,13 +139,6 @@ export const useStyles = makeStyles({
             marginLeft: '1em',
             marginRight: '1em',
             marginTop: '1em',
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            width: widths.mobile * 0.95 * 0.95,
-            height: heights.mobile * 0.8 * 0.95,
-            marginLeft: widths.mobile * 0.025 * 0.95,
-            marginRight: widths.mobile * 0.025 * 0.95,
-            marginTop: widths.mobile * 0.025 * 0.95,
         },
         display: 'flex',
         flexDirection: 'row',
@@ -151,6 +151,13 @@ export const useStyles = makeStyles({
     bottom_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
+        '@media (max-aspect-ratio: 1/1)': {
+            height: heights.mobile * 0.08,
+            width: widths.mobile * 0.95,
+            marginLeft: widths.mobile * 0.025,
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize001685,
             width: imgChoicesWidth,
@@ -159,56 +166,49 @@ export const useStyles = makeStyles({
             flexWrap: 'no-wrap',
             alignItems: 'center',
         },
-        '@media (max-aspect-ratio: 1/1)': {
-            height: heights.mobile * 0.08,
-            width: widths.mobile * 0.95,
-            marginLeft: widths.mobile * 0.025,
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-        },
     }),
     ok_button: props => ({
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: heights.mobile * 0.095*0.333*0.75,
+            marginRight: widths.mobile * 0.95 * 0.025,
+            height: '2em',
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             ...button(fontSize001685),
             marginRight: "1em",
         },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: heights.mobile * 0.095*0.333*0.75,
-            height: '2em',
-            marginRight: widths.mobile * 0.95 * 0.025,
-        },
     }),
     delete_button: props => ({
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: heights.mobile * 0.095*0.333*0.75,
+            marginLeft: widths.mobile * 0.95 * 0.025,
+            height: '2em',
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
             ...button(fontSize001685),
             marginLeft: "2em",
         },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: heights.mobile * 0.095*0.333*0.75,
-            height: '2em',
-            marginLeft: widths.mobile * 0.95 * 0.025,
-        },
     }),
     button_icon: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize001685,
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: heights.mobile * 0.095*0.333*0.6667,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize001685,
         },
         minHeight: 'unset',
         minWidth: 'unset',
     }),
     show_names: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize001685,
-            marginLeft: "2em",
-        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: heights.mobile * 0.095*0.333,
             marginLeft: "auto",
             marginRight: "auto",
             height: '1em',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize001685,
+            marginLeft: "2em",
         },
     }),
 });

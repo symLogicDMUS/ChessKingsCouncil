@@ -13,7 +13,7 @@ export const fontSizes = {
 
 export const useStyles = makeStyles({
     board: props => ({
-        '@media (max-aspect-ratio: 1/1) and (min-aspect-ratio: 1/2)': {
+        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
             ...board(fontSizes.mobile),
         },
         "@media (max-aspect-ratio: 1/2)": {

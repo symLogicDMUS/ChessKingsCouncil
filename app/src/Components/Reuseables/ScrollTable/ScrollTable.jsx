@@ -43,7 +43,7 @@ function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, adde
                 variant="outlined"
                 style={buttonStyle}
             >
-                <ArrowDropUpIcon style={{fontSize: style.fontSize}} />
+                <ArrowDropUpIcon className={classes.arrow_icon}  />
             </Button>
             {state.componentList}
             <Button
@@ -54,7 +54,7 @@ function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, adde
                 variant="outlined"
                 style={buttonStyle}
             >
-                <ArrowDropDownIcon style={{fontSize: style.fontSize}}/>
+                <ArrowDropDownIcon className={classes.arrow_icon}/>
             </Button>
         </Box>
     )

@@ -53,12 +53,12 @@ export default function MuiAccordion({theme, style, rootStyle, children }) {
                         className={classes.accordion_tab}
                     >
                         <AccordionSummary
-                            className={classes.accordion_summary}
+                            className={(children.length > 2) ? classes.accordion_summary : null}
                             expandIcon={<ExpandMoreIcon className={classes.expand_icon}  />}
                             aria-controls="panel1a-content"
                             id={children[i].id}
                         >
-                            <Typography className={classes.accordion_title}>{children[i].title}</Typography>
+                            <Typography className={(children.length > 2) ? classes.accordion_title : null}>{children[i].title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails className={classes.accordion_body}>
                             {children[i].body}

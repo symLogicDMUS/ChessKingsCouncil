@@ -3,7 +3,7 @@ import {tool, tool_flexbox, tool_title} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     location_tool: (props) => ({
-        ...tool(props.fontSize, props.theme),
+        ...tool(props.theme),
     }),
     title: props => ({
         ...tool_title(props.theme),
