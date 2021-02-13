@@ -1,12 +1,7 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {
-    fontSize0023,
-    fontSize0027,
-    fontSizeW006,
-    fontSizeW0062
-} from "../styles/fontSizes.jss";
+import {fontSize0023, fontSize0027, fontSizeW006, fontSizeW0062} from "../styles/fontSizes.jss";
 
 export const fontSizes = {
     desktop: fontSize0023,
@@ -27,15 +22,17 @@ export const widths = {
     ipad: '7.5em',
 }
 
+export const modalWidths = {
+    mobile: availWidth(),
+    desktop: availWidth() * 0.5,
+    ipad: availWidth() * 0.95,
+}
+
 export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (min-aspect-ratio: 1001/1000)': {
-            height: availHeight() * 0.75,
-            width: availWidth() * 0.5,
-        },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media (max-aspect-ratio: 834/1194)': {
             height: availHeight() * 0.65,
             width: availWidth(),
             marginTop: '0.05em',
@@ -47,6 +44,10 @@ export const useStyles = makeStyles({
             marginRight: 'auto',
             marginTop: '0.25em',
             marginBottom: '0.25em',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            height: availHeight() * 0.75,
+            width: availWidth() * 0.5,
         },
         backgroundColor: themes[props.theme].fill,
         border: `0.12em solid ${themes[props.theme].odd_row}`,
@@ -64,4 +65,3 @@ export const useStyles = makeStyles({
         marginBottom: '0.75em',
     }),
 });
-

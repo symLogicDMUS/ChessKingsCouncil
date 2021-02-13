@@ -8,6 +8,7 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./CouncilRules.jss";
 import {themes} from "../styles/themes.jss";
+import {availWidth} from "../helpers/windowMeasurments";
 
 export function CouncilRules() {
     const classes = useStyles({fontSize: fontSize002});
@@ -25,7 +26,7 @@ export function CouncilRules() {
     return (
         <div>
             <MediaQuery minAspectRatio={'1001/1000'}>
-                <Background theme='tan'/>
+                <Background theme='tan' navBar={true} currentPage='CouncilRules'/>
                 <NavBar
                     theme="tan"
                     currentPage="CouncilRules"
@@ -130,7 +131,9 @@ export function CouncilRules() {
                     theme="tan"
                 >
                     <div className={classes.council_rules}>
-                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg'/>
+                        <Box className={classes.scroll_end_container}>
+                            <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg'/>
+                        </Box>
                         <Box className={classes.parchment_mobile}>
                             <Typography className={classes.title} noWrap>
                                 Council of Kings
@@ -199,7 +202,9 @@ export function CouncilRules() {
                                 </ul>
                             </Typography>
                         </Box>
-                        <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-bottom.svg'/>
+                        <Box className={classes.scroll_end_container}>
+                            <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-bottom.svg'/>
+                        </Box>
                     </div>
                 </PersistentDrawer>
             </MediaQuery>

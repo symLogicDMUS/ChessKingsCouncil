@@ -10,7 +10,7 @@ export function NavBarExample(props) {
 
     return (
         <>
-            <Box className={classes.nav_bar} >
+            <Box className={classes.nav_bar} style={{opacity: 0}} >
                 {(Array.from(new Array(8))).map((index) => (
                     <NavBarButtonExample
                         key={index}

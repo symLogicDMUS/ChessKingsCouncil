@@ -1,12 +1,7 @@
 import {availWidth} from "../../helpers/windowMeasurments";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {
-    fontSize0016,
-    fontSize0023,
-    fontSize0025,
-    fontSizeW004,
-    fontSizeW0055
-} from "../../styles/fontSizes.jss";
+import {fontSize0016, fontSize0023, fontSize0025, fontSizeW004, fontSizeW0055} from "../../styles/fontSizes.jss";
+import {modalWidths} from "../../PieceProfiles/PieceProfiles.jss";
 
 export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
@@ -41,6 +36,14 @@ export const ok_button = (screenCase) => {
                 fontSize: fontSize0023,
                 fontFamily: 'Roboto-Light, Roboto',
                 width: '100%',
+                marginTop: '0.5em',
+            }
+        case 'ipad':
+            return {
+                ...drawer_component(screenCase),
+                fontSize: fontSize0023,
+                fontFamily: 'Roboto-Light, Roboto',
+                width: modalWidths[screenCase],
                 marginTop: '0.5em',
             }
         default:
@@ -191,6 +194,9 @@ export const scroll_table_added = (screenCase) => {
     }
 };
 
+export const accordion_style = (screenCase) => ({
+    width: modalWidths[screenCase],
+});
 
 export const piece_profiles = (screenCase) => {
     switch (screenCase) {

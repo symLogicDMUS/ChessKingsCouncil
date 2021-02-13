@@ -65,7 +65,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                     setModal('accept')
                     break;
                 case 'invalid-characters':
-                    setMessage('a piece name cannot contain characters ".", "#", "$", "[", or "]"')
+                    setMessage('a piece name cannot contain these characters: . # $ [ ]')
                     setModal('accept')
                     break;
                 case 'no-icon':

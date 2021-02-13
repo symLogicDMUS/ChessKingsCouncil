@@ -39,7 +39,7 @@ import {
     promo_all_checkbox,
     scroll_table_added,
     scroll_table_button,
-    scroll_table,
+    scroll_table, accordion_style,
 } from "./Customize.jss";
 import {sampleDefs} from "../../../API/apiHelpers/sampleDefs";
 import {getSetSampleDefs} from "../../../API/getSetSampleDefs";
@@ -375,7 +375,7 @@ class Customize extends React.Component {
                                 newReplaced={this.newReplaced}
                                 searchText={this.state.searchText}
                             />
-                            <MuiAccordion theme={this.state.theme} >
+                            <MuiAccordion theme={this.state.theme} rootStyle={accordion_style(resolveScreenCase('mobile'))} >
                                 {[
                                     {
                                         id: "sub-list",
@@ -417,7 +417,7 @@ class Customize extends React.Component {
                             </MuiAccordion>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button('mobile')}
+                                style={ok_button(resolveScreenCase('mobile'))}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}
