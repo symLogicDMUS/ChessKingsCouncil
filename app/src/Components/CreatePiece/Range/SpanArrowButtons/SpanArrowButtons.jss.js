@@ -30,6 +30,10 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
+            gridTemplateColumns: "repeat(3, 2.85em)",
+            gridTemplateRows: "repeat(3, 2.85em)",
+            columnGap: '0.28em',
+            rowGap: '0.28em',
         },
     }),
 });

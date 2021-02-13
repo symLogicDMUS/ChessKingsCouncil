@@ -24,7 +24,8 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             ...board(fontSizes.desktop),
-            boxShadow: '0 0 0.1em white'
+            boxShadow: '0 0 0.1em white',
+            margin: 'auto',
         },
     }),
 });

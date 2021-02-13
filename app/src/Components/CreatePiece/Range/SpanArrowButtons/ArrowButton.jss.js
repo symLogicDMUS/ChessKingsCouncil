@@ -38,6 +38,10 @@ const container = (angle, theme) => ({
     },
     '@media (min-aspect-ratio: 1001/1000)': {
         fontSize: fontSizes.desktop,
+        width: '2.75em',
+        height: '2.75em',
+        borderRadius: '0.2em',
+        border: `0.05em solid ${themes[theme].outline}`,
     },
     ...buttonPos[angle],
     display: 'flex',
@@ -80,6 +84,8 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
+            width: '2.75em',
+            height: '2.75em',
         },
         color: themes[props.theme].text,
     }),
@@ -102,6 +108,8 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
+            width: '2em',
+            height: '2em',
         },
         color: themes[props.theme].text,
     }),

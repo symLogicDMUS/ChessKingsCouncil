@@ -30,8 +30,8 @@ export const useStyles = makeStyles({
         ...tool(props.theme),
         '@media (min-aspect-ratio: 1001/1000)': {
             ...tool_flexbox,
-            marginBottom: '2.5%',
+            marginBottom: '3vh',
+
         },
-        // height: availHeight() * 0.08,
     }),
 });

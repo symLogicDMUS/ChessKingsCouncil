@@ -59,10 +59,10 @@ export const useStyles = makeStyles({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'space-evenly',
+        alignContent: 'space-evenly',
         "@media (max-aspect-ratio: 1/1)": {
             height: availHeight() - appBarHeight * 0.8,
-            justifyContent: 'space-evenly',
-            alignContent: 'space-evenly',
         },
         "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
             transform: 'translate(0, 2vh)'
@@ -70,8 +70,8 @@ export const useStyles = makeStyles({
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
             transform: 'translate(0, 2.5vh)',
         },
-        '@media and (min-aspect-ratio: 1001/1000)': {
-            height: '100vh',
+        '@media (min-aspect-ratio: 1001/1000)': {
+            height: '90vh',
             justifyContent: 'center',
             alignContent: 'center',
         },
@@ -140,7 +140,7 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSize0016,
-            margin: '4em',
+            margin: '1.5em',
         },
         width: '100%',
     }),

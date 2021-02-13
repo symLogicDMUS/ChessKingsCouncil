@@ -24,6 +24,10 @@ const list_item = (theme, fontSize, tableHeight, numRows) => ({
         borderLeft: `0.01em solid ${themes[theme].outline}`,
         borderRight: `0.01em solid ${themes[theme].outline}`,
     },
+    '@media (min-aspect-ratio: 1001/1000)': {
+        borderLeft: `0.05em solid ${themes[theme].outline}`,
+        borderRight: `0.05em solid ${themes[theme].outline}`,
+    },
     height: `${(tableHeight - getArrowButtonHeight(tableHeight) * 2) / numRows}em`,
 });
 
@@ -59,9 +63,6 @@ export const useStyles = makeStyles({
         fontSize: props.style.fontSize,
         width: props.style.width,
         height: `${getArrowButtonHeight(props.style.height)}em`,
-        '@media (min-aspect-ratio: 1001/1000)': {
-            border: `0.05em solid ${themes[props.theme].outline}`,
-        },
         '@media (max-aspect-ratio: 1/2)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
@@ -70,6 +71,9 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
             border: `0.01em solid ${themes[props.theme].outline}`,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         background: themes[props.theme].fill,
         color: themes[props.theme].text,
