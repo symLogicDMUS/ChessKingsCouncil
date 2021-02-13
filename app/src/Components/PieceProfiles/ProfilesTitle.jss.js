@@ -11,12 +11,14 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-between',
         '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSize002,
             width: availWidth() * 0.4625,
             marginLeft: '3.25%',
         },
         '@media (max-aspect-ratio: 1/1)': {
-            width: '100%',
-            marginLeft: '3.75%',
+            fontSize: fontSize002,
+            width: '95%',
+            marginLeft: '2.5%',
         },
         color: themes[props.theme].text,
         marginBottom: '0.25em',

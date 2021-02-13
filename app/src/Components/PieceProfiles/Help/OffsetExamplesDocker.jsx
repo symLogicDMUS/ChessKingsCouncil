@@ -22,7 +22,7 @@ export const OffsetExamplesDocker = ({theme}) => {
                         />
                     </IconButton>
                     <Typography
-                        className={classes.text}
+                        className={classes.range_title}
                         noWrap
                     >
                         White Offsets
@@ -42,7 +42,7 @@ export const OffsetExamplesDocker = ({theme}) => {
                         />
                     </IconButton>
                     <Typography
-                        className={classes.text}
+                        className={classes.range_title}
                         noWrap
                     >
                         Black Offsets

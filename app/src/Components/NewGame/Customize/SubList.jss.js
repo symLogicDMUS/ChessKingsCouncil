@@ -46,6 +46,7 @@ export const useStyles = makeStyles({
             fontFamily: 'Roboto-Light, Roboto',
         },
         '@media (max-aspect-ratio: 1/1)': {
+            marginTop: '-2vh',
             fontSize: fontSize0023,
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'

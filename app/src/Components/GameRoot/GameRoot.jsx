@@ -1,6 +1,5 @@
 import React from "react";
 import {Portal} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
@@ -30,17 +29,17 @@ import {StatusBar} from "./StatusBar/StatusBar";
 import MuiAccordion from "../Reuseables/MuiAccordion";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
-import {boardPos, boardSizes} from "../Reuseables/Board.jss";
+import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
+import {getPieceImg} from "../MyPieces/getPieceImg";
 import {accordion_root, styles} from "./GameRoot.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -55,7 +54,6 @@ class GameRoot extends React.Component {
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
-
         let gameData;
         if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
             gameData = this.props.location.state.gameData;
@@ -76,13 +74,22 @@ class GameRoot extends React.Component {
         this.ranges = gameData.ranges;
         this.promoChoices = gameData.promos;
         this.enemyRanges = gameData.enemy_ranges;
-        this.aiStart = null;
-        this.aiDest = null;
-        this.aiCapture = null;
+        this.capturedIds = gameData.captured;
+        if (! this.capturedIds) this.capturedIds = copy(newData.captured)
+        if (! this.capturedIds.W) this.capturedIds.W = []
+        if (! this.capturedIds.B) this.capturedIds.B = []
+        this.capturedDict = {
+            W: this.capturedIds.W.map(id => getPieceImg(id, this.idDict, this.defs)),
+            B: this.capturedIds.B.map(id => getPieceImg(id, this.idDict, this.defs)),
+        }
+        this.captured = ''
         if (this.playerType === "test") this.aiColor = "none";
         else if (this.playerType === "W") this.aiColor =  "B";
         else if (this.playerType === "B") this.aiColor =  "W";
         if (this.gameType === "council") this.promoChoices.push("King");
+        this.aiStart = null;
+        this.aiDest = null;
+        this.aiCapture = null;
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
@@ -237,6 +244,7 @@ class GameRoot extends React.Component {
             json_records: records,
             piece_defs: pieceDefs,
             id_dict: this.idDict,
+            captured: this.capturedIds,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
             this.setState({isSaveMessage: true, saveProcess: false});
@@ -313,6 +321,7 @@ class GameRoot extends React.Component {
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
                         />
+                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict} />
                     </PermanentDrawer>
                     <SideBar
                         drawerType="left"
@@ -354,12 +363,12 @@ class GameRoot extends React.Component {
                         <Board gameRoot={this}/>
                         <MuiAccordion
                             theme={this.state.theme}
-                            rootStyle={accordion_root()}
+                            rootStyle={accordion_root(resolveScreenCase('mobile'))}
                         >
                             {[
                                 {
                                     id: "game-info",
-                                    title: <Typography>Game Info</Typography>,
+                                    title: 'Game Info',
                                     body: (
                                         <GameInfo
                                             gameName={this.gameName}
@@ -371,7 +380,7 @@ class GameRoot extends React.Component {
                                 },
                                 {
                                     id: "save-resign",
-                                    title: <Typography>Save/Resign</Typography>,
+                                    title: 'Save/Resign',
                                     body: (
                                         <SaveResignTool
                                             triggerSaveProcess={() =>
@@ -392,9 +401,7 @@ class GameRoot extends React.Component {
                                 },
                                 {
                                     id: "range-display",
-                                    title: (
-                                        <Typography>Range GameBoard</Typography>
-                                    ),
+                                    title: 'Range GameBoard',
                                     body: (
                                         <BoardTool
                                             board={this.board}

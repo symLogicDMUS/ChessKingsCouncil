@@ -8,7 +8,6 @@ export const getImgItems = (
     imgNameChoice,
     searchText,
     showNames,
-    screenCase,
     theme
 ) => {
     let names;
@@ -27,7 +26,6 @@ export const getImgItems = (
                 theme={theme}
                 setChoice={setChoice}
                 base64ImgStr={imgDict[name]}
-                screenCase={screenCase}
                 showName={showNames}
                 isSelected={name === imgNameChoice}
             />

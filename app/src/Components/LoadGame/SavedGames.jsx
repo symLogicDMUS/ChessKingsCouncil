@@ -1,17 +1,18 @@
 import React, {useState} from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
+import {HelpText} from "./HelpText";
+import {HelpTitle} from "../Reuseables/HelpTitle";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import StorageIcon from '@material-ui/icons/Storage';
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {Background} from "../Reuseables/Background";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
-import {HelpTitle} from "../Reuseables/HelpTitle";
-import {HelpText} from "./HelpText";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {imgGridRootStyle, useStyles} from "./SavedGames.jss";
-import {Background} from "../Reuseables/Background";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {imgGridRootStyle, search_box, useStyles} from "./SavedGames.jss";
+import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
@@ -49,7 +50,6 @@ export function SavedGames(props) {
                                 onClose={null}
                                 topFlexbox={null}
                                 theme={props.theme}
-                                screenCase="desktop"
                                 defaultChecked={true}
                                 rootStyle={imgGridRootStyle()}
                                 searchText={searchText}
@@ -80,7 +80,7 @@ export function SavedGames(props) {
                     }
                     appBarContent={
                         <>
-                            <Typography variant="h6" noWrap>
+                            <Typography variant="h6" noWrap style={pageTitleStyle()}>
                                 Load Game
                             </Typography>
                         </>
@@ -98,10 +98,6 @@ export function SavedGames(props) {
                         defaultChecked={true}
                         searchText={searchText}
                         theme={props.theme}
-                        screenCase="mobile"
-                        itemWindowStyle={{
-                            height: '48.5em'
-                        }}
                         confirmDeleteMessage={
                             props.confirmDeleteMessage
                         }
@@ -110,8 +106,8 @@ export function SavedGames(props) {
                         title={
                             <SearchBox
                                 width='100%'
-                                style={{marginTop: '-0.5em', marginBottom: '0.75em'}}
                                 theme={props.theme}
+                                style={search_box('mobile')}
                                 updateSearchText={updateSearchText}
                             />
                         }

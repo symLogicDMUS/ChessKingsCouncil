@@ -451,7 +451,7 @@ class CreatePiece extends React.Component {
                             {[
                                 {
                                     id: "name",
-                                    title: <Typography className={this.props.classes.accordion_title}>Name</Typography>,
+                                    title: 'Name',
                                     body: (
                                         <Name
                                             key={uuidv4()}
@@ -468,7 +468,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "icon",
-                                    title: <Typography className={this.props.classes.accordion_title}>Icon</Typography>,
+                                    title: 'Icon',
                                     body: (
                                         <Icon
                                             key={"Icon-Mobile"}
@@ -483,7 +483,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "range",
-                                    title: <Typography className={this.props.classes.accordion_title}>Range</Typography>,
+                                    title: 'Range',
                                     body: (
                                         <Range
                                             key={"Range"}
@@ -497,7 +497,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "location",
-                                    title: <Typography className={this.props.classes.accordion_title}>Location</Typography>,
+                                    title: 'Location',
                                     body: (
                                         <Location
                                             key={"Location"}
@@ -509,7 +509,7 @@ class CreatePiece extends React.Component {
                                 },
                                 {
                                     id: "options",
-                                    title: <Typography className={this.props.classes.accordion_title}>Options</Typography>,
+                                    title: 'Options',
                                     body: (
                                         <Options
                                             key={"Options"}

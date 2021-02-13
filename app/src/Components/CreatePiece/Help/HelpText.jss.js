@@ -1,6 +1,7 @@
 import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
+import {def} from "../../PieceProfiles/Help/dockerDef";
 
 export const inline_text = (fontSize, theme) => ({
     ...help_text(fontSize * 1.1, theme),
@@ -9,18 +10,9 @@ export const inline_text = (fontSize, theme) => ({
     position: "relative",
     left: "-1em",
 });
-export const example_box = (screenCase) => {
 
+export const example_box = (screenCase) => {
     switch (screenCase) {
-        case 'desktop':
-            return {
-                width: "100%",
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "nowrap",
-                alignItems: "center",
-                justifyContent: "center",
-            }
         case 'mobile':
             return {
                 width: "100%",
@@ -29,9 +21,19 @@ export const example_box = (screenCase) => {
                 justifyContent: "center",
                 alignItems: 'center'
             }
+        default:
+            return {
+                width: "95%",
+                marginLeft: '2.5%',
+                display: "flex",
+                flexDirection: "row",
+                flexWrap: "nowrap",
+                alignItems: "center",
+                justifyContent: "space-between",
+            }
     }
-
 };
+
 export const button = (theme) => ({
     display: "inline-block",
     borderRadius: 0,

@@ -69,8 +69,6 @@ export const useStyles = makeStyles({
         '@media (aspect-ratio: 1024/1366)':{
             fontSize: titleFontSizes.ipad,
         },
-        // marginLeft: 'auto',
-        // transform: 'translate(0.5em, 0)',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
         textAlign: 'center',

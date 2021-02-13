@@ -1,9 +1,10 @@
 import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const styles = {
     my_pieces: props => ({
-        width: availWidth(),
+        width: '100vw',
         height: availHeight() * 0.8,
         overflowX: 'hidden',
         '@media (min-aspect-ratio: 16/9)': {
@@ -13,8 +14,7 @@ export const styles = {
             alignItems: 'center',
         },
         '@media (max-aspect-ratio: 1/1)': {
-            width: '100%',
-            height: '100%',
+            height: availHeight() - appBarHeight,
         },
     }),
 };

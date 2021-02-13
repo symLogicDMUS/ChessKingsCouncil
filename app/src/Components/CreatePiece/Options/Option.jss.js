@@ -1,6 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
-import {fontSize0018, fontSize002, fontSize0035} from "../../styles/fontSizes.jss";
+import {
+    fontSize002, fontSize00301, fontSize0035
+} from "../../styles/fontSizes.jss";
 
 export const optionButtonSize = 3.5;
 
@@ -14,6 +16,7 @@ export const useStyles = makeStyles({
             margin: '0.25em'
         },
         '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSize00301,
             margin: 'auto'
         },
         width: '3.5em',

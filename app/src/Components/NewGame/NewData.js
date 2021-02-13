@@ -96,6 +96,11 @@ export const newData = {
 
     promos: ["Queen", "Rook", "Bishop", "Knight"],
 
+    captured: {
+        W: [],
+        B: [],
+    },
+
     id_dict: {
         k: "King",
         q: "Queen",

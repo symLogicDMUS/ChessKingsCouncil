@@ -22,7 +22,7 @@ export const SpanExamplesDocker = ({theme }) => {
                         />
                     </IconButton>
                     <Typography
-                        className={classes.text}
+                        className={classes.range_title}
                         noWrap
                     >
                         White Spans
@@ -42,7 +42,7 @@ export const SpanExamplesDocker = ({theme }) => {
                         />
                     </IconButton>
                     <Typography
-                        className={classes.text}
+                        className={classes.range_title}
                         noWrap
                     >
                         Black Spans

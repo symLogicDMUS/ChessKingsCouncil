@@ -20,7 +20,6 @@ export function SampleRangeBoard({fontSize, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize, type: 'normal'});
 
     const locationC3 = 'c3'
-    const rangeTypeSpan = 'span';
     const sampleBoardObj = getBinaryBoarAllFalse()
     for (const rf of ['d4', 'e5', 'f6', 'g7', 'h8']) {
         sampleBoardObj[rf] = true

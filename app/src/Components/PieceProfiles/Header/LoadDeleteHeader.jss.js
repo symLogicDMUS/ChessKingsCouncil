@@ -2,7 +2,42 @@ import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {fontSize002, fontSize001685, fontSizeW0031} from "../../styles/fontSizes.jss";
+import {
+    fontSize002, fontSizeW0025,
+    fontSizeW003224,
+    fontSizeW0035,
+} from "../../styles/fontSizes.jss";
+
+export const icon = (screenCase) => {
+    switch (screenCase) {
+        case 'mobile':
+            return {
+                fontSize: fontSizeW0035
+            }
+        case 'ipx':
+            return {
+                fontSize: fontSizeW0035
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSizeW0025
+            }
+        default:
+            return null;
+    }
+};
+
+export const delete_icon = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return null;
+        default:
+            return {
+                ...icon(screenCase),
+                transform: 'translate(0.25em, 0)',
+            }
+    }
+};
 
 export const button = (theme) => ({
     '@media (min-aspect-ratio: 16/9)': {
@@ -52,7 +87,10 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
-            // marginRight: '0.5em'
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+            width: widths.ipad,
         },
         marginLeft: '1em',
     }),
@@ -64,16 +102,21 @@ export const useStyles = makeStyles({
             marginRight: '0.5em',
         },
         '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize002,
-            width: '6.9em',
-            height: '1.9em',
-            maxWidth: '100em',
-            marginRight: '0.9em',
+            fontSize: fontSizeW003224,
+            '& .MuiButton-label': {
+                minHeight: 'unset',
+                lineHeight: '0.85em',
+            },
+            width: '6.25em',
+            height: '2.1em',
         },
-        "@media (max-aspect-ratio: 1/2)": {
-            fontSize: fontSizeW0031,
-            width: '6.9em',
-            height: '2.2em',
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW0025,
+            '& .MuiButton-label': {
+                minHeight: 'unset',
+                lineHeight: '0.85em',
+            },
+            width: '5em',
         },
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
@@ -85,27 +128,23 @@ export const useStyles = makeStyles({
             marginLeft: "0.5em",
         },
         '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize002,
-            width: '6.9em',
-            height: '1.9em',
-            maxWidth: '100em',
-            marginLeft: "0.9em",
+            fontSize: fontSizeW003224,
+            '& .MuiButton-label': {
+                minHeight: 'unset',
+                lineHeight: '0.85em',
+            },
+            width: '6.25em',
+            height: '2.1em',
         },
-        "@media (max-aspect-ratio: 1/2)": {
-            fontSize: fontSizeW0031,
-            width: '6.9em',
-            height: '2.2em',
-            maxWidth: '100em',
-            marginLeft: 0
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW0025,
+            '& .MuiButton-label': {
+                minHeight: 'unset',
+                minWidth: 'unset',
+                lineHeight: '0.85em',
+            },
+            width: '5em',
         },
         border: `0.05em solid ${themes[props.theme].outline}`
-    }),
-    icon: props => ({
-       '@media (min-aspect-ratio: 16/9)': {
-           fontSize: fontSize002,
-       },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize002,
-        },
     }),
 });

@@ -28,13 +28,15 @@ export function ProfileWBModal({
                     theme={theme}
                 />
             </Box>
-            <ProfileWB
-                def={def}
-                color={color}
-                theme={theme}
-                pieceName={pieceName}
-                screenCase={screenCase}
-            />
+            <Box className={classes.wb_container}>
+                <ProfileWB
+                    def={def}
+                    color={color}
+                    theme={theme}
+                    pieceName={pieceName}
+                    screenCase={screenCase}
+                />
+            </Box>
         </Box>
     );
 }

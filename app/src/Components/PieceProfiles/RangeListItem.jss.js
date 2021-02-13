@@ -16,5 +16,11 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
+        '@media (max-aspect-ratio: 1/2)': {
+            fontSize: fontSizes.ipx,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizes.ipad,
+        },
     }),
 });

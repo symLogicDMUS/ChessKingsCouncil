@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
-import {checkbox, checkbox_gen, checkbox_root} from "../../PieceProfiles/Header/CustomizeHeader.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {DrawerContent} from "../../Reuseables/DrawerContent";
 import {SubList} from "./SubList";
@@ -30,12 +29,17 @@ import {newData} from "../NewData";
 import {fontSize0023, fontSizeW0045
 } from "../../styles/fontSizes.jss";
 import {
-    accordion, drawer_component,
-    ok_button, pawn_promotion, piece_profiles, promo_all_checkbox,
-    promo_all_container, promo_all_root,
-    scroll_table,
+    drawer_component,
+    ok_button,
+    pawn_promotion,
+    piece_profiles,
+    promo_all_gen,
+    promo_all_root,
+    promo_all_container,
+    promo_all_checkbox,
     scroll_table_added,
-    scroll_table_button
+    scroll_table_button,
+    scroll_table,
 } from "./Customize.jss";
 
 
@@ -255,7 +259,7 @@ class Customize extends React.Component {
         return (
             <>
                 {this.state.redirect ? (this.play()) : null}
-                <div> {/*className={this.props.classes.customize}*/}
+                <div>
                     <MediaQuery minAspectRatio={'16/9'}>
                         <PermanentDrawer
                             drawerType="right"
@@ -307,9 +311,9 @@ class Customize extends React.Component {
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
-                                    rootStyle={checkbox_root(resolveScreenCase('desktop'))}
-                                    checkboxStyle={checkbox(resolveScreenCase('desktop'))}
-                                    style={checkbox_gen(resolveScreenCase('desktop'))}
+                                    rootStyle={promo_all_root(resolveScreenCase('desktop'))}
+                                    checkboxStyle={promo_all_checkbox(resolveScreenCase('desktop'))}
+                                    style={promo_all_gen(resolveScreenCase('desktop'))}
                                 >
                                     Promo All
                                 </MuiCheckbox>
@@ -372,9 +376,7 @@ class Customize extends React.Component {
                                 {[
                                     {
                                         id: "sub-list",
-                                        title: (
-                                            <Typography>Sub List</Typography>
-                                        ),
+                                        title: 'Sub List',
                                         body: (
                                             <SubList
                                                 subs={this.subs}
@@ -384,13 +386,9 @@ class Customize extends React.Component {
                                     },
                                     {
                                         id: "pawn-promo",
-                                        title: (
-                                            <Typography>
-                                                Pawn Promotion List
-                                            </Typography>
-                                        ),
+                                        title: 'Pawn Promotion List',
                                         body: (
-                                            <div style={pawn_promotion('mobile')}>
+                                            <div style={pawn_promotion(resolveScreenCase('mobile'))}>
                                                 <ScrollTable
                                                     numRows={4}
                                                     key={uuidv4()}
@@ -398,17 +396,17 @@ class Customize extends React.Component {
                                                     theme={this.state.theme}
                                                     buttonStyle={scroll_table_button()}
                                                     style={scroll_table('mobile')}
-                                                    addedStyle={scroll_table_added('mobile')}
+                                                    addedStyle={scroll_table_added(resolveScreenCase('mobile'))}
                                                 />
-                                                    <MuiCheckbox
-                                                        theme={this.state.theme}
-                                                        rootStyle={promo_all_root()}
-                                                        onClick={() => this.togglePromoAll()}
-                                                        checkboxStyle={promo_all_checkbox('mobile')}
-                                                        style={checkbox_gen('mobile')}
-                                                    >
-                                                        Promo All
-                                                    </MuiCheckbox>
+                                                <MuiCheckbox
+                                                    theme={this.state.theme}
+                                                    onClick={() => this.togglePromoAll()}
+                                                    rootStyle={promo_all_root(resolveScreenCase('mobile'))}
+                                                    checkboxStyle={promo_all_checkbox(resolveScreenCase('mobile'))}
+                                                    style={promo_all_gen(resolveScreenCase('mobile'))}
+                                                >
+                                                    Promo All
+                                                </MuiCheckbox>
                                             </div>
                                         ),
                                     },
@@ -431,4 +429,3 @@ class Customize extends React.Component {
     }
 }
 export default Customize;
-// export default withStyles(styles)(Customize);

@@ -96,26 +96,25 @@ function NewGame() {
                             theme={theme}
                             key={uuidv4()}
                             setPlayerType={setPlayerType}
+                        />
+                        <MuiButton
+                            key={uuidv4()}
+                            onClick={finish}
+                            classesObj={{root: classes.play_button}}
+                            style={{color: themes[theme].button_fill}}
+                            variant="contained"
+                            theme={theme}
+                            isDisabled={
+                                !(
+                                    playerType &&
+                                    gameType &&
+                                    gameName !== "" &&
+                                    invalids.every((c) => charNotInStr(c, gameName))
+                                )
+                            }
                         >
-                            <MuiButton
-                                key={uuidv4()}
-                                onClick={finish}
-                                classesObj={{root: classes.play_button}}
-                                style={{color: themes[theme].button_fill}}
-                                variant="contained"
-                                theme={theme}
-                                isDisabled={
-                                    !(
-                                        playerType &&
-                                        gameType &&
-                                        gameName !== "" &&
-                                        invalids.every((c) => charNotInStr(c, gameName))
-                                    )
-                                }
-                            >
-                                Play
-                            </MuiButton>
-                        </PlayAs>
+                            Play
+                        </MuiButton>
                     </Box>
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>

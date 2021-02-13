@@ -17,18 +17,18 @@ export function GameName({setGameName, gameName, theme}) {
             >
                 <Typography className={classes.title} noWrap>
                     Game Name
-                    <MuiTextField
-                        theme={theme}
-                        value={gameName}
-                        onChange={setGameName}
-                        id={"pick-game-name"}
-                        label={"Pick game name"}
-                        variant={"outlined"}
-                        autoComplete={""}
-                        style={textFieldStyle(fontSize002)}
-                        genStyle={textFieldGenStyle}
-                    />
                 </Typography>
+                <MuiTextField
+                    theme={theme}
+                    value={gameName}
+                    onChange={setGameName}
+                    id={"pick-game-name"}
+                    label={"Pick game name"}
+                    variant={"outlined"}
+                    autoComplete={""}
+                    style={textFieldStyle(fontSize002)}
+                    genStyle={textFieldGenStyle}
+                />
             </Box>
         </div>
     );

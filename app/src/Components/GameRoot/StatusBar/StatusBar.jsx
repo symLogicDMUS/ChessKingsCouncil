@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
@@ -30,6 +30,8 @@ export function StatusBar({ turn, winner, condition, theme }) {
         }
     }
 
+    const gameStatus = getMessage()
+
     return (
         <>
             <Box
@@ -41,15 +43,23 @@ export function StatusBar({ turn, winner, condition, theme }) {
                     <Typography variant='h6' className={classes.page_name}>
                         Play Game
                     </Typography>
+                    <Typography
+                        className={classes.status_bar}
+                        variant="h6"
+                        noWrap={true}
+                    >
+                        {gameStatus}<div className={classes.alignment_adjuster}>Play Game</div>
+                    </Typography>
                 </MediaQuery>
-                <Typography
-                    className={classes.status_bar}
-                    variant="h6"
-                    noWrap={true}
-                >
-                    {getMessage()}
-                </Typography>
-
+                <MediaQuery maxAspectRatio={'1/1'}>
+                    <Typography
+                        variant="h6"
+                        noWrap={true}
+                        className={classes.status_bar}
+                    >
+                        {gameStatus}
+                    </Typography>
+                </MediaQuery>
             </Box>
         </>
     );

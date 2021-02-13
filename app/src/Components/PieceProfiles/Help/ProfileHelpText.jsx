@@ -8,15 +8,9 @@ import {ProfileExampleDocker} from "./ProfileExampleDocker";
 import {IconButtonExample as Icb} from "./IconButtonExample";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
-import {themes} from "../../styles/themes.jss";
-import {fontSizes, useStyles} from "./ProfileHelpText.jss";
+import {fontSizes, subtitle, useStyles} from "./ProfileHelpText.jss";
 
 export function ProfileHelpText(props) {
-    const [board, setBoard] = useState(<div />);
-
-    // useEffect(() => {
-    //     setBoard(<SampleRangeBoard theme={props.theme} fontSize={} />)
-    // }, [props.theme]);
 
     const classes = useStyles({theme: props.theme});
 
@@ -24,12 +18,7 @@ export function ProfileHelpText(props) {
         <Typography
             variant='h6'
             className={classes.flexbox}
-            style={{
-                fontSize: props.fontSize,
-                fontFamily: 'Roboto-Light, Roboto',
-                color: themes[props.theme].text,
-                justifyContent: 'center',
-            }}
+            style={subtitle(props.fontSize, props.theme)}
         >
             Piece Profiles
         </Typography>
@@ -50,16 +39,14 @@ export function ProfileHelpText(props) {
             'Upper Right'.
         </Typography>
         <Box className={classes.flexbox} >
-            <Box className={classes.flex_column}>
+            <Box className={classes.partial_range_example}>
                 <MediaQuery minAspectRatio={'16/9'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('desktop')]} />
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('mobile')]} />
                 </MediaQuery>
-                <SampleRangeList
-                    theme={props.theme}
-                />
+                <SampleRangeList theme={props.theme}/>
             </Box>
         </Box>
     </div>;

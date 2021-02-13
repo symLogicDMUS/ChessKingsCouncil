@@ -7,7 +7,8 @@ import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import { MuiButton as Button } from "../../Reuseables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/MuiDeleteButton";
-import { useStyles } from "./LoadDeleteHeader.jss";
+import {delete_icon, icon, useStyles} from "./LoadDeleteHeader.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export function LoadDeleteHeader({
     def,
@@ -17,8 +18,8 @@ export function LoadDeleteHeader({
     dispatch,
     pieceName,
     parentPage,
-    screenCase,
     toggleModal,
+    screenCase,
 }) {
     let history = useHistory();
 
@@ -66,7 +67,7 @@ export function LoadDeleteHeader({
                     <Box className={classes.buttons_inner_flexbox}>
                         <Button
                             theme={theme}
-                            startIcon={<StorageIcon classes={{root: classes.icon}} />}
+                            startIcon={<StorageIcon style={icon(resolveScreenCase(screenCase))}/>}
                             classesObj={{root: classes.load_button}}
                             onClick={loadMethod}
                         >
@@ -77,7 +78,7 @@ export function LoadDeleteHeader({
                             modalTitle={`You are asking to delete piece ${pieceName}.`}
                             modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                            startIcon={<DeleteForever classes={{root: classes.icon}} />}
+                            startIcon={<DeleteForever style={delete_icon(resolveScreenCase(screenCase))} />}
                             classesObj={{root: classes.delete_button}}
                             isDisabled={false}
                             theme={theme}

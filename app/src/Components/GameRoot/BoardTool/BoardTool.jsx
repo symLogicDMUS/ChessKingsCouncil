@@ -9,7 +9,7 @@ import {getBinaryBoarAllFalse} from
 import Box from "@material-ui/core/Box";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
-import {useStyles} from "./BoardTool.jss";
+import {show_profile_gen, show_profile_root, useStyles} from "./BoardTool.jss";
 import {fontSizes} from "../../CreatePiece/Help/RangeToolExample.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
@@ -61,8 +61,8 @@ export function BoardTool({
             <Box className={classes.flex_header}>
                 <MuiCheckbox
                     onClick={toggleShowProfileOnClick}
-                    style={{ fontSize: fontSizes[resolveScreenCase(screenCase)] }}
-                    rootStyle={{ fontSize: fontSizes[resolveScreenCase(screenCase)]}}
+                    style={show_profile_gen(screenCase)}
+                    rootStyle={show_profile_root(screenCase)}
                     defaultChecked={showProfileOnClick}
                     theme={theme}
                 >

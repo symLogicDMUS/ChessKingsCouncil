@@ -2,7 +2,7 @@ import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import {SubExample} from "./SubExample";
 import Typography from "@material-ui/core/Typography";
-import {PromoCheckboxExample} from "../PromoCheckboxExample";
+import {PromoCheckboxExample} from "./PromoCheckboxExample";
 import { help_text, } from "../../../Reuseables/NavBar/HelpText.jss";
 import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
 import {HelpButtonReminder} from "../../../Reuseables/NavBar/HelpButtonReminder";
@@ -36,7 +36,7 @@ export const HelpText = (fontSize, theme) => ([
                 top of the window to add all your pieces to the list, but if you
                 have more than 20 pieces than only the first 20 will be added.
             </li>
-            <PromoCheckboxExample theme={theme} />
+            <PromoCheckboxExample fontSize={fontSize} theme={theme} />
         </ol>
         <p>
             Each game contains its own record of the pieces included in it,

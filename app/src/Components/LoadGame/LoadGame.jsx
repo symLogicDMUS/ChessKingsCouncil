@@ -5,7 +5,7 @@ import {deleteGame} from "../../API/deleteGame";
 import {sampleGames} from "../../API/apiHelpers/sampleGames";
 import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
-import {Background} from "../Reuseables/Background";
+import {getSetSampleGames} from "../../API/getSetSampleGames";
 import {parseData} from "../../apiHelpers/parseData";
 import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";

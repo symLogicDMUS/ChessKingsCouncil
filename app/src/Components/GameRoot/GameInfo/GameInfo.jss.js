@@ -16,11 +16,20 @@ export const useStyles = makeStyles({
             marginBottom: '1em',
             marginLeft: '1em',
             alignItems: 'flex-end',
+            borderTop: `0.05em solid ${themes[props.theme].outline}`,
+            borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '7.5em',
             alignItems: 'center',
+            borderTop: `0.05em solid ${themes[props.theme].outline}`,
+            borderBottom: `0.05em solid ${themes[props.theme].outline}`,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            marginTop: '-1.5vh',
+            borderTop: `0.085em solid ${themes[props.theme].outline}`,
+            borderBottom: `0.085em solid ${themes[props.theme].outline}`,
         },
     }),
     cell: props => ({

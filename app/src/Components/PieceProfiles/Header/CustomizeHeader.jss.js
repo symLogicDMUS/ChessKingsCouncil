@@ -2,12 +2,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {
-    fontSize0025,
-    fontSize0028,
-    fontSizeW003224,
-    fontSizeW0048
-} from "../../styles/fontSizes.jss";
+import {fontSize0025, fontSize0028, fontSizeW003224, fontSizeW0048}
+from "../../styles/fontSizes.jss";
 
 export const checkbox_root = (screenCase) => {
     switch (screenCase) {

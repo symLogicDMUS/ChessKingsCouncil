@@ -16,10 +16,11 @@ import {fontSize002} from "../styles/fontSizes.jss";
  * @param variant
  * @param startIcon
  * @param isDisabled
+ * @param altText: something other than the word delete, or maybe it styled differently
  * @returns {JSX.Element}
  * @constructor
  */
-export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled}) {
+export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled, altText}) {
 
     let [modal, setModal] = useState();
 
@@ -64,7 +65,7 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                 style={style}
                 theme={theme}
             >
-                Delete
+                {altText ? (altText) : 'Delete'}
             </Button>
         </>
     )

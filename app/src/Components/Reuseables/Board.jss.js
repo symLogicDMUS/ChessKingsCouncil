@@ -11,6 +11,7 @@ export const sqrSizes = {
     desktop: availHeight() * 0.095,
     mobile: availWidth() * 0.12125,
     ipx: availWidth() * 0.12125,
+    ipad: availWidth() * 0.105
 }
 
 /**
@@ -19,7 +20,8 @@ export const sqrSizes = {
 export const boardSizes = {
     desktop: sqrSizes.desktop * 8,
     mobile: sqrSizes.mobile * 8,
-    ipx: sqrSizes.ipx * 8
+    ipx: sqrSizes.ipx * 8,
+    ipad: sqrSizes.ipad * 8,
 }
 
 export const boardPos = {
@@ -34,6 +36,10 @@ export const boardPos = {
     ipx: {
         left: availWidth()*0.01,
         top: appBarHeight + availWidth()*0.011,
+    },
+    ipad: {
+      left: availWidth() * 0.5 - (sqrSizes.ipad * 8)*0.5,
+      top: appBarHeight + availWidth() * 0.5 - (sqrSizes.ipad * 8)*0.5,
     }
 }
 
@@ -51,20 +57,22 @@ export const dnd_layer = (boardSize, z) => ({
     zIndex: z,
     width: boardSize,
     height: boardSize,
+    position: 'fixed',
     '@media (min-aspect-ratio: 16/9)': {
-        position: 'fixed',
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,
     },
     '@media (max-aspect-ratio: 1/1)': {
-        position: 'fixed',
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
     "@media (max-aspect-ratio: 1/2)": {
-        position: 'fixed',
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
+    },
+    '@media (aspect-ratio: 1024/1366)':{
+        top: boardPos.ipad.top,
+        left: boardPos.ipad.left,
     },
 });
 

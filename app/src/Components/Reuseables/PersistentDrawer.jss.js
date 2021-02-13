@@ -1,8 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
-export const appBarHeightG4 = 30;
 export const appBarHeight = 55;
 export const drawerWidth = availWidth() * 0.51;
 

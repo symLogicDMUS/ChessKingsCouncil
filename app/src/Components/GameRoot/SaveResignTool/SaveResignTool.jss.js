@@ -1,14 +1,15 @@
 import {
     fontSize002,
     fontSize00224,
-    fontSize0025,
-    fontSize0034
+    fontSizeW00238,
+    fontSizeW0027,
+    fontSizeW005,
+    fontSizeW0056,
+    fontSizeW00375, fontSizeW003224, fontSizeW0035, fontSizeW004
 } from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 
 export const useStyles = makeStyles({
     save_resign_tool: props => ({
@@ -33,50 +34,104 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
         },
         '@media (max-aspect-ratio: 1/2)': {
-            fontSize: availWidth() * 0.25,
-            flexDirection: 'column',
-            alignItems: 'center',
-            height: availHeight() - (availWidth() + appBarHeight*2),
+            fontSize: fontSizeW00238,
+            justifyContent: 'space-between',
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            marginTop: '-2vh',
+            width: '100%',
+            height: '100%',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
         },
     }),
     option: props => ({
+        display: 'flex',
+        flexDirection: 'column',
         '@media (min-aspect-ratio: 16/9)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
-            border: '0.05em solid #2b2b2b',
+            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0034,
-            width: '4em',
-            height: '4em',
-            border: '0.05em solid #2b2b2b',
+            fontSize: fontSizeW00375,
+            width: '7em',
+            height: '7em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media (max-aspect-ratio: 1/2)': {
-            fontSize: availWidth() * 0.25,
-            width: '1em',
-            height: '1em',
-            border: '0.005em solid #2b2b2b',
+            fontSize: fontSizeW0027,
+            width: '10em',
+            height: '10em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW003224,
+            width: '7em',
+            height: '7em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         color: themes[props.theme].button_text,
     }),
     button: props => ({
-        fontSize: fontSize002,
-        marginTop: '0.3em',
-        width: '4.95em',
-        height: '4.95em',
         '&:hover': {
             background: 'none'
         },
+        '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSize002,
+            width: '4.9em',
+            height: '4.9em',
+            marginTop: '0.5em',
+        },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizeW00375,
+            width: '4.95em',
+            height: '4.95em',
+            marginTop: '0.5em',
+        },
+        '@media (max-aspect-ratio: 1/2)': {
+            fontSize: fontSizeW0027,
+            width: '9.5em',
+            height: '9.5em',
+            marginTop: '1em',
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW003224,
+            width: '4.95em',
+            height: '4.95em',
+            marginTop: '0.5em',
+        },
+
     }),
     label: props => ({
         display: "flex",
         flexDirection: "column",
-        border: 'black',
+        alignItems: 'center',
+        justifyContent: 'center',
     }),
     icon: props => ({
-        width: '82.5%',
-        height: '82.5%',
+        '@media (min-aspect-ratio: 16/9)': {
+            fontSize: fontSize002,
+            width: '3em',
+            height: '3em',
+        },
+        '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizeW00375,
+            width: '4.2075em',
+            height: '4.2075em',
+        },
+        '@media (max-aspect-ratio: 1/2)': {
+            fontSize: fontSizeW0027,
+            width: '6em',
+            height: '6em',
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW003224,
+            width: '4.2075em',
+            height: '4.2075em',
+        },
         color: themes[props.theme].text,
     }),
     text: props => ({
@@ -84,7 +139,13 @@ export const useStyles = makeStyles({
             fontSize: fontSize00224,
         },
         '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0025,
+            fontSize: fontSizeW005,
+        },
+        '@media (max-aspect-ratio: 1/2)': {
+            fontSize: fontSizeW0056,
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            fontSize: fontSizeW004,
         },
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,

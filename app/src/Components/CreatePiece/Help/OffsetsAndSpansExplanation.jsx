@@ -10,24 +10,11 @@ import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples"
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
 import {img_example} from "./OffsetsAndSpansExplanation.jss";
 import {useStyles} from "../../Reuseables/SubTitle.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 
 export function OffsetsAndSpansExplanation(props) {
     const classes = useStyles({theme: props.theme, fontSize: props.fontSize});
-
-    const getExamples = (screenCase) => {
-        return (
-            <Box style={example_box(screenCase)}>
-                <img
-                    src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                    alt="span board for dragon"
-                    style={img_example()}
-                />
-                <RangeToolExample theme={props.theme}/>
-            </Box>
-        )
-    };
-
 
     return (
         <div>
@@ -62,22 +49,22 @@ export function OffsetsAndSpansExplanation(props) {
                 </p>
             </Typography>
             <MediaQuery minAspectRatio={'16/9'}>
-                <Box style={example_box('desktop')}>
+                <Box style={example_box(resolveScreenCase('desktop'))}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
+                        style={img_example(resolveScreenCase('desktop'), props.theme)}
                         alt="span board for dragon"
-                        style={img_example()}
                     />
                 </Box>
             </MediaQuery>
             <MediaQuery maxAspectRatio={'1/1'}>
-                <Box style={example_box('mobile')}>
+                <Box style={example_box(resolveScreenCase('mobile'))}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
+                        style={img_example(resolveScreenCase('mobile'), props.theme)}
                         alt="span board for dragon"
-                        style={img_example()}
                     />
                 </Box>
             </MediaQuery>

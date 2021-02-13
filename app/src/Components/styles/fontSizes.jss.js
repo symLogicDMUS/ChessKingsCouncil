@@ -1,8 +1,10 @@
 /*Use as a scalar for styles. numbered by percent of available screen height, decimal after first 0*/
 export const fontSize0015 = window.screen.availHeight * 0.015;
 export const fontSize0016 = window.screen.availHeight * 0.016;
+export const fontSize00165 = window.screen.availHeight * 0.0165;
 export const fontSize001685 = window.screen.availHeight * 0.01685;
 export const fontSize001725 = window.screen.availHeight * 0.01725;
+export const fontSize00175 = window.screen.availHeight * 0.0175;
 export const fontSize0018 = window.screen.availHeight * 0.018;
 export const fontSize00184 = window.screen.availHeight * 0.0184;
 export const fontSize0019 = window.screen.availHeight * 0.019;
@@ -47,16 +49,22 @@ export const fontSize0115 = window.screen.availHeight * 0.115;
 export const fontSize018 = window.screen.availHeight * 0.18;
 
 /* defined by width: */
+export const fontSizeW00238 = window.screen.availWidth * 0.0238;
+export const fontSizeW0024 = window.screen.availWidth * 0.024;
+export const fontSizeW0025 = window.screen.availWidth * 0.025;
+export const fontSizeW0027 = window.screen.availWidth * 0.027;
 export const fontSizeW0028 = window.screen.availWidth * 0.028;
 export const fontSizeW0031 = window.screen.availWidth * 0.031;
 export const fontSizeW003224 = window.screen.availWidth * 0.03224;
 export const fontSizeW0035 = window.screen.availWidth * 0.035;
+export const fontSizeW00375 = window.screen.availWidth * 0.0375;
 export const fontSizeW004 = window.screen.availWidth * 0.04;
 export const fontSizeW0045 = window.screen.availWidth * 0.045;
 export const fontSizeW0047 = window.screen.availWidth * 0.047;
 export const fontSizeW0048 = window.screen.availWidth * 0.048;
 export const fontSizeW005 = window.screen.availWidth * 0.05;
 export const fontSizeW0055 = window.screen.availWidth * 0.055;
+export const fontSizeW0056 = window.screen.availWidth * 0.056;
 export const fontSizeW006 = window.screen.availWidth * 0.06;
 export const fontSizeW0062 = window.screen.availWidth * 0.06;
 export const fontSizeW01 = window.screen.availWidth * 0.1;

@@ -14,7 +14,7 @@ export const widths = {
  * For pages without Permanent Drawer
  * */
 export function ProfilesTitle({theme, updateSearchText, screenCase, children}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize002});
+    const classes = useStyles({theme: theme});
     return (
         <>
             <Box className={classes.title_bar}>

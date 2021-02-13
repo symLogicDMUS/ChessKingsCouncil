@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import { RangeListItem } from "../RangeListItem";
 import { stepFuncNamesToText } from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {board} from "../../Reuseables/Board.jss";
-import {fontSizes} from "./SampleRangeBoard";
 import MediaQuery from "react-responsive/src";
+import {range_list_button_style, range_list_gen_style, range_list_row_style} from "./ProfileHelpText.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export const SampleRangeList = memo(({ theme }) => {
     const rangeFuncs = [
@@ -31,19 +31,9 @@ export const SampleRangeList = memo(({ theme }) => {
                         />
                     ))}
                     theme={theme}
-                    rowStyle={{
-                        cursor: 'pointer'
-                    }}
-                    buttonStyle={{
-                        borderRadius: 0,
-                        fontSize: fontSizes.desktop,
-                        width: '101%'
-                    }}
-                    style={{
-                        height: 8, //converted to em units in ScrollTable.jss
-                        fontSize: fontSizes.desktop,
-                        width: board(fontSizes.desktop).width
-                    }}
+                    rowStyle={range_list_row_style()}
+                    buttonStyle={range_list_button_style(resolveScreenCase('desktop'))}
+                    style={range_list_gen_style(resolveScreenCase('desktop'))}
                 />
             </MediaQuery>
             <MediaQuery maxAspectRatio={'1/1'}>
@@ -57,19 +47,9 @@ export const SampleRangeList = memo(({ theme }) => {
                         />
                     ))}
                     theme={theme}
-                    rowStyle={{
-                        cursor: 'pointer'
-                    }}
-                    buttonStyle={{
-                        borderRadius: 0,
-                        fontSize: fontSizes.mobile,
-                        width: '101%'
-                    }}
-                    style={{
-                        height: 8, //converted to em units in ScrollTable.jss
-                        fontSize: fontSizes.mobile,
-                        width: board(fontSizes.desktop).width
-                    }}
+                    rowStyle={range_list_row_style()}
+                    buttonStyle={range_list_button_style(resolveScreenCase('desktop'))}
+                    style={range_list_gen_style(resolveScreenCase('desktop'))}
                 />
             </MediaQuery>
         </div>

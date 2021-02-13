@@ -13,8 +13,11 @@ export const useStyles = makeStyles({
             marginTop: '-1em'
         },
         "@media (max-aspect-ratio: 1/2)": {
-            marginTop: '-1em',
-            ...board(fontSizes.ipx)
+            marginTop: '0.1em',
+            ...board(fontSizes.ipx),
+        },
+        '@media (aspect-ratio: 1024/1366)':{
+            ...board(fontSizes.ipad),
         },
         outline: `0.04em solid ${themes[props.theme].outline}`
     }),

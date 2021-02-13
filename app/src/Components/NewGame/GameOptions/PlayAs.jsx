@@ -19,26 +19,25 @@ export function PlayAs({setPlayerType, theme, children}) {
             >
                 <Typography className={classes.title}>
                     Play As
-                    <Dropdown
-                        updateParent={setPlayerType}
-                        list={[
-                            <MenuItem value="None">
-                                <em>None</em>
-                            </MenuItem>,
-                            <MenuItem value="White" style={{fontSize: fontSize0018}}>White</MenuItem>,
-                            <MenuItem value="Black" style={{fontSize: fontSize0018}}>Black</MenuItem>,
-                            <MenuItem value="Test" style={{fontSize: fontSize0018}}>Test</MenuItem>,
-                        ]}
-                        overwrite={null}
-                        variant='outlined'
-                        theme={theme}
-                        label='Play As'
-                        inputLabel='Play As'
-                        style={textFieldStyle(fontSize0018)}
-                        genStyle={textFieldGenStyle}
-                    />
-                    {children}
                 </Typography>
+                <Dropdown
+                    updateParent={setPlayerType}
+                    list={[
+                        <MenuItem value="None">
+                            <em>None</em>
+                        </MenuItem>,
+                        <MenuItem value="White" style={{fontSize: fontSize0018}}>White</MenuItem>,
+                        <MenuItem value="Black" style={{fontSize: fontSize0018}}>Black</MenuItem>,
+                        <MenuItem value="Test" style={{fontSize: fontSize0018}}>Test</MenuItem>,
+                    ]}
+                    overwrite={null}
+                    variant='outlined'
+                    theme={theme}
+                    label='Play As'
+                    inputLabel='Play As'
+                    style={textFieldStyle(fontSize0018)}
+                    genStyle={textFieldGenStyle}
+                />
             </Box>
         </div>
     );

@@ -1,8 +1,12 @@
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth, sideBarWidth} from "../../Reuseables/PermanentDrawer.jss";
-import {fontSize0016, fontSize0023, fontSize00301} from "../../styles/fontSizes.jss";
-import {def} from "../../PieceProfiles/Help/dockerDef";
-import {checkbox} from "../../PieceProfiles/Header/CustomizeHeader.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {
+    fontSize0016,
+    fontSize0023,
+    fontSize0025,
+    fontSizeW004,
+    fontSizeW0055
+} from "../../styles/fontSizes.jss";
 
 export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
@@ -48,6 +52,31 @@ export const ok_button = (screenCase) => {
     }
 };
 
+export const pawn_promotion = (screenCase) => {
+    switch (screenCase) {
+        case 'ipad':
+            return {
+                fontSize: fontSize0016,
+                height: '10em',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }
+        default:
+            return {
+                marginTop: '-2vh',
+                fontSize: fontSize0016,
+                height: '10em',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+            }
+    }
+};
+
+
 export const promo_all_container = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
@@ -66,15 +95,24 @@ export const promo_all_container = (screenCase) => {
     }
 };
 
-export const promo_all_root = () => ({
-    marginRight: 'auto',
-    flexGrow: 2,
-});
-
-export const promo_all_checkbox = (screenCase) => {
-    return {
-        ...checkbox(screenCase),
-        transform: 'none'
+export const promo_all_root = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                marginRight: 'auto',
+                marginLeft: 'auto',
+                transform: 'translate(0.5em, 0)'
+            }
+        case 'ipad':
+            return {
+                marginRight: 'auto',
+                marginLeft: 'auto',
+            }
+        default:
+            return {
+                marginRight: 'auto',
+                flexGrow: 2,
+            }
     }
 };
 
@@ -82,11 +120,36 @@ export const promo_all_gen = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
             return {
-                fontSize: fontSize00301,
+                fontSize: fontSize0025
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSizeW004,
+                marginRight: 'auto',
+                marginLeft: 'auto'
             }
         default:
             return {
-                fontSize: fontSize0023
+                fontSize: fontSizeW0055,
+                marginRight: 'auto'
+            }
+    }
+};
+
+export const promo_all_checkbox = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return {
+                fontSize: fontSize0025,
+            }
+        case 'ipad':
+            return {
+                fontSize: fontSizeW004,
+                margin: 'auto',
+            }
+        default:
+            return {
+                fontSize: fontSizeW0055,
             }
     }
 };
@@ -128,21 +191,6 @@ export const scroll_table_added = (screenCase) => {
     }
 };
 
-export const pawn_promotion = (screenCase) => {
-    switch (screenCase) {
-        case 'mobile':
-            return {
-                fontSize: fontSize0016,
-                height: '10em',
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-            }
-        default:
-            return null
-    }
-};
 
 export const piece_profiles = (screenCase) => {
     switch (screenCase) {
@@ -153,14 +201,4 @@ export const piece_profiles = (screenCase) => {
         default:
             return null
     }
-};
-
-export const styles = {
-    customize: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        height: availHeight() * 0.95,
-        width: availWidth(),
-    },
 };
