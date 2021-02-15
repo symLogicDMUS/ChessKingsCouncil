@@ -41,8 +41,6 @@ import {
     scroll_table_button,
     scroll_table, accordion_style,
 } from "./Customize.jss";
-import {sampleDefs} from "../../../API/apiHelpers/sampleDefs";
-import {getSetSampleDefs} from "../../../API/getSetSampleDefs";
 
 
 class Customize extends React.Component {
@@ -67,8 +65,8 @@ class Customize extends React.Component {
         };
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.gameData = {}
-        // this.defs = {};
-        this.defs = copy(sampleDefs)
+        this.defs = {};
+        // this.defs = copy(sampleDefs)
         this.promos = [];
         this.firstTime = false;
         this.promoAll = false;
@@ -99,7 +97,7 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        // this.defs = defs;
+        this.defs = defs;
         this.setState({binaryValue: !this.state.binaryValue});
     }
 

@@ -7,7 +7,7 @@ import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {close_icon} from "../StandardModal.jss";
 import {MuiButton} from "../MuiButton";
-import "../../styles/Scrollbar.scss";
+import "../../styles/scrollbar.scss";
 import {Close} from "../Close";
 import {reducer} from "./HelpSlideshow.red";
 import {useStyles} from "./HelpSlideshow.jss";

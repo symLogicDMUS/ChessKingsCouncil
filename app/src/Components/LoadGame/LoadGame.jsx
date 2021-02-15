@@ -5,11 +5,12 @@ import {deleteGame} from "../../API/deleteGame";
 import {sampleGames} from "../../API/apiHelpers/sampleGames";
 import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
-import {getSetSampleGames} from "../../API/getSetSampleGames";
+import {getSampleGames} from "../../API/getSampleGames";
 import {parseData} from "../../apiHelpers/parseData";
 import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
+import { saveGameDict } from "../../API/saveGameDict";
 
 class LoadGame extends React.Component {
     sampleGames;
@@ -37,11 +38,16 @@ class LoadGame extends React.Component {
         getGames().then(([games]) => {
             if (games) {
                 this.games = games;
+                this.reloadGameImgComponentsDict();
+                this.setState({ loaded: true });    
             } else {
-                this.games = getSetSampleGames();
+                saveGameDict(sampleGames).then(([r]) => {
+                    this.games = getSampleGames()
+                    this.reloadGameImgComponentsDict();
+                    this.setState({ loaded: true });
+                })
             }
-            this.reloadGameImgComponentsDict();
-            this.setState({ loaded: true });
+
         });
     }
 

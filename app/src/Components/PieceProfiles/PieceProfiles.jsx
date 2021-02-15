@@ -1,6 +1,6 @@
 import React, {useEffect, useReducer} from "react";
 import {v4 as uuidv4} from "uuid";
-import "../styles/Scrollbar.scss";
+import "../styles/scrollbar.scss";
 import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import MediaQuery from "react-responsive/src";
@@ -9,59 +9,67 @@ import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
-import {getSetSampleDefs} from "../../API/getSetSampleDefs";
+import { dbSampleDefs } from "../../API/apiHelpers/dbSampleDefs";
 import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
+import {getSampleDefs} from "../../API/getSampleDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
+import { saveDefs } from "../../API/saveDefs";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
 
+    const classes = useStyles({theme: props.theme, style: props.style});
+
     useEffect(() => {
-        const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
-        const colors = ["W", "B"];
         getDefs().then(([result]) => {
-            let defs;
             if (!result) {
-                defs = getSetSampleDefs();
+                saveDefs(dbSampleDefs).then(([r]) => {
+                    let defs = getSampleDefs();
+                    afterLoaded(defs)
+                })
             } else {
-                defs = result;
+                let defs = result;
+                afterLoaded(defs)
             }
-            if (props.updateParent) {
-                props.updateParent(copy(defs));
-            }
-            for (const pieceName of standards) {
-                if (Object.keys(defs).includes(pieceName)) {
-                    delete defs[pieceName];
-                }
-            }
-            for (const pieceName of Object.keys(defs)) {
-                for (const color of colors) {
-                    defs[pieceName][color].span_img = getRangeBoardImgStr(
-                        defs[pieceName][color].img,
-                        "d4",
-                        "span",
-                        defs[pieceName][color].spans,
-                        pieceName,
-                        props.theme,
-                    );
-                    defs[pieceName][color].offset_img = getRangeBoardImgStr(
-                        defs[pieceName][color].img,
-                        'd4',
-                        'offset',
-                        defs[pieceName][color].offsets,
-                        pieceName,
-                        props.theme
-                    )
-                }
-            }
-            dispatch({type: "load", payload: defs});
         });
     }, []);
 
-    const classes = useStyles({theme: props.theme, style: props.style});
+    const afterLoaded = (defs) => {
+        const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
+        const colors = ["W", "B"];
+        if (props.updateParent) {
+            props.updateParent(copy(defs));
+        }
+        for (const pieceName of standards) {
+            if (Object.keys(defs).includes(pieceName)) {
+                delete defs[pieceName];
+            }
+        }
+        for (const pieceName of Object.keys(defs)) {
+            for (const color of colors) {
+                defs[pieceName][color].span_img = getRangeBoardImgStr(
+                    defs[pieceName][color].img,
+                    "d4",
+                    "span",
+                    defs[pieceName][color].spans,
+                    pieceName,
+                    props.theme,
+                );
+                defs[pieceName][color].offset_img = getRangeBoardImgStr(
+                    defs[pieceName][color].img,
+                    'd4',
+                    'offset',
+                    defs[pieceName][color].offsets,
+                    pieceName,
+                    props.theme
+                )
+            }
+        }
+        dispatch({type: "load", payload: defs});
+    }
 
     const getPieceNames = () => {
         if (props.searchText && props.searchText !== "") {

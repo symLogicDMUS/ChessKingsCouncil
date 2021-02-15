@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {v4 as uuidv4} from 'uuid';
 import {useHistory} from "react-router-dom";
 import "../styles/_backgrounds.scss";
-import "../styles/Scrollbar.scss";
+import "../styles/scrollbar.scss";
 import MediaQuery from "react-responsive/src";
 import {Portal, Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";

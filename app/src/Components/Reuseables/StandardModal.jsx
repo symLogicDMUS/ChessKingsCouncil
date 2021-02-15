@@ -4,7 +4,7 @@ import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import { fontSize002 } from "../styles/fontSizes.jss";
 import { close_icon, useStyles } from "./StandardModal.jss";
-import "../styles/Scrollbar.scss";
+import "../styles/scrollbar.scss";
 
 export function StandardModal({ text, title, theme, closeClick, children }) {
     const classes = useStyles({ theme: theme, fontSize: fontSize002 });

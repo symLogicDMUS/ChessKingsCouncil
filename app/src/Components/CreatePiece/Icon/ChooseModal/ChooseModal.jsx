@@ -6,7 +6,8 @@ import PanoramaIcon from "@material-ui/icons/Panorama";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
-import {getSetSampleImgs} from "../../../../API/getSetSampleImgs";
+import {saveImgDict} from "../../../../API/saveImgDict";
+import {getSampleImgs} from "../../../../API/getSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
 import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
@@ -14,7 +15,7 @@ import {fontSize001725} from "../../../styles/fontSizes.jss";
 import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
 import {SearchBox} from "../../../Reuseables/SearchBox";
 import {Close} from "../../../Reuseables/Close";
-import "../../../styles/Scrollbar.scss";
+import "../../../styles/scrollbar.scss";
 import {close_icon, img_grid_root, styles} from "./ChooseModal.jss";
 
 class ChooseModal extends React.Component {
@@ -31,12 +32,16 @@ class ChooseModal extends React.Component {
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
-                this.imgDict = getSetSampleImgs();
+                saveImgDict(sampleBase64ImgStrs).then(([r]) => {
+                    this.imgDict = getSampleImgs();
+                    this.imgDict = filterStandardPieces(this.imgDict);
+                    this.setState({ loaded: true });
+                })
             } else {
                 this.imgDict = imgDict;
+                this.imgDict = filterStandardPieces(this.imgDict);
+                this.setState({ loaded: true });
             }
-            this.imgDict = filterStandardPieces(this.imgDict);
-            this.setState({ loaded: true });
         });
     }
 
