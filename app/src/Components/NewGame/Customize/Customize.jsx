@@ -57,6 +57,8 @@ class Customize extends React.Component {
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
+        if (this.playerType === "Test") this.color = 'W'
+        else this.color = this.playerType;
         this.subs = {
             Rook: null,
             Bishop: null,
@@ -111,43 +113,33 @@ class Customize extends React.Component {
     /**
      * called by this.accept()
      * because will redirect to another page, combine game data into one object to make it easier.
-     *
-     * 1. set the game name, game type and player type, given as props.
-     * 2. get new (standard) game data. Some part will be overridden by customization.
-     * 3. override pawn promotions and id dictionary with what user put for these.
-     * 4. build the piece definitions using the id dictionary, and overriding the standard piece definition dictionary.
-     * 5. because using pieces that user created, don't know starting ranges until gone through game logic.
-     * 6. set the starting ranges + enemy ranges, with what game logic determined.
-     * note: when this method finishes,the parent method then sets the state that cases redirect to new page.
+     * 1. get new (standard) game data, plus promos and idDict according to what user put, plus empty piece_defs
+     * 2. for ids not pawn or king, use the id to get the name, then use the name to get the def. Building object of defs
+     *    used in this game.
+     * 3. because using pieces the user created, need to do a run through of the game logic to know what the starting ranges
+     *    are.
      */
     bundleGameData() {
-        this.game_name = this.props.gameName; //1.
-        this.type = this.props.gameType; //1.
-        this.pt = this.props.playerType; //1.
-        this.gameData = copy(newData); //2.
-        this.gameData.promos = this.promos; //3.
-        this.gameData.id_dict = this.idDict; //3.
-        this.gameData.piece_defs = {}; //4.
-        let name; //4.
-        for (const id of Object.keys(this.idDict)) { //4.
-            if (id !== 'k' && id !== 'p') { //4.
-                name = this.idDict[id]; //4.
-                this.gameData.piece_defs[name] = this.defs[name]; //4.
+        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict, piece_defs: {}} //1.
+        let name;
+        for (const id of Object.keys(this.idDict)) { //2.
+            if (id !== 'k' && id !== 'p') {
+                name = this.idDict[id];
+                this.gameData.piece_defs[name] = this.defs[name];
             }
         }
 
-        //5.
+        //3.
         const dataEntry = firstUpdate(
             this.gameData.board,
             this.gameData.json_records,
-            'W',
-            this.pt,
+            this.color,
             this.gameData.piece_defs,
             this.gameData.id_dict
         );
         //6.
         this.gameData.ranges = dataEntry.ranges;
-        this.gameData.enemy_ranges = dataEntry.enemy_ranges;
+        this.gameData.enemy_ranges = dataEntry.enemyRanges;
     }
 
     /**

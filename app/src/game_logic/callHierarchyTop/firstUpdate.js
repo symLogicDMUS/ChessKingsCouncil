@@ -5,7 +5,7 @@ import {getAiColor} from "../color/getAiColor";
 import {getNextColor as getEnemyColor} from "../color/getNextColor"
 
 
-export function firstUpdate(board, records, color, pt, pieceDefs, idDict) {
+export function firstUpdate(board, records, color, pieceDefs, idDict) {
     /**same as update but initialize json records */
     const jsonRecords = new JsonRecords(initPawnIds(records, board));
     const turnData = getTurnData(board, color, jsonRecords, pieceDefs, idDict);

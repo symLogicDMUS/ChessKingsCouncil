@@ -81,24 +81,23 @@ function NewGame() {
                     />
                     <Box className={classes.new_game}>
                         <GameName
-                            key={uuidv4()}
+                            key='GameName-Desktop'
                             theme={theme}
-                            gameName={gameName}
                             setGameName={setGameName}
                         />
                         <PickType
-                            key={uuidv4()}
+                            key='PickType-Desktop'
                             theme={theme}
                             gameType={gameType}
                             setGameType={setGameType}
                         />
                         <PlayAs
                             theme={theme}
-                            key={uuidv4()}
+                            key='PlayAs-Desktop'
                             setPlayerType={setPlayerType}
                         >
                             <MuiButton
-                                key={uuidv4()}
+                                key="PlayButton-Desktop"
                                 onClick={finish}
                                 classesObj={{root: classes.play_button}}
                                 style={{color: themes[theme].button_fill}}
@@ -138,20 +137,21 @@ function NewGame() {
                         <Box className={classes.new_game}>
                             <GameName
                                 theme={theme}
-                                key={uuidv4()}
-                                gameName={gameName}
+                                key='GameName-Mobile'
                                 setGameName={setGameName}
                             />
                             <PickType
                                 theme={theme}
+                                key="PickType-Mobile"
                                 gameType={gameType}
                                 setGameType={setGameType}
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme}>
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} key="PlayAs-Mobile">
                                 <MuiButton
                                     theme={theme}
                                     onClick={finish}
-                                    variant={"contained"}
+                                    variant="contained"
+                                    key="PlayButton-Mobile"
                                     classesObj={{root: classes.play_button}}
                                     style={{color: themes[theme].button_fill}}
                                     isDisabled={

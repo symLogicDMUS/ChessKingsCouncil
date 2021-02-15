@@ -1,22 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
-import {text_field_style, useStyles} from "./Name.jss";
+import {gen_style, text_field_style, useStyles} from "./Name.jss";
 
-export function Name({inputRef, updateName, updateNameFinish, theme, defaultValue, screenCase}) {
-
+export function Name({updateName, theme, defaultValue, screenCase}) {
+    const [name, setName] = useState("");
     const classes = useStyles({theme: theme})
 
     const handleInput = (e) => {
-        updateName(e.target.value)
+        setName(e.target.value)
     };
 
+
     return (
-        <div className={classes.name} onMouseLeave={updateNameFinish}>
+        <div className={classes.name} onMouseLeave={() => updateName(name)}>
             <TextField
-                inputRef={inputRef}
                 onChange={handleInput}
+                genStyle={gen_style()}
                 defaultValue={defaultValue}
-                genStyle={{width: '100%'}}
                 style={text_field_style(screenCase)}
                 placeholder='Enter name of piece...'
                 label="Piece Name"

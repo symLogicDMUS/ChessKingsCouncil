@@ -24,6 +24,9 @@ export const text_field_style = (screenCase) => ({
     }
 })
 
+export const gen_style = () => ({
+    width: '100%'
+});
 
 export const useStyles = makeStyles({
     name: props => ({

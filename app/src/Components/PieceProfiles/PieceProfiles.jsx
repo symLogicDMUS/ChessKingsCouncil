@@ -22,70 +22,43 @@ export function PieceProfiles(props) {
     useEffect(() => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
         const colors = ["W", "B"];
-        const defs = copy(sampleDefs);
-        for (const pieceName of standards) {
-            if (Object.keys(defs).includes(pieceName)) {
-                delete defs[pieceName];
+        getDefs().then(([result]) => {
+            let defs;
+            if (!result) {
+                defs = getSetSampleDefs();
+            } else {
+                defs = result;
             }
-        }
-        for (const pieceName of Object.keys(defs)) {
-            for (const color of colors) {
-                defs[pieceName][color].span_img = getRangeBoardImgStr(
-                    defs[pieceName][color].img,
-                    "d4",
-                    "span",
-                    defs[pieceName][color].spans,
-                    pieceName,
-                    props.theme,
-                );
-                defs[pieceName][color].offset_img = getRangeBoardImgStr(
-                    defs[pieceName][color].img,
-                    'd4',
-                    'offset',
-                    defs[pieceName][color].offsets,
-                    pieceName,
-                    props.theme
-                )
+            if (props.updateParent) {
+                props.updateParent(copy(defs));
             }
-        }
-        dispatch({type: "load", payload: defs});
-        // getDefs().then(([result]) => {
-        //     let defs;
-        //     if (!result) {
-        //         defs = getSetSampleDefs();
-        //     } else {
-        //         defs = result;
-        //     }
-        //     if (props.updateParent) {
-        //         props.updateParent(copy(defs));
-        //     }
-        //     for (const pieceName of standards) {
-        //         if (Object.keys(defs).includes(pieceName)) {
-        //             delete defs[pieceName];
-        //         }
-        //     }
-        //     for (const pieceName of Object.keys(defs)) {
-        //         for (const color of colors) {
-        //             defs[pieceName][color].span_img = getRangeBoardImgStr(
-        //                 defs[pieceName][color].img,
-        //                 "d4",
-        //                 "span",
-        //                 defs[pieceName][color].spans,
-        //                 pieceName,
-        //                 props.theme,
-        //             );
-        //             defs[pieceName][color].offset_img = getRangeBoardImgStr(
-        //                 defs[pieceName][color].img,
-        //                 'd4',
-        //                 'offset',
-        //                 defs[pieceName][color].offsets,
-        //                 pieceName,
-        //                 props.theme
-        //             )
-        //         }
-        //     }
-        //     dispatch({type: "load", payload: defs});
-        // });
+            for (const pieceName of standards) {
+                if (Object.keys(defs).includes(pieceName)) {
+                    delete defs[pieceName];
+                }
+            }
+            for (const pieceName of Object.keys(defs)) {
+                for (const color of colors) {
+                    defs[pieceName][color].span_img = getRangeBoardImgStr(
+                        defs[pieceName][color].img,
+                        "d4",
+                        "span",
+                        defs[pieceName][color].spans,
+                        pieceName,
+                        props.theme,
+                    );
+                    defs[pieceName][color].offset_img = getRangeBoardImgStr(
+                        defs[pieceName][color].img,
+                        'd4',
+                        'offset',
+                        defs[pieceName][color].offsets,
+                        pieceName,
+                        props.theme
+                    )
+                }
+            }
+            dispatch({type: "load", payload: defs});
+        });
     }, []);
 
     const classes = useStyles({theme: props.theme, style: props.style});

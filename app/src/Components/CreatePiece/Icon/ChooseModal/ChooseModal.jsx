@@ -29,17 +29,15 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        this.imgDict = sampleBase64ImgStrs;
-        this.setState({loaded: true});
-        // getImgDict().then(([imgDict]) => {
-        //     if (!imgDict) {
-        //         this.imgDict = getSetSampleImgs();
-        //     } else {
-        //         this.imgDict = imgDict;
-        //     }
-        //     this.imgDict = filterStandardPieces(this.imgDict);
-        //     this.setState({ loaded: true });
-        // });
+        getImgDict().then(([imgDict]) => {
+            if (!imgDict) {
+                this.imgDict = getSetSampleImgs();
+            } else {
+                this.imgDict = imgDict;
+            }
+            this.imgDict = filterStandardPieces(this.imgDict);
+            this.setState({ loaded: true });
+        });
     }
 
     deleteImg(imgNameChoice) {

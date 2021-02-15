@@ -40,10 +40,10 @@ import {DrawerContent} from "../Reuseables/DrawerContent";
 class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
-        this.name = "";
         this.location = "d4";
         this.textInput = React.createRef();
         this.state = {
+            name: "",
             theme: "dark",
             binaryValue: 0,
             justSaved: false,
@@ -79,7 +79,6 @@ class CreatePiece extends React.Component {
         this.resetImg = this.resetImg.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
         this.updateName = this.updateName.bind(this);
-        this.updateNameFinish = this.updateNameFinish.bind(this);
         this.toggleSpan = this.toggleSpan.bind(this);
         this.toggleOffset = this.toggleOffset.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
@@ -189,14 +188,8 @@ class CreatePiece extends React.Component {
     }
 
     /**used by Name tool*/
-    updateName(userInput) {
-        this.name = userInput;
-    }
-
-    /**used by Name tool*/
-    updateNameFinish() {
-        this.setState({unsavedChanges: true});
-        this.textInput.current.focus();
+    updateName(name) {
+        this.setState({name: name, unsavedChanges: true})
     }
 
     /**used by Icon tool*/
@@ -339,7 +332,6 @@ class CreatePiece extends React.Component {
                             <DrawerContent>
                                 <Board
                                     key='board'
-                                    // key={uuidv4()}
                                     theme={this.state.theme}
                                     screenCase='desktop'
                                     toggleOffset={this.toggleOffset}
@@ -359,23 +351,21 @@ class CreatePiece extends React.Component {
                         }
                     >
                         <Name
-                            key={uuidv4()}
+                            key='Name-Desktop'
                             updateName={this.updateName}
-                            updateNameFinish={this.updateNameFinish}
-                            inputRef={this.textInput}
                             defaultValue={this.name}
                             theme={this.state.theme}
                             screenCase='desktop'
                         />
                         <Icon
-                            key={'Icon-Desktop'}
+                            key='Icon-Desktop'
                             theme={this.state.theme}
                             resetImg={this.resetImg}
                             setPieceImg={this.setPieceImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
                         />
                         <Range
-                            key={uuidv4()}
+                            key='Range-Desktop'
                             theme={this.state.theme}
                             spans={this.spans}
                             offsets={this.offsets}
@@ -383,18 +373,18 @@ class CreatePiece extends React.Component {
                             screenCase='desktop'
                         />
                         <Location
-                            key={uuidv4()}
+                            key='Location-Desktop'
                             setLoc={this.setLoc}
                             theme={this.state.theme}
                             selectedLoc={this.location}
                         />
                         <Options
-                            key={uuidv4()}
+                            key='Options-Desktop'
                             load={this.load}
                             save={this.save}
                             reset={this.reset}
                             erase={this.erase}
-                            pieceName={this.name}
+                            pieceName={this.state.name}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
                             theme={this.state.theme}
@@ -436,7 +426,7 @@ class CreatePiece extends React.Component {
                         }
                     >
                         <Board
-                            key="content"
+                            key="Board-Mobile"
                             theme={this.state.theme}
                             toggleOffset={this.toggleOffset}
                             spanDisplays={this.spanDisplays}
@@ -454,14 +444,10 @@ class CreatePiece extends React.Component {
                                     title: 'Name',
                                     body: (
                                         <Name
-                                            key={uuidv4()}
-                                            updateName={this.updateName}
-                                            updateNameFinish={
-                                                this.updateNameFinish
-                                            }
-                                            inputRef={this.textInput}
+                                            key='Name-Mobile'
                                             defaultValue={this.name}
                                             theme={this.state.theme}
+                                            updateName={this.updateName}
                                             screenCase={resolveScreenCase('mobile')}
                                         />
                                     ),
@@ -471,7 +457,7 @@ class CreatePiece extends React.Component {
                                     title: 'Icon',
                                     body: (
                                         <Icon
-                                            key={"Icon-Mobile"}
+                                            key="Icon-Mobile"
                                             theme={this.state.theme}
                                             setPieceImg={this.setPieceImg}
                                             resetImg={this.resetImg}
@@ -486,7 +472,7 @@ class CreatePiece extends React.Component {
                                     title: 'Range',
                                     body: (
                                         <Range
-                                            key={"Range"}
+                                            key="Range-Mobile"
                                             theme={this.state.theme}
                                             spans={this.spans}
                                             offsets={this.offsets}
@@ -500,7 +486,7 @@ class CreatePiece extends React.Component {
                                     title: 'Location',
                                     body: (
                                         <Location
-                                            key={"Location"}
+                                            key="Location-Mobile"
                                             setLoc={this.setLoc}
                                             theme={this.state.theme}
                                             selectedLoc={this.location}
@@ -512,7 +498,7 @@ class CreatePiece extends React.Component {
                                     title: 'Options',
                                     body: (
                                         <Options
-                                            key={"Options"}
+                                            key="Options-Mobile"
                                             load={this.load}
                                             save={this.save}
                                             reset={this.reset}
@@ -523,7 +509,7 @@ class CreatePiece extends React.Component {
                                             blackImg={
                                                 this.whiteAndBlackImgs.black
                                             }
-                                            pieceName={this.name}
+                                            pieceName={this.state.name}
                                             theme={this.state.theme}
                                         />
                                     ),

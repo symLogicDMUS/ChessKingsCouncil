@@ -33,20 +33,12 @@ export const useStyles = makeStyles({
     range_tool: props => ({
         ...tool(props.theme),
         justifyContent: 'center',
-        '@media (max-aspect-ratio: 1/1)': {
-            height: '10.5em',
-        },
         ...props.styles,
     }),
     box: props => ({
         ...tool_flexbox,
-        '@media (max-aspect-ratio: 1/2)': {
-            flexDirection: 'column-reverse',
-            justifyContent: 'flex-end',
-        },
     }),
     title: props => ({
         ...tool_title(props.theme),
     }),
 });
-

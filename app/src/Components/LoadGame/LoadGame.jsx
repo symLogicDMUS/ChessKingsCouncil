@@ -34,18 +34,15 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "tan-background";
-        this.games = sampleGames;
-        this.reloadGameImgComponentsDict();
-        this.setState({loaded: true});
-        // getGames().then(([games]) => {
-        //     if (games) {
-        //         this.games = games;
-        //     } else {
-        //         this.games = getSetSampleGames();
-        //     }
-        //     this.reloadGameImgComponentsDict();
-        //     this.setState({ loaded: true });
-        // });
+        getGames().then(([games]) => {
+            if (games) {
+                this.games = games;
+            } else {
+                this.games = getSetSampleGames();
+            }
+            this.reloadGameImgComponentsDict();
+            this.setState({ loaded: true });
+        });
     }
 
     reloadGameImgComponentsDict() {

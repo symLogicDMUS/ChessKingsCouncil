@@ -83,7 +83,7 @@ class GameRoot extends React.Component {
             B: this.capturedIds.B.map(id => getPieceImg(id, this.idDict, this.defs)),
         }
         this.captured = ''
-        if (this.playerType === "test") this.aiColor = "none";
+        if (this.playerType === "Test") this.aiColor = "none";
         else if (this.playerType === "W") this.aiColor =  "B";
         else if (this.playerType === "B") this.aiColor =  "W";
         if (this.gameType === "council") this.promoChoices.push("King");
