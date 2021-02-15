@@ -9,22 +9,22 @@ export function GameInfo({theme, gameName, gameType, playerType}) {
     const classes = useStyles({theme: theme, fontSize: fontSize002});
     return (
         <Box className={classes.game_info}>
-            <Typography className={classes.cell}>
+            <Typography className={classes.cell1}>
                 Game Name
             </Typography>
-            <Typography className={classes.cell} noWrap>
+            <Typography className={classes.cell2} noWrap>
                 {gameName}
             </Typography>
-            <Typography className={classes.cell}>
+            <Typography className={classes.cell1}>
                 Game Type
             </Typography>
-            <Typography className={classes.cell} noWrap>
+            <Typography className={classes.cell2} noWrap>
                 {gameType}
             </Typography>
-            <Typography className={classes.cell}>
+            <Typography className={classes.cell1}>
                 Player Type
             </Typography>
-            <Typography className={classes.cell} noWrap>
+            <Typography className={classes.cell2} noWrap>
                 {resolvePlayerType(playerType)}
             </Typography>
         </Box>

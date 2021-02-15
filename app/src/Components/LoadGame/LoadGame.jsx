@@ -11,6 +11,7 @@ import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
 import { saveGameDict } from "../../API/saveGameDict";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 class LoadGame extends React.Component {
     sampleGames;

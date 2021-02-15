@@ -33,9 +33,10 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         '@media (max-aspect-ratio: 834/1194)': {
-            height: availHeight() * 0.65,
+            height: availHeight() * 0.5,
             width: availWidth(),
             marginTop: '0.05em',
+            ...props.style,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             height: availHeight() * 0.65,
@@ -44,15 +45,17 @@ export const useStyles = makeStyles({
             marginRight: 'auto',
             marginTop: '0.25em',
             marginBottom: '0.25em',
+            ...props.style,
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             height: availHeight() * 0.75,
             width: availWidth() * 0.5,
+            ...props.style,
+
         },
+        borderRadius: '0.35em',
         backgroundColor: themes[props.theme].fill,
         border: `0.12em solid ${themes[props.theme].odd_row}`,
-        borderRadius: '0.35em',
-        ...props.style,
     }),
     profiles_window: props => ({
         overflowY: 'scroll',

@@ -1,8 +1,8 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize0025, fontSize0040, fontSize008} from "../styles/fontSizes.jss";
-import {availHeight} from "../helpers/windowMeasurments";
-import {appBarHeight} from "./PersistentDrawer.jss";
+import {fontSize0040} from "../styles/fontSizes.jss";
+import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
+import {addressBarHeight, appBarHeight} from "./PersistentDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -10,6 +10,21 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
         borderTop: `0.025em solid ${themes[props.theme].outline}`,
         ...props.rootStyle,
+    }),
+    mui_global_css: props => ({
+        '& .MuiIconButton-root': {
+            "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+                fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.45 * 0.3) / props.numTabs,
+                minHeight: 'unset',
+            },
+            '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+                fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.35 * 0.3) / props.numTabs,
+                minHeight: 'unset',
+            },
+            height: '1em',
+            width: '1em',
+        },
+        ...props.addedStyle,
     }),
     accordion_tab: props => ({
         width: '100%',
@@ -19,36 +34,47 @@ export const useStyles = makeStyles((theme) => ({
     }),
     //when numTabs > 2
     accordion_title: props => ({
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
-            fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.45 * 0.3) / props.numTabs,
+        '@media (max-aspect-ratio: 6/10)': {
+            fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.3 * 0.3) / props.numTabs,
+            minHeight: 'unset',
+        },
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+            fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.45 * 0.3) / props.numTabs,
             minHeight: 'unset',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
-            fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.35 * 0.3) / props.numTabs,
+            fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.35 * 0.3) / props.numTabs,
             minHeight: 'unset',
         },
     }),
     accordion_body: props => ({
-        // marginTop: '-2vh',
         flexGrow: 10,
         backgroundColor: themes[props.theme].fill,
         ...props.style,
     }),
     //when numTabs > 2
     accordion_summary: props => ({
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
-            fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.45) / props.numTabs,
-            height: '1em',
-            minHeight: 'unset',
-        },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
-            fontSize: ((availHeight() - (appBarHeight + availHeight()*0.075)) * 0.35) / props.numTabs,
-            height: '1em',
-            minHeight: 'unset',
-        },
+        fontSize: (innerHeight()*0.4 - appBarHeight) / props.numTabs,
+        height: '1em',
+        minHeight: 'unset',
+        // '@media (max-aspect-ratio: 6/10)': {
+        //     fontSize: (innerHeight()*0.4 - appBarHeight) / props.numTabs,
+        //     height: '1em',
+        //     minHeight: 'unset',
+        // },
+        // "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        //     fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.45) / props.numTabs,
+        //     height: '1em',
+        //     minHeight: 'unset',
+        // },
+        // '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        //     fontSize: ((availHeight() - (appBarHeight + addressBarHeight + availHeight() * 0.075)) * 0.35) / props.numTabs,
+        //     height: '1em',
+        //     minHeight: 'unset',
+        // },
     }),
     accordion_summary_content: props => ({
-       color: themes[props.theme].text,
+        color: themes[props.theme].text,
     }),
     expand_icon: props => ({
         color: themes[props.theme].text,

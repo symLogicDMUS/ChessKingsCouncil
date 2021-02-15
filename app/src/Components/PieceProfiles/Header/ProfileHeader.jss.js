@@ -37,7 +37,7 @@ export const header = (style, theme) => ({
         marginTop: '1em',
         fontSize: fontSizes.desktop,
     },
-    "@media (max-aspect-ratio: 1/2)": {
+    "@media (max-aspect-ratio: 6/10)": {
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
@@ -54,7 +54,7 @@ export const text = (theme) => ({
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
-    "@media (max-aspect-ratio: 1/2)": {
+    "@media (max-aspect-ratio: 6/10)": {
         fontSize: fontSizes.ipx,
     },
     '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {

@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flexGrow: 3,
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             flexGrow: 0,
             marginLeft: '1em',
         },

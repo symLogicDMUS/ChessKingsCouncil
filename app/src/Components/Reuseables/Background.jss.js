@@ -36,8 +36,14 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     board_pattern: props => ({
-        width: '10vw',
-        height: '10vw',
+        '@media (max-aspect-ratio: 1/1)': {
+            width: '7.5vh',
+            height: '7.5vh',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            width: '10vw',
+            height: '10vw',
+        },
     }),
     row1: props => ({
         ...row(),

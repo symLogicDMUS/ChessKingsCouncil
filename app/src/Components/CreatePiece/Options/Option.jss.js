@@ -1,15 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
 import {
-    fontSize0015, fontSize00184,
-    fontSize002, fontSize0024, fontSize0025,
-    fontSize00301,
-    fontSize0035,
-    fontSizeW0024,
-    fontSizeW0028,
-    fontSizeW0031,
-    fontSizeW003224, fontSizeW004,
-    fontSizeW0045
+    fontSize002, fontSize0025, fontSize0028,
+    fontSizeW0031, fontSizeW004,
 } from "../../styles/fontSizes.jss";
 
 export const optionButtonSize = 3.5;
@@ -17,7 +10,7 @@ export const optionButtonSize = 3.5;
 export const useStyles = makeStyles({
     option: props => ({
         '@media (max-aspect-ratio: 834/1194)': {
-            fontSize: fontSize0024,
+            fontSize: fontSize0028,
             margin: '0.25em',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
@@ -35,11 +28,10 @@ export const useStyles = makeStyles({
     }),
     button: props => ({
         marginTop: '0.25em',
-        width: '200%',
-        height: '200%',
         '&:hover': {
             background: 'none'
         },
+        color: themes[props.theme].button_text,
     }),
     label: props => ({
         display: "flex",
@@ -47,12 +39,22 @@ export const useStyles = makeStyles({
         border: 'black',
     }),
     icon: props => ({
-        width: '100%',
-        height: '100%',
+        '@media (max-aspect-ratio: 834/1194)': {
+            fontSize: fontSize0028,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+            fontSize: fontSizeW0031,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSize002,
+        },
+        width: '2.8em',
+        height: '2.8em',
+        color: themes[props.theme].button_text,
     }),
     text: props => ({
         '@media (max-aspect-ratio: 834/1194)': {
-            fontSize: fontSize0025,
+            fontSize: fontSize0028,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW004,

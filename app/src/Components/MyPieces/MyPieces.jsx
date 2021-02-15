@@ -11,7 +11,9 @@ import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./HelpText";
 import "../styles/_backgrounds.scss";
-import {styles} from "./MyPieces.jss";
+import {piece_profiles, styles} from "./MyPieces.jss";
+import {availHeight} from "../helpers/windowMeasurments";
+import {addressBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -108,6 +110,7 @@ class MyPieces extends React.Component {
                                     defs={this.defs}
                                     theme={this.state.theme}
                                     searchText={this.state.searchText}
+                                    style={piece_profiles()}
                                 >
                                     <ProfilesTitle
                                         screenCase='mobile'

@@ -6,7 +6,7 @@ export function resolveScreenCase(originalCase) {
 
     /*tall phones*/
     if (
-        (window.screen.availWidth / window.screen.availHeight) <= 0.5
+        (window.screen.availWidth / window.screen.availHeight) <= 0.6
     ) {
         return 'ipx';
     }

@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
@@ -37,7 +37,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: titleFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: titleFontSizes.ipx,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{

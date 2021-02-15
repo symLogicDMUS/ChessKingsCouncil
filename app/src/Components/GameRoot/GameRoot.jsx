@@ -39,7 +39,7 @@ import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
-import {accordion_root, styles} from "./GameRoot.jss";
+import {accordion_gen, accordion_root, styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -51,15 +51,18 @@ class GameRoot extends React.Component {
             theme: "dark",
         };
         this.unsavedProgress = false;
-        this.gameName = this.props.location.state.gameName;
-        this.gameType = this.props.location.state.gameType;
-        this.playerType = this.props.location.state.playerType;
+        // this.gameName = this.props.location.state.gameName;
+        // this.gameType = this.props.location.state.gameType;
+        // this.playerType = this.props.location.state.playerType;
+        this.gameName = "hello world";
+        this.gameType = "Standard";
+        this.playerType = "W";
         let gameData;
-        if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
-            gameData = this.props.location.state.gameData;
-        } else {
+        // if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
+        //     gameData = this.props.location.state.gameData;
+        // } else {
             gameData = copy(newData);
-        }
+        // }
         this.img = gameData.img;
         this.board = gameData.board;
         this.turn = gameData.color;
@@ -364,6 +367,7 @@ class GameRoot extends React.Component {
                         <MuiAccordion
                             theme={this.state.theme}
                             rootStyle={accordion_root(resolveScreenCase('mobile'))}
+                            // addedStyle={accordion_gen(this.state.theme)}
                         >
                             {[
                                 {
@@ -401,7 +405,7 @@ class GameRoot extends React.Component {
                                 },
                                 {
                                     id: "range-display",
-                                    title: 'Range GameBoard',
+                                    title: 'Range Display Board',
                                     body: (
                                         <BoardTool
                                             board={this.board}

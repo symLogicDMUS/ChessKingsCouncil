@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
         ...buttonPos[props.angle],
@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
         width: '2.75em',
@@ -59,7 +59,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
         width: '2em',

@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             justifyContent: 'space-between',
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${profileHeight}em`,
             flexDirection: 'row',

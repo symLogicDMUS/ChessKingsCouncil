@@ -72,7 +72,7 @@ export const useStyles = makeStyles({
             marginTop: '-0.4em',
             marginBottom: '-0.75em',
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: '3.5em',
             width: '9.5em',
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             marginTop: '-2em',
             marginBottom: '-1em',
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: '9.5em',
             height: '15em',

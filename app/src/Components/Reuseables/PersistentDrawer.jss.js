@@ -3,6 +3,8 @@ import {themes} from "../styles/themes.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const appBarHeight = 55;
+export const bottomBarHeight = appBarHeight * 1.1;
+export const addressBarHeight = appBarHeight * 1.5
 export const drawerWidth = availWidth() * 0.51;
 
 export const pageTitleStyle = () => ({

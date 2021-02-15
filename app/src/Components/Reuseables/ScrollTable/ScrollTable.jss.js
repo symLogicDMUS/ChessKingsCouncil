@@ -12,11 +12,11 @@ const list_item = (theme, fontSize, tableHeight, numRows) => ({
     alignItems: "flex-end",
     justifyContent: "flex-start",
     color: themes[theme].text,
-    '@media (max-aspect-ratio: 1/2)': {
+    '@media (max-aspect-ratio: 6/10)': {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+    "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
@@ -63,10 +63,10 @@ export const useStyles = makeStyles({
         fontSize: props.style.fontSize,
         width: props.style.width,
         height: `${getArrowButtonHeight(props.style.height)}em`,
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
@@ -79,10 +79,10 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     arrow_icon: props => ({
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             fontSize: props.style.fontSize
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             fontSize: props.style.fontSize
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {

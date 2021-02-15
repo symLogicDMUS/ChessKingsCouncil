@@ -15,14 +15,14 @@ const buttonPos = {
 };
 
 const container = (angle, theme) => ({
-    "@media (max-aspect-ratio: 1/2)": {
+    "@media (max-aspect-ratio: 6/10)": {
         fontSize: fontSizes.ipx,
         width: '2.75em',
         height: '2.75em',
         borderRadius: '0.2em',
         border: `0.05em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+    '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
         fontSize: fontSizes.mobile,
         width: '2.75em',
         height: '2.75em',
@@ -67,12 +67,12 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button: props => ({
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: '2.75em',
             height: '2.75em',
         },
-        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
             fontSize: fontSizes.mobile,
             width: '2.75em',
             height: '2.75em',
@@ -91,12 +91,12 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: '2em',
             height: '2em',
         },
-        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
             fontSize: fontSizes.mobile,
             width: '2em',
             height: '2em',

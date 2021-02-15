@@ -2,9 +2,8 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import { PageLinkMobile } from "./PageLinkMobile";
 import { SignOutMobile } from "./SignOutMobile";
-import { fontSize002 } from "../styles/fontSizes.jss";
-import { useStyles } from "./MainMenuMoblile.jss";
 import {Background} from "../Reuseables/Background";
+import { useStyles } from "./MainMenuMoblile.jss";
 
 export function MainMenuMobile(props) {
     const classes = useStyles({ theme: props.theme });

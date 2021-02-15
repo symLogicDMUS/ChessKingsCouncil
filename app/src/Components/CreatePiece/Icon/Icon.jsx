@@ -12,7 +12,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
     const [color, setColor] = useState(null);
     const [imgButtonsModal, toggleImgButtonsModal] = useState(false);
     const [chooseModal, toggleChooseModal] = useState(false);
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: theme });
 
     return (
         <>

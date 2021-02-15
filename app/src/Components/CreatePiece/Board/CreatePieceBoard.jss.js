@@ -7,16 +7,16 @@ import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 export const fontSizes = {
     desktop: fontSize0095,
     ipx: availWidth()*0.1248,
-    mobile: ((availHeight() - appBarHeight) * 0.55) / 8,
+    mobile: ((availHeight() - appBarHeight) * 0.52) / 8,
     ipad: ((availHeight() - appBarHeight) * 0.65) / 8,
 }
 
 export const useStyles = makeStyles({
     board: props => ({
-        '@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)': {
+        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
             ...board(fontSizes.mobile),
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             ...board(fontSizes.ipx),
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{

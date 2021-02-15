@@ -4,10 +4,10 @@ import {
     fontSize002,
     fontSize00219,
     fontSize00276,
-    fontSize00292
 } from "../../styles/fontSizes.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {themes} from "../../styles/themes.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
 
 // em units:
 export const profileWidth = {
@@ -24,8 +24,8 @@ export const profileHeight = {
 
 export const fontSizes = {
     desktop: drawerItemWidth*0.125,
-    mobile: fontSize00292,
-    ipx: fontSize00276,
+    mobile: availWidth()*0.3*0.125,
+    ipx: availWidth()*0.3*0.125,
     ipad: fontSize002,
 }
 
@@ -34,7 +34,7 @@ export const show_profile_gen = (screenCase) => {
         case 'desktop':
             return {fontSize : fontSize002}
         default:
-            return {fontSize : fontSizes[resolveScreenCase(screenCase)]}
+            return {fontSize : fontSizes[resolveScreenCase(screenCase)]*1.2}
     }
 };
 
@@ -46,11 +46,22 @@ export const show_profile_root = (screenCase) => {
                 transform: 'translate(1.5em, 0)',
             }
         default:
-            return show_profile_gen(screenCase)
-
+            return {
+                ...show_profile_gen(screenCase),
+            }
     }
 };
 
+export const show_profile_checkbox = (screenCase) => {
+    switch (screenCase) {
+        case 'desktop':
+            return null
+        default:
+            return {
+                transform: 'translate(0.5em, 0)'
+            }
+    }
+};
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
@@ -60,8 +71,9 @@ export const useStyles = makeStyles({
                 flex: 'nowrap',
                 width: '100%',
                 alignItems: 'center',
+                justifyContent: 'flex-start',
             },
-            '@media (max-aspect-ratio: 1/2)': {
+            '@media (max-aspect-ratio: 6/10)': {
                 flexDirection: 'column',
             },
             '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{

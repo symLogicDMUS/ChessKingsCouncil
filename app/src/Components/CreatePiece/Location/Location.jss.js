@@ -23,13 +23,13 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-evenly',
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             fontSize: fontSize0035,
             width: '8em',
             height: '8em',
             marginTop: 0,
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             marginTop: '-3vh',
             fontSize: fontSize0035,
             width: '8em',

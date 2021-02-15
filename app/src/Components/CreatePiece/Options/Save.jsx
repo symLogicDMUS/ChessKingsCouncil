@@ -141,7 +141,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                 onClick={makeSaveAttempt}
                 iconType="save"
                 theme={theme}
-                key={uuidv4()}
+                key='save-option'
             />
         </>
     )

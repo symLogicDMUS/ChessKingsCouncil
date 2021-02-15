@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize00392} from "../styles/fontSizes.jss";
 
 export const page_name = (fontSize) => ({
     fontSize: fontSize * 2,
@@ -21,10 +21,10 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     title: props => ({
-        width: availWidth() * 0.85625,
+        width: availWidth() * 0.8,
     }),
     page_links: props => ({
-        fontSize: fontSize002,
+        fontSize: fontSize00392,
         width: '66.25%',
         display: 'flex',
         flexDirection: 'row',
@@ -41,6 +41,9 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     sign_out_button: props => ({
+        fontSize: fontSize002,
+    }),
+    icon: props => ({
         fontSize: fontSize002,
     }),
 });

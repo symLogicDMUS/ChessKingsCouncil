@@ -3,6 +3,18 @@ import {fontSize002, fontSize0024} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
+export const cell = (theme) => ({
+    '@media (min-aspect-ratio: 1001/1000)': {
+        fontSize: fontSize002,
+    },
+    '@media (max-aspect-ratio: 1/1)': {
+        fontSize: fontSize0024,
+    },
+    height: '1.5em',
+    color: themes[theme].text,
+    fontFamily: 'Roboto-Light, Roboto',
+});
+
 export const useStyles = makeStyles({
     game_info: props => ({
         fontSize: fontSize002,
@@ -32,16 +44,22 @@ export const useStyles = makeStyles({
             borderBottom: `0.085em solid ${themes[props.theme].outline}`,
         },
     }),
-    cell: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSize002,
-        },
+    cell1: props => ({
+        ...cell(props.theme),
         '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0024,
+            width: '35%',
         },
-        width: '50%',
-        height: '1.5em',
-        color: themes[props.theme].text,
-        fontFamily: 'Roboto-Light, Roboto',
+        '@media (min-aspect-ratio: 1001/1000)': {
+            width: '50%',
+        },
+    }),
+    cell2: props => ({
+        ...cell(props.theme),
+        '@media (max-aspect-ratio: 1/1)': {
+            width: '65%',
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            width: '50%',
+        },
     }),
 });

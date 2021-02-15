@@ -9,8 +9,8 @@ export const mobileBoardPadding = availWidth() * 0.002;
  */
 export const sqrSizes = {
     desktop: availHeight() * 0.095,
-    mobile: availWidth() * 0.12125,
-    ipx: availWidth() * 0.12125,
+    mobile: availWidth() * 0.11,
+    ipx: availWidth() * 0.115,
     ipad: availWidth() * 0.105
 }
 
@@ -34,7 +34,7 @@ export const boardPos = {
         top: appBarHeight + availWidth()*0.016,
     },
     ipx: {
-        left: availWidth()*0.01,
+        left: availWidth()*0.035,
         top: appBarHeight + availWidth()*0.011,
     },
     ipad: {
@@ -58,11 +58,11 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     position: 'fixed',
-    '@media (max-aspect-ratio: 1/2)': {
+    '@media (max-aspect-ratio: 6/10)': {
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+    "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },

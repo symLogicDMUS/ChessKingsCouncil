@@ -361,8 +361,8 @@ class Customize extends React.Component {
                                 toggleSub={this.toggleSub}
                                 togglePromo={this.togglePromo}
                                 togglePromoAll={this.togglePromoAll}
-                                newReplacement={this.newReplacement}
                                 newReplaced={this.newReplaced}
+                                newReplacement={this.newReplacement}
                                 searchText={this.state.searchText}
                             />
                             <MuiAccordion theme={this.state.theme} rootStyle={accordion_style(resolveScreenCase('mobile'))} >

@@ -19,7 +19,7 @@ export function MainMenuDesktop(props) {
             <Box className={classes.top}>
                 <Button
                     onClick={props.signOut}
-                    startIcon={<AccountBoxIcon style={{fontSize: fontSize002}} />}
+                    startIcon={<AccountBoxIcon className={classes.icon} />}
                     classesObj={{root: classes.sign_out_button}}
                     theme={props.theme}
                     variant="contained"

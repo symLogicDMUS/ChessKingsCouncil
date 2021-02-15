@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { fontSize0040 as fontSize } from "../styles/fontSizes.jss";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -9,7 +8,7 @@ import { useStyles } from "./PageLinkMobile.jss";
 
 export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
     let [hover, setHover] = useState();
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+    const classes = useStyles({ theme: theme});
 
     const content = (
         <Box

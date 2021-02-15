@@ -5,7 +5,7 @@ import {
     fontSize0016,
     fontSize0018,
     fontSize01,
-    fontSizeW018, fontSizeW0185, fontSizeW0182, fontSize00236, fontSize002, fontSize001725,
+    fontSizeW018, fontSizeW0185, fontSizeW0182, fontSize00236, fontSize002, fontSize001725, fontSizeW015,
 } from "../styles/fontSizes.jss";
 import Box from "@material-ui/core/Box";
 import React from "react";
@@ -14,7 +14,7 @@ import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const fontSizes = {
     desktop: fontSize012,
-    mobile: fontSizeW0182,
+    mobile: fontSizeW015,
     ipx: fontSizeW018,
     ipad: fontSize012,
 }
@@ -59,12 +59,12 @@ export const useStyles = makeStyles({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-evenly',
+        justifyContent: 'flex-start',
         alignContent: 'space-evenly',
         "@media (max-aspect-ratio: 1/1)": {
-            height: availHeight() - appBarHeight * 0.8,
+            height: (availHeight() - appBarHeight) * 0.835,
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             transform: 'translate(0, 2vh)'
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
@@ -80,11 +80,11 @@ export const useStyles = makeStyles({
         margin: 'auto'
     }),
     title: props => ({
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             textAlign: 'center'
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             fontSize: fontSizes.mobile,
             textAlign: 'center',
         },
@@ -126,11 +126,11 @@ export const useStyles = makeStyles({
         fontSize: fontSize0018,
     }),
     play_button: props => ({
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             fontSize: fontSize001725,
             margin: '1em',
         },
-        "@media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 834/1194)": {
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
             fontSize: fontSize0018,
             margin: '1.5em',
         },

@@ -8,14 +8,16 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         flexWrap: 'no-wrap',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
-        height: availHeight() * 0.95,
+        height: availHeight() * 0.85,
+        width: availWidth() * 0.61,
+        margin: 'auto'
     }),
     title: props => ({
         fontSize: fontSize002,
-        width: availWidth() * 0.7,
-        height: availHeight()*0.3523,
+        width: availWidth() * 0.6,
+        height: availHeight()*0.3,
         marginBottom: '2em'
     }),
 });

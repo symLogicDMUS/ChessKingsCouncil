@@ -1,13 +1,13 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
-import {fontSize002, fontSize0023, fontSizeW0047} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize00219, fontSize0023, fontSizeW0047} from "../../styles/fontSizes.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 import {fontSizes as boardFontSizes} from "../Board/CreatePieceBoard.jss";
 
 export const fontSizes = {
     desktop: fontSize002,
-    mobile: fontSize0023,
+    mobile: fontSize00219,
     ipx: fontSizeW0047,
     ipad: (availHeight() - (appBarHeight + boardFontSizes.ipad * 8 + availHeight() * 0.02 + availHeight() * 0.08)) * 0.3
 }
@@ -34,6 +34,7 @@ export const useStyles = makeStyles({
         ...tool(props.theme),
         justifyContent: 'center',
         ...props.styles,
+        marginTop: '-2vh',
     }),
     box: props => ({
         ...tool_flexbox,

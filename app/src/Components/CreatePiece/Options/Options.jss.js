@@ -27,6 +27,9 @@ export const useStyles = makeStyles({
             fontSize: fontSize00184,
             ...tool_flexbox,
         },
+        '@media (max-aspect-ratio: 1/1)': {
+            marginTop: '-2vh'
+        },
     }),
     title: props => ({
         ...tool_title(props.theme),

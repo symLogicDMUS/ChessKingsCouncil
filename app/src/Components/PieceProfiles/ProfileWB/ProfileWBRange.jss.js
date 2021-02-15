@@ -25,7 +25,7 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             // marginTop: '-0.5em'
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: widths.mobile,
         },
@@ -78,7 +78,7 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: avatarSize.mobile,
             height: avatarSize.mobile,

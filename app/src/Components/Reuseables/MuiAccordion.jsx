@@ -3,8 +3,8 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { useStyles } from "./MuiAccordion.jss";
 import Typography from "@material-ui/core/Typography";
+import { useStyles } from "./MuiAccordion.jss";
 
 /**
  * children of the form:
@@ -24,12 +24,13 @@ import Typography from "@material-ui/core/Typography";
  * @param theme {string}
  * @param children {List}
  * @param style {Object} style object (optional)
+ * @param addedStyle {Object} style object (optional)
  * @param rootStyle {Object} style object (optional)
  * @returns {JSX.Element}
  * @constructor
  */
-export default function MuiAccordion({theme, style, rootStyle, children }) {
-    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, numTabs: children.length});
+export default function MuiAccordion({theme, style, rootStyle, addedStyle, children }) {
+    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, addedStyle: addedStyle, numTabs: children.length});
     let [expanded, setExpanded] = useState(null);
     let [allCollapsed, setAllCollapsed] = useState(true);
 
@@ -69,6 +70,5 @@ export default function MuiAccordion({theme, style, rootStyle, children }) {
         }
         return accordions;
     };
-
-    return <div className={classes.root}>{getAccordions()}</div>;
+    return <div className={classes.root}><div className={classes.mui_global_css}>{getAccordions()}</div></div>;
 }

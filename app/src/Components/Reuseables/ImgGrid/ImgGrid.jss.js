@@ -1,6 +1,6 @@
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {fontSize001685} from "../../styles/fontSizes.jss";
-import {appBarHeight} from "../PersistentDrawer.jss";
+import {addressBarHeight, appBarHeight, bottomBarHeight} from "../PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
@@ -25,7 +25,7 @@ export const button = (fontSize) => ({
 
 export const heights = {
     desktop: availHeight() * 0.81,
-    mobile: availHeight() - appBarHeight,
+    mobile: window.innerHeight - appBarHeight*1.1,
 }
 
 export const widths = {

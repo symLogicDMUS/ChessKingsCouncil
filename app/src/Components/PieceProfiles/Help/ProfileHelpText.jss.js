@@ -45,7 +45,7 @@ export const item_title = (theme) => ({
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: titleFontSizes.mobile,
     },
-    "@media (max-aspect-ratio: 1/2)": {
+    "@media (max-aspect-ratio: 6/10)": {
         fontSize: titleFontSizes.ipx,
     },
     '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             alignItems: 'space-evenly',
         },
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             height: '200vh',
             display: 'flex',
             flexDirection: 'column',
@@ -160,7 +160,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (max-aspect-ratio: 1/2)': {
+        '@media (max-aspect-ratio: 6/10)': {
             height: '70vh',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -181,7 +181,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             marginTop: '-0.5em'
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: widths.mobile,
@@ -206,7 +206,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             height: widths.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: widths.mobile,
             height: widths.mobile,
@@ -234,7 +234,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
@@ -265,7 +265,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 1/2)": {
+        "@media (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {

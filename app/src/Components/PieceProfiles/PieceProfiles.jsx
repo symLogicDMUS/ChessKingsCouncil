@@ -12,10 +12,10 @@ import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
 import { dbSampleDefs } from "../../API/apiHelpers/dbSampleDefs";
 import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
 import {getSampleDefs} from "../../API/getSampleDefs";
+import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
-import { saveDefs } from "../../API/saveDefs";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {

@@ -22,7 +22,8 @@ export const useStyles = makeStyles({
         },
         '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
-            height: availHeight(),
+            height: availHeight()*0.9,
+            border: '1px dashed red',
         },
     }),
     top_flexbox: props => ({
@@ -48,7 +49,7 @@ export const useStyles = makeStyles({
         width: '95%',
         fontSize: fontSize002,
         margin: 'auto',
-        marginTop: '1vh',
+        // marginTop: '1vh',
         marginBottom: '1vh',
         alignSelf: 'flex-end',
     }),
@@ -59,7 +60,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media (max-aspect-ratio: 1/1)': {
             width: '95vw',
-            height: '82.5vh',
+            height: '80vh',
             marginLeft: 'auto',
             marginRight: 'auto',
         },
