@@ -253,7 +253,7 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? (this.play()) : null}
                 <div>
-                    <MediaQuery minAspectRatio={'1001/1000'}>
+                    <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <PermanentDrawer
                             drawerType="right"
                             theme={this.state.theme}

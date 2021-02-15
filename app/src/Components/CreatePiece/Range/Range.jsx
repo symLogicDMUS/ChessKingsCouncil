@@ -29,7 +29,7 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
         <>
             <div className={classes.range_tool}>
                 <Box className={classes.box}>
-                    <MediaQuery minAspectRatio={'1001/1000'}>
+                    <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <Typography className={classes.title}>Range</Typography>
                     </MediaQuery>
                     <ScrollTable

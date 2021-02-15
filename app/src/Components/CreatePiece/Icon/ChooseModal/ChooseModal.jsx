@@ -74,7 +74,7 @@ class ChooseModal extends React.Component {
         return (
             <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
-                    <MediaQuery minAspectRatio={'1001/1000'}>
+                    <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <ImgGrid
                             title={
                                 <>

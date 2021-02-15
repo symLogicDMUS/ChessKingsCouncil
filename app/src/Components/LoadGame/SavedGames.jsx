@@ -25,7 +25,7 @@ export function SavedGames(props) {
 
     return (
         <>
-            <MediaQuery minAspectRatio={'1001/1000'}>
+            <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                 <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
                     currentPage="LoadGame"

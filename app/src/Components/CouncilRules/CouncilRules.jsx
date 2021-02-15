@@ -25,7 +25,7 @@ export function CouncilRules() {
 
     return (
         <div>
-            <MediaQuery minAspectRatio={'1001/1000'}>
+            <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                 <Background theme='tan' navBar={true} currentPage='CouncilRules'/>
                 <NavBar
                     theme="tan"

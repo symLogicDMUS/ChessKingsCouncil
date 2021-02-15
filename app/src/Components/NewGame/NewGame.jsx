@@ -67,10 +67,9 @@ function NewGame() {
     };
 
     return (
-
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minAspectRatio={'1001/1000'}>
+                <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"

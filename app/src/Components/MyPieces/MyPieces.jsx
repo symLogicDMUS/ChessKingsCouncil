@@ -55,7 +55,7 @@ class MyPieces extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minAspectRatio={'1001/1000'}>
+                <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                     <NavBar
                         currentPage="MyPieces"
                         theme={this.state.theme}

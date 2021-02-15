@@ -24,7 +24,7 @@ export function Options({
         <>
             <div className={classes.options_tool}>
                 <Box className={classes.options_flexbox}>
-                    <MediaQuery minAspectRatio={'1001/1000'}>
+                    <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <Typography className={classes.title}>
                             Options
                         </Typography>
