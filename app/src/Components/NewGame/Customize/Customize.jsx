@@ -54,9 +54,12 @@ class Customize extends React.Component {
             redirect: false,
             binaryValue: true,
         };
-        this.gameName = this.props.location.state.gameName;
-        this.gameType = this.props.location.state.gameType;
-        this.playerType = this.props.location.state.playerType;
+        // this.gameName = this.props.location.state.gameName;
+        // this.gameType = this.props.location.state.gameType;
+        // this.playerType = this.props.location.state.playerType;
+        this.gameName = "hello world";
+        this.gameType = "Standard";
+        this.playerType = "W";
         if (this.playerType === "Test") this.color = 'W'
         else this.color = this.playerType;
         this.subs = {

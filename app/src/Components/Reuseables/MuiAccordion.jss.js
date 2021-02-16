@@ -12,18 +12,6 @@ export const useStyles = makeStyles((theme) => ({
         ...props.rootStyle,
     }),
     mui_global_css: props => ({
-        '& .MuiIconButton-root': {
-            "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
-                fontSize: (innerHeight() - (appBarHeight +  props.aboveContentHeight))*0.95 / props.numTabs,
-                minHeight: 'unset',
-            },
-            '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
-                fontSize: (innerHeight() - (appBarHeight +  props.aboveContentHeight))*0.95 / props.numTabs,
-                minHeight: 'unset',
-            },
-            height: '1em',
-            width: '1em',
-        },
         ...props.addedStyle,
     }),
     accordion_tab: props => ({

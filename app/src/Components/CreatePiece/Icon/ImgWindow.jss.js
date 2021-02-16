@@ -25,7 +25,7 @@ export const useStyles = makeStyles({
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            fontSize: (innerHeight()*0.35 - appBarHeight) -  (innerHeight()*0.35 - appBarHeight)*0.25,
+            fontSize: (innerHeight()*0.35 - appBarHeight) -  (innerHeight()*0.35 - appBarHeight)*0.2,
             width: '1em',
             height: '1em',
             margin: 'auto',

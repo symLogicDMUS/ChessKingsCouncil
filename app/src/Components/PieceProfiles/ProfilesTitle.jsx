@@ -7,7 +7,8 @@ import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 export const widths = {
     desktop: '10.55em',
-    mobile: '11.55em',
+    mobile: '10.55em',
+    ipx: '8.25em',
     ipad: '8.25em',
 }
 

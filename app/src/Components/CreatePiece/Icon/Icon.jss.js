@@ -29,10 +29,10 @@ export const useStyles = makeStyles({
             justifyContent: 'center',
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
-            width: '95%',
+            width: '100%',
             height: '100%',
             alignItems: 'flex-start',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             width: '93%',
@@ -48,7 +48,6 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
             width: window.innerWidth*0.01,
-            border: '1px dashed red',
         },
     }),
     buttons_and_img: props => ({

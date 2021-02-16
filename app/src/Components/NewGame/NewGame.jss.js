@@ -1,16 +1,15 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {getTextWidth} from "../helpers/getTextWidth.jss";
+import {availHeight, innerHeight} from "../helpers/windowMeasurments";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 import {
     fontSize012,
     fontSize0016,
     fontSize0018,
-    fontSize01,
-    fontSizeW018, fontSizeW0185, fontSizeW0182, fontSize00236, fontSize002, fontSize001725, fontSizeW015,
+    fontSizeW018,
+    fontSize002,
+    fontSize001725,
+    fontSizeW015,
 } from "../styles/fontSizes.jss";
-import Box from "@material-ui/core/Box";
-import React from "react";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const fontSizes = {
     desktop: fontSize012,
@@ -59,16 +58,11 @@ export const useStyles = makeStyles({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
         alignContent: 'space-evenly',
         "@media (max-aspect-ratio: 1/1)": {
-            height: (availHeight() - appBarHeight) * 0.835,
-        },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
-            transform: 'translate(0, 2vh)'
-        },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
-            transform: 'translate(0, 2.5vh)',
+            justifyContent: 'space-between',
+            height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
+            marginTop: '7.5vh',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             height: '90vh',
@@ -77,7 +71,9 @@ export const useStyles = makeStyles({
         },
     }),
     item: props => ({
-        margin: 'auto'
+        // "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        //     marginTop: '2.5vh'
+        // },
     }),
     title: props => ({
         "@media (max-aspect-ratio: 6/10)": {
