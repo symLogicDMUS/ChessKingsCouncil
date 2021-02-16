@@ -4,6 +4,7 @@ import { PageLinkMobile } from "./PageLinkMobile";
 import { SignOutMobile } from "./SignOutMobile";
 import {Background} from "../Reuseables/Background";
 import { useStyles } from "./MainMenuMoblile.jss";
+import MediaQuery from "react-responsive/src";
 
 export function MainMenuMobile(props) {
     const classes = useStyles({ theme: props.theme });
@@ -11,11 +12,20 @@ export function MainMenuMobile(props) {
         <>
             <Background isFixed={true} theme={props.theme} />
             <div className={classes.main_menu}>
-                <img
-                    src={`/Images/titles/mobile/main-menu/title-${props.theme}.svg`}
-                    className={classes.title}
-                />
-                <Box>
+                <MediaQuery maxAspectRatio={'834/1194'}>
+                    <img
+                        src={`/Images/titles/mobile/main-menu/title-${props.theme}.svg`}
+                        className={classes.title}
+                    />
+                </MediaQuery>
+                <MediaQuery minAspectRatio={'834/1194'}>
+                    <img
+                        src={`/Images/titles/desktop/title-${props.theme}.svg`}
+                        className={classes.title}
+                    />
+                </MediaQuery>
+
+                <Box className={classes.page_links}>
                     <SignOutMobile signOut={props.signOut} theme={props.theme} />
                     <PageLinkMobile
                         path="/NewGame"

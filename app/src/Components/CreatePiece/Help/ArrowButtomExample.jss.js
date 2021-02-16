@@ -15,14 +15,17 @@ const buttonPos = {
 
 export const useStyles = makeStyles({
     container: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
-        },
         "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
+        },
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+            fontSize: fontSizes.mobile,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizes.ipad,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         ...buttonPos[props.angle],
         width: '2.75em',
@@ -37,14 +40,17 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].span}`,
     }),
     arrow_button: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
-        },
         "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
+        },
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+            fontSize: fontSizes.mobile,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizes.ipad,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         width: '2.75em',
         height: '2.75em',
@@ -52,15 +58,17 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
-            fontSize: fontSizes.desktop,
-
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
-        },
         "@media (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
+        },
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+            fontSize: fontSizes.mobile,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizes.ipad,
+        },
+        '@media (min-aspect-ratio: 1001/1000)': {
+            fontSize: fontSizes.desktop,
         },
         width: '2em',
         height: '2em',

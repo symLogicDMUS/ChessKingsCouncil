@@ -28,7 +28,7 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
     return (
         <>
             <div className={classes.range_tool}>
-                <Box className={classes.box}>
+                <Box className={classes.table_and_arrows_container}>
                     <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <Typography className={classes.title}>Range</Typography>
                     </MediaQuery>
@@ -43,6 +43,7 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
                         buttonStyle={{borderRadius: 0}}
                         listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
                     />
+                    <div className={classes.separator} />
                     <SpanArrowButtons
                         spans={spans}
                         toggleSpan={toggleSpan}

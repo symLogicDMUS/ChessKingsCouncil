@@ -9,7 +9,7 @@ export function PickType({gameType, setGameType, theme}) {
     const classes = useStyles({theme: theme})
 
     return (
-        <div className={classes.item}>
+        <>
             <Box className={classes.title_container}>
                 <Typography className={classes.title}>Pick Type</Typography>
             </Box>
@@ -18,6 +18,6 @@ export function PickType({gameType, setGameType, theme}) {
                 <GameType gameType="Custom" setGameType={setGameType} selectedType={gameType} theme={theme}/>
                 <GameType gameType="Council" setGameType={setGameType} selectedType={gameType} theme={theme}/>
             </Box>
-        </div>
+        </>
     );
 }

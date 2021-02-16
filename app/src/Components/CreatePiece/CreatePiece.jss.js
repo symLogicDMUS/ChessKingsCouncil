@@ -43,6 +43,9 @@ export const tool = (theme) => ({
 })
 
 export const tool_flexbox = {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     '@media (max-aspect-ratio: 1/1)': {
         width: '100%',
         height: '100%',
@@ -55,9 +58,6 @@ export const tool_flexbox = {
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
 }
 
 /**

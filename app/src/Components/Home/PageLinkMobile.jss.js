@@ -1,6 +1,7 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize002, fontSize00301} from "../styles/fontSizes.jss";
+import {innerHeight} from "../helpers/windowMeasurments";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const page_icon = (fontSize) => ({
     fontSize: fontSize,
@@ -24,25 +25,45 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        fontSize: fontSize002,
+        fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1,
         marginBottom: '0.25em',
         marginLeft: '0.5em',
     }),
     page_icon_normal: props => ({
-        ...page_icon(fontSize00301),
+        '@media (max-aspect-ratio: 834/1194)': {
+            ...page_icon((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1),
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            ...page_icon((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.12),
+        },
         color: themes[props.theme].page_link,
     }),
     page_name_normal: props => ({
-        ...page_name(fontSize00301),
+        '@media (max-aspect-ratio: 834/1194)': {
+            ...page_name((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1),
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            ...page_name((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.12),
+
+        },
         color: themes[props.theme].page_link,
     }),
     page_icon_hover: props => ({
-         ...page_icon(fontSize00301),
+        '@media (max-aspect-ratio: 834/1194)': {
+            ...page_icon((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1),
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            ...page_icon((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.12),
+        },
         color: themes[props.theme].page_link_hover,
     }),
     page_name_hover: props => ({
-        ...page_name(fontSize00301),
+        '@media (max-aspect-ratio: 834/1194)': {
+            ...page_name((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1),
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            ...page_name((innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.12),
+        },
         color: themes[props.theme].page_link_hover,
     }),
-
 });

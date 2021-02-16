@@ -11,7 +11,6 @@ export function PlayAs({setPlayerType, theme, children}) {
     const classes = useStyles();
 
     return (
-        <div className={classes.item}>
             <Box className={classes.player_types}>
                 <Typography className={classes.title}>
                     Play As
@@ -36,7 +35,6 @@ export function PlayAs({setPlayerType, theme, children}) {
                     {children}
                 </Typography>
             </Box>
-        </div>
     );
 }
 

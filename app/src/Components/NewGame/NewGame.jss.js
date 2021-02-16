@@ -10,6 +10,8 @@ import {
     fontSize001725,
     fontSizeW015,
 } from "../styles/fontSizes.jss";
+import Box from "@material-ui/core/Box";
+import React from "react";
 
 export const fontSizes = {
     desktop: fontSize012,
@@ -71,9 +73,7 @@ export const useStyles = makeStyles({
         },
     }),
     item: props => ({
-        // "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
-        //     marginTop: '2.5vh'
-        // },
+
     }),
     title: props => ({
         "@media (max-aspect-ratio: 6/10)": {
@@ -99,6 +99,12 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     title_container: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    }),
+    game_name_container: props => ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
