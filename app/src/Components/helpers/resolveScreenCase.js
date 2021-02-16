@@ -6,15 +6,15 @@ export function resolveScreenCase(originalCase) {
 
     /*tall phones*/
     if (
-        (window.screen.availWidth / window.screen.availHeight) <= 0.6
+        (window.window.innerWidth / window.window.innerHeight) <= 0.6
     ) {
         return 'ipx';
     }
 
     /*tablets*/
     if (
-        (window.screen.availWidth / window.screen.availHeight) >= 0.69
-        && (window.screen.availWidth / window.screen.availHeight) < 1
+        (window.window.innerWidth / window.window.innerHeight) >= 0.69
+        && (window.window.innerWidth / window.window.innerHeight) < 1
     ) {
         return 'ipad';
     }

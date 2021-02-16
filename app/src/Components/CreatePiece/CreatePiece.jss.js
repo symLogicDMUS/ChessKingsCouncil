@@ -16,16 +16,12 @@ export const app_bar_title = () => ({
 
 export const accordion_style = (screenCase) => {
     switch (screenCase) {
-        case 'mobile':
-            return {
-                width: fontSizes[screenCase] * 8,
-            }
-        case 'ipad':
-            return {
-                width: fontSizes[screenCase] * 8,
-            }
+        case 'desktop':
+            return null
         default:
-            return null;
+            return {
+                width: fontSizes[screenCase] * 8,
+            }
     }
 };
 

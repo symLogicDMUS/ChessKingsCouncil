@@ -28,19 +28,26 @@ export const modalWidths = {
     ipad: availWidth() * 0.95,
 }
 
+export const modalHeights = {
+    mobile: availHeight() * 0.5,
+    ipx: availHeight() * 0.5,
+    ipad: availHeight() * 0.65,
+    desktop : availHeight() * 0.75,
+}
+
 export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
         '@media (max-aspect-ratio: 834/1194)': {
-            height: availHeight() * 0.5,
-            width: availWidth(),
+            height: modalHeights.mobile,
+            width: modalWidths.mobile,
             marginTop: '0.05em',
             ...props.style,
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            height: availHeight() * 0.65,
-            width: availWidth() * 0.95,
+            height: modalHeights.ipad,
+            width: modalWidths.ipad,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginTop: '0.25em',
@@ -48,10 +55,9 @@ export const useStyles = makeStyles({
             ...props.style,
         },
         '@media (min-aspect-ratio: 1001/1000)': {
-            height: availHeight() * 0.75,
-            width: availWidth() * 0.5,
+            height: modalHeights.desktop,
+            width: modalWidths.desktop,
             ...props.style,
-
         },
         borderRadius: '0.35em',
         backgroundColor: themes[props.theme].fill,

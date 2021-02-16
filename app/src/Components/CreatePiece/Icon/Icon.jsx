@@ -43,7 +43,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                 </Portal>
             ) : null}
             <div className={classes.icon_tool}>
-                <Box className={classes.flexbox}>
+                <Box className={classes.img_windows_container}>
                     <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
                         <Typography className={classes.title}>Icon</Typography>
                     </MediaQuery>
@@ -56,6 +56,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                             toggleImgButtonsModal(true);
                         }}
                     />
+                    <div className={classes.separator} />
                     <ImgWindow
                         color="Black"
                         theme={theme}

@@ -26,7 +26,8 @@ import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
-import {fontSize0023, fontSizeW0045
+import {
+    fontSize0023, fontSizeW0045
 } from "../../styles/fontSizes.jss";
 import {
     drawer_component,
@@ -41,6 +42,7 @@ import {
     scroll_table_button,
     scroll_table, accordion_style,
 } from "./Customize.jss";
+import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
 
 
 class Customize extends React.Component {
@@ -365,7 +367,11 @@ class Customize extends React.Component {
                                 newReplacement={this.newReplacement}
                                 searchText={this.state.searchText}
                             />
-                            <MuiAccordion theme={this.state.theme} rootStyle={accordion_style(resolveScreenCase('mobile'))} >
+                            <MuiAccordion
+                                theme={this.state.theme}
+                                rootStyle={accordion_style(resolveScreenCase('mobile'))}
+                                aboveContentHeight={modalHeights[resolveScreenCase('mobile')]}
+                            >
                                 {[
                                     {
                                         id: "sub-list",
@@ -421,4 +427,5 @@ class Customize extends React.Component {
         );
     }
 }
+
 export default Customize;

@@ -26,11 +26,12 @@ import { useStyles } from "./MuiAccordion.jss";
  * @param style {Object} style object (optional)
  * @param addedStyle {Object} style object (optional)
  * @param rootStyle {Object} style object (optional)
+ * @param aboveContentHeight
  * @returns {JSX.Element}
  * @constructor
  */
-export default function MuiAccordion({theme, style, rootStyle, addedStyle, children }) {
-    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, addedStyle: addedStyle, numTabs: children.length});
+export default function MuiAccordion({theme, style, rootStyle, addedStyle, aboveContentHeight, children }) {
+    const classes = useStyles({theme: theme, style: style, rootStyle: rootStyle, addedStyle: addedStyle, aboveContentHeight: aboveContentHeight, numTabs: children.length});
     let [expanded, setExpanded] = useState(null);
     let [allCollapsed, setAllCollapsed] = useState(true);
 

@@ -30,11 +30,11 @@ export const boardPos = {
         top: availHeight()*0.47 - boardSizes.desktop * 0.5,
     },
     mobile: {
-        left: availWidth()*0.015,
+        left: availWidth()*0.01,
         top: appBarHeight + availWidth()*0.016,
     },
     ipx: {
-        left: availWidth()*0.035,
+        left: availWidth()*0.02,
         top: appBarHeight + availWidth()*0.011,
     },
     ipad: {

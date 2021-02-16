@@ -40,6 +40,7 @@ import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
 import {accordion_gen, accordion_root, styles} from "./GameRoot.jss";
+import {boardSizes} from "../Reuseables/Board.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -367,7 +368,7 @@ class GameRoot extends React.Component {
                         <MuiAccordion
                             theme={this.state.theme}
                             rootStyle={accordion_root(resolveScreenCase('mobile'))}
-                            // addedStyle={accordion_gen(this.state.theme)}
+                            aboveContentHeight={boardSizes[resolveScreenCase('mobile')]}
                         >
                             {[
                                 {

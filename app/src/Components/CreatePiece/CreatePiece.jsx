@@ -35,6 +35,7 @@ import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {accordion_style, app_bar_title, styles} from "./CreatePiece.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
+import {fontSizes} from "./Board/CreatePieceBoard.jss";
 
 
 class CreatePiece extends React.Component {
@@ -437,7 +438,11 @@ class CreatePiece extends React.Component {
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
                         />
-                        <MuiAccordion theme={this.state.theme} rootStyle={accordion_style(resolveScreenCase('mobile'))}>
+                        <MuiAccordion
+                            theme={this.state.theme}
+                            rootStyle={accordion_style(resolveScreenCase('mobile'))}
+                            aboveContentHeight={fontSizes[resolveScreenCase('mobile')]*8}
+                        >
                             {[
                                 {
                                     id: "name",
