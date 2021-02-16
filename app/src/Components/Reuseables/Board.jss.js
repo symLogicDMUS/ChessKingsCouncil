@@ -30,11 +30,11 @@ export const boardPos = {
         top: availHeight()*0.47 - boardSizes.desktop * 0.5,
     },
     mobile: {
-        left: availWidth()*0.01,
+        left: availWidth()*0.06,
         top: appBarHeight + availWidth()*0.016,
     },
     ipx: {
-        left: availWidth()*0.02,
+        left: availWidth()*0.04,
         top: appBarHeight + availWidth()*0.011,
     },
     ipad: {
@@ -61,14 +61,17 @@ export const dnd_layer = (boardSize, z) => ({
     '@media (max-aspect-ratio: 6/10)': {
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
+        outline: '1px dashed red',
     },
     "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
+        outline: '1px dashed green',
     },
     '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         top: boardPos.ipad.top,
         left: boardPos.ipad.left,
+        outline: '1px dashed blue',
     },
     '@media (min-aspect-ratio: 1001/1000)': {
         top: boardPos.desktop.top,
