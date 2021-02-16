@@ -1,30 +1,42 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { availHeight, availWidth } from "../helpers/windowMeasurments";
+import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
 import {fontSize002} from "../styles/fontSizes.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 
 export const useStyles = makeStyles((theme) => ({
-    login_page: (props) => ({
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        width: "100%",
+    login_page: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        "@media (max-aspect-ratio: 1/1)": {
+            justifyContent: 'flex-start',
+            height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
+            marginTop: '7.5vh',
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            justifyContent: 'center',
+        },
         '@media (min-aspect-ratio: 1001/1000)': {
-            height: availHeight()*0.81,
+            height: '90vh',
+            justifyContent: 'center',
+            alignContent: 'center',
         },
-        '@media (max-aspect-ratio: 1/1)': {
-            height: availHeight()*0.95
+    }),
+    app_title_mobile: props => ({
+        '@media (max-aspect-ratio: 6/10)': {
+            width: availWidth() * 0.6,
         },
+        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+            width: innerHeight() * 0.3,
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            width:'95vw',
+        },
+        marginBottom: '1vh',
     }),
     app_title_desktop: (props) => ({
         width: availWidth() * 0.8,
-    }),
-    app_title_mobile: (props) => ({
-        width: availWidth() * 0.8,
-    }),
-    auth_buttons: props => ({
-        fontSize: fontSize002,
-        width: '16em',
     }),
 }));

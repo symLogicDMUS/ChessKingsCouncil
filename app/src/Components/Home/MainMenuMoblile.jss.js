@@ -1,7 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../styles/themes.jss";
-import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {availWidth, innerHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const useStyles = makeStyles({
