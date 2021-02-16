@@ -31,8 +31,8 @@ const container = (angle, theme) => ({
     },
     '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSizes.ipad,
-        width: '1em',
-        height: '1em',
+        width: '2.75em',
+        height: '2.75em',
         borderRadius: '0.08em',
         border: `0.02em solid ${themes[theme].outline}`,
     },
@@ -79,8 +79,8 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
-            width: '1em',
-            height: '1em',
+            width: '2.75em',
+            height: '2.75em',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,
@@ -103,8 +103,8 @@ export const useStyles = makeStyles({
         },
         '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
-            width: '0.75em',
-            height: '0.75em',
+            width: '2em',
+            height: '2em',
         },
         '@media (min-aspect-ratio: 1001/1000)': {
             fontSize: fontSizes.desktop,

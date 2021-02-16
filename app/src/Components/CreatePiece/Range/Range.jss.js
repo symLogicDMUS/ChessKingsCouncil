@@ -1,6 +1,13 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
-import {fontSize002, fontSize00219, fontSize0023, fontSizeW0035, fontSizeW0047} from "../../styles/fontSizes.jss";
+import {
+    fontSize002,
+    fontSize00219,
+    fontSize0023,
+    fontSize01,
+    fontSizeW0035,
+    fontSizeW0047
+} from "../../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 import {fontSizes as boardFontSizes} from "../Board/CreatePieceBoard.jss";
@@ -17,7 +24,7 @@ export const fontSizes = {
     desktop: fontSize002,
     mobile: (boardFontSizes.mobile*8 - margins.mobile * 3)*0.5*0.31675*0.31675,
     ipx: (boardFontSizes.ipx*8 - margins.ipx * 3)*0.5*0.31675*0.31675,
-    ipad: (boardFontSizes.ipad*8 - margins.ipad * 3)*0.5*0.31675*0.31675
+    ipad: (boardFontSizes.ipad*8 - margins.ipad * 3)*0.5*0.28*0.28,
 }
 
 export const widths = {
@@ -72,6 +79,9 @@ export const useStyles = makeStyles({
     separator: props => ({
         "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
                 width: '6.25vw',
+        },
+        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+            width: '7.5vw',
         },
     }),
     title: props => ({
