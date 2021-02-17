@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { PageLinkMobile } from "./PageLinkMobile";
+import MediaQuery from "react-responsive/src";
 import { SignOutMobile } from "./SignOutMobile";
+import { PageLinkMobile } from "./PageLinkMobile";
 import {Background} from "../Reuseables/Background";
 import { useStyles } from "./MainMenuMoblile.jss";
-import MediaQuery from "react-responsive/src";
 
 export function MainMenuMobile(props) {
     const classes = useStyles({ theme: props.theme });
@@ -13,10 +13,12 @@ export function MainMenuMobile(props) {
             <Background isFixed={true} theme={props.theme} />
             <div className={classes.main_menu}>
                 <MediaQuery maxAspectRatio={'834/1194'}>
-                    <img
-                        src={`/Images/titles/mobile/main-menu/title-${props.theme}.svg`}
-                        className={classes.title}
-                    />
+                    <Box className={classes.title_box}>
+                        <img
+                            src={`/Images/titles/mobile/main-menu/title-${props.theme}.svg`}
+                            className={classes.title}
+                        />
+                    </Box>
                 </MediaQuery>
                 <MediaQuery minAspectRatio={'834/1194'}>
                     <img
@@ -24,9 +26,13 @@ export function MainMenuMobile(props) {
                         className={classes.title}
                     />
                 </MediaQuery>
-
                 <Box className={classes.page_links}>
-                    <SignOutMobile signOut={props.signOut} theme={props.theme} />
+                    <SignOutMobile
+                        signOut={props.signOut}
+                        theme={props.theme}
+                        style={{marginBottom: '0.5em', marginTop: '0.5em'}}
+                        iconStyle={{transform: 'translate(0, -0.22em'}}
+                    />
                     <PageLinkMobile
                         path="/NewGame"
                         pathType="local"
@@ -47,6 +53,7 @@ export function MainMenuMobile(props) {
                         icon="create-piece"
                         pageName="Create Piece"
                         theme={props.theme}
+                        style={{marginBottom: '1em'}}
                     />
                     <PageLinkMobile
                         path="/MyPieces"
@@ -54,6 +61,8 @@ export function MainMenuMobile(props) {
                         icon="my-pieces"
                         pageName="My Pieces"
                         theme={props.theme}
+                        style={{marginBottom: '0.5em'}}
+                        iconStyle={{transform: 'translate(0, -0.22em'}}
                     />
                     <PageLinkMobile
                         path="https://www.chess.com/learn-how-to-play-chess"
@@ -73,7 +82,7 @@ export function MainMenuMobile(props) {
                         path="https://github.com/symLogicDMUS/ChessKingsCouncil"
                         pathType="remote"
                         icon="author-github"
-                        pageName="Author's GitHub"
+                        pageName="Author GitHub"
                         theme={props.theme}
                     />
                 </Box>

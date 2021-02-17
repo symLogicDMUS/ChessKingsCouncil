@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { icons } from "../styles/icons/top/icons.jss";
 import { useStyles } from "./PageLinkMobile.jss";
 
-export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
+export function PageLinkMobile({icon, path, pathType, pageName, theme, style, iconStyle}) {
     let [hover, setHover] = useState();
     const classes = useStyles({ theme: theme});
 
@@ -15,21 +14,20 @@ export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
             className={classes.page_link}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
+            style={style}
         >
             <SvgIcon
                 className={
                     hover ? classes.page_icon_hover : classes.page_icon_normal
                 }
+                style={iconStyle}
             >
                 {icons[icon]}
             </SvgIcon>
-            <Typography
-                className={
-                    hover ? classes.page_name_hover : classes.page_name_normal
-                }
-            >
-                {pageName}
-            </Typography>
+            <img
+                src={`/Images/text/main menu/mobile/${theme}/${hover ? 'hover' : 'normal'}/${pageName}.svg`}
+                className={classes.page_name}
+            />
         </Box>
     );
 
