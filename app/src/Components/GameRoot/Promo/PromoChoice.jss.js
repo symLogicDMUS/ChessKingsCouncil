@@ -5,7 +5,7 @@ import {promoChoicesSize} from "./Promo.jss";
 
 export const promoChoice = (fontSize, theme) => ({
     fontSize: fontSize,
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         width: promoChoicesSize.desktop,
         height: promoChoicesSize.desktop,
     },

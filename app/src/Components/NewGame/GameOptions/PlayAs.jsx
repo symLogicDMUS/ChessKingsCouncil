@@ -6,7 +6,7 @@ import {Dropdown} from "../../Reuseables/Dropdown";
 import {fontSize0018} from "../../styles/fontSizes.jss";
 import {useStyles, textFieldStyle, dropdownGenStyle} from "../NewGame.jss";
 
-export function PlayAs({setPlayerType, theme, children}) {
+export function PlayAs({setPlayerType, theme, onFocus, children}) {
 
     const classes = useStyles();
 
@@ -30,6 +30,7 @@ export function PlayAs({setPlayerType, theme, children}) {
                 inputLabel='Play As'
                 style={textFieldStyle(fontSize0018)}
                 genStyle={dropdownGenStyle}
+                onFocus={onFocus}
             />
             {children}
         </Box>

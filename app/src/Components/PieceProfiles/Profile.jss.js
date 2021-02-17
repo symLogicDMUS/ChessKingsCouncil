@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexWrap: 'wrap',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: '94%',
             margin: 'auto',
@@ -22,12 +22,12 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             justifyContent: 'space-between',
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${profileHeight}em`,
             flexDirection: 'row',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: '95.5%',
             height: 'unset',

@@ -12,7 +12,7 @@ import {
 export const useStyles = makeStyles({
     options_tool: (props) => ({
         ...tool(props.theme),
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             height: '5.5em',
         },
     }),
@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize00184,
             ...tool_flexbox,
         },

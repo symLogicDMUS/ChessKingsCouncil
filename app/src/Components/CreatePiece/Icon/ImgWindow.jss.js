@@ -10,21 +10,21 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: (innerHeight()*0.4 - appBarHeight) -  (innerHeight()*0.4 - appBarHeight)*0.35,
             width: '1em',
             height: '1em',
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
             fontSize: (innerHeight()*0.4 - appBarHeight) -  (innerHeight()*0.4 - appBarHeight)*0.35,
             width: "1em",
             height: "1em",
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: (innerHeight()*0.35 - appBarHeight) -  (innerHeight()*0.35 - appBarHeight)*0.2,
             width: '1em',
             height: '1em',
@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: `0.005em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",
@@ -49,29 +49,29 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: fontSize0023
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: fontSize0023
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,
         padding: 0,
     }),
     text: props => ({
-        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW004,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,

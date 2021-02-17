@@ -33,31 +33,31 @@ export const header = (style, theme) => ({
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         marginTop: '1em',
         fontSize: fontSizes.desktop,
     },
-    "@media (max-aspect-ratio: 6/10)": {
+    "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
         marginTop: '0.5em',
         fontSize: fontSizes.ipad,
     },
 });
 
 export const text = (theme) => ({
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: fontSizes.desktop,
     },
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.mobile,
     },
-    "@media (max-aspect-ratio: 6/10)": {
+    "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
         fontSize: fontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',

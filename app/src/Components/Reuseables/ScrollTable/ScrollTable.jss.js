@@ -12,19 +12,19 @@ const list_item = (theme, fontSize, tableHeight, numRows) => ({
     alignItems: "flex-end",
     justifyContent: "flex-start",
     color: themes[theme].text,
-    '@media (max-aspect-ratio: 6/10)': {
+    '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+    "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
         borderLeft: `0.01em solid ${themes[theme].outline}`,
         borderRight: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
@@ -63,32 +63,32 @@ export const useStyles = makeStyles({
         fontSize: props.style.fontSize,
         width: props.style.width,
         height: `${getArrowButtonHeight(props.style.height)}em`,
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             border: `0.01em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
         background: themes[props.theme].fill,
         color: themes[props.theme].text,
     }),
     arrow_icon: props => ({
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: props.style.fontSize
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: props.style.fontSize
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: props.style.fontSize * 0.35
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: props.style.fontSize,
         },
     }),

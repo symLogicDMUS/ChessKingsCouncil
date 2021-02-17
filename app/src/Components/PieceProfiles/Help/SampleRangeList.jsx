@@ -20,7 +20,7 @@ export const SampleRangeList = memo(({ theme }) => {
     ];
     return (
         <div>
-            <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                 <ScrollTable
                     numRows={5}
                     listItems={rangeFuncs.map((rangeFunc) => (

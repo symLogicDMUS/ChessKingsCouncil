@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         height: availHeight() * 0.55,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             flexDirection: 'row',
             flexWrap: 'nowrap',
         },

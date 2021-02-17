@@ -4,7 +4,7 @@ import {fontSizes} from "../PieceProfiles/PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     divider: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },

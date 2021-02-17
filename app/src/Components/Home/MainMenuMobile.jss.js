@@ -35,7 +35,7 @@ export const useStyles = makeStyles({
             marginTop: '7.5vh',
             height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             marginLeft: '7.5vh',
             marginTop: '7.5vh',
             alignItems: 'flex-start',
@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
             height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
 
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             height: '90vh',
             justifyContent: 'center',
             alignItems: 'center',
@@ -55,7 +55,7 @@ export const useStyles = makeStyles({
             height: innerHeight()*0.3,
             marginBottom: '2vh',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             height: innerHeight() * 0.08,
             transform: 'translate(0, 3.75vh)',
             marginBottom: '2.5vh',
@@ -65,7 +65,7 @@ export const useStyles = makeStyles({
         height: '100%'
     }),
     page_links: props => ({
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             marginBottom: 'auto',
         },
     }),

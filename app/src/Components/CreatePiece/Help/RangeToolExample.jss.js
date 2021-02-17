@@ -33,18 +33,18 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             justifyContent: 'center',
         },
         '@media (max-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             justifyContent: 'center',
         },
     }),
     span_arrow_buttons: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             marginLeft: 'auto',
             marginRight: 'auto'
@@ -52,10 +52,10 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             marginTop: '1em',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             marginLeft: 'auto',
             marginRight: 'auto'
         },

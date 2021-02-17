@@ -1,6 +1,7 @@
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const accordion_root = (screenCase) => {
     switch (screenCase) {
@@ -23,7 +24,7 @@ export const accordion_root = (screenCase) => {
         default:
             return {
                 position: "absolute",
-                top: boardSizes.mobile + boardPos.mobile.top + availHeight() * 0.01,
+                top: appBarHeight + boardSizes.mobile,
                 left: boardPos.mobile.left,
                 width: boardSizes.mobile,
                 zIndex: 5,

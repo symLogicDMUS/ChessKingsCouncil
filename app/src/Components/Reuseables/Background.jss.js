@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
         '@media (max-aspect-ratio: 1/1)': {
             top: 0,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             top: '1%',
         },
     }),
@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
             width: '7.5vh',
             height: '7.5vh',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '10vw',
             height: '10vw',
         },

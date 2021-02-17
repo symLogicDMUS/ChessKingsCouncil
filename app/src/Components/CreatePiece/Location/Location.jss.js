@@ -35,16 +35,16 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-evenly',
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             marginTop: '-3.2vh',
             width: buttonSize.ipx*2 + margins.ipx*2.5,
             height: buttonSize.ipx*2 + margins.ipx*2.5,
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             marginTop: '-3vh',
             width: '100%',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             // fontSize: availHeight() - (appBarHeight + fontSizes.ipad * 8 + availHeight() * 0.035),
             // width: '100%',
             // justifyContent: 'space-between',
@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
             width: buttonSize.ipad*2 + margins.ipad*3,
             height: buttonSize.ipad*2 + margins.ipad*3,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             ...tool_flexbox,
         },
     }),

@@ -73,11 +73,11 @@ export const useStyles = makeStyles({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
             },
-            '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+            '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
                 fontSize: fontSizes.ipad,
                 height: '8em',
             },
-            '@media (min-aspect-ratio: 1001/1000)': {
+            '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
@@ -91,7 +91,7 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            '@media (min-aspect-ratio: 1001/1000)': {
+            '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
                 fontSize: fontSizes.desktop,
                 height: '0.7em',
                 width: '8em',

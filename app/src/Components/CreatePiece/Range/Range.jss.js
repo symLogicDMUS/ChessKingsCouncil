@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
         ...tool(props.theme),
         justifyContent: 'center',
         ...props.styles,
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             marginTop: '-3.5vh',
         },
     }),
@@ -57,7 +57,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '93%',
             marginLeft: '3.5%',
             alignItems: 'center',
@@ -77,10 +77,10 @@ export const useStyles = makeStyles({
         },
     }),
     separator: props => ({
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
                 width: '6.25vw',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             width: '7.5vw',
         },
     }),

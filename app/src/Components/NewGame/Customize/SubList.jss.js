@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
@@ -84,7 +84,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         fontFamily: 'Roboto-Light, Roboto',

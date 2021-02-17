@@ -9,7 +9,7 @@ export const page_icon = () => ({
         paddingLeft: '0.25em',
         marginRight: '0.5em',
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
         fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,
         paddingRight: '0.5em',
         marginRight: '0.75em',
@@ -40,7 +40,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 834/1194)': {
             height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,
         },
     }),

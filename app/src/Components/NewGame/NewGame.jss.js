@@ -10,7 +10,7 @@ import {
     fontSize001725,
     fontSizeW015,
 } from "../styles/fontSizes.jss";
-import {themes} from "../styles/themes.jss";
+
 
 export const fontSizes = {
     desktop: fontSize012,
@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
             marginTop: '7.5vh',
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             height: '90vh',
             justifyContent: 'space-between',
         },
@@ -79,11 +79,16 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
             width: innerWidth() * 0.7,
+
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: innerWidth() * 0.3,
+        },
+        '@media screen and (max-device-width: 767px) and (min-aspect-ratio: 1/1)': {
+            width: innerWidth() * 0.7,
+            margin: 'auto',
         },
     }),
     title: props => ({
@@ -105,19 +110,19 @@ export const useStyles = makeStyles({
         fontSize: fontSize0018,
     }),
     play_button: props => ({
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: fontSize001725,
             margin: '1em',
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: fontSize0018,
             margin: '1.5em',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             margin: '1em',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize0016,
             margin: '1.5em',
         },

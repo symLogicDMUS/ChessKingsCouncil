@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
         }
     },
     ok_inactive: {
-        "@media screen and (min-device-width: 768px)": {
+        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
             ...button('10%'),
         },
         "@media screen and (max-device-width: 767px)": {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles({
         cursor: 'not-allowed'
     },
     delete_active: {
-        "@media screen and (min-device-width: 768px)": {
+        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
             ...button('20%'),
         },
         "@media screen and (max-device-width: 767px)": {
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         },
     },
     delete_inactive: {
-        "@media screen and (min-device-width: 768px)": {
+        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
             ...button('20%'),
         },
         "@media screen and (max-device-width: 767px)": {

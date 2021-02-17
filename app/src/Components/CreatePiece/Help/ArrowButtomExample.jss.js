@@ -15,16 +15,16 @@ const buttonPos = {
 
 export const useStyles = makeStyles({
     container: props => ({
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: fontSizes.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         ...buttonPos[props.angle],
@@ -40,16 +40,16 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].span}`,
     }),
     arrow_button: props => ({
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: fontSizes.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         width: '2.75em',
@@ -58,16 +58,16 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: fontSizes.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         width: '2em',

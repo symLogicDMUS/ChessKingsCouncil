@@ -12,11 +12,16 @@ export function MuiTextField({
     genStyle,
     inputRef,
     autoFocus,
+    onFocus,
     fullWidth,
     defaultValue,
     autoComplete,
 }) {
     const classes = useStyles({ style: style, genStyle: genStyle, theme: theme });
+    const [border, setBorder] = useState(false);
+    const updateBorder = () => (
+        setBorder(! border)
+    );
 
     return (
         <TextField
@@ -27,9 +32,11 @@ export function MuiTextField({
             className={classes.input}
             fullWidth={fullWidth}
             autoFocus={autoFocus}
+            onFocus={onFocus}
             variant={variant}
             label={label}
             id={id}
+            style={border ? {border: '2px dashed red'} : null}
         />
     );
 }

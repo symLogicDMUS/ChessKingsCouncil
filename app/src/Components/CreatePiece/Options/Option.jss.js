@@ -13,11 +13,11 @@ export const useStyles = makeStyles({
             fontSize: fontSize0028,
             margin: '0.25em',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0031,
             margin: '0.5em',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             margin: 'unset',
         },
@@ -42,10 +42,10 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 834/1194)': {
             fontSize: fontSize0028,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0031,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
         },
         width: '2.8em',
@@ -56,10 +56,10 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 834/1194)': {
             fontSize: fontSize0028,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW004,
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
         },
         fontFamily: 'Roboto-Light, Roboto',

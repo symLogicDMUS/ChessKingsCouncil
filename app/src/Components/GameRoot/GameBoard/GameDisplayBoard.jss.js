@@ -1,4 +1,3 @@
-import {dndBoard} from './DropLayer.jss';
 import { makeStyles } from "@material-ui/core/styles";
 import {game_board} from "../../Reuseables/Board.jss";
 

@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
         outline: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: drawerItemWidth,
             marginLeft: '5%',
         },
@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
         height: '2em',
         marginBottom: '0.75em',
         outline: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: drawerItemWidth,
             marginLeft: '5%',
         },

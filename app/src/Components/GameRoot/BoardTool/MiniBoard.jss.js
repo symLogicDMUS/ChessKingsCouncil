@@ -9,14 +9,14 @@ export const useStyles = makeStyles({
             ...board(fontSizes.mobile),
             marginTop: '-1em'
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             marginTop: '0.1em',
             ...board(fontSizes.ipx),
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             ...board(fontSizes.ipad),
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             ...board(fontSizes.desktop),
         },
         outline: `0.04em solid ${themes[props.theme].outline}`

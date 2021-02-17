@@ -12,7 +12,7 @@ export const styles = {
         width: '100vw',
         height: availHeight() * 0.8,
         overflowX: 'hidden',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',

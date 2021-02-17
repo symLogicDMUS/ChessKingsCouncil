@@ -39,16 +39,16 @@ export const subtitle = (fontSize, theme) => ({
 });
 
 export const item_title = (theme) => ({
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: titleFontSizes.desktop,
     },
     '@media (max-aspect-ratio: 1/1)': {
         fontSize: titleFontSizes.mobile,
     },
-    "@media (max-aspect-ratio: 6/10)": {
+    "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
         fontSize: titleFontSizes.ipx,
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
         fontSize: titleFontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             alignItems: 'space-evenly',
         },
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             height: '200vh',
             display: 'flex',
             flexDirection: 'column',
@@ -91,7 +91,7 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '60%',
             justifyContent: 'space-between',
         },
@@ -101,7 +101,7 @@ export const useStyles = makeStyles({
         },
     }),
     range_board_example: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: "9em",
             height: "9em",
@@ -131,7 +131,7 @@ export const useStyles = makeStyles({
     }),
     partial_range_example: props => ({
         display: "flex",
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             flexDirection: "row",
             width: '95%',
             justifyContent: 'space-evenly',
@@ -142,7 +142,7 @@ export const useStyles = makeStyles({
             margin: 'auto',
             alignItems: 'center',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             flexDirection: 'row',
         },
     }),
@@ -150,7 +150,7 @@ export const useStyles = makeStyles({
         width: '95%',
         margin: 'auto',
         display: 'flex',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             height: '125vh',
             flexDirection: 'column',
             flexWrap: 'wrap',
@@ -160,17 +160,17 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             height: '70vh',
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             height: '100vh',
         },
     }),
     item: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: widths.desktop,
@@ -181,12 +181,12 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             marginTop: '-0.5em'
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: widths.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             height: `${heights.mobile}em`,
             width: widths.mobile,
@@ -196,7 +196,7 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     window: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
             height: widths.desktop,
@@ -206,12 +206,12 @@ export const useStyles = makeStyles({
             width: widths.mobile,
             height: widths.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: widths.mobile,
             height: widths.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: widths.mobile,
             height: widths.mobile,
@@ -228,16 +228,16 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     header: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -259,16 +259,16 @@ export const useStyles = makeStyles({
         ...item_title(props.theme)
     }),
     expand_widget: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.ipad,
         },
         marginLeft: 'auto',

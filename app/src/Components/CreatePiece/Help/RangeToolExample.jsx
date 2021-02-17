@@ -29,7 +29,7 @@ export function RangeToolExample({theme}) {
 
     return (
         <div className={classes.range_tool}>
-            <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                 <ScrollTable
                     numRows={5}
                     theme={theme}

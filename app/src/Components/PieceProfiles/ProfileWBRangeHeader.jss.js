@@ -6,16 +6,16 @@ import {headerFontSizes, titleFontSizes} from "./Header/ProfileHeader.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -31,16 +31,16 @@ export const useStyles = makeStyles({
     }),
     /*Parts of the range table's header: */
     title: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: titleFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: titleFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: titleFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: titleFontSizes.ipad,
         },
         marginLeft: 'auto',
@@ -50,16 +50,16 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     expand_widget: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: headerFontSizes.ipad,
         },
         marginLeft: 'auto',

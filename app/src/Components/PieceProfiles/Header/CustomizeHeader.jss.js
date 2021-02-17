@@ -76,20 +76,20 @@ export const useStyles = makeStyles({
         },
     }),
     piece_name: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize0025,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
     }),
     box: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: 'unset',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -114,19 +114,19 @@ export const useStyles = makeStyles({
         height: '1.5em',
     }),
     checkbox_text: props => ({
-       '@media (min-aspect-ratio: 1001/1000)': {
+       '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
            fontSize: fontSize0025,
        },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
     }),
     sub_icon: props => ({
         fontSize: fontSize0028,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '1.25em',
             height: '1.25em',
         },
@@ -137,7 +137,7 @@ export const useStyles = makeStyles({
     }),
     no_sub_icon: props => ({
         fontSize: fontSize0028,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '1.2em',
             height: '1.2em',
         },

@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const cell = (theme) => ({
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: fontSize002,
     },
     '@media (max-aspect-ratio: 1/1)': {
@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: drawerItemWidth,
             marginBottom: '1em',
             marginLeft: '1em',
@@ -38,7 +38,7 @@ export const useStyles = makeStyles({
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             marginTop: '-1.5vh',
             borderTop: `0.085em solid ${themes[props.theme].outline}`,
             borderBottom: `0.085em solid ${themes[props.theme].outline}`,
@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             width: '35%',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '50%',
         },
     }),
@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             width: '65%',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '50%',
         },
     }),

@@ -6,14 +6,14 @@ import MediaQuery from "react-responsive/src";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { GameDisplayBoard } from "./GameDisplayBoard";
-import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
 import {resolveScreenCase} from "../../helpers/resolveScreenCase";
+import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
 
 export const Board = ({ gameRoot }) => {
 
     return (
         <>
-            <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                 <DndProvider backend={HTML5Backend}>
                     <DropLayer
                         gameRoot={gameRoot}

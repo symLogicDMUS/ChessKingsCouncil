@@ -15,7 +15,7 @@ const buttonOrderMobile = {
 
 
 const location_button = (theme, rf) => ({
-    '@media (max-aspect-ratio: 6/10)': {
+    '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
         order : buttonOrderMobile[rf],
         width: buttonSize.ipx,
         height: buttonSize.ipx,
@@ -24,7 +24,7 @@ const location_button = (theme, rf) => ({
         borderRadius: '0.05em',
         border: `0.01em solid ${themes[theme].outline}`,
     },
-    "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)": {
+    "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
         width: buttonSize.mobile,
         height: buttonSize.mobile,
         fontSize: buttonSize.mobile * 0.3,
@@ -32,7 +32,7 @@ const location_button = (theme, rf) => ({
         borderRadius: '0.05em',
         border: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
         order : buttonOrderMobile[rf],
         width: buttonSize.ipad,
         height: buttonSize.ipad,
@@ -41,7 +41,7 @@ const location_button = (theme, rf) => ({
         borderRadius: '0.05em',
         border: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: fontSize0022,
         margin: 'unset',
         width: '3.5em',

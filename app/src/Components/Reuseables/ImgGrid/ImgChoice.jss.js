@@ -17,7 +17,7 @@ export const img_container = (theme, isSelected) => ({
         height: ((widths.mobile * 0.95 * 0.95) - (widths.mobile * 0.95 * 0.95 * 0.025 * 4))*0.5,
         border: isSelected ? `0.0025em solid ${themes[theme].text_alt}` : `0.0025em solid ${themes[theme].outline}`,
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         width: '10em',
         height: '10em',
         margin: '1em',
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         ...img_container(props.theme, true),
     }),
     img: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '9em',
             height: '9em',
@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '10em',
             position: 'relative',

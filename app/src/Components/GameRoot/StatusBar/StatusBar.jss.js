@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
     header: props => ({
         display: "flex",
         flexDirection: "row",
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: availWidth() * 0.98 - (sideBarWidth + drawerWidth),
             justifyContent: "flex-start",
         },
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
     }),
     status_bar: props => ({
         zIndex: 4,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             flexGrow: 100,
         },

@@ -35,7 +35,7 @@ export const tool = (theme) => ({
         justifyContent: 'center',
         alignItems: 'flex-start',
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         backgroundColor: themes[theme].fill,
         width: '100%',
         marginBottom: '3vh',
@@ -52,7 +52,7 @@ export const tool_flexbox = {
         alignItems: 'flex-start',
         justifyContent: 'space-between',
     },
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         width: '93%',
         marginLeft: '3.5%',
         alignItems: 'center',
@@ -84,7 +84,7 @@ export const styles = {
         display: 'flex',
     }),
     accordion_title: props => ({
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0025
         },
     }),

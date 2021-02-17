@@ -21,9 +21,9 @@ export const useStyles = makeStyles((theme) => ({
     appBar: props => ({
         zIndex: 7,
         height: appBarHeight,
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
-            height: 62
-        },
+        // '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        //     height: 62
+        // },
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -63,7 +63,6 @@ export const useStyles = makeStyles((theme) => ({
     }),
     content: props => ({
         flexGrow: 1,
-        // padding: '2vh',
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

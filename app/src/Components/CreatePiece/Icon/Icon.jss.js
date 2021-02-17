@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             width: '97.5%'
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
         marginTop: '-2.5vh',
@@ -28,13 +28,13 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '93%',
             marginLeft: '3.5%',
             alignItems: 'center',
@@ -46,7 +46,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 834/1194)': {
             width: window.innerWidth*0.065,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
             width: window.innerWidth*0.01,
         },
     }),

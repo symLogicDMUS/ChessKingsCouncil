@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '100%',
             fontSize: fontSizes.desktop,
             marginTop: '0.7em',
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             width: '100%',
             fontSize: fontSizes.ipad,
             flexDirection: 'row',
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
         },
     }),
     range_header: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -47,7 +47,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -64,13 +64,13 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     range_modal: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
         },
         display: 'flex',

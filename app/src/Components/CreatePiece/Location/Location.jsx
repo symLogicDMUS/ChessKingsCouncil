@@ -12,7 +12,7 @@ export function Location({ selectedLoc, setLoc, theme }) {
         <>
             <div className={classes.location_tool}>
                 <Box className={classes.box}>
-                    <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                         <Typography className={classes.title}>
                             Location
                         </Typography>

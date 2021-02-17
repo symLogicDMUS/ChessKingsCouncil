@@ -6,7 +6,7 @@ import {fontSizes, heights, widths as avatarSize} from "../PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
@@ -17,12 +17,12 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             marginTop: '-0.5em'
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
@@ -33,16 +33,16 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_header: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: headerFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -57,16 +57,16 @@ export const useStyles = makeStyles({
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     avatar_title: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: titleFontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: titleFontSizes.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: titleFontSizes.ipx,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: titleFontSizes.ipad,
         },
         fontFamily: 'Roboto-Light, Roboto',
@@ -74,7 +74,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     avatar_window: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,
@@ -84,12 +84,12 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: avatarSize.ipad,
             height: avatarSize.ipad,

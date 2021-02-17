@@ -18,6 +18,7 @@ export function Dropdown({
     labelId,
     overwrite,
     updateParent,
+    onFocus,
 }) {
     let [selected, setSelected] = useState("");
     const classes = useStyles({
@@ -45,6 +46,7 @@ export function Dropdown({
             <Select
                 className={classes.field}
                 onChange={handleChange}
+                onFocus={onFocus}
                 value={overwrite ? overrideItem : selected}
                 label={label}
                 id={selectId}

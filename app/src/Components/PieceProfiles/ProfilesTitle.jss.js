@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
             width: '95%',
             marginLeft: '2.5%',
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: availWidth() * 0.4625,
             marginLeft: '3.25%',

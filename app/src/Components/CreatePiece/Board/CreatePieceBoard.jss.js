@@ -13,16 +13,16 @@ export const fontSizes = {
 
 export const useStyles = makeStyles({
     board: props => ({
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             ...board(fontSizes.ipx),
         },
-        '@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 834/1194)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
             ...board(fontSizes.mobile),
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             ...board(fontSizes.ipad),
         },
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             ...board(fontSizes.desktop),
             boxShadow: '0 0 0.1em white',
             margin: 'auto',

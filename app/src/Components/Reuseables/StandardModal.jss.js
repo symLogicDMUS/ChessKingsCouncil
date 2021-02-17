@@ -24,7 +24,7 @@ export const useStyles = makeStyles({
 
     window: props => ({
         fontSize: props.fontSize,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: availWidth() * 0.333,
             height: availHeight() * 0.333,
         },

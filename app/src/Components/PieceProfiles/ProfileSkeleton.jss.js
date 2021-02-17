@@ -9,7 +9,7 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             flexWrap: 'wrap',
         },
         '@media (max-aspect-ratio: 1/1)': {
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
     }),
     profile_header: props => ({
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             height: '4em',
             width: '89%',
             marginLeft: '5.1%',
@@ -36,7 +36,7 @@ export const useStyles = makeStyles({
         zIndex: 'inherit',
         width: '95%',
         display: 'flex',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             justifyContent: 'space-evenly',
             flexDirection: 'row',
@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
     item_header: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             height: '3.5em',
             width: '11em',
@@ -72,7 +72,7 @@ export const useStyles = makeStyles({
             marginTop: '-0.4em',
             marginBottom: '-0.75em',
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             height: '3.5em',
             width: '9.5em',
@@ -83,7 +83,7 @@ export const useStyles = makeStyles({
     item_content: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: '11em',
             height: '18em',
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             marginTop: '-2em',
             marginBottom: '-1em',
         },
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             fontSize: fontSizes.ipx,
             width: '9.5em',
             height: '15em',

@@ -31,7 +31,7 @@ export const gen_style = () => ({
 export const useStyles = makeStyles({
     name: props => ({
         ...tool(props.theme),
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             ...tool_flexbox,
             marginBottom: '3vh',
 

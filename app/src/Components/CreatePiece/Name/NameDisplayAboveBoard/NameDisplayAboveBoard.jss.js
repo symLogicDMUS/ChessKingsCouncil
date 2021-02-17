@@ -4,7 +4,7 @@ export const useStyles = makeStyles({
     label: {
         position: "absolute",
         zIndex: "0",
-        "@media screen and (min-device-width: 768px)": {
+        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
             left: window.screen.availWidth * 0.171,
             top: window.screen.availHeight * 0.143,
             width: window.screen.availWidth * 0.39,

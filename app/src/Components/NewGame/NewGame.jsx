@@ -29,6 +29,7 @@ function NewGame() {
     let [gameName, updateGameName] = useState("");
     let [gameType, updateGameType] = useState(null);
     let [playerType, updatePlayerType] = useState(null);
+    const [focus, setFocus] = useState(null);
     let [theme, setTheme] = useState("tan");
 
     useEffect(() => {
@@ -69,7 +70,7 @@ function NewGame() {
     return (
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
@@ -137,6 +138,7 @@ function NewGame() {
                                 theme={theme}
                                 key='GameName-Mobile'
                                 setGameName={setGameName}
+                                onFocus={() => setFocus('game-name')}
                             />
                             <PickType
                                 theme={theme}
@@ -144,7 +146,7 @@ function NewGame() {
                                 gameType={gameType}
                                 setGameType={setGameType}
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} key="PlayAs-Mobile" >
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Mobile" >
                                 <MuiButton
                                     theme={theme}
                                     onClick={finish}
@@ -167,6 +169,35 @@ function NewGame() {
                             </PlayAs>
                         </Box>
                     </PersistentDrawer>
+                </MediaQuery>
+                <MediaQuery minAspectRatio={'1/1'} maxDeviceWidth={767}>
+                        <PersistentDrawer
+                            theme={theme}
+                            drawer={
+                                <NavBar
+                                    currentPage="NewGame"
+                                    screenCase={resolveScreenCase('mobile')}
+                                    helpText={HelpText(fontSizeW0045, theme)}
+                                    helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
+                                    redirectMessage={null}
+                                    theme={theme}
+                                />
+                            }
+                            appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}
+                        >
+                            <Box className={classes.new_game}>
+                                {focus === 'game-name' ? (
+                                    <GameName
+                                        key='GameName-Focused'
+                                        theme={theme}
+                                        setGameName={setGameName}
+                                    />
+                                ) : null}
+                                {focus === 'play-as' ? (
+                                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Focus" />
+                                ) : null}
+                            </Box>
+                        </PersistentDrawer>
                 </MediaQuery>
             </div>
         </>

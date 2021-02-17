@@ -40,7 +40,7 @@ export const delete_icon = (screenCase) => {
 };
 
 export const button = (theme) => ({
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: fontSize002,
         width: '6.1em',
         height: '2em',
@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flexGrow: 3,
-        "@media (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             flexGrow: 0,
             marginLeft: '1em',
         },
@@ -80,7 +80,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -88,14 +88,14 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
         marginLeft: '1em',
     }),
     load_button: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
@@ -110,7 +110,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -121,7 +121,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     delete_button: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
@@ -136,7 +136,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',

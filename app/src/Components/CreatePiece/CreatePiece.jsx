@@ -325,7 +325,7 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.modals()}
-                <MediaQuery minAspectRatio={'1001/1000'} minDeviceWidth={768}>
+                <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}

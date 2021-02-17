@@ -6,7 +6,7 @@ import {fontSizes} from "./ProfileWBModal.jss";
 
 export const close_icon = () => ({
     fontSize: fontSize0023,
-    '@media (min-aspect-ratio: 1001/1000)': {
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         width: "0.5em",
         height: "0.5em",
     },
@@ -18,7 +18,7 @@ export const close_icon = () => ({
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             height: '0.5em',
         },
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             borderRadius: '0.25em',
             width: `${profileWidth.desktop}em`,
@@ -77,7 +77,7 @@ export const useStyles = makeStyles({
         lineHeight: '1em',
     }),
     inline_piece: props => ({
-        '@media (min-aspect-ratio: 1001/1000)': {
+        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
         },
         '@media (max-aspect-ratio: 1/1)': {
