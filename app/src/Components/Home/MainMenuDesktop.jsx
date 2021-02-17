@@ -1,10 +1,9 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import "../styles/_backgrounds.scss"
-import {PageLink} from "./PageLink";
+import {PageLinkDesktop} from "./PageLinkDesktop";
 import {MuiButton as Button} from "../Reuseables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import {fontSize002} from "../styles/fontSizes.jss";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./MainMenuDesktop.jss";
 
@@ -30,60 +29,53 @@ export function MainMenuDesktop(props) {
             <Box className={classes.main_menu}>
                 <img src={`/Images/titles/desktop/title-${props.theme}.svg`} className={classes.title} />
                 <Box className={classes.page_links}>
-                    <PageLink
+                    <PageLinkDesktop
                         icon='new-game-cutout'
                         path="/NewGame"
+                        pageName="New Game"
                         pathType="local"
-                        line1='New'
-                        line2='Game'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='load-game-cutout'
                         path="/LoadGame"
+                        pageName="Load Game"
                         pathType="local"
-                        line1='Load'
-                        line2='Game'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='create-piece-cutout'
                         path="/CreatePiece"
+                        pageName="Create Piece"
                         pathType="local"
-                        line1='Create'
-                        line2='Piece'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='my-pieces-cutout'
                         path="/MyPieces"
+                        pageName="My Pieces"
                         pathType="local"
-                        line1='My'
-                        line2='Pieces'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='chess-rules-cutout'
                         path="https://www.chess.com/learn-how-to-play-chess"
+                        pageName="Chess Rules"
                         pathType="remote"
-                        line1='Chess'
-                        line2='Rules'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='council-rules-cutout'
                         path="/CouncilRules"
+                        pageName="Council Rules"
                         pathType="local"
-                        line1='Council'
-                        line2='Rules'
                         theme={props.theme}
                     />
-                    <PageLink
+                    <PageLinkDesktop
                         icon='author-github-cutout'
                         path="https://github.com/symLogicDMUS/ChessKingsCouncil"
+                        pageName="Author GitHub"
                         pathType="remote"
-                        line1="Author's"
-                        line2="GitHub"
                         theme={props.theme}
                     />
                 </Box>

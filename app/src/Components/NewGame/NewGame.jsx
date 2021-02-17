@@ -114,7 +114,6 @@ function NewGame() {
                                 Play
                             </MuiButton>
                         </PlayAs>
-
                     </Box>
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>
@@ -145,7 +144,7 @@ function NewGame() {
                                 gameType={gameType}
                                 setGameType={setGameType}
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} key="PlayAs-Mobile">
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} key="PlayAs-Mobile" >
                                 <MuiButton
                                     theme={theme}
                                     onClick={finish}

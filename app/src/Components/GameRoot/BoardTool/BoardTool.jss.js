@@ -73,9 +73,6 @@ export const useStyles = makeStyles({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
             },
-            '@media (max-aspect-ratio: 6/10)': {
-                flexDirection: 'column',
-            },
             '@media (min-aspect-ratio: 834/1194) and (max-aspect-ratio: 1/1)':{
                 fontSize: fontSizes.ipad,
                 height: '8em',

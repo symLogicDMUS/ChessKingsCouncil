@@ -2,15 +2,6 @@ import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {fontSize002, fontSize00392} from "../styles/fontSizes.jss";
 
-export const page_name = (fontSize) => ({
-    fontSize: fontSize * 2,
-    width: availWidth() * 0.078,
-    height: (availHeight() * 0.236 - availWidth() * 0.078) * 0.5,
-    fontFamily: 'Garamond',
-    textAlign: 'center',
-    lineHeight: '1.2em',
-});
-
 export const useStyles = makeStyles({
     main_menu: props => ({
         width: '100%',

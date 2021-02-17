@@ -4,6 +4,7 @@ import {angleToText} from "../../helpers/spanToText";
 import {ArrowButtonExample} from "./ArrowButtomExample";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {useStyles, widths, heights, fontSizes} from "./RangeToolExample.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export function RangeToolExample({theme}) {
     const classes = useStyles({theme: theme});
@@ -46,9 +47,9 @@ export function RangeToolExample({theme}) {
                     numRows={5}
                     theme={theme}
                     style={{
-                        width: widths.mobile,
-                        height: heights.mobile,
-                        fontSize: fontSizes.mobile,
+                        width: widths[resolveScreenCase('mobile')],
+                        height: heights[resolveScreenCase('mobile')],
+                        fontSize: fontSizes[resolveScreenCase('mobile')],
                     }}
                     buttonStyle={{borderRadius: 0}}
                     listItems={getSpanTextLabels()}
