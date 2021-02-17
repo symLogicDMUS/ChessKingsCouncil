@@ -1,10 +1,18 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import { SignOutMobile } from "./SignOutMobile";
-import { PageLinkMobile } from "./PageLinkMobile";
+import {SignOutMobile} from "./SignOutMobile";
+import {PageLinkMobile} from "./PageLinkMobile";
 import {Background} from "../Reuseables/Background";
-import { useStyles } from "./MainMenuMoblile.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
+import {
+    create_piece_adjuster,
+    my_pieces_adjuster,
+    sign_out_adjuster,
+    icon_adjuster,
+    useStyles
+} from "./MainMenuMobile.jss";
+
 
 export function MainMenuMobile(props) {
     const classes = useStyles({ theme: props.theme });
@@ -21,17 +29,19 @@ export function MainMenuMobile(props) {
                     </Box>
                 </MediaQuery>
                 <MediaQuery minAspectRatio={'834/1194'}>
-                    <img
-                        src={`/Images/titles/desktop/title-${props.theme}.svg`}
-                        className={classes.title}
-                    />
+                    <Box className={classes.title_box}>
+                        <img
+                            src={`/Images/titles/desktop/title-${props.theme}.svg`}
+                            className={classes.title}
+                        />
+                    </Box>
                 </MediaQuery>
                 <Box className={classes.page_links}>
                     <SignOutMobile
                         signOut={props.signOut}
                         theme={props.theme}
-                        style={{marginBottom: '0.5em', marginTop: '0.5em'}}
-                        iconStyle={{transform: 'translate(0, -0.22em'}}
+                        style={sign_out_adjuster()}
+                        iconStyle={icon_adjuster()}
                     />
                     <PageLinkMobile
                         path="/NewGame"
@@ -53,7 +63,7 @@ export function MainMenuMobile(props) {
                         icon="create-piece"
                         pageName="Create Piece"
                         theme={props.theme}
-                        style={{marginBottom: '1em'}}
+                        style={create_piece_adjuster(resolveScreenCase('mobile'))}
                     />
                     <PageLinkMobile
                         path="/MyPieces"
@@ -61,8 +71,8 @@ export function MainMenuMobile(props) {
                         icon="my-pieces"
                         pageName="My Pieces"
                         theme={props.theme}
-                        style={{marginBottom: '0.5em'}}
-                        iconStyle={{transform: 'translate(0, -0.22em'}}
+                        style={my_pieces_adjuster()}
+                        iconStyle={icon_adjuster()}
                     />
                     <PageLinkMobile
                         path="https://www.chess.com/learn-how-to-play-chess"
