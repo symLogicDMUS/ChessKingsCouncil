@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../styles/fontSizes.jss";
+import {innerHeight, innerWidth} from "../helpers/windowMeasurments";
 
 const row = () => ({
     width: '100%',
@@ -32,7 +33,7 @@ export const useStyles = makeStyles((theme) => ({
             top: 0,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-            top: '1%',
+            top: '0.5%',
         },
     }),
     board_pattern: props => ({

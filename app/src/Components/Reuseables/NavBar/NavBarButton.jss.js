@@ -1,5 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize0019, fontSize002, fontSize0023, fontSize00236, fontSize0024} from "../../styles/fontSizes.jss";
+import {
+    fontSize0015,
+    fontSize0019,
+    fontSize002,
+    fontSize0023,
+    fontSize00236,
+    fontSize0024, fontSize0035, fontSize00392, fontSize0040, fontSize008
+} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {navBarWidth} from "./NavBar.jss";
 
@@ -30,6 +37,13 @@ const getStyle = (screenCase, currentPage) => {
                 justifyContent: "flex-start",
                 width: "99%",
                 height: "2.5em"
+            }
+        case 'short':
+            return {
+                fontSize: fontSize0040,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.25em"
             }
         default:
             throw new Error('no screen type given')
@@ -62,6 +76,11 @@ export const text = (screenCase) => {
                 marginRight: margin,
                 marginTop: '0.15em',
             }
+        case 'short':
+            return {
+                fontSize: fontSize0040,
+                marginRight: margin,
+            }
         default:
             throw new Error('no screen case given')
     }
@@ -88,6 +107,12 @@ export const icon = (screenCase) => {
             return {
                 fontSize: fontSize0023,
                 marginRight: margin,
+            }
+        case 'short':
+            return {
+                fontSize: fontSize0035,
+                marginRight: margin,
+                transform: 'translate(0, -0.15em)',
             }
         default:
             throw new Error('no screen case given')
@@ -153,6 +178,10 @@ export const useStyles = makeStyles({
         flexGrow: 3,
         borderRadius: 0,
         ...getStyle(props.screenCase, props.currentPage),
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            alignItems: 'baseline',
+        },
         background: themes[props.theme].fill,
     }),
     box: props => ({

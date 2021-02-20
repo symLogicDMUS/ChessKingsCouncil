@@ -8,13 +8,15 @@ export const headerFontSizes = {
     mobile: fontSizeW0055,
     ipx: fontSizeW005,
     ipad: fontSizes.ipad,
+    short: fontSizes.short,
 }
 
 export const titleFontSizes = {
     desktop: headerFontSizes.desktop* 0.8,
     mobile: headerFontSizes.mobile*0.8,
     ipx: headerFontSizes.ipx*0.8,
-    ipad: headerFontSizes.ipad*0.8
+    ipad: headerFontSizes.ipad*0.8,
+    short: headerFontSizes.short*0.8,
 }
 
 /**
@@ -41,7 +43,11 @@ export const header = (style, theme) => ({
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+    /*shortest phones*/
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        fontSize: fontSizes.short,
+    },
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
         marginTop: '0.5em',
         fontSize: fontSizes.ipad,
     },
@@ -57,7 +63,11 @@ export const text = (theme) => ({
     "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
         fontSize: fontSizes.ipx,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+    /*shortest phones*/
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        fontSize: fontSizes.short,
+    },
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
         fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',

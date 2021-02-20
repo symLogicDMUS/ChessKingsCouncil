@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             justifyContent: 'space-between',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             justifyContent: 'center',
         },
     }),
@@ -55,7 +55,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             marginTop: '1em',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             marginLeft: 'auto',
             marginRight: 'auto'
         },

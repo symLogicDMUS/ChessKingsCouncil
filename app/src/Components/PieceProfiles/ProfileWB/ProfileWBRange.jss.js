@@ -5,11 +5,9 @@ import {themes} from "../../styles/themes.jss";
 export const heights = {
     desktop: 13.03,
     mobile: 9,
-}
-
-export const sqrSize = {
-    desktop: '1.44375em',
-    mobile: '0.9375em',
+    ipad: 9,
+    ipx: 9,
+    short: 9,
 }
 
 export const useStyles = makeStyles({
@@ -30,7 +28,13 @@ export const useStyles = makeStyles({
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizes.short,
+            height: `${heights.short}em`,
+            width: avatarSize.short,
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
@@ -53,7 +57,12 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
             width: widths.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizes.short,
+            width: widths.short,
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -83,7 +92,13 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizes.short,
+            width: avatarSize.short,
+            height: avatarSize.short,
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: avatarSize.ipad,
             height: avatarSize.ipad,

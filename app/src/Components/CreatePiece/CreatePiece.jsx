@@ -31,11 +31,11 @@ import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {appBarHeight, pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
+import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
-import {accordion_style, app_bar_title, styles} from "./CreatePiece.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
 import {fontSizes} from "./Board/CreatePieceBoard.jss";
+import {accordion_style, app_bar_title, persistentDrawerAddedStyle, styles} from "./CreatePiece.jss";
 
 
 class CreatePiece extends React.Component {
@@ -425,6 +425,7 @@ class CreatePiece extends React.Component {
                                 Create Piece
                             </Typography>
                         }
+                        contentAddedStyle={persistentDrawerAddedStyle(resolveScreenCase('mobile'))}
                     >
                         <Board
                             key="Board-Mobile"

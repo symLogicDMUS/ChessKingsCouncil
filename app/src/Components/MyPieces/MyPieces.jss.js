@@ -1,10 +1,9 @@
-import {themes} from "../styles/themes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {addressBarHeight, appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {availHeight, innerHeight} from "../helpers/windowMeasurments";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 // mobile
 export const piece_profiles = () => ({
-    height: availHeight() - addressBarHeight,
+    height: (innerHeight() - appBarHeight)*0.98,
 });
 
 export const styles = {

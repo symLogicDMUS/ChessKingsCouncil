@@ -84,23 +84,27 @@ function NewGame() {
                             key='GameName-Desktop'
                             theme={theme}
                             setGameName={setGameName}
+                            screenCase='desktop'
                         />
                         <PickType
                             key='PickType-Desktop'
                             theme={theme}
                             gameType={gameType}
                             setGameType={setGameType}
+                            screenCase='desktop'
                         />
                         <PlayAs
                             theme={theme}
                             key='PlayAs-Desktop'
                             setPlayerType={setPlayerType}
+                            screenCase='desktop'
                         >
                             <MuiButton
                                 key="PlayButton-Desktop"
                                 onClick={finish}
                                 classesObj={{root: classes.play_button}}
                                 style={{color: themes[theme].button_fill}}
+                                screenCase='desktop'
                                 variant="contained"
                                 theme={theme}
                                 isDisabled={
@@ -138,6 +142,7 @@ function NewGame() {
                                 theme={theme}
                                 key='GameName-Mobile'
                                 setGameName={setGameName}
+                                screenCase='mobile'
                                 onFocus={() => setFocus('game-name')}
                             />
                             <PickType
@@ -145,28 +150,28 @@ function NewGame() {
                                 key="PickType-Mobile"
                                 gameType={gameType}
                                 setGameType={setGameType}
+                                screenCase='mobile'
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Mobile" >
-                                <MuiButton
-                                    theme={theme}
-                                    onClick={finish}
-                                    variant="contained"
-                                    key="PlayButton-Mobile"
-                                    classesObj={{root: classes.play_button}}
-                                    style={{color: themes[theme].button_fill}}
-                                    isDisabled={
-                                        !(
-                                            playerType &&
-                                            gameType &&
-                                            gameName !== "" &&
-                                            invalids.every((c) => charNotInStr(c, gameName))
-                                        )
-                                    }
-                                    screenCase={resolveScreenCase('mobile')}
-                                >
-                                    Play
-                                </MuiButton>
-                            </PlayAs>
+                            <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Mobile" screenCase='mobile' />
+                            <MuiButton
+                                theme={theme}
+                                onClick={finish}
+                                variant="contained"
+                                key="PlayButton-Mobile"
+                                classesObj={{root: classes.play_button}}
+                                style={{color: themes[theme].button_fill}}
+                                isDisabled={
+                                    !(
+                                        playerType &&
+                                        gameType &&
+                                        gameName !== "" &&
+                                        invalids.every((c) => charNotInStr(c, gameName))
+                                    )
+                                }
+                                screenCase={resolveScreenCase('mobile')}
+                            >
+                                Play
+                            </MuiButton>
                         </Box>
                     </PersistentDrawer>
                 </MediaQuery>
@@ -190,11 +195,12 @@ function NewGame() {
                                     <GameName
                                         key='GameName-Focused'
                                         theme={theme}
+                                        screenCase='mobile'
                                         setGameName={setGameName}
                                     />
                                 ) : null}
                                 {focus === 'play-as' ? (
-                                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Focus" />
+                                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} screenCase='mobile' key="PlayAs-Focus" />
                                 ) : null}
                             </Box>
                         </PersistentDrawer>

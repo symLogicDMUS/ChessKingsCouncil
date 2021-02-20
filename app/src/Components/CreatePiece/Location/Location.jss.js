@@ -4,6 +4,7 @@ import {tool, tool_title, tool_flexbox, toolWidth} from "../CreatePiece.jss";
 import {fontSize0018, fontSize002, fontSize0035} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 import {fontSizes} from "../Board/CreatePieceBoard.jss";
+import {boardSizes} from "../../Reuseables/Board.jss";
 
 export const locationToolWidth = () => toolWidth(); //change later
 export const locationToolHeight = () => availHeight() * 0.095
@@ -19,7 +20,8 @@ export const margins = {
 export const buttonSize = {
     ipx: (innerHeight() - (appBarHeight + fontSizes.ipx*8 + ((innerHeight() - (appBarHeight + fontSizes.ipx*8))*0.95*0.2) + margins.ipx*3))*0.5,
     mobile: (innerHeight() - (appBarHeight + fontSizes.mobile*8 + ((innerHeight() - (appBarHeight + fontSizes.mobile*8))*0.95*0.2) + margins.mobile*3))*0.5,
-    ipad: (innerHeight() - (appBarHeight + fontSizes.ipad*8 + ((innerHeight() - (appBarHeight + fontSizes.ipad*8))*0.95*0.2) + margins.ipad*3))*0.5
+    ipad: (innerHeight() - (appBarHeight + fontSizes.ipad*8 + ((innerHeight() - (appBarHeight + fontSizes.ipad*8))*0.95*0.2) + margins.ipad*3))*0.5,
+    short: availWidth() * 0.12,
 }
 
 export const useStyles = makeStyles({
@@ -44,10 +46,12 @@ export const useStyles = makeStyles({
             marginTop: '-3vh',
             width: '100%',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
-            // fontSize: availHeight() - (appBarHeight + fontSizes.ipad * 8 + availHeight() * 0.035),
-            // width: '100%',
-            // justifyContent: 'space-between',
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            flexDirection: 'column',
+            height: boardSizes.short * 0.85,
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             marginTop: '-3.2vh',
             width: buttonSize.ipad*2 + margins.ipad*3,
             height: buttonSize.ipad*2 + margins.ipad*3,

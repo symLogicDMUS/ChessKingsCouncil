@@ -13,6 +13,7 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {imgGridRootStyle, search_box, useStyles} from "./SavedGames.jss";
 import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
@@ -71,7 +72,7 @@ export function SavedGames(props) {
                     drawer={
                         <NavBar
                             currentPage="LoadGame"
-                            screenCase="mobile"
+                            screenCase={resolveScreenCase("mobile")}
                             helpText={HelpText(fontSizeW0045, props.theme)}
                             helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                             redirectMessage={null}

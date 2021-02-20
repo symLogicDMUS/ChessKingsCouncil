@@ -24,6 +24,8 @@ export function PieceProfiles(props) {
     const classes = useStyles({theme: props.theme, style: props.style});
 
     useEffect(() => {
+        // let defs = getSampleDefs();
+        // afterLoaded(defs)
         getDefs().then(([result]) => {
             if (!result) {
                 saveDefs(dbSampleDefs).then(([r]) => {

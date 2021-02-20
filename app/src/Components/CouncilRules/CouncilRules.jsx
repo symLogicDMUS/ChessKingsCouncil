@@ -9,6 +9,7 @@ import {Background} from "../Reuseables/Background";
 import {useStyles} from "./CouncilRules.jss";
 import {themes} from "../styles/themes.jss";
 import {availWidth} from "../helpers/windowMeasurments";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 export function CouncilRules() {
     const classes = useStyles({fontSize: fontSize002});
@@ -111,7 +112,7 @@ export function CouncilRules() {
                         <NavBar
                             theme="tan"
                             currentPage="CouncilRules"
-                            screenCase='mobile'
+                            screenCase={resolveScreenCase("mobile")}
                             unsavedChanges={false}
                             helpText={[
                                 <Typography

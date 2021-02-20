@@ -2,8 +2,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {fontSize0025, fontSize0028, fontSizeW003224, fontSizeW0048}
-from "../../styles/fontSizes.jss";
+import {fontSize0025, fontSize0028, fontSize0032, fontSize0060, fontSize0067, fontSizeW003224, fontSizeW0048}
+    from "../../styles/fontSizes.jss";
 
 export const checkbox_root = (screenCase) => {
     switch (screenCase) {
@@ -82,7 +82,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
         color: themes[props.theme].text,
@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: 'unset',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -109,9 +109,17 @@ export const useStyles = makeStyles({
         alignItems: 'baseline'
     }),
     sub_button: props => ({
-        fontSize: fontSize0028,
-        width: '1.5em',
-        height: '1.5em',
+        /*shortest phones*/
+        /*phones (generalized)*/
+        '@media and (max-device-width: 767px) and (max-aspect-ratio: 360/515)':{
+            fontSize: fontSize0028,
+        },
+
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSize0060,
+            width: '1.5em',
+            height: '1.5em',
+        },
     }),
     checkbox_text: props => ({
        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -120,33 +128,51 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             fontSize: fontSizeW0048,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW003224,
         },
     }),
     sub_icon: props => ({
-        fontSize: fontSize0028,
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+            fontSize: fontSize0028,
             width: '1.25em',
             height: '1.25em',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media (max-aspect-ratio: 360/515)': {
+            fontSize: fontSize0028,
+            width: '1em',
+            height: '1em',
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSize0060,
             width: '1em',
             height: '1em',
         },
     }),
     no_sub_icon: props => ({
-        fontSize: fontSize0028,
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+            fontSize: fontSize0028,
             width: '1.2em',
             height: '1.2em',
         },
         '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSize0028,
+            width: '1em',
+            height: '1em',
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSize0060,
             width: '1em',
             height: '1em',
         },
     }),
     no_sub_button: props => ({
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSize0060
+        },
         width: "0.9em",
         height: "0.9em",
     }),

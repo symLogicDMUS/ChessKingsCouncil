@@ -1,4 +1,4 @@
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "./PersistentDrawer.jss";
 
 export const bigBoardMargin = '0.25em';
@@ -11,7 +11,8 @@ export const sqrSizes = {
     desktop: availHeight() * 0.095,
     mobile: availWidth() * 0.11,
     ipx: availWidth() * 0.115,
-    ipad: availWidth() * 0.105
+    ipad: availWidth() * 0.105,
+    short: availWidth()*0.7*0.125,
 }
 
 /**
@@ -22,6 +23,7 @@ export const boardSizes = {
     mobile: sqrSizes.mobile * 8,
     ipx: sqrSizes.ipx * 8,
     ipad: sqrSizes.ipad * 8,
+    short: sqrSizes.short * 8,
 }
 
 export const boardPos = {
@@ -39,8 +41,12 @@ export const boardPos = {
     },
     ipad: {
       left: availWidth() * 0.5 - (sqrSizes.ipad * 8)*0.5,
-      top: appBarHeight + availHeight() * 0.02,
-    }
+      top: appBarHeight,
+    },
+    short: {
+        left: availWidth()*0.025,
+        top: innerHeight()*0.55 - boardSizes.short*0.5,
+    },
 }
 
 export const board = (fontSize) => ({
@@ -62,13 +68,18 @@ export const dnd_layer = (boardSize, z) => ({
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)": {
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 360/515)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
         top: boardPos.ipad.top,
         left: boardPos.ipad.left,
+    },
+    /*shortest phones*/
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        top: boardPos.short.top,
+        left: boardPos.short.left,
     },
     '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         top: boardPos.desktop.top,

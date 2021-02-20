@@ -21,9 +21,6 @@ export const useStyles = makeStyles((theme) => ({
     appBar: props => ({
         zIndex: 7,
         height: appBarHeight,
-        // '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
-        //     height: 62
-        // },
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -56,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
     drawerHeader: props => ({
         display: 'flex',
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
+        // padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
@@ -71,6 +68,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        ...props.contentAddedStyle,
     }),
     contentShift: props => ({
         transition: theme.transitions.create('margin', {

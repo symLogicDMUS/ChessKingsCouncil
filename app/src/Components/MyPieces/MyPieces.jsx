@@ -14,6 +14,7 @@ import "../styles/_backgrounds.scss";
 import {piece_profiles, styles} from "./MyPieces.jss";
 import {availHeight} from "../helpers/windowMeasurments";
 import {addressBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -97,7 +98,7 @@ class MyPieces extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}
-                                screenCase='mobile'
+                                screenCase={resolveScreenCase("mobile")}
                             />
                         }
                         appBarContent={<Typography variant='h6' noWrap>My Pieces</Typography>}

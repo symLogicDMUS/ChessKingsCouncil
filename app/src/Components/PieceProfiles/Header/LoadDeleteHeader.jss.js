@@ -2,10 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {
-    fontSize002, fontSizeW0025,
-    fontSizeW003224,
-    fontSizeW0035,
+import {fontSize002, fontSizeW00238, fontSizeW0025, fontSizeW003224, fontSizeW0035,
 } from "../../styles/fontSizes.jss";
 
 export const icon = (screenCase) => {
@@ -17,6 +14,10 @@ export const icon = (screenCase) => {
         case 'ipx':
             return {
                 fontSize: fontSizeW0035
+            }
+        case 'short':
+            return {
+                fontSize: fontSizeW0035,
             }
         case 'ipad':
             return {
@@ -88,7 +89,12 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizes.short,
+            width: widths.short,
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -110,7 +116,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -136,7 +142,17 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizeW00238,
+            '& .MuiButton-label': {
+                minHeight: 'unset',
+                minWidth: 'unset',
+                lineHeight: '0.85em',
+            },
+            width: '5em',
+        },
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',

@@ -23,7 +23,6 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: availHeight()*0.9,
-            border: '1px dashed red',
         },
     }),
     top_flexbox: props => ({

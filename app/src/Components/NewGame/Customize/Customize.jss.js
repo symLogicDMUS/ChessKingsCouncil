@@ -2,6 +2,7 @@ import {availWidth} from "../../helpers/windowMeasurments";
 import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 import {fontSize0016, fontSize0023, fontSize0025, fontSizeW004, fontSizeW0055} from "../../styles/fontSizes.jss";
 import {modalWidths} from "../../PieceProfiles/PieceProfiles.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
@@ -134,7 +135,7 @@ export const promo_all_gen = (screenCase) => {
         default:
             return {
                 fontSize: fontSizeW0055,
-                marginRight: 'auto'
+                marginRight: 'auto',
             }
     }
 };
@@ -165,6 +166,12 @@ export const scroll_table = (screenCase) => {
                 width: drawerItemWidth,
                 height: 15,
             }
+        case 'short':
+            return {
+                fontSize: fontSize0023,
+                width: availWidth()*0.99,
+                height: 15,
+            }
         default:
             return {
                 fontSize: fontSize0016,
@@ -191,6 +198,24 @@ export const scroll_table_added = (screenCase) => {
             return {
                 marginBottom: '2em'
             }
+    }
+};
+
+export const accordion_added = (screenCase) => {
+    switch (screenCase) {
+        case 'short':
+            return {
+                '& .MuiButtonBase-root': {
+                    minHeight: 'unset',
+                    height: '2em',
+                },
+                '& .MuiIconButton-root': {
+                    width: '1em',
+                    height: '1em',
+                },
+            };
+        default:
+            return null;
     }
 };
 

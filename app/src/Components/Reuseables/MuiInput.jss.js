@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { themes } from "../styles/themes.jss";
+import {innerHeight} from "../helpers/windowMeasurments";
 
 export const root = (theme, style) => ({
     "& .MuiInputLabel-root": {
@@ -52,5 +53,6 @@ export const useStyles = makeStyles({
         ...root(props.theme, props.style),
         ...outline(props.theme, props.style),
         ...text(props.theme, props.style),
+        ...props.styleOverride,
     }),
 });

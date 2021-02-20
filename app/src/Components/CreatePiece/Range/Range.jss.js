@@ -18,6 +18,7 @@ const margins = {
     ipx: availWidth()*0.015,
     mobile: availWidth()*0.05,
     ipad: availWidth()*0.015,
+    short: availWidth()*0.01,
 }
 
 export const fontSizes = {
@@ -25,6 +26,7 @@ export const fontSizes = {
     mobile: (boardFontSizes.mobile*8 - margins.mobile * 3)*0.5*0.31675*0.31675,
     ipx: (boardFontSizes.ipx*8 - margins.ipx * 3)*0.5*0.31675*0.31675,
     ipad: (boardFontSizes.ipad*8 - margins.ipad * 3)*0.5*0.28*0.28,
+    short: (boardFontSizes.short*8 - margins.short * 3)*0.45*0.28*0.28,
 }
 
 export const widths = {
@@ -32,6 +34,7 @@ export const widths = {
     mobile: '9em',
     ipx: '9em',
     ipad: '9em',
+    short: '9em',
 }
 
 /**
@@ -42,16 +45,21 @@ export const heights = {
     mobile: 9,
     ipx: 9,
     ipad: 9,
+    short: 9,
 }
 
 export const useStyles = makeStyles({
     range_tool: props => ({
         ...tool(props.theme),
         justifyContent: 'center',
-        ...props.styles,
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             marginTop: '-3.5vh',
         },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            flexDirection: 'column-reverse',
+        },
+        ...props.styles,
     }),
     table_and_arrows_container: props => ({
         display: 'flex',
@@ -80,8 +88,12 @@ export const useStyles = makeStyles({
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
                 width: '6.25vw',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             width: '7.5vw',
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            height: '7.5vh',
         },
     }),
     title: props => ({

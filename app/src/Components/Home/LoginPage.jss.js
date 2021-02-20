@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
             height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
             marginTop: '7.5vh',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             justifyContent: 'center',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             width: innerHeight() * 0.3,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             width:'95vw',
         },
         marginBottom: '1vh',

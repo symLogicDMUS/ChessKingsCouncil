@@ -11,10 +11,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from "./PersistentDrawer.jss";
 
-export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, children}) {
+export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, contentAddedStyle, children}) {
     const [open, setOpen] = React.useState(false);
     const muiTheme = useTheme();
-    const classes = useStyles({theme: theme, spacing: spacing});
+    const classes = useStyles({theme: theme, spacing: spacing, contentAddedStyle: contentAddedStyle});
 
     const handleDrawerOpen = () => {
         setOpen(true);

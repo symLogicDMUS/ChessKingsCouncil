@@ -20,7 +20,7 @@ const list_item = (theme, fontSize, tableHeight, numRows) => ({
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
         borderLeft: `0.01em solid ${themes[theme].outline}`,
         borderRight: `0.01em solid ${themes[theme].outline}`,
     },
@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             border: `0.01em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -85,7 +85,7 @@ export const useStyles = makeStyles({
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
             fontSize: props.style.fontSize
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             fontSize: props.style.fontSize * 0.35
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {

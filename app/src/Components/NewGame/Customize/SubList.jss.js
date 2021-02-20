@@ -4,6 +4,7 @@ import {themes} from "../../styles/themes.jss";
 import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
 import {fontSize0023} from "../../styles/fontSizes.jss";
+import {availWidth} from "../../helpers/windowMeasurments";
 
 export const piece_label = (theme) => ({
     fontSize: fontSize0023,
@@ -43,6 +44,13 @@ export const useStyles = makeStyles({
             fontSize: fontSize0023,
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            marginTop: '-2vh',
+            fontSize: fontSize0023,
+            fontFamily: 'Roboto-Light, Roboto',
+            width: availWidth()*0.95,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize0023,

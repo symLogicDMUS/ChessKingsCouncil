@@ -1,25 +1,29 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, innerHeight, availWidth} from "../helpers/windowMeasurments";
 import {fontSize0023, fontSize0027, fontSizeW006, fontSizeW0062} from "../styles/fontSizes.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const fontSizes = {
     desktop: fontSize0023,
     mobile: fontSizeW0062,
     ipx: fontSizeW006,
-    ipad: fontSize0027
+    ipad: fontSize0027,
+    short: fontSizeW006,
 }
 
 export const heights = {
     desktop: 13.03,
     mobile: 9,
-    ipad: 9
+    ipad: 9,
+    short: 9,
 }
 
 export const widths = {
     desktop: '11.55em',
     mobile: '7.5em',
     ipad: '7.5em',
+    short: '7.5em',
 }
 
 export const modalWidths = {
@@ -46,13 +50,18 @@ export const useStyles = makeStyles({
             marginTop: '0.05em',
             ...props.style,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             height: modalHeights.ipad,
             width: modalWidths.ipad,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginTop: '0.25em',
             marginBottom: '0.25em',
+            ...props.style,
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+            height: (innerHeight() - appBarHeight)*0.7,
             ...props.style,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {

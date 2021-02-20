@@ -11,6 +11,8 @@ export function Dropdown({
     label,
     style,
     genStyle,
+    styleOverride,
+    classesObj,
     inputLabel,
     variant,
     inputId,
@@ -24,6 +26,7 @@ export function Dropdown({
     const classes = useStyles({
         style: style,
         genStyle: genStyle,
+        styleOverride: styleOverride,
         theme: theme,
     });
 
@@ -45,6 +48,7 @@ export function Dropdown({
             </InputLabel>
             <Select
                 className={classes.field}
+                classes={classesObj}
                 onChange={handleChange}
                 onFocus={onFocus}
                 value={overwrite ? overrideItem : selected}

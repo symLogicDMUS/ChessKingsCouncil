@@ -39,7 +39,7 @@ import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
-import {accordion_gen, accordion_root, styles} from "./GameRoot.jss";
+import {accordion_root, persistentDrawerAddedStyle, styles} from "./GameRoot.jss";
 import {boardSizes} from "../Reuseables/Board.jss";
 
 class GameRoot extends React.Component {
@@ -385,7 +385,7 @@ class GameRoot extends React.Component {
                                 },
                                 {
                                     id: "save-resign",
-                                    title: 'Save/Resign',
+                                    title: 'Save / Resign',
                                     body: (
                                         <SaveResignTool
                                             triggerSaveProcess={() =>

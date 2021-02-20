@@ -1,13 +1,11 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import {Dropdown} from "../../Reuseables/Dropdown";
-import {fontSize0018} from "../../styles/fontSizes.jss";
-import {useStyles, textFieldStyle, dropdownGenStyle} from "../NewGame.jss";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
+import {dropdownGenStyle, useStyles} from "../NewGame.jss";
 
-export function PlayAs({setPlayerType, theme, onFocus, children}) {
-
+export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
     const classes = useStyles();
 
     return (
@@ -19,18 +17,18 @@ export function PlayAs({setPlayerType, theme, onFocus, children}) {
                     <MenuItem value="None">
                         <em>None</em>
                     </MenuItem>,
-                    <MenuItem value="White" classes={{root: classes.player_type}}>White</MenuItem>,
-                    <MenuItem value="Black" classes={{root: classes.player_type}}>Black</MenuItem>,
-                    <MenuItem value="Test" classes={{root: classes.player_type}}>Test</MenuItem>,
+                    <MenuItem value="White">White</MenuItem>,
+                    <MenuItem value="Black">Black</MenuItem>,
+                    <MenuItem value="Test">Test</MenuItem>,
                 ]}
                 overwrite={null}
                 variant='outlined'
                 theme={theme}
                 label='Play As'
                 inputLabel='Play As'
-                style={textFieldStyle(fontSize0018)}
-                genStyle={dropdownGenStyle}
                 onFocus={onFocus}
+                size={screenCase === 'mobile' ? 'small' : 'medium'}
+                genStyle={dropdownGenStyle(resolveScreenCase(screenCase))}
             />
             {children}
         </Box>

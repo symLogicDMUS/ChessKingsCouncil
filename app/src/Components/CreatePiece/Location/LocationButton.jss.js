@@ -32,7 +32,16 @@ const location_button = (theme, rf) => ({
         borderRadius: '0.05em',
         border: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)':{
+    /*shortest phones*/
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        width: buttonSize.short,
+        height: buttonSize.short,
+        fontSize: buttonSize.short * 0.3,
+        margin: 'auto',
+        borderRadius: '0.25em',
+        border: `0.01em solid ${themes[theme].outline}`,
+    },
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
         order : buttonOrderMobile[rf],
         width: buttonSize.ipad,
         height: buttonSize.ipad,

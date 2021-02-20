@@ -1,8 +1,9 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 import {fontSizes} from "./Board/CreatePieceBoard.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
 import {fontSize00219, fontSize0025, fontSize0095} from "../styles/fontSizes.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const sqrFontSize = fontSize0095 * 0.25;
@@ -18,10 +19,31 @@ export const accordion_style = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
             return null
+        case 'short':
+            return {
+                width: fontSizes[screenCase] * 8,
+                transform: 'translate(1.5vw, 0)',
+            }
         default:
             return {
                 width: fontSizes[screenCase] * 8,
             }
+    }
+};
+
+export const persistentDrawerAddedStyle = (screenCase) => {
+    switch (screenCase) {
+        case 'short':
+            return {
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                height: innerHeight() - appBarHeight,
+                marginTop: appBarHeight
+            }
+        default:
+            return null;
     }
 };
 
@@ -84,7 +106,7 @@ export const styles = {
         display: 'flex',
     }),
     accordion_title: props => ({
-        '@media screen and (min-device-width: 768px) and (max-device-width: 991px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             fontSize: fontSize0025
         },
     }),

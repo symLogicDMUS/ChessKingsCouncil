@@ -40,7 +40,7 @@ export function MainMenuMobile(props) {
                     <SignOutMobile
                         signOut={props.signOut}
                         theme={props.theme}
-                        style={sign_out_adjuster()}
+                        style={sign_out_adjuster(resolveScreenCase('mobile'))}
                         iconStyle={icon_adjuster()}
                     />
                     <PageLinkMobile

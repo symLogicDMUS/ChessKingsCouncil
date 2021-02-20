@@ -40,7 +40,7 @@ import {
     promo_all_checkbox,
     scroll_table_added,
     scroll_table_button,
-    scroll_table, accordion_style,
+    scroll_table, accordion_style, accordion_added,
 } from "./Customize.jss";
 import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
 
@@ -345,7 +345,7 @@ class Customize extends React.Component {
                             drawer={
                                 <NavBar
                                     currentPage="Customize"
-                                    screenCase='mobile'
+                                    screenCase={resolveScreenCase("mobile")}
                                     helpText={HelpText(fontSizeW0045, this.state.theme)}
                                     helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
@@ -374,6 +374,7 @@ class Customize extends React.Component {
                                 theme={this.state.theme}
                                 rootStyle={accordion_style(resolveScreenCase('mobile'))}
                                 aboveContentHeight={modalHeights[resolveScreenCase('mobile')]}
+                                addedStyle={accordion_added(resolveScreenCase('mobile'))}
                             >
                                 {[
                                     {
