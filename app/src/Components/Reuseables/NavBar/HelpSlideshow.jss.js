@@ -2,8 +2,11 @@ import {button} from "../StandardModal.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth, innerHeight} from "../../helpers/windowMeasurments";
 import {fontSize002} from "../../styles/fontSizes.jss";
+import {appBarHeight} from "../PersistentDrawer.jss";
+
+const windowHeightMobile = () => (innerHeight() - appBarHeight);
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -22,7 +25,8 @@ export const useStyles = makeStyles({
         },
         '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
-            height: availHeight()*0.9,
+            height: windowHeightMobile(),
+            marginTop: appBarHeight,
         },
     }),
     top_flexbox: props => ({
@@ -34,6 +38,11 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
         alignSelf: 'flex-start',
+        border: '1px dashed hotpink',
+        /*media query for phones (generalized)*/
+        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+            height: windowHeightMobile()*0.15,
+        },
     }),
     x_symbol_flexbox: props => ({
         width: '100%',
@@ -43,14 +52,22 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+            height: windowHeightMobile()*0.05,
+        },
+        border: '1px dashed #72e2ff',
     }),
     title_flexbox: props => ({
         width: '95%',
         fontSize: fontSize002,
         margin: 'auto',
-        // marginTop: '1vh',
         marginBottom: '1vh',
         alignSelf: 'flex-end',
+        /*media query for phones (generalized)*/
+        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+            height: windowHeightMobile()*0.1,
+        },
+        border: '1px dashed orange',
     }),
     content: props => ({
         overflow: 'scroll',
@@ -59,9 +76,11 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media (max-aspect-ratio: 1/1)': {
             width: '95vw',
-            height: '80vh',
+            height: windowHeightMobile()*0.75,
             marginLeft: 'auto',
             marginRight: 'auto',
+            marginBottom: 0,
+            border: '1px dashed #b1faae',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: availWidth() * 0.66667*0.95,
@@ -72,14 +91,18 @@ export const useStyles = makeStyles({
     buttons: props => ({
         width: '95%',
         display: 'flex',
-        margin: 'auto',
-        position: 'relative',
-        top: '0.6vh',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: fontSize002,
+        border: '1px dashed red',
+        /*media query for phones (generalized)*/
+        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+            height: windowHeightMobile()*0.1,
+        },
     }),
     previous_button: props => ({
         ...button(fontSize002),

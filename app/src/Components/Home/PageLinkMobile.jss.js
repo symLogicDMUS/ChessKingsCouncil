@@ -6,18 +6,15 @@ import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 export const page_icon = () => ({
     '@media (max-aspect-ratio: 360/515)': {
         fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
-        paddingLeft: '0.25em',
         marginRight: '0.5em',
     },
     /*shortest phones*/
     "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-        fontSize: (innerHeight() - appBarHeight)*0.85*0.125*0.8,
-        paddingLeft: '0.25em',
+        fontSize: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
         marginRight: '0.5em',
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
         fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,
-        paddingRight: '0.5em',
         marginRight: '0.75em',
     },
     width: '0.8em',
@@ -53,7 +50,7 @@ export const useStyles = makeStyles({
             height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
         },
         "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            height: (innerHeight() - appBarHeight)*0.85*0.125*0.8,
+            height: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,

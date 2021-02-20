@@ -30,25 +30,25 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        // this.imgDict = getSampleImgs();
-        // this.imgDict = filterStandardPieces(this.imgDict);
-        // this.setState({loaded: true});
-        getImgDict().then(([imgDict]) => {
-            this.imgDict = getSampleImgs();
-            this.imgDict = filterStandardPieces(this.imgDict);
-            this.setState({ loaded: true });
-            if (!imgDict) {
-                saveImgDict(sampleBase64ImgStrs).then(([r]) => {
-                    this.imgDict = getSampleImgs();
-                    this.imgDict = filterStandardPieces(this.imgDict);
-                    this.setState({ loaded: true });
-                })
-            } else {
-                this.imgDict = imgDict;
-                this.imgDict = filterStandardPieces(this.imgDict);
-                this.setState({ loaded: true });
-            }
-        });
+        this.imgDict = getSampleImgs();
+        this.imgDict = filterStandardPieces(this.imgDict);
+        this.setState({loaded: true});
+        // getImgDict().then(([imgDict]) => {
+        //     this.imgDict = getSampleImgs();
+        //     this.imgDict = filterStandardPieces(this.imgDict);
+        //     this.setState({ loaded: true });
+        //     if (!imgDict) {
+        //         saveImgDict(sampleBase64ImgStrs).then(([r]) => {
+        //             this.imgDict = getSampleImgs();
+        //             this.imgDict = filterStandardPieces(this.imgDict);
+        //             this.setState({ loaded: true });
+        //         })
+        //     } else {
+        //         this.imgDict = imgDict;
+        //         this.imgDict = filterStandardPieces(this.imgDict);
+        //         this.setState({ loaded: true });
+        //     }
+        // });
     }
 
     deleteImg(imgNameChoice) {

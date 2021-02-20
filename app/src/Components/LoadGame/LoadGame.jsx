@@ -11,7 +11,6 @@ import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
 import { saveGameDict } from "../../API/saveGameDict";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 class LoadGame extends React.Component {
     sampleGames;
@@ -36,22 +35,22 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "tan-background";
-        // this.games = getSampleGames()
-        // this.reloadGameImgComponentsDict();
+        this.games = getSampleGames()
+        this.reloadGameImgComponentsDict();
         this.setState({ loaded: true });
-        getGames().then(([games]) => {
-            if (games) {
-                this.games = games;
-                this.reloadGameImgComponentsDict();
-                this.setState({ loaded: true });
-            } else {
-                saveGameDict(sampleGames).then(([r]) => {
-                    this.games = getSampleGames()
-                    this.reloadGameImgComponentsDict();
-                    this.setState({ loaded: true });
-                })
-            }
-        });
+        // getGames().then(([games]) => {
+        //     if (games) {
+        //         this.games = games;
+        //         this.reloadGameImgComponentsDict();
+        //         this.setState({ loaded: true });
+        //     } else {
+        //         saveGameDict(sampleGames).then(([r]) => {
+        //             this.games = getSampleGames()
+        //             this.reloadGameImgComponentsDict();
+        //             this.setState({ loaded: true });
+        //         })
+        //     }
+        // });
     }
 
     reloadGameImgComponentsDict() {

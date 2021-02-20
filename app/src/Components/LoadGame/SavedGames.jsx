@@ -89,30 +89,30 @@ export function SavedGames(props) {
                     theme={props.theme}
                     spacing={0}
                 >
-                    <ImgGrid
-                        imgDict={props.imgDict}
-                        loaded={props.loaded}
-                        setChoice={props.changeName}
-                        imgNameChoice={props.selectedGame}
-                        onDeleteClick={props.deleteGame}
-                        onOkClick={props.load}
-                        defaultChecked={true}
-                        searchText={searchText}
-                        theme={props.theme}
-                        confirmDeleteMessage={
-                            props.confirmDeleteMessage
-                        }
-                        topFlexbox={null}
-                        onClose={null}
-                        title={
-                            <SearchBox
-                                width='100%'
-                                theme={props.theme}
-                                style={search_box('mobile')}
-                                updateSearchText={updateSearchText}
-                            />
-                        }
-                    />
+                    {/*<ImgGrid*/}
+                    {/*    imgDict={props.imgDict}*/}
+                    {/*    loaded={props.loaded}*/}
+                    {/*    setChoice={props.changeName}*/}
+                    {/*    imgNameChoice={props.selectedGame}*/}
+                    {/*    onDeleteClick={props.deleteGame}*/}
+                    {/*    onOkClick={props.load}*/}
+                    {/*    defaultChecked={true}*/}
+                    {/*    searchText={searchText}*/}
+                    {/*    theme={props.theme}*/}
+                    {/*    confirmDeleteMessage={*/}
+                    {/*        props.confirmDeleteMessage*/}
+                    {/*    }*/}
+                    {/*    topFlexbox={null}*/}
+                    {/*    onClose={null}*/}
+                    {/*    title={*/}
+                    {/*        <SearchBox*/}
+                    {/*            width='100%'*/}
+                    {/*            theme={props.theme}*/}
+                    {/*            style={search_box('mobile')}*/}
+                    {/*            updateSearchText={updateSearchText}*/}
+                    {/*        />*/}
+                    {/*    }*/}
+                    {/*/>*/}
                 </PersistentDrawer>
             </MediaQuery>
         </>

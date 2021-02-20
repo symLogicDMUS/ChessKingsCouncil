@@ -7,9 +7,9 @@ export const sign_out_adjuster = (screenCase) => {
     case 'ipad':
         return {marginBottom: '1.2em'}
     case 'short':
-        return {marginBottom: '0.25em'}
+        return {marginBottom: '0.15em'}
     default:
-        return {marginBottom: '1em'}
+        return {marginBottom: '-0.1em'}
     }
 };
 
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
             height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
         },
         "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            marginLeft: '7.5vh',
+            marginLeft: '7vh',
             marginTop: '7.5vh',
             height: innerHeight() - appBarHeight,
         },
