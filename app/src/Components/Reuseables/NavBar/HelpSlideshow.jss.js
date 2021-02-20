@@ -38,7 +38,6 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
         alignSelf: 'flex-start',
-        border: '1px dashed hotpink',
         /*media query for phones (generalized)*/
         '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
             height: windowHeightMobile()*0.15,
@@ -55,7 +54,6 @@ export const useStyles = makeStyles({
         '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
             height: windowHeightMobile()*0.05,
         },
-        border: '1px dashed #72e2ff',
     }),
     title_flexbox: props => ({
         width: '95%',
@@ -67,7 +65,6 @@ export const useStyles = makeStyles({
         '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
             height: windowHeightMobile()*0.1,
         },
-        border: '1px dashed orange',
     }),
     content: props => ({
         overflow: 'scroll',
@@ -80,7 +77,6 @@ export const useStyles = makeStyles({
             marginLeft: 'auto',
             marginRight: 'auto',
             marginBottom: 0,
-            border: '1px dashed #b1faae',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: availWidth() * 0.66667*0.95,
@@ -98,7 +94,6 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         fontSize: fontSize002,
-        border: '1px dashed red',
         /*media query for phones (generalized)*/
         '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
             height: windowHeightMobile()*0.1,

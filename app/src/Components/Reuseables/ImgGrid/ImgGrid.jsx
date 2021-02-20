@@ -88,6 +88,7 @@ export function ImgGrid(props) {
                         theme={props.theme}
                         style={show_names_gen('mobile')}
                         classesObj={{root: classes.show_names}}
+                        defaultChecked={props.defaultChecked}
                         onClick={() => dispatch({ type: "toggle-show-names" })}
                     >
                         Show Names
