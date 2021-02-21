@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
             fontSize: twoItemFontSizes.ipx,
             marginBottom: '0.5em',
         },
-        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)": {
             fontSize: twoItemFontSizes.mobile,
         },
         /*shortest phones*/

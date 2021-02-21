@@ -97,7 +97,7 @@ export const useStyles = makeStyles({
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
-                marginBottom: '5vw',
+                marginBottom: '10vh',
                 height: '8em',
             },
         }),

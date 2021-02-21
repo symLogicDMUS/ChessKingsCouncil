@@ -13,13 +13,13 @@ export function MainMenuMobile(props) {
         <>
             <Background isFixed={true} theme={props.theme}/>
             <div className={classes.main_menu}>
-                <MediaQuery maxAspectRatio={'68/100'}>
+                <MediaQuery maxDeviceWidth={767}>
                     <img
                         src={`/Images/titles/mobile/main-menu/title-${props.theme}.svg`}
                         className={classes.title}
                     />
                 </MediaQuery>
-                <MediaQuery minAspectRatio={'68/100'}>
+                <MediaQuery minDeviceWidth={768}>
                     <img
                         src={`/Images/titles/desktop/title-${props.theme}.svg`}
                         className={classes.title}

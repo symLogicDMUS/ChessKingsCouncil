@@ -6,8 +6,8 @@ import {angleToText} from "../../helpers/spanToText";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {offsetToText} from "../../helpers/offsetToText";
-import {heights, useStyles, widths} from "./Range.jss";
 import {twoItemFontSizes} from "../CreatePiece.jss";
+import {heights, widths, useStyles} from "./Range.jss";
 
 export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
     const classes = useStyles({theme: theme, styles: styles});
@@ -42,6 +42,7 @@ export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
                 buttonStyle={{borderRadius: 0}}
                 listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
             />
+            <div className={classes.divider} />
             <SpanArrowButtons
                 spans={spans}
                 toggleSpan={toggleSpan}

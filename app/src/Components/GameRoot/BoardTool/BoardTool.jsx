@@ -58,9 +58,11 @@ export function BoardTool({
                 rangeBoard={state.rangeBoard}
                 setProfileModal={setProfileModal}
             />
-            <Typography style={{...show_profile_gen(screenCase), opacity: 0}}>
-                Lor
-            </Typography>
+            <MediaQuery maxAspectRatio={'1/1'}>
+                <Typography style={{...show_profile_gen(screenCase), opacity: 0}}>
+                    Lor
+                </Typography>
+            </MediaQuery>
             <Box className={classes.flex_header}>
                 <MuiCheckbox
                     onClick={toggleShowProfileOnClick}

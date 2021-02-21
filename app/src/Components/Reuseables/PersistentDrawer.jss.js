@@ -1,7 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
 
 export const appBarHeight = 55;
 export const bottomBarHeight = appBarHeight * 1.1;
@@ -40,7 +39,6 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
         color: themes[props.theme].text,
         ...muiGlobalClasses(props.theme),
-
     }),
     appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,

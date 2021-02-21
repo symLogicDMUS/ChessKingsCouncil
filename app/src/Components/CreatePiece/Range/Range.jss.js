@@ -1,5 +1,6 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {tool_title} from "../CreatePiece.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSizes as boardFontSizes} from "../Board/CreatePieceBoard.jss";
 
 export const widths = {
     desktop: '9em',
@@ -24,17 +25,34 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        /*media query for phones (generalized)*/
+        /*tall phones*/
         '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        "@media (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)": {
+        /*short/medium height phones*/
+        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            width: '100%',
+            height: '100%',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+        },
+        /*tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+            width: '100%',
+            height: '100%',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '93%',
@@ -46,5 +64,11 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         ...tool_title(props.theme),
+    }),
+    divider: props => ({
+       /*tablets*/
+       '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+           width: boardFontSizes.ipad*8*0.1,
+       },
     }),
 });

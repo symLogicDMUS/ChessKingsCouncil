@@ -2,7 +2,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../../styles/themes.jss";
 import {twoItemFontSizes} from "../../CreatePiece.jss";
 
-
 const buttonPos = {
     "135d": {gridRow: 1, gridColumn: 1},
     "90d": {gridRow: 1, gridColumn: 2},
@@ -18,7 +17,7 @@ const container = (angle, theme) => ({
     "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
         fontSize: twoItemFontSizes.ipx,
     },
-    '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)': {
         fontSize: twoItemFontSizes.mobile,
     },
     /*shortest phones*/
@@ -31,16 +30,16 @@ const container = (angle, theme) => ({
     '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         fontSize: twoItemFontSizes.desktop,
     },
+    ...buttonPos[angle],
     width: '2.75em',
     height: '2.75em',
     borderRadius: '0.2em',
-    border: `0.05em solid ${themes[theme].outline}`,
-    ...buttonPos[angle],
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
     alignItems: 'center',
     justifyContent: 'center',
+    border: `0.05em solid ${themes[theme].outline}`,
 })
 
 export const useStyles = makeStyles({
@@ -64,7 +63,7 @@ export const useStyles = makeStyles({
             width: '2.75em',
             height: '2.75em',
         },
-        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)': {
             fontSize: twoItemFontSizes.mobile,
             width: '2.75em',
             height: '2.75em',
@@ -94,7 +93,7 @@ export const useStyles = makeStyles({
             width: '2em',
             height: '2em',
         },
-        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 1/1)': {
             fontSize: twoItemFontSizes.mobile,
             width: '2em',
             height: '2em',

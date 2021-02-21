@@ -37,10 +37,11 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: drawerItemWidth,
+            fontSize: fontSize002,
             height: '5em',
             marginLeft: '1em',
             marginBottom: '1em',
-            // flexWrap: 'wrap',
+            flexWrap: 'wrap',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },

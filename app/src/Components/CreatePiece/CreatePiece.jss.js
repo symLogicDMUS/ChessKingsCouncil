@@ -10,9 +10,9 @@ export const sqrFontSize = fontSize0095 * 0.25;
 /*For Range and Icon tools*/
 export const twoItemMargins = {
     ipx: boardFontSizes.ipx*0.375,
-    mobile: availWidth() * 0.0425,
-    ipad: availWidth() * 0.015,
-    short: availWidth() * 0.01,
+    mobile: boardFontSizes.mobile*0.4,
+    ipad: boardFontSizes.ipad*0.55,
+    short: boardFontSizes.short*0.5,
 }
 
 /*For Location and Options tools*/
