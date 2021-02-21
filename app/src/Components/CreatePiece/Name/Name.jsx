@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
-import {MuiTextField, MuiTextField as TextField} from "../../Reuseables/MuiTextField";
-import {genStyle, getLabel, getPlaceholder, getStyleOverride, textFieldStyle, useStyles} from "./Name.jss";
+import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
+import {useStyles} from "./Name.jss";
 
 export function Name({updateName, theme, defaultValue, screenCase}) {
     const [name, setName] = useState("");
@@ -15,13 +14,10 @@ export function Name({updateName, theme, defaultValue, screenCase}) {
         <div className={classes.name} onMouseLeave={() => updateName(name)}>
             <TextField
                 onChange={handleInput}
-                genStyle={genStyle()}
+                fullWidth={true}
+                label='Piece Name'
                 defaultValue={defaultValue}
-                label={getLabel(resolveScreenCase(screenCase))}
-                style={textFieldStyle(resolveScreenCase(screenCase))}
-                placeholder={getPlaceholder(resolveScreenCase(screenCase))}
-                styleOverride={getStyleOverride(resolveScreenCase(screenCase))}
-                size={screenCase === 'mobile' ? 'small' : 'medium'}
+                size={(screenCase === 'desktop') ? 'medium' : 'small'}
                 autoComplete="off"
                 variant="outlined"
                 id="game-name"

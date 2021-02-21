@@ -3,7 +3,6 @@ import {themes} from "../styles/themes.jss";
 import {fontSizes} from "./Board/CreatePieceBoard.jss";
 import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
 import {fontSize00219, fontSize0025, fontSize0095} from "../styles/fontSizes.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const toolWidth = () => availWidth() * 0.336;
 export const sqrFontSize = fontSize0095 * 0.25;
@@ -15,35 +14,14 @@ export const app_bar_title = () => ({
     marginLeft: '0.25em'
 });
 
-export const accordion_style = (screenCase) => {
+export const accordion_root = (screenCase) => {
     switch (screenCase) {
         case 'desktop':
             return null
-        case 'short':
-            return {
-                width: fontSizes[screenCase] * 8,
-                transform: 'translate(1.5vw, 0)',
-            }
         default:
             return {
                 width: fontSizes[screenCase] * 8,
             }
-    }
-};
-
-export const persistentDrawerAddedStyle = (screenCase) => {
-    switch (screenCase) {
-        case 'short':
-            return {
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'flex-start',
-                height: innerHeight() - appBarHeight,
-                marginTop: appBarHeight
-            }
-        default:
-            return null;
     }
 };
 
@@ -54,8 +32,6 @@ export const tool = (theme) => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
     },
     '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
         backgroundColor: themes[theme].fill,

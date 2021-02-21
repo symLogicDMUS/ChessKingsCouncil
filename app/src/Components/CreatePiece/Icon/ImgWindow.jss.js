@@ -1,5 +1,5 @@
 import {fontSize002, fontSize0023, fontSizeW004} from "../../styles/fontSizes.jss";
-import {availHeight, innerHeight} from "../../helpers/windowMeasurments";
+import {innerHeight} from "../../helpers/windowMeasurments";
 import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
@@ -17,7 +17,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 360/515)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 7/10)': {
             fontSize: (innerHeight()*0.4 - appBarHeight) -  (innerHeight()*0.4 - appBarHeight)*0.35,
             width: "1em",
             height: "1em",
@@ -25,9 +25,9 @@ export const useStyles = makeStyles({
             border: `0.0075em solid ${themes[props.theme].outline}`,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            width: '22.5vw',
-            height: '22.5vw',
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+            width: '30vw',
+            height: '30vw',
             fontSize: (innerHeight()*0.4 - appBarHeight) -  (innerHeight()*0.4 - appBarHeight)*0.35,
             borderRadius: '0.035em',
             border: `0.0075em solid ${themes[props.theme].outline}`,
@@ -49,7 +49,6 @@ export const useStyles = makeStyles({
         },
     }),
     img_label: props => ({
-        // fontSize: fontSize002,
         display: 'flex',
         direction: 'row',
         alignItems: 'center',

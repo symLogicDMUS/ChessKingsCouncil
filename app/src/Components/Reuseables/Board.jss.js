@@ -12,7 +12,7 @@ export const sqrSizes = {
     mobile: availWidth() * 0.11,
     ipx: availWidth() * 0.115,
     ipad: availWidth() * 0.105,
-    short: availWidth()*0.7*0.125,
+    short: availWidth()*0.875*0.125,
 }
 
 /**
@@ -44,19 +44,14 @@ export const boardPos = {
       top: appBarHeight,
     },
     short: {
-        left: availWidth()*0.025,
-        top: innerHeight()*0.55 - boardSizes.short*0.5,
+        left: availWidth()*0.06,
+        top: appBarHeight,
     },
 }
 
 export const board = (fontSize) => ({
     fontSize: fontSize,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    lineHeight: '0',
-    width: '8em',
-    height: '8em',
+    display: 'grid',
 });
 
 export const dnd_layer = (boardSize, z) => ({
@@ -68,7 +63,7 @@ export const dnd_layer = (boardSize, z) => ({
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 360/515)": {
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 7/10)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
@@ -77,7 +72,7 @@ export const dnd_layer = (boardSize, z) => ({
         left: boardPos.ipad.left,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
         top: boardPos.short.top,
         left: boardPos.short.left,
     },
@@ -95,8 +90,5 @@ export const dnd_layer = (boardSize, z) => ({
  */
 export const game_board = (boardSize, z) => ({
     ...dnd_layer(boardSize, z),
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    lineHeight: '0',
+    display: 'grid',
 });

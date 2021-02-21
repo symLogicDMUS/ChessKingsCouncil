@@ -1,4 +1,5 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -18,7 +19,7 @@ export default function PermanentDrawer({
         <div className={classes.root}>
             <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar className={classes.appbar_content}>
+                <Toolbar className={classes.appbarContent}>
                     {appBarContent}
                 </Toolbar>
             </AppBar>
@@ -30,7 +31,9 @@ export default function PermanentDrawer({
                 anchor={drawerType}
             >
                 <div className={classes.toolbar}/>
-                {children}
+                <Box className={classes.drawerContent}>
+                    {children}
+                </Box>
             </Drawer>
             <div className={classes.toolbar}/>
             {content}

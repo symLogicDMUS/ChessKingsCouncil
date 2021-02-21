@@ -373,7 +373,7 @@ class Customize extends React.Component {
                             <MuiAccordion
                                 theme={this.state.theme}
                                 rootStyle={accordion_style(resolveScreenCase('mobile'))}
-                                aboveContentHeight={modalHeights[resolveScreenCase('mobile')]}
+                                neighborContentSize={modalHeights[resolveScreenCase('mobile')]}
                                 addedStyle={accordion_added(resolveScreenCase('mobile'))}
                             >
                                 {[

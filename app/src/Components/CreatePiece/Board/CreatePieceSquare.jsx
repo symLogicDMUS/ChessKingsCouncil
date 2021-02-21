@@ -21,6 +21,7 @@ export function CreatePieceSquare({
     const classes = useStyles({
         theme: theme,
         type: "normal",
+        rf: rf,
         fontSize: fontSizes[screenCase],
         style: {
             display: "flex",

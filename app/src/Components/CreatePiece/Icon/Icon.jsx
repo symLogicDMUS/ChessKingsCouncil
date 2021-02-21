@@ -5,7 +5,6 @@ import { ImgWindow } from "./ImgWindow";
 import { useStyles } from "./Icon.jss";
 import MediaQuery from "react-responsive";
 import ChooseModal from "./ChooseModal/ChooseModal";
-import { fontSize002 } from "../../styles/fontSizes.jss";
 import { ImgButtonsModal } from "./ImgButtonsModal";
 
 export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
@@ -42,8 +41,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                     />
                 </Portal>
             ) : null}
-            <div className={classes.icon_tool}>
-                <Box className={classes.img_windows_container}>
+            <Box className={classes.icon_tool}>
                     <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
                         <Typography className={classes.title}>Icon</Typography>
                     </MediaQuery>
@@ -66,8 +64,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                             toggleImgButtonsModal(true);
                         }}
                     />
-                </Box>
-            </div>
+            </Box>
         </>
     );
 }

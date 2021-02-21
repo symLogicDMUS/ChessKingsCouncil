@@ -368,7 +368,7 @@ class GameRoot extends React.Component {
                         <MuiAccordion
                             theme={this.state.theme}
                             rootStyle={accordion_root(resolveScreenCase('mobile'))}
-                            aboveContentHeight={boardSizes[resolveScreenCase('mobile')]}
+                            neighborContentSize={boardSizes[resolveScreenCase('mobile')]}
                         >
                             {[
                                 {

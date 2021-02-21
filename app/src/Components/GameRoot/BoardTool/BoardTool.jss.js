@@ -1,14 +1,9 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {
-    fontSize0016, fontSize0018, fontSize0019,
-    fontSize002,
-    fontSize00219,
-    fontSize00276,
-} from "../../styles/fontSizes.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {themes} from "../../styles/themes.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import {resolveScreenCase} from "../../helpers/resolveScreenCase";
+import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
+import {fontSize0019, fontSize002, fontSize00219,} from "../../styles/fontSizes.jss";
 
 // em units:
 export const profileWidth = {
@@ -78,23 +73,18 @@ export const show_profile_checkbox = (screenCase) => {
             }
     }
 };
+
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-            '@media (max-aspect-ratio: 360/515)': {
+            '@media (max-aspect-ratio: 1/1)': {
                 flexDirection: 'row',
                 flex: 'nowrap',
                 width: '100%',
+                marginLeft: '2%',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-            },
-            /*shortest phones*/
-            "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-                flexDirection: 'column',
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
             },
             '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
                 flexDirection: 'row',

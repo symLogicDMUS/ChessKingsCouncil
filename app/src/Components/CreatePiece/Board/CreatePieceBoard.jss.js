@@ -9,7 +9,7 @@ export const fontSizes = {
     ipx: availWidth() * 0.118,
     mobile: (innerHeight() - appBarHeight) * 0.625*0.1249,
     ipad: (innerHeight() - appBarHeight) * 0.65*0.1249,
-    short: (innerHeight() - appBarHeight) * 0.85 *0.1249,
+    short: availWidth() * 0.75 * 0.1249,
 }
 
 export const useStyles = makeStyles({
@@ -17,12 +17,11 @@ export const useStyles = makeStyles({
         "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
             ...board(fontSizes.ipx),
         },
-        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 360/515)': {
+        '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 7/10)': {
             ...board(fontSizes.mobile),
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             ...board(fontSizes.short),
-            transform: 'translate(1.5vw, 0)'
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             ...board(fontSizes.ipad),

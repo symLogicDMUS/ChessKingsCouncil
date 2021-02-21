@@ -6,7 +6,8 @@ import {
     fontSizeW005,
     fontSizeW0056,
     fontSizeW0033,
-    fontSizeW004, fontSize0022, fontSize018, fontSize00301
+    fontSizeW004,
+    fontSize00301
 } from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -15,89 +16,69 @@ import {boardSizes} from "../../Reuseables/Board.jss";
 
 export const useStyles = makeStyles({
     save_resign_tool: props => ({
-        fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
         '@media (max-aspect-ratio: 1/1)': {
+            fontSize: fontSize002,
             width: '100%',
             height: '100%',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
             alignItems: 'flex-start',
+            justifyContent: 'center',
         },
         '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: fontSizeW00238,
-            justifyContent: 'space-between',
-        },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            height: boardSizes.short*0.7,
-            width: '20vw',
-            marginTop: '-9vh',
+            // justifyContent: 'space-between',
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
-            marginTop: '-2vh',
+            fontSize: fontSize002,
             width: '100%',
             height: '100%',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
             alignItems: 'flex-start',
+            // justifyContent: 'space-between',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: drawerItemWidth,
             height: '5em',
             marginLeft: '1em',
             marginBottom: '1em',
-            alignItems: 'flex-start',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            // justifyContent: 'space-between',
         },
     }),
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-aspect-ratio: 360/515)': {
+        '@media (max-aspect-ratio: 7/10)': {
             fontSize: fontSizeW0033,
             width: '7em',
             height: '7em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
             fontSize: fontSizeW0027,
             width: '10em',
             height: '10em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
-        },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSize002,
-            minWidth: 0,
-            width: '7em',
-            height: '7em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0033,
             width: '7em',
             height: '7em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         color: themes[props.theme].button_text,
+        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     button: props => ({
         '&:hover': {
             background: 'none'
         },
-        '@media (max-aspect-ratio: 360/515)': {
+        '@media (max-aspect-ratio: 7/10)': {
             fontSize: fontSizeW0033,
             width: '4.95em',
             height: '4.95em',
@@ -110,7 +91,7 @@ export const useStyles = makeStyles({
             marginTop: '1em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize002,
             width: '4.95em',
             height: '4.95em',
@@ -152,7 +133,7 @@ export const useStyles = makeStyles({
             height: '6em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize002,
             width: '4.2075em',
             height: '4.2075em',
@@ -172,7 +153,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizeW0056,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize00301
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
@@ -186,9 +167,6 @@ export const useStyles = makeStyles({
         width: '4em',
     }),
     divider: props => ({
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            height: '0.5vh'
-        },
+       width: '6.5%',
     }),
 })

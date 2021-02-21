@@ -1,11 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
-    fontSize0015,
     fontSize0019,
     fontSize002,
     fontSize0023,
     fontSize00236,
-    fontSize0024, fontSize0035, fontSize00392, fontSize0040, fontSize008
+    fontSize0024,
+    fontSize0035,
+    fontSize0040,
 } from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {navBarWidth} from "./NavBar.jss";
@@ -78,7 +79,7 @@ export const text = (screenCase) => {
             }
         case 'short':
             return {
-                fontSize: fontSize0040,
+                fontSize: fontSize0035,
                 marginRight: margin,
             }
         default:
@@ -179,7 +180,7 @@ export const useStyles = makeStyles({
         borderRadius: 0,
         ...getStyle(props.screenCase, props.currentPage),
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             alignItems: 'baseline',
         },
         background: themes[props.theme].fill,

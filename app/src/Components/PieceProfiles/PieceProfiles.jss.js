@@ -60,7 +60,7 @@ export const useStyles = makeStyles({
             ...props.style,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             height: (innerHeight() - appBarHeight)*0.7,
             ...props.style,
         },

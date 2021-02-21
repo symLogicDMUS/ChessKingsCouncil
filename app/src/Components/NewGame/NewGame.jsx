@@ -175,36 +175,36 @@ function NewGame() {
                         </Box>
                     </PersistentDrawer>
                 </MediaQuery>
-                <MediaQuery minAspectRatio={'1/1'} maxDeviceWidth={767}>
-                        <PersistentDrawer
-                            theme={theme}
-                            drawer={
-                                <NavBar
-                                    currentPage="NewGame"
-                                    screenCase={resolveScreenCase('mobile')}
-                                    helpText={HelpText(fontSizeW0045, theme)}
-                                    helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
-                                    redirectMessage={null}
-                                    theme={theme}
-                                />
-                            }
-                            appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}
-                        >
-                            <Box className={classes.new_game}>
-                                {focus === 'game-name' ? (
-                                    <GameName
-                                        key='GameName-Focused'
-                                        theme={theme}
-                                        screenCase='mobile'
-                                        setGameName={setGameName}
-                                    />
-                                ) : null}
-                                {focus === 'play-as' ? (
-                                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} screenCase='mobile' key="PlayAs-Focus" />
-                                ) : null}
-                            </Box>
-                        </PersistentDrawer>
-                </MediaQuery>
+                {/*<MediaQuery minAspectRatio={'1/1'} maxDeviceWidth={767}>*/}
+                {/*        <PersistentDrawer*/}
+                {/*            theme={theme}*/}
+                {/*            drawer={*/}
+                {/*                <NavBar*/}
+                {/*                    currentPage="NewGame"*/}
+                {/*                    screenCase={resolveScreenCase('mobile')}*/}
+                {/*                    helpText={HelpText(fontSizeW0045, theme)}*/}
+                {/*                    helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}*/}
+                {/*                    redirectMessage={null}*/}
+                {/*                    theme={theme}*/}
+                {/*                />*/}
+                {/*            }*/}
+                {/*            appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}*/}
+                {/*        >*/}
+                {/*            <Box className={classes.new_game}>*/}
+                {/*                {focus === 'game-name' ? (*/}
+                {/*                    <GameName*/}
+                {/*                        key='GameName-Focused'*/}
+                {/*                        theme={theme}*/}
+                {/*                        screenCase='mobile'*/}
+                {/*                        setGameName={setGameName}*/}
+                {/*                    />*/}
+                {/*                ) : null}*/}
+                {/*                {focus === 'play-as' ? (*/}
+                {/*                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} screenCase='mobile' key="PlayAs-Focus" />*/}
+                {/*                ) : null}*/}
+                {/*            </Box>*/}
+                {/*        </PersistentDrawer>*/}
+                {/*</MediaQuery>*/}
             </div>
         </>
     );

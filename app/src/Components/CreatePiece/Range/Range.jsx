@@ -8,8 +8,8 @@ import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {offsetToText} from "../../helpers/offsetToText";
 import {widths, heights, fontSizes, useStyles} from "./Range.jss";
 
-export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase }) {
-    const classes = useStyles({ theme: theme, styles: styles });
+export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
+    const classes = useStyles({theme: theme, styles: styles});
 
     const getSpanTextLabels = () => {
         const newSpans = [];
@@ -26,31 +26,26 @@ export function Range({ spans, offsets, toggleSpan, theme, styles, screenCase })
     };
 
     return (
-        <>
-            <div className={classes.range_tool}>
-                <Box className={classes.table_and_arrows_container}>
-                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
-                        <Typography className={classes.title}>Range</Typography>
-                    </MediaQuery>
-                    <ScrollTable
-                        numRows={5}
-                        theme={theme}
-                        style={{
-                            width: widths[screenCase],
-                            height: heights[screenCase],
-                            fontSize: fontSizes[screenCase],
-                        }}
-                        buttonStyle={{borderRadius: 0}}
-                        listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
-                    />
-                    <div className={classes.separator} />
-                    <SpanArrowButtons
-                        spans={spans}
-                        toggleSpan={toggleSpan}
-                        theme={theme}
-                    />
-                </Box>
-            </div>
-        </>
+        <Box className={classes.range_tool}>
+            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                <Typography className={classes.title}>Range</Typography>
+            </MediaQuery>
+            <ScrollTable
+                numRows={5}
+                theme={theme}
+                style={{
+                    width: widths[screenCase],
+                    height: heights[screenCase],
+                    fontSize: fontSizes[screenCase],
+                }}
+                buttonStyle={{borderRadius: 0}}
+                listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
+            />
+            <SpanArrowButtons
+                spans={spans}
+                toggleSpan={toggleSpan}
+                theme={theme}
+            />
+        </Box>
     );
 }

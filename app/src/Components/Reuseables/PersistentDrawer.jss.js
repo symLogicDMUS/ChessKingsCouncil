@@ -1,11 +1,11 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
 
 export const appBarHeight = 55;
 export const bottomBarHeight = appBarHeight * 1.1;
 export const addressBarHeight = appBarHeight * 1.5
-export const drawerWidth = availWidth() * 0.51;
+export const drawerWidth = availWidth() * 0.65;
 
 export const pageTitleStyle = () => ({
     fontSize: appBarHeight * 0.333,
@@ -53,7 +53,6 @@ export const useStyles = makeStyles((theme) => ({
     drawerHeader: props => ({
         display: 'flex',
         alignItems: 'center',
-        // padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',

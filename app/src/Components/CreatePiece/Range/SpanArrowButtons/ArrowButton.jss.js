@@ -22,8 +22,8 @@ const container = (angle, theme) => ({
         fontSize: fontSizes.mobile,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-        fontSize: fontSizes.short,
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        fontSize: fontSizes.mobile,
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
         fontSize: fontSizes.ipad,
@@ -74,6 +74,12 @@ export const useStyles = makeStyles({
             width: '2.75em',
             height: '2.75em',
         },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+            fontSize: fontSizes.mobile,
+            width: '2.75em',
+            height: '2.75em',
+        },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSizes.desktop,
             width: '2.75em',
@@ -89,6 +95,12 @@ export const useStyles = makeStyles({
             height: '2em',
         },
         '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
+            fontSize: fontSizes.mobile,
+            width: '2em',
+            height: '2em',
+        },
+        /*shortest phones*/
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.mobile,
             width: '2em',
             height: '2em',

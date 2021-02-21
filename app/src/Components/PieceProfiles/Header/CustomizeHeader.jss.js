@@ -111,11 +111,11 @@ export const useStyles = makeStyles({
     sub_button: props => ({
         /*shortest phones*/
         /*phones (generalized)*/
-        '@media and (max-device-width: 767px) and (max-aspect-ratio: 360/515)':{
+        '@media and (max-device-width: 767px) and (max-aspect-ratio: 7/10)':{
             fontSize: fontSize0028,
         },
 
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize0060,
             width: '1.5em',
             height: '1.5em',
@@ -138,13 +138,13 @@ export const useStyles = makeStyles({
             width: '1.25em',
             height: '1.25em',
         },
-        '@media (max-aspect-ratio: 360/515)': {
+        '@media (max-aspect-ratio: 7/10)': {
             fontSize: fontSize0028,
             width: '1em',
             height: '1em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize0060,
             width: '1em',
             height: '1em',
@@ -162,7 +162,7 @@ export const useStyles = makeStyles({
             height: '1em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize0060,
             width: '1em',
             height: '1em',
@@ -170,7 +170,7 @@ export const useStyles = makeStyles({
     }),
     no_sub_button: props => ({
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSize0060
         },
         width: "0.9em",

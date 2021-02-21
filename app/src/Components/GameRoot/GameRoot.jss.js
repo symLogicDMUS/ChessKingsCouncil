@@ -26,9 +26,9 @@ export const accordion_root = (screenCase) => {
         case 'short':
             return {
                 position: "absolute",
-                top: boardPos.short.top,
-                left: boardPos.short.left*2 + boardSizes.short,
-                width: boardSizes.short*0.99,
+                top: appBarHeight + boardSizes.short,
+                left: boardPos.short.left,
+                width: boardSizes.short,
                 zIndex: 5,
             }
         default:

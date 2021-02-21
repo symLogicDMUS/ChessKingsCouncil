@@ -4,12 +4,12 @@ import {innerHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const page_icon = () => ({
-    '@media (max-aspect-ratio: 360/515)': {
+    '@media (max-aspect-ratio: 7/10)': {
         fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
         marginRight: '0.5em',
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
         fontSize: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
         marginRight: '0.5em',
     },
@@ -23,11 +23,11 @@ export const page_icon = () => ({
 
 export const useStyles = makeStyles({
     page_link: props => ({
-        '@media and (max-device-width: 767px) and (max-aspect-ratio: 360/515)':{
+        '@media and (max-device-width: 767px) and (max-aspect-ratio: 7/10)':{
             fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1,
             marginBottom: '0.7em',
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
             marginBottom: '0.5em',
         },
@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
         '@media (max-aspect-ratio: 834/1194)': {
             height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             height: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {

@@ -35,7 +35,7 @@ import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
 import {fontSizes} from "./Board/CreatePieceBoard.jss";
-import {accordion_style, app_bar_title, persistentDrawerAddedStyle, styles} from "./CreatePiece.jss";
+import {accordion_root, app_bar_title, styles} from "./CreatePiece.jss";
 
 
 class CreatePiece extends React.Component {
@@ -425,7 +425,6 @@ class CreatePiece extends React.Component {
                                 Create Piece
                             </Typography>
                         }
-                        contentAddedStyle={persistentDrawerAddedStyle(resolveScreenCase('mobile'))}
                     >
                         <Board
                             key="Board-Mobile"
@@ -441,8 +440,8 @@ class CreatePiece extends React.Component {
                         />
                         <MuiAccordion
                             theme={this.state.theme}
-                            rootStyle={accordion_style(resolveScreenCase('mobile'))}
-                            aboveContentHeight={fontSizes[resolveScreenCase('mobile')]*8}
+                            rootStyle={accordion_root(resolveScreenCase('mobile'))}
+                            neighborContentSize={fontSizes[resolveScreenCase('mobile')]*8}
                         >
                             {[
                                 {

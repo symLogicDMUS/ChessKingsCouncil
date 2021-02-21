@@ -28,7 +28,7 @@ export function MainMenuMobile(props) {
                         />
                     </Box>
                 </MediaQuery>
-                <MediaQuery minAspectRatio={'360/515'}>
+                <MediaQuery minAspectRatio={'7/10'}>
                     <Box className={classes.title_box}>
                         <img
                             src={`/Images/titles/desktop/title-${props.theme}.svg`}

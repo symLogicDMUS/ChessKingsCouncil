@@ -1,9 +1,9 @@
 import React from "react";
 import { useStyles } from "../../Reuseables/Square.jss";
 
-export function RangeDisplaySquare({ isInRange, isLightColorSqr, theme, sqrSize }) {
+export function RangeDisplaySquare({rf, isInRange, isLightColorSqr, theme, sqrSize }) {
 
-    const classes = useStyles({ theme, type: "dnd", sqrSize: sqrSize});
+    const classes = useStyles({rf: rf, theme, type: "dnd", sqrSize: sqrSize});
 
     return (
         <div

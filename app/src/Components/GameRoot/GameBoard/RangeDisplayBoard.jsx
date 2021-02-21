@@ -1,5 +1,4 @@
 import React, {useMemo} from "react";
-import {v4 as uuidv4} from "uuid";
 import { rankfiles } from "../../helpers/rankfiles";
 import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { binaryBoard } from "../../helpers/binaryBoard";
@@ -12,7 +11,8 @@ export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
             for (let rf of rankfiles) {
                 newSquares.push(
                     <RangeDisplaySquare
-                        key={uuidv4()}
+                        key={rf}
+                        rf={rf}
                         isInRange={range ? (!!range.includes(rf)) : false}
                         isLightColorSqr={binaryBoard[rf]}
                         sqrSize={sqrSize}

@@ -90,7 +90,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.short,
             width: widths.short,
         },
@@ -142,16 +142,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizeW00238,
-            '& .MuiButton-label': {
-                minHeight: 'unset',
-                minWidth: 'unset',
-                lineHeight: '0.85em',
-            },
-            width: '5em',
-        },
+
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {

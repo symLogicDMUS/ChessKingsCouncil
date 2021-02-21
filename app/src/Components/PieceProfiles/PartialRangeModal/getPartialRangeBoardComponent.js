@@ -12,7 +12,7 @@ export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location
             squares.push(
                 <Square
                     rf={rf}
-                    key={uuidv4()}
+                    key={rf}
                     theme={theme}
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}
@@ -30,7 +30,7 @@ export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location
             squares.push(
                 <Square
                     rf={rf}
-                    key={uuidv4()}
+                    key={rf}
                     theme={theme}
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}

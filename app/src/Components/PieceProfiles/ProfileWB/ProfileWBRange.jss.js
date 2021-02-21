@@ -29,7 +29,7 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.short,
             height: `${heights.short}em`,
             width: avatarSize.short,
@@ -58,7 +58,7 @@ export const useStyles = makeStyles({
             width: widths.mobile,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.short,
             width: widths.short,
         },
@@ -93,7 +93,7 @@ export const useStyles = makeStyles({
             height: avatarSize.mobile,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.short,
             width: avatarSize.short,
             height: avatarSize.short,

@@ -37,13 +37,13 @@ export const useStyles = makeStyles({
         width: availWidth()*0.58,
         display: 'flex',
         flexDirection: 'column',
-        "@media (max-aspect-ratio: 360/515)": {
+        "@media (max-aspect-ratio: 7/10)": {
             marginLeft: 'auto',
             marginRight: 'auto',
             marginTop: '7.5vh',
             height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             marginLeft: '7vh',
             marginTop: '7.5vh',
             height: innerHeight() - appBarHeight,
@@ -63,11 +63,11 @@ export const useStyles = makeStyles({
         },
     }),
     title_box: props => ({
-        '@media (max-aspect-ratio: 360/515)': {
+        '@media (max-aspect-ratio: 7/10)': {
             height: innerHeight()*0.3,
             marginBottom: '2vh',
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 360/515) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
             width: availWidth()-(innerHeight()*0.15),
             height: 'unset',
             marginBottom: 0,

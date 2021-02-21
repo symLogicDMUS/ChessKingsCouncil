@@ -28,9 +28,6 @@ export const useStyles = makeStyles((theme) => ({
     drawerPaper: props => ({
         zIndex: z,
         width: drawerWidth,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: "flex-start",
         backgroundColor: themes[props.theme].fill,
     }),
     // necessary for content to be below app bar
@@ -38,7 +35,13 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: fontSize002,
         height: '3em',
     },
-    appbar_content: props => ({
+    drawerContent: props => ({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: "space-between",
+        height: '90vh'
+    }),
+    appbarContent: props => ({
         zIndex: z,
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',

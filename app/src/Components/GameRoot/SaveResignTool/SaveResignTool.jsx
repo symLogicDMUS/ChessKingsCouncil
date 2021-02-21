@@ -29,7 +29,6 @@ export function SaveResignTool({
     return (
         <>
             <Box className={classes.save_resign_tool}>
-                <div className={classes.divider} />
                 <Button className={classes.option}>
                     <IconButton
                         className={classes.button}
@@ -42,6 +41,7 @@ export function SaveResignTool({
                         <Typography className={classes.text}>Save</Typography>
                     </IconButton>
                 </Button>
+                <div className={classes.divider} />
                 <Button className={classes.option}>
                     <IconButton
                         className={classes.button}
@@ -56,6 +56,7 @@ export function SaveResignTool({
                         </Typography>
                     </IconButton>
                 </Button>
+                <div className={classes.divider} />
                 <Button className={classes.option}>
                     <IconButton
                         className={classes.button}
