@@ -1,6 +1,6 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, innerHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, viewHeight, availWidth} from "../helpers/windowMeasurments";
 import {fontSize0023, fontSize0027, fontSizeW006, fontSizeW0062} from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
@@ -60,8 +60,8 @@ export const useStyles = makeStyles({
             ...props.style,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-            height: (innerHeight() - appBarHeight)*0.7,
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            height: (viewHeight() - appBarHeight)*0.7,
             ...props.style,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {

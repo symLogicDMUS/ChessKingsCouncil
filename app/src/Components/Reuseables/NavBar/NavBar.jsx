@@ -76,7 +76,7 @@ export function NavBar(props) {
                 />
                 <NavBarButton
                     path="/MyPieces"
-                    pageName="My Pieces"
+                    pageName="Saved Pieces"
                     pageIcon="my-pieces"
                     className="my_pieces"
                     key={uuidv4()}

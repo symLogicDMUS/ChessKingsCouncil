@@ -5,6 +5,7 @@ import {fontSize002} from "../styles/fontSizes.jss";
 
 export function MuiTextField({
     id,
+    size,
     theme,
     style,
     label,
@@ -26,6 +27,7 @@ export function MuiTextField({
     return (
         <TextField
             id={id}
+            size={size}
             onChange={onChange}
             inputRef={inputRef}
             defaultValue={defaultValue}

@@ -180,7 +180,7 @@ export const useStyles = makeStyles({
         borderRadius: 0,
         ...getStyle(props.screenCase, props.currentPage),
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             alignItems: 'baseline',
         },
         background: themes[props.theme].fill,

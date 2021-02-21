@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from "./PersistentDrawer.jss";
+import Box from "@material-ui/core/Box";
 
 export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, contentAddedStyle, children}) {
     const [open, setOpen] = React.useState(false);
@@ -56,7 +57,7 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
                 }}
             >
                 <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose} className={classes.open_close_icons}>
+                    <IconButton onClick={handleDrawerClose} className={classes.openCloseIcons}>
                         {muiTheme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                     </IconButton>
                 </div>

@@ -1,9 +1,9 @@
-import {availHeight, innerHeight} from "../helpers/windowMeasurments";
+import {availHeight, viewHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 // mobile
 export const piece_profiles = () => ({
-    height: (innerHeight() - appBarHeight)*0.98,
+    height: (viewHeight() - appBarHeight)*0.98,
 });
 
 export const styles = {

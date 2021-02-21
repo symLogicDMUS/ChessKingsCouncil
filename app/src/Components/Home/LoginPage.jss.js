@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         "@media (max-aspect-ratio: 1/1)": {
             justifyContent: 'flex-start',
-            height: innerHeight() - (appBarHeight + innerHeight() * 0.075),
+            height: viewHeight() - (appBarHeight + viewHeight() * 0.075),
             marginTop: '7.5vh',
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
             width: availWidth() * 0.6,
         },
         "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
-            width: innerHeight() * 0.3,
+            width: viewHeight() * 0.3,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
             width:'95vw',

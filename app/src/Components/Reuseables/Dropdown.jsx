@@ -9,6 +9,7 @@ export function Dropdown({
     list,
     theme,
     label,
+    size,
     style,
     genStyle,
     styleOverride,
@@ -47,11 +48,12 @@ export function Dropdown({
                 {inputLabel}
             </InputLabel>
             <Select
+                onFocus={onFocus}
+                onChange={handleChange}
                 className={classes.field}
                 classes={classesObj}
-                onChange={handleChange}
-                onFocus={onFocus}
                 value={overwrite ? overrideItem : selected}
+                size={size}
                 label={label}
                 id={selectId}
                 labelId={labelId}

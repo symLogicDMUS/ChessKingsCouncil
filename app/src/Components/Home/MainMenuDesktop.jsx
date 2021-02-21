@@ -53,7 +53,7 @@ export function MainMenuDesktop(props) {
                     <PageLinkDesktop
                         icon='my-pieces-cutout'
                         path="/MyPieces"
-                        pageName="My Pieces"
+                        pageName="Saved Pieces"
                         pathType="local"
                         theme={props.theme}
                     />

@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {innerHeight, innerWidth} from "../helpers/windowMeasurments";
+import {viewHeight, viewWidth} from "../helpers/windowMeasurments";
 
 const row = () => ({
     width: '100%',

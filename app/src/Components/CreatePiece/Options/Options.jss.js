@@ -11,6 +11,7 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
+        /*desktop*/
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             fontSize: fontSize00184,
             ...tool_flexbox,

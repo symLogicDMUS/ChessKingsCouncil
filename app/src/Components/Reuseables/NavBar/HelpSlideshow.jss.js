@@ -2,11 +2,11 @@ import {button} from "../StandardModal.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth, innerHeight} from "../../helpers/windowMeasurments";
+import {availHeight, availWidth, viewHeight} from "../../helpers/windowMeasurments";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../PersistentDrawer.jss";
 
-const windowHeightMobile = () => (innerHeight() - appBarHeight);
+const windowHeightMobile = () => (viewHeight() - appBarHeight);
 
 export const useStyles = makeStyles({
     modal: props => ({

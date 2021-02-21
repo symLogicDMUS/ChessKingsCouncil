@@ -7,30 +7,21 @@ export const useStyles = makeStyles({
     icon_tool: props => ({
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        justifyContent: 'space-between',
         '@media (max-aspect-ratio: 1/1)': {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
-            justifyContent: 'center',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
             width: '93%',
             marginLeft: '3.5%',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            flexWrap: 'wrap',
         },
     }),
     title: props => ({
         ...tool_title(props.theme),
-    }),
-    separator: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            width: window.innerWidth*0.08,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
-            width: window.innerWidth*0.01,
-        },
     }),
     buttons_and_img: props => ({
         display: 'flex',

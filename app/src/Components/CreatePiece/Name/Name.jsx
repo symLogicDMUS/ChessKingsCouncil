@@ -10,18 +10,23 @@ export function Name({updateName, theme, defaultValue, screenCase}) {
         setName(e.target.value)
     };
 
+    let size = 'small';
+    if (screenCase === 'desktop') {
+        size = 'medium';
+    }
+
     return (
         <div className={classes.name} onMouseLeave={() => updateName(name)}>
             <TextField
                 onChange={handleInput}
+                size={size}
+                theme={theme}
                 fullWidth={true}
                 label='Piece Name'
                 defaultValue={defaultValue}
-                size={(screenCase === 'desktop') ? 'medium' : 'small'}
                 autoComplete="off"
                 variant="outlined"
                 id="game-name"
-                theme={theme}
             />
         </div>
     );

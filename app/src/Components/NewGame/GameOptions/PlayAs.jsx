@@ -27,7 +27,7 @@ export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
                 label='Play As'
                 inputLabel='Play As'
                 onFocus={onFocus}
-                size={screenCase === 'mobile' ? 'small' : 'medium'}
+                size={screenCase === 'desktop' ? 'medium' : 'small'}
                 genStyle={dropdownGenStyle(resolveScreenCase(screenCase))}
             />
             {children}

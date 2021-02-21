@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { themes } from "../styles/themes.jss";
-import {innerHeight} from "../helpers/windowMeasurments";
+import {viewHeight} from "../helpers/windowMeasurments";
 
 export const root = (theme, style) => ({
     "& .MuiInputLabel-root": {

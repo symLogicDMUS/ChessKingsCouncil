@@ -1,26 +1,26 @@
 import React, {useState} from "react";
-import {AccountCircle} from "@material-ui/icons";
 import Box from "@material-ui/core/Box";
+import {AccountCircle} from "@material-ui/icons";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {fontSize0040 as fontSize} from "../styles/fontSizes.jss";
+import {adjuster, iconAdjuster} from "./SignOutMobile.jss";
 import { useStyles } from "./PageLinkMobile.jss";
 
-export function SignOutMobile({signOut, theme, style, iconStyle}) {
+export function SignOutMobile({signOut, theme}) {
     let [hover, setHover] = useState();
-    const classes = useStyles({ theme: theme, fontSize: fontSize });
+    const classes = useStyles({ theme: theme});
     return (
         <Box
-            className={classes.page_link}
             onClick={() => signOut()}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            style={style}
+            className={classes.page_link}
+            style={adjuster()}
         >
             <SvgIcon
                 className={
                     hover ? classes.page_icon_hover : classes.page_icon_normal
                 }
-                style={iconStyle}
+                style={iconAdjuster()}
             >
                 <AccountCircle />
             </SvgIcon>

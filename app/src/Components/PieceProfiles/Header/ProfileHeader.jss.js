@@ -44,7 +44,7 @@ export const header = (style, theme) => ({
         fontSize: fontSizes.ipx,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
         fontSize: fontSizes.short,
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
@@ -64,7 +64,7 @@ export const text = (theme) => ({
         fontSize: fontSizes.ipx,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
         fontSize: fontSizes.short,
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {

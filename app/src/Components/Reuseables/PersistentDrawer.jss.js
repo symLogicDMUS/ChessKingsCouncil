@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
+import {fontSize002} from "../styles/fontSizes.jss";
 
 export const appBarHeight = 55;
 export const bottomBarHeight = appBarHeight * 1.1;
@@ -11,6 +12,17 @@ export const pageTitleStyle = () => ({
     fontSize: appBarHeight * 0.333,
     height: '1em',
     lineHeight: '1em',
+});
+
+export const muiGlobalClasses = (theme) => ({
+    '& .MuiButton-root':{
+        fontSize: '1.25rem',
+        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+        fontWeight: 500,
+        lineHeight: 1.6,
+        letterSpacing: '0.0075em',
+        color: themes[theme].button_text,
+    }
 });
 
 export const useStyles = makeStyles((theme) => ({
@@ -27,6 +39,8 @@ export const useStyles = makeStyles((theme) => ({
         }),
         backgroundColor: themes[props.theme].fill,
         color: themes[props.theme].text,
+        ...muiGlobalClasses(props.theme),
+
     }),
     appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,
@@ -76,7 +90,7 @@ export const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     }),
-    open_close_icons: props => ({
+    openCloseIcons: props => ({
         color: themes[props.theme].text,
     }),
 }));

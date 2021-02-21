@@ -1,18 +1,15 @@
 import React, {useEffect, useState} from "react";
-import {v4 as uuidv4} from 'uuid';
 import {useHistory} from "react-router-dom";
 import "../styles/_backgrounds.scss";
 import "../styles/scrollbar.scss";
 import MediaQuery from "react-responsive/src";
-import {Portal, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {invalids} from "../helpers/invalids";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import {MuiButton} from "../Reuseables/MuiButton";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {resolveScreenCase} from "../helpers/resolveScreenCase";
@@ -20,17 +17,28 @@ import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {Background} from "../Reuseables/Background";
-import {themes} from "../styles/themes.jss";
 import {useStyles} from "./NewGame.jss";
+import * as PropTypes from "prop-types";
+import {Play} from "./Play";
+
+Play.propTypes = {
+    onClick: PropTypes.func,
+    classes: PropTypes.any,
+    theme: PropTypes.string,
+    playerType: PropTypes.any,
+    gameType: PropTypes.any,
+    gameName: PropTypes.string,
+    predicate: PropTypes.func
+};
 
 function NewGame() {
     let history = useHistory();
 
-    let [gameName, updateGameName] = useState("");
-    let [gameType, updateGameType] = useState(null);
-    let [playerType, updatePlayerType] = useState(null);
+    const [gameName, updateGameName] = useState("");
+    const [gameType, updateGameType] = useState(null);
+    const [playerType, updatePlayerType] = useState(null);
     const [focus, setFocus] = useState(null);
-    let [theme, setTheme] = useState("tan");
+    const [theme, setTheme] = useState("tan");
 
     useEffect(() => {
         document.body.className = "tan-background";
@@ -98,27 +106,16 @@ function NewGame() {
                             key='PlayAs-Desktop'
                             setPlayerType={setPlayerType}
                             screenCase='desktop'
-                        >
-                            <MuiButton
-                                key="PlayButton-Desktop"
-                                onClick={finish}
-                                classesObj={{root: classes.play_button}}
-                                style={{color: themes[theme].button_fill}}
-                                screenCase='desktop'
-                                variant="contained"
-                                theme={theme}
-                                isDisabled={
-                                    !(
-                                        playerType &&
-                                        gameType &&
-                                        gameName !== "" &&
-                                        invalids.every((c) => charNotInStr(c, gameName))
-                                    )
-                                }
-                            >
-                                Play
-                            </MuiButton>
-                        </PlayAs>
+                        />
+                        <Play
+                            theme={theme}
+                            onClick={finish}
+                            classes={classes}
+                            playerType={playerType}
+                            gameType={gameType} gameName={gameName}
+                            predicate={(c) => charNotInStr(c, gameName)}
+                            key='Play-Button-Desktop'
+                        />
                     </Box>
                 </MediaQuery>
                 <MediaQuery maxAspectRatio={'1/1'}>
@@ -135,7 +132,32 @@ function NewGame() {
                                 theme={theme}
                             />
                         }
-                        appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}
+                        appBarContent={
+                            <Box width='100%'
+                                 style={{
+                                     width: '100%',
+                                     display: 'flex',
+                                     flexDirection: 'row',
+                                     flexWrap: 'nowrap',
+                                     alignItems: 'center',
+                                     justifyContent: 'space-between',
+                                 }}
+                            >
+                                <Typography variant='h6' noWrap>
+                                    New Game
+                                </Typography>
+                                <Play
+                                    theme={theme}
+                                    onClick={finish}
+                                    classes={classes}
+                                    playerType={playerType}
+                                    gameType={gameType} gameName={gameName}
+                                    predicate={(c) => charNotInStr(c, gameName)}
+                                    key='Play-Button-Mobile'
+                                />
+                            </Box>
+
+                        }
                     >
                         <Box className={classes.new_game}>
                             <GameName
@@ -152,26 +174,13 @@ function NewGame() {
                                 setGameType={setGameType}
                                 screenCase='mobile'
                             />
-                            <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} key="PlayAs-Mobile" screenCase='mobile' />
-                            <MuiButton
+                            <PlayAs
                                 theme={theme}
-                                onClick={finish}
-                                variant="contained"
-                                key="PlayButton-Mobile"
-                                classesObj={{root: classes.play_button}}
-                                style={{color: themes[theme].button_fill}}
-                                isDisabled={
-                                    !(
-                                        playerType &&
-                                        gameType &&
-                                        gameName !== "" &&
-                                        invalids.every((c) => charNotInStr(c, gameName))
-                                    )
-                                }
-                                screenCase={resolveScreenCase('mobile')}
-                            >
-                                Play
-                            </MuiButton>
+                                setPlayerType={setPlayerType}
+                                onFocus={() => setFocus('play-as')}
+                                key="PlayAs-Mobile"
+                                screenCase='mobile'
+                            />
                         </Box>
                     </PersistentDrawer>
                 </MediaQuery>

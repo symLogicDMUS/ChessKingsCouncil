@@ -1,13 +1,79 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSizes} from "./Board/CreatePieceBoard.jss";
-import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
-import {fontSize00219, fontSize0025, fontSize0095} from "../styles/fontSizes.jss";
+import {fontSizes as boardFontSizes, fontSizes} from "./Board/CreatePieceBoard.jss";
+import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
+import {fontSize002, fontSize00219, fontSize0022, fontSize0095} from "../styles/fontSizes.jss";
+import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
-export const toolWidth = () => availWidth() * 0.336;
 export const sqrFontSize = fontSize0095 * 0.25;
-export const lineHeight = 0.7; // em
-export const margin = 1.1; // em
+
+/*For Range and Icon tools*/
+export const twoItemMargins = {
+    ipx: boardFontSizes.ipx*0.375,
+    mobile: availWidth() * 0.0425,
+    ipad: availWidth() * 0.015,
+    short: availWidth() * 0.01,
+}
+
+/*For Location and Options tools*/
+export const fourItemMargins = {
+    ipx: availWidth() * 0.04,
+    mobile: availWidth() * 0.035,
+    ipad: availWidth() * 0.02,
+}
+
+/*For Range and Icon tool*/
+export const twoItemFontSizes = {
+    desktop: fontSize002,
+    mobile: (boardFontSizes.mobile * 8 - twoItemMargins.mobile * 3) * 0.5 * 0.31675 * 0.31675,
+    ipx: (boardFontSizes.ipx * 8 - twoItemMargins.ipx * 3) * 0.5 * 0.31675 * 0.31675,
+    ipad: (boardFontSizes.ipad * 8 - twoItemMargins.ipad * 3) * 0.5 * 0.28 * 0.28,
+    short: (boardFontSizes.mobile * 8 - twoItemMargins.mobile * 3) * 0.5 * 0.31675 * 0.31675,
+}
+
+/*For Location and Options tools*/
+export const buttonSize = {
+    ipx: (viewHeight() - (appBarHeight + fontSizes.ipx * 8 + ((viewHeight() - (appBarHeight + fontSizes.ipx * 8)) * 0.95 * 0.2) + fourItemMargins.ipx * 3)) * 0.5,
+    mobile: (viewHeight() - (appBarHeight + fontSizes.mobile * 8 + ((viewHeight() - (appBarHeight + fontSizes.mobile * 8)) * 0.95 * 0.2) + fourItemMargins.mobile * 3)) * 0.5,
+    ipad: (viewHeight() - (appBarHeight + fontSizes.ipad * 8 + ((viewHeight() - (appBarHeight + fontSizes.ipad * 8)) * 0.95 * 0.2) + fourItemMargins.ipad * 3)) * 0.5,
+    short: availWidth() * 0.145,
+}
+
+export const button = (theme) => ({
+    '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        width: buttonSize.ipx,
+        height: buttonSize.ipx,
+        fontSize: buttonSize.ipx * 0.3,
+        margin: 'auto',
+    },
+    "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
+        width: buttonSize.mobile,
+        height: buttonSize.mobile,
+        fontSize: buttonSize.mobile * 0.3,
+    },
+    /*shortest phones*/
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)": {
+        width: buttonSize.short,
+        height: buttonSize.short,
+        fontSize: buttonSize.short * 0.3,
+    },
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+        width: buttonSize.ipad,
+        height: buttonSize.ipad,
+        fontSize: buttonSize.ipad * 0.3,
+        margin: 'auto',
+    },
+    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        fontSize: fontSize0022,
+        margin: 'unset',
+        width: '3.5em',
+        height: '3.5em',
+    },
+    minWidth: 0,
+    minHeight: 0,
+    color: themes[theme].text,
+    borderRadius: '0.25em',
+});
 
 export const app_bar_title = () => ({
     fontSize: fontSize00219,
@@ -80,10 +146,5 @@ export const styles = {
     box: props => ({
         fontSize: props.fontSize,
         display: 'flex',
-    }),
-    accordion_title: props => ({
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
-            fontSize: fontSize0025
-        },
     }),
 };

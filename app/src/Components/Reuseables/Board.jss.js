@@ -1,4 +1,4 @@
-import {availHeight, availWidth, innerHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "./PersistentDrawer.jss";
 
 export const bigBoardMargin = '0.25em';
@@ -63,7 +63,7 @@ export const dnd_layer = (boardSize, z) => ({
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 7/10)": {
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
@@ -72,7 +72,7 @@ export const dnd_layer = (boardSize, z) => ({
         left: boardPos.ipad.left,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
         top: boardPos.short.top,
         left: boardPos.short.left,
     },

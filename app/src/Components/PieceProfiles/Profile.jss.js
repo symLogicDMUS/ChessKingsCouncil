@@ -22,7 +22,7 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             fontSize: fontSizes.short,
             height: `${profileHeight}em`,
             width: '98%',

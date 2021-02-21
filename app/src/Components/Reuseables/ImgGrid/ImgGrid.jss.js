@@ -63,7 +63,7 @@ export const useStyles = makeStyles({
             height: heights.mobile,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -81,7 +81,7 @@ export const useStyles = makeStyles({
             height: heights.mobile * 0.05,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short * 0.05,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -106,7 +106,7 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short * 0.07,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -128,7 +128,7 @@ export const useStyles = makeStyles({
             marginLeft: widths.mobile * 0.025,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short * 0.8,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -150,7 +150,7 @@ export const useStyles = makeStyles({
             marginTop: widths.mobile * 0.025 * 0.95,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short * 0.8 * 0.95,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -180,7 +180,7 @@ export const useStyles = makeStyles({
             justifyContent: 'flex-start',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             height: heights.short * 0.08,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -199,7 +199,7 @@ export const useStyles = makeStyles({
             height: '2em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             fontSize: heights.short * 0.095*0.333*0.75,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -214,7 +214,7 @@ export const useStyles = makeStyles({
             height: '2em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             fontSize: heights.short * 0.095*0.333*0.75,
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
@@ -223,11 +223,11 @@ export const useStyles = makeStyles({
         },
     }),
     button_icon: props => ({
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 7/10)': {
+        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 85/100)': {
             fontSize: heights.mobile * 0.095*0.333*0.6667,
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             fontSize: heights.short * 0.095*0.333*0.6667,
             height: '0.5em',
             width: '0.5em',
@@ -246,7 +246,7 @@ export const useStyles = makeStyles({
             height: '1em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             fontSize: heights.short * 0.095*0.5,
             height: '1em',
         },

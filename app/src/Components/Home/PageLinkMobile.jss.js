@@ -1,35 +1,35 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {innerHeight} from "../helpers/windowMeasurments";
+import {viewHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const page_icon = () => ({
-    '@media (max-aspect-ratio: 7/10)': {
-        fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
-        marginRight: '0.5em',
+    '@media (max-aspect-ratio: 85/100)': {
+        fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-        fontSize: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
-        marginRight: '0.5em',
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+        fontSize: (viewHeight() - appBarHeight)*0.85*0.125*0.6,
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
-        fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,
-        marginRight: '0.75em',
+        fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.18,
     },
     width: '0.8em',
     height: '0.8em',
+    marginRight: '0.5em',
 });
 
 export const useStyles = makeStyles({
     page_link: props => ({
-        '@media and (max-device-width: 767px) and (max-aspect-ratio: 7/10)':{
-            fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.45*0.1,
-            marginBottom: '0.7em',
+        '@media and (max-device-width: 767px) and (max-aspect-ratio: 85/100)':{
+            fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-            fontSize: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
-            marginBottom: '0.5em',
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
+        },
+        /*tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+            fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
         display: 'flex',
         flexDirection: 'row',
@@ -47,13 +47,13 @@ export const useStyles = makeStyles({
     }),
     page_name: props => ({
         '@media (max-aspect-ratio: 834/1194)': {
-            height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.1,
+            height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
         },
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-            height: (innerHeight() - appBarHeight)*0.85*0.125*0.6,
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            height: (viewHeight() - appBarHeight)*0.85*0.125*0.6,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
-            height: (innerHeight() - (appBarHeight + innerHeight() * 0.075))*0.4*0.18,
+            height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.18,
         },
     }),
 });

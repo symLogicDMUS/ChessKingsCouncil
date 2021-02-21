@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../../styles/themes.jss";
-import {fontSizes} from "../Range.jss";
+import {twoItemFontSizes} from "../../CreatePiece.jss";
 
 
 const buttonPos = {
@@ -16,20 +16,20 @@ const buttonPos = {
 
 const container = (angle, theme) => ({
     "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
-        fontSize: fontSizes.ipx,
+        fontSize: twoItemFontSizes.ipx,
     },
     '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
-        fontSize: fontSizes.mobile,
+        fontSize: twoItemFontSizes.mobile,
     },
     /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-        fontSize: fontSizes.mobile,
+    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+        fontSize: twoItemFontSizes.mobile,
     },
     '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
-        fontSize: fontSizes.ipad,
+        fontSize: twoItemFontSizes.ipad,
     },
     '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-        fontSize: fontSizes.desktop,
+        fontSize: twoItemFontSizes.desktop,
     },
     width: '2.75em',
     height: '2.75em',
@@ -60,28 +60,28 @@ export const useStyles = makeStyles({
     }),
     arrow_button: props => ({
         "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
-            fontSize: fontSizes.ipx,
+            fontSize: twoItemFontSizes.ipx,
             width: '2.75em',
             height: '2.75em',
         },
         '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
+            fontSize: twoItemFontSizes.mobile,
             width: '2.75em',
             height: '2.75em',
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSizes.ipad,
+            fontSize: twoItemFontSizes.ipad,
             width: '2.75em',
             height: '2.75em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.mobile,
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            fontSize: twoItemFontSizes.mobile,
             width: '2.75em',
             height: '2.75em',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.desktop,
+            fontSize: twoItemFontSizes.desktop,
             width: '2.75em',
             height: '2.75em',
         },
@@ -90,28 +90,28 @@ export const useStyles = makeStyles({
 
     vector: (props) => ({
         "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
-            fontSize: fontSizes.ipx,
+            fontSize: twoItemFontSizes.ipx,
             width: '2em',
             height: '2em',
         },
         '@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.mobile,
+            fontSize: twoItemFontSizes.mobile,
             width: '2em',
             height: '2em',
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.mobile,
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
+            fontSize: twoItemFontSizes.mobile,
             width: '2em',
             height: '2em',
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
-            fontSize: fontSizes.ipad,
+            fontSize: twoItemFontSizes.ipad,
             width: '2em',
             height: '2em',
         },
         '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-            fontSize: fontSizes.desktop,
+            fontSize: twoItemFontSizes.desktop,
             width: '2em',
             height: '2em',
         },

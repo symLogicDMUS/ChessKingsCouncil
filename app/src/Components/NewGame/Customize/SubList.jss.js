@@ -46,7 +46,7 @@ export const useStyles = makeStyles({
             width: '100%'
         },
         /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
+        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
             marginTop: '-2vh',
             fontSize: fontSize0023,
             fontFamily: 'Roboto-Light, Roboto',

@@ -1,60 +1,25 @@
-import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles"
-import {fontSize0022} from "../../styles/fontSizes.jss";
-import {buttonSize} from "./Location.jss";
+import {button} from "../CreatePiece.jss";
+import {themes} from "../../styles/themes.jss";
 
-const buttonOrderMobile = {
+export const buttonOrderMobile = {
     d5: 1,
     e5: 2,
     d4: 3,
     e4: 4,
 }
 
-const location_button = (theme, rf) => ({
+export const location_button = (theme, rf) => ({
+    ...button(theme),
+    /*tall phones*/
     '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
         order : buttonOrderMobile[rf],
-        width: buttonSize.ipx,
-        height: buttonSize.ipx,
-        fontSize: buttonSize.ipx * 0.3,
-        margin: 'auto',
-        borderRadius: '0.05em',
-        border: `0.01em solid ${themes[theme].outline}`,
     },
-    "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
-        width: buttonSize.mobile,
-        height: buttonSize.mobile,
-        fontSize: buttonSize.mobile * 0.3,
-        borderRadius: '0.05em',
-        border: `0.01em solid ${themes[theme].outline}`,
-    },
-    /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 7/10) and (max-aspect-ratio: 1/1)":{
-        width: buttonSize.short,
-        height: buttonSize.short,
-        fontSize: buttonSize.short * 0.3,
-        borderRadius: '0.25em',
-        border: `0.01em solid ${themes[theme].outline}`,
-    },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+    /*tablets*/
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1), ': {
         order : buttonOrderMobile[rf],
-        width: buttonSize.ipad,
-        height: buttonSize.ipad,
-        fontSize: buttonSize.ipad * 0.3,
-        margin: 'auto',
-        borderRadius: '0.05em',
-        border: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-        fontSize: fontSize0022,
-        margin: 'unset',
-        width: '3.5em',
-        height: '3.5em',
-        border: `0.04em solid ${themes[theme].outline}`,
-    },
-    minWidth: 0,
-    minHeight: 0,
-    color: themes[theme].text,
-    borderRadius: '0.2em',
+    border: `0.04em solid ${themes[theme].outline}`,
 });
 
 export const useStyles = makeStyles({

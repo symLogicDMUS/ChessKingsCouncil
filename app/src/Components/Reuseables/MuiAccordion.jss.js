@@ -1,7 +1,7 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "./PersistentDrawer.jss";
-import {innerHeight} from "../helpers/windowMeasurments";
+import {viewHeight} from "../helpers/windowMeasurments";
 import {fontSize0040} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     //when numTabs > 2
     accordion_summary: props => ({
-        fontSize: (innerHeight() - (appBarHeight + props.neighborContentSize)) * 0.95 / props.numTabs,
+        fontSize: (viewHeight() - (appBarHeight + props.neighborContentSize)) * 0.95 / props.numTabs,
         height: '1em',
     }),
     accordion_body: props => ({
@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     //when numTabs > 2
     accordion_title: props => ({
-        fontSize: (innerHeight() - (appBarHeight + props.neighborContentSize)) * 0.95 * 0.3 / props.numTabs,
+        fontSize: (viewHeight() - (appBarHeight + props.neighborContentSize)) * 0.95 * 0.3 / props.numTabs,
         minHeight: 'unset',
     }),
     expand_icon: props => ({
