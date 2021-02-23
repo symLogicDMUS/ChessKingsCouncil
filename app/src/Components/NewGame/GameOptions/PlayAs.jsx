@@ -2,7 +2,6 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import MenuItem from "@material-ui/core/MenuItem";
 import {Dropdown} from "../../Reuseables/Dropdown";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {dropdownGenStyle, useStyles} from "../NewGame.jss";
 
 export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
@@ -27,8 +26,8 @@ export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
                 label='Play As'
                 inputLabel='Play As'
                 onFocus={onFocus}
-                size={screenCase === 'desktop' ? 'medium' : 'small'}
-                genStyle={dropdownGenStyle(resolveScreenCase(screenCase))}
+                size={(screenCase === 'desktop') ? 'medium' : 'small'}
+                genStyle={dropdownGenStyle()}
             />
             {children}
         </Box>

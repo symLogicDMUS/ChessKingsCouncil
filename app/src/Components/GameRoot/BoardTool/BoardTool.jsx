@@ -10,8 +10,6 @@ import Box from "@material-ui/core/Box";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
 import {show_profile_checkbox, show_profile_gen, show_profile_root, useStyles} from "./BoardTool.jss";
-import {fontSizes} from "../../CreatePiece/Help/RangeToolExample.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export function BoardTool({
     theme,

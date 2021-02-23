@@ -8,13 +8,10 @@ import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
-import {HelpTitle} from "../Reuseables/HelpTitle";
-import {HelpText} from "./HelpText";
-import "../styles/_backgrounds.scss";
 import {piece_profiles, styles} from "./MyPieces.jss";
-import {availHeight} from "../helpers/windowMeasurments";
-import {addressBarHeight} from "../Reuseables/PersistentDrawer.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
+import {HelpTitle} from "../Reuseables/HelpTitle";
+import "../styles/_backgrounds.scss";
+import {HelpText} from "./HelpText";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -98,7 +95,7 @@ class MyPieces extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}
-                                screenCase={resolveScreenCase("mobile")}
+                                screenCase="mobile"
                             />
                         }
                         appBarContent={<Typography variant='h6' noWrap>My Pieces</Typography>}

@@ -7,7 +7,6 @@ import {SampleRangeBoard} from "./SampleRangeBoard";
 import {ProfileExampleDocker} from "./ProfileExampleDocker";
 import {IconButtonExample as Icb} from "./IconButtonExample";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {fontSizes, subtitle, useStyles} from "./ProfileHelpText.jss";
 
 export function ProfileHelpText(props) {
@@ -44,7 +43,7 @@ export function ProfileHelpText(props) {
                     <SampleRangeBoard theme={props.theme} fontSize={fontSizes['desktop']} />
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={1040}>
-                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes[resolveScreenCase('mobile')]} />
+                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes['mobile']} />
                 </MediaQuery>
                 <SampleRangeList theme={props.theme}/>
             </Box>

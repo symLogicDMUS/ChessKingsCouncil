@@ -32,15 +32,14 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
-import {accordion_root, persistentDrawerAddedStyle, styles} from "./GameRoot.jss";
 import {boardSizes} from "../Reuseables/Board.jss";
+import {accordion_root, styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -52,21 +51,18 @@ class GameRoot extends React.Component {
             theme: "dark",
         };
         this.unsavedProgress = false;
-        // this.gameName = this.props.location.state.gameName;
-        // this.gameType = this.props.location.state.gameType;
-        // this.playerType = this.props.location.state.playerType;
-        this.gameName = "hello world";
-        this.gameType = "Standard";
-        this.playerType = "W";
+        this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
         let gameData;
-        // if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
-        //     gameData = this.props.location.state.gameData;
-        // } else {
+        if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
+            gameData = this.props.location.state.gameData;
+        } else {
             gameData = copy(newData);
-        // }
+        }
         this.img = gameData.img;
         this.board = gameData.board;
-        this.turn = gameData.color;
+        this.turn = gameData.turn;
         this.fenObj = new Fen(gameData.fen_data);
         this.gameStatus = new GameStatus(gameData.status);
         this.specialMoves = new SpecialMoves(gameData.special_moves);
@@ -348,8 +344,8 @@ class GameRoot extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"
+                                screenCase='mobile'
                                 theme={this.state.theme}
-                                screenCase={resolveScreenCase('mobile')}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
@@ -367,8 +363,8 @@ class GameRoot extends React.Component {
                         <Board gameRoot={this}/>
                         <MuiAccordion
                             theme={this.state.theme}
-                            rootStyle={accordion_root(resolveScreenCase('mobile'))}
-                            neighborContentSize={boardSizes[resolveScreenCase('mobile')]}
+                            rootStyle={accordion_root()}
+                            neighborContentSize={boardSizes.mobile}
                         >
                             {[
                                 {
@@ -411,7 +407,7 @@ class GameRoot extends React.Component {
                                         <BoardTool
                                             board={this.board}
                                             theme={this.state.theme}
-                                            screenCase={resolveScreenCase('mobile')}
+                                            screenCase='mobile'
                                             allRanges={{
                                                 ...this.ranges,
                                                 ...this.enemyRanges,

@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {viewHeight, viewWidth} from "../helpers/windowMeasurments";
 
 const row = () => ({
     width: '100%',
@@ -66,4 +65,4 @@ export const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     }),
-}));
+}), {index: 1});

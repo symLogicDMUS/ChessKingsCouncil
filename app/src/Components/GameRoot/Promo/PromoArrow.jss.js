@@ -20,4 +20,4 @@ export const useStyles = makeStyles((theme) => ({
         borderBottomLeftRadius: 0,
         borderBottomRightRadius: 0,
     }),
-}));
+}), {index: 1});

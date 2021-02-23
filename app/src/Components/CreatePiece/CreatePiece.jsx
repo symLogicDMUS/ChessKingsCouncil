@@ -26,7 +26,6 @@ import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
@@ -411,9 +410,9 @@ class CreatePiece extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="CreatePiece"
-                                redirectMessage={messageStr}
+                                screenCase='mobile'
                                 theme={this.state.theme}
-                                screenCase={resolveScreenCase('mobile')}
+                                redirectMessage={messageStr}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
@@ -452,7 +451,7 @@ class CreatePiece extends React.Component {
                                             defaultValue={this.name}
                                             theme={this.state.theme}
                                             updateName={this.updateName}
-                                            screenCase={resolveScreenCase('mobile')}
+                                            screenCase='mobile'
                                         />
                                     ),
                                 },
@@ -481,7 +480,7 @@ class CreatePiece extends React.Component {
                                             spans={this.spans}
                                             offsets={this.offsets}
                                             toggleSpan={this.toggleSpan}
-                                            screenCase={resolveScreenCase('mobile')}
+                                            screenCase='mobile'
                                         />
                                     ),
                                 },

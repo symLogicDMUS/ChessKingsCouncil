@@ -3,7 +3,6 @@ import {fontSize001685} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 const modalWidth = availWidth() * 0.9;
 const modalHeight = availHeight() * 0.8;
@@ -47,7 +46,7 @@ export const show_names_gen = (screenCase) => {
 
 /*for the button icons (query in makeStyles for ipad doesn't work*/
 export const ifIpad = (screenCase) => {
-    const newScreenCase = resolveScreenCase(screenCase)
+    const newScreenCase = screenCase
     if (newScreenCase === 'ipad') {
         return {fontSize: heights.mobile * 0.095*0.333*0.6667}
     }

@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import {MuiTextField} from "../../Reuseables/MuiTextField";
 import {useStyles} from "../NewGame.jss";
 
-export function GameName({setGameName, theme}) {
+export function GameName({setGameName, theme, screenCase}) {
     const classes = useStyles();
 
     return (
@@ -15,8 +15,8 @@ export function GameName({setGameName, theme}) {
                     id="pick-game-name"
                     label="Pick game name"
                     variant="outlined"
-                    // size={screenCase === 'desktop' ? 'medium' : 'small'}
-                    // genStyle={textFieldGenStyle(resolveScreenCase(screenCase))}
+                    fullWidth={true}
+                    size={screenCase === 'desktop' ? 'medium' : 'small'}
                 />
             </Box>
     );

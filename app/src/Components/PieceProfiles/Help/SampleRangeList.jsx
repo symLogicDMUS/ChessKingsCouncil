@@ -5,7 +5,6 @@ import { stepFuncNamesToText } from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import MediaQuery from "react-responsive/src";
 import {range_list_button_style, range_list_gen_style, range_list_row_style} from "./ProfileHelpText.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 export const SampleRangeList = memo(({ theme }) => {
     const rangeFuncs = [

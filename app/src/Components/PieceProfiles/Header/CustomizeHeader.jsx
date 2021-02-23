@@ -1,6 +1,5 @@
 import React, {useMemo} from "react";
 import Box from "@material-ui/core/Box";
-import { useMediaQuery } from 'react-responsive'
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
@@ -15,7 +14,6 @@ import {
     iconButtonsStyle,
     useStyles
 } from "./CustomizeHeader.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 
 export const CustomizeHeader = ({
@@ -74,9 +72,9 @@ export const CustomizeHeader = ({
                     <MuiCheckbox
                         checkmarkState={isCheckmark}
                         onClick={() => togglePromo(pieceName)}
-                        rootStyle={checkbox_root(resolveScreenCase(screenCase))}
-                        checkboxStyle={checkbox(resolveScreenCase(screenCase))}
-                        style={checkbox_gen(resolveScreenCase(screenCase))}
+                        rootStyle={checkbox_root(screenCase)}
+                        checkboxStyle={checkbox(screenCase)}
+                        style={checkbox_gen(screenCase)}
                         theme={theme}
                     >
                         {screenCase === 'mobile' ? (

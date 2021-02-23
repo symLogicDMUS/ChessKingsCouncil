@@ -1,13 +1,11 @@
 import {
     fontSize002,
     fontSize00224,
-    fontSizeW00238,
     fontSizeW0027,
     fontSizeW005,
     fontSizeW0056,
     fontSizeW0033,
     fontSizeW004,
-    fontSize00301
 } from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -24,17 +22,6 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
-        '@media screen and (max-device-width: 412px)': {
-            fontSize: fontSizeW00238,
-            justifyContent: 'space-between',
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
-            fontSize: fontSize002,
-            width: '100%',
-            height: '100%',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-        },
         '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,
             fontSize: fontSize002,
@@ -49,15 +36,10 @@ export const useStyles = makeStyles({
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizeW0027,
             width: '10em',
             height: '10em',
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
-            fontSize: fontSizeW0033,
-            width: '7em',
-            height: '7em',
         },
         '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,

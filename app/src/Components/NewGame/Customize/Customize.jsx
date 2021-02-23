@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {DrawerContent} from "../../Reuseables/DrawerContent";
 import {SubList} from "./SubList";
 import {SideBar} from "../../Reuseables/SidBar";
@@ -54,14 +53,9 @@ class Customize extends React.Component {
             redirect: false,
             binaryValue: true,
         };
-        // this.gameName = this.props.location.state.gameName;
-        // this.gameType = this.props.location.state.gameType;
-        // this.playerType = this.props.location.state.playerType;
-        this.gameName = "hello world";
-        this.gameType = "Standard";
-        this.playerType = "W";
-        if (this.playerType === "Test") this.color = 'W'
-        else this.color = this.playerType;
+        this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
         this.subs = {
             Rook: null,
             Bishop: null,
@@ -71,7 +65,6 @@ class Customize extends React.Component {
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.gameData = {}
         this.defs = {};
-        // this.defs = copy(sampleDefs)
         this.promos = [];
         this.firstTime = false;
         this.promoAll = false;
@@ -136,7 +129,7 @@ class Customize extends React.Component {
         const dataEntry = firstUpdate(
             this.gameData.board,
             this.gameData.json_records,
-            this.color,
+            "W",
             this.gameData.piece_defs,
             this.gameData.id_dict
         );
@@ -345,7 +338,7 @@ class Customize extends React.Component {
                             drawer={
                                 <NavBar
                                     currentPage="Customize"
-                                    screenCase={resolveScreenCase("mobile")}
+                                    screenCase="mobile"
                                     helpText={HelpText(fontSizeW0045, this.state.theme)}
                                     helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
@@ -372,9 +365,9 @@ class Customize extends React.Component {
                             />
                             <MuiAccordion
                                 theme={this.state.theme}
-                                rootStyle={accordion_style(resolveScreenCase('mobile'))}
-                                neighborContentSize={modalHeights[resolveScreenCase('mobile')]}
-                                addedStyle={accordion_added(resolveScreenCase('mobile'))}
+                                rootStyle={accordion_style('mobile')}
+                                neighborContentSize={modalHeights['mobile']}
+                                addedStyle={accordion_added('mobile')}
                             >
                                 {[
                                     {
@@ -391,7 +384,7 @@ class Customize extends React.Component {
                                         id: "pawn-promo",
                                         title: 'Pawn Promotion List',
                                         body: (
-                                            <div style={pawn_promotion(resolveScreenCase('mobile'))}>
+                                            <div style={pawn_promotion('mobile')}>
                                                 <ScrollTable
                                                     numRows={4}
                                                     key={uuidv4()}
@@ -399,14 +392,14 @@ class Customize extends React.Component {
                                                     theme={this.state.theme}
                                                     buttonStyle={scroll_table_button()}
                                                     style={scroll_table('mobile')}
-                                                    addedStyle={scroll_table_added(resolveScreenCase('mobile'))}
+                                                    addedStyle={scroll_table_added('mobile')}
                                                 />
                                                 <MuiCheckbox
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
-                                                    rootStyle={promo_all_root(resolveScreenCase('mobile'))}
-                                                    checkboxStyle={promo_all_checkbox(resolveScreenCase('mobile'))}
-                                                    style={promo_all_gen(resolveScreenCase('mobile'))}
+                                                    rootStyle={promo_all_root('mobile')}
+                                                    checkboxStyle={promo_all_checkbox('mobile')}
+                                                    style={promo_all_gen('mobile')}
                                                 >
                                                     Promo All
                                                 </MuiCheckbox>
@@ -417,7 +410,7 @@ class Customize extends React.Component {
                             </MuiAccordion>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button(resolveScreenCase('mobile'))}
+                                style={ok_button('mobile')}
                                 theme={this.state.theme}
                                 variant={"contained"}
                                 isDisabled={false}

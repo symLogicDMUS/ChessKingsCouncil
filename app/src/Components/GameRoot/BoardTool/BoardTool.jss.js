@@ -1,7 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import {availWidth} from "../../helpers/windowMeasurments";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {fontSize0019, fontSize002, fontSize00219,} from "../../styles/fontSizes.jss";
 
@@ -35,7 +34,7 @@ export const show_profile_gen = (screenCase) => {
         case 'short':
             return {fontSize: fontSize0019}
         default:
-            return {fontSize : fontSizes[resolveScreenCase(screenCase)]*1.2}
+            return {fontSize : fontSizes[screenCase]*1.2}
     }
 };
 

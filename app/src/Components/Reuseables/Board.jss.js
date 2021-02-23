@@ -1,18 +1,25 @@
-import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {appBarHeight} from "./PersistentDrawer.jss";
 
-export const bigBoardMargin = '0.25em';
-export const mobileBoardPadding = availWidth() * 0.002;
+export const getSqrSizeMobile = () => {
+    if (viewHeight() >= viewWidth()*2) {
+        return availWidth()*0.95*0.125
+    }
+    else {
+        return viewHeight()*0.5*0.125
+    }
+};
+
+export const getBoardSizeMobile = () => {
+    return getSqrSizeMobile()*8;
+};
 
 /**
  * for dnd context
  */
 export const sqrSizes = {
     desktop: availHeight() * 0.095,
-    mobile: availWidth() * 0.11,
-    ipx: availWidth() * 0.115,
-    ipad: availWidth() * 0.105,
-    short: availWidth()*0.875*0.125,
+    mobile: getSqrSizeMobile(),
 }
 
 /**
@@ -21,9 +28,6 @@ export const sqrSizes = {
 export const boardSizes = {
     desktop: sqrSizes.desktop * 8,
     mobile: sqrSizes.mobile * 8,
-    ipx: sqrSizes.ipx * 8,
-    ipad: sqrSizes.ipad * 8,
-    short: sqrSizes.short * 8,
 }
 
 export const boardPos = {
@@ -32,19 +36,7 @@ export const boardPos = {
         top: availHeight()*0.47 - boardSizes.desktop * 0.5,
     },
     mobile: {
-        left: availWidth()*0.06,
-        top: appBarHeight,
-    },
-    ipx: {
-        left: availWidth()*0.04,
-        top: appBarHeight + availWidth()*0.011,
-    },
-    ipad: {
-      left: availWidth() * 0.5 - (sqrSizes.ipad * 8)*0.5,
-      top: appBarHeight,
-    },
-    short: {
-        left: availWidth()*0.06,
+        left: availWidth()*0.5 - getBoardSizeMobile()*0.5,
         top: appBarHeight,
     },
 }
@@ -59,19 +51,10 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     position: 'fixed',
-    '@media screen and (max-device-width: 412px)': {
-        top: boardPos.ipx.top,
-        left: boardPos.ipx.left,
-    },
-    "@media screen and (min-device-width: 412px) and (max-device-width:  767px)": {
+    '@media screen and (max-device-width: 1040px)': {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
-        top: boardPos.ipad.top,
-        left: boardPos.ipad.left,
-    },
-
     '@media screen and (min-device-width: 1040px)': {
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,

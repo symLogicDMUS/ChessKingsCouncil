@@ -3,7 +3,6 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {SearchBox} from "../Reuseables/SearchBox";
 import {useStyles} from "./ProfilesTitle.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
 
 export const widths = {
     desktop: '10.55em',
@@ -21,7 +20,7 @@ export function ProfilesTitle({theme, updateSearchText, screenCase, children}) {
         <>
             <Box className={classes.title_bar}>
                 <Typography className={classes.title} variant='h6'>{children}</Typography>
-                <SearchBox theme={theme} width={widths[resolveScreenCase(screenCase)]} updateSearchText={updateSearchText} />
+                <SearchBox theme={theme} width={widths[screenCase]} updateSearchText={updateSearchText} />
             </Box>
         </>
     );

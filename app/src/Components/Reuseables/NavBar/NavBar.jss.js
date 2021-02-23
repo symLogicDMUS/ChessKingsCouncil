@@ -97,4 +97,4 @@ export const useStyles = makeStyles((theme) => ({
     nav_bar: props => ({
         ...getStyle(props.screenCase, props.currentPage),
     }),
-}));
+}), {index: 1});

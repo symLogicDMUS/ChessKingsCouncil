@@ -62,4 +62,4 @@ export const useStyles = makeStyles((theme) => ({
             top: '-1.275em',
         },
     }),
-}));
+}), {index: 1});

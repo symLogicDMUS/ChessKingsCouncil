@@ -3,7 +3,6 @@ import MediaQuery from "react-responsive/src";
 import {SignOutMobile} from "./SignOutMobile";
 import {PageLinkMobile} from "./PageLinkMobile";
 import {Background} from "../Reuseables/Background";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
 import {useStyles} from "./MainMenuMobile.jss";
 
 
@@ -28,7 +27,7 @@ export function MainMenuMobile(props) {
                 <SignOutMobile
                     theme={props.theme}
                     signOut={props.signOut}
-                    screenCase={resolveScreenCase('mobile')}
+                    screenCase='mobile'
                 />
                 <PageLinkMobile
                     path="/NewGame"

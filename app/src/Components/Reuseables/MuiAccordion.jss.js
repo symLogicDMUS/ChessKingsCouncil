@@ -51,4 +51,4 @@ export const useStyles = makeStyles((theme) => ({
             height: '1em',
         },
     }),
-}));
+}), {index: 1});

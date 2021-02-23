@@ -33,5 +33,5 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: '#515151',
         fontFamily: 'Roboto-Light, Roboto'
     },
-}));
+}), {index: 1});
 

@@ -1,35 +1,23 @@
 import React, {useEffect, useState} from "react";
+import MediaQuery from "react-responsive/src";
 import {useHistory} from "react-router-dom";
+import Box from "@material-ui/core/Box";
 import "../styles/_backgrounds.scss";
 import "../styles/scrollbar.scss";
-import MediaQuery from "react-responsive/src";
+import {Play} from "./Play";
 import {Typography} from "@material-ui/core";
-import Box from "@material-ui/core/Box";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./NewGame.jss";
-import * as PropTypes from "prop-types";
-import {Play} from "./Play";
-
-Play.propTypes = {
-    onClick: PropTypes.func,
-    classes: PropTypes.any,
-    theme: PropTypes.string,
-    playerType: PropTypes.any,
-    gameType: PropTypes.any,
-    gameName: PropTypes.string,
-    predicate: PropTypes.func
-};
 
 function NewGame() {
     let history = useHistory();
@@ -125,7 +113,7 @@ function NewGame() {
                         drawer={
                             <NavBar
                                 currentPage="NewGame"
-                                screenCase={resolveScreenCase('mobile')}
+                                screenCase='mobile'
                                 helpText={HelpText(fontSizeW0045, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}

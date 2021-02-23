@@ -10,7 +10,6 @@ import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples"
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
 import {img_example} from "./OffsetsAndSpansExplanation.jss";
 import {useStyles} from "../../Reuseables/SubTitle.jss";
-import {resolveScreenCase} from "../../helpers/resolveScreenCase";
 
 
 export function OffsetsAndSpansExplanation(props) {
@@ -59,11 +58,11 @@ export function OffsetsAndSpansExplanation(props) {
                 </Box>
             </MediaQuery>
             <MediaQuery maxDeviceWidth={1040}>
-                <Box style={example_box(resolveScreenCase('mobile'))}>
+                <Box style={example_box('mobile')}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                        style={img_example(resolveScreenCase('mobile'), props.theme)}
+                        style={img_example('mobile', props.theme)}
                         alt="span board for dragon"
                     />
                 </Box>

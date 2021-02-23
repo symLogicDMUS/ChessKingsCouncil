@@ -6,14 +6,13 @@ import {sampleGames} from "../../API/apiHelpers/sampleGames";
 import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
 import {getSampleGames} from "../../API/getSampleGames";
+import { saveGameDict } from "../../API/saveGameDict";
 import {parseData} from "../../apiHelpers/parseData";
 import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
-import { saveGameDict } from "../../API/saveGameDict";
 
 class LoadGame extends React.Component {
-    sampleGames;
 
     constructor(props) {
         super(props);
@@ -35,9 +34,6 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "tan-background";
-        // this.games = getSampleGames()
-        // this.reloadGameImgComponentsDict();
-        // this.setState({ loaded: true });
         getGames().then(([games]) => {
             if (games) {
                 this.games = games;

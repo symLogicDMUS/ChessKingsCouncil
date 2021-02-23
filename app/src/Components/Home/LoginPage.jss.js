@@ -1,8 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
-import {fontSize002} from "../styles/fontSizes.jss";
+import {availWidth, viewHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
-
 
 export const useStyles = makeStyles((theme) => ({
     login_page: props => ({
@@ -35,4 +33,4 @@ export const useStyles = makeStyles((theme) => ({
     app_title_desktop: (props) => ({
         width: availWidth() * 0.8,
     }),
-}));
+}), {index: 1});

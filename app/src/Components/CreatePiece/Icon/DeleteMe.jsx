@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         margin: '2em',
     },
-}));
+}), {index: 1});
 
 export default function IconLabelButtons() {
     const classes = useStyles();

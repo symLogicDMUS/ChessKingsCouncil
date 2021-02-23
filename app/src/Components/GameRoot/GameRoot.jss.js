@@ -1,44 +1,14 @@
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
-import {themes} from "../styles/themes.jss";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
-import {resolveScreenCase} from "../helpers/resolveScreenCase";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import React from "react";
+import {themes} from "../styles/themes.jss";
 
-export const accordion_root = (screenCase) => {
-    switch (screenCase) {
-        case 'ipad':
-            return {
-                position: "absolute",
-                top: boardSizes.ipad + boardPos.ipad.top,
-                left: boardPos.ipad.left,
-                width: boardSizes.ipad,
-                zIndex: 5,
-            }
-        case 'ipx':
-            return {
-                position: "absolute",
-                top: boardSizes.ipx + boardPos.ipx.top,
-                left: boardPos.ipx.left,
-                width: boardSizes.ipx,
-                zIndex: 5,
-            }
-        case 'short':
-            return {
-                position: "absolute",
-                top: appBarHeight + boardSizes.short,
-                left: boardPos.short.left,
-                width: boardSizes.short,
-                zIndex: 5,
-            }
-        default:
-            return {
-                position: "absolute",
-                top: appBarHeight + boardSizes.mobile,
-                left: boardPos.mobile.left,
-                width: boardSizes.mobile,
-                zIndex: 5,
-            }
+export const accordion_root = () => {
+    return {
+        position: "absolute",
+        top: appBarHeight + boardSizes.mobile,
+        left: boardPos.mobile.left,
+        width: boardSizes.mobile,
+        zIndex: 5,
     }
 };
 

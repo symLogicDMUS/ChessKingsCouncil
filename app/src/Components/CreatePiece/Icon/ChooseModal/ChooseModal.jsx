@@ -10,8 +10,6 @@ import {saveImgDict} from "../../../../API/saveImgDict";
 import {getSampleImgs} from "../../../../API/getSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
 import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
-import {appBarHeight} from "../../../Reuseables/PersistentDrawer.jss";
-import {fontSize001725} from "../../../styles/fontSizes.jss";
 import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
 import {SearchBox} from "../../../Reuseables/SearchBox";
 import {Close} from "../../../Reuseables/Close";
@@ -30,9 +28,6 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        // this.imgDict = getSampleImgs();
-        // this.imgDict = filterStandardPieces(this.imgDict);
-        // this.setState({loaded: true});
         getImgDict().then(([imgDict]) => {
             this.imgDict = getSampleImgs();
             this.imgDict = filterStandardPieces(this.imgDict);
