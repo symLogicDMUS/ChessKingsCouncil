@@ -59,24 +59,20 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     position: 'fixed',
-    '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+    '@media screen and (max-device-width: 412px)': {
         top: boardPos.ipx.top,
         left: boardPos.ipx.left,
     },
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
+    "@media screen and (min-device-width: 412px) and (max-device-width:  767px)": {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
         top: boardPos.ipad.top,
         left: boardPos.ipad.left,
     },
-    /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-        top: boardPos.short.top,
-        left: boardPos.short.left,
-    },
-    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+
+    '@media screen and (min-device-width: 1040px)': {
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,
     },

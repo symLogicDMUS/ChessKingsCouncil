@@ -46,11 +46,11 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-between',
         /*media query for phones and tablets (generalized)*/
-        '@media screen and (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: (viewHeight() - appBarHeight)*0.825,
             marginTop: '7.5vh',
         },
-        '@media screen and (min-aspect-ratio: 1/1) and (min-device-width: 992px)': {
+        '@media screen and (min-device-width: 1040px)': {
             height: '90vh',
         },
         // border: '1px dashed black',
@@ -58,44 +58,35 @@ export const useStyles = makeStyles({
     item: props => ({
         display: 'flex',
         alignItems: 'center',
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            width: viewWidth() * 0.85,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-        },
+
         /*medium/short height phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)":{
+        // "@media screen and (min-device-width: 412px) and (max-device-width:  767px)":{
             width: viewWidth() * 0.7,
             flexDirection: 'column',
             justifyContent: 'center',
-        },
-        /*tall phones*/
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)":{
-            width: viewWidth() * 0.7,
-            flexDirection: 'column',
-            justifyContent: 'center',
-        },
-        /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
-            width: viewWidth() * 0.7,
-            flexDirection: 'column',
-            justifyContent: 'center',
-        },
-        /*desktop*/
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-            width: viewWidth() * 0.3,
-            flexDirection: 'column',
-            justifyContent: 'center',
-        },
+        // },
+        // /*tall phones*/
+        // "@media screen and (max-device-width: 412px)":{
+        //     width: viewWidth() * 0.7,
+        //     flexDirection: 'column',
+        //     justifyContent: 'center',
+        // },
+        // /*tablets*/
+        // '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        //     width: viewWidth() * 0.7,
+        //     flexDirection: 'column',
+        //     justifyContent: 'center',
+        // },
+        // /*desktop*/
+        // '@media screen and (min-device-width: 1040px)': {
+        //     width: viewWidth() * 0.3,
+        //     flexDirection: 'column',
+        //     justifyContent: 'center',
+        // },
     }),
     title: props => ({
-        width: '100%',
+        // width: '100%',
         marginBottom: '1.5vh',
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            width: '45%',
-        },
     }),
     game_types: props => ({
         display: 'flex',
@@ -104,11 +95,7 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'center',
         width: '75%',
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            width: '50%',
-            justifyContent: 'space-between',
-        },
+
     }),
     game_types_divider: props => ({
         width: '5%',
@@ -116,5 +103,12 @@ export const useStyles = makeStyles({
     player_type: props => ({
         fontSize: fontSize0018,
     }),
-
+    app_bar_content: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    })
 });

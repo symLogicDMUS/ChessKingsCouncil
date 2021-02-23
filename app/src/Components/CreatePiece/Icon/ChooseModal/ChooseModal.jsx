@@ -80,7 +80,7 @@ class ChooseModal extends React.Component {
         return (
             <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
-                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                    <MediaQuery minDeviceWidth={1040}>
                         <ImgGrid
                             title={
                                 <>
@@ -126,7 +126,7 @@ class ChooseModal extends React.Component {
                             theme={this.props.theme}
                         />
                     </MediaQuery>
-                    <MediaQuery maxAspectRatio={'1/1'}>
+                    <MediaQuery maxDeviceWidth={1040}>
                         <ImgGrid
                             imgDict={this.imgDict}
                             setChoice={this.setChoice}

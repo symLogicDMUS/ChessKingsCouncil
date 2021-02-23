@@ -1,7 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { useStyles } from "./MuiInput.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
 
 export function MuiTextField({
     id,

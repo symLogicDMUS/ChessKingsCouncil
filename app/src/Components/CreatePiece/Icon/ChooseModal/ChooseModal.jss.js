@@ -44,10 +44,10 @@ export const styles = {
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize0016,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSize0015,
         },
         height: '3em',

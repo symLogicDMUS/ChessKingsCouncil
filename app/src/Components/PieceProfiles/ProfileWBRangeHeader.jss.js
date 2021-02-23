@@ -4,20 +4,17 @@ import {headerFontSizes, titleFontSizes} from "./Header/ProfileHeader.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: headerFontSizes.ipx,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: headerFontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -33,20 +30,17 @@ export const useStyles = makeStyles({
     }),
     /*Parts of the range table's header: */
     title: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: titleFontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: titleFontSizes.ipx,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: titleFontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
         },
         marginLeft: 'auto',
@@ -56,20 +50,17 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     expand_widget: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: headerFontSizes.ipx,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: headerFontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
         },
         marginLeft: 'auto',

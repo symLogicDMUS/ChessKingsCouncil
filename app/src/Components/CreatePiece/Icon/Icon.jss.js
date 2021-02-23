@@ -8,12 +8,12 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: '93%',
             marginLeft: '3.5%',
             alignItems: 'center',

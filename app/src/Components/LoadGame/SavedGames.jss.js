@@ -52,10 +52,10 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'space-evenly',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: '50em',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
         },
     }),
@@ -75,10 +75,10 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize0016,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSize0015,
         },
         height: '3em',
@@ -93,10 +93,10 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '1.8em',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: getTextWidth('Load Game', props.fontSize * 5.6, 'Garamond'),
         },
     }),

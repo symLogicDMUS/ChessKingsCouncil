@@ -21,7 +21,7 @@ export function Options({
     const classes = useStyles({theme: theme});
     return (
         <Box className={classes.options_tool}>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <Typography className={classes.title}>
                     Options
                 </Typography>

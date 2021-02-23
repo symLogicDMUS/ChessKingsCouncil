@@ -19,11 +19,11 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
         outline: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,
             marginLeft: '5%',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
         },
     }),
@@ -32,11 +32,11 @@ export const useStyles = makeStyles({
         height: '2em',
         marginBottom: '0.75em',
         outline: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,
             marginLeft: '5%',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
         },
     }),

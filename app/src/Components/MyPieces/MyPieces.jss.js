@@ -11,13 +11,13 @@ export const styles = {
         width: '100vw',
         height: availHeight() * 0.8,
         overflowX: 'hidden',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: availHeight() - appBarHeight,
         },
     }),

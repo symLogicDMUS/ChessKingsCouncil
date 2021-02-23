@@ -1,6 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../styles/themes.jss";
-import {mobileScalar} from "./Board.jss";
 import {rfToGridLoc} from "../helpers/crdCnvrt";
 
 export const square = (rf, fontSize, type, sqrSize) => {

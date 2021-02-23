@@ -10,28 +10,24 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        "@media (max-aspect-ratio: 1/1)": {
+        "@media (max-device-width: 1040px)": {
             justifyContent: 'flex-start',
             height: viewHeight() - (appBarHeight + viewHeight() * 0.075),
-            marginTop: '7.5vh',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
-            justifyContent: 'center',
-        },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             height: '90vh',
             justifyContent: 'center',
             alignContent: 'center',
         },
     }),
     app_title_mobile: props => ({
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             width: availWidth() * 0.6,
         },
-        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)": {
+        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
             width: viewHeight() * 0.3,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
             width:'95vw',
         },
         marginBottom: '1vh',

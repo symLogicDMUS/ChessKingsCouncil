@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: '100%',
             fontSize: fontSizes.desktop,
             marginTop: '0.7em',
@@ -21,20 +21,14 @@ export const useStyles = makeStyles({
             flexWrap: 'no-wrap',
             justifyContent: 'space-between',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             height: `${profileHeight*0.85}`,
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-            height: `${profileHeight*0.85}`,
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             width: '100%',
             fontSize: fontSizes.ipad,
             flexDirection: 'row',
@@ -46,20 +40,16 @@ export const useStyles = makeStyles({
         },
     }),
     range_header: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-            width: widths.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -76,17 +66,14 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     range_modal: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
         },
         display: 'flex',

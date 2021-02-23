@@ -39,7 +39,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
                 variant="h6"
                 noWrap
             >
-                <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                <MediaQuery minDeviceWidth={1040}>
                     <Typography variant='h6' className={classes.page_name}>
                         Play Game
                     </Typography>
@@ -51,7 +51,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
                         {gameStatus}<div className={classes.alignment_adjuster}>Play Game</div>
                     </Typography>
                 </MediaQuery>
-                <MediaQuery maxAspectRatio={'1/1'}>
+                <MediaQuery maxDeviceWidth={1040}>
                     <Typography
                         variant="h6"
                         noWrap={true}

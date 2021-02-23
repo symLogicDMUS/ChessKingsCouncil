@@ -24,13 +24,13 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         /*mobile*/
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: '1em',
             width: '1.5em',
             height: '1.5em',
         },
         /*desktop*/
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: '2.8em',
             height: '2.8em',
@@ -39,11 +39,11 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         /*mobile*/
-        '@media screen and (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: '0.65em',
         },
         /*desktop*/
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: '0.75em',
         },
         fontFamily: 'Roboto-Light, Roboto',

@@ -17,25 +17,25 @@ export const useStyles = makeStyles({
     save_resign_tool: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSize002,
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'center',
         },
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: fontSizeW00238,
             justifyContent: 'space-between',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSize002,
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,
             fontSize: fontSize002,
             height: '5em',
@@ -49,22 +49,17 @@ export const useStyles = makeStyles({
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-aspect-ratio: 85/100)': {
-            fontSize: fontSizeW0033,
-            width: '7em',
-            height: '7em',
-        },
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: fontSizeW0027,
             width: '10em',
             height: '10em',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizeW0033,
             width: '7em',
             height: '7em',
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
@@ -76,32 +71,25 @@ export const useStyles = makeStyles({
         '&:hover': {
             background: 'none'
         },
-        '@media (max-aspect-ratio: 85/100)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: fontSizeW0033,
             width: '4.95em',
             height: '4.95em',
             marginTop: '0.5em',
         },
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (min-device-width: 412px) and (max-device-width: 767px)': {
             fontSize: fontSizeW0027,
             width: '9.5em',
             height: '9.5em',
             marginTop: '1em',
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSize002,
-            width: '4.95em',
-            height: '4.95em',
-            marginTop: '0.5em',
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizeW0033,
             width: '4.95em',
             height: '4.95em',
             marginTop: '0.5em',
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: '4.9em',
             height: '4.9em',
@@ -115,49 +103,34 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     icon: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
-            fontSize: fontSize002,
-            width: '3em',
-            height: '3em',
-        },
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizeW0033,
-            width: '4.2075em',
-            height: '4.2075em',
-        },
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: fontSizeW0027,
             width: '6em',
             height: '6em',
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSize002,
-            width: '4.2075em',
-            height: '4.2075em',
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 412px) (max-device-width: 1040px)': {
             fontSize: fontSizeW0033,
             width: '4.2075em',
             height: '4.2075em',
         },
+        '@media screen and (min-device-width: 1040px)': {
+            fontSize: fontSize002,
+            width: '3em',
+            height: '3em',
+        },
         color: themes[props.theme].text,
     }),
     text: props => ({
-        '@media (max-aspect-ratio: 1/1)': {
-            fontSize: fontSizeW005,
-        },
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: fontSizeW0056,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSize00301
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 412px) and (max-device-width: 767px)':{
             fontSize: fontSizeW004,
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+            fontSize: fontSizeW005,
+        },
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize00224,
         },
         fontFamily: 'Roboto-Light, Roboto',

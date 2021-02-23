@@ -6,8 +6,7 @@ import {angleToText} from "../../helpers/spanToText";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {offsetToText} from "../../helpers/offsetToText";
-import {twoItemFontSizes} from "../CreatePiece.jss";
-import {heights, widths, useStyles} from "./Range.jss";
+import {scroll_table_style, useStyles} from "./Range.jss";
 
 export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
     const classes = useStyles({theme: theme, styles: styles});
@@ -28,17 +27,13 @@ export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
 
     return (
         <Box className={classes.range_tool}>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <Typography className={classes.title}>Range</Typography>
             </MediaQuery>
             <ScrollTable
                 numRows={5}
                 theme={theme}
-                style={{
-                    width: widths[screenCase],
-                    height: heights[screenCase],
-                    fontSize: twoItemFontSizes[screenCase],
-                }}
+                style={scroll_table_style()}
                 buttonStyle={{borderRadius: 0}}
                 listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
             />

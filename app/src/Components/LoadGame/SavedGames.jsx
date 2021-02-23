@@ -26,7 +26,7 @@ export function SavedGames(props) {
 
     return (
         <>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
                     currentPage="LoadGame"
@@ -66,7 +66,7 @@ export function SavedGames(props) {
                     </div>
                 </Portal>
             </MediaQuery>
-            <MediaQuery maxAspectRatio={'1/1'}>
+            <MediaQuery maxDeviceWidth={1040}>
                 <Background theme={props.theme} appBar={true} currentPage='LoadGame'/>
                 <PersistentDrawer
                     drawer={

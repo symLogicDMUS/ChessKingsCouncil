@@ -4,7 +4,8 @@ import { getOffset } from "../../helpers/getOffset";
 import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
 import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
 import { themes } from "../../styles/themes.jss";
-import {fontSizes} from "./CreatePieceBoard.jss";
+import {getBoardFontSize} from "./CreatePieceBoard.jss";
+import {fontSize0095} from "../../styles/fontSizes.jss";
 import { useStyles } from "../../Reuseables/Square.jss";
 
 export function CreatePieceSquare({
@@ -22,7 +23,7 @@ export function CreatePieceSquare({
         theme: theme,
         type: "normal",
         rf: rf,
-        fontSize: fontSizes[screenCase],
+        fontSize: (screenCase === 'desktop') ? fontSize0095 : getBoardFontSize(),
         style: {
             display: "flex",
             flexDirection: "column",
@@ -32,7 +33,6 @@ export function CreatePieceSquare({
             "&:hover": { backgroundColor: themes[theme].sqr_hover },
         },
     });
-
     if (isSpan) {
         return (
             <div className={classes.span} key={uuidv4()}>

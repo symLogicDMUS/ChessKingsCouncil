@@ -24,11 +24,11 @@ export const useStyles = makeStyles({
 
     window: props => ({
         fontSize: props.fontSize,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.333,
             height: availHeight() * 0.333,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: availWidth()*0.98,
             height: availHeight() * 0.4
         },

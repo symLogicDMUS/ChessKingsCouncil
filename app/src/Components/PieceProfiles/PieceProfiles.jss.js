@@ -44,13 +44,13 @@ export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-aspect-ratio: 834/1194)': {
+        '@media (max-device-width:767px)': {
             height: modalHeights.mobile,
             width: modalWidths.mobile,
             marginTop: '0.05em',
             ...props.style,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             height: modalHeights.ipad,
             width: modalWidths.ipad,
             marginLeft: 'auto',
@@ -59,12 +59,8 @@ export const useStyles = makeStyles({
             marginBottom: '0.25em',
             ...props.style,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            height: (viewHeight() - appBarHeight)*0.7,
-            ...props.style,
-        },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+
+        '@media screen and (min-device-width: 1040px)': {
             height: modalHeights.desktop,
             width: modalWidths.desktop,
             ...props.style,

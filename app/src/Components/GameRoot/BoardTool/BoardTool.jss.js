@@ -78,7 +78,7 @@ export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-            '@media (max-aspect-ratio: 1/1)': {
+            '@media screen and (max-device-width: 1040px)': {
                 flexDirection: 'row',
                 flex: 'nowrap',
                 width: '100%',
@@ -86,12 +86,12 @@ export const useStyles = makeStyles({
                 alignItems: 'center',
                 justifyContent: 'flex-start',
             },
-            '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+            '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
                 flexDirection: 'row',
                 fontSize: fontSizes.ipad,
                 height: '8em',
             },
-            '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+            '@media screen and (min-device-width: 1040px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
@@ -106,7 +106,7 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+            '@media screen and (min-device-width: 1040px)': {
                 fontSize: fontSizes.desktop,
                 height: '0.7em',
                 width: '8em',

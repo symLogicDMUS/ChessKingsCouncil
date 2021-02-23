@@ -258,7 +258,7 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? (this.play()) : null}
                 <div>
-                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                    <MediaQuery minDeviceWidth={1040}>
                         <PermanentDrawer
                             drawerType="right"
                             theme={this.state.theme}
@@ -340,7 +340,7 @@ class Customize extends React.Component {
                             />
                         </SideBar>
                     </MediaQuery>
-                    <MediaQuery maxAspectRatio={'1/1'}>
+                    <MediaQuery maxDeviceWidth={1040}>
                         <PersistentDrawer
                             drawer={
                                 <NavBar

@@ -7,7 +7,6 @@ import {fontSize002} from "../styles/fontSizes.jss";
 import {Background} from "../Reuseables/Background";
 import '../styles/_backgrounds.scss';
 import {useStyles} from "./LoginPage.jss";
-import Box from "@material-ui/core/Box";
 
 export function LoginPage(props) {
     let [theme, setTheme] = useState("tan");
@@ -19,7 +18,7 @@ export function LoginPage(props) {
 
     return (
         <>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
                     <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>
@@ -30,16 +29,13 @@ export function LoginPage(props) {
                     <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
-            <MediaQuery maxAspectRatio={'1/1'}>
+            <MediaQuery maxDeviceWidth={1040}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
-                    <MediaQuery maxAspectRatio={'834/1194'}>
-                        <img src={`/Images/titles/mobile/login/title-${theme}.svg`}
-                             className={classes.app_title_mobile}/>
-                    </MediaQuery>
-                    <MediaQuery minAspectRatio={'834/1194'}>
-                        <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_mobile}/>
-                    </MediaQuery>
+                    <img
+                        src={`/Images/titles/mobile/login/title-${theme}.svg`}
+                        className={classes.app_title_mobile}
+                    />
                     <StyledFirebaseAuth
                         uiConfig={props.uiConfig}
                         firebaseAuth={firebase.auth()}

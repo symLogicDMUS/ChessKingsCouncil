@@ -10,11 +10,11 @@ export const useStyles = makeStyles({
     header: props => ({
         display: "flex",
         flexDirection: "row",
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.98 - (sideBarWidth + drawerWidth),
             justifyContent: "flex-start",
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: availWidth() * 0.85,
             justifyContent: 'center',
         },
@@ -27,11 +27,11 @@ export const useStyles = makeStyles({
     }),
     status_bar: props => ({
         zIndex: 4,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             flexGrow: 100,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: appBarHeight * 0.333,
             marginRight: '2em',
         },

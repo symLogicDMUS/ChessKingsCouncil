@@ -9,10 +9,10 @@ export const useStyles = makeStyles({
     profile: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             flexWrap: 'wrap',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
             flexWrap: 'nowrap',
             justifyContent: 'center',
@@ -20,12 +20,12 @@ export const useStyles = makeStyles({
     }),
     profile_header: props => ({
         backgroundColor: themes[props.theme].odd_row,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             height: '4em',
             width: '89%',
             marginLeft: '5.1%',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: '3.5em',
             width: '95%',
             marginTop: '-0.5em',
@@ -36,13 +36,13 @@ export const useStyles = makeStyles({
         zIndex: 'inherit',
         width: '95%',
         display: 'flex',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             justifyContent: 'space-evenly',
             flexDirection: 'row',
             marginLeft: '2.5%',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             flexDirection: 'column',
             alignItems: 'center',
@@ -58,21 +58,21 @@ export const useStyles = makeStyles({
     item_header: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             height: '3.5em',
             width: '11em',
             marginTop: '-0.4em',
             marginBottom: '-0.4em',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             height: '2em',
             width: '7.5em',
             marginTop: '-0.4em',
             marginBottom: '-0.75em',
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
             height: '3.5em',
             width: '9.5em',
@@ -83,21 +83,21 @@ export const useStyles = makeStyles({
     item_content: props => ({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].odd_row,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: '11em',
             height: '18em',
             marginTop: '-4em',
             marginBottom: '-2em',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: '7.5em',
             height: '13em',
             marginTop: '-2em',
             marginBottom: '-1em',
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
             width: '9.5em',
             height: '15em',

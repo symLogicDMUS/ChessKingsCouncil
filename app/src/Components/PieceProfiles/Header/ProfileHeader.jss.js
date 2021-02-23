@@ -32,42 +32,36 @@ export const header = (style, theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: themes[theme].fill,
-    '@media (max-aspect-ratio: 1/1)': {
+    '@media screen and (max-device-width: 1040px)': {
         fontSize: fontSizes.mobile,
     },
-    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 1040px)': {
         marginTop: '1em',
         fontSize: fontSizes.desktop,
     },
-    "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+    "@media screen and (max-device-width: 412px)": {
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
-    /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-        fontSize: fontSizes.short,
-    },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
         marginTop: '0.5em',
         fontSize: fontSizes.ipad,
     },
 });
 
 export const text = (theme) => ({
-    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 1040px)': {
         fontSize: fontSizes.desktop,
     },
-    '@media (max-aspect-ratio: 1/1)': {
+    '@media screen and (max-device-width: 1040px)': {
         fontSize: fontSizes.mobile,
     },
-    "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+    "@media screen and (max-device-width: 412px)": {
         fontSize: fontSizes.ipx,
     },
-    /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-        fontSize: fontSizes.short,
-    },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
         fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',

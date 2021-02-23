@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
@@ -34,7 +33,7 @@ import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
-import {fontSizes} from "./Board/CreatePieceBoard.jss";
+import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {accordion_root, app_bar_title, styles} from "./CreatePiece.jss";
 
 
@@ -325,7 +324,7 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.modals()}
-                <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                <MediaQuery minDeviceWidth={1040}>
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}
@@ -406,7 +405,7 @@ class CreatePiece extends React.Component {
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxAspectRatio={'1/1'}>
+                <MediaQuery maxDeviceWidth={1040}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         drawer={
@@ -428,20 +427,20 @@ class CreatePiece extends React.Component {
                     >
                         <Board
                             key="Board-Mobile"
+                            screenCase='mobile'
                             theme={this.state.theme}
                             toggleOffset={this.toggleOffset}
                             spanDisplays={this.spanDisplays}
                             offsets={this.offsetDisplays}
                             pieceLoc={this.location}
                             pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
-                            screenCase={resolveScreenCase('mobile')}
                             showSpanText={this.state.showSpanText}
                             showOffsetText={this.state.showOffsetText}
                         />
                         <MuiAccordion
                             theme={this.state.theme}
-                            rootStyle={accordion_root(resolveScreenCase('mobile'))}
-                            neighborContentSize={fontSizes[resolveScreenCase('mobile')]*8}
+                            rootStyle={accordion_root()}
+                            neighborContentSize={getBoardSize()}
                         >
                             {[
                                 {

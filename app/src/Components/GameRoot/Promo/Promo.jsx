@@ -160,7 +160,7 @@ function Promo(props) {
                             }
                         />
                     </Box>
-                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                    <MediaQuery minDeviceWidth={1040}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
                             style={ok_button('desktop', props.theme)}
@@ -171,7 +171,7 @@ function Promo(props) {
                             Ok
                         </OkButton>
                     </MediaQuery>
-                    <MediaQuery maxAspectRatio={'1/1'}>
+                    <MediaQuery maxDeviceWidth={1040}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
                             style={ok_button('mobile', props.theme)}

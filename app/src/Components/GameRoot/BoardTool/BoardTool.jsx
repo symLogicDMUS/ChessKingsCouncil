@@ -40,7 +40,7 @@ export function BoardTool({
 
     return (
         <div className={classes.board_tool}>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>
                         Range Display
@@ -58,7 +58,7 @@ export function BoardTool({
                 rangeBoard={state.rangeBoard}
                 setProfileModal={setProfileModal}
             />
-            <MediaQuery maxAspectRatio={'1/1'}>
+            <MediaQuery maxDeviceWidth={1040}>
                 <Typography style={{...show_profile_gen(screenCase), opacity: 0}}>
                     Lor
                 </Typography>

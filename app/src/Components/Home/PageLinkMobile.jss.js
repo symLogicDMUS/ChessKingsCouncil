@@ -5,20 +5,16 @@ import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const page_icon = () => ({
     /*tall phones*/
-    '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+    '@media screen and (max-device-width: 412px)': {
         fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
     },
     /*short/medium height phones*/
-    "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
+    "@media screen and (min-device-width: 412px) and  (max-device-width: 767px)": {
         fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
     },
     /*tablets*/
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
         fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
-    },
-    /*shortest phones*/
-    "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-        fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
     },
     width: '0.8em',
     height: '0.8em',
@@ -28,20 +24,16 @@ export const page_icon = () => ({
 export const useStyles = makeStyles({
     page_link: props => ({
         /*tall phones*/
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
         /*short/medium height phones*/
-        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
+        "@media screen and (min-device-width: 412px) and  (max-device-width: 767px)": {
             fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
             fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
-        },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
         },
         display: 'flex',
         flexDirection: 'row',
@@ -59,20 +51,16 @@ export const useStyles = makeStyles({
     }),
     page_name: props => ({
         /*tall phones*/
-        '@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)': {
+        '@media screen and (max-device-width: 412px)': {
             height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
         /*short/medium height phones*/
-        "@media screen and (max-device-width: 767px) and  (min-aspect-ratio: 6/10) and (max-aspect-ratio: 85/100)": {
+        "@media screen and (min-device-width: 412px) and  (max-device-width: 767px)": {
             height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
             height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
-        },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.4*0.1,
         },
     }),
 });

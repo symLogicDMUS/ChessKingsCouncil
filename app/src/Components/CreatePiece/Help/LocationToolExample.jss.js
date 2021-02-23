@@ -10,10 +10,10 @@ export const useStyles = makeStyles({
     }),
     box: props => ({
         fontSize: props.fontSize,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             ...tool_flexbox,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100em',
             height: '5em',
             display: 'flex',

@@ -29,7 +29,7 @@ export function RangeToolExample({theme}) {
 
     return (
         <div className={classes.range_tool}>
-            <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+            <MediaQuery minDeviceWidth={1040}>
                 <ScrollTable
                     numRows={5}
                     theme={theme}
@@ -42,7 +42,7 @@ export function RangeToolExample({theme}) {
                     listItems={getSpanTextLabels()}
                 />
             </MediaQuery>
-            <MediaQuery maxAspectRatio={'1/1'}>
+            <MediaQuery maxDeviceWidth={1040}>
                 <ScrollTable
                     numRows={5}
                     theme={theme}

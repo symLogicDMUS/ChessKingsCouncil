@@ -78,7 +78,7 @@ function NewGame() {
     return (
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                <MediaQuery minDeviceWidth={1040}>
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
@@ -118,7 +118,7 @@ function NewGame() {
                         />
                     </Box>
                 </MediaQuery>
-                <MediaQuery maxAspectRatio={'1/1'}>
+                <MediaQuery maxDeviceWidth={1040}>
                     <Background theme={theme} appBar={true}/>
                     <PersistentDrawer
                         theme={theme}
@@ -133,15 +133,7 @@ function NewGame() {
                             />
                         }
                         appBarContent={
-                            <Box width='100%'
-                                 style={{
-                                     width: '100%',
-                                     display: 'flex',
-                                     flexDirection: 'row',
-                                     flexWrap: 'nowrap',
-                                     alignItems: 'center',
-                                     justifyContent: 'space-between',
-                                 }}
+                            <Box className={classes.app_bar_content}
                             >
                                 <Typography variant='h6' noWrap>
                                     New Game
@@ -165,7 +157,6 @@ function NewGame() {
                                 key='GameName-Mobile'
                                 setGameName={setGameName}
                                 screenCase='mobile'
-                                onFocus={() => setFocus('game-name')}
                             />
                             <PickType
                                 theme={theme}
@@ -177,43 +168,12 @@ function NewGame() {
                             <PlayAs
                                 theme={theme}
                                 setPlayerType={setPlayerType}
-                                onFocus={() => setFocus('play-as')}
                                 key="PlayAs-Mobile"
                                 screenCase='mobile'
                             />
                         </Box>
                     </PersistentDrawer>
                 </MediaQuery>
-                {/*<MediaQuery minAspectRatio={'1/1'} maxDeviceWidth={767}>*/}
-                {/*        <PersistentDrawer*/}
-                {/*            theme={theme}*/}
-                {/*            drawer={*/}
-                {/*                <NavBar*/}
-                {/*                    currentPage="NewGame"*/}
-                {/*                    screenCase={resolveScreenCase('mobile')}*/}
-                {/*                    helpText={HelpText(fontSizeW0045, theme)}*/}
-                {/*                    helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}*/}
-                {/*                    redirectMessage={null}*/}
-                {/*                    theme={theme}*/}
-                {/*                />*/}
-                {/*            }*/}
-                {/*            appBarContent={<Typography variant='h6' noWrap>New Game</Typography>}*/}
-                {/*        >*/}
-                {/*            <Box className={classes.new_game}>*/}
-                {/*                {focus === 'game-name' ? (*/}
-                {/*                    <GameName*/}
-                {/*                        key='GameName-Focused'*/}
-                {/*                        theme={theme}*/}
-                {/*                        screenCase='mobile'*/}
-                {/*                        setGameName={setGameName}*/}
-                {/*                    />*/}
-                {/*                ) : null}*/}
-                {/*                {focus === 'play-as' ? (*/}
-                {/*                    <PlayAs setPlayerType={setPlayerType} theme={theme} onFocus={() => setFocus('play-as')} screenCase='mobile' key="PlayAs-Focus" />*/}
-                {/*                ) : null}*/}
-                {/*            </Box>*/}
-                {/*        </PersistentDrawer>*/}
-                {/*</MediaQuery>*/}
             </div>
         </>
     );

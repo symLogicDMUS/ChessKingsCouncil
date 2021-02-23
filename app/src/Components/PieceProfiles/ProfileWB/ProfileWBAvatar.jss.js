@@ -6,29 +6,24 @@ import {fontSizes, heights, widths as avatarSize} from "../PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
             marginTop: '-0.5em'
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-            height: `${heights.short}em`,
-            width: avatarSize.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
@@ -39,20 +34,17 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_header: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: headerFontSizes.ipx,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: headerFontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
         },
         width: '100%',
@@ -67,20 +59,17 @@ export const useStyles = makeStyles({
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     avatar_title: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: titleFontSizes.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: titleFontSizes.ipx,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
         },
         fontFamily: 'Roboto-Light, Roboto',
@@ -88,28 +77,23 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     avatar_window: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        "@media screen and (max-device-width: 767px) and (max-aspect-ratio: 6/10)": {
+        "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        /*shortest phones*/
-        "@media screen and (max-device-width: 767px) and (min-aspect-ratio: 85/100) and (max-aspect-ratio: 1/1)":{
-            fontSize: fontSizes.short,
-            width: avatarSize.short,
-            height: avatarSize.short,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)':{
+
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
             width: avatarSize.ipad,
             height: avatarSize.ipad,

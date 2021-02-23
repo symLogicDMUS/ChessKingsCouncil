@@ -20,7 +20,6 @@ export const useStyles = makeStyles((theme) => ({
             minHeight: 'unset',
         },
         ...props.addedStyle,
-
     }),
     accordion_tab: props => ({
         width: '100%',
@@ -45,7 +44,8 @@ export const useStyles = makeStyles((theme) => ({
     }),
     expand_icon: props => ({
         color: themes[props.theme].text,
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1080px) and (max-aspect-ratio: 1/1)': {
+        /*tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
             fontSize: fontSize0040,
             width: '1em',
             height: '1em',

@@ -42,7 +42,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                 </Portal>
             ) : null}
             <Box className={classes.icon_tool}>
-                    <MediaQuery minAspectRatio={'1/1'} minDeviceWidth={992}>
+                    <MediaQuery minDeviceWidth={1040}>
                         <Typography className={classes.title}>Icon</Typography>
                     </MediaQuery>
                     <ImgWindow

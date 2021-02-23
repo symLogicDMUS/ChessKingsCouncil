@@ -22,22 +22,22 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             justifyContent: 'center',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             justifyContent: 'space-between',
         },
     }),
     img_window1: props => ({
         ...img_window(props.theme),
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",
             marginRight: '1vw',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizeW041,
             width: '1em',
             height: '1em',
@@ -47,14 +47,14 @@ export const useStyles = makeStyles({
     }),
     img_window2: props => ({
         ...img_window(props.theme),
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizeW041,
             width: '1em',
             height: '1em',
             borderRadius: '0.035em',
             border: "0.0075em solid #2b2b2b",
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: "9em",
             height: "9em",

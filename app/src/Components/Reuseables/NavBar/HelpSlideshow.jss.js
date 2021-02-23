@@ -19,11 +19,11 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.66667,
             height: availHeight() * 0.66667,
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
             height: windowHeightMobile(),
             marginTop: appBarHeight,
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
         alignSelf: 'flex-start',
         /*media query for phones (generalized)*/
-        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: windowHeightMobile()*0.15,
         },
     }),
@@ -51,7 +51,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: windowHeightMobile()*0.05,
         },
     }),
@@ -62,7 +62,7 @@ export const useStyles = makeStyles({
         marginBottom: '1vh',
         alignSelf: 'flex-end',
         /*media query for phones (generalized)*/
-        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: windowHeightMobile()*0.1,
         },
     }),
@@ -71,14 +71,14 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '95vw',
             height: windowHeightMobile()*0.75,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginBottom: 0,
         },
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.66667*0.95,
             height: availHeight() * 0.66667*0.95*0.79,
             marginLeft: '2.5%',
@@ -95,7 +95,7 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         fontSize: fontSize002,
         /*media query for phones (generalized)*/
-        '@media screen and (max-aspect-ratio: 1/1) and (max-device-width: 992px)': {
+        '@media screen and (max-device-width: 1040px)': {
             height: windowHeightMobile()*0.1,
         },
     }),

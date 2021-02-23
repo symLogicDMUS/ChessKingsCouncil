@@ -4,10 +4,10 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 
 export const button = (theme) => ({
-    '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+    '@media screen and (min-device-width: 1040px)': {
         fontSize: fontSize002
     },
-    '@media (max-aspect-ratio: 1/1)': {
+    '@media screen and (max-device-width: 1040px)': {
         fontSize: fontSize0023
     },
     color: themes[theme].text,
@@ -18,11 +18,11 @@ export const useStyles = makeStyles({
         ...modal
     },
     dialog_window: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             width: '27%',
             height: '27%',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             width: '100%',
             height: '40%',
         },
@@ -33,12 +33,12 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     dialog_actions: props => ({
-        '@media screen and (min-device-width: 992px) and (min-aspect-ratio: 1/1)': {
+        '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
             width: '22em',
             marginLeft: '1.5em',
         },
-        '@media (max-aspect-ratio: 1/1)': {
+        '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSize0023,
             marginRight: '3.5%',
             width: '97.5%',
