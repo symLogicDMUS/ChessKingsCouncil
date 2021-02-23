@@ -30,4 +30,4 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
         marginRight: '2em'
     }),
-});
+}, {index: 1});

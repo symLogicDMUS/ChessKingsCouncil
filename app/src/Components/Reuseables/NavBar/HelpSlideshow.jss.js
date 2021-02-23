@@ -117,4 +117,4 @@ export const useStyles = makeStyles({
         marginTop: '-0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
-});
+}, {index: 1});

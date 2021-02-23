@@ -74,4 +74,4 @@ export const useStyles = makeStyles({
         height: '2em',
         color: themes[props.theme].text,
     }),
-});
+}, {index: 1});

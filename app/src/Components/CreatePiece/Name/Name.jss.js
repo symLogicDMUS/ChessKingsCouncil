@@ -19,4 +19,4 @@ export const useStyles = makeStyles({
             ...tool_flexbox,
         },
     }),
-});
+}, {index: 1});

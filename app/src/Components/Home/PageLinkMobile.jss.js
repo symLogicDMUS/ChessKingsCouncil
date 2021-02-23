@@ -63,4 +63,4 @@ export const useStyles = makeStyles({
             height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
         },
     }),
-});
+}, {index: 1});

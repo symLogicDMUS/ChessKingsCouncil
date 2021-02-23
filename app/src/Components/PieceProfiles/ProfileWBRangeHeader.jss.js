@@ -74,4 +74,4 @@ export const useStyles = makeStyles({
         width: '1em',
         height: '1em',
     }),
-});
+}, {index: 1});

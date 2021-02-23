@@ -111,4 +111,4 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-between',
     })
-});
+}, {index: 1});

@@ -5,4 +5,4 @@ export const useStyles = makeStyles({
     piece: props => ({
        ...imgFillDiv,
     }),
-});
+}, {index: 1});

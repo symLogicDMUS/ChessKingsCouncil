@@ -21,4 +21,4 @@ export const useStyles = makeStyles({
         borderLeft: `0.05em solid ${themes[props.theme].outline}`,
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
-});
+}, {index: 1});

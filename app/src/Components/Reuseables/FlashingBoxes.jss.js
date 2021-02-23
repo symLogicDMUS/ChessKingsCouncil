@@ -64,4 +64,4 @@ export const useStyles = makeStyles({
             backgroundColor: themes[props.theme].even_row
         },
     }),
-});
+}, {index: 1});

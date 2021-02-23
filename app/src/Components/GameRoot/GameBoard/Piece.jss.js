@@ -9,4 +9,4 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         verticalAlign: 'center'
     }),
-});
+}, {index: 1});

@@ -11,4 +11,4 @@ export const useStyles = makeStyles({
         },
         ...props.style,
     }),
-});
+}, {index: 1});

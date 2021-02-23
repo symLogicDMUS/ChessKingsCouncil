@@ -7,4 +7,4 @@ export const useStyles = makeStyles({
         width: '25%',
         cursor: 'pointer',
     }),
-});
+}, {index: 1});

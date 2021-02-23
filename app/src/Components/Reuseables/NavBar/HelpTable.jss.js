@@ -6,4 +6,4 @@ export const useStyles = makeStyles({
         ...modal,
         zIndex: 10,
     }),
-})
+}, {index: 1})

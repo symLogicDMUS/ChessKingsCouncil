@@ -79,4 +79,4 @@ export const useStyles = makeStyles({
         marginTop: '0.75em',
         marginBottom: '0.75em',
     }),
-});
+}, {index: 1});

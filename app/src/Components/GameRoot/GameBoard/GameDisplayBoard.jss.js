@@ -5,4 +5,4 @@ export const useStyles = makeStyles({
     board: props => ({
         ...game_board(props.boardSize,0),
     }),
-});
+}, {index: 1});

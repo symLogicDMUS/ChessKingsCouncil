@@ -44,4 +44,4 @@ export const useStyles = makeStyles({
             width: '97.5%',
         },
     }),
-});
+}, {index: 1});

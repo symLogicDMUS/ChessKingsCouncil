@@ -9,4 +9,4 @@ export const useStyles = makeStyles({
     icon: props => ({
         color: themes[props.theme].text
     }),
-});
+}, {index: 1});

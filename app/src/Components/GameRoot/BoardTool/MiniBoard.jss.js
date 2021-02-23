@@ -22,4 +22,4 @@ export const useStyles = makeStyles({
         },
         outline: `0.04em solid ${themes[props.theme].outline}`
     }),
-})
+}, {index: 1})

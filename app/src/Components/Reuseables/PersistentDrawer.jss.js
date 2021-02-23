@@ -91,4 +91,4 @@ export const useStyles = makeStyles((theme) => ({
     openCloseIcons: props => ({
         color: themes[props.theme].text,
     }),
-}));
+}), {index: 1});

@@ -20,4 +20,4 @@ export const useStyles = makeStyles({
         overflow: "hidden",
         textOverflow: "ellipsis",
     },
-});
+}, {index: 1});

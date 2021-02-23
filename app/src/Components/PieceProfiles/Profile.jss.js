@@ -34,4 +34,4 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
         },
     }),
-});
+}, {index: 1});

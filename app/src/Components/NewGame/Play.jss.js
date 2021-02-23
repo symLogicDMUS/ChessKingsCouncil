@@ -45,4 +45,4 @@ export const useStyles = makeStyles({
         fontSize: 'inherit',
         height: '1.5em',
     }),
-});
+}, {index: 1});

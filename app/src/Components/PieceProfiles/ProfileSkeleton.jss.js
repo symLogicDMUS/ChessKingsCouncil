@@ -105,4 +105,4 @@ export const useStyles = makeStyles({
             marginBottom: '-1em',
         },
     }),
-});
+}, {index: 1});

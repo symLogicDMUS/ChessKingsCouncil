@@ -43,4 +43,4 @@ export const useStyles = makeStyles({
         display: 'inline-block',
         opacity: 0
     }),
-})
+}, {index: 1})

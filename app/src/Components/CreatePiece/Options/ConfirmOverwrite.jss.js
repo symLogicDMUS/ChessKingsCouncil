@@ -79,4 +79,4 @@ export const useStyles = makeStyles({
         paddingTop: "8px",
         textAlign: "center",
     },
-});
+}, {index: 1});

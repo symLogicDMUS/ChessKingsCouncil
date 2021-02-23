@@ -16,4 +16,4 @@ export const useStyles = makeStyles({
     title: props => ({
         ...tool_title(props.theme),
     }),
-});
+}, {index: 1});

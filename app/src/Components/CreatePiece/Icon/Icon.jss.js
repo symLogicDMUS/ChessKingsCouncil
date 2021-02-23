@@ -43,4 +43,4 @@ export const useStyles = makeStyles({
         width: '7.5em',
         height: '2.5em',
     }),
-});
+}, {index: 1});

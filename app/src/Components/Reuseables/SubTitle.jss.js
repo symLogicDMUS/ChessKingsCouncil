@@ -9,4 +9,4 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         width: '100%',
     }),
-});
+}, {index: 1});

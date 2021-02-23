@@ -58,4 +58,4 @@ export const useStyles = makeStyles({
         width: '60%',
         textAlign: 'right',
     }),
-});
+}, {index: 1});

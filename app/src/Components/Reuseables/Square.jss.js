@@ -86,4 +86,4 @@ export const useStyles = makeStyles({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
     }),
-});
+}, {index: 1});

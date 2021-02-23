@@ -18,4 +18,4 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
     }),
-});
+}, {index: 1});

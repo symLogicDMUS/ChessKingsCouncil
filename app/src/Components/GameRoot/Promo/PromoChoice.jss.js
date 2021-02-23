@@ -27,4 +27,4 @@ export const useStyles = makeStyles({
         ...promoChoice(props.fontSize, props.theme),
         backgroundColor: themes[props.theme].text,
     }),
-});
+}, {index: 1});

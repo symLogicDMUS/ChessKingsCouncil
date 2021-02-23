@@ -78,4 +78,4 @@ export const useStyles = makeStyles({
     item_active: props => ({
         outline: 'none',
     }),
-});
+}, {index: 1});

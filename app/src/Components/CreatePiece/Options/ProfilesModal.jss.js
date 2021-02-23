@@ -27,4 +27,4 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         marginLeft: '1em'
     }),
-});
+}, {index: 1});

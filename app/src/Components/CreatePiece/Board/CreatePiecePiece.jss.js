@@ -14,4 +14,4 @@ export const useStyles = makeStyles({
     img: props => ({
         ...imgFillDiv,
     }),
-})
+}, {index: 1})

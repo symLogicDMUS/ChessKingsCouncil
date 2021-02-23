@@ -16,4 +16,4 @@ export const useStyles = makeStyles({
         },
         border: `0.04em solid ${themes[props.theme].outline}`,
     }),
-});
+}, {index: 1});

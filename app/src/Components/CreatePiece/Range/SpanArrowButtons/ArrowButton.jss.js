@@ -81,4 +81,4 @@ export const useStyles = makeStyles({
         },
         color: themes[props.theme].text,
     }),
-});
+}, {index: 1});

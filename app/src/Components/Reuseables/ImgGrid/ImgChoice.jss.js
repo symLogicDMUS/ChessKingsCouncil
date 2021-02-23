@@ -72,4 +72,4 @@ export const useStyles = makeStyles({
     tooltip: props => ({
         fontSize: fontSize001725
     }),
-});
+}, {index: 1});

@@ -52,4 +52,4 @@ export const useStyles = makeStyles({
         },
         cursor: 'not-allowed',
     },
-})
+}, {index: 1})

@@ -106,4 +106,4 @@ export const useStyles = makeStyles({
     piece_img: props => ({
        ...imgFillDiv,
     }),
-});
+}, {index: 1});

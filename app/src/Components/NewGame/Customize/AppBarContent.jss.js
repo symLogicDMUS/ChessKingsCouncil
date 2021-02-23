@@ -20,4 +20,4 @@ export const useStyles = makeStyles({
             fontSize: fontSize002,
         },
     }),
-});
+}, {index: 1});

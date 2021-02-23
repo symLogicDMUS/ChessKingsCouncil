@@ -12,4 +12,4 @@ export const useStyles = makeStyles({
             ...board(fontSizes.mobile)
         },
     }),
-});
+}, {index: 1});

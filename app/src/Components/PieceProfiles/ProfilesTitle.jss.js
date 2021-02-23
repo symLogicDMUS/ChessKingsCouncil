@@ -30,4 +30,4 @@ export const useStyles = makeStyles({
     title: props => ({
        fontSize: fontSize002
     }),
-});
+}, {index: 1});

@@ -10,4 +10,4 @@ export const useStyles = makeStyles({
         width: '100%',
         height: '100%',
     }),
-});
+}, {index: 1});

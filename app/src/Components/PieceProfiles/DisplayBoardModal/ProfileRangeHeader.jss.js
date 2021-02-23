@@ -20,4 +20,4 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
-});
+}, {index: 1});

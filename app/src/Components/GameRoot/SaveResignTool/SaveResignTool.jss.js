@@ -140,4 +140,4 @@ export const useStyles = makeStyles({
     divider: props => ({
        width: '6.5%',
     }),
-})
+}, {index: 1})

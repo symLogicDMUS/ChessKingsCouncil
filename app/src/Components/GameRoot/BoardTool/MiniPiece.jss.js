@@ -7,4 +7,4 @@ export const useStyles = makeStyles({
         zIndex: 'inherit',
         ...imgFillDiv,
     },
-});
+}, {index: 1});

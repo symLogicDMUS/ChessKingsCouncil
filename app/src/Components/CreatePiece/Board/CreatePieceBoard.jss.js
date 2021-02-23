@@ -27,4 +27,4 @@ export const useStyles = makeStyles({
             margin: 'auto',
         },
     }),
-});
+}, {index: 1});

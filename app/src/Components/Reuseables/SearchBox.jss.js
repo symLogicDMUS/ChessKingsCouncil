@@ -43,4 +43,4 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         verticalAlign: 'center',
     }),
-});
+}, {index: 1});

@@ -23,4 +23,4 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipad,
         },
     }),
-});
+}, {index: 1});

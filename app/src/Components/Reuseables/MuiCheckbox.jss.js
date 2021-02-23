@@ -36,4 +36,4 @@ export const useStyles = makeStyles({
         ...props.checkboxStyle,
         color: themes[props.theme].text,
     }),
-});
+}, {index: 1});

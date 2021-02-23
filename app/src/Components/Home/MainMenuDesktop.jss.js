@@ -37,4 +37,4 @@ export const useStyles = makeStyles({
     icon: props => ({
         fontSize: fontSize002,
     }),
-});
+}, {index: 1});

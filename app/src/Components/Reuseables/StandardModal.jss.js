@@ -73,4 +73,4 @@ export const useStyles = makeStyles({
         alignContent: 'center',
         justifyContent: 'center',
     }),
-});
+}, {index: 1});

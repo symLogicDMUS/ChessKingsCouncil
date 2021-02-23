@@ -204,4 +204,4 @@ export const useStyles = makeStyles({
         ...icon(props.screenCase),
         color: themes[props.theme].button_hover_text,
     }),
-});
+}, {index: 1});

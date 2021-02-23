@@ -45,4 +45,4 @@ export const useStyles = makeStyles({
         height: '2em',
         marginLeft: '0.2em',
     }),
-});
+}, {index: 1});

@@ -24,4 +24,4 @@ export const useStyles = makeStyles({
             border: `0.2em solid ${themes[props.theme].sqr_border}`
         },
     }),
-});
+}, {index: 1});

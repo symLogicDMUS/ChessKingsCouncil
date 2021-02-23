@@ -8,7 +8,7 @@ export const drawerItemWidth = drawerWidth * 0.95;
 export const sideBarWidth = drawerWidth * 0.55;
 const z = 5;
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles({
     root: {
         zIndex: z,
         display: 'flex',
@@ -47,4 +47,4 @@ export const useStyles = makeStyles((theme) => ({
         fontFamily: 'Roboto-Light, Roboto',
         width: `calc(100% - ${drawerWidth}px)`,
     }),
-}));
+}, {index: 1});

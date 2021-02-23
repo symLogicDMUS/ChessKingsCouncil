@@ -13,4 +13,4 @@ export const useStyles = makeStyles({
             width: widths.mobile,
         },
     }),
-});
+}, {index: 1});

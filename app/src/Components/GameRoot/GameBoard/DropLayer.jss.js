@@ -5,4 +5,4 @@ export const useStyles = makeStyles({
     board: props => ({
        ...dnd_layer(props.boardSize, 4),
     }),
-});
+}, {index: 1});

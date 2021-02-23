@@ -100,4 +100,4 @@ export const useStyles = makeStyles({
             width: getTextWidth('Load Game', props.fontSize * 5.6, 'Garamond'),
         },
     }),
-});
+}, {index: 1});

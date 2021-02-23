@@ -28,4 +28,4 @@ export const useStyles = makeStyles({
         height: '2em',
         backgroundColor: themes[props.theme].even_row
     }),
-});
+}, {index: 1});

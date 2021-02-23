@@ -13,4 +13,4 @@ export const useStyles = makeStyles({
         top: window.screen.availHeight* 0.5 - props.fontSize * 0.48,
         lineWidth: 0,
     }),
-});
+}, {index: 1});

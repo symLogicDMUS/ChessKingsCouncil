@@ -18,4 +18,4 @@ export const useStyles = makeStyles({
     page_links: props => ({
         flexGrow: 3,
     }),
-});
+}, {index: 1});

@@ -126,4 +126,4 @@ export const useStyles = makeStyles({
         },
     }),
 
-});
+}, {index: 1});

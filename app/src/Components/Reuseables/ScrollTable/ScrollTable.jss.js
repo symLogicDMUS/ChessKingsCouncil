@@ -100,4 +100,4 @@ export const useStyles = makeStyles({
         fontSize: props.style.fontSize,
         fontFamily: "Roboto-Light, Roboto",
     }),
-});
+}, {index: 1});

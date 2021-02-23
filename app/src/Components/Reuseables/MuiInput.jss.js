@@ -55,4 +55,4 @@ export const useStyles = makeStyles({
         ...text(props.theme, props.style),
         ...props.styleOverride,
     }),
-});
+}, {index: 1});

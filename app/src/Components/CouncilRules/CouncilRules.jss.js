@@ -121,4 +121,4 @@ export const useStyles = makeStyles({
     rule_list: props => ({
         marginTop: '-0.1em'
     }),
-});
+}, {index: 1});

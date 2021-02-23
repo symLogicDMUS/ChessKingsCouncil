@@ -50,4 +50,4 @@ export const useStyles = makeStyles({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     }),
-});
+}, {index: 1});

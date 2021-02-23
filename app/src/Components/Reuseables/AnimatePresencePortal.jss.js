@@ -7,4 +7,4 @@ export const useStyles = makeStyles({
         zIndex: 20,
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
     }
-});
+}, {index: 1});

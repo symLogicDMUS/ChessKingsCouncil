@@ -9,4 +9,4 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-evenly',
     }),
-});
+}, {index: 1});

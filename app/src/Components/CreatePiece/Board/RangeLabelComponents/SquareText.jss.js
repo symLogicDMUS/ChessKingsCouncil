@@ -6,4 +6,4 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
         color: '#ffffff',
     }),
-});
+}, {index: 1});

@@ -52,4 +52,4 @@ export const useStyles = makeStyles({
             width: getBoardFontSize() * 8 * 0.1,
         },
     }),
-});
+}, {index: 1});

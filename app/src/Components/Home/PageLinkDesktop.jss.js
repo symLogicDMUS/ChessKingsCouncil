@@ -28,4 +28,4 @@ export const useStyles = makeStyles({
        ...icon(),
        color: themes[props.theme].page_link_hover,
     }),
-});
+}, {index: 1});

@@ -49,4 +49,4 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,
     }),
-});
+}, {index: 1});

@@ -65,4 +65,4 @@ export const useStyles = makeStyles({
         columnGap: '0.28em',
         rowGap: '0.28em',
     }),
-});
+}, {index: 1});

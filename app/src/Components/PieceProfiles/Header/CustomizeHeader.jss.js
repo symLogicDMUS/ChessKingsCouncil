@@ -147,4 +147,4 @@ export const useStyles = makeStyles({
         width: "0.9em",
         height: "0.9em",
     }),
-});
+}, {index: 1});
