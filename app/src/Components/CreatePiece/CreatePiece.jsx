@@ -39,10 +39,10 @@ import {accordion_root, app_bar_title, styles} from "./CreatePiece.jss";
 class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
+        this.name = ""
         this.location = "d4";
         this.textInput = React.createRef();
         this.state = {
-            name: "",
             theme: "dark",
             binaryValue: 0,
             justSaved: false,
@@ -188,7 +188,8 @@ class CreatePiece extends React.Component {
 
     /**used by Name tool*/
     updateName(name) {
-        this.setState({name: name, unsavedChanges: true})
+        this.name = name;
+        this.setState({unsavedChanges: true})
     }
 
     /**used by Icon tool*/
@@ -383,7 +384,7 @@ class CreatePiece extends React.Component {
                             save={this.save}
                             reset={this.reset}
                             erase={this.erase}
-                            pieceName={this.state.name}
+                            pieceName={this.name}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
                             theme={this.state.theme}
@@ -512,7 +513,7 @@ class CreatePiece extends React.Component {
                                             blackImg={
                                                 this.whiteAndBlackImgs.black
                                             }
-                                            pieceName={this.state.name}
+                                            pieceName={this.name}
                                             theme={this.state.theme}
                                         />
                                     ),

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Avatar } from "@material-ui/core";
 import { useStyles } from "./Piece.jss";
 
 /**
@@ -8,9 +9,6 @@ import { useStyles } from "./Piece.jss";
 export const Piece = ({ src, sqrSize }) => {
     const classes = useStyles({sqrSize});
     return (
-        <img
-            src={src}
-            className={classes.piece}
-        />
+        <Avatar className={classes.piece} variant='square' src={src} />
     );
 };

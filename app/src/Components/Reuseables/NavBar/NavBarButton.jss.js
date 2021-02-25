@@ -1,55 +1,18 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
-    fontSize0019,
     fontSize002,
     fontSize0023,
-    fontSize00236,
     fontSize0024,
-    fontSize0035,
-    fontSize0040,
 } from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 import {navBarWidth} from "./NavBar.jss";
 
+export const getHoverColor = (theme) => ({
+    backgroundColor: themes[theme].button_hover_fill
+});
+
 export const navBarButtonWidth = navBarWidth * 0.99;
 const margin = '0.4em'
-
-const getStyle = (screenCase, currentPage) => {
-    switch (screenCase) {
-        case 'desktop':
-            return desktopStyleByPage(currentPage)
-        case 'mobile':
-            return {
-                fontSize: fontSize0024,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.5em"
-            }
-        case 'ipx':
-            return {
-                fontSize: fontSize00236,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.5em"
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSize00236,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.5em"
-            }
-        case 'short':
-            return {
-                fontSize: fontSize0040,
-                justifyContent: "flex-start",
-                width: "99%",
-                height: "2.25em"
-            }
-        default:
-            throw new Error('no screen type given')
-    }
-};
 
 export const text = (screenCase) => {
     switch (screenCase) {
@@ -59,31 +22,12 @@ export const text = (screenCase) => {
                 marginRight: margin,
                 marginTop: '0.15em',
             }
-        case 'mobile':
-            return {
-                fontSize: fontSize002,
-                marginRight: margin,
-                marginTop: '0.15em',
-            }
-        case 'ipx':
-            return {
-                fontSize: fontSize0019,
-                marginRight: margin,
-                marginTop: '0.15em',
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSize002,
-                marginRight: margin,
-                marginTop: '0.15em',
-            }
-        case 'short':
-            return {
-                fontSize: fontSize0035,
-                marginRight: margin,
-            }
         default:
-            throw new Error('no screen case given')
+            return {
+                fontSize: fontSize002,
+                marginRight: margin,
+                marginTop: '0.1525em',
+            }
     }
 };
 
@@ -94,29 +38,11 @@ export const icon = (screenCase) => {
                 fontSize: fontSize0024,
                 marginRight: margin,
             }
-        case 'mobile':
-            return {
-                fontSize: fontSize0024,
-                marginRight: margin,
-            }
-        case 'ipx':
-            return {
-                fontSize: fontSize0023,
-                marginRight: margin,
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSize0023,
-                marginRight: margin,
-            }
-        case 'short':
-            return {
-                fontSize: fontSize0035,
-                marginRight: margin,
-                transform: 'translate(0, -0.15em)',
-            }
         default:
-            throw new Error('no screen case given')
+            return {
+                fontSize: fontSize0023,
+                marginRight: margin,
+            }
     }
 };
 
@@ -169,9 +95,19 @@ const desktopStyleByPage = (currentPage) => {
     }
 };
 
-export const getHoverColor = (theme) => ({
-    backgroundColor: themes[theme].button_hover_fill
-});
+const getStyle = (screenCase, currentPage) => {
+    switch (screenCase) {
+        case 'desktop':
+            return desktopStyleByPage(currentPage)
+        default:
+            return {
+                fontSize: fontSize0024,
+                justifyContent: "flex-start",
+                width: "99%",
+                height: "2.5em"
+            }
+    }
+};
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({
@@ -190,7 +126,13 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         ...text(props.screenCase),
-        color: themes[props.theme].text_alt2,
+        /*phones/tablets (generalized)*/
+        '@media screen and (max-device-width: 1040px)':{
+            color: themes[props.theme].nav_text,
+        },
+        '@media screen and (min-device-width: 1040px)':{
+            color: themes[props.theme].text_alt2,
+        },
     }),
     text_hover: props => ({
         ...text(props.screenCase),
@@ -198,7 +140,13 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         ...icon(props.screenCase),
-        color: themes[props.theme].text_alt2,
+        /*phones/tablets (generalized)*/
+        '@media screen and (max-device-width: 1040px)':{
+            color: themes[props.theme].nav_text,
+        },
+        '@media screen and (min-device-width: 1040px)':{
+            color: themes[props.theme].text_alt2,
+        },
     }),
     icon_hover: props => ({
         ...icon(props.screenCase),

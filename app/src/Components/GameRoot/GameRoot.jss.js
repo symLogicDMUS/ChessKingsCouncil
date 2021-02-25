@@ -5,7 +5,7 @@ import {themes} from "../styles/themes.jss";
 export const accordion_root = () => {
     return {
         position: "absolute",
-        top: appBarHeight + boardSizes.mobile,
+        top: boardPos.mobile.top + boardSizes.mobile,
         left: boardPos.mobile.left,
         width: boardSizes.mobile,
         zIndex: 5,

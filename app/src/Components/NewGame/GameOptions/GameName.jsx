@@ -16,7 +16,7 @@ export function GameName({setGameName, theme, screenCase}) {
                     label="Pick game name"
                     variant="outlined"
                     fullWidth={true}
-                    size={screenCase === 'desktop' ? 'medium' : 'small'}
+                    size={(screenCase === 'desktop') ? 'medium' : 'small'}
                 />
             </Box>
     );

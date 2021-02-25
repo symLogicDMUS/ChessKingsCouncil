@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
         },
         '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,

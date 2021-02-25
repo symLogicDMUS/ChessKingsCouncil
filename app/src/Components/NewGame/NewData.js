@@ -4,7 +4,7 @@ const [OVER, IN_PROGRESS] = [0, 1];
  * data that is same for every new (standard) game
  * */
 export const newData = {
-    turn: "W",
+    color: "W",
     fen_data: {
         turn: "w",
         castle_avail: "KQkq",

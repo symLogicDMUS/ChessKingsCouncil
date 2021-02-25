@@ -19,7 +19,7 @@ export function ProfilesModal({load, close, theme}) {
             >
                 <Box className={classes.top_bar} >
                     <Typography variant='h6' noWrap className={classes.title}>
-                        Created Pieces
+                        Saved Pieces
                     </Typography>
                     <Close onClick={close} theme={theme} style={close_icon(fontSize002)} />
                 </Box>

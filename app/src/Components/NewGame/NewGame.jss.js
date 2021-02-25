@@ -21,8 +21,7 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
         /*media query for phones and tablets (generalized)*/
         '@media screen and (max-device-width: 1040px)': {
-            height: (viewHeight() - appBarHeight)*0.825,
-            marginTop: '7.5vh',
+            height: viewHeight() - appBarHeight,
         },
         '@media screen and (min-device-width: 1040px)': {
             height: '90vh',
@@ -63,12 +62,4 @@ export const useStyles = makeStyles({
     player_type: props => ({
         fontSize: fontSize0018,
     }),
-    app_bar_content: props => ({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    })
 }, {index: 1});

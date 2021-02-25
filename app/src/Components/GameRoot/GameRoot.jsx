@@ -62,7 +62,7 @@ class GameRoot extends React.Component {
         }
         this.img = gameData.img;
         this.board = gameData.board;
-        this.turn = gameData.turn;
+        this.turn = gameData.color;
         this.fenObj = new Fen(gameData.fen_data);
         this.gameStatus = new GameStatus(gameData.status);
         this.specialMoves = new SpecialMoves(gameData.special_moves);

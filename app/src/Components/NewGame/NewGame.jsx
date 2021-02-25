@@ -121,22 +121,9 @@ function NewGame() {
                             />
                         }
                         appBarContent={
-                            <Box className={classes.app_bar_content}
-                            >
                                 <Typography variant='h6' noWrap>
                                     New Game
                                 </Typography>
-                                <Play
-                                    theme={theme}
-                                    onClick={finish}
-                                    classes={classes}
-                                    playerType={playerType}
-                                    gameType={gameType} gameName={gameName}
-                                    predicate={(c) => charNotInStr(c, gameName)}
-                                    key='Play-Button-Mobile'
-                                />
-                            </Box>
-
                         }
                     >
                         <Box className={classes.new_game}>
@@ -158,6 +145,15 @@ function NewGame() {
                                 setPlayerType={setPlayerType}
                                 key="PlayAs-Mobile"
                                 screenCase='mobile'
+                            />
+                            <Play
+                                theme={theme}
+                                onClick={finish}
+                                classes={classes}
+                                playerType={playerType}
+                                gameType={gameType} gameName={gameName}
+                                predicate={(c) => charNotInStr(c, gameName)}
+                                key='Play-Button-Mobile'
                             />
                         </Box>
                     </PersistentDrawer>

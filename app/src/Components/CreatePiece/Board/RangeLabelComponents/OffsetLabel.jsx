@@ -1,11 +1,10 @@
 import React from "react";
-import {sqrFontSize} from "../../CreatePiece.jss";
-import Typography from "@material-ui/core/Typography";
+import {Typography} from "@material-ui/core";
 import {useStyles} from "./SquareText.jss";
 
 export function OffsetLabel({offset}) {
 
-    const classes = useStyles({fontSize: sqrFontSize})
+    const classes = useStyles()
 
     let xSign = null;
     let ySign = null;
@@ -26,13 +25,11 @@ export function OffsetLabel({offset}) {
 
     return (
         <>
-            <Typography className={classes.sqr_text}>
+            <Typography className={classes.sqr_text} nowrap>
                 x {xSign} {Math.abs(offset[0])}
-            </Typography>
-            <Typography className={classes.sqr_text}>
+                < br />
                 y {ySign} {Math.abs(offset[1])}
             </Typography>
         </>
     )
 }
-

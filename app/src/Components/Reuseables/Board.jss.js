@@ -37,7 +37,7 @@ export const boardPos = {
     },
     mobile: {
         left: availWidth()*0.5 - getBoardSizeMobile()*0.5,
-        top: appBarHeight,
+        top: appBarHeight*1.1,
     },
 }
 
