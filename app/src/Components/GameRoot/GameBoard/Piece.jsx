@@ -1,5 +1,4 @@
 import React from "react";
-import { Avatar } from "@material-ui/core";
 import { useStyles } from "./Piece.jss";
 
 /**
@@ -9,6 +8,6 @@ import { useStyles } from "./Piece.jss";
 export const Piece = ({ src, sqrSize }) => {
     const classes = useStyles({sqrSize});
     return (
-        <Avatar className={classes.piece} variant='square' src={src} />
+        <img className={classes.piece} src={src} alt='icon of a piece' onContextMenu={(e)=> e.preventDefault()} />
     );
 };

@@ -1,5 +1,4 @@
 import {boardPos, boardSizes} from "../Reuseables/Board.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 import {themes} from "../styles/themes.jss";
 
 export const accordion_root = () => {
