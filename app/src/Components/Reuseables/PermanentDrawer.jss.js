@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: "space-between",
-        height: '90vh'
+        height: '90vh',
     }),
     appbarContent: props => ({
         zIndex: z,

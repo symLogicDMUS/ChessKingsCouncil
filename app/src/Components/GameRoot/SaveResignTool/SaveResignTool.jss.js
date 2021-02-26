@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
             height: '5em',
             marginLeft: '1em',
             marginBottom: '1em',
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },

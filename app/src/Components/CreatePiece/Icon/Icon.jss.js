@@ -2,9 +2,16 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {tool_title} from "../CreatePiece.jss";
 import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
+import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
+        '@media screen and (min-device-width: 1040px)': {
+            width: '93%',
+            marginLeft: '3.5%',
+        },
+    }),
+    img_windows: props => ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -14,14 +21,17 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
         },
         '@media screen and (min-device-width: 1040px)': {
-            width: '93%',
-            marginLeft: '3.5%',
             alignItems: 'center',
-            flexWrap: 'wrap',
+            flexWrap: 'nowrap',
         },
     }),
     title: props => ({
-        ...tool_title(props.theme),
+        fontSize: availHeight() * 0.018,
+        width: '100%',
+        lineHeight: '1em',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto-Light, Roboto',
+        marginBottom: '2%',
     }),
     buttons_and_img: props => ({
         display: 'flex',

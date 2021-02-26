@@ -86,7 +86,7 @@ export function NavBarButton({
                     >
                         {icons[pageIcon]}
                     </SvgIcon>
-                    <Typography className={hover ? classes.text_hover : classes.text}>
+                    <Typography className={hover ? classes.text_hover : classes.text} noWrap>
                         {pageName}
                     </Typography>
                 </Box>

@@ -1,8 +1,9 @@
 import {fontSize002, fontSize0023, fontSizeW004} from "../../styles/fontSizes.jss";
-import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {getBoardSize} from "../Board/CreatePieceBoard.jss";
 import {get2ItemMargins} from "../CreatePiece.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {getBoardSize} from "../Board/CreatePieceBoard.jss";
+import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -18,11 +19,11 @@ export const useStyles = makeStyles({
             border: `0.005em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize002,
-            width: "9em",
-            height: "9em",
-            border: "0.05em solid #2b2b2b",
-            borderRadius: '0.2em',
+            fontSize: (drawerWidth - get2ItemMargins())*0.5,
+            width: "1em",
+            height: "1em",
+            border: "0.01em solid #2b2b2b",
+            borderRadius: '0.03em',
         },
     }),
     img_label: props => ({

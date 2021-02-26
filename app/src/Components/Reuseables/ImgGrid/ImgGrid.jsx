@@ -64,7 +64,6 @@ export function ImgGrid(props) {
                         startIcon={
                             <CheckCircleOutlineIcon
                                 classes={{root: classes.button_icon}}
-                                style={ifIpad(props.screenCase)}
                             />
                         }
                     >
@@ -80,7 +79,6 @@ export function ImgGrid(props) {
                         startIcon={
                             <DeleteForeverIcon
                                 classes={{root: classes.button_icon}}
-                                style={ifIpad(props.screenCase)}
                             />
                         }
                     />

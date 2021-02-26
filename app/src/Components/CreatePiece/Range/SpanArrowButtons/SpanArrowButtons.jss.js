@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {get2ItemFontSizes} from "../../CreatePiece.jss";
-import {fontSize002} from "../../../styles/fontSizes.jss";
+import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
+import {drawerWidth} from "../../../Reuseables/PermanentDrawer.jss";
 
 export const buttonSizeEm = 3
 
@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         },
         /*desktop*/
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize002,
+            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
         },
         width: '9em',
         height: '9em',

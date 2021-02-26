@@ -25,7 +25,6 @@ export const button = (fontSize) => ({
 export const heights = {
     desktop: availHeight() * 0.81,
     mobile: window.innerHeight - appBarHeight*1.1,
-    short: window.innerHeight - appBarHeight,
 }
 
 export const widths = {
@@ -41,17 +40,6 @@ export const show_names_gen = (screenCase) => {
             }
         default:
             return null;
-    }
-};
-
-/*for the button icons (query in makeStyles for ipad doesn't work*/
-export const ifIpad = (screenCase) => {
-    const newScreenCase = screenCase
-    if (newScreenCase === 'ipad') {
-        return {fontSize: heights.mobile * 0.095*0.333*0.6667}
-    }
-    else {
-        return null;
     }
 };
 
@@ -76,9 +64,8 @@ export const useStyles = makeStyles({
         '@media screen and (max-device-width: 1040px)': {
             height: heights.mobile * 0.05,
         },
-
         '@media screen and (min-device-width: 1040px)': {
-            height: '2em',
+            height: heights.desktop * 0.05,
         },
         width: '100%',
         display: 'flex',
@@ -100,8 +87,9 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            width: imgChoicesWidth,
-            marginLeft: modalWidth * 0.025,
+            width: widths.desktop * 0.95,
+            marginLeft: widths.desktop * 0.025,
+            height: heights.desktop * 0.07,
             flexWrap: 'no-wrap',
             justifyContent: 'flex-end',
         },
@@ -119,12 +107,9 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            width: imgChoicesWidth,
-            height: imgChoicesHeight,
-            marginLeft: modalWidth * 0.025,
-            marginRight: modalWidth * 0.025,
-            marginTop: modalHeight * 0.025,
-            marginBottom: modalHeight * 0.025,
+            width: widths.desktop * 0.95,
+            height: heights.desktop * 0.8,
+            marginLeft: widths.desktop * 0.025,
         },
     }),
 
@@ -138,12 +123,11 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize001685,
-            width: '92.5em',
-            height: '35.5em',
-            marginLeft: '1em',
-            marginRight: '1em',
-            marginTop: '1em',
+            width: widths.desktop * 0.95 * 0.95,
+            height: heights.desktop * 0.8 * 0.95,
+            marginLeft: widths.desktop * 0.025 * 0.95,
+            marginRight: widths.desktop * 0.025 * 0.95,
+            marginTop: widths.desktop * 0.025 * 0.95,
         },
         display: 'flex',
         flexDirection: 'row',
@@ -165,12 +149,11 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize001685,
-            width: imgChoicesWidth,
-            marginLeft: modalWidth * 0.025,
-            marginRight: modalWidth * 0.25,
-            flexWrap: 'no-wrap',
+            height: heights.desktop * 0.08,
+            width: widths.desktop * 0.95,
+            marginLeft: widths.desktop * 0.025,
             alignItems: 'center',
+            justifyContent: 'flex-start',
         },
     }),
     ok_button: props => ({
@@ -181,8 +164,9 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            ...button(fontSize001685),
-            marginRight: "1em",
+            fontSize: heights.desktop * 0.095*0.333*0.75,
+            marginRight: widths.desktop * 0.95 * 0.025,
+            height: '2em',
         },
     }),
     delete_button: props => ({
@@ -193,8 +177,9 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            ...button(fontSize001685),
-            marginLeft: "2em",
+            fontSize: heights.desktop * 0.095*0.333*0.75,
+            marginLeft: widths.desktop * 0.95 * 0.025,
+            height: '2em',
         },
     }),
     button_icon: props => ({
@@ -202,7 +187,7 @@ export const useStyles = makeStyles({
             fontSize: heights.mobile * 0.095*0.333*0.6667,
         },
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize001685,
+            fontSize: heights.desktop * 0.095*0.333*0.6667,
         },
         minHeight: 'unset',
         minWidth: 'unset',
@@ -216,7 +201,7 @@ export const useStyles = makeStyles({
         },
 
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize001685,
+            fontSize: heights.desktop * 0.095*0.333,
             marginLeft: "2em",
         },
     }),

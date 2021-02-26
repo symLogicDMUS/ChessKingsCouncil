@@ -1,7 +1,9 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../../styles/themes.jss";
-import {get2ItemFontSizes} from "../../CreatePiece.jss";
+import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
 import {fontSize002} from "../../../styles/fontSizes.jss";
+import {getBoardSize} from "../../Board/CreatePieceBoard.jss";
+import {drawerWidth} from "../../../Reuseables/PermanentDrawer.jss";
 
 const container = (angle, theme) => ({
     /*media query for phones/tablets (generalized)*/
@@ -10,7 +12,7 @@ const container = (angle, theme) => ({
     },
     /*desktops*/
     '@media screen and (min-device-width: 1040px)': {
-        fontSize: fontSize002,
+        fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
     },
     width: '2.75em',
     height: '2.75em',
@@ -47,7 +49,7 @@ export const useStyles = makeStyles({
         },
         /*desktop*/
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize002,
+            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
             width: '2.75em',
             height: '2.75em',
         },
@@ -63,7 +65,7 @@ export const useStyles = makeStyles({
         },
         /*desktops*/
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize002,
+            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
             width: '2em',
             height: '2em',
         },
@@ -76,7 +78,7 @@ export const useStyles = makeStyles({
         },
         /*desktops*/
         '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSize002,
+            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
         },
         width: '2.75em',
         height: '2.75em',

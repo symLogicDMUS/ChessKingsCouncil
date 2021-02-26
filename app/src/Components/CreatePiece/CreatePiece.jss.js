@@ -4,6 +4,7 @@ import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {availHeight, availWidth, viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {fontSize002, fontSize00219, fontSize0022, fontSize0095} from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
 
 export const sqrFontSize = fontSize0095 * 0.25;
 
@@ -21,7 +22,10 @@ export const get2ItemMargins = () => {
     if (viewWidth() > 747 && viewWidth() <= 1040) {
         return getBoardFontSize() * 0.28;
     }
-    return getBoardFontSize() * 0.2;
+    if (viewWidth() > 1040) {
+        return drawerWidth*0.15;
+    }
+    // return getBoardFontSize() * 0.2;
 };
 
 export const get2ItemFontSizes = () => {
@@ -44,7 +48,7 @@ export const button = (theme) => ({
         fontSize: getButtonSize() * 0.3,
     },
     '@media screen and (min-device-width: 1040px)': {
-        fontSize: fontSize0022,
+        fontSize: ((drawerWidth - get2ItemMargins())*0.5 - (drawerWidth - get2ItemMargins())*0.5*0.2)*0.5*0.3,
         margin: 'unset',
         width: '3.5em',
         height: '3.5em',
