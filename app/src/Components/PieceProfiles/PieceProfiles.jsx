@@ -10,7 +10,6 @@ import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
 import { dbSampleDefs } from "../../API/apiHelpers/dbSampleDefs";
-import {sampleDefs} from "../../API/apiHelpers/sampleDefs";
 import {getSampleDefs} from "../../API/getSampleDefs";
 import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
@@ -24,6 +23,8 @@ export function PieceProfiles(props) {
     const classes = useStyles({theme: props.theme, style: props.style});
 
     useEffect(() => {
+        // let defs = getSampleDefs();
+        // afterLoaded(defs);
         getDefs().then(([result]) => {
             if (!result) {
                 saveDefs(dbSampleDefs).then(([r]) => {

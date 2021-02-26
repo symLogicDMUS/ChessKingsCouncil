@@ -25,7 +25,6 @@ function NewGame() {
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
-    const [focus, setFocus] = useState(null);
     const [theme, setTheme] = useState("tan");
 
     useEffect(() => {

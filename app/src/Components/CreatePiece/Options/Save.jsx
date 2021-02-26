@@ -19,7 +19,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
         if (pieceName !== "" && !containsInvalidCharacters(pieceName)) {
             getDoesPieceNameExist(pieceName).then(([result]) => setPieceNameExists(result))
         }
-    }, [])
+    }, [pieceName])
 
     const standardPieceNames = ['rook', 'king', 'queen', 'bishop', 'knight'];
 

@@ -14,7 +14,6 @@ export const useStyles = makeStyles({
             fontSize: (getBoardSize() - get2ItemMargins() * 3)*0.5,
             width: '1em',
             height: '1em',
-            margin: 'auto',
             borderRadius: '0.035em',
             border: `0.005em solid ${themes[props.theme].outline}`,
         },

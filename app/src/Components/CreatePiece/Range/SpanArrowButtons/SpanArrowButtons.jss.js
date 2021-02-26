@@ -6,17 +6,26 @@ export const buttonSizeEm = 3
 
 export const useStyles = makeStyles({
     span_arrow_buttons: props => ({
-        display: 'grid',
         /*media query for phones/tablets (generalized)*/
         '@media screen and (max-device-width: 1040px)': {
             fontSize: get2ItemFontSizes(),
         },
+        /*desktop*/
         '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
         },
-        gridTemplateColumns: "repeat(3, 2.85em)",
-        gridTemplateRows: "repeat(3, 2.85em)",
-        columnGap: '0.28em',
-        rowGap: '0.28em',
+        width: '9em',
+        height: '9em',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+    }),
+    row: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }),
 }, {index: 1});

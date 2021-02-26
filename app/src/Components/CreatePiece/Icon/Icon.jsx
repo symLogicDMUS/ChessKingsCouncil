@@ -54,7 +54,7 @@ export function Icon({ whiteAndBlackImgs, setPieceImg, resetImg, theme }) {
                             toggleImgButtonsModal(true);
                         }}
                     />
-                    <div className={classes.separator} />
+                    {/*<div className={classes.separator} />*/}
                     <ImgWindow
                         color="Black"
                         theme={theme}

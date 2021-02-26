@@ -8,17 +8,18 @@ export const piece_profiles = () => ({
 
 export const styles = {
     my_pieces: props => ({
-        width: '100vw',
-        height: availHeight() * 0.8,
         overflowX: 'hidden',
+        '@media screen and (max-device-width: 1040px)': {
+            height: availHeight() - appBarHeight,
+            width: '100vw',
+        },
         '@media screen and (min-device-width: 1040px)': {
+            height: viewHeight() * 0.95,
+            width: '98.75vw',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-        },
-        '@media screen and (max-device-width: 1040px)': {
-            height: availHeight() - appBarHeight,
         },
     }),
 };

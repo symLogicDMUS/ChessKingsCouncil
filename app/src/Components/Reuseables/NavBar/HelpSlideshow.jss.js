@@ -19,52 +19,31 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
+        '@media screen and (max-device-width: 1040px)': {
+            width: '100%',
+            height: windowHeightMobile(),
+            marginTop: 'auto',
+        },
         '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.66667,
             height: availHeight() * 0.66667,
         },
-        '@media screen and (max-device-width: 1040px)': {
-            width: '100%',
-            height: windowHeightMobile(),
-            marginTop: appBarHeight,
-        },
     }),
     top_flexbox: props => ({
-        fontSize: fontSize002,
         width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-end',
-        alignSelf: 'flex-start',
-        /*media query for phones (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-            height: windowHeightMobile()*0.15,
-        },
     }),
     x_symbol_flexbox: props => ({
         width: '100%',
-        alignSelf: 'flex-start',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        '@media screen and (max-device-width: 1040px)': {
-            height: windowHeightMobile()*0.05,
-        },
     }),
     title_flexbox: props => ({
         width: '95%',
-        fontSize: fontSize002,
         margin: 'auto',
         marginBottom: '1vh',
-        alignSelf: 'flex-end',
-        /*media query for phones (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-            height: windowHeightMobile()*0.1,
-        },
     }),
     content: props => ({
         overflow: 'scroll',
@@ -73,14 +52,14 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-device-width: 1040px)': {
             width: '95vw',
-            height: windowHeightMobile()*0.75,
+            height: windowHeightMobile()*0.655,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginBottom: 0,
         },
         '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.66667*0.95,
-            height: availHeight() * 0.66667*0.95*0.79,
+            height: availHeight() * 0.66667*0.95*0.81,
             marginLeft: '2.5%',
         },
     }),
@@ -116,5 +95,8 @@ export const useStyles = makeStyles({
         marginLeft: '1em',
         marginTop: '-0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
+    }),
+    button_icon: props => ({
+        fontSize: fontSize002,
     }),
 }, {index: 1});

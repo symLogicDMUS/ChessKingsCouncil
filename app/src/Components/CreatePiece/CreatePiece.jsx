@@ -43,6 +43,7 @@ class CreatePiece extends React.Component {
         this.location = "d4";
         this.textInput = React.createRef();
         this.state = {
+            loadInstance: 0,
             theme: "dark",
             binaryValue: 0,
             justSaved: false,
@@ -119,7 +120,7 @@ class CreatePiece extends React.Component {
         this.loadedName = copy(name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
-        this.setState({unsavedChanges: false});
+        this.setState({unsavedChanges: false, loadInstance: this.state.loadInstance + 1});
         this.setLoc("d4");
     }
 
@@ -351,7 +352,7 @@ class CreatePiece extends React.Component {
                         }
                     >
                         <Name
-                            key='Name-Desktop'
+                            key={`Name-Desktop${this.state.loadInstance}`}
                             updateName={this.updateName}
                             defaultValue={this.name}
                             theme={this.state.theme}

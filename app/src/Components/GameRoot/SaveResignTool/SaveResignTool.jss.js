@@ -5,7 +5,7 @@ import {
     fontSizeW005,
     fontSizeW0056,
     fontSizeW0033,
-    fontSizeW004,
+    fontSizeW004, fontSizeW0055, fontSizeW0025,
 } from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -85,15 +85,16 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     icon: props => ({
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-device-width: 768px)': {
             fontSize: fontSizeW0027,
             width: '6em',
             height: '6em',
         },
-        '@media screen and (min-device-width: 412px) (max-device-width: 1040px)': {
-            fontSize: fontSizeW0033,
-            width: '4.2075em',
-            height: '4.2075em',
+        /*tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+            fontSize: fontSizeW0025,
+            width: '6em',
+            height: '6em',
         },
         '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSize002,
@@ -103,11 +104,8 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     text: props => ({
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-device-width: 768px)': {
             fontSize: fontSizeW0056,
-        },
-        '@media screen and (min-device-width: 412px) and (max-device-width: 767px)':{
-            fontSize: fontSizeW004,
         },
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
             fontSize: fontSizeW005,
@@ -120,6 +118,6 @@ export const useStyles = makeStyles({
         width: '4em',
     }),
     divider: props => ({
-       width: '6.5%',
+        width: '6.5%',
     }),
 }, {index: 1})

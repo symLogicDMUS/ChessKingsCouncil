@@ -8,6 +8,10 @@ export const optionButtonSize = 3.5;
 export const useStyles = makeStyles({
     option: props => ({
         ...button(props.theme),
+        '@media screen and (min-device-width: 1040px)': {
+            width: '3em',
+            height: '3.5em',
+        },
         minWidth: 0,
     }),
     button: props => ({
@@ -24,10 +28,22 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         /*mobile*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-device-width: 747px)': {
             fontSize: '1em',
             width: '1.5em',
             height: '1.5em',
+        },
+        /*smaller tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px)': {
+            fontSize: '1em',
+            width: '2.75em',
+            height: '2.75em',
+        },
+        /*larger tablets*/
+        '@media screen and (min-device-width: 992px) and (max-device-width: 1040px)': {
+            fontSize: '1em',
+            width: '3.75em',
+            height: '3.75em',
         },
         /*desktop*/
         '@media screen and (min-device-width: 1040px)': {
@@ -39,8 +55,16 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         /*mobile*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-device-width: 767px)': {
             fontSize: '0.65em',
+        },
+        /*smaller tablets*/
+        '@media screen and (min-device-width: 768px) and (max-device-width: 991px)': {
+            fontSize: '1em',
+        },
+        /*larger tablets*/
+        '@media screen and (min-device-width: 992px) and (max-device-width: 1040px)': {
+            fontSize: '1.5em',
         },
         /*desktop*/
         '@media screen and (min-device-width: 1040px)': {

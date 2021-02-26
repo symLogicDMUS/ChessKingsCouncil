@@ -14,7 +14,7 @@ import {useStyles} from "./HelpSlideshow.jss";
 
 export function HelpSlideshow({initialState, title, onClose, theme, children}) {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const classes = useStyles({theme: theme, fontSize: fontSize002});
+    const classes = useStyles({theme: theme});
     return (
         <div className={`scrollbar-${theme}`}>
             <div className={classes.modal}>
@@ -35,7 +35,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                             <MuiButton
                                 theme={theme}
                                 classesObj={{root: classes.previous_button}}
-                                startIcon={ <NavigateBeforeIcon style={{fontSize: fontSize002}} />}
+                                startIcon={ <NavigateBeforeIcon className={classes.button_icon} />}
                                 onClick={() => dispatch({type: 'decrement'})}
                             >
                                 Previous
@@ -45,7 +45,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                             <MuiButton
                                 theme={theme}
                                 classesObj={{root: classes.next_button}}
-                                endIcon={<NavigateNextIcon style={{fontSize: fontSize002}} />}
+                                endIcon={<NavigateNextIcon className={classes.button_icon} />}
                                 onClick={() => dispatch({type: 'increment'})}
                             >
                                 Next
@@ -54,7 +54,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
                         <MuiButton
                             theme={theme}
                             classesObj={{root: classes.done_button}}
-                            startIcon={<CheckCircleOutlineIcon style={{fontSize: fontSize002}} />}
+                            startIcon={<CheckCircleOutlineIcon className={classes.button_icon} />}
                             onClick={onClose}
                         >
                             Done

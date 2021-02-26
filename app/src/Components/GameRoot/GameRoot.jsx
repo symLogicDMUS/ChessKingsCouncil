@@ -418,6 +418,13 @@ class GameRoot extends React.Component {
                                         />
                                     ),
                                 },
+                                {
+                                    id: "captured-pieces-mobile",
+                                    title: "Captured Pieces",
+                                    body:(
+                                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict} />
+                                    ),
+                                },
                             ]}
                         </MuiAccordion>
                     </PersistentDrawer>

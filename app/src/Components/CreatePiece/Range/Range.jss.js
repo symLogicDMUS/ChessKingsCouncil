@@ -1,12 +1,25 @@
 import {get2ItemFontSizes, tool_title} from "../CreatePiece.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {getBoardFontSize} from "../Board/CreatePieceBoard.jss";
+import {viewWidth} from "../../helpers/windowMeasurments";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
-export const scroll_table_style = () => ({
-    width: '9em',
-    height: 9,
-    fontSize: get2ItemFontSizes(),
-});
+export const scroll_table_style = () => {
+    if (viewWidth() <= 1040) {
+        return {
+            width: '9em',
+            height: 9,
+            fontSize: get2ItemFontSizes(),
+        }
+    }
+    else {
+        return {
+            width: '9em',
+            height: 9,
+            fontSize: fontSize002,
+        }
+    }
+};
 
 export const useStyles = makeStyles({
     range_tool: props => ({

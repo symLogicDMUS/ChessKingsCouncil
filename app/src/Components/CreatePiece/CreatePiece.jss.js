@@ -1,7 +1,7 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
-import {availHeight, availWidth, viewHeight} from "../helpers/windowMeasurments";
+import {availHeight, availWidth, viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {fontSize002, fontSize00219, fontSize0022, fontSize0095} from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
@@ -12,7 +12,16 @@ export const get4ItemMargins = () => {
 };
 
 export const get2ItemMargins = () => {
-    return getBoardFontSize() * 0.375
+    if (viewWidth() < 412) {
+        return getBoardFontSize() * 0.375
+    }
+    if (viewWidth() >= 412 && viewWidth() <= 747) {
+        return getBoardFontSize() * 0.3;
+    }
+    if (viewWidth() > 747 && viewWidth() <= 1040) {
+        return getBoardFontSize() * 0.28;
+    }
+    return getBoardFontSize() * 0.2;
 };
 
 export const get2ItemFontSizes = () => {
@@ -20,8 +29,12 @@ export const get2ItemFontSizes = () => {
 };
 
 export const getButtonSize = () => {
-    return (viewHeight() - (appBarHeight + getBoardSize() +
-        ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.2) + getBoardFontSize() * 3)) * 0.5
+    if (viewWidth() <= 767) {
+        return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.1) + getBoardFontSize() * 3)) * 0.5;
+    }
+    if (viewWidth() > 767 && viewWidth() <= 1040) {
+        return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.13) + getBoardFontSize() * 3)) * 0.5;
+    }
 };
 
 export const button = (theme) => ({
@@ -29,7 +42,6 @@ export const button = (theme) => ({
         width: getButtonSize(),
         height: getButtonSize(),
         fontSize: getButtonSize() * 0.3,
-        margin: 'auto',
     },
     '@media screen and (min-device-width: 1040px)': {
         fontSize: fontSize0022,
@@ -48,43 +60,21 @@ export const app_bar_title = () => ({
     marginLeft: '0.25em'
 });
 
-export const accordion_root = () => {
-    return {
-        width: getBoardSize(),
-    }
-};
+export const accordion_root = () => ({
+    width: getBoardSize(),
+});
 
-export const tool = (theme) => ({
-    '@media screen and (max-device-width: 1040px)': {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-    },
-    '@media screen and (min-device-width: 1040px)': {
-        backgroundColor: themes[theme].fill,
-        width: '100%',
-        marginBottom: '3vh',
-    },
-})
-
+/**
+ * Only used on desktop
+ */
 export const tool_flexbox = {
+    width: '93%',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    '@media screen and (max-device-width: 1040px)': {
-        width: '100%',
-        height: '100%',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-    },
-    '@media screen and (min-device-width: 1040px)': {
-        width: '93%',
-        marginLeft: '3.5%',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
+    marginLeft: '3.5%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
 }
 
 /**

@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 import { Tooltip } from "@material-ui/core";
 import { useStyles } from "./ImgChoice.jss";
 
@@ -14,7 +13,7 @@ export function ImgChoice({
     showName,
     theme,
 }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: theme });
     return (
         <>
             <div className={classes.img_choice}>
@@ -29,6 +28,7 @@ export function ImgChoice({
                                 whileHover={{ scale: 1.3 }}
                                 className={classes.img}
                                 alt="list of icons that can be used as pieces"
+                                onContextMenu={(e)=> e.preventDefault()}
                             />
                         </Tooltip>
                     ) : (
@@ -37,6 +37,7 @@ export function ImgChoice({
                             whileHover={{ scale: 1.3 }}
                             className={classes.img}
                             alt="list of icons that can be used as pieces"
+                            onContextMenu={(e)=> e.preventDefault()}
                         />
                     )}
                 </Box>

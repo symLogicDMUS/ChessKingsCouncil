@@ -77,7 +77,7 @@ class MyPieces extends React.Component {
                                     theme={this.state.theme}
                                     updateSearchText={this.updateSearchText}
                                 >
-                                    My Pieces
+                                    Saved Pieces
                                 </ProfilesTitle>
                             </PieceProfiles>
                         )}
@@ -115,7 +115,7 @@ class MyPieces extends React.Component {
                                         theme={this.state.theme}
                                         updateSearchText={this.updateSearchText}
                                     >
-                                        My Pieces
+                                        Saved Pieces
                                     </ProfilesTitle>
                                 </PieceProfiles>
                             )}

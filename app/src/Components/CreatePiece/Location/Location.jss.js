@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {buttonSize, fourItemMargins, tool_flexbox, tool_title} from "../CreatePiece.jss";
+import {tool_flexbox, tool_title} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     location_tool: (props) => ({

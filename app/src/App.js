@@ -6,13 +6,13 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Home} from "./Components/Home/Home";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import CreatePiece from "./Components/CreatePiece/CreatePiece";
+import Customize from "./Components/NewGame/Customize/Customize";
 import NewGame from "./Components/NewGame/NewGame";
 import LoadGame from "./Components/LoadGame/LoadGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
-import Customize from "./Components/NewGame/Customize/Customize";
-
+import './App.css';
 
 export class App extends React.Component {
     constructor(props) {

@@ -1,6 +1,6 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize0016, fontSize001725, fontSize0018, fontSize002} from "../styles/fontSizes.jss";
+import {fontSize001725, fontSize0018, fontSize002} from "../styles/fontSizes.jss";
 import {viewWidth} from "../helpers/windowMeasurments";
 
 export const icon = () => ({
@@ -30,9 +30,8 @@ export const useStyles = makeStyles({
         '@media screen and (min-device-width: 1040px)': {
             width: viewWidth() * 0.175,
         },
-        // marginLeft: 'auto',
         backgroundColor: themes[props.theme].fill,
-        transform: 'translate(0, -1em)',
+        transform: 'translate(0, -3.75vh)',
     }),
     icon: props => ({
         fontSize: 'inherit',

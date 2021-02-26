@@ -64,32 +64,12 @@ const getStyle = (screenCase, currentPage) => {
     switch (screenCase) {
         case 'desktop':
             return desktopStyleByPage(currentPage)
-        case 'mobile':
-            return {
-                display: 'flex',
-                flexDirection: 'column',
-                width: "100%",
-            }
-        case 'ipx':
-            return {
-                display: 'flex',
-                flexDirection: 'column',
-                width: "100%",
-            }
-        case 'ipad':
-            return {
-                display: 'flex',
-                flexDirection: 'column',
-                width: "100%",
-            }
-        case 'short':
-            return {
-                display: 'flex',
-                flexDirection: 'column',
-                width: "100%",
-            }
         default:
-            throw new Error("no screen type given")
+            return {
+                display: 'flex',
+                flexDirection: 'column',
+                width: "100%",
+            }
     }
 };
 

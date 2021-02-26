@@ -6,17 +6,23 @@ import {icons} from "../../../styles/icons/top/icons.jss";
 import {useStyles} from "./ArrowButton.jss"
 
 export function ArrowButton({angle, isActive, toggleSpan, theme}) {
-    const classes = useStyles({angle: angle, theme: theme})
+    const classes = useStyles({theme: theme})
     return (
-        <Box
-            onClick={() => toggleSpan(angle)}
-            className={isActive ? classes.container_selected : classes.container_normal}
-        >
-            <IconButton className={classes.arrow_button}>
-                <SvgIcon className={classes.vector}>
-                    {icons[angle]}
-                </SvgIcon>
-            </IconButton>
-        </Box>
+        <>
+            {angle === 'mid' ? (
+                <Box className={classes.mid} />
+            ) : (
+                <Box
+                    onClick={() => toggleSpan(angle)}
+                    className={isActive ? classes.container_selected : classes.container_normal}
+                >
+                    <IconButton className={classes.arrow_button}>
+                        <SvgIcon className={classes.vector}>
+                            {icons[angle]}
+                        </SvgIcon>
+                    </IconButton>
+                </Box>
+            )}
+        </>
     );
 }

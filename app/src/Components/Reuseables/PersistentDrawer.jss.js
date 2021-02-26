@@ -13,17 +13,6 @@ export const pageTitleStyle = () => ({
     lineHeight: '1em',
 });
 
-export const muiGlobalClasses = (theme) => ({
-    '& .MuiButton-root':{
-        fontSize: '1.25rem',
-        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-        fontWeight: 500,
-        lineHeight: 1.6,
-        letterSpacing: '0.0075em',
-        color: themes[theme].button_text,
-    }
-});
-
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
@@ -38,7 +27,6 @@ export const useStyles = makeStyles((theme) => ({
         }),
         backgroundColor: themes[props.theme].fill,
         color: themes[props.theme].text,
-        ...muiGlobalClasses(props.theme),
     }),
     appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,

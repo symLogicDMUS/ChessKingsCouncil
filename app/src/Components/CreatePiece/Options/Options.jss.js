@@ -1,7 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {tool, tool_title, tool_flexbox} from "../CreatePiece.jss";
-import {fontSize00184,} from "../../styles/fontSizes.jss";
-import {boardSizes} from "../../Reuseables/Board.jss";
+import {tool_title, tool_flexbox} from "../CreatePiece.jss";
+import {fontSize00184} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     options_tool: (props) => ({
@@ -19,5 +18,6 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         ...tool_title(props.theme),
+        marginBottom: '5%',
     }),
 }, {index: 1});
