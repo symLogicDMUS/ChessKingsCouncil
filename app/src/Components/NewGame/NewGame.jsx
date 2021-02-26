@@ -18,6 +18,8 @@ import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./NewGame.jss";
+import {StandardModal} from "../Reuseables/StandardModal";
+import {MuiButton} from "../Reuseables/MuiButton";
 
 function NewGame() {
     let history = useHistory();
@@ -25,6 +27,7 @@ function NewGame() {
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
+    const [confirmModal, setConfirmModal] = useState(false);
     const [theme, setTheme] = useState("tan");
 
     useEffect(() => {
@@ -43,7 +46,11 @@ function NewGame() {
     };
 
     const setGameType = (gameType) => {
-        updateGameType(gameType);
+        if (gameType === 'Standard') {
+            setConfirmModal(true)
+        } else {
+            updateGameType(gameType);
+        }
     };
 
     const finish = () => {
@@ -104,6 +111,26 @@ function NewGame() {
                             key='Play-Button-Desktop'
                         />
                     </Box>
+                    {confirmModal ? (
+                        <StandardModal
+                            theme={theme}
+                            title={"Are you sure you don't want to try Custom?"}
+                            text={"Exercise your creativity with the exciting custom feature, create your own unique Chess game!"}
+                            closeClick={() => {
+                                updateGameType('Standard')
+                                setConfirmModal(false)
+                            }}
+                        >
+                            <MuiButton onClick={() => {
+                                updateGameType('Custom')
+                                setConfirmModal(false)
+                            }} theme={theme}>Show me the customization!</MuiButton>
+                            <MuiButton onClick={() => {
+                                updateGameType('Standard')
+                                setConfirmModal(false)
+                            }} theme={theme}>Sorry, I want to play regular old Chess.</MuiButton>
+                        </StandardModal>
+                    ) : null}
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={1040}>
                     <Background theme={theme} appBar={true}/>
@@ -120,9 +147,9 @@ function NewGame() {
                             />
                         }
                         appBarContent={
-                                <Typography variant='h6' noWrap>
-                                    New Game
-                                </Typography>
+                            <Typography variant='h6' noWrap>
+                                New Game
+                            </Typography>
                         }
                     >
                         <Box className={classes.new_game}>

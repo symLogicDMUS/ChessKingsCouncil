@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {modal} from "../helpers/modal.jss";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
+import {fontSize002} from "../styles/fontSizes.jss";
+import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 
 export const button = (fontSize) => ({
@@ -23,7 +24,7 @@ export const useStyles = makeStyles({
     }),
 
     window: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.333,
             height: availHeight() * 0.333,
@@ -37,7 +38,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     top_flexbox: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         height: '1.5em',
         display: 'flex',
         flexDirection: 'row',
@@ -46,7 +47,7 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     title: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '95%',
         marginLeft: '2.5%',
         marginRight: '2.5%',
@@ -65,7 +66,7 @@ export const useStyles = makeStyles({
         overflow: 'hidden',
     }),
     buttons: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         width: '100%',
         display: 'flex',
         flexDirection: 'row',

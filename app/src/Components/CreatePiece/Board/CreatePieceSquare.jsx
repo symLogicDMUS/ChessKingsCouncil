@@ -1,12 +1,12 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import { getOffset } from "../../helpers/getOffset";
-import { OffsetLabel } from "./RangeLabelComponents/OffsetLabel";
-import { SpanLabel } from "./RangeLabelComponents/SpanLabel";
-import { themes } from "../../styles/themes.jss";
+import {v4 as uuidv4} from "uuid";
+import {getOffset} from "../../helpers/getOffset";
+import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
+import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
 import {getBoardFontSize} from "./CreatePieceBoard.jss";
 import {fontSize0095} from "../../styles/fontSizes.jss";
-import { useStyles } from "../../Reuseables/Square.jss";
+import {useStyles} from "../../Reuseables/Square.jss";
+import {themes} from "../../styles/themes.jss";
 
 export function CreatePieceSquare({
     rf,
@@ -30,12 +30,13 @@ export function CreatePieceSquare({
             alignItems: "center",
             justifyContent: "center",
             alignContent: "center",
-            "&:hover": { backgroundColor: themes[theme].sqr_hover },
+            "&:hover": {backgroundColor: themes[theme].sqr_hover},
         },
     });
+
     if (isSpan) {
         return (
-            <div className={classes.span} key={uuidv4()}>
+            <div className={classes.span} key={rf}>
                 <SpanLabel theme={theme} />
             </div>
         );
@@ -46,7 +47,7 @@ export function CreatePieceSquare({
             <div
                 className={classes.offset}
                 onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
-                key={uuidv4()}
+                key={rf}
             >
                 <OffsetLabel
                     offset={getOffset(rf, pieceLoc)}
@@ -61,7 +62,7 @@ export function CreatePieceSquare({
         <div
             className={isLightSqr ? classes.light_normal : classes.dark_normal}
             onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
-            key={uuidv4()}
+            key={rf}
         >
             {children}
         </div>

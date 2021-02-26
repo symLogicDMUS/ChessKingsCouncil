@@ -7,7 +7,7 @@ import { close_icon, useStyles } from "./StandardModal.jss";
 import "../styles/scrollbar.scss";
 
 export function StandardModal({ text, title, theme, closeClick, children }) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({ theme: theme });
 
     return (
         <div className={classes.modal}>
