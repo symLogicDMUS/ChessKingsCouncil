@@ -11,7 +11,16 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from "./PersistentDrawer.jss";
 
-export default function PersistentDrawer({drawerType, drawer, appBarContent, theme, spacing, contentAddedStyle, children}) {
+export default function PersistentDrawer({
+                                             drawerType,
+                                             drawer,
+                                             appBarContent,
+                                             theme,
+                                             spacing,
+                                             contentAddedStyle,
+                                             neighborOpen,
+                                             children
+                                         }) {
     const [open, setOpen] = React.useState(false);
     const muiTheme = useTheme();
     const classes = useStyles({theme: theme, spacing: spacing, contentAddedStyle: contentAddedStyle});
@@ -26,11 +35,12 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar
                 position="fixed"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
+                    [classes.appBarNeighborShift] : neighborOpen,
                 })}
             >
                 <Toolbar>
@@ -41,7 +51,7 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
                         onClick={handleDrawerOpen}
                         className={clsx(classes.menuButton, open && classes.hide)}
                     >
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     {appBarContent}
                 </Toolbar>
@@ -57,7 +67,7 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose} className={classes.openCloseIcons}>
-                        {muiTheme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        {muiTheme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
                     </IconButton>
                 </div>
                 {drawer}
@@ -67,7 +77,7 @@ export default function PersistentDrawer({drawerType, drawer, appBarContent, the
                     [classes.contentShift]: open,
                 })}
             >
-                <div className={classes.drawerHeader} />
+                <div className={classes.drawerHeader}/>
                 {children}
             </main>
         </div>

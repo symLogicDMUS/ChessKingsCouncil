@@ -32,7 +32,7 @@ import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
-import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
+import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {accordion_root, app_bar_title, styles} from "./CreatePiece.jss";
 
 
@@ -425,6 +425,7 @@ class CreatePiece extends React.Component {
                                 Create Piece
                             </Typography>
                         }
+                        neighborOpen={false}
                     >
                         <Board
                             key="Board-Mobile"

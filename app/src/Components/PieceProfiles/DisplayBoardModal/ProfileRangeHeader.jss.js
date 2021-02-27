@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSizes, widths} from "../PieceProfiles.jss";
 import {themes} from "../../styles/themes.jss";
+import {drawerFontSize, getDrawerFontSize} from "../ProfileWB/ProfileWB.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
@@ -12,6 +13,7 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
+        ...getDrawerFontSize(props.hasDrawerParent),
         width: '100%',
         height: '1.5em',
         textAlign: 'center',

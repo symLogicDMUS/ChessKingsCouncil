@@ -6,8 +6,8 @@ import IconButton from "@material-ui/core/IconButton";
 import {getColorName} from "../helpers/getColorName";
 import {useStyles} from "./ProfileWBRangeHeader.jss";
 
-export const ProfileWBRangeHeader = memo(({theme, rangeType, color, openRangeModal}) => {
-    const classes = useStyles({theme});
+export const ProfileWBRangeHeader = memo(({theme, rangeType, color, openRangeModal, hasDrawerParent}) => {
+    const classes = useStyles({theme: theme, hasDrawerParent: hasDrawerParent});
     return (
         <Box className={classes.header}>
             <IconButton

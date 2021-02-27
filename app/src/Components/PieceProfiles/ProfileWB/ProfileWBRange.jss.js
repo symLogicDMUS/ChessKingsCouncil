@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSizes, widths, widths as avatarSize} from "../PieceProfiles.jss";
 import {themes} from "../../styles/themes.jss";
+import {getDrawerFontSize} from "./ProfileWB.jss";
 
 export const heights = {
     desktop: 13.03,
@@ -9,6 +10,17 @@ export const heights = {
     ipx: 9,
     short: 9,
 }
+
+export const drawerMargins = (hasDrawerParent) => {
+    if (hasDrawerParent) {
+        return {
+            marginTop: '1.5em',
+        }
+    }
+    else {
+        return null;
+    }
+};
 
 export const useStyles = makeStyles({
     profile_wb_range: props => ({
@@ -19,22 +31,25 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
+            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
-            // marginTop: '-0.5em'
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
+            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
+            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
         },
-        // margin: 'auto',
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
@@ -46,15 +61,17 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: widths.mobile,
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: widths.mobile,
         },
-
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: widths.ipad,
         },
         width: '100%',
@@ -75,17 +92,19 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: fontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: fontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: fontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.ipad,
             height: avatarSize.ipad,
         },

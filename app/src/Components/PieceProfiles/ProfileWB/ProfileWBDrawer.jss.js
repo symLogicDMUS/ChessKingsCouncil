@@ -1,8 +1,9 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {appBarHeight} from "../../Reuseables/PersistentDrawer.jss";
-import {viewHeight, viewWidth} from "../../helpers/windowMeasurments";
+import {themes} from "../../styles/themes.jss";
+import {neighborWidth as drawerWidth} from
+        "../../Reuseables/PersistentDrawer.jss";
 
-export const root = (screenCase) => ({
+export const root = () => ({
     height: '100%',
     position: 'absolute',
     right: 0,
@@ -19,14 +20,19 @@ export const useStyles = makeStyles((theme) => ({
         pointerEvents: 'none',
     },
     wrapper: {
-        width: viewWidth()*0.45
+        width: drawerWidth,
     },
     paper: {
         position: "relative",
     },
-    drawer:{
+    drawer: props => ({
         width: '100%',
-        height: (viewHeight() - appBarHeight)*0.98,
-        backgroundColor: '#414141',
-    },
+        height: '100vh',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.2em solid ${themes[props.theme].outline}`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    }),
 }));

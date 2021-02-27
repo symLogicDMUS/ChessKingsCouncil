@@ -9,8 +9,9 @@ export const ProfileWBRange = ({
     color,
     rangeType,
     openRangeModal,
+    hasDrawerParent,
 }) => {
-    const classes = useStyles({ theme });
+    const classes = useStyles({ theme: theme, hasDrawerParent: hasDrawerParent });
     return (
         <Box className={classes.profile_wb_range}>
             <ProfileWBRangeHeader
@@ -18,6 +19,7 @@ export const ProfileWBRange = ({
                 color={color}
                 rangeType={rangeType}
                 openRangeModal={openRangeModal}
+                hasDrawerParent={hasDrawerParent}
             />
             <Box className={classes.board_window}>
                 <img src={src} className={classes.board_img} alt='range of piece shown as board' />

@@ -1,9 +1,13 @@
 import React from "react";
-import {Portal} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
+import Box from "@material-ui/core/Box";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import {IconButton, Portal, Typography} from "@material-ui/core";
 import {NoProfile} from "../../PieceProfiles/ProfileWB/NoProfile";
 import {ProfileWBDrawer} from "../../PieceProfiles/ProfileWB/ProfileWBDrawer";
 import {ProfileWBModal} from "../../PieceProfiles/ProfileWB/ProfileWBModal";
+import {ProfileWB} from "../../PieceProfiles/ProfileWB/ProfileWB";
+import {getColorName} from "../../helpers/getColorName";
 import {useStyles} from "./MiniPiece.jss";
 
 export function MiniPiece({
@@ -20,7 +24,7 @@ export function MiniPiece({
                               pieceImgBase64Str,
                               alt,
                           }) {
-    const classes = useStyles();
+    const classes = useStyles({theme: theme});
     return (
         <>
             <MediaQuery maxDeviceWidth={1040}>
@@ -42,7 +46,24 @@ export function MiniPiece({
                             closeProfile={closeProfile}
                             screenCase={screenCase}
                             theme={theme}
-                        />
+                        >
+                            <Box className={classes.piece_header}>
+                                <IconButton className={classes.icon_button} onClick={closeProfile}>
+                                    <ChevronRightIcon className={classes.icon} />
+                                </IconButton>
+                                <Typography variant="h6" noWrap className={classes.piece_name}>
+                                    {getColorName(color)} {pieceName}
+                                </Typography>
+                            </Box>
+                            <ProfileWB
+                                def={def}
+                                color={color}
+                                theme={theme}
+                                pieceName={pieceName}
+                                screenCase={screenCase}
+                                hasDrawerParent={true}
+                            />
+                        </ProfileWBDrawer>
                     )}
                 </Portal>
             </MediaQuery>

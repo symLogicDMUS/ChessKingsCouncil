@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 import {headerFontSizes, titleFontSizes} from "./Header/ProfileHeader.jss";
+import {getDrawerFontSize} from "./ProfileWB/ProfileWB.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
@@ -9,13 +10,15 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: headerFontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
-
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         width: '100%',
         height: '1.5em',
@@ -35,13 +38,16 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: titleFontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
 
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         marginLeft: 'auto',
         transform: 'translate(0.5em, 0)',
@@ -55,13 +61,15 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-device-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-device-width: 412px)": {
             fontSize: headerFontSizes.ipx,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
-
         '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
+            ...getDrawerFontSize(props.hasDrawerParent),
         },
         marginLeft: 'auto',
         width: '1em',

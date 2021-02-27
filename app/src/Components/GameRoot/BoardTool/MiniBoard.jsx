@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {rankfiles} from "../../helpers/rankfiles";
 import {getPieceImg} from "../../MyPieces/getPieceImg";
 import {MiniSquare as Square} from "./MiniSquare";
@@ -17,6 +16,7 @@ export function MiniBoard({
                               allRanges,
                               selectedSqr,
                               parentDispatch,
+                              toggleSecondaryDrawer,
                           }) {
     const classes = useStyles({theme: theme});
 
@@ -58,18 +58,24 @@ export function MiniBoard({
                             color={color}
                             def={isSpecial(pieceName) ? null : pieceDefs[pieceName][color]}
                             isSpecial={isSpecial(pieceName)}
-                            openProfile={() => parentDispatch({
-                                type: 'toggle-piece',
-                                rf: rf,
-                                board: board,
-                                allRanges: allRanges,
-                            })}
-                            closeProfile={() => parentDispatch({
-                                type: 'toggle-piece',
-                                rf: null,
-                                board: board,
-                                allRanges: allRanges,
-                            })}
+                            openProfile={() => {
+                                parentDispatch({
+                                    type: 'toggle-piece',
+                                    rf: rf,
+                                    board: board,
+                                    allRanges: allRanges,
+                                })
+                                toggleSecondaryDrawer(true)
+                            }}
+                            closeProfile={() => {
+                                parentDispatch({
+                                    type: 'toggle-piece',
+                                    rf: null,
+                                    board: board,
+                                    allRanges: allRanges,
+                                })
+                                toggleSecondaryDrawer(false)
+                            }}
                             pieceImgBase64Str={getPieceImg(
                                 board[rf],
                                 idDict,

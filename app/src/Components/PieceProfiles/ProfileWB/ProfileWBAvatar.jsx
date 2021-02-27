@@ -5,7 +5,7 @@ import { resolvePlayerType } from "../../helpers/resolvePlayerType";
 import { useStyles } from "./ProfileWBAvatar.jss";
 
 export function ProfileWBAvatar(props) {
-    const classes = useStyles({ theme: props.theme });
+    const classes = useStyles({ theme: props.theme, hasDrawerParent: props.hasDrawerParent });
 
     return (
         <Box className={classes.profile_avatar}>

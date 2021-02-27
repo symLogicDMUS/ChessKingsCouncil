@@ -1,11 +1,12 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availWidth} from "../helpers/windowMeasurments";
+import {viewWidth} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes.jss";
 
 export const appBarHeight = 55;
 export const bottomBarHeight = appBarHeight * 1.1;
 export const addressBarHeight = appBarHeight * 1.5
-export const drawerWidth = availWidth() * 0.65;
+export const drawerWidth = viewWidth() * 0.65;
+export const neighborWidth = viewWidth()*0.5;
 
 export const pageTitleStyle = () => ({
     fontSize: appBarHeight * 0.333,
@@ -31,6 +32,14 @@ export const useStyles = makeStyles((theme) => ({
     appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    }),
+    appBarNeighborShift: props => ({
+        width: `calc(100% - ${neighborWidth}px)`,
+        marginRight: neighborWidth,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,

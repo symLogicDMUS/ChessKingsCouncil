@@ -40,6 +40,7 @@ import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {accordion_root, styles} from "./GameRoot.jss";
+import {doNothing} from "../helpers/doNothing";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -49,6 +50,7 @@ class GameRoot extends React.Component {
             messageModal: false,
             saveProcess: false,
             theme: "dark",
+            secondaryDrawer: false,
         };
         this.unsavedProgress = false;
         this.gameName = this.props.location.state.gameName;
@@ -94,6 +96,7 @@ class GameRoot extends React.Component {
         this.resign = this.resign.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
+        this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
         this.changeName = this.changeName.bind(this);
@@ -271,6 +274,10 @@ class GameRoot extends React.Component {
         this.unsavedProgress = boolVal;
     }
 
+    toggleSecondaryDrawer(bValue) {
+        this.setState({secondaryDrawer: bValue})
+    }
+
     render() {
         return (
             <>
@@ -320,6 +327,7 @@ class GameRoot extends React.Component {
                             screenCase='desktop'
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             triggerRender={this.triggerRender}
+                            toggleSecondaryDrawer={doNothing}
                         />
                         <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict} />
                     </PermanentDrawer>
@@ -359,6 +367,7 @@ class GameRoot extends React.Component {
                                 winner={this.gameStatus.winner}
                             />
                         }
+                        neighborOpen={this.state.secondaryDrawer}
                     >
                         <Board gameRoot={this}/>
                         <MuiAccordion
@@ -415,6 +424,7 @@ class GameRoot extends React.Component {
                                             pieceDefs={this.defs}
                                             idDict={this.idDict}
                                             triggerRender={this.triggerRender}
+                                            toggleSecondaryDrawer={this.toggleSecondaryDrawer}
                                         />
                                     ),
                                 },

@@ -14,13 +14,13 @@ import { useStyles } from "./ProfileWB.jss";
  * color: is for W or B piece,
  * def: spans, offsets, and img of W or B piece
  * */
-export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
+export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerParent }) => {
     const [state, dispatch] = useReducer(reducer, {
         isModal: false,
         rangeType: null,
     });
 
-    const classes = useStyles({ theme: theme });
+    const classes = useStyles({ theme: theme, hasDrawerParent: hasDrawerParent });
 
     return (
         <>
@@ -48,6 +48,7 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
                     color={color}
                     theme={theme}
                     pieceName={pieceName}
+                    hasDrawerParent={hasDrawerParent}
                 />
                 <ProfileWBRange
                     key={uuidv4()}
@@ -56,6 +57,7 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
                     color={color}
                     theme={theme}
                     openRangeModal={() => dispatch({ type: "open-spans" })}
+                    hasDrawerParent={hasDrawerParent}
                 />
                 <ProfileWBRange
                     key={uuidv4()}
@@ -64,6 +66,7 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase }) => {
                     color={color}
                     theme={theme}
                     openRangeModal={() => dispatch({ type: "open-offsets" })}
+                    hasDrawerParent={hasDrawerParent}
                 />
             </div>
         </>

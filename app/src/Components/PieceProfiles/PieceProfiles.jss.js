@@ -1,8 +1,7 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, viewHeight, availWidth} from "../helpers/windowMeasurments";
+import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {fontSize0023, fontSize0027, fontSizeW006, fontSizeW0062} from "../styles/fontSizes.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 
 export const fontSizes = {
     desktop: fontSize0023,

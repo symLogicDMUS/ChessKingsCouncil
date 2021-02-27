@@ -3,9 +3,9 @@ import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 import { useStyles } from "./ProfileWBDrawer.jss";
 
-export function ProfileWBDrawer({children, isActive}) {
+export function ProfileWBDrawer({theme, isActive, children}) {
 
-    const classes = useStyles();
+    const classes = useStyles({theme});
 
     return (
         <div>
@@ -14,7 +14,7 @@ export function ProfileWBDrawer({children, isActive}) {
                     <Slide direction="left" in={isActive} mountOnEnter unmountOnExit>
                         <Paper elevation={4} className={classes.paper}>
                             <div className={classes.drawer}>
-                                {children}
+                                {isActive ? (children) : null}
                             </div>
                         </Paper>
                     </Slide>

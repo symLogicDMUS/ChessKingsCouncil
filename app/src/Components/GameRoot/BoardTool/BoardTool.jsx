@@ -20,6 +20,7 @@ export function BoardTool({
     allRanges,
     pieceDefs,
     idDict,
+    toggleSecondaryDrawer,
 }) {
     const [state, dispatch] = useReducer(reducer, {
         rangeBoard: getBinaryBoarAllFalse(),
@@ -51,10 +52,11 @@ export function BoardTool({
                 board={board}
                 idDict={idDict}
                 pieceDefs={defs}
-                rangeBoard={state.rangeBoard}
                 allRanges={allRanges}
-                selectedSqr={state.selectedSqr}
                 parentDispatch={dispatch}
+                rangeBoard={state.rangeBoard}
+                selectedSqr={state.selectedSqr}
+                toggleSecondaryDrawer={toggleSecondaryDrawer}
             />
             <Box className={classes.flex_header}>
                 <MediaQuery maxDeviceWidth={1040}>
@@ -81,7 +83,6 @@ export function BoardTool({
                     defaultChecked={true}
                 />
             </Box>
-            {/*{profileModal && showProfileOnClick ? state.profile : null}*/}
         </div>
     );
 }
