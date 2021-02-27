@@ -15,6 +15,7 @@ import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
+import {getRangeBoardImgStrs} from "./ProfileWB/getRangeBoardImgStrs";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {
@@ -23,8 +24,6 @@ export function PieceProfiles(props) {
     const classes = useStyles({theme: props.theme, style: props.style});
 
     useEffect(() => {
-        // let defs = getSampleDefs();
-        // afterLoaded(defs);
         getDefs().then(([result]) => {
             if (!result) {
                 saveDefs(dbSampleDefs).then(([r]) => {
@@ -38,9 +37,12 @@ export function PieceProfiles(props) {
         });
     }, []);
 
+    useEffect(() => {
+        dispatch({type: 'update-range-boards', theme: props.theme})
+    }, [props.theme])
+
     const afterLoaded = (defs) => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
-        const colors = ["W", "B"];
         if (props.updateParent) {
             props.updateParent(copy(defs));
         }
@@ -49,27 +51,8 @@ export function PieceProfiles(props) {
                 delete defs[pieceName];
             }
         }
-        for (const pieceName of Object.keys(defs)) {
-            for (const color of colors) {
-                defs[pieceName][color].span_img = getRangeBoardImgStr(
-                    defs[pieceName][color].img,
-                    "d4",
-                    "span",
-                    defs[pieceName][color].spans,
-                    pieceName,
-                    props.theme,
-                );
-                defs[pieceName][color].offset_img = getRangeBoardImgStr(
-                    defs[pieceName][color].img,
-                    'd4',
-                    'offset',
-                    defs[pieceName][color].offsets,
-                    pieceName,
-                    props.theme
-                )
-            }
-        }
-        dispatch({type: "load", payload: defs});
+        defs = getRangeBoardImgStrs(props.theme, defs)
+        dispatch({type: "load", payload: defs, theme: props.theme});
     }
 
     const getPieceNames = () => {

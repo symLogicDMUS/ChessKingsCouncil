@@ -102,12 +102,22 @@ class GameRoot extends React.Component {
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
+        this.updateTheme = this.updateTheme.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
         this.changeName = this.changeName.bind(this);
     }
 
     componentDidMount() {
         document.body.className = "dark-background";
+    }
+
+    componentDidUpdate() {
+        if (this.state.theme === 'tan') {
+            document.body.className = 'tan-background-alt';
+        }
+        else {
+            document.body.className = `${this.state.theme}-background`;
+        }
     }
 
     /**
@@ -345,12 +355,12 @@ class GameRoot extends React.Component {
                     >
                         <NavBar
                             currentPage="GameRoot"
-                            theme={this.state.theme}
                             screenCase='desktop'
                             helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
+                            theme={this.state.theme}
                         />
                     </SideBar>
                 </MediaQuery>

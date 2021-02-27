@@ -1,4 +1,5 @@
 import {copy} from "../helpers/copy";
+import {getRangeBoardImgStrs} from "./ProfileWB/getRangeBoardImgStrs";
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -10,6 +11,8 @@ export const reducer = (state, action) => {
             //payload == pieceName
             delete defs[action.payload]
             return {...state, defs: defs};
+        case 'update-range-boards':
+            return {...state, defs: getRangeBoardImgStrs(action.theme, copy(state.defs))}
         default:
             return {}
     }

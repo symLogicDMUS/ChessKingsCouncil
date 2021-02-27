@@ -18,6 +18,7 @@ const heights = {
 export const useStyles = makeStyles({
     modal: props => ({
        ...modal,
+        zIndex: 8,
     }),
     window: props => ({
         '@media screen and (max-device-width: 1040px)': {

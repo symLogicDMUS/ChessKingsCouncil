@@ -24,6 +24,7 @@ class MyPieces extends React.Component {
         };
         this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.updateTheme = this.updateTheme.bind(this);
         this.updateSearchText = this.updateSearchText.bind(this);
         this.setDefs = this.setDefs.bind(this);
         this.setDefs();

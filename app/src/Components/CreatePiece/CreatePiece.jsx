@@ -105,6 +105,15 @@ class CreatePiece extends React.Component {
         console.log(document.getElementById('root'))
     }
 
+    componentDidUpdate() {
+        if (this.state.theme === 'tan') {
+            document.body.className = 'tan-background-alt';
+        }
+        else {
+            document.body.className = `${this.state.theme}-background`;
+        }
+    }
+
     triggerRender() {
         this.setState({binaryValue: !this.state.binaryValue});
     }

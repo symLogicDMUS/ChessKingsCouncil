@@ -28,9 +28,6 @@ class ChooseModal extends React.Component {
     }
 
     componentDidMount() {
-        // this.imgDict = getSampleImgs();
-        // this.imgDict = filterStandardPieces(this.imgDict);
-        // this.setState({ loaded: true });
         getImgDict().then(([imgDict]) => {
             this.imgDict = getSampleImgs();
             this.imgDict = filterStandardPieces(this.imgDict);
