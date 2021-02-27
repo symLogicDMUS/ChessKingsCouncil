@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import "../styles/_backgrounds.scss";
 import "../styles/scrollbar.scss";
 import {Play} from "./Play";
-import {Portal, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
@@ -16,10 +16,10 @@ import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/HelpTitle";
+import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./NewGame.jss";
-import {StandardModal} from "../Reuseables/StandardModal";
-import {MuiButton} from "../Reuseables/MuiButton";
+
 
 function NewGame() {
     let history = useHistory();
@@ -112,26 +112,17 @@ function NewGame() {
                         />
                     </Box>
                     {confirmModal ? (
-                        <Portal>
-                            <StandardModal
-                                theme={theme}
-                                title={"Are you sure you don't want to try Custom?"}
-                                text={"Exercise your creativity with the exciting custom feature, create your own unique Chess game!"}
-                                closeClick={() => {
-                                    updateGameType('Standard')
-                                    setConfirmModal(false)
-                                }}
-                            >
-                                <MuiButton onClick={() => {
-                                    updateGameType('Custom')
-                                    setConfirmModal(false)
-                                }} theme={theme}>Show me the customization!</MuiButton>
-                                <MuiButton onClick={() => {
-                                    updateGameType('Standard')
-                                    setConfirmModal(false)
-                                }} theme={theme}>Sorry, I want to play regular old Chess.</MuiButton>
-                            </StandardModal>
-                        </Portal>
+                        <ConfirmStandard
+                            theme={theme}
+                            closeClick={() => {
+                                updateGameType('Standard')
+                                setConfirmModal(false)
+                            }}
+                            onClick={() => {
+                                updateGameType('Custom')
+                                setConfirmModal(false)
+                            }}
+                        />
                     ) : null}
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={1040}>
@@ -185,26 +176,17 @@ function NewGame() {
                             />
                         </Box>
                         {confirmModal ? (
-                            <Portal>
-                                <StandardModal
-                                    theme={theme}
-                                    title={"Are you sure you don't want to try Custom?"}
-                                    text={"Exercise your creativity with the exciting custom feature, create your own unique Chess game!"}
-                                    closeClick={() => {
-                                        updateGameType('Standard')
-                                        setConfirmModal(false)
-                                    }}
-                                >
-                                    <MuiButton onClick={() => {
-                                        updateGameType('Custom')
-                                        setConfirmModal(false)
-                                    }} theme={theme}>Show me the customization!</MuiButton>
-                                    <MuiButton onClick={() => {
-                                        updateGameType('Standard')
-                                        setConfirmModal(false)
-                                    }} theme={theme}>Sorry, I want to play regular old Chess.</MuiButton>
-                                </StandardModal>
-                            </Portal>
+                            <ConfirmStandard
+                                theme={theme}
+                                closeClick={() => {
+                                    updateGameType('Standard')
+                                    setConfirmModal(false)
+                                }}
+                                onClick={() => {
+                                    updateGameType('Custom')
+                                    setConfirmModal(false)
+                                }}
+                            />
                         ) : null}
                     </PersistentDrawer>
                 </MediaQuery>

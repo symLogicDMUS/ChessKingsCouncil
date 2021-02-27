@@ -20,58 +20,35 @@ export const profileHeight = {
 }
 
 export const fontSizes = {
-    desktop: drawerItemWidth*0.125,
-    mobile: availWidth()*0.3*0.125,
-    ipx: availWidth()*0.3*0.125,
-    short: availWidth()*0.2*0.125,
+    desktop: drawerItemWidth * 0.125,
+    mobile: availWidth() * 0.3 * 0.125,
+    ipx: availWidth() * 0.3 * 0.125,
+    short: availWidth() * 0.2 * 0.125,
     ipad: fontSize002,
 }
 
-export const show_profile_gen = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return {fontSize : fontSize002}
-        case 'short':
-            return {fontSize: fontSize0019}
-        default:
-            return {fontSize : fontSizes[screenCase]*1.2}
-    }
+export const show_profiles_root = (screenCase, theme) => {
+        switch (screenCase) {
+            case 'desktop':
+                return {
+                    fontSize: fontSize002,
+                    width: '2.15em',
+                    height: '2.15em',
+                    color: themes[theme].text,
+                }
+            default:
+                return {
+                    width: fontSizes[screenCase] * 2.5,
+                    height: fontSizes[screenCase] * 2.5,
+                    color: themes[theme].text,
+                }
+        }
 };
 
-export const show_profile_root = (screenCase) => {
-    switch (screenCase) {
-        case 'ipad':
-            return {
-                ...show_profile_gen(screenCase),
-                transform: 'translate(1.5em, 0)',
-            }
-        case 'short':
-            return {
-                ...show_profile_gen(screenCase),
-                width: fontSizes.short * 8,
-                marginLeft: '-2em',
-            }
-        default:
-            return {
-                ...show_profile_gen(screenCase),
-            }
-    }
-};
-
-export const show_profile_checkbox = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return null
-        case 'short':
-            return {
-                transform: 'translate(0.2em, 0)'
-            }
-        default:
-            return {
-                transform: 'translate(0.5em, 0)'
-            }
-    }
-};
+export const show_profiles_label = (screenCase, theme) => ({
+    ...show_profiles_root(screenCase, theme),
+    width: 'unset',
+});
 
 export const useStyles = makeStyles({
         board_tool: props => ({
@@ -81,11 +58,10 @@ export const useStyles = makeStyles({
                 flexDirection: 'row',
                 flex: 'nowrap',
                 width: '100%',
-                marginLeft: '2%',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
             },
-            '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+            '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
                 flexDirection: 'row',
                 fontSize: fontSizes.ipad,
                 height: '8em',
@@ -105,6 +81,10 @@ export const useStyles = makeStyles({
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
+            /*media query for phones/tablets (generalized)*/
+            '@media screen and (max-device-width: 1040px)': {
+                flexGrow: 10,
+            },
             '@media screen and (min-device-width: 1040px)': {
                 fontSize: fontSizes.desktop,
                 height: '0.7em',
@@ -118,6 +98,29 @@ export const useStyles = makeStyles({
             color: themes[props.theme].text,
             height: '1em',
             lineHeight: '0.96em',
+        }),
+        checkbox_container: props => ({
+            flexGrow: 10,
+            display: 'inline-flex',
+            flexDirection: 'row',
+            flexWrap: 'nowrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }),
+        checkbox: props => ({
+            color: themes[props.theme].text,
+            '@media screen and (min-device-width: 1040px)': {
+                fontSize: fontSize002,
+            },
+            /*media query for phones/tablets (generalized)*/
+            '@media screen and (max-device-width: 1040px)': {
+                fontSize: fontSizes.mobile
+            },
+            height: '1.5em',
+            width: '1.5em',
+        }),
+        checkbox_label: props => ({
+            color: themes[props.theme].text,
         }),
     }
 );

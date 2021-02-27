@@ -1,15 +1,17 @@
 import React, {useMemo, useReducer, useState} from "react";
 import MediaQuery from "react-responsive/src";
-import {addRangeImgToDefs} from "./addRangeImgToDefs";
-import {fontSize0023} from "../../styles/fontSizes.jss";
-import Typography from "@material-ui/core/Typography";
-import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
+import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
+import CheckBoxIcon from "@material-ui/icons/CheckBox";
+import CheckBoxOutlineBlankIcon from
+        "@material-ui/icons/CheckBoxOutlineBlank";
 import {getBinaryBoarAllFalse} from
         "../../helpers/getBinaryBoardAllFalse";
-import Box from "@material-ui/core/Box";
+import {addRangeImgToDefs} from "./addRangeImgToDefs";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
-import {show_profile_checkbox, show_profile_gen, show_profile_root, useStyles} from "./BoardTool.jss";
+import Checkbox from "@material-ui/core/Checkbox";
+import {show_profiles_root, useStyles} from "./BoardTool.jss";
 
 export function BoardTool({
     theme,
@@ -20,12 +22,10 @@ export function BoardTool({
     idDict,
 }) {
     const [state, dispatch] = useReducer(reducer, {
-        profile: null,
         rangeBoard: getBinaryBoarAllFalse(),
-        pieceId: null,
+        selectedSqr: null,
     });
 
-    const [profileModal, setProfileModal] = useState(false);
     const [showProfileOnClick, setShowProfileOnClick] = useState(true);
 
     const classes = useStyles({ theme: theme });
@@ -47,33 +47,41 @@ export function BoardTool({
             </MediaQuery>
             <MiniBoard
                 theme={theme}
+                screenCase={screenCase}
                 board={board}
                 idDict={idDict}
                 pieceDefs={defs}
-                allRanges={allRanges}
-                screenCase={screenCase}
-                parentDispatch={dispatch}
                 rangeBoard={state.rangeBoard}
-                setProfileModal={setProfileModal}
+                allRanges={allRanges}
+                selectedSqr={state.selectedSqr}
+                parentDispatch={dispatch}
             />
-            <MediaQuery maxDeviceWidth={1040}>
-                <Typography style={{...show_profile_gen(screenCase), opacity: 0}}>
-                    Lor
-                </Typography>
-            </MediaQuery>
             <Box className={classes.flex_header}>
-                <MuiCheckbox
+                <MediaQuery maxDeviceWidth={1040}>
+                    <Typography className={classes.checkbox_label} noWrap>
+                        Profiles
+                    </Typography>
+                </MediaQuery>
+                <MediaQuery minDeviceWidth={1040}>
+                    <Typography className={classes.checkbox_label} noWrap>
+                        Show Profiles
+                    </Typography>
+                </MediaQuery>
+                <Checkbox
                     onClick={toggleShowProfileOnClick}
-                    style={show_profile_gen(screenCase)}
-                    rootStyle={show_profile_root(screenCase)}
-                    checkboxStyle={show_profile_checkbox(screenCase)}
-                    defaultChecked={showProfileOnClick}
-                    theme={theme}
-                >
-                    Show Profile
-                </MuiCheckbox>
+                    style={show_profiles_root(screenCase, theme)}
+                    icon={
+                        <CheckBoxOutlineBlankIcon
+                            className={classes.checkbox}
+                        />
+                    }
+                    checkedIcon={
+                        <CheckBoxIcon className={classes.checkbox} />
+                    }
+                    defaultChecked={true}
+                />
             </Box>
-            {profileModal && showProfileOnClick ? state.profile : null}
+            {/*{profileModal && showProfileOnClick ? state.profile : null}*/}
         </div>
     );
 }

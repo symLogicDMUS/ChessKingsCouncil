@@ -1,11 +1,15 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {
-    fontSize0015, fontSize002, fontSize00224,
-    fontSize0023,
-    fontSize0032, fontSizeW0024, fontSizeW0028,
-} from "../../styles/fontSizes.jss";
-import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.jss";
 import {themes} from "../../styles/themes.jss";
+import {
+    fontSize0015,
+    fontSize00224,
+    fontSize0023,
+    fontSize0032,
+} from "../../styles/fontSizes.jss";
+import {
+    profileHeight,
+    profileWidth
+} from "../../GameRoot/BoardTool/BoardTool.jss";
 
 export const fontSizes = {
     desktop: fontSize0032,

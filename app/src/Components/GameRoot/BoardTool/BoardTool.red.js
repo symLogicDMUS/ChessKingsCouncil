@@ -1,12 +1,6 @@
 import React from "react";
-import { Portal } from "@material-ui/core";
-import { getColor } from "../../helpers/getColor";
-import { rankfiles } from "../../helpers/rankfiles";
-import { getPieceName } from "../../helpers/getPieceName";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
-import { ProfileWBModal } from "../../PieceProfiles/ProfileWB/ProfileWBModal";
-import { NoProfile } from "../../PieceProfiles/ProfileWB/NoProfile";
-import { isSpecial } from "../../helpers/isSpecial";
+import {rankfiles} from "../../helpers/rankfiles";
+import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
 
 export function reducer(state, action) {
     switch (action.type) {
@@ -14,49 +8,22 @@ export function reducer(state, action) {
             /**
              * Used by RangePiece. triggered when piece clicked on. triggers new traversal of squares
              * */
-            if (state.pieceId === action.id) {
+            if (action.rf === null || state.selectedSqr === action.rf) {
                 return {
-                    profile: null,
                     rangeBoard: getBinaryBoarAllFalse(),
-                    pieceId: null,
+                    selectedSqr: null,
                 };
-            } else {
+            }
+            else {
                 const rangeBoard = getBinaryBoarAllFalse();
+                const id = action.board[action.rf]
                 rankfiles.forEach((rf) => {
-                    rangeBoard[rf] = action.allRanges[action.id].includes(rf);
+                    rangeBoard[rf] = action.allRanges[id].includes(rf);
                 });
-                const id = action.board[action.rf];
-                const color = getColor(id);
-                const pieceName = getPieceName(id, action.idDict);
-                const def = isSpecial(pieceName)
-                    ? null
-                    : action.pieceDefs[pieceName][color];
                 return {
-                    profile: (
-                        <Portal>
-                            {def ? (
-                                <ProfileWBModal
-                                    def={def}
-                                    color={color}
-                                    pieceName={pieceName}
-                                    theme={action.theme}
-                                    screenCase={action.screenCase}
-                                    closeProfile={action.closeProfile}
-                                />
-                            ) : (
-                                <NoProfile
-                                    color={color}
-                                    pieceName={pieceName}
-                                    theme={action.theme}
-                                    screenCase={action.screenCase}
-                                    closeProfile={action.closeProfile}
-                                />
-                            )}
-                        </Portal>
-                    ),
                     rangeBoard: rangeBoard,
-                    pieceId: action.id,
-                };
+                    selectedSqr: action.rf,
+                }
             }
         default:
             throw new Error();
