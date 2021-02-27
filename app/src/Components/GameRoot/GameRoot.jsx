@@ -41,6 +41,7 @@ import {getPieceImg} from "../MyPieces/getPieceImg";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {accordion_root, styles} from "./GameRoot.jss";
 import {doNothing} from "../helpers/doNothing";
+import {SavedGames} from "../LoadGame/SavedGames";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -53,15 +54,18 @@ class GameRoot extends React.Component {
             secondaryDrawer: false,
         };
         this.unsavedProgress = false;
-        this.gameName = this.props.location.state.gameName;
-        this.gameType = this.props.location.state.gameType;
-        this.playerType = this.props.location.state.playerType;
+        // this.gameName = this.props.location.state.gameName;
+        // this.gameType = this.props.location.state.gameType;
+        // this.playerType = this.props.location.state.playerType;
+        this.gameName = 'hello world';
+        this.gameType = 'Standard';
+        this.playerType = 'W';
         let gameData;
-        if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
-            gameData = this.props.location.state.gameData;
-        } else {
+        // if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
+        //     gameData = this.props.location.state.gameData;
+        // } else {
             gameData = copy(newData);
-        }
+        // }
         this.img = gameData.img;
         this.board = gameData.board;
         this.turn = gameData.color;
@@ -278,6 +282,10 @@ class GameRoot extends React.Component {
         this.setState({secondaryDrawer: bValue})
     }
 
+    updateTheme(theme) {
+        this.setState({theme: theme})
+    }
+
     render() {
         return (
             <>
@@ -342,6 +350,7 @@ class GameRoot extends React.Component {
                             helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
+                            updateTheme={this.updateTheme}
                         />
                     </SideBar>
                 </MediaQuery>
@@ -353,10 +362,11 @@ class GameRoot extends React.Component {
                             <NavBar
                                 currentPage="GameRoot"
                                 screenCase='mobile'
-                                theme={this.state.theme}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
+                                updateTheme={this.updateTheme}
+                                theme={this.state.theme}
                             />
                         }
                         appBarContent={

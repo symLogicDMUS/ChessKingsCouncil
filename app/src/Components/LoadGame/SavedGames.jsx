@@ -31,6 +31,7 @@ export function SavedGames(props) {
                     currentPage="LoadGame"
                     screenCase='desktop'
                     theme={props.theme}
+                    updateTheme={props.updateTheme}
                     helpText={HelpText(fontSize002, props.theme)}
                     helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                 />
@@ -72,9 +73,10 @@ export function SavedGames(props) {
                         <NavBar
                             currentPage="LoadGame"
                             screenCase="mobile"
+                            redirectMessage={null}
                             helpText={HelpText(fontSizeW0045, props.theme)}
                             helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
-                            redirectMessage={null}
+                            updateTheme={props.updateTheme}
                             theme={props.theme}
                         />
                     }

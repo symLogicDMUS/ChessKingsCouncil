@@ -48,7 +48,7 @@ export function MiniPiece({
                             theme={theme}
                         >
                             <Box className={classes.piece_header}>
-                                <IconButton className={classes.icon_button} onClick={closeProfile}>
+                                <IconButton onClick={closeProfile} edge='end' className={classes.icon_button}>
                                     <ChevronRightIcon className={classes.icon} />
                                 </IconButton>
                                 <Typography variant="h6" noWrap className={classes.piece_name}>

@@ -1,3 +1,6 @@
+import React from "react";
+import MenuItem from "@material-ui/core/MenuItem";
+
 export const themes = {
     dark: {
         outline: '#2b2b2b',
@@ -10,6 +13,7 @@ export const themes = {
         button_text: '#a9a9a9',
         button_hover_fill: '',
         button_hover_text: '#a9a9a9',
+        location_button_selected: '#4b6eaf',
         modal_fill: '#3f3f3f',
         img_border: '#2b2b2b',
         even_row: '#414141',
@@ -27,7 +31,8 @@ export const themes = {
         sqr_hover: '#00ccff',
         page_link: '#a9a9a9',
         page_link_hover: '#ffffff',
-        outline_label: '#a9a9a9',
+        input_label: '#a9a9a9',
+        input_outline: '#2b2b2b',
         variant_fill_r0: 157,
         variant_fill_g0: 80,
         variant_fill_b0: 226,
@@ -42,16 +47,17 @@ export const themes = {
         variant_stroke_b1: 120,
     },
     tan: {
-        outline: '#000000',
+        outline: '#2b2b2b',
         fill: '#000000',
         text: '#d7bb99',
         text_alt: '#edc9a2ff',
         text_alt2: '#d7bb99',
-        nav_text: '#d7bb99',
+        nav_text: '#d7be9b',
         button_fill: '#1b1b1b',
         button_text: '#d7bb99',
         button_hover_fill: '#ffffff',
         button_hover_text: '#1b1b1b',
+        location_button_selected: '#4b6eaf',
         modal_fill: '#111111',
         img_border: '#d7bb99',
         even_row: '#1b1b1b',
@@ -63,7 +69,8 @@ export const themes = {
         light_in_range: '#fff172',
         dark_in_range: '#acaf4b',
         sqr_hover: 'goldenrod',
-        outline_label: '#000000',
+        input_label: '#d7bb99',
+        input_outline: '#2b2b2b',
         page_link: '#000000',
         page_link_hover: '#ffffff',
     },
@@ -83,3 +90,7 @@ export const themes = {
     }
 };
 
+export const themesList = [
+    <MenuItem value="dark">dark</MenuItem>,
+    <MenuItem value="tan">tan</MenuItem>,
+];

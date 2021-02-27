@@ -10,28 +10,22 @@ const z = 5;
 
 export const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
         zIndex: z,
+        display: 'flex',
     },
     drawer: {
-        display: 'flex',
         zIndex: z,
+        display: 'flex',
         flexShrink: 0,
     },
     drawerPaper: props => ({
-        width: sideBarWidth,
         zIndex: z,
+        width: sideBarWidth,
         backgroundColor: themes[props.theme].fill,
     }),
     toolbar: {
         fontSize: fontSize002,
         height: '3em',
-    },
-    appbar: {
-        zIndex: z,
-        color: '#b6b6b6',
-        backgroundColor: '#515151',
-        fontFamily: 'Roboto-Light, Roboto'
     },
 }), {index: 1});
 

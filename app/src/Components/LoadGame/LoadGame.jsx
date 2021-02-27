@@ -94,6 +94,10 @@ class LoadGame extends React.Component {
         this.setState({userChoseGame: true});
     }
 
+    updateTheme(theme) {
+        this.setState({theme: theme})
+    }
+
     render() {
         if (this.state.userChoseGame) {
             return (
@@ -123,6 +127,7 @@ class LoadGame extends React.Component {
                     selectedGame={this.state.selectedGame}
                     changeName={this.changeName}
                     isDisabled={this.isDisabled}
+                    updateTheme={this.updateTheme}
                     theme={this.state.theme}
                 />
             </>

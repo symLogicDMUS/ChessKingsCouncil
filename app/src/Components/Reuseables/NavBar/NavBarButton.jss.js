@@ -95,7 +95,7 @@ const desktopStyleByPage = (currentPage) => {
     }
 };
 
-const getStyle = (screenCase, currentPage) => {
+export const getStyle = (screenCase, currentPage) => {
     switch (screenCase) {
         case 'desktop':
             return desktopStyleByPage(currentPage)
@@ -126,12 +126,9 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         ...text(props.screenCase),
-        /*phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)':{
+        color: themes[props.theme].text_alt2,
+        '@media screen and (max-device-width: 1040px)': {
             color: themes[props.theme].nav_text,
-        },
-        '@media screen and (min-device-width: 1040px)':{
-            color: themes[props.theme].text_alt2,
         },
     }),
     text_hover: props => ({
@@ -140,12 +137,9 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         ...icon(props.screenCase),
-        /*phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)':{
+        color: themes[props.theme].text_alt2,
+        '@media screen and (max-device-width: 1040px)': {
             color: themes[props.theme].nav_text,
-        },
-        '@media screen and (min-device-width: 1040px)':{
-            color: themes[props.theme].text_alt2,
         },
     }),
     icon_hover: props => ({

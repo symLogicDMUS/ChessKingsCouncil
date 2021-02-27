@@ -19,6 +19,7 @@ import {HelpTitle} from "../Reuseables/HelpTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./NewGame.jss";
+import {SavedGames} from "../LoadGame/SavedGames";
 
 
 function NewGame() {
@@ -69,6 +70,10 @@ function NewGame() {
         }
     };
 
+    const updateTheme = (theme) => {
+        setTheme(theme)
+    }
+
     return (
         <>
             <div className={`scrollbar-${theme}`}>
@@ -79,6 +84,7 @@ function NewGame() {
                         screenCase='desktop'
                         helpText={HelpText(fontSize002, theme)}
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
+                        updateTheme={updateTheme}
                         theme={theme}
                     />
                     <Box className={classes.new_game}>
@@ -136,6 +142,7 @@ function NewGame() {
                                 helpText={HelpText(fontSizeW0045, theme)}
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}
+                                updateTheme={updateTheme}
                                 theme={theme}
                             />
                         }

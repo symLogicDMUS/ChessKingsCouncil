@@ -6,9 +6,9 @@ import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {Background} from "../Reuseables/Background";
-import {useStyles} from "./CouncilRules.jss";
+import {doNothing} from "../helpers/doNothing";
 import {themes} from "../styles/themes.jss";
-import {availWidth} from "../helpers/windowMeasurments";
+import {useStyles} from "./CouncilRules.jss";
 
 export function CouncilRules() {
     const classes = useStyles({fontSize: fontSize002});
@@ -33,6 +33,7 @@ export function CouncilRules() {
                     screenCase='desktop'
                     unsavedChanges={false}
                     helpText={[helpText]}
+                    updateTheme={doNothing}
                 />
                 <div className={classes.council_rules}>
                     <Box className={classes.parchment_desktop}>
@@ -121,6 +122,7 @@ export function CouncilRules() {
                                     No help content for this page.
                                 </Typography>
                             ]}
+                            updateTheme={doNothing}
                         />
                     }
                     appBarContent={

@@ -1,16 +1,16 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import MenuItem from "@material-ui/core/MenuItem";
-import {Dropdown} from "../../Reuseables/Dropdown";
+import {MuiDropdown} from "../../Reuseables/MuiDropdown";
 import {dropdownGenStyle, useStyles} from "../NewGame.jss";
 
-export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
+export function PlayAs({setPlayerType, theme, screenCase, children}) {
     const classes = useStyles();
 
     return (
         <Box className={classes.item}>
             <img src={`/Images/text/new game/subtitles/${theme}/Play As.svg`} className={classes.title}/>
-            <Dropdown
+            <MuiDropdown
                 updateParent={setPlayerType}
                 list={[
                     <MenuItem value="None">
@@ -25,7 +25,6 @@ export function PlayAs({setPlayerType, theme, onFocus, screenCase, children}) {
                 theme={theme}
                 label='Play As'
                 inputLabel='Play As'
-                onFocus={onFocus}
                 size={(screenCase === 'desktop') ? 'medium' : 'small'}
                 genStyle={dropdownGenStyle()}
             />

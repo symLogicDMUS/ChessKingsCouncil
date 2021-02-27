@@ -42,6 +42,7 @@ import {
     scroll_table, accordion_style, accordion_added,
 } from "./Customize.jss";
 import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
+import {SavedGames} from "../../LoadGame/SavedGames";
 
 
 class Customize extends React.Component {
@@ -246,6 +247,10 @@ class Customize extends React.Component {
         );
     }
 
+    updateTheme(theme) {
+        this.setState({theme: theme})
+    }
+
     render() {
         return (
             <>
@@ -268,6 +273,7 @@ class Customize extends React.Component {
                                         toggleSub={this.toggleSub}
                                         togglePromo={this.togglePromo}
                                         searchText={this.state.searchText}
+                                        updateTheme={this.updateTheme}
                                         theme={this.state.theme}
                                         style={piece_profiles('desktop')}
                                     />
@@ -330,6 +336,7 @@ class Customize extends React.Component {
                                 helpText={HelpText(fontSize0023, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
+                                updateTheme={this.updateTheme}
                             />
                         </SideBar>
                     </MediaQuery>
@@ -343,6 +350,7 @@ class Customize extends React.Component {
                                     helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
                                     theme={this.state.theme}
+                                    updateTheme={this.updateTheme}
                                 />
                             }
                             spacing={0}

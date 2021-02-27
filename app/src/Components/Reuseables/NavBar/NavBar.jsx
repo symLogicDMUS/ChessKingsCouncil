@@ -1,10 +1,17 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import Box from "@material-ui/core/Box";
 import {HelpButton} from "./HelpButton";
+import {SettingsButton} from "./SettingsButton";
 import {NavBarButton} from "./NavBarButton";
 import {useStyles} from "./NavBar.jss";
 
+/**
+ * children is settings content unique to parent page.
+ *
+ * @param props
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export function NavBar(props) {
 
     const classes = useStyles({currentPage: props.currentPage, screenCase: props.screenCase});
@@ -18,8 +25,8 @@ export function NavBar(props) {
         <>
             <Box className={classes.nav_bar}>
                 <HelpButton
+                    key='Help'
                     pageIcon="help"
-                    key={uuidv4()}
                     theme={props.theme}
                     currentPage={props.currentPage}
                     screenCase={props.screenCase}
@@ -27,12 +34,21 @@ export function NavBar(props) {
                 >
                     {props.helpText}
                 </HelpButton>
+                <SettingsButton
+                    key='MuiSettings-Button'
+                    theme={props.theme}
+                    updateTheme={props.updateTheme}
+                    currentPage={props.currentPage}
+                    screenCase={props.screenCase}
+                >
+                    {props.children}
+                </SettingsButton>
                 <NavBarButton
                     path="/"
+                    key="/"
                     pageName="Home"
                     pageIcon="home"
                     className="home"
-                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -52,10 +68,10 @@ export function NavBar(props) {
                 />
                 <NavBarButton
                     path="/LoadGame"
+                    key="/LoadGame"
                     pageName="Load Game"
                     pageIcon="load-game"
                     className="load_game"
-                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -64,10 +80,10 @@ export function NavBar(props) {
                 />
                 <NavBarButton
                     path="/CreatePiece"
+                    key="/CreatePiece"
                     pageName="Create Piece"
                     pageIcon="create-piece"
                     className="create_piece"
-                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -76,10 +92,10 @@ export function NavBar(props) {
                 />
                 <NavBarButton
                     path="/MyPieces"
+                    key="/MyPieces"
                     pageName="Saved Pieces"
                     pageIcon="my-pieces"
                     className="my_pieces"
-                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -87,11 +103,11 @@ export function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
+                    key='chess-dot-com'
                     path="https://www.chess.com/learn-how-to-play-chess"
                     pageName="Chess Rules"
                     pageIcon="chess-rules"
                     className="chess_rules"
-                    key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -99,11 +115,11 @@ export function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
+                    key="/CouncilRules"
                     path="/CouncilRules"
                     pageName="Council Rules"
                     pageIcon="council-rules"
                     className="council_rules"
-                    key={uuidv4()}
                     isLocalLink={true}
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -111,11 +127,11 @@ export function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
+                    key='github-dot-com'
                     path="https://github.com/symLogicDMUS"
                     pageName="Author Github"
                     pageIcon="author-github"
                     className="author_github"
-                    key={uuidv4()}
                     isLocalLink={false}
                     theme={props.theme}
                     currentPage={props.currentPage}

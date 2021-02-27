@@ -12,6 +12,7 @@ import {piece_profiles, styles} from "./MyPieces.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import "../styles/_backgrounds.scss";
 import {HelpText} from "./HelpText";
+import {SavedGames} from "../LoadGame/SavedGames";
 
 class MyPieces extends React.Component {
     constructor(props) {
@@ -52,6 +53,10 @@ class MyPieces extends React.Component {
         this.setState({searchText: searchText})
     }
 
+    updateTheme(theme) {
+        this.setState({theme: theme})
+    }
+
     render() {
         return (
             <>
@@ -59,6 +64,7 @@ class MyPieces extends React.Component {
                     <NavBar
                         currentPage="MyPieces"
                         theme={this.state.theme}
+                        updateTheme={this.updateTheme}
                         helpText={HelpText(fontSize002, this.state.theme)}
                         helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                         screenCase='desktop'
@@ -95,6 +101,7 @@ class MyPieces extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}
+                                updateTheme={this.updateTheme}
                                 screenCase="mobile"
                             />
                         }

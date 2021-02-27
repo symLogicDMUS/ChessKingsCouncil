@@ -17,12 +17,10 @@ export const close_icon = (fontSize) => ({
 });
 
 export const useStyles = makeStyles({
-
     modal: props => ({
         ...modal,
         zIndex: 8,
     }),
-
     window: props => ({
         fontSize: fontSize002,
         '@media screen and (min-device-width: 1040px)': {

@@ -80,6 +80,7 @@ class CreatePiece extends React.Component {
         this.setPieceImg = this.setPieceImg.bind(this);
         this.updateName = this.updateName.bind(this);
         this.toggleSpan = this.toggleSpan.bind(this);
+        this.updateTheme = this.updateTheme.bind(this);
         this.toggleOffset = this.toggleOffset.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
@@ -321,6 +322,10 @@ class CreatePiece extends React.Component {
         );
     }
 
+    updateTheme(theme) {
+        this.setState({theme: theme})
+    }
+
     render() {
         return (
             <>
@@ -397,12 +402,13 @@ class CreatePiece extends React.Component {
                     >
                         <NavBar
                             currentPage="CreatePiece"
+                            screenCase='desktop'
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            screenCase='desktop'
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
+                            updateTheme={this.updateTheme}
                         />
                     </SideBar>
                 </MediaQuery>
@@ -418,6 +424,7 @@ class CreatePiece extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
+                                updateTheme={this.updateTheme}
                             />
                         }
                         appBarContent={

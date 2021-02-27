@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import { useStyles } from "./MuiInput.jss";
 
-export function Dropdown({
+export function MuiDropdown({
     list,
     theme,
     label,
@@ -14,14 +13,18 @@ export function Dropdown({
     genStyle,
     styleOverride,
     classesObj,
+    fullWidth,
     inputLabel,
     variant,
     inputId,
     selectId,
     labelId,
-    overwrite,
+    overrideItem,
+    defaultValue,
     updateParent,
     onFocus,
+    autoFocus,
+    inputRef
 }) {
     let [selected, setSelected] = useState("");
     const classes = useStyles({
@@ -31,33 +34,31 @@ export function Dropdown({
         theme: theme,
     });
 
-    const overrideItem = (
-        <MenuItem value="None">
-            <em>None</em>
-        </MenuItem>
-    );
-
     const handleChange = (e) => {
         setSelected(e.target.value);
         if (updateParent) updateParent(e.target.value);
     };
 
     return (
-        <FormControl variant={variant} className={classes.input}>
+        <FormControl variant={variant} className={classes.input} fullWidth={fullWidth}>
             <InputLabel id={inputId}>
                 {inputLabel}
             </InputLabel>
             <Select
                 onFocus={onFocus}
+                inputRef={inputRef}
                 onChange={handleChange}
                 className={classes.field}
                 classes={classesObj}
-                value={overwrite ? overrideItem : selected}
+                value={overrideItem ? overrideItem : selected}
                 size={size}
                 label={label}
                 id={selectId}
                 labelId={labelId}
                 variant={variant}
+                fullWidth={fullWidth}
+                defaultValue={defaultValue}
+                autoFocus={autoFocus}
             >
                 {list}
             </Select>

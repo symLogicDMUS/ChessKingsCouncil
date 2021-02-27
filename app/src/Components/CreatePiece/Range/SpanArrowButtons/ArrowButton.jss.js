@@ -1,8 +1,6 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../../styles/themes.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
-import {fontSize002} from "../../../styles/fontSizes.jss";
-import {getBoardSize} from "../../Board/CreatePieceBoard.jss";
 import {drawerWidth} from "../../../Reuseables/PermanentDrawer.jss";
 
 const container = (angle, theme) => ({
@@ -28,16 +26,16 @@ const container = (angle, theme) => ({
 export const useStyles = makeStyles({
     container_normal: props => ({
         ...container(props.angle, props.theme),
-        backgroundColor: '#414141',
+        backgroundColor: themes[props.theme].button_fill,
         '&:hover': {
-            backgroundColor: '#707070'
+            backgroundColor: themes[props.theme].text_alt,
         },
     }),
     container_selected: props => ({
         ...container(props.angle, props.theme),
-        backgroundColor: '#ec2525',
+        backgroundColor: themes[props.theme].span,
         '&:hover': {
-            backgroundColor: '#ec2525'
+            backgroundColor: themes[props.theme].span,
         },
     }),
     arrow_button: props => ({

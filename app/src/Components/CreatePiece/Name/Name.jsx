@@ -25,6 +25,7 @@ export function Name({updateName, theme, defaultValue, screenCase}) {
                 label='Piece Name'
                 defaultValue={defaultValue}
                 autoComplete="off"
+                autoFocus={true}
                 variant="outlined"
                 id="game-name"
             />
