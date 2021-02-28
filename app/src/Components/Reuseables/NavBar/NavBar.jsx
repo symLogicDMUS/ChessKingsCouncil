@@ -41,7 +41,7 @@ export function NavBar(props) {
                     currentPage={props.currentPage}
                     screenCase={props.screenCase}
                 >
-                    {props.children}
+                    {props.additionalSettings}
                 </SettingsButton>
                 <NavBarButton
                     path="/"

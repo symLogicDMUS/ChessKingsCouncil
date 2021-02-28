@@ -5,7 +5,6 @@ import Select from "@material-ui/core/Select";
 import { useStyles } from "./MuiInput.jss";
 
 export function MuiDropdown({
-    list,
     theme,
     label,
     size,
@@ -24,7 +23,8 @@ export function MuiDropdown({
     updateParent,
     onFocus,
     autoFocus,
-    inputRef
+    inputRef,
+    children,
 }) {
     let [selected, setSelected] = useState("");
     const classes = useStyles({
@@ -60,7 +60,7 @@ export function MuiDropdown({
                 defaultValue={defaultValue}
                 autoFocus={autoFocus}
             >
-                {list}
+                {children}
             </Select>
         </FormControl>
     );

@@ -20,20 +20,30 @@ class MyPieces extends React.Component {
         this.state = {
             theme: "dark",
             fetched: false,
+            binaryValue: true,
             searchText: ''
         };
         this.defs = {};
         this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
+        this.setDefs = this.setDefs.bind(this);
         this.updateTheme = this.updateTheme.bind(this);
         this.updateSearchText = this.updateSearchText.bind(this);
-        this.setDefs = this.setDefs.bind(this);
-        this.setDefs();
+        this.setDefs()
     }
 
     componentDidMount() {
         document.body.className = "dark-background";
-        this.setDefs();
     }
+
+    componentDidUpdate() {
+        document.body.className = `${this.state.theme}-background`;
+        this.setDefs()
+    }
+
+    // setDefs(defs) {
+    //     this.defs = defs;
+    //     this.setState({binaryValue: ! this.state.binaryValue})
+    // }
 
     setDefs() {
         getDefs().then(([defs]) => {
@@ -47,7 +57,7 @@ class MyPieces extends React.Component {
                 this.defs = {};
             }
             this.setState({fetched: true});
-        });
+        })
     }
 
     updateSearchText(searchText) {
@@ -69,6 +79,7 @@ class MyPieces extends React.Component {
                         helpText={HelpText(fontSize002, this.state.theme)}
                         helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
                         screenCase='desktop'
+                        additionalSettings={null}
                     />
                     <div className={this.props.classes.my_pieces}>
                         {this.state.fetched && (
@@ -77,6 +88,7 @@ class MyPieces extends React.Component {
                                 defs={this.defs}
                                 parentPage="MyPieces"
                                 theme={this.state.theme}
+                                // updateParent={this.setDefs}
                                 searchText={this.state.searchText}
                             >
                                 <ProfilesTitle
@@ -104,6 +116,7 @@ class MyPieces extends React.Component {
                                 theme={this.state.theme}
                                 updateTheme={this.updateTheme}
                                 screenCase="mobile"
+                                additionalSettings={null}
                             />
                         }
                         appBarContent={<Typography variant='h6' noWrap>My Pieces</Typography>}
@@ -116,6 +129,7 @@ class MyPieces extends React.Component {
                                     defs={this.defs}
                                     theme={this.state.theme}
                                     searchText={this.state.searchText}
+                                    // updateParent={this.setDefs}
                                     style={piece_profiles()}
                                 >
                                     <ProfilesTitle

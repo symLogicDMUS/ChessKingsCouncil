@@ -95,6 +95,10 @@ class Customize extends React.Component {
         document.body.className = "dark-background";
     }
 
+    componentDidUpdate() {
+        document.body.className = `${this.state.theme}-background`;
+    }
+
     setDefs(defs) {
         this.defs = defs;
         this.setState({binaryValue: !this.state.binaryValue});
@@ -337,6 +341,7 @@ class Customize extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
                                 updateTheme={this.updateTheme}
+                                additionalSettings={null}
                             />
                         </SideBar>
                     </MediaQuery>
@@ -351,6 +356,7 @@ class Customize extends React.Component {
                                     redirectMessage={null}
                                     theme={this.state.theme}
                                     updateTheme={this.updateTheme}
+                                    additionalSettings={null}
                                 />
                             }
                             spacing={0}

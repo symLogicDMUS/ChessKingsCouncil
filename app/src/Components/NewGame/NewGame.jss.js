@@ -2,6 +2,7 @@ import {makeStyles} from "@material-ui/core/styles"
 import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
 import {viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {fontSize012, fontSize0018, fontSizeW015,} from "../styles/fontSizes.jss";
+import {themes} from "../styles/themes.jss";
 
 export const fontSizes = {
     desktop: fontSize012,
@@ -11,6 +12,25 @@ export const fontSizes = {
 export const dropdownGenStyle = () => ({
     width: '58%'
 });
+
+export const inputStyle = (theme) => ({
+    root: {
+        normal: {color: themes[theme].text_alt3},
+        hover: {color: themes[theme].text_alt3},
+        focused: {color: themes[theme].text_alt3},
+    },
+    outline: {
+        normal: {color: themes[theme].text_alt3},
+        hover: {color: themes[theme].text_alt3},
+        focused: {color: themes[theme].text_alt3},
+    },
+    text: {
+        normal: {color: themes[theme].text_alt3},
+        hover: {color: themes[theme].text_alt3},
+        focused: {color: themes[theme].text_alt3},
+
+    },
+})
 
 export const useStyles = makeStyles({
     new_game: props => ({

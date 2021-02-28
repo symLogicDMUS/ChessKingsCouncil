@@ -86,6 +86,7 @@ function NewGame() {
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                         updateTheme={updateTheme}
                         theme={theme}
+                        additionalSettings={null}
                     />
                     <Box className={classes.new_game}>
                         <GameName
@@ -144,6 +145,7 @@ function NewGame() {
                                 redirectMessage={null}
                                 updateTheme={updateTheme}
                                 theme={theme}
+                                additionalSettings={null}
                             />
                         }
                         appBarContent={

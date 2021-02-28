@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {MuiTextField} from "../../Reuseables/MuiTextField";
-import {useStyles} from "../NewGame.jss";
+import {inputStyle, useStyles} from "../NewGame.jss";
 
 export function GameName({setGameName, theme, screenCase}) {
     const classes = useStyles();
@@ -17,6 +17,7 @@ export function GameName({setGameName, theme, screenCase}) {
                     variant="outlined"
                     fullWidth={true}
                     size={(screenCase === 'desktop') ? 'medium' : 'small'}
+                    style={inputStyle(theme)}
                 />
             </Box>
     );

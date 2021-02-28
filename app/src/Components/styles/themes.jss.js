@@ -8,6 +8,7 @@ export const themes = {
         text: '#a9a9a9',
         text_alt: '#707070',
         text_alt2: '#252525',
+        text_alt3: '#aaaaaa',
         nav_text: '#a9a9a9',
         button_fill: '#414141',
         button_text: '#a9a9a9',
@@ -52,6 +53,7 @@ export const themes = {
         text: '#d7bb99',
         text_alt: '#edc9a2ff',
         text_alt2: '#d7bb99',
+        text_alt3: '#111111',
         nav_text: '#d7be9b',
         button_fill: '#1b1b1b',
         button_text: '#d7bb99',
@@ -74,6 +76,35 @@ export const themes = {
         page_link: '#000000',
         page_link_hover: '#ffffff',
     },
+    star_wars: {
+        outline: '#2b2b2b',
+        fill: '#000000',
+        text: '#f6b601',
+        text_alt: '#ffe81e',
+        text_alt2: 'goldenrod',
+        text_alt3: '#fcbb04',
+        nav_text: 'gold',
+        button_fill: '#1b1b1b',
+        button_text: '#f6b601',
+        button_hover_fill: '#2b2b2b',
+        button_hover_text: '#28ded3',
+        location_button_selected: '#4b6eaf',
+        modal_fill: '#111111',
+        img_border: '#f6b601',
+        even_row: '#1b1b1b',
+        odd_row: '#252525',
+        span: '#c60116',
+        offset: '#990606',
+        light_normal: '#ffe81e',
+        dark_normal: 'rgba(0, 0, 0, 0)',
+        light_in_range: '#fff172',
+        dark_in_range: 'rgba(255, 255, 255, 0.4)',
+        sqr_hover: '#60a8f0',
+        input_label: '#f6b601',
+        input_outline: '#f6b601',
+        page_link: '#ffe81e',
+        page_link_hover: '#60a8f0',
+    },
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:
      * 'cannot read property foo of undefined'
@@ -90,7 +121,20 @@ export const themes = {
     }
 };
 
-export const themesList = [
+export const themeList = [
+    'dark',
+    'tan',
+]
+
+export const specialThemeList = [
+    'star_wars'
+]
+
+export const themesMenuItemList = [
     <MenuItem value="dark">dark</MenuItem>,
     <MenuItem value="tan">tan</MenuItem>,
 ];
+
+export const specialThemeMenuItemList = [
+    <MenuItem value="star_wars">star wars</MenuItem>,
+]

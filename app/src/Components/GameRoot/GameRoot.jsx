@@ -41,7 +41,8 @@ import {getPieceImg} from "../MyPieces/getPieceImg";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {accordion_root, styles} from "./GameRoot.jss";
 import {doNothing} from "../helpers/doNothing";
-import {SavedGames} from "../LoadGame/SavedGames";
+import {MuiDropdown} from "../Reuseables/MuiDropdown";
+import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -361,6 +362,17 @@ class GameRoot extends React.Component {
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
                             theme={this.state.theme}
+                            additionalSettings={
+                                <MuiDropdown
+                                    theme={this.state.theme}
+                                    updateParent={this.updateTheme}
+                                    variant='outlined'
+                                    fullWidth={true}
+                                    label='franchise theme'
+                                >
+                                    {specialThemeMenuItemList}
+                                </MuiDropdown>
+                            }
                         />
                     </SideBar>
                 </MediaQuery>
@@ -377,6 +389,17 @@ class GameRoot extends React.Component {
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
+                                additionalSettings={
+                                    <MuiDropdown
+                                        theme={this.state.theme}
+                                        updateParent={this.updateTheme}
+                                        variant='outlined'
+                                        fullWidth={true}
+                                        label='special theme'
+                                    >
+                                        {specialThemeMenuItemList}
+                                    </MuiDropdown>
+                                }
                             />
                         }
                         appBarContent={

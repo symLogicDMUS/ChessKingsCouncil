@@ -416,6 +416,7 @@ class CreatePiece extends React.Component {
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
+                            additionalSettings={null}
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
                         />
@@ -428,12 +429,13 @@ class CreatePiece extends React.Component {
                             <NavBar
                                 currentPage="CreatePiece"
                                 screenCase='mobile'
-                                theme={this.state.theme}
                                 redirectMessage={messageStr}
                                 helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
+                                theme={this.state.theme}
+                                additionalSettings={null}
                             />
                         }
                         appBarContent={

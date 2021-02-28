@@ -34,6 +34,7 @@ export function SavedGames(props) {
                     updateTheme={props.updateTheme}
                     helpText={HelpText(fontSize002, props.theme)}
                     helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
+                    additionalSettings={null}
                 />
                 <Portal>
                     <div className={`scrollbar-${props.theme}`}>
@@ -78,6 +79,7 @@ export function SavedGames(props) {
                             helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
                             updateTheme={props.updateTheme}
                             theme={props.theme}
+                            additionalSettings={null}
                         />
                     }
                     appBarContent={
