@@ -15,11 +15,12 @@ import {reducer} from "./reducers/DropLayer.red";
 import {getStartingPieces} from "./getStartingPieces";
 import {OVER} from "../../helpers/gStatusTypes";
 import {useStyles} from "./DropLayer.jss";
+import {idDict} from "../../../game_logic/testObjects/standardIdDict";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-const DropLayer = ({gameRoot, sqrSize, boardSize}) => {
+const DropLayer = ({gameRoot, sqrSize, boardSize, theme}) => {
     const [state, dispatch] = useReducer(
         reducer,
         {pieces: getStartingPieces(gameRoot, sqrSize), isPromo: false, aiDisplay: false, hiddenPiece: null}
@@ -74,6 +75,10 @@ const DropLayer = ({gameRoot, sqrSize, boardSize}) => {
             gameRoot.save(state.pieces)
         }
     }, [gameRoot.state.saveProcess])
+
+    useEffect(() => {
+        dispatch({type: 'update-imgs', theme: theme, idDict: idDict})
+    }, [theme])
 
     const aiMoveComponent = (aiStart, aiDest, sqrSize) => {
         let [destX, destY] = rfToXy(aiDest);

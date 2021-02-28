@@ -1,5 +1,7 @@
 import { copy } from "../../../helpers/copy";
 import { getPieceImg } from "../../../MyPieces/getPieceImg";
+import {specialThemeList} from "../../../styles/themes.jss";
+import {getFranchisePieceImg} from "../../../MyPieces/getFranchisePieceImg";
 
 /**
  * dropLayer for the game board
@@ -40,6 +42,15 @@ export function reducer(state, action) {
             return {...state, aiDisplay: true, hiddenPiece: action.board[action.aiStart]}
         case 'ai-finish':
             return {...state, aiDisplay: false, hiddenPiece: null}
+        case 'update-imgs':
+            if (! specialThemeList.includes(action.theme)) {
+                return state;
+            }
+            pieces = copy(state.pieces);
+            for (const pieceId of Object.keys(pieces)) {
+                pieces[pieceId] = {...pieces[pieceId], src: getFranchisePieceImg(action.theme, pieceId, action.idDict)}
+            }
+            return {...state, pieces: pieces}
         default:
             throw new Error();
     }

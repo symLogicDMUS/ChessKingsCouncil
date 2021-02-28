@@ -98,7 +98,7 @@ export const themes = {
         light_normal: '#ffe81e',
         dark_normal: 'rgba(0, 0, 0, 0)',
         light_in_range: '#fff172',
-        dark_in_range: 'rgba(255, 255, 255, 0.4)',
+        dark_in_range: 'rgba(255, 241, 114, 0.5)',
         sqr_hover: '#60a8f0',
         input_label: '#f6b601',
         input_outline: '#f6b601',
@@ -136,5 +136,5 @@ export const themesMenuItemList = [
 ];
 
 export const specialThemeMenuItemList = [
-    <MenuItem value="star_wars">star wars</MenuItem>,
+    <MenuItem value="star_wars">star_wars</MenuItem>,
 ]

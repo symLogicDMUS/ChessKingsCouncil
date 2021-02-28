@@ -18,6 +18,7 @@ export const Board = ({ gameRoot }) => {
                         gameRoot={gameRoot}
                         sqrSize={sqrSizes.desktop}
                         boardSize={boardSizes.desktop}
+                        theme={gameRoot.state.theme}
                     />
                     <DragLayer
                         gameRoot={gameRoot}
@@ -39,6 +40,7 @@ export const Board = ({ gameRoot }) => {
                         gameRoot={gameRoot}
                         sqrSize={sqrSizes.mobile}
                         boardSize={boardSizes.mobile}
+                        theme={gameRoot.state.theme}
                     />
                     <DragLayer
                         gameRoot={gameRoot}
