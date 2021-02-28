@@ -29,10 +29,6 @@ export const useStyles = makeStyles({
             width: widths.desktop,
             height: heights.desktop,
         },
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'center',
         fontSize: fontSize002,
         borderRadius: '0.3em',
         backgroundColor: themes[props.theme].fill,
@@ -40,13 +36,17 @@ export const useStyles = makeStyles({
     }),
     settings: props => ({
         '@media screen and (max-device-width: 1040px)': {
-            width: widths.mobile*0.95,
-            height: heights.mobile*0.95,
+            width: widths.mobile*0.925,
+            height: heights.mobile*0.87,
         },
         '@media screen and (min-device-width: 1040px)': {
-            width: widths.desktop*0.95,
-            height: heights.desktop*0.95,
+            width: widths.desktop*0.925,
+            height: heights.desktop*0.87,
         },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
         margin: 'auto',
     }),
     input: (props) => ({
@@ -57,8 +57,13 @@ export const useStyles = makeStyles({
     }),
     close_icon_flexbox: props => ({
         width: '100%',
-        fontSize: fontSize002,
-        height: '1.5em',
+        /*media query for phones/tablets (generalized)*/
+        '@media screen and (max-device-width: 1040px)': {
+            height: heights.mobile * 0.08,
+        },
+        '@media screen and (min-device-width: 1040px)': {
+            height: heights.desktop*0.08,
+        },
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

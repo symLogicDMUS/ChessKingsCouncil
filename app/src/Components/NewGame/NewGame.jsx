@@ -19,7 +19,6 @@ import {HelpTitle} from "../Reuseables/HelpTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background";
 import {useStyles} from "./NewGame.jss";
-import {SavedGames} from "../LoadGame/SavedGames";
 
 
 function NewGame() {

@@ -43,6 +43,7 @@ import {accordion_root, styles} from "./GameRoot.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiDropdown} from "../Reuseables/MuiDropdown";
 import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
+import {setStandardImgs} from "../helpers/setStandardImgs";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -244,7 +245,14 @@ class GameRoot extends React.Component {
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
-        const boardImgBase64Str = getBoardImgBase64Str(pieces, this.board);
+        let boardImgBase64Str;
+        if (this.gameType === 'standard' && specialThemeList.includes(this.state.theme)) {
+            const standardPieces = setStandardImgs(copy(pieces), this.idDict)
+            boardImgBase64Str = getBoardImgBase64Str(standardPieces, this.board);
+        }
+        else {
+            boardImgBase64Str = getBoardImgBase64Str(pieces, this.board);
+        }
         const records = this.jsonRecords.getRecords();
         records.pawn_histories = replacePawnIdWithCurrentLoc(
             records.pawn_histories
@@ -340,6 +348,7 @@ class GameRoot extends React.Component {
                         <BoardTool
                             board={this.board}
                             theme={this.state.theme}
+                            gameType={this.gameType}
                             pieceDefs={this.defs}
                             idDict={this.idDict}
                             start={this.aiStart}
@@ -366,9 +375,15 @@ class GameRoot extends React.Component {
                                 <MuiDropdown
                                     theme={this.state.theme}
                                     updateParent={this.updateTheme}
-                                    variant='outlined'
+                                    size='medium'
                                     fullWidth={true}
+                                    variant='outlined'
                                     label='franchise theme'
+                                    inputLabel='franchise theme'
+                                    genStyle={{
+                                        marginTop: 'auto',
+                                        marginBottom: 'auto',
+                                    }}
                                 >
                                     {specialThemeMenuItemList}
                                 </MuiDropdown>
@@ -394,8 +409,14 @@ class GameRoot extends React.Component {
                                         theme={this.state.theme}
                                         updateParent={this.updateTheme}
                                         variant='outlined'
+                                        size='small'
                                         fullWidth={true}
-                                        label='special theme'
+                                        label='franchise theme'
+                                        inputLabel='franchise theme'
+                                        genStyle={{
+                                            marginTop: 'auto',
+                                            marginBottom: 'auto',
+                                        }}
                                     >
                                         {specialThemeMenuItemList}
                                     </MuiDropdown>
@@ -460,6 +481,7 @@ class GameRoot extends React.Component {
                                             board={this.board}
                                             theme={this.state.theme}
                                             screenCase='mobile'
+                                            gameType={this.gameType}
                                             allRanges={{
                                                 ...this.ranges,
                                                 ...this.enemyRanges,

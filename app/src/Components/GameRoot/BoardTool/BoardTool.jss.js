@@ -94,10 +94,10 @@ export const useStyles = makeStyles({
         }),
         title: props => ({
             fontSize: fontSize00219,
-            fontFamily: 'Roboto-Light, Roboto',
-            color: themes[props.theme].text,
             height: '1em',
             lineHeight: '0.96em',
+            fontFamily: 'Roboto-Light, Roboto',
+            color: themes[props.theme].text,
         }),
         checkbox_container: props => ({
             flexGrow: 10,

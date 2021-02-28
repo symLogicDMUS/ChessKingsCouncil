@@ -5,10 +5,13 @@ import {MiniSquare as Square} from "./MiniSquare";
 import {MiniPiece as Piece} from "./MiniPiece";
 import {useStyles} from "./MiniBoard.jss";
 import {isSpecial} from "../../helpers/isSpecial";
+import {specialThemeList} from "../../styles/themes.jss";
+import {getFranchisePieceImg} from "../../MyPieces/getFranchisePieceImg";
 
 export function MiniBoard({
                               theme,
                               screenCase,
+                              gameType,
                               board,
                               idDict,
                               pieceDefs,
@@ -24,6 +27,7 @@ export function MiniBoard({
         let id;
         let color;
         let pieceName;
+        let pieceImgBase64Str;
         const squares = [];
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
@@ -42,6 +46,12 @@ export function MiniBoard({
                 id = board[rf]
                 color = id[0]
                 pieceName = idDict[id[1].toLowerCase()]
+                if (gameType === 'Standard' && specialThemeList.includes(theme)) {
+                    pieceImgBase64Str = getFranchisePieceImg(theme, id, idDict)
+                }
+                else {
+                    pieceImgBase64Str = getPieceImg(id, idDict, pieceDefs)
+                }
                 squares.push(
                     <Square
                         rf={rf}
@@ -51,12 +61,14 @@ export function MiniBoard({
                         isHighlight={rangeBoard[rf]}
                     >
                         <Piece
-                            key={board[rf]}
                             rf={rf}
+                            key={board[rf]}
                             selectedSqr={selectedSqr}
                             pieceName={pieceName}
                             color={color}
-                            def={isSpecial(pieceName) ? null : pieceDefs[pieceName][color]}
+                            def={isSpecial(pieceName) ? null :
+                                pieceDefs[pieceName][color]
+                            }
                             isSpecial={isSpecial(pieceName)}
                             openProfile={() => {
                                 parentDispatch({
@@ -76,11 +88,7 @@ export function MiniBoard({
                                 })
                                 toggleSecondaryDrawer(false)
                             }}
-                            pieceImgBase64Str={getPieceImg(
-                                board[rf],
-                                idDict,
-                                pieceDefs
-                            )}
+                            pieceImgBase64Str={pieceImgBase64Str}
                             screenCase={screenCase}
                             theme={theme}
                         />

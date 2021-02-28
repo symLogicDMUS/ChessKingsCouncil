@@ -7,16 +7,19 @@ import CheckBoxOutlineBlankIcon from
         "@material-ui/icons/CheckBoxOutlineBlank";
 import {getBinaryBoarAllFalse} from
         "../../helpers/getBinaryBoardAllFalse";
-import {addRangeImgToDefs} from "./addRangeImgToDefs";
+import {getRangeBoardImgStrs} from
+        "../../PieceProfiles/ProfileWB/getRangeBoardImgStrs";
 import {MiniBoard} from "./MiniBoard";
 import {reducer} from "./BoardTool.red";
 import Checkbox from "@material-ui/core/Checkbox";
 import {show_profiles_root, useStyles} from "./BoardTool.jss";
+import {setNewRangeBoardImgStrs} from "./setNewRangeBoardImgStrs";
 
 export function BoardTool({
     theme,
     board,
     screenCase,
+    gameType,
     allRanges,
     pieceDefs,
     idDict,
@@ -35,7 +38,7 @@ export function BoardTool({
         setShowProfileOnClick(!showProfileOnClick);
     };
 
-    const defs = useMemo(() => addRangeImgToDefs(pieceDefs, theme), [pieceDefs, theme])
+    const defs = useMemo(() => setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs), [pieceDefs, theme])
 
     return (
         <div className={classes.board_tool}>
@@ -49,6 +52,7 @@ export function BoardTool({
             <MiniBoard
                 theme={theme}
                 screenCase={screenCase}
+                gameType={gameType}
                 board={board}
                 idDict={idDict}
                 pieceDefs={defs}

@@ -7,7 +7,6 @@ import DialogContent from "@material-ui/core/DialogContent";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {MuiTextField} from "../../Reuseables/MuiTextField";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {button, useStyles} from "./SaveAs.jss";
 
 export function SaveAs({changeName, save, close, theme}) {
