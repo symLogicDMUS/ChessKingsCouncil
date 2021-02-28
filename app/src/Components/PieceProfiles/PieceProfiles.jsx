@@ -8,7 +8,6 @@ import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {getRangeBoardImgStr} from "./ProfileWB/getRangeBoardImgStr";
 import { dbSampleDefs } from "../../API/apiHelpers/dbSampleDefs";
 import {getSampleDefs} from "../../API/getSampleDefs";
 import { saveDefs } from "../../API/saveDefs";

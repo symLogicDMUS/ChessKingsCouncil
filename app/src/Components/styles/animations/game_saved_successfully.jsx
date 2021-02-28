@@ -1,5 +1,5 @@
-import {motion} from "framer-motion";
 import React from "react";
+import {motion} from "framer-motion";
 
 export const game_saved_successfully = (stroke_variants, fill_variants, callback, theme) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="1767.069" height="165.503" viewBox="0 0 1767.069 165.503">

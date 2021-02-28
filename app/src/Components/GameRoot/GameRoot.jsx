@@ -31,6 +31,7 @@ import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
+import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
@@ -39,11 +40,10 @@ import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
 import {getPieceImg} from "../MyPieces/getPieceImg";
 import {boardSizes} from "../Reuseables/Board.jss";
-import {accordion_root, styles} from "./GameRoot.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiDropdown} from "../Reuseables/MuiDropdown";
-import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 import {setStandardImgs} from "../helpers/setStandardImgs";
+import {accordion_root, styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -56,18 +56,15 @@ class GameRoot extends React.Component {
             secondaryDrawer: false,
         };
         this.unsavedProgress = false;
-        // this.gameName = this.props.location.state.gameName;
-        // this.gameType = this.props.location.state.gameType;
-        // this.playerType = this.props.location.state.playerType;
-        this.gameName = 'hello world';
-        this.gameType = 'Standard';
-        this.playerType = 'W';
+        this.gameName = this.props.location.state.gameName;
+        this.gameType = this.props.location.state.gameType;
+        this.playerType = this.props.location.state.playerType;
         let gameData;
-        // if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
-        //     gameData = this.props.location.state.gameData;
-        // } else {
+        if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
+            gameData = this.props.location.state.gameData;
+        } else {
             gameData = copy(newData);
-        // }
+        }
         this.img = gameData.img;
         this.board = gameData.board;
         this.turn = gameData.color;
@@ -242,16 +239,17 @@ class GameRoot extends React.Component {
     }
 
     save(pieces) {
+        let piecesObj = copy(pieces)
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
         let boardImgBase64Str;
-        if (this.gameType === 'standard' && specialThemeList.includes(this.state.theme)) {
-            const standardPieces = setStandardImgs(copy(pieces), this.idDict)
-            boardImgBase64Str = getBoardImgBase64Str(standardPieces, this.board);
+        if (this.gameType === 'Standard' && specialThemeList.includes(this.state.theme)) {
+            piecesObj = setStandardImgs(piecesObj, this.idDict)
+            boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
         }
         else {
-            boardImgBase64Str = getBoardImgBase64Str(pieces, this.board);
+            boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
         }
         const records = this.jsonRecords.getRecords();
         records.pawn_histories = replacePawnIdWithCurrentLoc(

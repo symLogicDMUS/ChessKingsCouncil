@@ -3,6 +3,10 @@ import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import PanoramaIcon from "@material-ui/icons/Panorama";
+import "../../../styles/scrollbar.scss";
+import {Close} from "../../../Reuseables/Close";
+import {SearchBox} from "../../../Reuseables/SearchBox";
+import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
@@ -10,13 +14,9 @@ import {saveImgDict} from "../../../../API/saveImgDict";
 import {getSampleImgs} from "../../../../API/getSampleImgs";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
 import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
-import {ImgGrid} from "../../../Reuseables/ImgGrid/ImgGrid";
-import {SearchBox} from "../../../Reuseables/SearchBox";
-import {Close} from "../../../Reuseables/Close";
-import "../../../styles/scrollbar.scss";
-import {close_icon, img_grid_root, styles} from "./ChooseModal.jss";
+import {close_icon, img_grid_root, styles} from "./SampleAndSavedImgsModal.jss";
 
-class ChooseModal extends React.Component {
+class SampleAndSavedImgsModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {imgNameChoice: null, searchText: "", loaded: false};
@@ -171,4 +171,4 @@ class ChooseModal extends React.Component {
     }
 }
 
-export default withStyles(styles)(ChooseModal);
+export default withStyles(styles)(SampleAndSavedImgsModal);
