@@ -4,7 +4,7 @@ import {Close} from "../../Reuseables/Close";
 import Typography from "@material-ui/core/Typography";
 import {close_icon, useStyles} from "./NoProfile.jss";
 
-export function NoProfile({pieceName, color, closeProfile, theme}) {
+export function NoProfile({pieceName, pieceImgBase64Str, closeProfile, theme}) {
     const classes = useStyles({theme: theme});
     return (
         <Box className={classes.profile_flexbox}>
@@ -19,9 +19,7 @@ export function NoProfile({pieceName, color, closeProfile, theme}) {
                 <Typography variant='h6'  className={classes.caption}>
                     No profile for {pieceName}
                 </Typography>
-                {pieceName === 'Pawn' ? <img src={`/Images/Pieces/${color}P.svg`} className={classes.inline_piece}/>
-                    : <img src={`/Images/Pieces/${color}K.svg`} className={classes.inline_piece}/>
-                }
+                <img src={pieceImgBase64Str} className={classes.inline_piece}/>
             </Box>
         </Box>
     );

@@ -31,8 +31,8 @@ export function MiniPiece({
                 <Portal>
                     {(isSpecial && rf === selectedSqr) ? (
                         <NoProfile
-                            color={color}
                             pieceName={pieceName}
+                            pieceImgBase64Str={pieceImgBase64Str}
                             screenCase={screenCase}
                             closeProfile={closeProfile}
                             theme={theme}
