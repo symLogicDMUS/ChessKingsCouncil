@@ -1,5 +1,6 @@
 import React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
+import {mechwarrior_theme} from "./mechwarrior_theme";
 
 export const themes = {
     dark: {
@@ -131,6 +132,9 @@ export const themes = {
         variant_stroke_g1: 80,
         variant_stroke_b1: 120,
     },
+    mechwarrior_a_team: mechwarrior_theme,
+    mechwarrior_b_team: mechwarrior_theme,
+
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:
      * 'cannot read property foo of undefined'
@@ -153,7 +157,9 @@ export const themeList = [
 ]
 
 export const specialThemeList = [
-    'star_wars'
+    'star_wars',
+    'mechwarrior_a_team',
+    'mechwarrior_b_team'
 ]
 
 export const themesMenuItemList = [
@@ -163,4 +169,6 @@ export const themesMenuItemList = [
 
 export const specialThemeMenuItemList = [
     <MenuItem value="star_wars">star_wars</MenuItem>,
+    <MenuItem value="mechwarrior_a_team">mechwarrior_a_team</MenuItem>,
+    <MenuItem value="mechwarrior_b_team">mechwarrior_b_team</MenuItem>,
 ]

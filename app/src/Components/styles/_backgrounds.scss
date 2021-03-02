@@ -14,3 +14,17 @@
 .star_wars-background {
     background-image: url("./backgrounds/star_wars.jpg");
 }
+
+.mechwarrior_a_team-background {
+    background-size: cover;
+    background: #a8271a url("./backgrounds/red desert alt.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.mechwarrior_b_team-background {
+    background-size: cover;
+    background: #a8271a url("./backgrounds/red desert.PNG") fixed center center;
+}
