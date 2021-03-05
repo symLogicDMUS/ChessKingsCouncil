@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     accordion_body: props => ({
         flexGrow: 10,
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: themes[props.theme].fill2,
         ...props.style,
     }),
     //when numTabs > 2

@@ -6,6 +6,7 @@ export const themes = {
     dark: {
         outline: '#2b2b2b',
         fill: '#3f3f3f',
+        fill2: '#3f3f3f',
         text: '#a9a9a9',
         text_alt: '#707070',
         text_alt2: '#252525',
@@ -51,6 +52,7 @@ export const themes = {
     tan: {
         outline: '#2b2b2b',
         fill: '#000000',
+        fill2: '#000000',
         text: '#d7bb99',
         text_alt: '#edc9a2ff',
         text_alt2: '#d7bb99',
@@ -93,6 +95,7 @@ export const themes = {
     star_wars: {
         outline: '#f6b601',
         fill: '#000000',
+        fill2: '#000000',
         text: '#f6b601',
         text_alt: '#ffe81e',
         text_alt2: 'goldenrod',
@@ -134,7 +137,52 @@ export const themes = {
     },
     mechwarrior_a_team: mechwarrior_theme,
     mechwarrior_b_team: mechwarrior_theme,
-
+    NBA: {
+        outline: '#ffffff',
+        fill: '#253b73',
+        fill2: '#b52532',
+        text: '#ffffff',
+        text_alt: '#ffffff',
+        text_alt2: '#ffffff',
+        text_alt3: '#ffffff',
+        nav_text: '#ffffff',
+        button_fill: '#253b73',
+        button_text: '#ffffff',
+        button_hover_fill: '#b52532',
+        button_hover_text: '#ffffff',
+        location_button_selected: '#253b73',
+        modal_fill: '#b52532',
+        img_border: '#ffffff',
+        even_row: '#253b73',
+        odd_row: '#b52532',
+        span: '#b52532',
+        span_alt: '#ff0000',
+        offset: '#253b73',
+        light_normal: 'rgba(255, 255, 255, 0.65)',
+        dark_normal: 'rgba(0, 0, 0, 0)',
+        light_in_range: 'rgba(181, 37, 50, 0.3)',
+        dark_in_range: 'rgba(37, 59, 115, 0.3)',
+        sqr_text_light: '#ffffff',
+        sqr_text_dark: '#ffffff',
+        sqr_border: 'rgba(255, 0, 0, 0.6)',
+        sqr_hover: '#ff0000',
+        page_link: '#ffffff',
+        page_link_hover: '#ffffff',
+        input_label: '#ffffff',
+        input_outline: '#ffffff',
+        variant_fill_r0: 157,
+        variant_fill_g0: 80,
+        variant_fill_b0: 226,
+        variant_stroke_r0: 0,
+        variant_stroke_g0: 0,
+        variant_stroke_b0: 255,
+        variant_fill_r1: 236,
+        variant_fill_g1: 37,
+        variant_fill_b1: 37,
+        variant_stroke_r1: 157,
+        variant_stroke_g1: 80,
+        variant_stroke_b1: 120,
+    },
     /**
      * given so that can override styles elsewhere and don't need to worry about errors of the form:
      * 'cannot read property foo of undefined'
@@ -159,7 +207,8 @@ export const themeList = [
 export const specialThemeList = [
     'star_wars',
     'mechwarrior_a_team',
-    'mechwarrior_b_team'
+    'mechwarrior_b_team',
+    'NBA',
 ]
 
 export const themesMenuItemList = [
@@ -171,4 +220,5 @@ export const specialThemeMenuItemList = [
     <MenuItem value="star_wars">star_wars</MenuItem>,
     <MenuItem value="mechwarrior_a_team">mechwarrior_a_team</MenuItem>,
     <MenuItem value="mechwarrior_b_team">mechwarrior_b_team</MenuItem>,
+    <MenuItem value="NBA">NBA</MenuItem>,
 ]

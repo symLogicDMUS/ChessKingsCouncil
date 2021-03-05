@@ -1,9 +1,9 @@
-import { makeStyles } from "@material-ui/core/styles";
-import {fontSize00175, fontSize00184, fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
-import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {themes} from "../../styles/themes.jss";
+import { makeStyles } from "@material-ui/core/styles";
 import {boardSizes} from "../../Reuseables/Board.jss";
+import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {availHeight, viewWidth} from "../../helpers/windowMeasurments";
+import {fontSize00175, fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 
 export const whiteList = () => {
     if (viewWidth() <= 1040) {
@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
         paddingLeft: '0.3em',
         paddingRight: '0.3em',
         color: themes[props.theme].text,
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: themes[props.theme].fill2,
         transform: 'translate(0.65em, -0.65em)',
     }),
     piece_list: props => ({

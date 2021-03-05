@@ -18,5 +18,5 @@ def convert_imgs_to_b4s(dir_path):
 
 if __name__ == '__main__':
     b64_strs = convert_imgs_to_b4s(
-        "C:\\Users\\bjrat\\source\\repos\\Javascript\\ChessKingsCouncil\\app\\public\\Images\\Pieces\\Mechwarrior\\B-Team")
+        "C:\\Users\\bjrat\\source\\repos\\Javascript\\ChessKingsCouncil\\app\\public\\Images\\Pieces\\NBA")
     print(b64_strs.keys())

@@ -1,6 +1,7 @@
 import {star_wars} from "./themes/star_wars";
 import {mechwarrior_a_team} from "./themes/mechwarrior_a_team";
 import {mechwarrior_b_team} from "./themes/mechwarrior_b_team";
+import {NBA} from "./themes/NBA";
 
 export const franchisePieceImgs = {
     star_wars: {
@@ -61,6 +62,32 @@ export const franchisePieceImgs = {
         Pawn: {
             W: mechwarrior_b_team["firemoth-black.svg"],
             B: mechwarrior_b_team["firemoth-black.svg"]
+        },
+    },
+    NBA: {
+        Rook: {
+            W: NBA['jordan-white.png'],
+            B: NBA['jordan-black.png']
+        },
+        Knight: {
+            W: NBA['lebron-white.png'],
+            B: NBA['lebron-black.png']
+        },
+        Bishop: {
+            W: NBA['kobe-white.png'],
+            B: NBA['kobe-black.png']
+        },
+        King: {
+            W: NBA['hoop-white.svg'],
+            B: NBA['hoop-black.svg']
+        },
+        Queen: {
+            W: NBA['goat-white.png'],
+            B: NBA['goat-black.png']
+        },
+        Pawn: {
+            W: NBA['nba-logo-white.svg'],
+            B: NBA['nba-logo-black.svg']
         },
     },
 }

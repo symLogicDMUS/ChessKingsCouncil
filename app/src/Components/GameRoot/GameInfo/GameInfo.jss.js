@@ -1,12 +1,7 @@
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {
-    fontSize002,
-    fontSize0024,
-    fontSize00301
-} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize0024} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {boardSizes} from "../../Reuseables/Board.jss";
 
 export const cell = (theme) => ({
     '@media screen and (max-device-width: 1040px)': {
@@ -26,8 +21,6 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        borderTop: `0.05em solid ${themes[props.theme].outline}`,
-        borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (min-device-width: 1040px)': {
             width: drawerItemWidth,
             marginBottom: '1em',
