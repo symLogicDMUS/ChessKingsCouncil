@@ -11,7 +11,6 @@ export function move(gameRoot, sqrSize, boardSize, id, pieces, start, dest, left
     if(isPiece(gameRoot.captured)) {
         let color = getColor(gameRoot.captured)
         gameRoot.capturedIds[color].push(gameRoot.captured)
-        gameRoot.capturedDict[color].push(pieces[gameRoot.captured].src)
         dispatch({type: "remove", id: gameRoot.captured});
     }
     castleMove(gameRoot, sqrSize, boardSize,  pieces, start, dest, dispatch);

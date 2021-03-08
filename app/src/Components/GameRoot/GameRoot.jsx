@@ -83,10 +83,6 @@ class GameRoot extends React.Component {
         if (!this.capturedIds) this.capturedIds = copy(newData.captured)
         if (!this.capturedIds.W) this.capturedIds.W = []
         if (!this.capturedIds.B) this.capturedIds.B = []
-        this.capturedDict = {
-            W: this.capturedIds.W.map(id => getPieceImg(id, this.idDict, this.defs)),
-            B: this.capturedIds.B.map(id => getPieceImg(id, this.idDict, this.defs)),
-        }
         this.captured = ''
         if (this.playerType === "Test") this.aiColor = "none";
         else if (this.playerType === "W") this.aiColor = "B";
@@ -353,7 +349,14 @@ class GameRoot extends React.Component {
                             triggerRender={this.triggerRender}
                             toggleSecondaryDrawer={doNothing}
                         />
-                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict}/>
+                        <CapturedPieceImages
+                            captured={this.captured}
+                            capturedIds={this.capturedIds}
+                            idDict={this.idDict}
+                            defs={this.defs}
+                            gameType={this.gameType}
+                            theme={this.state.theme}
+                        />
                     </PermanentDrawer>
                     <SideBar
                         drawerType="left"
@@ -495,7 +498,14 @@ class GameRoot extends React.Component {
                                     id: "captured-pieces-mobile",
                                     title: "Captured Pieces",
                                     body: (
-                                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict}/>
+                                        <CapturedPieceImages
+                                            captured={this.captured}
+                                            capturedIds={this.capturedIds}
+                                            idDict={this.idDict}
+                                            defs={this.defs}
+                                            gameType={this.gameType}
+                                            theme={this.state.theme}
+                                        />
                                     ),
                                 },
                             ]}
