@@ -22,7 +22,7 @@ import {fontSize002} from "../styles/fontSizes.jss";
  */
 export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled, altText}) {
 
-    let [modal, setModal] = useState();
+    let [modal, setModal] = useState(false);
 
     return (
         <>
@@ -36,8 +36,8 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                     >
                         <Button
                             onClick={() => {
-                                setModal(false)
                                 onAcceptDelete()
+                                setModal(false)
                             }}
                             style={{...button(fontSize002), marginRight: '1em'}}
                             variant={'contained'}

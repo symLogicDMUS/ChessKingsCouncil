@@ -80,17 +80,17 @@ class GameRoot extends React.Component {
         this.promoChoices = gameData.promos;
         this.enemyRanges = gameData.enemy_ranges;
         this.capturedIds = gameData.captured;
-        if (! this.capturedIds) this.capturedIds = copy(newData.captured)
-        if (! this.capturedIds.W) this.capturedIds.W = []
-        if (! this.capturedIds.B) this.capturedIds.B = []
+        if (!this.capturedIds) this.capturedIds = copy(newData.captured)
+        if (!this.capturedIds.W) this.capturedIds.W = []
+        if (!this.capturedIds.B) this.capturedIds.B = []
         this.capturedDict = {
             W: this.capturedIds.W.map(id => getPieceImg(id, this.idDict, this.defs)),
             B: this.capturedIds.B.map(id => getPieceImg(id, this.idDict, this.defs)),
         }
         this.captured = ''
         if (this.playerType === "Test") this.aiColor = "none";
-        else if (this.playerType === "W") this.aiColor =  "B";
-        else if (this.playerType === "B") this.aiColor =  "W";
+        else if (this.playerType === "W") this.aiColor = "B";
+        else if (this.playerType === "B") this.aiColor = "W";
         if (this.gameType === "council") this.promoChoices.push("King");
         this.aiStart = null;
         this.aiDest = null;
@@ -113,8 +113,7 @@ class GameRoot extends React.Component {
     componentDidUpdate() {
         if (this.state.theme === 'tan') {
             document.body.className = 'tan-background-alt';
-        }
-        else {
+        } else {
             document.body.className = `${this.state.theme}-background`;
         }
     }
@@ -247,8 +246,7 @@ class GameRoot extends React.Component {
         if (this.gameType === 'Standard' && specialThemeList.includes(this.state.theme)) {
             piecesObj = setStandardImgs(piecesObj, this.idDict)
             boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
-        }
-        else {
+        } else {
             boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
         }
         const records = this.jsonRecords.getRecords();
@@ -355,7 +353,7 @@ class GameRoot extends React.Component {
                             triggerRender={this.triggerRender}
                             toggleSecondaryDrawer={doNothing}
                         />
-                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict} />
+                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict}/>
                     </PermanentDrawer>
                     <SideBar
                         drawerType="left"
@@ -370,22 +368,23 @@ class GameRoot extends React.Component {
                             updateTheme={this.updateTheme}
                             theme={this.state.theme}
                             additionalSettings={
-                                <MuiDropdown
-                                    theme={this.state.theme}
-                                    updateParent={this.updateTheme}
-                                    size='medium'
-                                    fullWidth={true}
-                                    variant='outlined'
-                                    label='franchise theme'
-                                    inputLabel='franchise theme'
-                                    genStyle={{
-                                        marginTop: 'auto',
-                                        marginBottom: 'auto',
-                                    }}
-                                >
-                                    {specialThemeMenuItemList}
-                                </MuiDropdown>
-                            }
+                                (this.gameType === 'Standard') ? (
+                                    <MuiDropdown
+                                        theme={this.state.theme}
+                                        updateParent={this.updateTheme}
+                                        size='medium'
+                                        fullWidth={true}
+                                        variant='outlined'
+                                        label='franchise theme'
+                                        inputLabel='franchise theme'
+                                        genStyle={{
+                                            marginTop: 'auto',
+                                            marginBottom: 'auto',
+                                        }}
+                                    >
+                                        {specialThemeMenuItemList}
+                                    </MuiDropdown>
+                                ) : null}
                         />
                     </SideBar>
                 </MediaQuery>
@@ -403,22 +402,23 @@ class GameRoot extends React.Component {
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
                                 additionalSettings={
-                                    <MuiDropdown
-                                        theme={this.state.theme}
-                                        updateParent={this.updateTheme}
-                                        variant='outlined'
-                                        size='small'
-                                        fullWidth={true}
-                                        label='franchise theme'
-                                        inputLabel='franchise theme'
-                                        genStyle={{
-                                            marginTop: 'auto',
-                                            marginBottom: 'auto',
-                                        }}
-                                    >
-                                        {specialThemeMenuItemList}
-                                    </MuiDropdown>
-                                }
+                                    (this.gameType === 'Standard') ? (
+                                        <MuiDropdown
+                                            theme={this.state.theme}
+                                            updateParent={this.updateTheme}
+                                            size='medium'
+                                            fullWidth={true}
+                                            variant='outlined'
+                                            label='franchise theme'
+                                            inputLabel='franchise theme'
+                                            genStyle={{
+                                                marginTop: 'auto',
+                                                marginBottom: 'auto',
+                                            }}
+                                        >
+                                            {specialThemeMenuItemList}
+                                        </MuiDropdown>
+                                    ) : null}
                             />
                         }
                         appBarContent={
@@ -494,8 +494,8 @@ class GameRoot extends React.Component {
                                 {
                                     id: "captured-pieces-mobile",
                                     title: "Captured Pieces",
-                                    body:(
-                                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict} />
+                                    body: (
+                                        <CapturedPieceImages theme={this.state.theme} capturedDict={this.capturedDict}/>
                                     ),
                                 },
                             ]}

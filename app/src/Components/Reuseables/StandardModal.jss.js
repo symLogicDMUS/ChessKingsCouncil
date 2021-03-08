@@ -22,6 +22,7 @@ export const useStyles = makeStyles({
         zIndex: 8,
     }),
     window: props => ({
+        zIndex: 8,
         fontSize: fontSize002,
         '@media screen and (min-device-width: 1040px)': {
             width: availWidth() * 0.333,
@@ -36,6 +37,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     top_flexbox: props => ({
+        zIndex: 8,
         fontSize: fontSize002,
         height: '1.5em',
         display: 'flex',
@@ -45,6 +47,7 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     title: props => ({
+        zIndex: 8,
         fontSize: fontSize002,
         width: '95%',
         marginLeft: '2.5%',
@@ -54,6 +57,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     paragraph: props => ({
+        zIndex: 8,
         display: 'flex',
         width: '95%',
         margin: '2.5%',
@@ -64,6 +68,7 @@ export const useStyles = makeStyles({
         overflow: 'hidden',
     }),
     buttons: props => ({
+        zIndex: 8,
         fontSize: fontSize002,
         width: '100%',
         display: 'flex',

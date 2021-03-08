@@ -9,12 +9,12 @@ import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import { dbSampleDefs } from "../../API/apiHelpers/dbSampleDefs";
+import {getRangeBoardImgStrs} from "./ProfileWB/getRangeBoardImgStrs";
 import {getSampleDefs} from "../../API/getSampleDefs";
 import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
-import {getRangeBoardImgStrs} from "./ProfileWB/getRangeBoardImgStrs";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {

@@ -19,9 +19,9 @@ export function setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs) {
                 }
             }
         }
-        return pieceDefs;
+        return getRangeBoardImgStrs(theme, pieceDefs);
     }
     else {
-        return getRangeBoardImgStrs(theme, pieceDefs)
+        return getRangeBoardImgStrs(theme, pieceDefs);
     }
 }

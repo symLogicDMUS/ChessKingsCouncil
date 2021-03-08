@@ -157,7 +157,7 @@ export const themes = {
         odd_row: '#b52532',
         span: '#b52532',
         span_alt: '#ff0000',
-        offset: '#253b73',
+        offset: '#ff003b',
         light_normal: 'rgba(255, 255, 255, 0.65)',
         dark_normal: 'rgba(0, 0, 0, 0)',
         light_in_range: 'rgba(181, 37, 50, 0.3)',
