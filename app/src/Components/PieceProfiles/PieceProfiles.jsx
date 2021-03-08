@@ -75,7 +75,7 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        key={uuidv4()}
+                        key={pieceName}
                         defs={state.defs}
                         pieceName={pieceName}
                         expand={props.expand}
@@ -83,7 +83,7 @@ export function PieceProfiles(props) {
                         screenCase={screenCase}
                     >
                         <LoadDeleteHeader
-                            key={uuidv4()}
+                            key={pieceName}
                             load={props.load}
                             dispatch={dispatch}
                             pieceName={pieceName}

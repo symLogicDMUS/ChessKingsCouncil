@@ -6,7 +6,7 @@ import {button} from "./StandardModal.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 
 /**
- * motivation is that comes with the 'are you sure yes or no' modal that always occurs
+ * motivation is for the 'are you sure yes or no' modal that always occurs
  * @param onAcceptDelete
  * @param modalTitle
  * @param modalText
