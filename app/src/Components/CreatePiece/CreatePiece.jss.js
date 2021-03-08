@@ -88,6 +88,11 @@ export const tool_title = (theme) => ({
     marginBottom: '2.5%',
 })
 
+export const sqrTextCheckbox = () => ({
+        marginLeft: 0,
+        flexDirection: 'row-reverse',
+});
+
 export const styles = {
     modal: {
         ...modal,

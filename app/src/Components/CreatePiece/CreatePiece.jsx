@@ -19,6 +19,7 @@ import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import MuiAccordion from "../Reuseables/MuiAccordion";
+import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
@@ -33,7 +34,7 @@ import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {DrawerContent} from "../Reuseables/DrawerContent";
 import {getBoardSize} from "./Board/CreatePieceBoard.jss";
-import {accordion_root, app_bar_title, styles} from "./CreatePiece.jss";
+import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
 
 
 class CreatePiece extends React.Component {
@@ -47,6 +48,8 @@ class CreatePiece extends React.Component {
             theme: "dark",
             binaryValue: 0,
             justSaved: false,
+            showSpanText: true,
+            showOffsetText: true
         };
         this.spans = {
             "90d": false,
@@ -108,8 +111,7 @@ class CreatePiece extends React.Component {
     componentDidUpdate() {
         if (this.state.theme === 'tan') {
             document.body.className = 'tan-background-alt';
-        }
-        else {
+        } else {
             document.body.className = `${this.state.theme}-background`;
         }
     }
@@ -278,9 +280,9 @@ class CreatePiece extends React.Component {
     /**used by the Reset Option button. called by this.eraseRange() and this.clear().*/
     resetOffsetsAndRange() {
         this.spans = {
-            "90d":  false,
-            "45d":  false,
-            "0d":   false,
+            "90d": false,
+            "45d": false,
+            "0d": false,
             "315d": false,
             "270d": false,
             "225d": false,
@@ -347,15 +349,16 @@ class CreatePiece extends React.Component {
                             <DrawerContent>
                                 <Board
                                     key='board'
-                                    theme={this.state.theme}
                                     screenCase='desktop'
-                                    toggleOffset={this.toggleOffset}
-                                    spanDisplays={this.spanDisplays}
-                                    offsets={this.offsetDisplays}
+                                    theme={this.state.theme}
                                     pieceLoc={this.location}
-                                    pieceImgBase64Str={
-                                        this.whiteAndBlackImgs["white"]
-                                    }
+                                    offsets={this.offsetDisplays}
+                                    spanDisplays={this.spanDisplays}
+                                    toggleOffset={this.toggleOffset}
+                                    showSpanText={this.state.showSpanText}
+                                    showOffsetText={this.state.showOffsetText}
+                                    pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+
                                 />
                             </DrawerContent>
                         }
@@ -416,7 +419,26 @@ class CreatePiece extends React.Component {
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
-                            additionalSettings={null}
+                            additionalSettings={
+                                <>
+                                    <MuiCheckbox
+                                        onClick={() => this.setState({showSpanText: ! this.state.showSpanText})}
+                                        defaultChecked={this.state.showSpanText}
+                                        rootStyle={sqrTextCheckbox()}
+                                        theme={this.state.theme}
+                                    >
+                                        Show Span Text
+                                    </MuiCheckbox>
+                                    <MuiCheckbox
+                                        onClick={() => this.setState({showOffsetText: ! this.state.showOffsetText})}
+                                        defaultChecked={this.state.showOffsetText}
+                                        rootStyle={sqrTextCheckbox()}
+                                        theme={this.state.theme}
+                                    >
+                                        Show Offset Text
+                                    </MuiCheckbox>
+                                </>
+                            }
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
                         />
@@ -435,11 +457,30 @@ class CreatePiece extends React.Component {
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
-                                additionalSettings={null}
+                                additionalSettings={
+                                    <>
+                                        <MuiCheckbox
+                                            onClick={() => this.setState({showSpanText: ! this.state.showSpanText})}
+                                            defaultChecked={this.state.showSpanText}
+                                            rootStyle={sqrTextCheckbox()}
+                                            theme={this.state.theme}
+                                        >
+                                            Show Span Text
+                                        </MuiCheckbox>
+                                        <MuiCheckbox
+                                            onClick={() => this.setState({showOffsetText: ! this.state.showOffsetText})}
+                                            defaultChecked={this.state.showOffsetText}
+                                            rootStyle={sqrTextCheckbox()}
+                                            theme={this.state.theme}
+                                        >
+                                            Show Offset Text
+                                        </MuiCheckbox>
+                                    </>
+                                }
                             />
                         }
                         appBarContent={
-                            <Typography variant="h6" noWrap style={pageTitleStyle()} >
+                            <Typography variant="h6" noWrap style={pageTitleStyle()}>
                                 Create Piece
                             </Typography>
                         }

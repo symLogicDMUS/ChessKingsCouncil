@@ -9,16 +9,18 @@ import {useStyles} from "../../Reuseables/Square.jss";
 import {themes} from "../../styles/themes.jss";
 
 export function CreatePieceSquare({
-    rf,
-    theme,
-    pieceLoc,
-    toggleOffset,
-    screenCase,
-    isSpan,
-    isOffset,
-    isLightSqr,
-    children,
-}) {
+                                      rf,
+                                      theme,
+                                      pieceLoc,
+                                      toggleOffset,
+                                      screenCase,
+                                      isSpan,
+                                      isOffset,
+                                      isLightSqr,
+                                      showSpanText,
+                                      showOffsetText,
+                                      children,
+                                  }) {
     const classes = useStyles({
         theme: theme,
         type: "normal",
@@ -37,34 +39,35 @@ export function CreatePieceSquare({
     if (isSpan) {
         return (
             <div className={classes.span} key={rf}>
-                <SpanLabel theme={theme} />
+                {showSpanText ? (<SpanLabel theme={theme}/>) : null}
             </div>
         );
     }
 
-    if (isOffset) {
+if (isOffset)
+    {
         return (
             <div
                 className={classes.offset}
                 onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
                 key={rf}
             >
-                <OffsetLabel
-                    offset={getOffset(rf, pieceLoc)}
-                    theme={theme}
-                    key={uuidv4()}
-                />
+                {showOffsetText ? (
+                    <OffsetLabel
+                        offset={getOffset(rf, pieceLoc)}
+                        theme={theme}
+                    />) : null}
             </div>
         );
     }
 
-    return (
-        <div
-            className={isLightSqr ? classes.light_normal : classes.dark_normal}
-            onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
-            key={rf}
-        >
-            {children}
-        </div>
-    );
+return (
+    <div
+        className={isLightSqr ? classes.light_normal : classes.dark_normal}
+        onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
+        key={rf}
+    >
+        {children}
+    </div>
+);
 }

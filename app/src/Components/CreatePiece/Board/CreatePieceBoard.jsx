@@ -15,6 +15,8 @@ export function CreatePieceBoard({
     toggleOffset,
     pieceImgBase64Str,
     screenCase,
+    showSpanText,
+    showOffsetText
 }) {
     const classes = useStyles();
 
@@ -33,6 +35,9 @@ export function CreatePieceBoard({
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
                         screenCase={screenCase}
+                        showSpanText={showSpanText}
+                        showOffsetText={showOffsetText}
+
                     >
                         <Piece
                             key={uuidv4()}
@@ -55,6 +60,8 @@ export function CreatePieceBoard({
                         isOffset={offsets[rf]}
                         pieceLoc={pieceLoc}
                         screenCase={screenCase}
+                        showSpanText={showSpanText}
+                        showOffsetText={showOffsetText}
                     >
                         {null}
                     </Square>

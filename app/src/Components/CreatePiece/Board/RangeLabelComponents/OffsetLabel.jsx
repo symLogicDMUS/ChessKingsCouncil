@@ -2,9 +2,9 @@ import React from "react";
 import {Typography} from "@material-ui/core";
 import {useStyles} from "./SquareText.jss";
 
-export function OffsetLabel({offset}) {
+export function OffsetLabel({offset, theme}) {
 
-    const classes = useStyles()
+    const classes = useStyles({theme: theme})
 
     let xSign = null;
     let ySign = null;

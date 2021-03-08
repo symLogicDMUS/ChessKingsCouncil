@@ -2,8 +2,8 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
 
 const checkbox = {
-    width: "1.25em",
-    height: "1.25em",
+    width: "1em", //was 1.25em
+    height: "1em", //was 1.25em
 }
 
 
