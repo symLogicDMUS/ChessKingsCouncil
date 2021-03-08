@@ -544,6 +544,7 @@ class CreatePiece extends React.Component {
                 </MediaQuery>
             </>
         );
+
     }
 }
 

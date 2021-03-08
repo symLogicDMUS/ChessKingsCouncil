@@ -23,14 +23,15 @@ export function PieceProfiles(props) {
     const classes = useStyles({theme: props.theme, style: props.style});
 
     useEffect(() => {
+        let defs;
         getDefs().then(([result]) => {
             if (!result) {
                 saveDefs(dbSampleDefs).then(([r]) => {
-                    let defs = getSampleDefs();
+                    defs = getSampleDefs();
                     afterLoaded(defs)
                 })
             } else {
-                let defs = result;
+                defs = result;
                 afterLoaded(defs)
             }
         });

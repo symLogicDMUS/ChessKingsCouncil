@@ -60,7 +60,7 @@ export const franchisePieceImgs = {
             B: mechwarrior_b_team["direwolf-black.svg"]
         },
         Pawn: {
-            W: mechwarrior_b_team["firemoth-black.svg"],
+            W: mechwarrior_b_team["firemoth-white.svg"],
             B: mechwarrior_b_team["firemoth-black.svg"]
         },
     },

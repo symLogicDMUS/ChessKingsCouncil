@@ -100,7 +100,7 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = defs;
+        this.defs = {...newData.piece_defs, ...defs};
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -121,7 +121,7 @@ class Customize extends React.Component {
      *    are.
      */
     bundleGameData() {
-        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict, piece_defs: {}} //1.
+        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict} //1.
         let name;
         for (const id of Object.keys(this.idDict)) { //2.
             if (id !== 'k' && id !== 'p') {

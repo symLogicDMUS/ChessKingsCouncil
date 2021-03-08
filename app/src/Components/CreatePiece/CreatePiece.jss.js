@@ -25,7 +25,7 @@ export const get2ItemMargins = () => {
     if (viewWidth() > 1040) {
         return drawerWidth*0.15;
     }
-    // return getBoardFontSize() * 0.2;
+    return getBoardFontSize() * 0.2;
 };
 
 export const get2ItemFontSizes = () => {
@@ -33,12 +33,7 @@ export const get2ItemFontSizes = () => {
 };
 
 export const getButtonSize = () => {
-    if (viewWidth() <= 767) {
         return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.1) + getBoardFontSize() * 3)) * 0.5;
-    }
-    if (viewWidth() > 767 && viewWidth() <= 1040) {
-        return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.13) + getBoardFontSize() * 3)) * 0.5;
-    }
 };
 
 export const button = (theme) => ({
