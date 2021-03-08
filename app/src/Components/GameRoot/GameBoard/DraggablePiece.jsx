@@ -6,7 +6,7 @@ import { Piece } from "./Piece";
 import {sqrSizes} from "../../Reuseables/Board.jss";
 
 export const DraggablePiece = (props) => {
-    const { id, src, left, top, setRangeDisplay } = props;
+    const { id, src, left, top } = props;
     let itemType = id.slice(0, 2);
     const [{ isDragging }, drag, preview] = useDrag({
         item: { type: itemType, id, left, top, src },

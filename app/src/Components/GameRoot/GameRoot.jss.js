@@ -52,6 +52,11 @@ export const sqr_text_checkbox = () => ({
     flexDirection: 'row-reverse',
 });
 
+export const franchise_theme_gen = () => ({
+    marginTop: 'auto',
+    marginBottom: 'auto',
+});
+
 export const styles = {
     /**Use .style for page-level components when only property is document.className.body */
     game_root_body: {

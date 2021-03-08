@@ -15,10 +15,10 @@ import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
 import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
 import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
 import {update} from "../../game_logic/callHierarchyTop/update";
-import {Board} from "./GameBoard/Board";
-import {GameInfo} from "./GameInfo/GameInfo";
-import {BoardTool} from "./BoardTool/BoardTool";
 import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
+import {BoardTool} from "./BoardTool/BoardTool";
+import {GameInfo} from "./GameInfo/GameInfo";
+import {Board} from "./GameBoard/Board";
 import {Fen} from "../../game_logic/fenParser/Fen";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
@@ -32,7 +32,9 @@ import PersistentDrawer from "../Reuseables/PersistentDrawer";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
+import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
 import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
@@ -43,7 +45,12 @@ import {doNothing} from "../helpers/doNothing";
 import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/MuiDropdown";
 import {setStandardImgs} from "../helpers/setStandardImgs";
-import {accordion_root, sqr_text_checkbox, styles} from "./GameRoot.jss";
+import {
+    styles,
+    accordion_root,
+    sqr_text_checkbox,
+    franchise_theme_gen,
+} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -314,16 +321,16 @@ class GameRoot extends React.Component {
                             <StatusBar
                                 turn={this.turn}
                                 theme={this.state.theme}
-                                condition={this.gameStatus.condition}
                                 winner={this.gameStatus.winner}
+                                condition={this.gameStatus.condition}
                             />
                         }
                     >
                         <GameInfo
                             gameName={this.gameName}
                             gameType={this.gameType}
-                            playerType={this.playerType}
                             theme={this.state.theme}
+                            playerType={this.playerType}
                         />
                         <SaveResignTool
                             triggerSaveProcess={() =>
@@ -376,17 +383,18 @@ class GameRoot extends React.Component {
                                 <>
                                     {(this.gameType === 'Standard') ? (
                                         <MuiDropdown
-                                            theme={this.state.theme}
                                             updateParent={this.updateTheme}
-                                            size='medium'
+                                            theme={this.state.theme}
                                             fullWidth={true}
+                                            size='medium'
                                             variant='outlined'
                                             label='franchise theme'
                                             inputLabel='franchise theme'
-                                            genStyle={{
-                                                marginTop: 'auto',
-                                                marginBottom: 'auto',
-                                            }}
+                                            inputLabelStyle={
+                                                input_label(this.state.theme)
+                                            }
+                                            genStyle={franchise_theme_gen()}
+                                            overrideItem={getFranchiseThemeOverride(this.state.theme)}
                                         >
                                             {specialThemeMenuItemList}
                                         </MuiDropdown>
@@ -421,17 +429,18 @@ class GameRoot extends React.Component {
                                     <>
                                         {(this.gameType === 'Standard') ? (
                                             <MuiDropdown
-                                                theme={this.state.theme}
                                                 updateParent={this.updateTheme}
-                                                size='medium'
+                                                theme={this.state.theme}
                                                 fullWidth={true}
+                                                size='medium'
                                                 variant='outlined'
                                                 label='franchise theme'
                                                 inputLabel='franchise theme'
-                                                genStyle={{
-                                                    marginTop: 'auto',
-                                                    marginBottom: 'auto',
-                                                }}
+                                                inputLabelStyle={
+                                                    input_label(this.state.theme)
+                                                }
+                                                genStyle={franchise_theme_gen()}
+                                                overrideItem={getFranchiseThemeOverride(this.state.theme)}
                                             >
                                                 {specialThemeMenuItemList}
                                             </MuiDropdown>

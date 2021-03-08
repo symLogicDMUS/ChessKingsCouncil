@@ -77,7 +77,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, theme}) => {
     }, [gameRoot.state.saveProcess])
 
     useEffect(() => {
-        dispatch({type: 'update-imgs', theme: theme, idDict: idDict})
+        dispatch({type: 'update-imgs', idDict: gameRoot.idDict, defs: gameRoot.defs, theme: theme, gameType: gameRoot.gameType})
     }, [theme])
 
     const aiMoveComponent = (aiStart, aiDest, sqrSize) => {

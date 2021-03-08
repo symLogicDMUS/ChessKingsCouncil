@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import { useStyles } from "./MuiInput.jss";
+import {input_label, useStyles} from "./MuiInput.jss";
 
 export function MuiDropdown({
     theme,
@@ -24,6 +24,7 @@ export function MuiDropdown({
     onFocus,
     autoFocus,
     inputRef,
+    inputLabelStyle,
     children,
 }) {
     let [selected, setSelected] = useState("");
@@ -41,7 +42,7 @@ export function MuiDropdown({
 
     return (
         <FormControl variant={variant} className={classes.input} fullWidth={fullWidth}>
-            <InputLabel id={inputId}>
+            <InputLabel id={inputId} style={inputLabelStyle}>
                 {inputLabel}
             </InputLabel>
             <Select

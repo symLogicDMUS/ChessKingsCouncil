@@ -83,9 +83,9 @@ function NewGame() {
                         screenCase='desktop'
                         helpText={HelpText(fontSize002, theme)}
                         helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
+                        additionalSettings={null}
                         updateTheme={updateTheme}
                         theme={theme}
-                        additionalSettings={null}
                     />
                     <Box className={classes.new_game}>
                         <GameName
@@ -143,8 +143,8 @@ function NewGame() {
                                 helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
                                 redirectMessage={null}
                                 updateTheme={updateTheme}
-                                theme={theme}
                                 additionalSettings={null}
+                                theme={theme}
                             />
                         }
                         appBarContent={

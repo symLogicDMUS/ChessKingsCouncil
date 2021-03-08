@@ -1,7 +1,8 @@
-import { copy } from "../../../helpers/copy";
-import { getPieceImg } from "../../../MyPieces/getPieceImg";
+import {copy} from "../../../helpers/copy";
+import {getPieceImg} from "../../../MyPieces/getPieceImg";
 import {specialThemeList} from "../../../styles/themes.jss";
 import {getFranchisePieceImg} from "../../../MyPieces/getFranchisePieceImg";
+import {getStandardPieceImg} from "../../../MyPieces/getStandardPieceImg";
 
 /**
  * dropLayer for the game board
@@ -43,12 +44,25 @@ export function reducer(state, action) {
         case 'ai-finish':
             return {...state, aiDisplay: false, hiddenPiece: null}
         case 'update-imgs':
-            if (! specialThemeList.includes(action.theme)) {
+            if (action.gameType !== 'Standard') {
                 return state;
             }
             pieces = copy(state.pieces);
-            for (const pieceId of Object.keys(pieces)) {
-                pieces[pieceId] = {...pieces[pieceId], src: getFranchisePieceImg(action.theme, pieceId, action.idDict)}
+            if (specialThemeList.includes(action.theme)) {
+                for (const pieceId of Object.keys(pieces)) {
+                    pieces[pieceId] = {
+                        ...pieces[pieceId],
+                        src: getFranchisePieceImg(action.theme, pieceId, action.idDict)
+                    }
+                }
+            }
+            else {
+                for (const pieceId of Object.keys(pieces)) {
+                    pieces[pieceId] = {
+                        ...pieces[pieceId],
+                        src: getPieceImg(pieceId, action.idDict, action.defs)
+                    }
+                }
             }
             return {...state, pieces: pieces}
         default:

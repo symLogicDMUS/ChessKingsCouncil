@@ -21,10 +21,10 @@ export const profileHeight = {
 
 export const fontSizes = {
     desktop: drawerItemWidth * 0.125,
-    mobile: availWidth() * 0.3 * 0.125,
-    ipx: availWidth() * 0.3 * 0.125,
-    short: availWidth() * 0.2 * 0.125,
-    ipad: fontSize002,
+    mobile: availWidth() * 0.4 * 0.125,
+    ipx: availWidth() * 0.4 * 0.125,
+    short: availWidth() * 0.3 * 0.125,
+    ipad: availWidth() * 0.4 * 0.125,
 }
 
 export const show_profiles_root = (screenCase, theme) => {
@@ -45,11 +45,6 @@ export const show_profiles_root = (screenCase, theme) => {
         }
 };
 
-export const show_profiles_label = (screenCase, theme) => ({
-    ...show_profiles_root(screenCase, theme),
-    width: 'unset',
-});
-
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
@@ -59,7 +54,6 @@ export const useStyles = makeStyles({
                 flex: 'nowrap',
                 width: '100%',
                 alignItems: 'center',
-                justifyContent: 'flex-start',
             },
             '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
                 flexDirection: 'row',
@@ -72,7 +66,7 @@ export const useStyles = makeStyles({
                 fontSize: fontSizes.desktop,
                 width: drawerItemWidth,
                 marginLeft: '5%',
-                marginBottom: '10vh',
+                marginBottom: '6vh',
                 height: '8em',
             },
         }),

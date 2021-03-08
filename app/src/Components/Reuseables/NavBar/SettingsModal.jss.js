@@ -1,6 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {outline, root, text} from "../MuiInput.jss";
@@ -14,6 +14,10 @@ const heights = {
     desktop: availHeight() * 0.333,
     mobile: availHeight() * 0.45,
 }
+
+export const input_label = (theme) => ({
+    color: themes[theme].text,
+});
 
 export const useStyles = makeStyles({
     modal: props => ({

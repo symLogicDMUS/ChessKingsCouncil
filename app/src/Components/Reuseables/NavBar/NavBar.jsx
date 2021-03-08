@@ -16,11 +16,6 @@ export function NavBar(props) {
 
     const classes = useStyles({currentPage: props.currentPage, screenCase: props.screenCase});
 
-    let redirectMessage = "If you leave this page you will lose your unsaved work. Do you want to continue?";
-    if (props.redirectMessage) {
-        redirectMessage = props.redirectMessage;
-    }
-
     return (
         <>
             <Box className={classes.nav_bar}>

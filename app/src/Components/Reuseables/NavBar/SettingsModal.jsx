@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import {Close} from "../Close";
 import Box from "@material-ui/core/Box";
 import {MuiDropdown} from "../MuiDropdown";
-import {specialThemeList, themesMenuItemList} from "../../styles/themes.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {close_icon} from "../StandardModal.jss";
-import { useStyles } from "./SettingsModal.jss";
-import {MuiTextField as TextField} from "../MuiTextField";
+import {specialThemeList, themesMenuItemList} from "../../styles/themes.jss";
 import MenuItem from "@material-ui/core/MenuItem";
+import {close_icon} from "../StandardModal.jss";
+import {input_label, useStyles} from "./SettingsModal.jss";
+
 
 export function SettingsModal(props) {
     const classes = useStyles({theme: props.theme});
@@ -37,14 +37,17 @@ export function SettingsModal(props) {
                 </Box>
                 <Box className={classes.settings}>
                     <MuiDropdown
-                        theme={props.theme}
-                        overrideItem={getOverrideItem(props.theme)}
                         updateParent={props.updateTheme}
+                        overrideItem={getOverrideItem(props.theme)}
+                        label='theme'
                         fullWidth={true}
                         autoFocus={true}
                         variant='outlined'
-                        label='theme'
                         inputLabel='theme'
+                        theme={props.theme}
+                        inputLabelStyle={
+                            input_label(props.theme)
+                        }
                         size={(props.screenCase === 'desktop') ? 'medium' : 'small'}
                     >
                         {themesMenuItemList}
