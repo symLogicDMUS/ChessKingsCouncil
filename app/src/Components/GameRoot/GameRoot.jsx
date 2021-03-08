@@ -38,22 +38,23 @@ import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
-import {getPieceImg} from "../MyPieces/getPieceImg";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {doNothing} from "../helpers/doNothing";
+import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/MuiDropdown";
 import {setStandardImgs} from "../helpers/setStandardImgs";
-import {accordion_root, styles} from "./GameRoot.jss";
+import {accordion_root, sqr_text_checkbox, styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             bValue: true,
+            theme: "dark",
             messageModal: false,
             saveProcess: false,
-            theme: "dark",
             secondaryDrawer: false,
+            showProfileOnClick: true,
         };
         this.unsavedProgress = false;
         this.gameName = this.props.location.state.gameName;
@@ -346,6 +347,7 @@ class GameRoot extends React.Component {
                             start={this.aiStart}
                             screenCase='desktop'
                             allRanges={{...this.ranges, ...this.enemyRanges}}
+                            showProfileOnClick={this.state.showProfileOnClick}
                             triggerRender={this.triggerRender}
                             toggleSecondaryDrawer={doNothing}
                         />
@@ -371,23 +373,34 @@ class GameRoot extends React.Component {
                             updateTheme={this.updateTheme}
                             theme={this.state.theme}
                             additionalSettings={
-                                (this.gameType === 'Standard') ? (
-                                    <MuiDropdown
+                                <>
+                                    {(this.gameType === 'Standard') ? (
+                                        <MuiDropdown
+                                            theme={this.state.theme}
+                                            updateParent={this.updateTheme}
+                                            size='medium'
+                                            fullWidth={true}
+                                            variant='outlined'
+                                            label='franchise theme'
+                                            inputLabel='franchise theme'
+                                            genStyle={{
+                                                marginTop: 'auto',
+                                                marginBottom: 'auto',
+                                            }}
+                                        >
+                                            {specialThemeMenuItemList}
+                                        </MuiDropdown>
+                                    ) : null}
+                                    <MuiCheckbox
                                         theme={this.state.theme}
-                                        updateParent={this.updateTheme}
-                                        size='medium'
-                                        fullWidth={true}
-                                        variant='outlined'
-                                        label='franchise theme'
-                                        inputLabel='franchise theme'
-                                        genStyle={{
-                                            marginTop: 'auto',
-                                            marginBottom: 'auto',
-                                        }}
+                                        rootStyle={sqr_text_checkbox()}
+                                        defaultChecked={this.state.showProfileOnClick}
+                                        onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
                                     >
-                                        {specialThemeMenuItemList}
-                                    </MuiDropdown>
-                                ) : null}
+                                        Show Piece Profile on Click (Range Board)
+                                    </MuiCheckbox>
+                                </>
+                            }
                         />
                     </SideBar>
                 </MediaQuery>
@@ -405,23 +418,34 @@ class GameRoot extends React.Component {
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
                                 additionalSettings={
-                                    (this.gameType === 'Standard') ? (
-                                        <MuiDropdown
+                                    <>
+                                        {(this.gameType === 'Standard') ? (
+                                            <MuiDropdown
+                                                theme={this.state.theme}
+                                                updateParent={this.updateTheme}
+                                                size='medium'
+                                                fullWidth={true}
+                                                variant='outlined'
+                                                label='franchise theme'
+                                                inputLabel='franchise theme'
+                                                genStyle={{
+                                                    marginTop: 'auto',
+                                                    marginBottom: 'auto',
+                                                }}
+                                            >
+                                                {specialThemeMenuItemList}
+                                            </MuiDropdown>
+                                        ) : null}
+                                        <MuiCheckbox
                                             theme={this.state.theme}
-                                            updateParent={this.updateTheme}
-                                            size='medium'
-                                            fullWidth={true}
-                                            variant='outlined'
-                                            label='franchise theme'
-                                            inputLabel='franchise theme'
-                                            genStyle={{
-                                                marginTop: 'auto',
-                                                marginBottom: 'auto',
-                                            }}
+                                            rootStyle={sqr_text_checkbox()}
+                                            defaultChecked={this.state.showProfileOnClick}
+                                            onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
                                         >
-                                            {specialThemeMenuItemList}
-                                        </MuiDropdown>
-                                    ) : null}
+                                            Show Piece Profile on Click (Range Board)
+                                        </MuiCheckbox>
+                                    </>
+                                }
                             />
                         }
                         appBarContent={
@@ -481,8 +505,8 @@ class GameRoot extends React.Component {
                                         <BoardTool
                                             board={this.board}
                                             theme={this.state.theme}
-                                            screenCase='mobile'
                                             gameType={this.gameType}
+                                            screenCase='mobile'
                                             allRanges={{
                                                 ...this.ranges,
                                                 ...this.enemyRanges,
@@ -491,6 +515,7 @@ class GameRoot extends React.Component {
                                             idDict={this.idDict}
                                             triggerRender={this.triggerRender}
                                             toggleSecondaryDrawer={this.toggleSecondaryDrawer}
+                                            showProfileOnClick={this.state.showProfileOnClick}
                                         />
                                     ),
                                 },

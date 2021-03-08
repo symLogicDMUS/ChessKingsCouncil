@@ -48,9 +48,16 @@ export const button_content = () => ({
 });
 export const button_text = (theme) => ({
     fontSize: fontSize002,
-    color: themes[theme].outline,
-    marginLeft: '0.5em'
+    marginLeft: '0.5em',
+    color: themes[theme].text_alt2,
+    '@media screen and (max-device-width: 1040px)': {
+        color: themes[theme].nav_text,
+    },
 });
-export const icon = () => ({
-    fontSize: fontSize002
+export const icon = (theme) => ({
+    fontSize: fontSize002,
+    color: themes[theme].text_alt2,
+    '@media screen and (max-device-width: 1040px)': {
+        color: themes[theme].nav_text,
+    },
 });

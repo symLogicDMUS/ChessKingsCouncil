@@ -19,56 +19,59 @@ export function MiniPiece({
                               selectedSqr,
                               openProfile,
                               closeProfile,
+                              pieceImgBase64Str,
+                              showProfileOnClick,
                               screenCase,
                               theme,
-                              pieceImgBase64Str,
                               alt,
                           }) {
     const classes = useStyles({theme: theme});
     return (
         <>
             <MediaQuery maxDeviceWidth={1040}>
-                <Portal>
-                    {(isSpecial && rf === selectedSqr) ? (
-                        <NoProfile
-                            pieceName={pieceName}
-                            pieceImgBase64Str={pieceImgBase64Str}
-                            screenCase={screenCase}
-                            closeProfile={closeProfile}
-                            theme={theme}
-                        />
-                    ) : (
-                        <ProfileWBDrawer
-                            def={def}
-                            color={color}
-                            pieceName={pieceName}
-                            isActive={rf === selectedSqr}
-                            closeProfile={closeProfile}
-                            screenCase={screenCase}
-                            theme={theme}
-                        >
-                            <Box className={classes.piece_header}>
-                                <IconButton onClick={closeProfile} edge='end' className={classes.icon_button}>
-                                    <ChevronRightIcon className={classes.icon} />
-                                </IconButton>
-                                <Typography variant="h6" noWrap className={classes.piece_name}>
-                                    {getColorName(color)} {pieceName}
-                                </Typography>
-                            </Box>
-                            <ProfileWB
+                {showProfileOnClick ? (
+                    <Portal>
+                        {(isSpecial && rf === selectedSqr) ? (
+                            <NoProfile
+                                pieceName={pieceName}
+                                pieceImgBase64Str={pieceImgBase64Str}
+                                screenCase={screenCase}
+                                closeProfile={closeProfile}
+                                theme={theme}
+                            />
+                        ) : (
+                            <ProfileWBDrawer
                                 def={def}
                                 color={color}
-                                theme={theme}
                                 pieceName={pieceName}
+                                isActive={rf === selectedSqr}
+                                closeProfile={closeProfile}
                                 screenCase={screenCase}
-                                hasDrawerParent={true}
-                            />
-                        </ProfileWBDrawer>
-                    )}
-                </Portal>
+                                theme={theme}
+                            >
+                                <Box className={classes.piece_header}>
+                                    <IconButton onClick={closeProfile} edge='end' className={classes.icon_button}>
+                                        <ChevronRightIcon className={classes.icon} />
+                                    </IconButton>
+                                    <Typography variant="h6" noWrap className={classes.piece_name}>
+                                        {getColorName(color)} {pieceName}
+                                    </Typography>
+                                </Box>
+                                <ProfileWB
+                                    def={def}
+                                    color={color}
+                                    theme={theme}
+                                    pieceName={pieceName}
+                                    screenCase={screenCase}
+                                    hasDrawerParent={true}
+                                />
+                            </ProfileWBDrawer>
+                        )}
+                    </Portal>
+                ) : null}
             </MediaQuery>
             <MediaQuery minDeviceWidth={1040}>
-                {(rf === selectedSqr) ? (
+                {(rf === selectedSqr && showProfileOnClick) ? (
                     <Portal>
                         {isSpecial ? (
                             <NoProfile

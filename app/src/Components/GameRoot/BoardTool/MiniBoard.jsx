@@ -19,6 +19,7 @@ export function MiniBoard({
                               allRanges,
                               selectedSqr,
                               parentDispatch,
+                              showProfileOnClick,
                               toggleSecondaryDrawer,
                           }) {
     const classes = useStyles({theme: theme});
@@ -89,6 +90,7 @@ export function MiniBoard({
                                 toggleSecondaryDrawer(false)
                             }}
                             pieceImgBase64Str={pieceImgBase64Str}
+                            showProfileOnClick={showProfileOnClick}
                             screenCase={screenCase}
                             theme={theme}
                         />

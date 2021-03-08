@@ -68,6 +68,9 @@ export const useStyles = makeStyles({
             height: '2em',
         },
         color: themes[props.theme].text,
+        // '&:hover':{
+        //     color: themes[props.theme].button_hover_fill,
+        // },
     }),
     mid: props => ({
         /*media query for phones/tablets (generalized)*/

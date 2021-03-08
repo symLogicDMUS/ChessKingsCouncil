@@ -47,6 +47,10 @@ export const accordion_gen = (screenCase, theme) => {
     }
 };
 
+export const sqr_text_checkbox = () => ({
+    marginLeft: 0,
+    flexDirection: 'row-reverse',
+});
 
 export const styles = {
     /**Use .style for page-level components when only property is document.className.body */

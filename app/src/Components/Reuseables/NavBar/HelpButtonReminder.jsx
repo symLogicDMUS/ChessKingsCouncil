@@ -1,11 +1,14 @@
-import Typography from "@material-ui/core/Typography";
-import {help_text} from "./HelpText.jss";
-import {Button} from "@material-ui/core";
-import {button, button_content, button_text, icon} from "../../CreatePiece/Help/HelpText.jss";
-import Box from "@material-ui/core/Box";
-import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import React from "react";
-import {fontSize002} from "../../styles/fontSizes.jss";
+import Box from "@material-ui/core/Box";
+import {Button} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
+import ContactSupportIcon from "@material-ui/icons/ContactSupport";
+import {help_text} from "./HelpText.jss";
+import {
+    button,
+    button_content,
+    button_text, icon
+} from "../../CreatePiece/Help/HelpText.jss";
 
 export function HelpButtonReminder({fontSize, theme}) {
     return <div>
@@ -14,7 +17,7 @@ export function HelpButtonReminder({fontSize, theme}) {
             option on the NavBar
             <Button style={button(theme)}>
                 <Box style={button_content()}>
-                    <ContactSupportIcon style={icon()}/>
+                    <ContactSupportIcon style={icon(theme)}/>
                     <Typography style={button_text(theme)}>
                         Help
                     </Typography>
