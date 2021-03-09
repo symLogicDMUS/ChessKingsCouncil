@@ -3,11 +3,10 @@ import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
 import {useStyles} from "./Name.jss";
 
 export function Name({updateName, theme, defaultValue, screenCase}) {
-    const [name, setName] = useState("");
     const classes = useStyles({theme: theme})
 
     const handleInput = (e) => {
-        setName(e.target.value)
+        updateName(e.target.value)
     };
 
     let size = 'small';
@@ -16,18 +15,18 @@ export function Name({updateName, theme, defaultValue, screenCase}) {
     }
 
     return (
-        <div className={classes.name} onMouseLeave={() => updateName(name)}>
+        <div className={classes.name}>
             <TextField
-                onChange={handleInput}
                 size={size}
                 theme={theme}
                 fullWidth={true}
                 label='Piece Name'
-                defaultValue={defaultValue}
                 autoComplete="off"
                 autoFocus={true}
                 variant="outlined"
                 id="game-name"
+                onChange={handleInput}
+                defaultValue={defaultValue}
             />
         </div>
     );

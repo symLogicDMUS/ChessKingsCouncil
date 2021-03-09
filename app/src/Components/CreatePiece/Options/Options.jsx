@@ -29,10 +29,10 @@ export function Options({
             <Load theme={theme} load={load}/>
             <Save
                 save={save}
+                theme={theme}
                 whiteImg={whiteImg}
                 blackImg={blackImg}
                 pieceName={pieceName}
-                theme={theme}
             />
             <Reset reset={reset} theme={theme}/>
             <Erase erase={erase} theme={theme}/>

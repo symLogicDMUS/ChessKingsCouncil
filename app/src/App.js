@@ -3,6 +3,12 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {saveDefs} from "./API/saveDefs";
+import {saveImgDict} from "./API/saveImgDict";
+import {dbSampleDefs} from "./API/apiHelpers/dbSampleDefs";
+import {sampleGames} from "./API/apiHelpers/sampleGames";
+import {sampleBase64ImgStrs} from "./API/apiHelpers/sampleBase64ImgStrs";
+import {saveGameDict} from "./API/saveGameDict";
 import {Home} from "./Components/Home/Home";
 import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
 import CreatePiece from "./Components/CreatePiece/CreatePiece";
@@ -13,6 +19,9 @@ import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
 import './App.css';
+import {getDoesUserExists, isNewUser} from "./API/isNewUser";
+import {saveSampleData} from "./API/saveSampleData";
+import {saveUser} from "./API/saveUser";
 
 export class App extends React.Component {
     constructor(props) {
@@ -42,12 +51,18 @@ export class App extends React.Component {
     }
 
     componentDidMount() {
-        // document.body.className = "main-menu-background";
         firebase.auth().onAuthStateChanged((user) => {
             this.setState({isSignedIn: !!user});
             if (user) {
                 var uid = user.uid;
                 this.isAnonymous = user.isAnonymous;
+                getDoesUserExists().then(([userExists]) => {
+                    if (! userExists) {
+                        saveUser().then(r => {
+                            saveSampleData()
+                        })
+                    }
+                })
             } else {
                 this.setState({isSignedIn: false});
             }

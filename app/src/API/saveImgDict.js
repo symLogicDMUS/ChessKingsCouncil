@@ -3,7 +3,7 @@ import "firebase/database";
 import "firebase/auth";
 
 
-async function saveImgDictToDb(imgDict) {
+export async function saveImgDictToDb(imgDict) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     return await firebase.database().ref().child('images').child(uid).update(imgDict)

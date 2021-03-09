@@ -1,4 +1,5 @@
 import React from "react";
+import {v4 as uuidv4} from 'uuid';
 import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
@@ -40,7 +41,7 @@ import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePi
 class CreatePiece extends React.Component {
     constructor(props) {
         super(props);
-        this.name = ""
+        this.name = "";
         this.location = "d4";
         this.textInput = React.createRef();
         this.state = {
@@ -132,6 +133,7 @@ class CreatePiece extends React.Component {
         this.loadedName = copy(name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
+        this.loadedImgs = copy(this.whiteAndBlackImgs)
         this.setState({unsavedChanges: false, loadInstance: this.state.loadInstance + 1});
         this.setLoc("d4");
     }
@@ -164,12 +166,13 @@ class CreatePiece extends React.Component {
         if (!this.loadedName) {
             this.clear();
         } else {
+            this.name = copy(this.loadedName);
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
-            this.name = copy(this.loadedName);
+            this.whiteAndBlackImgs = copy(this.loadedImgs)
             this.setLoc("d4");
         }
-        this.setState({unsavedChanges: false});
+        this.setState({unsavedChanges: false, loadInstance: this.state.loadInstance + 1});
         this.triggerRender();
     }
 
@@ -179,15 +182,9 @@ class CreatePiece extends React.Component {
      * */
     erase() {
         this.resetOffsetsAndRange();
-        if (
-            this.name === "" &&
-            !this.whiteAndBlackImgs.white &&
-            !this.whiteAndBlackImgs.black
-        ) {
-            this.setState({unsavedChanges: false});
-        } else {
-            this.setState({unsavedChanges: true});
-        }
+        this.name = "";
+        this.whiteAndBlackImgs = {white: null, black: null};
+        this.setState({unsavedChanges: false, loadInstance: this.state.loadInstance + 1});
     }
 
     clear() {
@@ -196,7 +193,7 @@ class CreatePiece extends React.Component {
         this.whiteAndBlackImgs = {white: null, black: null};
         this.name = "";
         this.location = "d4";
-        this.setState({unsavedChanges: false});
+        this.setState({unsavedChanges: false, loadInstance: this.state.loadInstance + 1});
     }
 
     /**used by Name tool*/
@@ -397,7 +394,7 @@ class CreatePiece extends React.Component {
                             selectedLoc={this.location}
                         />
                         <Options
-                            key='Options-Desktop'
+                            key="Options-Desktop"
                             load={this.load}
                             save={this.save}
                             reset={this.reset}
@@ -509,7 +506,7 @@ class CreatePiece extends React.Component {
                                     title: 'Name',
                                     body: (
                                         <Name
-                                            key='Name-Mobile'
+                                            key={`Name-Mobile${this.state.loadInstance}`}
                                             defaultValue={this.name}
                                             theme={this.state.theme}
                                             updateName={this.updateName}
