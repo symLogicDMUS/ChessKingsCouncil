@@ -13,8 +13,8 @@ import {getImgDict} from "../../../../API/getImgDict";
 import {saveImgDict} from "../../../../API/saveImgDict";
 import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
-import {close_icon, img_grid_root, styles} from "./SampleAndSavedImgsModal.jss";
 import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
+import {close_icon, img_grid_root, styles} from "./SampleAndSavedImgsModal.jss";
 
 class SampleAndSavedImgsModal extends React.Component {
     constructor(props) {

@@ -27,7 +27,6 @@ export function UploadButton({color, id, setPieceImg, close, theme, style}) {
             function error(err) {},
             function complete() {
                 firebase.storage().ref(`images/${uid}/${file.name}`).getDownloadURL().then(url => {
-                    console.log(url)
                     const imgName = file.name.replace('.', '-')
                     saveImg(imgName, url).then(r => {
                         base64Reader(file)

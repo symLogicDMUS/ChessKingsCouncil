@@ -10,6 +10,7 @@ import "../styles/_backgrounds.scss";
 import {initEmptyRanges} from "../../API/apiHelpers/initEmptyRanges";
 import {offsetStrsToList} from "../../API/apiHelpers/offsetStrsToList";
 import {parseData} from "../../API/apiHelpers/parseData";
+import {sampleGames} from "../../API/apiHelpers/sampleGames/dev1";
 
 class LoadGame extends React.Component {
 
