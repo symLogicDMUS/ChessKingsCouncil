@@ -26,22 +26,3 @@ export function getPathThreats(board, sqr, color, pieceDefs, idDict) {
 }
 
 // module.exports = getPathThreats;
-
-/** for node.js
-if (require.main === module) {
-
-    import {convertOffsetStrsToPairs} from "../apiHelpers/convertOffsetStrsToPairs";
-    import {printBoard} from "../printers/printBoard";
-    import {sampleBoardDicts} from "../testObjects/sampleBoardDicts";
-    import {mapListXyToRf} from "../coordType/mapListXyToRf";
-
-    pieceDefs = getStandardPieceDefs()
-    pieceDefs = convertOffsetStrsToPairs(pieceDefs)
-    idDict = getStandardIdDict()
-    
-    var board = sampleBoardDicts["super_checkmate_impossible_example"];
-    printBoard(board, "\ntest1", mapListXyToRf(getPathThreats(board, [6, 6], 'W', pieceDefs, idDict), null, ["f6"]))
-
-
-}
-*/

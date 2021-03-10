@@ -4,8 +4,6 @@ import {Redirect} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
-import {idAssign} from "../../../apiHelpers/idAssign/top/idAssign";
-import {standardIds} from "../../../apiHelpers/idAssign/standardIds";
 import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
 import {DrawerContent} from "../../Reuseables/DrawerContent";
 import {SubList} from "./SubList";
@@ -43,6 +41,9 @@ import {
 } from "./Customize.jss";
 import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
 import {SavedGames} from "../../LoadGame/SavedGames";
+import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
+import {standardPieceDefs} from "../standardPieceDefs/dev1";
+import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 
 
 class Customize extends React.Component {
@@ -100,7 +101,7 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = {...newData.piece_defs, ...defs};
+        this.defs = {...standardPieceDefs, ...defs};
         this.setState({binaryValue: !this.state.binaryValue});
     }
 
@@ -121,7 +122,7 @@ class Customize extends React.Component {
      *    are.
      */
     bundleGameData() {
-        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict} //1.
+        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict, piece_defs: standardPieceDefs} //1.
         let name;
         for (const id of Object.keys(this.idDict)) { //2.
             if (id !== 'k' && id !== 'p') {

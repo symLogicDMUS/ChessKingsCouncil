@@ -45,36 +45,3 @@ export function valid2SqrJump(board, sqr, color, pawnHist) {
 }
 
 // module.exports = valid2SqrJump;
-
-/** for node.js
-if (require.main === module) {
-
-    import {printBoard} from "../../printers/printBoard";
-    import {sampleBoardDicts} from "../../testObjects/sampleBoardDicts";
-    import {dataDict} from "../../testObjects/dataDicts/dd1"
-    import {replaceRankfileWithPawnId} from "../../apiHelpers/replaceRankfileWithPawnId";
-    import {mapDictListRfToXy} from "../../coordType/mapDictListRfToXy"
-
-    var board = sampleBoardDicts["pawn_range"]
-    var pawnHistories = mapDictListRfToXy(replaceRankfileWithPawnId(board, dataDict["pawn_range"]["json"]["pawn_histories"]))
-    var whiteLocs = [[1, 2], [4, 2], [6, 2], [8, 2], [2, 4], [3, 4], [5, 4], [7, 5]]
-    var blackLocs = [[1, 7], [2, 6], [3, 7], [6, 7], [7, 7], [4, 5], [5, 5], [8, 5]]
-
-
-    for (var sqr of whiteLocs) {
-        if (valid2SqrJump(board, sqr, 'W', pawnHistories))
-            printBoard(board, `${board[xyToRf(...sqr)]}, green: yes, red: no, blue: start square`, null, [xyToRf(sqr[0], sqr[1] + 2)], [xyToRf(...sqr)])
-        else
-            printBoard(board, `${board[xyToRf(...sqr)]}, green: yes, red: no, blue: start square`, [xyToRf(sqr[0], sqr[1] + 2)], null, [xyToRf(...sqr)])
-    }
-
-    for (var sqr of blackLocs) {
-        if (valid2SqrJump(board, sqr, 'B', pawnHistories))
-            printBoard(board, `${board[xyToRf(...sqr)]}, green: yes, red: no, blue: start square`, null, [xyToRf(sqr[0], sqr[1] - 2)], [xyToRf(...sqr)])
-        else
-            printBoard(board, `${board[xyToRf(...sqr)]}, green: yes, red: no, blue: start square`, [xyToRf(sqr[0], sqr[1] - 2)], null, [xyToRf(...sqr)])
-    }
-
-
-}
-*/

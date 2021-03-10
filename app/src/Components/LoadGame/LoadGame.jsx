@@ -2,15 +2,14 @@ import React from "react";
 import {Redirect} from "react-router-dom";
 import {getGames} from "../../API/getGames";
 import {deleteGame} from "../../API/deleteGame";
-import {sampleGames} from "../../API/apiHelpers/sampleGames";
-import {initEmptyRanges} from "../../apiHelpers/initEmptyRanges";
-import {offsetStrsToList} from "../../apiHelpers/offsetStrsToList";
 import {getSampleGames} from "../../API/getSampleGames";
 import { saveGameDict } from "../../API/saveGameDict";
-import {parseData} from "../../apiHelpers/parseData";
 import {SavedGames} from "./SavedGames";
 import {copy} from "../helpers/copy";
 import "../styles/_backgrounds.scss";
+import {initEmptyRanges} from "../../API/apiHelpers/initEmptyRanges";
+import {offsetStrsToList} from "../../API/apiHelpers/offsetStrsToList";
+import {parseData} from "../../API/apiHelpers/parseData";
 
 class LoadGame extends React.Component {
 

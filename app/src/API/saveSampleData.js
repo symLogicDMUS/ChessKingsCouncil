@@ -1,10 +1,10 @@
 import {saveDefsToDb} from "./saveDefs";
 import {saveImgDictToDb} from "./saveImgDict";
 import {saveGameDictToDb} from "./saveGameDict";
-import {sampleGames} from "./apiHelpers/sampleGames";
-import {dbSampleDefs} from "./apiHelpers/dbSampleDefs";
-import {sampleBase64ImgStrs} from "./apiHelpers/sampleBase64ImgStrs";
+import {sampleImgUrls} from "./apiHelpers/sampleImgUrls/dev1";
+import {sampleGames} from "./apiHelpers/sampleGames/dev1";
+import {dbSampleDefs} from "./apiHelpers/sampleDefs/dev1";
 
 export function saveSampleData() {
-    return Promise.all([saveImgDictToDb(sampleBase64ImgStrs), saveGameDictToDb(sampleGames), saveDefsToDb(dbSampleDefs)])
+    return Promise.all([saveImgDictToDb(sampleImgUrls), saveGameDictToDb(sampleGames), saveDefsToDb(dbSampleDefs)])
 }

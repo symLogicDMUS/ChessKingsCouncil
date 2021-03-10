@@ -10,7 +10,7 @@ import {getPins} from "../pins/top/getPins";
 import {convertToRf} from "../coordType/convertToRf"
 import { isEmptyRanges } from "../helpers/isEmptyRanges";
 import { noRanges } from "../fenParser/GameStatus/noRanges";
-import {getAiMove} from "../../apiHelpers/getAiMove";
+
 
 
 export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {

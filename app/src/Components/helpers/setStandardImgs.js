@@ -1,4 +1,4 @@
-import {newData} from "../NewGame/NewData";
+import {newData, standardPieceDefs} from "../NewGame/NewData";
 import {specialPieceImg} from "../MyPieces/specialPieceImg";
 
 /**
@@ -15,7 +15,7 @@ export function setStandardImgs(piecesObj, idDict) {
         if (Object.keys(specialPieceImg).includes(pieceName)) {
             piecesObj[pieceId].src = specialPieceImg[pieceName][color];
         } else {
-            piecesObj[pieceId].src = newData.piece_defs[pieceName][color].img
+            piecesObj[pieceId].src = standardPieceDefs[pieceName][color].img
         }
     }
     return piecesObj;

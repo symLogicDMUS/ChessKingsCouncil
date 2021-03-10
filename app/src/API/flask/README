@@ -1,5 +1,0 @@
-Methods with 'local' in the name, in this folder, are for using a Flask backend during development instead of Firebase,
-so don't have to pay money or use up limited free resources resources of Firebase or other db. Firebase keeps track of
-number bytes read to and from db. Instead, use flask backend which save to local file system, until ready to deploy. Be
-Sure to change the 'mode' parameter for all api calls to 'production' before deployment. 'mode' should always be the
-first parameter.

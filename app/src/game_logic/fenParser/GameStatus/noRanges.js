@@ -1,5 +1,5 @@
-import {filterEmptyRanges} from "../../../apiHelpers/filterEmpyRanges";
 import {isEmptyObject} from "../../helpers/isEmptyObject";
+import {filterEmptyRanges} from "../../../API/apiHelpers/filterEmpyRanges";
 
 
 export function noRanges(ranges) {

@@ -11,10 +11,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
 import {saveImgDict} from "../../../../API/saveImgDict";
-import {getSampleImgs} from "../../../../API/getSampleImgs";
+import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
 import {filterStandardPieces} from "../../../helpers/filterStandardPieces";
-import {sampleBase64ImgStrs} from "../../../../API/apiHelpers/sampleBase64ImgStrs";
 import {close_icon, img_grid_root, styles} from "./SampleAndSavedImgsModal.jss";
+import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
 
 class SampleAndSavedImgsModal extends React.Component {
     constructor(props) {
@@ -29,12 +29,9 @@ class SampleAndSavedImgsModal extends React.Component {
 
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
-            this.imgDict = getSampleImgs();
-            this.imgDict = filterStandardPieces(this.imgDict);
-            this.setState({ loaded: true });
             if (!imgDict) {
-                saveImgDict(sampleBase64ImgStrs).then(([r]) => {
-                    this.imgDict = getSampleImgs();
+                saveImgDict(sampleImgUrls).then(([r]) => {
+                    this.imgDict = getSampleImgUrls();
                     this.imgDict = filterStandardPieces(this.imgDict);
                     this.setState({ loaded: true });
                 })

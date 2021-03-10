@@ -1,35 +1,55 @@
 import React from "react";
 import {Button} from "@material-ui/core";
-import {saveImg} from "../../../API/saveImg";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from "../../Reuseables/MuiButton.jss";
-
+import * as firebase from "firebase";
+import {saveImg} from "../../../API/saveImg";
 
 export function UploadButton({color, id, setPieceImg, close, theme, style}) {
 
     const classes = useStyles({style: style, theme: theme});
 
     const handleChange = (e) => {
-        const files = e.target.files;
-        const currentFile = files[0];
-        const imgName = currentFile.name.replace(".", "-");
-        const myFileItemReader = new FileReader();
+        const user = firebase.auth().currentUser;
+        const uid = user.uid;
 
+        //get file
+        const file = e.target.files[0];
+
+        // Create a storage ref
+        const storageRef = firebase.storage().ref(`images/${uid}`);
+
+        //upload file
+        const task = storageRef.child(`${file.name}`).put(file);
+
+        task.on('state_changed',
+            function progress(snapshot) {},
+            function error(err) {},
+            function complete() {
+                firebase.storage().ref(`images/${uid}/${file.name}`).getDownloadURL().then(url => {
+                    console.log(url)
+                    const imgName = file.name.replace('.', '-')
+                    saveImg(imgName, url).then(r => {
+                        base64Reader(file)
+                    })
+                })
+            }
+        )
+    };
+
+    const base64Reader = (file) => {
+        const myFileItemReader = new FileReader();
+        myFileItemReader.readAsDataURL(file);
         myFileItemReader.addEventListener(
             "load",
             () => {
                 const imgStr = myFileItemReader.result;
-                saveImg(imgName, imgStr).then(([res]) => {
-                    setPieceImg(color, imgStr);
-                    close();
-                });
+                setPieceImg(color, imgStr);
+                close();
             },
             false
         );
-
-        myFileItemReader.readAsDataURL(currentFile);
-    }
+    };
 
     return (
         <Button

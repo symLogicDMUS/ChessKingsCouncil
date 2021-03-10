@@ -1,8 +1,8 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {initEmptyRanges} from "../apiHelpers/initEmptyRanges";
-import {offsetStrsToList} from "../apiHelpers/offsetStrsToList";
+import {initEmptyRanges} from "./apiHelpers/initEmptyRanges";
+import {offsetStrsToList} from "./apiHelpers/offsetStrsToList";
 
 
 async function getPieceDefsFromDb() {

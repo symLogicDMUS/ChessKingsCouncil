@@ -8,7 +8,6 @@ import {OVER} from "../helpers/gStatusTypes";
 import {isPawn} from "../helpers/isPawn";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
-import {gameDefsOffsetListsToStrs} from "../../apiHelpers/gameDefsOffsetListsToStrs";
 import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {kingStartingRf, rookStartingRf} from "../helpers/castleRankfiles";
 import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
@@ -39,7 +38,7 @@ import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
-import {newData} from "../NewGame/NewData";
+import {newData, standardPieceDefs} from "../NewGame/NewData";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
@@ -51,6 +50,7 @@ import {
     sqr_text_checkbox,
     franchise_theme_gen,
 } from "./GameRoot.jss";
+import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class GameRoot extends React.Component {
         if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
             gameData = this.props.location.state.gameData;
         } else {
-            gameData = copy(newData);
+            gameData = {...copy(newData), piece_defs: standardPieceDefs};
         }
         this.img = gameData.img;
         this.board = gameData.board;
