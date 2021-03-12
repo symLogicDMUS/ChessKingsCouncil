@@ -1,27 +1,21 @@
-import React, {useState} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {HelpText} from "./HelpText";
-import {HelpTitle} from "../Reuseables/HelpTitle";
-import {SearchBox} from "../Reuseables/SearchBox";
+import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import StorageIcon from '@material-ui/icons/Storage';
-import {Background} from "../Reuseables/Background";
+import {Background} from "../Reuseables/Background/Background";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {ImgGrid} from "../Reuseables/ImgGrid/ImgGrid";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
+import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {imgGridRootStyle, search_box, useStyles} from "./SavedGames.jss";
-import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
+import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme, fontSize: fontSize002});
-
-    const [searchText, setSearchText] = useState("");
-
-    const updateSearchText = (newText) => {
-        setSearchText(newText)
-    };
 
     return (
         <>
@@ -39,30 +33,31 @@ export function SavedGames(props) {
                 <Portal>
                     <div className={`scrollbar-${props.theme}`}>
                         <div className={classes.flexbox}>
-                            <ImgGrid
+                            <MuiGrid
                                 title={
                                     <>
                                         <Box className={classes.title_box}>
                                             <Typography className={classes.title}>Load Game</Typography>
                                             <StorageIcon className={classes.title_icon} size="large"/>
                                         </Box>
-                                        <SearchBox updateSearchText={updateSearchText} theme={props.theme}/>
+                                        <SearchBox updateSearchText={props.updateSearchText} theme={props.theme}/>
                                     </>
                                 }
                                 onClose={null}
                                 topFlexbox={null}
                                 theme={props.theme}
-                                defaultChecked={true}
-                                rootStyle={imgGridRootStyle()}
-                                searchText={searchText}
                                 loaded={props.loaded}
                                 onOkClick={props.load}
-                                imgDict={props.imgDict}
-                                setChoice={props.changeName}
+                                defaultChecked={props.showNames}
+                                rootStyle={imgGridRootStyle()}
+                                searchText={props.searchText}
                                 onDeleteClick={props.deleteGame}
-                                imgNameChoice={props.selectedGame}
+                                selectedItem={props.selectedGame}
+                                toggleShowNames={props.toggleShowNames}
                                 confirmDeleteMessage={props.confirmDeleteMessage}
-                            />
+                            >
+                                {props.children}
+                            </MuiGrid>
                         </div>
                     </div>
                 </Portal>
@@ -92,15 +87,14 @@ export function SavedGames(props) {
                     theme={props.theme}
                     spacing={0}
                 >
-                    <ImgGrid
-                        imgDict={props.imgDict}
+                    <MuiGrid
                         loaded={props.loaded}
-                        setChoice={props.changeName}
-                        imgNameChoice={props.selectedGame}
-                        onDeleteClick={props.deleteGame}
+                        selectedItem={props.selectedGame}
+                        toggleShowNames={props.toggleShowNames}
                         onOkClick={props.load}
-                        defaultChecked={true}
-                        searchText={searchText}
+                        onDeleteClick={props.deleteGame}
+                        defaultChecked={props.showNames}
+                        searchText={props.searchText}
                         theme={props.theme}
                         confirmDeleteMessage={
                             props.confirmDeleteMessage
@@ -112,10 +106,12 @@ export function SavedGames(props) {
                                 width='100%'
                                 theme={props.theme}
                                 style={search_box('mobile')}
-                                updateSearchText={updateSearchText}
+                                updateSearchText={props.updateSearchText}
                             />
                         }
-                    />
+                    >
+                        {props.children}
+                    </MuiGrid>
                 </PersistentDrawer>
             </MediaQuery>
         </>

@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import {Close} from "../../Reuseables/Close";
+import {Close} from "../../Reuseables/Modals/Close";
 import { RangeList } from "./RangeList";
 import {PartialRangeBoard} from "./PartialRangeBoard";
 import {getColorName} from "../../helpers/getColorName";

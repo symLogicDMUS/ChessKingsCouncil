@@ -9,7 +9,6 @@ async function saveGameToDb(gameName, data) {
     return await firebase.database().ref().child('games').child(uid).update({
         [gameName]: {
             'fen': data.fen,
-            'img': data.img,
             'type': data.game_type,
             'pt': data.player_type,
             'status': data.status,

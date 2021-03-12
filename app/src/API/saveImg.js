@@ -5,7 +5,7 @@ import "firebase/auth";
 async function saveImgToDb(imgName, imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child('users').child('images').child(uid).update({[imgName]: imgUrl})
+    return await firebase.database().ref().child('images').child(uid).update({[imgName]: imgUrl})
 }
 
 export function saveImg(imgName, imgUrl) {

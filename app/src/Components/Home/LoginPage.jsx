@@ -4,8 +4,8 @@ import * as firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {Background} from "../Reuseables/Background";
-import '../styles/_backgrounds.scss';
+import {Background} from "../Reuseables/Background/Background";
+import '../Reuseables/Background/_backgrounds.scss';
 import {useStyles} from "./LoginPage.jss";
 
 export function LoginPage(props) {

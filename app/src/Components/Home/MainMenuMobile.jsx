@@ -2,7 +2,7 @@ import React from "react";
 import MediaQuery from "react-responsive/src";
 import {SignOutMobile} from "./SignOutMobile";
 import {PageLinkMobile} from "./PageLinkMobile";
-import {Background} from "../Reuseables/Background";
+import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./MainMenuMobile.jss";
 
 

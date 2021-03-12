@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
-import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { icons } from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
 import { themes } from "../../styles/themes.jss";

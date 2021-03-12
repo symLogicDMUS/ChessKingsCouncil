@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
+import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {themes} from "../../styles/themes.jss";
 import {getDrawerFontSize} from "../../PieceProfiles/ProfileWB/ProfileWB.jss";
 

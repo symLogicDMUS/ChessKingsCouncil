@@ -1,7 +1,7 @@
 import React from 'react'
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {Close} from "../../Reuseables/Close";
+import {Close} from "../../Reuseables/Modals/Close";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {close_icon, useStyles} from "./ProfilesModal.jss";

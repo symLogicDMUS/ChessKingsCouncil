@@ -6,7 +6,7 @@ import MediaQuery from "react-responsive/src";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { GameDisplayBoard } from "./GameDisplayBoard";
-import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board.jss";
+import {sqrSizes, boardSizes, boardPos} from "../../Reuseables/Board/Board.jss";
 
 export const Board = ({ gameRoot }) => {
 

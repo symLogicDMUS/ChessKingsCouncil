@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import MediaQuery from "react-responsive/src";
 import {useHistory} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import "../styles/_backgrounds.scss";
+import "../Reuseables/Background/_backgrounds.scss";
 import "../styles/scrollbar.scss";
 import {Play} from "./Play";
 import {Typography} from "@material-ui/core";
@@ -10,14 +10,14 @@ import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {HelpText} from "./GameOptions/HelpText";
-import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpTitle} from "../Reuseables/Title/HelpTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
-import {Background} from "../Reuseables/Background";
+import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./NewGame.jss";
 
 

@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {neighborWidth as drawerWidth} from
-        "../../Reuseables/PersistentDrawer.jss";
+        "../../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const root = () => ({
     height: '100%',

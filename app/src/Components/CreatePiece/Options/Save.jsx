@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {Portal} from "@material-ui/core";
 import {Option} from "./Option";
-import {StandardModal} from "../../Reuseables/StandardModal";
+import {StandardModal} from "../../Reuseables/Modals/StandardModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
-import {MuiButton} from "../../Reuseables/MuiButton";
-import {button} from "../../Reuseables/StandardModal.jss";
+import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import {button} from "../../Reuseables/Modals/StandardModal.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {

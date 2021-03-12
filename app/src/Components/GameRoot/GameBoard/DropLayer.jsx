@@ -72,7 +72,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, theme}) => {
 
     useEffect(() => {
         if (gameRoot.state.saveProcess) {
-            gameRoot.save(state.pieces)
+            gameRoot.save()
         }
     }, [gameRoot.state.saveProcess])
 

@@ -1,5 +1,5 @@
 import {fontSize0040} from "../../styles/fontSizes.jss";
-import {useStyles} from "../../Reuseables/Square.jss";
+import {useStyles} from "../../Reuseables/Board/Square.jss";
 import {fontSizes} from "./PartialRangeModal.jss";
 
 export function PartialRangeSquare({onClick, rf, theme, rangeType, isHighlight, isLightSqr, screenCase, children}) {

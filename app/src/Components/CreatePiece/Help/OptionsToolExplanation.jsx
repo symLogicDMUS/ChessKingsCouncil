@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {Option} from "../Options/Option";
-import { useStyles } from "../../Reuseables/SubTitle.jss";
+import { useStyles } from "../../Reuseables/Title/SubTitle.jss";
 
 export function OptionsToolExplanation(props) {
     const classes = useStyles({theme: props.theme, fontSize: props.fontSize});

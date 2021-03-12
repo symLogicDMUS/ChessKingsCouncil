@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "../../Reuseables/Square.jss";
+import { useStyles } from "../../Reuseables/Board/Square.jss";
 
 export function RangeDisplaySquare({rf, isInRange, isLightColorSqr, theme, sqrSize }) {
 

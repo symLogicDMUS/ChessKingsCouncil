@@ -9,7 +9,7 @@ import {
     fontSizeW01, fontSize0067,
     fontSize01, fontSize018, fontSize00219,
 } from "../styles/fontSizes.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const parchment = () => ({
     '@media screen and (min-device-width: 1040px)': {

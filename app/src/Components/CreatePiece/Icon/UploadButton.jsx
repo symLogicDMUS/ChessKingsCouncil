@@ -1,8 +1,10 @@
 import React from "react";
+import * as firebase from "firebase";
+import "firebase/storage";
+import "firebase/database";
 import {Button} from "@material-ui/core";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { useStyles } from "../../Reuseables/MuiButton.jss";
-import * as firebase from "firebase";
+import { useStyles } from "../../Reuseables/Clickables/MuiButton.jss";
 import {saveImg} from "../../../API/saveImg";
 
 export function UploadButton({color, id, setPieceImg, close, theme, style}) {

@@ -4,7 +4,7 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "../PartialRangeModal/PartialRangePiece";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {board} from "../../Reuseables/Board.jss";
+import {board} from "../../Reuseables/Board/Board.jss";
 import {useStyles} from "./SampleRangeBoard.jss";
 
 export function SampleRangeBoard({fontSize, theme}) {

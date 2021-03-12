@@ -1,5 +1,5 @@
 import React from "react";
-import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
+import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
 import {checkbox_root, checkbox_gen} from "../../PieceProfiles/Header/CustomizeHeader.jss";
 import MediaQuery from "react-responsive/src";
 

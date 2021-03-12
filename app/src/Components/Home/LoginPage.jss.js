@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {availWidth, viewHeight} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
     login_page: props => ({

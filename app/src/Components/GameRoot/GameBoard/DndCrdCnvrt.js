@@ -1,4 +1,4 @@
-import {sqrSize} from "../../Reuseables/Board.jss";
+import {sqrSize} from "../../Reuseables/Board/Board.jss";
 
 const xMapR = [null, "a", "b", "c", "d", "e", "f", "g", "h"];
 const yMapUnitTop = [null, 7, 6, 5, 4, 3, 2, 1, 0];

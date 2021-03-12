@@ -5,8 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import { MuiButton as Button } from "../../Reuseables/MuiButton";
-import { MuiDeleteButton as DeleteButton } from "../../Reuseables/MuiDeleteButton";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
+import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {delete_icon, icon, useStyles} from "./LoadDeleteHeader.jss";
 
 export function LoadDeleteHeader({

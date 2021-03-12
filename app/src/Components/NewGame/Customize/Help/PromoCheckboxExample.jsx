@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {MuiCheckbox} from "../../../Reuseables/MuiCheckbox";
+import {MuiCheckbox} from "../../../Reuseables/Clickables/MuiCheckbox";
 import { useStyles } from "./PromoCheckboxExample.jss";
 
 export function PromoCheckboxExample({fontSize, theme}) {

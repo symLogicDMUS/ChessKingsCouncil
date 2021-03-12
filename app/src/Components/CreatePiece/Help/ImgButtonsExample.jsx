@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {MuiButton as Button} from "../../Reuseables/MuiButton";
+import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import {button, useStyles} from "../Icon/ImgButtonsModal.jss";
 

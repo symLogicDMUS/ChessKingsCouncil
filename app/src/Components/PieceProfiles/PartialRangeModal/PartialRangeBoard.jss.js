@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {board} from "../../Reuseables/Board.jss";
+import {board} from "../../Reuseables/Board/Board.jss";
 import {fontSizes} from "./PartialRangeModal.jss";
 
 export const useStyles = makeStyles({

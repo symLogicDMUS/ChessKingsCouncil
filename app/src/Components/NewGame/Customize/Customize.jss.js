@@ -1,5 +1,5 @@
 import {availWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {fontSize0016, fontSize0023, fontSize0025, fontSizeW004, fontSizeW0055} from "../../styles/fontSizes.jss";
 import {modalWidths} from "../../PieceProfiles/PieceProfiles.jss";
 

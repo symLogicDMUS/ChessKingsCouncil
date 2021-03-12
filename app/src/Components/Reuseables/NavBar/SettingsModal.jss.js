@@ -3,7 +3,7 @@ import {modal} from "../../helpers/modal.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {outline, root, text} from "../MuiInput.jss";
+import {outline, root, text} from "../UserInput/MuiInput.jss";
 
 const widths = {
     desktop: availWidth() * 0.333,

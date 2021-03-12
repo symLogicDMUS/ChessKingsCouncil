@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {neighborWidth} from "../../Reuseables/PersistentDrawer.jss";
+import {neighborWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
 import {themes} from "../../styles/themes.jss";
 import {profileHeight} from "../Profile.jss";

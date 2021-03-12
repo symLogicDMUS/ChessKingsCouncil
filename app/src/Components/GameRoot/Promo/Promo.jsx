@@ -5,7 +5,7 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { shuffle } from "../../helpers/shuffleArray";
 import { PromoArrow } from "./PromoArrow";
-import { MuiButton as OkButton } from "../../Reuseables/MuiButton";
+import { MuiButton as OkButton } from "../../Reuseables/Clickables/MuiButton";
 import { itemStyle, ok_button, useStyles } from "./Promo.jss";
 import { reducer } from "./reducer.red";
 import MediaQuery from "react-responsive/src";

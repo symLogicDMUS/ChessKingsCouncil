@@ -4,7 +4,7 @@ import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
 import {getBoardFontSize} from "./CreatePieceBoard.jss";
 import {fontSize0095} from "../../styles/fontSizes.jss";
-import {useStyles} from "../../Reuseables/Square.jss";
+import {useStyles} from "../../Reuseables/Board/Square.jss";
 import {themes} from "../../styles/themes.jss";
 
 export function CreatePieceSquare({
@@ -43,8 +43,7 @@ export function CreatePieceSquare({
         );
     }
 
-if (isOffset)
-    {
+    if (isOffset) {
         return (
             <div
                 className={classes.offset}

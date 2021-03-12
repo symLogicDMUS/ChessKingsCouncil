@@ -1,6 +1,6 @@
 import React from "react";
-import { fontSizes, heights, widths } from "../PieceProfiles.jss";
-import { useStyles } from "../../Reuseables/Square.jss";
+import { fontSizes, widths } from "../PieceProfiles.jss";
+import { useStyles } from "../../Reuseables/Board/Square.jss";
 
 export function ProfileWBRangeSquare({
     rf,

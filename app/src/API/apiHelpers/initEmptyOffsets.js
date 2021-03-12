@@ -15,10 +15,3 @@ export function initEmptyOffsets(defs) {
 // module.exports = initEmptyOffsets;
 
 
-/** for node.js
-if (require.main === module) {
-    //TODO: implement test
-
-}
-*/
-

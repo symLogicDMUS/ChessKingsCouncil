@@ -1,7 +1,7 @@
 import React from "react";
 import {Portal} from "@material-ui/core";
-import {StandardModal} from "../Reuseables/StandardModal";
-import {MuiButton} from "../Reuseables/MuiButton";
+import {StandardModal} from "../Reuseables/Modals/StandardModal";
+import {MuiButton} from "../Reuseables/Clickables/MuiButton";
 
 export function ConfirmStandard(props) {
     return <Portal>

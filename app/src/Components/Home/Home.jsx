@@ -2,7 +2,7 @@ import React from "react";
 import MediaQuery from "react-responsive/src";
 import { MainMenuDesktop } from "./MainMenuDesktop";
 import { MainMenuMobile } from "./MainMenuMobile";
-import "../styles/_backgrounds.scss";
+import "../Reuseables/Background/_backgrounds.scss";
 
 export class Home extends React.Component {
     constructor(props) {

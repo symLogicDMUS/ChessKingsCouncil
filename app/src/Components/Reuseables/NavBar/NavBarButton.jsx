@@ -4,9 +4,9 @@ import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {Button, Portal, Typography} from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
-import {MuiButton} from "../MuiButton";
-import {button} from "../StandardModal.jss";
-import { StandardModal } from "../StandardModal";
+import {MuiButton} from "../Clickables/MuiButton";
+import {button} from "../Modals/StandardModal.jss";
+import { StandardModal } from "../Modals/StandardModal";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {getHoverColor, useStyles} from "./NavBarButton.jss";
 

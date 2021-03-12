@@ -1,7 +1,7 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {viewHeight} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
+import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const page_icon = () => ({
     /*tall phones*/

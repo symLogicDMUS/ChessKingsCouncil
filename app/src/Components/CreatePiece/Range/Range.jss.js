@@ -2,7 +2,7 @@ import {get2ItemFontSizes, get2ItemMargins, tool_title} from "../CreatePiece.jss
 import {getBoardFontSize, getBoardSize} from "../Board/CreatePieceBoard.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {viewWidth} from "../../helpers/windowMeasurments";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 
 export const scroll_table_style = () => {
     if (viewWidth() <= 1040) {

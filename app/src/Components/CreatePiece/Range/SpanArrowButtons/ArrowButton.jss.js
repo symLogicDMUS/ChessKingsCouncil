@@ -1,7 +1,7 @@
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
-import {drawerWidth} from "../../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 
 const container = (angle, theme) => ({
     /*media query for phones/tablets (generalized)*/

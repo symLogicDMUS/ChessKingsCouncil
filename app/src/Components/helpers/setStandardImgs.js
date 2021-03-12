@@ -1,5 +1,5 @@
 import {newData} from "../NewGame/NewData";
-import {specialPieceImg} from "../MyPieces/specialPieceImg";
+import {specialPieceImg} from "../MyPieces/specialPieceImg/dev1";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
 
 /**

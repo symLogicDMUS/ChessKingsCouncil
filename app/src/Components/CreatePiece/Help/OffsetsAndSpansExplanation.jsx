@@ -9,7 +9,7 @@ import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples";
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
 import {img_example} from "./OffsetsAndSpansExplanation.jss";
-import {useStyles} from "../../Reuseables/SubTitle.jss";
+import {useStyles} from "../../Reuseables/Title/SubTitle.jss";
 
 
 export function OffsetsAndSpansExplanation(props) {

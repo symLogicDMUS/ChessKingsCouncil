@@ -1,5 +1,5 @@
 import React from "react";
-import {MuiButton} from "../Reuseables/MuiButton";
+import {MuiButton} from "../Reuseables/Clickables/MuiButton";
 import {invalids} from "../helpers/invalids";
 import {useStyles} from "./Play.jss";
 

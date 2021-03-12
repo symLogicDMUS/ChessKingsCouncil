@@ -1,11 +1,11 @@
 import React from "react";
-import {Close} from "../Close";
+import {Close} from "../Modals/Close";
 import Box from "@material-ui/core/Box";
-import {MuiDropdown} from "../MuiDropdown";
+import {MuiDropdown} from "../UserInput/MuiDropdown";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {specialThemeList, themesMenuItemList} from "../../styles/themes.jss";
 import MenuItem from "@material-ui/core/MenuItem";
-import {close_icon} from "../StandardModal.jss";
+import {close_icon} from "../Modals/StandardModal.jss";
 import {input_label, useStyles} from "./SettingsModal.jss";
 
 

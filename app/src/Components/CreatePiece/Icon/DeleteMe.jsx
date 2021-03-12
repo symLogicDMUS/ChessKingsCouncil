@@ -26,7 +26,7 @@ export default function IconLabelButtons() {
             >
                 Delete
             </Button>
-            {/* This Button uses a Font Icon, see the installation instructions in the Icon component docs. */}
+            {/* This Clickables uses a Font Icon, see the installation instructions in the Icon component docs. */}
             <Button
                 variant="contained"
                 color="primary"

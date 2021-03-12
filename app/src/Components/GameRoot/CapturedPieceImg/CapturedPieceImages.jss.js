@@ -1,6 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import { makeStyles } from "@material-ui/core/styles";
-import {boardSizes} from "../../Reuseables/Board.jss";
+import {boardSizes} from "../../Reuseables/Board/Board.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {availHeight, viewWidth} from "../../helpers/windowMeasurments";
 import {fontSize00175, fontSize002, fontSize0023} from "../../styles/fontSizes.jss";

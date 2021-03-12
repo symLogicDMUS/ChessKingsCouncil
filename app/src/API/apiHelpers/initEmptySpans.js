@@ -11,12 +11,3 @@ export function initEmptySpans(defs) {
     }
     return defs
 }
-
-// module.exports = initEmptySpans;
-
-/** for node.js
-if (require.main === module) {
-    //TODO: implement test
-
-}
-*/

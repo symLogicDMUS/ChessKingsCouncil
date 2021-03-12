@@ -1,4 +1,4 @@
-import {boardPos, boardSizes} from "../Reuseables/Board.jss";
+import {boardPos, boardSizes} from "../Reuseables/Board/Board.jss";
 import {themes} from "../styles/themes.jss";
 
 export const accordion_root = () => {

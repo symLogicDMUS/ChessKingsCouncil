@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
-import {drawerWidth} from "../../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 
 export const buttonSizeEm = 3
 

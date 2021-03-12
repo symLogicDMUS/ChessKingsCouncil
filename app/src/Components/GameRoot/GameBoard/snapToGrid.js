@@ -1,4 +1,4 @@
-import {sqrSize} from "../../Reuseables/Board.jss";
+import {sqrSize} from "../../Reuseables/Board/Board.jss";
 
 export function snapToGrid(x, y, sqrSize) {
     const snappedX = Math.round(x / sqrSize) * sqrSize

@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {board} from "../../Reuseables/Board.jss";
+import {board} from "../../Reuseables/Board/Board.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "./BoardTool.jss";
 

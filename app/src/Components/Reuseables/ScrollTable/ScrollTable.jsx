@@ -30,7 +30,7 @@ function ScrollTable({listItems, title, numRows, theme, style, buttonStyle, adde
 
     useEffect(() => {
         dispatch({type: 'update', listItems: listItems, numRows: numRows, classes: classes})
-    }, [listItems])
+    }, [listItems.length])
 
     return (
         <Box className={classes.scroll_table}>

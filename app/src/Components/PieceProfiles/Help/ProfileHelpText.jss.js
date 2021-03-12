@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {board} from "../../Reuseables/Board.jss";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
+import {board} from "../../Reuseables/Board/Board.jss";
+import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {
     fontSize002,
     fontSize00219,

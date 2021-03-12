@@ -4,7 +4,7 @@ import {Portal, Typography} from "@material-ui/core";
 import {ImgWindow} from "./ImgWindow";
 import {useStyles} from "./Icon.jss";
 import MediaQuery from "react-responsive";
-import ChooseModal from "./SampleAndSavedImgsModal/SampleAndSavedImgsModal";
+import ChooseModal from "./ImgChoicesModal/ImgChoicesModal";
 import {ImgButtonsModal} from "./ImgButtonsModal";
 
 export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {

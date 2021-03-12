@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {MuiTextField as TextField} from "../../Reuseables/MuiTextField";
+import {MuiTextField as TextField} from "../../Reuseables/UserInput/MuiTextField";
 import {useStyles} from "./Name.jss";
 
 export function Name({updateName, theme, defaultValue, screenCase}) {

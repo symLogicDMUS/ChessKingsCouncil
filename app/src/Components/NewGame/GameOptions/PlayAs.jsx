@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import MenuItem from "@material-ui/core/MenuItem";
-import {MuiDropdown} from "../../Reuseables/MuiDropdown";
+import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
 import {dropdownGenStyle, inputStyle, useStyles} from "../NewGame.jss";
 
 export function PlayAs({setPlayerType, theme, screenCase}) {

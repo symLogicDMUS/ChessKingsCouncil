@@ -1,19 +1,21 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
-import {getGames} from "../../API/getGames";
-import {deleteGame} from "../../API/deleteGame";
-import {getSampleGames} from "../../API/getSampleGames";
+import { Redirect } from "react-router-dom";
+import { SavedGames } from "./SavedGames";
+import { copy } from "../helpers/copy";
+import { getGames } from "../../API/getGames";
+import { getBoardObjs } from "./getBoardObjs";
+import { deleteGame } from "../../API/deleteGame";
+import { getSampleGames } from "../../API/getSampleGames";
 import { saveGameDict } from "../../API/saveGameDict";
-import {SavedGames} from "./SavedGames";
-import {copy} from "../helpers/copy";
-import "../styles/_backgrounds.scss";
-import {initEmptyRanges} from "../../API/apiHelpers/initEmptyRanges";
-import {offsetStrsToList} from "../../API/apiHelpers/offsetStrsToList";
-import {parseData} from "../../API/apiHelpers/parseData";
-import {sampleGames} from "../../API/apiHelpers/sampleGames/dev1";
+import { initEmptyRanges } from "../../API/apiHelpers/initEmptyRanges";
+import { offsetStrsToList } from "../../API/apiHelpers/offsetStrsToList";
+import { dbSampleGames } from "../../API/apiHelpers/sampleGames/dev1";
+import { parseData } from "../../API/apiHelpers/parseData";
+import { getGameSnapshots } from "./getGameSnapshots";
+import "../Reuseables/Background/_backgrounds.scss";
+import {getDbSampleGames} from "../../API/getDbSampleGames";
 
 class LoadGame extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -22,14 +24,26 @@ class LoadGame extends React.Component {
             userChoseGame: false,
             firstVisit: false,
             loaded: false,
+            searchText: "",
+            showNames: true,
+            bValue: true,
         };
         this.games = {};
-        this.imgDict = {};
+        this.boardObjs = {};
         this.load = this.load.bind(this);
+        this.updateTheme = this.updateTheme.bind(this);
         this.isDisabled = this.isDisabled.bind(this);
-        this.changeName = this.changeName.bind(this);
+        this.setChoice = this.setChoice.bind(this);
         this.deleteGame = this.deleteGame.bind(this);
+        this.updateSnapshots = this.updateSnapshots.bind(this);
         this.getGameImgDict = this.getGameImgDict.bind(this);
+        this.updateSearchText = this.updateSearchText.bind(this);
+        this.toggleShowNames = this.toggleShowNames.bind(this);
+        this.triggerRender = this.triggerRender.bind(this);
+    }
+
+    componentDidUpdate() {
+        document.body.className = `${this.state.theme}-background`;
     }
 
     componentDidMount() {
@@ -37,37 +51,64 @@ class LoadGame extends React.Component {
         getGames().then(([games]) => {
             if (games) {
                 this.games = games;
-                this.reloadGameImgComponentsDict();
+                this.boardObjs = getBoardObjs(this.games);
+                this.gameSnapshotComponents = getGameSnapshots(
+                    this.boardObjs,
+                    this.setChoice,
+                    this.state.selectedGame,
+                    this.state.searchText,
+                    this.state.showNames,
+                    this.state.theme
+                );
                 this.setState({ loaded: true });
             } else {
-                saveGameDict(sampleGames).then(([r]) => {
-                    this.games = getSampleGames()
-                    this.reloadGameImgComponentsDict();
+                saveGameDict(dbSampleGames).then(([r]) => {
+                    this.games = getDbSampleGames();
+                    this.boardObjs = getBoardObjs(this.games);
+                    this.gameSnapshotComponents = getGameSnapshots(
+                        this.boardObjs,
+                        this.setChoice,
+                        this.state.selectedGame,
+                        this.state.searchText,
+                        this.state.showNames,
+                        this.state.theme
+                    );
                     this.setState({ loaded: true });
-                })
+                });
             }
         });
-    }
-
-    reloadGameImgComponentsDict() {
-        this.imgDict = {}
-        Object.keys(this.games).forEach(gameName => {
-            this.imgDict[gameName] = this.games[gameName].img
-        })
     }
 
     isDisabled() {
         return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
-    changeName(gameName) {
-        this.setState({selectedGame: gameName});
+    setChoice(gameName) {
+        this.setState({ selectedGame: gameName }, () => {
+            this.gameSnapshotComponents = getGameSnapshots(
+                this.boardObjs,
+                this.setChoice,
+                this.state.selectedGame,
+                this.state.searchText,
+                this.state.showNames,
+                this.state.theme,
+            );
+            this.triggerRender()
+        });
     }
 
     deleteGame(gameName) {
         deleteGame(gameName).then(([r]) => {
             delete this.games[gameName];
-            this.reloadGameImgComponentsDict();
+            delete this.boardObjs[gameName];
+            this.gameSnapshotComponents = getGameSnapshots(
+                this.boardObjs,
+                this.setChoice,
+                this.state.selectedGame,
+                this.state.searchText,
+                this.state.showNames,
+                this.state.theme
+            );
             this.setState({
                 selectedGame: "none",
                 userChoseGame: false,
@@ -76,10 +117,10 @@ class LoadGame extends React.Component {
     }
 
     getGameImgDict() {
-        const imgDict = {}
-        Object.keys(this.games).forEach(gameName => {
-            imgDict[gameName] = this.games[gameName].img
-        })
+        const imgDict = {};
+        Object.keys(this.games).forEach((gameName) => {
+            imgDict[gameName] = this.games[gameName].img;
+        });
         return imgDict;
     }
 
@@ -88,11 +129,43 @@ class LoadGame extends React.Component {
         this.gameData.defs = initEmptyRanges(this.gameData.defs);
         this.gameData.defs = offsetStrsToList(this.gameData.defs);
         this.gameData = parseData(this.gameData);
-        this.setState({userChoseGame: true});
+        this.setState({ userChoseGame: true });
+    }
+
+    updateSnapshots() {
+        this.gameSnapshotComponents = getGameSnapshots(
+            this.boardObjs,
+            this.setChoice,
+            this.state.selectedGame,
+            this.state.searchText,
+            this.state.showNames,
+            this.state.theme,
+        );
     }
 
     updateTheme(theme) {
-        this.setState({theme: theme})
+        this.setState({ theme: theme }, () => {
+            this.updateSnapshots()
+            this.triggerRender()
+        });
+    }
+
+    updateSearchText(newText) {
+        this.setState({ searchText: newText }, () => {
+            this.updateSnapshots()
+            this.triggerRender()
+        });
+    }
+
+    toggleShowNames() {
+        this.setState({showNames: ! this.state.showNames}, () => {
+            this.updateSnapshots()
+            this.triggerRender()
+        })
+    }
+
+    triggerRender() {
+        this.setState({bValue: ! this.state.bValue})
     }
 
     render() {
@@ -119,14 +192,19 @@ class LoadGame extends React.Component {
                     load={this.load}
                     imgDict={this.imgDict}
                     loaded={this.state.loaded}
+                    searchText={this.state.searchText}
+                    updateSearchText={this.updateSearchText}
                     confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
                     deleteGame={() => this.deleteGame(this.state.selectedGame)}
                     selectedGame={this.state.selectedGame}
-                    changeName={this.changeName}
+                    toggleShowNames={this.toggleShowNames}
+                    showNames={this.state.showNames}
                     isDisabled={this.isDisabled}
                     updateTheme={this.updateTheme}
                     theme={this.state.theme}
-                />
+                >
+                    {this.gameSnapshotComponents}
+                </SavedGames>
             </>
         );
     }

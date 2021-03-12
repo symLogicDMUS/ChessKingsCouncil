@@ -71,7 +71,7 @@ export const themes = {
         offset: '#990606',
         span_alt: '#c60116',
         light_normal: '#f0d9b5',
-        dark_normal: '#b19f83',
+        dark_normal: '#d0bd99',
         light_in_range: '#fff172',
         dark_in_range: '#acaf4b',
         sqr_hover: '#60a8f0',

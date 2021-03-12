@@ -3,8 +3,8 @@ import {themes} from "../styles/themes.jss";
 import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {availHeight, availWidth, viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {fontSize002, fontSize00219, fontSize0022, fontSize0095} from "../styles/fontSizes.jss";
-import {appBarHeight} from "../Reuseables/PersistentDrawer.jss";
-import {drawerWidth, sideBarWidth} from "../Reuseables/PermanentDrawer.jss";
+import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import {drawerWidth, sideBarWidth} from "../Reuseables/Drawers/PermanentDrawer.jss";
 
 export const sqrFontSize = fontSize0095 * 0.25;
 

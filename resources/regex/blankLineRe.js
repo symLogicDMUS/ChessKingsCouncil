@@ -1,0 +1,1 @@
+const blankLineRe = /^\s*$\n/;

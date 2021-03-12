@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {sideBarWidth} from "../PermanentDrawer.jss";
+import {sideBarWidth} from "../Drawers/PermanentDrawer.jss";
 import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
 
 export const navBarWidth = sideBarWidth * 0.98;

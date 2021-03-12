@@ -23,26 +23,26 @@ import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {SideBar} from "../Reuseables/SidBar";
+import {SideBar} from "../Reuseables/Drawers/SidBar";
 import {StatusBar} from "./StatusBar/StatusBar";
-import MuiAccordion from "../Reuseables/MuiAccordion";
-import PermanentDrawer from "../Reuseables/PermanentDrawer";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
+import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
+import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
-import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpTitle} from "../Reuseables/Title/HelpTitle";
 import {HelpText} from "./Help/HelpText";
-import "../styles/_backgrounds.scss";
+import "../Reuseables/Background/_backgrounds.scss";
 import {copy} from "../helpers/copy";
 import {newData} from "../NewGame/NewData";
-import {boardSizes} from "../Reuseables/Board.jss";
+import {boardSizes} from "../Reuseables/Board/Board.jss";
 import {doNothing} from "../helpers/doNothing";
-import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
-import {MuiDropdown} from "../Reuseables/MuiDropdown";
+import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
+import {MuiDropdown} from "../Reuseables/UserInput/MuiDropdown";
 import {setStandardImgs} from "../helpers/setStandardImgs";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
@@ -244,17 +244,9 @@ class GameRoot extends React.Component {
     }
 
     save(pieces) {
-        let piecesObj = copy(pieces)
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
-        let boardImgBase64Str;
-        if (this.gameType === 'Standard' && specialThemeList.includes(this.state.theme)) {
-            piecesObj = setStandardImgs(piecesObj, this.idDict)
-            boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
-        } else {
-            boardImgBase64Str = getBoardImgBase64Str(piecesObj, this.board);
-        }
         const records = this.jsonRecords.getRecords();
         records.pawn_histories = replacePawnIdWithCurrentLoc(
             records.pawn_histories
@@ -265,7 +257,6 @@ class GameRoot extends React.Component {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
-            img: boardImgBase64Str,
             game_type: this.gameType,
             player_type: this.playerType,
             promos: this.promoChoices,

@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {MuiTextField} from "../../Reuseables/MuiTextField";
+import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
 import {inputStyle, useStyles} from "../NewGame.jss";
 
 export function GameName({setGameName, theme, screenCase}) {

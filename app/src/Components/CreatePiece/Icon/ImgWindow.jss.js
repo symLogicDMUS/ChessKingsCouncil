@@ -3,7 +3,7 @@ import {themes} from "../../styles/themes.jss";
 import {get2ItemMargins} from "../CreatePiece.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {getBoardSize} from "../Board/CreatePieceBoard.jss";
-import {drawerWidth} from "../../Reuseables/PermanentDrawer.jss";
+import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 
 export const useStyles = makeStyles({
     img_window: props => ({

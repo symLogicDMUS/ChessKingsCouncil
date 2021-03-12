@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import "../styles/_backgrounds.scss"
+import "../Reuseables/Background/_backgrounds.scss"
 import {PageLinkDesktop} from "./PageLinkDesktop";
-import {MuiButton as Button} from "../Reuseables/MuiButton";
+import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import {Background} from "../Reuseables/Background";
+import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./MainMenuDesktop.jss";
 
 

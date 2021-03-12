@@ -3,15 +3,15 @@ import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
-import { AnimatePresencePortal } from "../../Reuseables/AnimatePresencePortal";
+import { AnimatePresencePortal } from "../../Reuseables/Animations/AnimatePresencePortal";
 import { GameSavedSuccessfully } from "../../CreatePiece/animations/GameSavedSuccessfully";
 import { SaveAs } from "./SaveAs";
 import { themes } from "../../styles/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SaveResignTool.jss";
-import {StandardModal} from "../../Reuseables/StandardModal";
-import {MuiButton} from "../../Reuseables/MuiButton";
-import {button} from "../../Reuseables/StandardModal.jss";
+import {StandardModal} from "../../Reuseables/Modals/StandardModal";
+import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import {button} from "../../Reuseables/Modals/StandardModal.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function SaveResignTool({

@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
 import {fontSize0015, fontSize0016, fontSize002} from "../styles/fontSizes.jss";
-import {heights, widths} from "../Reuseables/ImgGrid/ImgGrid.jss";
+import {heights, widths} from "../Reuseables/Modals/MuiGrid.jss";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 

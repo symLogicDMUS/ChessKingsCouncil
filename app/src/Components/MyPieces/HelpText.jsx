@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import {DeleteForever, Storage} from "@material-ui/icons";
-import {MuiButton as Button} from "../Reuseables/MuiButton";
+import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
 import {button} from "../PieceProfiles/Header/LoadDeleteHeader.jss";
 import {help_text, help_title} from "../Reuseables/NavBar/HelpText.jss";
 import {ProfileHelpText} from "../PieceProfiles/Help/ProfileHelpText";

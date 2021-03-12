@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/_backgrounds.scss";
+import "../Reuseables/Background/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpTitle} from "../Reuseables/Title/HelpTitle";
 import {HelpText} from "./Help/HelpText"
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
@@ -14,12 +14,12 @@ import {Range} from "./Range/Range";
 import {Options} from "./Options/Options";
 import {Location} from "./Location/Location";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {SideBar} from "../Reuseables/SidBar";
+import {SideBar} from "../Reuseables/Drawers/SidBar";
 import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
-import PermanentDrawer from "../Reuseables/PermanentDrawer";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
-import MuiAccordion from "../Reuseables/MuiAccordion";
-import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
+import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
+import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
+import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
+import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
 import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
@@ -28,11 +28,11 @@ import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
-import {AnimatePresencePortal} from "../Reuseables/AnimatePresencePortal";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {pageTitleStyle} from "../Reuseables/PersistentDrawer.jss";
+import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
-import {DrawerContent} from "../Reuseables/DrawerContent";
+import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
 import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
 
@@ -105,7 +105,6 @@ class CreatePiece extends React.Component {
 
     componentDidMount() {
         document.body.className = "dark-background";
-        console.log(document.getElementById('root'))
     }
 
     componentDidUpdate() {

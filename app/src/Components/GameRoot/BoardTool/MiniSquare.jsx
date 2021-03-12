@@ -1,6 +1,6 @@
 import React from "react";
 import {getSqrClass} from "../../styles/getSqrClass.jss";
-import {useStyles} from "../../Reuseables/Square.jss";
+import {useStyles} from "../../Reuseables/Board/Square.jss";
 import {fontSizes} from "./BoardTool.jss";
 
 export function MiniSquare({rf, theme, isHighlight, screenCase, children }) {

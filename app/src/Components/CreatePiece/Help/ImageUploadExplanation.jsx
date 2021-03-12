@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
 import {ImgWindowExamples} from "./ImgWindowExamples";
 import {ImgButtonsExample} from "./ImgButtonsExample";
-import { useStyles } from "../../Reuseables/SubTitle.jss";
+import { useStyles } from "../../Reuseables/Title/SubTitle.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function ImageUploadExplanation(props) {

@@ -1,6 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {imgFillDiv} from "../../Reuseables/imgFillDiv.jss";
+import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {headerFontSizes, titleFontSizes} from "../Header/ProfileHeader.jss";
 import {fontSizes, heights, widths as avatarSize} from "../PieceProfiles.jss";
 import {getDrawerFontSize} from "./ProfileWB.jss";

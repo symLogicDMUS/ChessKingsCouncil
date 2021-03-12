@@ -5,11 +5,11 @@ import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
-import PersistentDrawer from "../Reuseables/PersistentDrawer";
+import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
-import {HelpTitle} from "../Reuseables/HelpTitle";
+import {HelpTitle} from "../Reuseables/Title/HelpTitle";
 import {HelpText} from "./HelpText";
-import "../styles/_backgrounds.scss";
+import "../Reuseables/Background/_backgrounds.scss";
 import {
     piece_profiles,
     styles
