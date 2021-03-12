@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {ImgChoice} from "./ImgChoice";
 
 export const getImgItems = (
@@ -21,19 +20,19 @@ export const getImgItems = (
     names.forEach((name) => {
         imgItems.push(
             <ImgChoice
+                key={name}
                 name={name}
-                key={uuidv4()}
                 theme={theme}
+                showName={showNames}
                 setChoice={setChoice}
                 base64ImgStr={imgDict[name]}
-                showName={showNames}
                 isSelected={name === imgNameChoice}
             />
         );
     });
     return {
-        imgItems: imgItems,
         imgDict: imgDict,
+        imgItems: imgItems,
         imgNameChoice: imgNameChoice,
         showNames: showNames,
     };

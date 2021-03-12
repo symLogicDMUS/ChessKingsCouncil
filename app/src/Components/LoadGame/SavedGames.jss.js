@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
-import {fontSize0015, fontSize0016} from "../styles/fontSizes.jss";
+import {fontSize0015, fontSize0016, fontSize002} from "../styles/fontSizes.jss";
 import {heights, widths} from "../Reuseables/ImgGrid/ImgGrid.jss";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
@@ -44,7 +44,7 @@ export const useStyles = makeStyles({
         marginTop: '0.5em',
     }),
     content: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         height: '16em',
         display: 'flex',
         flexDirection: 'row',
@@ -87,17 +87,17 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     buttons: props => ({
-        fontSize: props.fontSize,
+        fontSize: fontSize002,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: '1.8em',
         '@media screen and (min-device-width: 1040px)': {
-            width: getTextWidth('Load Game', props.fontSize * 8, 'Garamond'),
+            width: getTextWidth('Load Game', fontSize002 * 8, 'Garamond'),
         },
         '@media screen and (max-device-width: 1040px)': {
-            width: getTextWidth('Load Game', props.fontSize * 5.6, 'Garamond'),
+            width: getTextWidth('Load Game', fontSize002 * 5.6, 'Garamond'),
         },
     }),
 }, {index: 1});

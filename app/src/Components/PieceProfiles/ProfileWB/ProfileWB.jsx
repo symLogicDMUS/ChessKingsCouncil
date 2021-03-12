@@ -1,5 +1,4 @@
 import React, {useReducer} from "react";
-import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
 import { ProfileWBAvatar } from "./ProfileWBAvatar";
@@ -51,22 +50,28 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerP
                     hasDrawerParent={hasDrawerParent}
                 />
                 <ProfileWBRange
-                    key={uuidv4()}
-                    src={def.span_img}
-                    rangeType='Spans'
+                    pieceName={pieceName}
+                    pieceImgUrl={def.img}
+                    range={def.spans}
+                    rangeType='span'
                     color={color}
                     theme={theme}
+                    pieceLoc='d4'
                     openRangeModal={() => dispatch({ type: "open-spans" })}
                     hasDrawerParent={hasDrawerParent}
+                    screenCase={screenCase}
                 />
                 <ProfileWBRange
-                    key={uuidv4()}
-                    src={def.offset_img}
-                    rangeType='Offsets'
+                    pieceName={pieceName}
+                    pieceImgUrl={def.img}
+                    range={def.offsets}
+                    rangeType='offset'
                     color={color}
                     theme={theme}
+                    pieceLoc='d4'
                     openRangeModal={() => dispatch({ type: "open-offsets" })}
                     hasDrawerParent={hasDrawerParent}
+                    screenCase={screenCase}
                 />
             </div>
         </>

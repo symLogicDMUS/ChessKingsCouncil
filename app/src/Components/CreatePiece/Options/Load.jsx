@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {v4 as uuidv4} from "uuid";
 import {Portal} from "@material-ui/core";
 import {ProfilesModal} from "./ProfilesModal";
 import {Option} from "./Option";
@@ -24,7 +23,7 @@ export function Load({load, theme}) {
             <Option
                 iconType="load"
                 theme={theme}
-                key={uuidv4()}
+                key='load-option'
                 onClick={() => setModal(true)}
             />
         </div>

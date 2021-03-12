@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import {DeleteForever, Storage} from "@material-ui/icons";
 import {MuiButton as Button} from "../Reuseables/MuiButton";
@@ -16,7 +15,7 @@ export const HelpTitle = (fontSize, theme) => (
 )
 
 export const HelpText = (fontSize, theme) => ([
-    <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+    <Typography key={'saved-pieces-help-text'} paragraph={true} style={help_text(fontSize, theme)}>
         On this page you can:
         <ol type='a'>
             <li>

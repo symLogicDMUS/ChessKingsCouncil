@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import {SpanExamplesDocker} from "./SpanExamplesDocker";
 import {OffsetExamplesDocker} from "./OffsetExamplesDocker";
@@ -13,15 +12,15 @@ export const ProfileExampleDocker = ({theme})  => {
     return (
         <Box className={classes.profile}>
             <AvatarExamplesDocker
-                key={uuidv4()}
+                key={'docker-avatar-example'}
                 theme={theme}
             />
             <SpanExamplesDocker
-                key={uuidv4()}
+                key={'docker-span-example'}
                 theme={theme}
             />
             <OffsetExamplesDocker
-                key={uuidv4()}
+                key={'docker-offset-example'}
                 theme={theme}
             />
         </Box>

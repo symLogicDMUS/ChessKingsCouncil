@@ -1,7 +1,7 @@
-import {newData, standardPieceDefs} from "../../NewGame/NewData";
 import {specialThemeList} from "../../styles/themes.jss";
-import {getRangeBoardImgStrs} from "../../PieceProfiles/ProfileWB/getRangeBoardImgStrs";
 import {franchisePieceImgs} from "../../MyPieces/franchisePieceImgs";
+import {standardPieceDefs} from "../../NewGame/standardPieceDefs/dev1";
+import {getRangeBoardImgStrs} from "../../PieceProfiles/ProfileWB/getRangeBoardImgStrs";
 
 export function setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs) {
     const colors = ["W", "B"];

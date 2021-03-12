@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import {v4 as uuidv4} from "uuid";
 import Box from "@material-ui/core/Box";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {LocationButtonExample} from "./LocationButtonExample";
@@ -15,28 +14,28 @@ export function LocationToolExample({theme}) {
                     <LocationButtonExample
                         rf="d4"
                         theme={theme}
-                        key={uuidv4()}
+                        key={`location-button-example-d4`}
                         selected={selected === 'd4'}
                         onClick={() => setSelected('d4')}
                     />
                     <LocationButtonExample
                         rf="e4"
                         theme={theme}
-                        key={uuidv4()}
+                        key={`location-button-example-e4`}
                         selected={selected === 'e4'}
                         onClick={() => setSelected('e4')}
                     />
                     <LocationButtonExample
                         rf="d5"
                         theme={theme}
-                        key={uuidv4()}
+                        key={`location-button-example-d5`}
                         selected={selected === 'd5'}
                         onClick={() => setSelected('d5')}
                     />
                     <LocationButtonExample
                         rf="e5"
                         theme={theme}
-                        key={uuidv4()}
+                        key={`location-button-example-e5`}
                         selected={selected === 'e5'}
                         onClick={() => setSelected('e5')}
                     />

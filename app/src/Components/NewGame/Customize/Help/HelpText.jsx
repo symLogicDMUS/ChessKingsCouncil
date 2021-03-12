@@ -1,5 +1,4 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 import {SubExample} from "./SubExample";
 import Typography from "@material-ui/core/Typography";
 import {PromoCheckboxExample} from "./PromoCheckboxExample";
@@ -9,7 +8,7 @@ import {HelpButtonReminder} from "../../../Reuseables/NavBar/HelpButtonReminder"
 
 export const HelpText = (fontSize, theme) => ([
      <Typography
-        key={uuidv4()}
+        key={'customize-page-help-text'}
         paragraph={true}
         style={help_text(fontSize, theme)}
     >

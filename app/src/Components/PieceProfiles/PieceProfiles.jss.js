@@ -22,6 +22,7 @@ export const widths = {
     desktop: '11.55em',
     mobile: '7.5em',
     ipad: '7.5em',
+    ipx: '7.5em',
     short: '7.5em',
 }
 

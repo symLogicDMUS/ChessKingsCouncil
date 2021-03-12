@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import "../styles/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";

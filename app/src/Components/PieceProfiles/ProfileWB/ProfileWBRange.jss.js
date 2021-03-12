@@ -54,37 +54,8 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
     }),
-    title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: fontSizes.desktop,
-            width: widths.desktop,
-        },
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: fontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            width: widths.mobile,
-        },
-        "@media screen and (max-device-width: 412px)": {
-            fontSize: fontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            width: widths.mobile,
-        },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
-            fontSize: fontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            width: widths.ipad,
-        },
-        width: '100%',
-        height: '1.5em',
-        textAlign: 'center',
-        fontFamily: 'Roboto-Light, Roboto',
-        color: themes[props.theme].text,
-        backgroundColor: themes[props.theme].fill,
-        borderTop: `0.05em solid ${themes[props.theme].outline}`,
-        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
-        borderRight: `0.05em solid ${themes[props.theme].outline}`,
-    }),
     board_window: props => ({
+        display: 'grid',
         '@media screen and (min-device-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
@@ -111,9 +82,5 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,
         outline: `0.05em solid ${themes[props.theme].outline}`,
-    }),
-    board_img: props => ({
-        width: '100%',
-        height: '100%',
     }),
 }, {index: 1});

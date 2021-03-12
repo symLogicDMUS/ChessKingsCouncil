@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import {Option} from "./Option";
 
 
@@ -9,7 +8,7 @@ export function Reset({theme, reset}) {
             onClick={reset}
             iconType="reset"
             theme={theme}
-            key={uuidv4()}
+            key="reset-option"
         />
     );
 }

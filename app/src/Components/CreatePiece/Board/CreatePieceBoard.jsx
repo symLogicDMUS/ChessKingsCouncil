@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { v4 as uuidv4 } from "uuid";
 import "../../helpers/stepFuncs";
 import { rankfiles } from "../../helpers/rankfiles";
@@ -20,6 +20,8 @@ export function CreatePieceBoard({
 }) {
     const classes = useStyles();
 
+    const [pieceKey, setPieceKey] = useState(uuidv4())
+
     const getBoard = () => {
         let squares = [];
         for (const rf of rankfiles) {
@@ -27,7 +29,7 @@ export function CreatePieceBoard({
                 squares.push(
                     <Square
                         rf={rf}
-                        key={uuidv4()}
+                        key={rf}
                         theme={theme}
                         isLightSqr={binaryBoard[rf]}
                         isSpan={spanDisplays[rf]}
@@ -40,8 +42,8 @@ export function CreatePieceBoard({
 
                     >
                         <Piece
-                            key={uuidv4()}
                             theme={theme}
+                            key={pieceKey}
                             rf={rf.toUpperCase()}
                             isLightSqr={binaryBoard[rf]}
                             pieceImgBase64Str={pieceImgBase64Str}
@@ -52,7 +54,7 @@ export function CreatePieceBoard({
                 squares.push(
                     <Square
                         rf={rf}
-                        key={uuidv4()}
+                        key={rf}
                         theme={theme}
                         isLightSqr={binaryBoard[rf]}
                         isSpan={spanDisplays[rf]}

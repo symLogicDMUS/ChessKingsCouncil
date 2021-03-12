@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {src} from "./dragonSrcStr";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
@@ -23,19 +22,19 @@ export function SampleRangeBoard({fontSize, theme}) {
         for (let rf of rankfiles) {
             if (rf === locationC3) {
                 squares.push(
-                    <div key={uuidv4()}
+                    <div key={rf}
                          className={sampleBoardObj[rf] ? classes.span :
                          (binaryBoard[rf] ? classes.light_normal : classes.dark_normal)}
                     >
                         <Piece
                             src={src}
-                            key={uuidv4()}
+                            key={rf + '-piece'}
                         />
                     </div>
                 );
             } else {
                 squares.push(
-                    <div key={uuidv4()}
+                    <div key={rf}
                          className={sampleBoardObj[rf] ? classes.span :
                              (binaryBoard[rf] ? classes.light_normal : classes.dark_normal)}
                     >

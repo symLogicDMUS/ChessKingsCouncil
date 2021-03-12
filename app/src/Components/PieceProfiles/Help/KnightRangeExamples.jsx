@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {getOffsetRangeBoardKnightExample} from "./getOffsetRangeBoardKnightExample";
@@ -8,7 +7,7 @@ import { useStyles } from "../../CreatePiece/Help/ImgWindowExample.jss";
 export function KnightRangeExamples(props) {
     const classes = useStyles({theme: props.theme});
     return <div>
-        <Typography key={uuidv4()} paragraph className={classes.text}>
+        <Typography key='knight-range-examples' paragraph className={classes.text}>
             Offsets are jumps: a Knight moves in offsets of 2 squares
             horizontal and 1 square vertical, or 1 square vertical and 2
             squares horizontal.

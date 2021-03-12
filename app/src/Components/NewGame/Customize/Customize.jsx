@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import {Redirect} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive";
@@ -23,6 +22,10 @@ import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
+import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
+import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
+import {standardPieceDefs} from "../standardPieceDefs/dev1";
+import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 import {
     fontSize0023, fontSizeW0045
 } from "../../styles/fontSizes.jss";
@@ -39,12 +42,6 @@ import {
     scroll_table_button,
     scroll_table, accordion_style, accordion_added,
 } from "./Customize.jss";
-import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
-import {SavedGames} from "../../LoadGame/SavedGames";
-import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
-import {standardPieceDefs} from "../standardPieceDefs/dev1";
-import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
-
 
 class Customize extends React.Component {
     constructor(props) {
@@ -299,7 +296,7 @@ class Customize extends React.Component {
                             />
                             <ScrollTable
                                 numRows={6}
-                                key={uuidv4()}
+                                key='pawn-promotions-desktop'
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 buttonStyle={scroll_table_button()}
@@ -402,7 +399,7 @@ class Customize extends React.Component {
                                             <div style={pawn_promotion('mobile')}>
                                                 <ScrollTable
                                                     numRows={4}
-                                                    key={uuidv4()}
+                                                    key='pawn-promotions-mobile'
                                                     listItems={this.promos}
                                                     theme={this.state.theme}
                                                     buttonStyle={scroll_table_button()}

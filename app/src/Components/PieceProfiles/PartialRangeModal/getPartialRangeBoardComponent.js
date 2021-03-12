@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "./PartialRangePiece";
@@ -22,7 +21,7 @@ export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location
                 >
                     <Piece
                         src={src}
-                        key={uuidv4()}
+                        key={rf + '-piece'}
                     />
                 </Square>
             );

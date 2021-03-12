@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {getOffset} from "../../helpers/getOffset";
 import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";

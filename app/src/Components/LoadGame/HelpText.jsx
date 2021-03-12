@@ -1,13 +1,12 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import {help_text} from "../Reuseables/NavBar/HelpText.jss";
 import {HelpButtonReminder} from "../Reuseables/NavBar/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography
-        key={uuidv4()}
         paragraph={true}
+        key='load-game-help-text'
         style={help_text(fontSize, theme)}
     >
         <p>

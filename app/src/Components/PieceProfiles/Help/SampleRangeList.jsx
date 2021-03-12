@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { RangeListItem } from "../RangeListItem";
 import { stepFuncNamesToText } from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
@@ -24,7 +23,7 @@ export const SampleRangeList = memo(({ theme }) => {
                     numRows={5}
                     listItems={rangeFuncs.map((rangeFunc) => (
                         <RangeListItem
-                            key={uuidv4()}
+                            key={rangeFunc}
                             theme={theme}
                             rangeText={stepFuncNamesToText[rangeFunc]}
                         />
@@ -40,7 +39,7 @@ export const SampleRangeList = memo(({ theme }) => {
                     numRows={5}
                     listItems={rangeFuncs.map((rangeFunc) => (
                         <RangeListItem
-                            key={uuidv4()}
+                            key={rangeFunc}
                             theme={theme}
                             rangeText={stepFuncNamesToText[rangeFunc]}
                         />

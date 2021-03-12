@@ -38,19 +38,21 @@ import {HelpTitle} from "../Reuseables/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../styles/_backgrounds.scss";
 import {copy} from "../helpers/copy";
-import {newData, standardPieceDefs} from "../NewGame/NewData";
+import {newData} from "../NewGame/NewData";
 import {boardSizes} from "../Reuseables/Board.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiCheckbox} from "../Reuseables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/MuiDropdown";
 import {setStandardImgs} from "../helpers/setStandardImgs";
+import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
+import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {
     styles,
     accordion_root,
     sqr_text_checkbox,
     franchise_theme_gen,
 } from "./GameRoot.jss";
-import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
+
 
 class GameRoot extends React.Component {
     constructor(props) {

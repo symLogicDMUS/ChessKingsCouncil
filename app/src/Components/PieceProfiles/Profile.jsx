@@ -1,5 +1,4 @@
 import React, {memo} from "react";
-import {v4 as uuidv4} from 'uuid';
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB/ProfileWB";
 import { useStyles } from "./Profile.jss";
@@ -13,7 +12,6 @@ export const Profile = ({pieceName, expand, defs, theme, screenCase, children })
             {children}
             <ProfileWB
                 color="W"
-                key={uuidv4()}
                 expand={expand}
                 pieceName={pieceName}
                 def={defs[pieceName]["W"]}
@@ -22,7 +20,6 @@ export const Profile = ({pieceName, expand, defs, theme, screenCase, children })
             />
             <ProfileWB
                 color="B"
-                key={uuidv4()}
                 expand={expand}
                 pieceName={pieceName}
                 def={defs[pieceName]["B"]}

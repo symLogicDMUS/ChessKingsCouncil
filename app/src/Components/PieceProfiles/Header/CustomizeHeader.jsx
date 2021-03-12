@@ -1,49 +1,48 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
 import Typography from "@material-ui/core/Typography";
-import {MuiCheckbox} from "../../Reuseables/MuiCheckbox";
-import {icons} from "../../styles/icons/top/icons.jss";
+import { MuiCheckbox } from "../../Reuseables/MuiCheckbox";
+import { icons } from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
-import {themes} from "../../styles/themes.jss";
+import { themes } from "../../styles/themes.jss";
 import {
     checkbox_root,
     checkbox_gen,
     checkbox,
     iconButtonsStyle,
-    useStyles
+    useStyles,
 } from "./CustomizeHeader.jss";
 
-
 export const CustomizeHeader = ({
-                                    subs,
-                                    promos,
-                                    toggleSub,
-                                    togglePromo,
-                                    pieceName,
-                                    screenCase,
-                                    theme,
-                                }) => {
-    const classes = useStyles({theme: theme});
+    subs,
+    promos,
+    toggleSub,
+    togglePromo,
+    pieceName,
+    screenCase,
+    theme,
+}) => {
+    const classes = useStyles({ theme: theme });
 
     const getColors = () => {
-        const colors = {Queen: "", Rook: "", Bishop: "", Knight: ""};
+        const colors = { Queen: "", Rook: "", Bishop: "", Knight: "" };
         for (const standardPieceName of Object.keys(subs)) {
             if (subs[standardPieceName] === pieceName) {
                 colors[standardPieceName] = themes[theme].text;
             } else {
-                colors[standardPieceName] = 'none';
+                colors[standardPieceName] = "none";
             }
         }
         return colors;
     };
-    const colors = useMemo(() => getColors(), [subs]);
+    const colors = useMemo(() => getColors(), [subs.Rook, subs.Knight, subs.Bishop, subs.Queen]);
 
     const getIsPromo = () => {
         return promos.includes(pieceName);
     };
-    const isCheckmark = useMemo(() => getIsPromo(), [promos]);
+    const isCheckmark = useMemo(() => getIsPromo(), [promos.length]);
 
     const getSelectedSub = () => {
         for (const standardPieceName of Object.keys(colors)) {
@@ -57,9 +56,7 @@ export const CustomizeHeader = ({
     return (
         <>
             <div className={classes.header}>
-                <Box
-                    className={classes.box}
-                >
+                <Box className={classes.box}>
                     <Typography
                         className={classes.piece_name}
                         variant="h6"
@@ -68,7 +65,7 @@ export const CustomizeHeader = ({
                         {pieceName}
                     </Typography>
                 </Box>
-                <Box className={classes.box} >
+                <Box className={classes.box}>
                     <MuiCheckbox
                         checkmarkState={isCheckmark}
                         onClick={() => togglePromo(pieceName)}
@@ -77,17 +74,22 @@ export const CustomizeHeader = ({
                         style={checkbox_gen(screenCase)}
                         theme={theme}
                     >
-                        {screenCase === 'mobile' ? (
-                            <Typography classes={{root: classes.checkbox_text}}>Promo</Typography>
+                        {screenCase === "mobile" ? (
+                            <Typography
+                                classes={{ root: classes.checkbox_text }}
+                            >
+                                Promo
+                            </Typography>
                         ) : (
-                            <Typography classes={{root: classes.checkbox_text}}>Promotion</Typography>
+                            <Typography
+                                classes={{ root: classes.checkbox_text }}
+                            >
+                                Promotion
+                            </Typography>
                         )}
                     </MuiCheckbox>
                 </Box>
-                <Box
-                    className={classes.box}
-                    style={iconButtonsStyle()}
-                >
+                <Box className={classes.box} style={iconButtonsStyle()}>
                     <IconButton
                         onClick={() => {
                             const selectedSub = getSelectedSub();
@@ -100,7 +102,9 @@ export const CustomizeHeader = ({
                         <BlockIcon
                             className={classes.no_sub_icon}
                             style={{
-                                color: getSelectedSub() ? themes[theme].outline : themes[theme].text,
+                                color: getSelectedSub()
+                                    ? themes[theme].outline
+                                    : themes[theme].text,
                             }}
                         />
                     </IconButton>
@@ -133,7 +137,7 @@ export const CustomizeHeader = ({
                         <SvgIcon className={classes.sub_icon}>
                             {icons.knight_outline(
                                 themes[theme].outline,
-                                colors.Knight,
+                                colors.Knight
                             )}
                         </SvgIcon>
                     </IconButton>

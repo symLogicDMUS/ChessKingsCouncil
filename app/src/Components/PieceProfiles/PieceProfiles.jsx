@@ -1,5 +1,4 @@
 import React, {useEffect, useReducer} from "react";
-import {v4 as uuidv4} from "uuid";
 import "../styles/scrollbar.scss";
 import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
@@ -75,7 +74,7 @@ export function PieceProfiles(props) {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
-                        key={pieceName}
+                        key={`${pieceName}-profile`}
                         defs={state.defs}
                         pieceName={pieceName}
                         expand={props.expand}
@@ -83,10 +82,10 @@ export function PieceProfiles(props) {
                         screenCase={screenCase}
                     >
                         <LoadDeleteHeader
-                            key={pieceName}
+                            key={`${pieceName}-header`}
+                            pieceName={pieceName}
                             load={props.load}
                             dispatch={dispatch}
-                            pieceName={pieceName}
                             screenCase={screenCase}
                             def={state.defs[pieceName]}
                             parentPage={props.parentPage}
@@ -101,14 +100,14 @@ export function PieceProfiles(props) {
                 profiles.push(
                     <Profile
                         defs={state.defs}
-                        key={uuidv4()}
+                        key={`${pieceName}-profile`}
                         pieceName={pieceName}
                         theme={props.theme}
                         expand={props.expand}
                         screenCase={screenCase}
                     >
                         <CustomizeHeader
-                            key={uuidv4()}
+                            key={`${pieceName}-header`}
                             pieceName={pieceName}
                             subs={props.subs}
                             promos={props.promos}

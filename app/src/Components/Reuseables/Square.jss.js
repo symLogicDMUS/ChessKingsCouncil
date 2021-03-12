@@ -36,38 +36,53 @@ export const square = (rf, fontSize, type, sqrSize) => {
  */
 export const useStyles = makeStyles({
     dark_normal: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         backgroundColor: themes[props.theme].dark_normal,
+        ...props.style,
     }),
     light_normal: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         backgroundColor: themes[props.theme].light_normal,
+        ...props.style,
     }),
     light_in_range: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         backgroundColor: themes[props.theme].light_in_range,
+        ...props.style,
     }),
     dark_in_range: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         background: themes[props.theme].dark_in_range,
+        ...props.style,
     }),
     offset: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         backgroundColor: themes[props.theme].offset,
+        ...props.style,
     }),
     span: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
         backgroundColor: themes[props.theme].span,
+        ...props.style,
+    }),
+    span_alt: props => ({
+        ...square(props.rf, props.fontSize, props.type, props.sqrSize),
+        backgroundColor: themes[props.theme].span_alt,
+        ...props.style,
+    }),
+    profile_wb_dark: props => ({
+        ...square(props.rf, props.fontSize, props.type, props.sqrSize),
+        backgroundColor: themes[props.theme].odd_row,
+        ...props.style,
+    }),
+    profile_wb_light: props => ({
+        ...square(props.rf, props.fontSize, props.type, props.sqrSize),
+        backgroundColor: themes[props.theme].even_row,
+        ...props.style,
     }),
     transparent: props => ({
-        ...props.style,
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),
+        ...props.style,
     }),
     ai_start: props => ({
         ...square(props.rf, props.fontSize, props.type, props.sqrSize),

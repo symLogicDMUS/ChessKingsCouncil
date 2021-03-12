@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {v4 as uuidv4} from "uuid";
 import {Portal} from "@material-ui/core";
 import {Option} from "./Option";
 import {StandardModal} from "../../Reuseables/StandardModal";

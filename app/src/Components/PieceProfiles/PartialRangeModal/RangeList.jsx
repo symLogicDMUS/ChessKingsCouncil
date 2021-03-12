@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import {RangeListItem} from "../RangeListItem";
 import {offsetToText} from "../../helpers/offsetToText";
 import {stepFuncNamesToText} from "../../helpers/spanToText";
@@ -17,8 +16,8 @@ export function RangeList({
         for (const span of range) {
             spanListItems.push(
                 <RangeListItem
-                    key={uuidv4()}
                     theme={theme}
+                    key={stepFuncNamesToText[span]}
                     rangeText={stepFuncNamesToText[span]}
                     onClick={() => parentDispatch({
                         type: "span",
@@ -35,8 +34,8 @@ export function RangeList({
         for (const offset of range) {
             offsetListItems.push(
                 <RangeListItem
-                    key={uuidv4()}
                     theme={theme}
+                    key={offsetToText(offset)}
                     rangeText={offsetToText(offset)}
                     onClick={() => parentDispatch({
                         type: "offset",

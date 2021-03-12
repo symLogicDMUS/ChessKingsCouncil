@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from 'uuid';
 import Typography from "@material-ui/core/Typography";
 import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
 import {HelpButtonReminder} from "../../Reuseables/NavBar/HelpButtonReminder";
@@ -11,14 +10,14 @@ export const HelpTitle = (fontSize, theme) => (
 )
 
 export const HelpText = (fontSize, theme) => ([
-     <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+     <Typography key={'new-game-help'} paragraph={true} style={help_text(fontSize, theme)}>
         <p>Game Name:</p>
         <p>
             Type the name of the game. Note that the game is not saved until the Save or Save As button in used in the game. If
             you use the Save As button to give a different name than here, the name given here will be discarded.
         </p>
     </Typography>,
-    <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+    <Typography key='game-types-paragraph' paragraph={true} style={help_text(fontSize, theme)}>
         <p>Pick Type:</p>
         <ol>
             <li><i>Standard</i>: Regular Chess. Chess is played by millions of people all over the world.</li>
@@ -36,13 +35,12 @@ export const HelpText = (fontSize, theme) => ([
         </ol>
     </Typography>,
 
-    <Typography key={uuidv4()} paragraph={true} style={help_text(fontSize, theme)}>
+    <Typography key={'player-types-paragraph'} paragraph={true} style={help_text(fontSize, theme)}>
         <p>Play As:</p>
         <p>
             You can play as black or white as usual, but there is also the 'Test' option, to test the game or pieces
             that you created to see if you like it, demonstrate a sequence of moves to someone, or in the developer's
-            case
-            check that a new feature works after it is updated/added.
+            case check that a new feature works after it is updated/added.
         </p>
     </Typography>,
     <HelpButtonReminder fontSize={fontSize} theme={theme} />

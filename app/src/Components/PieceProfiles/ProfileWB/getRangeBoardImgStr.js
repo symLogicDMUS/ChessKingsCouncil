@@ -42,7 +42,7 @@ export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, 
         top = fToTop[rf[1]];
         if (rf === location) {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${binaryBoard[rf] ? light_sqr_fill : dark_sqr_fill}"/>`
-            imgStr += `<image id="${pieceName}" xlink:href="${src}" width="60" height="60" transform="translate(${left} ${top})"/>`;
+            imgStr += `<image id="${pieceName}" href="${src}" width="60" height="60" transform="translate(${left} ${top})"/>`;
         } else if (rangeBoard[rf]) {
             imgStr += `<rect id="${rf}" width="60" height="60" transform="translate(${left} ${top})" fill="${range_fill}"/>`;
         } else if (binaryBoard[rf]) {
@@ -53,5 +53,6 @@ export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, 
         }
     }
     imgStr += `</svg>`;
-    return `data:image/svg+xml;base64,` + btoa(imgStr);
+    console.log(imgStr);
+    return imgStr;
 }
