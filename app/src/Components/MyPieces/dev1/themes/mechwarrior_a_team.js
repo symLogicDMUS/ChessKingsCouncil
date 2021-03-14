@@ -1,0 +1,14 @@
+export const mechwarrior_a_team = {
+    "gargoyal-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fgargoyal-black.svg?alt=media&token=37b97ab2-5795-4c38-b2f1-17fe664535ce",
+    "gargoyal-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fgargoyal-white.svg?alt=media&token=572f9f6e-e44e-4cf2-b27e-8c37cd267ea0",
+    "hellbringer-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fhellbringer-black.svg?alt=media&token=301f8f25-c1a5-4a78-9c96-d57bb5146121",
+    "hellbringer-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fhellbringer-white.svg?alt=media&token=0d61ba67-7952-42db-9c72-349679843852",
+    "maddog-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fhellbringer-white.svg?alt=media&token=0d61ba67-7952-42db-9c72-349679843852",
+    "maddog-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fmaddog-white.svg?alt=media&token=7e543b3d-2228-4ef1-a93f-c1be99cedb3b",
+    "summoner-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fsummoner-black.svg?alt=media&token=82755200-4b46-49eb-8fa6-c68e09138166",
+    "summoner-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fsummoner-white.svg?alt=media&token=3dbd286f-38a9-45ac-ad96-062be5347697",
+    "timberwolf-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Ftimberwolf-black.svg?alt=media&token=bb5972bd-ea90-4475-a0dd-e14891825c0a",
+    "timberwolf-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Ftimberwolf-white.svg?alt=media&token=33c014f7-6f54-41b2-a07a-28eadfca3eb1",
+    "warhammer-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fwarhammer-black.svg?alt=media&token=b9dd6a01-f38d-4b06-bdbc-912e7cd68560",
+    "warhammer-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FA-Team%2Fwarhammer-white.svg?alt=media&token=b05cf56d-d8f4-43db-8f46-d79a3a48031c",
+}

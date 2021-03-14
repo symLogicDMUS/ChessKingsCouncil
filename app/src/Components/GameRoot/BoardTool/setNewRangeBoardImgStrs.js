@@ -1,5 +1,5 @@
 import {specialThemeList} from "../../styles/themes.jss";
-import {franchisePieceImgs} from "../../MyPieces/franchisePieceImgs";
+import {franchisePieceImgs} from "../../MyPieces/dev1/franchisePieceImgs";
 import {standardPieceDefs} from "../../NewGame/standardPieceDefs/dev1";
 import {getRangeBoardImgStrs} from "../../PieceProfiles/ProfileWB/getRangeBoardImgStrs";
 

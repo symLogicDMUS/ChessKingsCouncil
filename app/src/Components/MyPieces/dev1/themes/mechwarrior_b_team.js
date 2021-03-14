@@ -1,0 +1,14 @@
+export const mechwarrior_b_team = {
+    "direwolf-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fdirewolf-black.svg?alt=media&token=c64e08f2-5414-4fd2-a439-4896420e6b03",
+    "direwolf-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fdirewolf-white.svg?alt=media&token=1edfd526-9f0c-4d0b-918e-91254d64178e",
+    "firemoth-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Ffiremoth-black.svg?alt=media&token=e34a395a-121e-4ce6-ab8c-f171578084ba",
+    "firemoth-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Ffiremoth-white.svg?alt=media&token=8e084c0c-40db-4e62-8dbf-9d0623c2a797",
+    "jenner-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fjenner-black.svg?alt=media&token=bad846be-bd5b-48e0-b2a5-132c2810d747",
+    "jenner-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fjenner-white.svg?alt=media&token=60693a4e-d442-47ae-aa31-9b3cb2b09bbb",
+    "kitfox-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fkitfox-black.svg?alt=media&token=32a94756-a9a8-40bd-8033-b8ea7a721baa",
+    "kitfox-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fkitfox-white.svg?alt=media&token=844953b8-fa03-40a2-b004-c8c687ccf629",
+    "maurader-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fmaurader-black.svg?alt=media&token=7ef483db-0c2e-4fd7-9ea5-1d3aef2c235d",
+    "maurader-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Fmaurader-white.svg?alt=media&token=1dd21139-51ed-4058-bc32-7fb6e0c620b2",
+    "rifleman-black.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Frifleman-black.svg?alt=media&token=3c6a080d-e3bb-4693-9074-78837928dfaa",
+    "rifleman-white.svg": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Ffranchise%20piece%20images%2FMechwarrior%2FB-Team%2Frifleman-white.svg?alt=media&token=627d3ceb-82a8-4796-860e-357c678eac13",
+}
