@@ -7,6 +7,9 @@ export const useStyles = makeStyles({
         cursor: 'pointer',
     }),
     icon: props => ({
+        fontSize: 'inherit',
+        height: '1.15em',
+        width: '1.15em',
         color: themes[props.theme].text
     }),
 }, {index: 1});

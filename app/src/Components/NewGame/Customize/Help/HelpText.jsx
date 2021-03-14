@@ -5,6 +5,8 @@ import {PromoCheckboxExample} from "./PromoCheckboxExample";
 import { help_text, } from "../../../Reuseables/NavBar/Help/HelpText.jss";
 import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
 import {HelpButtonReminder} from "../../../Reuseables/NavBar/Help/HelpButtonReminder";
+import BlockIcon from "@material-ui/icons/Block";
+import {themes} from "../../../styles/themes.jss";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography
@@ -20,7 +22,8 @@ export const HelpText = (fontSize, theme) => ([
                 substitute for any piece besides Pawns and Kings. Icons of the
                 Queen, Rook, Bishop and Knight appear in the profile header of
                 each piece. Select the icon of the piece you want to substitute
-                for.
+                for. The <BlockIcon style={{color: themes[theme].text}} /> means
+                that no sub is selected, and is the default.
             </li>
             <SubExample theme={theme} />
             <li>

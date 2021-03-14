@@ -1,6 +1,6 @@
 import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
-import {fontSize0015, fontSize0016, fontSize001725, fontSize00175} from "../../../styles/fontSizes.jss";
+import {fontSize0015, fontSize0016, fontSize001725, fontSize00175, fontSize002} from "../../../styles/fontSizes.jss";
 import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 import {itemChoicesWindowWidth} from "../../../Reuseables/Modals/MuiGrid.jss";
 
@@ -25,9 +25,10 @@ export const close_icon = (screenCase) => {
             }
         default:
             return {
-                fontSize: fontSize001725,
-                width: "2em",
-                height: "2em",
+                fontSize: fontSize002,
+                width: '1.5em',
+                height: '1.5em',
+                alignSelf: 'flex-start',
             }
     }
 };

@@ -5,11 +5,9 @@ import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "../PartialRangeModal/PartialRangePiece";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
 import {board} from "../../Reuseables/Board/Board.jss";
-import {useStyles} from "./SampleRangeBoard.jss";
+import {SampleRangeSquare} from "./SampleRangeSquare";
 
 export function SampleRangeBoard({fontSize, theme}) {
-
-    const classes = useStyles({theme: theme, fontSize: fontSize});
 
     const locationC3 = 'c3'
     const sampleBoardObj = getBinaryBoarAllFalse()
@@ -21,25 +19,21 @@ export function SampleRangeBoard({fontSize, theme}) {
         const squares = [];
         for (let rf of rankfiles) {
             if (rf === locationC3) {
-                squares.push(
-                    <div key={rf}
-                         className={sampleBoardObj[rf] ? classes.span :
-                         (binaryBoard[rf] ? classes.light_normal : classes.dark_normal)}
-                    >
+                squares.push
+                (
+                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize} theme={theme}>
                         <Piece
                             src={src}
                             key={rf + '-piece'}
                         />
-                    </div>
+                    </SampleRangeSquare>
                 );
             } else {
-                squares.push(
-                    <div key={rf}
-                         className={sampleBoardObj[rf] ? classes.span :
-                             (binaryBoard[rf] ? classes.light_normal : classes.dark_normal)}
-                    >
+                squares.push
+                (
+                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize} theme={theme}>
                         {null}
-                    </div>
+                    </SampleRangeSquare>
                 );
             }
         }

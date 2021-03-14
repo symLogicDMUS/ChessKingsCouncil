@@ -19,6 +19,7 @@ export function MuiTextField({
     defaultValue,
     placeholder,
     autoComplete,
+    disabled,
     InputLabelProps,
 }) {
     const classes = useStyles({ style: style, genStyle: genStyle, styleOverride: styleOverride, theme: theme });
@@ -39,6 +40,7 @@ export function MuiTextField({
             onFocus={onFocus}
             variant={variant}
             label={label}
+            disabled={disabled}
         />
     );
 }

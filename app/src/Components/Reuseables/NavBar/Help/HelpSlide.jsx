@@ -5,6 +5,9 @@ import {close_icon} from "../../Modals/StandardModal.jss";
 import {fontSize002} from "../../../styles/fontSizes.jss";
 import {Typography} from "@material-ui/core";
 import {useStyles} from "./HelpSlideshow.jss";
+import {MuiButton} from "../../Clickables/MuiButton";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import {done_flexbox} from "./HelpSlide.jss";
 
 /**
  * as single page of help slideshow (same component without the next and previous buttons
@@ -33,6 +36,16 @@ export function HelpSlide({theme, title, onClose, children}) {
                     <Typography paragraph className={classes.content}>
                         {children}
                     </Typography>
+                    <Box className={classes.top_flexbox} style={done_flexbox()}>
+                        <MuiButton
+                            theme={theme}
+                            classesObj={{root: classes.done_button}}
+                            startIcon={<CheckCircleOutlineIcon className={classes.button_icon}/>}
+                            onClick={onClose}
+                        >
+                            Done
+                        </MuiButton>
+                    </Box>
                 </div>
             </div>
         </div>

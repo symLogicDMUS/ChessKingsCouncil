@@ -1,13 +1,12 @@
 import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {close_icon} from "../../Modals/StandardModal.jss";
 import {viewWidth} from "../../../helpers/windowMeasurments";
-import {fontSize00276, fontSize00292, fontSize00301} from "../../../styles/fontSizes.jss";
+import {fontSize00276, fontSize00301} from "../../../styles/fontSizes.jss";
 
 export const listStyle = () => ({
     width: "100%",
-    height: 8,
+    height: 20,
     fontSize: fontSize00301,
 });
 
@@ -37,6 +36,7 @@ export const closeIcon = (fontSize, theme) => ({
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
+        backgroundColor: 'unset',
         zIndex: 10,
     }),
     window: props => ({
@@ -70,7 +70,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-device-width: 1040px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
-            border: `0.1em solid ${themes[props.theme].outline}`,
+            border: `0.08em solid ${themes[props.theme].outline}`,
         },
     }),
     title: props => ({

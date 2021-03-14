@@ -2,16 +2,18 @@ import {button} from "../../Modals/StandardModal.jss";
 import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth, viewHeight} from "../../../helpers/windowMeasurments";
 import {fontSize002} from "../../../styles/fontSizes.jss";
 import {appBarHeight} from "../../Drawers/PersistentDrawer.jss";
+import {viewHeight, viewWidth} from "../../../helpers/windowMeasurments";
 
 const windowHeightMobile = () => (viewHeight() - appBarHeight);
 
 export const useStyles = makeStyles({
     modal: props => ({
-        fontSize: fontSize002,
         ...modal,
+        fontSize: fontSize002,
+        backgroundColor: 'unset',
+        flexDirection: 'column',
         zIndex: 10,
     }),
     window: props => ({
@@ -25,8 +27,10 @@ export const useStyles = makeStyles({
             marginTop: 'auto',
         },
         '@media screen and (min-device-width: 1040px)': {
-            width: availWidth() * 0.66667,
-            height: availHeight() * 0.66667,
+            width: viewWidth() * 0.975,
+            height: viewHeight() * 0.975,
+            marginTop: 'auto',
+            marginBottom: 'auto',
         },
     }),
     top_flexbox: props => ({
@@ -58,8 +62,8 @@ export const useStyles = makeStyles({
             marginBottom: 0,
         },
         '@media screen and (min-device-width: 1040px)': {
-            width: availWidth() * 0.66667*0.95,
-            height: availHeight() * 0.66667*0.95*0.81,
+            width: viewWidth() * 0.975*0.95,
+            height: viewHeight() * 0.975*0.95*0.85,
             marginLeft: '2.5%',
         },
     }),

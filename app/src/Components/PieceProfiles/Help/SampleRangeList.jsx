@@ -25,7 +25,6 @@ export const SampleRangeList = memo(({theme}) => {
                             <ListItem
                                 key={rangeFunc}
                                 theme={theme}
-                                //text={stepFuncNamesToText[rangeFunc]}
                             >
                                 {stepFuncNamesToText[rangeFunc]}
                             </ListItem>
@@ -44,7 +43,6 @@ export const SampleRangeList = memo(({theme}) => {
                             <ListItem
                                 key={rangeFunc}
                                 theme={theme}
-                                // text={stepFuncNamesToText[rangeFunc]}
                             >
                                 {stepFuncNamesToText[rangeFunc]}
                             </ListItem>

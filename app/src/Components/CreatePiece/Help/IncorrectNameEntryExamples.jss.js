@@ -18,15 +18,27 @@ export const useStyles = makeStyles({
     }),
     incorrect_entry: props => ({
         "& .MuiInputLabel-root": {
-            color: '#f44336',
             fontSize: props.fontSize,
             fontFamily: 'Roboto-Light, Roboto'
         },
         "& .MuiOutlinedInput-input": {
-            color: '#f44336',
             fontSize: props.fontSize,
             fontFamily: 'Roboto-Light, Roboto'
         },
+    }),
+    block_icons: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        transform: 'translate(0, -18em)'
+    }),
+    block_icon: props => ({
+        fontSize: 'inherit',
+       color: 'red',
+       width: '8em',
+       height: '8em',
     }),
 }, {index: 1});
 

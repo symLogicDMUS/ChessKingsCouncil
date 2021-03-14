@@ -22,7 +22,7 @@ export function SubExample({theme}) {
             <IconButton className={classes.no_sub_button}>
                 <BlockIcon
                     className={classes.no_sub_icon}
-                    style={{color: themes[theme].outline}}
+                    style={{color: themes[theme].text}}
                 />
             </IconButton>
             <IconButton
@@ -31,7 +31,7 @@ export function SubExample({theme}) {
                 <SvgIcon className={classes.sub_icon}>
                     {icons.queen_outline(
                         themes[theme].outline,
-                        themes[theme].text,
+                        'none',
                     )}
                 </SvgIcon>
             </IconButton>
@@ -51,7 +51,7 @@ export function SubExample({theme}) {
                 <SvgIcon className={classes.sub_icon}>
                     {icons.knight_outline(
                         themes[theme].outline,
-                        'none'
+                        'none',
                     )}
                 </SvgIcon>
             </IconButton>
