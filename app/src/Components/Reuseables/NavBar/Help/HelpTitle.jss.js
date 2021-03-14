@@ -1,12 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
-import {fontSize0026} from "../../styles/fontSizes.jss";
+import {themes} from "../../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     help_title: props => ({
-        fontSize: fontSize0026,
+        fontSize: props.fontSize,
         fontFamily: 'Roboto-Light, Roboto',
-        textAlign: 'center',
         color: themes[props.theme].text,
+        textAlign: 'center',
     }),
 }, {index: 1});

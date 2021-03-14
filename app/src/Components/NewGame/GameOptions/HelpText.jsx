@@ -1,13 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
-import {HelpButtonReminder} from "../../Reuseables/NavBar/HelpButtonReminder";
-
-export const HelpTitle = (fontSize, theme) => (
-    <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
-        Choices for a New Game
-    </Typography>
-)
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
+import {HelpButtonReminder} from "../../Reuseables/NavBar/Help/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography key={'new-game-help'} paragraph={true} style={help_text(fontSize, theme)}>
@@ -34,7 +28,6 @@ export const HelpText = (fontSize, theme) => ([
             </li>
         </ol>
     </Typography>,
-
     <Typography key={'player-types-paragraph'} paragraph={true} style={help_text(fontSize, theme)}>
         <p>Play As:</p>
         <p>

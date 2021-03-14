@@ -28,13 +28,12 @@ import {StatusBar} from "./StatusBar/StatusBar";
 import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
 import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {getBoardImgBase64Str} from "./GameBoard/getBoardImgBase64Str";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
-import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import "../Reuseables/Background/_backgrounds.scss";
 import {copy} from "../helpers/copy";
@@ -43,7 +42,6 @@ import {boardSizes} from "../Reuseables/Board/Board.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/UserInput/MuiDropdown";
-import {setStandardImgs} from "../helpers/setStandardImgs";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {
@@ -367,7 +365,7 @@ class GameRoot extends React.Component {
                         <NavBar
                             currentPage="GameRoot"
                             screenCase='desktop'
-                            helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
+                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
@@ -414,7 +412,7 @@ class GameRoot extends React.Component {
                                 currentPage="GameRoot"
                                 screenCase='mobile'
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme}>Playing a Game</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}

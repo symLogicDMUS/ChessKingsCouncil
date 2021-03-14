@@ -3,16 +3,10 @@ import Typography from "@material-ui/core/Typography";
 import {DeleteForever, Storage} from "@material-ui/icons";
 import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
 import {button} from "../PieceProfiles/Header/LoadDeleteHeader.jss";
-import {help_text, help_title} from "../Reuseables/NavBar/HelpText.jss";
+import {help_text} from "../Reuseables/NavBar/Help/HelpText.jss";
 import {ProfileHelpText} from "../PieceProfiles/Help/ProfileHelpText";
+import {HelpButtonReminder} from "../Reuseables/NavBar/Help/HelpButtonReminder";
 import {fontSize002} from "../styles/fontSizes.jss";
-import {HelpButtonReminder} from "../Reuseables/NavBar/HelpButtonReminder";
-
-export const HelpTitle = (fontSize, theme) => (
-    <Typography variant="h6" style={{...help_title(fontSize, theme)}}>
-        Records of All the Pieces you Have Created
-    </Typography>
-)
 
 export const HelpText = (fontSize, theme) => ([
     <Typography key={'saved-pieces-help-text'} paragraph={true} style={help_text(fontSize, theme)}>

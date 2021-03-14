@@ -60,8 +60,8 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     arrow_button: (props) => ({
-        fontSize: props.style.fontSize,
         width: props.style.width,
+        fontSize: props.style.fontSize,
         height: `${getArrowButtonHeight(props.style.height)}em`,
         '@media screen and (max-device-width: 412px)': {
             border: `0.05em solid ${themes[props.theme].outline}`,

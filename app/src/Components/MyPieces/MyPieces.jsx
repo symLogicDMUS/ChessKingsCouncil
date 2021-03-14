@@ -6,8 +6,8 @@ import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
-import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {HelpText} from "./HelpText";
 import "../Reuseables/Background/_backgrounds.scss";
 import {
@@ -52,7 +52,7 @@ class MyPieces extends React.Component {
                         theme={this.state.theme}
                         updateTheme={this.updateTheme}
                         helpText={HelpText(fontSize002, this.state.theme)}
-                        helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
+                        helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Your Pieces</HelpTitle>}
                         screenCase='desktop'
                         additionalSettings={null}
                     />
@@ -82,7 +82,7 @@ class MyPieces extends React.Component {
                                 currentPage="MyPieces"
                                 flexDirection="column"
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme}>Your Pieces</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Your Pieces</HelpTitle>}
                                 redirectMessage={null}
                                 theme={this.state.theme}
                                 updateTheme={this.updateTheme}

@@ -16,7 +16,7 @@ import PersistentDrawer from "../../Reuseables/Drawers/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
 import MuiAccordion from "../../Reuseables/Drawers/MuiAccordion";
 import {sideBarHeight} from "../../Reuseables/Drawers/SidBar.jss";
-import {HelpTitle} from "../../Reuseables/Title/HelpTitle";
+import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
 import {AppBarContent} from "./AppBarContent";
 import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
@@ -27,7 +27,7 @@ import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
 import {standardPieceDefs} from "../standardPieceDefs/dev1";
 import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 import {
-    fontSize0023, fontSizeW0045
+    fontSize0023, fontSize0026, fontSizeW0045
 } from "../../styles/fontSizes.jss";
 import {
     drawer_component,
@@ -42,6 +42,9 @@ import {
     scroll_table_button,
     scroll_table, accordion_style, accordion_added,
 } from "./Customize.jss";
+import {difference} from "../../helpers/setOps";
+import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
+import {isSpecial} from "../../helpers/isSpecial";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -61,9 +64,10 @@ class Customize extends React.Component {
             Queen: null,
             Knight: null,
         };
-        this.standards = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
-        this.gameData = {}
+        this.standardPieceNames = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.defs = {};
+        this.idDict = {};
+        this.gameData = {};
         this.promos = [];
         this.firstTime = false;
         this.promoAll = false;
@@ -85,8 +89,9 @@ class Customize extends React.Component {
         this.toggleSub = this.toggleSub.bind(this);
         this.togglePromo = this.togglePromo.bind(this);
         this.togglePromoAll = this.togglePromoAll.bind(this);
-        this.loadIdDict = this.loadIdDict.bind(this);
         this.updateSearchText = this.updateSearchText.bind(this);
+        this.updateTheme = this.updateTheme.bind(this);
+        this.loadIdDict = this.loadIdDict.bind(this);
     }
 
     componentDidMount() {
@@ -94,7 +99,11 @@ class Customize extends React.Component {
     }
 
     componentDidUpdate() {
-        document.body.className = `${this.state.theme}-background`;
+        if (this.state.theme === 'tan') {
+            document.body.className = 'tan-background-alt';
+        } else {
+            document.body.className = `${this.state.theme}-background`;
+        }
     }
 
     setDefs(defs) {
@@ -104,7 +113,8 @@ class Customize extends React.Component {
 
     accept() {
         this.idDict = this.loadIdDict();
-        this.setStandardPromos();
+        this.addStartingStandardsToPromos();
+        this.addBackupStandards();
         this.bundleGameData();
         this.setState({redirect: true})
     }
@@ -112,7 +122,7 @@ class Customize extends React.Component {
     /**
      * called by this.accept()
      * because will redirect to another page, combine game data into one object to make it easier.
-     * 1. get new (standard) game data, plus promos and idDict according to what user put, plus empty piece_defs
+     * 1. get new (standard) game data, promos and idDict from what user put, and empty piece_defs
      * 2. for ids not pawn or king, use the id to get the name, then use the name to get the def. Building object of defs
      *    used in this game.
      * 3. because using pieces the user created, need to do a run through of the game logic to know what the starting ranges
@@ -144,31 +154,40 @@ class Customize extends React.Component {
     /**
      * sub: name of a piece making sub.
      * subs is this.subs with key:value pairs reversed.
-     * frontend uses standard:sub dict, and backend uses
+     * Components use standard:sub dict, and game-logic uses
      * sub:standard dict
      */
     prepareForIdAssign() {
         const names = [];
         const subs = {};
-        //make object who's keys and values are the reverse of this.subs
+
+        /*make object who's keys are custom pieces and values are standard pieces.*/
         Object.entries(this.subs).forEach(([standard, sub]) => {
             if (sub != null) subs[sub] = standard;
         });
+
+        /*
+         * Adding names in promos to the list of all names. If there is more than 20 only add the first 20,
+         * otherwise add all of them.
+        * */
         if (this.promos.length > 20) {
-            for (let i = 0; i < 20; i++) names.push(this.promos[i]);
+            for (let i = 0; i <= 20; i++) names.push(this.promos[i]);
         } else {
             for (const p of this.promos) names.push(p);
         }
+
+        /* add names in subs to the list of all names (if they were not added already when looking at promos).*/
         for (const s of Object.keys(subs)) {
             if (!names.includes(s)) names.push(s);
         }
+
         return [names, subs];
     }
 
     /**
      * for each standard piece check all starting pieces and if found make it a pawn promotion (except pawns and kings)
      */
-    setStandardPromos() {
+    addStartingStandardsToPromos() {
         for (const [name1, id1] of Object.entries(standardIds)) {
             for (const [id2, name2] of Object.entries(this.idDict)) {
                 if (
@@ -183,6 +202,20 @@ class Customize extends React.Component {
         }
     }
 
+    addBackupStandards() {
+        let idChoices;
+        /* for standard piece names */
+        for (const pieceName of this.standardPieceNames) {
+            /* if not Pawn or King, and was subbed for */
+            if (! isSpecial(pieceName) && this.subs[pieceName]) {
+                idChoices = Array.from(difference(new Set (idsForRent), new Set(Object.keys(this.idDict))))
+                this.idDict[idChoices[0]] = pieceName;
+                this.defs[pieceName] = standardPieceDefs[pieceName]
+                this.promos.push(pieceName)
+            }
+        }
+    }
+
     loadIdDict() {
         const [names, subs] = this.prepareForIdAssign();
         return idAssign(names, subs);
@@ -192,7 +225,7 @@ class Customize extends React.Component {
         this.subs[standardPiece] = (this.subs[standardPiece] === sub) ? null : sub;
         if (this.subs[standardPiece]) {
             Object.keys(this.subs).forEach((pieceName) => {
-                /**if custom piece was previously a sub for different standard piece,that standard piece has no sub. */
+                /* if custom piece was previously a sub for different standard piece,that standard piece has no sub. */
                 if (pieceName !== standardPiece && this.subs[pieceName] === sub)
                     this.subs[pieceName] = null;
             });
@@ -218,7 +251,7 @@ class Customize extends React.Component {
         // if promoAll now true than add every piece not already a promo to the list
         if (this.promoAll) {
             for (const pieceName of Object.keys(this.defs)) {
-                if (!this.promos.includes(pieceName) && !this.standards.includes(pieceName)) {
+                if (!this.promos.includes(pieceName) && !this.standardPieceNames.includes(pieceName)) {
                     this.promos.push(pieceName);
                 }
             }
@@ -296,8 +329,8 @@ class Customize extends React.Component {
                             />
                             <ScrollTable
                                 numRows={6}
-                                key='pawn-promotions-desktop'
                                 listItems={this.promos}
+                                key='pawn-promotions-desktop'
                                 theme={this.state.theme}
                                 buttonStyle={scroll_table_button()}
                                 style={scroll_table('desktop')}
@@ -322,7 +355,6 @@ class Customize extends React.Component {
                                 style={ok_button('desktop')}
                                 theme={this.state.theme}
                                 variant={"contained"}
-                                isDisabled={false}
                             >
                                 Ok
                             </Button>
@@ -336,7 +368,7 @@ class Customize extends React.Component {
                                 currentPage="Customize"
                                 screenCase='desktop'
                                 helpText={HelpText(fontSize0023, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
                                 updateTheme={this.updateTheme}
                                 additionalSettings={null}
@@ -350,7 +382,7 @@ class Customize extends React.Component {
                                     currentPage="Customize"
                                     screenCase="mobile"
                                     helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                    helpTitle={<HelpTitle theme={this.state.theme}>Customizing a Game</HelpTitle>}
+                                    helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}
                                     theme={this.state.theme}
                                     updateTheme={this.updateTheme}
@@ -399,8 +431,8 @@ class Customize extends React.Component {
                                             <div style={pawn_promotion('mobile')}>
                                                 <ScrollTable
                                                     numRows={4}
-                                                    key='pawn-promotions-mobile'
                                                     listItems={this.promos}
+                                                    key='pawn-promotions-mobile'
                                                     theme={this.state.theme}
                                                     buttonStyle={scroll_table_button()}
                                                     style={scroll_table('mobile')}

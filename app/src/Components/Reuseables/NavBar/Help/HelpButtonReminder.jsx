@@ -8,7 +8,7 @@ import {
     button,
     button_content,
     button_text, icon
-} from "../../CreatePiece/Help/HelpText.jss";
+} from "../../../CreatePiece/Help/HelpText.jss";
 
 export function HelpButtonReminder({fontSize, theme}) {
     return <div>

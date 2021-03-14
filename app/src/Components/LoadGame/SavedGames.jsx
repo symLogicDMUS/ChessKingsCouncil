@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {HelpText} from "./HelpText";
-import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {Portal, Typography} from "@material-ui/core";
 import StorageIcon from '@material-ui/icons/Storage';
@@ -10,12 +10,12 @@ import {Background} from "../Reuseables/Background/Background";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {imgGridRootStyle, search_box, useStyles} from "./SavedGames.jss";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export function SavedGames(props) {
-    const classes = useStyles({theme: props.theme, fontSize: fontSize002});
+    const classes = useStyles({theme: props.theme});
 
     return (
         <>
@@ -27,7 +27,7 @@ export function SavedGames(props) {
                     theme={props.theme}
                     updateTheme={props.updateTheme}
                     helpText={HelpText(fontSize002, props.theme)}
-                    helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
+                    helpTitle={<HelpTitle theme={props.theme} fontSize={fontSize0026}>Loading a Game</HelpTitle>}
                     additionalSettings={null}
                 />
                 <Portal>
@@ -40,7 +40,7 @@ export function SavedGames(props) {
                                             <Typography className={classes.title}>Load Game</Typography>
                                             <StorageIcon className={classes.title_icon} size="large"/>
                                         </Box>
-                                        <SearchBox updateSearchText={props.updateSearchText} theme={props.theme}/>
+                                        <SearchBox updateSearchText={props.updateSearchText} theme={props.theme} width='20em'/>
                                     </>
                                 }
                                 onClose={null}
@@ -71,7 +71,7 @@ export function SavedGames(props) {
                             screenCase="mobile"
                             redirectMessage={null}
                             helpText={HelpText(fontSizeW0045, props.theme)}
-                            helpTitle={<HelpTitle theme={props.theme}>Loading a Game</HelpTitle>}
+                            helpTitle={<HelpTitle theme={props.theme} fontSize={fontSize0026}>Loading a Game</HelpTitle>}
                             updateTheme={props.updateTheme}
                             theme={props.theme}
                             additionalSettings={null}
@@ -89,10 +89,10 @@ export function SavedGames(props) {
                 >
                     <MuiGrid
                         loaded={props.loaded}
-                        selectedItem={props.selectedGame}
-                        toggleShowNames={props.toggleShowNames}
                         onOkClick={props.load}
                         onDeleteClick={props.deleteGame}
+                        selectedItem={props.selectedGame}
+                        toggleShowNames={props.toggleShowNames}
                         defaultChecked={props.showNames}
                         searchText={props.searchText}
                         theme={props.theme}
@@ -103,7 +103,7 @@ export function SavedGames(props) {
                         onClose={null}
                         title={
                             <SearchBox
-                                width='100%'
+                                width='20em'
                                 theme={props.theme}
                                 style={search_box('mobile')}
                                 updateSearchText={props.updateSearchText}

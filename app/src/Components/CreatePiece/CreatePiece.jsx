@@ -3,7 +3,7 @@ import "../Reuseables/Background/_backgrounds.scss";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {HelpText} from "./Help/HelpText"
 import {messageStr} from "./helpers/messageStr";
 import {saveDef} from "../../API/saveDef";
@@ -31,7 +31,7 @@ import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {fontSize002, fontSizeW0045,} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
 import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
@@ -412,7 +412,7 @@ class CreatePiece extends React.Component {
                             screenCase='desktop'
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
+                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             additionalSettings={
                                 <>
@@ -447,7 +447,7 @@ class CreatePiece extends React.Component {
                                 currentPage="CreatePiece"
                                 screenCase='mobile'
                                 redirectMessage={messageStr}
-                                helpTitle={<HelpTitle theme={this.state.theme}>Creating a Piece</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}

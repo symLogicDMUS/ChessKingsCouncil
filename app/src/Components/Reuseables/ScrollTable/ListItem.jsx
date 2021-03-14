@@ -1,20 +1,20 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import { useStyles } from "./RangeListItem.jss";
+import { useStyles } from "./ListItem.jss";
 
-export function RangeListItem({
+export function ListItem({
     theme,
-    rangeText,
     onClick,
+    children,
 }) {
     const classes = useStyles({ theme });
 
     return (
         <Typography
-            className={classes.range_list_item}
+            className={classes.list_item}
             onClick={onClick}
         >
-            {rangeText}
+            {children}
         </Typography>
     );
 }

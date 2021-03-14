@@ -30,6 +30,7 @@ export function RangeToolExample({theme}) {
         <div className={classes.range_tool}>
             <MediaQuery minDeviceWidth={1040}>
                 <ScrollTable
+                    listItems={getSpanTextLabels()}
                     numRows={5}
                     theme={theme}
                     style={{
@@ -38,11 +39,11 @@ export function RangeToolExample({theme}) {
                         fontSize: fontSizes.desktop,
                     }}
                     buttonStyle={{borderRadius: 0}}
-                    listItems={getSpanTextLabels()}
                 />
             </MediaQuery>
             <MediaQuery maxDeviceWidth={1040}>
                 <ScrollTable
+                    listItems={getSpanTextLabels()}
                     numRows={5}
                     theme={theme}
                     style={{
@@ -51,7 +52,6 @@ export function RangeToolExample({theme}) {
                         fontSize: fontSizes['mobile'],
                     }}
                     buttonStyle={{borderRadius: 0}}
-                    listItems={getSpanTextLabels()}
                 />
             </MediaQuery>
             <div className={classes.span_arrow_buttons}>

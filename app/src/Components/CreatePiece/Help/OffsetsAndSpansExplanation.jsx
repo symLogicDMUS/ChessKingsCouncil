@@ -5,11 +5,11 @@ import {Typography} from "@material-ui/core";
 import {example_box} from "./HelpText.jss";
 import {RangeToolExample} from "./RangeToolExample";
 import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
-import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples";
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";
 import {img_example} from "./OffsetsAndSpansExplanation.jss";
-import {useStyles} from "../../Reuseables/Title/SubTitle.jss";
+import {useStyles} from "../../Reuseables/NavBar/SubTitle.jss";
 
 
 export function OffsetsAndSpansExplanation(props) {

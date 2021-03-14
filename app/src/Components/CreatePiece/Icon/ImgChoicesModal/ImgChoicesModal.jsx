@@ -1,20 +1,27 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import MediaQuery from "react-responsive/src";
-import { Typography } from "@material-ui/core";
-import PanoramaIcon from "@material-ui/icons/Panorama";
 import "../../../styles/scrollbar.scss";
-import { getImgComponents } from "../../../Reuseables/Modals/getImgComponents";
-import { Close } from "../../../Reuseables/Modals/Close";
-import { SearchBox } from "../../../Reuseables/UserInput/SearchBox";
-import { MuiGrid } from "../../../Reuseables/Modals/MuiGrid";
+import MediaQuery from "react-responsive/src";
+import {Typography} from "@material-ui/core";
+import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
+import WallpaperIcon from '@material-ui/icons/Wallpaper'
+import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
+import {Close} from "../../../Reuseables/Modals/Close";
+import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
+import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { deleteImg } from "../../../../API/deleteImg";
-import { getImgDict } from "../../../../API/getImgDict";
-import { saveImgDict } from "../../../../API/saveImgDict";
-import { getSampleImgUrls } from "../../../../API/getSampleImgUrls";
-import { sampleImgUrls } from "../../../../API/apiHelpers/sampleImgUrls/dev1";
-import { close_icon, img_grid_root, styles } from "./ImgChoicesModal.jss";
+import {deleteImg} from "../../../../API/deleteImg";
+import {getImgDict} from "../../../../API/getImgDict";
+import {saveImgDict} from "../../../../API/saveImgDict";
+import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
+import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
+import {
+    close_icon,
+    img_grid_root,
+    imgModalTitleDesktop,
+    searchBoxStyleDesktop,
+    searchBoxWidthDesktop,
+    styles
+} from "./ImgChoicesModal.jss";
 
 class ImgChoicesModal extends React.Component {
     constructor(props) {
@@ -41,44 +48,36 @@ class ImgChoicesModal extends React.Component {
             if (!imgDict) {
                 saveImgDict(sampleImgUrls).then(([r]) => {
                     this.imgDict = getSampleImgUrls();
-                    this.imgItems = getImgComponents(
-                        this.imgDict,
-                        this.setChoice,
-                        this.state.imgNameChoice,
-                        this.state.searchText,
-                        this.state.showNames,
-                        this.props.theme,
-                    );
+                    this.updateImgComponents();
                     this.setState({ loaded: true });
                 });
             } else {
                 this.imgDict = imgDict;
-                this.imgItems = getImgComponents(
-                    this.imgDict,
-                    this.setChoice,
-                    this.state.imgNameChoice,
-                    this.state.searchText,
-                    this.state.showNames,
-                    this.props.theme,
-                );
+                this.updateImgComponents();
                 this.setState({ loaded: true });
             }
         });
+    }
+
+    updateImgComponents() {
+        this.imgItems = getImgComponents(
+            this.imgDict,
+            this.setChoice,
+            this.state.imgNameChoice,
+            this.state.searchText,
+            this.state.showNames,
+            this.props.theme,
+        );
     }
 
     deleteImg(imgNameChoice) {
         deleteImg(imgNameChoice).then(([r]) => {
             this.props.resetImg(this.imgDict[imgNameChoice]);
             delete this.imgDict[imgNameChoice];
-            this.imgItems = getImgComponents(
-                this.imgDict,
-                this.setChoice,
-                this.state.imgNameChoice,
-                this.state.searchText,
-                this.state.showNames,
-                this.props.theme,
-            );
-            this.setState({ imgNameChoice: null });
+            this.setState({ imgNameChoice: null }, () => {
+                this.updateImgComponents();
+                this.triggerRender();
+            });
         });
     }
 
@@ -89,26 +88,28 @@ class ImgChoicesModal extends React.Component {
 
     setChoice(imgNameChoice) {
         if (this.state.imgNameChoice === imgNameChoice) {
-            this.setState({ imgNameChoice: null });
+            this.setState({ imgNameChoice: null }, () => {
+                this.updateImgComponents();
+                this.triggerRender();
+            });
         } else {
-            this.setState({ imgNameChoice: imgNameChoice });
+            this.setState({ imgNameChoice: imgNameChoice }, () => {
+                this.updateImgComponents();
+                this.triggerRender();
+            });
         }
     }
 
     updateSearchText(searchText) {
-        this.setState({ searchText: searchText });
+        this.setState({ searchText: searchText }, () => {
+            this.updateImgComponents();
+            this.triggerRender();
+        });
     }
 
     toggleShowNames() {
         this.setState({showNames: ! this.state.showNames}, () => {
-            this.imgItems = getImgComponents(
-                this.imgDict,
-                this.setChoice,
-                this.state.imgNameChoice,
-                this.state.searchText,
-                this.state.showNames,
-                this.props.theme,
-            );
+            this.updateImgComponents();
             this.triggerRender();
         })
     }
@@ -117,6 +118,7 @@ class ImgChoicesModal extends React.Component {
     }
 
     render() {
+
         return (
             <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
@@ -146,10 +148,11 @@ class ImgChoicesModal extends React.Component {
                                 <>
                                     <Typography
                                         className={this.props.classes.title}
+                                        style={imgModalTitleDesktop()}
                                     >
                                         Images
                                     </Typography>
-                                    <PanoramaIcon
+                                    <WallpaperIcon
                                         className={
                                             this.props.classes.title_icon
                                         }
@@ -158,6 +161,8 @@ class ImgChoicesModal extends React.Component {
                                     <SearchBox
                                         theme={this.props.theme}
                                         updateSearchText={this.updateSearchText}
+                                        width={searchBoxWidthDesktop()}
+                                        style={searchBoxStyleDesktop()}
                                     />
                                 </>
                             }
@@ -195,15 +200,16 @@ class ImgChoicesModal extends React.Component {
                                     >
                                         Images
                                     </Typography>
-                                    <PanoramaIcon
+                                    <WallpaperIcon
                                         className={
                                             this.props.classes.title_icon
                                         }
-                                        size="large"
+                                        size="small"
                                     />
                                     <SearchBox
                                         theme={this.props.theme}
                                         updateSearchText={this.updateSearchText}
+                                        width={5}
                                     />
                                 </>
                             }

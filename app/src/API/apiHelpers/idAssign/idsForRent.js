@@ -2,4 +2,3 @@ export const idsForRent = ['a', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'l', 'm'
 Object.preventExtensions(idsForRent);
 Object.seal(idsForRent);
 Object.freeze(idsForRent);
-// module.exports = idsForRent;

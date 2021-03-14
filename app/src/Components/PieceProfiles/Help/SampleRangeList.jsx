@@ -1,11 +1,11 @@
-import React, { memo } from "react";
-import { RangeListItem } from "../RangeListItem";
-import { stepFuncNamesToText } from "../../helpers/spanToText";
+import React, {memo} from "react";
+import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
+import {stepFuncNamesToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import MediaQuery from "react-responsive/src";
 import {range_list_button_style, range_list_gen_style, range_list_row_style} from "./ProfileHelpText.jss";
 
-export const SampleRangeList = memo(({ theme }) => {
+export const SampleRangeList = memo(({theme}) => {
     const rangeFuncs = [
         "step_1sqr90d",
         "step_1sqr45d",
@@ -20,14 +20,17 @@ export const SampleRangeList = memo(({ theme }) => {
         <div>
             <MediaQuery minDeviceWidth={1040}>
                 <ScrollTable
+                    listItems={
+                        rangeFuncs.map((rangeFunc) => (
+                            <ListItem
+                                key={rangeFunc}
+                                theme={theme}
+                                //text={stepFuncNamesToText[rangeFunc]}
+                            >
+                                {stepFuncNamesToText[rangeFunc]}
+                            </ListItem>
+                        ))}
                     numRows={5}
-                    listItems={rangeFuncs.map((rangeFunc) => (
-                        <RangeListItem
-                            key={rangeFunc}
-                            theme={theme}
-                            rangeText={stepFuncNamesToText[rangeFunc]}
-                        />
-                    ))}
                     theme={theme}
                     rowStyle={range_list_row_style()}
                     buttonStyle={range_list_button_style('desktop')}
@@ -36,14 +39,17 @@ export const SampleRangeList = memo(({ theme }) => {
             </MediaQuery>
             <MediaQuery maxDeviceWidth={1040}>
                 <ScrollTable
+                    listItems=
+                        {rangeFuncs.map((rangeFunc) => (
+                            <ListItem
+                                key={rangeFunc}
+                                theme={theme}
+                                // text={stepFuncNamesToText[rangeFunc]}
+                            >
+                                {stepFuncNamesToText[rangeFunc]}
+                            </ListItem>
+                        ))}
                     numRows={5}
-                    listItems={rangeFuncs.map((rangeFunc) => (
-                        <RangeListItem
-                            key={rangeFunc}
-                            theme={theme}
-                            rangeText={stepFuncNamesToText[rangeFunc]}
-                        />
-                    ))}
                     theme={theme}
                     rowStyle={range_list_row_style()}
                     buttonStyle={range_list_button_style('desktop')}

@@ -1,17 +1,17 @@
 import React, { useEffect, useReducer } from "react";
+import MediaQuery from "react-responsive/src";
 import Box from "@material-ui/core/Box";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { shuffle } from "../../helpers/shuffleArray";
 import { PromoArrow } from "./PromoArrow";
+import { reducer } from "./reducer.red";
 import { MuiButton as OkButton } from "../../Reuseables/Clickables/MuiButton";
 import { itemStyle, ok_button, useStyles } from "./Promo.jss";
-import { reducer } from "./reducer.red";
-import MediaQuery from "react-responsive/src";
-import {fontSize0015, fontSize002, fontSize01} from "../../styles/fontSizes.jss";
 
 function Promo(props) {
+
     const [state, dispatch] = useReducer(reducer, {
         promoChoice: null,
         promoChoices: [],
@@ -97,20 +97,7 @@ function Promo(props) {
         return promoChoices;
     };
 
-    const noStandardPieces = () => {
-        const standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
-        for (const pieceName of Object.values(props.idDict)) {
-            if (standardPromoNames.includes(pieceName)) {
-                return false;
-            }
-        }
-        return true;
-    };
-
     useEffect(() => {
-        if (props.promoChoices.length === 0 && noStandardPieces()) {
-            props.updateSpecialCase("none");
-        } else {
             dispatch({
                 type: "new-list",
                 idDict: props.idDict,
@@ -119,7 +106,6 @@ function Promo(props) {
                 color: props.color,
                 theme: props.theme,
             });
-        }
     }, [props.promoChoices]);
 
     const selectPiece = (key) => {

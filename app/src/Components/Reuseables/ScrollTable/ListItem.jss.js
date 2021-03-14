@@ -1,9 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {fontSizes} from "./PieceProfiles.jss";
-import {themes} from "../styles/themes.jss";
+import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    range_list_item: props => ({
+    list_item: props => ({
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
         cursor: 'pointer',

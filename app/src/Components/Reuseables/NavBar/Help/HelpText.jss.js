@@ -1,5 +1,5 @@
 /** used by all the different pages */
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../../styles/themes.jss";
 
 export const help_text = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -7,6 +7,7 @@ export const help_text = (fontSize, theme) => ({
     color: themes[theme].text,
     width: '95%',
     margin: 'auto',
+    zIndex: 100,
 });
 
 export const help_title = (fontSize, theme) => ({
@@ -14,4 +15,6 @@ export const help_title = (fontSize, theme) => ({
     fontFamily: 'Roboto-Light, Roboto',
     textAlign: 'center',
     color: themes[theme].text,
+    zIndex: 100,
+
 });

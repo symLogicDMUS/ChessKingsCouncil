@@ -91,7 +91,7 @@ export const useStyles = makeStyles({
             marginLeft: widths.desktop * 0.025,
             height: heights.desktop * 0.07,
             flexWrap: 'no-wrap',
-            justifyContent: 'flex-end',
+            justifyContent: 'center',
         },
     }),
 

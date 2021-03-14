@@ -5,7 +5,7 @@ import {ImageUploadExplanation} from "./ImageUploadExplanation";
 import {OffsetsAndSpansExplanation} from "./OffsetsAndSpansExplanation";
 import {LocationToolExplanation} from "./LocationToolExplanation";
 import {OptionsToolExplanation} from "./OptionsToolExplanation";
-import {HelpButtonReminder} from "../../Reuseables/NavBar/HelpButtonReminder";
+import {HelpButtonReminder} from "../../Reuseables/NavBar/Help/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => [
     <InvalidNameExplanation key='invalid-name-explanation' fontSize={fontSize} theme={theme}/>,

@@ -42,7 +42,7 @@ export function CapturedPieceImages({captured, capturedIds, idDict, defs, gameTy
                     <Box className={classes.empty_list}/>
                 ) : (
                     <Box className={classes.piece_list}>
-                        {state.W.map((src) => <img src={src} className={classes.piece} alt='captured piece'/>)}
+                        {state.W.map((src, index) => <img key={index} src={src} className={classes.piece} alt='captured piece'/>)}
                     </Box>
                 )}
             </Box>
@@ -52,7 +52,7 @@ export function CapturedPieceImages({captured, capturedIds, idDict, defs, gameTy
                     <Box className={classes.empty_list}/>
                 ) : (
                     <Box className={classes.piece_list}>
-                        {state.B.map((src) => <img src={src} className={classes.piece} alt='captured piece'/>)}
+                        {state.B.map((src, index) => <img key={index} src={src} className={classes.piece} alt='captured piece'/>)}
                     </Box>
                 )}
             </Box>

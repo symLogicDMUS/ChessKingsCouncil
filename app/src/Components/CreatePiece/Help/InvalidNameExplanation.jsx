@@ -1,9 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {IncorrectNameEntryExamples} from "./IncorrectNameEntryExamples";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import { useStyles } from "../../Reuseables/Title/SubTitle.jss";
+import { useStyles } from "../../Reuseables/NavBar/SubTitle.jss";
 
 export function InvalidNameExplanation(props) {
     const classes = useStyles({theme: props.theme, fontSize: props.fontSize});

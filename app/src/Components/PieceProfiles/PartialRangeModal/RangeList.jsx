@@ -1,5 +1,5 @@
 import React from "react";
-import {RangeListItem} from "../RangeListItem";
+import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
 import {offsetToText} from "../../helpers/offsetToText";
 import {stepFuncNamesToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
@@ -15,15 +15,17 @@ export function RangeList({
         const spanListItems = [];
         for (const span of range) {
             spanListItems.push(
-                <RangeListItem
+                <ListItem
                     theme={theme}
                     key={stepFuncNamesToText[span]}
-                    rangeText={stepFuncNamesToText[span]}
+                    // text={stepFuncNamesToText[span]}
                     onClick={() => parentDispatch({
                         type: "span",
                         span: span,
                     })}
-                />
+                >
+                    {stepFuncNamesToText[span]}
+                </ListItem>
             );
         }
         return spanListItems;
@@ -33,15 +35,17 @@ export function RangeList({
         const offsetListItems = [];
         for (const offset of range) {
             offsetListItems.push(
-                <RangeListItem
+                <ListItem
                     theme={theme}
                     key={offsetToText(offset)}
-                    rangeText={offsetToText(offset)}
+                    // text={offsetToText(offset)}
                     onClick={() => parentDispatch({
                         type: "offset",
                         offset: offset,
                     })}
-                />
+                >
+                    {offsetToText(offset)}
+                </ListItem>
             );
         }
         return offsetListItems;
@@ -51,22 +55,23 @@ export function RangeList({
         <>
             {rangeType === "offset" ? (
                 <ScrollTable
+                    listItems={getOffsetListItems()}
                     numRows={5}
                     theme={theme}
                     rowStyle={rowStyle()}
                     style={rangeListStyle()}
                     buttonStyle={buttonStyle()}
-                    listItems={getOffsetListItems()}
-                />
+                >
+                </ScrollTable>
             ) : null}
             {rangeType === "span" ? (
                 <ScrollTable
+                    listItems={getSpanListItems()}
                     numRows={5}
                     theme={theme}
                     rowStyle={rowStyle()}
                     style={rangeListStyle()}
                     buttonStyle={buttonStyle()}
-                    listItems={getSpanListItems()}
                 />
             ) : null}
         </>

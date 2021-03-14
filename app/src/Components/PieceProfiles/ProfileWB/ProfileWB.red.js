@@ -1,5 +1,5 @@
 import React from "react";
-import {RangeListItem} from "../RangeListItem";
+import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
 import {stepFuncNamesToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
 

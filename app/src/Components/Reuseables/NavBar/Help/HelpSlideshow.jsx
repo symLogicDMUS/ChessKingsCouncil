@@ -4,11 +4,11 @@ import {Typography} from "@material-ui/core";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import {fontSize002} from "../../styles/fontSizes.jss";
-import {close_icon} from "../Modals/StandardModal.jss";
-import {MuiButton} from "../Clickables/MuiButton";
-import "../../styles/scrollbar.scss";
-import {Close} from "../Modals/Close";
+import {fontSize002} from "../../../styles/fontSizes.jss";
+import {close_icon} from "../../Modals/StandardModal.jss";
+import {MuiButton} from "../../Clickables/MuiButton";
+import "../../../styles/scrollbar.scss";
+import {Close} from "../../Modals/Close";
 import {reducer} from "./HelpSlideshow.red";
 import {useStyles} from "./HelpSlideshow.jss";
 

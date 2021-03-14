@@ -1,4 +1,4 @@
-import {help_text, help_title} from "../../Reuseables/NavBar/HelpText.jss";
+import {help_text, help_title} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {def} from "../../PieceProfiles/Help/dockerDef";

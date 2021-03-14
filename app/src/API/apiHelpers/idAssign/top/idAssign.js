@@ -13,13 +13,3 @@ export function idAssign(customPieceNames, subs) {
     idDict = {...idDict, ...getStandardIds(Object.values(subs)) } // get ids the of standard pieces not subbing for.
     return idDict;
 }
-
-
-/**  for node.js
-if (require.main === module) {
-    console.log(idAssign(['Jester',
-                      'Duke',
-                      'Joker',
-                      'Morty'], {'Jester': 'Queen', 'Duke': 'Bishop'}))
-}
-*/

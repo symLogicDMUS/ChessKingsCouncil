@@ -1,4 +1,4 @@
-import {RangeListItem} from "../RangeListItem";
+import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
 import {stepFuncNamesToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
 import React from "react";
@@ -7,11 +7,12 @@ export function reducer(state, action) {
     switch (action.type) {
         case "range-init":
             const spanPartials = [];
-            for (const span of action.spans) {
+            action.spans.forEach((span, index) => {
                 spanPartials.push(
-                    <RangeListItem
+                    <ListItem
+                        key={index}
                         theme={action.theme}
-                        rangeText={stepFuncNamesToText[span]}
+                        // text={stepFuncNamesToText[span]}
                         onClick={action.parentDispatch({
                             type: "span",
                             rangeType: "span",
@@ -20,15 +21,18 @@ export function reducer(state, action) {
                             theme: action.theme,
                             location: action.location,
                         })}
-                    />
+                    >
+                        {stepFuncNamesToText[span]}
+                    </ListItem>
                 );
-            }
+            })
             const offsetPartials = [];
-            action.offsets.forEach((offset) => {
+            action.offsets.forEach((offset, index) => {
                 offsetPartials.push(
-                    <RangeListItem
+                    <ListItem
+                        key={index}
                         theme={action.theme}
-                        rangeText={offsetToText(offset)}
+                        // text={offsetToText(offset)}
                         onClick={action.parentDispatch({
                             type: "offset",
                             rangeType: "offset",
@@ -37,7 +41,9 @@ export function reducer(state, action) {
                             src: action.src,
                             theme: action.theme,
                         })}
-                    />
+                    >
+                        {offsetToText(offset)}
+                    </ListItem>
                 );
             });
             return {

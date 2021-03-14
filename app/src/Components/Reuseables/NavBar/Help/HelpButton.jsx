@@ -4,15 +4,16 @@ import {Button, Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
 import {findDidUserVisitPage, recordUserVisitedPage
-} from "../../../API/findRecordDidUserVisitPage";
+} from "../../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
-import {getHoverColor, useStyles} from "./NavBarButton.jss";
+import {HelpModal} from "./HelpModal";
+import {getHoverColor, useStyles} from "../NavBarButton.jss";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, children}) {
-
-    let [hover, setHover] = useState(false);
-    let [modal, setModal] = useState(false);
-    let [isFirstTime, setIsFirstTime] = useState(false);
+    const [hover, setHover] = useState(false);
+    const [slideshow, setSlideshow] = useState(false);
+    const [modal, setModal] = useState(false);
+    const [isFirstTime, setIsFirstTime] = useState(false);
 
     const classes = useStyles({theme: theme, screenCase: screenCase, currentPage: currentPage})
 
@@ -27,12 +28,12 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
 
     return (
         <>
-            {(modal || isFirstTime) ? (
+            {(slideshow || isFirstTime) ? (
                 <Portal>
                     <HelpSlideshow
                         onClose={() => {
                             setIsFirstTime(false)
-                            setModal(false)
+                            setSlideshow(false)
                         }}
                         initialState={{pos: 0, numSlides: children.length}}
                         title={helpTitle}
@@ -42,6 +43,7 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
                     </HelpSlideshow>
                 </Portal>
             ) : null}
+            {modal ? (<HelpModal theme={theme} screenCase={screenCase} onClose={() => setModal(false)} />) : null}
             <Button
                 onClick={() => setModal(!modal)}
                 className={classes.nav_bar_button}

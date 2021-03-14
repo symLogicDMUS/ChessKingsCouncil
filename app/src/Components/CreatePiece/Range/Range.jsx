@@ -31,11 +31,11 @@ export function Range({spans, offsets, toggleSpan, theme, styles, screenCase}) {
                 <Typography className={classes.title}>Range</Typography>
             </MediaQuery>
             <ScrollTable
+                listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
                 numRows={5}
                 theme={theme}
                 style={scroll_table_style()}
                 buttonStyle={{borderRadius: 0}}
-                listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
             />
             <div className={classes.divider} />
             <SpanArrowButtons

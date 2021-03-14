@@ -6,7 +6,7 @@ import {SampleRangeList} from "./SampleRangeList";
 import {SampleRangeBoard} from "./SampleRangeBoard";
 import {ProfileExampleDocker} from "./ProfileExampleDocker";
 import {IconButtonExample as Icb} from "./IconButtonExample";
-import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {fontSizes, subtitle, useStyles} from "./ProfileHelpText.jss";
 
 export function ProfileHelpText(props) {

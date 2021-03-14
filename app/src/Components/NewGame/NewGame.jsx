@@ -5,17 +5,17 @@ import Box from "@material-ui/core/Box";
 import "../Reuseables/Background/_backgrounds.scss";
 import "../styles/scrollbar.scss";
 import {Play} from "./Play";
-import {Typography} from "@material-ui/core";
+import {Button, Typography} from "@material-ui/core";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {HelpText} from "./GameOptions/HelpText";
-import {HelpTitle} from "../Reuseables/Title/HelpTitle";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./NewGame.jss";
@@ -82,7 +82,7 @@ function NewGame() {
                         currentPage="NewGame"
                         screenCase='desktop'
                         helpText={HelpText(fontSize002, theme)}
-                        helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
+                        helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
                         additionalSettings={null}
                         updateTheme={updateTheme}
                         theme={theme}
@@ -116,6 +116,14 @@ function NewGame() {
                             predicate={(c) => charNotInStr(c, gameName)}
                             key='Play-Button-Desktop'
                         />
+                        {/*<Button size='large' variant='contained' onClick={() => {*/}
+                        {/*    updateGameType('Custom')*/}
+                        {/*    updatePlayerType('W')*/}
+                        {/*    updateGameName('a')*/}
+                        {/*}}*/}
+                        {/*>*/}
+                        {/*    developer test*/}
+                        {/*</Button>*/}
                     </Box>
                     {confirmModal ? (
                         <ConfirmStandard
@@ -140,7 +148,7 @@ function NewGame() {
                                 currentPage="NewGame"
                                 screenCase='mobile'
                                 helpText={HelpText(fontSizeW0045, theme)}
-                                helpTitle={<HelpTitle theme={theme}>New Game</HelpTitle>}
+                                helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
                                 redirectMessage={null}
                                 updateTheme={updateTheme}
                                 additionalSettings={null}

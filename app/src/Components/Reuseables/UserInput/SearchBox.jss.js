@@ -25,9 +25,10 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         borderRadius: '0.15em',
         height: '1.25em',
-        width: props.width ? props.width : '20em',
+        width: props.width,
         backgroundColor: themes[props.theme].odd_row,
         color: themes[props.theme].text,
+        ...props.rootStyle,
     }),
     search_icon: props => ({
         fontSize: fontSize0025,

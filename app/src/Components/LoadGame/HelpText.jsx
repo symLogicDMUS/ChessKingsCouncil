@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import {help_text} from "../Reuseables/NavBar/HelpText.jss";
-import {HelpButtonReminder} from "../Reuseables/NavBar/HelpButtonReminder";
+import {help_text} from "../Reuseables/NavBar/Help/HelpText.jss";
+import {HelpButtonReminder} from "../Reuseables/NavBar/Help/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography

@@ -11,7 +11,7 @@ export function AppBarContent({theme, updateSearchText, children}) {
             <Typography className={classes.title} variant="h6" noWrap>
                 {children}
             </Typography>
-            <SearchBox theme={theme} updateSearchText={updateSearchText}/>
+            <SearchBox theme={theme} updateSearchText={updateSearchText} width='20em'/>
         </Box>
     )
 }

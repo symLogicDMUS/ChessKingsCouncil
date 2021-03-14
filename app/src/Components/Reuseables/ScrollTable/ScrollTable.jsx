@@ -10,8 +10,8 @@ import {useStyles} from "./ScrollTable.jss";
 
 /**
  * The style prop must include width and fontSize!
- * @param listItems
- * @param title
+ * @param listItems: a list of strings or components
+ * @param title: string or component that renders text
  * @param numRows
  * @param theme
  * @param style

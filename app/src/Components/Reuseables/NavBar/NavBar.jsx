@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {HelpButton} from "./HelpButton";
+import {HelpButton} from "./Help/HelpButton";
 import {SettingsButton} from "./SettingsButton";
 import {NavBarButton} from "./NavBarButton";
 import {useStyles} from "./NavBar.jss";

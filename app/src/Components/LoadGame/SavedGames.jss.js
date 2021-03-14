@@ -63,7 +63,8 @@ export const useStyles = makeStyles({
         width: '15em',
         display: 'flex',
         alignItems: 'center',
-        marginRight: '10em',
+        marginLeft: '38.5em',
+        marginRight: 'auto',
         alignContent: 'center',
         justifyContent: 'center'
     }),

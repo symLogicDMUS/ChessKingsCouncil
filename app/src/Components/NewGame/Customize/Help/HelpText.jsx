@@ -2,9 +2,9 @@ import React from "react";
 import {SubExample} from "./SubExample";
 import Typography from "@material-ui/core/Typography";
 import {PromoCheckboxExample} from "./PromoCheckboxExample";
-import { help_text, } from "../../../Reuseables/NavBar/HelpText.jss";
+import { help_text, } from "../../../Reuseables/NavBar/Help/HelpText.jss";
 import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
-import {HelpButtonReminder} from "../../../Reuseables/NavBar/HelpButtonReminder";
+import {HelpButtonReminder} from "../../../Reuseables/NavBar/Help/HelpButtonReminder";
 
 export const HelpText = (fontSize, theme) => ([
      <Typography

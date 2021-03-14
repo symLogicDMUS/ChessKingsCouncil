@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {fourLocationsBoard} from "./fourLocationBoard";
-import {help_text} from "../../Reuseables/NavBar/HelpText.jss";
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 import {LocationToolExample} from "./LocationToolExample";
 import {themes} from "../../styles/themes.jss";
