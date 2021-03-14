@@ -2,9 +2,9 @@ import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 import {getBoardFontSize, getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {availHeight, availWidth, viewHeight, viewWidth} from "../helpers/windowMeasurments";
-import {fontSize002, fontSize00219, fontSize0022, fontSize0095} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize00219, fontSize0026, fontSize0095} from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {drawerWidth, sideBarWidth} from "../Reuseables/Drawers/PermanentDrawer.jss";
+import {drawerWidth} from "../Reuseables/Drawers/PermanentDrawer.jss";
 
 export const sqrFontSize = fontSize0095 * 0.25;
 
@@ -23,7 +23,7 @@ export const get2ItemMargins = () => {
         return getBoardFontSize() * 0.28;
     }
     if (viewWidth() > 1040) {
-        return drawerWidth*0.15;
+        return drawerWidth * 0.15;
     }
     return getBoardFontSize() * 0.2;
 };
@@ -33,7 +33,7 @@ export const get2ItemFontSizes = () => {
 };
 
 export const getButtonSize = () => {
-        return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.1) + getBoardFontSize() * 3)) * 0.5;
+    return (viewHeight() - (appBarHeight + getBoardSize() + ((viewHeight() - (appBarHeight + getBoardSize())) * 0.95 * 0.1) + getBoardFontSize() * 3)) * 0.5;
 };
 
 export const button = (theme) => ({
@@ -43,7 +43,7 @@ export const button = (theme) => ({
         fontSize: getButtonSize() * 0.3,
     },
     '@media screen and (min-device-width: 1040px)': {
-        fontSize: ((drawerWidth - get2ItemMargins())*0.5 - (drawerWidth - get2ItemMargins())*0.5*0.2)*0.5*0.3,
+        fontSize: ((drawerWidth - get2ItemMargins()) * 0.5 - (drawerWidth - get2ItemMargins()) * 0.5 * 0.2) * 0.5 * 0.3,
         margin: 'unset',
         width: '3.5em',
         height: '3.5em',
@@ -89,8 +89,13 @@ export const tool_title = (theme) => ({
 })
 
 export const sqrTextCheckbox = () => ({
-        marginLeft: 0,
-        flexDirection: 'row-reverse',
+    marginLeft: 0,
+    flexDirection: 'row-reverse',
+});
+
+export const congrats_first_piece = (theme) => ({
+    fontSize: 'inherit',
+    color: themes[theme].text,
 });
 
 export const styles = {
@@ -105,3 +110,4 @@ export const styles = {
         display: 'flex',
     }),
 };
+

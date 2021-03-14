@@ -20,16 +20,24 @@ import {PuttingThePieceICreatedIntoAGame} from "./Extra/PuttingThePieceICreatedI
 import {OffsetsAndSpansExplanation} from "../../../CreatePiece/Help/OffsetsAndSpansExplanation";
 import {MakingYourPieceAnOptionForPawnsToPromoteTo} from "./Extra/MakingYourPieceAnOptionForPawnsToPromoteTo";
 import {SubbingYourPiecesForRegularOnes} from "./Extra/SubbingYourPiecesForRegularOnes";
-import {fontSizes, useStyles} from "./HelpItems.jss";
 import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
+import {fontSizes, useStyles} from "./HelpSlides.jss";
 
-export function HelpItems({ helpItem, setHelpItem, screenCase, theme }) {
+export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
     const classes = useStyles({ theme });
 
     return (
         <div className={classes.help_items}>
             {helpItem === "putting created piece into a game" ? (
-                <PuttingThePieceICreatedIntoAGame onClose={() => setHelpItem(null)} theme={theme}/>
+                <PuttingThePieceICreatedIntoAGame
+                    theme={theme}
+                    onClose={() => setHelpItem(null)}
+                    title={
+                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                            Putting the Piece I Created Into a Game
+                        </HelpTitle>
+                    }
+                />
             ) : null}
             {helpItem === "New Game (all)" ? (
                 <HelpSlideshow

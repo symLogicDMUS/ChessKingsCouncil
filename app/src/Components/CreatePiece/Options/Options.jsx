@@ -1,32 +1,30 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
-import {Save} from "./Save";
-import {Load} from "./Load";
-import {Erase} from "./Erase";
-import {Reset} from "./Reset";
-import {useStyles} from "./Options.jss";
+import { Save } from "./Save";
+import { Load } from "./Load";
+import { Erase } from "./Erase";
+import { Reset } from "./Reset";
+import { useStyles } from "./Options.jss";
 
 export function Options({
-                            load,
-                            save,
-                            reset,
-                            erase,
-                            theme,
-                            pieceName,
-                            whiteImg,
-                            blackImg,
-                        }) {
-    const classes = useStyles({theme: theme});
+    load,
+    save,
+    reset,
+    erase,
+    theme,
+    pieceName,
+    whiteImg,
+    blackImg,
+}) {
+    const classes = useStyles({ theme: theme });
     return (
         <Box className={classes.options_tool}>
             <MediaQuery minDeviceWidth={1040}>
-                <Typography className={classes.title}>
-                    Options
-                </Typography>
+                <Typography className={classes.title}>Options</Typography>
             </MediaQuery>
-            <Load theme={theme} load={load}/>
+            <Load theme={theme} load={load} />
             <Save
                 save={save}
                 theme={theme}
@@ -34,8 +32,8 @@ export function Options({
                 blackImg={blackImg}
                 pieceName={pieceName}
             />
-            <Reset reset={reset} theme={theme}/>
-            <Erase erase={erase} theme={theme}/>
+            <Reset reset={reset} theme={theme} />
+            <Erase erase={erase} theme={theme} />
         </Box>
     );
 }

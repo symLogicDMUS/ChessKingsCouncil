@@ -1,9 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import {HelpTitle} from "../HelpTitle";
 import {HelpSlideshow} from "../HelpSlideshow";
-import {fontSize0026} from "../../../../styles/fontSizes.jss";
 import {useStyles} from "./GifDiagrams.jss";
 
 export function PuttingThePieceICreatedIntoAGame(props) {
@@ -12,11 +10,7 @@ export function PuttingThePieceICreatedIntoAGame(props) {
     return <HelpSlideshow
         onClose={props.onClose}
         initialState={{pos: 0, numSlides: 3}}
-        title={
-            <HelpTitle theme={props.theme} fontSize={fontSize0026}>
-                Putting the Piece I Created Into a Game
-            </HelpTitle>
-        }
+        title={props.title}
         theme={props.theme}
     >
         <Box className={classes.flex_row}>

@@ -26,6 +26,7 @@ export function NavBar(props) {
                     currentPage={props.currentPage}
                     screenCase={props.screenCase}
                     helpTitle={props.helpTitle}
+                    updateFirstVisit={props.updateFirstVisit}
                 >
                     {props.helpText}
                 </HelpButton>

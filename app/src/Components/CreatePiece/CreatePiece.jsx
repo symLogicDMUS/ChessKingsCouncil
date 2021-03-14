@@ -26,15 +26,16 @@ import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
 import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
+import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
-import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
-import {getBoardSize} from "./Board/CreatePieceBoard.jss";
-import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
+import {PuttingThePieceICreatedIntoAGame} from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
+import {accordion_root, app_bar_title, congrats_first_piece, sqrTextCheckbox, styles} from "./CreatePiece.jss";
 
 
 class CreatePiece extends React.Component {
@@ -49,7 +50,8 @@ class CreatePiece extends React.Component {
             binaryValue: 0,
             justSaved: false,
             showSpanText: true,
-            showOffsetText: true
+            showOffsetText: true,
+            isFirstVisit: false,
         };
         this.spans = {
             "90d": false,
@@ -87,6 +89,7 @@ class CreatePiece extends React.Component {
         this.toggleOffset = this.toggleOffset.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
+        this.updateFirstVisit = this.updateFirstVisit.bind(this);
         //if MyPieces page redirected to here:
         if (
             this.props.location !== undefined &&
@@ -113,6 +116,10 @@ class CreatePiece extends React.Component {
         } else {
             document.body.className = `${this.state.theme}-background`;
         }
+    }
+
+    updateFirstVisit(isFirstVisit) {
+        this.setState({isFirstVisit: isFirstVisit})
     }
 
     triggerRender() {
@@ -316,7 +323,18 @@ class CreatePiece extends React.Component {
     modals() {
         return (
             <>
-                {this.state.justSaved && (
+                {this.state.isFirstVisit && this.state.justSaved && (
+                    <PuttingThePieceICreatedIntoAGame
+                        theme={this.state.theme}
+                        onClose={() => this.updateFirstVisit(false)}
+                        title={
+                            <HelpTitle theme={this.state.theme} fontSize={fontSize0026}>
+                                Congratulations on Creating Your First Piece! Here's How To Put it Into a Game
+                            </HelpTitle>
+                        }
+                    />
+                )}
+                {! this.state.isFirstVisit && this.state.justSaved && (
                     <AnimatePresencePortal>
                         <PieceSavedSuccessfully
                             callback={() => this.setState({justSaved: false})}
@@ -398,9 +416,9 @@ class CreatePiece extends React.Component {
                             reset={this.reset}
                             erase={this.erase}
                             pieceName={this.name}
+                            theme={this.state.theme}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
-                            theme={this.state.theme}
                         />
                     </PermanentDrawer>
                     <SideBar
@@ -414,6 +432,7 @@ class CreatePiece extends React.Component {
                             redirectMessage={messageStr}
                             helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
+                            updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
                                     <MuiCheckbox
@@ -450,6 +469,7 @@ class CreatePiece extends React.Component {
                                 helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
+                                updateFirstVisit={this.updateFirstVisit}
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
                                 additionalSettings={
@@ -571,6 +591,7 @@ class CreatePiece extends React.Component {
                                             }
                                             pieceName={this.name}
                                             theme={this.state.theme}
+                                            isFirstVisit={this.state.isFirstVisit}
                                         />
                                     ),
                                 },

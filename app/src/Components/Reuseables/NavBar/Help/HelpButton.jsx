@@ -9,7 +9,7 @@ import {HelpSlideshow} from "./HelpSlideshow";
 import {HelpModal} from "./HelpModal";
 import {getHoverColor, useStyles} from "../NavBarButton.jss";
 
-export function HelpButton({currentPage, theme, screenCase, helpTitle, children}) {
+export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, children}) {
     const [hover, setHover] = useState(false);
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);
@@ -21,6 +21,9 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, children}
         findDidUserVisitPage(currentPage).then(([exists]) => {
             recordUserVisitedPage(currentPage).then(([r]) => {
                 const firstTime = !exists;
+                if (updateFirstVisit) {
+                    updateFirstVisit(firstTime)
+                }
                 setIsFirstTime(firstTime);
             });
         });

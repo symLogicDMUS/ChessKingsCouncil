@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HelpItems } from "./HelpItems";
+import { HelpSlides } from "./HelpSlides";
 import { HelpTable } from "./HelpTable";
 import { Portal } from "@material-ui/core";
 
@@ -9,7 +9,7 @@ export function HelpModal({onClose, theme, screenCase }) {
         <>
             {helpItem ? (
                 <Portal>
-                    <HelpItems
+                    <HelpSlides
                         theme={theme}
                         helpItem={helpItem}
                         screenCase={screenCase}
