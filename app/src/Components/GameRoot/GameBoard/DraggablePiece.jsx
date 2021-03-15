@@ -21,7 +21,7 @@ export const DraggablePiece = (props) => {
 
     return (
         <div ref={drag} style={props.isHidden ? {display: 'none'} : updatePosition(left, top, isDragging)}>
-            <Piece src={src} sqrSize={props.sqrSize} />
+            <Piece src={src} alt={id} sqrSize={props.sqrSize} />
         </div>
     );
 };

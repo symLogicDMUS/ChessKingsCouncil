@@ -3,6 +3,7 @@ import {franchisePieceImgs} from "../../MyPieces/dev1/franchisePieceImgs";
 import {standardPieceDefs} from "../../NewGame/standardPieceDefs/dev1";
 import {getRangeBoardImgStrs} from "../../PieceProfiles/ProfileWB/getRangeBoardImgStrs";
 
+/*
 export function setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs) {
     const colors = ["W", "B"];
     if (gameType === 'Standard') {
@@ -25,3 +26,4 @@ export function setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs) {
         return getRangeBoardImgStrs(theme, pieceDefs);
     }
 }
+*/

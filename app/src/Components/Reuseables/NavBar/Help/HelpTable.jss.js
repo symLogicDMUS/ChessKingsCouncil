@@ -6,7 +6,7 @@ import {fontSize00276, fontSize00301} from "../../../styles/fontSizes.jss";
 
 export const listStyle = () => ({
     width: "100%",
-    height: 20,
+    height: 30,
     fontSize: fontSize00301,
 });
 
@@ -35,14 +35,24 @@ export const closeIcon = (fontSize, theme) => ({
 
 export const useStyles = makeStyles({
     modal: props => ({
-        ...modal,
-        backgroundColor: 'unset',
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         zIndex: 10,
     }),
     window: props => ({
         width: viewWidth() * 0.4,
         display: 'flex',
         flexDirection: 'column',
+        marginTop: 'auto',
+        zIndex: 11,
+        height: '95vh',
     }),
     top: props => ({
         width: '100%',

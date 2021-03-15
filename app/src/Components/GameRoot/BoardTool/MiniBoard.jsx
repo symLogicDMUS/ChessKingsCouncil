@@ -1,12 +1,12 @@
 import React from "react";
 import { rankfiles } from "../../helpers/rankfiles";
-import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { MiniSquare as Square } from "./MiniSquare";
 import { MiniPiece as Piece } from "./MiniPiece";
-import { useStyles } from "./MiniBoard.jss";
 import { isSpecial } from "../../helpers/isSpecial";
+import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { specialThemeList } from "../../styles/themes.jss";
 import { getFranchisePieceImg } from "../../MyPieces/getFranchisePieceImg";
+import { useStyles } from "./MiniBoard.jss";
 
 export function MiniBoard({
     theme,
@@ -28,7 +28,7 @@ export function MiniBoard({
         let id;
         let color;
         let pieceName;
-        let pieceImgBase64Str;
+        let imgUrl;
         const squares = [];
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
@@ -51,9 +51,9 @@ export function MiniBoard({
                     gameType === "Standard" &&
                     specialThemeList.includes(theme)
                 ) {
-                    pieceImgBase64Str = getFranchisePieceImg(theme, id, idDict);
+                    imgUrl = getFranchisePieceImg(theme, id, idDict);
                 } else {
-                    pieceImgBase64Str = getPieceImg(id, idDict, pieceDefs);
+                    imgUrl = getPieceImg(id, idDict, pieceDefs);
                 }
                 squares.push(
                     <Square
@@ -66,6 +66,8 @@ export function MiniBoard({
                         <Piece
                             rf={rf}
                             key={board[rf]}
+                            imgUrl={imgUrl}
+                            alt={pieceName}
                             selectedSqr={selectedSqr}
                             pieceName={pieceName}
                             color={color}
@@ -93,7 +95,6 @@ export function MiniBoard({
                                 });
                                 toggleSecondaryDrawer(false);
                             }}
-                            pieceImgBase64Str={pieceImgBase64Str}
                             showProfileOnClick={showProfileOnClick}
                             screenCase={screenCase}
                             theme={theme}

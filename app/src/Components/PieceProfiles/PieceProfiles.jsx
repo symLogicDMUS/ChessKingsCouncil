@@ -7,8 +7,7 @@ import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {getRangeBoardImgStrs} from "./ProfileWB/getRangeBoardImgStrs";
-import {dbSampleDefs, sampleDefs} from "../../API/apiHelpers/sampleDefs/dev1";
+import {dbSampleDefs} from "../../API/apiHelpers/sampleDefs/dev1";
 import {getSampleDefs} from "../../API/getSampleDefs";
 import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
@@ -22,24 +21,19 @@ export function PieceProfiles(props) {
     const classes = useStyles({theme: props.theme, style: props.style});
 
     useEffect(() => {
-        // let defs;
-        // getDefs().then(([result]) => {
-        //     if (!result) {
-        //         saveDefs(dbSampleDefs).then(([r]) => {
-        //             defs = getSampleDefs();
-        //             afterLoaded(defs)
-        //         })
-        //     } else {
-        //         defs = result;
-        //         afterLoaded(defs)
-        //     }
-        // });
-        afterLoaded(sampleDefs)
+        let defs;
+        getDefs().then(([result]) => {
+            if (!result) {
+                saveDefs(dbSampleDefs).then(([r]) => {
+                    defs = getSampleDefs();
+                    afterLoaded(defs)
+                })
+            } else {
+                defs = result;
+                afterLoaded(defs)
+            }
+        });
     }, []);
-
-    useEffect(() => {
-        dispatch({type: 'update-range-boards', theme: props.theme})
-    }, [props.theme])
 
     const afterLoaded = (defs) => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
@@ -51,7 +45,6 @@ export function PieceProfiles(props) {
                 delete defs[pieceName];
             }
         }
-        defs = getRangeBoardImgStrs(props.theme, defs)
         dispatch({type: "load", payload: defs, theme: props.theme});
     }
 

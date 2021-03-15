@@ -7,6 +7,7 @@ import { useStyles } from "./Piece.jss";
  */
 export const Piece = ({ src, sqrSize }) => {
     const classes = useStyles({sqrSize});
+    console.log('piece source:', src)
     return (
         <img className={classes.piece} src={src} alt='icon of a piece' onContextMenu={(e)=> e.preventDefault()} />
     );

@@ -1,9 +1,10 @@
-import {rankfiles} from "../../helpers/rankfiles";
-import {themes} from "../../styles/themes.jss";
-import {binaryBoard} from "../../helpers/binaryBoard";
-import {getSpanDisplays} from "./getSpanDisplays";
-import {getOffsetDisplays} from "./getOffsetDisplays";
+// import {rankfiles} from "../../helpers/rankfiles";
+// import {themes} from "../../styles/themes.jss";
+// import {binaryBoard} from "../../helpers/binaryBoard";
+// import {getSpanDisplays} from "./getSpanDisplays";
+// import {getOffsetDisplays} from "./getOffsetDisplays";
 
+/*
 export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, theme) {
     const fToTop = {
         8: 0,
@@ -56,3 +57,4 @@ export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, 
     console.log(imgStr);
     return imgStr;
 }
+*/

@@ -28,7 +28,7 @@ export function BoardTool({
 
     const classes = useStyles({ theme: theme });
 
-    const defs = useMemo(() => setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs), [pieceDefs, theme])
+    // const defs = useMemo(() => setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs), [pieceDefs, theme])
 
     return (
         <div className={classes.board_tool}>
@@ -45,7 +45,7 @@ export function BoardTool({
                 gameType={gameType}
                 board={board}
                 idDict={idDict}
-                pieceDefs={defs}
+                pieceDefs={pieceDefs}
                 allRanges={allRanges}
                 parentDispatch={dispatch}
                 rangeBoard={state.rangeBoard}

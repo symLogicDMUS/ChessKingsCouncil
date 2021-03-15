@@ -4,7 +4,7 @@ import {Close} from "../../Reuseables/Modals/Close";
 import Typography from "@material-ui/core/Typography";
 import {close_icon, useStyles} from "./NoProfile.jss";
 
-export function NoProfile({pieceName, pieceImgBase64Str, closeProfile, theme}) {
+export function NoProfile({pieceName, imgUrl, closeProfile, theme}) {
     const classes = useStyles({theme: theme});
     return (
         <Box className={classes.profile_flexbox}>
@@ -19,7 +19,7 @@ export function NoProfile({pieceName, pieceImgBase64Str, closeProfile, theme}) {
                 <Typography variant='h6'  className={classes.caption}>
                     No profile for {pieceName}
                 </Typography>
-                <img src={pieceImgBase64Str} className={classes.inline_piece}/>
+                <img src={imgUrl} className={classes.inline_piece}/>
             </Box>
         </Box>
     );
