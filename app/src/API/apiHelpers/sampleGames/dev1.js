@@ -5,36 +5,36 @@ export const sampleGames = {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
                     "spans": ["step_1sqr225d", "step_1sqr315d", "step_1sqr45d", "step_1sqr135d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
                     "spans": ["step_1sqr45d", "step_1sqr135d", "step_1sqr225d", "step_1sqr315d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             },
             "Docker": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[2,-1], [0,-1], [1,-1], [-1,-1], [-2,-1], [1,-2], [0,-2], [-1,-2], [-1,-3]],
+                    "offsets": [[2, -1], [0, -1], [1, -1], [-1, -1], [-2, -1], [1, -2], [0, -2], [-1, -2], [-1, -3]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
-                    "offsets": [[-2,1], [0,1], [-1,1], [1,1], [2,1], [-1,2], [0,2], [1,2], [1,3]],
+                    "offsets": [[-2, 1], [0, 1], [-1, 1], [1, 1], [2, 1], [-1, 2], [0, 2], [1, 2], [1, 3]],
                     "spans": [],
                 }
             },
             "Dragon": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
-                    "offsets": [[2,-1], [1,-2], [-1,-2], [-2,-1], [-2,1], [-1,2], [1,2], [2,1]],
+                    "offsets": [[2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2], [1, 2], [2, 1]],
                     "spans": ["step_1sqr270d", "step_1sqr225d", "step_1sqr180d", "step_1sqr135d", "step_1sqr90d",
                         "step_1sqr45d", "step_1sqr0d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
-                    "offsets": [[-2,1], [-1,2], [1,2], [2,1], [2,-1], [1,-2], [-1,-2], [-2,-1]],
+                    "offsets": [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]],
                     "spans": ["step_1sqr90d", "step_1sqr45d", "step_1sqr0d", "step_1sqr315d", "step_1sqr270d",
                         "step_1sqr225d", "step_1sqr180d", "step_1sqr135d"]
                 }
@@ -42,27 +42,27 @@ export const sampleGames = {
             "EvilMorty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[1,0], [-1,0], [2,0], [-2,0], [-2,-3], [-3,-2], [-3,2], [-2,3], [2,3], [3,2], [3,-2],
-                        [2,-3]],
+                    "offsets": [[1, 0], [-1, 0], [2, 0], [-2, 0], [-2, -3], [-3, -2], [-3, 2], [-2, 3], [2, 3], [3, 2], [3, -2],
+                        [2, -3]],
                     "spans": ["step_1sqr270d", "step_1sqr180d", "step_1sqr90d", "step_1sqr0d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
-                    "offsets": [[-1,0], [1,0], [-2,0], [2,0], [2,3], [3,2], [3,-2], [2,-3], [-2,-3], [-3,-2], [-3,2],
-                        [-2,3]],
+                    "offsets": [[-1, 0], [1, 0], [-2, 0], [2, 0], [2, 3], [3, 2], [3, -2], [2, -3], [-2, -3], [-3, -2], [-3, 2],
+                        [-2, 3]],
                     "spans": ["step_1sqr90d", "step_1sqr0d", "step_1sqr270d", "step_1sqr180d"]
                 }
             },
             "Timberwolf": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
-                    "offsets": [[2,-1], [2,-2], [1,-1], [1,-2], [-1,-1], [-1,-2], [-2,-2], [-2,-1], [1,1], [-1,1]],
+                    "offsets": [[2, -1], [2, -2], [1, -1], [1, -2], [-1, -1], [-1, -2], [-2, -2], [-2, -1], [1, 1], [-1, 1]],
                     "spans": [],
 
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
-                    "offsets": [[-2,1], [-2,2], [-1,1], [-1,2], [1,1], [1,2], [2,2], [2,1], [-1,-1], [1,-1]],
+                    "offsets": [[-2, 1], [-2, 2], [-1, 1], [-1, 2], [1, 1], [1, 2], [2, 2], [2, 1], [-1, -1], [1, -1]],
                     "spans": [],
                 }
             }
@@ -120,32 +120,48 @@ export const sampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "Ficheall": {
         "defs": {
             "Docker": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[2,-1], [0,-1], [1,-1], [-1,-1], [-2,-1], [1,-2], [0,-2], [-1,-2], [-1,-3]],
+                    "offsets": [[2, -1], [0, -1], [1, -1], [-1, -1], [-2, -1], [1, -2], [0, -2], [-1, -2], [-1, -3]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
-                    "offsets": [[-2,1], [0,1], [-1,1], [1,1], [2,1], [-1,2], [0,2], [1,2], [1,3]],
+                    "offsets": [[-2, 1], [0, 1], [-1, 1], [1, 1], [2, 1], [-1, 2], [0, 2], [1, 2], [1, 3]],
                     "spans": [],
                 }
             },
             "Dragon": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
-                    "offsets": [[2,-1], [1,-2], [-1,-2], [-2,-1], [-2,1], [-1,2], [1,2], [2,1]],
+                    "offsets": [[2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2], [1, 2], [2, 1]],
                     "spans": ["step_1sqr270d", "step_1sqr225d", "step_1sqr180d", "step_1sqr135d", "step_1sqr90d",
                         "step_1sqr45d", "step_1sqr0d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
-                    "offsets": [[-2,1], [-1,2], [1,2], [2,1], [2,-1], [1,-2], [-1,-2], [-2,-1]],
+                    "offsets": [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]],
                     "spans": ["step_1sqr90d", "step_1sqr45d", "step_1sqr0d", "step_1sqr315d", "step_1sqr270d",
                         "step_1sqr225d", "step_1sqr180d", "step_1sqr135d"]
                 }
@@ -153,63 +169,63 @@ export const sampleGames = {
             "Evil Morty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[-1,-2], [1,-2], [0,-1], [1,2], [0,1], [-1,2], [0,-2], [0,2]],
+                    "offsets": [[-1, -2], [1, -2], [0, -1], [1, 2], [0, 1], [-1, 2], [0, -2], [0, 2]],
                     "spans": ["step_1sqr225d", "step_1sqr135d", "step_1sqr45d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
-                    "offsets": [[1,2], [-1,2], [0,1], [-1,-2], [0,-1], [1,-2], [0,2], [0,-2]],
+                    "offsets": [[1, 2], [-1, 2], [0, 1], [-1, -2], [0, -1], [1, -2], [0, 2], [0, -2]],
                     "spans": ["step_1sqr45d", "step_1sqr315d", "step_1sqr225d", "step_1sqr135d"]
                 }
             },
             "EvilMorty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[1,0], [-1,0], [2,0], [-2,0], [-2,-3], [-3,-2], [-3,2], [-2,3], [2,3], [3,2], [3,-2],
-                        [2,-3]],
+                    "offsets": [[1, 0], [-1, 0], [2, 0], [-2, 0], [-2, -3], [-3, -2], [-3, 2], [-2, 3], [2, 3], [3, 2], [3, -2],
+                        [2, -3]],
                     "spans": ["step_1sqr270d", "step_1sqr180d", "step_1sqr90d", "step_1sqr0d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
-                    "offsets": [[-1,0], [1,0], [-2,0], [2,0], [2,3], [3,2], [3,-2], [2,-3], [-2,-3], [-3,-2], [-3,2],
-                        [-2,3]],
+                    "offsets": [[-1, 0], [1, 0], [-2, 0], [2, 0], [2, 3], [3, 2], [3, -2], [2, -3], [-2, -3], [-3, -2], [-3, 2],
+                        [-2, 3]],
                     "spans": ["step_1sqr90d", "step_1sqr0d", "step_1sqr270d", "step_1sqr180d"]
                 }
             },
             "Material UI": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui-red.svg?alt=media&token=1cb65f7e-15a1-47e3-90d4-75046f24923c",
-                    "offsets": [[2,-3], [1,-2], [0,-1], [-1,-2], [-2,-3], [-2,-1], [2,0], [2,-1], [-3,0], [-4,-1],
-                        [-4,-3], [-2,0]],
+                    "offsets": [[2, -3], [1, -2], [0, -1], [-1, -2], [-2, -3], [-2, -1], [2, 0], [2, -1], [-3, 0], [-4, -1],
+                        [-4, -3], [-2, 0]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui.svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa",
-                    "offsets": [[-2,3], [-1,2], [0,1], [1,2], [2,3], [2,1], [-2,0], [-2,1], [3,0], [4,1], [4,3], [2,0]],
+                    "offsets": [[-2, 3], [-1, 2], [0, 1], [1, 2], [2, 3], [2, 1], [-2, 0], [-2, 1], [3, 0], [4, 1], [4, 3], [2, 0]],
                     "spans": [],
                 }
             },
             "React": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-red.png?alt=media&token=83bcaa2a-320d-4028-a889-b090e76855b4",
-                    "offsets": [[0,2], [1,1], [2,0], [1,-1], [0,-2], [-1,-1], [-2,0], [-1,1]],
+                    "offsets": [[0, 2], [1, 1], [2, 0], [1, -1], [0, -2], [-1, -1], [-2, 0], [-1, 1]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-blue.svg?alt=media&token=ffd9b902-75df-43ae-9fbe-8c212ab9985f",
-                    "offsets": [[0,-2], [-1,-1], [-2,0], [-1,1], [0,2], [1,1], [2,0], [1,-1]],
+                    "offsets": [[0, -2], [-1, -1], [-2, 0], [-1, 1], [0, 2], [1, 1], [2, 0], [1, -1]],
                     "spans": [],
                 }
             },
             "Timberwolf": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
-                    "offsets": [[2,-1], [2,-2], [1,-1], [1,-2], [-1,-1], [-1,-2], [-2,-2], [-2,-1], [1,1], [-1,1]],
+                    "offsets": [[2, -1], [2, -2], [1, -1], [1, -2], [-1, -1], [-1, -2], [-2, -2], [-2, -1], [1, 1], [-1, 1]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
-                    "offsets": [[-2,1], [-2,2], [-1,1], [-1,2], [1,1], [1,2], [2,2], [2,1], [-1,-1], [1,-1]],
+                    "offsets": [[-2, 1], [-2, 2], [-1, 1], [-1, 2], [1, 1], [1, 2], [2, 2], [2, 1], [-1, -1], [1, -1]],
                     "spans": [],
                 }
             }
@@ -263,7 +279,23 @@ export const sampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "Kasparov's Immortal, move 8": {
         "defs": {
@@ -271,24 +303,24 @@ export const sampleGames = {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
                     "spans": ["step_1sqr225d", "step_1sqr315d", "step_1sqr45d", "step_1sqr135d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
                     "spans": ["step_1sqr45d", "step_1sqr135d", "step_1sqr225d", "step_1sqr315d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             },
             "Knight": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
-                    "offsets": [[-1,-2], [-1,2], [1,-2], [1,2], [-2,-1], [-2,1], [2,-1], [2,1]],
-                    "spans":[],
+                    "offsets": [[-1, -2], [-1, 2], [1, -2], [1, 2], [-2, -1], [-2, 1], [2, -1], [2, 1]],
+                    "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
-                    "offsets": [[1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1]],
-                    "spans":[],
+                    "offsets": [[1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]],
+                    "spans": [],
                 }
             },
             "Queen": {
@@ -296,25 +328,25 @@ export const sampleGames = {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
                     "spans": ["step_1sqr180d", "step_1sqr225d", "step_1sqr270d", "step_1sqr315d", "step_1sqr0d",
                         "step_1sqr90d", "step_1sqr45d", "step_1sqr135d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
                     "spans": ["step_1sqr0d", "step_1sqr45d", "step_1sqr90d", "step_1sqr135d", "step_1sqr180d",
                         "step_1sqr225d", "step_1sqr270d", "step_1sqr315d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             },
             "Rook": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
                     "spans": ["step_1sqr180d", "step_1sqr270d", "step_1sqr0d", "step_1sqr90d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
                     "spans": ["step_1sqr0d", "step_1sqr90d", "step_1sqr180d", "step_1sqr270d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             }
         },
@@ -370,32 +402,46 @@ export const sampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Standard"
+        "type": "Standard",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "React & Material UI & Docker & Dragon": {
         "defs": {
             "Docker": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[2,-1], [0,-1], [1,-1], [-1,-1], [-2,-1], [1,-2], [0,-2], [-1,-2], [-1,-3]],
+                    "offsets": [[2, -1], [0, -1], [1, -1], [-1, -1], [-2, -1], [1, -2], [0, -2], [-1, -2], [-1, -3]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
-                    "offsets": [[-2,1], [0,1], [-1,1], [1,1], [2,1], [-1,2], [0,2], [1,2], [1,3]],
+                    "offsets": [[-2, 1], [0, 1], [-1, 1], [1, 1], [2, 1], [-1, 2], [0, 2], [1, 2], [1, 3]],
                     "spans": [],
                 }
             },
             "Dragon": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
-                    "offsets": [[2,-1], [1,-2], [-1,-2], [-2,-1], [-2,1], [-1,2], [1,2], [2,1]],
+                    "offsets": [[2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2], [1, 2], [2, 1]],
                     "spans": ["step_1sqr270d", "step_1sqr225d", "step_1sqr180d", "step_1sqr135d", "step_1sqr90d",
                         "step_1sqr45d", "step_1sqr0d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
-                    "offsets": [[-2,1], [-1,2], [1,2], [2,1], [2,-1], [1,-2], [-1,-2], [-2,-1]],
+                    "offsets": [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]],
                     "spans": ["step_1sqr90d", "step_1sqr45d", "step_1sqr0d", "step_1sqr315d", "step_1sqr270d",
                         "step_1sqr225d", "step_1sqr180d", "step_1sqr135d"]
                 }
@@ -403,39 +449,39 @@ export const sampleGames = {
             "Evil Morty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[-1,-2], [1,-2], [0,-1], [1,2], [0,1], [-1,2], [0,-2], [0,2]],
+                    "offsets": [[-1, -2], [1, -2], [0, -1], [1, 2], [0, 1], [-1, 2], [0, -2], [0, 2]],
                     "spans": ["step_1sqr225d", "step_1sqr135d", "step_1sqr45d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
-                    "offsets": [[1,2], [-1,2], [0,1], [-1,-2], [0,-1], [1,-2], [0,2], [0,-2]],
+                    "offsets": [[1, 2], [-1, 2], [0, 1], [-1, -2], [0, -1], [1, -2], [0, 2], [0, -2]],
                     "spans": ["step_1sqr45d", "step_1sqr315d", "step_1sqr225d", "step_1sqr135d"]
                 }
             },
             "EvilMorty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[1,0], [-1,0], [2,0], [-2,0], [-2,-3], [-3,-2], [-3,2], [-2,3], [2,3], [3,2], [3,-2],
-                        [2,-3]],
+                    "offsets": [[1, 0], [-1, 0], [2, 0], [-2, 0], [-2, -3], [-3, -2], [-3, 2], [-2, 3], [2, 3], [3, 2], [3, -2],
+                        [2, -3]],
                     "spans": ["step_1sqr270d", "step_1sqr180d", "step_1sqr90d", "step_1sqr0d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
-                    "offsets": [[-1,0], [1,0], [-2,0], [2,0], [2,3], [3,2], [3,-2], [2,-3], [-2,-3], [-3,-2], [-3,2],
-                        [-2,3]],
+                    "offsets": [[-1, 0], [1, 0], [-2, 0], [2, 0], [2, 3], [3, 2], [3, -2], [2, -3], [-2, -3], [-3, -2], [-3, 2],
+                        [-2, 3]],
                     "spans": ["step_1sqr90d", "step_1sqr0d", "step_1sqr270d", "step_1sqr180d"]
                 }
             },
             "Material UI": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui-red.svg?alt=media&token=1cb65f7e-15a1-47e3-90d4-75046f24923c",
-                    "offsets": [[2,-3], [1,-2], [0,-1], [-1,-2], [-2,-3], [-2,-1], [2,0], [2,-1], [-3,0], [-4,-1],
-                        [-4,-3], [-2,0]],
+                    "offsets": [[2, -3], [1, -2], [0, -1], [-1, -2], [-2, -3], [-2, -1], [2, 0], [2, -1], [-3, 0], [-4, -1],
+                        [-4, -3], [-2, 0]],
                     "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui.svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa",
-                    "offsets": [[-2,3], [-1,2], [0,1], [1,2], [2,3], [2,1], [-2,0], [-2,1], [3,0], [4,1], [4,3], [2,0]],
+                    "offsets": [[-2, 3], [-1, 2], [0, 1], [1, 2], [2, 3], [2, 1], [-2, 0], [-2, 1], [3, 0], [4, 1], [4, 3], [2, 0]],
                     "spans": [],
 
                 }
@@ -443,13 +489,13 @@ export const sampleGames = {
             "React": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-red.png?alt=media&token=83bcaa2a-320d-4028-a889-b090e76855b4",
-                    "offsets": [[0,2], [1,1], [2,0], [1,-1], [0,-2], [-1,-1], [-2,0], [-1,1]],
+                    "offsets": [[0, 2], [1, 1], [2, 0], [1, -1], [0, -2], [-1, -1], [-2, 0], [-1, 1]],
                     "spans": [],
 
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-blue.svg?alt=media&token=ffd9b902-75df-43ae-9fbe-8c212ab9985f",
-                    "offsets": [[0,-2], [-1,-1], [-2,0], [-1,1], [0,2], [1,1], [2,0], [1,-1]],
+                    "offsets": [[0, -2], [-1, -1], [-2, 0], [-1, 1], [0, 2], [1, 1], [2, 0], [1, -1]],
                     "spans": [],
 
                 }
@@ -457,13 +503,13 @@ export const sampleGames = {
             "Timberwolf": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
-                    "offsets": [[2,-1], [2,-2], [1,-1], [1,-2], [-1,-1], [-1,-2], [-2,-2], [-2,-1], [1,1], [-1,1]],
+                    "offsets": [[2, -1], [2, -2], [1, -1], [1, -2], [-1, -1], [-1, -2], [-2, -2], [-2, -1], [1, 1], [-1, 1]],
                     "spans": [],
 
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
-                    "offsets": [[-2,1], [-2,2], [-1,1], [-1,2], [1,1], [1,2], [2,2], [2,1], [-1,-1], [1,-1]],
+                    "offsets": [[-2, 1], [-2, 2], [-1, 1], [-1, 2], [1, 1], [1, 2], [2, 2], [2, 1], [-1, -1], [1, -1]],
                     "spans": [],
 
                 }
@@ -524,7 +570,27 @@ export const sampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui.svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui-red.svg?alt=media&token=1cb65f7e-15a1-47e3-90d4-75046f24923c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-blue.svg?alt=media&token=ffd9b902-75df-43ae-9fbe-8c212ab9985f",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-red.png?alt=media&token=83bcaa2a-320d-4028-a889-b090e76855b4",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "Xakea": {
         "defs": {
@@ -532,24 +598,24 @@ export const sampleGames = {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
                     "spans": ["step_1sqr225d", "step_1sqr315d", "step_1sqr45d", "step_1sqr135d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
                     "spans": ["step_1sqr45d", "step_1sqr135d", "step_1sqr225d", "step_1sqr315d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             },
             "Docker": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[2,-1], [0,-1], [1,-1], [-1,-1], [-2,-1], [1,-2], [0,-2], [-1,-2], [-1,-3]],
+                    "offsets": [[2, -1], [0, -1], [1, -1], [-1, -1], [-2, -1], [1, -2], [0, -2], [-1, -2], [-1, -3]],
                     "spans": [],
 
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
-                    "offsets": [[-2,1], [0,1], [-1,1], [1,1], [2,1], [-1,2], [0,2], [1,2], [1,3]],
+                    "offsets": [[-2, 1], [0, 1], [-1, 1], [1, 1], [2, 1], [-1, 2], [0, 2], [1, 2], [1, 3]],
                     "spans": [],
 
                 }
@@ -557,13 +623,13 @@ export const sampleGames = {
             "Dragon": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
-                    "offsets": [[2,-1], [1,-2], [-1,-2], [-2,-1], [-2,1], [-1,2], [1,2], [2,1]],
+                    "offsets": [[2, -1], [1, -2], [-1, -2], [-2, -1], [-2, 1], [-1, 2], [1, 2], [2, 1]],
                     "spans": ["step_1sqr270d", "step_1sqr225d", "step_1sqr180d", "step_1sqr135d", "step_1sqr90d",
                         "step_1sqr45d", "step_1sqr0d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
-                    "offsets": [[-2,1], [-1,2], [1,2], [2,1], [2,-1], [1,-2], [-1,-2], [-2,-1]],
+                    "offsets": [[-2, 1], [-1, 2], [1, 2], [2, 1], [2, -1], [1, -2], [-1, -2], [-2, -1]],
                     "spans": ["step_1sqr90d", "step_1sqr45d", "step_1sqr0d", "step_1sqr315d", "step_1sqr270d",
                         "step_1sqr225d", "step_1sqr180d", "step_1sqr135d"]
                 }
@@ -571,48 +637,48 @@ export const sampleGames = {
             "Evil Morty": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
-                    "offsets": [[0,1], [1,0], [-1,0], [0,-1]],
+                    "offsets": [[0, 1], [1, 0], [-1, 0], [0, -1]],
                     "spans": ["step_1sqr225d", "step_1sqr135d", "step_1sqr45d", "step_1sqr315d"]
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
-                    "offsets": [[0,-1], [-1,0], [1,0], [0,1]],
+                    "offsets": [[0, -1], [-1, 0], [1, 0], [0, 1]],
                     "spans": ["step_1sqr45d", "step_1sqr315d", "step_1sqr225d", "step_1sqr135d"]
                 }
             },
             "Firelord": {
                 "B": {
-                    "offsets": [[2,-1], [1,-2], [-1,-2], [-2,-1]],
+                    "offsets": [[2, -1], [1, -2], [-1, -2], [-2, -1]],
                     "spans": ["step_1sqr270d", "step_1sqr225d", "step_1sqr180d", "step_1sqr0d", "step_1sqr315d"]
                 },
                 "W": {
-                    "offsets": [[-2,1], [-1,2], [1,2], [2,1]],
+                    "offsets": [[-2, 1], [-1, 2], [1, 2], [2, 1]],
                     "spans": ["step_1sqr90d", "step_1sqr45d", "step_1sqr0d", "step_1sqr180d", "step_1sqr135d"]
                 }
             },
             "Knight": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
-                    "offsets": [[1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1]],
-                    "spans":[]
+                    "offsets": [[1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]],
+                    "spans": []
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
-                    "offsets": [[1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1]],
-                    "spans":[],
+                    "offsets": [[1, 2], [1, -2], [-1, 2], [-1, -2], [2, 1], [2, -1], [-2, 1], [-2, -1]],
+                    "spans": [],
                 }
             },
             "Material UI": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui-red.svg?alt=media&token=1cb65f7e-15a1-47e3-90d4-75046f24923c",
-                    "offsets": [[2,-3], [1,-2], [0,-1], [-1,-2], [-2,-3], [-2,-1], [2,0], [2,-1], [-3,0], [-4,-1],
-                        [-4,-3], [-2,0]],
-                    "spans":[],
+                    "offsets": [[2, -3], [1, -2], [0, -1], [-1, -2], [-2, -3], [-2, -1], [2, 0], [2, -1], [-3, 0], [-4, -1],
+                        [-4, -3], [-2, 0]],
+                    "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui.svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa",
-                    "offsets": [[-2,3], [-1,2], [0,1], [1,2], [2,3], [2,1], [-2,0], [-2,1], [3,0], [4,1], [4,3], [2,0]],
-                    "spans":[],
+                    "offsets": [[-2, 3], [-1, 2], [0, 1], [1, 2], [2, 3], [2, 1], [-2, 0], [-2, 1], [3, 0], [4, 1], [4, 3], [2, 0]],
+                    "spans": [],
                 }
             },
             "Queen": {
@@ -620,37 +686,37 @@ export const sampleGames = {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
                     "spans": ["step_1sqr180d", "step_1sqr225d", "step_1sqr270d", "step_1sqr315d", "step_1sqr0d",
                         "step_1sqr90d", "step_1sqr45d", "step_1sqr135d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
                     "spans": ["step_1sqr0d", "step_1sqr45d", "step_1sqr90d", "step_1sqr135d", "step_1sqr180d",
                         "step_1sqr225d", "step_1sqr270d", "step_1sqr315d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             },
             "React": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-red.png?alt=media&token=83bcaa2a-320d-4028-a889-b090e76855b4",
-                    "offsets": [[0,2], [1,1], [2,0], [1,-1], [0,-2], [-1,-1], [-2,0], [-1,1]],
-                    "spans":[],
+                    "offsets": [[0, 2], [1, 1], [2, 0], [1, -1], [0, -2], [-1, -1], [-2, 0], [-1, 1]],
+                    "spans": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-blue.svg?alt=media&token=ffd9b902-75df-43ae-9fbe-8c212ab9985f",
-                    "offsets": [[0,-2], [-1,-1], [-2,0], [-1,1], [0,2], [1,1], [2,0], [1,-1]],
-                    "spans":[],
+                    "offsets": [[0, -2], [-1, -1], [-2, 0], [-1, 1], [0, 2], [1, 1], [2, 0], [1, -1]],
+                    "spans": [],
                 }
             },
             "Rook": {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
                     "spans": ["step_1sqr180d", "step_1sqr270d", "step_1sqr0d", "step_1sqr90d"],
-                    "offsets":[],
+                    "offsets": [],
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
                     "spans": ["step_1sqr0d", "step_1sqr90d", "step_1sqr180d", "step_1sqr270d"],
-                    "offsets":[],
+                    "offsets": [],
                 }
             }
         },
@@ -710,7 +776,21 @@ export const sampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "super-checkmate impossible example": {
         "fen": "5rk1/3np1p1/r4K2/8/7b/8/8/q4r2 w - - 0 1",
@@ -785,28 +865,28 @@ export const sampleGames = {
                 "B": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
                     "offsets": [
-                        [-1,-2],
-                        [-1,2],
-                        [1,-2],
-                        [1,2],
-                        [-2,-1],
-                        [-2,1],
-                        [2,-1],
-                        [2,1]
+                        [-1, -2],
+                        [-1, 2],
+                        [1, -2],
+                        [1, 2],
+                        [-2, -1],
+                        [-2, 1],
+                        [2, -1],
+                        [2, 1]
                     ],
                     "spans": []
                 },
                 "W": {
                     "img": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
                     "offsets": [
-                        [1,2],
-                        [1,-2],
-                        [-1,2],
-                        [-1,-2],
-                        [2,1],
-                        [2,-1],
-                        [-2,1],
-                        [-2,-1]
+                        [1, 2],
+                        [1, -2],
+                        [-1, 2],
+                        [-1, -2],
+                        [2, 1],
+                        [2, -1],
+                        [-2, 1],
+                        [-2, -1]
                     ],
                     "spans": []
                 }
@@ -871,7 +951,21 @@ export const sampleGames = {
             "b": "Bishop",
             "n": "Knight",
             "p": "Pawn"
-        }
+        },
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     }
 }
 
@@ -991,7 +1085,23 @@ export const dbSampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "Ficheall": {
         "defs": {
@@ -1127,7 +1237,25 @@ export const dbSampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419",
+        ]
     },
     "Kasparov's Immortal, move 8": {
         "defs": {
@@ -1227,7 +1355,21 @@ export const dbSampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Standard"
+        "type": "Standard",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "React & Material UI & Docker & Dragon": {
         "defs": {
@@ -1325,7 +1467,6 @@ export const dbSampleGames = {
             "q": "Dragon",
             "r": "React"
         },
-        "img": "",
         "json": {
             "kings_moved": {
                 "e1": false,
@@ -1369,7 +1510,27 @@ export const dbSampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_white.svg?alt=media&token=9595aa7c-5557-4c45-9aeb-4a6310e5f141",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui.svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fmaterial-ui-red.svg?alt=media&token=1cb65f7e-15a1-47e3-90d4-75046f24923c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-blue.svg?alt=media&token=ffd9b902-75df-43ae-9fbe-8c212ab9985f",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Freact-red.png?alt=media&token=83bcaa2a-320d-4028-a889-b090e76855b4",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-white.svg?alt=media&token=6c662c21-4d2c-4b00-97d2-9ae214f611f5",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/users%2Fimages%2Ftimberwolf-black.svg?alt=media&token=5035afe0-b263-43ff-ad7f-220d93fd188e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     },
     "Xakea": {
         "defs": {
@@ -1542,7 +1703,22 @@ export const dbSampleGames = {
             "status": 1,
             "winner": "-"
         },
-        "type": "Custom"
+        "type": "Custom",
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker.svg?alt=media&token=bc7805fb-9ee0-4066-b463-6f79822880a2",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-white.svg?alt=media&token=76c52b39-1a76-40e6-9d44-1049ab7f193a",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdragon-black.svg?alt=media&token=ecae5bd7-ddac-4f56-a6eb-2a6a932478ad",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fevil_morty_blue.svg?alt=media&token=32a35e46-0c9a-41ff-be85-0a85661ba41d",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fsample%20images%2Fdocker-red.svg?alt=media&token=f50a9915-c1db-45da-9c4e-78fe37a4c77e",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419",
+        ]
+
     },
     "super-checkmate impossible example": {
         "fen": "5rk1/3np1p1/r4K2/8/7b/8/8/q4r2 w - - 0 1",
@@ -1696,6 +1872,20 @@ export const dbSampleGames = {
             "b": "Bishop",
             "n": "Knight",
             "p": "Pawn"
-        }
+        },
+        "imgUrlStrs": [
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWB.svg?alt=media&token=7868db67-7fe2-46fd-a4d5-f413b26f2f07",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWN.svg?alt=media&token=4fee02d6-9838-41c5-b1dc-a06160ec7308",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWQ.svg?alt=media&token=d8ca66fc-085b-43a2-96e4-a7235392d266",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBQ.svg?alt=media&token=005f4741-56fe-4bb4-b6aa-533d41ebfc24",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWR.svg?alt=media&token=f5c32f16-7031-43e6-a33b-f32b5d58a506",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBR.svg?alt=media&token=abb1a899-02ac-4e2d-895a-6310bce36c09",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWK.svg?alt=media&token=f36b8488-27fe-4655-aacb-86ff92d454ce",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBP.svg?alt=media&token=8723da28-a3bf-4533-bfea-e2a79ecea91c",
+            "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419"
+        ]
     }
 }

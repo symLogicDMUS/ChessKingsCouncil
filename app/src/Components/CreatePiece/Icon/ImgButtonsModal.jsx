@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import { Close } from "../../Reuseables/Modals/Close";
-import { UploadButton } from "./UploadButton";
+import { UploadImgButton } from "./UploadImgButton";
 import { fontSize002 } from "../../styles/fontSizes.jss";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
@@ -27,7 +27,7 @@ export function ImgButtonsModal({
                     />
                 </Box>
                 <Box className={classes.button_group}>
-                    <UploadButton
+                    <UploadImgButton
                         color={color}
                         id='choose-img'
                         theme={theme}

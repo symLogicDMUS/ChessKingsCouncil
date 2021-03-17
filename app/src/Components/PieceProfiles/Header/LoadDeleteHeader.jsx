@@ -8,6 +8,7 @@ import DeleteForever from "@material-ui/icons/DeleteForever";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {delete_icon, icon, useStyles} from "./LoadDeleteHeader.jss";
+import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 
 export function LoadDeleteHeader({
     def,
@@ -25,9 +26,13 @@ export function LoadDeleteHeader({
     const classes = useStyles({theme: theme, style: style});
 
     const deletePiece = (pieceName) => {
-        deleteDef(pieceName).then(([r]) => {
-            dispatch({type: 'delete', payload: pieceName})
-        });
+        decrementImgRefCount(def.W.img).then(r => {
+            decrementImgRefCount(def.B.img).then(r => {
+                deleteDef(pieceName).then(([r]) => {
+                    dispatch({type: 'delete', payload: pieceName})
+                });
+            })
+        })
     };
 
     let loadMethod;

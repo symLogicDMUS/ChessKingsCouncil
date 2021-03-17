@@ -14,6 +14,7 @@ import { parseData } from "../../API/apiHelpers/parseData";
 import { getGameSnapshots } from "./getGameSnapshots";
 import "../Reuseables/Background/_backgrounds.scss";
 import {getDbSampleGames} from "../../API/getDbSampleGames";
+import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -98,22 +99,24 @@ class LoadGame extends React.Component {
     }
 
     deleteGame(gameName) {
-        deleteGame(gameName).then(([r]) => {
-            delete this.games[gameName];
-            delete this.boardObjs[gameName];
-            this.gameSnapshotComponents = getGameSnapshots(
-                this.boardObjs,
-                this.setChoice,
-                this.state.selectedGame,
-                this.state.searchText,
-                this.state.showNames,
-                this.state.theme
-            );
-            this.setState({
-                selectedGame: "none",
-                userChoseGame: false,
+        decrementImgRefCounts(this.games.imgUrlList).then(r => {
+            deleteGame(gameName).then(([r]) => {
+                delete this.games[gameName];
+                delete this.boardObjs[gameName];
+                this.gameSnapshotComponents = getGameSnapshots(
+                    this.boardObjs,
+                    this.setChoice,
+                    this.state.selectedGame,
+                    this.state.searchText,
+                    this.state.showNames,
+                    this.state.theme
+                );
+                this.setState({
+                    selectedGame: "none",
+                    userChoseGame: false,
+                });
             });
-        });
+        })
     }
 
     getGameImgDict() {

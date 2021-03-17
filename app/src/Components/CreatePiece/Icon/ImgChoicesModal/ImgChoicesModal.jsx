@@ -11,7 +11,7 @@ import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
-import {saveImgDict} from "../../../../API/saveImgDict";
+import {saveImgUrls} from "../../../../API/saveImgUrls";
 import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
 import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
 import {
@@ -22,6 +22,7 @@ import {
     searchBoxWidthDesktop,
     styles
 } from "./ImgChoicesModal.jss";
+import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 
 class ImgChoicesModal extends React.Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class ImgChoicesModal extends React.Component {
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
-                saveImgDict(sampleImgUrls).then(([r]) => {
+                saveImgUrls(sampleImgUrls).then(([r]) => {
                     this.imgDict = getSampleImgUrls();
                     this.updateImgComponents();
                     this.setState({ loaded: true });
@@ -71,14 +72,16 @@ class ImgChoicesModal extends React.Component {
     }
 
     deleteImg(imgNameChoice) {
-        deleteImg(imgNameChoice).then(([r]) => {
-            this.props.resetImg(this.imgDict[imgNameChoice]);
-            delete this.imgDict[imgNameChoice];
-            this.setState({ imgNameChoice: null }, () => {
-                this.updateImgComponents();
-                this.triggerRender();
+        decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
+            deleteImg(imgNameChoice).then(([r]) => {
+                this.props.resetImg(this.imgDict[imgNameChoice]);
+                delete this.imgDict[imgNameChoice];
+                this.setState({ imgNameChoice: null }, () => {
+                    this.updateImgComponents();
+                    this.triggerRender();
+                });
             });
-        });
+        })
     }
 
     submitChoice(imgNameChoice) {

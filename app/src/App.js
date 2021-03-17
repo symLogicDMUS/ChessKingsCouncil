@@ -12,10 +12,10 @@ import LoadGame from "./Components/LoadGame/LoadGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {LoginPage} from "./Components/Home/LoginPage";
-import './App.css';
-import {getDoesUserExists, isNewUser} from "./API/isNewUser";
+import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/saveSampleData";
 import {saveUser} from "./API/saveUser";
+import './App.css';
 
 export class App extends React.Component {
     constructor(props) {

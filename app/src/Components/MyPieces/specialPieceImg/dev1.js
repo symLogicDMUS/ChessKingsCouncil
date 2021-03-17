@@ -8,3 +8,5 @@ export const specialPieceImg = {
         "W": "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FWP.svg?alt=media&token=a1547873-8d8c-4d29-917f-87ffff156419",
     }
 }
+
+

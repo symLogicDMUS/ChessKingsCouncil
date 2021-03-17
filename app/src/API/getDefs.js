@@ -18,8 +18,6 @@ async function getPieceDefsFromDb() {
     })
 }
 
-
-
 export function getDefs() {
     return Promise.all([getPieceDefsFromDb()])
 }

@@ -45,6 +45,7 @@ import {
 import {difference} from "../../helpers/setOps";
 import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
 import {isSpecial} from "../../helpers/isSpecial";
+import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -64,6 +65,7 @@ class Customize extends React.Component {
             Queen: null,
             Knight: null,
         };
+        this.colors = ["W", "B"];
         this.standardPieceNames = ["Rook", "Bishop", "Queen", "Knight", "Pawn", "King"];
         this.defs = {};
         this.idDict = {};
@@ -129,7 +131,7 @@ class Customize extends React.Component {
      *    are.
      */
     bundleGameData() {
-        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict, piece_defs: standardPieceDefs} //1.
+        this.gameData = {...copy(newData), promos: this.promos, id_dict: this.idDict, piece_defs: standardPieceDefs, imgUrlList: copy(specialPieceImgUrlList) } //1.
         let name;
         for (const id of Object.keys(this.idDict)) { //2.
             if (id !== 'k' && id !== 'p') {
@@ -146,9 +148,15 @@ class Customize extends React.Component {
             this.gameData.piece_defs,
             this.gameData.id_dict
         );
-        //6.
+
         this.gameData.ranges = dataEntry.ranges;
         this.gameData.enemy_ranges = dataEntry.enemyRanges;
+
+        for (const pieceName of Object.keys(this.gameData.piece_defs)) {
+            for (const color of this.colors) {
+                this.gameData.imgUrlList.push(this.gameData.piece_defs[pieceName][color].img)
+            }
+        }
     }
 
     /**

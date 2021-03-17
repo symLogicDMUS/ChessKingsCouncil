@@ -29,15 +29,15 @@ import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
 import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
-import {specialThemeList, specialThemeMenuItemList} from "../styles/themes.jss";
 import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {HelpText} from "./Help/HelpText";
+import {specialThemeMenuItemList} from "../styles/themes.jss";
 import "../Reuseables/Background/_backgrounds.scss";
+import {HelpText} from "./Help/HelpText";
 import {copy} from "../helpers/copy";
-import {newData} from "../NewGame/NewData";
+import {newData, newStandardImgUrls} from "../NewGame/NewData";
 import {boardSizes} from "../Reuseables/Board/Board.jss";
 import {doNothing} from "../helpers/doNothing";
 import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
@@ -71,7 +71,7 @@ class GameRoot extends React.Component {
         if (this.gameType === "Custom" || (this.props.location.state.currentPath === "/LoadGame")) {
             gameData = this.props.location.state.gameData;
         } else {
-            gameData = {...copy(newData), piece_defs: standardPieceDefs};
+            gameData = {...copy(newData), piece_defs: copy(standardPieceDefs), imgUrlList: copy(newStandardImgUrls)};
         }
         this.img = gameData.img;
         this.board = gameData.board;

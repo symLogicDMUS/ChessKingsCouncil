@@ -15,6 +15,7 @@ import {Options} from "./Options/Options";
 import {Location} from "./Location/Location";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {SideBar} from "../Reuseables/Drawers/SidBar";
+import {incrementImgRefCount} from "../../API/incrementImgRefCount";
 import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
@@ -30,12 +31,12 @@ import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
-import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PuttingThePieceICreatedIntoAGame} from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
-import {accordion_root, app_bar_title, congrats_first_piece, sqrTextCheckbox, styles} from "./CreatePiece.jss";
+import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
 
 
 class CreatePiece extends React.Component {
@@ -159,8 +160,12 @@ class CreatePiece extends React.Component {
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
         saveDef(this.name, newPiece).then(([r]) => {
-            this.setState({unsavedChanges: false});
-            this.setState({justSaved: true});
+            incrementImgRefCount(newPiece.W.img).then(([r]) => {
+                incrementImgRefCount(newPiece.B.img).then(([r]) => {
+                    this.setState({unsavedChanges: false});
+                    this.setState({justSaved: true});
+                })
+            })
         });
     }
 
