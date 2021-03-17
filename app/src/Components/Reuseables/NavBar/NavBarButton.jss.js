@@ -1,5 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
+    fontSize0011,
+    fontSize0015,
     fontSize002,
     fontSize0023,
     fontSize0024,
@@ -21,6 +23,9 @@ export const text = (screenCase) => {
                 fontSize: fontSize002,
                 marginRight: margin,
                 marginTop: '0.15em',
+                '@media screen and (max-width: 1220px)': {
+                    fontSize: fontSize0015,
+                },
             }
         default:
             return {

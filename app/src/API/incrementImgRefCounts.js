@@ -20,7 +20,7 @@ export async function incrementImgRefCounts(imgUrlList) {
         const imgUrlListEscaped = mapUrlListCharsToValidKeyChars(imgUrlList) //HERE map imgUrlList argument
         const imgRefOverlappingKeys = Array.from(intersection(new Set(imgUrlListEscaped), new Set(Object.keys(imgRefsCounts))))
         imgRefOverlappingKeys.forEach(imgPath => {
-            imgRefsCounts[imgPath] = imgRefsCounts[imgPath] - 1;
+            imgRefsCounts[imgPath] = imgRefsCounts[imgPath] + 1;
         })
         return Promise.all([updateImgRefCounts(uid, imgRefsCounts)])
     }).catch((error) => {

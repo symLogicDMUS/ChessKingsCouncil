@@ -1,4 +1,5 @@
 /*Use as a scalar for styles. numbered by percent of available screen height, decimal after first 0*/
+export const fontSize0011 = window.screen.availHeight * 0.011;
 export const fontSize0015 = window.screen.availHeight * 0.015;
 export const fontSize0016 = window.screen.availHeight * 0.016;
 export const fontSize00165 = window.screen.availHeight * 0.0165;

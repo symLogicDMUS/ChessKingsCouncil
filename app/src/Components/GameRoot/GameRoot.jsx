@@ -37,23 +37,16 @@ import {specialThemeMenuItemList} from "../styles/themes.jss";
 import "../Reuseables/Background/_backgrounds.scss";
 import {HelpText} from "./Help/HelpText";
 import {copy} from "../helpers/copy";
-import {newData, newStandardImgUrls} from "../NewGame/NewData";
-import {boardSizes} from "../Reuseables/Board/Board.jss";
 import {doNothing} from "../helpers/doNothing";
+import {boardSizes} from "../Reuseables/Board/Board.jss";
+import {newData, newStandardImgUrls} from "../NewGame/NewData";
 import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/UserInput/MuiDropdown";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
-import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
-import {
-    styles,
-    accordion_root,
-    sqr_text_checkbox,
-    franchise_theme_gen,
-} from "./GameRoot.jss";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
-import {incrementImgRefCount} from "../../API/incrementImgRefCount";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
-
+import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
+import {styles, accordion_root, sqr_text_checkbox, franchise_theme_gen,} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -61,7 +54,6 @@ class GameRoot extends React.Component {
         this.state = {
             bValue: true,
             theme: "dark",
-            notSaved: true,
             saveProcess: false,
             messageModal: false,
             secondaryDrawer: false,
@@ -77,9 +69,9 @@ class GameRoot extends React.Component {
         } else {
             gameData = {...copy(newData), piece_defs: copy(standardPieceDefs), imgUrlList: copy(newStandardImgUrls)};
         }
-        this.img = gameData.img;
         this.board = gameData.board;
         this.turn = gameData.color;
+        this.imgUrlList = gameData.imgUrlList;
         this.fenObj = new Fen(gameData.fen_data);
         this.gameStatus = new GameStatus(gameData.status);
         this.specialMoves = new SpecialMoves(gameData.special_moves);
@@ -256,21 +248,17 @@ class GameRoot extends React.Component {
         );
         const pieceDefs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
-        if (this.state.notSaved) {
-            getDoesGameExist(this.gameName).then(([gameExists]) => {
-                if (! gameExists) {
-                    incrementImgRefCounts(this.defs.imgUrlList).then(r => {
-                        this.saveToDb(fen, records, pieceDefs, status);
-                    })
-                }
-                else {
+
+        getDoesGameExist(this.gameName).then(([gameExists]) => {
+            if (! gameExists) {
+                incrementImgRefCounts(this.imgUrlList).then(r => {
                     this.saveToDb(fen, records, pieceDefs, status);
-                }
-            })
-        }
-        else {
-            this.saveToDb(fen, records, pieceDefs, status);
-        }
+                })
+            }
+            else {
+                this.saveToDb(fen, records, pieceDefs, status);
+            }
+        })
     }
 
     saveToDb(fen, records, pieceDefs, status) {
@@ -286,7 +274,7 @@ class GameRoot extends React.Component {
             captured: this.capturedIds,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({isSaveMessage: true, saveProcess: false, notSaved: false});
+            this.setState({isSaveMessage: true, saveProcess: false});
         });
     }
 

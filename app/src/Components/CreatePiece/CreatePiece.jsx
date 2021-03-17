@@ -37,6 +37,7 @@ import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PuttingThePieceICreatedIntoAGame} from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
+import {getDoesPieceNameExist} from "../../API/getDoesPieceNameExist";
 
 
 class CreatePiece extends React.Component {
@@ -65,7 +66,6 @@ class CreatePiece extends React.Component {
             "135d": false,
         };
         this.offsets = [];
-        this.nameHistory = []
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
@@ -160,21 +160,22 @@ class CreatePiece extends React.Component {
         newPiece.B.offsets = flipOffsets(this.offsets);
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
-        saveDef(this.name, newPiece).then(([r]) => {
-            if (! this.nameHistory.includes(this.name)) {
-                incrementImgRefCount(newPiece.W.img).then(([r]) => {
-                    incrementImgRefCount(newPiece.B.img).then(([r]) => {
-                        this.nameHistory.push(this.name)
-                        this.setState({unsavedChanges: false});
-                        this.setState({justSaved: true});
+        getDoesPieceNameExist(this.name).then(([pieceNameExists]) => {
+            if (! pieceNameExists) {
+                saveDef(this.name, newPiece).then(([r]) => {
+                    incrementImgRefCount(newPiece.W.img).then(([r]) => {
+                        incrementImgRefCount(newPiece.B.img).then(([r]) => {
+                            this.setState({unsavedChanges: false, justSaved: true});
+                        })
                     })
-                })
+                });
             }
             else {
-                this.setState({unsavedChanges: false});
-                this.setState({justSaved: true});
+                saveDef(this.name, newPiece).then(([r]) => {
+                    this.setState({unsavedChanges: false, justSaved: true});
+                })
             }
-        });
+        })
     }
 
     /**
@@ -347,7 +348,7 @@ class CreatePiece extends React.Component {
                         }
                     />
                 )}
-                {! this.state.isFirstVisit && this.state.justSaved && (
+                {!this.state.isFirstVisit && this.state.justSaved && (
                     <AnimatePresencePortal>
                         <PieceSavedSuccessfully
                             callback={() => this.setState({justSaved: false})}
@@ -443,13 +444,14 @@ class CreatePiece extends React.Component {
                             screenCase='desktop'
                             theme={this.state.theme}
                             redirectMessage={messageStr}
-                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
+                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a
+                                Piece</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
                                     <MuiCheckbox
-                                        onClick={() => this.setState({showSpanText: ! this.state.showSpanText})}
+                                        onClick={() => this.setState({showSpanText: !this.state.showSpanText})}
                                         defaultChecked={this.state.showSpanText}
                                         rootStyle={sqrTextCheckbox()}
                                         theme={this.state.theme}
@@ -457,7 +459,7 @@ class CreatePiece extends React.Component {
                                         Show Span Text
                                     </MuiCheckbox>
                                     <MuiCheckbox
-                                        onClick={() => this.setState({showOffsetText: ! this.state.showOffsetText})}
+                                        onClick={() => this.setState({showOffsetText: !this.state.showOffsetText})}
                                         defaultChecked={this.state.showOffsetText}
                                         rootStyle={sqrTextCheckbox()}
                                         theme={this.state.theme}
@@ -479,7 +481,8 @@ class CreatePiece extends React.Component {
                                 currentPage="CreatePiece"
                                 screenCase='mobile'
                                 redirectMessage={messageStr}
-                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a Piece</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Creating a
+                                    Piece</HelpTitle>}
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateFirstVisit={this.updateFirstVisit}
@@ -488,7 +491,7 @@ class CreatePiece extends React.Component {
                                 additionalSettings={
                                     <>
                                         <MuiCheckbox
-                                            onClick={() => this.setState({showSpanText: ! this.state.showSpanText})}
+                                            onClick={() => this.setState({showSpanText: !this.state.showSpanText})}
                                             defaultChecked={this.state.showSpanText}
                                             rootStyle={sqrTextCheckbox()}
                                             theme={this.state.theme}
@@ -496,7 +499,7 @@ class CreatePiece extends React.Component {
                                             Show Span Text
                                         </MuiCheckbox>
                                         <MuiCheckbox
-                                            onClick={() => this.setState({showOffsetText: ! this.state.showOffsetText})}
+                                            onClick={() => this.setState({showOffsetText: !this.state.showOffsetText})}
                                             defaultChecked={this.state.showOffsetText}
                                             rootStyle={sqrTextCheckbox()}
                                             theme={this.state.theme}

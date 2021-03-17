@@ -29,7 +29,7 @@ export function ImgChoice({
                         <motion.img
                             src={src}
                             className='image'
-                            whileHover={{ scale: 1.3 }}
+                            whileHover={{ scale: 1.2 }}
                             alt="list of icons that can be used as pieces"
                             onContextMenu={(e) => e.preventDefault()}
                         />
@@ -38,7 +38,7 @@ export function ImgChoice({
                     <motion.img
                         src={src}
                         className='image'
-                        whileHover={{ scale: 1.3 }}
+                        whileHover={{ scale: 1.175 }}
                         alt="list of icons that can be used as pieces"
                         onContextMenu={(e) => e.preventDefault()}
                     />
