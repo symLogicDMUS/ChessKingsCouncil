@@ -50,6 +50,9 @@ import {
     sqr_text_checkbox,
     franchise_theme_gen,
 } from "./GameRoot.jss";
+import {getDoesGameExist} from "../../API/getDoesGameExist";
+import {incrementImgRefCount} from "../../API/incrementImgRefCount";
+import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 
 
 class GameRoot extends React.Component {
@@ -58,8 +61,9 @@ class GameRoot extends React.Component {
         this.state = {
             bValue: true,
             theme: "dark",
-            messageModal: false,
+            notSaved: true,
             saveProcess: false,
+            messageModal: false,
             secondaryDrawer: false,
             showProfileOnClick: true,
         };
@@ -101,6 +105,7 @@ class GameRoot extends React.Component {
         this.aiCapture = null;
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
+        this.saveToDb = this.saveToDb.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
@@ -241,7 +246,7 @@ class GameRoot extends React.Component {
         );
     }
 
-    save(pieces) {
+    save() {
         const posFen = getFen(this.board);
         const fenData = this.fenObj.getData();
         const fen = getFullFen(posFen, fenData);
@@ -251,7 +256,24 @@ class GameRoot extends React.Component {
         );
         const pieceDefs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
+        if (this.state.notSaved) {
+            getDoesGameExist(this.gameName).then(([gameExists]) => {
+                if (! gameExists) {
+                    incrementImgRefCounts(this.defs.imgUrlList).then(r => {
+                        this.saveToDb(fen, records, pieceDefs, status);
+                    })
+                }
+                else {
+                    this.saveToDb(fen, records, pieceDefs, status);
+                }
+            })
+        }
+        else {
+            this.saveToDb(fen, records, pieceDefs, status);
+        }
+    }
 
+    saveToDb(fen, records, pieceDefs, status) {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
@@ -264,7 +286,7 @@ class GameRoot extends React.Component {
             captured: this.capturedIds,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({isSaveMessage: true, saveProcess: false});
+            this.setState({isSaveMessage: true, saveProcess: false, notSaved: false});
         });
     }
 

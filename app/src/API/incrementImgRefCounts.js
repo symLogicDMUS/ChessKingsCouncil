@@ -3,7 +3,6 @@ import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
 import {intersection} from "../Components/helpers/setOps";
-import {deleteImgRefCountsAtZero} from "./deleteImgRefCountsAtZero";
 import {updateImgRefCounts} from "./updateImgRefCounts";
 import {mapUrlListCharsToValidKeyChars} from "./mapUrlListCharsToValidKeyChars";
 
@@ -13,7 +12,7 @@ import {mapUrlListCharsToValidKeyChars} from "./mapUrlListCharsToValidKeyChars";
  * @param imgUrlList
  * @returns {Promise<void>}
  */
-export async function decrementImgRefCounts(imgUrlList) {
+export async function incrementImgRefCounts(imgUrlList) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     firebase.database().ref(`img_refs/${uid}`).once('value').then( function(snapshot) {
@@ -23,10 +22,7 @@ export async function decrementImgRefCounts(imgUrlList) {
         imgRefOverlappingKeys.forEach(imgPath => {
             imgRefsCounts[imgPath] = imgRefsCounts[imgPath] - 1;
         })
-        updateImgRefCounts(uid, imgRefsCounts).then(r => {
-            const imgUrlsWithNoReference = Object.keys(imgRefsCounts).filter(imgUrl =>  imgRefsCounts[imgUrl] === 0)
-            return deleteImgRefCountsAtZero(imgUrlsWithNoReference)
-        })
+        return Promise.all([updateImgRefCounts(uid, imgRefsCounts)])
     }).catch((error) => {
         console.log('this is the error that occurred:', error)
     });

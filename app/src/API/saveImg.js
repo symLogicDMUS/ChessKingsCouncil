@@ -13,7 +13,7 @@ async function saveRefToDb(imgUrl) {
         const user = firebase.auth().currentUser;
         const uid = user.uid;
         const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl)
-        return await firebase.database().ref().child('img_refs').child(uid).update({[imgUrlEscaped]: 0});
+        return await firebase.database().ref().child('img_refs').child(uid).update({[imgUrlEscaped]: 1});
 }
 
 export function saveImg(imgName, imgUrl) {

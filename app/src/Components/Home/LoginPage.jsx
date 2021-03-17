@@ -26,7 +26,7 @@ export function LoginPage(props) {
                         uiConfig={props.uiConfig}
                         firebaseAuth={firebase.auth()}
                     />
-                    {/*<FirebaseGuestLoginButton onClick={props.anonymousLogin}/>*/}
+                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
             <MediaQuery maxDeviceWidth={1040}>
@@ -40,7 +40,7 @@ export function LoginPage(props) {
                         uiConfig={props.uiConfig}
                         firebaseAuth={firebase.auth()}
                     />
-                    {/*<FirebaseGuestLoginButton onClick={props.anonymousLogin}/>*/}
+                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
         </>

@@ -2,7 +2,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
-import {updateImgRefCount} from "./updateImgRefCount";
+import {updateImgRefCounts} from "./updateImgRefCounts";
 import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
 
 /**
@@ -18,6 +18,6 @@ export async function incrementImgRefCount(imgUrl) {
         const imgRefCounts = snapshot.val()
         const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl) //HERE map imgUrl argument
         imgRefCounts[imgUrlEscaped] = imgRefCounts[imgUrlEscaped] + 1;
-        return Promise.all([updateImgRefCount(uid, imgRefCounts)])
+        return Promise.all([updateImgRefCounts(uid, imgRefCounts)])
     })
 }

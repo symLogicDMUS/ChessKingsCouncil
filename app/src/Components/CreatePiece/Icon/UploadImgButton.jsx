@@ -15,7 +15,7 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, style}) {
         const filePartitions = file.name.split('.')
         const name = filePartitions[0]
         const exten = filePartitions[filePartitions.length - 1]
-        const fileCopyName = name + " - copy" + exten;
+        const fileCopyName = name + " - copy" + "." + exten;
         const storageRef = firebase.storage().ref(`users/images/${uid}`)
         const task = storageRef.child(`${fileCopyName}`).put(file); //upload file
         task.on('state_changed',
@@ -57,8 +57,13 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, style}) {
         const file = e.target.files[0];
         const user = firebase.auth().currentUser;
         const uid = user.uid;
-        const storageRef = firebase.storage().ref(`users/images/${uid}/${file.name}`);
-        storageRef.getDownloadURL().then(saveCopy(file, uid), saveNew(file, uid)); //.then(<if exists>, <doesn't exist>)
+        firebase.storage().ref(`users/images/${uid}/${file.name}`).getDownloadURL()
+        .then((r) => {
+            saveCopy(file, uid)
+        })
+        .catch((err) => {
+            saveNew(file, uid)
+        })
     };
 
     return (

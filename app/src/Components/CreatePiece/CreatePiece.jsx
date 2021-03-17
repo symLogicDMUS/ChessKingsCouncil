@@ -65,6 +65,7 @@ class CreatePiece extends React.Component {
             "135d": false,
         };
         this.offsets = [];
+        this.nameHistory = []
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
@@ -160,12 +161,19 @@ class CreatePiece extends React.Component {
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
         saveDef(this.name, newPiece).then(([r]) => {
-            incrementImgRefCount(newPiece.W.img).then(([r]) => {
-                incrementImgRefCount(newPiece.B.img).then(([r]) => {
-                    this.setState({unsavedChanges: false});
-                    this.setState({justSaved: true});
+            if (! this.nameHistory.includes(this.name)) {
+                incrementImgRefCount(newPiece.W.img).then(([r]) => {
+                    incrementImgRefCount(newPiece.B.img).then(([r]) => {
+                        this.nameHistory.push(this.name)
+                        this.setState({unsavedChanges: false});
+                        this.setState({justSaved: true});
+                    })
                 })
-            })
+            }
+            else {
+                this.setState({unsavedChanges: false});
+                this.setState({justSaved: true});
+            }
         });
     }
 
