@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {Button, Portal, Typography} from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import clsx from "clsx";
+import { Button, Portal, Typography } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
-import {MuiButton} from "../Clickables/MuiButton";
-import {button} from "../Modals/StandardModal.jss";
+import { MuiButton } from "../Clickables/MuiButton";
+import { button } from "../Modals/StandardModal.jss";
 import { StandardModal } from "../Modals/StandardModal";
-import {fontSize002} from "../../styles/fontSizes.jss";
-import {getHoverColor, useStyles} from "./NavBarButton.jss";
+import { fontSize002 } from "../../styles/fontSizes.jss";
+import { useStyles } from "./NavBarButton.jss";
 
 export function NavBarButton({
     path,
     pageName,
     pageIcon,
-    currentPage,
     screenCase,
     isLocalLink,
     isUnsavedChanges,
+    currentPage,
     theme,
 }) {
     let history = useHistory();
@@ -26,8 +27,7 @@ export function NavBarButton({
 
     const classes = useStyles({
         theme: theme,
-        currentPage: currentPage,
-        screenCase: screenCase
+        screenCase: screenCase,
     });
 
     const goToPage = () => {
@@ -38,10 +38,9 @@ export function NavBarButton({
 
     const tryRedirect = () => {
         if (isUnsavedChanges !== undefined && isUnsavedChanges()) {
-            toggleRedirectModal(true)
-        }
-        else {
-            goToPage()
+            toggleRedirectModal(true);
+        } else {
+            goToPage();
         }
     };
 
@@ -58,7 +57,7 @@ export function NavBarButton({
                         <MuiButton
                             onClick={() => goToPage()}
                             style={button(fontSize002)}
-                            variant={'contained'}
+                            variant={"contained"}
                             theme={theme}
                         >
                             Yes
@@ -66,7 +65,7 @@ export function NavBarButton({
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
                             style={button(fontSize002)}
-                            variant={'contained'}
+                            variant={"contained"}
                             theme={theme}
                         >
                             No
@@ -76,17 +75,29 @@ export function NavBarButton({
             ) : null}
             <Button
                 onClick={() => tryRedirect()}
-                className={classes.nav_bar_button}
-                style={hover ? getHoverColor(theme) : null}
+                className={clsx(classes.nav_bar_button, {
+                    [classes.normal_color]: !hover,
+                    [classes.hover_color]: hover,
+                })}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
                 <Box className={classes.box}>
-                    <SvgIcon className={hover ? classes.icon_hover : classes.icon}
+                    <SvgIcon
+                        className={clsx(classes.icon, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
                     >
                         {icons[pageIcon]}
                     </SvgIcon>
-                    <Typography className={hover ? classes.text_hover : classes.text} noWrap>
+                    <Typography
+                        className={clsx(classes.text, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
+                        noWrap
+                    >
                         {pageName}
                     </Typography>
                 </Box>

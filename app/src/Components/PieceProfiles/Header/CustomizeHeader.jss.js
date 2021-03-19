@@ -70,34 +70,34 @@ export const useStyles = makeStyles({
     header: props => ({
         ...header(props.style, props.theme),
         height: '2em',
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
     }),
     piece_name: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0025,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizeW0048,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW003224,
         },
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
     }),
     box: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: 'unset',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
@@ -112,30 +112,30 @@ export const useStyles = makeStyles({
 
     }),
     checkbox_text: props => ({
-       '@media screen and (min-device-width: 1040px)': {
+       '@media screen and (min-width: 1040px)': {
            fontSize: fontSize0025,
        },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizeW0048,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW003224,
         },
     }),
     sub_icon: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0028,
             width: '1.25em',
             height: '1.25em',
         },
     }),
     no_sub_icon: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0028,
             width: '1.2em',
             height: '1.2em',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize0028,
             width: '1em',
             height: '1em',

@@ -1,32 +1,52 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { icons } from "../styles/icons/top/icons.jss";
+import {useStyles as useMoreStyles} from "./PageLinkDesktop.jss";
 import { useStyles } from "./PageLinkMobile.jss";
 
-export function PageLinkMobile({icon, path, pathType, pageName, theme, style, iconStyle}) {
-    let [hover, setHover] = useState();
+export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
+    const [hover, setHover] = useState(false);
+    const [bValue, reRender] = useState(false);
+
+    useEffect(() => {
+        function handleResize() {
+            reRender(! bValue)
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     const classes = useStyles({ theme: theme});
+    const classes2 = useMoreStyles({theme: theme})
 
     const content = (
         <Box
-            className={classes.page_link}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            style={style}
+            className={clsx(classes.page_link, {
+                [classes.height_and_font_size]: true,
+            })}
         >
             <SvgIcon
-                className={
-                    hover ? classes.page_icon_hover : classes.page_icon_normal
-                }
-                style={iconStyle}
+                className={clsx(classes.page_icon, {
+                    [classes2.normal_color]: !hover,
+                    [classes2.hover_color]: hover,
+                    [classes.height_and_font_size]: true,
+                })}
             >
                 {icons[icon]}
             </SvgIcon>
             <img
-                src={`/Images/text/main menu/mobile/${theme}/${hover ? 'hover' : 'normal'}/${pageName}.svg`}
-                className={classes.page_name}
+                src={
+                    hover ? `/Images/text/main menu/mobile/${theme}/hover/${pageName}.svg`
+                        : `/Images/text/main menu/mobile/${theme}/normal/${pageName}.svg`
+                }
+                className={classes.height_and_font_size}
             />
         </Box>
     );

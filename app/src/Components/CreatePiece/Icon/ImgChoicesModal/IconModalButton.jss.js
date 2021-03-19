@@ -22,19 +22,19 @@ export const useStyles = makeStyles({
         }
     },
     ok_inactive: {
-        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
+        "@media screen and (min-width: 768px) and (max-width: 991px)": {
             ...button('10%'),
         },
-        "@media screen and (max-device-width: 767px)": {
+        "@media screen and (max-width: 767px)": {
             ...button('75%')
         },
         cursor: 'not-allowed'
     },
     delete_active: {
-        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
+        "@media screen and (min-width: 768px) and (max-width: 991px)": {
             ...button('20%'),
         },
-        "@media screen and (max-device-width: 767px)": {
+        "@media screen and (max-width: 767px)": {
             ...button('80%'),
         },
         cursor: 'pointer',
@@ -44,10 +44,10 @@ export const useStyles = makeStyles({
         },
     },
     delete_inactive: {
-        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
+        "@media screen and (min-width: 768px) and (max-width: 991px)": {
             ...button('20%'),
         },
-        "@media screen and (max-device-width: 767px)": {
+        "@media screen and (max-width: 767px)": {
             ...button('80%'),
         },
         cursor: 'not-allowed',

@@ -5,10 +5,10 @@ import {fontSizes} from "./PartialRangeModal.jss";
 export const useStyles = makeStyles({
     board: props => ({
         zIndex: 'inherit',
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             ...board(fontSizes.desktop)
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             ...board(fontSizes.mobile)
         },
     }),

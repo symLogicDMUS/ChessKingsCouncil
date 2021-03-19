@@ -9,8 +9,8 @@ export const imgGridRootStyle = () => ({
     position: 'absolute',
     left: '50%',
     top: '50%',
-    marginLeft: widths.desktop*-0.5,
-    marginTop: heights.desktop*-0.465,
+    marginLeft: '-45vw',
+    marginTop: '-37.665vh',
 });
 
 export const button = (fontSize) => ({
@@ -23,7 +23,10 @@ export const search_box = (screenCase) => {
     switch (screenCase) {
         case 'mobile':
             return {
-                marginTop: '-0.5em', marginBottom: '0.75em'
+                marginTop: '-0.5em', marginBottom: '0.75em',
+                transform: 'translate(0, 13px)',
+                marginLeft: 'auto',
+                marginRight: 'auto',
             }
         default:
             return null;
@@ -52,21 +55,17 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'space-evenly',
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: '50em',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: '100%',
         },
     }),
     title_box: props => ({
-        width: '15em',
-        display: 'flex',
+        display: 'inline-flex',
         alignItems: 'center',
-        marginLeft: '38.5em',
-        marginRight: 'auto',
-        alignContent: 'center',
-        justifyContent: 'center'
+        transform: 'translate(0, 1.4em)'
     }),
     title: props => ({
         fontSize: '2em',
@@ -76,29 +75,15 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0016,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize0015,
         },
         height: '3em',
         width: '3em',
         marginLeft: '0.25em',
         color: themes[props.theme].text,
-    }),
-    buttons: props => ({
-        fontSize: fontSize002,
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: '1.8em',
-        '@media screen and (min-device-width: 1040px)': {
-            width: getTextWidth('Load Game', fontSize002 * 8, 'Garamond'),
-        },
-        '@media screen and (max-device-width: 1040px)': {
-            width: getTextWidth('Load Game', fontSize002 * 5.6, 'Garamond'),
-        },
     }),
 }, {index: 1});

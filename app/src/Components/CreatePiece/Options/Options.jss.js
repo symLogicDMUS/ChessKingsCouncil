@@ -1,5 +1,4 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {tool_title, tool_flexbox} from "../CreatePiece.jss";
 import {fontSize00184} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
@@ -11,13 +10,8 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize00184,
-            ...tool_flexbox,
         },
-    }),
-    title: props => ({
-        ...tool_title(props.theme),
-        marginBottom: '5%',
     }),
 }, {index: 1});

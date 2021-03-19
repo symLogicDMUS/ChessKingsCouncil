@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {HelpText} from "./HelpText";
@@ -17,9 +17,21 @@ import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme});
 
+    const [bValue, reRender] = useState(false);
+    useEffect(() => {
+        function handleResize() {
+            reRender(!bValue)
+        }
+
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     return (
         <>
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
                     currentPage="LoadGame"
@@ -40,7 +52,11 @@ export function SavedGames(props) {
                                             <Typography className={classes.title}>Load Game</Typography>
                                             <StorageIcon className={classes.title_icon} size="large"/>
                                         </Box>
-                                        <SearchBox updateSearchText={props.updateSearchText} theme={props.theme} width='20em'/>
+                                        <SearchBox theme={props.theme}
+                                                   updateSearchText={props.updateSearchText}
+                                                   style={{alignSelf: 'flex-end', marginRight: '2.25vw', transform: 'translate(0, -1em)'}}
+                                                   width='20em'
+                                        />
                                     </>
                                 }
                                 onClose={null}
@@ -62,7 +78,7 @@ export function SavedGames(props) {
                     </div>
                 </Portal>
             </MediaQuery>
-            <MediaQuery maxDeviceWidth={1040}>
+            <MediaQuery maxWidth={1040}>
                 <Background theme={props.theme} appBar={true} currentPage='LoadGame'/>
                 <PersistentDrawer
                     drawer={
@@ -71,7 +87,8 @@ export function SavedGames(props) {
                             screenCase="mobile"
                             redirectMessage={null}
                             helpText={HelpText(fontSizeW0045, props.theme)}
-                            helpTitle={<HelpTitle theme={props.theme} fontSize={fontSize0026}>Loading a Game</HelpTitle>}
+                            helpTitle={<HelpTitle theme={props.theme} fontSize={fontSize0026}>Loading a
+                                Game</HelpTitle>}
                             updateTheme={props.updateTheme}
                             theme={props.theme}
                             additionalSettings={null}
@@ -79,9 +96,15 @@ export function SavedGames(props) {
                     }
                     appBarContent={
                         <>
-                            <Typography variant="h6" noWrap style={pageTitleStyle()}>
+                            <Typography variant="subtitle1" noWrap style={pageTitleStyle()}>
                                 Load Game
                             </Typography>
+                            <SearchBox
+                                width='20em'
+                                theme={props.theme}
+                                style={search_box('mobile')}
+                                updateSearchText={props.updateSearchText}
+                            />
                         </>
                     }
                     theme={props.theme}
@@ -101,14 +124,14 @@ export function SavedGames(props) {
                         }
                         topFlexbox={null}
                         onClose={null}
-                        title={
-                            <SearchBox
-                                width='20em'
-                                theme={props.theme}
-                                style={search_box('mobile')}
-                                updateSearchText={props.updateSearchText}
-                            />
-                        }
+                        // title={
+                        //     <SearchBox
+                        //         width='20em'
+                        //         theme={props.theme}
+                        //         style={search_box('mobile')}
+                        //         updateSearchText={props.updateSearchText}
+                        //     />
+                        // }
                     >
                         {props.children}
                     </MuiGrid>

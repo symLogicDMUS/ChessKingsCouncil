@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import { Tooltip } from "@material-ui/core";
@@ -15,6 +15,18 @@ export function ImgChoice({
     theme,
 }) {
     const classes = useStyles({ theme: theme });
+
+    const [bValue, reRender] = useState(false);
+    useEffect(() => {
+        function handleResize() {
+            reRender(! bValue)
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     return (
         <div className={classes.item_choice}>
             <Box

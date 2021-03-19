@@ -10,16 +10,16 @@ export const useStyles = makeStyles({
         '&:hover':{
             color: themes[props.theme].sqr_hover,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
         },
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-width: 412px)': {
             fontSize: fontSizes.ipx,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
         },
     }),

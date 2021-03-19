@@ -42,7 +42,6 @@ export const boardPos = {
 }
 
 export const board = (fontSize) => ({
-    fontSize: fontSize,
     display: 'grid',
 });
 
@@ -51,11 +50,11 @@ export const dnd_layer = (boardSize, z) => ({
     width: boardSize,
     height: boardSize,
     position: 'fixed',
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,
     },
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         top: boardPos.desktop.top,
         left: boardPos.desktop.left,
     },

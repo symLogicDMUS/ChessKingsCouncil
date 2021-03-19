@@ -11,23 +11,23 @@ export const icon = () => ({
 export const useStyles = makeStyles({
     play_button: props => ({
         /*medium/short height phones*/
-        "@media screen and (min-device-width: 412px) and (max-device-width:  767px)": {
+        "@media screen and (min-width: 412px) and (max-width:  767px)": {
             fontSize: fontSize0018,
         },
         /*tall phones*/
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSize001725,
         },
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSize002,
         },
         /*phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)':{
+        '@media screen and (max-width: 1040px)':{
             width: viewWidth() * 0.4,
         },
         /*laptop/desktop*/
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: viewWidth() * 0.175,
         },
         backgroundColor: themes[props.theme].fill,

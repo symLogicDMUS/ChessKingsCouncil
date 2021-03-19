@@ -1,15 +1,23 @@
 import React, {useState} from "react";
 import Box from "@material-ui/core/Box";
-import {fontSize002} from "../../styles/fontSizes.jss";
+import {useMediaQuery} from "react-responsive";
 import {LocationButtonExample} from "./LocationButtonExample";
+import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./LocationToolExample.jss";
+import clsx from "clsx";
 
 export function LocationToolExample({theme}) {
-    const classes = useStyles({ theme: theme, fontSize: fontSize002 });
+    const classes = useStyles({theme: theme});
+    const classes2 = useMoreStyles({theme: theme});
+    const isDesktop = useMediaQuery({query: '(min-width: 1040px)'})
     const [selected, setSelected] = useState('d4');
     return (
         <>
-            <div className={classes.location_tool}>
+            <div
+                className={clsx(classes.location_tool, {
+                    [classes2.tool_flexbox]: isDesktop,
+                })}
+            >
                 <Box className={classes.box} style={{justifyContent: 'space-around'}}>
                     <LocationButtonExample
                         rf="d4"

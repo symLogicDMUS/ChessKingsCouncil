@@ -3,15 +3,15 @@ import Box from "@material-ui/core/Box";
 import {SettingsModal} from "./SettingsModal";
 import SettingsIcon from "@material-ui/icons/Settings";
 import {Button, Portal, Typography} from "@material-ui/core";
-import {getHoverColor, useStyles} from "./NavBarButton.jss";
+import {useStyles} from "./NavBarButton.jss";
+import clsx from "clsx";
 
-export function SettingsButton({currentPage, updateTheme, theme, screenCase, children}) {
+export function SettingsButton({updateTheme, theme, screenCase, children}) {
     const [hover, setHover] = useState(false);
     const [settingsModal, toggleSettingsModal] = useState(false);
 
     const classes = useStyles({
         theme: theme,
-        currentPage: currentPage,
         screenCase: screenCase
     });
 
@@ -30,14 +30,27 @@ export function SettingsButton({currentPage, updateTheme, theme, screenCase, chi
             ) : null}
             <Button
                 onClick={toggleSettingsModal}
-                className={classes.nav_bar_button}
-                style={hover ? getHoverColor(theme) : null}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
+                className={clsx(classes.nav_bar_button, {
+                    [classes.normal_color]: !hover,
+                    [classes.hover_color]: hover,
+                })}
             >
                 <Box className={classes.box}>
-                    <SettingsIcon className={hover ? classes.icon_hover : classes.icon} />
-                    <Typography className={hover ? classes.text_hover : classes.text} noWrap>
+                    <SettingsIcon
+                        className={clsx(classes.icon, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
+                    />
+                    <Typography
+                        className={clsx(classes.text, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
+                        noWrap
+                    >
                         Settings
                     </Typography>
                 </Box>

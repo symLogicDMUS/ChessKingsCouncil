@@ -32,36 +32,36 @@ export const header = (style, theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: themes[theme].fill,
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         fontSize: fontSizes.mobile,
     },
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         marginTop: '1em',
         fontSize: fontSizes.desktop,
     },
-    "@media screen and (max-device-width: 412px)": {
+    "@media screen and (max-width: 412px)": {
         marginTop: '0.25em',
         fontSize: fontSizes.ipx,
     },
 
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
         marginTop: '0.5em',
         fontSize: fontSizes.ipad,
     },
 });
 
 export const text = (theme) => ({
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         fontSize: fontSizes.desktop,
     },
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         fontSize: fontSizes.mobile,
     },
-    "@media screen and (max-device-width: 412px)": {
+    "@media screen and (max-width: 412px)": {
         fontSize: fontSizes.ipx,
     },
 
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
         fontSize: fontSizes.ipad,
     },
     fontFamily: 'Roboto-Light, Roboto',

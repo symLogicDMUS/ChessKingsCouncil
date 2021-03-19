@@ -1,16 +1,11 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize001725, fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
-import {itemChoicesWindowWidth} from "./MuiGrid.jss";
 
-const itemChoicesWindowHalfMargin = (screenCase) => {
-    return itemChoicesWindowWidth(screenCase) * 0.025
-};
-
-/**The sum of the widths to the left, right, and between, image items */
-export const itemChoicesWindowPadding = (screenCase) => {
-    return itemChoicesWindowHalfMargin(screenCase) * 4
-}
+const itemSizeDesktop = '16vw';
+const itemMarginDesktop = '2.5vw';
+const itemSizeMobile = '36.6vw';
+const itemMarginMobile = '3vw';
 
 export const item_container = (theme, isSelected) => ({
     cursor: 'pointer',
@@ -21,16 +16,20 @@ export const item_container = (theme, isSelected) => ({
     fontSize: fontSize002,
     borderRadius: '0.3em',
     backgroundColor: isSelected ? themes[theme].odd_row : themes[theme].even_row,
-    '@media screen and (max-device-width: 1040px)': {
-        width: (itemChoicesWindowWidth('mobile') - itemChoicesWindowPadding('mobile'))*0.5,
-        height: (itemChoicesWindowWidth('mobile') - itemChoicesWindowPadding('mobile'))*0.5,
+    '@media screen and (max-width: 1040px)': {
+        width: itemSizeMobile,
+        height: itemSizeMobile,
     },
-    '@media screen and (min-device-width: 1040px)': {
-        width: (itemChoicesWindowWidth('desktop') - itemChoicesWindowPadding('desktop'))*0.2,
-        height: (itemChoicesWindowWidth('desktop') - itemChoicesWindowPadding('desktop'))*0.2,
+    '@media screen and (min-width: 1040px)': {
+        width: itemSizeDesktop,
+        height: itemSizeDesktop,
     },
 });
 
+/**
+ * item_choice: box item goes in + name of item
+ * item_container: (normal and selected) box item goes in
+ */
 export const useStyles = makeStyles({
     item_choice: props => ({
         display: 'flex',
@@ -38,13 +37,13 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media screen and (max-device-width: 1040px)': {
-            margin: itemChoicesWindowHalfMargin('mobile'),
-            width: (itemChoicesWindowWidth('mobile') - itemChoicesWindowPadding('mobile'))*0.5,
+        '@media screen and (max-width: 1040px)': {
+            margin: itemMarginMobile,
+            width: itemSizeMobile,
         },
-        '@media screen and (min-device-width: 1040px)': {
-            margin: itemChoicesWindowHalfMargin('desktop'),
-            width: (itemChoicesWindowWidth('desktop') - itemChoicesWindowPadding('desktop'))*0.2,
+        '@media screen and (min-width: 1040px)': {
+            margin: itemMarginDesktop,
+            width: itemSizeDesktop,
         },
     }),
     normal: props => ({
@@ -66,13 +65,15 @@ export const useStyles = makeStyles({
         fontSize: fontSize001725
     }),
     item: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            margin: itemChoicesWindowHalfMargin('mobile'),
-            width: (itemChoicesWindowWidth('mobile') - itemChoicesWindowPadding('mobile'))*0.5,
+        '@media screen and (max-width: 1040px)': {
+            margin: itemMarginMobile,
+            width: itemSizeMobile,
+            height: itemSizeMobile,
         },
-        '@media screen and (min-device-width: 1040px)': {
-            margin: itemChoicesWindowHalfMargin('desktop'),
-            width: (itemChoicesWindowWidth('desktop') - itemChoicesWindowPadding('desktop'))*0.2,
+        '@media screen and (min-width: 1040px)': {
+            margin: itemMarginDesktop,
+            width: itemSizeDesktop,
+            height: itemSizeDesktop,
         },
     }),
     img: props => ({

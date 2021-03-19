@@ -5,11 +5,11 @@ import {promoChoicesSize} from "./Promo.jss";
 
 export const promoChoice = (fontSize, theme) => ({
     fontSize: fontSize,
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         width: promoChoicesSize.desktop,
         height: promoChoicesSize.desktop,
     },
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         width: promoChoicesSize.mobile,
         height: promoChoicesSize.mobile,
     },

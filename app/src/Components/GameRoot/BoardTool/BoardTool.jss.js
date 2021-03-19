@@ -49,18 +49,18 @@ export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-            '@media screen and (max-device-width: 1040px)': {
+            '@media screen and (max-width: 1040px)': {
                 flexDirection: 'row',
                 flex: 'nowrap',
                 width: '100%',
                 alignItems: 'center',
             },
-            '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+            '@media screen and (min-width: 768px) and (max-width: 1040px)': {
                 flexDirection: 'row',
                 fontSize: fontSizes.ipad,
                 height: '8em',
             },
-            '@media screen and (min-device-width: 1040px)': {
+            '@media screen and (min-width: 1040px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 fontSize: fontSizes.desktop,
@@ -76,10 +76,10 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'center',
             /*media query for phones/tablets (generalized)*/
-            '@media screen and (max-device-width: 1040px)': {
+            '@media screen and (max-width: 1040px)': {
                 flexGrow: 10,
             },
-            '@media screen and (min-device-width: 1040px)': {
+            '@media screen and (min-width: 1040px)': {
                 fontSize: fontSizes.desktop,
                 height: '0.7em',
                 width: '8em',
@@ -103,11 +103,11 @@ export const useStyles = makeStyles({
         }),
         checkbox: props => ({
             color: themes[props.theme].text,
-            '@media screen and (min-device-width: 1040px)': {
+            '@media screen and (min-width: 1040px)': {
                 fontSize: fontSize002,
             },
             /*media query for phones/tablets (generalized)*/
-            '@media screen and (max-device-width: 1040px)': {
+            '@media screen and (max-width: 1040px)': {
                 fontSize: fontSizes.mobile
             },
             height: '1.5em',

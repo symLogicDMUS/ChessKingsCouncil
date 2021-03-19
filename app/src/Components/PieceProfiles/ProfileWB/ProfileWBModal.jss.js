@@ -19,11 +19,11 @@ export const fontSizes = {
 
 export const close_icon = () => ({
     fontSize: fontSize0023,
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         width: "1.5em",
         height: "1.5em",
     },
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         width: "0.5em",
         height: "0.5em",
     },
@@ -31,7 +31,7 @@ export const close_icon = () => ({
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: `${profileWidth.desktop * 0.97}em`,
             marginLeft: `${profileWidth.desktop * 0.03}em`,
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: '100%',
             fontSize: fontSizes.mobile,
             marginLeft: `${profileWidth.mobile * 0.03}em`,
@@ -48,7 +48,7 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'space-around',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizes.ipad,
             width: `${profileWidth.ipad * 0.95}em`,
             marginLeft: `${profileWidth.ipad * 0.03}em`,
@@ -67,7 +67,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '0.5em',
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             top: '50%',
             left: '50%',
             fontSize: fontSizes.desktop,
@@ -78,7 +78,7 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             top: '5%',
             left: '100%',
             fontSize: fontSizes.mobile,
@@ -88,7 +88,7 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'space-between',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             top: '50%',
             left: '50%',
             fontSize: fontSizes.ipad,
@@ -103,13 +103,13 @@ export const useStyles = makeStyles({
         border: `0.075em solid ${themes[props.theme].outline}`,
     }),
     wb_container: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: `${profileWidth.desktop * 0.925}em`,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: `${profileWidth.mobile * 0.925}em`,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             width: `${profileWidth.ipad * 0.925}em`,
         },
         display: 'flex',
@@ -125,7 +125,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             marginLeft: '0.5em',
         },
     }),

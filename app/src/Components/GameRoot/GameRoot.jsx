@@ -212,9 +212,11 @@ class GameRoot extends React.Component {
             delete this.jsonRecords.pawnHistories[this.captured];
         }
 
-        //if the piece that just moved was a pawn add the destination to its history and restart the non-pawn moves counter.
-        //otherwise it wasn't a pawn that moved so add to the counter, then if it was a king or rook (or sub for a rook)
-        // that moved from its starting position than record this.
+
+        /* if the piece that just moved was a pawn add the destination to its history and restart the non-pawn moves counter.
+         * otherwise it wasn't a pawn that moved so add to the counter, then if it was a king or rook (or sub for a rook)
+         * that moved from its starting position than record this.
+         * */
         if (fenId === "p") {
             this.jsonRecords.pawnHistories[pieceId].push(dest);
             this.jsonRecords.numConsecutiveNonPawnMoves = 0;
@@ -309,7 +311,7 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minDeviceWidth={1040}>
+                <MediaQuery minWidth={1040}>
                     <PermanentDrawer
                         theme={this.state.theme}
                         drawerType="right"
@@ -413,7 +415,7 @@ class GameRoot extends React.Component {
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={1040}>
+                <MediaQuery maxWidth={1040}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}

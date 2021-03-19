@@ -1,6 +1,4 @@
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 import {fontSize001685} from "../../styles/fontSizes.jss";
-import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
@@ -18,20 +16,6 @@ export const button = (fontSize) => ({
     marginBottom: '0.75em',
 });
 
-export const heights = {
-    desktop: availHeight() * 0.81,
-    mobile: window.innerHeight - appBarHeight*1.1,
-}
-
-export const widths = {
-    desktop: availWidth() * 0.9,
-    mobile: availWidth(),
-};
-
-export const itemChoicesWindowWidth = (screenCase) => {
-    return widths[screenCase] * 0.95 * 0.95;
-};
-
 export const show_names_gen = (screenCase) => {
     switch (screenCase) {
         case 'mobile':
@@ -45,87 +29,33 @@ export const show_names_gen = (screenCase) => {
 
 export const useStyles = makeStyles({
     window: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            width: widths.mobile,
-            height: heights.mobile,
+        '@media screen and (max-width: 1040px)': {
+            width: '100vw',
+            height: '100vh',
         },
-
-        '@media screen and (min-device-width: 1040px)': {
-            width: widths.desktop,
-            height: heights.desktop,
+        '@media screen and (min-width: 1040px)': {
+            width: '90vw',
+            height: '90vh',
         },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         zIndex: 6,
         fontSize: fontSize001685,
         borderRadius: '0.75em',
         backgroundColor: themes[props.theme].fill,
         ...props.rootStyle,
     }),
-    top_flexbox: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            height: heights.mobile * 0.05,
-        },
-        '@media screen and (min-device-width: 1040px)': {
-            height: heights.desktop * 0.05,
-        },
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-    }),
-    title_flexbox: props => ({
-        fontSize: fontSize001685,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        '@media screen and (max-device-width: 1040px)': {
-            width: widths.mobile * 0.95,
-            marginLeft: widths.mobile * 0.025,
-            height: heights.mobile * 0.07,
-            justifyContent: 'space-between',
-        },
-
-        '@media screen and (min-device-width: 1040px)': {
-            width: widths.desktop * 0.95,
-            marginLeft: widths.desktop * 0.025,
-            height: heights.desktop * 0.07,
-            flexWrap: 'no-wrap',
-            justifyContent: 'center',
-        },
-    }),
-
-    item_choices_border: props => ({
-        overflow: 'scroll',
-        borderRadius: '0.015em',
-        backgroundColor: themes[props.theme].modal_fill,
-        border: `0.002em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-device-width: 1040px)': {
-            width: widths.mobile * 0.95,
-            height: heights.mobile * 0.8,
-            marginLeft: widths.mobile * 0.025,
-        },
-
-        '@media screen and (min-device-width: 1040px)': {
-            width: widths.desktop * 0.95,
-            height: heights.desktop * 0.8,
-            marginLeft: widths.desktop * 0.025,
-        },
-    }),
     item_choices: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            width: widths.mobile * 0.95 * 0.95,
-            height: heights.mobile * 0.8 * 0.95,
-            marginLeft: widths.mobile * 0.025 * 0.95,
-            marginRight: widths.mobile * 0.025 * 0.95,
-            marginTop: widths.mobile * 0.025 * 0.95,
+        '@media screen and (max-width: 1040px)': {
+            width: '95vw',
+            height: '80vh',
+            padding: '2.5vw',
+            paddingLeft: '3.5vw',
         },
-        '@media screen and (min-device-width: 1040px)': {
-            width: widths.desktop * 0.95 * 0.95,
-            height: heights.desktop * 0.8 * 0.95,
-            marginLeft: widths.desktop * 0.025 * 0.95,
-            marginRight: widths.desktop * 0.025 * 0.95,
-            marginTop: widths.desktop * 0.025 * 0.95,
+        '@media screen and (min-width: 1040px)': {
+            width: '85.5vw',
+            height: '65vh',
         },
         display: 'flex',
         flexDirection: 'row',
@@ -133,74 +63,32 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         justifyContent: 'flex-start',
+        overflow: 'scroll',
+        borderRadius: '0.015em',
+        border: `0.002em solid ${themes[props.theme].outline}`,
         backgroundColor: themes[props.theme].modal_fill,
     }),
     bottom_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (max-device-width: 1040px)': {
-            height: heights.mobile * 0.08,
-            width: widths.mobile * 0.95,
-            marginLeft: widths.mobile * 0.025,
+        '@media screen and (max-width: 1040px)': {
+            width: '95vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
-
-        '@media screen and (min-device-width: 1040px)': {
-            height: heights.desktop * 0.08,
-            width: widths.desktop * 0.95,
-            marginLeft: widths.desktop * 0.025,
+        '@media screen and (min-width: 1040px)': {
+            width: '85.5vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
+        flexGrow: 3,
     }),
     ok_button: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: heights.mobile * 0.095*0.333*0.75,
-            marginRight: widths.mobile * 0.95 * 0.025,
-            height: '2em',
+        '@media screen and (min-width: 1040px)': {
+            marginRight: '2vw'
         },
-
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: heights.desktop * 0.095*0.333*0.75,
-            marginRight: widths.desktop * 0.95 * 0.025,
-            height: '2em',
-        },
-    }),
-    delete_button: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: heights.mobile * 0.095*0.333*0.75,
-            marginLeft: widths.mobile * 0.95 * 0.025,
-            height: '2em',
-        },
-
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: heights.desktop * 0.095*0.333*0.75,
-            marginLeft: widths.desktop * 0.95 * 0.025,
-            height: '2em',
-        },
-    }),
-    button_icon: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: heights.mobile * 0.095*0.333*0.6667,
-        },
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: heights.desktop * 0.095*0.333*0.6667,
-        },
-        minHeight: 'unset',
-        minWidth: 'unset',
-    }),
-    show_names: props => ({
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: heights.mobile * 0.095*0.333,
-            marginLeft: "auto",
-            marginRight: "auto",
-            height: '1em',
-        },
-
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: heights.desktop * 0.095*0.333,
-            marginLeft: "2em",
+        '@media screen and (max-width: 1040px)': {
+            marginRight: '1.25vw',
         },
     }),
 }, {index: 1});

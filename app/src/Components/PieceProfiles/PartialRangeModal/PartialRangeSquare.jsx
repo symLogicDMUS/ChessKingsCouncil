@@ -1,13 +1,19 @@
-import {fontSize0040} from "../../styles/fontSizes.jss";
-import {useStyles} from "../../Reuseables/Board/Square.jss";
+import React from "react";
+import clsx from "clsx";
 import {fontSizes} from "./PartialRangeModal.jss";
+import {binaryBoard} from "../../helpers/binaryBoard";
+import {useStyles} from "../../Reuseables/Board/Square.jss";
 
-export function PartialRangeSquare({onClick, rf, theme, rangeType, isHighlight, isLightSqr, screenCase, children}) {
-    const classes = useStyles({rf: rf, theme: theme, fontSize: fontSizes[screenCase], type: 'normal'});
+export function PartialRangeSquare({onClick, rf, theme, rangeType, isHighlight, screenCase, children}) {
+    const classes = useStyles({rf: rf, theme: theme, fontSize: fontSizes[screenCase]});
     return (
         <div onClick={onClick}
-             className={isHighlight ? (rangeType === 'span' ? classes.span : classes.offset)
-                 : (isLightSqr ? classes.light_normal : classes.dark_normal)}
+            className={clsx(classes.em_square, {
+                [classes.light_normal]: binaryBoard[rf] && ! isHighlight,
+                [classes.dark_normal]: ! binaryBoard[rf] && ! isHighlight,
+                [classes.offset]: isHighlight && rangeType === 'offset',
+                [classes.span]: isHighlight && rangeType === 'span',
+            })}
         >
             {children}
         </div>

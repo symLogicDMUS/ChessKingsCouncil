@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="options.svg"
+   id="svg2014"
+   version="1.1"
+   aria-hidden="true"
+   viewBox="0 0 24 24"
+   focusable="false"
+   class="MuiSvgIcon-root jss174">
+  <metadata
+     id="metadata2020">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2018">
+    <clipPath
+       id="clipPath2600"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="19.604818"
+         x="-4.1060243"
+         height="14.110844"
+         width="35.161446"
+         id="rect2602"
+         style="fill:#808000;stroke:#000000;stroke-width:0.35;stroke-linejoin:round" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     inkscape:current-layer="svg2014"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:cy="69.046132"
+     inkscape:cx="-197.28005"
+     inkscape:zoom="2.1614583"
+     showgrid="false"
+     id="namedview2016"
+     inkscape:window-height="1001"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <g
+     transform="translate(-0.12618699,1.3738599)"
+     id="g2624">
+    <path
+       d="M 0.65216502,9.3512485 H 3.2019477 V 6.8014645 H 0.65216502 Z m 0,5.0995655 H 3.2019477 V 11.901031 H 0.65216502 Z m 0,-10.1991313 H 3.2019477 V 1.7019001 H 0.65216502 Z M 5.7517303,9.3512485 H 23.600209 V 6.8014645 H 5.7517303 Z m 0,5.0995655 H 23.600209 V 11.901031 H 5.7517303 Z m 0,-12.7489139 V 4.2516827 H 23.600209 V 1.7019001 Z"
+       id="path2012"
+       style="stroke-width:1.27489" />
+    <path
+       clip-path="url(#clipPath2600)"
+       d="M 0.61272497,24.060434 H 3.1625077 V 21.51065 H 0.61272497 Z m 0,-5.099566 H 3.1625077 V 16.411086 H 0.61272497 Z M 5.7122903,24.060434 H 23.560769 V 21.51065 H 5.7122903 Z m 0,-7.649348 v 2.549782 H 23.560769 v -2.549782 z"
+       id="path2012-2"
+       style="stroke-width:1.27489"
+       transform="translate(0.03944,-4.510054)"
+       sodipodi:nodetypes="cccccccccccccccccccc" />
+  </g>
+</svg>

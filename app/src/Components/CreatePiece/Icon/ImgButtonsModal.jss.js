@@ -1,6 +1,6 @@
-import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
+import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const close_icon = (fontSize) => ({

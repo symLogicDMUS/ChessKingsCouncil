@@ -11,8 +11,8 @@ export function PromoCheckboxExample({theme}) {
                 rootStyle={{...checkbox_root(theme), marginRight: '1.5em'}}
                 theme={theme}
             >
-                <MediaQuery minDeviceWidth={1040}>Promotion</MediaQuery>
-                <MediaQuery maxDeviceWidth={1040}>Promo</MediaQuery>
+                <MediaQuery minWidth={1040}>Promotion</MediaQuery>
+                <MediaQuery maxWidth={1040}>Promo</MediaQuery>
             </MuiCheckbox>
             <MuiCheckbox
                 style={checkbox_gen()}

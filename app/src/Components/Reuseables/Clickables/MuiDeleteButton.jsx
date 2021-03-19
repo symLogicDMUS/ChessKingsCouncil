@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {MuiButton as Button} from "./MuiButton";
-import {StandardModal} from "../Modals/StandardModal";
-import {Portal} from "@material-ui/core";
-import {button} from "../Modals/StandardModal.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
+import {StandardModal} from "../Modals/StandardModal";
+import {button} from "../Modals/StandardModal.jss";
+import {Portal} from "@material-ui/core";
 
 /**
  * motivation is for the 'are you sure yes or no' modal that always occurs

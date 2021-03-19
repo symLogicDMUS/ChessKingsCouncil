@@ -1,9 +1,8 @@
 short:
-
+    * optimize CreatePieceBoard
+    * change size of arrows range icon, remove stroke + make arrows bigger.
 
 medium:
-* add diagrams to help modals
-* put in background images that change with the theme
-* add loading animation
+
 
 long:

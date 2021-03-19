@@ -1,21 +1,21 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
 import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 
-export const buttonSizeEm = 3
+const spanButtonsSizeMobile = '17.5vw';
 
 export const useStyles = makeStyles({
     span_arrow_buttons: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: get2ItemFontSizes(),
+        '@media screen and (max-width: 1040px)': {
+            width: spanButtonsSizeMobile,
+            height: spanButtonsSizeMobile,
         },
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
+        '@media screen and (min-width: 1040px)': {
+            fontSize: (drawerWidth - 55)*0.5*0.333*0.333,
+            width: '9em',
+            height: '9em',
         },
-        width: '9em',
-        height: '9em',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',

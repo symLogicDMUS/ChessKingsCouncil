@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from "react";
-import MediaQuery from "react-responsive/src";
 import {useHistory} from "react-router-dom";
+import MediaQuery from "react-responsive/src";
+import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import "../Reuseables/Background/_backgrounds.scss";
 import "../styles/scrollbar.scss";
 import {Play} from "./Play";
-import {Button, Typography} from "@material-ui/core";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
+import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
@@ -76,7 +77,7 @@ function NewGame() {
     return (
         <>
             <div className={`scrollbar-${theme}`}>
-                <MediaQuery minDeviceWidth={1040}>
+                <MediaQuery minWidth={1040}>
                     <Background theme={theme} navBar={true} currentPage='NewGame'/>
                     <NavBar
                         currentPage="NewGame"
@@ -139,7 +140,7 @@ function NewGame() {
                         />
                     ) : null}
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={1040}>
+                <MediaQuery maxWidth={1040}>
                     <Background theme={theme} appBar={true}/>
                     <PersistentDrawer
                         theme={theme}
@@ -156,7 +157,7 @@ function NewGame() {
                             />
                         }
                         appBarContent={
-                            <Typography variant='h6' noWrap>
+                            <Typography variant='subtitle1' style={pageTitleStyle()} noWrap>
                                 New Game
                             </Typography>
                         }

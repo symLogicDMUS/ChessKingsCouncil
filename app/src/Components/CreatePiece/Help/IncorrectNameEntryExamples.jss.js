@@ -8,11 +8,11 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-evenly',
         height: availHeight() * 0.55,
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             flexDirection: 'row',
             flexWrap: 'nowrap',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             flexDirection: 'column',
         },
     }),

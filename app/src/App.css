@@ -1,45 +1,4 @@
-@media screen and (min-device-width: 1040px) {
-    /* width */
-    ::-webkit-scrollbar {
-        width: 0.45rem;
-        height: 0.45rem;
-        opacity: 0.1;
-    }
-
-    /* button */
-    ::-webkit-scrollbar-button {
-        background: #3f3f3f;
-        opacity: 0.1;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #474747;
-        opacity: 0.1;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #666666;
-        opacity: 0.1;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #3f3f3f;
-        opacity: 0.1;
-    }
-
-    /* Corner */
-    ::-webkit-scrollbar-corner {
-        background: #3f3f3f;
-        opacity: 0.1;
-    }
-
-    /* Resizer */
-    ::-webkit-resizer {
-        background: #111;
-        opacity: 0.1;
-    }
+.body {
+    display: block;
+    margin: 0;
 }
-

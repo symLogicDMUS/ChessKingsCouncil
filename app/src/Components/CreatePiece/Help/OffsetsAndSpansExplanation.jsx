@@ -47,7 +47,7 @@ export function OffsetsAndSpansExplanation(props) {
                     range and click it again to remove it.
                 </p>
             </Typography>
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Box style={example_box('desktop')}>
                     <RangeToolExample theme={props.theme}/>
                     <img
@@ -57,7 +57,7 @@ export function OffsetsAndSpansExplanation(props) {
                     />
                 </Box>
             </MediaQuery>
-            <MediaQuery maxDeviceWidth={1040}>
+            <MediaQuery maxWidth={1040}>
                 <Box style={example_box('mobile')}>
                     <RangeToolExample theme={props.theme}/>
                     <img

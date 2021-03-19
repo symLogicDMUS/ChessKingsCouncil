@@ -12,11 +12,11 @@ import {
 import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const parchment = () => ({
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         width: availWidth() * 0.8,
         height: availHeight() * 0.8,
     },
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         width: availWidth()*0.95,
         height: availHeight()*0.88 - appBarHeight,
         flexGrow: 100,
@@ -30,11 +30,11 @@ export const parchment = () => ({
 export const useStyles = makeStyles({
 
     council_rules: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: '100%',
             height: availHeight(),
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: '99%',
             height: availHeight() * 0.88,
         },
@@ -44,10 +44,10 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
     }),
     title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize018,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizeW01,
         },
         color: 'black',
@@ -81,10 +81,10 @@ export const useStyles = makeStyles({
     }),
     kings_flexbox: props => ({
         fontSize: fontSize002,
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: getTextWidth('Council of Kings', fontSizeW01, 'Garamond'),
         },
         display: 'flex',
@@ -94,21 +94,21 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     king_icon: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize01,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize00301,
         },
         width: '1em',
         height: '1em'
     }),
     paragraph: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize00301,
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize002,
             width: getTextWidth('Council of Kings', fontSizeW01, 'Garamond'),
             flexGrow: 100,

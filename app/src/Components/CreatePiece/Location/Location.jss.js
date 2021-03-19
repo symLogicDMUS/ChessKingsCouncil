@@ -1,5 +1,4 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {tool_flexbox, tool_title} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     location_tool: (props) => ({
@@ -9,11 +8,5 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        '@media screen and (min-device-width: 1040px)': {
-            ...tool_flexbox,
-        },
-    }),
-    title: props => ({
-        ...tool_title(props.theme),
     }),
 }, {index: 1});

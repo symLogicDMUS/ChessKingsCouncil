@@ -50,14 +50,14 @@ export const button_text = (theme) => ({
     fontSize: fontSize002,
     marginLeft: '0.5em',
     color: themes[theme].text_alt2,
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         color: themes[theme].nav_text,
     },
 });
 export const icon = (theme) => ({
     fontSize: fontSize002,
     color: themes[theme].text_alt2,
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         color: themes[theme].nav_text,
     },
 });

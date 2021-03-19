@@ -18,7 +18,7 @@ export function LoginPage(props) {
 
     return (
         <>
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
                     <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>
@@ -29,7 +29,7 @@ export function LoginPage(props) {
                     <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
-            <MediaQuery maxDeviceWidth={1040}>
+            <MediaQuery maxWidth={1040}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
                     <img

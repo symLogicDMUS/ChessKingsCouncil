@@ -10,7 +10,7 @@ export function GameDisplayBoard({theme, sqrSize, boardSize}) {
 
     return (
         <div className={classes.board}>
-            {rankfiles.map(rf => <GameDisplaySquare  key={rf} rf={rf} sqrSize={sqrSize} isLightColorSqr={binaryBoard[rf]} theme={theme}/>)}
+            {rankfiles.map(rf => <GameDisplaySquare  key={rf} rf={rf} sqrSize={sqrSize} theme={theme}/>)}
         </div>
     )
 }

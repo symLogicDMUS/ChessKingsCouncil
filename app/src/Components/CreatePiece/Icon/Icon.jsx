@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import Box from "@material-ui/core/Box";
 import {Portal, Typography} from "@material-ui/core";
 import {ImgWindow} from "./ImgWindow";
@@ -12,6 +12,31 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
     const [imgButtonsModal, toggleImgButtonsModal] = useState(false);
     const [chooseModal, toggleChooseModal] = useState(false);
     const classes = useStyles({theme: theme});
+
+    const ImgWindows = memo(() => (
+        <>
+            <ImgWindow
+                color="White"
+                theme={theme}
+                whiteWindow={true}
+                src={whiteAndBlackImgs.white}
+                setColorAndImgButtons={() => {
+                    setColor("white");
+                    toggleImgButtonsModal(true);
+                }}
+            />
+            <ImgWindow
+                color="Black"
+                theme={theme}
+                whiteWindow={false}
+                src={whiteAndBlackImgs.black}
+                setColorAndImgButtons={() => {
+                    setColor("black");
+                    toggleImgButtonsModal(true);
+                }}
+            />
+        </>
+    ))
 
     return (
         <div className={classes.icon_tool}>
@@ -41,28 +66,11 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                     />
                 </Portal>
             ) : null}
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Typography className={classes.title}>Icon</Typography>
             </MediaQuery>
             <Box className={classes.img_windows}>
-                <ImgWindow
-                    color="White"
-                    theme={theme}
-                    src={whiteAndBlackImgs.white}
-                    setColorAndImgButtons={() => {
-                        setColor("white");
-                        toggleImgButtonsModal(true);
-                    }}
-                />
-                <ImgWindow
-                    color="Black"
-                    theme={theme}
-                    src={whiteAndBlackImgs.black}
-                    setColorAndImgButtons={() => {
-                        setColor("black");
-                        toggleImgButtonsModal(true);
-                    }}
-                />
+                <ImgWindows />
             </Box>
         </div>
     );

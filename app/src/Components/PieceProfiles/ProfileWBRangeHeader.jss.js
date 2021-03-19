@@ -5,18 +5,18 @@ import {getDrawerFontSize} from "./ProfileWB/ProfileWB.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: headerFontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
@@ -33,19 +33,19 @@ export const useStyles = makeStyles({
     }),
     /*Parts of the range table's header: */
     title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: titleFontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: titleFontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
 
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
@@ -56,18 +56,18 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     expand_widget: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: headerFontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },

@@ -12,19 +12,19 @@ const list_item = (theme, fontSize, tableHeight, numRows) => ({
     alignItems: "flex-end",
     justifyContent: "flex-start",
     color: themes[theme].text,
-    '@media screen and (max-device-width: 412px)': {
+    '@media screen and (max-width: 412px)': {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+    "@media screen and (min-width: 412px) and (max-width: 768px)": {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
-    '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
         borderLeft: `0.01em solid ${themes[theme].outline}`,
         borderRight: `0.01em solid ${themes[theme].outline}`,
     },
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         borderLeft: `0.05em solid ${themes[theme].outline}`,
         borderRight: `0.05em solid ${themes[theme].outline}`,
     },
@@ -63,32 +63,32 @@ export const useStyles = makeStyles({
         width: props.style.width,
         fontSize: props.style.fontSize,
         height: `${getArrowButtonHeight(props.style.height)}em`,
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-width: 412px)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+        "@media screen and (min-width: 412px) and (max-width: 768px)": {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             border: `0.01em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
         background: themes[props.theme].fill,
         color: themes[props.theme].text,
     }),
     arrow_icon: props => ({
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-width: 412px)': {
             fontSize: props.style.fontSize
         },
-        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+        "@media screen and (min-width: 412px) and (max-width: 768px)": {
             fontSize: props.style.fontSize
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: props.style.fontSize * 0.35
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: props.style.fontSize,
         },
     }),

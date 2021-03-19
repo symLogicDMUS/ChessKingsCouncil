@@ -13,12 +13,12 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize002,
             width: '95%',
             marginLeft: '2.5%',
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize002,
             width: availWidth() * 0.4625,
             marginLeft: '3.25%',

@@ -4,13 +4,13 @@ export const useStyles = makeStyles({
     label: {
         position: "absolute",
         zIndex: "0",
-        "@media screen and (min-device-width: 768px) and (max-device-width: 991px)": {
+        "@media screen and (min-width: 768px) and (max-width: 991px)": {
             left: window.screen.availWidth * 0.171,
             top: window.screen.availHeight * 0.143,
             width: window.screen.availWidth * 0.39,
             height: window.screen.availHeight * 0.037,
         },
-        "@media screen and (max-device-width: 767px)": {
+        "@media screen and (max-width: 767px)": {
             /**TODO*/
         },
         color: "#72e2ff",

@@ -1,6 +1,7 @@
 import React from "react";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/scrollbar.scss";
 import MediaQuery from "react-responsive";
+import "../Reuseables/Background/_backgrounds.scss";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
@@ -19,7 +20,7 @@ import {incrementImgRefCount} from "../../API/incrementImgRefCount";
 import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
 import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
+import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
 import {stepFuncDict} from "../helpers/stepFuncs";
 import {outOfBounds as oob} from "../helpers/oob";
@@ -27,7 +28,6 @@ import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
 import {getRotations} from "./helpers/getRotations";
 import {getSpansDict} from "./helpers/getSpansDict";
 import {flipOffsets} from "./helpers/flipOffsets";
-import {getBoardSize} from "./Board/CreatePieceBoard.jss";
 import {getStepFuncNames} from "./helpers/getStepFuncNames";
 import {DrawerContent} from "../Reuseables/Drawers/DrawerContent";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
@@ -36,8 +36,10 @@ import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {PuttingThePieceICreatedIntoAGame} from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
-import {accordion_root, app_bar_title, sqrTextCheckbox, styles} from "./CreatePiece.jss";
+import {appBarTitle, sqrTextCheckbox, styles} from "./CreatePiece.jss";
 import {getDoesPieceNameExist} from "../../API/getDoesPieceNameExist";
+import {ToolButtons} from "../Reuseables/Clickables/ToolButtons";
+import Box from "@material-ui/core/Box";
 
 
 class CreatePiece extends React.Component {
@@ -366,9 +368,9 @@ class CreatePiece extends React.Component {
 
     render() {
         return (
-            <>
+            <div className={`scrollbar-${this.state.theme}`}>
                 {this.modals()}
-                <MediaQuery minDeviceWidth={1040}>
+                <MediaQuery minWidth={1040}>
                     <PermanentDrawer
                         drawerType="right"
                         theme={this.state.theme}
@@ -390,7 +392,7 @@ class CreatePiece extends React.Component {
                             </DrawerContent>
                         }
                         appBarContent={
-                            <Typography style={app_bar_title()} variant="h6" noWrap>
+                            <Typography style={appBarTitle} variant="subtitle1" noWrap>
                                 Create Piece
                             </Typography>
                         }
@@ -453,7 +455,7 @@ class CreatePiece extends React.Component {
                                     <MuiCheckbox
                                         onClick={() => this.setState({showSpanText: !this.state.showSpanText})}
                                         defaultChecked={this.state.showSpanText}
-                                        rootStyle={sqrTextCheckbox()}
+                                        rootStyle={sqrTextCheckbox}
                                         theme={this.state.theme}
                                     >
                                         Show Span Text
@@ -461,7 +463,7 @@ class CreatePiece extends React.Component {
                                     <MuiCheckbox
                                         onClick={() => this.setState({showOffsetText: !this.state.showOffsetText})}
                                         defaultChecked={this.state.showOffsetText}
-                                        rootStyle={sqrTextCheckbox()}
+                                        rootStyle={sqrTextCheckbox}
                                         theme={this.state.theme}
                                     >
                                         Show Offset Text
@@ -473,7 +475,7 @@ class CreatePiece extends React.Component {
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxDeviceWidth={1040}>
+                <MediaQuery maxWidth={1040}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         drawer={
@@ -493,7 +495,7 @@ class CreatePiece extends React.Component {
                                         <MuiCheckbox
                                             onClick={() => this.setState({showSpanText: !this.state.showSpanText})}
                                             defaultChecked={this.state.showSpanText}
-                                            rootStyle={sqrTextCheckbox()}
+                                            rootStyle={sqrTextCheckbox}
                                             theme={this.state.theme}
                                         >
                                             Show Span Text
@@ -501,7 +503,7 @@ class CreatePiece extends React.Component {
                                         <MuiCheckbox
                                             onClick={() => this.setState({showOffsetText: !this.state.showOffsetText})}
                                             defaultChecked={this.state.showOffsetText}
-                                            rootStyle={sqrTextCheckbox()}
+                                            rootStyle={sqrTextCheckbox}
                                             theme={this.state.theme}
                                         >
                                             Show Offset Text
@@ -511,34 +513,19 @@ class CreatePiece extends React.Component {
                             />
                         }
                         appBarContent={
-                            <Typography variant="h6" noWrap style={pageTitleStyle()}>
-                                Create Piece
-                            </Typography>
-                        }
-                        neighborOpen={false}
-                    >
-                        <Board
-                            key="Board-Mobile"
-                            screenCase='mobile'
-                            theme={this.state.theme}
-                            toggleOffset={this.toggleOffset}
-                            spanDisplays={this.spanDisplays}
-                            offsets={this.offsetDisplays}
-                            pieceLoc={this.location}
-                            pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
-                            showSpanText={this.state.showSpanText}
-                            showOffsetText={this.state.showOffsetText}
-                        />
-                        <MuiAccordion
-                            theme={this.state.theme}
-                            rootStyle={accordion_root()}
-                            neighborContentSize={getBoardSize()}
-                        >
-                            {[
-                                {
-                                    id: "name",
-                                    title: 'Name',
-                                    body: (
+                            <>
+                                <Typography variant='subtitle1' style={pageTitleStyle()} noWrap>
+                                    Create Piece
+                                </Typography>
+                                <Box style={{
+                                    width: '80%',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    flexWrap: 'nowrap',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                }}>
+                                    <ToolButton theme={this.state.theme} iconName={'name_tool'} text={'Name'}>
                                         <Name
                                             key={`Name-Mobile${this.state.loadInstance}`}
                                             defaultValue={this.name}
@@ -546,12 +533,8 @@ class CreatePiece extends React.Component {
                                             updateName={this.updateName}
                                             screenCase='mobile'
                                         />
-                                    ),
-                                },
-                                {
-                                    id: "icon",
-                                    title: 'Icon',
-                                    body: (
+                                    </ToolButton>
+                                    <ToolButton theme={this.state.theme} iconName={'icon_tool'} text={'Icon'}>
                                         <Icon
                                             key="Icon-Mobile"
                                             theme={this.state.theme}
@@ -561,12 +544,8 @@ class CreatePiece extends React.Component {
                                                 this.whiteAndBlackImgs
                                             }
                                         />
-                                    ),
-                                },
-                                {
-                                    id: "range",
-                                    title: 'Range',
-                                    body: (
+                                    </ToolButton>
+                                    <ToolButton theme={this.state.theme} iconName={'range_tool'} text={'Range'}>
                                         <Range
                                             key="Range-Mobile"
                                             theme={this.state.theme}
@@ -575,24 +554,16 @@ class CreatePiece extends React.Component {
                                             toggleSpan={this.toggleSpan}
                                             screenCase='mobile'
                                         />
-                                    ),
-                                },
-                                {
-                                    id: "location",
-                                    title: 'Location',
-                                    body: (
+                                    </ToolButton>
+                                    <ToolButton theme={this.state.theme} iconName={'location_tool'} text={'Location'}>
                                         <Location
                                             key="Location-Mobile"
                                             setLoc={this.setLoc}
                                             theme={this.state.theme}
                                             selectedLoc={this.location}
                                         />
-                                    ),
-                                },
-                                {
-                                    id: "options",
-                                    title: 'Options',
-                                    body: (
+                                    </ToolButton>
+                                    <ToolButton theme={this.state.theme} iconName={'options_tool'} text={'Options'}>
                                         <Options
                                             key="Options-Mobile"
                                             load={this.load}
@@ -609,13 +580,86 @@ class CreatePiece extends React.Component {
                                             theme={this.state.theme}
                                             isFirstVisit={this.state.isFirstVisit}
                                         />
-                                    ),
-                                },
-                            ]}
-                        </MuiAccordion>
+                                    </ToolButton>
+                                </Box>
+                            </>
+
+                        }
+                        neighborOpen={false}
+                    >
+                        {/*<ToolButtons theme={this.state.theme}>*/}
+                        {/*    <ToolButton theme={this.state.theme} iconName={'name_tool'} text={'Name'}>*/}
+                        {/*        <Name*/}
+                        {/*            key={`Name-Mobile${this.state.loadInstance}`}*/}
+                        {/*            defaultValue={this.name}*/}
+                        {/*            theme={this.state.theme}*/}
+                        {/*            updateName={this.updateName}*/}
+                        {/*            screenCase='mobile'*/}
+                        {/*        />*/}
+                        {/*    </ToolButton>*/}
+                        {/*    <ToolButton theme={this.state.theme} iconName={'icon_tool'} text={'Icon'}>*/}
+                        {/*        <Icon*/}
+                        {/*            key="Icon-Mobile"*/}
+                        {/*            theme={this.state.theme}*/}
+                        {/*            setPieceImg={this.setPieceImg}*/}
+                        {/*            resetImg={this.resetImg}*/}
+                        {/*            whiteAndBlackImgs={*/}
+                        {/*                this.whiteAndBlackImgs*/}
+                        {/*            }*/}
+                        {/*        />*/}
+                        {/*    </ToolButton>*/}
+                        {/*    <ToolButton theme={this.state.theme} iconName={'range_tool'} text={'Range'}>*/}
+                        {/*        <Range*/}
+                        {/*            key="Range-Mobile"*/}
+                        {/*            theme={this.state.theme}*/}
+                        {/*            spans={this.spans}*/}
+                        {/*            offsets={this.offsets}*/}
+                        {/*            toggleSpan={this.toggleSpan}*/}
+                        {/*            screenCase='mobile'*/}
+                        {/*        />*/}
+                        {/*    </ToolButton>*/}
+                        {/*    <ToolButton theme={this.state.theme} iconName={'location_tool'} text={'Location'}>*/}
+                        {/*        <Location*/}
+                        {/*            key="Location-Mobile"*/}
+                        {/*            setLoc={this.setLoc}*/}
+                        {/*            theme={this.state.theme}*/}
+                        {/*            selectedLoc={this.location}*/}
+                        {/*        />*/}
+                        {/*    </ToolButton>*/}
+                        {/*    <ToolButton theme={this.state.theme} iconName={'options_tool'} text={'Options'}>*/}
+                        {/*        <Options*/}
+                        {/*            key="Options-Mobile"*/}
+                        {/*            load={this.load}*/}
+                        {/*            save={this.save}*/}
+                        {/*            reset={this.reset}*/}
+                        {/*            erase={this.erase}*/}
+                        {/*            whiteImg={*/}
+                        {/*                this.whiteAndBlackImgs.white*/}
+                        {/*            }*/}
+                        {/*            blackImg={*/}
+                        {/*                this.whiteAndBlackImgs.black*/}
+                        {/*            }*/}
+                        {/*            pieceName={this.name}*/}
+                        {/*            theme={this.state.theme}*/}
+                        {/*            isFirstVisit={this.state.isFirstVisit}*/}
+                        {/*        />*/}
+                        {/*    </ToolButton>*/}
+                        {/*</ToolButtons>*/}
+                        <Board
+                            key="Board-Mobile"
+                            screenCase='mobile'
+                            theme={this.state.theme}
+                            toggleOffset={this.toggleOffset}
+                            spanDisplays={this.spanDisplays}
+                            offsets={this.offsetDisplays}
+                            pieceLoc={this.location}
+                            pieceImgBase64Str={this.whiteAndBlackImgs["white"]}
+                            showSpanText={this.state.showSpanText}
+                            showOffsetText={this.state.showOffsetText}
+                        />
                     </PersistentDrawer>
                 </MediaQuery>
-            </>
+            </div>
         );
 
     }

@@ -21,12 +21,12 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: '100%',
             height: windowHeightMobile(),
             marginTop: 'auto',
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: viewWidth() * 0.975,
             height: viewHeight() * 0.975,
             marginTop: 'auto',
@@ -54,14 +54,14 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: '95vw',
             height: windowHeightMobile()*0.655,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginBottom: 0,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: viewWidth() * 0.975*0.95,
             height: viewHeight() * 0.975*0.95*0.85,
             marginLeft: '2.5%',
@@ -78,7 +78,7 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         fontSize: fontSize002,
         /*media query for phones (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             height: windowHeightMobile()*0.1,
         },
     }),

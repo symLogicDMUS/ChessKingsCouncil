@@ -1,23 +1,31 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {viewWidth} from "../../helpers/windowMeasurments";
+import {viewHeight, viewWidth} from "../../helpers/windowMeasurments";
 import {themes} from "../../styles/themes.jss";
 
-export const appBarHeight = 55;
+export const appBarHeight = 48;
 export const bottomBarHeight = appBarHeight * 1.1;
 export const addressBarHeight = appBarHeight * 1.5
 export const drawerWidth = viewWidth() * 0.65;
 export const neighborWidth = viewWidth()*0.5;
 
 export const pageTitleStyle = () => ({
-    fontSize: appBarHeight * 0.333,
-    height: '1em',
-    lineHeight: '1em',
+    fontWeight: 500,
 });
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
         justifyContent: 'center',
+        "& .MuiIconButton-edgeStart": {
+            marginLeft: '-20px',
+        },
+        "& .MuiIconButton-root":{
+            width: 48,
+            height: 48,
+        },
+        '& .MuiToolbar-regular':{
+            minHeight: 'unset',
+        },
     }),
     appBar: props => ({
         zIndex: 7,

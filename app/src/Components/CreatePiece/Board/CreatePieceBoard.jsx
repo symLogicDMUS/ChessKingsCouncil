@@ -39,7 +39,6 @@ export function CreatePieceBoard({
                         screenCase={screenCase}
                         showSpanText={showSpanText}
                         showOffsetText={showOffsetText}
-
                     >
                         <Piece
                             theme={theme}

@@ -32,7 +32,7 @@ export function BoardTool({
 
     return (
         <div className={classes.board_tool}>
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>
                         Range Display

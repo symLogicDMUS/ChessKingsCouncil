@@ -39,14 +39,14 @@ export const piece_value = (theme) => ({
 export const useStyles = makeStyles({
     sub_list: props => ({
 
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             marginTop: '-2vh',
             fontSize: fontSize0023,
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'
         },
 
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0023,
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
@@ -83,10 +83,10 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSize0023,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
         fontFamily: 'Roboto-Light, Roboto',

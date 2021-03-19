@@ -9,7 +9,7 @@ export function SubList({subs, theme}) {
 
     return (
         <div className={classes.sub_list}>
-            <MediaQuery minDeviceWidth={1040}>
+            <MediaQuery minWidth={1040}>
                 <Box className={classes.header}>
                     Subs
                 </Box>

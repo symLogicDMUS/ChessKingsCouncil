@@ -44,13 +44,13 @@ export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-device-width:767px)': {
+        '@media (max-width:767px)': {
             height: modalHeights.mobile,
             width: modalWidths.mobile,
             marginTop: '0.05em',
             ...props.style,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             height: modalHeights.ipad,
             width: modalWidths.ipad,
             marginLeft: 'auto',
@@ -60,7 +60,7 @@ export const useStyles = makeStyles({
             ...props.style,
         },
 
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             height: modalHeights.desktop,
             width: modalWidths.desktop,
             ...props.style,

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
 import {Tooltip} from "@material-ui/core";
@@ -19,6 +19,17 @@ export function GameSnapshot({
     name,
 }) {
     const classes = useStyles({ theme: theme });
+
+    const [bValue, reRender] = useState(false);
+    useEffect(() => {
+        function handleResize() {
+            reRender(! bValue)
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
 
     const getBoard = () => {
         const squares = [];

@@ -1,20 +1,23 @@
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {get2ItemFontSizes, get2ItemMargins} from "../../CreatePiece.jss";
 import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
+
+const buttonSizeMobile = '5vw';
+const arrowSizeMobile = '4.25vw';
 
 const container = (angle, theme) => ({
     /*media query for phones/tablets (generalized)*/
-    '@media screen and (max-device-width: 1040px)': {
-        fontSize: get2ItemFontSizes()
+    '@media screen and (max-width: 1040px)': {
+        width: buttonSizeMobile,
+        height: buttonSizeMobile,
     },
     /*desktops*/
-    '@media screen and (min-device-width: 1040px)': {
-        fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
+    '@media screen and (min-width: 1040px)': {
+        fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
+        width: '2.75em',
+        height: '2.75em',
+        borderRadius: '0.2em',
     },
-    width: '2.75em',
-    height: '2.75em',
-    borderRadius: '0.2em',
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'nowrap',
@@ -40,14 +43,13 @@ export const useStyles = makeStyles({
     }),
     arrow_button: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-                fontSize: get2ItemFontSizes(),
-                width: '2.75em',
-                height: '2.75em',
+        '@media screen and (max-width: 1040px)': {
+            width: buttonSizeMobile,
+            height: buttonSizeMobile,
         },
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
+        '@media screen and (min-width: 1040px)': {
+            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2.75em',
             height: '2.75em',
         },
@@ -56,33 +58,32 @@ export const useStyles = makeStyles({
 
     vector: (props) => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: get2ItemFontSizes(),
-            width: '2em',
-            height: '2em',
+        '@media screen and (max-width: 1040px)': {
+            width: arrowSizeMobile,
+            height: arrowSizeMobile,
         },
         /*desktops*/
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
+        '@media screen and (min-width: 1040px)': {
+            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2em',
             height: '2em',
         },
         color: themes[props.theme].text,
-        // '&:hover':{
-        //     color: themes[props.theme].button_hover_fill,
-        // },
     }),
     mid: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
-            fontSize: get2ItemFontSizes()
+        '@media screen and (max-width: 1040px)': {
+            width: buttonSizeMobile,
+            height: buttonSizeMobile,
+            borderRadius: '0.2em',
         },
         /*desktops*/
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: (drawerWidth - get2ItemMargins())*0.5*0.333*0.333,
+        '@media screen and (min-width: 1040px)': {
+            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
+            width: '2.75em',
+            height: '2.75em',
+            borderRadius: '0.2em',
         },
-        width: '2.75em',
-        height: '2.75em',
-        borderRadius: '0.2em',
+
     }),
 }, {index: 1});

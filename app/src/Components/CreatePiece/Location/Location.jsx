@@ -1,19 +1,27 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
+import {useMediaQuery} from "react-responsive";
 import {LocationButton} from "./LocationButton";
+import {useStyles as useMoreStyles}
+        from "../CreatePiece.jss";
 import {useStyles} from "./Location.jss";
-import MediaQuery from "react-responsive/src";
+import clsx from "clsx";
 
 export function Location({selectedLoc, setLoc, theme}) {
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({ theme: theme });
+    const isDesktop = useMediaQuery({query: '(min-width: 1040px)'})
+
     return (
-        <Box className={classes.location_tool}>
-            <MediaQuery minDeviceWidth={1040}>
-                <Typography className={classes.title}>
+        <Box className={clsx(classes.location_tool, {
+            [classes2.tool_flexbox] : isDesktop,
+        })}>
+            {isDesktop ? (
+                <Typography className={classes2.tool_title}>
                     Location
                 </Typography>
-            </MediaQuery>
+            ) : null}
             <LocationButton
                 rf="d4"
                 onClick={() => setLoc('d4')}

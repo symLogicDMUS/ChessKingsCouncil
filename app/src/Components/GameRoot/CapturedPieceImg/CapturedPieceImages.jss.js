@@ -29,10 +29,10 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: boardSizes.mobile * 0.9,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: drawerItemWidth,
             marginLeft: '5%',
         },
@@ -53,24 +53,24 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: boardSizes.mobile * 0.85,
             marginLeft: boardSizes.mobile * 0.025,
             transform: 'translate(0, -0.5em)',
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: drawerItemWidth,
             fontSize: fontSize00175,
             transform: 'translate(0, -0.5em)',
         },
     }),
     empty_list: props => ({
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: boardSizes.mobile * 0.9,
             fontSize: fontSize0023,
             height: '1.5em',
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: drawerItemWidth,
             fontSize: fontSize00175,
             height: '1.5em',
@@ -84,7 +84,7 @@ export const useStyles = makeStyles({
         marginTop: '0.2em',
     }),
     title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: availHeight() * 0.018,
             width: drawerItemWidth,
             marginLeft: '5%',

@@ -7,7 +7,8 @@ import {findDidUserVisitPage, recordUserVisitedPage
 } from "../../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {HelpModal} from "./HelpModal";
-import {getHoverColor, useStyles} from "../NavBarButton.jss";
+import {useStyles} from "../NavBarButton.jss";
+import clsx from "clsx";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, children}) {
     const [hover, setHover] = useState(false);
@@ -15,7 +16,7 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
     const [modal, setModal] = useState(false);
     const [isFirstTime, setIsFirstTime] = useState(false);
 
-    const classes = useStyles({theme: theme, screenCase: screenCase, currentPage: currentPage})
+    const classes = useStyles({theme: theme, screenCase: screenCase})
 
     useEffect(() => {
         findDidUserVisitPage(currentPage).then(([exists]) => {
@@ -49,14 +50,29 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
             {modal ? (<HelpModal theme={theme} screenCase={screenCase} onClose={() => setModal(false)} />) : null}
             <Button
                 onClick={() => setModal(!modal)}
-                className={classes.nav_bar_button}
-                style={hover ? getHoverColor(theme) : null}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
+                className={clsx(classes.nav_bar_button, {
+                    [classes.normal_color]: !hover,
+                    [classes.hover_color]: hover,
+                })}
             >
                 <Box className={classes.box}>
-                    <ContactSupportIcon className={hover ? classes.icon_hover : classes.icon}/>
-                    <Typography className={hover ? classes.text_hover : classes.text}>Help</Typography>
+                    <ContactSupportIcon
+                        className={clsx(classes.icon, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
+                    />
+                    <Typography
+                        className={clsx(classes.text, {
+                            [classes.normal_color]: !hover,
+                            [classes.hover_color]: hover,
+                        })}
+                        noWrap
+                    >
+                        Help
+                    </Typography>
                 </Box>
             </Button>
         </>

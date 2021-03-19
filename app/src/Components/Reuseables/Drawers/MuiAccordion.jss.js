@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     expand_icon: props => ({
         color: themes[props.theme].text,
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSize0040,
             width: '1em',
             height: '1em',

@@ -1,9 +1,9 @@
 import {fontSize002, fontSize0023, fontSizeW004} from "../../styles/fontSizes.jss";
-import {themes} from "../../styles/themes.jss";
-import {get2ItemMargins} from "../CreatePiece.jss";
-import {makeStyles} from "@material-ui/core/styles";
-import {getBoardSize} from "../Board/CreatePieceBoard.jss";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {themes} from "../../styles/themes.jss";
+
+const windowSize = '35vw';
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -11,19 +11,30 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media screen and (max-device-width: 1040px)':{
-            fontSize: (getBoardSize() - get2ItemMargins() * 3)*0.5,
-            width: '1em',
-            height: '1em',
-            borderRadius: '0.035em',
-            border: `0.005em solid ${themes[props.theme].outline}`,
+        '@media screen and (max-width: 1040px)':{
+            fontSize: '10vw',
+            width: windowSize,
+            height: windowSize,
+            borderRadius: '0.08em',
+            border: `0.02em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-device-width: 1040px)': {
-            fontSize: (drawerWidth - get2ItemMargins())*0.5,
+        '@media screen and (min-width: 1040px)': {
+            fontSize: drawerWidth * 0.425,
             width: "1em",
             height: "1em",
             border: "0.01em solid #2b2b2b",
             borderRadius: '0.03em',
+        },
+        margin: '3.5vw',
+    }),
+    white_window: props => ({
+       '@media screen and (max-width: 1040px)': {
+           marginRight: '1vw',
+       },
+    }),
+    black_window: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginLeft: '1vw',
         },
     }),
     img_label: props => ({
@@ -35,19 +46,19 @@ export const useStyles = makeStyles({
     }),
     icon: (props) => ({
         /*tall phones*/
-        '@media screen and (max-device-width: 412px)': {
+        '@media screen and (max-width: 412px)': {
             fontSize: fontSize0023,
         },
         /*medium phones*/
-        "@media screen and (min-device-width: 412px) and  (max-device-width: 767px)": {
+        "@media screen and (min-width: 412px) and  (max-width: 767px)": {
             fontSize: fontSize0023,
         },
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW004,
         },
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,
@@ -55,15 +66,15 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         /*medium phones*/
-        '@media screen and (min-device-width: 412px) and  (max-device-width: 767px)': {
+        '@media screen and (min-width: 412px) and  (max-width: 767px)': {
             fontSize: fontSize0023
         },
         /*tablets*/
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW004,
         },
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,

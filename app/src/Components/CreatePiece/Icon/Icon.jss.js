@@ -6,7 +6,7 @@ import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: '93%',
             marginLeft: '3.5%',
         },
@@ -14,13 +14,8 @@ export const useStyles = makeStyles({
     img_windows: props => ({
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        '@media screen and (max-device-width: 1040px)': {
-            width: '100%',
-            height: '100%',
-            alignItems: 'flex-start',
-        },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
+            justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'nowrap',
         },

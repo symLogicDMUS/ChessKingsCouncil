@@ -22,14 +22,14 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
             height: `${profileHeight*0.85}`,
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             width: '100%',
             fontSize: fontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
@@ -39,7 +39,7 @@ export const useStyles = makeStyles({
             marginBottom: '0.7em',
             marginTop: '0.7em',
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: '100%',
             fontSize: fontSizes.desktop,
             marginTop: '0.7em',
@@ -50,17 +50,17 @@ export const useStyles = makeStyles({
         },
     }),
     range_header: props => ({
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
@@ -77,14 +77,14 @@ export const useStyles = makeStyles({
         borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     range_modal: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },

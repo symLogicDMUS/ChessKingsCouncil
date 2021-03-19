@@ -15,16 +15,16 @@ const buttonPos = {
 
 export const useStyles = makeStyles({
     container: props => ({
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
         },
-        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+        "@media screen and (min-width: 412px) and (max-width: 768px)": {
             fontSize: fontSizes.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizes.ipad,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
         ...buttonPos[props.angle],
@@ -40,16 +40,16 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].span}`,
     }),
     arrow_button: props => ({
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
         },
-        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+        "@media screen and (min-width: 412px) and (max-width: 768px)": {
             fontSize: fontSizes.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizes.ipad,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
         width: '2.75em',
@@ -58,16 +58,16 @@ export const useStyles = makeStyles({
     }),
 
     vector: (props) => ({
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
         },
-        "@media screen and (min-device-width: 412px) and (max-device-width: 768px)": {
+        "@media screen and (min-width: 412px) and (max-width: 768px)": {
             fontSize: fontSizes.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizes.ipad,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
         },
         width: '2em',

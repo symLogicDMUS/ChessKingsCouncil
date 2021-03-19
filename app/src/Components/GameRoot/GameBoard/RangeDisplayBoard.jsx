@@ -13,10 +13,9 @@ export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
                     <RangeDisplaySquare
                         key={rf}
                         rf={rf}
-                        isInRange={range ? (!!range.includes(rf)) : false}
-                        isLightColorSqr={binaryBoard[rf]}
-                        sqrSize={sqrSize}
                         theme={theme}
+                        sqrSize={sqrSize}
+                        isInRange={range ? (!!range.includes(rf)) : false}
                     />
                 )
             }

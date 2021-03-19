@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Box from "@material-ui/core/Box";
 import { MuiCheckbox } from "../Clickables/MuiCheckbox";
 import { MuiButton as Button } from "../Clickables/MuiButton";
@@ -16,20 +16,29 @@ export function MuiGrid(props) {
         itemWindowStyle: props.itemWindowStyle,
     });
 
+    const [bValue, reRender] = useState(false);
+    useEffect(() => {
+        function handleResize() {
+            reRender(! bValue)
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    })
+
     return (
         <div className={`scrollbar-${props.theme}`}>
             <div className={classes.window}>
-                <Box className={classes.top_flexbox}>{props.topFlexbox}</Box>
-                <Box className={classes.title_flexbox}>{props.title}</Box>
-                <Box className={classes.item_choices_border}>
-                    {props.loaded ? (
-                        <Box className={classes.item_choices}>
-                            {props.children}
-                        </Box>
-                    ) : (
-                        <MuiSkeleton classesObj={{root: classes.item_choices}} theme={props.theme} />
-                    )}
-                </Box>
+                {props.topFlexbox}
+                {props.title}
+                {props.loaded ? (
+                    <Box className={classes.item_choices}>
+                        {props.children}
+                    </Box>
+                ) : (
+                    <MuiSkeleton classesObj={{root: classes.item_choices}} theme={props.theme} />
+                )}
                 <Box className={classes.bottom_flexbox}>
                     <Button
                         onClick={props.onOkClick}

@@ -1,71 +1,55 @@
 import React from "react";
+import clsx from "clsx";
+import {themes} from "../../styles/themes.jss";
+import {sqrSize} from "./CreatePieceBoard.jss";
 import {getOffset} from "../../helpers/getOffset";
 import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
-import {getBoardFontSize} from "./CreatePieceBoard.jss";
-import {fontSize0095} from "../../styles/fontSizes.jss";
+import {useStyles as useMoreStyles} from "./CreatePieceSquare.jss"
 import {useStyles} from "../../Reuseables/Board/Square.jss";
-import {themes} from "../../styles/themes.jss";
 
 export function CreatePieceSquare({
-                                      rf,
-                                      theme,
-                                      pieceLoc,
-                                      toggleOffset,
-                                      screenCase,
-                                      isSpan,
-                                      isOffset,
-                                      isLightSqr,
-                                      showSpanText,
-                                      showOffsetText,
-                                      children,
-                                  }) {
+    rf,
+    theme,
+    pieceLoc,
+    toggleOffset,
+    screenCase,
+    isSpan,
+    isOffset,
+    isLightSqr,
+    showSpanText,
+    showOffsetText,
+    children,
+}) {
     const classes = useStyles({
-        theme: theme,
-        type: "normal",
         rf: rf,
-        fontSize: (screenCase === 'desktop') ? fontSize0095 : getBoardFontSize(),
-        style: {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            alignContent: "center",
-            "&:hover": {backgroundColor: themes[theme].sqr_hover},
-        },
+        theme: theme,
+        sqrSize: sqrSize[screenCase],
     });
+    const classes2 = useMoreStyles({theme: theme});
 
-    if (isSpan) {
-        return (
-            <div className={classes.span} key={rf}>
-                {showSpanText ? (<SpanLabel theme={theme}/>) : null}
-            </div>
-        );
-    }
-
-    if (isOffset) {
-        return (
-            <div
-                className={classes.offset}
-                onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
-                key={rf}
-            >
-                {showOffsetText ? (
-                    <OffsetLabel
-                        offset={getOffset(rf, pieceLoc)}
-                        theme={theme}
-                    />) : null}
-            </div>
-        );
-    }
-
-return (
-    <div
-        className={isLightSqr ? classes.light_normal : classes.dark_normal}
-        onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
-        key={rf}
-    >
-        {children}
-    </div>
-);
+    return (
+        <div
+            onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
+            className={clsx(classes2.square, {
+                [classes.square]: true,
+                [classes.light_normal]: isLightSqr,
+                [classes.dark_normal]: ! isLightSqr,
+                [classes.offset]: isOffset,
+                [classes.span]: isSpan,
+            })}
+            key={rf}
+        >
+            {(isSpan && showSpanText) ? (
+                <SpanLabel theme={theme}/>
+            ) : null}
+            {children}
+            {(isOffset && ! isSpan && showOffsetText) ? (
+                <OffsetLabel
+                    offset={getOffset(rf, pieceLoc)}
+                    theme={theme}
+                />
+            ) : null}
+        </div>
+    );
 }

@@ -25,11 +25,11 @@ export const useStyles = makeStyles({
         zIndex: 8,
     }),
     window: props => ({
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: widths.mobile,
             height: heights.mobile,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: widths.desktop,
             height: heights.desktop,
         },
@@ -39,11 +39,11 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     settings: props => ({
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             width: widths.mobile*0.925,
             height: heights.mobile*0.87,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: widths.desktop*0.925,
             height: heights.desktop*0.87,
         },
@@ -62,10 +62,10 @@ export const useStyles = makeStyles({
     close_icon_flexbox: props => ({
         width: '100%',
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             height: heights.mobile * 0.08,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             height: heights.desktop*0.08,
         },
         display: 'flex',

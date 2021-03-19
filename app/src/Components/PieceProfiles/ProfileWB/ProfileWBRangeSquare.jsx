@@ -1,6 +1,9 @@
 import React from "react";
-import { fontSizes, widths } from "../PieceProfiles.jss";
+import clsx from "clsx";
+import { widths } from "../PieceProfiles.jss";
 import { useStyles } from "../../Reuseables/Board/Square.jss";
+import {useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss"
+
 
 export function ProfileWBRangeSquare({
     rf,
@@ -13,23 +16,20 @@ export function ProfileWBRangeSquare({
 }) {
     const classes = useStyles({
         rf: rf,
-        sqrSize: widths[screenCase],
-        style: { fontSize: fontSizes[screenCase]*0.125, cursor: 'default' },
         theme: theme,
-        type: "dnd",
+        type:  "normal",
+        sqrSize: widths[screenCase],
     });
+    const classes2 = useMoreStyles({theme: theme})
 
     return (
         <div
-            className={
-                isInRange
-                    ? rangeType === "span"
-                        ? classes.span_alt
-                        : classes.offset
-                    : isLightSqr
-                    ? classes.profile_wb_light
-                    : classes.profile_wb_dark
-            }
+            className={clsx(classes2.square, {
+                [classes.span_alt]: isInRange && rangeType==="span",
+                [classes.offset]: isInRange && rangeType==="offset",
+                [classes.profile_wb_light]: isLightSqr && ! isInRange,
+                [classes.profile_wb_dark]: ! isLightSqr && ! isInRange,
+            })}
         >
             {children}
         </div>

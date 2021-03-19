@@ -16,12 +16,12 @@ export const avatarDrawerMargins = (hasDrawerParent) => {
 
 export const useStyles = makeStyles({
     profile_avatar: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             height: `${heights.desktop}em`,
             width: avatarSize.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             marginTop: '-0.5em',
             ...getDrawerFontSize(props.hasDrawerParent),
@@ -29,7 +29,7 @@ export const useStyles = makeStyles({
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
             ...avatarDrawerMargins(props.hasDrawerParent),
@@ -37,7 +37,7 @@ export const useStyles = makeStyles({
             width: avatarSize.mobile,
         },
 
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             marginTop: 0,
             ...getDrawerFontSize(props.hasDrawerParent),
@@ -50,18 +50,18 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     avatar_header: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: headerFontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: headerFontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
@@ -77,18 +77,18 @@ export const useStyles = makeStyles({
         outline: `0.05em solid ${themes[props.theme].outline}`,
     }),
     avatar_title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: titleFontSizes.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: titleFontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
         },
@@ -97,24 +97,24 @@ export const useStyles = makeStyles({
         textAlign: 'center',
     }),
     avatar_window: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: avatarSize.desktop,
             height: avatarSize.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
             ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.ipad,

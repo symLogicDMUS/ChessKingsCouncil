@@ -6,11 +6,11 @@ import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
 
 export const useStyles = makeStyles({
     list_title: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: drawerItemWidth,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: '100%',
         },

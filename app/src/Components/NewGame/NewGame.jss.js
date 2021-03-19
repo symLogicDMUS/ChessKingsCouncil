@@ -40,10 +40,10 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-between',
         /*media query for phones and tablets (generalized)*/
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             height: viewHeight() - appBarHeight,
         },
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             height: '90vh',
         },
     }),
@@ -51,13 +51,13 @@ export const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         /*phones/tablets(generalized)*/
-        "@media screen and (max-device-width:  1040px)":{
+        "@media screen and (max-width:  1040px)":{
             width: viewWidth() * 0.7,
             flexDirection: 'column',
             justifyContent: 'center',
         },
         /*desktop*/
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             width: viewWidth() * 0.3,
             flexDirection: 'column',
             justifyContent: 'center',

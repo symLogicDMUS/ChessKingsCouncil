@@ -41,12 +41,12 @@ export const delete_icon = (screenCase) => {
 };
 
 export const button = (theme) => ({
-    '@media screen and (min-device-width: 1040px)': {
+    '@media screen and (min-width: 1040px)': {
         fontSize: fontSize002,
         width: '6.1em',
         height: '2em',
     },
-    '@media screen and (max-device-width: 1040px)': {
+    '@media screen and (max-width: 1040px)': {
         fontSize: fontSize002,
         width: '6.9em',
         height: '1.9em',
@@ -70,7 +70,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
         alignItems: 'center',
         flexGrow: 3,
-        "@media screen and (max-device-width: 412px)": {
+        "@media screen and (max-width: 412px)": {
             flexGrow: 0,
             marginLeft: '1em',
         },
@@ -81,29 +81,29 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
             width: widths.desktop,
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
 
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
         },
         marginLeft: '1em',
     }),
     load_button: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
             marginRight: '0.5em',
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizeW003224,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -112,7 +112,7 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -123,13 +123,13 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     delete_button: props => ({
-        '@media screen and (min-device-width: 1040px)': {
+        '@media screen and (min-width: 1040px)': {
             fontSize: fontSize002,
             width: '6.1em',
             height: '2em',
             marginLeft: "0.5em",
         },
-        '@media screen and (max-device-width: 1040px)': {
+        '@media screen and (max-width: 1040px)': {
             fontSize: fontSizeW003224,
             '& .MuiButton-label': {
                 minHeight: 'unset',
@@ -139,7 +139,7 @@ export const useStyles = makeStyles({
             height: '2.1em',
         },
 
-        '@media screen and (min-device-width: 768px) and (max-device-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {
                 minHeight: 'unset',

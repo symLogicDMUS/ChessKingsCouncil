@@ -15,8 +15,5 @@ export const genStyle = () => ({
 export const useStyles = makeStyles({
     name: props => ({
         width: '100%',
-        '@media screen and (min-device-width: 1040px)': {
-            ...tool_flexbox,
-        },
     }),
 }, {index: 1});

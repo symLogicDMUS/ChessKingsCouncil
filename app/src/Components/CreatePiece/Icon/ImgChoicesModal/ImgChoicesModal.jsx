@@ -1,8 +1,8 @@
 import React from "react";
 import "../../../styles/scrollbar.scss";
-import MediaQuery from "react-responsive/src";
+import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
+import MediaQuery from "react-responsive/src";
 import WallpaperIcon from '@material-ui/icons/Wallpaper'
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
 import {Close} from "../../../Reuseables/Modals/Close";
@@ -17,9 +17,6 @@ import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
 import {
     close_icon,
     img_grid_root,
-    imgModalTitleDesktop,
-    searchBoxStyleDesktop,
-    searchBoxWidthDesktop,
     styles
 } from "./ImgChoicesModal.jss";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
@@ -125,7 +122,7 @@ class ImgChoicesModal extends React.Component {
         return (
             <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
-                    <MediaQuery minDeviceWidth={1040}>
+                    <MediaQuery minWidth={1040}>
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}
@@ -149,23 +146,18 @@ class ImgChoicesModal extends React.Component {
                             }
                             title={
                                 <>
-                                    <Typography
-                                        className={this.props.classes.title}
-                                        style={imgModalTitleDesktop()}
-                                    >
-                                        Images
-                                    </Typography>
-                                    <WallpaperIcon
-                                        className={
-                                            this.props.classes.title_icon
-                                        }
-                                        size="large"
-                                    />
+                                    <Box className={this.props.classes.title_box}>
+                                        <Typography className={this.props.classes.title}>Images</Typography>
+                                        <WallpaperIcon className={this.props.classes.title_icon} size="small"/>
+                                    </Box>
                                     <SearchBox
                                         theme={this.props.theme}
                                         updateSearchText={this.updateSearchText}
-                                        width={searchBoxWidthDesktop()}
-                                        style={searchBoxStyleDesktop()}
+                                        style={{
+                                            alignSelf: 'flex-end', marginRight: '2.25vw',
+                                            transform: 'translate(0, -1em)'
+                                        }}
+                                        width='20em'
                                     />
                                 </>
                             }
@@ -174,7 +166,7 @@ class ImgChoicesModal extends React.Component {
                             {this.imgItems}
                         </MuiGrid>
                     </MediaQuery>
-                    <MediaQuery maxDeviceWidth={1040}>
+                    <MediaQuery maxWidth={1040}>
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}
