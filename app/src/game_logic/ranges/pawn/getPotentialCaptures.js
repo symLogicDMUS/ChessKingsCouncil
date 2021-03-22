@@ -1,4 +1,3 @@
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
 import {step_1sqr45d, step_1sqr135d, step_1sqr315d, step_1sqr225d} from "../../helpers/stepFuncs";
 
 

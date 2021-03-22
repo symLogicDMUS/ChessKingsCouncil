@@ -1,5 +1,3 @@
-import {getStatuses} from "./getStatuses"
-
 
 export function getSubPath(path, i) {
     /*get up to &&  including the index i in path**/

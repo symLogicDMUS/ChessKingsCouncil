@@ -1,15 +1,16 @@
 import React from "react";
+import {fontSize002} from "../styles/fontSizes.jss";
 import Typography from "@material-ui/core/Typography";
 import {DeleteForever, Storage} from "@material-ui/icons";
 import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
-import {button} from "../PieceProfiles/Header/LoadDeleteHeader.jss";
 import {help_text} from "../Reuseables/NavBar/Help/HelpText.jss";
 import {ProfileHelpText} from "../PieceProfiles/Help/ProfileHelpText";
 import {HelpButtonReminder} from "../Reuseables/NavBar/Help/HelpButtonReminder";
-import {fontSize002} from "../styles/fontSizes.jss";
+import { useStyles } from "../PieceProfiles/Header/LoadDeleteHeader.jss";
 
-export const HelpText = (fontSize, theme) => ([
-    <Typography key={'saved-pieces-help-text'} paragraph={true} style={help_text(fontSize, theme)}>
+function SavedPiecesHelpText(props) {
+    const classes = useStyles({theme: props.theme});
+    return <Typography paragraph={true} style={help_text(props.fontSize, props.theme)}>
         On this page you can:
         <ol type='a'>
             <li>
@@ -18,9 +19,10 @@ export const HelpText = (fontSize, theme) => ([
             <li>
                 Click the Load button to go to the Create Piece page with that piece and further edit it.
                 <Button
-                    theme={theme}
-                    startIcon={<Storage style={{fontSize: fontSize002, width: '1em'}}/>}
-                    style={{...button(theme), marginLeft: '1.2em'}}
+                    theme={props.theme}
+                    startIcon={<Storage className={classes.icon}/>}
+                    classProp={classes.button}
+                    addedClassProp={props.classes.load_button}
                 >
                     Load
                 </Button>
@@ -28,15 +30,20 @@ export const HelpText = (fontSize, theme) => ([
             <li>Delete the piece. Pieces that are deleted will not affect games in progress, but no new game can be
                 started with that piece.
                 <Button
-                    theme={theme}
-                    startIcon={<DeleteForever style={{fontSize: fontSize002, width: '1em'}}/>}
-                    style={{...button(theme), marginLeft: '1.2em'}}
+                    theme={props.theme}
+                    classProp={classes.button}
+                    addedClassProp={props.classes.delete_button}
+                    startIcon={<DeleteForever className={classes.button}/>}
                 >
                     Delete
                 </Button>
             </li>
         </ol>
-    </Typography>,
+    </Typography>;
+}
+
+export const HelpText = (fontSize, theme) => ([
+    <SavedPiecesHelpText key={'saved-pieces-help-text'} fontSize={fontSize} theme={theme}/>,
     <ProfileHelpText fontSize={fontSize} theme={theme}/>,
     <HelpButtonReminder fontSize={fontSize} theme={theme} />
 ]);

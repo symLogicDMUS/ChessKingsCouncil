@@ -13,7 +13,6 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.mobile,
             width: widths.mobile,
         },
-        ...getDrawerFontSize(props.hasDrawerParent),
         width: '100%',
         height: '1.5em',
         textAlign: 'center',

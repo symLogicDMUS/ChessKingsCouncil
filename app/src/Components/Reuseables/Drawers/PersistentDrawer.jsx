@@ -17,7 +17,6 @@ export default function PersistentDrawer({
     appBarContent,
     theme,
     spacing,
-    contentAddedStyle,
     neighborOpen,
     children,
 }) {
@@ -26,7 +25,6 @@ export default function PersistentDrawer({
     const classes = useStyles({
         theme: theme,
         spacing: spacing,
-        contentAddedStyle: contentAddedStyle,
     });
 
     const handleDrawerOpen = () => {

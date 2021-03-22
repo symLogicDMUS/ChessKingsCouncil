@@ -4,18 +4,6 @@ import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.js
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "./ProfileWBModal.jss";
 
-export const close_icon = () => ({
-    fontSize: fontSize0023,
-    '@media screen and (min-width: 1040px)': {
-        width: "0.5em",
-        height: "0.5em",
-    },
-    '@media screen and (max-width: 1040px)': {
-        width: "0.5em",
-        height: "0.5em",
-    },
-});
-
 export const useStyles = makeStyles({
     profile_top: props => ({
         '@media screen and (min-width: 1040px)': {
@@ -86,5 +74,16 @@ export const useStyles = makeStyles({
         width: '1.1em',
         height: '1.1em',
         marginLeft: '0.25em',
+    }),
+    close_icon: props => ({
+        fontSize: fontSize0023,
+        '@media screen and (min-width: 1040px)': {
+            width: "0.5em",
+            height: "0.5em",
+        },
+        '@media screen and (max-width: 1040px)': {
+            width: "0.5em",
+            height: "0.5em",
+        },
     }),
 }, {index: 1});

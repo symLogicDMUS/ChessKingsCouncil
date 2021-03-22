@@ -5,14 +5,15 @@ import {StandardModal} from "../../Reuseables/Modals/StandardModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
-import {button} from "../../Reuseables/Modals/StandardModal.jss";
-import {fontSize002} from "../../styles/fontSizes.jss";
+import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 
 export function Save({save, pieceName, whiteImg, blackImg, theme}) {
 
     let [pieceNameExists, setPieceNameExists] = useState(false);
     let [message, setMessage] = useState(null);
     let [modal, setModal] = useState(null);
+
+    const classes = useStyles({theme});
 
     useEffect(() => {
         if (pieceName !== "" && !containsInvalidCharacters(pieceName)) {
@@ -102,7 +103,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                                 closeModal()
                             }}
                             variant={'contained'}
-                            style={{...button(fontSize002), marginRight: '1em'}}
+                            classProp={classes.button}
+                            addedClassProp={classes.yes_button}
                             theme={theme}
                         >
                             Yes
@@ -110,7 +112,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                         <MuiButton
                             onClick={() => closeModal()}
                             variant={'contained'}
-                            style={{...button(fontSize002), marginLeft: '1em'}}
+                            classProp={classes.button}
+                            addedClassProp={classes.no_button}
                             theme={theme}
                         >
                             No
@@ -127,7 +130,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                     >
                         <MuiButton
                             onClick={() => closeModal()}
-                            style={button(fontSize002)}
+                            classProp={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >

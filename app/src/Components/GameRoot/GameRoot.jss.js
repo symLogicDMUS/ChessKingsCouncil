@@ -47,11 +47,6 @@ export const accordion_gen = (screenCase, theme) => {
     }
 };
 
-export const sqr_text_checkbox = () => ({
-    marginLeft: 0,
-    flexDirection: 'row-reverse',
-});
-
 export const franchise_theme_gen = () => ({
     marginTop: 'auto',
     marginBottom: 'auto',
@@ -64,5 +59,9 @@ export const styles = {
         backgroundSize: 'cover',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center center'
-    }
+    },
+    sqr_text_checkbox: props => ({
+        marginLeft: 0,
+        flexDirection: 'row-reverse',
+    }),
 }

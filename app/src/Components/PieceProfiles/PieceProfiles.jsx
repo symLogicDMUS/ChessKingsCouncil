@@ -13,12 +13,13 @@ import { saveDefs } from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
+import clsx from "clsx";
 
 /*children is a header or none, depending on the parent page*/
 export function PieceProfiles(props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
 
-    const classes = useStyles({theme: props.theme, style: props.style});
+    const classes = useStyles({theme: props.theme});
 
     useEffect(() => {
         let defs;
@@ -102,7 +103,7 @@ export function PieceProfiles(props) {
                     >
                         <CustomizeHeader
                             key={`${pieceName}-header`}
-                            pieceName={pieceName}
+                            customPieceName={pieceName}
                             subs={props.subs}
                             promos={props.promos}
                             toggleSub={props.toggleSub}
@@ -121,7 +122,9 @@ export function PieceProfiles(props) {
 
     return (
         <div className={`scrollbar-${props.theme}`}>
-            <div className={classes.piece_profiles}>
+            <div className={clsx(classes.piece_profiles, {
+                [props.classProp]: props.classProp,
+            })}>
                 {props.children}
                 <MediaQuery minWidth={1040}>
                     <div className={classes.profiles_window}>

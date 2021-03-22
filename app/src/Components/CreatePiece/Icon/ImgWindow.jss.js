@@ -13,6 +13,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 1040px)':{
             fontSize: '10vw',
+            margin: '3.5vw',
             width: windowSize,
             height: windowSize,
             borderRadius: '0.08em',
@@ -22,10 +23,9 @@ export const useStyles = makeStyles({
             fontSize: drawerWidth * 0.425,
             width: "1em",
             height: "1em",
-            border: "0.01em solid #2b2b2b",
+            border: "0.005em solid #2b2b2b",
             borderRadius: '0.03em',
         },
-        margin: '3.5vw',
     }),
     white_window: props => ({
        '@media screen and (max-width: 1040px)': {

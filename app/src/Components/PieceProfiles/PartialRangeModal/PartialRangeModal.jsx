@@ -33,7 +33,7 @@ export function PartialRangeModal({
         <div>
             <Box className={classes.top}>
                 <Typography className={classes.title}>{getColorName(color)} {pieceName}</Typography>
-                <Close onClick={close} theme={theme} style={close_style()} />
+                <Close onClick={close} theme={theme} classProp={classes.close_icon} />
             </Box>
             <PartialRangeBoard
                 parentDispatch={dispatch}

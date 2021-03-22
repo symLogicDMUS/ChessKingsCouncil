@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
@@ -7,51 +8,31 @@ import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { icons } from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
 import { themes } from "../../styles/themes.jss";
-import {
-    checkbox_root,
-    checkbox_gen,
-    checkbox,
-    iconButtonsStyle,
-    useStyles,
-} from "./CustomizeHeader.jss";
+import { useStyles } from "./CustomizeHeader.jss";
 
 export const CustomizeHeader = ({
     subs,
     promos,
     toggleSub,
     togglePromo,
-    pieceName,
+    customPieceName,
     screenCase,
     theme,
 }) => {
     const classes = useStyles({ theme: theme });
 
-    const getColors = () => {
-        const colors = { Queen: "", Rook: "", Bishop: "", Knight: "" };
-        for (const standardPieceName of Object.keys(subs)) {
-            if (subs[standardPieceName] === pieceName) {
-                colors[standardPieceName] = themes[theme].text;
-            } else {
-                colors[standardPieceName] = "none";
-            }
-        }
-        return colors;
-    };
-    const colors = useMemo(() => getColors(), [subs.Rook, subs.Knight, subs.Bishop, subs.Queen]);
-
     const getIsPromo = () => {
-        return promos.includes(pieceName);
-    };
-    const isCheckmark = useMemo(() => getIsPromo(), [promos.length]);
+        return promos.includes(customPieceName);
+    }; const isCheckmark = useMemo(() => getIsPromo(), [promos.length]);
 
-    const getSelectedSub = () => {
-        for (const standardPieceName of Object.keys(colors)) {
-            if (colors[standardPieceName] === themes[theme].text) {
+    const getStandardPieceThatSubbingFor = () => {
+        for (const standardPieceName of Object.keys(subs)) {
+            if (subs[standardPieceName] === customPieceName) {
                 return standardPieceName;
             }
         }
         return null;
-    };
+    }; const standardPieceThatSubbingFor = useMemo(() => getStandardPieceThatSubbingFor(), [Object.keys(subs).length])
 
     return (
         <>
@@ -62,16 +43,16 @@ export const CustomizeHeader = ({
                         variant="h6"
                         noWrap
                     >
-                        {pieceName}
+                        {customPieceName}
                     </Typography>
                 </Box>
                 <Box className={classes.box}>
                     <MuiCheckbox
                         checkmarkState={isCheckmark}
-                        onClick={() => togglePromo(pieceName)}
-                        rootStyle={checkbox_root(screenCase)}
-                        checkboxStyle={checkbox(screenCase)}
-                        style={checkbox_gen(screenCase)}
+                        onClick={() => togglePromo(customPieceName)}
+                        rootClassProp={classes.checkbox_root}
+                        addedClassProp={classes.checkbox}
+                        classProp={classes.checkbox_gen}
                         theme={theme}
                     >
                         {screenCase === "mobile" ? (
@@ -89,66 +70,76 @@ export const CustomizeHeader = ({
                         )}
                     </MuiCheckbox>
                 </Box>
-                <Box className={classes.box} style={iconButtonsStyle()}>
+                <Box
+                    className={clsx(classes.box, {
+                        [classes.icon_button_style]: true,
+                    })}
+                >
                     <IconButton
                         onClick={() => {
-                            const selectedSub = getSelectedSub();
-                            if (selectedSub) {
-                                toggleSub(null, selectedSub);
+                            if (standardPieceThatSubbingFor) {
+                                // set the sub for this standard piece to null
+                                toggleSub(null, standardPieceThatSubbingFor);
                             }
                         }}
                         className={classes.no_sub_button}
                     >
                         <BlockIcon
-                            className={classes.no_sub_icon}
-                            style={{
-                                color: getSelectedSub()
-                                    ? themes[theme].outline
-                                    : themes[theme].text,
-                            }}
+                            className={clsx(classes.no_sub_icon, {
+                                [classes.selected]: standardPieceThatSubbingFor,
+                                [classes.unselected]: ! standardPieceThatSubbingFor,
+                            })}
                         />
                     </IconButton>
                     <IconButton
-                        onClick={() => toggleSub(pieceName, "Queen")}
+                        onClick={() => toggleSub(customPieceName, "Queen")}
                         className={classes.sub_button}
                     >
-                        <SvgIcon className={classes.sub_icon}>
+                        <SvgIcon className={clsx(classes.sub_icon, {
+                                [classes.selected]: subs.Queen === customPieceName,
+                                [classes.unselected]: subs.Queen !== customPieceName,
+                        })}>
                             {icons.queen_outline(
                                 themes[theme].outline,
-                                colors.Queen
                             )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
-                        onClick={() => toggleSub(pieceName, "Rook")}
+                        onClick={() => toggleSub(customPieceName, "Rook")}
                         className={classes.sub_button}
                     >
-                        <SvgIcon className={classes.sub_icon}>
+                        <SvgIcon className={clsx(classes.sub_icon, {
+                            [classes.selected]: subs.Rook === customPieceName,
+                            [classes.unselected]: subs.Rook !== customPieceName,
+                        })}>
                             {icons.rook_outline(
                                 themes[theme].outline,
-                                colors.Rook
                             )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
-                        onClick={() => toggleSub(pieceName, "Knight")}
+                        onClick={() => toggleSub(customPieceName, "Knight")}
                         className={classes.sub_button}
                     >
-                        <SvgIcon className={classes.sub_icon}>
+                        <SvgIcon className={clsx(classes.sub_icon, {
+                            [classes.selected]: subs.Knight === customPieceName,
+                            [classes.unselected]: subs.Knight !== customPieceName,
+                        })}>
                             {icons.knight_outline(
                                 themes[theme].outline,
-                                colors.Knight
                             )}
                         </SvgIcon>
                     </IconButton>
                     <IconButton
-                        onClick={() => toggleSub(pieceName, "Bishop")}
+                        onClick={() => toggleSub(customPieceName, "Bishop")}
                         className={classes.sub_button}
                     >
-                        <SvgIcon className={classes.sub_icon}>
+                        <SvgIcon className={clsx(classes.sub_icon, {
+                            [classes.selected]: subs.Bishop === customPieceName,
+                            [classes.unselected]: subs.Bishop !== customPieceName,
+                        })}>
                             {icons.bishop_outline(
                                 themes[theme].outline,
-                                colors.Bishop
                             )}
                         </SvgIcon>
                     </IconButton>

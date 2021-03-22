@@ -6,6 +6,7 @@ import {useStyles} from "./Icon.jss";
 import MediaQuery from "react-responsive";
 import ChooseModal from "./ImgChoicesModal/ImgChoicesModal";
 import {ImgButtonsModal} from "./ImgButtonsModal";
+import {ImgWindowsModal} from "./ImgWindowsModal";
 
 export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
     const [color, setColor] = useState(null);
@@ -66,12 +67,19 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                     />
                 </Portal>
             ) : null}
+            <MediaQuery maxWidth={1040}>
+                <ImgWindowsModal>
+                    <Box className={classes.img_windows_flexbox}>
+                        <ImgWindows />
+                    </Box>
+                </ImgWindowsModal>
+            </MediaQuery>
             <MediaQuery minWidth={1040}>
                 <Typography className={classes.title}>Icon</Typography>
+                <Box className={classes.img_windows_flexbox}>
+                    <ImgWindows />
+                </Box>
             </MediaQuery>
-            <Box className={classes.img_windows}>
-                <ImgWindows />
-            </Box>
         </div>
     );
 }

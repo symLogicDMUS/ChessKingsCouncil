@@ -1,6 +1,5 @@
 import {sqrUnderAttack} from "../../threatArea/top/sqrUnderAttack";
 import {getHypoBoards} from "../../threatArea/getHypoBoards";
-import {mapListXyToRf} from "../../coordType/mapListXyToRf";
 import { rfToXy } from "../../coordType/crdCnvrt";
 
 

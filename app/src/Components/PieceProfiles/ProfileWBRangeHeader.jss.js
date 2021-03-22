@@ -10,15 +10,12 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-width: 412px)": {
             fontSize: headerFontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         width: '100%',
         height: '1.5em',
@@ -38,16 +35,13 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: titleFontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-width: 412px)": {
             fontSize: titleFontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
 
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: titleFontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         marginLeft: 'auto',
         transform: 'translate(0.5em, 0)',
@@ -61,15 +55,12 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: headerFontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         "@media screen and (max-width: 412px)": {
             fontSize: headerFontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: headerFontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         marginLeft: 'auto',
         width: '1em',

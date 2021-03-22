@@ -4,7 +4,6 @@ import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import {example_box} from "./HelpText.jss";
 import {RangeToolExample} from "./RangeToolExample";
-import {fontSize002, fontSize00301} from "../../styles/fontSizes.jss";
 import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {KnightRangeExamples} from "../../PieceProfiles/Help/KnightRangeExamples";
 import {getSpanRangeBoardDragonExample} from "../../PieceProfiles/Help/getSpanRangeBoardDragonExample";

@@ -28,7 +28,8 @@ export function ImgButtonsExample({theme}) {
                     <Button
                         variant='contained'
                         startIcon={<InsertPhotoIcon fontSize={"inherit"}/>}
-                        style={{...button(fontSize002), marginRight: '1em'}}
+                        classProp={classes.button}
+                        addedClassProp={classes.upload_button}
                         theme={theme}
                     >
                         Upload
@@ -36,7 +37,8 @@ export function ImgButtonsExample({theme}) {
                     <Button
                         variant='contained'
                         startIcon={<InsertPhotoIcon fontSize={"inherit"}/>}
-                        style={{...button(fontSize002), marginLeft: '1em'}}
+                        classProp={classes.button}
+                        addedClassProp={classes.choose_button}
                         theme={theme}
                     >
                         Choose

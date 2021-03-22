@@ -1,4 +1,5 @@
 import React, {useReducer} from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
 import { ProfileWBAvatar } from "./ProfileWBAvatar";
@@ -19,14 +20,16 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerP
         rangeType: null,
     });
 
-    const classes = useStyles({ theme: theme, hasDrawerParent: hasDrawerParent });
+    const classes = useStyles({ theme: theme });
 
     return (
         <>
             {state.isModal ? (
                 <Portal>
                     <div className={classes.modal}>
-                        <Box className={classes.range_modal}>
+                        <Box className={clsx(classes.range_modal, {
+                            [classes.profile_wb_drawer_item]: hasDrawerParent,
+                        })}>
                             <PartialRangeModal
                                 screenCase={screenCase}
                                 rangeType={state.rangeType}
@@ -41,7 +44,9 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerP
                     </div>
                 </Portal>
             ) : null}
-            <div className={classes.profile_wb}>
+            <div className={clsx(classes.profile_wb, {
+                [classes.profile_wb_drawer_item]: hasDrawerParent,
+            })}>
                 <ProfileWBAvatar
                     src={def.img}
                     color={color}

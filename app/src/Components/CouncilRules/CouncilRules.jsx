@@ -134,7 +134,7 @@ export function CouncilRules() {
                 >
                     <div className={classes.council_rules}>
                         <Box className={classes.scroll_end_container}>
-                            <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-top.svg'/>
+                            <img className={classes.scroll_end} src={'/Images/CouncilRules/scroll-top.svg'} alt={"top of ancient scroll graphic"}/>
                         </Box>
                         <Box className={classes.parchment_mobile}>
                             <Typography className={classes.title} noWrap>
@@ -205,7 +205,7 @@ export function CouncilRules() {
                             </Typography>
                         </Box>
                         <Box className={classes.scroll_end_container}>
-                            <img className={classes.scroll_end} src='/Images/CouncilRules/scroll-bottom.svg'/>
+                            <img className={classes.scroll_end} src={'/Images/CouncilRules/scroll-bottom.svg'} alt={"bottom of ancient scroll graphic"}/>
                         </Box>
                     </div>
                 </PersistentDrawer>

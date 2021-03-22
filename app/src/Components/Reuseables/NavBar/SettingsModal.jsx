@@ -31,8 +31,8 @@ export function SettingsModal(props) {
                 <Box className={classes.close_icon_flexbox}>
                     <Close
                         onClick={props.closeModal}
-                        style={close_icon(fontSize002)}
                         theme={props.theme}
+                        classProp={classes.close_icon}
                     />
                 </Box>
                 <Box className={classes.settings}>

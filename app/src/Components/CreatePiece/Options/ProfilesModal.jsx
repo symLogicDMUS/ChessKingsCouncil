@@ -21,7 +21,7 @@ export function ProfilesModal({load, close, theme}) {
                     <Typography variant='h6' noWrap className={classes.title}>
                         Saved Pieces
                     </Typography>
-                    <Close onClick={close} theme={theme} style={close_icon(fontSize002)} />
+                    <Close onClick={close} theme={theme} classProp={classes.close_icon} />
                 </Box>
             </PieceProfiles>
         </div>

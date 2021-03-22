@@ -11,8 +11,8 @@ export function Option({onClick, iconType, theme}) {
     const classes = useStyles({theme: theme})
     const classes2 = useMoreStyles({theme: theme})
     return (
-        <Button className={clsx(classes.option, {
-            [classes2.button]: true,
+        <Button className={clsx(classes2.button, {
+            [classes2.icon_button]:true
         })} >
             <IconButton className={classes.icon_button} classes={{label: classes.label}} onClick={onClick}>
                 <SvgIcon className={classes.icon}>

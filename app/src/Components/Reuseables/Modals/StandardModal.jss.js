@@ -4,18 +4,6 @@ import {fontSize002} from "../../styles/fontSizes.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 
-export const button = (fontSize) => ({
-    fontSize: fontSize,
-    width: '7.5em',
-    height: '2em',
-});
-
-export const close_icon = (fontSize) => ({
-    fontSize: fontSize,
-    width: '1.5em',
-    height: '1.5em',
-});
-
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
@@ -76,5 +64,21 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignContent: 'center',
         justifyContent: 'center',
+    }),
+    close_icon: props => ({
+        fontSize: fontSize002,
+        width: '1.5em',
+        height: '1.5em',
+    }),
+    button: props => ({
+        fontSize: fontSize002,
+        width: '7.5em',
+        height: '2em',
+    }),
+    yes_button: props => ({
+       marginRight: '1em',
+    }),
+    no_button: props => ({
+        marginLeft: '1em',
     }),
 }, {index: 1});

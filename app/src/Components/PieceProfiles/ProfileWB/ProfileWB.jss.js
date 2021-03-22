@@ -5,15 +5,6 @@ import {themes} from "../../styles/themes.jss";
 import {profileHeight} from "../Profile.jss";
 import {modal} from "../../helpers/modal.jss";
 
-export const getDrawerFontSize = (hasDrawerParent) => {
-    if (hasDrawerParent) {
-        return {fontSize: neighborWidth*0.13333*0.65}
-    }
-    else {
-        return null;
-    }
-};
-
 export const useStyles = makeStyles({
     modal: props => ({
        ...modal,
@@ -24,7 +15,6 @@ export const useStyles = makeStyles({
         display: 'flex',
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
             height: `${profileHeight*0.85}`,
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -32,7 +22,6 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             width: '100%',
             fontSize: fontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
             flexDirection: 'row',
             flexWrap: 'no-wrap',
             justifyContent: 'space-between',
@@ -53,12 +42,10 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
             width: widths.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
             width: widths.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         '@media screen and (min-width: 1040px)': {
             fontSize: fontSizes.desktop,
@@ -82,11 +69,9 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
         },
         display: 'flex',
         flexDirection: 'column',
@@ -96,5 +81,11 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         backgroundColor: themes[props.theme].fill,
         border: `0.1em solid ${themes[props.theme].outline}`,
+    }),
+    profile_wb_drawer_item: props => ({
+        fontSize: neighborWidth*0.13333*0.65,
+    }),
+    drawer_item_margins: props => ({
+        marginTop: '1.5em',
     }),
 }, {index: 1})

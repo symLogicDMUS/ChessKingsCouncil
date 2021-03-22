@@ -1,10 +1,8 @@
 import {getSqrCase} from "../sqrCase/getSqrCase";
 import {ENEMY} from "../sqrCase/sqrCases";
-import {printBoard} from "../printers/printBoard";
 import {dist} from "../helpers/formulas";
 import {xyToRf, rfToXy} from "../coordType/crdCnvrt";
 import {mapListRfToXy} from "../coordType/mapListRfToXy"
-import {mapListXyToRf} from "../coordType/mapListXyToRf";
 
 
 export function getKingThreats(board, sqr, color) {
@@ -13,7 +11,7 @@ export function getKingThreats(board, sqr, color) {
 
         sqr2 = rfToXy(sqr2)
 
-        if ((dist(sqr, sqr2) === 1 || dist(sqr, sqr2) == Math.sqrt(2)) &&
+        if ((dist(sqr, sqr2) === 1 || dist(sqr, sqr2) === Math.sqrt(2)) &&
             getSqrCase(board, sqr2[0], sqr2[1], color) === ENEMY &&
             board[xyToRf(...sqr2)][1] === "K"
         ) {

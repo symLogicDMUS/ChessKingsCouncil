@@ -1,4 +1,5 @@
 import React, {useMemo} from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
@@ -8,6 +9,7 @@ import {ProfileWBRangePiece} from "./ProfileWBRangePiece";
 import {stepFuncDict2} from "../../helpers/stepFuncs";
 import {outOfBounds as oob} from "../../helpers/oob";
 import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
+import {useStyles as useMoreStyles} from "./ProfileWB.jss";
 import { useStyles } from "./ProfileWBRange.jss";
 
 export const ProfileWBRange = ({
@@ -16,13 +18,14 @@ export const ProfileWBRange = ({
     pieceImgUrl,
     theme,
     color,
-    rangeType,
     range,
+    rangeType,
     openRangeModal,
     hasDrawerParent,
     screenCase
 }) => {
-    const classes = useStyles({ theme: theme, hasDrawerParent: hasDrawerParent });
+    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({theme: theme})
 
     const getSpanRf = (stepFuncName) => {
         const span = []
@@ -78,7 +81,6 @@ export const ProfileWBRange = ({
                         rf={rf}
                         key={rf}
                         theme={theme}
-                        isLightSqr={binaryBoard[rf]}
                         isInRange={rangeRfList.includes(rf)}
                         rangeType={rangeType}
                         screenCase={screenCase}
@@ -96,7 +98,6 @@ export const ProfileWBRange = ({
                         rf={rf}
                         key={rf}
                         theme={theme}
-                        isLightSqr={binaryBoard[rf]}
                         isInRange={rangeRfList.includes(rf)}
                         rangeType={rangeType}
                         screenCase={screenCase}
@@ -110,7 +111,10 @@ export const ProfileWBRange = ({
     };
 
     return (
-        <Box className={classes.profile_wb_range}>
+        <Box className={clsx(classes.profile_wb_range, {
+            [classes2.profile_wb_drawer_item]: hasDrawerParent,
+            [classes2.drawer_item_margins]: hasDrawerParent,
+        })}>
             <ProfileWBRangeHeader
                 theme={theme}
                 color={color}
@@ -118,7 +122,9 @@ export const ProfileWBRange = ({
                 openRangeModal={openRangeModal}
                 hasDrawerParent={hasDrawerParent}
             />
-            <Box className={classes.board_window}>
+            <Box className={clsx(classes.board_window, {
+                [classes2.profile_wb_drawer_item]: hasDrawerParent,
+            })}>
                 {getBoard()}
             </Box>
         </Box>

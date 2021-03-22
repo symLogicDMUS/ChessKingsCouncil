@@ -16,23 +16,16 @@ export const useStyles = makeStyles({
         '& .Mui-checked':{
             color: themes[props.theme].text
         },
-        ...props.rootStyle,
     }),
     text: props => ({
-        ...props.style,
-        ...props.textStyle,
         color: themes[props.theme].text,
     }),
     unchecked: props => ({
         ...checkbox,
-        ...props.style,
-        ...props.checkboxStyle,
         color: themes[props.theme].text,
     }),
     checked: props => ({
         ...checkbox,
-        ...props.style,
-        ...props.checkboxStyle,
         color: themes[props.theme].text,
     }),
 }, {index: 1});

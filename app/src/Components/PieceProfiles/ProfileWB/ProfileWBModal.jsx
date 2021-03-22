@@ -23,7 +23,7 @@ export function ProfileWBModal({
                     {getColorName(color)} {pieceName}
                 </Typography>
                 <Close
-                    style={close_icon()}
+                    classProp={classes.close_icon}
                     onClick={closeProfile}
                     theme={theme}
                 />

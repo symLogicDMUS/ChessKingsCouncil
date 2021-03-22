@@ -22,7 +22,7 @@ export function ImgButtonsModal({
                 <Box className={classes.top_flexbox}>
                     <Close
                         theme={theme}
-                        style={close_icon(fontSize002)}
+                        classProp={classes.close_icon}
                         onClick={close}
                     />
                 </Box>
@@ -31,7 +31,8 @@ export function ImgButtonsModal({
                         color={color}
                         id='choose-img'
                         theme={theme}
-                        style={button(fontSize002)}
+                        classProp={classes.button}
+                        addedClassProp={classes.upload_button}
                         setPieceImg={setPieceImg}
                         close={close}
                     />
@@ -39,7 +40,8 @@ export function ImgButtonsModal({
                         variant='contained'
                         onClick={() => showChooseModal(color)}
                         startIcon={<InsertPhotoIcon style={{fontSize: 'inherit'}} />}
-                        style={button(fontSize002)}
+                        classProp={classes.button}
+                        addedClassProp={classes.choose_button}
                         theme={theme}
                     >
                         Choose

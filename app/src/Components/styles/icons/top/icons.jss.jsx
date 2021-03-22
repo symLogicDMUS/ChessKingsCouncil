@@ -20,13 +20,21 @@ import {author_github_cutout} from "../main-menu/author_github_cutout.jss";
 import {chess_rules_cutout} from "../main-menu/chess_rules_cutout.jss";
 import {council_rules_cutout} from "../main-menu/council_rules_cutout.jss";
 import {right} from "../arrows/right.jss";
-import {up_right} from "../arrows/up-right.jss";
+import {up_right} from "../arrows/up_right.jss";
 import {up} from "../arrows/up.jss";
-import {up_left} from "../arrows/up-left.jss";
+import {up_left} from "../arrows/up_left.jss";
 import {left} from "../arrows/left.jss";
-import {down_left} from "../arrows/down-left.jss";
+import {down_left} from "../arrows/down_left.jss";
 import {down} from "../arrows/down.jss";
-import {down_right} from "../arrows/down-right.jss";
+import {down_right} from "../arrows/down_right.jss";
+import {right_bold} from "../arrows/bold/right_bold.jss";
+import {up_right_bold} from "../arrows/bold/up_right_bold.jss";
+import {up_bold} from "../arrows/bold/up_bold.jss";
+import {up_left_bold} from "../arrows/bold/up_left_bold.jss";
+import {left_bold} from "../arrows/bold/left_bold.jss";
+import {down_left_bold} from "../arrows/bold/down_left_bold.jss";
+import {down_bold} from "../arrows/bold/down_bold.jss";
+import {down_right_bold} from "../arrows/bold/down_right_bold.jss";
 import {white_img_icon} from "../other/white_img_icon";
 import {black_img_icon} from "../other/black_img_icon";
 import {bishop_filled} from "../sub-buttons/bishop-filled.jss";
@@ -80,14 +88,22 @@ export const icons = {
     knight_filled: knight_filled,
     knight_outline: knight_outline,
     account_circle: account_circle,
-    '0d': right,
-    '45d': up_right,
-    '90d': up,
-    '135d': up_left,
-    '180d': left,
-    '225d': down_left,
-    '270d': down,
-    '315d': down_right,
+    'desktop-0d': right,
+    'desktop-45d': up_right,
+    'desktop-90d': up,
+    'desktop-135d': up_left,
+    'desktop-180d': left,
+    'desktop-225d': down_left,
+    'desktop-270d': down,
+    'desktop-315d': down_right,
+    'mobile-0d': right_bold,
+    'mobile-45d': up_right_bold,
+    'mobile-90d': up_bold,
+    'mobile-135d': up_left_bold,
+    'mobile-180d': left_bold,
+    'mobile-225d': down_left_bold,
+    'mobile-270d': down_bold,
+    'mobile-315d': down_right_bold,
     save: save,
     save_as: save_as,
     resign: resign,

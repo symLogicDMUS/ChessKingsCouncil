@@ -6,10 +6,11 @@ import {Button} from "@material-ui/core";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useStyles } from "../../Reuseables/Clickables/MuiButton.jss";
 import {saveImg} from "../../../API/saveImg";
+import clsx from "clsx";
 
-export function UploadImgButton({color, id, setPieceImg, close, theme, style}) {
+export function UploadImgButton({color, id, setPieceImg, close, theme, classProp, addedClassProp}) {
 
-    const classes = useStyles({style: style, theme: theme});
+    const classes = useStyles({ theme: theme});
 
     const saveCopy = (file, uid) => {
         const filePartitions = file.name.split('.')
@@ -70,7 +71,10 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, style}) {
         <Button
             variant="contained"
             component="label"
-            className={classes.button}
+            className={clsx(classes.button, {
+                [classProp]: classProp,
+                [addedClassProp]: addedClassProp,
+            })}
             startIcon={<CloudUploadIcon style={{fontSize: 'inherit'}}/>}
         >
             Upload

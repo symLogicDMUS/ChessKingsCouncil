@@ -22,30 +22,17 @@ import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
 import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
-import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
-import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
-import {standardPieceDefs} from "../standardPieceDefs/dev1";
-import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
-import {
-    fontSize0023, fontSize0026, fontSizeW0045
-} from "../../styles/fontSizes.jss";
-import {
-    drawer_component,
-    ok_button,
-    pawn_promotion,
-    piece_profiles,
-    promo_all_gen,
-    promo_all_root,
-    promo_all_container,
-    promo_all_checkbox,
-    scroll_table_added,
-    scroll_table_button,
-    scroll_table, accordion_style, accordion_added,
-} from "./Customize.jss";
 import {difference} from "../../helpers/setOps";
-import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
 import {isSpecial} from "../../helpers/isSpecial";
+import {standardPieceDefs} from "../standardPieceDefs/dev1";
+import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
+import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
+import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
+import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
+import {fontSize0023, fontSize0026, fontSize004025, fontSizeW0045} from "../../styles/fontSizes.jss";
 import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {styles} from "./Customize.jss";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -318,7 +305,7 @@ class Customize extends React.Component {
                                         searchText={this.state.searchText}
                                         updateTheme={this.updateTheme}
                                         theme={this.state.theme}
-                                        style={piece_profiles('desktop')}
+                                        classProp={this.props.classes.piece_profiles}
                                     />
                                 </DrawerContent>
                             }
@@ -337,30 +324,33 @@ class Customize extends React.Component {
                             />
                             <ScrollTable
                                 numRows={6}
+                                width='20vw'
+                                fontSize={fontSize004025}
                                 listItems={this.promos}
-                                key='pawn-promotions-desktop'
                                 theme={this.state.theme}
-                                buttonStyle={scroll_table_button()}
-                                style={scroll_table('desktop')}
-                                addedStyle={drawer_component('desktop')}
+                                key='pawn-promotions-desktop'
+                                rootClassProp={this.props.classes.scroll_table}
+                                addedClassProp={this.props.classes.drawer_component}
+                                arrowButtonClassProp={this.props.classes.scroll_table_button}
+                                listItemClassProp={this.props.classes.scroll_table_list_item}
                                 title={
                                     <ListTitle theme={this.state.theme}>Pawn Promotions</ListTitle>
                                 }
                             />
-                            <Box style={promo_all_container('desktop')}>
+                            <Box className={this.props.classes.promo_all_container}>
                                 <MuiCheckbox
                                     theme={this.state.theme}
                                     onClick={this.togglePromoAll}
-                                    rootStyle={promo_all_root('desktop')}
-                                    checkboxStyle={promo_all_checkbox('desktop')}
-                                    style={promo_all_gen('desktop')}
+                                    rootClassProp={this.props.classes.promo_all_root}
+                                    checkboxClassProp={this.props.classes.promo_all_checkbox}
+                                    classProp={this.props.classes.promo_all_gen}
                                 >
                                     Promo All
                                 </MuiCheckbox>
                             </Box>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button('desktop')}
+                                classProp={this.props.classes.ok_button}
                                 theme={this.state.theme}
                                 variant={"contained"}
                             >
@@ -417,9 +407,8 @@ class Customize extends React.Component {
                             />
                             <MuiAccordion
                                 theme={this.state.theme}
-                                rootStyle={accordion_style('mobile')}
+                                // rootStyle={accordion_style('mobile')}
                                 neighborContentSize={modalHeights['mobile']}
-                                addedStyle={accordion_added('mobile')}
                             >
                                 {[
                                     {
@@ -436,22 +425,23 @@ class Customize extends React.Component {
                                         id: "pawn-promo",
                                         title: 'Pawn Promotion List',
                                         body: (
-                                            <div style={pawn_promotion('mobile')}>
+                                            <div className={this.props.classes.pawn_promotion}>
                                                 <ScrollTable
                                                     numRows={4}
                                                     listItems={this.promos}
                                                     key='pawn-promotions-mobile'
                                                     theme={this.state.theme}
-                                                    buttonStyle={scroll_table_button()}
-                                                    style={scroll_table('mobile')}
-                                                    addedStyle={scroll_table_added('mobile')}
+                                                    classProp={this.props.classes.scroll_table}
+                                                    addedClassProp={this.props.classes.scroll_table_added}
+                                                    arrowButtonClassProp={this.props.classes.scroll_table_button}
+                                                    listItemClassProp={this.props.classes.scroll_table_list_item}
                                                 />
                                                 <MuiCheckbox
                                                     theme={this.state.theme}
                                                     onClick={() => this.togglePromoAll()}
-                                                    rootStyle={promo_all_root('mobile')}
-                                                    checkboxStyle={promo_all_checkbox('mobile')}
-                                                    style={promo_all_gen('mobile')}
+                                                    rootClassProp={this.props.classes.promo_all_root}
+                                                    checkboxClassProp={this.props.classes.promo_all_checkbox}
+                                                    classProp={this.props.classes.promo_all_gen}
                                                 >
                                                     Promo All
                                                 </MuiCheckbox>
@@ -462,10 +452,10 @@ class Customize extends React.Component {
                             </MuiAccordion>
                             <Button
                                 onClick={this.accept}
-                                style={ok_button('mobile')}
-                                theme={this.state.theme}
-                                variant={"contained"}
                                 isDisabled={false}
+                                variant={"contained"}
+                                theme={this.state.theme}
+                                classProp={this.props.classes.ok_button}
                             >
                                 Ok
                             </Button>
@@ -477,4 +467,4 @@ class Customize extends React.Component {
     }
 }
 
-export default Customize;
+export default withStyles(styles)(Customize);

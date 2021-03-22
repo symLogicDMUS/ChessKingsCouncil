@@ -29,7 +29,6 @@ export const widths = {
 export const modalWidths = {
     mobile: availWidth(),
     desktop: availWidth() * 0.5,
-    ipx: availWidth(),
     ipad: availWidth() * 0.95,
 }
 
@@ -48,7 +47,6 @@ export const useStyles = makeStyles({
             height: modalHeights.mobile,
             width: modalWidths.mobile,
             marginTop: '0.05em',
-            ...props.style,
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             height: modalHeights.ipad,
@@ -57,13 +55,11 @@ export const useStyles = makeStyles({
             marginRight: 'auto',
             marginTop: '0.25em',
             marginBottom: '0.25em',
-            ...props.style,
         },
 
         '@media screen and (min-width: 1040px)': {
             height: modalHeights.desktop,
             width: modalWidths.desktop,
-            ...props.style,
         },
         borderRadius: '0.35em',
         backgroundColor: themes[props.theme].fill,

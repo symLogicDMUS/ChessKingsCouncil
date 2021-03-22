@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import {useMediaQuery} from "react-responsive";
@@ -9,7 +10,7 @@ import { Reset } from "./Reset";
 import {useStyles as useMoreStyles}
         from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
-import clsx from "clsx";
+import {LocationButton} from "../Location/LocationButton";
 
 export function Options({
     load,
@@ -26,10 +27,10 @@ export function Options({
     const isDesktop = useMediaQuery({query: '(min-width: 1040px)'})
 
     return (
-        <Box className={clsx(classes.options_tool, {
+        <Box className={clsx(classes2.four_button_group, {
             [classes2.tool_flexbox]: isDesktop,
         })}>
-            {isDesktop && (<Typography className={classes2.tool_title}>Options</Typography>)}
+            {isDesktop ? (<Typography className={classes2.tool_title}>Options</Typography>) : null}
             <Load theme={theme} load={load} />
             <Save
                 save={save}

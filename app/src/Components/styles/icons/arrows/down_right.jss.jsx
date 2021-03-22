@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const down_right=
+export const down_right =
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 6.587 6.919">
   <g id="layer1" transform="translate(-0.37 0.167)">
     <g id="g921" transform="translate(27.477 9.914) rotate(45)">

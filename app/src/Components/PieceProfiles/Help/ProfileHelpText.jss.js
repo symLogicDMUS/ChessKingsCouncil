@@ -3,11 +3,8 @@ import {themes} from "../../styles/themes.jss";
 import {board} from "../../Reuseables/Board/Board.jss";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {
-    fontSize002,
     fontSize00219,
     fontSize0025,
-    fontSizeW0028,
-    fontSizeW0031, fontSizeW0035,
     fontSizeW0045,
     fontSizeW005,
 } from "../../styles/fontSizes.jss";

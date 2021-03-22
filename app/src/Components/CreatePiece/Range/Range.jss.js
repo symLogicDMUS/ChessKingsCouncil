@@ -3,23 +3,6 @@ import {viewWidth} from "../../helpers/windowMeasurments";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {fontSize0015} from "../../styles/fontSizes.jss";
 
-export const scroll_table_style = () => {
-    if (viewWidth() <= 1040) {
-        return {
-            width: '17.5vw',
-            height: 11,
-            fontSize: fontSize0015,
-        }
-    }
-    else {
-        return {
-            width: '9em',
-            height: 9,
-            fontSize: (drawerWidth - 55)*0.5*0.333*0.333,
-        }
-    }
-};
-
 export const useStyles = makeStyles({
     range_tool: props => ({
         display: 'flex',
@@ -59,4 +42,19 @@ export const useStyles = makeStyles({
             width: 65 * 8 * 0.1,
         },
     }),
+    scroll_table_style: props => ({
+        '@media screen and (min-width: 1040px)': {
+            width: '9em',
+            height: 9,
+            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
+        },
+    }),
+    scroll_table_list_item: props => ({
+        fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
+        height: '1.8em',
+    }),
+    scroll_table_arrow_button: props => ({
+        borderRadius: 0,
+    }),
 }, {index: 1});
+

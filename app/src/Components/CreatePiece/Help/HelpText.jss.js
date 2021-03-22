@@ -1,7 +1,6 @@
-import {help_text, help_title} from "../../Reuseables/NavBar/Help/HelpText.jss";
+import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {def} from "../../PieceProfiles/Help/dockerDef";
 
 export const inline_text = (fontSize, theme) => ({
     ...help_text(fontSize * 1.1, theme),

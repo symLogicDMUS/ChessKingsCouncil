@@ -1,23 +1,25 @@
 import React from "react";
+import clsx from "clsx";
 import { Avatar } from "@material-ui/core";
-import { fontSize00301 as fontSize } from "../../styles/fontSizes.jss";
 import { useStyles } from "./CreatePiecePiece.jss";
+import { binaryBoard } from "../../helpers/binaryBoard";
 
-export function CreatePiecePiece({ pieceImgBase64Str, rf, theme, isLightSqr }) {
+export function CreatePiecePiece({ imgUrl, rf, theme }) {
     const classes = useStyles({
-        fontSize: fontSize,
         theme: theme,
-        isLightSqr: isLightSqr,
     });
 
     return (
         <>
-            {pieceImgBase64Str ? (
-                <img src={pieceImgBase64Str} className={classes.img} />
+            {imgUrl ? (
+                <img src={imgUrl} className={classes.img} />
             ) : (
                 <Avatar
                     variant="square"
-                    className={classes.piece}
+                    className={clsx(classes.piece, {
+                        [classes.light_sqr_text]: binaryBoard[rf],
+                        [classes.dark_sqr_text]: !binaryBoard[rf],
+                    })}
                 >
                     {rf}
                 </Avatar>

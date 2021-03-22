@@ -54,7 +54,7 @@ export function SavedGames(props) {
                                         </Box>
                                         <SearchBox theme={props.theme}
                                                    updateSearchText={props.updateSearchText}
-                                                   style={{alignSelf: 'flex-end', marginRight: '2.25vw', transform: 'translate(0, -1em)'}}
+                                                   classProp={classes.search_box}
                                                    width='20em'
                                         />
                                     </>
@@ -65,7 +65,7 @@ export function SavedGames(props) {
                                 loaded={props.loaded}
                                 onOkClick={props.load}
                                 defaultChecked={props.showNames}
-                                rootStyle={imgGridRootStyle()}
+                                rootClassProp={classes.img_grid_root}
                                 searchText={props.searchText}
                                 onDeleteClick={props.deleteGame}
                                 selectedItem={props.selectedGame}
@@ -96,13 +96,13 @@ export function SavedGames(props) {
                     }
                     appBarContent={
                         <>
-                            <Typography variant="subtitle1" noWrap style={pageTitleStyle()}>
+                            <Typography variant="subtitle1" noWrap style={pageTitleStyle}>
                                 Load Game
                             </Typography>
                             <SearchBox
                                 width='20em'
                                 theme={props.theme}
-                                style={search_box('mobile')}
+                                classProp={classes.search_box}
                                 updateSearchText={props.updateSearchText}
                             />
                         </>
@@ -124,14 +124,6 @@ export function SavedGames(props) {
                         }
                         topFlexbox={null}
                         onClose={null}
-                        // title={
-                        //     <SearchBox
-                        //         width='20em'
-                        //         theme={props.theme}
-                        //         style={search_box('mobile')}
-                        //         updateSearchText={props.updateSearchText}
-                        //     />
-                        // }
                     >
                         {props.children}
                     </MuiGrid>

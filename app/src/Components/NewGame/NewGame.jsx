@@ -23,8 +23,7 @@ import {useStyles} from "./NewGame.jss";
 
 
 function NewGame() {
-    let history = useHistory();
-
+    const history = useHistory();
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
@@ -117,14 +116,6 @@ function NewGame() {
                             predicate={(c) => charNotInStr(c, gameName)}
                             key='Play-Button-Desktop'
                         />
-                        {/*<Button size='large' variant='contained' onClick={() => {*/}
-                        {/*    updateGameType('Custom')*/}
-                        {/*    updatePlayerType('W')*/}
-                        {/*    updateGameName('a')*/}
-                        {/*}}*/}
-                        {/*>*/}
-                        {/*    developer test*/}
-                        {/*</Button>*/}
                     </Box>
                     {confirmModal ? (
                         <ConfirmStandard
@@ -157,7 +148,7 @@ function NewGame() {
                             />
                         }
                         appBarContent={
-                            <Typography variant='subtitle1' style={pageTitleStyle()} noWrap>
+                            <Typography variant='subtitle1' style={pageTitleStyle} noWrap>
                                 New Game
                             </Typography>
                         }

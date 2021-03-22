@@ -78,4 +78,20 @@ export const useStyles = makeStyles({
     item_active: props => ({
         outline: 'none',
     }),
+    ok_button: props => ({
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizes.mobile,
+            width: promoChoicesWidth.mobile,
+            height: buttonHeight.mobile,
+        },
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSizes.desktop,
+            width: promoChoicesWidth.desktop,
+            height: buttonHeight.desktop,
+        },
+        borderRadius: "0.8em",
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+        backgroundColor: themes[props.theme].fill,
+    }),
 }, {index: 1});

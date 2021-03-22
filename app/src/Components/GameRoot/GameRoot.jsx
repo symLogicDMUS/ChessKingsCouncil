@@ -404,7 +404,7 @@ class GameRoot extends React.Component {
                                     ) : null}
                                     <MuiCheckbox
                                         theme={this.state.theme}
-                                        rootStyle={sqr_text_checkbox()}
+                                        rootClassProp={this.props.classes.sqr_text_checkbox}
                                         defaultChecked={this.state.showProfileOnClick}
                                         onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
                                     >
@@ -450,7 +450,7 @@ class GameRoot extends React.Component {
                                         ) : null}
                                         <MuiCheckbox
                                             theme={this.state.theme}
-                                            rootStyle={sqr_text_checkbox()}
+                                            rootClassProp={this.props.classes.sqr_text_checkbox}
                                             defaultChecked={this.state.showProfileOnClick}
                                             onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
                                         >
@@ -471,82 +471,82 @@ class GameRoot extends React.Component {
                         neighborOpen={this.state.secondaryDrawer}
                     >
                         <Board gameRoot={this}/>
-                        <MuiAccordion
-                            theme={this.state.theme}
-                            rootStyle={accordion_root()}
-                            neighborContentSize={boardSizes.mobile}
-                        >
-                            {[
-                                {
-                                    id: "game-info",
-                                    title: 'Game Info',
-                                    body: (
-                                        <GameInfo
-                                            gameName={this.gameName}
-                                            gameType={this.gameType}
-                                            playerType={this.playerType}
-                                            theme={this.state.theme}
-                                        />
-                                    ),
-                                },
-                                {
-                                    id: "save-resign",
-                                    title: 'Save / Resign',
-                                    body: (
-                                        <SaveResignTool
-                                            triggerSaveProcess={() =>
-                                                this.toggleSaveProcess(true)
-                                            }
-                                            save={this.save}
-                                            resign={this.resign}
-                                            theme={this.state.theme}
-                                            changeName={this.changeName}
-                                            isSaveMessage={this.state.isSaveMessage}
-                                            messageCallback={() =>
-                                                this.setState({
-                                                    isSaveMessage: false,
-                                                })
-                                            }
-                                        />
-                                    ),
-                                },
-                                {
-                                    id: "range-display",
-                                    title: 'Range Display Board',
-                                    body: (
-                                        <BoardTool
-                                            board={this.board}
-                                            theme={this.state.theme}
-                                            gameType={this.gameType}
-                                            screenCase='mobile'
-                                            allRanges={{
-                                                ...this.ranges,
-                                                ...this.enemyRanges,
-                                            }}
-                                            pieceDefs={this.defs}
-                                            idDict={this.idDict}
-                                            triggerRender={this.triggerRender}
-                                            toggleSecondaryDrawer={this.toggleSecondaryDrawer}
-                                            showProfileOnClick={this.state.showProfileOnClick}
-                                        />
-                                    ),
-                                },
-                                {
-                                    id: "captured-pieces-mobile",
-                                    title: "Captured Pieces",
-                                    body: (
-                                        <CapturedPieceImages
-                                            captured={this.captured}
-                                            capturedIds={this.capturedIds}
-                                            idDict={this.idDict}
-                                            defs={this.defs}
-                                            gameType={this.gameType}
-                                            theme={this.state.theme}
-                                        />
-                                    ),
-                                },
-                            ]}
-                        </MuiAccordion>
+                        {/*<MuiAccordion*/}
+                        {/*    theme={this.state.theme}*/}
+                        {/*    rootStyle={accordion_root()}*/}
+                        {/*    neighborContentSize={boardSizes.mobile}*/}
+                        {/*>*/}
+                        {/*    {[*/}
+                        {/*        {*/}
+                        {/*            id: "game-info",*/}
+                        {/*            title: 'Game Info',*/}
+                        {/*            body: (*/}
+                        {/*                <GameInfo*/}
+                        {/*                    gameName={this.gameName}*/}
+                        {/*                    gameType={this.gameType}*/}
+                        {/*                    playerType={this.playerType}*/}
+                        {/*                    theme={this.state.theme}*/}
+                        {/*                />*/}
+                        {/*            ),*/}
+                        {/*        },*/}
+                        {/*        {*/}
+                        {/*            id: "save-resign",*/}
+                        {/*            title: 'Save / Resign',*/}
+                        {/*            body: (*/}
+                        {/*                <SaveResignTool*/}
+                        {/*                    triggerSaveProcess={() =>*/}
+                        {/*                        this.toggleSaveProcess(true)*/}
+                        {/*                    }*/}
+                        {/*                    save={this.save}*/}
+                        {/*                    resign={this.resign}*/}
+                        {/*                    theme={this.state.theme}*/}
+                        {/*                    changeName={this.changeName}*/}
+                        {/*                    isSaveMessage={this.state.isSaveMessage}*/}
+                        {/*                    messageCallback={() =>*/}
+                        {/*                        this.setState({*/}
+                        {/*                            isSaveMessage: false,*/}
+                        {/*                        })*/}
+                        {/*                    }*/}
+                        {/*                />*/}
+                        {/*            ),*/}
+                        {/*        },*/}
+                        {/*        {*/}
+                        {/*            id: "range-display",*/}
+                        {/*            title: 'Range Display Board',*/}
+                        {/*            body: (*/}
+                        {/*                <BoardTool*/}
+                        {/*                    board={this.board}*/}
+                        {/*                    theme={this.state.theme}*/}
+                        {/*                    gameType={this.gameType}*/}
+                        {/*                    screenCase='mobile'*/}
+                        {/*                    allRanges={{*/}
+                        {/*                        ...this.ranges,*/}
+                        {/*                        ...this.enemyRanges,*/}
+                        {/*                    }}*/}
+                        {/*                    pieceDefs={this.defs}*/}
+                        {/*                    idDict={this.idDict}*/}
+                        {/*                    triggerRender={this.triggerRender}*/}
+                        {/*                    toggleSecondaryDrawer={this.toggleSecondaryDrawer}*/}
+                        {/*                    showProfileOnClick={this.state.showProfileOnClick}*/}
+                        {/*                />*/}
+                        {/*            ),*/}
+                        {/*        },*/}
+                        {/*        {*/}
+                        {/*            id: "captured-pieces-bold",*/}
+                        {/*            title: "Captured Pieces",*/}
+                        {/*            body: (*/}
+                        {/*                <CapturedPieceImages*/}
+                        {/*                    captured={this.captured}*/}
+                        {/*                    capturedIds={this.capturedIds}*/}
+                        {/*                    idDict={this.idDict}*/}
+                        {/*                    defs={this.defs}*/}
+                        {/*                    gameType={this.gameType}*/}
+                        {/*                    theme={this.state.theme}*/}
+                        {/*                />*/}
+                        {/*            ),*/}
+                        {/*        },*/}
+                        {/*    ]}*/}
+                        {/*</MuiAccordion>*/}
                     </PersistentDrawer>
                 </MediaQuery>
             </>

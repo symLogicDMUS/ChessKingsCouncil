@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import Box from "@material-ui/core/Box";
 import clsx from "clsx";
+import Box from "@material-ui/core/Box";
+import SvgIcon from "@material-ui/core/SvgIcon";
 import { Button, Portal, Typography } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { MuiButton } from "../Clickables/MuiButton";
-import { button } from "../Modals/StandardModal.jss";
 import { StandardModal } from "../Modals/StandardModal";
-import { fontSize002 } from "../../styles/fontSizes.jss";
+import { useStyles as useMoreStyles } from "../Modals/StandardModal.jss";
 import { useStyles } from "./NavBarButton.jss";
 
 export function NavBarButton({
@@ -18,17 +17,17 @@ export function NavBarButton({
     screenCase,
     isLocalLink,
     isUnsavedChanges,
-    currentPage,
     theme,
 }) {
-    let history = useHistory();
-    let [hover, setHover] = useState(false);
-    let [redirectModal, toggleRedirectModal] = useState(false);
+    const history = useHistory();
+    const [hover, setHover] = useState(false);
+    const [redirectModal, toggleRedirectModal] = useState(false);
 
     const classes = useStyles({
         theme: theme,
         screenCase: screenCase,
     });
+    const classes2 = useMoreStyles({ theme });
 
     const goToPage = () => {
         if (isLocalLink) {
@@ -56,7 +55,8 @@ export function NavBarButton({
                     >
                         <MuiButton
                             onClick={() => goToPage()}
-                            style={button(fontSize002)}
+                            classProp={classes2.button}
+                            addedClassProp={classes2.yes_button}
                             variant={"contained"}
                             theme={theme}
                         >
@@ -64,7 +64,8 @@ export function NavBarButton({
                         </MuiButton>
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
-                            style={button(fontSize002)}
+                            classProp={classes2.button}
+                            addedClassProp={classes2.no_button}
                             variant={"contained"}
                             theme={theme}
                         >

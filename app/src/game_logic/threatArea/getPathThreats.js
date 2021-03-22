@@ -1,8 +1,5 @@
 import {getPathdataDict} from "../pathsInfo/top/getpathDataDict";
 import {getIndexFirstPiece} from "../pathsInfo/getIndexFirstPiece";
-import {getStandardPieceDefs} from "../testObjects/getStandardPieceDefs";
-import {getStandardIdDict} from "../testObjects/getStandardIdDict";
-
 
 export function getPathThreats(board, sqr, color, pieceDefs, idDict) {
     /*get all squares that are path threats to sqr**/
@@ -13,7 +10,7 @@ export function getPathThreats(board, sqr, color, pieceDefs, idDict) {
         if (pathDict[direction].pieces.length === 0) {
             continue
         }
-        if (pathDict[direction].statuses[0] != 'e') {
+        if (pathDict[direction].statuses[0] !== 'e') {
             continue
         }
         if (! pathDict[direction].pieceMatchesPath[0]) {
@@ -24,5 +21,3 @@ export function getPathThreats(board, sqr, color, pieceDefs, idDict) {
     }
     return pathThreats
 }
-
-// module.exports = getPathThreats;

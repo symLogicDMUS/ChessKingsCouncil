@@ -2,12 +2,10 @@ import {makeStyles} from "@material-ui/core/styles";
 import {availHeight, availWidth} from "../helpers/windowMeasurments";
 import {getTextWidth} from "../helpers/getTextWidth.jss";
 import {
-    fontSize0016,
     fontSize002,
-    fontSize0023,
-    fontSize00301, fontSize0040, fontSize0050,
-    fontSizeW01, fontSize0067,
-    fontSize01, fontSize018, fontSize00219,
+    fontSize00301,
+    fontSizeW01,
+    fontSize01, fontSize018,
 } from "../styles/fontSizes.jss";
 import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 

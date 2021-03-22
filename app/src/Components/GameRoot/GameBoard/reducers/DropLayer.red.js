@@ -10,7 +10,7 @@ import {getStandardPieceImg} from "../../../MyPieces/getStandardPieceImg";
  * @param action: either delete a piece or update its position.
  * @returns {*}
  */
-export function reducer(state, action) {
+export const reducer = (state, action) => {
     let pieces;
     switch (action.type) {
         case "update":
@@ -68,4 +68,4 @@ export function reducer(state, action) {
         default:
             throw new Error();
     }
-}
+};

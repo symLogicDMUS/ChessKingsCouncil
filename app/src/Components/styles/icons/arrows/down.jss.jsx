@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const down =
-
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 1.149 6.35">
   <g id="layer1" transform="translate(-2.601 0)">
     <g id="g851" transform="translate(21.966 -3.276)">

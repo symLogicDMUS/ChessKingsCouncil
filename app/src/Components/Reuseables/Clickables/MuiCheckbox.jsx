@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Checkbox from "@material-ui/core/Checkbox";
 import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
@@ -12,11 +13,9 @@ import { useStyles } from "./MuiCheckbox.jss";
  * @param checkmarkState
  * @param defaultChecked
  * @param rootStyle: Object
- * @param checkboxStyle: Object
- * @param textStyle: Object
+ * @param classProp
  * @param textVariant: string
  * @param classesObj: Object
- * @param surroundingCircleStyle: Object
  * @param style: Object, (style.fontSize is required)
  * @param children: string, text for form label
  * @returns {JSX.Element}
@@ -26,21 +25,17 @@ export function MuiCheckbox({
     onClick,
     checkmarkState,
     defaultChecked,
-    rootStyle,
     theme,
     classesObj,
     textVariant,
-    style,
-    textStyle,
-    checkboxStyle,
-    surroundingCircleStyle,
+    classProp,
+    addedClassProp,
+    rootClassProp,
+    textClassProp,
+    checkboxClassProp,
     children,
 }) {
     const classes = useStyles({
-        style,
-        rootStyle,
-        checkboxStyle,
-        textStyle,
         theme,
     });
 
@@ -51,21 +46,45 @@ export function MuiCheckbox({
                     onClick={onClick}
                     icon={
                         <CheckBoxOutlineBlankIcon
-                            className={classes.unchecked}
+                            className={clsx(classes.unchecked, {
+                                [classProp]: classProp,
+                                [addedClassProp]: addedClassProp,
+                                [checkboxClassProp]: checkboxClassProp,
+                            })}
                         />
                     }
                     checkedIcon={
-                        <CheckBoxIcon className={classes.checked} />
+                        <CheckBoxIcon
+                            className={clsx(classes.checked, {
+                                [classProp]: classProp,
+                                [addedClassProp]: addedClassProp,
+                                [checkboxClassProp]: checkboxClassProp,
+                            })}
+                        />
                     }
                     checked={checkmarkState}
                     defaultChecked={defaultChecked}
-                    style={surroundingCircleStyle}
                     name="checkbox"
                 />
             }
             classes={classesObj}
-            className={classes.form_control_label_root}
-            label={<Typography className={classes.text} variant={textVariant}>{children}</Typography>}
+            className={clsx(classes.form_control_label_root, {
+                [classProp]: classProp,
+                [addedClassProp]: addedClassProp,
+                [rootClassProp]: rootClassProp,
+            })}
+            label={
+                <Typography
+                    className={clsx(classes.text, {
+                        [classProp]: classProp,
+                        [addedClassProp]: addedClassProp,
+                        [textClassProp]: textClassProp,
+                    })}
+                    variant={textVariant}
+                >
+                    {children}
+                </Typography>
+            }
             labelPlacement="start"
         />
     );

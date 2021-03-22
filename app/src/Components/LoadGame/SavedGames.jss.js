@@ -5,34 +5,6 @@ import {heights, widths} from "../Reuseables/Modals/MuiGrid.jss";
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 
-export const imgGridRootStyle = () => ({
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-    marginLeft: '-45vw',
-    marginTop: '-37.665vh',
-});
-
-export const button = (fontSize) => ({
-    fontSize: fontSize,
-    width: '48%',
-    height: '2em',
-});
-
-export const search_box = (screenCase) => {
-    switch (screenCase) {
-        case 'mobile':
-            return {
-                marginTop: '-0.5em', marginBottom: '0.75em',
-                transform: 'translate(0, 13px)',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-            }
-        default:
-            return null;
-    }
-};
-
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
@@ -85,5 +57,25 @@ export const useStyles = makeStyles({
         width: '3em',
         marginLeft: '0.25em',
         color: themes[props.theme].text,
+    }),
+    img_grid_root: props => ({
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        marginLeft: '-45vw',
+        marginTop: '-37.665vh',
+    }),
+    search_box: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginTop: '-0.5em', marginBottom: '0.75em',
+            transform: 'translate(0, 13px)',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+        },
+        '@media screen and (min-width: 1040px)': {
+            alignSelf: 'flex-end',
+            marginRight: '2.25vw',
+            transform: 'translate(0, -1em)'
+        },
     }),
 }, {index: 1});

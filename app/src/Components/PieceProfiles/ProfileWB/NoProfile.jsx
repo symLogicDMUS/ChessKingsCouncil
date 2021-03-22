@@ -10,7 +10,7 @@ export function NoProfile({pieceName, imgUrl, closeProfile, theme}) {
         <Box className={classes.profile_flexbox}>
             <Box className={classes.profile_top}>
                 <Close
-                    style={close_icon()}
+                    classProp={classes.close_icon}
                     onClick={closeProfile}
                     theme={theme}
                 />

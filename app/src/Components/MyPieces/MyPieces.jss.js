@@ -1,7 +1,7 @@
 import {availHeight, viewHeight} from "../helpers/windowMeasurments";
 import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
-// mobile
+// bold
 export const piece_profiles = () => ({
     height: (viewHeight() - appBarHeight)*0.98,
 });

@@ -1,8 +1,5 @@
 import {getIndexAttackingPiece} from "./getIndexAttackingPiece";
 import {getSubPath} from "../pathsInfo/getSubPath";
-import {PathData} from "../pathsInfo/PathData";
-
-
 
 export function getPin(pathData) {
     /*return the id of the piece that is pinned, &&  the coordinate path it is pinned to**/

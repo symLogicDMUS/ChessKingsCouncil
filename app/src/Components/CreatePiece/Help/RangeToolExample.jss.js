@@ -1,8 +1,7 @@
 import {
     fontSize00184,
     fontSize0019, fontSize002,
-    fontSize00224,
-    fontSizeW0035
+    fontSize00224
 } from "../../styles/fontSizes.jss";
 import { makeStyles } from "@material-ui/core/styles";
 

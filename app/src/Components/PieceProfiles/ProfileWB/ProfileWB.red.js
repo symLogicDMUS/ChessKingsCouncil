@@ -1,7 +1,4 @@
 import React from "react";
-import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
-import {stepFuncNamesToText} from "../../helpers/spanToText";
-import {offsetToText} from "../../helpers/offsetToText";
 
 export function reducer(state, action) {
     switch (action.type) {

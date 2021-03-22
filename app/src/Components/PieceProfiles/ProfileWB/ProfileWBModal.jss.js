@@ -1,33 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {
-    fontSize0015,
-    fontSize00224,
-    fontSize0023,
-    fontSize0032,
-} from "../../styles/fontSizes.jss";
-import {
-    profileHeight,
-    profileWidth
-} from "../../GameRoot/BoardTool/BoardTool.jss";
+import {profileHeight, profileWidth} from "../../GameRoot/BoardTool/BoardTool.jss";
+import {fontSize0015, fontSize00224, fontSize0023, fontSize0032,} from "../../styles/fontSizes.jss";
 
 export const fontSizes = {
     desktop: fontSize0032,
     mobile: fontSize0015,
     ipad: fontSize00224,
 }
-
-export const close_icon = () => ({
-    fontSize: fontSize0023,
-    '@media screen and (min-width: 1040px)': {
-        width: "1.5em",
-        height: "1.5em",
-    },
-    '@media screen and (max-width: 1040px)': {
-        width: "0.5em",
-        height: "0.5em",
-    },
-});
 
 export const useStyles = makeStyles({
     profile_top: props => ({
@@ -129,5 +109,15 @@ export const useStyles = makeStyles({
             marginLeft: '0.5em',
         },
     }),
-
+    close_icon: props => ({
+        fontSize: fontSize0023,
+        '@media screen and (min-width: 1040px)': {
+            width: "1.5em",
+            height: "1.5em",
+        },
+        '@media screen and (max-width: 1040px)': {
+            width: "0.5em",
+            height: "0.5em",
+        },
+    }),
 }, {index: 1});

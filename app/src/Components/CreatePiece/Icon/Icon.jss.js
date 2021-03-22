@@ -1,6 +1,5 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {tool_title} from "../CreatePiece.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 
@@ -11,14 +10,12 @@ export const useStyles = makeStyles({
             marginLeft: '3.5%',
         },
     }),
-    img_windows: props => ({
+    img_windows_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 1040px)': {
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'nowrap',
-        },
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'nowrap',
     }),
     title: props => ({
         fontSize: availHeight() * 0.018,

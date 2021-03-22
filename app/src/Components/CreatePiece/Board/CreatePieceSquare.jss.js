@@ -1,7 +1,7 @@
 /**
  * see ChessKingsCouncil/app/src/Reuseables/Square.jss
  * */
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
@@ -11,12 +11,14 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         alignContent: "center",
-        "&:hover": {
-            backgroundColor: themes[props.theme].sqr_hover
-        },
         '@media screen and (max-width: 1040px)': {
-            maxWidth: '10vh',
-            maxHeight: '10vh',
+            maxWidth: '11vh',
+            maxHeight: '11vh',
+        },
+    }),
+    on_hover: props => ({
+        '&:hover': {
+            backgroundColor: themes[props.theme].sqr_hover
         },
     }),
 }, {index: 1});

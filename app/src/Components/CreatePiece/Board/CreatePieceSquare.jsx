@@ -1,12 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import {themes} from "../../styles/themes.jss";
 import {sqrSize} from "./CreatePieceBoard.jss";
 import {getOffset} from "../../helpers/getOffset";
-import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
+import {binaryBoard} from "../../helpers/binaryBoard";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
-import {useStyles as useMoreStyles} from "./CreatePieceSquare.jss"
+import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {useStyles} from "../../Reuseables/Board/Square.jss";
+import {useStyles as useMoreStyles} from "./CreatePieceSquare.jss"
 
 export function CreatePieceSquare({
     rf,
@@ -16,9 +16,9 @@ export function CreatePieceSquare({
     screenCase,
     isSpan,
     isOffset,
-    isLightSqr,
     showSpanText,
     showOffsetText,
+    hasToolChild,
     children,
 }) {
     const classes = useStyles({
@@ -28,26 +28,33 @@ export function CreatePieceSquare({
     });
     const classes2 = useMoreStyles({theme: theme});
 
+    const handleClick = () => {
+        if (! hasToolChild) {
+            toggleOffset(rf, getOffset(rf, pieceLoc))
+        }
+    };
+
     return (
         <div
-            onClick={() => toggleOffset(rf, getOffset(rf, pieceLoc))}
+            onClick={handleClick}
             className={clsx(classes2.square, {
                 [classes.square]: true,
-                [classes.light_normal]: isLightSqr,
-                [classes.dark_normal]: ! isLightSqr,
+                [classes.light_normal]: binaryBoard[rf],
+                [classes.dark_normal]: ! binaryBoard[rf],
+                [classes2.on_hover]: ! hasToolChild,
                 [classes.offset]: isOffset,
                 [classes.span]: isSpan,
             })}
-            key={rf}
         >
-            {(isSpan && showSpanText) ? (
+            {(isSpan && showSpanText && ! hasToolChild) ? (
                 <SpanLabel theme={theme}/>
             ) : null}
             {children}
-            {(isOffset && ! isSpan && showOffsetText) ? (
+            {(isOffset && ! isSpan && showOffsetText ) ? (
                 <OffsetLabel
-                    offset={getOffset(rf, pieceLoc)}
                     theme={theme}
+                    hasToolChild={hasToolChild}
+                    offset={getOffset(rf, pieceLoc)}
                 />
             ) : null}
         </div>

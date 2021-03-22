@@ -1,5 +1,4 @@
 import { flipKeysValues } from "../../Components/helpers/flipKeysValues";
-import {sampleBoardDicts} from "../../game_logic/testObjects/sampleBoardDicts";
 import {shuffle} from "../../Components/helpers/shuffleArray";
 
 

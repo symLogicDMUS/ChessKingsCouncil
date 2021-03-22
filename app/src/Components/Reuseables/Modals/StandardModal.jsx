@@ -3,8 +3,7 @@ import { Close } from "./Close";
 import "../../styles/scrollbar.scss";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
-import { fontSize002 } from "../../styles/fontSizes.jss";
-import { close_icon, useStyles } from "./StandardModal.jss";
+import { useStyles } from "./StandardModal.jss";
 
 export function StandardModal({ text, title, theme, closeClick, children }) {
     const classes = useStyles({ theme: theme });
@@ -15,7 +14,7 @@ export function StandardModal({ text, title, theme, closeClick, children }) {
                 <Box className={classes.top_flexbox}>
                     <Close
                         onClick={closeClick}
-                        style={close_icon(fontSize002)}
+                        classProp={classes.close_icon}
                         theme={theme}
                     />
                 </Box>

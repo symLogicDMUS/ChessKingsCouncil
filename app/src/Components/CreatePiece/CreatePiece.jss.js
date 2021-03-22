@@ -3,12 +3,6 @@ import {themes} from "../styles/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
-export const sqrTextCheckbox = {
-    marginLeft: 0,
-    flexDirection: 'row-reverse',
-};
-
-
 export const styles = {
     modal: {
         ...modal,
@@ -19,6 +13,10 @@ export const styles = {
     box: props => ({
         fontSize: fontSize002,
         display: 'flex',
+    }),
+    sqr_text_checkbox: props => ({
+        marginLeft: 0,
+        flexDirection: 'row-reverse',
     }),
 };
 
@@ -34,17 +32,18 @@ export const useStyles = makeStyles({
             width: '15vw',
             height: '15vw',
             fontSize: '4.5vw',
+            borderRadius: '0.2rem',
         },
         '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize002,
+            width: '3.875vw',
+            height: '3.875vw',
             margin: 'unset',
-            width: '3.5em',
-            height: '3.5em',
+            fontSize: '1.1625vw',
+            borderRadius: '0.25em',
         },
         minWidth: 0,
         minHeight: 0,
         color: themes[props.theme].text,
-        borderRadius: '0.25em',
     }),
     tool_flexbox: props => ({
         width: '93%',
@@ -71,5 +70,16 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
+    }),
+    four_button_group: props => ({
+        width: '93%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+    }),
+    icon_button: props => ({
+        border: `0.04em solid ${themes[props.theme].outline}`
     }),
 }, {index: 1});

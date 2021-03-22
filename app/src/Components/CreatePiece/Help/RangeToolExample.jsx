@@ -33,11 +33,8 @@ export function RangeToolExample({theme}) {
                     listItems={getSpanTextLabels()}
                     numRows={5}
                     theme={theme}
-                    style={{
-                        width: widths.desktop,
-                        height: heights.desktop,
-                        fontSize: fontSizes.desktop,
-                    }}
+                    width={widths.desktop}
+                    fontSize={fontSizes.desktop}
                     buttonStyle={{borderRadius: 0}}
                 />
             </MediaQuery>
@@ -46,11 +43,8 @@ export function RangeToolExample({theme}) {
                     listItems={getSpanTextLabels()}
                     numRows={5}
                     theme={theme}
-                    style={{
-                        width: widths['mobile'],
-                        height: heights['mobile'],
-                        fontSize: fontSizes['mobile'],
-                    }}
+                    width={widths.mobile}
+                    fontSize={fontSizes.mobile}
                     buttonStyle={{borderRadius: 0}}
                 />
             </MediaQuery>

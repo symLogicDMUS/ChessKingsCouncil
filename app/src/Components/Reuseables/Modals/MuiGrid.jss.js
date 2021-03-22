@@ -1,31 +1,6 @@
-import {fontSize001685} from "../../styles/fontSizes.jss";
+import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-
-export const close_icon = (fontSize) => ({
-    fontSize: fontSize,
-    width: '1.5em',
-    height: '1.5em',
-});
-
-export const button = (fontSize) => ({
-    fontSize: fontSize,
-    width: '7.5em',
-    height: '2.25em',
-    marginTop: '0.75em',
-    marginBottom: '0.75em',
-});
-
-export const show_names_gen = (screenCase) => {
-    switch (screenCase) {
-        case 'mobile':
-            return {
-                fontSize: fontSize001685
-            }
-        default:
-            return null;
-    }
-};
 
 export const useStyles = makeStyles({
     window: props => ({
@@ -89,6 +64,17 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             marginRight: '1.25vw',
+        },
+    }),
+    close_icon: props => ({
+        fontSize: fontSize002,
+        width: '1.5em',
+        height: '1.5em',
+    }),
+    show_names_gen: props => ({
+        /*media query for phones/tablets (generalized)*/
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSize001685,
         },
     }),
 }, {index: 1});

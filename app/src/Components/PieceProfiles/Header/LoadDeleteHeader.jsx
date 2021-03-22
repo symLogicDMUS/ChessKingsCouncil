@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import { useHistory } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -7,23 +8,24 @@ import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
-import {delete_icon, icon, useStyles} from "./LoadDeleteHeader.jss";
 import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
+import {useStyles as useMoreStyles}
+    from "../../PieceProfiles/Header/ProfileHeader.jss"
+import {useStyles} from "./LoadDeleteHeader.jss";
 
 export function LoadDeleteHeader({
     def,
     load,
     theme,
-    style,
     dispatch,
     pieceName,
     parentPage,
     toggleModal,
-    screenCase,
 }) {
     let history = useHistory();
 
-    const classes = useStyles({theme: theme, style: style});
+    const classes = useStyles({theme: theme});
+    const classes2 = useMoreStyles({theme: theme});
 
     const deletePiece = (pieceName) => {
         decrementImgRefCount(def.W.img).then(r => {
@@ -63,15 +65,17 @@ export function LoadDeleteHeader({
 
     return (
         <>
-            <div className={classes.header}>
-                <Typography className={classes.piece_name}>
+            <div className={clsx(classes.header, {
+                [classes2.header]: true,
+            })}>
+                <Typography className={classes2.text}>
                     {pieceName}
                 </Typography>
                 <Box className={classes.buttons_outer_flexbox}>
                     <Box className={classes.buttons_inner_flexbox}>
                         <Button
                             theme={theme}
-                            startIcon={<StorageIcon style={icon(screenCase)}/>}
+                            startIcon={<StorageIcon className={classes.icon}/>}
                             classesObj={{root: classes.load_button}}
                             onClick={loadMethod}
                         >
@@ -82,7 +86,9 @@ export function LoadDeleteHeader({
                             modalTitle={`You are asking to delete piece ${pieceName}.`}
                             modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                            startIcon={<DeleteForever style={delete_icon(screenCase)} />}
+                            startIcon={<DeleteForever className={clsx(classes.icon,  {
+                                [classes.delete_icon]: true
+                            })} />}
                             classesObj={{root: classes.delete_button}}
                             isDisabled={false}
                             theme={theme}

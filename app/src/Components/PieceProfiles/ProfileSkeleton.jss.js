@@ -1,9 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSizes, heights, widths as avatarSize, widths} from "./PieceProfiles.jss";
-import {availWidth} from "../helpers/windowMeasurments";
-import {profileHeight} from "./Profile.jss";
+import {fontSizes} from "./PieceProfiles.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSize0016, fontSize0023, fontSize0024, fontSize00245, fontSize0025} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     profile: props => ({

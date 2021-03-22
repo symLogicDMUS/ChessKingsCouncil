@@ -1,18 +1,10 @@
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize002} from "../../styles/fontSizes.jss";
-
-export const close_icon = (fontSize) => ({
-    fontSize: fontSize,
-    width: '2em',
-    height: '2em',
-});
+import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
 
 export const button = (fontSize) => ({
-    fontSize: fontSize * 0.8,
-    width: '7.5em',
-    height: '2.5em',
+
 });
 
 export const useStyles = makeStyles({
@@ -49,5 +41,21 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
+    }),
+    button: props => ({
+        fontSize: fontSize0016,
+        width: '7.5em',
+        height: '2.5em',
+    }),
+    upload_button: props => ({
+       marginRight: '1em'
+    }),
+    choose_button: props => ({
+        marginLeft: '1em,'
+    }),
+    close_icon: props => ({
+        fontSize: fontSize002,
+        width: '2em',
+        height: '2em',
     }),
 }, {index: 1});

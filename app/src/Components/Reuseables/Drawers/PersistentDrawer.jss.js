@@ -8,9 +8,9 @@ export const addressBarHeight = appBarHeight * 1.5
 export const drawerWidth = viewWidth() * 0.65;
 export const neighborWidth = viewWidth()*0.5;
 
-export const pageTitleStyle = () => ({
+export const pageTitleStyle = {
     fontWeight: 500,
-});
+};
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -84,7 +84,6 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        ...props.contentAddedStyle,
     }),
     contentShift: props => ({
         transition: theme.transitions.create('margin', {

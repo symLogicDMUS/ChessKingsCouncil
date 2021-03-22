@@ -14,25 +14,6 @@ export const img_grid_root = (screenCase) => {
     }
 };
 
-export const close_icon = (screenCase) => {
-    switch (screenCase) {
-        case 'mobile':
-            return {
-                fontSize: fontSize00175,
-                width: "2em",
-                height: "2em",
-            }
-        default:
-            return {
-                fontSize: fontSize002,
-                width: '1.5em',
-                height: '1.5em',
-                alignSelf: 'flex-end',
-                margin: '0.15em',
-            }
-    }
-};
-
 export const styles = {
     modal: props => ({
         ...modal,
@@ -61,5 +42,25 @@ export const styles = {
         width: '2em',
         marginLeft: '0.25em',
         color: themes[props.theme].text,
+    }),
+    close_icon: props => ({
+        /*media query for phones/tablets (generalized)*/
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSize00175,
+            width: "2em",
+            height: "2em",
+        },
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSize002,
+            width: '1.5em',
+            height: '1.5em',
+            alignSelf: 'flex-end',
+            margin: '0.15em',
+        },
+    }),
+    img_grid_root: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginTop: appBarHeight
+        },
     }),
 };

@@ -2,6 +2,7 @@ import React from "react";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes} from "../PieceProfiles.jss";
 import {fontSizeW005, fontSizeW0055} from "../../styles/fontSizes.jss";
+import { makeStyles } from "@material-ui/core/styles";
 
 export const headerFontSizes = {
     desktop: fontSizes.desktop,
@@ -23,47 +24,47 @@ export const titleFontSizes = {
  * Shared by custom-game (Customize) and LoadDelete (MyPieces, LoadModal in CreatePiece) headers
  * */
 
-export const header = (style, theme) => ({
-    ...style,
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'no-wrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: themes[theme].fill,
-    '@media screen and (max-width: 1040px)': {
-        fontSize: fontSizes.mobile,
-    },
-    '@media screen and (min-width: 1040px)': {
-        marginTop: '1em',
-        fontSize: fontSizes.desktop,
-    },
-    "@media screen and (max-width: 412px)": {
-        marginTop: '0.25em',
-        fontSize: fontSizes.ipx,
-    },
 
-    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-        marginTop: '0.5em',
-        fontSize: fontSizes.ipad,
-    },
-});
+export const useStyles = makeStyles({
+    header: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: themes[props.theme].fill,
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizes.mobile,
+        },
+        '@media screen and (min-width: 1040px)': {
+            marginTop: '1em',
+            fontSize: fontSizes.desktop,
+        },
+        "@media screen and (max-width: 412px)": {
+            marginTop: '0.25em',
+            fontSize: fontSizes.ipx,
+        },
 
-export const text = (theme) => ({
-    '@media screen and (min-width: 1040px)': {
-        fontSize: fontSizes.desktop,
-    },
-    '@media screen and (max-width: 1040px)': {
-        fontSize: fontSizes.mobile,
-    },
-    "@media screen and (max-width: 412px)": {
-        fontSize: fontSizes.ipx,
-    },
-
-    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-        fontSize: fontSizes.ipad,
-    },
-    fontFamily: 'Roboto-Light, Roboto',
-    color: themes[theme].text,
-});
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            marginTop: '0.5em',
+            fontSize: fontSizes.ipad,
+        },
+    }),
+    text: props => ({
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSizes.desktop,
+        },
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizes.mobile,
+        },
+        "@media screen and (max-width: 412px)": {
+            fontSize: fontSizes.ipx,
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            fontSize: fontSizes.ipad,
+        },
+        fontFamily: 'Roboto-Light, Roboto',
+        color: themes[props.theme].text,
+    }),
+}, {index: 1});

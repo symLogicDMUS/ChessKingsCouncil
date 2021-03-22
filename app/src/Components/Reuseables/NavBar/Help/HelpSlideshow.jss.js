@@ -82,20 +82,22 @@ export const useStyles = makeStyles({
             height: windowHeightMobile()*0.1,
         },
     }),
+    button: props => ({
+        fontSize: fontSize002,
+        width: '7.5em',
+        height: '2em',
+    }),
     previous_button: props => ({
-        ...button(fontSize002),
         marginRight: '0.5em',
         marginTop: '-0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     next_button: props => ({
-        ...button(fontSize002),
         marginLeft: '0.5em',
         marginTop: '-0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     done_button: props => ({
-        ...button(fontSize002),
         marginLeft: '1em',
         marginTop: '-0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,

@@ -18,7 +18,6 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
     }),
     piece_name: props => ({
-        ...getDrawerFontSize(true),
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
         textAlign: 'center',
@@ -27,7 +26,6 @@ export const useStyles = makeStyles({
         transform: 'translate(-0.65em, 0)',
     }),
     icon_button: props => ({
-        ...getDrawerFontSize(true),
         height: '1em',
         width: '1em',
     }),

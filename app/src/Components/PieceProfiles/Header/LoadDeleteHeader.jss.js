@@ -1,67 +1,12 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {fontSize002, fontSizeW00238, fontSizeW0025, fontSizeW003224, fontSizeW0035,
+import {fontSize002, fontSizeW0025, fontSizeW003224, fontSizeW0035,
 } from "../../styles/fontSizes.jss";
-
-export const icon = (screenCase) => {
-    switch (screenCase) {
-        case 'mobile':
-            return {
-                fontSize: fontSizeW0035
-            }
-        case 'ipx':
-            return {
-                fontSize: fontSizeW0035
-            }
-        case 'short':
-            return {
-                fontSize: fontSizeW0035,
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSizeW0025
-            }
-        default:
-            return null;
-    }
-};
-
-export const delete_icon = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return null;
-        default:
-            return {
-                ...icon(screenCase),
-                transform: 'translate(0.25em, 0)',
-            }
-    }
-};
-
-export const button = (theme) => ({
-    '@media screen and (min-width: 1040px)': {
-        fontSize: fontSize002,
-        width: '6.1em',
-        height: '2em',
-    },
-    '@media screen and (max-width: 1040px)': {
-        fontSize: fontSize002,
-        width: '6.9em',
-        height: '1.9em',
-        maxWidth: '100em',
-    },
-    border: `0.05em solid ${themes[theme].outline}`
-});
 
 export const useStyles = makeStyles({
     header: props => ({
-        ...header(props.style, props.theme),
         justifyContent: 'space-between',
-    }),
-    piece_name: props => ({
-        ...text(props.theme),
     }),
     buttons_outer_flexbox: props => ({
         display: 'flex',
@@ -74,6 +19,20 @@ export const useStyles = makeStyles({
             flexGrow: 0,
             marginLeft: '1em',
         },
+    }),
+    button: props => ({
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSize002,
+            width: '6.1em',
+            height: '2em',
+        },
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSize002,
+            width: '6.9em',
+            height: '1.9em',
+            maxWidth: '100em',
+        },
+        border: `0.05em solid ${themes[props.theme].outline}`
     }),
     buttons_inner_flexbox: props => ({
         display: 'flex',
@@ -149,5 +108,17 @@ export const useStyles = makeStyles({
             width: '5em',
         },
         border: `0.05em solid ${themes[props.theme].outline}`
+    }),
+    icon: props => ({
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizeW0035
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            fontSize: fontSizeW0025
+        },
+        color: themes[props.theme].text,
+    }),
+    delete_icon: props => ({
+        transform: 'translate(0.25em, 0)',
     }),
 }, {index: 1});

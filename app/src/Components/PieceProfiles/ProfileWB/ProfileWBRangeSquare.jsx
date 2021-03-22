@@ -3,11 +3,11 @@ import clsx from "clsx";
 import { widths } from "../PieceProfiles.jss";
 import { useStyles } from "../../Reuseables/Board/Square.jss";
 import {useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss"
+import {binaryBoard} from "../../helpers/binaryBoard";
 
 
 export function ProfileWBRangeSquare({
     rf,
-    isLightSqr,
     isInRange,
     rangeType,
     theme,
@@ -25,10 +25,10 @@ export function ProfileWBRangeSquare({
     return (
         <div
             className={clsx(classes2.square, {
+                [classes.profile_wb_light]: binaryBoard[rf] && ! isInRange,
+                [classes.profile_wb_dark]: ! binaryBoard[rf] && ! isInRange,
                 [classes.span_alt]: isInRange && rangeType==="span",
                 [classes.offset]: isInRange && rangeType==="offset",
-                [classes.profile_wb_light]: isLightSqr && ! isInRange,
-                [classes.profile_wb_dark]: ! isLightSqr && ! isInRange,
             })}
         >
             {children}

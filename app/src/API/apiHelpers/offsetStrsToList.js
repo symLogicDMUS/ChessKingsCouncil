@@ -1,7 +1,5 @@
 
 import {convertOffsetStrsToPairs} from "./convertOffsetStrsToPairs";
-import {initDDEmptyLists} from "./initDDEmptyLists";
-import {initEmptyOffsets} from "./initEmptyOffsets";
 
 export function offsetStrsToList(pieceDefs) {
     /* **/

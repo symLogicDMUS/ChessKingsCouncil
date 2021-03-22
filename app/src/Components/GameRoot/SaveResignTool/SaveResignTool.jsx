@@ -11,8 +11,6 @@ import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SaveResignTool.jss";
 import {StandardModal} from "../../Reuseables/Modals/StandardModal";
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
-import {button} from "../../Reuseables/Modals/StandardModal.jss";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function SaveResignTool({
     theme,
@@ -96,7 +94,7 @@ export function SaveResignTool({
                                 setResignModal(false)
                                 resign()
                             }}
-                            style={{...button(fontSize002), marginRight: '1em'}}
+                            classProp={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >
@@ -104,7 +102,7 @@ export function SaveResignTool({
                         </MuiButton>
                         <MuiButton
                             onClick={() => setResignModal(false)}
-                            style={{...button(fontSize002), marginLeft: '1em'}}
+                            classProp={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >

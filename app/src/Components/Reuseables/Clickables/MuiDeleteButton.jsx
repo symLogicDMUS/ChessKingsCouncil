@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import {MuiButton as Button} from "./MuiButton";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {StandardModal} from "../Modals/StandardModal";
-import {button} from "../Modals/StandardModal.jss";
 import {Portal} from "@material-ui/core";
+import {useStyles} from "../Modals/StandardModal.jss";
 
 /**
  * motivation is for the 'are you sure yes or no' modal that always occurs
@@ -22,7 +21,9 @@ import {Portal} from "@material-ui/core";
  */
 export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled, altText}) {
 
-    let [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(false);
+
+    const classes = useStyles({theme});
 
     return (
         <>
@@ -39,7 +40,8 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                                 onAcceptDelete()
                                 setModal(false)
                             }}
-                            style={{...button(fontSize002), marginRight: '1em'}}
+                            classProp={classes.button}
+                            addedClassProp={classes.yes_button}
                             variant={'contained'}
                             theme={theme}
                         >
@@ -47,7 +49,8 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                         </Button>
                         <Button
                             onClick={() => setModal(false)}
-                            style={{...button(fontSize002), marginLeft: '1em'}}
+                            classProp={classes.button}
+                            addedClassProp={classes.no_button}
                             variant={'contained'}
                             theme={theme}
                         >

@@ -1,4 +1,3 @@
-import {getPathDir} from "../getPathDir";
 import {PathData} from "../PathData";
 import {getPathData} from "../getPathData";
 import {angles} from "../../helpers/stepFuncs";

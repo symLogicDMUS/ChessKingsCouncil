@@ -1,53 +1,17 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {text} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {themes} from "../../styles/themes.jss";
 import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
 import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
-import {fontSize0023} from "../../styles/fontSizes.jss";
-import {availWidth} from "../../helpers/windowMeasurments";
-
-export const piece_label = (theme) => ({
-    fontSize: fontSize0023,
-    width: '25%',
-    height: '1.75em',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'no-wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: themes[theme].text,
-    fontFamily: 'Roboto-Light, Roboto',
-    borderRight: `0.08em solid ${themes[theme].outline}`,
-});
-
-export const piece_value = (theme) => ({
-    fontSize: fontSize0023,
-    width: '75%',
-    height: '1.75em',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'no-wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingLeft: '0.5em',
-    color: themes[theme].text,
-    fontFamily: 'Roboto-Light, Roboto',
-});
+import {fontSize0023, fontSize004025} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
-
         '@media screen and (max-width: 1040px)': {
             marginTop: '-2vh',
-            fontSize: fontSize0023,
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'
         },
-
         '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize0023,
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
@@ -61,25 +25,42 @@ export const useStyles = makeStyles({
     }),
     header: props => ({
         width: '100%',
-        ...text(props.theme),
         textAlign: 'center',
         outline: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
-    piece_label_even: props => ({
-        ...piece_label(props.theme),
+    piece_label: props => ({
+        fontSize: fontSize004025,
+        width: '25%',
+        height: '1em',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto-Light, Roboto',
+        borderRight: `0.08em solid ${themes[props.theme].outline}`,
+    }),
+    piece_value: props => ({
+        fontSize: fontSize004025,
+        width: '75%',
+        height: '1em',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'no-wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingLeft: '0.5em',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto-Light, Roboto',
+    }),
+    even_row: props => ({
         backgroundColor: themes[props.theme].even_row,
     }),
-    piece_label_odd: props => ({
-        ...piece_label(props.theme),
-        backgroundColor: themes[props.theme].odd_row,
-    }),
-    piece_value_even: props => ({
-        ...piece_value(props.theme),
-        backgroundColor: themes[props.theme].even_row,
-    }),
-    piece_value_odd: props => ({
-        ...piece_value(props.theme),
+    odd_row: props => ({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({

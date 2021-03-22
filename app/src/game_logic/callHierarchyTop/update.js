@@ -1,5 +1,4 @@
 import { getTurnData } from "./getTurnData";
-import { getAiColor } from "../color/getAiColor";
 import { getNextColor as getEnemyColor } from "../color/getNextColor";
 
 export function update(board, jsonRecords, color, pt, pieceDefs, idDict) {

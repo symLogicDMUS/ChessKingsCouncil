@@ -69,8 +69,7 @@ export function MuiGrid(props) {
                     />
                     <MuiCheckbox
                         theme={props.theme}
-                        style={show_names_gen('mobile')}
-                        classesObj={{root: classes.show_names}}
+                        classProp={classes.show_names_gen}
                         defaultChecked={props.defaultChecked}
                         onClick={props.toggleShowNames}
                     >

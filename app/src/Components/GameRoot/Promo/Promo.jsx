@@ -149,7 +149,7 @@ function Promo(props) {
                     <MediaQuery minWidth={1040}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
-                            style={ok_button('desktop', props.theme)}
+                            classProp={classes.ok_button}
                             isDisabled={!state.promoChoice}
                             theme={props.theme}
                             variant={"contained"}
@@ -160,7 +160,7 @@ function Promo(props) {
                     <MediaQuery maxWidth={1040}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
-                            style={ok_button('mobile', props.theme)}
+                            classProp={classes.ok_button}
                             isDisabled={!state.promoChoice}
                             theme={props.theme}
                             variant={"contained"}

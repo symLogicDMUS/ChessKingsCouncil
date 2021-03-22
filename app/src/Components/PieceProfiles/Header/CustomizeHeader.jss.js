@@ -1,74 +1,11 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {header, text} from "./ProfileHeader.jss";
 import {themes} from "../../styles/themes.jss";
 import {fontSizes, widths} from "../PieceProfiles.jss";
-import {fontSize0025, fontSize0028, fontSize0032, fontSize0060, fontSize0067, fontSizeW003224, fontSizeW0048}
+import {fontSize0025, fontSize0028, fontSizeW003224, fontSizeW0048}
     from "../../styles/fontSizes.jss";
-
-export const checkbox_root = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return {
-                marginLeft: '-0.15em',
-            }
-        case 'ipad':
-            return {
-                marginLeft: '-0.15em',
-            }
-        default:
-            return null;
-    }
-};
-
-export const checkbox = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return {
-                fontSize: fontSize0025,
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSizeW003224,
-                margin: 'auto',
-            }
-        default:
-            return {
-                fontSize: fontSizeW0048,
-                transform: 'translate(-0.35em, 0)',
-            }
-    }
-};
-
-
-
-export const checkbox_gen = (screenCase) => {
-    switch (screenCase) {
-        case 'desktop':
-            return {
-                fontSize: fontSize0025
-            }
-        case 'ipad':
-            return {
-                fontSize: fontSizeW003224
-            }
-        default:
-            return {
-                fontSize: fontSizeW0048,
-                marginRight: 'auto'
-            }
-    }
-};
-
-export const iconButtonsStyle = () => ({
-    justifyContent: "space-between",
-    alignItems: "center",
-});
-
-
 
 export const useStyles = makeStyles({
     header: props => ({
-        ...header(props.style, props.theme),
         height: '2em',
         '@media screen and (max-width: 1040px)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
@@ -108,9 +45,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
         alignItems: 'baseline'
     }),
-    sub_button: props => ({
-
-    }),
+    sub_button: props => ({}),
     checkbox_text: props => ({
        '@media screen and (min-width: 1040px)': {
            fontSize: fontSize0025,
@@ -121,6 +56,10 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW003224,
         },
+    }),
+    icon_button_style: props => ({
+        justifyContent: "space-between",
+        alignItems: "center",
     }),
     sub_icon: props => ({
         '@media screen and (min-width: 1040px)': {
@@ -140,11 +79,48 @@ export const useStyles = makeStyles({
             width: '1em',
             height: '1em',
         },
-
     }),
     no_sub_button: props => ({
-
         width: "0.9em",
         height: "0.9em",
+    }),
+    checkbox: props => ({
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizeW0048,
+            marginRight: 'auto',
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            fontSize: fontSizeW003224,
+            margin: 'auto',
+        },
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSize0025,
+        },
+    }),
+    checkbox_root: props => ({
+        '@media screen and (min-width: 1040px)': {
+            marginLeft: '-0.15em',
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            marginLeft: '-0.15em',
+        },
+    }),
+    checkbox_gen: props => ({
+        '@media screen and (max-width: 1040px)': {
+            fontSize: fontSizeW0048,
+            marginRight: 'auto'
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            marginLeft: '-0.15em',
+        },
+        '@media screen and (min-width: 1040px)': {
+            fontSize: fontSize0025,
+        },
+    }),
+    selected: props => ({
+        color: themes[props.theme].text,
+    }),
+    unselected: props => ({
+        color: 'rgba(0, 0, 0, 0)',
     }),
 }, {index: 1});

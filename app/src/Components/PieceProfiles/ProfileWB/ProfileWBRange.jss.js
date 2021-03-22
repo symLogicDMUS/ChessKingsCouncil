@@ -2,6 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {fontSizes, widths, widths as avatarSize} from "../PieceProfiles.jss";
 import {themes} from "../../styles/themes.jss";
 import {getDrawerFontSize} from "./ProfileWB.jss";
+import {neighborWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const heights = {
     desktop: 13.03,
@@ -31,22 +32,16 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
         "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.mobile}em`,
             width: avatarSize.mobile,
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
-            ...drawerMargins(props.hasDrawerParent),
             height: `${heights.ipad}em`,
             width: avatarSize.ipad,
         },
@@ -63,19 +58,16 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSizes.mobile,
-            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
         "@media screen and (max-width: 412px)": {
             fontSize: fontSizes.ipx,
-            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.mobile,
             height: avatarSize.mobile,
         },
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizes.ipad,
-            ...getDrawerFontSize(props.hasDrawerParent),
             width: avatarSize.ipad,
             height: avatarSize.ipad,
         },

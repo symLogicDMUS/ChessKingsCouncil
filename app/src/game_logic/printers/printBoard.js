@@ -2,14 +2,12 @@ import {getUnicodePiece} from "./getUnicodePiece";
 import {checkerboard} from "./checkerBoard";
 import {isPiece} from "../pieceType/isPiece";
 import {xyToRf} from "../coordType/crdCnvrt";
-import colors from 'colors';
-
 
 export function printBoard(board, heading, ...highlights) {
     /*print increasing.includes(boardDict) order of x, decreasing order of y (how 2d board normally displayed)
     the following are  
     highlights[0] will be printed as red
-     higlights[1] will be brinted as green
+     highlights[1] will be printed as green
      highlights[2] will be printed as blue
      highlights[3] will be printed as yellow
     **/

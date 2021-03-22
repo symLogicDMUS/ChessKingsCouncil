@@ -1,7 +1,6 @@
 import {divideList} from "./divideList";
 import {renderList} from "./renderList";
 import {copy} from "../../helpers/copy";
-import {listContainsComponent} from "../../helpers/listContainsComponent";
 import {objectContainsListContainingComponent} from "../../helpers/objectContainsListContainingComponent";
 import {cloneComponentLists} from "../../helpers/cloneComponentLists";
 
@@ -11,7 +10,7 @@ export function reducer(state, action) {
     switch (action.type) {
         case "update":
             lists = divideList(action.listItems, action.numRows)
-            return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes)};
+            return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes, action.textClassProp, action.listItemClassProp)};
         case 'scroll-up':
             if (state.dataLists.aboveView.length > 0) {
                 if (objectContainsListContainingComponent(state.dataLists)) {
@@ -28,7 +27,7 @@ export function reducer(state, action) {
                 //4. last item above view now first item in view
                 lists.inView.unshift(b)
                 //5. this is the new state
-                return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes)};
+                return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes, action.textClassProp, action.listItemClassProp)};
             } else {
                 return state;
             }
@@ -48,7 +47,7 @@ export function reducer(state, action) {
                 //4. first item below view now the last item in view
                 lists.inView.push(b)
                 //5. return the new state.
-                return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes)};
+                return {dataLists: lists, componentList: renderList(lists.inView, action.numRows, action.classes, action.textClassProp, action.listItemClassProp)};
             } else {
                 return state;
             }

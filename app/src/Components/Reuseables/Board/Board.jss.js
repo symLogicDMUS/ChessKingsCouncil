@@ -41,7 +41,7 @@ export const boardPos = {
     },
 }
 
-export const board = (fontSize) => ({
+export const board = () => ({
     display: 'grid',
 });
 

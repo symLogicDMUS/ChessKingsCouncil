@@ -6,7 +6,6 @@ import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 import {LocationToolExample} from "./LocationToolExample";
 import {themes} from "../../styles/themes.jss";
-import {example_box} from "./HelpText.jss";
 import {useStyles} from "./LocationToolExplaination.jss";
 
 export function LocationToolExplanation(props) {

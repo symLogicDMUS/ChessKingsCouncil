@@ -50,4 +50,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
     }),
+    active_tool: props => ({
+       color: themes[props.theme].sqr_hover_alt,
+    }),
 }, {index: 1});
