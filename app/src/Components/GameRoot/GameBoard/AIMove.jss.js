@@ -4,7 +4,7 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     animation_plane: props => ({
-        ...game_board(props.boardSize, 5),
+        ...game_board(props.boardSize, props.boardPos, 5),
     }),
     piece: props => ({
         position: 'absolute',

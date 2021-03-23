@@ -1,6 +1,5 @@
 import {themes} from "../../styles/themes.jss";
 import { makeStyles } from "@material-ui/core/styles";
-import {boardSizes} from "../../Reuseables/Board/Board.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {availHeight, viewWidth} from "../../helpers/windowMeasurments";
 import {fontSize00175, fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
@@ -30,7 +29,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
         /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 1040px)': {
-            width: boardSizes.mobile * 0.9,
+            width: '30vw',
         },
         '@media screen and (min-width: 1040px)': {
             width: drawerItemWidth,
@@ -54,8 +53,8 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
         '@media screen and (max-width: 1040px)': {
-            width: boardSizes.mobile * 0.85,
-            marginLeft: boardSizes.mobile * 0.025,
+            width: '25vw',
+            marginLeft: '1vw',
             transform: 'translate(0, -0.5em)',
         },
         '@media screen and (min-width: 1040px)': {
@@ -66,7 +65,7 @@ export const useStyles = makeStyles({
     }),
     empty_list: props => ({
         '@media screen and (max-width: 1040px)': {
-            width: boardSizes.mobile * 0.9,
+            width: '30vw',
             fontSize: fontSize0023,
             height: '1.5em',
         },
@@ -85,7 +84,7 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         '@media screen and (min-width: 1040px)': {
-            fontSize: availHeight() * 0.018,
+            fontSize: '1.8vh',
             width: drawerItemWidth,
             marginLeft: '5%',
             marginBottom: '5%',

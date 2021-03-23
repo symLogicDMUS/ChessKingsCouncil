@@ -10,23 +10,32 @@ import Promo from "../Promo/Promo";
 import {AIMove} from "./AIMove";
 import {getAiMove} from "../../../API/apiHelpers/getAiMove";
 import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
-import {idDict} from "../../../game_logic/testObjects/standardIdDict";
 import {rfToXy, xyToPx} from "./DndCrdCnvrt";
 import {OVER} from "../../helpers/gStatusTypes";
-import {getStartingPieces} from "./getStartingPieces";
+import {setStartingPieces} from "./setStartingPieces";
 import {reducer} from "./reducers/DropLayer.red";
 import {useStyles} from "./DropLayer.jss";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-const DropLayer = ({gameRoot, sqrSize, boardSize, theme}) => {
+const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
     const [state, dispatch] = useReducer(
         reducer,
-        {pieces: getStartingPieces(gameRoot, sqrSize), isPromo: false, aiDisplay: false, hiddenPiece: null}
+        {pieces: setStartingPieces(gameRoot, sqrSize), isPromo: false, aiDisplay: false, hiddenPiece: null}
     );
 
-    const classes = useStyles({boardSize: boardSize});
+    useEffect(() => {
+        function handleResize() {
+            dispatch({type: 'reposition', sqrSize: sqrSize,gameRoot: gameRoot});
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    });
+
+    const classes = useStyles({boardSize: boardSize, boardPos: boardPos});
 
     const [, drop] = useDrop({
         accept: ItemTypes,
@@ -156,6 +165,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, theme}) => {
                     aiDest={gameRoot.aiDest}
                     sqrSize={sqrSize}
                     boardSize={boardSize}
+                    boardPos={boardPos}
                     theme={gameRoot.state.theme}
                 />
             ) : null}

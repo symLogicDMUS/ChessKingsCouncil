@@ -3,6 +3,7 @@ import {getPieceImg} from "../../../MyPieces/getPieceImg";
 import {specialThemeList} from "../../../styles/themes.jss";
 import {getFranchisePieceImg} from "../../../MyPieces/getFranchisePieceImg";
 import {getStandardPieceImg} from "../../../MyPieces/getStandardPieceImg";
+import {setStartingPieces} from "../setStartingPieces";
 
 /**
  * dropLayer for the game board
@@ -24,6 +25,11 @@ export const reducer = (state, action) => {
                 },
             };
             return {...state, pieces: pieces};
+        case "reposition":
+            return {
+                ...state,
+                pieces: setStartingPieces(action.gameRoot, action.sqrSize),
+            }
         case "remove":
             pieces = copy(state.pieces);
             delete pieces[action.id];

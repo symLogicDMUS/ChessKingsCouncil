@@ -22,6 +22,7 @@ export default function PersistentDrawer({
     appBarContent,
     children,
 }) {
+
     const [drawerWidth, setDrawerWidth] = useState(viewWidth() * 0.45);
     useEffect(() => {
         function handleResize() {

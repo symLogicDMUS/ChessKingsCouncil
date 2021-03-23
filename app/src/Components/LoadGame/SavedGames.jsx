@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {HelpText} from "./HelpText";

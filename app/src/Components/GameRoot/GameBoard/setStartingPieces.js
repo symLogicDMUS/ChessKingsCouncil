@@ -1,6 +1,6 @@
 import {getPieceObj} from "./getPieceObj";
 
-export function getStartingPieces(gameRoot, sqrSize) {
+export function setStartingPieces(gameRoot, sqrSize) {
     let posAndIdsOfPieces = Object.entries(gameRoot.board).filter(([rf, id]) => id !== '#' );
     const pieces = {}
     for (let posAndId of posAndIdsOfPieces) {

@@ -37,6 +37,7 @@ const DragLayer = ({
                     src={item.src}
                     sqrSize={sqrSize}
                     boardSize={boardSize}
+                    boardPos={boardPos}
                     range={gameRoot.ranges[item.id]}
                     theme={theme}
                 />

@@ -14,12 +14,14 @@ export function AIMove({
     piece,
     sqrSize,
     boardSize,
+    boardPos,
     theme,
 }) {
     const [isAnimating, setIsAnimating] = useState(true);
     const classes = useStyles({
         sqrSize: sqrSize,
         boardSize: boardSize,
+        boardPos: boardPos,
         fontSize: fontSize002,
         theme: theme,
     });

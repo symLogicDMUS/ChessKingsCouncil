@@ -4,7 +4,7 @@ import { RangeDisplaySquare } from "./RangeDisplaySquare";
 import { binaryBoard } from "../../helpers/binaryBoard";
 import { useStyles } from "./RangeDisplayBoard.jss";
 
-export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
+export function RangeDisplayBoard({ range, sqrSize, boardSize, boardPos, theme }) {
 
     const squares = useMemo(() => {
             const newSquares = []
@@ -22,7 +22,7 @@ export function RangeDisplayBoard({ range, sqrSize, boardSize, theme }) {
             return newSquares;
     }, [range, theme])
 
-    const classes = useStyles({boardSize: boardSize});
+    const classes = useStyles({boardSize: boardSize, boardPos: boardPos});
 
     return <div className={classes.board}>{squares}</div>;
 }

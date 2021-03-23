@@ -3,7 +3,7 @@ import {Piece} from "./Piece";
 import {Portal} from "@material-ui/core";
 import {RangeDisplayBoard} from "./RangeDisplayBoard";
 
-export const PieceDragPreview = memo(({src, sqrSize, boardSize, range, theme}) => {
+export const PieceDragPreview = memo(({src, sqrSize, boardSize, boardPos, range, theme}) => {
     const [tickTock, setTickTock] = useState(false);
     useEffect(
         function subscribeToIntervalTick() {
@@ -20,6 +20,7 @@ export const PieceDragPreview = memo(({src, sqrSize, boardSize, range, theme}) =
                     range={range}
                     sqrSize={sqrSize}
                     boardSize={boardSize}
+                    boardPos={boardPos}
                     theme={theme}
                 />
             </Portal>

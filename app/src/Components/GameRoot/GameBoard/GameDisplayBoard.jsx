@@ -4,9 +4,9 @@ import {GameDisplaySquare} from "./GameDisplaySquare";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {useStyles} from "./GameDisplayBoard.jss";
 
-export function GameDisplayBoard({theme, sqrSize, boardSize}) {
+export function GameDisplayBoard({theme, sqrSize, boardSize, boardPos}) {
 
-    const classes = useStyles({boardSize: boardSize});
+    const classes = useStyles({boardSize: boardSize, boardPos: boardPos});
 
     return (
         <div className={classes.board}>
