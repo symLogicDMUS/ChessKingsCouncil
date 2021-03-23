@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React, {memo, useReducer} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
@@ -15,7 +15,7 @@ import { useStyles } from "./ProfileWB.jss";
  * color: is for W or B piece,
  * def: spans, offsets, and img of W or B piece
  * */
-export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerParent }) => {
+export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDrawerParent }) => {
     const [state, dispatch] = useReducer(reducer, {
         isModal: false,
         rangeType: null,
@@ -88,4 +88,4 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerP
             </div>
         </>
     );
-}
+})
