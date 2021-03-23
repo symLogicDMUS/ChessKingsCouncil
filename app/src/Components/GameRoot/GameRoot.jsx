@@ -1,5 +1,7 @@
 import React from "react";
-import {Portal} from "@material-ui/core";
+import {copy} from "../helpers/copy";
+import {Accordion, Portal} from "@material-ui/core";
+import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
@@ -16,7 +18,9 @@ import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
 import {update} from "../../game_logic/callHierarchyTop/update";
 import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
 import {BoardTool} from "./BoardTool/BoardTool";
+import {doNothing} from "../helpers/doNothing";
 import {GameInfo} from "./GameInfo/GameInfo";
+import {HelpText} from "./Help/HelpText";
 import {Board} from "./GameBoard/Board";
 import {Fen} from "../../game_logic/fenParser/Fen";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
@@ -25,28 +29,29 @@ import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {SideBar} from "../Reuseables/Drawers/SidBar";
 import {StatusBar} from "./StatusBar/StatusBar";
-import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
 import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
+import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {specialThemeMenuItemList} from "../styles/themes.jss";
-import "../Reuseables/Background/_backgrounds.scss";
-import {HelpText} from "./Help/HelpText";
-import {copy} from "../helpers/copy";
-import {doNothing} from "../helpers/doNothing";
-import {boardSizes} from "../Reuseables/Board/Board.jss";
 import {newData, newStandardImgUrls} from "../NewGame/NewData";
 import {MuiCheckbox} from "../Reuseables/Clickables/MuiCheckbox";
 import {MuiDropdown} from "../Reuseables/UserInput/MuiDropdown";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
-import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
-import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
-import {styles, accordion_root, sqr_text_checkbox, franchise_theme_gen,} from "./GameRoot.jss";
+import {getDoesGameExist} from "../../API/getDoesGameExist";
+import {ToolButtons} from "../Reuseables/Clickables/ToolButtons";
+import {ToolButton} from "../Reuseables/Clickables/ToolButton";
+import {styles, franchise_theme_gen} from "./GameRoot.jss";
+import {ResignModal} from "./SaveResignTool/ResignModal";
+import {SaveAs} from "./SaveResignTool/SaveAs";
+import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -54,6 +59,8 @@ class GameRoot extends React.Component {
         this.state = {
             bValue: true,
             theme: "dark",
+            mobileTool: null,
+            resignModal: false,
             saveProcess: false,
             messageModal: false,
             secondaryDrawer: false,
@@ -98,6 +105,7 @@ class GameRoot extends React.Component {
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.saveToDb = this.saveToDb.bind(this);
+        this.toggleMobileTool = this.toggleMobileTool.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
@@ -120,44 +128,10 @@ class GameRoot extends React.Component {
     }
 
     /**
-     * @param pieceId: range of piece with id pieceId
-     * @returns binary board where only inRange values set to true
-     */
-    getRangeBoard(pieceId) {
-        if (pieceId[0] !== this.turn) {
-            return getBinaryBoarAllFalse();
-        }
-        let range = this.ranges[pieceId];
-        let inRange = rankfiles.filter((rf) => range.includes(rf));
-        let rangeBoard = getBinaryBoarAllFalse();
-        for (let rf of Object.keys(rangeBoard)) {
-            rangeBoard[rf] = inRange.includes(rf);
-        }
-        return rangeBoard;
-    }
-
-    getColorLastMove() {
-        if (this.turn === "W") {
-            return "B";
-        } else {
-            return "W";
-        }
-    }
-
-    triggerRender() {
-        this.setState({bValue: !this.state.bValue});
-    }
-
-    toggleSaveProcess(bValue) {
-        this.setState({saveProcess: bValue});
-    }
-
-    /**
      * called after a move is made. update the game logic so know where other player can now move.
      * */
     updateTurnData() {
         let turnData;
-
         if (this.gameType === "council") {
             turnData = updateCouncil(
                 this.board,
@@ -252,12 +226,11 @@ class GameRoot extends React.Component {
         const status = this.gameStatus.getStatus();
 
         getDoesGameExist(this.gameName).then(([gameExists]) => {
-            if (! gameExists) {
+            if (!gameExists) {
                 incrementImgRefCounts(this.imgUrlList).then(r => {
                     this.saveToDb(fen, records, pieceDefs, status);
                 })
-            }
-            else {
+            } else {
                 this.saveToDb(fen, records, pieceDefs, status);
             }
         })
@@ -291,6 +264,47 @@ class GameRoot extends React.Component {
         }
     }
 
+    /**
+     * @param pieceId: range of piece with id pieceId
+     * @returns binary board where only inRange values set to true
+     */
+    getRangeBoard(pieceId) {
+        if (pieceId[0] !== this.turn) {
+            return getBinaryBoarAllFalse();
+        }
+        let range = this.ranges[pieceId];
+        let inRange = rankfiles.filter((rf) => range.includes(rf));
+        let rangeBoard = getBinaryBoarAllFalse();
+        for (let rf of Object.keys(rangeBoard)) {
+            rangeBoard[rf] = inRange.includes(rf);
+        }
+        return rangeBoard;
+    }
+
+    toggleMobileTool(toolName) {
+        if (this.state.mobileTool === toolName) {
+            this.setState({mobileTool: null});
+        } else {
+            this.setState({mobileTool: toolName});
+        }
+    }
+
+    toggleSecondaryDrawer(bValue) {
+        this.setState({secondaryDrawer: bValue})
+    }
+
+    toggleSaveProcess(bValue) {
+        this.setState({saveProcess: bValue});
+    }
+
+    getColorLastMove() {
+        if (this.turn === "W") {
+            return "B";
+        } else {
+            return "W";
+        }
+    }
+
     changeName(newName) {
         this.gameName = newName;
     }
@@ -300,8 +314,8 @@ class GameRoot extends React.Component {
         this.unsavedProgress = boolVal;
     }
 
-    toggleSecondaryDrawer(bValue) {
-        this.setState({secondaryDrawer: bValue})
+    triggerRender() {
+        this.setState({bValue: !this.state.bValue});
     }
 
     updateTheme(theme) {
@@ -377,7 +391,8 @@ class GameRoot extends React.Component {
                         <NavBar
                             currentPage="GameRoot"
                             screenCase='desktop'
-                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a Game</HelpTitle>}
+                            helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
+                                Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
@@ -396,7 +411,7 @@ class GameRoot extends React.Component {
                                             inputLabelStyle={
                                                 input_label(this.state.theme)
                                             }
-                                            genStyle={franchise_theme_gen()}
+                                            genStyle={{marginTop: 'auto', marginBottom: 'auto'}}
                                             overrideItem={getFranchiseThemeOverride(this.state.theme)}
                                         >
                                             {specialThemeMenuItemList}
@@ -406,7 +421,7 @@ class GameRoot extends React.Component {
                                         theme={this.state.theme}
                                         rootClassProp={this.props.classes.sqr_text_checkbox}
                                         defaultChecked={this.state.showProfileOnClick}
-                                        onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
+                                        onClick={() => this.setState({showProfileOnClick: !this.state.showProfileOnClick})}
                                     >
                                         Show Piece Profile on Click (Range Board)
                                     </MuiCheckbox>
@@ -424,7 +439,8 @@ class GameRoot extends React.Component {
                                 currentPage="GameRoot"
                                 screenCase='mobile'
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a Game</HelpTitle>}
+                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
+                                    Game</HelpTitle>}
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
                                 theme={this.state.theme}
@@ -442,7 +458,7 @@ class GameRoot extends React.Component {
                                                 inputLabelStyle={
                                                     input_label(this.state.theme)
                                                 }
-                                                genStyle={franchise_theme_gen()}
+                                                genStyle={{marginTop: 'auto', marginBottom: 'auto'}}
                                                 overrideItem={getFranchiseThemeOverride(this.state.theme)}
                                             >
                                                 {specialThemeMenuItemList}
@@ -452,7 +468,7 @@ class GameRoot extends React.Component {
                                             theme={this.state.theme}
                                             rootClassProp={this.props.classes.sqr_text_checkbox}
                                             defaultChecked={this.state.showProfileOnClick}
-                                            onClick={() => this.setState({showProfileOnClick: ! this.state.showProfileOnClick})}
+                                            onClick={() => this.setState({showProfileOnClick: !this.state.showProfileOnClick})}
                                         >
                                             Show Piece Profile on Click (Range Board)
                                         </MuiCheckbox>
@@ -466,87 +482,85 @@ class GameRoot extends React.Component {
                                 theme={this.state.theme}
                                 condition={this.gameStatus.condition}
                                 winner={this.gameStatus.winner}
-                            />
+                            >
+                                <ToolButtons>
+                                    <ToolButton
+                                        theme={this.state.theme}
+                                        iconName={"save"}
+                                        isActive={this.state.mobileTool === "Save"}
+                                        onClick={() => this.toggleMobileTool("Save")}
+                                    />
+                                    <ToolButton
+                                        theme={this.state.theme}
+                                        iconName={"save_as"}
+                                        isActive={this.state.mobileTool === "Save-As"}
+                                        onClick={() => this.toggleMobileTool("Save-As")}
+                                    />
+                                    <ToolButton
+                                        theme={this.state.theme}
+                                        iconName={"captured_pieces"}
+                                        isActive={this.state.mobileTool === "Captured-Pieces"}
+                                        onClick={() => this.toggleMobileTool("Captured-Pieces")}
+                                    />
+                                    <ToolButton
+                                        theme={this.state.theme}
+                                        iconName={"game_info"}
+                                        isActive={this.state.mobileTool === "Game-Info"}
+                                        onClick={() => this.toggleMobileTool("Game-Info")}
+                                    />
+                                    <ToolButton
+                                        theme={this.state.theme}
+                                        iconName={"resign"}
+                                        isActive={this.state.mobileTool === "Resign"}
+                                        onClick={() => this.toggleMobileTool("Resign")}
+                                    />
+                                </ToolButtons>
+                            </StatusBar>
                         }
                         neighborOpen={this.state.secondaryDrawer}
                     >
                         <Board gameRoot={this}/>
-                        {/*<MuiAccordion*/}
-                        {/*    theme={this.state.theme}*/}
-                        {/*    rootStyle={accordion_root()}*/}
-                        {/*    neighborContentSize={boardSizes.mobile}*/}
-                        {/*>*/}
-                        {/*    {[*/}
-                        {/*        {*/}
-                        {/*            id: "game-info",*/}
-                        {/*            title: 'Game Info',*/}
-                        {/*            body: (*/}
-                        {/*                <GameInfo*/}
-                        {/*                    gameName={this.gameName}*/}
-                        {/*                    gameType={this.gameType}*/}
-                        {/*                    playerType={this.playerType}*/}
-                        {/*                    theme={this.state.theme}*/}
-                        {/*                />*/}
-                        {/*            ),*/}
-                        {/*        },*/}
-                        {/*        {*/}
-                        {/*            id: "save-resign",*/}
-                        {/*            title: 'Save / Resign',*/}
-                        {/*            body: (*/}
-                        {/*                <SaveResignTool*/}
-                        {/*                    triggerSaveProcess={() =>*/}
-                        {/*                        this.toggleSaveProcess(true)*/}
-                        {/*                    }*/}
-                        {/*                    save={this.save}*/}
-                        {/*                    resign={this.resign}*/}
-                        {/*                    theme={this.state.theme}*/}
-                        {/*                    changeName={this.changeName}*/}
-                        {/*                    isSaveMessage={this.state.isSaveMessage}*/}
-                        {/*                    messageCallback={() =>*/}
-                        {/*                        this.setState({*/}
-                        {/*                            isSaveMessage: false,*/}
-                        {/*                        })*/}
-                        {/*                    }*/}
-                        {/*                />*/}
-                        {/*            ),*/}
-                        {/*        },*/}
-                        {/*        {*/}
-                        {/*            id: "range-display",*/}
-                        {/*            title: 'Range Display Board',*/}
-                        {/*            body: (*/}
-                        {/*                <BoardTool*/}
-                        {/*                    board={this.board}*/}
-                        {/*                    theme={this.state.theme}*/}
-                        {/*                    gameType={this.gameType}*/}
-                        {/*                    screenCase='mobile'*/}
-                        {/*                    allRanges={{*/}
-                        {/*                        ...this.ranges,*/}
-                        {/*                        ...this.enemyRanges,*/}
-                        {/*                    }}*/}
-                        {/*                    pieceDefs={this.defs}*/}
-                        {/*                    idDict={this.idDict}*/}
-                        {/*                    triggerRender={this.triggerRender}*/}
-                        {/*                    toggleSecondaryDrawer={this.toggleSecondaryDrawer}*/}
-                        {/*                    showProfileOnClick={this.state.showProfileOnClick}*/}
-                        {/*                />*/}
-                        {/*            ),*/}
-                        {/*        },*/}
-                        {/*        {*/}
-                        {/*            id: "captured-pieces-bold",*/}
-                        {/*            title: "Captured Pieces",*/}
-                        {/*            body: (*/}
-                        {/*                <CapturedPieceImages*/}
-                        {/*                    captured={this.captured}*/}
-                        {/*                    capturedIds={this.capturedIds}*/}
-                        {/*                    idDict={this.idDict}*/}
-                        {/*                    defs={this.defs}*/}
-                        {/*                    gameType={this.gameType}*/}
-                        {/*                    theme={this.state.theme}*/}
-                        {/*                />*/}
-                        {/*            ),*/}
-                        {/*        },*/}
-                        {/*    ]}*/}
-                        {/*</MuiAccordion>*/}
+                        <MuiAccordion />
+                        {this.state.mobileTool === "Save" ? (
+                            <AnimatePresencePortal>
+                                <GameSavedSuccessfully
+                                    callback={() =>
+                                        this.toggleMobileTool(null)
+                                    }
+                                    theme={this.state.theme}
+                                />
+                            </AnimatePresencePortal>
+                        ) : null}
+                        {this.state.mobileTool === "Save-As" ? (
+                            <Portal>
+                                <SaveAs
+                                    changeName={this.changeName}
+                                    close={() => this.toggleMobileTool(null)}
+                                    save={() => this.toggleSaveProcess(true)}
+                                    theme={this.state.theme}
+                                />
+                            </Portal>
+                        ) : null}
+                        {this.state.mobileTool === "Captured-Pieces" ? (
+                            <CapturedPieceImages
+                                captured={this.captured}
+                                capturedIds={this.capturedIds}
+                                idDict={this.idDict}
+                                defs={this.defs}
+                                gameType={this.gameType}
+                                theme={this.state.theme}
+                            />
+                        ) : null}
+                        {this.state.mobileTool === "Resign" ? (
+                            <ResignModal
+                                theme={this.state.theme}
+                                onClick={() => {
+                                    this.toggleMobileTool(null)
+                                    this.resign()
+                                }}
+                                onClick1={() => this.toggleMobileTool(null)}
+                            />
+                        ) : null}
                     </PersistentDrawer>
                 </MediaQuery>
             </>

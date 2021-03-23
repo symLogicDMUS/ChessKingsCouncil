@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import { useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -10,6 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useStyles } from "./PersistentDrawer.jss";
+import {viewWidth} from "../../helpers/windowMeasurments";
 
 export default function PersistentDrawer({
     drawerType,
@@ -20,12 +21,26 @@ export default function PersistentDrawer({
     neighborOpen,
     children,
 }) {
-    const [open, setOpen] = React.useState(false);
+    const [drawerWidth, setDrawerWidth] = useState(viewWidth() * 0.45);
+    useEffect(() => {
+        function handleResize() {
+            setDrawerWidth(viewWidth() * 0.45)
+        }
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    });
+
     const muiTheme = useTheme();
+
     const classes = useStyles({
         theme: theme,
         spacing: spacing,
+        drawerWidth: drawerWidth
     });
+
+    const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);

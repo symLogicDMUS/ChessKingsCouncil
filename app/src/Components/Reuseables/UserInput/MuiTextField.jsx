@@ -1,46 +1,28 @@
 import React from "react";
+import Box from "@material-ui/core/Box";
 import TextField from "@material-ui/core/TextField";
-import { useStyles } from "./MuiInput.jss";
 
-export function MuiTextField({
-    id,
-    size,
-    theme,
-    style,
-    label,
-    variant,
-    onChange,
-    genStyle,
-    styleOverride,
-    inputRef,
-    autoFocus,
-    onFocus,
-    fullWidth,
-    defaultValue,
-    placeholder,
-    autoComplete,
-    disabled,
-    InputLabelProps,
-}) {
-    const classes = useStyles({ style: style, genStyle: genStyle, styleOverride: styleOverride, theme: theme });
+export function MuiTextField(props) {
 
     return (
-        <TextField
-            id={id}
-            size={size}
-            onChange={onChange}
-            inputRef={inputRef}
-            defaultValue={defaultValue}
-            placeholder={placeholder}
-            autoComplete={autoComplete}
-            InputLabelProps={InputLabelProps}
-            className={classes.input}
-            fullWidth={fullWidth}
-            autoFocus={autoFocus}
-            onFocus={onFocus}
-            variant={variant}
-            label={label}
-            disabled={disabled}
-        />
+        <Box className={props.rootClassName}>
+            <TextField
+                id={props.id}
+                size={props.size}
+                onChange={props.onChange}
+                inputRef={props.inputRef}
+                defaultValue={props.defaultValue}
+                placeholder={props.placeholder}
+                autoComplete={props.autoComplete}
+                InputLabelProps={props.InputLabelProps}
+                classes={props.classesObj}
+                fullWidth={props.fullWidth}
+                autoFocus={props.autoFocus}
+                onFocus={props.onFocus}
+                variant={props.variant}
+                label={props.label}
+                disabled={props.disabled}
+            />
+        </Box>
     );
 }

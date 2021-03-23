@@ -14,7 +14,6 @@ import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
 import PermanentDrawer from "../../Reuseables/Drawers/PermanentDrawer";
 import PersistentDrawer from "../../Reuseables/Drawers/PersistentDrawer";
 import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import MuiAccordion from "../../Reuseables/Drawers/MuiAccordion";
 import {sideBarHeight} from "../../Reuseables/Drawers/SidBar.jss";
 import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
 import {AppBarContent} from "./AppBarContent";
@@ -25,7 +24,6 @@ import {newData} from "../NewData";
 import {difference} from "../../helpers/setOps";
 import {isSpecial} from "../../helpers/isSpecial";
 import {standardPieceDefs} from "../standardPieceDefs/dev1";
-import {modalHeights} from "../../PieceProfiles/PieceProfiles.jss";
 import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
 import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
@@ -405,51 +403,51 @@ class Customize extends React.Component {
                                 newReplacement={this.newReplacement}
                                 searchText={this.state.searchText}
                             />
-                            <MuiAccordion
-                                theme={this.state.theme}
-                                // rootStyle={accordion_style('mobile')}
-                                neighborContentSize={modalHeights['mobile']}
-                            >
-                                {[
-                                    {
-                                        id: "sub-list",
-                                        title: 'Sub List',
-                                        body: (
-                                            <SubList
-                                                subs={this.subs}
-                                                theme={this.state.theme}
-                                            />
-                                        ),
-                                    },
-                                    {
-                                        id: "pawn-promo",
-                                        title: 'Pawn Promotion List',
-                                        body: (
-                                            <div className={this.props.classes.pawn_promotion}>
-                                                <ScrollTable
-                                                    numRows={4}
-                                                    listItems={this.promos}
-                                                    key='pawn-promotions-mobile'
-                                                    theme={this.state.theme}
-                                                    classProp={this.props.classes.scroll_table}
-                                                    addedClassProp={this.props.classes.scroll_table_added}
-                                                    arrowButtonClassProp={this.props.classes.scroll_table_button}
-                                                    listItemClassProp={this.props.classes.scroll_table_list_item}
-                                                />
-                                                <MuiCheckbox
-                                                    theme={this.state.theme}
-                                                    onClick={() => this.togglePromoAll()}
-                                                    rootClassProp={this.props.classes.promo_all_root}
-                                                    checkboxClassProp={this.props.classes.promo_all_checkbox}
-                                                    classProp={this.props.classes.promo_all_gen}
-                                                >
-                                                    Promo All
-                                                </MuiCheckbox>
-                                            </div>
-                                        ),
-                                    },
-                                ]}
-                            </MuiAccordion>
+                            {/*<MuiStatefulAccordion*/}
+                            {/*    theme={this.state.theme}*/}
+                            {/*    // rootStyle={accordion_style('mobile')}*/}
+                            {/*    neighborContentSize={modalHeights['mobile']}*/}
+                            {/*>*/}
+                            {/*    {[*/}
+                            {/*        {*/}
+                            {/*            id: "sub-list",*/}
+                            {/*            title: 'Sub List',*/}
+                            {/*            body: (*/}
+                            {/*                <SubList*/}
+                            {/*                    subs={this.subs}*/}
+                            {/*                    theme={this.state.theme}*/}
+                            {/*                />*/}
+                            {/*            ),*/}
+                            {/*        },*/}
+                            {/*        {*/}
+                            {/*            id: "pawn-promo",*/}
+                            {/*            title: 'Pawn Promotion List',*/}
+                            {/*            body: (*/}
+                            {/*                <div className={this.props.classes.pawn_promotion}>*/}
+                            {/*                    <ScrollTable*/}
+                            {/*                        numRows={4}*/}
+                            {/*                        listItems={this.promos}*/}
+                            {/*                        key='pawn-promotions-mobile'*/}
+                            {/*                        theme={this.state.theme}*/}
+                            {/*                        classProp={this.props.classes.scroll_table}*/}
+                            {/*                        addedClassProp={this.props.classes.scroll_table_added}*/}
+                            {/*                        arrowButtonClassProp={this.props.classes.scroll_table_button}*/}
+                            {/*                        listItemClassProp={this.props.classes.scroll_table_list_item}*/}
+                            {/*                    />*/}
+                            {/*                    <MuiCheckbox*/}
+                            {/*                        theme={this.state.theme}*/}
+                            {/*                        onClick={() => this.togglePromoAll()}*/}
+                            {/*                        rootClassProp={this.props.classes.promo_all_root}*/}
+                            {/*                        checkboxClassProp={this.props.classes.promo_all_checkbox}*/}
+                            {/*                        classProp={this.props.classes.promo_all_gen}*/}
+                            {/*                    >*/}
+                            {/*                        Promo All*/}
+                            {/*                    </MuiCheckbox>*/}
+                            {/*                </div>*/}
+                            {/*            ),*/}
+                            {/*        },*/}
+                            {/*    ]}*/}
+                            {/*</MuiStatefulAccordion>*/}
                             <Button
                                 onClick={this.accept}
                                 isDisabled={false}

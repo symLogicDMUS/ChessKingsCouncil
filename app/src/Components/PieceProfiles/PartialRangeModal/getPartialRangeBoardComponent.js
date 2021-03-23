@@ -15,7 +15,6 @@ export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location
                     theme={theme}
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}
-                    isLightSqr={binaryBoard[rf]}
                     screenCase={screenCase}
                     onClick={() => parentDispatch({type: 'set-location', newLoc: rf})}
                 >
@@ -33,7 +32,7 @@ export const getPartialRangeBoardComponent = (parentDispatch, boardObj, location
                     theme={theme}
                     rangeType={rangeType}
                     isHighlight={boardObj[rf]}
-                    isLightSqr={binaryBoard[rf]}
+                    screenCase={screenCase}
                     onClick={() => parentDispatch({type: 'set-location', newLoc: rf})}
                 >
                     {null}

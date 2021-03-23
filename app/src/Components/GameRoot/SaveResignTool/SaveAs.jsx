@@ -31,7 +31,6 @@ export function SaveAs({changeName, save, close, theme}) {
                 <DialogContent>
                     <MuiTextField
                         id="name"
-                        theme={theme}
                         fullWidth={true}
                         autoFocus={true}
                         margin="dense"

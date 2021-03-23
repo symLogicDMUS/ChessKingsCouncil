@@ -9,9 +9,9 @@ export function IncorrectNameEntryExamples({fontSize, theme}) {
     return (
         <div>
             <Box className={classes.incorrect_name_entry_examples}>
-                <MuiTextField theme={theme} variant='outlined' defaultValue='Queen' disabled={true} />
-                <MuiTextField theme={theme} variant='outlined' defaultValue='' disabled={true} />
-                <MuiTextField theme={theme} variant='outlined' defaultValue='#$[].' disabled={true} />
+                <MuiTextField variant='outlined' defaultValue='Queen' disabled={true} />
+                <MuiTextField variant='outlined' defaultValue='' disabled={true} />
+                <MuiTextField variant='outlined' defaultValue='#$[].' disabled={true} />
             </Box>
             <Box className={classes.block_icons}>
                 <BlockIcon className={classes.block_icon} />

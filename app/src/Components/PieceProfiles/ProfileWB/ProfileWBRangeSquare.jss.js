@@ -1,15 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {fontSizes} from "../PieceProfiles.jss";
+
+export const sqrSize = {
+    desktop: '1.791625vw',
+    mobile: '1.791625vw',
+}
 
 export const useStyles = makeStyles({
     square: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop*0.125,
-        },
-        /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizes.mobile*0.125,
-        },
-        cursor: 'default',
+        pointerEvents: 'none',
     }),
 }, {index: 1});

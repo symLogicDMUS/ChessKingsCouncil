@@ -1,4 +1,3 @@
-import {modalWidths} from "../../PieceProfiles/PieceProfiles.jss";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {fontSize0016, fontSize0023, fontSize0025, fontSize004025, fontSizeW004, fontSizeW0055} from "../../styles/fontSizes.jss";
 
@@ -18,14 +17,11 @@ export const styles = {
             flexGrow: 2,
         },
         accordion_style: props => ({
-            '@media screen and (max-width: 1040px)': {
-                width: modalWidths.mobile,
-            },
-            '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-                width: modalWidths.ipad,
-            },
             '@media screen and (min-width: 1040px)': {
-                width: modalWidths.desktop,
+
+            },
+            '@media screen and (max-width: 1040px)': {
+
             },
         }),
     }),

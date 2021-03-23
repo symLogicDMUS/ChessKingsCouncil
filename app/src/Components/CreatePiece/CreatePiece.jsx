@@ -1,5 +1,4 @@
 import React from "react";
-import "../styles/scrollbar.scss";
 import MediaQuery from "react-responsive";
 import "../Reuseables/Background/_backgrounds.scss";
 import Typography from "@material-ui/core/Typography";
@@ -33,7 +32,11 @@ import { DrawerContent } from "../Reuseables/Drawers/DrawerContent";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { pageTitleStyle } from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
+import {
+    fontSize002,
+    fontSize0026,
+    fontSizeW0045,
+} from "../styles/fontSizes.jss";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
@@ -133,8 +136,7 @@ class CreatePiece extends React.Component {
     toggleMobileTool(toolName) {
         if (this.state.mobileTool === toolName) {
             this.setState({ mobileTool: null });
-        }
-        else {
+        } else {
             this.setState({ mobileTool: toolName });
         }
     }
@@ -397,7 +399,7 @@ class CreatePiece extends React.Component {
 
     render() {
         return (
-            <div className='scrollbar-tan'>
+            <>
                 {this.modals()}
                 <MediaQuery minWidth={1040}>
                     <PermanentDrawer
@@ -406,8 +408,8 @@ class CreatePiece extends React.Component {
                         content={
                             <DrawerContent>
                                 <Board
-                                    key='Board-Desktop'
-                                    screenCase='desktop'
+                                    key="Board-Desktop"
+                                    screenCase="desktop"
                                     theme={this.state.theme}
                                     pieceLoc={this.location}
                                     setLoc={this.setLoc}
@@ -499,7 +501,9 @@ class CreatePiece extends React.Component {
                                             })
                                         }
                                         defaultChecked={this.state.showSpanText}
-                                        rootClassProp={this.props.classes.sqr_text_checkbox}
+                                        rootClassProp={
+                                            this.props.classes.sqr_text_checkbox
+                                        }
                                         theme={this.state.theme}
                                     >
                                         Show Span Text
@@ -514,7 +518,9 @@ class CreatePiece extends React.Component {
                                         defaultChecked={
                                             this.state.showOffsetText
                                         }
-                                        rootClassProp={this.props.classes.sqr_text_checkbox}
+                                        rootClassProp={
+                                            this.props.classes.sqr_text_checkbox
+                                        }
                                         theme={this.state.theme}
                                     >
                                         Show Offset Text
@@ -531,8 +537,8 @@ class CreatePiece extends React.Component {
                         theme={this.state.theme}
                         drawer={
                             <NavBar
-                                currentPage="CreatePiece"
                                 screenCase="mobile"
+                                currentPage="CreatePiece"
                                 redirectMessage={messageStr}
                                 helpTitle={
                                     <HelpTitle
@@ -562,7 +568,10 @@ class CreatePiece extends React.Component {
                                             defaultChecked={
                                                 this.state.showSpanText
                                             }
-                                            rootClassProp={this.props.classes.sqr_text_checkbox}
+                                            rootClassProp={
+                                                this.props.classes
+                                                    .sqr_text_checkbox
+                                            }
                                             theme={this.state.theme}
                                         >
                                             Show Span Text
@@ -577,7 +586,10 @@ class CreatePiece extends React.Component {
                                             defaultChecked={
                                                 this.state.showOffsetText
                                             }
-                                            rootClassProp={this.props.classes.sqr_text_checkbox}
+                                            rootClassProp={
+                                                this.props.classes
+                                                    .sqr_text_checkbox
+                                            }
                                             theme={this.state.theme}
                                         >
                                             Show Offset Text
@@ -599,32 +611,52 @@ class CreatePiece extends React.Component {
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"name_tool"}
-                                        isActive={this.state.mobileTool === "Name"}
-                                        onClick={() => this.toggleMobileTool("Name")}
+                                        isActive={
+                                            this.state.mobileTool === "Name"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMobileTool("Name")
+                                        }
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"icon_tool"}
-                                        isActive={this.state.mobileTool === "Icon"}
-                                        onClick={() => this.toggleMobileTool("Icon")}
+                                        isActive={
+                                            this.state.mobileTool === "Icon"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMobileTool("Icon")
+                                        }
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"range_tool"}
-                                        isActive={this.state.mobileTool === "Range"}
-                                        onClick={() => this.toggleMobileTool("Range")}
+                                        isActive={
+                                            this.state.mobileTool === "Range"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMobileTool("Range")
+                                        }
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"location_tool"}
-                                        isActive={this.state.mobileTool === "Location"}
-                                        onClick={() => this.toggleMobileTool("Location")}
+                                        isActive={
+                                            this.state.mobileTool === "Location"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMobileTool("Location")
+                                        }
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"options_tool"}
-                                        isActive={this.state.mobileTool === "Options"}
-                                        onClick={() => this.toggleMobileTool("Options")}
+                                        isActive={
+                                            this.state.mobileTool === "Options"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMobileTool("Options")
+                                        }
                                     />
                                 </ToolButtons>
                             </>
@@ -633,7 +665,7 @@ class CreatePiece extends React.Component {
                     >
                         <Board
                             key="Board-Mobile"
-                            screenCase='mobile'
+                            screenCase="mobile"
                             theme={this.state.theme}
                             pieceLoc={this.location}
                             setLoc={this.setLoc}
@@ -680,7 +712,7 @@ class CreatePiece extends React.Component {
                         ) : null}
                     </PersistentDrawer>
                 </MediaQuery>
-            </div>
+            </>
         );
     }
 }

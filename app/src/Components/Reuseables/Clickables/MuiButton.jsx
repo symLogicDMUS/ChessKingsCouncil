@@ -3,23 +3,23 @@ import clsx from "clsx";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./MuiButton.jss";
 
-export function MuiButton({ onClick, classesObj, classProp, addedClassProp, theme, variant, startIcon, endIcon, isDisabled, children}) {
-    const classes = useStyles({ theme: theme });
+export function MuiButton(props) {
+    const classes = useStyles({ theme: props.theme });
     return (
         <>
             <Button
-                onClick={onClick}
-                variant={variant}
+                onClick={props.onClick}
+                variant={props.variant}
                 className={clsx(classes.button, {
-                    [classProp]: classProp,
-                    [addedClassProp]: addedClassProp,
+                    [props.classProp]: props.classProp,
+                    [props.addedClassProp]: props.addedClassProp,
                 })}
-                classes={classesObj}
-                disabled={isDisabled}
-                startIcon={startIcon}
-                endIcon={endIcon}
+                classes={props.classesObj}
+                disabled={props.isDisabled}
+                startIcon={props.startIcon}
+                endIcon={props.endIcon}
             >
-                {children}
+                {props.children}
             </Button>
         </>
     );

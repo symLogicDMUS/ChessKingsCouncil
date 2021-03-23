@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import {MuiButton as Button} from "./MuiButton";
-import {StandardModal} from "../Modals/StandardModal";
-import {Portal} from "@material-ui/core";
-import {useStyles} from "../Modals/StandardModal.jss";
+import React, { useState } from "react";
+import { MuiButton as Button } from "./MuiButton";
+import { StandardModal } from "../Modals/StandardModal";
+import { Portal } from "@material-ui/core";
+import { useStyles } from "../Modals/StandardModal.jss";
 
 /**
  * motivation is for the 'are you sure yes or no' modal that always occurs
@@ -19,11 +19,21 @@ import {useStyles} from "../Modals/StandardModal.jss";
  * @returns {JSX.Element}
  * @constructor
  */
-export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, style, classesObj, variant, startIcon, isDisabled, altText}) {
-
+export function MuiDeleteButton({
+    onAcceptDelete,
+    modalTitle,
+    modalText,
+    theme,
+    style,
+    classesObj,
+    variant,
+    startIcon,
+    isDisabled,
+    altText,
+}) {
     const [modal, setModal] = useState(false);
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     return (
         <>
@@ -37,12 +47,12 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                     >
                         <Button
                             onClick={() => {
-                                onAcceptDelete()
-                                setModal(false)
+                                onAcceptDelete();
+                                setModal(false);
                             }}
                             classProp={classes.button}
                             addedClassProp={classes.yes_button}
-                            variant={'contained'}
+                            variant={"contained"}
                             theme={theme}
                         >
                             Yes
@@ -51,7 +61,7 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                             onClick={() => setModal(false)}
                             classProp={classes.button}
                             addedClassProp={classes.no_button}
-                            variant={'contained'}
+                            variant={"contained"}
                             theme={theme}
                         >
                             No
@@ -68,8 +78,8 @@ export function MuiDeleteButton({onAcceptDelete, modalTitle, modalText, theme, s
                 style={style}
                 theme={theme}
             >
-                {altText ? (altText) : 'Delete'}
+                {altText ? altText : "Delete"}
             </Button>
         </>
-    )
+    );
 }

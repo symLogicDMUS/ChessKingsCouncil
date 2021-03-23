@@ -1,15 +1,16 @@
+
 export let super_checkmate_impossible_example =  {
     "fen": "5rk1/3np1p1/r4K2/8/7b/8/8/q4r2 w - - 0 1",
     "json": {
         "rooks_moved": {
-            "h1": True,
-            "a1": True,
-            "h8": True,
-            "a8": True
+            "h1": true,
+            "a1": true,
+            "h8": true,
+            "a8": true
         },
         "kings_moved": {
-            "e1": True,
-            "e8": True
+            "e1": true,
+            "e8": true
         },
         "pawn_histories": {
             "e7": [
@@ -197,4 +198,4 @@ export let super_checkmate_impossible_example =  {
         "Bishop",
         "Knight"
     ]
-},
+}

@@ -1,5 +1,4 @@
 import React, {useEffect, useReducer} from "react";
-import "../styles/scrollbar.scss";
 import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import MediaQuery from "react-responsive/src";
@@ -9,7 +8,7 @@ import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {dbSampleDefs} from "../../API/apiHelpers/sampleDefs/dev1";
 import {getSampleDefs} from "../../API/getSampleDefs";
-import { saveDefs } from "../../API/saveDefs";
+import {saveDefs} from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
@@ -121,30 +120,28 @@ export function PieceProfiles(props) {
     };
 
     return (
-        <div className={`scrollbar-${props.theme}`}>
-            <div className={clsx(classes.piece_profiles, {
-                [props.classProp]: props.classProp,
-            })}>
-                {props.children}
-                <MediaQuery minWidth={1040}>
-                    <div className={classes.profiles_window}>
-                        {state.loaded ? (
-                            getProfiles('desktop')
-                        ) : (
-                            <ProfileSkeleton theme={props.theme}/>
-                        )}
-                    </div>
-                </MediaQuery>
-                <MediaQuery maxWidth={1040}>
-                    <div className={classes.profiles_window}>
-                        {state.loaded ? (
-                            getProfiles('mobile')
-                        ) : (
-                            <ProfileSkeleton theme={props.theme}/>
-                        )}
-                    </div>
-                </MediaQuery>
-            </div>
+        <div className={clsx(classes.piece_profiles, {
+            [props.classProp]: props.classProp,
+        })}>
+            {props.children}
+            <MediaQuery minWidth={1040}>
+                <div className={classes.profiles_window}>
+                    {state.loaded ? (
+                        getProfiles('desktop')
+                    ) : (
+                        <ProfileSkeleton theme={props.theme}/>
+                    )}
+                </div>
+            </MediaQuery>
+            <MediaQuery maxWidth={1040}>
+                <div className={classes.profiles_window}>
+                    {state.loaded ? (
+                        getProfiles('mobile')
+                    ) : (
+                        <ProfileSkeleton theme={props.theme}/>
+                    )}
+                </div>
+            </MediaQuery>
         </div>
     );
 }

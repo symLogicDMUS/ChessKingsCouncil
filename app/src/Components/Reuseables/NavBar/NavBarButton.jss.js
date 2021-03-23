@@ -1,11 +1,6 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {
-    fontSize0015,
-    fontSize002,
-    fontSize0023,
-    fontSize0024,
-} from "../../styles/fontSizes.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import {fontSize0015, fontSize002, fontSize0023, fontSize0024,} from "../../styles/fontSizes.jss";
 
 const margin = '0.4em';
 
@@ -47,7 +42,6 @@ export const useStyles = makeStyles({
         marginRight: margin,
     }),
     text: props => ({
-        /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSize002,
             marginRight: margin,

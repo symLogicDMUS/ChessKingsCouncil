@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useStyles } from "./GameType.jss";
 
-export function GameType({setGameType, gameType, selectedType, theme}) {
+export function GameType({setGameType, gameType, selectedType}) {
     const classes = useStyles();
     return (
         <motion.img

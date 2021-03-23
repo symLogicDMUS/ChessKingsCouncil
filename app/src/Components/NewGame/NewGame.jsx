@@ -4,7 +4,6 @@ import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import "../Reuseables/Background/_backgrounds.scss";
-import "../styles/scrollbar.scss";
 import {Play} from "./Play";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
@@ -75,37 +74,102 @@ function NewGame() {
 
     return (
         <>
-            <div className={`scrollbar-${theme}`}>
-                <MediaQuery minWidth={1040}>
-                    <Background theme={theme} navBar={true} currentPage='NewGame'/>
-                    <NavBar
-                        currentPage="NewGame"
-                        screenCase='desktop'
-                        helpText={HelpText(fontSize002, theme)}
-                        helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
-                        additionalSettings={null}
-                        updateTheme={updateTheme}
+            <MediaQuery minWidth={1040}>
+                <Background theme={theme} navBar={true} currentPage='NewGame'/>
+                <NavBar
+                    currentPage="NewGame"
+                    screenCase='desktop'
+                    helpText={HelpText(fontSize002, theme)}
+                    helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
+                    additionalSettings={null}
+                    updateTheme={updateTheme}
+                    theme={theme}
+                />
+                <Box className={classes.new_game}>
+                    <GameName
+                        key='GameName-Desktop'
                         theme={theme}
+                        setGameName={setGameName}
+                        screenCase='desktop'
                     />
+                    <PickType
+                        key='PickType-Desktop'
+                        theme={theme}
+                        gameType={gameType}
+                        setGameType={setGameType}
+                        screenCase='desktop'
+                    />
+                    <PlayAs
+                        theme={theme}
+                        key='PlayAs-Desktop'
+                        setPlayerType={setPlayerType}
+                        screenCase='desktop'
+                    />
+                    <Play
+                        theme={theme}
+                        onClick={finish}
+                        classes={classes}
+                        playerType={playerType}
+                        gameType={gameType} gameName={gameName}
+                        predicate={(c) => charNotInStr(c, gameName)}
+                        key='Play-Button-Desktop'
+                    />
+                </Box>
+                {confirmModal ? (
+                    <ConfirmStandard
+                        theme={theme}
+                        closeClick={() => {
+                            updateGameType('Standard')
+                            setConfirmModal(false)
+                        }}
+                        onClick={() => {
+                            updateGameType('Custom')
+                            setConfirmModal(false)
+                        }}
+                    />
+                ) : null}
+            </MediaQuery>
+            <MediaQuery maxWidth={1040}>
+                <Background theme={theme} appBar={true}/>
+                <PersistentDrawer
+                    theme={theme}
+                    drawer={
+                        <NavBar
+                            currentPage="NewGame"
+                            screenCase='mobile'
+                            helpText={HelpText(fontSizeW0045, theme)}
+                            helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
+                            redirectMessage={null}
+                            updateTheme={updateTheme}
+                            additionalSettings={null}
+                            theme={theme}
+                        />
+                    }
+                    appBarContent={
+                        <Typography variant='subtitle1' style={pageTitleStyle} noWrap>
+                            New Game
+                        </Typography>
+                    }
+                >
                     <Box className={classes.new_game}>
                         <GameName
-                            key='GameName-Desktop'
                             theme={theme}
+                            key='GameName-Mobile'
                             setGameName={setGameName}
-                            screenCase='desktop'
+                            screenCase='mobile'
                         />
                         <PickType
-                            key='PickType-Desktop'
                             theme={theme}
+                            key="PickType-Mobile"
                             gameType={gameType}
                             setGameType={setGameType}
-                            screenCase='desktop'
+                            screenCase='mobile'
                         />
                         <PlayAs
                             theme={theme}
-                            key='PlayAs-Desktop'
                             setPlayerType={setPlayerType}
-                            screenCase='desktop'
+                            key="PlayAs-Mobile"
+                            screenCase='mobile'
                         />
                         <Play
                             theme={theme}
@@ -114,7 +178,7 @@ function NewGame() {
                             playerType={playerType}
                             gameType={gameType} gameName={gameName}
                             predicate={(c) => charNotInStr(c, gameName)}
-                            key='Play-Button-Desktop'
+                            key='Play-Button-Mobile'
                         />
                     </Box>
                     {confirmModal ? (
@@ -130,75 +194,8 @@ function NewGame() {
                             }}
                         />
                     ) : null}
-                </MediaQuery>
-                <MediaQuery maxWidth={1040}>
-                    <Background theme={theme} appBar={true}/>
-                    <PersistentDrawer
-                        theme={theme}
-                        drawer={
-                            <NavBar
-                                currentPage="NewGame"
-                                screenCase='mobile'
-                                helpText={HelpText(fontSizeW0045, theme)}
-                                helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
-                                redirectMessage={null}
-                                updateTheme={updateTheme}
-                                additionalSettings={null}
-                                theme={theme}
-                            />
-                        }
-                        appBarContent={
-                            <Typography variant='subtitle1' style={pageTitleStyle} noWrap>
-                                New Game
-                            </Typography>
-                        }
-                    >
-                        <Box className={classes.new_game}>
-                            <GameName
-                                theme={theme}
-                                key='GameName-Mobile'
-                                setGameName={setGameName}
-                                screenCase='mobile'
-                            />
-                            <PickType
-                                theme={theme}
-                                key="PickType-Mobile"
-                                gameType={gameType}
-                                setGameType={setGameType}
-                                screenCase='mobile'
-                            />
-                            <PlayAs
-                                theme={theme}
-                                setPlayerType={setPlayerType}
-                                key="PlayAs-Mobile"
-                                screenCase='mobile'
-                            />
-                            <Play
-                                theme={theme}
-                                onClick={finish}
-                                classes={classes}
-                                playerType={playerType}
-                                gameType={gameType} gameName={gameName}
-                                predicate={(c) => charNotInStr(c, gameName)}
-                                key='Play-Button-Mobile'
-                            />
-                        </Box>
-                        {confirmModal ? (
-                            <ConfirmStandard
-                                theme={theme}
-                                closeClick={() => {
-                                    updateGameType('Standard')
-                                    setConfirmModal(false)
-                                }}
-                                onClick={() => {
-                                    updateGameType('Custom')
-                                    setConfirmModal(false)
-                                }}
-                            />
-                        ) : null}
-                    </PersistentDrawer>
-                </MediaQuery>
-            </div>
+                </PersistentDrawer>
+            </MediaQuery>
         </>
     );
 }

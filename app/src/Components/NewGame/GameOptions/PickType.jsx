@@ -1,15 +1,19 @@
 import React from "react";
+import clsx from "clsx";
 import {GameType} from "./GameType";
 import Box from "@material-ui/core/Box";
-import {useStyles} from "../NewGame.jss";
+import {useStyles as useMoreStyles} from "../NewGame.jss";
+import { useStyles } from "./PickType.jss";
 
 export function PickType({gameType, setGameType, theme}) {
-
-    const classes = useStyles({theme: theme})
+    const classes = useStyles({theme: theme});
+    const classes2 = useMoreStyles()
 
     return (
-        <Box className={classes.item}>
-            <img src={`/Images/text/new game/subtitles/${theme}/Pick Type.svg`} className={classes.title}/>
+        <Box className={clsx(classes2.item, {
+            [classes.pick_type]: true,
+        })}>
+            <img src={`/Images/text/new game/subtitles/${theme}/Pick Type.svg`} className={classes2.title}/>
             <Box className={classes.game_types}>
                 <GameType gameType="Standard" setGameType={setGameType} selectedType={gameType} theme={theme}/>
                 <div className={classes.game_types_divider} />

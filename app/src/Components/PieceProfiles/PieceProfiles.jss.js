@@ -1,78 +1,26 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {fontSize0023, fontSize0027, fontSizeW006, fontSizeW0062} from "../styles/fontSizes.jss";
 
-export const fontSizes = {
-    desktop: fontSize0023,
-    mobile: fontSizeW0062,
-    ipx: fontSizeW006,
-    ipad: fontSize0027,
-    short: fontSizeW006,
-}
-
-export const heights = {
-    desktop: 13.03,
-    mobile: 9,
-    ipad: 9,
-    short: 9,
-}
-
-export const widths = {
-    desktop: '11.55em',
-    mobile: '7.5em',
-    ipad: '7.5em',
-    ipx: '7.5em',
-    short: '7.5em',
-}
-
-export const modalWidths = {
-    mobile: availWidth(),
-    desktop: availWidth() * 0.5,
-    ipad: availWidth() * 0.95,
-}
-
-export const modalHeights = {
-    mobile: availHeight() * 0.5,
-    ipx: availHeight() * 0.5,
-    ipad: availHeight() * 0.65,
-    desktop : availHeight() * 0.75,
-}
+export const profileWBMarginDesktop = '1.75vw';
+export const profileWBMarginMobile = '2.5vw';
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media (max-width:767px)': {
-            height: modalHeights.mobile,
-            width: modalWidths.mobile,
-            marginTop: '0.05em',
+        '@media screen and (max-width: 1040px)': {
+            width: '100vw',
+            height: '80vh',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            height: modalHeights.ipad,
-            width: modalWidths.ipad,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginTop: '0.25em',
-            marginBottom: '0.25em',
-        },
-
         '@media screen and (min-width: 1040px)': {
-            height: modalHeights.desktop,
-            width: modalWidths.desktop,
+            width: '50vw',
+            height: '40vw',
+            borderRadius: '0.5rem',
         },
-        borderRadius: '0.35em',
         backgroundColor: themes[props.theme].fill,
-        border: `0.12em solid ${themes[props.theme].odd_row}`,
+        border: `0.12rem solid ${themes[props.theme].odd_row}`,
     }),
     profiles_window: props => ({
         overflowY: 'scroll',
-    }),
-    divider: props => ({
-        fontSize: props.fontSize,
-        width: '77em',
-        marginLeft: '1.8em',
-        marginTop: '0.75em',
-        marginBottom: '0.75em',
     }),
 }, {index: 1});

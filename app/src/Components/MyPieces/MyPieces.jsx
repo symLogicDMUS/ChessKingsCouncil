@@ -91,7 +91,7 @@ class MyPieces extends React.Component {
                                 additionalSettings={null}
                             />
                         }
-                        appBarContent={<Typography variant='subtitle1' style={pageTitleStyle()} noWrap>My Pieces</Typography>}
+                        appBarContent={<Typography variant='subtitle1' style={pageTitleStyle} noWrap>My Pieces</Typography>}
                     >
                         <div className={this.props.classes.my_pieces}>
                                 <PieceProfiles

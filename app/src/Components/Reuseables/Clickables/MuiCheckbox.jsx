@@ -7,82 +7,56 @@ import Typography from "@material-ui/core/Typography";
 import { FormControlLabel } from "@material-ui/core";
 import { useStyles } from "./MuiCheckbox.jss";
 
-/**
- * @param onClick
- * @param theme: string
- * @param checkmarkState
- * @param defaultChecked
- * @param rootStyle: Object
- * @param classProp
- * @param textVariant: string
- * @param classesObj: Object
- * @param style: Object, (style.fontSize is required)
- * @param children: string, text for form label
- * @returns {JSX.Element}
- * @constructor
- */
-export function MuiCheckbox({
-    onClick,
-    checkmarkState,
-    defaultChecked,
-    theme,
-    classesObj,
-    textVariant,
-    classProp,
-    addedClassProp,
-    rootClassProp,
-    textClassProp,
-    checkboxClassProp,
-    children,
-}) {
+
+export function MuiCheckbox(props) {
     const classes = useStyles({
-        theme,
+        theme: props.theme,
     });
 
     return (
         <FormControlLabel
             control={
                 <Checkbox
-                    onClick={onClick}
+                    onClick={props.onClick}
                     icon={
                         <CheckBoxOutlineBlankIcon
                             className={clsx(classes.unchecked, {
-                                [classProp]: classProp,
-                                [addedClassProp]: addedClassProp,
-                                [checkboxClassProp]: checkboxClassProp,
+                                [props.classProp]: props.classProp,
+                                [props.addedClassProp]: props.addedClassProp,
+                                [props.checkboxClassProp]: props.checkboxClassProp,
                             })}
                         />
                     }
                     checkedIcon={
                         <CheckBoxIcon
                             className={clsx(classes.checked, {
-                                [classProp]: classProp,
-                                [addedClassProp]: addedClassProp,
-                                [checkboxClassProp]: checkboxClassProp,
+                                [props.classProp]: props.classProp,
+                                [props.addedClassProp]: props.addedClassProp,
+                                [props.checkboxClassProp]: props.checkboxClassProp,
                             })}
                         />
                     }
-                    checked={checkmarkState}
-                    defaultChecked={defaultChecked}
+                    checked={props.checkmarkState}
+                    defaultChecked={props.defaultChecked}
                     name="checkbox"
                 />
             }
-            classes={classesObj}
+            classes={props.classesObj}
             className={clsx(classes.form_control_label_root, {
-                [classProp]: classProp,
-                [addedClassProp]: addedClassProp,
-                [rootClassProp]: rootClassProp,
+                [props.classProp]: props.classProp,
+                [props.addedClassProp]: props.addedClassProp,
+                [props.rootClassProp]: props.rootClassProp,
             })}
             label={
                 <Typography
                     className={clsx(classes.text, {
-                        [classProp]: classProp,
-                        [addedClassProp]: addedClassProp,
-                        [textClassProp]: textClassProp,
+                        [props.classProp]: props.classProp,
+                        [props.addedClassProp]: props.addedClassProp,
+                        [props.textClassProp]: props.textClassProp,
                     })}
-                    variant={textVariant}
+                    variant={props.textVariant}
                 >
-                    {children}
+                    {props.children}
                 </Typography>
             }
             labelPlacement="start"

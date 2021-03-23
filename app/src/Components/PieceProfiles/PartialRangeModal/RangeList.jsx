@@ -1,9 +1,9 @@
 import React from "react";
-import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
 import {offsetToText} from "../../helpers/offsetToText";
+import {ListItem} from "../../Reuseables/ScrollTable/ListItem";
 import {stepFuncNamesToText} from "../../helpers/spanToText";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {buttonStyle, rangeListStyle, rowStyle} from "./RangeList.jss";
+import {useStyles} from "./RangeList.jss";
 
 export function RangeList({
     range,
@@ -11,6 +11,8 @@ export function RangeList({
     parentDispatch,
     theme,
 }) {
+    const classes = useStyles({theme});
+
     const getSpanListItems = () => {
         const spanListItems = [];
         for (const span of range) {
@@ -18,7 +20,6 @@ export function RangeList({
                 <ListItem
                     theme={theme}
                     key={stepFuncNamesToText[span]}
-                    // text={stepFuncNamesToText[span]}
                     onClick={() => parentDispatch({
                         type: "span",
                         span: span,
@@ -38,7 +39,6 @@ export function RangeList({
                 <ListItem
                     theme={theme}
                     key={offsetToText(offset)}
-                    // text={offsetToText(offset)}
                     onClick={() => parentDispatch({
                         type: "offset",
                         offset: offset,
@@ -55,23 +55,25 @@ export function RangeList({
         <>
             {rangeType === "offset" ? (
                 <ScrollTable
-                    listItems={getOffsetListItems()}
                     numRows={5}
                     theme={theme}
-                    rowStyle={rowStyle()}
-                    style={rangeListStyle()}
-                    buttonStyle={buttonStyle()}
+                    listItems={getOffsetListItems()}
+                    listItemClassProp={classes.row_style}
+                    rootClassProp={classes.range_list_style}
+                    addedClassProp={classes.range_list_style}
+                    arrowButtonClassProp={classes.button_style}
                 >
                 </ScrollTable>
             ) : null}
             {rangeType === "span" ? (
                 <ScrollTable
-                    listItems={getSpanListItems()}
                     numRows={5}
                     theme={theme}
-                    rowStyle={rowStyle()}
-                    style={rangeListStyle()}
-                    buttonStyle={buttonStyle()}
+                    listItems={getSpanListItems()}
+                    listItemClassProp={classes.row_style}
+                    rootClassProp={classes.range_list_style}
+                    addedClassProp={classes.range_list_style}
+                    arrowButtonClassProp={classes.button_style}
                 />
             ) : null}
         </>

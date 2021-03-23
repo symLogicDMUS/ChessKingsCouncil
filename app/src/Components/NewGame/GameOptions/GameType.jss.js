@@ -4,7 +4,7 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     game_type: props => ({
-        width: '25%',
+        width: '27.5%',
         cursor: 'pointer',
     }),
 }, {index: 1});

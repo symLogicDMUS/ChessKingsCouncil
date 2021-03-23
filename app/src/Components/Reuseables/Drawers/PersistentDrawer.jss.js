@@ -1,11 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {viewHeight, viewWidth} from "../../helpers/windowMeasurments";
+import {viewWidth} from "../../helpers/windowMeasurments";
 import {themes} from "../../styles/themes.jss";
 
 export const appBarHeight = 48;
-export const bottomBarHeight = appBarHeight * 1.1;
-export const addressBarHeight = appBarHeight * 1.5
-export const drawerWidth = viewWidth() * 0.65;
 export const neighborWidth = viewWidth()*0.5;
 
 export const pageTitleStyle = {
@@ -38,8 +35,8 @@ export const useStyles = makeStyles((theme) => ({
         color: themes[props.theme].text,
     }),
     appBarShift: props => ({
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
+        width: `calc(100% - ${props.drawerWidth}px)`,
+        marginLeft: props.drawerWidth,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
@@ -60,11 +57,11 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
     }),
     drawer: props => ({
-        width: drawerWidth,
+        width: props.drawerWidth,
         flexShrink: 0,
     }),
     drawerPaper: props => ({
-        width: drawerWidth,
+        width: props.drawerWidth,
         backgroundColor: themes[props.theme].fill,
     }),
     drawerHeader: props => ({
@@ -80,7 +77,7 @@ export const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        marginLeft: -drawerWidth,
+        marginLeft: -props.drawerWidth,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

@@ -1,6 +1,5 @@
 import React from "react";
 import { Close } from "./Close";
-import "../../styles/scrollbar.scss";
 import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import { useStyles } from "./StandardModal.jss";

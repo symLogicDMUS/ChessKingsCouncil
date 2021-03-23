@@ -7,6 +7,7 @@ import { ProfileWBRange } from "./ProfileWBRange";
 import { PartialRangeModal } from
         "../PartialRangeModal/PartialRangeModal";
 import { reducer } from "./ProfileWB.red";
+import {Close} from "../../Reuseables/Modals/Close";
 import { useStyles } from "./ProfileWB.jss";
 
 /**
@@ -27,14 +28,20 @@ export const ProfileWB = ({ pieceName, color, def, theme, screenCase, hasDrawerP
             {state.isModal ? (
                 <Portal>
                     <div className={classes.modal}>
-                        <Box className={clsx(classes.range_modal, {
+                        <Box className={clsx(classes.range_analysis, {
                             [classes.profile_wb_drawer_item]: hasDrawerParent,
                         })}>
+                            <Box className={classes.x_icon_flexbox}>
+                                <Close
+                                    onClick={() => dispatch({ type: "close" })}
+                                    classProp={classes.close_icon}
+                                    theme={theme}
+                                />
+                            </Box>
                             <PartialRangeModal
                                 screenCase={screenCase}
                                 rangeType={state.rangeType}
                                 range={(state.rangeType === 'span') ? def.spans : def.offsets}
-                                close={() => dispatch({ type: "close" })}
                                 pieceName={pieceName}
                                 src={def.img}
                                 color={color}

@@ -1,9 +1,10 @@
 import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {HelpButton} from "./Help/HelpButton";
-import {SettingsButton} from "./SettingsButton";
-import {NavBarButton} from "./NavBarButton";
-import {useStyles} from "./NavBar.jss";
+import { HelpButton } from "./Help/HelpButton";
+import { SettingsButton } from "./SettingsButton";
+import { NavBarButton } from "./NavBarButton";
+import { useStyles } from "./NavBar.jss";
 
 /**
  * children is settings content unique to parent page.
@@ -13,14 +14,28 @@ import {useStyles} from "./NavBar.jss";
  * @constructor
  */
 export function NavBar(props) {
-
-    const classes = useStyles({currentPage: props.currentPage, screenCase: props.screenCase});
+    const classes = useStyles();
 
     return (
         <>
-            <Box className={classes.nav_bar}>
+            <Box
+                className={clsx(classes.nav_bar, {
+                    [classes.nav_drawer]: props.screenCase === "mobile",
+                    [classes.row_direction]:
+                        props.screenCase === "desktop" &&
+                        (props.currentPage === "NewGame" ||
+                            props.currentPage === "LoadGame" ||
+                            props.currentPage === "MyPieces" ||
+                            props.currentPage === "CouncilRules"),
+                    [classes.column_direction]:
+                        props.screenCase === "desktop" &&
+                        (props.currentPage === "CreatePiece" ||
+                            props.currentPage === "GameRoot" ||
+                            props.currentPage === "Customize"),
+                })}
+            >
                 <HelpButton
-                    key='Help'
+                    key="Help"
                     pageIcon="help"
                     theme={props.theme}
                     currentPage={props.currentPage}
@@ -31,7 +46,7 @@ export function NavBar(props) {
                     {props.helpText}
                 </HelpButton>
                 <SettingsButton
-                    key='MuiSettings-Button'
+                    key="MuiSettings-Button"
                     theme={props.theme}
                     updateTheme={props.updateTheme}
                     currentPage={props.currentPage}
@@ -99,7 +114,7 @@ export function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
-                    key='chess-dot-com'
+                    key="chess-dot-com"
                     path="https://www.chess.com/learn-how-to-play-chess"
                     pageName="Chess Rules"
                     pageIcon="chess-rules"
@@ -123,7 +138,7 @@ export function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
-                    key='github-dot-com'
+                    key="github-dot-com"
                     path="https://github.com/symLogicDMUS"
                     pageName="Author Github"
                     pageIcon="author-github"

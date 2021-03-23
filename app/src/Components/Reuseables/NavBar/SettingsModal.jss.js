@@ -3,7 +3,6 @@ import {modal} from "../../helpers/modal.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {outline, root, text} from "../UserInput/MuiInput.jss";
 
 const widths = {
     desktop: availWidth() * 0.333,
@@ -54,9 +53,6 @@ export const useStyles = makeStyles({
         margin: 'auto',
     }),
     input: (props) => ({
-        ...root(props.theme, props.style),
-        ...outline(props.theme, props.style),
-        ...text(props.theme, props.style),
         ...props.styleOverride,
     }),
     close_icon_flexbox: props => ({

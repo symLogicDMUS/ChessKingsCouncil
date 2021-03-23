@@ -12,7 +12,6 @@ export function reducer(state, action) {
                     <ListItem
                         key={index}
                         theme={action.theme}
-                        // text={stepFuncNamesToText[span]}
                         onClick={action.parentDispatch({
                             type: "span",
                             rangeType: "span",
@@ -32,7 +31,6 @@ export function reducer(state, action) {
                     <ListItem
                         key={index}
                         theme={action.theme}
-                        // text={offsetToText(offset)}
                         onClick={action.parentDispatch({
                             type: "offset",
                             rangeType: "offset",

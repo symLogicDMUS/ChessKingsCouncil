@@ -4,65 +4,38 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import {input_label, useStyles} from "./MuiInput.jss";
 
-export function MuiDropdown({
-    theme,
-    label,
-    size,
-    style,
-    genStyle,
-    styleOverride,
-    classesObj,
-    fullWidth,
-    inputLabel,
-    variant,
-    inputId,
-    selectId,
-    labelId,
-    overrideItem,
-    defaultValue,
-    updateParent,
-    onFocus,
-    autoFocus,
-    inputRef,
-    inputLabelStyle,
-    children,
-}) {
-    let [selected, setSelected] = useState("");
-    const classes = useStyles({
-        style: style,
-        genStyle: genStyle,
-        styleOverride: styleOverride,
-        theme: theme,
-    });
+export function MuiDropdown(props) {
+    const [selected, setSelected] = useState("");
 
     const handleChange = (e) => {
         setSelected(e.target.value);
-        if (updateParent) updateParent(e.target.value);
+        if (props.updateParent) {
+            props.updateParent(e.target.value);
+        }
     };
 
     return (
-        <FormControl variant={variant} className={classes.input} fullWidth={fullWidth}>
-            <InputLabel id={inputId} style={inputLabelStyle}>
-                {inputLabel}
-            </InputLabel>
-            <Select
-                onFocus={onFocus}
-                inputRef={inputRef}
-                onChange={handleChange}
-                className={classes.field}
-                classes={classesObj}
-                value={overrideItem ? overrideItem : selected}
-                size={size}
-                label={label}
-                id={selectId}
-                labelId={labelId}
-                variant={variant}
-                fullWidth={fullWidth}
-                defaultValue={defaultValue}
-                autoFocus={autoFocus}
-            >
-                {children}
-            </Select>
-        </FormControl>
+            <FormControl variant={props.variant} fullWidth={props.fullWidth} className={props.rootClassName}>
+                <InputLabel id={props.inputId}>
+                    {props.inputLabel}
+                </InputLabel>
+                <Select
+                    size={props.size}
+                    label={props.label}
+                    id={props.selectId}
+                    onChange={handleChange}
+                    labelId={props.labelId}
+                    variant={props.variant}
+                    onFocus={props.onFocus}
+                    inputRef={props.inputRef}
+                    classes={props.classesObj}
+                    autoFocus={props.autoFocus}
+                    fullWidth={props.fullWidth}
+                    defaultValue={props.defaultValue}
+                    value={props.overrideItem ? props.overrideItem : selected}
+                >
+                    {props.children}
+                </Select>
+            </FormControl>
     );
 }

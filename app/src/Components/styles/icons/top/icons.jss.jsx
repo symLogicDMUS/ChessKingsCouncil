@@ -54,6 +54,9 @@ import {range_tool} from "../create-piece/range_tool";
 import {name_tool} from "../create-piece/name_tool";
 import {options_tool} from "../create-piece/options_tool";
 import {location_tool} from "../create-piece/location_tool";
+import {game_info} from "../game root/game_info.jss";
+import {game_info2} from "../game root/game_info2.jss";
+import {captured_pieces} from "../game root/captured_pieces.jss";
 
 export const icons = {
     home: home,
@@ -110,5 +113,8 @@ export const icons = {
     load: load,
     reset: reset,
     erase: erase,
+    game_info: game_info,
+    game_info2: game_info2,
+    captured_pieces: captured_pieces,
     none: none,
 };

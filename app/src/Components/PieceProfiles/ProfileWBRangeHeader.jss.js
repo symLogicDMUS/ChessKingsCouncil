@@ -1,76 +1,33 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes.jss";
-import {headerFontSizes, titleFontSizes} from "./Header/ProfileHeader.jss";
-import {getDrawerFontSize} from "./ProfileWB/ProfileWB.jss";
+
+export const styleOverride = {
+    flexDirection: 'row-reverse',
+    justifyContent: 'flex-start',
+};
 
 export const useStyles = makeStyles({
-    header: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: headerFontSizes.desktop,
-        },
-        '@media screen and (max-width: 1040px)': {
-            fontSize: headerFontSizes.mobile,
-        },
-        "@media screen and (max-width: 412px)": {
-            fontSize: headerFontSizes.ipx,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: headerFontSizes.ipad,
-        },
-        width: '100%',
-        height: '1.5em',
-        display: 'flex',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row-reverse',
-        fontFamily: 'Roboto-Light, Roboto',
-        backgroundColor: themes[props.theme].fill,
-        outline: `0.05em solid ${themes[props.theme].outline}`,
-    }),
-    /*Parts of the range table's header: */
-    title: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: titleFontSizes.desktop,
-        },
-        '@media screen and (max-width: 1040px)': {
-            fontSize: titleFontSizes.mobile,
-        },
-        "@media screen and (max-width: 412px)": {
-            fontSize: titleFontSizes.ipx,
-        },
-
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: titleFontSizes.ipad,
-        },
-        marginLeft: 'auto',
-        transform: 'translate(0.5em, 0)',
-        fontFamily: 'Roboto-Light, Roboto',
-        color: themes[props.theme].text,
+    range_title: props => ({
+        flexGrow: 4,
         textAlign: 'center',
+        paddingLeft: '2vw',
     }),
-    expand_widget: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: headerFontSizes.desktop,
-        },
+    expand_button: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: headerFontSizes.mobile,
+            width: '2.2vw',
+            height: '2.2vw',
+            fontSize: '1.5vw',
         },
-        "@media screen and (max-width: 412px)": {
-            fontSize: headerFontSizes.ipx,
+        '@media screen and (min-width: 1040px)': {
+            width: '2vw',
+            height: '2vw',
+            fontSize: '1.6vw',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: headerFontSizes.ipad,
-        },
-        marginLeft: 'auto',
-        width: '1em',
-        height: '1em',
-        cursor: 'pointer',
-        color: themes[props.theme].text,
     }),
     expand_icon: props => ({
         fontSize: 'inherit',
         width: '1em',
         height: '1em',
+        color: themes[props.theme].text,
     }),
 }, {index: 1});

@@ -15,6 +15,7 @@ import {LoginPage} from "./Components/Home/LoginPage";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/saveSampleData";
 import {saveUser} from "./API/saveUser";
+import "./App.scss";
 
 export class App extends React.Component {
     constructor(props) {

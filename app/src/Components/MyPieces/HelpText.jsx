@@ -22,7 +22,7 @@ function SavedPiecesHelpText(props) {
                     theme={props.theme}
                     startIcon={<Storage className={classes.icon}/>}
                     classProp={classes.button}
-                    addedClassProp={props.classes.load_button}
+                    addedClassProp={classes.load_button}
                 >
                     Load
                 </Button>
@@ -32,7 +32,7 @@ function SavedPiecesHelpText(props) {
                 <Button
                     theme={props.theme}
                     classProp={classes.button}
-                    addedClassProp={props.classes.delete_button}
+                    addedClassProp={classes.delete_button}
                     startIcon={<DeleteForever className={classes.button}/>}
                 >
                     Delete

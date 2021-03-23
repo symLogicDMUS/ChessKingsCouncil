@@ -11,8 +11,8 @@ import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
-import {imgGridRootStyle, search_box, useStyles} from "./SavedGames.jss";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme});

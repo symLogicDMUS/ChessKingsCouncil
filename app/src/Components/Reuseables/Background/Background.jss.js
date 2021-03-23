@@ -1,57 +1,36 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
-const row = () => ({
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-})
-
 export const useStyles = makeStyles((theme) => ({
-    background_fixed: props => ({
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        zIndex: -1,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-    }),
     background: props => ({
-        position: 'absolute',
         zIndex: -1,
         width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        '@media screen and (max-width: 1040px)': {
-            top: 0,
-        },
-        '@media screen and (min-width: 1040px)': {
-            top: '0.5%',
-        },
+        position: 'absolute',
+        top: 0,
     }),
     board_pattern: props => ({
         '@media screen and (max-width: 1040px)': {
-            width: '7.5vh',
-            height: '7.5vh',
+            width: '7.5vw',
+            height: '7.5vw',
         },
         '@media screen and (min-width: 1040px)': {
             width: '10vw',
             height: '10vw',
         },
     }),
-    row1: props => ({
-        ...row(),
+    row: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
     }),
     row2: props => ({
-        ...row(),
         marginTop: 'auto',
-        // alignSelf: 'flex-end',
     }),
     toolbar: {
         fontSize: fontSize002,

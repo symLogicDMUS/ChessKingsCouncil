@@ -1,5 +1,4 @@
 import React from "react";
-import "../../../styles/scrollbar.scss";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
@@ -14,12 +13,8 @@ import {getImgDict} from "../../../../API/getImgDict";
 import {saveImgUrls} from "../../../../API/saveImgUrls";
 import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
 import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
-import {
-    close_icon,
-    img_grid_root,
-    styles
-} from "./ImgChoicesModal.jss";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
+import {styles} from "./ImgChoicesModal.jss";
 
 class ImgChoicesModal extends React.Component {
     constructor(props) {
@@ -120,7 +115,7 @@ class ImgChoicesModal extends React.Component {
     render() {
 
         return (
-            <div className={`scrollbar-${this.props.theme}`}>
+            // <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
                     <MediaQuery minWidth={1040}>
                         <MuiGrid
@@ -214,7 +209,7 @@ class ImgChoicesModal extends React.Component {
                         </MuiGrid>
                     </MediaQuery>
                 </div>
-            </div>
+            // </div>
         );
     }
 }

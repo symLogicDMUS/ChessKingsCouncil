@@ -1,10 +1,10 @@
-import React, {useMemo} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import { ProfileWB } from "./ProfileWB";
 import { Close } from "../../Reuseables/Modals/Close";
 import { getColorName } from "../../helpers/getColorName";
-import {close_icon, useStyles} from "./ProfileWBModal.jss";
+import {useStyles} from "./ProfileWBModal.jss";
 
 export function ProfileWBModal({
     pieceName,

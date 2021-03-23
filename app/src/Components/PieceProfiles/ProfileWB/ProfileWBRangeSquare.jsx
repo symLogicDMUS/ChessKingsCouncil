@@ -1,10 +1,8 @@
 import React from "react";
 import clsx from "clsx";
-import { widths } from "../PieceProfiles.jss";
-import { useStyles } from "../../Reuseables/Board/Square.jss";
-import {useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss"
 import {binaryBoard} from "../../helpers/binaryBoard";
-
+import { useStyles } from "../../Reuseables/Board/Square.jss";
+import {sqrSize, useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss";
 
 export function ProfileWBRangeSquare({
     rf,
@@ -18,17 +16,19 @@ export function ProfileWBRangeSquare({
         rf: rf,
         theme: theme,
         type:  "normal",
-        sqrSize: widths[screenCase],
+        sqrSize: sqrSize[screenCase],
     });
-    const classes2 = useMoreStyles({theme: theme})
+
+    const classes2 = useMoreStyles();
 
     return (
         <div
-            className={clsx(classes2.square, {
+            className={clsx(classes.square, {
                 [classes.profile_wb_light]: binaryBoard[rf] && ! isInRange,
                 [classes.profile_wb_dark]: ! binaryBoard[rf] && ! isInRange,
                 [classes.span_alt]: isInRange && rangeType==="span",
                 [classes.offset]: isInRange && rangeType==="offset",
+                [classes2.square]: true,
             })}
         >
             {children}

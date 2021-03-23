@@ -1,8 +1,11 @@
 short:
-    * optimize CreatePieceBoard
-    * change size of arrows range icon, remove stroke + make arrows bigger.
 
 medium:
-
+    remove accordion in GameRoot except for Range Display (1 item accordion)
+    remove inline styles for the MuiDropdown and MuiInput, and replace with clsx as have done with others
+    fixed alignment of Load and Delete buttons in Saved Pieces page
+    fixe PieceProfiles Skeleton component
+    convert BoardTool component styles to vw and vh units
 
 long:
+    optimize CreatePiece Board

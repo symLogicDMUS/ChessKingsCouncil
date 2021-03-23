@@ -1,22 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {neighborWidth as drawerWidth} from
-        "../../Reuseables/Drawers/PersistentDrawer.jss";
-
-export const root = () => ({
-    height: '100%',
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    zIndex: 8,
-});
+import {neighborWidth as drawerWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const useStyles = makeStyles((theme) => ({
-    root_active: {
-        ...root(),
-    },
+    root: props => ({
+        height: '100%',
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        zIndex: 8,
+    }),
     root_inactive: {
-        ...root(),
         pointerEvents: 'none',
     },
     wrapper: {

@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import {Close} from "../../Reuseables/Modals/Close";
 import Typography from "@material-ui/core/Typography";
-import {close_icon, useStyles} from "./NoProfile.jss";
+import {useStyles} from "./NoProfile.jss";
 
 export function NoProfile({pieceName, imgUrl, closeProfile, theme}) {
     const classes = useStyles({theme: theme});

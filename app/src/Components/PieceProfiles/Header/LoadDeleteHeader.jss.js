@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {fontSizes, widths} from "../PieceProfiles.jss";
 import {fontSize002, fontSizeW0025, fontSizeW003224, fontSizeW0035,
 } from "../../styles/fontSizes.jss";
 
@@ -40,20 +39,13 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop,
-            width: widths.desktop,
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizes.mobile,
-            width: widths.mobile,
+            width: '10vw',
         },
-
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: fontSizes.ipad,
-            width: widths.ipad,
+        '@media screen and (min-width: 1040px)': {
+            width: '14.333vw',
         },
-        marginLeft: '1em',
+        marginLeft: '1rem',
     }),
     load_button: props => ({
         '@media screen and (min-width: 1040px)': {
@@ -97,7 +89,6 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-
         '@media screen and (min-width: 768px) and (max-width: 1040px)':{
             fontSize: fontSizeW0025,
             '& .MuiButton-label': {

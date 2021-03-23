@@ -11,42 +11,6 @@ export const accordion_root = () => {
     }
 };
 
-export const accordion_gen = (screenCase, theme) => {
-    switch (screenCase) {
-        case 'short':
-            return {
-                '& .Mui-expanded': {
-                    '& .MuiAccordionDetails-root': {
-                        width: '100vw',
-                        marginLeft: '-20vw',
-                    },
-                    '& .MuiButtonBase-root': {
-                        backgroundColor: themes[theme].fill,
-                    },
-                    '& .MuiAccordionSummary-root': {
-                        minHeight: 'unset',
-                        height: '1em',
-                        width: '100vw',
-                        marginLeft: '-20vw',
-                        border: '1px dashed blue',
-                    },
-                    '& .MuiAccordionSummary-content': {
-                        width: '100vw',
-                        backgroundColor: themes[theme].fill,
-                        border: '1px dashed green',
-                    },
-                    '& .MuiIconButton-root': {
-                        border: '1px dashed hotpink',
-                        width: '1em',
-                        height: '1em',
-                    },
-                },
-            }
-        default:
-            return null;
-    }
-};
-
 export const franchise_theme_gen = () => ({
     marginTop: 'auto',
     marginBottom: 'auto',

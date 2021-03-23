@@ -4,8 +4,8 @@ import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {PartialRangePiece as Piece} from "../PartialRangeModal/PartialRangePiece";
 import {getBinaryBoarAllFalse} from "../../helpers/getBinaryBoardAllFalse";
-import {board} from "../../Reuseables/Board/Board.jss";
 import {SampleRangeSquare} from "./SampleRangeSquare";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function SampleRangeBoard({fontSize, theme}) {
 
@@ -21,7 +21,7 @@ export function SampleRangeBoard({fontSize, theme}) {
             if (rf === locationC3) {
                 squares.push
                 (
-                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize} theme={theme}>
+                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize002} theme={theme}>
                         <Piece
                             src={src}
                             key={rf + '-piece'}
@@ -31,7 +31,7 @@ export function SampleRangeBoard({fontSize, theme}) {
             } else {
                 squares.push
                 (
-                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize} theme={theme}>
+                    <SampleRangeSquare isLightSqr={binaryBoard[rf]} isSpan={sampleBoardObj[rf]} rf={rf} key={rf} fontSize={fontSize002} theme={theme}>
                         {null}
                     </SampleRangeSquare>
                 );
@@ -42,7 +42,7 @@ export function SampleRangeBoard({fontSize, theme}) {
 
 
     return (
-        <div style={board(fontSize)}>
+        <div style={{display:'grid'}}>
             {getBoard()}
         </div>
     );

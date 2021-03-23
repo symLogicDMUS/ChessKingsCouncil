@@ -8,12 +8,11 @@ import {getColorName} from "../../helpers/getColorName";
 import { getBinaryBoarAllFalse } from
         "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./PartialRangeModal.red";
-import { close_style, useStyles } from "./PartialRangeModal.jss";
+import { useStyles } from "./PartialRangeModal.jss";
 
 export function PartialRangeModal({
     range,
     rangeType,
-    close,
     src,
     color,
     theme,
@@ -31,10 +30,7 @@ export function PartialRangeModal({
 
     return (
         <div>
-            <Box className={classes.top}>
-                <Typography className={classes.title}>{getColorName(color)} {pieceName}</Typography>
-                <Close onClick={close} theme={theme} classProp={classes.close_icon} />
-            </Box>
+            {/*<Typography className={classes.title}>{getColorName(color)} {pieceName}</Typography>*/}
             <PartialRangeBoard
                 parentDispatch={dispatch}
                 boardObj={state.board}

@@ -8,25 +8,6 @@ import {
     fontSizeW0045,
     fontSizeW005,
 } from "../../styles/fontSizes.jss";
-import {headerFontSizes, titleFontSizes} from "../Header/ProfileHeader.jss";
-
-
-export const fontSizes = {
-    desktop: fontSize0025,
-    mobile: fontSizeW0045,
-    ipx: fontSizeW005,
-    ipad: fontSizeW0045,
-}
-
-export const widths = {
-    desktop: '11.55em',
-    mobile: '7.5em',
-}
-
-export const heights = {
-    desktop: '13.03em',
-    mobile: '9em',
-}
 
 export const subtitle = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -36,18 +17,6 @@ export const subtitle = (fontSize, theme) => ({
 });
 
 export const item_title = (theme) => ({
-    '@media screen and (min-width: 1040px)': {
-        fontSize: titleFontSizes.desktop,
-    },
-    '@media screen and (max-width: 1040px)': {
-        fontSize: titleFontSizes.mobile,
-    },
-    "@media screen and (max-width: 412px)": {
-        fontSize: titleFontSizes.ipx,
-    },
-    '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-        fontSize: titleFontSizes.ipad,
-    },
     fontFamily: 'Roboto-Light, Roboto',
     color: themes[theme].text,
     textAlign: 'center',
@@ -55,7 +24,7 @@ export const item_title = (theme) => ({
 
 export const range_list_button_style = (screenCase) => ({
     borderRadius: 0,
-    fontSize: fontSizes[screenCase],
+    // fontSize: fontSizes[screenCase],
     width: '100%',
 });
 
@@ -65,8 +34,8 @@ export const range_list_row_style = () => ({
 
 export const range_list_gen_style = (screenCase) => ({
     height: 8, //converted to em units in ScrollTable.jss
-    fontSize: fontSizes[screenCase],
-    width: board(fontSizes[screenCase]).width
+    // fontSize: fontSizes[screenCase],
+    // width: board(fontSizes[screenCase]).width
 });
 
 export const useStyles = makeStyles({
@@ -99,14 +68,14 @@ export const useStyles = makeStyles({
     }),
     range_board_example: props => ({
         '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop,
+            // fontSize: fontSizes.desktop,
             width: "9em",
             height: "9em",
             marginLeft: '1vw',
             outline: `0.0075em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizes.mobile,
+            // fontSize: fontSizes.mobile,
             width: '1em',
             height: '1em',
             outline: `0.01em solid ${themes[props.theme].outline}`,
@@ -167,51 +136,22 @@ export const useStyles = makeStyles({
         },
     }),
     item: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop,
-            height: `${heights.desktop}em`,
-            width: widths.desktop,
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizes.mobile,
-            height: `${heights.mobile}em`,
-            width: widths.mobile,
-            marginTop: '-0.5em'
+
         },
-        "@media screen and (max-width: 412px)": {
-            fontSize: fontSizes.ipx,
-            height: `${heights.mobile}em`,
-            width: widths.mobile,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: fontSizes.ipad,
-            height: `${heights.mobile}em`,
-            width: widths.mobile,
+        '@media screen and (min-width: 1040px)': {
+
         },
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Roboto-Light, Roboto',
     }),
     window: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop,
-            width: widths.desktop,
-            height: widths.desktop,
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizes.mobile,
-            width: widths.mobile,
-            height: widths.mobile,
+
         },
-        "@media screen and (max-width: 412px)": {
-            fontSize: fontSizes.ipx,
-            width: widths.mobile,
-            height: widths.mobile,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: fontSizes.ipad,
-            width: widths.mobile,
-            height: widths.mobile,
+        '@media screen and (min-width: 1040px)': {
+
         },
         fontFamily: 'Roboto-Light, Roboto',
         backgroundColor: themes[props.theme].fill,
@@ -225,17 +165,11 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     header: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: headerFontSizes.desktop,
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: headerFontSizes.mobile,
+
         },
-        "@media screen and (max-width: 412px)": {
-            fontSize: headerFontSizes.ipx,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: headerFontSizes.ipad,
+        '@media screen and (min-width: 1040px)': {
+
         },
         width: '100%',
         height: '1.5em',
@@ -256,17 +190,11 @@ export const useStyles = makeStyles({
         ...item_title(props.theme)
     }),
     expand_widget: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: headerFontSizes.desktop,
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: headerFontSizes.mobile,
+
         },
-        "@media screen and (max-width: 412px)": {
-            fontSize: headerFontSizes.ipx,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: headerFontSizes.ipad,
+        '@media screen and (min-width: 1040px)': {
+
         },
         marginLeft: 'auto',
         width: '1em',

@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Portal} from "@material-ui/core";
 import {NavBarExample} from "../NavBar/NavBarExample";
@@ -8,11 +9,10 @@ export function Background(props) {
     const classes = useStyles({style: props.style})
     return (
         <Portal>
-            <div className={props.isFixed ? classes.background_fixed : classes.background}>
+            <div className={classes.background}>
                 {props.navBar ? (<NavBarExample currentPage={props.currentPage} theme={props.theme} screenCase='desktop' />) : null}
-                {props.toolBar ? (<div className={classes.toolbar} />  ) : null}
                 {props.appBar ? (<div className={classes.drawerHeader} />) : null}
-                    <Box className={classes.row1}>
+                    <Box className={classes.row}>
                         <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}
                              className={classes.board_pattern}
                              alt="stylistic board pattern"
@@ -22,7 +22,9 @@ export function Background(props) {
                              alt="stylistic board pattern"
                         />
                     </Box>
-                    <Box className={classes.row2}>
+                    <Box className={clsx(classes.row, {
+                        [classes.row2]: true,
+                    })}>
                         <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}
                              className={classes.board_pattern}
                              alt="stylistic board pattern"

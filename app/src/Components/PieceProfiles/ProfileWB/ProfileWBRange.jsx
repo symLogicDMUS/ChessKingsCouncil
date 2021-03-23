@@ -2,7 +2,6 @@ import React, {useMemo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {rankfiles} from "../../helpers/rankfiles";
-import {binaryBoard} from "../../helpers/binaryBoard";
 import { ProfileWBRangeHeader } from "../ProfileWBRangeHeader";
 import {ProfileWBRangeSquare} from "./ProfileWBRangeSquare";
 import {ProfileWBRangePiece} from "./ProfileWBRangePiece";
@@ -111,7 +110,9 @@ export const ProfileWBRange = ({
     };
 
     return (
-        <Box className={clsx(classes.profile_wb_range, {
+        <Box className={clsx(classes2.sqr_item_area, {
+            [classes2.item2]: rangeType === 'span',
+            [classes2.item3]: rangeType === 'offset',
             [classes2.profile_wb_drawer_item]: hasDrawerParent,
             [classes2.drawer_item_margins]: hasDrawerParent,
         })}>
@@ -123,6 +124,7 @@ export const ProfileWBRange = ({
                 hasDrawerParent={hasDrawerParent}
             />
             <Box className={clsx(classes.board_window, {
+                [classes2.sqr_item]:true,
                 [classes2.profile_wb_drawer_item]: hasDrawerParent,
             })}>
                 {getBoard()}

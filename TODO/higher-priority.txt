@@ -1,8 +1,8 @@
 short:
-
+    fixed Facebook button not working (still developer mode)
 
 medium:
     need different way to detect touch screen vs. mouse/keyboard for game board Dnd
 
 long:
-make sure mobile version of everything works
+    have repositioning of pieces on screen resize, for GameBoard.

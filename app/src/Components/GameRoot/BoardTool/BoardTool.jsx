@@ -1,34 +1,29 @@
-import React, {useMemo, useReducer} from "react";
+import React, { useReducer } from "react";
 import MediaQuery from "react-responsive/src";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
-import {MiniBoard} from "./MiniBoard";
-import {setNewRangeBoardImgStrs} from
-        "./setNewRangeBoardImgStrs";
-import {getBinaryBoarAllFalse} from
-        "../../helpers/getBinaryBoardAllFalse";
-import {reducer} from "./BoardTool.red";
-import {useStyles} from "./BoardTool.jss";
+import { Typography } from "@material-ui/core";
+import { MiniBoard } from "./MiniBoard";
+import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { reducer } from "./BoardTool.red";
+import { useStyles } from "./BoardTool.jss";
 
 export function BoardTool({
-                              theme,
-                              board,
-                              screenCase,
-                              gameType,
-                              allRanges,
-                              pieceDefs,
-                              idDict,
-                              toggleSecondaryDrawer,
-                              showProfileOnClick,
-                          }) {
+    theme,
+    board,
+    screenCase,
+    gameType,
+    allRanges,
+    pieceDefs,
+    idDict,
+    toggleSecondaryDrawer,
+    showProfileOnClick,
+}) {
     const [state, dispatch] = useReducer(reducer, {
         rangeBoard: getBinaryBoarAllFalse(),
         selectedSqr: null,
     });
 
     const classes = useStyles({ theme: theme });
-
-    // const defs = useMemo(() => setNewRangeBoardImgStrs(theme, gameType, idDict, pieceDefs), [pieceDefs, theme])
 
     return (
         <div className={classes.board_tool}>

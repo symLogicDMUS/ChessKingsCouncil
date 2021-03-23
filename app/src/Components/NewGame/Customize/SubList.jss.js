@@ -1,8 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
-import {fontSizes} from "../../PieceProfiles/PieceProfiles.jss";
-import {fontSize0023, fontSize004025} from "../../styles/fontSizes.jss";
+import {fontSize004025} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
@@ -65,10 +64,10 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSize0023,
+
         },
         '@media screen and (min-width: 1040px)': {
-            fontSize: fontSizes.desktop,
+
         },
         fontFamily: 'Roboto-Light, Roboto',
     }),

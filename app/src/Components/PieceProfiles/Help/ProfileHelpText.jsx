@@ -7,7 +7,7 @@ import {SampleRangeBoard} from "./SampleRangeBoard";
 import {ProfileExampleDocker} from "./ProfileExampleDocker";
 import {IconButtonExample as Icb} from "./IconButtonExample";
 import {help_text} from "../../Reuseables/NavBar/Help/HelpText.jss";
-import {fontSizes, subtitle, useStyles} from "./ProfileHelpText.jss";
+import {subtitle, useStyles} from "./ProfileHelpText.jss";
 
 export function ProfileHelpText(props) {
 
@@ -40,10 +40,10 @@ export function ProfileHelpText(props) {
         <Box className={classes.flexbox} >
             <Box className={classes.partial_range_example}>
                 <MediaQuery minWidth={1040}>
-                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes['desktop']} />
+                    <SampleRangeBoard theme={props.theme} />
                 </MediaQuery>
                 <MediaQuery maxWidth={1040}>
-                    <SampleRangeBoard theme={props.theme} fontSize={fontSizes['mobile']} />
+                    <SampleRangeBoard theme={props.theme} />
                 </MediaQuery>
                 <SampleRangeList theme={props.theme}/>
             </Box>

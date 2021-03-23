@@ -3,11 +3,12 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
+import { themes } from "../../styles/themes.jss";
 import Typography from "@material-ui/core/Typography";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { icons } from "../../styles/icons/top/icons.jss";
 import IconButton from "@material-ui/core/IconButton";
-import { themes } from "../../styles/themes.jss";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
+import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
 import { useStyles } from "./CustomizeHeader.jss";
 
 export const CustomizeHeader = ({
@@ -20,6 +21,7 @@ export const CustomizeHeader = ({
     theme,
 }) => {
     const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({theme: theme});
 
     const getIsPromo = () => {
         return promos.includes(customPieceName);
@@ -32,14 +34,16 @@ export const CustomizeHeader = ({
             }
         }
         return null;
-    }; const standardPieceThatSubbingFor = useMemo(() => getStandardPieceThatSubbingFor(), [Object.keys(subs).length])
+    }; const standardPieceThatSubbingFor = getStandardPieceThatSubbingFor()
 
     return (
         <>
-            <div className={classes.header}>
+            <div className={clsx(classes.header, {
+                [classes2.header]: classes2.header,
+            })}>
                 <Box className={classes.box}>
                     <Typography
-                        className={classes.piece_name}
+                        className={classes2.piece_name}
                         variant="h6"
                         noWrap
                     >
@@ -78,16 +82,15 @@ export const CustomizeHeader = ({
                     <IconButton
                         onClick={() => {
                             if (standardPieceThatSubbingFor) {
-                                // set the sub for this standard piece to null
                                 toggleSub(null, standardPieceThatSubbingFor);
                             }
                         }}
-                        className={classes.no_sub_button}
+                        className={classes.sub_button}
                     >
                         <BlockIcon
-                            className={clsx(classes.no_sub_icon, {
-                                [classes.selected]: standardPieceThatSubbingFor,
-                                [classes.unselected]: ! standardPieceThatSubbingFor,
+                            className={clsx(classes.sub_icon, {
+                                [classes.selected]: ! standardPieceThatSubbingFor,
+                                [classes.no_sub_unselected]: standardPieceThatSubbingFor,
                             })}
                         />
                     </IconButton>
