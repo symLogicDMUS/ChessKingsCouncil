@@ -1,25 +1,25 @@
 import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
+import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
     window: props => ({
         '@media screen and (max-width: 1040px)': {
             width: '100vw',
-            height: '100vh',
+            height: `calc(100vh - ${appBarHeight}px)`,
+            position: 'absolute',
         },
         '@media screen and (min-width: 1040px)': {
             width: '90vw',
             height: '90vh',
         },
+        zIndex: 6,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        zIndex: 6,
-        fontSize: fontSize001685,
-        borderRadius: '0.75em',
+        borderRadius: '1rem',
         backgroundColor: themes[props.theme].fill,
-        ...props.rootStyle,
     }),
     item_choices: props => ({
         '@media screen and (max-width: 1040px)': {
@@ -72,9 +72,8 @@ export const useStyles = makeStyles({
         height: '1.5em',
     }),
     show_names_gen: props => ({
-        /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 1040px)': {
             fontSize: fontSize001685,
         },
     }),
-}, {index: 1});
+}), {index: 1});

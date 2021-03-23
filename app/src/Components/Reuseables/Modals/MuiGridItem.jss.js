@@ -7,25 +7,6 @@ const itemMarginDesktop = '2.5vw';
 const itemSizeMobile = '36.6vw';
 const itemMarginMobile = '3vw';
 
-export const item_container = (theme, isSelected) => ({
-    cursor: 'pointer',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: fontSize002,
-    borderRadius: '0.3em',
-    backgroundColor: isSelected ? themes[theme].odd_row : themes[theme].even_row,
-    '@media screen and (max-width: 1040px)': {
-        width: itemSizeMobile,
-        height: itemSizeMobile,
-    },
-    '@media screen and (min-width: 1040px)': {
-        width: itemSizeDesktop,
-        height: itemSizeDesktop,
-    },
-});
-
 /**
  * item_choice: box item goes in + name of item
  * item_container: (normal and selected) box item goes in
@@ -46,12 +27,29 @@ export const useStyles = makeStyles({
             width: itemSizeDesktop,
         },
     }),
-    normal: props => ({
-        ...item_container(props.theme, false),
+    item_container: props => ({
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: fontSize002,
+        borderRadius: '0.3em',
+        '@media screen and (max-width: 1040px)': {
+            width: itemSizeMobile,
+            height: itemSizeMobile,
+        },
+        '@media screen and (min-width: 1040px)': {
+            width: itemSizeDesktop,
+            height: itemSizeDesktop,
+        },
+    }),
+    item_unselected: props => ({
+        backgroundColor: themes[props.theme].even_row,
         border: `0.018em solid ${themes[props.theme].outline}`,
     }),
-    selected: props => ({
-        ...item_container(props.theme, true),
+    item_selected: props => ({
+        backgroundColor: themes[props.theme].odd_row,
         border: `0.018em solid ${themes[props.theme].text_alt}`
     }),
     item_name: props => ({

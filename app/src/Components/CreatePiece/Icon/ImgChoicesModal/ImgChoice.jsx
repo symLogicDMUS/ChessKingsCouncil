@@ -4,6 +4,7 @@ import Box from "@material-ui/core/Box";
 import { Tooltip } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { useStyles } from "../../../Reuseables/Modals/MuiGridItem.jss";
+import clsx from "clsx";
 import "./ImgChoice.scss";
 
 export function ImgChoice({
@@ -31,7 +32,10 @@ export function ImgChoice({
         <div className={classes.item_choice}>
             <Box
                 onClick={() => setChoice(name)}
-                className={isSelected ? classes.selected : classes.normal}
+                className={clsx(classes.item_container, {
+                    [classes.item_selected]: isSelected,
+                    [classes.item_unselected]: ! isSelected,
+                })}
             >
                 {!showName ? (
                     <Tooltip

@@ -5,7 +5,7 @@ import {themes} from "../../styles/themes.jss";
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
-        zIndex: 7,
+        zIndex: 1,
     }),
     window: props => ({
         width: '85vw',

@@ -49,7 +49,7 @@ export const dnd_layer = (boardSize, z) => ({
     zIndex: z,
     width: boardSize,
     height: boardSize,
-    position: 'fixed',
+    position: 'absolute',
     '@media screen and (max-width: 1040px)': {
         top: boardPos.mobile.top,
         left: boardPos.mobile.left,

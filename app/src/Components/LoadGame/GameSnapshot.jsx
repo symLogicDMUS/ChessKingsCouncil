@@ -8,6 +8,7 @@ import { binaryBoard } from "../helpers/binaryBoard";
 import { GameSnapshotSquare } from "./GameSnapshotSquare";
 import {useStyles} from "../Reuseables/Modals/MuiGridItem.jss";
 import {GameSnapshotSqrContent} from "./GameSnapshotSqrContent";
+import clsx from "clsx";
 import "./GameSnapshot.scss";
 
 export function GameSnapshot({
@@ -53,7 +54,10 @@ export function GameSnapshot({
         <div className={classes.item_choice}>
             <Box
                 onClick={() => setChoice(name)}
-                className={isSelected ? classes.selected : classes.normal}
+                className={clsx(classes.item_container, {
+                    [classes.item_selected]: isSelected,
+                    [classes.item_unselected]: ! isSelected,
+                })}
             >
                 {!showName ? (
                     <Tooltip

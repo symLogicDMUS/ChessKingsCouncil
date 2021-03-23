@@ -68,7 +68,7 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                 </Portal>
             ) : null}
             <MediaQuery maxWidth={1040}>
-                <ImgWindowsModal>
+                <ImgWindowsModal theme={theme}>
                     <Box className={classes.img_windows_flexbox}>
                         <ImgWindows />
                     </Box>
