@@ -1,6 +1,6 @@
 import React from "react";
 import {copy} from "../helpers/copy";
-import {Accordion, Portal} from "@material-ui/core";
+import {Portal} from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
@@ -48,10 +48,10 @@ import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ToolButtons} from "../Reuseables/Clickables/ToolButtons";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
-import {styles, franchise_theme_gen} from "./GameRoot.jss";
 import {ResignModal} from "./SaveResignTool/ResignModal";
-import {SaveAs} from "./SaveResignTool/SaveAs";
 import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
+import {SaveAs} from "./SaveResignTool/SaveAs";
+import {styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {

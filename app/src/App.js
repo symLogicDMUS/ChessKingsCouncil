@@ -20,7 +20,7 @@ import "./App.scss";
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isSignedIn: false, binaryValue: true};
+        this.state = {isSignedIn: false, userTouchedScreen: false, binaryValue: true};
         this.isAnonymous = false;
         this.uid = null;
         /**
@@ -39,9 +39,10 @@ export class App extends React.Component {
                 signInSuccess: () => false,
             },
         };
-        this.anonymousLogin = this.anonymousLogin.bind(this);
-        this.signOut = this.signOut.bind(this);
         this.update = this.update.bind(this);
+        this.signOut = this.signOut.bind(this);
+        this.onFirstTouch = this.onFirstTouch.bind(this);
+        this.anonymousLogin = this.anonymousLogin.bind(this);
     }
 
     componentDidMount() {
@@ -61,6 +62,15 @@ export class App extends React.Component {
                 this.setState({isSignedIn: false});
             }
         });
+        window.addEventListener('touchstart', this.onFirstTouch, false)
+    }
+
+    /**
+     * https://codeburst.io/the-only-way-to-detect-touch-with-javascript-7791a3346685
+     */
+    onFirstTouch() {
+        this.setState({userTouchedScreen: true});
+        window.removeEventListener('touchstart', this.onFirstTouch, false); // remove listener after touch.
     }
 
     anonymousLogin() {
