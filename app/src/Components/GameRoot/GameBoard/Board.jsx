@@ -1,50 +1,31 @@
-import React, {useEffect, useMemo, useReducer} from "react";
+import React, { useEffect, useMemo, useReducer } from "react";
 import DragLayer from "./DragLayer";
 import DropLayer from "./DropLayer";
-import {DndProvider} from "react-dnd";
+import { DndProvider } from "react-dnd";
 import MediaQuery from "react-responsive/src";
-import {debounce} from "../../helpers/debounce";
-import {HTML5Backend} from "react-dnd-html5-backend";
-import {TouchBackend} from "react-dnd-touch-backend";
-import {GameDisplayBoard} from "./GameDisplayBoard";
-import {viewHeight, viewWidth} from "../../helpers/windowMeasurments";
-import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
-import {reducer} from "./Board.red";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
+import { GameDisplayBoard } from "./GameDisplayBoard";
+import { reducer, updateOnResize } from "./Board.red";
 
 export const Board = ({ gameRoot }) => {
-
     const dndBackend = useMemo(() => {
         if (gameRoot.isTouchscreen) {
             return TouchBackend;
-        }
-        else {
+        } else {
             return HTML5Backend;
         }
-    }, [])
+    }, []);
 
     const [state, dispatch] = useReducer(reducer, {
-        sqrSizes: {
-            desktop: viewHeight() * 0.11,
-            mobile: viewWidth() * 0.11875
-        },
-        boardSizes: {
-            desktop: viewHeight() * 0.11 * 8,
-            mobile: viewWidth() * 0.11875 * 8,
-        },
-        boardPos: {
-            desktop: {
-                left: viewWidth() * 0.45 - viewHeight() * 0.11 * 8 * 0.5,
-                top: (viewHeight()*0.5+appBarHeight*0.5) - viewHeight() * 0.11 * 8 * 0.5,
-            },
-            mobile: {
-                left: viewWidth()*0.5 - viewWidth() * 0.11875*8 * 0.5,
-                top: appBarHeight*1.1,
-            },
-        }
+        isPromo: false,
+        aiDisplay: false,
+        hiddenPiece: null,
+        ...updateOnResize(gameRoot),
     });
     useEffect(() => {
         function handleResize() {
-            dispatch({type: 'update'});
+            dispatch({ type: "reposition", gameRoot: gameRoot });
         }
         window.addEventListener("resize", handleResize);
         return (_) => {
@@ -57,6 +38,8 @@ export const Board = ({ gameRoot }) => {
             <MediaQuery minWidth={1040}>
                 <DndProvider backend={dndBackend}>
                     <DropLayer
+                        state={state}
+                        dispatch={dispatch}
                         gameRoot={gameRoot}
                         sqrSize={state.sqrSizes.desktop}
                         boardSize={state.boardSizes.desktop}
@@ -81,6 +64,8 @@ export const Board = ({ gameRoot }) => {
             <MediaQuery maxWidth={1040}>
                 <DndProvider backend={dndBackend}>
                     <DropLayer
+                        state={state}
+                        dispatch={dispatch}
                         gameRoot={gameRoot}
                         sqrSize={state.sqrSizes.mobile}
                         boardSize={state.boardSizes.mobile}

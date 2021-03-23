@@ -1,41 +1,32 @@
-import React, {useEffect, useReducer} from "react";
-import {useDrop} from "react-dnd";
-import {isLegal} from "../Move/isLegal";
-import {move} from "../Move/move";
-import {ItemTypes} from "./ItemTypes";
-import {getCoords} from "./getCoords";
-import {renderPiece} from "./renderPiece.js";
-import {Portal} from "@material-ui/core";
+import React, { useEffect } from "react";
+import { useDrop } from "react-dnd";
+import { isLegal } from "../Move/isLegal";
+import { move } from "../Move/move";
+import { ItemTypes } from "./ItemTypes";
+import { getCoords } from "./getCoords";
+import { renderPiece } from "./renderPiece.js";
+import { Portal } from "@material-ui/core";
 import Promo from "../Promo/Promo";
-import {AIMove} from "./AIMove";
-import {getAiMove} from "../../../API/apiHelpers/getAiMove";
-import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
-import {rfToXy, xyToPx} from "./DndCrdCnvrt";
-import {OVER} from "../../helpers/gStatusTypes";
-import {setStartingPieces} from "./setStartingPieces";
-import {reducer} from "./reducers/DropLayer.red";
-import {useStyles} from "./DropLayer.jss";
+import { AIMove } from "./AIMove";
+import { getAiMove } from "../../../API/apiHelpers/getAiMove";
+import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
+import { rfToXy, xyToPx } from "./DndCrdCnvrt";
+import { OVER } from "../../helpers/gStatusTypes";
+import { useStyles } from "./DropLayer.jss";
 
 /**
  * Sits on top of game boards. updated on drop.
  */
-const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
-    const [state, dispatch] = useReducer(
-        reducer,
-        {pieces: setStartingPieces(gameRoot, sqrSize), isPromo: false, aiDisplay: false, hiddenPiece: null}
-    );
-
-    useEffect(() => {
-        function handleResize() {
-            dispatch({type: 'reposition', sqrSize: sqrSize,gameRoot: gameRoot});
-        }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    });
-
-    const classes = useStyles({boardSize: boardSize, boardPos: boardPos});
+const DropLayer = ({
+    state,
+    dispatch,
+    gameRoot,
+    sqrSize,
+    boardSize,
+    boardPos,
+    theme,
+}) => {
+    const classes = useStyles({ boardSize: boardSize, boardPos: boardPos });
 
     const [, drop] = useDrop({
         accept: ItemTypes,
@@ -47,12 +38,23 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             let [start, dest, left, top] = getCoords(item, delta, sqrSize);
-            move(gameRoot, sqrSize, boardSize, item.id, state.pieces, start, dest, left, top, dispatch);
+            move(
+                gameRoot,
+                sqrSize,
+                boardSize,
+                item.id,
+                state.pieces,
+                start,
+                dest,
+                left,
+                top,
+                dispatch
+            );
             if (gameRoot.specialMoves.isPromo([start, dest])) {
                 gameRoot.specialMoves.promoStart = start;
                 gameRoot.specialMoves.promoDest = dest;
                 gameRoot.specialMoves.removePromo([start, dest]);
-                dispatch({type: 'begin-promo'})
+                dispatch({ type: "begin-promo" });
             } else {
                 finishMove(start, dest);
             }
@@ -63,7 +65,10 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
     /** where the game logic gets updated after each move */
     useEffect(() => {
         if (gameRoot.aiColor === gameRoot.turn) {
-            if (!noRanges(gameRoot.ranges) && gameRoot.gameStatus.status !== OVER) {
+            if (
+                !noRanges(gameRoot.ranges) &&
+                gameRoot.gameStatus.status !== OVER
+            ) {
                 [
                     gameRoot.aiCapture,
                     gameRoot.aiStart,
@@ -74,20 +79,30 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
                     gameRoot.aiColor,
                     gameRoot.specialMoves
                 );
-                dispatch({type: 'ai-begin', board: gameRoot.board, aiStart: gameRoot.aiStart})
+                dispatch({
+                    type: "ai-begin",
+                    board: gameRoot.board,
+                    aiStart: gameRoot.aiStart,
+                });
             }
         }
     }, [gameRoot.turn]);
 
     useEffect(() => {
         if (gameRoot.state.saveProcess) {
-            gameRoot.save()
+            gameRoot.save();
         }
-    }, [gameRoot.state.saveProcess])
+    }, [gameRoot.state.saveProcess]);
 
     useEffect(() => {
-        dispatch({type: 'update-imgs', idDict: gameRoot.idDict, defs: gameRoot.defs, theme: theme, gameType: gameRoot.gameType})
-    }, [theme])
+        dispatch({
+            type: "update-imgs",
+            idDict: gameRoot.idDict,
+            defs: gameRoot.defs,
+            theme: theme,
+            gameType: gameRoot.gameType,
+        });
+    }, [theme]);
 
     const aiMoveComponent = (aiStart, aiDest, sqrSize) => {
         let [destX, destY] = rfToXy(aiDest);
@@ -109,7 +124,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
             gameRoot.specialMoves.promoStart = aiStart;
             gameRoot.specialMoves.promoDest = aiDest;
             gameRoot.specialMoves.removePromo([aiStart, aiDest]);
-            dispatch({type: 'begin-promo'})
+            dispatch({ type: "begin-promo" });
         } else {
             finishMove(aiStart, aiDest);
         }
@@ -121,7 +136,7 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
      * @param dest
      */
     const finishMove = (start, dest) => {
-        gameRoot.turn = (gameRoot.turn === 'W') ? 'B' : 'W';
+        gameRoot.turn = gameRoot.turn === "W" ? "B" : "W";
         gameRoot.unsavedProgress = true;
         gameRoot.updateFen(start, dest);
         gameRoot.updateTurnData();
@@ -132,7 +147,12 @@ const DropLayer = ({gameRoot, sqrSize, boardSize, boardPos, theme}) => {
         <>
             <div ref={drop} className={classes.board}>
                 {Object.keys(state.pieces).map((key) =>
-                    renderPiece(state.pieces[key], key, sqrSize, state.hiddenPiece)
+                    renderPiece(
+                        state.pieces[key],
+                        key,
+                        sqrSize,
+                        state.hiddenPiece
+                    )
                 )}
             </div>
             {state.isPromo ? (
