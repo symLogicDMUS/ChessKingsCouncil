@@ -96,14 +96,14 @@ export class App extends React.Component {
             return (
                 <Router>
                     <Switch>
-                        <Route exact path="/" exact strict render={() => <Home signOut={this.signOut}/>}/>
-                        <Route exact path="/NewGame" exact strict render={() => <NewGame/>}/>
-                        <Route exact path="/LoadGame" exact strict render={() => <LoadGame/>}/>
-                        <Route exact path="/Customize" exact strict render={(props) => <Customize {...props} />}/>
-                        <Route exact path="/Play" exact strict render={(props) => <GameRoot {...props} />}/>
-                        <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece {...props} />}/>
-                        <Route exact path="/MyPieces" exact strict render={() => <MyPieces/>}/>
-                        <Route exact path="/CouncilRules" exact component={CouncilRules}/>
+                        <Route exact path="/" exact strict render={() => <Home signOut={this.signOut} isTouchscreen={this.state.userTouchedScreen}/>}/>
+                        <Route exact path="/NewGame" exact strict render={() => <NewGame isTouchscreen={this.state.userTouchedScreen}/>}/>
+                        <Route exact path="/LoadGame" exact strict render={() => <LoadGame isTouchscreen={this.state.userTouchedScreen}/>}/>
+                        <Route exact path="/Customize" exact strict render={(props) => <Customize {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
+                        <Route exact path="/Play" exact strict render={(props) => <GameRoot {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
+                        <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
+                        <Route exact path="/MyPieces" exact strict render={() => <MyPieces isTouchscreen={this.state.userTouchedScreen}/>}/>
+                        <Route exact path="/CouncilRules" exact strict render={() => <CouncilRules isTouchscreen={this.state.userTouchedScreen} />}/>
                     </Switch>
                 </Router>
             );

@@ -67,6 +67,7 @@ class GameRoot extends React.Component {
             showProfileOnClick: true,
         };
         this.unsavedProgress = false;
+        this.isTouchscreen = this.props.isTouchscreen;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
@@ -520,7 +521,7 @@ class GameRoot extends React.Component {
                         neighborOpen={this.state.secondaryDrawer}
                     >
                         <Board gameRoot={this}/>
-                        <MuiAccordion />
+                        {/*<MuiAccordion />*/}
                         {this.state.mobileTool === "Save" ? (
                             <AnimatePresencePortal>
                                 <GameSavedSuccessfully

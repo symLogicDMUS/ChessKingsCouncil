@@ -3,9 +3,9 @@ import { useDragLayer } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
 import { PieceDragPreview } from "./PieceDragPreview";
 import { getDragPositions } from "./getDragPositions";
-import { useStyles } from "./DragLayer.jss";
 import { SqrMouseIsOver } from "./SqrMouseIsOver";
 import { Portal } from "@material-ui/core";
+import { useStyles } from "./DragLayer.jss";
 
 const DragLayer = ({
     gameRoot,
