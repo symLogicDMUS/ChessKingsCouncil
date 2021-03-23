@@ -4,56 +4,32 @@ import { StandardModal } from "../Modals/StandardModal";
 import { Portal } from "@material-ui/core";
 import { useStyles } from "../Modals/StandardModal.jss";
 
-/**
- * motivation is for the 'are you sure yes or no' modal that always occurs
- * @param onAcceptDelete
- * @param modalTitle
- * @param modalText
- * @param theme
- * @param style
- * @param classesObj
- * @param variant
- * @param startIcon
- * @param isDisabled
- * @param altText: something other than the word delete, or maybe it styled differently
- * @returns {JSX.Element}
- * @constructor
- */
-export function MuiDeleteButton({
-    onAcceptDelete,
-    modalTitle,
-    modalText,
-    theme,
-    style,
-    classesObj,
-    variant,
-    startIcon,
-    isDisabled,
-    altText,
-}) {
+
+export function MuiDeleteButton(props) {
     const [modal, setModal] = useState(false);
 
-    const classes = useStyles({ theme });
+    const classes = useStyles({ theme: props.theme });
 
     return (
         <>
             {modal ? (
                 <Portal>
                     <StandardModal
-                        title={modalTitle}
-                        text={modalText}
-                        theme={theme}
+                        title={props.modalTitle}
+                        text={props.modalText}
+                        theme={props.theme}
                         closeClick={() => setModal(false)}
                     >
                         <Button
                             onClick={() => {
-                                onAcceptDelete();
+                                props.onAcceptDelete();
                                 setModal(false);
                             }}
                             classProp={classes.button}
                             addedClassProp={classes.yes_button}
                             variant={"contained"}
-                            theme={theme}
+                            theme={props.theme}
+                            size={props.size}
                         >
                             Yes
                         </Button>
@@ -62,7 +38,8 @@ export function MuiDeleteButton({
                             classProp={classes.button}
                             addedClassProp={classes.no_button}
                             variant={"contained"}
-                            theme={theme}
+                            theme={props.theme}
+                            size={props.size}
                         >
                             No
                         </Button>
@@ -71,14 +48,17 @@ export function MuiDeleteButton({
             ) : null}
             <Button
                 onClick={() => setModal(true)}
-                isDisabled={isDisabled}
-                startIcon={startIcon}
-                classesObj={classesObj}
-                variant={variant}
-                style={style}
-                theme={theme}
+                isDisabled={props.isDisabled}
+                startIcon={props.startIcon}
+                classProp={props.classProp}
+                classesObj={props.classesObj}
+                rootClassProp={props.rootClassProp}
+                variant={props.variant}
+                style={props.style}
+                theme={props.theme}
+                size={props.size}
             >
-                {altText ? altText : "Delete"}
+                {props.altText ? props.altText : "Delete"}
             </Button>
         </>
     );

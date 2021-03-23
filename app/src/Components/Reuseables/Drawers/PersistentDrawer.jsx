@@ -13,12 +13,13 @@ import { useStyles } from "./PersistentDrawer.jss";
 import {viewWidth} from "../../helpers/windowMeasurments";
 
 export default function PersistentDrawer({
-    drawerType,
     drawer,
-    appBarContent,
     theme,
     spacing,
+    addedRoot,
+    drawerType,
     neighborOpen,
+    appBarContent,
     children,
 }) {
     const [drawerWidth, setDrawerWidth] = useState(viewWidth() * 0.45);
@@ -51,7 +52,9 @@ export default function PersistentDrawer({
     };
 
     return (
-        <div className={classes.root}>
+        <div className={clsx(classes.root, {
+            [addedRoot]: addedRoot,
+        })}>
             <CssBaseline />
             <AppBar
                 position="fixed"

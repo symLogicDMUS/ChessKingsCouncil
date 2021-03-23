@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {useMediaQuery} from "react-responsive";
 import Box from "@material-ui/core/Box";
 import {MuiCheckbox} from "../Clickables/MuiCheckbox";
 import {MuiButton as Button} from "../Clickables/MuiButton";
@@ -15,6 +16,7 @@ export function MuiGrid(props) {
         rootStyle: props.rootStyle,
         itemWindowStyle: props.itemWindowStyle,
     });
+    const isThin = useMediaQuery({query: '(max-width: 720px)'});
 
     /*removed useEffect from resizing*/
 
@@ -33,12 +35,14 @@ export function MuiGrid(props) {
                 <Button
                     onClick={props.onOkClick}
                     isDisabled={props.selectedItem === null}
-                    classesObj={{root: classes.ok_button}}
+                    rootClassProp={classes.bottom_button}
+                    addedClassProp={classes.ok_button}
+                    size={isThin ? 'small' : 'medium'}
                     variant="outlined"
                     theme={props.theme}
                     startIcon={
                         <CheckCircleOutlineIcon
-                            classes={{root: classes.button_icon}}
+                            // classes={{root: classes.button_icon}}
                         />
                     }
                 >
@@ -48,12 +52,13 @@ export function MuiGrid(props) {
                     onAcceptDelete={props.onDeleteClick}
                     modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.selectedItem === null}
-                    classesObj={{root: classes.delete_button}}
+                    rootClassProp={classes.bottom_button}
+                    size={isThin ? 'small' : 'medium'}
                     theme={props.theme}
                     variant="outlined"
                     startIcon={
                         <DeleteForeverIcon
-                            classes={{root: classes.button_icon}}
+                            // classes={{root: classes.button_icon}}
                         />
                     }
                 />

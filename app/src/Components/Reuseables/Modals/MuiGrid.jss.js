@@ -1,4 +1,4 @@
-import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
+import {fontSize001685, fontSize00184, fontSize002, fontSizeW003224} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
@@ -9,10 +9,14 @@ export const useStyles = makeStyles((theme) => ({
             width: '100vw',
             height: `calc(100vh - ${appBarHeight}px)`,
             position: 'absolute',
+            top: appBarHeight,
         },
         '@media screen and (min-width: 1040px)': {
             width: '90vw',
             height: '90vh',
+            position: 'absolute',
+            top: `calc(${appBarHeight}px)`,
+            left: '5vw',
         },
         zIndex: 6,
         display: 'flex',
@@ -58,12 +62,15 @@ export const useStyles = makeStyles((theme) => ({
         },
         flexGrow: 3,
     }),
+    bottom_button: props => ({
+        border: `0.025rem solid ${themes[props.theme].outline}`,
+    }),
     ok_button: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginRight: '3vw',
+        },
         '@media screen and (min-width: 1040px)': {
             marginRight: '2vw'
-        },
-        '@media screen and (max-width: 1040px)': {
-            marginRight: '1.25vw',
         },
     }),
     close_icon: props => ({

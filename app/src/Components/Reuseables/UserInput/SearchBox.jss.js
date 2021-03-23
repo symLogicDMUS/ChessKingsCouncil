@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize0025} from "../../styles/fontSizes.jss";
+import {fontSize002, fontSize0025} from "../../styles/fontSizes.jss";
 
 export const text_field = (fontSize, theme) => ({
     fontSize: fontSize,
@@ -40,7 +40,7 @@ export const useStyles = makeStyles({
         height: '1em',
         width: '3em',
         flexGrow: 100,
-        fontSize: fontSize0025*0.8,
+        fontSize: fontSize002,
         color: themes[props.theme].text,
         verticalAlign: 'center',
     }),

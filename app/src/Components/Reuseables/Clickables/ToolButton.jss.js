@@ -10,8 +10,8 @@ export const useStyles = makeStyles({
         marginLeft: 'auto',
     }),
     icon: props => ({
-        height: 18,
-        width: 18,
+        height: 24,
+        width: 24,
         color: themes[props.theme].text,
     }),
     text: props => ({

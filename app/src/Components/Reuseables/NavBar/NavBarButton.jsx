@@ -77,7 +77,7 @@ export function NavBarButton({
             <Button
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover,
+                    [classes.normal_color]: ! hover,
                     [classes.hover_color]: hover,
                 })}
                 onMouseEnter={() => setHover(true)}

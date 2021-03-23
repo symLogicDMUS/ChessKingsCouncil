@@ -21,6 +21,9 @@ export const useStyles = makeStyles({
             height: "2.25em",
         },
         background: themes[props.theme].fill,
+        '&:hover':{
+            backgroundColor: themes[props.theme].button_fill,
+        },
     }),
     box: props => ({
         ...props.style,
@@ -58,10 +61,10 @@ export const useStyles = makeStyles({
     }),
     normal_color: props => ({
         '@media screen and (max-width: 1040px)': {
-            color: themes[props.theme].nav_text,
+            color: themes[props.theme].text,
         },
         '@media screen and (min-width: 1040px)': {
-            color: themes[props.theme].text_alt2,
+            color: themes[props.theme].nav_text,
         },
     }),
     hover_color: props => ({

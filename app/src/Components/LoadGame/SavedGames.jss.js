@@ -37,7 +37,7 @@ export const useStyles = makeStyles({
     title_box: props => ({
         display: 'inline-flex',
         alignItems: 'center',
-        transform: 'translate(0, 1.4em)'
+        transform: 'translate(0, 1.4em)',
     }),
     title: props => ({
         fontSize: '2em',
@@ -66,12 +66,6 @@ export const useStyles = makeStyles({
         marginTop: '-37.665vh',
     }),
     search_box: props => ({
-        '@media screen and (max-width: 1040px)': {
-            marginTop: '-0.5em', marginBottom: '0.75em',
-            transform: 'translate(0, 13px)',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        },
         '@media screen and (min-width: 1040px)': {
             alignSelf: 'flex-end',
             marginRight: '2.25vw',

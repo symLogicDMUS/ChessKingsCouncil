@@ -89,6 +89,7 @@ export function LoadDeleteHeader({
                             startIcon={<DeleteForever className={clsx(classes.icon,  {
                                 [classes.delete_icon]: true
                             })} />}
+                            variant='contained'
                             classesObj={{root: classes.delete_button}}
                             isDisabled={false}
                             theme={theme}

@@ -17,18 +17,6 @@ import {useStyles} from "./SavedGames.jss";
 export function SavedGames(props) {
     const classes = useStyles({theme: props.theme});
 
-    const [bValue, reRender] = useState(false);
-    useEffect(() => {
-        function handleResize() {
-            reRender(!bValue)
-        }
-
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    })
-
     return (
         <>
             <MediaQuery minWidth={1040}>
@@ -55,6 +43,7 @@ export function SavedGames(props) {
                                         <SearchBox theme={props.theme}
                                                    updateSearchText={props.updateSearchText}
                                                    classProp={classes.search_box}
+                                                   style={{marginRight: '2.25vw'}}
                                                    width='20em'
                                         />
                                     </>

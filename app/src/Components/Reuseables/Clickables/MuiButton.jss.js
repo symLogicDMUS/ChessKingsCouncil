@@ -9,6 +9,5 @@ export const useStyles = makeStyles({
             background: themes[props.theme].button_hover_fill,
             color: themes[props.theme].button_hover_text,
         },
-        ...props.style,
     }),
 }, {index: 1});

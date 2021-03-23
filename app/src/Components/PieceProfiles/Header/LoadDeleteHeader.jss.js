@@ -89,15 +89,6 @@ export const useStyles = makeStyles({
             width: '6.25em',
             height: '2.1em',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: fontSizeW0025,
-            '& .MuiButton-label': {
-                minHeight: 'unset',
-                minWidth: 'unset',
-                lineHeight: '0.85em',
-            },
-            width: '5em',
-        },
         border: `0.05em solid ${themes[props.theme].outline}`
     }),
     icon: props => ({
