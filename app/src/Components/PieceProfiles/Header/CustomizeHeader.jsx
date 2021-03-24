@@ -1,17 +1,13 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import clsx from "clsx";
 import MediaQuery from "react-responsive/src";
 import Box from "@material-ui/core/Box";
-import Select from '@material-ui/core/Select';
-import {MenuItem, Typography} from "@material-ui/core";
-import AdbIcon from "@material-ui/icons/Adb";
-import BackupIcon from "@material-ui/icons/Backup";
-import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
-import {SubButtonGroup} from "./SubButtonGroup";
-import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
-import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
-import {useStyles} from "./CustomizeHeader.jss";
-import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
+import { Typography } from "@material-ui/core";
+import { SubButtonGroup } from "./SubButtonGroup";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
+import { useStyles as useMoreStyles } from "../Header/ProfileHeader.jss";
+import { useStyles } from "./CustomizeHeader.jss";
+import { SubDropdown } from "./SubDropdown";
 
 export const CustomizeHeader = ({
     subs,
@@ -80,43 +76,43 @@ export const CustomizeHeader = ({
                         )}
                     </MuiCheckbox>
                 </Box>
-                <MediaQuery maxWidth={1040}>
-                    <Box rootClassName={classes.sub_dropdown}>
-                        <MuiDropdown>
-                            <MenuItem  value="icon1"><AdbIcon /></MenuItem>,
-                            <MenuItem  value="icon2"><BackupIcon /></MenuItem>,
-                            <MenuItem value="icon3"><AddPhotoAlternateIcon /></MenuItem>
-                        </MuiDropdown>
-                    </Box>
-                </MediaQuery>
-                <MediaQuery minWidth={1040}>
-                    <SubButtonGroup
-                        theme={theme}
-                        rook={subs.Rook}
-                        queen={subs.Queen}
-                        knight={subs.Knight}
-                        bishop={subs.Bishop}
+                {/*<MediaQuery maxWidth={1040}>*/}
+                    <SubDropdown
+                        standardPieceThatSubbingFor={
+                            standardPieceThatSubbingFor
+                        }
                         customPieceName={customPieceName}
-                        standardPieceThatSubbingFor={standardPieceThatSubbingFor}
-                        onQueenClick={() => toggleSub(customPieceName, "Queen")}
-                        onRookClick={() => toggleSub(customPieceName, "Rook")}
-                        onKnightClick={() => toggleSub(customPieceName, "Knight")}
-                        onBishopClick={() => toggleSub(customPieceName, "Bishop")}
-                        onNoSymbolClick={() => {
-                            if (standardPieceThatSubbingFor) {
-                                toggleSub(null, standardPieceThatSubbingFor);
-                            }
-                        }}
+                        toggleSub={toggleSub}
+                        theme={theme}
                     />
-                </MediaQuery>
+                {/*</MediaQuery>*/}
+                {/*<MediaQuery minWidth={1040}>*/}
+                {/*    <SubButtonGroup*/}
+                {/*        theme={theme}*/}
+                {/*        rook={subs.Rook}*/}
+                {/*        queen={subs.Queen}*/}
+                {/*        knight={subs.Knight}*/}
+                {/*        bishop={subs.Bishop}*/}
+                {/*        customPieceName={customPieceName}*/}
+                {/*        standardPieceThatSubbingFor={*/}
+                {/*            standardPieceThatSubbingFor*/}
+                {/*        }*/}
+                {/*        onQueenClick={() => toggleSub(customPieceName, "Queen")}*/}
+                {/*        onRookClick={() => toggleSub(customPieceName, "Rook")}*/}
+                {/*        onKnightClick={() =>*/}
+                {/*            toggleSub(customPieceName, "Knight")*/}
+                {/*        }*/}
+                {/*        onBishopClick={() =>*/}
+                {/*            toggleSub(customPieceName, "Bishop")*/}
+                {/*        }*/}
+                {/*        onNoSymbolClick={() => {*/}
+                {/*            if (standardPieceThatSubbingFor) {*/}
+                {/*                toggleSub(null, standardPieceThatSubbingFor);*/}
+                {/*            }*/}
+                {/*        }}*/}
+                {/*    />*/}
+                {/*</MediaQuery>*/}
             </div>
         </>
     );
 };
-
-/*
-                <MenuItem value="None">
-                    <em>None</em>
-                </MenuItem>,
-
- */
