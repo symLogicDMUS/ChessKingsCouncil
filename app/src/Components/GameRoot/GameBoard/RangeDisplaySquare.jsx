@@ -1,9 +1,9 @@
-import React from "react";
+import React, {memo} from "react";
 import { useStyles } from "../../Reuseables/Board/Square.jss";
 import clsx from "clsx";
 import {binaryBoard} from "../../helpers/binaryBoard";
 
-export function RangeDisplaySquare({rf, isInRange, theme, sqrSize }) {
+export const RangeDisplaySquare = memo(({rf, isInRange, theme, sqrSize }) => {
 
     const classes = useStyles({rf: rf, theme, sqrSize: sqrSize});
 
@@ -17,4 +17,4 @@ export function RangeDisplaySquare({rf, isInRange, theme, sqrSize }) {
             })}
         />
     );
-}
+});

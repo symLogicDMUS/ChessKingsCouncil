@@ -12,14 +12,28 @@ export const useStyles = makeStyles({
     profile_wb: props => ({
         zIndex: 'inherit',
         display: 'flex',
-        flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        '@media screen and (max-width: 1040px)': {
+            flexDirection: 'column',
+        },
         '@media screen and (min-width: 1040px)': {
+            flexDirection: 'row',
             width: headerWidthDesktop,
             marginTop: '0.875vw',
             marginBottom: '0.875vw',
+        },
+    }),
+    white_profile: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginLeft: '5vw',
+            marginRight: '2.5vw',
+        },
+    }),
+    black_profile: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginLeft: '2.5vw',
         },
     }),
     sqr_item_area: props => ({
@@ -28,12 +42,20 @@ export const useStyles = makeStyles({
     }),
     /*board or avatar window*/
     sqr_item: props => ({
+        '@media screen and (max-width: 1040px)': {
+            width: '42.5vw',
+            height: '42.5vw',
+            outline: `0.05rem solid ${themes[props.theme].outline}`,
+        },
         '@media screen and (min-width: 1040px)': {
             width: '14.333vw',
             height: '14.333vw',
+            outline: `0.05rem solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (max-device-width: 460px)': {
+            outline: `0.12rem solid ${themes[props.theme].outline}`,
         },
         backgroundColor: themes[props.theme].fill,
-        outline: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     sqr_item_header: props => ({
         display: 'flex',
@@ -41,15 +63,23 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
+        '@media screen and (max-width: 1040px)': {
+            width: '42.5vw',
+            height: '5vh',
+            outline: `0.05rem solid ${themes[props.theme].outline}`,
+        },
         '@media screen and (min-width: 1040px)': {
             width: '14.333vw',
             height: '2vw',
             outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
+        '@media screen and (max-device-width: 460px)': {
+            outline: `0.12rem solid ${themes[props.theme].outline}`,
+        },
     }),
     sqr_item_title: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: '4.25vw',
+            fontSize: '3.5vh',
         },
         '@media screen and (min-width: 1040px)': {
             fontSize: '2.3vh',
@@ -57,17 +87,30 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     item1: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginTop: '2.5vw',
+            marginBottom: '2.5vw',
+        },
         '@media screen and (min-width: 1040px)': {
             marginRight: '0.875vw',
         },
     }),
     item2: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginTop: '2.5vw',
+            marginBottom: '2.5vw',
+        },
         '@media screen and (min-width: 1040px)': {
             marginLeft: '0.875vw',
             marginRight: '0.875vw',
         },
     }),
     item3: props => ({
+        '@media screen and (max-width: 1040px)': {
+            marginTop: '2.5vw',
+            marginBottom: '2.5vw',
+
+        },
         '@media screen and (min-width: 1040px)': {
             marginLeft: '0.875vw',
         },

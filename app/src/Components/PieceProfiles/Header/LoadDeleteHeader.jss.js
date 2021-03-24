@@ -1,102 +1,54 @@
-import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize002, fontSizeW0025, fontSizeW003224, fontSizeW0035,
-} from "../../styles/fontSizes.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {fontSize001685} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
         justifyContent: 'space-between',
     }),
-    buttons_outer_flexbox: props => ({
+    buttons_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        flexGrow: 3,
-        "@media screen and (max-width: 412px)": {
-            flexGrow: 0,
-            marginLeft: '1em',
-        },
     }),
     button: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize002,
-            width: '6.1em',
-            height: '2em',
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSize002,
-            width: '6.9em',
-            height: '1.9em',
-            maxWidth: '100em',
-        },
-        border: `0.05em solid ${themes[props.theme].outline}`
-    }),
-    buttons_inner_flexbox: props => ({
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        '@media screen and (max-width: 1040px)': {
-            width: '10vw',
+            fontSize: '3vh',
+            width: '18.75vw',
+            height: '5.75vh',
+            border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 1040px)': {
-            width: '14.333vw',
+            fontSize: '2.25vh',
+            width: '6.5vw',
+            height: '4.5vh',
+            border: `0.05em solid ${themes[props.theme].outline}`
         },
-        marginLeft: '1rem',
+        '@media screen and (max-device-width: 460px)': {
+            outline: `0.12rem solid ${themes[props.theme].outline}`,
+        },
     }),
     load_button: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize002,
-            width: '6.1em',
-            height: '2em',
-            marginRight: '0.5em',
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW003224,
-            '& .MuiButton-label': {
-                minHeight: 'unset',
-                lineHeight: '0.85em',
-            },
-            width: '6.25em',
-            height: '2.1em',
+            marginRight: '2.5vw',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
-            fontSize: fontSizeW0025,
-            '& .MuiButton-label': {
-                minHeight: 'unset',
-                lineHeight: '0.85em',
-            },
-            width: '5em',
+        '@media screen and (min-width: 1040px)': {
+            marginRight: '0.65vw',
         },
-        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     delete_button: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize002,
-            width: '6.1em',
-            height: '2em',
-            marginLeft: "0.5em",
-        },
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW003224,
-            '& .MuiButton-label': {
-                minHeight: 'unset',
-                lineHeight: '0.85em',
-            },
-            width: '6.25em',
-            height: '2.1em',
+            marginLeft: '2.5vw',
         },
-        border: `0.05em solid ${themes[props.theme].outline}`
+        '@media screen and (min-width: 1040px)': {
+            marginLeft: '0.65vw',
+        },
     }),
     icon: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW0035
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: fontSizeW0025
+            fontSize: fontSize001685
         },
         color: themes[props.theme].text,
     }),

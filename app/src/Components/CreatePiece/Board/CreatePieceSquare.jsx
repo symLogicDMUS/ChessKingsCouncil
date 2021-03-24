@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import {sqrSize} from "./CreatePieceBoard.jss";
 import {getOffset} from "../../helpers/getOffset";
@@ -8,7 +8,7 @@ import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {useStyles} from "../../Reuseables/Board/Square.jss";
 import {useStyles as useMoreStyles} from "./CreatePieceSquare.jss"
 
-export function CreatePieceSquare({
+export const CreatePieceSquare = memo(({
     rf,
     theme,
     pieceLoc,
@@ -20,7 +20,7 @@ export function CreatePieceSquare({
     showOffsetText,
     hasToolChild,
     children,
-}) {
+}) => {
     const classes = useStyles({
         rf: rf,
         theme: theme,
@@ -59,4 +59,4 @@ export function CreatePieceSquare({
             ) : null}
         </div>
     );
-}
+});

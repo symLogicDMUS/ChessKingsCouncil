@@ -52,6 +52,7 @@ export function MuiDeleteButton(props) {
                 startIcon={props.startIcon}
                 classProp={props.classProp}
                 classesObj={props.classesObj}
+                addedClassProp={props.addedClassProp}
                 rootClassProp={props.rootClassProp}
                 variant={props.variant}
                 style={props.style}

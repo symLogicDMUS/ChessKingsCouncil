@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import {input_label, useStyles} from "./MuiInput.jss";
 
 export function MuiDropdown(props) {
     const [selected, setSelected] = useState("");

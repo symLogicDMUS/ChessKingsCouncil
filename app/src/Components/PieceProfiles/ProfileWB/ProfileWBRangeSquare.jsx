@@ -1,17 +1,17 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import { useStyles } from "../../Reuseables/Board/Square.jss";
 import {sqrSize, useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss";
 
-export function ProfileWBRangeSquare({
+export const ProfileWBRangeSquare = memo(({
     rf,
     isInRange,
     rangeType,
     theme,
     screenCase,
     children,
-}) {
+}) => {
     const classes = useStyles({
         rf: rf,
         theme: theme,
@@ -34,4 +34,4 @@ export function ProfileWBRangeSquare({
             {children}
         </div>
     );
-}
+});

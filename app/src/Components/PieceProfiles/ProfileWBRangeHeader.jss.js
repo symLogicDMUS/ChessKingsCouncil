@@ -16,7 +16,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 1040px)': {
             width: '2.2vw',
             height: '2.2vw',
-            fontSize: '1.5vw',
+            fontSize: '3.5vw',
         },
         '@media screen and (min-width: 1040px)': {
             width: '2vw',

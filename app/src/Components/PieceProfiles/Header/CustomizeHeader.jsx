@@ -1,15 +1,17 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import clsx from "clsx";
+import MediaQuery from "react-responsive/src";
 import Box from "@material-ui/core/Box";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import BlockIcon from "@material-ui/icons/Block";
-import { themes } from "../../styles/themes.jss";
-import Typography from "@material-ui/core/Typography";
-import { icons } from "../../styles/icons/top/icons.jss";
-import IconButton from "@material-ui/core/IconButton";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
+import Select from '@material-ui/core/Select';
+import {MenuItem, Typography} from "@material-ui/core";
+import AdbIcon from "@material-ui/icons/Adb";
+import BackupIcon from "@material-ui/icons/Backup";
+import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
+import {SubButtonGroup} from "./SubButtonGroup";
+import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
 import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
-import { useStyles } from "./CustomizeHeader.jss";
+import {useStyles} from "./CustomizeHeader.jss";
+import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
 
 export const CustomizeHeader = ({
     subs,
@@ -21,11 +23,12 @@ export const CustomizeHeader = ({
     theme,
 }) => {
     const classes = useStyles({ theme: theme });
-    const classes2 = useMoreStyles({theme: theme});
+    const classes2 = useMoreStyles({ theme: theme });
 
     const getIsPromo = () => {
         return promos.includes(customPieceName);
-    }; const isCheckmark = useMemo(() => getIsPromo(), [promos.length]);
+    };
+    const isCheckmark = useMemo(() => getIsPromo(), [promos.length]);
 
     const getStandardPieceThatSubbingFor = () => {
         for (const standardPieceName of Object.keys(subs)) {
@@ -34,13 +37,16 @@ export const CustomizeHeader = ({
             }
         }
         return null;
-    }; const standardPieceThatSubbingFor = getStandardPieceThatSubbingFor()
+    };
+    const standardPieceThatSubbingFor = getStandardPieceThatSubbingFor();
 
     return (
         <>
-            <div className={clsx(classes.header, {
-                [classes2.header]: classes2.header,
-            })}>
+            <div
+                className={clsx(classes.header, {
+                    [classes2.header]: classes2.header,
+                })}
+            >
                 <Box className={classes.box}>
                     <Typography
                         className={classes2.piece_name}
@@ -55,7 +61,7 @@ export const CustomizeHeader = ({
                         checkmarkState={isCheckmark}
                         onClick={() => togglePromo(customPieceName)}
                         rootClassProp={classes.checkbox_root}
-                        addedClassProp={classes.checkbox}
+                        textClassProp={classes.checkbox_text}
                         classProp={classes.checkbox_gen}
                         theme={theme}
                     >
@@ -74,80 +80,43 @@ export const CustomizeHeader = ({
                         )}
                     </MuiCheckbox>
                 </Box>
-                <Box
-                    className={clsx(classes.box, {
-                        [classes.icon_button_style]: true,
-                    })}
-                >
-                    <IconButton
-                        onClick={() => {
+                <MediaQuery maxWidth={1040}>
+                    <Box rootClassName={classes.sub_dropdown}>
+                        <MuiDropdown>
+                            <MenuItem  value="icon1"><AdbIcon /></MenuItem>,
+                            <MenuItem  value="icon2"><BackupIcon /></MenuItem>,
+                            <MenuItem value="icon3"><AddPhotoAlternateIcon /></MenuItem>
+                        </MuiDropdown>
+                    </Box>
+                </MediaQuery>
+                <MediaQuery minWidth={1040}>
+                    <SubButtonGroup
+                        theme={theme}
+                        rook={subs.Rook}
+                        queen={subs.Queen}
+                        knight={subs.Knight}
+                        bishop={subs.Bishop}
+                        customPieceName={customPieceName}
+                        standardPieceThatSubbingFor={standardPieceThatSubbingFor}
+                        onQueenClick={() => toggleSub(customPieceName, "Queen")}
+                        onRookClick={() => toggleSub(customPieceName, "Rook")}
+                        onKnightClick={() => toggleSub(customPieceName, "Knight")}
+                        onBishopClick={() => toggleSub(customPieceName, "Bishop")}
+                        onNoSymbolClick={() => {
                             if (standardPieceThatSubbingFor) {
                                 toggleSub(null, standardPieceThatSubbingFor);
                             }
                         }}
-                        className={classes.sub_button}
-                    >
-                        <BlockIcon
-                            className={clsx(classes.sub_icon, {
-                                [classes.selected]: ! standardPieceThatSubbingFor,
-                                [classes.no_sub_unselected]: standardPieceThatSubbingFor,
-                            })}
-                        />
-                    </IconButton>
-                    <IconButton
-                        onClick={() => toggleSub(customPieceName, "Queen")}
-                        className={classes.sub_button}
-                    >
-                        <SvgIcon className={clsx(classes.sub_icon, {
-                                [classes.selected]: subs.Queen === customPieceName,
-                                [classes.unselected]: subs.Queen !== customPieceName,
-                        })}>
-                            {icons.queen_outline(
-                                themes[theme].outline,
-                            )}
-                        </SvgIcon>
-                    </IconButton>
-                    <IconButton
-                        onClick={() => toggleSub(customPieceName, "Rook")}
-                        className={classes.sub_button}
-                    >
-                        <SvgIcon className={clsx(classes.sub_icon, {
-                            [classes.selected]: subs.Rook === customPieceName,
-                            [classes.unselected]: subs.Rook !== customPieceName,
-                        })}>
-                            {icons.rook_outline(
-                                themes[theme].outline,
-                            )}
-                        </SvgIcon>
-                    </IconButton>
-                    <IconButton
-                        onClick={() => toggleSub(customPieceName, "Knight")}
-                        className={classes.sub_button}
-                    >
-                        <SvgIcon className={clsx(classes.sub_icon, {
-                            [classes.selected]: subs.Knight === customPieceName,
-                            [classes.unselected]: subs.Knight !== customPieceName,
-                        })}>
-                            {icons.knight_outline(
-                                themes[theme].outline,
-                            )}
-                        </SvgIcon>
-                    </IconButton>
-                    <IconButton
-                        onClick={() => toggleSub(customPieceName, "Bishop")}
-                        className={classes.sub_button}
-                    >
-                        <SvgIcon className={clsx(classes.sub_icon, {
-                            [classes.selected]: subs.Bishop === customPieceName,
-                            [classes.unselected]: subs.Bishop !== customPieceName,
-                        })}>
-                            {icons.bishop_outline(
-                                themes[theme].outline,
-                            )}
-                        </SvgIcon>
-                    </IconButton>
-                </Box>
+                    />
+                </MediaQuery>
             </div>
         </>
     );
 };
+
+/*
+                <MenuItem value="None">
+                    <em>None</em>
+                </MenuItem>,
+
+ */

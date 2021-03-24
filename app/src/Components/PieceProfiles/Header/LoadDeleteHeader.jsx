@@ -68,33 +68,33 @@ export function LoadDeleteHeader({
             <div className={clsx(classes.header, {
                 [classes2.header]: true,
             })}>
-                <Typography className={classes2.text}>
+                <Typography variant='subtitle2' className={classes2.piece_name}>
                     {pieceName}
                 </Typography>
-                <Box className={classes.buttons_outer_flexbox}>
-                    <Box className={classes.buttons_inner_flexbox}>
-                        <Button
-                            theme={theme}
-                            startIcon={<StorageIcon className={classes.icon}/>}
-                            classesObj={{root: classes.load_button}}
-                            onClick={loadMethod}
-                        >
-                            Load
-                        </Button>
-                        <DeleteButton
-                            onAcceptDelete={() => deletePiece(pieceName)}
-                            modalTitle={`You are asking to delete piece ${pieceName}.`}
-                            modalText={`Game in progress will no be effected but the record of the piece for new games will be 
+                <Box className={classes.buttons_flexbox}>
+                    <Button
+                        theme={theme}
+                        startIcon={<StorageIcon className={classes.icon}/>}
+                        rootClassProp={classes.button}
+                        addedClassProp={classes.load_button}
+                        onClick={loadMethod}
+                    >
+                        Load
+                    </Button>
+                    <DeleteButton
+                        onAcceptDelete={() => deletePiece(pieceName)}
+                        modalTitle={`You are asking to delete piece ${pieceName}.`}
+                        modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                            startIcon={<DeleteForever className={clsx(classes.icon,  {
-                                [classes.delete_icon]: true
-                            })} />}
-                            variant='contained'
-                            classesObj={{root: classes.delete_button}}
-                            isDisabled={false}
-                            theme={theme}
-                        />
-                    </Box>
+                        startIcon={<DeleteForever className={clsx(classes.icon,  {
+                            [classes.delete_icon]: true
+                        })} />}
+                        variant='outlined'
+                        rootClassProp={classes.button}
+                        addedClassProp={classes.delete_button}
+                        isDisabled={false}
+                        theme={theme}
+                    />
                 </Box>
             </div>
         </>

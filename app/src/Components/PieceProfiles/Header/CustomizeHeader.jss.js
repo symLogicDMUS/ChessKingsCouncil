@@ -1,14 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize0025, fontSize0028, fontSizeW0048}
-        from "../../styles/fontSizes.jss";
-import {headerWidthDesktop} from "./ProfileHeader.jss";
+import {fontSize0025, fontSizeW0048} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
         '@media screen and (max-width: 1040px)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
+            justifyContent: 'space-between',
         },
     }),
     box: props => ({
@@ -20,7 +19,9 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         justifyContent: 'flex-start',
         alignItems: 'baseline',
-        // border: '1px dashed red',
+    }),
+    sub_dropdown: props => ({
+
     }),
     sub_button: props => ({
         width: '2.75vw',
@@ -32,37 +33,30 @@ export const useStyles = makeStyles({
             height: '1.8vw',
         },
     }),
-    checkbox_text: props => ({
-        '@media screen and (min-width: 1040px)': {
-            fontSize: fontSize0025,
-        },
-        '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW0048,
-        },
-    }),
     icon_button_style: props => ({
         justifyContent: "space-between",
         alignItems: "center",
     }),
-
-    checkbox: props => ({
+    checkbox_root: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW0048,
+            marginLeft: 'auto',
             marginRight: 'auto',
+        },
+        '@media screen and (min-width: 1040px)': {
+            marginLeft: '-0.1em',
+        },
+    }),
+    checkbox_gen: props => ({
+        '@media screen and (max-width: 1040px)': {
+            fontSize: '3.5vh',
         },
         '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0025,
         },
     }),
-    checkbox_root: props => ({
-        '@media screen and (min-width: 1040px)': {
-            marginLeft: '-0.15em',
-        },
-    }),
-    checkbox_gen: props => ({
+    checkbox_text: props => ({
         '@media screen and (max-width: 1040px)': {
-            fontSize: fontSizeW0048,
-            marginRight: 'auto'
+            fontSize: '4vh',
         },
         '@media screen and (min-width: 1040px)': {
             fontSize: fontSize0025,

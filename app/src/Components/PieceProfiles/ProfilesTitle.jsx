@@ -6,7 +6,7 @@ import {useStyles} from "./ProfilesTitle.jss";
 
 export const widths = {
     desktop: '10.55em',
-    mobile: '10.55em',
+    mobile: '42.5vw',
     ipx: '8.25em',
     ipad: '8.25em',
 }

@@ -403,51 +403,6 @@ class Customize extends React.Component {
                                 newReplacement={this.newReplacement}
                                 searchText={this.state.searchText}
                             />
-                            {/*<MuiStatefulAccordion*/}
-                            {/*    theme={this.state.theme}*/}
-                            {/*    // rootStyle={accordion_style('mobile')}*/}
-                            {/*    neighborContentSize={modalHeights['mobile']}*/}
-                            {/*>*/}
-                            {/*    {[*/}
-                            {/*        {*/}
-                            {/*            id: "sub-list",*/}
-                            {/*            title: 'Sub List',*/}
-                            {/*            body: (*/}
-                            {/*                <SubList*/}
-                            {/*                    subs={this.subs}*/}
-                            {/*                    theme={this.state.theme}*/}
-                            {/*                />*/}
-                            {/*            ),*/}
-                            {/*        },*/}
-                            {/*        {*/}
-                            {/*            id: "pawn-promo",*/}
-                            {/*            title: 'Pawn Promotion List',*/}
-                            {/*            body: (*/}
-                            {/*                <div className={this.props.classes.pawn_promotion}>*/}
-                            {/*                    <ScrollTable*/}
-                            {/*                        numRows={4}*/}
-                            {/*                        listItems={this.promos}*/}
-                            {/*                        key='pawn-promotions-mobile'*/}
-                            {/*                        theme={this.state.theme}*/}
-                            {/*                        classProp={this.props.classes.scroll_table}*/}
-                            {/*                        addedClassProp={this.props.classes.scroll_table_added}*/}
-                            {/*                        arrowButtonClassProp={this.props.classes.scroll_table_button}*/}
-                            {/*                        listItemClassProp={this.props.classes.scroll_table_list_item}*/}
-                            {/*                    />*/}
-                            {/*                    <MuiCheckbox*/}
-                            {/*                        theme={this.state.theme}*/}
-                            {/*                        onClick={() => this.togglePromoAll()}*/}
-                            {/*                        rootClassProp={this.props.classes.promo_all_root}*/}
-                            {/*                        checkboxClassProp={this.props.classes.promo_all_checkbox}*/}
-                            {/*                        classProp={this.props.classes.promo_all_gen}*/}
-                            {/*                    >*/}
-                            {/*                        Promo All*/}
-                            {/*                    </MuiCheckbox>*/}
-                            {/*                </div>*/}
-                            {/*            ),*/}
-                            {/*        },*/}
-                            {/*    ]}*/}
-                            {/*</MuiStatefulAccordion>*/}
                             <Button
                                 onClick={this.accept}
                                 isDisabled={false}

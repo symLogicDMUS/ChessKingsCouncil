@@ -6,25 +6,6 @@ export const drawerItemMarginTopBottom = '3.5%';
 export const drawerItemMarginLeft = '7%';
 
 export const styles = {
-    promo_all_checkbox: props => ({
-        '@media screen and (min-width: 1040px)': {
-            marginRight: 'auto',
-            marginLeft: 'auto',
-            transform: 'translate(0.5em, 0)'
-        },
-        '@media screen and (max-width: 1040px)': {
-            marginRight: 'auto',
-            flexGrow: 2,
-        },
-        accordion_style: props => ({
-            '@media screen and (min-width: 1040px)': {
-
-            },
-            '@media screen and (max-width: 1040px)': {
-
-            },
-        }),
-    }),
     piece_profiles: props => ({
         '@media screen and (min-width: 1040px)': {
             margin: 'auto'
@@ -102,6 +83,21 @@ export const styles = {
             marginBottom: drawerItemMarginTopBottom,
         },
     }),
+    promo_all_root: props => ({
+        '@media screen and (min-width: 1040px)': {
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            transform: 'translate(0.5em, 0)'
+        },
+        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+            marginRight: 'auto',
+            marginLeft: 'auto',
+        },
+        '@media screen and (max-width: 1040px)': {
+            marginRight: 'auto',
+            flexGrow: 2,
+        },
+    }),
     promo_all_gen: props => ({
         '@media screen and (min-width: 768px) and (max-width: 1040px)': {
             fontSize: fontSizeW004,
@@ -116,15 +112,11 @@ export const styles = {
             fontSize: fontSize0025
         },
     }),
-    promo_all_root: props => ({
+    promo_all_checkbox: props => ({
         '@media screen and (min-width: 1040px)': {
             marginRight: 'auto',
             marginLeft: 'auto',
             transform: 'translate(0.5em, 0)'
-        },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            marginRight: 'auto',
-            marginLeft: 'auto',
         },
         '@media screen and (max-width: 1040px)': {
             marginRight: 'auto',
@@ -145,34 +137,6 @@ export const styles = {
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
             marginBottom: drawerItemMarginTopBottom,
-        },
-    }),
-    pawn_promotion: props => ({
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
-            fontSize: fontSize0016,
-            height: '10em',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-        },
-        '@media screen and (max-width: 1040px)': {
-            marginTop: '-2vh',
-            fontSize: fontSize0016,
-            height: '10em',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-        },
-        '@media screen and (min-width: 1040px)': {
-            marginTop: '-2vh',
-            fontSize: fontSize0016,
-            height: '10em',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
         },
     }),
 }
