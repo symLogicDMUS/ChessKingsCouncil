@@ -20,9 +20,6 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-start',
         alignItems: 'baseline',
     }),
-    sub_dropdown: props => ({
-
-    }),
     sub_button: props => ({
         width: '2.75vw',
         height: '2.75vw',

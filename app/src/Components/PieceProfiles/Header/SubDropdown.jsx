@@ -1,16 +1,19 @@
-import {useStyles} from "./CustomizeHeader.jss";
+import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
 import {MenuItem} from "@material-ui/core";
 import BlockIcon from "@material-ui/icons/Block";
-import clsx from "clsx";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {icons} from "../../styles/icons/top/icons.jss";
 import {themes} from "../../styles/themes.jss";
-import React from "react";
+import {icons} from "../../styles/icons/top/icons.jss";
+import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
+import {useStyles as useMoreStyles} from "./CustomizeHeader.jss";
+import { useStyles } from "./SubDropdown.jss";
+
 
 export function SubDropdown({customPieceName, standardPieceThatSubbingFor, toggleSub, theme}) {
-    const classes = useStyles({theme});
+    const classes = useStyles({theme: theme})
+    const classes2 = useMoreStyles({theme});
 
     const handleChange = (value) => {
         if (value === "None" && standardPieceThatSubbingFor) {
@@ -20,23 +23,33 @@ export function SubDropdown({customPieceName, standardPieceThatSubbingFor, toggl
         }
     };
 
+    let overrideItem;
+    if (standardPieceThatSubbingFor) {
+        overrideItem = standardPieceThatSubbingFor;
+    }
+    else {
+        overrideItem = "None";
+    }
+
     return (
-        <Box rootClassName={classes.sub_dropdown}>
+        <Box className={classes2.sub_dropdown}>
             <MuiDropdown
                 updateParent={handleChange}
-                overrideItem={standardPieceThatSubbingFor}
+                overrideItem={overrideItem}
+                rootClassName={classes2.sub_dropdown}
+                classesObj={{root: classes2.sub_dropdown}}
             >
                 <MenuItem value="None">
                     <BlockIcon
-                        className={clsx(classes.sub_icon, {
-                            [classes.selected]: true,
+                        className={clsx(classes2.sub_icon, {
+                            [classes2.selected]: true,
                         })}
                     />
                 </MenuItem>,
                 <MenuItem value="Queen">
                     <SvgIcon
-                        className={clsx(classes.sub_icon, {
-                            [classes.selected]: true,
+                        className={clsx(classes2.sub_icon, {
+                            [classes2.selected]: true,
                         })}
                     >
                         {icons.queen_outline(themes[theme].outline)}
@@ -44,8 +57,8 @@ export function SubDropdown({customPieceName, standardPieceThatSubbingFor, toggl
                 </MenuItem>,
                 <MenuItem value="Rook">
                     <SvgIcon
-                        className={clsx(classes.sub_icon, {
-                            [classes.selected]: true,
+                        className={clsx(classes2.sub_icon, {
+                            [classes2.selected]: true,
                         })}
                     >
                         {icons.rook_outline(themes[theme].outline)}
@@ -53,8 +66,8 @@ export function SubDropdown({customPieceName, standardPieceThatSubbingFor, toggl
                 </MenuItem>,
                 <MenuItem value="Knight">
                     <SvgIcon
-                        className={clsx(classes.sub_icon, {
-                            [classes.selected]: true,
+                        className={clsx(classes2.sub_icon, {
+                            [classes2.selected]: true,
                         })}
                     >
                         {icons.knight_outline(themes[theme].outline)}
@@ -62,8 +75,8 @@ export function SubDropdown({customPieceName, standardPieceThatSubbingFor, toggl
                 </MenuItem>
                 <MenuItem value="Bishop">
                     <SvgIcon
-                        className={clsx(classes.sub_icon, {
-                            [classes.selected]: true,
+                        className={clsx(classes2.sub_icon, {
+                            [classes2.selected]: true,
                         })}
                     >
                         {icons.bishop_outline(themes[theme].outline)}

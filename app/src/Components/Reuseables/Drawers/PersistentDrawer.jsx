@@ -23,23 +23,23 @@ export default function PersistentDrawer({
     children,
 }) {
 
-    const [drawerWidth, setDrawerWidth] = useState(viewWidth() * 0.45);
-    useEffect(() => {
-        function handleResize() {
-            setDrawerWidth(viewWidth() * 0.45)
-        }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    });
+    // const [drawerWidth, setDrawerWidth] = useState(viewWidth() * 0.45);
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setDrawerWidth(viewWidth() * 0.45)
+    //     }
+    //     window.addEventListener('resize', handleResize)
+    //     return _ => {
+    //         window.removeEventListener('resize', handleResize)
+    //     }
+    // });
 
     const muiTheme = useTheme();
 
     const classes = useStyles({
         theme: theme,
         spacing: spacing,
-        drawerWidth: drawerWidth
+        // drawerWidth: drawerWidth
     });
 
     const [open, setOpen] = React.useState(false);

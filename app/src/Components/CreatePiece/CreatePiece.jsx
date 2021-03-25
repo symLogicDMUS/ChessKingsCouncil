@@ -32,11 +32,7 @@ import { DrawerContent } from "../Reuseables/Drawers/DrawerContent";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { pageTitleStyle } from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {
-    fontSize002,
-    fontSize0026,
-    fontSizeW0045,
-} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";

@@ -112,6 +112,22 @@ class MyPieces extends React.Component {
                         </div>
                     </PersistentDrawer>
                 </MediaQuery>
+                {/*<div className={this.props.classes.my_pieces}>*/}
+                {/*    <PieceProfiles*/}
+                {/*        title="My Pieces"*/}
+                {/*        parentPage="MyPieces"*/}
+                {/*        theme={this.state.theme}*/}
+                {/*        searchText={this.state.searchText}*/}
+                {/*    >*/}
+                {/*        <ProfilesTitle*/}
+                {/*            screenCase='desktop'*/}
+                {/*            theme={this.state.theme}*/}
+                {/*            updateSearchText={this.updateSearchText}*/}
+                {/*        >*/}
+                {/*            Saved Pieces*/}
+                {/*        </ProfilesTitle>*/}
+                {/*    </PieceProfiles>*/}
+                {/*</div>*/}
             </>
         );
     }
