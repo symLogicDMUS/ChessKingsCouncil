@@ -18,13 +18,8 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
     const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
     useEffect(() => {
         function handleResize() {
-            if (viewWidth() < 960) {
-                setNavDrawerWidth(0)
-            } else {
-                setNavDrawerWidth(viewWidth() * 0.18)
-            }
+            setNavDrawerWidth(viewWidth() * 0.18)
         }
-
         window.addEventListener('resize', handleResize)
         return _ => {
             window.removeEventListener('resize', handleResize)
@@ -34,38 +29,63 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
     const classes = useStyles({theme: theme, navDrawerWidth: navDrawerWidth});
     const muiTheme = useTheme();
 
-    const [thinOpen, setthinOpen] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleDrawerToggle = () => {
-        setthinOpen(!thinOpen);
+        setOpen(!open);
     };
 
     return (
         <div className={classes.root}>
             <CssBaseline/>
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        className={classes.menuButton}
-                    >
-                        <MenuIcon/>
-                    </IconButton>
-                    {titleBar}
-                </Toolbar>
-            </AppBar>
-            <nav className={classes.drawer} aria-label="nav bar component">
+            <Hidden mdUp>
+                <AppBar position="fixed" className={clsx(classes.appBar, {
+                    [classes.appBarCompressed]: open,
+                    [classes.appBarRelaxed]: ! open,
+                })}>
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            className={classes.menuButton}
+                        >
+                            <MenuIcon/>
+                        </IconButton>
+                        {titleBar}
+                    </Toolbar>
+                </AppBar>
+            </Hidden>
+            <Hidden smDown>
+                <AppBar position="fixed" className={clsx(classes.appBar, {
+                    [classes.appBarCompressed]: true,
+                })}>
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            className={classes.menuButton}
+                        >
+                            <MenuIcon/>
+                        </IconButton>
+                        {titleBar}
+                    </Toolbar>
+                </AppBar>
+            </Hidden>
+            <div className={classes.drawer} aria-label="nav bar component">
                 <Hidden mdUp>
                     <Drawer
+                        open={open}
                         variant="temporary"
                         anchor={muiTheme.direction === 'rtl' ? 'right' : 'left'}
-                        open={thinOpen}
                         onClose={handleDrawerToggle}
                         classes={{
-                            paper: classes.navDrawerPaper,
+                            paper: clsx(classes.drawerPaper, {
+                                [classes.navPersistentPaper]: true,
+                            }),
                         }}
                         ModalProps={{
                             keepMounted: true,
@@ -82,7 +102,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
                 <Hidden smDown>
                     <Drawer
                         classes={{
-                            paper: clsx(classes.navDrawerPaper, {
+                            paper: clsx(classes.navPermanentPaper, {
                                 [classes.drawerPaper]: true,
                             }),
                         }}
@@ -111,7 +131,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
                         </Drawer>
                     </Portal>
                 </Hidden>
-            </nav>
+            </div>
             <main>
                 <div className={classes.toolbar}/>
                 {children}

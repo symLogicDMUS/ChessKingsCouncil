@@ -26,9 +26,14 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     appBar: props => ({
-        width: `calc(100% - ${props.navDrawerWidth}px)`,
         marginLeft: props.navDrawerWidth,
         background: themes[props.theme].fill,
+    }),
+    appBarCompressed: props => ({
+        width: `calc(100% - ${props.navDrawerWidth}px)`,
+    }),
+    appBarRelaxed: props => ({
+        width: '100%',
     }),
     menuButton: props => ({
         marginRight: theme.spacing(2),
@@ -45,7 +50,13 @@ export const useStyles = makeStyles((theme) => ({
     drawerPaper: props => ({
         backgroundColor: themes[props.theme].fill2,
     }),
-    navDrawerPaper: props => ({
+    navPermanentPaper: props => ({
+        width: props.navDrawerWidth,
+        '@media screen and (max-width: 960px)': {
+            width: 0,
+        },
+    }),
+    navPersistentPaper: props => ({
         width: props.navDrawerWidth,
     }),
     toolDrawerPaper: props => ({

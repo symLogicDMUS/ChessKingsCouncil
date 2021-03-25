@@ -21,6 +21,9 @@ export const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+        '@media screen and (max-width: 780px)': {
+            minWidth: 168,
+        },
     }),
     drawerClose: props => ({
         width: theme.spacing(7) + 1,
