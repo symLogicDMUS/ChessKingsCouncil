@@ -39,10 +39,10 @@ export function ProfileHelpText(props) {
         </Typography>
         <Box className={classes.flexbox} >
             <Box className={classes.partial_range_example}>
-                <MediaQuery minWidth={1040}>
+                <MediaQuery minWidth={960}>
                     <SampleRangeBoard theme={props.theme} />
                 </MediaQuery>
-                <MediaQuery maxWidth={1040}>
+                <MediaQuery maxWidth={960}>
                     <SampleRangeBoard theme={props.theme} />
                 </MediaQuery>
                 <SampleRangeList theme={props.theme}/>

@@ -28,7 +28,7 @@ export function MiniPiece({
     const classes = useStyles({ theme: theme });
     return (
         <>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 {showProfileOnClick ? (
                     <Portal>
                         {isSpecial && rf === selectedSqr ? (
@@ -80,7 +80,7 @@ export function MiniPiece({
                     </Portal>
                 ) : null}
             </MediaQuery>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 {rf === selectedSqr && showProfileOnClick ? (
                     <Portal>
                         {isSpecial ? (

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import clsx from "clsx";
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -9,13 +10,31 @@ import {Portal, useTheme} from "@material-ui/core";
 import IconButton from '@material-ui/core/IconButton';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MiniVariantDrawer from "./MiniVariantDrawer";
-import { useStyles } from "./ResponsiveDrawer.jss";
-import clsx from "clsx";
+import {toolDrawerWidth, useStyles} from "./ResponsiveDrawer.jss";
+import Box from "@material-ui/core/Box";
+import {viewWidth} from "../../helpers/windowMeasurments";
 
-function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, children}) {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, children}) {
+    const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
+    useEffect(() => {
+        function handleResize() {
+            if (viewWidth() < 960) {
+                setNavDrawerWidth(0)
+            } else {
+                setNavDrawerWidth(viewWidth() * 0.18)
+            }
+        }
+
+        window.addEventListener('resize', handleResize)
+        return _ => {
+            window.removeEventListener('resize', handleResize)
+        }
+    });
+
+    const classes = useStyles({theme: theme, navDrawerWidth: navDrawerWidth});
+    const muiTheme = useTheme();
+
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -23,7 +42,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, children}) {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
+            <CssBaseline/>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <IconButton
@@ -33,7 +52,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, children}) {
                         onClick={handleDrawerToggle}
                         className={classes.menuButton}
                     >
-                        <MenuIcon  />
+                        <MenuIcon/>
                     </IconButton>
                     {titleBar}
                 </Toolbar>
@@ -42,7 +61,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, children}) {
                 <Hidden mdUp>
                     <Drawer
                         variant="temporary"
-                        anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                        anchor={muiTheme.direction === 'rtl' ? 'right' : 'left'}
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
                         classes={{
@@ -52,46 +71,49 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, children}) {
                             keepMounted: true,
                         }}
                     >
-                        <div className={classes.toolbar} />
-                        <Divider />
+                        <div className={classes.toolbar}/>
+                        <Divider/>
                         {navBar}
                     </Drawer>
                     <Portal>
-                        <MiniVariantDrawer>{toolButtons}</MiniVariantDrawer>
+                        <MiniVariantDrawer theme={theme}>{toolButtons}</MiniVariantDrawer>
                     </Portal>
                 </Hidden>
                 <Hidden smDown>
                     <Drawer
                         classes={{
                             paper: clsx(classes.navDrawerPaper, {
-                                [classes.drawerPaper]:true,
+                                [classes.drawerPaper]: true,
                             }),
                         }}
                         variant="permanent"
                         open
                     >
-                        <div className={classes.toolbar} />
-                        <Divider />
+                        <div className={classes.toolbar}/>
+                        <Divider/>
                         {navBar}
                     </Drawer>
                     <Portal>
                         <Drawer
                             classes={{
                                 paper: clsx(classes.toolDrawerPaper, {
-                                    [classes.drawerPaper]:true,
+                                    [classes.drawerPaper]: true,
                                 }),
                             }}
                             variant="permanent"
                             anchor='right'
                             open
                         >
-                            {tools}
+                            <div className={classes.toolbar}/>
+                            <Box className={classes.tools}>
+                                {tools}
+                            </Box>
                         </Drawer>
                     </Portal>
                 </Hidden>
             </nav>
-            <main className={classes.content}>
-                <div className={classes.toolbar} />
+            <main>
+                <div className={classes.toolbar}/>
                 {children}
             </main>
         </div>

@@ -13,8 +13,8 @@ export function PromoCheckboxExample({fontSize, theme}) {
                 rootStyle={{fontSize: fontSize, marginRight: '1.5em'}}
                 theme={theme}
             >
-                <MediaQuery minWidth={1040}>Promotion</MediaQuery>
-                <MediaQuery maxWidth={1040}>Promo</MediaQuery>
+                <MediaQuery minWidth={960}>Promotion</MediaQuery>
+                <MediaQuery maxWidth={960}>Promo</MediaQuery>
             </MuiCheckbox>
             <MuiCheckbox
                 style={{fontSize: fontSize}}

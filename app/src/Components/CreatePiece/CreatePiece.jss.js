@@ -3,6 +3,10 @@ import {themes} from "../styles/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
+export const pageTitle = (theme) => ({
+    color: themes[theme].text,
+});
+
 export const styles = {
     modal: {
         ...modal,
@@ -28,13 +32,13 @@ export const appBarTitle = {
 
 export const useStyles = makeStyles({
     button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '15vw',
             height: '15vw',
             fontSize: '4.5vw',
             borderRadius: '0.2rem',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '3.875vw',
             height: '3.875vw',
             margin: 'unset',
@@ -51,6 +55,7 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginLeft: '3.5%',
+        marginBottom: '2vh',
         alignItems: 'center',
         justifyContent: 'space-between',
     }),

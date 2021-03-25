@@ -14,22 +14,22 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '90vw',
             marginLeft: '5vw',
             marginTop: '2.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: headerWidthDesktop,
             justifyContent: 'space-between',
             marginTop: '2vh',
         },
     }),
     piece_name: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: '4vh',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: '2.85vh',
         },
         lineHeight: '2.75rem',

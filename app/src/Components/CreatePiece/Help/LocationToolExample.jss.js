@@ -4,14 +4,14 @@ import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     location_tool: (props) => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100%',
             height: '100%',
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'no-wrap',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             backgroundColor: themes[props.theme].fill,
             width: '100%',
             marginBottom: '3vh',
@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
     }),
     box: props => ({
         fontSize: fontSize002,
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100em',
             height: '5em',
             display: 'flex',

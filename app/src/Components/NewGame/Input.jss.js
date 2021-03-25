@@ -40,7 +40,7 @@ export const mui_input = (theme) => ({
 
 export const useStyles = makeStyles({
     input: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '17.5vw',
         },
         /*root*/

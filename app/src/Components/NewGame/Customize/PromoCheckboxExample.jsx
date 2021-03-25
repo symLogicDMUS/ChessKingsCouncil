@@ -12,8 +12,8 @@ export function PromoCheckboxExample({theme}) {
                 rootClassProp={classes.checkbox_root}
                 theme={theme}
             >
-                <MediaQuery minWidth={1040}>Promotion</MediaQuery>
-                <MediaQuery maxWidth={1040}>Promo</MediaQuery>
+                <MediaQuery minWidth={960}>Promotion</MediaQuery>
+                <MediaQuery maxWidth={960}>Promo</MediaQuery>
             </MuiCheckbox>
             <MuiCheckbox
                 classProp={classes.checkbox_gen}

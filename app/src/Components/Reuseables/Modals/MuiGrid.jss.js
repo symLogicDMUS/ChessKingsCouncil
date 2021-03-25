@@ -5,13 +5,13 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     window: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100vw',
             height: `calc(100vh - ${appBarHeight}px)`,
             position: 'absolute',
             top: appBarHeight,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '90vw',
             height: '90vh',
             position: 'absolute',
@@ -26,13 +26,13 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill,
     }),
     item_choices: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '95vw',
             height: '80vh',
             padding: '2.5vw',
             paddingLeft: '3.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '85.5vw',
             height: '65vh',
         },
@@ -50,12 +50,12 @@ export const useStyles = makeStyles((theme) => ({
     bottom_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '95vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '85.5vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
@@ -66,10 +66,10 @@ export const useStyles = makeStyles((theme) => ({
         border: `0.025rem solid ${themes[props.theme].outline}`,
     }),
     ok_button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginRight: '3vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginRight: '2vw'
         },
     }),
@@ -79,7 +79,7 @@ export const useStyles = makeStyles((theme) => ({
         height: '1.5em',
     }),
     show_names_gen: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize001685,
         },
     }),

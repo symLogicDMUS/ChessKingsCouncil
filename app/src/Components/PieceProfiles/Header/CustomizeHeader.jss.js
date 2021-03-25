@@ -4,14 +4,14 @@ import {fontSize0025, fontSizeW0048} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
             justifyContent: 'space-between',
         },
     }),
     box: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '14.333vw',
         },
         display: 'flex',
@@ -25,7 +25,7 @@ export const useStyles = makeStyles({
         height: '2.75vw',
     }),
     sub_icon: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '1.8vw',
             height: '1.8vw',
         },
@@ -35,27 +35,27 @@ export const useStyles = makeStyles({
         alignItems: "center",
     }),
     checkbox_root: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: 'auto',
             marginRight: 'auto',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginLeft: '-0.1em',
         },
     }),
     checkbox_gen: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: '3.5vh',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize0025,
         },
     }),
     checkbox_text: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: '4vh',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize0025,
         },
     }),

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useMediaQuery} from "react-responsive";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Box from "@material-ui/core/Box";
 import {MuiCheckbox} from "../Clickables/MuiCheckbox";
 import {MuiButton as Button} from "../Clickables/MuiButton";
@@ -16,7 +16,7 @@ export function MuiGrid(props) {
         rootStyle: props.rootStyle,
         itemWindowStyle: props.itemWindowStyle,
     });
-    const isThin = useMediaQuery({query: '(max-width: 720px)'});
+    const isThin = useMediaQuery("(max-width: 720px)");
 
     /*removed useEffect from resizing*/
 

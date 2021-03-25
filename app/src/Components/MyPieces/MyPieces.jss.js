@@ -9,11 +9,11 @@ export const piece_profiles = () => ({
 export const styles = {
     my_pieces: props => ({
         overflowX: 'hidden',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: availHeight() - appBarHeight,
             width: '100vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: viewHeight() * 0.95,
             width: '98.75vw',
             display: 'flex',

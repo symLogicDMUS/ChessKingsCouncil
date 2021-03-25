@@ -13,14 +13,14 @@ export function LocationButton({rf, onClick, selected, theme}) {
     const classes2 = useMoreStyles({theme: theme});
     return (
         <>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <Box className={classes.sqr_button}>
                     <IconButton onClick={onClick}>
                         <Typography className={classes.text} variant='button'>{rf}</Typography>
                     </IconButton>
                 </Box>
             </MediaQuery>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Button
                     onClick={onClick}
                     className={

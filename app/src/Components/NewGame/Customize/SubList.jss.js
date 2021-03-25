@@ -5,12 +5,12 @@ import {fontSize004025} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: '-2vh',
             fontFamily: 'Roboto-Light, Roboto',
             width: '100%'
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
@@ -63,10 +63,10 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     text: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
         fontFamily: 'Roboto-Light, Roboto',

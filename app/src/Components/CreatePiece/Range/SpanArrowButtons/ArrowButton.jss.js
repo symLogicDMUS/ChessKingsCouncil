@@ -13,12 +13,12 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             border: 'unset',
             width: buttonSizeMobile,
             height: buttonSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             border: `0.075em solid ${themes[props.theme].outline}`,
             width: '2.75em',
@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
     }),
     button_container_normal: props => ({
         backgroundColor: themes[props.theme].button_fill,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             '&:hover': {
                 backgroundColor: themes[props.theme].text_alt,
             },
@@ -36,7 +36,7 @@ export const useStyles = makeStyles({
     }),
     button_container_selected: props => ({
         backgroundColor: themes[props.theme].span,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             '&:hover': {
                 backgroundColor: themes[props.theme].span,
             },
@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
     arrow_button: props => ({
         width: iconButtonSizeMobile,
         height: iconButtonSizeMobile,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2.75em',
             height: '2.75em',
@@ -64,40 +64,40 @@ export const useStyles = makeStyles({
         },
     }),
     vector: (props) => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: arrowSizeMobile,
             height: arrowSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2em',
             height: '2em',
         },
     }),
     vector_active: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             color: themes[props.theme].text,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             color: themes[props.theme].arrow_active,
         },
     }),
     vector_inactive: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             color: themes[props.theme].arrow_inactive,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             color: themes[props.theme].text,
         },
     }),
     mid: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: buttonSizeMobile,
             height: buttonSizeMobile,
             borderRadius: '0.2em',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2.75em',
             height: '2.75em',

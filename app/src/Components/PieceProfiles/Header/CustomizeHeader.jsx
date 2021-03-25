@@ -76,7 +76,7 @@ export const CustomizeHeader = ({
                         )}
                     </MuiCheckbox>
                 </Box>
-                <MediaQuery maxWidth={1040}>
+                <MediaQuery maxWidth={960}>
                     <SubDropdown
                         standardPieceThatSubbingFor={
                             standardPieceThatSubbingFor
@@ -86,7 +86,7 @@ export const CustomizeHeader = ({
                         theme={theme}
                     />
                 </MediaQuery>
-                <MediaQuery minWidth={1040}>
+                <MediaQuery minWidth={960}>
                     <SubButtonGroup
                         theme={theme}
                         rook={subs.Rook}

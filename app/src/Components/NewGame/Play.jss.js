@@ -11,11 +11,11 @@ export const icon = () => ({
 export const useStyles = makeStyles({
     play_button: props => ({
         /*phones/tablets (generalized)*/
-        '@media screen and (max-width: 1040px)':{
+        '@media screen and (max-width: 960px)':{
             width: '40vw',
         },
         /*laptop/desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '17.5vw',
         },
         backgroundColor: themes[props.theme].fill,

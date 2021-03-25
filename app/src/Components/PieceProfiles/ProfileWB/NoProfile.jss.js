@@ -4,10 +4,10 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     profile_top: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
         position: 'absolute',
@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // '@media screen and (min-width: 1040px)': {
+        // '@media screen and (min-width: 960px)': {
         //     fontSize: fontSizes.desktop,
         //     borderRadius: '0.25em',
         //     width: `${profileWidth.desktop}em`,
@@ -36,7 +36,7 @@ export const useStyles = makeStyles({
         //     marginLeft: `${-profileWidth.desktop * 0.5}em`,
         //     marginTop: `${-profileHeight.desktop * 0.18 * 0.5}em`,
         // },
-        // '@media screen and (max-width: 1040px)': {
+        // '@media screen and (max-width: 960px)': {
         //     fontSize: fontSizes.mobile,
         //     borderRadius: '0.5em',
         //     width: `${profileWidth.mobile * 4}em`,
@@ -55,10 +55,10 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     caption: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
         color: themes[props.theme].text,
@@ -66,10 +66,10 @@ export const useStyles = makeStyles({
         lineHeight: '1em',
     }),
     inline_piece: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
         width: '1.1em',
@@ -78,11 +78,11 @@ export const useStyles = makeStyles({
     }),
     close_icon: props => ({
         fontSize: fontSize0023,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: "0.5em",
             height: "0.5em",
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: "0.5em",
             height: "0.5em",
         },

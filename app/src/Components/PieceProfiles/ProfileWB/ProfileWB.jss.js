@@ -15,10 +15,10 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             flexDirection: 'column',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             flexDirection: 'row',
             width: headerWidthDesktop,
             marginTop: '0.875vw',
@@ -26,13 +26,13 @@ export const useStyles = makeStyles({
         },
     }),
     white_profile: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: '5vw',
             marginRight: '2.5vw',
         },
     }),
     black_profile: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: '2.5vw',
         },
     }),
@@ -42,12 +42,12 @@ export const useStyles = makeStyles({
     }),
     /*board or avatar window*/
     sqr_item: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '42.5vw',
             height: '42.5vw',
             outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '14.333vw',
             height: '14.333vw',
             outline: `0.05rem solid ${themes[props.theme].outline}`,
@@ -63,12 +63,12 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '42.5vw',
             height: '5vh',
             outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '14.333vw',
             height: '2vw',
             outline: `0.05rem solid ${themes[props.theme].outline}`,
@@ -78,40 +78,40 @@ export const useStyles = makeStyles({
         },
     }),
     sqr_item_title: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: '3.5vh',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: '2.3vh',
         },
         color: themes[props.theme].text,
     }),
     item1: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: '2.5vw',
             marginBottom: '2.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginRight: '0.875vw',
         },
     }),
     item2: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: '2.5vw',
             marginBottom: '2.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginLeft: '0.875vw',
             marginRight: '0.875vw',
         },
     }),
     item3: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: '2.5vw',
             marginBottom: '2.5vw',
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginLeft: '0.875vw',
         },
     }),
@@ -127,7 +127,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             margin: 'auto',
             width: '25vw',
             height: '80vh',
@@ -145,7 +145,7 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     close_icon: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '1vw',
             height: '1vw',
         },

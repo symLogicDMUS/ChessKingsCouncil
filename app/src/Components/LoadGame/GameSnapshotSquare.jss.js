@@ -19,11 +19,11 @@ const sqrSizeMobile = '4.226238vw';
 export const useStyles = makeStyles({
     square: props => ({
         ...rfToGridLoc(props.rf),
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: sqrSizeMobile,
             height: sqrSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: sqrSizeDesktop,
             height: sqrSizeDesktop,
         },

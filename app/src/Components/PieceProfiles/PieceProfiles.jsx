@@ -124,7 +124,7 @@ export function PieceProfiles(props) {
             [props.classProp]: props.classProp,
         })}>
             {props.children}
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <div className={classes.profiles_window}>
                     {state.loaded ? (
                         getProfiles('desktop')
@@ -133,7 +133,7 @@ export function PieceProfiles(props) {
                     )}
                 </div>
             </MediaQuery>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <div className={classes.profiles_window}>
                     {state.loaded ? (
                         getProfiles('mobile')

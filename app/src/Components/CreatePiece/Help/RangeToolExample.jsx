@@ -28,7 +28,7 @@ export function RangeToolExample({theme}) {
 
     return (
         <div className={classes.range_tool}>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <ScrollTable
                     listItems={getSpanTextLabels()}
                     numRows={5}
@@ -38,7 +38,7 @@ export function RangeToolExample({theme}) {
                     buttonStyle={{borderRadius: 0}}
                 />
             </MediaQuery>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <ScrollTable
                     listItems={getSpanTextLabels()}
                     numRows={5}

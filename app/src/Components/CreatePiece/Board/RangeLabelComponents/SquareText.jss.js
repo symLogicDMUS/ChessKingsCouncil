@@ -3,11 +3,11 @@ import {fontSize002375} from "../../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sqr_text: props => ({
-        '@media screen and (max-width: 1040px)':{
+        '@media screen and (max-width: 960px)':{
             fontSize: '2.6vw',
         },
         /*laptop/desktop*/
-        '@media screen and (min-width: 1040px)':{
+        '@media screen and (min-width: 960px)':{
             fontSize: '2.75vh',
         },
         textAlign: 'center',

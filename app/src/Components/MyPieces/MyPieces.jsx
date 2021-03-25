@@ -47,7 +47,7 @@ class MyPieces extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minWidth={1040}>
+                <MediaQuery minWidth={960}>
                     <NavBar
                         screenCase='desktop'
                         currentPage="MyPieces"
@@ -74,7 +74,7 @@ class MyPieces extends React.Component {
                             </PieceProfiles>
                     </div>
                 </MediaQuery>
-                <MediaQuery maxWidth={1040}>
+                <MediaQuery maxWidth={960}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}

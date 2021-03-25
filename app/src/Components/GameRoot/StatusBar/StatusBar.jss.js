@@ -10,11 +10,11 @@ export const useStyles = makeStyles({
     header: props => ({
         display: "flex",
         flexDirection: "row",
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: availWidth() * 0.98 - (sideBarWidth + drawerWidth),
             justifyContent: "flex-start",
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: availWidth() * 0.85,
             justifyContent: 'center',
         },
@@ -27,11 +27,11 @@ export const useStyles = makeStyles({
     }),
     status_bar: props => ({
         zIndex: 4,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             flexGrow: 100,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: appBarHeight * 0.333,
             marginRight: '2em',
         },

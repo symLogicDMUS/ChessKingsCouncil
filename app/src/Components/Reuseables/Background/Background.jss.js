@@ -12,11 +12,11 @@ export const useStyles = makeStyles((theme) => ({
         top: 0,
     }),
     board_pattern: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '7.5vw',
             height: '7.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '10vw',
             height: '10vw',
         },

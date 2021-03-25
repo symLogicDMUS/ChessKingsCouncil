@@ -11,10 +11,10 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: viewHeight() - appBarHeight,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: '95vh',
         },
     }),

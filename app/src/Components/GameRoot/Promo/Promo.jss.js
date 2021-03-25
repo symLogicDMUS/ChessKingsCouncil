@@ -55,10 +55,10 @@ export const useStyles = makeStyles({
     }),
     menu: props => ({
         fontSize: fontSize01,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: promoChoicesSize.desktop * 1.085,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: promoChoicesSize.mobile,
         },
         backgroundColor: themes[props.theme].odd_row,
@@ -66,11 +66,11 @@ export const useStyles = makeStyles({
     }),
     img_group: (props) => ({
         fontSize: props.fontSize,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: promoChoicesSize.desktop,
             width: promoChoicesWidth.desktop,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: promoChoicesSize.mobile,
             width: promoChoicesWidth.mobile,
         },
@@ -79,12 +79,12 @@ export const useStyles = makeStyles({
         outline: 'none',
     }),
     ok_button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSizes.mobile,
             width: promoChoicesWidth.mobile,
             height: buttonHeight.mobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSizes.desktop,
             width: promoChoicesWidth.desktop,
             height: buttonHeight.desktop,

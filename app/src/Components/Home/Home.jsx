@@ -17,13 +17,13 @@ export class Home extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minWidth={1040}>
+                <MediaQuery minWidth={960}>
                     <MainMenuDesktop
                         signOut={this.props.signOut}
                         theme={this.state.theme}
                     />
                 </MediaQuery>
-                <MediaQuery maxWidth={1040}>
+                <MediaQuery maxWidth={960}>
                     <MainMenuMobile
                         signOut={this.props.signOut}
                         theme={this.state.theme}

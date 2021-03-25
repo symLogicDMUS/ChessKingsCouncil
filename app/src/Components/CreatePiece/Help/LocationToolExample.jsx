@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Box from "@material-ui/core/Box";
-import {useMediaQuery} from "react-responsive";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {LocationButtonExample} from "./LocationButtonExample";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./LocationToolExample.jss";
@@ -9,13 +9,13 @@ import clsx from "clsx";
 export function LocationToolExample({theme}) {
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles({theme: theme});
-    const isDesktop = useMediaQuery({query: '(min-width: 1040px)'})
+    const isWide = useMediaQuery("(min-width: 960px)")
     const [selected, setSelected] = useState('d4');
     return (
         <>
             <div
                 className={clsx(classes.location_tool, {
-                    [classes2.tool_flexbox]: isDesktop,
+                    [classes2.tool_flexbox]: isWide,
                 })}
             >
                 <Box className={classes.box} style={{justifyContent: 'space-around'}}>

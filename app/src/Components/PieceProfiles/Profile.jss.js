@@ -5,11 +5,11 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             flexDirection: 'row',
             justifyContent: 'flex-start',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             flexDirection: 'column',
         },
     }),

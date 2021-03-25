@@ -32,10 +32,10 @@ export const styles = {
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize0016,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize0015,
         },
         height: '2em',
@@ -45,12 +45,12 @@ export const styles = {
     }),
     close_icon: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize00175,
             width: "2em",
             height: "2em",
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             width: '1.5em',
             height: '1.5em',
@@ -59,7 +59,7 @@ export const styles = {
         },
     }),
     img_grid_root: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: appBarHeight
         },
     }),

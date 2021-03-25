@@ -4,10 +4,10 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const cell = (theme) => ({
-    '@media screen and (max-width: 1040px)': {
+    '@media screen and (max-width: 960px)': {
         fontSize: fontSize0024,
     },
-    '@media screen and (min-width: 1040px)': {
+    '@media screen and (min-width: 960px)': {
         fontSize: fontSize002,
     },
     height: '1.5em',
@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             marginBottom: '1em',
             marginLeft: '1em',
@@ -29,14 +29,14 @@ export const useStyles = makeStyles({
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100%',
             height: '7.5em',
             alignItems: 'center',
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 960px)':{
             marginTop: '-1.5vh',
             borderTop: `0.085em solid ${themes[props.theme].outline}`,
             borderBottom: `0.085em solid ${themes[props.theme].outline}`,

@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
     sqr_button: props => ({
         width: sqrSize.mobile,
         height: sqrSize.mobile,
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             maxWidth: '11vh',
             maxHeight: '11vh',
         },

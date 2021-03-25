@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
@@ -8,7 +8,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import {useStyles} from "./MiniVariantDrawer.jss";
 
 export default function MiniVariantDrawer({theme, children}) {
+
     const classes = useStyles({theme: theme});
+
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
@@ -20,7 +22,9 @@ export default function MiniVariantDrawer({theme, children}) {
     };
 
     return (
-        <>
+        <div className={clsx(classes.root, {
+            [classes.icon_extra_width_expanded]: open,
+        })}>
             <Drawer
                 variant="permanent"
                 anchor='right'
@@ -50,6 +54,6 @@ export default function MiniVariantDrawer({theme, children}) {
                 <Divider />
                 {children}
             </Drawer>
-        </>
+        </div>
     );
 }

@@ -284,7 +284,7 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? (this.play()) : null}
                 <div>
-                    <MediaQuery minWidth={1040}>
+                    <MediaQuery minWidth={960}>
                         <PermanentDrawer
                             drawerType="right"
                             theme={this.state.theme}
@@ -371,7 +371,7 @@ class Customize extends React.Component {
                             />
                         </SideBar>
                     </MediaQuery>
-                    <MediaQuery maxWidth={1040}>
+                    <MediaQuery maxWidth={960}>
                         <PersistentDrawer
                             drawer={
                                 <NavBar

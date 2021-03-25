@@ -5,9 +5,10 @@ import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '93%',
             marginLeft: '3.5%',
+            marginBottom: '2vh',
         },
     }),
     img_windows_flexbox: props => ({

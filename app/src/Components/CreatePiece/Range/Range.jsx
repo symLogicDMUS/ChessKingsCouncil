@@ -30,7 +30,7 @@ export function Range({spans, offsets, toggleSpan, theme, screenCase, styles}) {
 
     return (
         <Box className={classes.range_tool}>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Typography className={classes2.tool_title}>Range</Typography>
             </MediaQuery>
             <ScrollTable

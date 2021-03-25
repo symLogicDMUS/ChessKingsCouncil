@@ -1,16 +1,14 @@
 import React from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
-import {useMediaQuery} from "react-responsive";
 import { Save } from "./Save";
 import { Load } from "./Load";
 import { Erase } from "./Erase";
 import { Reset } from "./Reset";
-import {useStyles as useMoreStyles}
-        from "../CreatePiece.jss";
+import Box from "@material-ui/core/Box";
+import { Typography } from "@material-ui/core";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
-import {LocationButton} from "../Location/LocationButton";
 
 export function Options({
     load,
@@ -24,13 +22,13 @@ export function Options({
 }) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
-    const isDesktop = useMediaQuery({query: '(min-width: 1040px)'})
+    const isWide = useMediaQuery("(min-width: 960px)")
 
     return (
         <Box className={clsx(classes2.four_button_group, {
-            [classes2.tool_flexbox]: isDesktop,
+            [classes2.tool_flexbox]: isWide,
         })}>
-            {isDesktop ? (<Typography className={classes2.tool_title}>Options</Typography>) : null}
+            {isWide ? (<Typography className={classes2.tool_title}>Options</Typography>) : null}
             <Load theme={theme} load={load} />
             <Save
                 save={save}

@@ -11,7 +11,7 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         alignContent: "center",
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             maxWidth: '11vh',
             maxHeight: '11vh',
         },

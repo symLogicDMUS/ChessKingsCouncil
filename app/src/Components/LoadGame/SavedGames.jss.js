@@ -27,10 +27,10 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         alignContent: 'space-evenly',
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '50em',
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100%',
         },
     }),
@@ -47,10 +47,10 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     title_icon: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize0016,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize0015,
         },
         height: '3em',
@@ -66,7 +66,7 @@ export const useStyles = makeStyles({
         marginTop: '-37.665vh',
     }),
     search_box: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             alignSelf: 'flex-end',
             marginRight: '2.25vw',
             transform: 'translate(0, -1em)'

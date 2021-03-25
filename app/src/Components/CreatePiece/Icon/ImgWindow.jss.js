@@ -11,7 +11,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media screen and (max-width: 1040px)':{
+        '@media screen and (max-width: 960px)':{
             fontSize: '10vw',
             margin: '3.5vw',
             width: windowSize,
@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.08em',
             border: `0.02em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: drawerWidth * 0.425,
             width: "1em",
             height: "1em",
@@ -28,12 +28,12 @@ export const useStyles = makeStyles({
         },
     }),
     white_window: props => ({
-       '@media screen and (max-width: 1040px)': {
+       '@media screen and (max-width: 960px)': {
            marginRight: '1vw',
        },
     }),
     black_window: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: '1vw',
         },
     }),
@@ -54,11 +54,11 @@ export const useStyles = makeStyles({
             fontSize: fontSize0023,
         },
         /*tablets*/
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 960px)':{
             fontSize: fontSizeW004,
         },
         /*desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,
@@ -70,11 +70,11 @@ export const useStyles = makeStyles({
             fontSize: fontSize0023
         },
         /*tablets*/
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 960px)':{
             fontSize: fontSizeW004,
         },
         /*desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
         },
         color: themes[props.theme].text,

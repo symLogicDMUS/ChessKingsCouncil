@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         /*desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '2.15vw',
             height: '2.15vw',
         },
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         /*desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: '1vw',
         },
         fontFamily: 'Roboto-Light, Roboto',

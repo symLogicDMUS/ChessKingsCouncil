@@ -14,13 +14,13 @@ export const useStyles = makeStyles({
         alignItems: 'center',
     }),
     button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: '3vh',
             width: '18.75vw',
             height: '5.75vh',
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: '2.25vh',
             width: '6.5vw',
             height: '4.5vh',
@@ -31,23 +31,23 @@ export const useStyles = makeStyles({
         },
     }),
     load_button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginRight: '2.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginRight: '0.65vw',
         },
     }),
     delete_button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: '2.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             marginLeft: '0.65vw',
         },
     }),
     icon: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize001685
         },
         color: themes[props.theme].text,

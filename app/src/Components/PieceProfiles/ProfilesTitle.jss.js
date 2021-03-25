@@ -10,11 +10,11 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '90vw',
             marginLeft: '5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '46.25vw',
             marginLeft: '3.25%',
         },

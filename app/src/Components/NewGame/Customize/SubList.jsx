@@ -12,7 +12,7 @@ export function SubList({subs, theme}) {
     const classes2 = useMoreStyles({theme: theme})
     return (
         <div className={classes.sub_list}>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Box className={clsx(classes.header, {
                     [classes2.text]: true,
                 })}>

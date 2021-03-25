@@ -9,13 +9,13 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexGrow: 3,
         borderRadius: 0,
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize0024,
             justifyContent: "flex-start",
             width: "99%",
             height: "2.5em"
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             justifyContent: "center",
             height: "2.25em",
@@ -33,37 +33,37 @@ export const useStyles = makeStyles({
         flexGrow: 4,
     }),
     icon: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize0024,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize0023,
         },
-        '@media screen and (min-width: 1040px) and (max-width: 1220px)': {
+        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
             fontSize: fontSize0015,
         },
         marginRight: margin,
     }),
     text: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize002,
             marginRight: margin,
             marginTop: '0.1525em',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             marginRight: margin,
             marginTop: '0.15em',
         },
-        '@media screen and (min-width: 1040px) and (max-width: 1220px)': {
+        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
             fontSize: fontSize0015,
         },
     }),
     normal_color: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             color: themes[props.theme].text,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             color: themes[props.theme].nav_text,
         },
     }),

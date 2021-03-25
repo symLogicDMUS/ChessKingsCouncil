@@ -9,10 +9,10 @@ export const useStyles = makeStyles({
         '&:hover':{
             color: themes[props.theme].sqr_hover,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
     }),

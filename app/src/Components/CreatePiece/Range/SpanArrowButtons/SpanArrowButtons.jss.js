@@ -6,12 +6,12 @@ const spanButtonsSizeMobile = '17.5vw';
 export const useStyles = makeStyles({
     span_arrow_buttons: props => ({
         /*media query for phones/tablets (generalized)*/
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: spanButtonsSizeMobile,
             height: spanButtonsSizeMobile,
         },
         /*desktop*/
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55)*0.5*0.333*0.333,
             width: '9em',
             height: '9em',

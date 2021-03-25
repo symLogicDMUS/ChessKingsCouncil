@@ -35,8 +35,8 @@ export const useStyles = makeStyles((theme) => ({
         color: themes[props.theme].text,
     }),
     appBarShift: props => ({
-        width: `calc(100% - ${120}px)`,
-        marginLeft: 120,
+        width: `calc(100% - ${props.drawerWidth}px)`,
+        marginLeft: props.drawerWidth,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
@@ -57,11 +57,11 @@ export const useStyles = makeStyles((theme) => ({
         display: 'none',
     }),
     drawer: props => ({
-        width: 120,
+        width: props.drawerWidth,
         flexShrink: 0,
     }),
     drawerPaper: props => ({
-        width: 120,
+        width: props.drawerWidth,
         backgroundColor: themes[props.theme].fill,
     }),
     drawerHeader: props => ({
@@ -77,7 +77,7 @@ export const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        marginLeft: -120,
+        marginLeft: -props.drawerWidth,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

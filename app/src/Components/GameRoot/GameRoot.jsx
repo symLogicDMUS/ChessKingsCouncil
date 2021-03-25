@@ -326,7 +326,7 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minWidth={1040}>
+                <MediaQuery minWidth={960}>
                     <PermanentDrawer
                         theme={this.state.theme}
                         drawerType="right"
@@ -431,7 +431,7 @@ class GameRoot extends React.Component {
                         />
                     </SideBar>
                 </MediaQuery>
-                <MediaQuery maxWidth={1040}>
+                <MediaQuery maxWidth={960}>
                     <PersistentDrawer
                         theme={this.state.theme}
                         spacing={0}

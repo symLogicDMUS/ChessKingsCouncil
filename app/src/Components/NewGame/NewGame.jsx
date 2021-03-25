@@ -74,7 +74,7 @@ function NewGame() {
 
     return (
         <>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Background theme={theme} navBar={true} currentPage='NewGame'/>
                 <NavBar
                     currentPage="NewGame"
@@ -129,7 +129,7 @@ function NewGame() {
                     />
                 ) : null}
             </MediaQuery>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <Background theme={theme} appBar={true}/>
                 <PersistentDrawer
                     theme={theme}

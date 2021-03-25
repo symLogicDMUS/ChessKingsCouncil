@@ -1,7 +1,5 @@
 import React from "react";
-import MediaQuery from "react-responsive";
 import "../Reuseables/Background/_backgrounds.scss";
-import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { HelpText } from "./Help/HelpText";
@@ -14,12 +12,8 @@ import { Range } from "./Range/Range";
 import { Options } from "./Options/Options";
 import { Location } from "./Location/Location";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { SideBar } from "../Reuseables/Drawers/SidBar";
 import { incrementImgRefCount } from "../../API/incrementImgRefCount";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
-import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { MuiCheckbox } from "../Reuseables/Clickables/MuiCheckbox";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
@@ -28,16 +22,17 @@ import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { DrawerContent } from "../Reuseables/Drawers/DrawerContent";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
-import { pageTitleStyle } from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {fontSize002, fontSize0026, fontSizeW0045,} from "../styles/fontSizes.jss";
+import {fontSize002, fontSize0026} from "../styles/fontSizes.jss";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
-import { ToolButtons } from "../Reuseables/Clickables/ToolButtons";
-import { appBarTitle, styles } from "./CreatePiece.jss";
+import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
+import {ToolButton} from "../Reuseables/Clickables/ToolButton";
+import {Typography} from "@material-ui/core";
+import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import {pageTitle, styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -397,81 +392,155 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.modals()}
-                <MediaQuery minWidth={1040}>
-                    <PermanentDrawer
-                        drawerType="right"
-                        theme={this.state.theme}
-                        content={
-                            <DrawerContent>
-                                <Board
-                                    key="Board-Desktop"
-                                    screenCase="desktop"
-                                    theme={this.state.theme}
-                                    pieceLoc={this.location}
-                                    setLoc={this.setLoc}
-                                    spanDisplays={this.spanDisplays}
-                                    offsetDisplays={this.offsetDisplays}
-                                    toggleOffset={this.toggleOffset}
-                                    toggleSpan={this.toggleSpan}
-                                    showSpanText={this.state.showSpanText}
-                                    showOffsetText={this.state.showOffsetText}
-                                    imgUrl={this.whiteAndBlackImgs["white"]}
-                                    mobileTool={this.state.mobileTool}
-                                />
-                            </DrawerContent>
-                        }
-                        appBarContent={
-                            <Typography
-                                style={appBarTitle}
-                                variant="subtitle1"
-                                noWrap
-                            >
-                                Create Piece
-                            </Typography>
-                        }
-                    >
+                <div>
+                    {this.state.mobileTool === "Name" ? (
                         <Name
-                            key={`Name-Desktop${this.state.loadInstance}`}
-                            updateName={this.updateName}
+                            key={`Name-Mobile${this.state.loadInstance}`}
                             defaultValue={this.name}
                             theme={this.state.theme}
-                            screenCase="desktop"
+                            updateName={this.updateName}
+                            screenCase="mobile"
                         />
+                    ) : null}
+                    {this.state.mobileTool === "Icon" ? (
                         <Icon
-                            key="Icon-Desktop"
+                            key="Icon-Mobile"
                             theme={this.state.theme}
-                            resetImg={this.resetImg}
                             setPieceImg={this.setPieceImg}
+                            resetImg={this.resetImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
                         />
-                        <Range
-                            key="Range-Desktop"
-                            spans={this.spans}
-                            offsets={this.offsets}
-                            toggleSpan={this.toggleSpan}
-                            pieceLoc={this.location}
-                            theme={this.state.theme}
-                            screenCase="desktop"
-                        />
-                        <Location
-                            key="Location-Desktop"
-                            setLoc={this.setLoc}
-                            theme={this.state.theme}
-                            selectedLoc={this.location}
-                        />
+                    ) : null}
+                    {this.state.mobileTool === "Options" ? (
                         <Options
-                            key="Options-Desktop"
+                            key="Options-Mobile"
+                            pieceName={this.name}
                             load={this.load}
                             save={this.save}
                             reset={this.reset}
                             erase={this.erase}
-                            pieceName={this.name}
-                            theme={this.state.theme}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
+                            isFirstVisit={this.state.isFirstVisit}
+                            theme={this.state.theme}
                         />
-                    </PermanentDrawer>
-                    <SideBar theme={this.state.theme} drawerType="left">
+                    ) : null}
+                </div>
+                <ResponsiveDrawer
+                    theme={this.state.theme}
+                    titleBar={
+                        <Typography
+                            style={pageTitle(this.state.theme)}
+                            variant="subtitle1"
+                            noWrap
+                        >
+                            Create Piece
+                        </Typography>
+                    }
+                    tools={
+                        <>
+                            <Name
+                                key={`Name-${this.state.loadInstance}`}
+                                updateName={this.updateName}
+                                defaultValue={this.name}
+                                theme={this.state.theme}
+                                screenCase="desktop"
+                            />
+                            <Icon
+                                key="Icon"
+                                theme={this.state.theme}
+                                resetImg={this.resetImg}
+                                setPieceImg={this.setPieceImg}
+                                whiteAndBlackImgs={this.whiteAndBlackImgs}
+                            />
+                            <Range
+                                key="Range"
+                                spans={this.spans}
+                                offsets={this.offsets}
+                                toggleSpan={this.toggleSpan}
+                                pieceLoc={this.location}
+                                theme={this.state.theme}
+                                screenCase="desktop"
+                            />
+                            <Location
+                                key="Location"
+                                setLoc={this.setLoc}
+                                theme={this.state.theme}
+                                selectedLoc={this.location}
+                            />
+                            <Options
+                                key="Options"
+                                load={this.load}
+                                save={this.save}
+                                reset={this.reset}
+                                erase={this.erase}
+                                pieceName={this.name}
+                                theme={this.state.theme}
+                                whiteImg={this.whiteAndBlackImgs.white}
+                                blackImg={this.whiteAndBlackImgs.black}
+                            />
+                        </>
+                    }
+                    toolButtons={
+                        <>
+                            <ToolButton
+                                text='piece name'
+                                iconName={"name_tool"}
+                                theme={this.state.theme}
+                                isActive={
+                                    this.state.mobileTool === "Name"
+                                }
+                                onClick={() =>
+                                    this.toggleMobileTool("Name")
+                                }
+                            />
+                            <ToolButton
+                                text='piece image'
+                                iconName={"icon_tool"}
+                                theme={this.state.theme}
+                                isActive={
+                                    this.state.mobileTool === "Icon"
+                                }
+                                onClick={() =>
+                                    this.toggleMobileTool("Icon")
+                                }
+                            />
+                            <ToolButton
+                                text='piece range'
+                                theme={this.state.theme}
+                                iconName={"range_tool"}
+                                isActive={
+                                    this.state.mobileTool === "Range"
+                                }
+                                onClick={() =>
+                                    this.toggleMobileTool("Range")
+                                }
+                            />
+                            <ToolButton
+                                text='location'
+                                theme={this.state.theme}
+                                iconName={"location_tool"}
+                                isActive={
+                                    this.state.mobileTool === "Location"
+                                }
+                                onClick={() =>
+                                    this.toggleMobileTool("Location")
+                                }
+                            />
+                            <ToolButton
+                                text='options'
+                                theme={this.state.theme}
+                                iconName={"options_tool"}
+                                isActive={
+                                    this.state.mobileTool === "Options"
+                                }
+                                onClick={() =>
+                                    this.toggleMobileTool("Options")
+                                }
+                            />
+                        </>
+                    }
+                    navBar={
                         <NavBar
                             currentPage="CreatePiece"
                             screenCase="desktop"
@@ -526,188 +595,24 @@ class CreatePiece extends React.Component {
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
                         />
-                    </SideBar>
-                </MediaQuery>
-                <MediaQuery maxWidth={1040}>
-                    <PersistentDrawer
+                    }
+                >
+                    <Board
+                        key="Board"
+                        screenCase="mobile"
                         theme={this.state.theme}
-                        drawer={
-                            <NavBar
-                                screenCase="mobile"
-                                currentPage="CreatePiece"
-                                redirectMessage={messageStr}
-                                helpTitle={
-                                    <HelpTitle
-                                        theme={this.state.theme}
-                                        fontSize={fontSize0026}
-                                    >
-                                        Creating a Piece
-                                    </HelpTitle>
-                                }
-                                helpText={HelpText(
-                                    fontSizeW0045,
-                                    this.state.theme
-                                )}
-                                isUnsavedChanges={this.isUnsavedChanges}
-                                updateFirstVisit={this.updateFirstVisit}
-                                updateTheme={this.updateTheme}
-                                theme={this.state.theme}
-                                additionalSettings={
-                                    <>
-                                        <MuiCheckbox
-                                            onClick={() =>
-                                                this.setState({
-                                                    showSpanText: !this.state
-                                                        .showSpanText,
-                                                })
-                                            }
-                                            defaultChecked={
-                                                this.state.showSpanText
-                                            }
-                                            rootClassProp={
-                                                this.props.classes
-                                                    .sqr_text_checkbox
-                                            }
-                                            theme={this.state.theme}
-                                        >
-                                            Show Span Text
-                                        </MuiCheckbox>
-                                        <MuiCheckbox
-                                            onClick={() =>
-                                                this.setState({
-                                                    showOffsetText: !this.state
-                                                        .showOffsetText,
-                                                })
-                                            }
-                                            defaultChecked={
-                                                this.state.showOffsetText
-                                            }
-                                            rootClassProp={
-                                                this.props.classes
-                                                    .sqr_text_checkbox
-                                            }
-                                            theme={this.state.theme}
-                                        >
-                                            Show Offset Text
-                                        </MuiCheckbox>
-                                    </>
-                                }
-                            />
-                        }
-                        appBarContent={
-                            <>
-                                <Typography
-                                    variant="subtitle1"
-                                    style={pageTitleStyle}
-                                    noWrap
-                                >
-                                    Create Piece
-                                </Typography>
-                                <ToolButtons>
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"name_tool"}
-                                        isActive={
-                                            this.state.mobileTool === "Name"
-                                        }
-                                        onClick={() =>
-                                            this.toggleMobileTool("Name")
-                                        }
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"icon_tool"}
-                                        isActive={
-                                            this.state.mobileTool === "Icon"
-                                        }
-                                        onClick={() =>
-                                            this.toggleMobileTool("Icon")
-                                        }
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"range_tool"}
-                                        isActive={
-                                            this.state.mobileTool === "Range"
-                                        }
-                                        onClick={() =>
-                                            this.toggleMobileTool("Range")
-                                        }
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"location_tool"}
-                                        isActive={
-                                            this.state.mobileTool === "Location"
-                                        }
-                                        onClick={() =>
-                                            this.toggleMobileTool("Location")
-                                        }
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"options_tool"}
-                                        isActive={
-                                            this.state.mobileTool === "Options"
-                                        }
-                                        onClick={() =>
-                                            this.toggleMobileTool("Options")
-                                        }
-                                    />
-                                </ToolButtons>
-                            </>
-                        }
-                        neighborOpen={false}
-                    >
-                        <Board
-                            key="Board-Mobile"
-                            screenCase="mobile"
-                            theme={this.state.theme}
-                            pieceLoc={this.location}
-                            setLoc={this.setLoc}
-                            spanDisplays={this.spanDisplays}
-                            offsetDisplays={this.offsetDisplays}
-                            toggleOffset={this.toggleOffset}
-                            toggleSpan={this.toggleSpan}
-                            showSpanText={this.state.showSpanText}
-                            showOffsetText={this.state.showOffsetText}
-                            mobileTool={this.state.mobileTool}
-                            imgUrl={this.whiteAndBlackImgs.white}
-                        />
-                        {this.state.mobileTool === "Name" ? (
-                            <Name
-                                key={`Name-Mobile${this.state.loadInstance}`}
-                                defaultValue={this.name}
-                                theme={this.state.theme}
-                                updateName={this.updateName}
-                                screenCase="mobile"
-                            />
-                        ) : null}
-                        {this.state.mobileTool === "Icon" ? (
-                            <Icon
-                                key="Icon-Mobile"
-                                theme={this.state.theme}
-                                setPieceImg={this.setPieceImg}
-                                resetImg={this.resetImg}
-                                whiteAndBlackImgs={this.whiteAndBlackImgs}
-                            />
-                        ) : null}
-                        {this.state.mobileTool === "Options" ? (
-                            <Options
-                                key="Options-Mobile"
-                                pieceName={this.name}
-                                load={this.load}
-                                save={this.save}
-                                reset={this.reset}
-                                erase={this.erase}
-                                whiteImg={this.whiteAndBlackImgs.white}
-                                blackImg={this.whiteAndBlackImgs.black}
-                                isFirstVisit={this.state.isFirstVisit}
-                                theme={this.state.theme}
-                            />
-                        ) : null}
-                    </PersistentDrawer>
-                </MediaQuery>
+                        pieceLoc={this.location}
+                        setLoc={this.setLoc}
+                        spanDisplays={this.spanDisplays}
+                        offsetDisplays={this.offsetDisplays}
+                        toggleOffset={this.toggleOffset}
+                        toggleSpan={this.toggleSpan}
+                        showSpanText={this.state.showSpanText}
+                        showOffsetText={this.state.showOffsetText}
+                        mobileTool={this.state.mobileTool}
+                        imgUrl={this.whiteAndBlackImgs.white}
+                    />
+                </ResponsiveDrawer>
             </>
         );
     }

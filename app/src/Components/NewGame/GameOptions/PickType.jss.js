@@ -9,10 +9,10 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 640px) and (max-width: 912px)': {
             width: '45vw'
         },
-        '@media screen and (min-width: 912px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 912px) and (max-width: 960px)': {
             width: '35vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '25vw',
         },
         ...mui_input(props.theme),

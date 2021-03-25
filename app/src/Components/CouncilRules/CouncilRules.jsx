@@ -25,7 +25,7 @@ export function CouncilRules() {
 
     return (
         <div>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Background theme='tan' navBar={true} currentPage='CouncilRules'/>
                 <NavBar
                     theme="tan"
@@ -106,7 +106,7 @@ export function CouncilRules() {
                     </Box>
                 </div>
             </MediaQuery>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <PersistentDrawer
                     drawer={
                         <NavBar

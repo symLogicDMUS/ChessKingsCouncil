@@ -18,11 +18,11 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             margin: itemMarginMobile,
             width: itemSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             margin: itemMarginDesktop,
             width: itemSizeDesktop,
         },
@@ -35,11 +35,11 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         fontSize: fontSize002,
         borderRadius: '0.3em',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: itemSizeMobile,
             height: itemSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: itemSizeDesktop,
             height: itemSizeDesktop,
         },
@@ -63,12 +63,12 @@ export const useStyles = makeStyles({
         fontSize: fontSize001725
     }),
     item: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             margin: itemMarginMobile,
             width: itemSizeMobile,
             height: itemSizeMobile,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             margin: itemMarginDesktop,
             width: itemSizeDesktop,
             height: itemSizeDesktop,

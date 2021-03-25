@@ -12,11 +12,11 @@ export const useStyles = makeStyles({
     window: props => ({
         zIndex: 8,
         fontSize: fontSize002,
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: availWidth() * 0.333,
             height: availHeight() * 0.333,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: availWidth()*0.98,
             height: availHeight() * 0.4
         },

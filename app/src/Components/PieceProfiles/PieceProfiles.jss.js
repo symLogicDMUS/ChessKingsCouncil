@@ -8,11 +8,11 @@ export const useStyles = makeStyles({
     piece_profiles: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '100vw',
             height: '80vh',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '50vw',
             height: '40vw',
             borderRadius: '0.5rem',

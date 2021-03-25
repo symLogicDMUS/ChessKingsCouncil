@@ -117,7 +117,7 @@ class ImgChoicesModal extends React.Component {
         return (
             // <div className={`scrollbar-${this.props.theme}`}>
                 <div className={this.props.classes.modal}>
-                    <MediaQuery minWidth={1040}>
+                    <MediaQuery minWidth={960}>
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}
@@ -161,7 +161,7 @@ class ImgChoicesModal extends React.Component {
                             {this.imgItems}
                         </MuiGrid>
                     </MediaQuery>
-                    <MediaQuery maxWidth={1040}>
+                    <MediaQuery maxWidth={960}>
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}

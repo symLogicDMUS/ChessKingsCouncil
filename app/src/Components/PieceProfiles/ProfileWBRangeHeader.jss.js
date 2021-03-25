@@ -13,12 +13,12 @@ export const useStyles = makeStyles({
         paddingLeft: '2vw',
     }),
     expand_button: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '2.2vw',
             height: '2.2vw',
             fontSize: '3.5vw',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '2vw',
             height: '2vw',
             fontSize: '1.6vw',

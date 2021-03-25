@@ -15,14 +15,14 @@ export const useStyles = makeStyles({
     save_resign_tool: props => ({
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSize002,
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             fontSize: fontSize002,
             height: '5em',
@@ -36,12 +36,12 @@ export const useStyles = makeStyles({
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             fontSize: fontSizeW0027,
             width: '10em',
             height: '10em',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             width: '5em',
             height: '5em',
@@ -65,13 +65,13 @@ export const useStyles = makeStyles({
             height: '9.5em',
             marginTop: '1em',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 960px)':{
             fontSize: fontSizeW0033,
             width: '4.95em',
             height: '4.95em',
             marginTop: '0.5em',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             width: '4.9em',
             height: '4.9em',
@@ -91,12 +91,12 @@ export const useStyles = makeStyles({
             height: '6em',
         },
         /*tablets*/
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 960px)': {
             fontSize: fontSizeW0025,
             width: '6em',
             height: '6em',
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
             width: '3em',
             height: '3em',
@@ -107,10 +107,10 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 768px)': {
             fontSize: fontSizeW0056,
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 960px)': {
             fontSize: fontSizeW005,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             fontSize: fontSize00224,
         },
         fontFamily: 'Roboto-Light, Roboto',

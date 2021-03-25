@@ -40,7 +40,7 @@ export const range_list_gen_style = (screenCase) => ({
 
 export const useStyles = makeStyles({
     profile_help_text: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: '225vh',
             display: 'flex',
             flexDirection: 'column',
@@ -57,24 +57,24 @@ export const useStyles = makeStyles({
         margin: 'auto',
         display: 'flex',
         flexDirection: 'row',
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             width: '60%',
             justifyContent: 'space-between',
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             width: '95%',
             justifyContent: 'space-between',
         },
     }),
     range_board_example: props => ({
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             // fontSize: fontSizes.desktop,
             width: "9em",
             height: "9em",
             marginLeft: '1vw',
             outline: `0.0075em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             // fontSize: fontSizes.mobile,
             width: '1em',
             height: '1em',
@@ -97,18 +97,18 @@ export const useStyles = makeStyles({
     }),
     partial_range_example: props => ({
         display: "flex",
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             flexDirection: "row",
             width: '95%',
             justifyContent: 'space-evenly',
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             flexDirection: "column",
             width: '95%',
             margin: 'auto',
             alignItems: 'center',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)':{
+        '@media screen and (min-width: 768px) and (max-width: 960px)':{
             flexDirection: 'row',
         },
     }),
@@ -116,12 +116,12 @@ export const useStyles = makeStyles({
         width: '95%',
         margin: 'auto',
         display: 'flex',
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: '125vh',
             flexDirection: 'column',
             flexWrap: 'wrap',
         },
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
             height: '80vh',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -131,15 +131,15 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
             justifyContent: 'space-between',
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 960px)': {
             height: '100vh',
         },
     }),
     item: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
         display: 'flex',
@@ -147,10 +147,10 @@ export const useStyles = makeStyles({
         fontFamily: 'Roboto-Light, Roboto',
     }),
     window: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
         fontFamily: 'Roboto-Light, Roboto',
@@ -165,10 +165,10 @@ export const useStyles = makeStyles({
         height: '100%',
     }),
     header: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
         width: '100%',
@@ -190,10 +190,10 @@ export const useStyles = makeStyles({
         ...item_title(props.theme)
     }),
     expand_widget: props => ({
-        '@media screen and (max-width: 1040px)': {
+        '@media screen and (max-width: 960px)': {
 
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
 
         },
         marginLeft: 'auto',

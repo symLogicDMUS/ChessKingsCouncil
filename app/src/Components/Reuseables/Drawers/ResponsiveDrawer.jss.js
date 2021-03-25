@@ -5,58 +5,57 @@ import {themes} from "../../styles/themes.jss";
 const z = 5;
 export const appBarHeight = 48;
 export const toolDrawerWidth = viewWidth() * 0.25;
-export const navDrawerWidth = viewWidth() * 0.15;
 
 export const useStyles = makeStyles((theme) => ({
-    root: {
+    root: props => ({
         display: 'flex',
-        /*
-            justifyContent: 'center',
-            "& .MuiIconButton-edgeStart": {
-                marginLeft: '-20px',
-            },
-            "& .MuiIconButton-root":{
-                width: 48,
+        minHeight: 48,
+        height: 48,
+        '@media screen and (min-width: 600px)': {
+            minHeight: 48,
+            '& .MuiToolbar-regular': {
+                minHeight: 48,
                 height: 48,
             },
-            '& .MuiToolbar-regular':{
-                minHeight: 'unset',
-            },
-        */
-    },
-    drawer: {
+        },
+    }),
+    drawer: props => ({
         [theme.breakpoints.up('md')]: {
-            width: navDrawerWidth,
+            width: props.navDrawerWidth,
             flexShrink: 0,
         },
-    },
-    appBar: {
-        [theme.breakpoints.up('md')]: {
-            width: `calc(100% - ${navDrawerWidth}px)`,
-            marginLeft: navDrawerWidth,
-        },
+    }),
+    appBar: props => ({
+        width: `calc(100% - ${props.navDrawerWidth}px)`,
+        marginLeft: props.navDrawerWidth,
         background: themes[props.theme].fill,
-    },
-    menuButton: {
+    }),
+    menuButton: props => ({
         marginRight: theme.spacing(2),
         [theme.breakpoints.up('md')]: {
             display: 'none',
         },
         color: themes[props.theme].text,
+    }),
+    //TODO: change to own class object when need consistent height. see PermanentDrawer.jss
+    toolbar: {
+        minHeight: 48,
+        height: 48,
     },
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar, //TODO: change to own class object when need consistent height. see PermanentDrawer.jss
     drawerPaper: props => ({
         backgroundColor: themes[props.theme].fill2,
     }),
-    navDrawerPaper: {
-        width: navDrawerWidth,
-    },
-    toolDrawerPaper: {
+    navDrawerPaper: props => ({
+        width: props.navDrawerWidth,
+    }),
+    toolDrawerPaper: props => ({
         width: toolDrawerWidth,
-    },
-    content: {
+    }),
+    tools: props => ({
         flexGrow: 1,
-        // padding: theme.spacing(3),
-    },
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    }),
 }), {index: 1});

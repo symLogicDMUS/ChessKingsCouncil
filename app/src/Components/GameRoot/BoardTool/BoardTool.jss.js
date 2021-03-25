@@ -8,13 +8,13 @@ export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-            '@media screen and (max-width: 1040px)': {
+            '@media screen and (max-width: 960px)': {
                 flexDirection: 'row',
                 flex: 'nowrap',
                 width: '100%',
                 alignItems: 'center',
             },
-            '@media screen and (min-width: 1040px)': {
+            '@media screen and (min-width: 960px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 fontSize: drawerItemWidth * 0.125,
@@ -30,10 +30,10 @@ export const useStyles = makeStyles({
             alignItems: 'center',
             justifyContent: 'center',
             /*media query for phones/tablets (generalized)*/
-            '@media screen and (max-width: 1040px)': {
+            '@media screen and (max-width: 960px)': {
                 flexGrow: 10,
             },
-            '@media screen and (min-width: 1040px)': {
+            '@media screen and (min-width: 960px)': {
                 fontSize: fontSize002,
                 height: '0.7em',
                 width: '8em',
@@ -57,11 +57,11 @@ export const useStyles = makeStyles({
         }),
         checkbox: props => ({
             color: themes[props.theme].text,
-            '@media screen and (min-width: 1040px)': {
+            '@media screen and (min-width: 960px)': {
                 fontSize: fontSize002,
             },
             /*media query for phones/tablets (generalized)*/
-            '@media screen and (max-width: 1040px)': {
+            '@media screen and (max-width: 960px)': {
                 fontSize: fontSize002
             },
             height: '1.5em',

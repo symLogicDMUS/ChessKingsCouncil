@@ -146,7 +146,7 @@ function Promo(props) {
                             }
                         />
                     </Box>
-                    <MediaQuery minWidth={1040}>
+                    <MediaQuery minWidth={960}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
                             classProp={classes.ok_button}
@@ -157,7 +157,7 @@ function Promo(props) {
                             Ok
                         </OkButton>
                     </MediaQuery>
-                    <MediaQuery maxWidth={1040}>
+                    <MediaQuery maxWidth={960}>
                         <OkButton
                             onClick={() => promote(props.promoDest)}
                             classProp={classes.ok_button}

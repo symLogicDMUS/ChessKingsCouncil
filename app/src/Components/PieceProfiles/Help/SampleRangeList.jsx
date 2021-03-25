@@ -18,7 +18,7 @@ export const SampleRangeList = memo(({theme}) => {
     ];
     return (
         <div>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <ScrollTable
                     listItems={
                         rangeFuncs.map((rangeFunc) => (
@@ -36,7 +36,7 @@ export const SampleRangeList = memo(({theme}) => {
                     style={range_list_gen_style('desktop')}
                 />
             </MediaQuery>
-            <MediaQuery maxWidth={1040}>
+            <MediaQuery maxWidth={960}>
                 <ScrollTable
                     listItems=
                         {rangeFuncs.map((rangeFunc) => (

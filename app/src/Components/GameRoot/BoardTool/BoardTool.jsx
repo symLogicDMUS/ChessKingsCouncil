@@ -27,7 +27,7 @@ export function BoardTool({
 
     return (
         <div className={classes.board_tool}>
-            <MediaQuery minWidth={1040}>
+            <MediaQuery minWidth={960}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>
                         Range Display

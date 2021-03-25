@@ -8,11 +8,11 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        "@media (max-width: 1040px)": {
+        "@media (max-width: 960px)": {
             justifyContent: 'flex-start',
             height: viewHeight() - (appBarHeight + viewHeight() * 0.075),
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             height: '90vh',
             justifyContent: 'center',
             alignContent: 'center',
@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
         "@media screen and (min-width: 412px) and (max-width: 768px)": {
             width: viewHeight() * 0.3,
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 960px)': {
             width:'95vw',
         },
         marginBottom: '1vh',

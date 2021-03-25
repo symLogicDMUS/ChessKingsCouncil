@@ -72,12 +72,12 @@ export const useStyles = makeStyles({
             borderTopRightRadius: '0.35em',
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 768px) and (max-width: 1040px)': {
+        '@media screen and (min-width: 768px) and (max-width: 960px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
             border: `0.01em solid ${themes[props.theme].outline}`,
         },
-        '@media screen and (min-width: 1040px)': {
+        '@media screen and (min-width: 960px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
             border: `0.08em solid ${themes[props.theme].outline}`,
