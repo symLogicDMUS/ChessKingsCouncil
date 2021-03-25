@@ -27,13 +27,9 @@ import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {SideBar} from "../Reuseables/Drawers/SidBar";
-import {StatusBar} from "./StatusBar/StatusBar";
-import PermanentDrawer from "../Reuseables/Drawers/PermanentDrawer";
-import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {getFranchiseThemeOverride} from "../MyPieces/getFranchiseThemeOverride";
-import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
@@ -46,9 +42,9 @@ import {MuiDropdown} from "../Reuseables/UserInput/MuiDropdown";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
-import {ToolButtons} from "../Reuseables/Clickables/ToolButtons";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {ResignModal} from "./SaveResignTool/ResignModal";
+import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
 import {SaveAs} from "./SaveResignTool/SaveAs";
 import {styles} from "./GameRoot.jss";
@@ -106,7 +102,7 @@ class GameRoot extends React.Component {
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.saveToDb = this.saveToDb.bind(this);
-        this.toggleminiVariantTool = this.toggleminiVariantTool.bind(this);
+        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
@@ -282,7 +278,7 @@ class GameRoot extends React.Component {
         return rangeBoard;
     }
 
-    toggleminiVariantTool(toolName) {
+    toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
             this.setState({miniVariantTool: null});
         } else {
@@ -326,55 +322,28 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
-                <MediaQuery minWidth={960}>
-                    <PermanentDrawer
-                        theme={this.state.theme}
-                        drawerType="right"
-                        content={
-                            <Portal>
-                                <Board gameRoot={this}/>
-                            </Portal>
-                        }
-                        appBarContent={
-                            <StatusBar
-                                turn={this.turn}
+                <div>
+                    {this.state.miniVariantTool === "Save" ? (
+                        <AnimatePresencePortal>
+                            <GameSavedSuccessfully
+                                callback={() =>
+                                    this.toggleMiniVariantTool(null)
+                                }
                                 theme={this.state.theme}
-                                winner={this.gameStatus.winner}
-                                condition={this.gameStatus.condition}
                             />
-                        }
-                    >
-                        <GameInfo
-                            gameName={this.gameName}
-                            gameType={this.gameType}
-                            theme={this.state.theme}
-                            playerType={this.playerType}
-                        />
-                        <SaveResignTool
-                            triggerSaveProcess={() =>
-                                this.toggleSaveProcess(true)
-                            }
-                            save={this.save}
-                            resign={this.resign}
-                            theme={this.state.theme}
-                            changeName={this.changeName}
-                            isSaveMessage={this.state.isSaveMessage}
-                            messageCallback={() =>
-                                this.setState({isSaveMessage: false})
-                            }
-                        />
-                        <BoardTool
-                            board={this.board}
-                            theme={this.state.theme}
-                            gameType={this.gameType}
-                            pieceDefs={this.defs}
-                            idDict={this.idDict}
-                            start={this.aiStart}
-                            allRanges={{...this.ranges, ...this.enemyRanges}}
-                            showProfileOnClick={this.state.showProfileOnClick}
-                            triggerRender={this.triggerRender}
-                            toggleSecondaryDrawer={doNothing}
-                        />
+                        </AnimatePresencePortal>
+                    ) : null}
+                    {this.state.miniVariantTool === "Save-As" ? (
+                        <Portal>
+                            <SaveAs
+                                changeName={this.changeName}
+                                close={() => this.toggleMiniVariantTool(null)}
+                                save={() => this.toggleSaveProcess(true)}
+                                theme={this.state.theme}
+                            />
+                        </Portal>
+                    ) : null}
+                    {this.state.miniVariantTool === "Captured-Pieces" ? (
                         <CapturedPieceImages
                             captured={this.captured}
                             capturedIds={this.capturedIds}
@@ -383,17 +352,108 @@ class GameRoot extends React.Component {
                             gameType={this.gameType}
                             theme={this.state.theme}
                         />
-                    </PermanentDrawer>
-                    <SideBar
-                        drawerType="left"
-                        theme={this.state.theme}
-                    >
+                    ) : null}
+                    {this.state.miniVariantTool === "Resign" ? (
+                        <ResignModal
+                            theme={this.state.theme}
+                            onClick={() => {
+                                this.toggleMiniVariantTool(null)
+                                this.resign()
+                            }}
+                            onClick1={() => this.toggleMiniVariantTool(null)}
+                        />
+                    ) : null}
+                </div>
+                <ResponsiveDrawer
+                    theme={this.state.theme}
+                    tools={
+                        <>
+                            <GameInfo
+                                gameName={this.gameName}
+                                gameType={this.gameType}
+                                theme={this.state.theme}
+                                playerType={this.playerType}
+                            />
+                            <SaveResignTool
+                                triggerSaveProcess={() =>
+                                    this.toggleSaveProcess(true)
+                                }
+                                save={this.save}
+                                resign={this.resign}
+                                theme={this.state.theme}
+                                changeName={this.changeName}
+                                isSaveMessage={this.state.isSaveMessage}
+                                messageCallback={() =>
+                                    this.setState({isSaveMessage: false})
+                                }
+                            />
+                            <BoardTool
+                                board={this.board}
+                                theme={this.state.theme}
+                                gameType={this.gameType}
+                                pieceDefs={this.defs}
+                                idDict={this.idDict}
+                                start={this.aiStart}
+                                allRanges={{...this.ranges, ...this.enemyRanges}}
+                                showProfileOnClick={this.state.showProfileOnClick}
+                                triggerRender={this.triggerRender}
+                                toggleSecondaryDrawer={doNothing}
+                            />
+                            <CapturedPieceImages
+                                captured={this.captured}
+                                capturedIds={this.capturedIds}
+                                gameType={this.gameType}
+                                theme={this.state.theme}
+                                idDict={this.idDict}
+                                defs={this.defs}
+                            />
+                        </>
+                    }
+                    toolButtons={
+                        <>
+                            <ToolButton
+                                text='save'
+                                iconName={"save_alt"}
+                                theme={this.state.theme}
+                                isActive={this.state.miniVariantTool === "Save"}
+                                onClick={() => this.toggleMiniVariantTool("Save")}
+                            />
+                            <ToolButton
+                                text='save as'
+                                iconName={"save_as_alt"}
+                                theme={this.state.theme}
+                                isActive={this.state.miniVariantTool === "Save-As"}
+                                onClick={() => this.toggleMiniVariantTool("Save-As")}
+                            />
+                            <ToolButton
+                                text='captured pieces'
+                                theme={this.state.theme}
+                                iconName={"captured_pieces"}
+                                isActive={this.state.miniVariantTool === "Captured-Pieces"}
+                                onClick={() => this.toggleMiniVariantTool("Captured-Pieces")}
+                            />
+                            <ToolButton
+                                text='game info'
+                                iconName={"game_info"}
+                                theme={this.state.theme}
+                                isActive={this.state.miniVariantTool === "Game-Info"}
+                                onClick={() => this.toggleMiniVariantTool("Game-Info")}
+                            />
+                            <ToolButton
+                                text='resign game'
+                                iconName={"resign_alt"}
+                                theme={this.state.theme}
+                                isActive={this.state.miniVariantTool === "Resign"}
+                                onClick={() => this.toggleMiniVariantTool("Resign")}
+                            />
+                        </>
+                    }
+                    navBar={
                         <NavBar
                             currentPage="GameRoot"
-                            screenCase='wide'
+                            helpText={HelpText(fontSizeW0045, this.state.theme)}
                             helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
                                 Game</HelpTitle>}
-                            helpText={HelpText(fontSize002, this.state.theme)}
                             isUnsavedChanges={this.isUnsavedChanges}
                             updateTheme={this.updateTheme}
                             theme={this.state.theme}
@@ -428,141 +488,12 @@ class GameRoot extends React.Component {
                                 </>
                             }
                         />
-                    </SideBar>
-                </MediaQuery>
-                <MediaQuery maxWidth={960}>
-                    <PersistentDrawer
-                        theme={this.state.theme}
-                        spacing={0}
-                        drawer={
-                            <NavBar
-                                currentPage="GameRoot"
-                                screenCase='thin'
-                                helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
-                                    Game</HelpTitle>}
-                                isUnsavedChanges={this.isUnsavedChanges}
-                                updateTheme={this.updateTheme}
-                                theme={this.state.theme}
-                                additionalSettings={
-                                    <>
-                                        {(this.gameType === 'Standard') ? (
-                                            <MuiDropdown
-                                                updateParent={this.updateTheme}
-                                                theme={this.state.theme}
-                                                fullWidth={true}
-                                                size='medium'
-                                                variant='outlined'
-                                                label='franchise theme'
-                                                inputLabel='franchise theme'
-                                                inputLabelStyle={
-                                                    input_label(this.state.theme)
-                                                }
-                                                genStyle={{marginTop: 'auto', marginBottom: 'auto'}}
-                                                overrideItem={getFranchiseThemeOverride(this.state.theme)}
-                                            >
-                                                {specialThemeMenuItemList}
-                                            </MuiDropdown>
-                                        ) : null}
-                                        <MuiCheckbox
-                                            theme={this.state.theme}
-                                            rootClassProp={this.props.classes.sqr_text_checkbox}
-                                            defaultChecked={this.state.showProfileOnClick}
-                                            onClick={() => this.setState({showProfileOnClick: !this.state.showProfileOnClick})}
-                                        >
-                                            Show Piece Profile on Click (Range Board)
-                                        </MuiCheckbox>
-                                    </>
-                                }
-                            />
-                        }
-                        appBarContent={
-                            <StatusBar
-                                turn={this.turn}
-                                theme={this.state.theme}
-                                condition={this.gameStatus.condition}
-                                winner={this.gameStatus.winner}
-                            >
-                                <ToolButtons>
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"save"}
-                                        isActive={this.state.miniVariantTool === "Save"}
-                                        onClick={() => this.toggleminiVariantTool("Save")}
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"save_as"}
-                                        isActive={this.state.miniVariantTool === "Save-As"}
-                                        onClick={() => this.toggleminiVariantTool("Save-As")}
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"captured_pieces"}
-                                        isActive={this.state.miniVariantTool === "Captured-Pieces"}
-                                        onClick={() => this.toggleminiVariantTool("Captured-Pieces")}
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"game_info"}
-                                        isActive={this.state.miniVariantTool === "Game-Info"}
-                                        onClick={() => this.toggleminiVariantTool("Game-Info")}
-                                    />
-                                    <ToolButton
-                                        theme={this.state.theme}
-                                        iconName={"resign"}
-                                        isActive={this.state.miniVariantTool === "Resign"}
-                                        onClick={() => this.toggleminiVariantTool("Resign")}
-                                    />
-                                </ToolButtons>
-                            </StatusBar>
-                        }
-                        neighborOpen={this.state.secondaryDrawer}
-                    >
-                        <Board gameRoot={this}/>
-                        {/*<MuiAccordion />*/}
-                        {this.state.miniVariantTool === "Save" ? (
-                            <AnimatePresencePortal>
-                                <GameSavedSuccessfully
-                                    callback={() =>
-                                        this.toggleminiVariantTool(null)
-                                    }
-                                    theme={this.state.theme}
-                                />
-                            </AnimatePresencePortal>
-                        ) : null}
-                        {this.state.miniVariantTool === "Save-As" ? (
-                            <Portal>
-                                <SaveAs
-                                    changeName={this.changeName}
-                                    close={() => this.toggleminiVariantTool(null)}
-                                    save={() => this.toggleSaveProcess(true)}
-                                    theme={this.state.theme}
-                                />
-                            </Portal>
-                        ) : null}
-                        {this.state.miniVariantTool === "Captured-Pieces" ? (
-                            <CapturedPieceImages
-                                captured={this.captured}
-                                capturedIds={this.capturedIds}
-                                idDict={this.idDict}
-                                defs={this.defs}
-                                gameType={this.gameType}
-                                theme={this.state.theme}
-                            />
-                        ) : null}
-                        {this.state.miniVariantTool === "Resign" ? (
-                            <ResignModal
-                                theme={this.state.theme}
-                                onClick={() => {
-                                    this.toggleminiVariantTool(null)
-                                    this.resign()
-                                }}
-                                onClick1={() => this.toggleminiVariantTool(null)}
-                            />
-                        ) : null}
-                    </PersistentDrawer>
-                </MediaQuery>
+                    }
+                    neighborOpen={this.state.secondaryDrawer}
+                >
+                    <Board gameRoot={this}/>
+                    {/*<MuiAccordion />*/}
+                </ResponsiveDrawer>
             </>
         );
     }

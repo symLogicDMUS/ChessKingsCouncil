@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="save-alt.svg"
+   id="svg924"
+   version="1.1"
+   viewBox="0 0 24 24.000001"
+   height="24"
+   width="24">
+  <metadata
+     id="metadata930">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs928" />
+  <sodipodi:namedview
+     inkscape:current-layer="svg924"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:cy="7.6722532"
+     inkscape:cx="2.9025929"
+     inkscape:zoom="5.6568543"
+     showgrid="false"
+     id="namedview926"
+     inkscape:window-height="1001"
+     inkscape:window-width="1920"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     inkscape:document-rotation="0"
+     inkscape:snap-global="false" />
+  <path
+     d="M 0 0 L 0 21.373047 L 2.3359375 23.914062 L 23.980469 24 L 23.980469 17.966797 L 23.986328 17.439453 L 24 17.439453 L 24 15.388672 L 24 7.0527344 L 23.988281 7.0527344 L 23.980469 0 L 0 0 z M 4.1875 2.25 L 19.568359 2.25 L 19.568359 5.7890625 L 19.578125 5.7890625 L 19.578125 9.2050781 L 4.1875 9.2050781 L 4.1875 7.5449219 L 4.1875 5.7890625 L 4.1875 2.25 z M 4.7070312 12.275391 L 16.980469 12.294922 L 19.294922 14.705078 L 19.263672 21.585938 L 4.7070312 21.585938 L 4.7070312 12.275391 z M 5.8574219 15.154297 L 5.8574219 20.876953 L 9.2988281 20.876953 L 9.2988281 15.154297 L 5.8574219 15.154297 z "
+     style="fill:#000000;fill-opacity:1;stroke-width:1.00249"
+     id="path876" />
+</svg>

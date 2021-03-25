@@ -1,4 +1,5 @@
 short:
+    new icon of a board for Load Game modal
     fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger
 medium:

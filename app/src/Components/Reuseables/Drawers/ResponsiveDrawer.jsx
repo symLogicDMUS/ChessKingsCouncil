@@ -14,7 +14,7 @@ import MiniVariantDrawer from "./MiniVariantDrawer";
 import {toolDrawerWidth, useStyles} from "./ResponsiveDrawer.jss";
 import {viewWidth} from "../../helpers/windowMeasurments";
 
-function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, children}) {
+function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighborOpen, children}) {
     const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
     useEffect(() => {
         function handleResize() {

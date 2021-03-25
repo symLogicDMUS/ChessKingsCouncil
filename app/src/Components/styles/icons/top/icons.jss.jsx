@@ -46,8 +46,11 @@ import {rook_outline} from "../sub-buttons/rook-outline.jss";
 import {queen_outline} from "../sub-buttons/queen-outline.jss";
 import {knight_outline} from "../sub-buttons/knight-outline.jss";
 import {none} from "../sub-buttons/none.jss";
+import {save_alt} from "../options/save_alt.jss";
 import {save_as} from "../options/save_as.jss";
+import {save_as_alt} from "../options/save_as_alt.jss";
 import {resign} from "../options/resign.jss";
+import {resign_alt} from "../options/resign_alt.jss";
 import {account_circle} from "../other/account_circle.jss";
 import {icon_tool} from "../create-piece/icon_tool";
 import {range_tool} from "../create-piece/range_tool";
@@ -57,6 +60,7 @@ import {location_tool} from "../create-piece/location_tool";
 import {game_info} from "../game root/game_info.jss";
 import {game_info2} from "../game root/game_info2.jss";
 import {captured_pieces} from "../game root/captured_pieces.jss";
+import {captured_pieces_alt} from "../game root/captured_pieces_alt.jss";
 
 export const icons = {
     home: home,
@@ -109,12 +113,16 @@ export const icons = {
     'thin-315d': down_right_bold,
     save: save,
     save_as: save_as,
+    save_alt: save_alt,
+    save_as_alt: save_as_alt,
     resign: resign,
+    resign_alt: resign_alt,
     load: load,
     reset: reset,
     erase: erase,
     game_info: game_info,
     game_info2: game_info2,
     captured_pieces: captured_pieces,
+    captured_pieces_alt: captured_pieces_alt,
     none: none,
 };
