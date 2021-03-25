@@ -23,7 +23,7 @@ export function SavedGames(props) {
                 <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
                     currentPage="LoadGame"
-                    screenCase='desktop'
+                    screenCase='wide'
                     theme={props.theme}
                     updateTheme={props.updateTheme}
                     helpText={HelpText(fontSize002, props.theme)}
@@ -73,7 +73,7 @@ export function SavedGames(props) {
                     drawer={
                         <NavBar
                             currentPage="LoadGame"
-                            screenCase="mobile"
+                            screenCase="thin"
                             redirectMessage={null}
                             helpText={HelpText(fontSizeW0045, props.theme)}
                             helpTitle={<HelpTitle theme={props.theme} fontSize={fontSize0026}>Loading a

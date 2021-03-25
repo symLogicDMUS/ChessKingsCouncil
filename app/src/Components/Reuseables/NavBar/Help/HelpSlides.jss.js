@@ -3,8 +3,8 @@ import {modal} from "../../../helpers/modal.jss";
 import {fontSize002, fontSizeW0045} from "../../../styles/fontSizes.jss";
 
 export const fontSizes = {
-    desktop: fontSize002,
-    mobile: fontSizeW0045,
+    wide: fontSize002,
+    thin: fontSizeW0045,
 };
 
 export const useStyles = makeStyles({

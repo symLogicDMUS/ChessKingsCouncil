@@ -19,6 +19,7 @@ export function renderList(inView, numRows, classes, textClassProp, listItemClas
             >
                 <Typography
                     noWrap
+                    variant='caption'
                     className={clsx(classes.text, {
                         [textClassProp] : textClassProp,
                     })}

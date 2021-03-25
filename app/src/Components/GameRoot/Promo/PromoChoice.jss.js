@@ -6,12 +6,12 @@ import {promoChoicesSize} from "./Promo.jss";
 export const promoChoice = (fontSize, theme) => ({
     fontSize: fontSize,
     '@media screen and (min-width: 960px)': {
-        width: promoChoicesSize.desktop,
-        height: promoChoicesSize.desktop,
+        width: promoChoicesSize.wide,
+        height: promoChoicesSize.wide,
     },
     '@media screen and (max-width: 960px)': {
-        width: promoChoicesSize.mobile,
-        height: promoChoicesSize.mobile,
+        width: promoChoicesSize.thin,
+        height: promoChoicesSize.thin,
     },
     borderRadius: '0.01em',
     marginTop: '0.2em',

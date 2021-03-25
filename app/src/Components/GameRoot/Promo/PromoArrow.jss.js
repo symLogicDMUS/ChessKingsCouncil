@@ -6,10 +6,10 @@ export const useStyles = makeStyles((theme) => ({
     button: props => ({
         fontSize: props.fontSize,
         '@media screen and (min-width: 960px)': {
-            height: promoChoicesSize.desktop*1.04,
+            height: promoChoicesSize.wide*1.04,
         },
         '@media screen and (max-width: 960px)': {
-            height: promoChoicesSize.mobile,
+            height: promoChoicesSize.thin,
         },
         width: '0.1em',
         lineHeight: 0,

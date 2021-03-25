@@ -30,13 +30,13 @@ export function CouncilRules() {
                 <NavBar
                     theme="tan"
                     currentPage="CouncilRules"
-                    screenCase='desktop'
+                    screenCase='wide'
                     unsavedChanges={false}
                     helpText={[helpText]}
                     updateTheme={doNothing}
                 />
                 <div className={classes.council_rules}>
-                    <Box className={classes.parchment_desktop}>
+                    <Box className={classes.parchment_wide}>
                         <Typography className={classes.title}>
                             Council of Kings
                         </Typography>
@@ -112,7 +112,7 @@ export function CouncilRules() {
                         <NavBar
                             theme="tan"
                             currentPage="CouncilRules"
-                            screenCase="mobile"
+                            screenCase="thin"
                             unsavedChanges={false}
                             helpText={[
                                 <Typography
@@ -136,7 +136,7 @@ export function CouncilRules() {
                         <Box className={classes.scroll_end_container}>
                             <img className={classes.scroll_end} src={'/Images/CouncilRules/scroll-top.svg'} alt={"top of ancient scroll graphic"}/>
                         </Box>
-                        <Box className={classes.parchment_mobile}>
+                        <Box className={classes.parchment_thin}>
                             <Typography className={classes.title} noWrap>
                                 Council of Kings
                             </Typography>

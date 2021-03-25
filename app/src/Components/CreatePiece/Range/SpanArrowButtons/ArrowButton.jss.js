@@ -2,9 +2,9 @@ import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 
-const buttonSizeMobile = '100%';
-const iconButtonSizeMobile = '100%';
-const arrowSizeMobile = '8.5vw';
+const buttonSizethin = '100%';
+const iconButtonSizethin = '100%';
+const arrowSizethin = '8.5vw';
 
 export const useStyles = makeStyles({
     arrow_button_container: props => ({
@@ -15,8 +15,8 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         '@media screen and (max-width: 960px)': {
             border: 'unset',
-            width: buttonSizeMobile,
-            height: buttonSizeMobile,
+            width: buttonSizethin,
+            height: buttonSizethin,
         },
         '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
@@ -42,11 +42,11 @@ export const useStyles = makeStyles({
             },
         },
     }),
-    button_container_mobile: props => ({
+    button_container_thin: props => ({
         backgroundColor: 'unset',
         "& .MuiIconButton-root": {
-            width: iconButtonSizeMobile,
-            height: iconButtonSizeMobile,
+            width: iconButtonSizethin,
+            height: iconButtonSizethin,
         }
     }),
     button_container_adjust: props => ({
@@ -54,8 +54,8 @@ export const useStyles = makeStyles({
         zIndex: 2,
     }),
     arrow_button: props => ({
-        width: iconButtonSizeMobile,
-        height: iconButtonSizeMobile,
+        width: iconButtonSizethin,
+        height: iconButtonSizethin,
         '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             width: '2.75em',
@@ -65,8 +65,8 @@ export const useStyles = makeStyles({
     }),
     vector: (props) => ({
         '@media screen and (max-width: 960px)': {
-            width: arrowSizeMobile,
-            height: arrowSizeMobile,
+            width: arrowSizethin,
+            height: arrowSizethin,
         },
         '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
@@ -93,8 +93,8 @@ export const useStyles = makeStyles({
     }),
     mid: props => ({
         '@media screen and (max-width: 960px)': {
-            width: buttonSizeMobile,
-            height: buttonSizeMobile,
+            width: buttonSizethin,
+            height: buttonSizethin,
             borderRadius: '0.2em',
         },
         '@media screen and (min-width: 960px)': {

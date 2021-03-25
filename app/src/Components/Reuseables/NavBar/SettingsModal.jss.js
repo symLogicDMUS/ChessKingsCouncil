@@ -5,13 +5,13 @@ import {fontSize002} from "../../styles/fontSizes.jss";
 import {availHeight, availWidth} from "../../helpers/windowMeasurments";
 
 const widths = {
-    desktop: availWidth() * 0.333,
-    mobile: availWidth()*0.98,
+    wide: availWidth() * 0.333,
+    thin: availWidth()*0.98,
 }
 
 const heights = {
-    desktop: availHeight() * 0.333,
-    mobile: availHeight() * 0.45,
+    wide: availHeight() * 0.333,
+    thin: availHeight() * 0.45,
 }
 
 export const input_label = (theme) => ({
@@ -25,12 +25,12 @@ export const useStyles = makeStyles({
     }),
     window: props => ({
         '@media screen and (max-width: 960px)': {
-            width: widths.mobile,
-            height: heights.mobile,
+            width: widths.thin,
+            height: heights.thin,
         },
         '@media screen and (min-width: 960px)': {
-            width: widths.desktop,
-            height: heights.desktop,
+            width: widths.wide,
+            height: heights.wide,
         },
         fontSize: fontSize002,
         borderRadius: '0.3em',
@@ -39,12 +39,12 @@ export const useStyles = makeStyles({
     }),
     settings: props => ({
         '@media screen and (max-width: 960px)': {
-            width: widths.mobile*0.925,
-            height: heights.mobile*0.87,
+            width: widths.thin*0.925,
+            height: heights.thin*0.87,
         },
         '@media screen and (min-width: 960px)': {
-            width: widths.desktop*0.925,
-            height: heights.desktop*0.87,
+            width: widths.wide*0.925,
+            height: heights.wide*0.87,
         },
         display: 'flex',
         flexDirection: 'column',
@@ -59,10 +59,10 @@ export const useStyles = makeStyles({
         width: '100%',
         /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 960px)': {
-            height: heights.mobile * 0.08,
+            height: heights.thin * 0.08,
         },
         '@media screen and (min-width: 960px)': {
-            height: heights.desktop*0.08,
+            height: heights.wide*0.08,
         },
         display: 'flex',
         flexDirection: 'row',

@@ -6,7 +6,7 @@ import {fontSize002} from "../../../styles/fontSizes.jss";
 import {appBarHeight} from "../../Drawers/PersistentDrawer.jss";
 import {viewHeight, viewWidth} from "../../../helpers/windowMeasurments";
 
-const windowHeightMobile = () => (viewHeight() - appBarHeight);
+const windowHeightthin = () => (viewHeight() - appBarHeight);
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -23,7 +23,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
             width: '100%',
-            height: windowHeightMobile(),
+            height: windowHeightthin(),
             marginTop: 'auto',
         },
         '@media screen and (min-width: 960px)': {
@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
             width: '95vw',
-            height: windowHeightMobile()*0.655,
+            height: windowHeightthin()*0.655,
             marginLeft: 'auto',
             marginRight: 'auto',
             marginBottom: 0,
@@ -79,7 +79,7 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         /*media query for phones (generalized)*/
         '@media screen and (max-width: 960px)': {
-            height: windowHeightMobile()*0.1,
+            height: windowHeightthin()*0.1,
         },
     }),
     button: props => ({

@@ -48,7 +48,7 @@ class CreatePiece extends React.Component {
             showSpanText: true,
             showOffsetText: true,
             isFirstVisit: false,
-            mobileTool: null,
+            miniVariantTool: null,
         };
         this.spans = {
             "90d": false,
@@ -87,7 +87,7 @@ class CreatePiece extends React.Component {
         this.triggerRender = this.triggerRender.bind(this);
         this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
         this.updateFirstVisit = this.updateFirstVisit.bind(this);
-        this.toggleMobileTool = this.toggleMobileTool.bind(this);
+        this.toggleminiVariantTool = this.toggleminiVariantTool.bind(this);
         //if MyPieces page redirected to here:
         if (
             this.props.location !== undefined &&
@@ -124,11 +124,11 @@ class CreatePiece extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    toggleMobileTool(toolName) {
-        if (this.state.mobileTool === toolName) {
-            this.setState({ mobileTool: null });
+    toggleminiVariantTool(toolName) {
+        if (this.state.miniVariantTool === toolName) {
+            this.setState({ miniVariantTool: null });
         } else {
-            this.setState({ mobileTool: toolName });
+            this.setState({ miniVariantTool: toolName });
         }
     }
 
@@ -393,27 +393,27 @@ class CreatePiece extends React.Component {
             <>
                 {this.modals()}
                 <div>
-                    {this.state.mobileTool === "Name" ? (
+                    {this.state.miniVariantTool === "Name" ? (
                         <Name
-                            key={`Name-Mobile${this.state.loadInstance}`}
+                            key={`Name-thin${this.state.loadInstance}`}
                             defaultValue={this.name}
                             theme={this.state.theme}
                             updateName={this.updateName}
-                            screenCase="mobile"
+                            screenCase="thin"
                         />
                     ) : null}
-                    {this.state.mobileTool === "Icon" ? (
+                    {this.state.miniVariantTool === "Icon" ? (
                         <Icon
-                            key="Icon-Mobile"
+                            key="Icon-thin"
                             theme={this.state.theme}
                             setPieceImg={this.setPieceImg}
                             resetImg={this.resetImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
                         />
                     ) : null}
-                    {this.state.mobileTool === "Options" ? (
+                    {this.state.miniVariantTool === "Options" ? (
                         <Options
-                            key="Options-Mobile"
+                            key="Options-thin"
                             pieceName={this.name}
                             load={this.load}
                             save={this.save}
@@ -444,7 +444,6 @@ class CreatePiece extends React.Component {
                                 updateName={this.updateName}
                                 defaultValue={this.name}
                                 theme={this.state.theme}
-                                screenCase="desktop"
                             />
                             <Icon
                                 key="Icon"
@@ -460,7 +459,6 @@ class CreatePiece extends React.Component {
                                 toggleSpan={this.toggleSpan}
                                 pieceLoc={this.location}
                                 theme={this.state.theme}
-                                screenCase="desktop"
                             />
                             <Location
                                 key="Location"
@@ -488,10 +486,10 @@ class CreatePiece extends React.Component {
                                 iconName={"name_tool"}
                                 theme={this.state.theme}
                                 isActive={
-                                    this.state.mobileTool === "Name"
+                                    this.state.miniVariantTool === "Name"
                                 }
                                 onClick={() =>
-                                    this.toggleMobileTool("Name")
+                                    this.toggleminiVariantTool("Name")
                                 }
                             />
                             <ToolButton
@@ -499,10 +497,10 @@ class CreatePiece extends React.Component {
                                 iconName={"icon_tool"}
                                 theme={this.state.theme}
                                 isActive={
-                                    this.state.mobileTool === "Icon"
+                                    this.state.miniVariantTool === "Icon"
                                 }
                                 onClick={() =>
-                                    this.toggleMobileTool("Icon")
+                                    this.toggleminiVariantTool("Icon")
                                 }
                             />
                             <ToolButton
@@ -510,10 +508,10 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 iconName={"range_tool"}
                                 isActive={
-                                    this.state.mobileTool === "Range"
+                                    this.state.miniVariantTool === "Range"
                                 }
                                 onClick={() =>
-                                    this.toggleMobileTool("Range")
+                                    this.toggleminiVariantTool("Range")
                                 }
                             />
                             <ToolButton
@@ -521,10 +519,10 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 iconName={"location_tool"}
                                 isActive={
-                                    this.state.mobileTool === "Location"
+                                    this.state.miniVariantTool === "Location"
                                 }
                                 onClick={() =>
-                                    this.toggleMobileTool("Location")
+                                    this.toggleminiVariantTool("Location")
                                 }
                             />
                             <ToolButton
@@ -532,10 +530,10 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 iconName={"options_tool"}
                                 isActive={
-                                    this.state.mobileTool === "Options"
+                                    this.state.miniVariantTool === "Options"
                                 }
                                 onClick={() =>
-                                    this.toggleMobileTool("Options")
+                                    this.toggleminiVariantTool("Options")
                                 }
                             />
                         </>
@@ -543,7 +541,6 @@ class CreatePiece extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="CreatePiece"
-                            screenCase="desktop"
                             theme={this.state.theme}
                             redirectMessage={messageStr}
                             helpTitle={
@@ -599,17 +596,17 @@ class CreatePiece extends React.Component {
                 >
                     <Board
                         key="Board"
-                        screenCase="mobile"
+                        screenCase="thin"
                         theme={this.state.theme}
                         pieceLoc={this.location}
                         setLoc={this.setLoc}
+                        toggleSpan={this.toggleSpan}
+                        toggleOffset={this.toggleOffset}
                         spanDisplays={this.spanDisplays}
                         offsetDisplays={this.offsetDisplays}
-                        toggleOffset={this.toggleOffset}
-                        toggleSpan={this.toggleSpan}
                         showSpanText={this.state.showSpanText}
                         showOffsetText={this.state.showOffsetText}
-                        mobileTool={this.state.mobileTool}
+                        miniVariantTool={this.state.miniVariantTool}
                         imgUrl={this.whiteAndBlackImgs.white}
                     />
                 </ResponsiveDrawer>

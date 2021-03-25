@@ -1,5 +1,6 @@
 short:
     game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
+    consider memoizing ScrollTable items
 medium:
     remove accordion in GameRoot except for Range Display (1 item accordion)
     remove inline styles for the MuiDropdown and MuiInput, and replace with clsx as have done with others

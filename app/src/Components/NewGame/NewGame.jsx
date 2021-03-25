@@ -78,7 +78,7 @@ function NewGame() {
                 <Background theme={theme} navBar={true} currentPage='NewGame'/>
                 <NavBar
                     currentPage="NewGame"
-                    screenCase='desktop'
+                    screenCase='wide'
                     helpText={HelpText(fontSize002, theme)}
                     helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
                     additionalSettings={null}
@@ -87,23 +87,23 @@ function NewGame() {
                 />
                 <Box className={classes.new_game}>
                     <GameName
-                        key='GameName-Desktop'
+                        key='GameName-wide'
                         theme={theme}
                         setGameName={setGameName}
-                        screenCase='desktop'
+                        screenCase='wide'
                     />
                     <PickType
-                        key='PickType-Desktop'
+                        key='PickType-wide'
                         theme={theme}
                         gameType={gameType}
                         setGameType={setGameType}
-                        screenCase='desktop'
+                        screenCase='wide'
                     />
                     <PlayAs
                         theme={theme}
-                        key='PlayAs-Desktop'
+                        key='PlayAs-wide'
                         setPlayerType={setPlayerType}
-                        screenCase='desktop'
+                        screenCase='wide'
                     />
                     <Play
                         theme={theme}
@@ -112,7 +112,7 @@ function NewGame() {
                         playerType={playerType}
                         gameType={gameType} gameName={gameName}
                         predicate={(c) => charNotInStr(c, gameName)}
-                        key='Play-Button-Desktop'
+                        key='Play-Button-wide'
                     />
                 </Box>
                 {confirmModal ? (
@@ -136,7 +136,7 @@ function NewGame() {
                     drawer={
                         <NavBar
                             currentPage="NewGame"
-                            screenCase='mobile'
+                            screenCase='thin'
                             helpText={HelpText(fontSizeW0045, theme)}
                             helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
                             redirectMessage={null}
@@ -154,22 +154,22 @@ function NewGame() {
                     <Box className={classes.new_game}>
                         <GameName
                             theme={theme}
-                            key='GameName-Mobile'
+                            key='GameName-thin'
                             setGameName={setGameName}
-                            screenCase='mobile'
+                            screenCase='thin'
                         />
                         <PickType
                             theme={theme}
-                            key="PickType-Mobile"
+                            key="PickType-thin"
                             gameType={gameType}
                             setGameType={setGameType}
-                            screenCase='mobile'
+                            screenCase='thin'
                         />
                         <PlayAs
                             theme={theme}
                             setPlayerType={setPlayerType}
-                            key="PlayAs-Mobile"
-                            screenCase='mobile'
+                            key="PlayAs-thin"
+                            screenCase='thin'
                         />
                         <Play
                             theme={theme}
@@ -178,7 +178,7 @@ function NewGame() {
                             playerType={playerType}
                             gameType={gameType} gameName={gameName}
                             predicate={(c) => charNotInStr(c, gameName)}
-                            key='Play-Button-Mobile'
+                            key='Play-Button-thin'
                         />
                     </Box>
                     {confirmModal ? (

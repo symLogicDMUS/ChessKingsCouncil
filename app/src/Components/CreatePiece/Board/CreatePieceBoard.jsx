@@ -8,10 +8,10 @@ import { ArrowButton } from "../Range/SpanArrowButtons/ArrowButton";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import { useStyles } from "./CreatePieceBoard.jss";
+import {useMediaQuery} from "@material-ui/core";
 
 export function CreatePieceBoard({
     theme,
-    screenCase,
     pieceLoc,
     setLoc,
     spanDisplays,
@@ -20,9 +20,12 @@ export function CreatePieceBoard({
     toggleSpan,
     showSpanText,
     showOffsetText,
-    mobileTool,
+    miniVariantTool,
     imgUrl,
 }) {
+    const isWide = useMediaQuery('(min-width: 960px)');
+    const screenCase = isWide ? 'wide' : 'thin';
+
     const classes = useStyles();
 
     const getEmptySquare = (rf) => {
@@ -89,7 +92,7 @@ export function CreatePieceBoard({
                     angle={angle}
                     isActive={spanDisplays[rf]}
                     toggleSpan={toggleSpan}
-                    screenCase='mobile'
+                    screenCase='thin'
                     isOffset={offsetDisplays[rf]}
                     theme={theme}
                 />
@@ -175,16 +178,16 @@ export function CreatePieceBoard({
     return (
         <>
             <div className={classes.board}>
-                {screenCase === 'mobile' && mobileTool === "Range" ? (
+                {screenCase === 'thin' && miniVariantTool === "Range" ? (
                     getRangToolBoard()
                 ) : null}
-                {screenCase === 'mobile' && mobileTool === "Location" ? (
+                {screenCase === 'thin' && miniVariantTool === "Location" ? (
                     getLocationToolBoard()
                 ) : null}
-                {screenCase !== 'mobile' || (screenCase === 'mobile' && mobileTool === null) ? (
+                {screenCase !== 'thin' || (screenCase === 'thin' && miniVariantTool === null) ? (
                     getRegularBoard()
                 ) : null}
-            </div>;
+            </div>
         </>
     );
 }

@@ -6,21 +6,21 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 
 export const fontSizes = {
-    desktop: fontSize00224,
-    mobile: fontSize0019,
+    wide: fontSize00224,
+    thin: fontSize0019,
     ipad: fontSize00184,
     ipx: fontSize002,
 }
 export const widths = {
-    desktop: '9em',
-    mobile: '9em',
+    wide: '9em',
+    thin: '9em',
     ipx: '9em',
     ipad: '9em',
 }
 
 export const heights = {
-    desktop: 9,
-    mobile: 9,
+    wide: 9,
+    thin: 9,
     ipx: 9,
     ipad: 9,
 }
@@ -44,12 +44,12 @@ export const useStyles = makeStyles({
     }),
     span_arrow_buttons: props => ({
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
+            fontSize: fontSizes.wide,
             marginLeft: 'auto',
             marginRight: 'auto'
         },
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSizes.mobile,
+            fontSize: fontSizes.thin,
         },
         '@media screen and (max-width: 412px)': {
             marginTop: '1em',

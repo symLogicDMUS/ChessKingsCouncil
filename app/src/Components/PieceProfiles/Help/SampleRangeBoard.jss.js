@@ -3,8 +3,8 @@ import {fontSize0025, fontSize00301} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const fontSizes = {
-    desktop: fontSize00301,
-    mobile: fontSize0025,
+    wide: fontSize00301,
+    thin: fontSize0025,
 }
 
 export const square = (fontSize) => ({

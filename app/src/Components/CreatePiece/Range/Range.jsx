@@ -8,12 +8,16 @@ import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss"
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./Range.jss";
+import {fontSize002} from "../../styles/fontSizes.jss";
 
-export function Range({spans, offsets, toggleSpan, theme, screenCase, styles}) {
+export function Range({spans, offsets, toggleSpan, theme, styles}) {
     const classes = useStyles({theme: theme, styles: styles});
     const classes2 = useMoreStyles({theme: theme})
 
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? 'wide' : 'thin';
     const getSpanTextLabels = () => {
         const newSpans = [];
         for (const angle of Object.keys(spans)) {
@@ -36,11 +40,10 @@ export function Range({spans, offsets, toggleSpan, theme, screenCase, styles}) {
             <ScrollTable
                 numRows={5}
                 theme={theme}
-                width='9em'
-                fontSize={(drawerWidth - 55) * 0.5 * 0.333 * 0.333}
-                rootClassProp={classes.scroll_table_style}
-                listItemClassProp={classes.scroll_table_list_item}
-                arrowButtonClassProp={classes.scroll_table_arrow_button}
+                width='10.625vw'
+                fontSize={fontSize002}
+                listItemClassName={classes.scroll_table_list_item}
+                arrowButtonClassName={classes.scroll_table_arrow_button}
                 listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
             />
             <div className={classes.divider} />

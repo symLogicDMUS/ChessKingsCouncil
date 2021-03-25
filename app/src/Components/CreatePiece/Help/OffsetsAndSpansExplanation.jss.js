@@ -3,11 +3,11 @@ import {themes} from "../../styles/themes.jss";
 
 export const img_example = (screenCase, theme) => {
     switch (screenCase) {
-        case 'desktop':
+        case 'wide':
             return {
-                fontSize: fontSizes.desktop,
-                width: widths.desktop,
-                height: widths.desktop,
+                fontSize: fontSizes.wide,
+                width: widths.wide,
+                height: widths.wide,
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginTop: '1vh',
@@ -17,8 +17,8 @@ export const img_example = (screenCase, theme) => {
         case 'ipad':
             return {
                 fontSize: fontSizes.ipad,
-                width: widths.mobile,
-                height: widths.mobile,
+                width: widths.thin,
+                height: widths.thin,
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginTop: '1vh',
@@ -27,9 +27,9 @@ export const img_example = (screenCase, theme) => {
             }
         default:
             return {
-                fontSize: fontSizes.mobile,
-                width: widths.mobile,
-                height: widths.mobile,
+                fontSize: fontSizes.thin,
+                width: widths.thin,
+                height: widths.thin,
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginTop: '1vh',

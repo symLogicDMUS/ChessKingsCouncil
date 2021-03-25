@@ -68,14 +68,14 @@ export const useStyles = makeStyles({
     }),
     range_board_example: props => ({
         '@media screen and (min-width: 960px)': {
-            // fontSize: fontSizes.desktop,
+            // fontSize: fontSizes.wide,
             width: "9em",
             height: "9em",
             marginLeft: '1vw',
             outline: `0.0075em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (max-width: 960px)': {
-            // fontSize: fontSizes.mobile,
+            // fontSize: fontSizes.thin,
             width: '1em',
             height: '1em',
             outline: `0.01em solid ${themes[props.theme].outline}`,

@@ -18,15 +18,17 @@ export function ProfileWBModal({
 
     return (
         <Box className={classes.profile_wb_modal}>
-            <Box className={classes.profile_top}>
-                <Typography variant="h6" noWrap className={classes.header}>
-                    {getColorName(color)} {pieceName}
-                </Typography>
+            <Box className={classes.close_window_row}>
                 <Close
                     classProp={classes.close_icon}
                     onClick={closeProfile}
                     theme={theme}
                 />
+            </Box>
+            <Box className={classes.profile_top}>
+                <Typography variant="h6" noWrap className={classes.header}>
+                    {getColorName(color)} {pieceName}
+                </Typography>
             </Box>
             <Box className={classes.wb_container}>
                 <ProfileWB

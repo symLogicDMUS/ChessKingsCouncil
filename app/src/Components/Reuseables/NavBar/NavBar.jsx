@@ -5,6 +5,7 @@ import { HelpButton } from "./Help/HelpButton";
 import { SettingsButton } from "./SettingsButton";
 import { NavBarButton } from "./NavBarButton";
 import { useStyles } from "./NavBar.jss";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 /**
  * children is settings content unique to parent page.
@@ -14,21 +15,24 @@ import { useStyles } from "./NavBar.jss";
  * @constructor
  */
 export function NavBar(props) {
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? 'wide' : 'thin';
+
     const classes = useStyles();
 
     return (
         <>
             <Box
                 className={clsx(classes.nav_bar, {
-                    [classes.nav_drawer]: props.screenCase === "mobile",
+                    [classes.nav_drawer]: screenCase === "thin",
                     [classes.row_direction]:
-                        props.screenCase === "desktop" &&
+                        screenCase === "wide" &&
                         (props.currentPage === "NewGame" ||
                             props.currentPage === "LoadGame" ||
                             props.currentPage === "MyPieces" ||
                             props.currentPage === "CouncilRules"),
                     [classes.column_direction]:
-                        props.screenCase === "desktop" &&
+                        screenCase === "wide" &&
                         (props.currentPage === "CreatePiece" ||
                             props.currentPage === "GameRoot" ||
                             props.currentPage === "Customize"),
@@ -38,9 +42,9 @@ export function NavBar(props) {
                     key="Help"
                     pageIcon="help"
                     theme={props.theme}
-                    currentPage={props.currentPage}
-                    screenCase={props.screenCase}
+                    screenCase={screenCase}
                     helpTitle={props.helpTitle}
+                    currentPage={props.currentPage}
                     updateFirstVisit={props.updateFirstVisit}
                 >
                     {props.helpText}
@@ -50,7 +54,7 @@ export function NavBar(props) {
                     theme={props.theme}
                     updateTheme={props.updateTheme}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
+                    screenCase={screenCase}
                 >
                     {props.additionalSettings}
                 </SettingsButton>
@@ -62,8 +66,8 @@ export function NavBar(props) {
                     className="home"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -73,8 +77,8 @@ export function NavBar(props) {
                     className="new_game"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -85,8 +89,8 @@ export function NavBar(props) {
                     className="load_game"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -97,8 +101,8 @@ export function NavBar(props) {
                     className="create_piece"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -109,8 +113,8 @@ export function NavBar(props) {
                     className="my_pieces"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -121,8 +125,8 @@ export function NavBar(props) {
                     className="chess_rules"
                     isLocalLink={false}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -133,8 +137,8 @@ export function NavBar(props) {
                     className="council_rules"
                     isLocalLink={true}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 <NavBarButton
@@ -145,8 +149,8 @@ export function NavBar(props) {
                     className="author_github"
                     isLocalLink={false}
                     theme={props.theme}
+                    screenCase={screenCase}
                     currentPage={props.currentPage}
-                    screenCase={props.screenCase}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
             </Box>

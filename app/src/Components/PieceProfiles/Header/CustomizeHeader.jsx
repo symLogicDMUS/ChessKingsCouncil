@@ -61,7 +61,7 @@ export const CustomizeHeader = ({
                         classProp={classes.checkbox_gen}
                         theme={theme}
                     >
-                        {screenCase === "mobile" ? (
+                        {screenCase === "thin" ? (
                             <Typography
                                 classes={{ root: classes.checkbox_text }}
                             >

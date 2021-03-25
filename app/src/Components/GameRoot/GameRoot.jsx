@@ -59,7 +59,7 @@ class GameRoot extends React.Component {
         this.state = {
             bValue: true,
             theme: "dark",
-            mobileTool: null,
+            miniVariantTool: null,
             resignModal: false,
             saveProcess: false,
             messageModal: false,
@@ -106,7 +106,7 @@ class GameRoot extends React.Component {
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.saveToDb = this.saveToDb.bind(this);
-        this.toggleMobileTool = this.toggleMobileTool.bind(this);
+        this.toggleminiVariantTool = this.toggleminiVariantTool.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
@@ -282,11 +282,11 @@ class GameRoot extends React.Component {
         return rangeBoard;
     }
 
-    toggleMobileTool(toolName) {
-        if (this.state.mobileTool === toolName) {
-            this.setState({mobileTool: null});
+    toggleminiVariantTool(toolName) {
+        if (this.state.miniVariantTool === toolName) {
+            this.setState({miniVariantTool: null});
         } else {
-            this.setState({mobileTool: toolName});
+            this.setState({miniVariantTool: toolName});
         }
     }
 
@@ -370,7 +370,6 @@ class GameRoot extends React.Component {
                             pieceDefs={this.defs}
                             idDict={this.idDict}
                             start={this.aiStart}
-                            screenCase='desktop'
                             allRanges={{...this.ranges, ...this.enemyRanges}}
                             showProfileOnClick={this.state.showProfileOnClick}
                             triggerRender={this.triggerRender}
@@ -391,7 +390,7 @@ class GameRoot extends React.Component {
                     >
                         <NavBar
                             currentPage="GameRoot"
-                            screenCase='desktop'
+                            screenCase='wide'
                             helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
                                 Game</HelpTitle>}
                             helpText={HelpText(fontSize002, this.state.theme)}
@@ -438,7 +437,7 @@ class GameRoot extends React.Component {
                         drawer={
                             <NavBar
                                 currentPage="GameRoot"
-                                screenCase='mobile'
+                                screenCase='thin'
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Playing a
                                     Game</HelpTitle>}
@@ -488,32 +487,32 @@ class GameRoot extends React.Component {
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"save"}
-                                        isActive={this.state.mobileTool === "Save"}
-                                        onClick={() => this.toggleMobileTool("Save")}
+                                        isActive={this.state.miniVariantTool === "Save"}
+                                        onClick={() => this.toggleminiVariantTool("Save")}
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"save_as"}
-                                        isActive={this.state.mobileTool === "Save-As"}
-                                        onClick={() => this.toggleMobileTool("Save-As")}
+                                        isActive={this.state.miniVariantTool === "Save-As"}
+                                        onClick={() => this.toggleminiVariantTool("Save-As")}
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"captured_pieces"}
-                                        isActive={this.state.mobileTool === "Captured-Pieces"}
-                                        onClick={() => this.toggleMobileTool("Captured-Pieces")}
+                                        isActive={this.state.miniVariantTool === "Captured-Pieces"}
+                                        onClick={() => this.toggleminiVariantTool("Captured-Pieces")}
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"game_info"}
-                                        isActive={this.state.mobileTool === "Game-Info"}
-                                        onClick={() => this.toggleMobileTool("Game-Info")}
+                                        isActive={this.state.miniVariantTool === "Game-Info"}
+                                        onClick={() => this.toggleminiVariantTool("Game-Info")}
                                     />
                                     <ToolButton
                                         theme={this.state.theme}
                                         iconName={"resign"}
-                                        isActive={this.state.mobileTool === "Resign"}
-                                        onClick={() => this.toggleMobileTool("Resign")}
+                                        isActive={this.state.miniVariantTool === "Resign"}
+                                        onClick={() => this.toggleminiVariantTool("Resign")}
                                     />
                                 </ToolButtons>
                             </StatusBar>
@@ -522,27 +521,27 @@ class GameRoot extends React.Component {
                     >
                         <Board gameRoot={this}/>
                         {/*<MuiAccordion />*/}
-                        {this.state.mobileTool === "Save" ? (
+                        {this.state.miniVariantTool === "Save" ? (
                             <AnimatePresencePortal>
                                 <GameSavedSuccessfully
                                     callback={() =>
-                                        this.toggleMobileTool(null)
+                                        this.toggleminiVariantTool(null)
                                     }
                                     theme={this.state.theme}
                                 />
                             </AnimatePresencePortal>
                         ) : null}
-                        {this.state.mobileTool === "Save-As" ? (
+                        {this.state.miniVariantTool === "Save-As" ? (
                             <Portal>
                                 <SaveAs
                                     changeName={this.changeName}
-                                    close={() => this.toggleMobileTool(null)}
+                                    close={() => this.toggleminiVariantTool(null)}
                                     save={() => this.toggleSaveProcess(true)}
                                     theme={this.state.theme}
                                 />
                             </Portal>
                         ) : null}
-                        {this.state.mobileTool === "Captured-Pieces" ? (
+                        {this.state.miniVariantTool === "Captured-Pieces" ? (
                             <CapturedPieceImages
                                 captured={this.captured}
                                 capturedIds={this.capturedIds}
@@ -552,14 +551,14 @@ class GameRoot extends React.Component {
                                 theme={this.state.theme}
                             />
                         ) : null}
-                        {this.state.mobileTool === "Resign" ? (
+                        {this.state.miniVariantTool === "Resign" ? (
                             <ResignModal
                                 theme={this.state.theme}
                                 onClick={() => {
-                                    this.toggleMobileTool(null)
+                                    this.toggleminiVariantTool(null)
                                     this.resign()
                                 }}
-                                onClick1={() => this.toggleMobileTool(null)}
+                                onClick1={() => this.toggleminiVariantTool(null)}
                             />
                         ) : null}
                     </PersistentDrawer>

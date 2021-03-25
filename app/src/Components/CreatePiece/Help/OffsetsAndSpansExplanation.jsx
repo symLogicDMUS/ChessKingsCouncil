@@ -47,21 +47,21 @@ export function OffsetsAndSpansExplanation(props) {
                 </p>
             </Typography>
             <MediaQuery minWidth={960}>
-                <Box style={example_box('desktop')}>
+                <Box style={example_box('wide')}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                        style={img_example('desktop', props.theme)}
+                        style={img_example('wide', props.theme)}
                         alt="span board for dragon"
                     />
                 </Box>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <Box style={example_box('mobile')}>
+                <Box style={example_box('thin')}>
                     <RangeToolExample theme={props.theme}/>
                     <img
                         src={getSpanRangeBoardDragonExample({theme: props.theme})}
-                        style={img_example('mobile', props.theme)}
+                        style={img_example('thin', props.theme)}
                         alt="span board for dragon"
                     />
                 </Box>

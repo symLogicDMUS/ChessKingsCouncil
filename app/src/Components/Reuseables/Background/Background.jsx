@@ -10,7 +10,7 @@ export function Background(props) {
     return (
         <Portal>
             <div className={classes.background}>
-                {props.navBar ? (<NavBarExample currentPage={props.currentPage} theme={props.theme} screenCase='desktop' />) : null}
+                {props.navBar ? (<NavBarExample currentPage={props.currentPage} theme={props.theme} screenCase='wide' />) : null}
                 {props.appBar ? (<div className={classes.drawerHeader} />) : null}
                     <Box className={classes.row}>
                         <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}

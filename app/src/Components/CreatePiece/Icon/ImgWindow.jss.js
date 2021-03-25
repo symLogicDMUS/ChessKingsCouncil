@@ -20,11 +20,11 @@ export const useStyles = makeStyles({
             border: `0.02em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: drawerWidth * 0.425,
-            width: "1em",
-            height: "1em",
+            fontSize: '2.125vw',
+            width: "10.625vw",
+            height: "10.625vw",
             border: "0.005em solid #2b2b2b",
-            borderRadius: '0.03em',
+            borderRadius: '0.35rem',
         },
     }),
     white_window: props => ({
@@ -57,7 +57,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px) and (max-width: 960px)':{
             fontSize: fontSizeW004,
         },
-        /*desktop*/
+        /*wide*/
         '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
         },
@@ -73,7 +73,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 768px) and (max-width: 960px)':{
             fontSize: fontSizeW004,
         },
-        /*desktop*/
+        /*wide*/
         '@media screen and (min-width: 960px)': {
             fontSize: fontSize002,
         },

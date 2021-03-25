@@ -48,7 +48,7 @@ export function SettingsModal(props) {
                         inputLabelStyle={
                             input_label(props.theme)
                         }
-                        size={(props.screenCase === 'desktop') ? 'medium' : 'small'}
+                        size={(props.screenCase === 'wide') ? 'medium' : 'small'}
                     >
                         {themesMenuItemList}
                     </MuiDropdown>

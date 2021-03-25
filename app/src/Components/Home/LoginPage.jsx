@@ -21,7 +21,7 @@ export function LoginPage(props) {
             <MediaQuery minWidth={960}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
-                    <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_desktop}/>
+                    <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_wide}/>
                     <StyledFirebaseAuth
                         uiConfig={props.uiConfig}
                         firebaseAuth={firebase.auth()}
@@ -34,7 +34,7 @@ export function LoginPage(props) {
                 <div className={classes.login_page}>
                     <img
                         src={`/Images/titles/mobile/login/title-${theme}.svg`}
-                        className={classes.app_title_mobile}
+                        className={classes.app_title_thin}
                     />
                     <StyledFirebaseAuth
                         uiConfig={props.uiConfig}

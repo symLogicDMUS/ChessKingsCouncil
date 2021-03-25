@@ -2,7 +2,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {neighborWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
-import {headerWidthDesktop} from "../Header/ProfileHeader.jss";
+import {headerWidthwide} from "../Header/ProfileHeader.jss";
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-width: 960px)': {
             flexDirection: 'row',
-            width: headerWidthDesktop,
+            width: headerWidthwide,
             marginTop: '0.875vw',
             marginBottom: '0.875vw',
         },

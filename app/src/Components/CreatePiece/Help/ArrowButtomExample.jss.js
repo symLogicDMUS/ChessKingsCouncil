@@ -19,13 +19,13 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
         },
         "@media screen and (min-width: 412px) and (max-width: 768px)": {
-            fontSize: fontSizes.mobile,
+            fontSize: fontSizes.thin,
         },
         '@media screen and (min-width: 768px) and (max-width: 960px)': {
             fontSize: fontSizes.ipad,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
+            fontSize: fontSizes.wide,
         },
         ...buttonPos[props.angle],
         width: '2.75em',
@@ -44,13 +44,13 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
         },
         "@media screen and (min-width: 412px) and (max-width: 768px)": {
-            fontSize: fontSizes.mobile,
+            fontSize: fontSizes.thin,
         },
         '@media screen and (min-width: 768px) and (max-width: 960px)': {
             fontSize: fontSizes.ipad,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
+            fontSize: fontSizes.wide,
         },
         width: '2.75em',
         height: '2.75em',
@@ -62,13 +62,13 @@ export const useStyles = makeStyles({
             fontSize: fontSizes.ipx,
         },
         "@media screen and (min-width: 412px) and (max-width: 768px)": {
-            fontSize: fontSizes.mobile,
+            fontSize: fontSizes.thin,
         },
         '@media screen and (min-width: 768px) and (max-width: 960px)': {
             fontSize: fontSizes.ipad,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
+            fontSize: fontSizes.wide,
         },
         width: '2em',
         height: '2em',

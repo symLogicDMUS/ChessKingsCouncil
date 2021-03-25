@@ -127,7 +127,7 @@ export function PieceProfiles(props) {
             <MediaQuery minWidth={960}>
                 <div className={classes.profiles_window}>
                     {state.loaded ? (
-                        getProfiles('desktop')
+                        getProfiles('wide')
                     ) : (
                         <ProfileSkeleton theme={props.theme}/>
                     )}
@@ -136,7 +136,7 @@ export function PieceProfiles(props) {
             <MediaQuery maxWidth={960}>
                 <div className={classes.profiles_window}>
                     {state.loaded ? (
-                        getProfiles('mobile')
+                        getProfiles('thin')
                     ) : (
                         <ProfileSkeleton theme={props.theme}/>
                     )}

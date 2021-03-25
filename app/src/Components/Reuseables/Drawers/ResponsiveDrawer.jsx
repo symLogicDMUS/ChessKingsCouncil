@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import clsx from "clsx";
+import Box from "@material-ui/core/Box";
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -11,7 +12,6 @@ import IconButton from '@material-ui/core/IconButton';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MiniVariantDrawer from "./MiniVariantDrawer";
 import {toolDrawerWidth, useStyles} from "./ResponsiveDrawer.jss";
-import Box from "@material-ui/core/Box";
 import {viewWidth} from "../../helpers/windowMeasurments";
 
 function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, children}) {
@@ -34,10 +34,10 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, children
     const classes = useStyles({theme: theme, navDrawerWidth: navDrawerWidth});
     const muiTheme = useTheme();
 
-    const [mobileOpen, setMobileOpen] = useState(false);
+    const [thinOpen, setthinOpen] = useState(false);
 
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+        setthinOpen(!thinOpen);
     };
 
     return (
@@ -57,12 +57,12 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, children
                     {titleBar}
                 </Toolbar>
             </AppBar>
-            <nav className={classes.drawer} aria-label="mailbox folders">
+            <nav className={classes.drawer} aria-label="nav bar component">
                 <Hidden mdUp>
                     <Drawer
                         variant="temporary"
                         anchor={muiTheme.direction === 'rtl' ? 'right' : 'left'}
-                        open={mobileOpen}
+                        open={thinOpen}
                         onClose={handleDrawerToggle}
                         classes={{
                             paper: classes.navDrawerPaper,

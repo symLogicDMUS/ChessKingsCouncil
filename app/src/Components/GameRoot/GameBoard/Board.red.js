@@ -9,32 +9,32 @@ import {getFranchisePieceImg} from "../../MyPieces/getFranchisePieceImg";
 export const updateOnResize = (gameRoot) => {
     const vh = viewHeight();
     const vw = viewWidth();
-    const sqrSizeDesktop = vw * 0.051;
-    const sqrSizeMobile = vw * 0.11875;
+    const sqrSizewide = vw * 0.051;
+    const sqrSizethin = vw * 0.11875;
     let currentSqrSize;
     if (vw > 1040) {
-        currentSqrSize = sqrSizeDesktop
+        currentSqrSize = sqrSizewide
     }
     else {
-        currentSqrSize = sqrSizeMobile;
+        currentSqrSize = sqrSizethin;
     }
     return {
         pieces: setStartingPieces(gameRoot, currentSqrSize),
         sqrSizes: {
-            desktop: sqrSizeDesktop,
-            mobile: sqrSizeMobile
+            wide: sqrSizewide,
+            thin: sqrSizethin
         },
         boardSizes: {
-            desktop: sqrSizeDesktop * 8,
-            mobile: sqrSizeMobile * 8,
+            wide: sqrSizewide * 8,
+            thin: sqrSizethin * 8,
         },
         boardPos: {
-            desktop: {
-                left: vw * 0.45 - sqrSizeDesktop * 8 * 0.5,
-                top: (vh*0.5+appBarHeight*0.5) - sqrSizeDesktop * 8 * 0.5,
+            wide: {
+                left: vw * 0.45 - sqrSizewide * 8 * 0.5,
+                top: (vh*0.5+appBarHeight*0.5) - sqrSizewide * 8 * 0.5,
             },
-            mobile: {
-                left: vw*0.5 - sqrSizeMobile*8 * 0.5,
+            thin: {
+                left: vw*0.5 - sqrSizethin*8 * 0.5,
                 top: appBarHeight*1.1,
             },
         }

@@ -12,7 +12,7 @@ export const inline_text = (fontSize, theme) => ({
 
 export const example_box = (screenCase) => {
     switch (screenCase) {
-        case 'mobile':
+        case 'thin':
             return {
                 width: "100%",
                 display: "flex",

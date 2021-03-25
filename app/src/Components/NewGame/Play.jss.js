@@ -14,7 +14,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)':{
             width: '40vw',
         },
-        /*laptop/desktop*/
+        /*laptop/wide*/
         '@media screen and (min-width: 960px)': {
             width: '17.5vw',
         },

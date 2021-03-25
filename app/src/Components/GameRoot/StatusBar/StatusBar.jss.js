@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
             justifyContent: 'center',
         },
     }),
-    // desktop only
+    // wide only
     page_name: props => ({
         fontSize: fontSize002,
         marginLeft: '0.8em',

@@ -15,8 +15,8 @@ import {HelpTitle} from "./Help/HelpTitle";
 import {buttonStyle, listStyle, rowStyle} from "./Help/HelpTable.jss";
 
 const fontSizes = {
-    desktop: fontSize002,
-    mobile: fontSizeW0045,
+    wide: fontSize002,
+    thin: fontSizeW0045,
 };
 
 export function HelpModal({ theme, screenCase }) {

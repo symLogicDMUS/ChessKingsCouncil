@@ -5,7 +5,7 @@ import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const img_grid_root = (screenCase) => {
     switch (screenCase) {
-        case 'mobile':
+        case 'thin':
             return {
                 marginTop: appBarHeight
             }

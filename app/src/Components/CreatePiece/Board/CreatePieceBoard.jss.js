@@ -3,8 +3,8 @@ import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 import {viewHeight} from "../../helpers/windowMeasurments";
 
 export const sqrSize = {
-    desktop: '2vh',
-    mobile: '11.5vw',
+    wide: '5.3125vw',
+    thin: '11.5vw',
 };
 
 export const useStyles = makeStyles({
@@ -17,7 +17,9 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-width: 960px)': {
             boxShadow: '0 0 0.1em white',
-            margin: 'auto',
+            position: 'absolute',
+            left: '25.25vw',
+            top: 56,
         },
     }),
 }, {index: 1});

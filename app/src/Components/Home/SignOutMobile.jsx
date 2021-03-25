@@ -25,7 +25,7 @@ export function SignOutMobile({signOut, theme}) {
                 <AccountCircle />
             </SvgIcon>
             <img
-                src={`/Images/text/main menu/mobile/${theme}/${hover ? 'hover' : 'normal'}/Sign Out.svg`}
+                src={`/Images/text/main menu/thin/${theme}/${hover ? 'hover' : 'normal'}/Sign Out.svg`}
                 className={classes.page_name}
             />
         </Box>

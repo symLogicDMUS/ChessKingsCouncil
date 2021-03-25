@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
             alignContent: 'center',
         },
     }),
-    app_title_mobile: props => ({
+    app_title_thin: props => ({
         '@media screen and (max-width: 412px)': {
             width: availWidth() * 0.6,
         },
@@ -30,7 +30,7 @@ export const useStyles = makeStyles((theme) => ({
         },
         marginBottom: '1vh',
     }),
-    app_title_desktop: (props) => ({
+    app_title_wide: (props) => ({
         width: availWidth() * 0.8,
     }),
 }), {index: 1});

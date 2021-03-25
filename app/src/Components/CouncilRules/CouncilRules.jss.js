@@ -52,13 +52,13 @@ export const useStyles = makeStyles({
         fontFamily: 'Garamond',
         lineHeight: '1.2em',
     }),
-    parchment_desktop: props => ({
+    parchment_wide: props => ({
         ...parchment(),
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100%, 100%',
         backgroundImage: 'url("/Images/CouncilRules/parchment.svg")',
     }),
-    parchment_mobile: props => ({
+    parchment_thin: props => ({
         ...parchment(),
         backgroundRepeat: 'repeat-y',
         backgroundSize: '100%, 100%',

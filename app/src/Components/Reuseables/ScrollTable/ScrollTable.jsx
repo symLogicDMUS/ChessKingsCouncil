@@ -17,10 +17,10 @@ import { useStyles } from "./ScrollTable.jss";
  * @param theme
  * @param width
  * @param fontSize
- * @param rootClassProp
- * @param listItemClassProp
- * @param arrowButtonClassProp
- * @param arrowIconClassProp
+ * @param rootClassName
+ * @param listItemClassName
+ * @param arrowButtonClassName
+ * @param arrowIconClassName
  * @param textClassProp
  * @param addedClassProp
  * @returns {JSX.Element}
@@ -33,10 +33,10 @@ function ScrollTable({
     theme,
     width,
     fontSize,
-    rootClassProp,
-    listItemClassProp,
-    arrowButtonClassProp,
-    arrowIconClassProp,
+    rootClassName,
+    listItemClassName,
+    arrowButtonClassName,
+    arrowIconClassName,
     textClassProp,
     addedClassProp,
 }) {
@@ -49,7 +49,7 @@ function ScrollTable({
             numRows,
             classes,
             textClassProp,
-            listItemClassProp,
+            listItemClassName,
         ),
     });
 
@@ -60,14 +60,14 @@ function ScrollTable({
             numRows: numRows,
             classes: classes,
             textClassProp: textClassProp,
-            listItemClassProp: listItemClassProp,
+            listItemClassProp: listItemClassName,
         });
-    }, [listItems.length, listItemClassProp, textClassProp, classes, numRows]);
+    }, [listItems.length, listItemClassName, textClassProp, classes, numRows]);
 
     return (
         <Box
             className={clsx(classes.scroll_table, {
-                [rootClassProp]: rootClassProp,
+                [rootClassName]: rootClassName,
             })}
         >
             {title ? title : null}
@@ -78,11 +78,11 @@ function ScrollTable({
                         numRows: numRows,
                         classes: classes,
                         textClassProp: textClassProp,
-                        listItemClassProp: listItemClassProp,
+                        listItemClassProp: listItemClassName,
                     })
                 }
                 className={clsx(classes.arrow_button, {
-                    [arrowButtonClassProp]: arrowButtonClassProp,
+                    [arrowButtonClassName]: arrowButtonClassName,
                 })}
                 fullWidth={true}
                 disableElevation={true}
@@ -90,7 +90,7 @@ function ScrollTable({
             >
                 <ArrowDropUpIcon
                     className={clsx(classes.arrow_icon, {
-                        [arrowIconClassProp]: arrowIconClassProp,
+                        [arrowIconClassName]: arrowIconClassName,
                     })}
                 />
             </Button>
@@ -102,11 +102,11 @@ function ScrollTable({
                         numRows: numRows,
                         classes: classes,
                         textClassProp: textClassProp,
-                        listItemClassProp: listItemClassProp,
+                        listItemClassProp: listItemClassName,
                     })
                 }
                 className={clsx(classes.arrow_button, {
-                    [arrowButtonClassProp]: arrowButtonClassProp,
+                    [arrowButtonClassName]: arrowButtonClassName,
                 })}
                 disableElevation={true}
                 fullWidth={true}
@@ -114,7 +114,7 @@ function ScrollTable({
             >
                 <ArrowDropDownIcon
                     className={clsx(classes.arrow_icon, {
-                        [arrowButtonClassProp]: arrowButtonClassProp,
+                        [arrowButtonClassName]: arrowButtonClassName,
                     })}
                 />
             </Button>

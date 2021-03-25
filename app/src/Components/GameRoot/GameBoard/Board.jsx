@@ -41,23 +41,23 @@ export const Board = ({ gameRoot }) => {
                         state={state}
                         dispatch={dispatch}
                         gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.desktop}
-                        boardSize={state.boardSizes.desktop}
-                        boardPos={state.boardPos.desktop}
+                        sqrSize={state.sqrSizes.wide}
+                        boardSize={state.boardSizes.wide}
+                        boardPos={state.boardPos.wide}
                         theme={gameRoot.state.theme}
                     />
                     <DragLayer
                         gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.desktop}
-                        boardSize={state.boardSizes.desktop}
-                        boardPos={state.boardPos.desktop}
+                        sqrSize={state.sqrSizes.wide}
+                        boardSize={state.boardSizes.wide}
+                        boardPos={state.boardPos.wide}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard
                         theme={gameRoot.state.theme}
-                        sqrSize={state.sqrSizes.desktop}
-                        boardSize={state.boardSizes.desktop}
-                        boardPos={state.boardPos.desktop}
+                        sqrSize={state.sqrSizes.wide}
+                        boardSize={state.boardSizes.wide}
+                        boardPos={state.boardPos.wide}
                     />
                 </DndProvider>
             </MediaQuery>
@@ -67,23 +67,23 @@ export const Board = ({ gameRoot }) => {
                         state={state}
                         dispatch={dispatch}
                         gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.mobile}
-                        boardSize={state.boardSizes.mobile}
-                        boardPos={state.boardPos.mobile}
+                        sqrSize={state.sqrSizes.thin}
+                        boardSize={state.boardSizes.thin}
+                        boardPos={state.boardPos.thin}
                         theme={gameRoot.state.theme}
                     />
                     <DragLayer
                         gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.mobile}
-                        boardSize={state.boardSizes.mobile}
-                        boardPos={state.boardPos.mobile}
+                        sqrSize={state.sqrSizes.thin}
+                        boardSize={state.boardSizes.thin}
+                        boardPos={state.boardPos.thin}
                         theme={gameRoot.state.theme}
                     />
                     <GameDisplayBoard
                         theme={gameRoot.state.theme}
-                        sqrSize={state.sqrSizes.mobile}
-                        boardSize={state.boardSizes.mobile}
-                        boardPos={state.boardPos.mobile}
+                        sqrSize={state.sqrSizes.thin}
+                        boardSize={state.boardSizes.thin}
+                        boardPos={state.boardPos.thin}
                     />
                 </DndProvider>
             </MediaQuery>

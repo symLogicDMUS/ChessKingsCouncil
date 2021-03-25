@@ -13,19 +13,19 @@ const getSqrColor = (isLightSqr, theme) => {
 };
 
 
-const sqrSizeDesktop = '1.7vw';
-const sqrSizeMobile = '4.226238vw';
+const sqrSizewide = '1.7vw';
+const sqrSizethin = '4.226238vw';
 
 export const useStyles = makeStyles({
     square: props => ({
         ...rfToGridLoc(props.rf),
         '@media screen and (max-width: 960px)': {
-            width: sqrSizeMobile,
-            height: sqrSizeMobile,
+            width: sqrSizethin,
+            height: sqrSizethin,
         },
         '@media screen and (min-width: 960px)': {
-            width: sqrSizeDesktop,
-            height: sqrSizeDesktop,
+            width: sqrSizewide,
+            height: sqrSizewide,
         },
         backgroundColor: getSqrColor(props.isLightSqr, props.theme),
     }),

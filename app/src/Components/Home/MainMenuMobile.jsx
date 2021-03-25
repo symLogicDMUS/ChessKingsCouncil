@@ -20,14 +20,14 @@ export function MainMenuMobile(props) {
                 </MediaQuery>
                 <MediaQuery minWidth={768}>
                     <img
-                        src={`/Images/titles/desktop/title-${props.theme}.svg`}
+                        src={`/Images/titles/wide/title-${props.theme}.svg`}
                         className={classes.title}
                     />
                 </MediaQuery>
                 <SignOutMobile
                     theme={props.theme}
                     signOut={props.signOut}
-                    screenCase='mobile'
+                    screenCase='thin'
                 />
                 <PageLinkMobile
                     path="/NewGame"

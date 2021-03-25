@@ -6,12 +6,12 @@ import {drawerFontSize, getDrawerFontSize} from "../ProfileWB/ProfileWB.jss";
 export const useStyles = makeStyles({
     header: props => ({
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
-            width: widths.desktop,
+            fontSize: fontSizes.wide,
+            width: widths.wide,
         },
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSizes.mobile,
-            width: widths.mobile,
+            fontSize: fontSizes.thin,
+            width: widths.thin,
         },
         width: '100%',
         height: '1.5em',

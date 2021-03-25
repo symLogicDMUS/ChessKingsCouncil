@@ -18,8 +18,8 @@ export const HelpText = (fontSize, theme) => [
         </p>
         <p>
             The game name, type (Standard, Custom or Council), and player type
-            (white, black or test) are listed in the sidebar on desktop and the
-            bottom accordion on mobile.
+            (white, black or test) are listed in the sidebar on wide and the
+            bottom accordion on thin.
         </p>
         <GameInfoExample theme={theme} />
         <p>

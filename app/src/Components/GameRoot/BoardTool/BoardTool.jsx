@@ -1,8 +1,9 @@
 import React, { useReducer } from "react";
-import MediaQuery from "react-responsive/src";
-import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
 import { MiniBoard } from "./MiniBoard";
+import Box from "@material-ui/core/Box";
+import MediaQuery from "react-responsive/src";
+import { Typography } from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./BoardTool.red";
 import { useStyles } from "./BoardTool.jss";
@@ -10,7 +11,6 @@ import { useStyles } from "./BoardTool.jss";
 export function BoardTool({
     theme,
     board,
-    screenCase,
     gameType,
     allRanges,
     pieceDefs,
@@ -18,6 +18,9 @@ export function BoardTool({
     toggleSecondaryDrawer,
     showProfileOnClick,
 }) {
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? 'wide' : 'thin';
+
     const [state, dispatch] = useReducer(reducer, {
         rangeBoard: getBinaryBoarAllFalse(),
         selectedSqr: null,

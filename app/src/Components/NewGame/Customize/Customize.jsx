@@ -326,7 +326,7 @@ class Customize extends React.Component {
                                 fontSize={fontSize004025}
                                 listItems={this.promos}
                                 theme={this.state.theme}
-                                key='pawn-promotions-desktop'
+                                key='pawn-promotions-wide'
                                 rootClassProp={this.props.classes.scroll_table}
                                 addedClassProp={this.props.classes.drawer_component}
                                 arrowButtonClassProp={this.props.classes.scroll_table_button}
@@ -362,7 +362,7 @@ class Customize extends React.Component {
                         >
                             <NavBar
                                 currentPage="Customize"
-                                screenCase='desktop'
+                                screenCase='wide'
                                 helpText={HelpText(fontSize0023, this.state.theme)}
                                 helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Customizing a Game</HelpTitle>}
                                 theme={this.state.theme}
@@ -376,7 +376,7 @@ class Customize extends React.Component {
                             drawer={
                                 <NavBar
                                     currentPage="Customize"
-                                    screenCase="mobile"
+                                    screenCase="thin"
                                     helpText={HelpText(fontSizeW0045, this.state.theme)}
                                     helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Customizing a Game</HelpTitle>}
                                     redirectMessage={null}

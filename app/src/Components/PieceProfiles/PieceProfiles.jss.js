@@ -1,8 +1,8 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
-export const profileWBMarginDesktop = '1.75vw';
-export const profileWBMarginMobile = '2.5vw';
+export const profileWBMarginwide = '1.75vw';
+export const profileWBMarginthin = '2.5vw';
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({

@@ -7,8 +7,6 @@ export const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         width: props.width,
-        fontSize: props.fontSize,
-        ...props.addedStyle,
     }),
     list_item: props => ({
         fontSize: props.fontSize,

@@ -5,7 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 /**
  * Shared by custom-game (Customize) and LoadDelete (MyPieces, LoadModal in CreatePiece) headers
  * */
-export const headerWidthDesktop = '46.5vw';
+export const headerWidthwide = '46.5vw';
 
 
 export const useStyles = makeStyles({
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
             marginTop: '2.5vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: headerWidthDesktop,
+            width: headerWidthwide,
             justifyContent: 'space-between',
             marginTop: '2vh',
         },

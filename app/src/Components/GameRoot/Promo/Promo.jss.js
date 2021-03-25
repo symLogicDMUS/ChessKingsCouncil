@@ -9,24 +9,24 @@ import {
 import {availHeight} from "../../helpers/windowMeasurments";
 
 export const buttonHeight = {
-    desktop: '1em',
-    mobile: '1.5em'
+    wide: '1em',
+    thin: '1.5em'
 }
 
 export const fontSizes = {
-    desktop: fontSize00301,
-    mobile: fontSize002,
+    wide: fontSize00301,
+    thin: fontSize002,
 }
 
 // export const promoChoiceSize = availHeight() * 0.2;
 export const promoChoicesSize = {
-    desktop: availHeight() * 0.2,
-    mobile: availHeight() * 0.16,
+    wide: availHeight() * 0.2,
+    thin: availHeight() * 0.16,
 }
 
 export const promoChoicesWidth = {
-    desktop: promoChoicesSize.desktop * 4 + promoChoicesSize.desktop * 0.2,
-    mobile: promoChoicesSize.mobile * 2 + promoChoicesSize.mobile * 0.16,
+    wide: promoChoicesSize.wide * 4 + promoChoicesSize.wide * 0.2,
+    thin: promoChoicesSize.thin * 2 + promoChoicesSize.thin * 0.16,
 }
 
 export const ok_button = (screenCase, theme) => ({
@@ -56,10 +56,10 @@ export const useStyles = makeStyles({
     menu: props => ({
         fontSize: fontSize01,
         '@media screen and (min-width: 960px)': {
-            height: promoChoicesSize.desktop * 1.085,
+            height: promoChoicesSize.wide * 1.085,
         },
         '@media screen and (max-width: 960px)': {
-            height: promoChoicesSize.mobile,
+            height: promoChoicesSize.thin,
         },
         backgroundColor: themes[props.theme].odd_row,
         borderRadius: '0.1em'
@@ -67,12 +67,12 @@ export const useStyles = makeStyles({
     img_group: (props) => ({
         fontSize: props.fontSize,
         '@media screen and (min-width: 960px)': {
-            height: promoChoicesSize.desktop,
-            width: promoChoicesWidth.desktop,
+            height: promoChoicesSize.wide,
+            width: promoChoicesWidth.wide,
         },
         '@media screen and (max-width: 960px)': {
-            height: promoChoicesSize.mobile,
-            width: promoChoicesWidth.mobile,
+            height: promoChoicesSize.thin,
+            width: promoChoicesWidth.thin,
         },
     }),
     item_active: props => ({
@@ -80,14 +80,14 @@ export const useStyles = makeStyles({
     }),
     ok_button: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSizes.mobile,
-            width: promoChoicesWidth.mobile,
-            height: buttonHeight.mobile,
+            fontSize: fontSizes.thin,
+            width: promoChoicesWidth.thin,
+            height: buttonHeight.thin,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSizes.desktop,
-            width: promoChoicesWidth.desktop,
-            height: buttonHeight.desktop,
+            fontSize: fontSizes.wide,
+            width: promoChoicesWidth.wide,
+            height: buttonHeight.wide,
         },
         borderRadius: "0.8em",
         borderTopLeftRadius: 0,

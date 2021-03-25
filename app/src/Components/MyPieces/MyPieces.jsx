@@ -49,7 +49,7 @@ class MyPieces extends React.Component {
             <>
                 <MediaQuery minWidth={960}>
                     <NavBar
-                        screenCase='desktop'
+                        screenCase='wide'
                         currentPage="MyPieces"
                         theme={this.state.theme}
                         updateTheme={this.updateTheme}
@@ -65,7 +65,7 @@ class MyPieces extends React.Component {
                                 searchText={this.state.searchText}
                             >
                                 <ProfilesTitle
-                                    screenCase='desktop'
+                                    screenCase='wide'
                                     theme={this.state.theme}
                                     updateSearchText={this.updateSearchText}
                                 >
@@ -80,7 +80,7 @@ class MyPieces extends React.Component {
                         spacing={0}
                         drawer={
                             <NavBar
-                                screenCase="mobile"
+                                screenCase="thin"
                                 flexDirection="column"
                                 currentPage="MyPieces"
                                 helpText={HelpText(fontSizeW0045, this.state.theme)}
@@ -102,7 +102,7 @@ class MyPieces extends React.Component {
                                     style={piece_profiles()}
                                 >
                                     <ProfilesTitle
-                                        screenCase='mobile'
+                                        screenCase='thin'
                                         theme={this.state.theme}
                                         updateSearchText={this.updateSearchText}
                                     >
@@ -120,7 +120,7 @@ class MyPieces extends React.Component {
                 {/*        searchText={this.state.searchText}*/}
                 {/*    >*/}
                 {/*        <ProfilesTitle*/}
-                {/*            screenCase='desktop'*/}
+                {/*            screenCase='wide'*/}
                 {/*            theme={this.state.theme}*/}
                 {/*            updateSearchText={this.updateSearchText}*/}
                 {/*        >*/}

@@ -27,19 +27,13 @@ export const useStyles = makeStyles({
             width: 65 * 8 * 0.1,
         },
     }),
-    scroll_table_style: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: '9em',
-            height: 9,
-            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
-        },
-    }),
     scroll_table_list_item: props => ({
-        fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
-        height: '1.8em',
+        height: '1.7vw',
     }),
     scroll_table_arrow_button: props => ({
         borderRadius: 0,
+        height: '1.0625vw',
+        minHeight: 'unset',
     }),
 }, {index: 1});
 

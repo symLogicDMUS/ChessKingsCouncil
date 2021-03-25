@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
         border: 'black',
     }),
     icon: props => ({
-        /*desktop*/
+        /*wide*/
         '@media screen and (min-width: 960px)': {
             width: '2.15vw',
             height: '2.15vw',
@@ -26,7 +26,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].button_text,
     }),
     text: props => ({
-        /*desktop*/
+        /*wide*/
         '@media screen and (min-width: 960px)': {
             fontSize: '1vw',
         },

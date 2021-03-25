@@ -3,26 +3,22 @@ import {themes} from "../../styles/themes.jss";
 import {fontSize0023} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
+    profile_wb_modal: props => ({
+        width: '50vw',
+        height: '47.5vh',
+        position: 'absolute',
+        left: '22.5vw',
+        top: '12.5vw',
+        zIndex: 1000,
+        padding: '0.25vh',
+        borderRadius: '0.5rem',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.075em solid ${themes[props.theme].outline}`,
+    }),
     profile_top: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
-        '@media screen and (max-width: 960px)': {
-
-        },
-        '@media screen and (min-width: 960px)': {
-
-        },
-    }),
-    profile_wb_modal: props => ({
-        '@media screen and (max-width: 960px)': {
-
-        },
-        '@media screen and (min-width: 960px)': {
-
-        },
-        backgroundColor: themes[props.theme].fill,
-        border: `0.075em solid ${themes[props.theme].outline}`,
     }),
     wb_container: props => ({
         display: 'flex',
@@ -31,30 +27,25 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 'auto',
-        '@media screen and (max-width: 960px)': {
-
-        },
-        '@media screen and (min-width: 960px)': {
-
-        },
     }),
     header: props => ({
-        '@media screen and (max-width: 960px)': {
-
-        },
-        '@media screen and (min-width: 960px)': {
-
-        },
+        width: '100%',
+        textAlign: 'center',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto-Light, Roboto',
+        lineHeight: '1.2em',
+    }),
+    close_window_row: props => ({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
     }),
     close_icon: props => ({
-        fontSize: fontSize0023,
-        '@media screen and (min-width: 960px)': {
-            width: "1.5em",
-            height: "1.5em",
-        },
-        '@media screen and (max-width: 960px)': {
-            width: "0.5em",
-            height: "0.5em",
-        },
+        width: '1.5vh',
+        height: '1.5vh',
+        fontSize: '2.25vh',
     }),
 }, {index: 1});

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {IconButton} from "@material-ui/core";
@@ -6,7 +6,7 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../../../styles/icons/top/icons.jss";
 import {useStyles} from "./ArrowButton.jss"
 
-export function ArrowButton({angle, isActive, isOffset, toggleSpan, screenCase, theme}) {
+export const ArrowButton = memo(({angle, isActive, isOffset, toggleSpan, screenCase, theme}) => {
     const classes = useStyles({theme: theme})
     return (
         <>
@@ -18,7 +18,7 @@ export function ArrowButton({angle, isActive, isOffset, toggleSpan, screenCase, 
                     className={clsx(classes.arrow_button_container, {
                         [classes.button_container_normal]: ! isActive,
                         [classes.button_container_selected]: isActive,
-                        [classes.button_container_mobile]: screenCase === "mobile",
+                        [classes.button_container_thin]: screenCase === "thin",
                         [classes.button_container_adjust]: isOffset && ! isActive,
                     })}
                 >
@@ -34,4 +34,4 @@ export function ArrowButton({angle, isActive, isOffset, toggleSpan, screenCase, 
             )}
         </>
     );
-}
+})
