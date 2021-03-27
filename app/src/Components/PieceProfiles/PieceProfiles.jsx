@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from "react";
+import React, {memo, useEffect, useMemo, useReducer} from "react";
 import {Profile} from "./Profile";
 import {copy} from "../helpers/copy";
 import MediaQuery from "react-responsive/src";
@@ -7,6 +7,7 @@ import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {dbSampleDefs} from "../../API/apiHelpers/sampleDefs/dev1";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {getSampleDefs} from "../../API/getSampleDefs";
 import {saveDefs} from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
@@ -15,25 +16,30 @@ import {useStyles} from "./PieceProfiles.jss";
 import clsx from "clsx";
 
 /*children is a header or none, depending on the parent page*/
-export function PieceProfiles(props) {
+export function PieceProfiles (props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
-
-    const classes = useStyles({theme: props.theme});
 
     useEffect(() => {
         let defs;
-        getDefs().then(([result]) => {
-            if (!result) {
-                saveDefs(dbSampleDefs).then(([r]) => {
-                    defs = getSampleDefs();
-                    afterLoaded(defs)
-                })
-            } else {
-                defs = result;
-                afterLoaded(defs)
-            }
-        });
+        defs = getSampleDefs();
+        afterLoaded(defs)
+        // getDefs().then(([result]) => {
+        //     if (!result) {
+        //         saveDefs(dbSampleDefs).then(([r]) => {
+        //             defs = getSampleDefs();
+        //             afterLoaded(defs)
+        //         })
+        //     } else {
+        //         defs = result;
+        //         afterLoaded(defs)
+        //     }
+        // });
     }, []);
+
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? 'wide' : 'thin';
+
+    const classes = useStyles({theme: props.theme});
 
     const afterLoaded = (defs) => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
@@ -58,9 +64,9 @@ export function PieceProfiles(props) {
         }
     };
 
-    const getProfiles = (screenCase) => {
-        let profiles = [];
-        let pieceNames = getPieceNames();
+    const getProfiles = () => {
+        const profiles = [];
+        const pieceNames = getPieceNames();
         if (
             props.parentPage === "CreatePiece" ||
             props.parentPage === "MyPieces"
@@ -80,7 +86,6 @@ export function PieceProfiles(props) {
                             pieceName={pieceName}
                             load={props.load}
                             dispatch={dispatch}
-                            screenCase={screenCase}
                             def={state.defs[pieceName]}
                             parentPage={props.parentPage}
                             toggleModal={props.toggleModal}
@@ -96,8 +101,8 @@ export function PieceProfiles(props) {
                         defs={state.defs}
                         key={`${pieceName}-profile`}
                         pieceName={pieceName}
-                        theme={props.theme}
                         expand={props.expand}
+                        theme={props.theme}
                         screenCase={screenCase}
                     >
                         <CustomizeHeader
@@ -107,8 +112,8 @@ export function PieceProfiles(props) {
                             promos={props.promos}
                             toggleSub={props.toggleSub}
                             togglePromo={props.togglePromo}
-                            screenCase={screenCase}
                             theme={props.theme}
+                            screenCase={screenCase}
                         />
                     </Profile>
                 );
@@ -116,32 +121,24 @@ export function PieceProfiles(props) {
         } else {
             return <ProfileHeaderError/>;
         }
+
         return profiles;
+
     };
 
     return (
         <div className={clsx(classes.piece_profiles, {
             [props.classProp]: props.classProp,
-        })}>
+        })}
+        >
             {props.children}
-            <MediaQuery minWidth={960}>
-                <div className={classes.profiles_window}>
-                    {state.loaded ? (
-                        getProfiles('wide')
-                    ) : (
-                        <ProfileSkeleton theme={props.theme}/>
-                    )}
-                </div>
-            </MediaQuery>
-            <MediaQuery maxWidth={960}>
-                <div className={classes.profiles_window}>
-                    {state.loaded ? (
-                        getProfiles('thin')
-                    ) : (
-                        <ProfileSkeleton theme={props.theme}/>
-                    )}
-                </div>
-            </MediaQuery>
+            <div className={classes.profiles_area}>
+                {state.loaded ? (
+                    getProfiles()
+                ) : (
+                    <ProfileSkeleton theme={props.theme}/>
+                )}
+            </div>
         </div>
     );
 }

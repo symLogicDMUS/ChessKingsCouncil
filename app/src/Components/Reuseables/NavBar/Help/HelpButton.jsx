@@ -62,12 +62,25 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                         className={clsx(classes.icon, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
+
                         })}
                     />
                     <Typography
                         className={clsx(classes.text, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
                         })}
                         noWrap
                     >

@@ -1,20 +1,17 @@
 import React from "react";
 import MediaQuery from "react-responsive";
 import Typography from "@material-ui/core/Typography";
+import "../Reuseables/Background/_backgrounds.scss";
+import {HelpText} from "./HelpText";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
-import {HelpText} from "./HelpText";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import "../Reuseables/Background/_backgrounds.scss";
-import {
-    piece_profiles,
-    styles
-} from "./MyPieces.jss";
 import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import {piece_profiles, styles} from "./MyPieces.jss";
 
 class MyPieces extends React.Component {
     constructor(props) {

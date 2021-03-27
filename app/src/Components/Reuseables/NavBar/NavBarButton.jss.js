@@ -1,8 +1,9 @@
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize0015, fontSize002, fontSize0023, fontSize0024,} from "../../styles/fontSizes.jss";
+import {fontSize0015, fontSize00184} from "../../styles/fontSizes.jss";
 
 const margin = '0.4em';
+const thinScreenFontSize = '3vw';
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({
@@ -10,19 +11,19 @@ export const useStyles = makeStyles({
         flexGrow: 3,
         borderRadius: 0,
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize0024,
+            fontSize: '3vw',
             justifyContent: "flex-start",
             width: "99%",
             height: "2.5em"
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: fontSize00184,
             justifyContent: "center",
             height: "2.25em",
         },
         background: themes[props.theme].fill,
         '&:hover':{
-            backgroundColor: themes[props.theme].button_fill,
+            backgroundColor: themes[props.theme].button_hover_fill,
         },
     }),
     box: props => ({
@@ -34,10 +35,10 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize0024,
+            fontSize: fontSize00184,
         },
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize0023,
+            fontSize: thinScreenFontSize,
         },
         '@media screen and (min-width: 960px) and (max-width: 1220px)': {
             fontSize: fontSize0015,
@@ -46,15 +47,17 @@ export const useStyles = makeStyles({
     }),
     text: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: fontSize00184,
             marginRight: margin,
             marginTop: '0.1525em',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: fontSize00184,
             marginRight: margin,
             marginTop: '0.15em',
         },
+    }),
+    horizontal_nav_text_adjust: props => ({
         '@media screen and (min-width: 960px) and (max-width: 1220px)': {
             fontSize: fontSize0015,
         },

@@ -6,9 +6,9 @@ import {sqrSize, useStyles as useMoreStyles} from "./ProfileWBRangeSquare.jss";
 
 export const ProfileWBRangeSquare = memo(({
     rf,
+    theme,
     isInRange,
     rangeType,
-    theme,
     screenCase,
     children,
 }) => {

@@ -2,8 +2,8 @@ import React, {memo, useReducer} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { Portal } from "@material-ui/core";
-import { ProfileWBAvatar } from "./ProfileWBAvatar";
-import { ProfileWBRange } from "./ProfileWBRange";
+import ProfileWBAvatar  from "./ProfileWBAvatar";
+import ProfileWBRange from "./ProfileWBRange";
 import { PartialRangeModal } from
         "../PartialRangeModal/PartialRangeModal";
 import { reducer } from "./ProfileWB.red";

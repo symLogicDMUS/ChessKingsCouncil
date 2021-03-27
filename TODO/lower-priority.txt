@@ -1,4 +1,6 @@
 short:
+    consider giving Customize Game title text more of a marginLeft, or making the content flexbox shorter.
+    replace ImgWindows Icons from Image icon to AddPhoto icon
     new icon of a board for Load Game modal
     fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger

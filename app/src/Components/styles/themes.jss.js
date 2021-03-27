@@ -14,7 +14,7 @@ export const themes = {
         nav_text: '#252525',
         button_fill: '#414141',
         button_text: '#a9a9a9',
-        button_hover_fill: '',
+        button_hover_fill: '#444444',
         button_hover_text: '#a9a9a9',
         location_button_selected: '#4b6eaf',
         modal_fill: '#3f3f3f',

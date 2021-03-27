@@ -22,6 +22,7 @@ export function SubButtonGroup({
     customPieceName,
     standardPieceThatSubbingFor,
 }) {
+
     const classes = useStyles({ theme: theme });
 
     return (

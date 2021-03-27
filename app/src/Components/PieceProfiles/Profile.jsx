@@ -1,10 +1,11 @@
-import React, {memo} from "react";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import { ProfileWB } from "./ProfileWB/ProfileWB";
 import { useStyles } from "./Profile.jss";
 
-export const Profile = ({pieceName, expand, defs, theme, screenCase, children })  => {
-    /**children is a header for the profile of the piece */
+/**children is a header for the profile of the piece */
+export function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
+
     const classes = useStyles({theme: theme});
 
     return (
@@ -28,4 +29,4 @@ export const Profile = ({pieceName, expand, defs, theme, screenCase, children })
             />
         </Box>
     );
-};
+}

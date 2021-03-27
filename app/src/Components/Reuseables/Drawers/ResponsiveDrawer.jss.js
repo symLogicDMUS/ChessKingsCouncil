@@ -6,6 +6,7 @@ const z = 5;
 export const appBarHeight = 48;
 export const toolDrawerWidth = viewWidth() * 0.25;
 
+//replaced props.navDrawerWidth with the const value 240
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
@@ -21,16 +22,16 @@ export const useStyles = makeStyles((theme) => ({
     }),
     drawer: props => ({
         [theme.breakpoints.up('md')]: {
-            width: props.navDrawerWidth,
+            width: 240,
             flexShrink: 0,
         },
     }),
     appBar: props => ({
-        marginLeft: props.navDrawerWidth,
+        marginLeft: 240,
         background: themes[props.theme].fill,
     }),
     appBarCompressed: props => ({
-        width: `calc(100% - ${props.navDrawerWidth}px)`,
+        width: `calc(100% - ${240}px)`,
     }),
     appBarRelaxed: props => ({
         width: '100%',
@@ -51,13 +52,13 @@ export const useStyles = makeStyles((theme) => ({
         backgroundColor: themes[props.theme].fill2,
     }),
     navPermanentPaper: props => ({
-        width: props.navDrawerWidth,
+        width: 240,
         '@media screen and (max-width: 960px)': {
             width: 0,
         },
     }),
     navPersistentPaper: props => ({
-        width: props.navDrawerWidth,
+        width: 240,
     }),
     toolDrawerPaper: props => ({
         width: toolDrawerWidth,

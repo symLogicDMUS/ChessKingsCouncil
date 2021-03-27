@@ -17,6 +17,7 @@ export function NavBarButton({
     screenCase,
     isLocalLink,
     isUnsavedChanges,
+    currentPage,
     theme,
 }) {
     const history = useHistory();
@@ -77,7 +78,7 @@ export function NavBarButton({
             <Button
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: ! hover,
+                    [classes.normal_color]: !hover,
                     [classes.hover_color]: hover,
                 })}
                 onMouseEnter={() => setHover(true)}
@@ -88,6 +89,12 @@ export function NavBarButton({
                         className={clsx(classes.icon, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
                         })}
                     >
                         {icons[pageIcon]}
@@ -96,6 +103,12 @@ export function NavBarButton({
                         className={clsx(classes.text, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
                         })}
                         noWrap
                     >

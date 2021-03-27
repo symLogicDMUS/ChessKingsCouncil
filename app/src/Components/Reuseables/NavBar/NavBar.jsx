@@ -16,7 +16,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
  */
 export function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
-    const screenCase = isWide ? 'wide' : 'thin';
+    const screenCase = isWide ? "wide" : "thin";
 
     const classes = useStyles();
 

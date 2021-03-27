@@ -1,17 +1,17 @@
-import React, {useMemo} from "react";
+import React, { memo, useMemo } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {rankfiles} from "../../helpers/rankfiles";
+import { rankfiles } from "../../helpers/rankfiles";
 import { ProfileWBRangeHeader } from "../ProfileWBRangeHeader";
-import {ProfileWBRangeSquare} from "./ProfileWBRangeSquare";
-import {ProfileWBRangePiece} from "./ProfileWBRangePiece";
-import {stepFuncDict2} from "../../helpers/stepFuncs";
-import {outOfBounds as oob} from "../../helpers/oob";
-import {rfToXy, xyToRf} from "../../helpers/crdCnvrt";
-import {useStyles as useMoreStyles} from "./ProfileWB.jss";
+import { ProfileWBRangeSquare } from "./ProfileWBRangeSquare";
+import { ProfileWBRangePiece } from "./ProfileWBRangePiece";
+import { stepFuncDict2 } from "../../helpers/stepFuncs";
+import { outOfBounds as oob } from "../../helpers/oob";
+import { rfToXy, xyToRf } from "../../helpers/crdCnvrt";
+import { useStyles as useMoreStyles } from "./ProfileWB.jss";
 import { useStyles } from "./ProfileWBRange.jss";
 
-export const ProfileWBRange = ({
+function ProfileWBRange ({
     pieceLoc,
     pieceName,
     pieceImgUrl,
@@ -21,28 +21,28 @@ export const ProfileWBRange = ({
     rangeType,
     openRangeModal,
     hasDrawerParent,
-    screenCase
-}) => {
+    screenCase,
+}) {
     const classes = useStyles({ theme: theme });
-    const classes2 = useMoreStyles({theme: theme})
+    const classes2 = useMoreStyles({ theme: theme });
 
     const getSpanRf = (stepFuncName) => {
-        const span = []
+        const span = [];
         const stepFunc = stepFuncDict2[stepFuncName];
         let rf = stepFunc(pieceLoc);
         while (!oob(rf)) {
-            span.push(rf)
+            span.push(rf);
             rf = stepFunc(rf);
         }
-        return span
+        return span;
     };
 
     const getSpans = (stepFuncNames) => {
-        const spans = []
+        const spans = [];
         for (const stepFuncName of stepFuncNames) {
-            spans.push(...getSpanRf(stepFuncName))
+            spans.push(...getSpanRf(stepFuncName));
         }
-        return spans
+        return spans;
     };
 
     const getOffsetRf = (offset) => {
@@ -53,25 +53,23 @@ export const ProfileWBRange = ({
     };
 
     const getOffsets = (offsetTuples) => {
-        const offsets = []
+        const offsets = [];
         for (const offsetTuple of offsetTuples) {
-            offsets.push(getOffsetRf(offsetTuple))
+            offsets.push(getOffsetRf(offsetTuple));
         }
         return offsets;
     };
 
     const getRangeRfList = (range, rangeType) => {
-        if (rangeType === 'span') {
-            return getSpans(range)
-        }
-        else {
-            return getOffsets(range)
+        if (rangeType === "span") {
+            return getSpans(range);
+        } else {
+            return getOffsets(range);
         }
     };
 
-    const rangeRfList = useMemo(() => getRangeRfList(range, rangeType), [])
-
     const getBoard = () => {
+        const rangeRfList = getRangeRfList(range, rangeType);
         const squares = [];
         for (const rf of rankfiles) {
             if (rf === pieceLoc) {
@@ -107,15 +105,17 @@ export const ProfileWBRange = ({
             }
         }
         return squares;
-    };
+    }; //const board = useMemo(getBoard, [range, rangeType, screenCase])
 
     return (
-        <Box className={clsx(classes2.sqr_item_area, {
-            [classes2.item2]: rangeType === 'span',
-            [classes2.item3]: rangeType === 'offset',
-            [classes2.profile_wb_drawer_item]: hasDrawerParent,
-            [classes2.drawer_item_margins]: hasDrawerParent,
-        })}>
+        <Box
+            className={clsx(classes2.sqr_item_area, {
+                [classes2.item2]: rangeType === "span",
+                [classes2.item3]: rangeType === "offset",
+                [classes2.profile_wb_drawer_item]: hasDrawerParent,
+                [classes2.drawer_item_margins]: hasDrawerParent,
+            })}
+        >
             <ProfileWBRangeHeader
                 theme={theme}
                 color={color}
@@ -123,12 +123,16 @@ export const ProfileWBRange = ({
                 openRangeModal={openRangeModal}
                 hasDrawerParent={hasDrawerParent}
             />
-            <Box className={clsx(classes.board_window, {
-                [classes2.sqr_item]:true,
-                [classes2.profile_wb_drawer_item]: hasDrawerParent,
-            })}>
+            <Box
+                className={clsx(classes.board_window, {
+                    [classes2.sqr_item]: true,
+                    [classes2.profile_wb_drawer_item]: hasDrawerParent,
+                })}
+            >
                 {getBoard()}
             </Box>
         </Box>
     );
 }
+
+export default ProfileWBRange;

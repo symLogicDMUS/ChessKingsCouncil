@@ -6,7 +6,7 @@ import {Button, Portal, Typography} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 import clsx from "clsx";
 
-export function SettingsButton({updateTheme, theme, screenCase, children}) {
+export function SettingsButton({updateTheme, theme, screenCase, currentPage, children}) {
     const [hover, setHover] = useState(false);
     const [settingsModal, toggleSettingsModal] = useState(false);
 
@@ -42,12 +42,25 @@ export function SettingsButton({updateTheme, theme, screenCase, children}) {
                         className={clsx(classes.icon, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
                         })}
                     />
                     <Typography
                         className={clsx(classes.text, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
+                            [classes.horizontal_nav_text_adjust]:
+                            screenCase === "wide" &&
+                            (currentPage === "NewGame" ||
+                                currentPage === "LoadGame" ||
+                                currentPage === "MyPieces" ||
+                                currentPage === "CouncilRules"),
+
                         })}
                         noWrap
                     >

@@ -1,15 +1,27 @@
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
-import {fontSize0016, fontSize0023, fontSize0025, fontSize004025, fontSizeW004, fontSizeW0055} from "../../styles/fontSizes.jss";
+import {
+    fontSize0016,
+    fontSize0023,
+    fontSize0025,
+    fontSize004025,
+    fontSizeW004,
+    fontSizeW0055
+} from "../../styles/fontSizes.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const drawerItemWidth = drawerWidth * 0.86;
 export const drawerItemMarginTopBottom = '3.5%';
 export const drawerItemMarginLeft = '7%';
 
+export const pageTitle = (theme) => ({
+    color: themes[theme].text,
+});
+
 export const styles = {
     piece_profiles: props => ({
-        '@media screen and (min-width: 960px)': {
-            margin: 'auto'
-        },
+            position: 'absolute',
+            left: '21.5vw',
+            top: '11vh',
     }),
     scroll_table: props => ({
         '@media screen and (max-width: 960px)': {

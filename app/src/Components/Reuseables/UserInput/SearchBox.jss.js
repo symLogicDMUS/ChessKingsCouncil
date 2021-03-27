@@ -28,7 +28,6 @@ export const useStyles = makeStyles({
         width: props.width,
         backgroundColor: themes[props.theme].odd_row,
         color: themes[props.theme].text,
-        ...props.rootStyle,
     }),
     search_icon: props => ({
         fontSize: fontSize0025,

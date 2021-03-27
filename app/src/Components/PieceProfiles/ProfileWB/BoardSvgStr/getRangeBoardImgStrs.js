@@ -1,6 +1,6 @@
-//import {getRangeBoardImgStr} from "./getRangeBoardImgStr";
+import {getRangeBoardImgStr} from "./getRangeBoardImgStr";
 
-/*
+
 export function getRangeBoardImgStrs(theme, defs) {
     const colors = ["W", "B"];
     for (const pieceName of Object.keys(defs)) {
@@ -25,4 +25,3 @@ export function getRangeBoardImgStrs(theme, defs) {
     }
     return defs
 }
-*/

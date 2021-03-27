@@ -13,20 +13,21 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MiniVariantDrawer from "./MiniVariantDrawer";
 import {toolDrawerWidth, useStyles} from "./ResponsiveDrawer.jss";
 import {viewWidth} from "../../helpers/windowMeasurments";
+import {AppBarWithSearch} from "../../NewGame/Customize/AppBarWithSearch";
 
-function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighborOpen, children}) {
-    const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
-    useEffect(() => {
-        function handleResize() {
-            setNavDrawerWidth(viewWidth() * 0.18)
-        }
-        window.addEventListener('resize', handleResize)
-        return _ => {
-            window.removeEventListener('resize', handleResize)
-        }
-    });
+function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSearch, updateSearchText, neighborOpen, children}) {
+    // const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
+    // useEffect(() => {
+    //     function handleResize() {
+    //         setNavDrawerWidth(viewWidth() * 0.18)
+    //     }
+    //     window.addEventListener('resize', handleResize)
+    //     return _ => {
+    //         window.removeEventListener('resize', handleResize)
+    //     }
+    // });
 
-    const classes = useStyles({theme: theme, navDrawerWidth: navDrawerWidth});
+    const classes = useStyles({theme: theme});
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);
@@ -53,7 +54,16 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
                         >
                             <MenuIcon/>
                         </IconButton>
-                        {titleBar}
+                        {withSearch ? (
+                            <AppBarWithSearch
+                                open={open}
+                                theme={theme}
+                                navDrawerWidth={240}
+                                updateSearchText={updateSearchText}
+                            >
+                                {titleBar}
+                            </AppBarWithSearch>
+                        ) : (titleBar)}
                     </Toolbar>
                 </AppBar>
             </Hidden>
@@ -71,7 +81,11 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, neighbor
                         >
                             <MenuIcon/>
                         </IconButton>
-                        {titleBar}
+                        {withSearch ? (
+                            <AppBarWithSearch width={240} updateSearchText={updateSearchText} theme={theme}>
+                                {titleBar}
+                            </AppBarWithSearch>
+                        ) : (titleBar)}
                     </Toolbar>
                 </AppBar>
             </Hidden>

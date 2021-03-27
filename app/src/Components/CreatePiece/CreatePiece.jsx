@@ -87,7 +87,7 @@ class CreatePiece extends React.Component {
         this.triggerRender = this.triggerRender.bind(this);
         this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
         this.updateFirstVisit = this.updateFirstVisit.bind(this);
-        this.toggleminiVariantTool = this.toggleminiVariantTool.bind(this);
+        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
         //if MyPieces page redirected to here:
         if (
             this.props.location !== undefined &&
@@ -124,7 +124,7 @@ class CreatePiece extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    toggleminiVariantTool(toolName) {
+    toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
             this.setState({ miniVariantTool: null });
         } else {
@@ -437,6 +437,7 @@ class CreatePiece extends React.Component {
                             Create Piece
                         </Typography>
                     }
+                    withSearch={false}
                     tools={
                         <>
                             <Name
@@ -489,7 +490,7 @@ class CreatePiece extends React.Component {
                                     this.state.miniVariantTool === "Name"
                                 }
                                 onClick={() =>
-                                    this.toggleminiVariantTool("Name")
+                                    this.toggleMiniVariantTool("Name")
                                 }
                             />
                             <ToolButton
@@ -500,7 +501,7 @@ class CreatePiece extends React.Component {
                                     this.state.miniVariantTool === "Icon"
                                 }
                                 onClick={() =>
-                                    this.toggleminiVariantTool("Icon")
+                                    this.toggleMiniVariantTool("Icon")
                                 }
                             />
                             <ToolButton
@@ -511,7 +512,7 @@ class CreatePiece extends React.Component {
                                     this.state.miniVariantTool === "Range"
                                 }
                                 onClick={() =>
-                                    this.toggleminiVariantTool("Range")
+                                    this.toggleMiniVariantTool("Range")
                                 }
                             />
                             <ToolButton
@@ -522,7 +523,7 @@ class CreatePiece extends React.Component {
                                     this.state.miniVariantTool === "Location"
                                 }
                                 onClick={() =>
-                                    this.toggleminiVariantTool("Location")
+                                    this.toggleMiniVariantTool("Location")
                                 }
                             />
                             <ToolButton
@@ -533,7 +534,7 @@ class CreatePiece extends React.Component {
                                     this.state.miniVariantTool === "Options"
                                 }
                                 onClick={() =>
-                                    this.toggleminiVariantTool("Options")
+                                    this.toggleMiniVariantTool("Options")
                                 }
                             />
                         </>

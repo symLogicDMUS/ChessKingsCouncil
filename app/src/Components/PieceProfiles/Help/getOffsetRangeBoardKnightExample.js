@@ -1,7 +1,7 @@
 import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
-import {getOffsetDisplays} from "../ProfileWB/getOffsetDisplays";
+import {getOffsetDisplays} from "../ProfileWB/BoardSvgStr/getOffsetDisplays";
 import {knightSrcStrWhite, knightSrcStrBlack} from "./knightSrcStr";
 
 export function getOffsetRangeBoardKnightExample({theme, color}) {

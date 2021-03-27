@@ -12,6 +12,7 @@ import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 import {useStyles as useMoreStyles}
     from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export function LoadDeleteHeader({
     def,
@@ -22,7 +23,7 @@ export function LoadDeleteHeader({
     parentPage,
     toggleModal,
 }) {
-    let history = useHistory();
+    const history = useHistory();
 
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles({theme: theme});

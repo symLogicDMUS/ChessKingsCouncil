@@ -61,6 +61,8 @@ import {game_info} from "../game root/game_info.jss";
 import {game_info2} from "../game root/game_info2.jss";
 import {captured_pieces} from "../game root/captured_pieces.jss";
 import {captured_pieces_alt} from "../game root/captured_pieces_alt.jss";
+import {subs} from "../customize/subs.jss";
+import {promos} from "../customize/promos.jss";
 
 export const icons = {
     home: home,
@@ -111,6 +113,8 @@ export const icons = {
     'thin-225d': down_left_bold,
     'thin-270d': down_bold,
     'thin-315d': down_right_bold,
+    subs: subs,
+    promos: promos,
     save: save,
     save_as: save_as,
     save_alt: save_alt,

@@ -1,4 +1,4 @@
-import {getSpanDisplays} from "../ProfileWB/getSpanDisplays";
+import {getSpanDisplays} from "../ProfileWB/BoardSvgStr/getSpanDisplays";
 import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";

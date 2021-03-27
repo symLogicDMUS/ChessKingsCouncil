@@ -1,4 +1,4 @@
-import {getOffsetDisplays} from "../ProfileWB/getOffsetDisplays";
+import {getOffsetDisplays} from "../ProfileWB/BoardSvgStr/getOffsetDisplays";
 import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";

@@ -366,6 +366,7 @@ class GameRoot extends React.Component {
                 </div>
                 <ResponsiveDrawer
                     theme={this.state.theme}
+                    withSearch={false}
                     tools={
                         <>
                             <GameInfo

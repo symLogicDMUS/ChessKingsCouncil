@@ -1,12 +1,14 @@
 short:
     game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
     consider memoizing ScrollTable items
+    adjust navBar text to be smaller, for thinner viewports.
 medium:
-    remove accordion in GameRoot except for Range Display (1 item accordion)
-    remove inline styles for the MuiDropdown and MuiInput, and replace with clsx as have done with others
-    fixed alignment of Load and Delete buttons in Saved Pieces page
-    fixe PieceProfiles Skeleton component
+    fix Subs header
+    fix Pawn Promotions table
+    implement 1 item accordion for BoardTool
+    fixe PieceProfiles Skeleton component (thin screens)
     convert BoardTool component styles to vw and vh units
-
+    decide if to wrap CustomizeHeader togglePromo and toggleSub props in useCallback hooks.
+    change icon size for nav bar buttons, for thin screen widths. Look at CreatePiece page.
 long:
     optimize CreatePiece Board

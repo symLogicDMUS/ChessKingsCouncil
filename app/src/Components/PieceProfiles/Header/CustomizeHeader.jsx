@@ -9,7 +9,8 @@ import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { useStyles as useMoreStyles } from "../Header/ProfileHeader.jss";
 import { useStyles } from "./CustomizeHeader.jss";
 
-export const CustomizeHeader = ({
+
+export function CustomizeHeader ({
     subs,
     promos,
     toggleSub,
@@ -17,7 +18,8 @@ export const CustomizeHeader = ({
     customPieceName,
     screenCase,
     theme,
-}) => {
+}) {
+
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
 
@@ -115,4 +117,4 @@ export const CustomizeHeader = ({
             </div>
         </>
     );
-};
+}

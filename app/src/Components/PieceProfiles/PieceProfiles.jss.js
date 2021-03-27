@@ -1,8 +1,8 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
-export const profileWBMarginwide = '1.75vw';
-export const profileWBMarginthin = '2.5vw';
+export const profileWBMarginWide = '1.75vw';
+export const profileWBMarginThin = '2.5vw';
 
 export const useStyles = makeStyles({
     piece_profiles: props => ({
@@ -20,7 +20,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         border: `0.12rem solid ${themes[props.theme].odd_row}`,
     }),
-    profiles_window: props => ({
+    profiles_area: props => ({
         overflowY: 'scroll',
     }),
 }, {index: 1});
