@@ -2,9 +2,9 @@ import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 
-const buttonSizethin = '100%';
-const iconButtonSizethin = '100%';
-const arrowSizethin = '8.5vw';
+const buttonSizeSm = '100%';
+const iconButtonSizeSm = '100%';
+const arrowSizeSm = '8.5vw';
 
 export const useStyles = makeStyles({
     arrow_button_container: props => ({
@@ -15,15 +15,15 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
         '@media screen and (max-width: 960px)': {
             border: 'unset',
-            width: buttonSizethin,
-            height: buttonSizethin,
+            width: buttonSizeSm,
+            height: buttonSizeSm,
         },
         '@media screen and (min-width: 960px)': {
             fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
             border: `0.075em solid ${themes[props.theme].outline}`,
-            width: '2.75em',
-            height: '2.75em',
-            borderRadius: '0.2em',
+            width: '3.2125vw',
+            height: '3.2125vw',
+            borderRadius: '0.25rem',
         },
     }),
     button_container_normal: props => ({
@@ -45,8 +45,8 @@ export const useStyles = makeStyles({
     button_container_thin: props => ({
         backgroundColor: 'unset',
         "& .MuiIconButton-root": {
-            width: iconButtonSizethin,
-            height: iconButtonSizethin,
+            width: iconButtonSizeSm,
+            height: iconButtonSizeSm,
         }
     }),
     button_container_adjust: props => ({
@@ -54,24 +54,17 @@ export const useStyles = makeStyles({
         zIndex: 2,
     }),
     arrow_button: props => ({
-        width: iconButtonSizethin,
-        height: iconButtonSizethin,
-        '@media screen and (min-width: 960px)': {
-            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
-            width: '2.75em',
-            height: '2.75em',
-            borderRadius: '0.2em',
-        },
+        width: '100%',
+        height: '100%',
     }),
     vector: (props) => ({
         '@media screen and (max-width: 960px)': {
-            width: arrowSizethin,
-            height: arrowSizethin,
+            width: arrowSizeSm,
+            height: arrowSizeSm,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
-            width: '2em',
-            height: '2em',
+            width: '2.15vw',
+            height: '2.15vw',
         },
     }),
     vector_active: props => ({
@@ -93,8 +86,8 @@ export const useStyles = makeStyles({
     }),
     mid: props => ({
         '@media screen and (max-width: 960px)': {
-            width: buttonSizethin,
-            height: buttonSizethin,
+            width: buttonSizeSm,
+            height: buttonSizeSm,
             borderRadius: '0.2em',
         },
         '@media screen and (min-width: 960px)': {
@@ -103,6 +96,5 @@ export const useStyles = makeStyles({
             height: '2.75em',
             borderRadius: '0.2em',
         },
-
     }),
 }, {index: 1});

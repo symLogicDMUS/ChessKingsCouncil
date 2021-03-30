@@ -1,4 +1,4 @@
-import {fontSize001685, fontSize00184, fontSize002, fontSizeW003224} from "../../styles/fontSizes.jss";
+import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
@@ -18,11 +18,13 @@ export const useStyles = makeStyles((theme) => ({
             top: `calc(${appBarHeight}px)`,
             left: '5vw',
         },
-        zIndex: 6,
+        zIndex: 10,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        padding: '0.1rem',
         borderRadius: '1rem',
+        border: `0.08rem solid ${themes[props.theme].odd_row}`,
         backgroundColor: themes[props.theme].fill,
     }),
     item_choices: props => ({

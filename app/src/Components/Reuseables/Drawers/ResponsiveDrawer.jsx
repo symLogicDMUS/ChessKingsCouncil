@@ -7,7 +7,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Portal, Typography, useTheme } from "@material-ui/core";
+import { Portal, useTheme } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MiniVariantDrawer from "./MiniVariantDrawer";

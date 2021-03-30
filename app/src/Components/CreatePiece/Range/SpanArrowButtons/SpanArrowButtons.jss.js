@@ -12,9 +12,8 @@ export const useStyles = makeStyles({
         },
         /*wide*/
         '@media screen and (min-width: 960px)': {
-            fontSize: (drawerWidth - 55)*0.5*0.333*0.333,
-            width: '9em',
-            height: '9em',
+            width: "10.625vw",
+            height: "10.625vw",
         },
         display: 'flex',
         flexDirection: 'column',

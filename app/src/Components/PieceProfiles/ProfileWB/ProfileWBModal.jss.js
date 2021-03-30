@@ -9,7 +9,6 @@ export const useStyles = makeStyles({
         position: 'absolute',
         left: '22.5vw',
         top: '12.5vw',
-        zIndex: 1000,
         padding: '0.25vh',
         borderRadius: '0.5rem',
         backgroundColor: themes[props.theme].fill,

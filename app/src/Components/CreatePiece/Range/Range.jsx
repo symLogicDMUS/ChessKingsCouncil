@@ -1,23 +1,22 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Portal, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import {angleToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
 import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss"
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./Range.jss";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export function Range({spans, offsets, toggleSpan, theme, styles}) {
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? 'wide' : 'thin';
+
     const classes = useStyles({theme: theme, styles: styles});
     const classes2 = useMoreStyles({theme: theme})
 
-    const isWide = useMediaQuery("(min-width:960px)");
-    const screenCase = isWide ? 'wide' : 'thin';
     const getSpanTextLabels = () => {
         const newSpans = [];
         for (const angle of Object.keys(spans)) {
@@ -40,8 +39,10 @@ export function Range({spans, offsets, toggleSpan, theme, styles}) {
             <ScrollTable
                 numRows={5}
                 theme={theme}
-                width='10.625vw'
+                textClassName={classes.scroll_table_text}
                 listItemClassName={classes.scroll_table_list_item}
+                arrowButtonTopClassName={classes.top_arrow_button}
+                arrowButtonBottomClassName={classes.bottom_arrow_button}
                 arrowButtonClassName={classes.scroll_table_arrow_button}
                 listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
             />

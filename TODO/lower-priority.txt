@@ -5,8 +5,8 @@ short:
     fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger
 medium:
-* Make functional Components in addition to class components be a default export, to be consistent
-* go and through every document and add documentation as well as use the Prettier command on file
+    * consistent border radius especially on CreatePiece page.
 
 long:
-    * for reusable components, replace all argument with single "props" argument
+    * Make functional Components in addition to class components be a default export, to be consistent
+    * go and through every document and add documentation as well as use the Prettier command on file

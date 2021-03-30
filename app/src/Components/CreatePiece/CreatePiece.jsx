@@ -31,7 +31,6 @@ import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {Typography} from "@material-ui/core";
-import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {pageTitle, styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {

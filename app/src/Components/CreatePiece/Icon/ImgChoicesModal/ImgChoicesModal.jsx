@@ -3,6 +3,7 @@ import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import WallpaperIcon from '@material-ui/icons/Wallpaper'
+import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
 import {Close} from "../../../Reuseables/Modals/Close";
 import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
@@ -42,12 +43,12 @@ class ImgChoicesModal extends React.Component {
                 saveImgUrls(sampleImgUrls).then(([r]) => {
                     this.imgDict = getSampleImgUrls();
                     this.updateImgComponents();
-                    this.setState({ loaded: true });
+                    this.setState({loaded: true});
                 });
             } else {
                 this.imgDict = imgDict;
                 this.updateImgComponents();
-                this.setState({ loaded: true });
+                this.setState({loaded: true});
             }
         });
     }
@@ -68,7 +69,7 @@ class ImgChoicesModal extends React.Component {
             deleteImg(imgNameChoice).then(([r]) => {
                 this.props.resetImg(this.imgDict[imgNameChoice]);
                 delete this.imgDict[imgNameChoice];
-                this.setState({ imgNameChoice: null }, () => {
+                this.setState({imgNameChoice: null}, () => {
                     this.updateImgComponents();
                     this.triggerRender();
                 });
@@ -83,12 +84,12 @@ class ImgChoicesModal extends React.Component {
 
     setChoice(imgNameChoice) {
         if (this.state.imgNameChoice === imgNameChoice) {
-            this.setState({ imgNameChoice: null }, () => {
+            this.setState({imgNameChoice: null}, () => {
                 this.updateImgComponents();
                 this.triggerRender();
             });
         } else {
-            this.setState({ imgNameChoice: imgNameChoice }, () => {
+            this.setState({imgNameChoice: imgNameChoice}, () => {
                 this.updateImgComponents();
                 this.triggerRender();
             });
@@ -96,120 +97,67 @@ class ImgChoicesModal extends React.Component {
     }
 
     updateSearchText(searchText) {
-        this.setState({ searchText: searchText }, () => {
+        this.setState({searchText: searchText}, () => {
             this.updateImgComponents();
             this.triggerRender();
         });
     }
 
     toggleShowNames() {
-        this.setState({showNames: ! this.state.showNames}, () => {
+        this.setState({showNames: !this.state.showNames}, () => {
             this.updateImgComponents();
             this.triggerRender();
         })
     }
+
     triggerRender() {
-        this.setState({bValue: ! this.state.bValue})
+        this.setState({bValue: !this.state.bValue})
     }
 
     render() {
 
         return (
-            // <div className={`scrollbar-${this.props.theme}`}>
-                <div className={this.props.classes.modal}>
-                    <MediaQuery minWidth={960}>
-                        <MuiGrid
-                            setChoice={this.setChoice}
-                            selectedItem={this.state.imgNameChoice}
-                            rootClassName={this.props.classes.img_grid_root}
-                            toggleShowNames={this.toggleShowNames}
-                            loaded={this.state.loaded}
-                            theme={this.props.theme}
-                            defaultChecked={false}
-                            onOkClick={() =>
-                                this.submitChoice(this.state.imgNameChoice)
-                            }
-                            onDeleteClick={() =>
-                                this.deleteImg(this.state.imgNameChoice)
-                            }
-                            topFlexbox={
-                                <Close
-                                    className={this.props.classes.close_icon}
+            <div className={this.props.classes.modal}>
+                    <MuiGrid
+                        setChoice={this.setChoice}
+                        selectedItem={this.state.imgNameChoice}
+                        rootClassName={this.props.classes.img_grid_root}
+                        toggleShowNames={this.toggleShowNames}
+                        loaded={this.state.loaded}
+                        theme={this.props.theme}
+                        defaultChecked={false}
+                        onOkClick={() =>
+                            this.submitChoice(this.state.imgNameChoice)
+                        }
+                        onDeleteClick={() =>
+                            this.deleteImg(this.state.imgNameChoice)
+                        }
+                        topFlexbox={
+                            <Close
+                                className={this.props.classes.close_icon}
+                                theme={this.props.theme}
+                                onClick={this.props.closeAll}
+                            />
+                        }
+                        title={
+                            <>
+                                <Box className={this.props.classes.title_box}>
+                                    <Typography className={this.props.classes.title}>Images</Typography>
+                                    <WallpaperIcon className={this.props.classes.title_icon} size="small"/>
+                                </Box>
+                                <SearchBox
                                     theme={this.props.theme}
-                                    onClick={this.props.closeAll}
+                                    className={this.props.classes.search}
+                                    updateSearchText={this.updateSearchText}
+                                    icon={<ImageSearchIcon className={this.props.classes.search_icon} /> }
                                 />
-                            }
-                            title={
-                                <>
-                                    <Box className={this.props.classes.title_box}>
-                                        <Typography className={this.props.classes.title}>Images</Typography>
-                                        <WallpaperIcon className={this.props.classes.title_icon} size="small"/>
-                                    </Box>
-                                    <SearchBox
-                                        theme={this.props.theme}
-                                        updateSearchText={this.updateSearchText}
-                                        style={{
-                                            alignSelf: 'flex-end', marginRight: '2.25vw',
-                                            transform: 'translate(0, -1em)'
-                                        }}
-                                        width='20em'
-                                    />
-                                </>
-                            }
-                            confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
-                        >
-                            {this.imgItems}
-                        </MuiGrid>
-                    </MediaQuery>
-                    <MediaQuery maxWidth={960}>
-                        <MuiGrid
-                            setChoice={this.setChoice}
-                            selectedItem={this.state.imgNameChoice}
-                            rootClassName={this.props.classes.img_grid_root}
-                            toggleShowNames={this.toggleShowNames}
-                            loaded={this.state.loaded}
-                            theme={this.props.theme}
-                            defaultChecked={false}
-                            onOkClick={() =>
-                                this.submitChoice(this.state.imgNameChoice)
-                            }
-                            onDeleteClick={() =>
-                                this.deleteImg(this.state.imgNameChoice)
-                            }
-                            topFlexbox={
-                                <Close
-                                    theme={this.props.theme}
-                                    onClick={this.props.closeAll}
-                                    className={this.props.classes.close_icon}
-                                />
-                            }
-                            title={
-                                <>
-                                    <Typography
-                                        className={this.props.classes.title}
-                                    >
-                                        Images
-                                    </Typography>
-                                    <WallpaperIcon
-                                        className={
-                                            this.props.classes.title_icon
-                                        }
-                                        size="small"
-                                    />
-                                    <SearchBox
-                                        theme={this.props.theme}
-                                        updateSearchText={this.updateSearchText}
-                                        width={5}
-                                    />
-                                </>
-                            }
-                            confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
-                        >
-                            {this.imgItems}
-                        </MuiGrid>
-                    </MediaQuery>
-                </div>
-            // </div>
+                            </>
+                        }
+                        confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
+                    >
+                        {this.imgItems}
+                    </MuiGrid>
+            </div>
         );
     }
 }

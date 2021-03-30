@@ -3,21 +3,10 @@ import {themes} from "../../../styles/themes.jss";
 import {fontSize0015, fontSize0016, fontSize00175, fontSize002} from "../../../styles/fontSizes.jss";
 import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 
-export const img_grid_root = (screenCase) => {
-    switch (screenCase) {
-        case 'thin':
-            return {
-                marginTop: appBarHeight
-            }
-        default:
-            return null;
-    }
-};
-
 export const styles = {
     modal: props => ({
         ...modal,
-        zIndex: 6,
+        zIndex: 12,
     }),
     title_box: props => ({
         display: 'inline-flex',
@@ -43,8 +32,11 @@ export const styles = {
         marginLeft: '0.25em',
         color: themes[props.theme].text,
     }),
+    search_icon: props => ({
+        color: themes[props.theme].text,
+        margin: '0.25rem',
+    }),
     close_icon: props => ({
-        /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 960px)': {
             fontSize: fontSize00175,
             width: "2em",
@@ -62,5 +54,12 @@ export const styles = {
         '@media screen and (max-width: 960px)': {
             marginTop: appBarHeight
         },
+    }),
+    search: props => ({
+        alignSelf: 'flex-end',
+        marginRight: '2.25vw',
+        transform: 'translate(0, -1em)',
+        height: '2.15rem',
+        width: '20vw',
     }),
 };

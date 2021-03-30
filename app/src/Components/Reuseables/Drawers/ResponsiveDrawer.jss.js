@@ -28,6 +28,7 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     appBar: props => ({
+        zIndex: z,
         marginLeft: props.navDrawerWidth,
         background: themes[props.theme].fill,
         borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`
@@ -52,7 +53,6 @@ export const useStyles = makeStyles((theme) => ({
     title: props => ({
         fontWeight: 500,
         lineHeight: 1.6,
-        display: 'block',
         overflow: 'hidden',
         fontSize: '1.25rem',
         whiteSpace: 'nowrap',
@@ -62,21 +62,26 @@ export const useStyles = makeStyles((theme) => ({
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
     }),
     drawerPaper: props => ({
+        zIndex: z,
         backgroundColor: themes[props.theme].fill2,
     }),
     navPermanentPaper: props => ({
+        zIndex: z,
         width: props.navDrawerWidth,
         '@media screen and (max-width: 960px)': {
             width: 0,
         },
     }),
     navPersistentPaper: props => ({
+        zIndex: z,
         width: props.navDrawerWidth,
     }),
     toolDrawerPaper: props => ({
+        zIndex: z,
         width: props.toolDrawerWidth,
     }),
     tools: props => ({
+        zIndex: z,
         flexGrow: 1,
         display: 'flex',
         flexDirection: 'column',

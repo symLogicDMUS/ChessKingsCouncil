@@ -5,6 +5,10 @@ import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
+        '@media screen and (max-width: 960px)': {
+            position: 'absolute',
+            width: '100vw',
+        },
         '@media screen and (min-width: 960px)': {
             width: '93%',
             marginLeft: '3.5%',
