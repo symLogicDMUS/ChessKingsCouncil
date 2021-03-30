@@ -5,56 +5,33 @@ import {fontSize004025} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '-2vh',
-            fontFamily: 'Roboto-Light, Roboto',
-            width: '100%'
-        },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
             marginBottom: drawerItemMarginTopBottom,
-            fontFamily: 'Roboto-Light, Roboto',
         },
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        outline: `0.05em solid ${themes[props.theme].outline}`,
+        display: 'grid',
+        gridTemplateColumns: '7.5vw 15vw',
     }),
     header: props => ({
-        width: '100%',
-        textAlign: 'center',
-        outline: `0.05em solid ${themes[props.theme].outline}`,
-        borderBottom: `0.05em solid ${themes[props.theme].outline}`,
+        gridColumn: '1/3',
+        fontSize: '1.2vw',
+        borderBottom: `0.08em solid ${themes[props.theme].outline}`,
     }),
-    piece_label: props => ({
-        fontSize: fontSize004025,
-        width: '25%',
-        height: '1em',
+    cell: props => ({
         textAlign: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
         borderRight: `0.08em solid ${themes[props.theme].outline}`,
     }),
-    piece_value: props => ({
-        fontSize: fontSize004025,
-        width: '75%',
-        height: '1em',
-        textAlign: 'center',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingLeft: '0.5em',
-        color: themes[props.theme].text,
-        fontFamily: 'Roboto-Light, Roboto',
+    row: props => ({
+        '@media screen and (max-width: 960px)': {
+            height: '2.5vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            height: '2vw',
+        },
     }),
     even_row: props => ({
         backgroundColor: themes[props.theme].even_row,
@@ -62,13 +39,18 @@ export const useStyles = makeStyles({
     odd_row: props => ({
         backgroundColor: themes[props.theme].odd_row,
     }),
+    last_row: props => ({
+        borderBottom: `0.08em solid ${themes[props.theme].outline}`,
+    }),
+    col1: props => ({
+        gridColumn: 1,
+        borderLeft: `0.08em solid ${themes[props.theme].outline}`,
+    }),
+    col2: props => ({
+        gridColumn: 2,
+    }),
     text: props => ({
-        '@media screen and (max-width: 960px)': {
-
-        },
-        '@media screen and (min-width: 960px)': {
-
-        },
+        color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
     }),
 }, {index: 1});

@@ -13,7 +13,7 @@ export function StandardModal({ text, title, theme, closeClick, children }) {
                 <Box className={classes.top_flexbox}>
                     <Close
                         onClick={closeClick}
-                        classProp={classes.close_icon}
+                        className={classes.close_icon}
                         theme={theme}
                     />
                 </Box>

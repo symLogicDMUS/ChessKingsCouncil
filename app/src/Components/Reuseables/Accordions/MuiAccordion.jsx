@@ -8,12 +8,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useStyles } from "./MuiAccordion.jss";
 
 
-export default function MuiAccordion({heading, rootClassProp, classesObj, children}) {
+export default function MuiAccordion({heading, rootClassName, classesObj, children}) {
     const classes = useStyles();
 
     return (
         <div className={clsx(classes.root, {
-            [rootClassProp]: rootClassProp,
+            [rootClassName]: rootClassName,
         })}>
             <Accordion classes={classesObj}>
                 <AccordionSummary

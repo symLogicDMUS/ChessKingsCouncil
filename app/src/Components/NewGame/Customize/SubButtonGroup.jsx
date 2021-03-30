@@ -1,12 +1,11 @@
-import { useStyles } from "./CustomizeHeader.jss";
-import Box from "@material-ui/core/Box";
 import clsx from "clsx";
+import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import BlockIcon from "@material-ui/icons/Block";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { icons } from "../../styles/icons/top/icons.jss";
 import { themes } from "../../styles/themes.jss";
-import React from "react";
+import { icons } from "../../styles/icons/top/icons.jss";
+import { useStyles } from "./SubButtonGroup.jss";
 
 export function SubButtonGroup({
     theme,
@@ -26,11 +25,7 @@ export function SubButtonGroup({
     const classes = useStyles({ theme: theme });
 
     return (
-        <Box
-            className={clsx(classes.box, {
-                [classes.icon_button_style]: true,
-            })}
-        >
+        <>
             <IconButton
                 onClick={onNoSymbolClick}
                 className={classes.sub_button}
@@ -82,7 +77,7 @@ export function SubButtonGroup({
                     {icons.bishop_outline(themes[theme].outline)}
                 </SvgIcon>
             </IconButton>
-        </Box>
+        </>
     );
 }
 /*

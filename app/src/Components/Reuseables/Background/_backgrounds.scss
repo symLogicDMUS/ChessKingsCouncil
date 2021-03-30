@@ -1,11 +1,13 @@
 
+$length: 1vw;
+
 .tan-background {
     background-color: #d7bb99;
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: $length;
+        height: $length;
     }
 
     /* button */
@@ -47,8 +49,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -90,8 +98,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -133,8 +147,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -181,8 +201,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -229,8 +255,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -273,8 +305,14 @@
 
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
     }
 
     /* button */
@@ -308,5 +346,4 @@
     ::-webkit-resizer {
         background: #111;
     }
-
 }

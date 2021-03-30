@@ -34,7 +34,7 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                             <Box className={classes.x_icon_flexbox}>
                                 <Close
                                     onClick={() => dispatch({ type: "close" })}
-                                    classProp={classes.close_icon}
+                                    className={classes.close_icon}
                                     theme={theme}
                                 />
                             </Box>
@@ -53,8 +53,8 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
             ) : null}
             <div className={clsx(classes.profile_wb, {
                 [classes.profile_wb_drawer_item]: hasDrawerParent,
-                [classes.white_profile]: color === 'W',
-                [classes.black_profile]: color === 'B'
+                [classes.profile_w]: color === 'W',
+                [classes.profile_b]: color === 'B'
             })}>
                 <ProfileWBAvatar
                     src={def.img}
@@ -70,7 +70,6 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                     rangeType='span'
                     color={color}
                     theme={theme}
-                    pieceLoc='d4'
                     openRangeModal={() => dispatch({ type: "open-spans" })}
                     hasDrawerParent={hasDrawerParent}
                     screenCase={screenCase}
@@ -82,7 +81,6 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                     rangeType='offset'
                     color={color}
                     theme={theme}
-                    pieceLoc='d4'
                     openRangeModal={() => dispatch({ type: "open-offsets" })}
                     hasDrawerParent={hasDrawerParent}
                     screenCase={screenCase}

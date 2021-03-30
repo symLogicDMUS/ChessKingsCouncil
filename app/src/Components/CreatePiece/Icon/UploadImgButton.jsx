@@ -8,7 +8,7 @@ import { useStyles } from "../../Reuseables/Clickables/MuiButton.jss";
 import {saveImg} from "../../../API/saveImg";
 import clsx from "clsx";
 
-export function UploadImgButton({color, id, setPieceImg, close, theme, classProp, addedClassProp}) {
+export function UploadImgButton({color, id, setPieceImg, close, theme, className, addedClassName}) {
 
     const classes = useStyles({ theme: theme});
 
@@ -72,8 +72,8 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, classProp
             variant="contained"
             component="label"
             className={clsx(classes.button, {
-                [classProp]: classProp,
-                [addedClassProp]: addedClassProp,
+                [className]: className,
+                [addedClassName]: addedClassName,
             })}
             startIcon={<CloudUploadIcon style={{fontSize: 'inherit'}}/>}
         >

@@ -1,12 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-const checkbox = {
-    width: "1.25em",
-    height: "1.25em",
-}
-
-/*NOTE: fontSize is a required part of style!*/
 export const useStyles = makeStyles({
     form_control_label_root: props => ({
         color: themes[props.theme].text,
@@ -20,12 +14,7 @@ export const useStyles = makeStyles({
     text: props => ({
         color: themes[props.theme].text,
     }),
-    unchecked: props => ({
-        ...checkbox,
-        color: themes[props.theme].text,
-    }),
-    checked: props => ({
-        ...checkbox,
+    checkbox: props => ({
         color: themes[props.theme].text,
     }),
 }, {index: 1});

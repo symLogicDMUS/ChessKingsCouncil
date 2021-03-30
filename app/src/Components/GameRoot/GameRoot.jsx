@@ -45,7 +45,7 @@ import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import MuiAccordion from "../Reuseables/Drawers/MuiAccordion";
+import MuiAccordion from "../Reuseables/Accordions/MuiAccordion";
 import {SaveAs} from "./SaveResignTool/SaveAs";
 import {styles} from "./GameRoot.jss";
 
@@ -480,7 +480,7 @@ class GameRoot extends React.Component {
                                     ) : null}
                                     <MuiCheckbox
                                         theme={this.state.theme}
-                                        rootClassProp={this.props.classes.sqr_text_checkbox}
+                                        rootClassName={this.props.classes.sqr_text_checkbox}
                                         defaultChecked={this.state.showProfileOnClick}
                                         onClick={() => this.setState({showProfileOnClick: !this.state.showProfileOnClick})}
                                     >

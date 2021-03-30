@@ -4,6 +4,8 @@ import {themes} from "../../styles/themes.jss";
 
 export const toolButtonsDrawerWidth = viewWidth()*0.25;
 
+export const miniVariantIconsColumnWidth = 57;
+
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         display: 'flex',
@@ -26,7 +28,7 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     drawerClose: props => ({
-        width: theme.spacing(7) + 1,
+        width: miniVariantIconsColumnWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,

@@ -32,7 +32,7 @@ export function SettingsModal(props) {
                     <Close
                         onClick={props.closeModal}
                         theme={props.theme}
-                        classProp={classes.close_icon}
+                        className={classes.close_icon}
                     />
                 </Box>
                 <Box className={classes.settings}>

@@ -6,14 +6,14 @@ import { useStyles } from "./MuiButton.jss";
 export function MuiButton(props) {
     const classes = useStyles({ theme: props.theme });
     return (
-        <div className={classes.rootClassProp}>
+        <div className={classes.rootClassName}>
             <Button
                 onClick={props.onClick}
                 variant={props.variant}
                 className={clsx(classes.button, {
-                    [props.classProp]: props.classProp,
-                    [props.rootClassProp]: props.rootClassProp,
-                    [props.addedClassProp]: props.addedClassProp,
+                    [props.className]: props.className,
+                    [props.rootClassName]: props.rootClassName,
+                    [props.addedClassName]: props.addedClassName,
                 })}
                 classes={props.classesObj}
                 disabled={props.isDisabled}

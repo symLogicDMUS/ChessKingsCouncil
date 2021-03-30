@@ -1,36 +1,34 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import { SubList } from "./SubList";
-import { SideBar } from "../../Reuseables/Drawers/SidBar";
-import { NavBar } from "../../Reuseables/NavBar/NavBar";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
-import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
-import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
-import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { sideBarHeight } from "../../Reuseables/Drawers/SidBar.jss";
-import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
-import { HelpText } from "./Help/HelpText";
-import { ListTitle } from "./ListTitle";
-import { copy } from "../../helpers/copy";
-import { newData } from "../NewData";
-import { difference } from "../../helpers/setOps";
-import { isSpecial } from "../../helpers/isSpecial";
-import { standardPieceDefs } from "../standardPieceDefs/dev1";
-import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
-import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
-import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import {fontSize0023,fontSize0026,fontSize004025} from "../../styles/fontSizes.jss";
-import { specialPieceImgUrlList } from "../../MyPieces/specialPieceImgUrlList/dev1";
-import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
-import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
-import withStyles from "@material-ui/core/styles/withStyles";
-import { styles } from "./Customize.jss";
 import Typography from "@material-ui/core/Typography";
-import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
-import {AppBarWithSearch} from "./AppBarWithSearch";
-import {pageTitle} from "../../CreatePiece/CreatePiece.jss";
+import {NavBar} from "../../Reuseables/NavBar/NavBar";
+import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
+import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
+import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
+import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
+import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
+import {HelpText} from "./Help/HelpText";
+import {ListTitle} from "./ListTitle";
+import {SubList} from "./SubList";
+import {copy} from "../../helpers/copy";
+import {newData} from "../NewData";
+import {difference} from "../../helpers/setOps";
+import {isSpecial} from "../../helpers/isSpecial";
+import {standardPieceDefs} from "../standardPieceDefs/dev1";
+import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
+import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
+import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
+import {fontSize0023, fontSize0026} from "../../styles/fontSizes.jss";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1";
+import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
+import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {textColor, styles} from "./Customize.jss";
+import clsx from "clsx";
+import {SearchBox} from "../../Reuseables/UserInput/SearchBox";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -325,35 +323,55 @@ class Customize extends React.Component {
                 {this.state.miniVariantTool === "Promos" ? (
                     <ScrollTable
                         numRows={6}
-                        width="20vw"
-                        fontSize={fontSize004025}
                         listItems={this.promos}
                         theme={this.state.theme}
                         key="pawn-promotions-wide"
-                        rootClassProp={this.props.classes.scroll_table}
-                        addedClassProp={this.props.classes.drawer_component}
-                        arrowButtonClassProp={
-                            this.props.classes.scroll_table_button
-                        }
-                        listItemClassProp={
+                        rootClassName={this.props.classes.scroll_table}
+                        addedClassName={this.props.classes.drawer_component}
+                        listItemClassName={
                             this.props.classes.scroll_table_list_item
                         }
+                        arrowButtonClassName={
+                            this.props.classes.scroll_table_button
+                        }
+                        textClassName={
+                            this.props.classes.scroll_table_text
+                        }
                         title={
-                            <ListTitle theme={this.state.theme}>
+                            <ListTitle className={this.props.classes.scroll_table_title} theme={this.state.theme}>
                                 Pawn Promotions
                             </ListTitle>
                         }
                     />
                 ) : null}
                 <ResponsiveDrawer
+                    elevation={0}
                     theme={this.state.theme}
-                    titleBar={
-                        <Typography variant='h6' style={pageTitle(this.state.theme)}>
+                    appBarType='3item'
+                    appBarContent={[
+                        <Typography
+                            variant='h6'
+                            className={this.props.classes.title}
+                            style={textColor(this.state.theme)}
+                        >
                             Customize Game
-                        </Typography>
-                    }
-                    withSearch={true}
-                    updateSearchText={this.updateSearchText}
+                        </Typography>,
+                        <MuiCheckbox
+                            noWrap={true}
+                            variant='caption'
+                            theme={this.state.theme}
+                            onClick={this.togglePromoAll}
+                            rootClassName={this.props.classes.promo_all}
+                        >
+                            Promo All
+                        </MuiCheckbox>,
+                        <SearchBox
+                            updateSearchText={this.updateSearchText}
+                            className={this.props.classes.search}
+                            theme={this.state.theme}
+                            isMenuItem={true}
+                        />,
+                    ]}
                     tools={
                         <>
                             <SubList
@@ -362,45 +380,37 @@ class Customize extends React.Component {
                             />
                             <ScrollTable
                                 numRows={6}
-                                width="20vw"
-                                fontSize={fontSize004025}
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 key="pawn-promotions-wide"
-                                rootClassProp={this.props.classes.scroll_table}
-                                addedClassProp={
+                                rootClassName={this.props.classes.scroll_table}
+                                addedClassName={
                                     this.props.classes.drawer_component
                                 }
-                                arrowButtonClassProp={
-                                    this.props.classes.scroll_table_button
-                                }
-                                listItemClassProp={
+                                listItemClassName={
                                     this.props.classes.scroll_table_list_item
                                 }
+                                arrowButtonClassName={
+                                    this.props.classes.scroll_table_button
+                                }
+                                textClassName={
+                                    this.props.classes.scroll_table_text
+                                }
                                 title={
-                                    <ListTitle theme={this.state.theme}>
+                                    <ListTitle className={this.props.classes.scroll_table_title} theme={this.state.theme}>
                                         Pawn Promotions
                                     </ListTitle>
                                 }
                             />
-                            <Box className={this.props.classes.promo_all_container}>
-                                <MuiCheckbox
-                                    theme={this.state.theme}
-                                    onClick={this.togglePromoAll}
-                                    rootClassProp={this.props.classes.promo_all_root}
-                                    checkboxClassProp={
-                                        this.props.classes.promo_all_checkbox
-                                    }
-                                    classProp={this.props.classes.promo_all_gen}
-                                >
-                                    Promo All
-                                </MuiCheckbox>
-                            </Box>
                             <Button
                                 onClick={this.accept}
-                                classProp={this.props.classes.ok_button}
+                                className={this.props.classes.ok_button}
                                 theme={this.state.theme}
-                                variant={"contained"}
+                                variant={"outline"}
+                                startIcon={
+                                    <CheckCircleOutlineIcon/>
+                                }
+                                size="large"
                             >
                                 Ok
                             </Button>
@@ -460,7 +470,7 @@ class Customize extends React.Component {
                         togglePromo={this.togglePromo}
                         searchText={this.state.searchText}
                         updateTheme={this.updateTheme}
-                        classProp={this.props.classes.piece_profiles}
+                        className={this.props.classes.piece_profiles}
                         theme={this.state.theme}
                     />
                 </ResponsiveDrawer>

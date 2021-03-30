@@ -56,8 +56,8 @@ export function NavBarButton({
                     >
                         <MuiButton
                             onClick={() => goToPage()}
-                            classProp={classes2.button}
-                            addedClassProp={classes2.yes_button}
+                            className={classes2.button}
+                            addedClassName={classes2.yes_button}
                             variant={"contained"}
                             theme={theme}
                         >
@@ -65,8 +65,8 @@ export function NavBarButton({
                         </MuiButton>
                         <MuiButton
                             onClick={() => toggleRedirectModal(false)}
-                            classProp={classes2.button}
-                            addedClassProp={classes2.no_button}
+                            className={classes2.button}
+                            addedClassName={classes2.no_button}
                             variant={"contained"}
                             theme={theme}
                         >

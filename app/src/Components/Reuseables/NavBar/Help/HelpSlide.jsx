@@ -27,7 +27,7 @@ export function HelpSlide({theme, title, onClose, children}) {
                 <div className={classes.window}>
                     <Box className={classes.top_flexbox}>
                         <Box className={classes.x_symbol_flexbox}>
-                            <Close onClick={onClose} theme={theme} classProp={classes.close_icon}/>
+                            <Close onClick={onClose} theme={theme} className={classes.close_icon}/>
                         </Box>
                         <Box className={classes.title_flexbox}>
                             {title}

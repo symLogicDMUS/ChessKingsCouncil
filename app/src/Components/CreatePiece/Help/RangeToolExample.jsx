@@ -34,7 +34,6 @@ export function RangeToolExample({theme}) {
                     numRows={5}
                     theme={theme}
                     width={widths.wide}
-                    fontSize={fontSizes.wide}
                     buttonStyle={{borderRadius: 0}}
                 />
             </MediaQuery>
@@ -44,7 +43,6 @@ export function RangeToolExample({theme}) {
                     numRows={5}
                     theme={theme}
                     width={widths.thin}
-                    fontSize={fontSizes.thin}
                     buttonStyle={{borderRadius: 0}}
                 />
             </MediaQuery>

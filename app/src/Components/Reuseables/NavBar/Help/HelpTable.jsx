@@ -128,12 +128,9 @@ export function HelpTable({setHelpItem, onClose, theme}) {
                     <CloseIcon fontSize="inherit" onClick={onClose} style={closeIcon(fontSize002, theme)} />
                 </Box>
                 <ScrollTable
+                    theme={theme}
                     listItems={listItems}
                     numRows={listItems.length}
-                    theme={theme}
-                    style={listStyle()}
-                    rowStyle={rowStyle()}
-                    buttonStyle={buttonStyle()}
                 />
             </div>
         </div>

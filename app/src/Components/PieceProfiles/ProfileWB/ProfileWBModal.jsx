@@ -20,7 +20,7 @@ export function ProfileWBModal({
         <Box className={classes.profile_wb_modal}>
             <Box className={classes.close_window_row}>
                 <Close
-                    classProp={classes.close_icon}
+                    className={classes.close_icon}
                     onClick={closeProfile}
                     theme={theme}
                 />

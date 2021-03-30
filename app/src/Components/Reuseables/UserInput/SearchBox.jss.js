@@ -1,46 +1,46 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize002, fontSize0025} from "../../styles/fontSizes.jss";
+import {fade} from "@material-ui/core";
+import {lighten} from "@material-ui/core/styles";
 
-export const text_field = (fontSize, theme) => ({
-    fontSize: fontSize,
-    height: '1.15em',
-    width: '3em',
-    flexGrow: 100,
-    color: themes[theme].text,
-});
 
-/**
- * @prop width: required, real unit length
- */
-export const useStyles = makeStyles({
-    search_box: props => ({
-        fontSize: fontSize0025,
-        margin: '0.5em',
-        marginRight: 0,
+export const useStyles = makeStyles((theme) => ({
+    search: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: '0.15em',
-        height: '1.25em',
-        width: props.width,
+        justifyContent: 'flex-start',
+        borderRadius: theme.shape.borderRadius,
         backgroundColor: themes[props.theme].odd_row,
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.075),
+        },
+    }),
+    icon_area: props => ({
+        height: '100%',
+        display: 'flex',
+        paddingLeft: '0.25rem',
+    }),
+    icon: props => ({
+        width: '1.6ch',
+        height: '1.6ch',
+        margin: 'auto',
         color: themes[props.theme].text,
     }),
-    search_icon: props => ({
-        fontSize: fontSize0025,
+    input_root: props => ({
         color: themes[props.theme].text,
-        width: '1.5em',
-        height: '1em',
+        width: '100%',
     }),
-    text_field: props => ({
-        height: '1em',
-        width: '3em',
-        flexGrow: 100,
-        fontSize: fontSize002,
-        color: themes[props.theme].text,
-        verticalAlign: 'center',
+    input: props => ({
+        height: '1ch',
+        paddingLeft: '0.5em',
+        transition: theme.transitions.create('width'),
     }),
-}, {index: 1});
+    lighten: props => ({
+        backgroundColor: lighten(themes[props.theme].odd_row, 0.075),
+        '&:hover': {
+            backgroundColor: fade(theme.palette.common.white, 0.085),
+        },
+    }),
+}), {index: 1});

@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme) => ({
         flexWrap: 'nowrap',
     }),
     column_direction: props => ({
-        width: navBarWidth,
+        width: '100%',
         flexDirection: 'column',
     }),
     nav_drawer: props => ({

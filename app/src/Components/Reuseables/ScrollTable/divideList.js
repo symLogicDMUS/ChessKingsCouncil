@@ -1,7 +1,7 @@
 export function divideList(listItems, numRows) {
-    let aboveView = [];
+    const aboveView = [];
     let inView = [];
-    let belowView = [];
+    const belowView = [];
     let remaining = 0;
     if (listItems.length > numRows) {
         remaining = listItems.length - numRows;
@@ -17,6 +17,8 @@ export function divideList(listItems, numRows) {
         for (let i = current; i < listItems.length; i++) {
             belowView.push(listItems[i]);
         }
-    } else inView = listItems;
+    } else {
+        inView = listItems;
+    };
     return {aboveView: aboveView, inView: inView, belowView: belowView}
 }

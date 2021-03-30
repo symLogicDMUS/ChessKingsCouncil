@@ -1,6 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {appBarHeight} from "./PersistentDrawer.jss";
+import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {viewHeight} from "../../helpers/windowMeasurments";
 import {fontSize0040} from "../../styles/fontSizes.jss";
 

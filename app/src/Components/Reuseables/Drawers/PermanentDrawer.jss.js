@@ -1,10 +1,10 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availWidth} from "../../helpers/windowMeasurments";
+import {viewWidth} from "../../helpers/windowMeasurments";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 const z = 5;
-export const drawerWidth = availWidth() * 0.25;
+export const drawerWidth = viewWidth() * 0.25;
 export const sideBarWidth = drawerWidth * 0.55;
 
 export const useStyles = makeStyles({

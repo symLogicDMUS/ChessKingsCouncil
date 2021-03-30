@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     range_tool: props => ({
@@ -29,6 +30,8 @@ export const useStyles = makeStyles({
     }),
     scroll_table_list_item: props => ({
         height: '1.7vw',
+        borderLeft: `0.025em solid ${themes[props.theme].outline}`,
+        borderRight: `0.025em solid ${themes[props.theme].outline}`,
     }),
     scroll_table_arrow_button: props => ({
         borderRadius: 0,

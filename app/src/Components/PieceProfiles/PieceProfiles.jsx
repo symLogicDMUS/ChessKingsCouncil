@@ -128,7 +128,7 @@ export function PieceProfiles (props) {
 
     return (
         <div className={clsx(classes.piece_profiles, {
-            [props.classProp]: props.classProp,
+            [props.className]: props.className,
         })}
         >
             {props.children}

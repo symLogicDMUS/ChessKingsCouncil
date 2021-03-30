@@ -31,9 +31,6 @@ export const SampleRangeList = memo(({theme}) => {
                         ))}
                     numRows={5}
                     theme={theme}
-                    rowStyle={range_list_row_style()}
-                    buttonStyle={range_list_button_style('wide')}
-                    style={range_list_gen_style('wide')}
                 />
             </MediaQuery>
             <MediaQuery maxWidth={960}>
@@ -49,9 +46,6 @@ export const SampleRangeList = memo(({theme}) => {
                         ))}
                     numRows={5}
                     theme={theme}
-                    rowStyle={range_list_row_style()}
-                    buttonStyle={range_list_button_style('wide')}
-                    style={range_list_gen_style('wide')}
                 />
             </MediaQuery>
         </div>

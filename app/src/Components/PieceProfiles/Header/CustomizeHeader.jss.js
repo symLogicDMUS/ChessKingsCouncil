@@ -1,71 +1,88 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize0025, fontSizeW0048} from "../../styles/fontSizes.jss";
+import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm, sqrItemSizeXs} from "../constants.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
-        '@media screen and (max-width: 960px)': {
+        '@media screen as (min-width: 600px) and (max-width: 960px)': {
             borderTop: `0.05em solid ${themes[props.theme].outline}`,
             borderBottom: `0.05em solid ${themes[props.theme].outline}`,
             justifyContent: 'space-between',
         },
     }),
-    box: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: '14.333vw',
-        },
+    options_box: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
-        justifyContent: 'flex-start',
         alignItems: 'baseline',
     }),
-    sub_button: props => ({
-        width: '2.75vw',
-        height: '2.75vw',
+    header_box_wide_screen: props => ({
+        width: sqrItemSizeLg,
     }),
-    sub_icon: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: '1.8vw',
-            height: '1.8vw',
+    header_box_thin_screen: props => ({
+        '@media screen and (max-width: 320px)': {
+            width: '50vw',
+        },
+        '@media screen and (min-width: 320px) and (max-width: 600px)': {
+            width: sqrItemSizeSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: sqrItemSizeMd,
         },
     }),
-    icon_button_style: props => ({
+    promo_checkbox: props => ({
+        "& .MuiCheckbox-root": {
+            '@media screen and (max-width: 600px)': {
+                width: '2rem',
+                height: '2rem',
+            },
+            '@media screen as (min-width: 600px) and (max-width: 960px)': {
+                width: '5vw',
+                height: '5vw',
+            },
+            '@media screen and (min-width: 960px)': {
+                width: '2.5vw',
+                height: '2.5vw',
+            },
+        },
+        "& .MuiSvgIcon-root": {
+            "@media screen and (max-width: 600px)": {
+                height: "1.3rem",
+                width: "1.3rem",
+            },
+            "@media screen and (min-width: 600px) and (max-width: 960px)": {
+                height: "2.75vw",
+                width: "2.75vw",
+            },
+            "@media screen and (min-width: 960px)": {
+                height: "1.75vw",
+                width: "1.75vw",
+            },
+        },
+        "& .MuiTypography-root": {
+            "@media screen and (max-width: 600px)": {
+                fontSize: "1.1rem",
+            },
+            "@media screen and (min-width: 600px) and (max-width: 960px)": {
+                fontSize: "2.5vw",
+                lineHeight: "2.75rem",
+            },
+            "@media screen and (min-width: 960px)": {
+                fontSize: "1.5vw",
+                lineHeight: "2.75rem",
+            },
+            color: themes[props.theme].text,
+            fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+        },
+        marginLeft: 'unset',
+    }),
+    justify_between: props => ({
         justifyContent: "space-between",
-        alignItems: "center",
     }),
-    checkbox_root: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginLeft: 'auto',
-            marginRight: 'auto',
-        },
-        '@media screen and (min-width: 960px)': {
-            marginLeft: '-0.1em',
-        },
+    justify_start: props => ({
+        justifyContent: "flex-start",
     }),
-    checkbox_gen: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '3.5vh',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize0025,
-        },
-    }),
-    checkbox_text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '4vh',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize0025,
-        },
-    }),
-    selected: props => ({
-        color: themes[props.theme].text,
-    }),
-    unselected: props => ({
-        color: 'rgba(0, 0, 0, 0)',
-    }),
-    no_sub_unselected: props => ({
-        color: themes[props.theme].outline,
+    align_center: props => ({
+        alignItems: 'center',
     }),
 }, {index: 1});

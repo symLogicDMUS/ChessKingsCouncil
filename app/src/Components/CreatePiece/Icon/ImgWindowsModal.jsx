@@ -10,7 +10,7 @@ export function ImgWindowsModal({theme, children}) {
     return (
         <div className={classes.modal}>
             <Box className={classes.x_close_flexbox}>
-                <Close theme={theme} classProp={classes2.close_icon} />
+                <Close theme={theme} className={classes2.close_icon} />
             </Box>
             <Box className={classes.window}>
                 {children}

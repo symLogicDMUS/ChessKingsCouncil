@@ -41,7 +41,6 @@ export function Range({spans, offsets, toggleSpan, theme, styles}) {
                 numRows={5}
                 theme={theme}
                 width='10.625vw'
-                fontSize={fontSize002}
                 listItemClassName={classes.scroll_table_list_item}
                 arrowButtonClassName={classes.scroll_table_arrow_button}
                 listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}

@@ -8,13 +8,15 @@
 html {
     /* width */
     ::-webkit-scrollbar {
-        width: 0.5rem;
-        height: 0.5rem;
+        width: 1rem;
+        height: 1rem;
+        opacity: 0.5%;
     }
 
     /* button */
     ::-webkit-scrollbar-button {
         background: #3f3f3f;
+        opacity: 0.5%;
     }
 
     /* Handle */
@@ -32,15 +34,18 @@ html {
     /* Track */
     ::-webkit-scrollbar-track {
         background: #3f3f3f;
+        opacity: 0.5%;
     }
 
     /* Corner */
     ::-webkit-scrollbar-corner {
         background: #3f3f3f;
+        opacity: 0.5%;
     }
 
     /* Resizer */
     ::-webkit-resizer {
         background: #111;
+        opacity: 0.5%;
     }
 }

@@ -94,7 +94,7 @@ export function SaveResignTool({
                                 setResignModal(false)
                                 resign()
                             }}
-                            classProp={classes.button}
+                            className={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >
@@ -102,7 +102,7 @@ export function SaveResignTool({
                         </MuiButton>
                         <MuiButton
                             onClick={() => setResignModal(false)}
-                            classProp={classes.button}
+                            className={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >

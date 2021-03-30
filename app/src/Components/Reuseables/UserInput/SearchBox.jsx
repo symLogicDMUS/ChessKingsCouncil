@@ -5,11 +5,10 @@ import {Input} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import {useStyles} from "./SearchBox.jss";
 
-export function SearchBox({updateSearchText, width, classProp, style, theme}) {
+export function SearchBox({updateSearchText, className, theme, isMenuItem}) {
 
     const classes = useStyles({
         theme: theme,
-        width: width,
     });
 
     const handleChange = (e) => {
@@ -18,17 +17,23 @@ export function SearchBox({updateSearchText, width, classProp, style, theme}) {
 
     return (
         <Box className={
-            clsx(classes.search_box, {
-                [classProp]: classProp,
+            clsx(classes.search, {
+                [className]: className,
+                [classes.lighten]: isMenuItem,
             })}
-            style={style}
         >
-            <SearchIcon className={classes.search_icon}/>
+            <div className={classes.icon_area}>
+                <SearchIcon className={classes.icon} />
+            </div>
             <Input
-                className={classes.text_field}
                 onChange={handleChange}
-                disableUnderline
+                classes={{
+                    root: classes.input_root,
+                    input: classes.input,
+                }}
                 type="search"
+                inputProps={{ 'aria-label': 'search' }}
+                disableUnderline={true}
             />
         </Box>
     );

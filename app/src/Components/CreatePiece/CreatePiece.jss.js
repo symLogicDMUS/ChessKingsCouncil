@@ -5,6 +5,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const pageTitle = (theme) => ({
     color: themes[theme].text,
+    fontSize: ''
 });
 
 export const styles = {

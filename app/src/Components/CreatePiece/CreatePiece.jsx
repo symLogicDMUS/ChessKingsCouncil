@@ -431,7 +431,6 @@ class CreatePiece extends React.Component {
                     titleBar={
                         <Typography
                             style={pageTitle(this.state.theme)}
-                            variant="subtitle1"
                             noWrap
                         >
                             Create Piece
@@ -564,7 +563,7 @@ class CreatePiece extends React.Component {
                                             })
                                         }
                                         defaultChecked={this.state.showSpanText}
-                                        rootClassProp={
+                                        rootClassName={
                                             this.props.classes.sqr_text_checkbox
                                         }
                                         theme={this.state.theme}
@@ -581,7 +580,7 @@ class CreatePiece extends React.Component {
                                         defaultChecked={
                                             this.state.showOffsetText
                                         }
-                                        rootClassProp={
+                                        rootClassName={
                                             this.props.classes.sqr_text_checkbox
                                         }
                                         theme={this.state.theme}

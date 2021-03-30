@@ -3,9 +3,10 @@ import {getSpanDisplays} from "./getSpanDisplays";
 import {getOffsetDisplays} from "./getOffsetDisplays";
 import {getStandardSqrRectStr} from "./getStandardSqrRectStr";
 import {getRangeSqrRectStr} from "./getRangeSqrRectStr";
+import {board_svg_str} from "../../../styles/icons/board_svg_str";
 
 
-export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, theme) {
+export function getRangeBoardImgStr(location, rangeType, range, theme) {
 
     let rangeBoardObj;
     if (rangeType === 'span') {
@@ -24,5 +25,5 @@ export function getRangeBoardImgStr(src, location, rangeType, range, pieceName, 
         }
     }
     imgStr += `</svg>`;
-    return imgStr;
+    return `data:image/svg+xml;base64,${btoa(imgStr)}`;
 }

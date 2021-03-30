@@ -3,6 +3,7 @@ short:
     consider memoizing ScrollTable items
     adjust navBar text to be smaller, for thinner viewports.
 medium:
+    fix Customize page Pawn Promotions table
     fix Subs header
     fix Pawn Promotions table
     implement 1 item accordion for BoardTool

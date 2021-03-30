@@ -8,15 +8,15 @@ export function PromoCheckboxExample({theme}) {
     return (
         <>
             <MuiCheckbox
-                classProp={classes.checkbox_gen}
-                rootClassProp={classes.checkbox_root}
+                className={classes.checkbox_gen}
+                rootClassName={classes.checkbox_root}
                 theme={theme}
             >
                 <MediaQuery minWidth={960}>Promotion</MediaQuery>
                 <MediaQuery maxWidth={960}>Promo</MediaQuery>
             </MuiCheckbox>
             <MuiCheckbox
-                classProp={classes.checkbox_gen}
+                className={classes.checkbox_gen}
                 theme={theme}
             >
                 Promo All

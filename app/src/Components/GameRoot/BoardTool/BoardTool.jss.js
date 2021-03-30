@@ -21,7 +21,7 @@ export const useStyles = makeStyles({
             '@media screen and (min-width: 960px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                fontSize: drawerItemWidth * 0.125,
+                // fontSize: drawerItemWidth * 0.125,
                 width: drawerItemWidth,
                 marginLeft: '5%',
                 marginBottom: '6vh',

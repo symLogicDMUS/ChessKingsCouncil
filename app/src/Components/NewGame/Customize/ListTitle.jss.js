@@ -4,12 +4,6 @@ import {drawerItemWidth} from "./Customize.jss";
 
 export const useStyles = makeStyles({
     list_title: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-        },
-        '@media screen and (max-width: 960px)': {
-            width: '100%',
-        },
         textAlign: 'center',
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',

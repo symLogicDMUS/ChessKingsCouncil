@@ -10,7 +10,7 @@ export function ResignModal({onClick, onClick1, theme}) {
         <StandardModal title='Are you sure you want to resign?' theme={theme}>
             <MuiButton
                 onClick={onClick}
-                classProp={classes.button}
+                className={classes.button}
                 variant={"contained"}
                 theme={theme}
             >
@@ -18,7 +18,7 @@ export function ResignModal({onClick, onClick1, theme}) {
             </MuiButton>
             <MuiButton
                 onClick={onClick1}
-                classProp={classes.button}
+                className={classes.button}
                 variant={"contained"}
                 theme={theme}
             >

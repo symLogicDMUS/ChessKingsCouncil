@@ -1,33 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import AppBar from '@material-ui/core/AppBar';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import {Portal, useTheme} from "@material-ui/core";
-import IconButton from '@material-ui/core/IconButton';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from "@material-ui/core/AppBar";
+import Divider from "@material-ui/core/Divider";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import MenuIcon from "@material-ui/icons/Menu";
+import Toolbar from "@material-ui/core/Toolbar";
+import { Portal, Typography, useTheme } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import MiniVariantDrawer from "./MiniVariantDrawer";
-import {toolDrawerWidth, useStyles} from "./ResponsiveDrawer.jss";
-import {viewWidth} from "../../helpers/windowMeasurments";
-import {AppBarWithSearch} from "../../NewGame/Customize/AppBarWithSearch";
+import { viewWidth } from "../../helpers/windowMeasurments";
+import { AppBarWithContent } from "../AppBar/AppBarWithContent";
+import { useStyles } from "./ResponsiveDrawer.jss";
 
-function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSearch, updateSearchText, neighborOpen, children}) {
-    // const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
-    // useEffect(() => {
-    //     function handleResize() {
-    //         setNavDrawerWidth(viewWidth() * 0.18)
-    //     }
-    //     window.addEventListener('resize', handleResize)
-    //     return _ => {
-    //         window.removeEventListener('resize', handleResize)
-    //     }
-    // });
+function ResponsiveDrawer({
+    theme,
+    navBar,
+    tools,
+    toolButtons,
+    appBarType,
+    appBarContent,
+    elevation,
+    children,
+}) {
+    const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
+    const [toolDrawerWidth, setToolDrawerWidth] = useState(viewWidth() * 0.25);
+    useEffect(() => {
+        function handleResize() {
+            setNavDrawerWidth(viewWidth() * 0.18);
+            setToolDrawerWidth(viewWidth() * 0.25);
+        }
+        window.addEventListener("resize", handleResize);
+        return (_) => {
+            window.removeEventListener("resize", handleResize);
+        };
+    });
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({
+        theme: theme,
+        navDrawerWidth: navDrawerWidth,
+        toolDrawerWidth: toolDrawerWidth,
+    });
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);
@@ -38,12 +53,16 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
 
     return (
         <div className={classes.root}>
-            <CssBaseline/>
+            <CssBaseline />
             <Hidden mdUp>
-                <AppBar position="fixed" className={clsx(classes.appBar, {
-                    [classes.appBarCompressed]: open,
-                    [classes.appBarRelaxed]: ! open,
-                })}>
+                <AppBar
+                    position="fixed"
+                    elevation={elevation} //default: 4,
+                    className={clsx(classes.appBar, {
+                        [classes.appBarCompressed]: open,
+                        [classes.appBarRelaxed]: !open,
+                    })}
+                >
                     <Toolbar>
                         <IconButton
                             color="inherit"
@@ -52,25 +71,27 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
-                        {withSearch ? (
-                            <AppBarWithSearch
-                                open={open}
-                                theme={theme}
-                                navDrawerWidth={240}
-                                updateSearchText={updateSearchText}
-                            >
-                                {titleBar}
-                            </AppBarWithSearch>
-                        ) : (titleBar)}
+                        <AppBarWithContent
+                            open={open}
+                            theme={theme}
+                            type={appBarType}
+                            navDrawerWidth={navDrawerWidth}
+                            toolDrawerWidth={toolDrawerWidth}
+                        >
+                            {appBarContent}
+                        </AppBarWithContent>
                     </Toolbar>
                 </AppBar>
             </Hidden>
             <Hidden smDown>
-                <AppBar position="fixed" className={clsx(classes.appBar, {
-                    [classes.appBarCompressed]: true,
-                })}>
+                <AppBar
+                    position="fixed"
+                    className={clsx(classes.appBar, {
+                        [classes.appBarCompressed]: true,
+                    })}
+                >
                     <Toolbar>
                         <IconButton
                             color="inherit"
@@ -79,13 +100,17 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
-                        {withSearch ? (
-                            <AppBarWithSearch width={240} updateSearchText={updateSearchText} theme={theme}>
-                                {titleBar}
-                            </AppBarWithSearch>
-                        ) : (titleBar)}
+                        <AppBarWithContent
+                            open={open}
+                            theme={theme}
+                            type={appBarType}
+                            navDrawerWidth={navDrawerWidth}
+                            toolDrawerWidth={toolDrawerWidth}
+                        >
+                            {appBarContent}
+                        </AppBarWithContent>
                     </Toolbar>
                 </AppBar>
             </Hidden>
@@ -94,7 +119,7 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                     <Drawer
                         open={open}
                         variant="temporary"
-                        anchor={muiTheme.direction === 'rtl' ? 'right' : 'left'}
+                        anchor={muiTheme.direction === "rtl" ? "right" : "left"}
                         onClose={handleDrawerToggle}
                         classes={{
                             paper: clsx(classes.drawerPaper, {
@@ -105,12 +130,14 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                             keepMounted: true,
                         }}
                     >
-                        <div className={classes.toolbar}/>
-                        <Divider/>
+                        <div className={classes.toolbar} />
+                        <Divider />
                         {navBar}
                     </Drawer>
                     <Portal>
-                        <MiniVariantDrawer theme={theme}>{toolButtons}</MiniVariantDrawer>
+                        <MiniVariantDrawer theme={theme}>
+                            {toolButtons}
+                        </MiniVariantDrawer>
                     </Portal>
                 </Hidden>
                 <Hidden smDown>
@@ -123,8 +150,8 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                         variant="permanent"
                         open
                     >
-                        <div className={classes.toolbar}/>
-                        <Divider/>
+                        <div className={classes.toolbar} />
+                        <Divider />
                         {navBar}
                     </Drawer>
                     <Portal>
@@ -135,19 +162,17 @@ function ResponsiveDrawer({titleBar, navBar, tools, toolButtons, theme, withSear
                                 }),
                             }}
                             variant="permanent"
-                            anchor='right'
+                            anchor="right"
                             open
                         >
-                            <div className={classes.toolbar}/>
-                            <Box className={classes.tools}>
-                                {tools}
-                            </Box>
+                            <div className={classes.toolbar} />
+                            <Box className={classes.tools}>{tools}</Box>
                         </Drawer>
                     </Portal>
                 </Hidden>
             </div>
             <main>
-                <div className={classes.toolbar}/>
+                <div className={classes.toolbar} />
                 {children}
             </main>
         </div>

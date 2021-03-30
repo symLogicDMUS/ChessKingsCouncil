@@ -103,8 +103,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                                 closeModal()
                             }}
                             variant={'contained'}
-                            classProp={classes.button}
-                            addedClassProp={classes.yes_button}
+                            className={classes.button}
+                            addedClassName={classes.yes_button}
                             theme={theme}
                         >
                             Yes
@@ -112,8 +112,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                         <MuiButton
                             onClick={() => closeModal()}
                             variant={'contained'}
-                            classProp={classes.button}
-                            addedClassProp={classes.no_button}
+                            className={classes.button}
+                            addedClassName={classes.no_button}
                             theme={theme}
                         >
                             No
@@ -130,7 +130,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                     >
                         <MuiButton
                             onClick={() => closeModal()}
-                            classProp={classes.button}
+                            className={classes.button}
                             variant={'contained'}
                             theme={theme}
                         >

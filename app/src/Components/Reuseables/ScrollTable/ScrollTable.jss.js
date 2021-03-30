@@ -1,15 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-/**NOTE: width and fontSize are required props!*/
+/**NOTE: width is a required props!*/
 export const useStyles = makeStyles({
     scroll_table: (props) => ({
         display: "flex",
         flexDirection: "column",
-        width: props.width,
     }),
     list_item: props => ({
-        fontSize: props.fontSize,
         width: "100%",
         display: "flex",
         flexDirection: "row",
@@ -17,6 +15,8 @@ export const useStyles = makeStyles({
         alignItems: "flex-end",
         justifyContent: "flex-start",
         color: themes[props.theme].text,
+        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
+        borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     list_item_even: (props) => ({
         backgroundColor: themes[props.theme].even_row,
@@ -24,24 +24,18 @@ export const useStyles = makeStyles({
     list_item_odd: (props) => ({
         backgroundColor: themes[props.theme].odd_row,
     }),
-    list_item_edges: props => ({
-        borderLeft: `0.025em solid ${themes[props.theme].outline}`,
-        borderRight: `0.025em solid ${themes[props.theme].outline}`,
-    }),
     arrow_button: (props) => ({
         width: props.width,
-        fontSize: props.fontSize,
         background: themes[props.theme].fill,
         color: themes[props.theme].text,
     }),
     arrow_icon: props => ({
-        fontSize: props.fontSize,
+        color: themes[props.theme].text,
     }),
     /*child of list items*/
     text: (props) => ({
         maxWidth: "97.5%",
         marginLeft: "2.5%",
-        fontSize: props.fontSize,
         color: themes[props.theme].text,
         fontFamily: "Roboto-Light, Roboto",
     }),

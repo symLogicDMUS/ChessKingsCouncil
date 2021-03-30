@@ -42,7 +42,7 @@ export function SavedGames(props) {
                                         </Box>
                                         <SearchBox theme={props.theme}
                                                    updateSearchText={props.updateSearchText}
-                                                   classProp={classes.search_box}
+                                                   className={classes.search_box}
                                                    style={{marginRight: '2.25vw'}}
                                                    width='20em'
                                         />
@@ -54,7 +54,7 @@ export function SavedGames(props) {
                                 loaded={props.loaded}
                                 onOkClick={props.load}
                                 defaultChecked={props.showNames}
-                                rootClassProp={classes.img_grid_root}
+                                rootClassName={classes.img_grid_root}
                                 searchText={props.searchText}
                                 onDeleteClick={props.deleteGame}
                                 selectedItem={props.selectedGame}
@@ -91,7 +91,7 @@ export function SavedGames(props) {
                             <SearchBox
                                 width='20em'
                                 theme={props.theme}
-                                classProp={classes.search_box}
+                                className={classes.search_box}
                                 updateSearchText={props.updateSearchText}
                             />
                         </>

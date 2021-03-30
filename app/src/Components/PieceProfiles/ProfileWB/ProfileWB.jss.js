@@ -2,7 +2,22 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {neighborWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
-import {headerWidthwide} from "../Header/ProfileHeader.jss";
+import {
+    headerWidthLg,
+    marginLg,
+    marginMd,
+    marginMd2x,
+    marginSm,
+    marginSm2x,
+    sqrItemHeaderHeightLg,
+    sqrItemHeaderHeightMd,
+    sqrItemHeaderHeightSm,
+    sqrItemSizeLg,
+    sqrItemSizeMd,
+    sqrItemSizeSm
+} from "../constants.jss";
+
+/*Labeled by size in screen width*/
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -20,20 +35,28 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-width: 960px)': {
             flexDirection: 'row',
-            width: headerWidthwide,
-            marginTop: '0.875vw',
-            marginBottom: '0.875vw',
+            width: headerWidthLg,
+            marginTop: marginLg,
+            marginBottom: marginLg,
         },
     }),
-    white_profile: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginLeft: '5vw',
-            marginRight: '2.5vw',
+    profile_w: props => ({
+        '@media screen and (max-width: 600px)': {
+            marginLeft: marginSm2x,
+            marginRight: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            marginLeft: 'auto',
+            marginRight: marginMd,
         },
     }),
-    black_profile: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginLeft: '2.5vw',
+    profile_b: props => ({
+        '@media screen and (max-width: 600px)': {
+            marginLeft: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            marginLeft: marginMd,
+            marginRight: 'auto'
         },
     }),
     sqr_item_area: props => ({
@@ -42,18 +65,20 @@ export const useStyles = makeStyles({
     }),
     /*board or avatar window*/
     sqr_item: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: '42.5vw',
-            height: '42.5vw',
+        '@media screen and (max-width: 600px)': {
+            width: sqrItemSizeSm,
+            height: sqrItemSizeSm,
+            outline: `0.08rem solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: sqrItemSizeMd,
+            height: sqrItemSizeMd,
             outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
-            width: '14.333vw',
-            height: '14.333vw',
+            width: sqrItemSizeLg,
+            height: sqrItemSizeLg,
             outline: `0.05rem solid ${themes[props.theme].outline}`,
-        },
-        '@media screen and (max-device-width: 460px)': {
-            outline: `0.12rem solid ${themes[props.theme].outline}`,
         },
         backgroundColor: themes[props.theme].fill,
     }),
@@ -63,56 +88,72 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        '@media screen and (max-width: 960px)': {
-            width: '42.5vw',
-            height: '5vh',
+        '@media screen and (max-width: 600px)': {
+            width: sqrItemSizeSm,
+            height: sqrItemHeaderHeightSm,
+            outline: `0.08rem solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: sqrItemSizeMd,
+            height: sqrItemHeaderHeightMd,
             outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
-            width: '14.333vw',
-            height: '2vw',
+            width: sqrItemSizeLg,
+            height: sqrItemHeaderHeightLg,
             outline: `0.05rem solid ${themes[props.theme].outline}`,
-        },
-        '@media screen and (max-device-width: 460px)': {
-            outline: `0.12rem solid ${themes[props.theme].outline}`,
         },
     }),
     sqr_item_title: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '3.5vh',
+        '@media screen and (max-width: 600px)': {
+            fontSize: '1.5vw',
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2.5vw',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '2.3vh',
+            fontSize: '1.2vw',
         },
         color: themes[props.theme].text,
     }),
     item1: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '2.5vw',
-            marginBottom: '2.5vw',
+        '@media screen and (max-width: 600px)': {
+            marginTop: marginSm,
+            marginBottom: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            marginTop: marginMd,
+            marginBottom: marginMd,
         },
         '@media screen and (min-width: 960px)': {
-            marginRight: '0.875vw',
+            marginRight: marginLg,
         },
     }),
     item2: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '2.5vw',
-            marginBottom: '2.5vw',
+        '@media screen and (max-width: 600px)': {
+            marginTop: marginSm,
+            marginBottom: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            marginTop: marginMd,
+            marginBottom: marginMd,
         },
         '@media screen and (min-width: 960px)': {
-            marginLeft: '0.875vw',
-            marginRight: '0.875vw',
+            marginLeft: marginLg,
+            marginRight: marginLg,
         },
     }),
     item3: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '2.5vw',
-            marginBottom: '2.5vw',
-
+        '@media screen and (max-width: 600px)': {
+            marginTop: marginSm,
+            marginBottom: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            marginTop: marginMd,
+            marginBottom: marginMd,
         },
         '@media screen and (min-width: 960px)': {
-            marginLeft: '0.875vw',
+            marginLeft: marginLg,
         },
     }),
     profile_wb_drawer_item: props => ({

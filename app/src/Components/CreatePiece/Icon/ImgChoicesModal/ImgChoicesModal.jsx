@@ -121,7 +121,7 @@ class ImgChoicesModal extends React.Component {
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}
-                            rootClassProp={this.props.classes.img_grid_root}
+                            rootClassName={this.props.classes.img_grid_root}
                             toggleShowNames={this.toggleShowNames}
                             loaded={this.state.loaded}
                             theme={this.props.theme}
@@ -134,7 +134,7 @@ class ImgChoicesModal extends React.Component {
                             }
                             topFlexbox={
                                 <Close
-                                    classProp={this.props.classes.close_icon}
+                                    className={this.props.classes.close_icon}
                                     theme={this.props.theme}
                                     onClick={this.props.closeAll}
                                 />
@@ -165,7 +165,7 @@ class ImgChoicesModal extends React.Component {
                         <MuiGrid
                             setChoice={this.setChoice}
                             selectedItem={this.state.imgNameChoice}
-                            rootClassProp={this.props.classes.img_grid_root}
+                            rootClassName={this.props.classes.img_grid_root}
                             toggleShowNames={this.toggleShowNames}
                             loaded={this.state.loaded}
                             theme={this.props.theme}
@@ -180,7 +180,7 @@ class ImgChoicesModal extends React.Component {
                                 <Close
                                     theme={this.props.theme}
                                     onClick={this.props.closeAll}
-                                    classProp={this.props.classes.close_icon}
+                                    className={this.props.classes.close_icon}
                                 />
                             }
                             title={

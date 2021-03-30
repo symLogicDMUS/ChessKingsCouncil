@@ -6,41 +6,26 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { divideList } from "./divideList";
 import { renderList } from "./renderList";
-import { reducer } from "./reducer.red";
+import { reducer } from "./ScrollTable.red";
 import { useStyles } from "./ScrollTable.jss";
 
-/**
- * The style prop must include width and fontSize!
- * @param listItems: a list of strings or components
- * @param title: string or component that renders text
- * @param numRows
- * @param theme
- * @param width
- * @param fontSize
- * @param rootClassName
- * @param listItemClassName
- * @param arrowButtonClassName
- * @param arrowIconClassName
- * @param textClassProp
- * @param addedClassProp
- * @returns {JSX.Element}
- * @constructor
- */
 function ScrollTable({
     listItems,
     title,
     numRows,
     theme,
-    width,
-    fontSize,
     rootClassName,
     listItemClassName,
     arrowButtonClassName,
+    arrowButtonTopClassName,
+    arrowButtonBottomClassName,
     arrowIconClassName,
-    textClassProp,
-    addedClassProp,
+    arrowIconTopClassName,
+    arrowIconBottomClassName,
+    textClassName,
+    addedClassName,
 }) {
-    const classes = useStyles({ theme: theme, width: width, fontSize: fontSize });
+    const classes = useStyles({theme: theme});
 
     const [state, dispatch] = useReducer(reducer, {
         dataLists: divideList(listItems, numRows),
@@ -48,8 +33,8 @@ function ScrollTable({
             divideList(listItems, numRows).inView,
             numRows,
             classes,
-            textClassProp,
-            listItemClassName,
+            textClassName,
+            listItemClassName
         ),
     });
 
@@ -59,10 +44,10 @@ function ScrollTable({
             listItems: listItems,
             numRows: numRows,
             classes: classes,
-            textClassProp: textClassProp,
-            listItemClassProp: listItemClassName,
+            textClassName: textClassName,
+            listItemClassName: listItemClassName,
         });
-    }, [listItems.length, listItemClassName, textClassProp, classes, numRows]);
+    }, [listItems.length, listItemClassName, textClassName, classes, numRows]);
 
     return (
         <Box
@@ -77,12 +62,13 @@ function ScrollTable({
                         type: "scroll-up",
                         numRows: numRows,
                         classes: classes,
-                        textClassProp: textClassProp,
-                        listItemClassProp: listItemClassName,
+                        textClassName: textClassName,
+                        listItemClassName: listItemClassName,
                     })
                 }
                 className={clsx(classes.arrow_button, {
                     [arrowButtonClassName]: arrowButtonClassName,
+                    [arrowButtonTopClassName]: arrowButtonTopClassName,
                 })}
                 fullWidth={true}
                 disableElevation={true}
@@ -91,6 +77,7 @@ function ScrollTable({
                 <ArrowDropUpIcon
                     className={clsx(classes.arrow_icon, {
                         [arrowIconClassName]: arrowIconClassName,
+                        [arrowIconTopClassName]: arrowIconTopClassName,
                     })}
                 />
             </Button>
@@ -101,12 +88,13 @@ function ScrollTable({
                         type: "scroll-down",
                         numRows: numRows,
                         classes: classes,
-                        textClassProp: textClassProp,
-                        listItemClassProp: listItemClassName,
+                        textClassName: textClassName,
+                        listItemClassName: listItemClassName,
                     })
                 }
                 className={clsx(classes.arrow_button, {
                     [arrowButtonClassName]: arrowButtonClassName,
+                    [arrowButtonBottomClassName]: arrowButtonBottomClassName,
                 })}
                 disableElevation={true}
                 fullWidth={true}
@@ -114,7 +102,8 @@ function ScrollTable({
             >
                 <ArrowDropDownIcon
                     className={clsx(classes.arrow_icon, {
-                        [arrowButtonClassName]: arrowButtonClassName,
+                        [arrowIconClassName]: arrowIconClassName,
+                        [arrowIconBottomClassName]: arrowIconBottomClassName,
                     })}
                 />
             </Button>

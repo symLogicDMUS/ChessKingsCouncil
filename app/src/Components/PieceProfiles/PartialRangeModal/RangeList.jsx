@@ -58,10 +58,10 @@ export function RangeList({
                     numRows={5}
                     theme={theme}
                     listItems={getOffsetListItems()}
-                    listItemClassProp={classes.row_style}
-                    rootClassProp={classes.range_list_style}
-                    addedClassProp={classes.range_list_style}
-                    arrowButtonClassProp={classes.button_style}
+                    listItemClassName={classes.row_style}
+                    rootClassName={classes.range_list_style}
+                    addedClassName={classes.range_list_style}
+                    arrowButtonClassName={classes.button_style}
                 >
                 </ScrollTable>
             ) : null}
@@ -70,10 +70,10 @@ export function RangeList({
                     numRows={5}
                     theme={theme}
                     listItems={getSpanListItems()}
-                    listItemClassProp={classes.row_style}
-                    rootClassProp={classes.range_list_style}
-                    addedClassProp={classes.range_list_style}
-                    arrowButtonClassProp={classes.button_style}
+                    listItemClassName={classes.row_style}
+                    rootClassName={classes.range_list_style}
+                    addedClassName={classes.range_list_style}
+                    arrowButtonClassName={classes.button_style}
                 />
             ) : null}
         </>
