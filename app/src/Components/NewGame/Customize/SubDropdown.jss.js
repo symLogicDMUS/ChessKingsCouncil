@@ -28,7 +28,7 @@ export const useStyles = makeStyles({
             fontSize: "1.1rem",
         },
         "@media screen and (min-width: 600px) and (max-width: 960px)": {
-            fontSize: "2.5vw",
+            fontSize: "3vw",
             lineHeight: "2.75rem",
         },
         "@media screen and (min-width: 960px)": {

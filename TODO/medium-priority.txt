@@ -1,8 +1,9 @@
 short:
     game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
-    consider memoizing ScrollTable items
     adjust navBar text to be smaller, for thinner viewports.
+    consider memoizing ScrollTable items
 medium:
+    add help question mark icon to Promotion "Menu" that goes to pawn promotions part of help modal menu.
     fix Customize page Pawn Promotions table
     fix Subs header
     fix Pawn Promotions table

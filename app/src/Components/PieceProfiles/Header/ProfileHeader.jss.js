@@ -32,9 +32,10 @@ export const useStyles = makeStyles(
         piece_name: (props) => ({
             "@media screen and (max-width: 600px)": {
                 fontSize: "1.1rem",
+                marginRight: '0.75rem',
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
-                fontSize: "2.5vw",
+                fontSize: "3vw",
                 lineHeight: "2.75rem",
             },
             "@media screen and (min-width: 960px)": {

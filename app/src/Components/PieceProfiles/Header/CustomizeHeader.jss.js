@@ -20,11 +20,8 @@ export const useStyles = makeStyles({
         width: sqrItemSizeLg,
     }),
     header_box_thin_screen: props => ({
-        '@media screen and (max-width: 320px)': {
-            width: '50vw',
-        },
-        '@media screen and (min-width: 320px) and (max-width: 600px)': {
-            width: sqrItemSizeSm,
+        '@media screen and (max-width: 600px)': {
+            flexGrow: 10,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: sqrItemSizeMd,
@@ -41,8 +38,8 @@ export const useStyles = makeStyles({
                 height: '5vw',
             },
             '@media screen and (min-width: 960px)': {
-                width: '2.5vw',
-                height: '2.5vw',
+                width: '3vw',
+                height: '3vw',
             },
         },
         "& .MuiSvgIcon-root": {
@@ -51,8 +48,8 @@ export const useStyles = makeStyles({
                 width: "1.3rem",
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
-                height: "2.75vw",
-                width: "2.75vw",
+                height: "3.5vw",
+                width: "3.5vw",
             },
             "@media screen and (min-width: 960px)": {
                 height: "1.75vw",
@@ -64,7 +61,7 @@ export const useStyles = makeStyles({
                 fontSize: "1.1rem",
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
-                fontSize: "2.5vw",
+                fontSize: "3vw",
                 lineHeight: "2.75rem",
             },
             "@media screen and (min-width: 960px)": {
@@ -81,6 +78,9 @@ export const useStyles = makeStyles({
     }),
     justify_start: props => ({
         justifyContent: "flex-start",
+    }),
+    justify_end: props => ({
+        justifyContent: 'flex-end',
     }),
     align_center: props => ({
         alignItems: 'center',

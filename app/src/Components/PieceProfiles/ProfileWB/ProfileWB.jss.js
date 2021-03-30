@@ -6,19 +6,17 @@ import {
     headerWidthLg,
     marginLg,
     marginMd,
-    marginMd2x,
     marginSm,
     marginSm2x,
+    sqrItemSizeLg,
+    sqrItemSizeMd,
+    sqrItemSizeSm,
     sqrItemHeaderHeightLg,
     sqrItemHeaderHeightMd,
     sqrItemHeaderHeightSm,
-    sqrItemSizeLg,
-    sqrItemSizeMd,
-    sqrItemSizeSm
 } from "../constants.jss";
 
 /*Labeled by size in screen width*/
-
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
@@ -106,7 +104,7 @@ export const useStyles = makeStyles({
     }),
     sqr_item_title: props => ({
         '@media screen and (max-width: 600px)': {
-            fontSize: '1.5vw',
+            fontSize: '1rem',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             fontSize: '2.5vw',

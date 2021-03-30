@@ -1,13 +1,12 @@
 short:
-    consider giving Customize Game title text more of a marginLeft, or making the content flexbox shorter.
+    for SubDropdown, decide if want to keep list items both icons and text, or just have icons
     replace ImgWindows Icons from Image icon to AddPhoto icon
     new icon of a board for Load Game modal
     fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger
 medium:
 * Make functional Components in addition to class components be a default export, to be consistent
-* go and through every document and use the Prettier command..
-* Help button needs to toggle help scrollTable
+* go and through every document and add documentation as well as use the Prettier command on file
 
 long:
     * for reusable components, replace all argument with single "props" argument

@@ -3,13 +3,13 @@ import { MenuItem, Typography } from "@material-ui/core";
 import BlockIcon from "@material-ui/icons/Block";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { themes } from "../../styles/themes.jss";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import { ResolvePieceIcon } from "./ResolvePieceIcon";
 import { icons } from "../../styles/icons/top/icons.jss";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { originTransform } from "../../Reuseables/AppBar/ThreeItemAppBar.jss";
 import {MuiMenuWithCaption} from "../../Reuseables/UserInput/MuiMenuWithCaption";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./SubDropdown.jss";
 
 export function SubDropdown({
@@ -18,6 +18,9 @@ export function SubDropdown({
     toggleSub,
     theme,
 }) {
+
+    const md = useMediaQuery("(min-width: 600px)");
+
     const classes = useStyles({ theme: theme });
 
     const handleChange = (value) => {
@@ -87,9 +90,11 @@ export function SubDropdown({
                 </MenuItem>
             </MuiMenuWithCaption>
             <div className={classes.seeMore}>
-                <Typography className={classes.title}>
-                    {pieceName}
-                </Typography>
+                { md ? (
+                    <Typography className={classes.title}>
+                        {pieceName}
+                    </Typography>
+                ) : null}
                 <IconButton onClick={handleMobileMenuOpen}>
                     <ResolvePieceIcon
                         theme={theme}

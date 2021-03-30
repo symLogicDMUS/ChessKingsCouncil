@@ -7,6 +7,8 @@ import { SubDropdown } from "../../NewGame/Customize/SubDropdown";
 import { SubButtonGroup } from "../../NewGame/Customize/SubButtonGroup";
 import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { useStyles as useMoreStyles } from "../Header/ProfileHeader.jss";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 import { useStyles } from "./CustomizeHeader.jss";
 
 export function CustomizeHeader({
@@ -17,6 +19,8 @@ export function CustomizeHeader({
     customPieceName,
     theme,
 }) {
+    const sm = useMediaQuery("(max-width: 600px)");
+
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
 
@@ -53,18 +57,32 @@ export function CustomizeHeader({
                     <Box
                         className={clsx(classes.options_box, {
                             [classes.header_box_thin_screen]: true,
-                            [classes.justify_between]: true,
+                            [classes.justify_between]: ! sm,
+                            [classes.justify_end]: sm,
                             [classes.align_center]: true,
                         })}
                     >
-                        <MuiCheckbox
-                            checkmarkState={isCheckmark}
-                            rootClassName={classes.promo_checkbox}
-                            onClick={() => togglePromo(customPieceName)}
-                            theme={theme}
-                        >
-                            Promo
-                        </MuiCheckbox>
+                        {sm ? (
+                            <SeeMore theme={theme}>
+                                <MuiCheckbox
+                                    checkmarkState={isCheckmark}
+                                    rootClassName={classes.promo_checkbox}
+                                    onClick={() => togglePromo(customPieceName)}
+                                    theme={theme}
+                                >
+                                    Promotion
+                                </MuiCheckbox>
+                            </SeeMore>
+                        ) : (
+                            <MuiCheckbox
+                                checkmarkState={isCheckmark}
+                                rootClassName={classes.promo_checkbox}
+                                onClick={() => togglePromo(customPieceName)}
+                                theme={theme}
+                            >
+                                Promo
+                            </MuiCheckbox>
+                        )}
                         <SubDropdown
                             standardPieceThatSubbingFor={
                                 standardPieceThatSubbingFor

@@ -1,6 +1,9 @@
 short:
     fixed Facebook button not working (still developer mode)
+    fix alignment of piece image with range board in ProfileWB
     fix path to sign out and title on home page, referenced by thin screens
+    add Ok button and mabye Promo All checkbox to bottom of Create Piece
+    fix navBar width for thin screens
 medium:
     re-render game board and pieces on screen re-size
     need different way to detect touch screen vs. mouse/keyboard for game board DnD
