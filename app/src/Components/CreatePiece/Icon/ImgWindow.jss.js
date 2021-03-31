@@ -25,7 +25,7 @@ export const useStyles = makeStyles({
        '@media screen and (max-width: 960px)': {
            marginRight: '1.75vw',
            marginLeft: '3.5vw',
-           marginTop: '3.5vw',
+           marginTop: '1.75vw',
            marginBottom: '3.5vw',
        },
     }),
@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             marginLeft: '1.75vw',
             marginRight: '3.5vw',
-            marginTop: '3.5vw',
+            marginTop: '1.75vw',
             marginBottom: '3.5vw',
         },
     }),

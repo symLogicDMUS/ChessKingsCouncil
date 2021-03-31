@@ -2,10 +2,10 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize001725, fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
-const itemSizewide = '16vw';
-const itemMarginwide = '2.5vw';
-const itemSizethin = '36.6vw';
-const itemMarginthin = '3vw';
+const itemSizeLg = '16vw';
+const itemMarginLg = '2.5vw';
+const itemSizeMd = '36.6vw';
+const itemMarginMd = '3vw';
 
 /**
  * item_choice: box item goes in + name of item
@@ -19,12 +19,12 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
         '@media screen and (max-width: 960px)': {
-            margin: itemMarginthin,
-            width: itemSizethin,
+            margin: itemMarginMd,
+            width: itemSizeMd,
         },
         '@media screen and (min-width: 960px)': {
-            margin: itemMarginwide,
-            width: itemSizewide,
+            margin: itemMarginLg,
+            width: itemSizeLg,
         },
     }),
     item_container: props => ({
@@ -36,12 +36,12 @@ export const useStyles = makeStyles({
         fontSize: fontSize002,
         borderRadius: '0.3em',
         '@media screen and (max-width: 960px)': {
-            width: itemSizethin,
-            height: itemSizethin,
+            width: itemSizeMd,
+            height: itemSizeMd,
         },
         '@media screen and (min-width: 960px)': {
-            width: itemSizewide,
-            height: itemSizewide,
+            width: itemSizeLg,
+            height: itemSizeLg,
         },
     }),
     item_unselected: props => ({
@@ -64,14 +64,14 @@ export const useStyles = makeStyles({
     }),
     item: props => ({
         '@media screen and (max-width: 960px)': {
-            margin: itemMarginthin,
-            width: itemSizethin,
-            height: itemSizethin,
+            margin: itemMarginMd,
+            width: itemSizeMd,
+            height: itemSizeMd,
         },
         '@media screen and (min-width: 960px)': {
-            margin: itemMarginwide,
-            width: itemSizewide,
-            height: itemSizewide,
+            margin: itemMarginLg,
+            width: itemSizeLg,
+            height: itemSizeLg,
         },
     }),
     img: props => ({

@@ -2,22 +2,27 @@ import {makeStyles} from "@material-ui/core/styles";
 import {viewWidth} from "../../helpers/windowMeasurments";
 import {themes} from "../../styles/themes.jss";
 
-export const toolButtonsDrawerWidth = viewWidth()*0.25;
+const z = 6;
 
-export const miniVariantIconsColumnWidth = 57;
+export const miniVariantIconsColumnWidth = 56;
+
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
+        zIndex: z,
         display: 'flex',
     }),
     drawer: props => ({
+        zIndex: z,
         flexShrink: 0,
         whiteSpace: 'nowrap',
     }),
     drawerPaper: props => ({
+        zIndex: z,
         backgroundColor: themes[props.theme].fill2,
     }),
     drawerOpen: props => ({
+        zIndex: z,
         width: '25vw',
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
@@ -28,6 +33,7 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     drawerClose: props => ({
+        zIndex: z,
         width: miniVariantIconsColumnWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
@@ -36,6 +42,7 @@ export const useStyles = makeStyles((theme) => ({
         overflowX: 'hidden',
     }),
     toolbar: props => ({
+        zIndex: z,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
@@ -43,19 +50,24 @@ export const useStyles = makeStyles((theme) => ({
         height: 48,
     }),
     chevron: props => ({
+        zIndex: z,
         color: themes[props.theme].text,
     }),
     chevronClosed: props =>  ({
-      margin: 'auto',
+        zIndex: z,
+        margin: 'auto',
     }),
     chevronOpen: props =>  ({
-      marginRight: 'auto',
+        zIndex: z,
+        marginRight: 'auto',
     }),
     content: props =>  ({
+        zIndex: z,
         flexGrow: 1,
     }),
     icon_extra_width_expanded: props => ({
         "& .MuiListItemIcon-root": {
+            zIndex: z,
             '@media screen and (max-width: 640px)': {
                 minWidth: 'unset',
                 width: 20,

@@ -17,11 +17,6 @@ export const useStyles = makeStyles((theme) => ({
             backgroundColor: fade(theme.palette.common.white, 0.075),
         },
     }),
-    icon_area: props => ({
-        height: '100%',
-        display: 'flex',
-        paddingLeft: '0.25rem',
-    }),
     icon: props => ({
         width: '1.6ch',
         height: '1.6ch',

@@ -22,9 +22,7 @@ export function SearchBox({updateSearchText, className, theme, icon, isMenuItem}
                 [classes.lighten]: isMenuItem,
             })}
         >
-            <div className={classes.icon_area}>
-                {icon ? icon : <SearchIcon className={classes.icon}/>}
-            </div>
+            {icon ? icon : <SearchIcon className={classes.icon}/>}
             <Input
                 onChange={handleChange}
                 classes={{

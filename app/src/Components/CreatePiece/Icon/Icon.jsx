@@ -8,7 +8,7 @@ import {ImgWindowsModal} from "./ImgWindowsModal";
 import {ImgWindow} from "./ImgWindow";
 import {useStyles} from "./Icon.jss";
 
-export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
+export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVariantTool, theme}) {
     const [color, setColor] = useState(null);
     const [imgButtonsModal, toggleImgButtonsModal] = useState(false);
     const [chooseModal, toggleChooseModal] = useState(false);
@@ -68,7 +68,7 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                 </Box>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <ImgWindowsModal theme={theme}>
+                <ImgWindowsModal theme={theme} toggleMiniVariantTool={toggleMiniVariantTool}>
                     <ImgWindow
                         color="White"
                         theme={theme}

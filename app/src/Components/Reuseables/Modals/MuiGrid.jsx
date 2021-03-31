@@ -38,11 +38,9 @@ export function MuiGrid(props) {
                     rootClassName={classes.bottom_button}
                     addedClassName={classes.ok_button}
                     size={isThin ? 'small' : 'medium'}
+                    startIcon={<CheckCircleOutlineIcon/>}
                     variant="outlined"
                     theme={props.theme}
-                    startIcon={
-                        <CheckCircleOutlineIcon/>
-                    }
                 >
                     Ok
                 </Button>
@@ -51,18 +49,15 @@ export function MuiGrid(props) {
                     modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.selectedItem === null}
                     rootClassName={classes.bottom_button}
+                    startIcon={<DeleteForeverIcon/>}
                     size={isThin ? 'small' : 'medium'}
                     theme={props.theme}
                     variant="outlined"
-                    startIcon={
-                        <DeleteForeverIcon
-                            // classes={{root: classes.button_icon}}
-                        />
-                    }
                 />
                 <MuiCheckbox
                     theme={props.theme}
                     className={classes.show_names_gen}
+                    checkboxClassName={classes.show_names_checkbox}
                     defaultChecked={props.defaultChecked}
                     onClick={props.toggleShowNames}
                 >

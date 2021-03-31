@@ -1,12 +1,6 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
-import MediaQuery from "react-responsive/src";
-import WallpaperIcon from '@material-ui/icons/Wallpaper'
-import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
 import {Close} from "../../../Reuseables/Modals/Close";
-import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
 import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
@@ -15,6 +9,7 @@ import {saveImgUrls} from "../../../../API/saveImgUrls";
 import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
 import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
+import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {styles} from "./ImgChoicesModal.jss";
 
 class ImgChoicesModal extends React.Component {
@@ -134,24 +129,17 @@ class ImgChoicesModal extends React.Component {
                         }
                         topFlexbox={
                             <Close
-                                className={this.props.classes.close_icon}
+                                className={this.props.classes.close}
+                                iconClassName={this.props.classes.close_icon}
                                 theme={this.props.theme}
                                 onClick={this.props.closeAll}
                             />
                         }
                         title={
-                            <>
-                                <Box className={this.props.classes.title_box}>
-                                    <Typography className={this.props.classes.title}>Images</Typography>
-                                    <WallpaperIcon className={this.props.classes.title_icon} size="small"/>
-                                </Box>
-                                <SearchBox
-                                    theme={this.props.theme}
-                                    className={this.props.classes.search}
-                                    updateSearchText={this.updateSearchText}
-                                    icon={<ImageSearchIcon className={this.props.classes.search_icon} /> }
-                                />
-                            </>
+                            <ImgChoicesTitle
+                                theme={this.props.theme}
+                                updateSearchText={this.updateSearchText}
+                            />
                         }
                         confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
                     >

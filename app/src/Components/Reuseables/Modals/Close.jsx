@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import {useStyles} from "./Close.jss";
 
-export function Close({onClick, style, className, theme, size}) {
+export function Close({onClick, style, className, iconClassName, theme, size}) {
 
     const classes = useStyles({style: style, theme: theme})
 
@@ -16,7 +16,9 @@ export function Close({onClick, style, className, theme, size}) {
             })}
             size={size}
         >
-            <CloseIcon fontSize="inherit" className={classes.icon}/>
+            <CloseIcon fontSize="inherit" className={clsx(classes.icon, {
+                [iconClassName]: iconClassName,
+            })}/>
         </IconButton>
     )
 }

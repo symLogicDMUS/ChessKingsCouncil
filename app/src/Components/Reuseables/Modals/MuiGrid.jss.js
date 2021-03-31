@@ -2,6 +2,9 @@ import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
+
+const widthLg = '90vw';
 
 export const useStyles = makeStyles((theme) => ({
     window: props => ({
@@ -10,9 +13,10 @@ export const useStyles = makeStyles((theme) => ({
             height: `calc(100vh - ${appBarHeight}px)`,
             position: 'absolute',
             top: appBarHeight,
+            left: 0,
         },
         '@media screen and (min-width: 960px)': {
-            width: '90vw',
+            width: widthLg,
             height: '90vh',
             position: 'absolute',
             top: `calc(${appBarHeight}px)`,
@@ -56,6 +60,8 @@ export const useStyles = makeStyles((theme) => ({
             width: '95vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
+            paddingTop: '1rem',
+            paddingBottom: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             width: '85.5vw',
@@ -69,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     ok_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginRight: '3vw',
+            marginRight: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             marginRight: '2vw'
@@ -82,7 +88,12 @@ export const useStyles = makeStyles((theme) => ({
     }),
     show_names_gen: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize001685,
+            fontSize: '1rem',
+        },
+    }),
+    show_names_checkbox: props => ({
+        '@media screen and (max-width: 960px)': {
+            fontSize: '1.1rem'
         },
     }),
 }), {index: 1});

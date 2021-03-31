@@ -399,6 +399,7 @@ class CreatePiece extends React.Component {
                             theme={this.state.theme}
                             updateName={this.updateName}
                             screenCase="thin"
+                            toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
                     {this.state.miniVariantTool === "Icon" ? (
@@ -408,6 +409,7 @@ class CreatePiece extends React.Component {
                             setPieceImg={this.setPieceImg}
                             resetImg={this.resetImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
+                            toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
                     {this.state.miniVariantTool === "Options" ? (
@@ -443,6 +445,7 @@ class CreatePiece extends React.Component {
                                 updateName={this.updateName}
                                 defaultValue={this.name}
                                 theme={this.state.theme}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
                             />
                             <Icon
                                 key="Icon"
@@ -450,6 +453,7 @@ class CreatePiece extends React.Component {
                                 resetImg={this.resetImg}
                                 setPieceImg={this.setPieceImg}
                                 whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
                             />
                             <Range
                                 key="Range"

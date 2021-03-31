@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
 import {sqrSize} from "../Board/CreatePieceBoard.jss";
+import {fontSize00301} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     button: props => ({
@@ -24,14 +25,19 @@ export const useStyles = makeStyles({
             maxHeight: '11vh',
         },
         "& .MuiIconButton-root": {
-            width:'100%',
+            width: '100%',
             height: '100%',
         },
         backgroundColor: themes[props.theme].dark_in_range,
     }),
 
     text: props => ({
-        fontSize: '3.5vw',
+        '@media screen and (max-width: 960px)': {
+            fontSize: fontSize00301,
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '3.5vw',
+        },
         color: '#e3f2fd',
     }),
 }, {index: 1});

@@ -1,18 +1,12 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize002, fontSize0024} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
-export const fontSizes = {
-    wide: fontSize002,
-    thin: fontSize002,
-    ipx: fontSize002,
-    ipad: fontSize0024,
-}
-
-export const genStyle = () => ({
-});
-
 export const useStyles = makeStyles({
+    window: props => ({
+        margin: 'auto',
+        borderRadius: '0.5rem',
+        backgroundColor: themes[props.theme].fill,
+    }),
     name: props => ({
         '@media screen and (min-width: 960px)': {
             width: '93%',
@@ -20,7 +14,11 @@ export const useStyles = makeStyles({
             marginBottom: '2vh',
         },
         '@media screen and (max-width: 960px)': {
-            width: '100%'
+            width: '35vw',
+            marginTop: '1.75vw',
+            marginLeft: '3.5vw',
+            marginRight: '3.5vw',
+            marginBottom: '3.5vw',
         },
 
         /*root*/

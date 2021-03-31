@@ -88,4 +88,37 @@ export const useStyles = makeStyles({
     icon_button: props => ({
         border: `0.04em solid ${themes[props.theme].outline}`
     }),
+    x_close_flexbox: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+    }),
+    close: props => ({
+        width: '1.75vw',
+        height: '1.75vw',
+    }),
+    icon: props => ({
+        width: '1.5vw',
+        height: '1.5vw',
+        color: themes[props.theme].text,
+    }),
+    modal: props => ({
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        zIndex: 2,
+    }),
+    caption: props => ({
+        fontSize: '1.1rem',
+        letterSpacing: '0.0075em',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+    }),
 }, {index: 1});
