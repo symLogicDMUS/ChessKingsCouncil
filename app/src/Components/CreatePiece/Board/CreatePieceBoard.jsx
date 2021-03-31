@@ -180,13 +180,14 @@ export function CreatePieceBoard({
             <div className={classes.board}>
                 {screenCase === 'thin' && miniVariantTool === "Range" ? (
                     getRangToolBoard()
-                ) : null}
+                ) : (
+                    getRegularBoard()
+                )}
                 {screenCase === 'thin' && miniVariantTool === "Location" ? (
                     getLocationToolBoard()
-                ) : null}
-                {screenCase !== 'thin' || (screenCase === 'thin' && miniVariantTool === null) ? (
+                ) : (
                     getRegularBoard()
-                ) : null}
+                )}
             </div>
         </>
     );
