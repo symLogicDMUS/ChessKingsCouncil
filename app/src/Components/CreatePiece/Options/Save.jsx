@@ -7,7 +7,7 @@ import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 
-export function Save({save, pieceName, whiteImg, blackImg, theme}) {
+export function Save({save, pieceName, whiteImg, blackImg, theme, className}) {
 
     let [pieceNameExists, setPieceNameExists] = useState(false);
     let [message, setMessage] = useState(null);
@@ -140,10 +140,11 @@ export function Save({save, pieceName, whiteImg, blackImg, theme}) {
                 </Portal>
                 ) : null}
             <Option
-                onClick={makeSaveAttempt}
-                iconType="save"
                 theme={theme}
+                iconType="save"
                 key='save-option'
+                onClick={makeSaveAttempt}
+                className={className}
             />
         </>
     )

@@ -5,10 +5,16 @@ import { Load } from "./Load";
 import { Erase } from "./Erase";
 import { Reset } from "./Reset";
 import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import {useStyles as useMoreStyles} from "../CreatePiece.jss";
+import {
+    ClickAwayListener,
+    Hidden,
+    Portal,
+    Typography,
+} from "@material-ui/core";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
+import { Close } from "../../Reuseables/Modals/Close";
 
 export function Options({
     load,
@@ -19,26 +25,85 @@ export function Options({
     pieceName,
     whiteImg,
     blackImg,
+    toggleMiniVariantTool,
 }) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
-    const isWide = useMediaQuery("(min-width: 960px)")
+    const isWide = useMediaQuery("(min-width: 960px)");
+
+    const handleClickAway = () => {
+        toggleMiniVariantTool("Options");
+    };
 
     return (
-        <Box className={clsx(classes2.four_button_group, {
-            [classes2.tool_flexbox]: isWide,
-        })}>
-            {isWide ? (<Typography className={classes2.tool_title}>Options</Typography>) : null}
-            <Load theme={theme} load={load} />
-            <Save
-                save={save}
-                theme={theme}
-                whiteImg={whiteImg}
-                blackImg={blackImg}
-                pieceName={pieceName}
-            />
-            <Reset reset={reset} theme={theme} />
-            <Erase erase={erase} theme={theme} />
-        </Box>
+        <>
+            {isWide ? (
+                <Box
+                    className={clsx(classes2.four_button_group, {
+                        [classes2.tool_flexbox]: isWide,
+                    })}
+                >
+                    <Typography className={classes2.tool_title}>
+                        Options
+                    </Typography>
+                    <Load theme={theme} load={load} />
+                    <Save
+                        save={save}
+                        theme={theme}
+                        whiteImg={whiteImg}
+                        blackImg={blackImg}
+                        pieceName={pieceName}
+                    />
+                    <Reset reset={reset} theme={theme} />
+                    <Erase erase={erase} theme={theme} />
+                </Box>
+            ) : (
+                <Portal>
+                    <div className={classes2.modal}>
+                        <ClickAwayListener
+                            onClickAway={handleClickAway}
+                            mouseEvent="onMouseDown"
+                            touchEvent="onTouchStart"
+                        >
+                            <Box className={classes.options_window}>
+                                <Box className={classes.close_area}>
+                                    <Close
+                                        onClick={handleClickAway}
+                                        className={classes.close}
+                                        iconClassName={classes.close_icon}
+                                        theme={theme}
+                                    />
+                                </Box>
+                                <Box className={classes.options_area}>
+                                    <Load
+                                        theme={theme}
+                                        load={load}
+                                        className={classes.smOption}
+                                    />
+                                    <Save
+                                        save={save}
+                                        theme={theme}
+                                        whiteImg={whiteImg}
+                                        blackImg={blackImg}
+                                        pieceName={pieceName}
+                                        className={classes.smOption}
+                                    />
+                                    <Reset
+                                        reset={reset}
+                                        theme={theme}
+                                        className={classes.smOption}
+                                    />
+                                    <Erase
+                                        erase={erase}
+                                        theme={theme}
+                                        className={classes.smOption}
+                                    />
+                                </Box>
+                            </Box>
+                        </ClickAwayListener>
+                    </div>
+                </Portal>
+            )}
+        </>
     );
 }

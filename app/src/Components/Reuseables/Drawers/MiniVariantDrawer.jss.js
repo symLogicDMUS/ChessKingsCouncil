@@ -1,11 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {viewWidth} from "../../helpers/windowMeasurments";
 import {themes} from "../../styles/themes.jss";
 
 const z = 6;
-
 export const miniVariantIconsColumnWidth = 56;
-
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({

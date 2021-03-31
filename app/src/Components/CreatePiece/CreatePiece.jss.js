@@ -5,8 +5,14 @@ import {makeStyles} from "@material-ui/core/styles";
 
 export const pageTitle = (theme) => ({
     color: themes[theme].text,
-    fontSize: ''
+    fontSize: '1.25rem'
 });
+
+export const appBarTitle = {
+    fontSize: fontSize002,
+    marginLeft: '1.5vw',
+    fontWeight: 450,
+}
 
 export const styles = {
     modal: {
@@ -24,12 +30,6 @@ export const styles = {
         flexDirection: 'row-reverse',
     }),
 };
-
-export const appBarTitle = {
-    fontSize: fontSize002,
-    marginLeft: '1.5vw',
-    fontWeight: 450,
-}
 
 export const useStyles = makeStyles({
     button: props => ({
@@ -86,9 +86,11 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     icon_button: props => ({
-        border: `0.04em solid ${themes[props.theme].outline}`
+        '@media screen and (min-width: 960px)': {
+            border: `0.04em solid ${themes[props.theme].outline}`,
+        },
     }),
-    x_close_flexbox: props => ({
+    close_area: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',

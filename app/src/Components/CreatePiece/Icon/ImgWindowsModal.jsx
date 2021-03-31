@@ -24,7 +24,7 @@ export function ImgWindowsModal({theme, toggleMiniVariantTool, children}) {
                 {/*    touchEvent="onTouchStart"*/}
                 {/*>*/}
                     <Box className={classes.window}>
-                        <Box className={classes2.x_close_flexbox}>
+                        <Box className={classes2.close_area}>
                             <IconButton
                                 onClick={() => toggleMiniVariantTool("Icon")}
                                 className={classes2.close}

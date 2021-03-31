@@ -2,6 +2,10 @@ import {lighten, makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../../styles/themes.jss";
 import {fontSize0015, fontSize0016} from "../../../styles/fontSizes.jss";
 
+export const searchBackgroundColor = (theme) => ({
+    backgroundColor: lighten(themes[theme].odd_row, 0.085),
+});
+
 export const useStyles = makeStyles({
     title_area: props => ({
         paddingTop: '1.75vh',
@@ -49,19 +53,15 @@ export const useStyles = makeStyles({
         marginLeft: '0.25em',
         color: themes[props.theme].text,
         '@media screen and (max-width: 600px)': {
-            fontSize: '2rem',
+            fontSize: '1.75rem',
             transform: 'translate(2rem, 0)',
         },
-        '@media screen and (min-width: min-width: 600px) and (max-width: 960px)': {
-            fontSize: fontSize0015,
-            height: '2em',
-            width: '2em',
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2em',
             transform: 'translate(12.5vw, 0)',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize0016,
-            height: '2em',
-            width: '2em',
+            fontSize: '2em',
             transform: 'translate(8.5vw, 0)',
         },
     }),
@@ -69,7 +69,6 @@ export const useStyles = makeStyles({
         alignSelf: 'flex-end',
         height: '2.15rem',
         '@media screen and (max-width: 600px)': {
-            backgroundColor: lighten(themes[props.theme].odd_row, 0.1),
             width: '60vw',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
@@ -82,10 +81,10 @@ export const useStyles = makeStyles({
     search_icon: props => ({
        color: themes[props.theme].text,
     }),
-    mdSearchIcon: props => ({
-        fontSize: '2rem',
+    medium_icon: props => ({
+        fontSize: '1.75rem',
     }),
-    smSearchIcon: props => ({
+    small_icon: props => ({
         fontSize: '1.35rem',
         marginLeft: '0.5rem',
     }),

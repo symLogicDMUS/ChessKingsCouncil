@@ -424,6 +424,7 @@ class CreatePiece extends React.Component {
                             blackImg={this.whiteAndBlackImgs.black}
                             isFirstVisit={this.state.isFirstVisit}
                             theme={this.state.theme}
+                            toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
                 </div>
@@ -479,6 +480,7 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
                             />
                         </>
                     }

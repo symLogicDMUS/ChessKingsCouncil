@@ -3,7 +3,7 @@ import {Portal} from "@material-ui/core";
 import {ProfilesModal} from "./ProfilesModal";
 import {Option} from "./Option";
 
-export function Load({load, theme}) {
+export function Load({load, theme, className}) {
     let [modal, setModal] = useState(false);
 
     return (
@@ -21,6 +21,7 @@ export function Load({load, theme}) {
                 iconType="load"
                 theme={theme}
                 key='load-option'
+                className={className}
                 onClick={() => setModal(true)}
             />
         </>

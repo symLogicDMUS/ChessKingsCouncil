@@ -32,7 +32,7 @@ export function Name({updateName, toggleMiniVariantTool, theme, defaultValue}) {
                             touchEvent="onTouchStart"
                         >
                             <Box className={classes.window}>
-                                <Box className={classes2.x_close_flexbox}>
+                                <Box className={classes2.close_area}>
                                     <IconButton
                                         onClick={() => toggleMiniVariantTool("Name")}
                                         className={classes2.close}

@@ -175,7 +175,7 @@ export const useStyles = makeStyles({
         },
         backgroundColor: themes[props.theme].fill,
     }),
-    x_icon_flexbox: props => ({
+    close_area: props => ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',

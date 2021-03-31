@@ -31,7 +31,7 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                         <Box className={clsx(classes.range_analysis, {
                             [classes.profile_wb_drawer_item]: hasDrawerParent,
                         })}>
-                            <Box className={classes.x_icon_flexbox}>
+                            <Box className={classes.close_area}>
                                 <Close
                                     onClick={() => dispatch({ type: "close" })}
                                     className={classes.close_icon}

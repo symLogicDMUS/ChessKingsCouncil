@@ -5,7 +5,7 @@ import {Input} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import {useStyles} from "./SearchBox.jss";
 
-export function SearchBox({updateSearchText, className, theme, icon, isMenuItem}) {
+export function SearchBox({updateSearchText, className, theme, style, icon, isMenuItem}) {
 
     const classes = useStyles({
         theme: theme,
@@ -21,6 +21,7 @@ export function SearchBox({updateSearchText, className, theme, icon, isMenuItem}
                 [className]: className,
                 [classes.lighten]: isMenuItem,
             })}
+             style={style}
         >
             {icon ? icon : <SearchIcon className={classes.icon}/>}
             <Input

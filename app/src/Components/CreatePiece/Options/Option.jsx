@@ -7,12 +7,13 @@ import {icons} from "../../styles/icons/top/icons.jss";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./Option.jss";
 
-export function Option({onClick, iconType, theme}) {
+export function Option({onClick, iconType, theme,  className}) {
     const classes = useStyles({theme: theme})
     const classes2 = useMoreStyles({theme: theme})
     return (
         <Button className={clsx(classes2.button, {
-            [classes2.icon_button]:true
+            [classes2.icon_button]: true,
+            [className]: className,
         })} >
             <IconButton className={classes.icon_button} classes={{label: classes.label}} onClick={onClick}>
                 <SvgIcon className={classes.icon}>

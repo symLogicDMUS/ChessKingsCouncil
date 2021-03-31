@@ -10,13 +10,14 @@ export function Close({onClick, style, className, iconClassName, theme, size}) {
 
     return (
         <IconButton
-            onClick={onClick} aria-label="close"
+            onClick={onClick}
+            aria-label="close"
             className={clsx(classes.close, {
                 [className]: className,
             })}
             size={size}
         >
-            <CloseIcon fontSize="inherit" className={clsx(classes.icon, {
+            <CloseIcon className={clsx(classes.icon, {
                 [iconClassName]: iconClassName,
             })}/>
         </IconButton>
