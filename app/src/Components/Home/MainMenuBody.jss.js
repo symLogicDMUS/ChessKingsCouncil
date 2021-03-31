@@ -1,4 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {themes} from "../styles/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     main_menu_body: props => ({
@@ -30,5 +31,8 @@ export const useStyles = makeStyles((theme) => ({
     }),
     site_title: props => ({
         width: '100%',
+    }),
+    paragraph: props => ({
+       color: themes[props.theme].page_link,
     }),
 }), {index: 1});

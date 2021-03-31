@@ -5,6 +5,7 @@ import {themes} from "../../styles/themes.jss";
 const z = 5;
 export const appBarHeight = 48;
 export const toolDrawerWidth = viewWidth() * 0.25;
+export const navDrawerSmWidth = 180;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -33,8 +34,11 @@ export const useStyles = makeStyles((theme) => ({
         background: themes[props.theme].fill,
         borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`
     }),
-    appBarCompressed: props => ({
+    appBarMdCompressed: props => ({
         width: `calc(100% - ${props.navDrawerWidth}px)`,
+    }),
+    appBarSmCompressed: props => ({
+       width: `calc(100% - ${navDrawerSmWidth}px)`
     }),
     appBarRelaxed: props => ({
         width: '100%',
@@ -74,7 +78,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     navPersistentPaper: props => ({
         zIndex: z,
-        width: props.navDrawerWidth,
+        width: navDrawerSmWidth,
     }),
     toolDrawerPaper: props => ({
         zIndex: z,

@@ -18,7 +18,7 @@ export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, cla
         <Box
             className={clsx(classes.two_item_app_bar, {
                 [className]: className,
-                [classes2.appBarCompressed]: open,
+                [classes2.appBarMdCompressed]: open,
                 [classes2.appBarRelaxed]: !open,
             })}
         >

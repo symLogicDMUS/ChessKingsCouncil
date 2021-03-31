@@ -12,7 +12,6 @@ export const useStyles = makeStyles({
     }),
     page_name: props => ({
         width: '100%',
-        height: '12.5vh',
     }),
     icon: props => ({
         width: '7.8vw',

@@ -1,58 +1,68 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {themes} from "../../styles/themes.jss";
 
-export const drawerWidth = 240;
+export const drawerWidth = 180;
 
 export const useStyles = makeStyles((theme) => ({
-    root: {
+    root: props => ({
         display: 'flex',
-    },
-    appBar: {
+    }),
+    appBar: props => ({
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-    },
-    appBarShift: {
+        backgroundColor: themes[props.theme].fill,
+    }),
+    appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
-    },
-    menuButton: {
+    }),
+    menuButton: props => ({
         marginRight: theme.spacing(2),
-    },
-    hide: {
+        color: themes[props.theme].text,
+    }),
+    hide: props => ({
         display: 'none',
-    },
-    drawer: {
+    }),
+    drawer: props => ({
         width: drawerWidth,
         flexShrink: 0,
-    },
-    drawerPaper: {
+    }),
+    drawerPaper: props => ({
         width: drawerWidth,
-    },
-    drawerHeader: {
+        backgroundColor: themes[props.theme].fill,
+    }),
+    drawerHeader: props => ({
         display: 'flex',
         alignItems: 'center',
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
-    },
-    content: {
+    }),
+    content: props => ({
         flexGrow: 1,
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -drawerWidth,
-    },
-    contentShift: {
+    }),
+    contentShift: props => ({
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
-    },
+    }),
+    text: props => ({
+        color: themes[props.theme].text,
+    }),
+    title: props => ({
+        flexGrow: 1,
+    }),
 }));

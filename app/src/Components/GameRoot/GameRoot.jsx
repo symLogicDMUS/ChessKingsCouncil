@@ -33,7 +33,6 @@ import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
-import {input_label} from "../Reuseables/NavBar/SettingsModal.jss";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {specialThemeMenuItemList} from "../styles/themes.jss";
 import {newData, newStandardImgUrls} from "../NewGame/NewData";
@@ -45,7 +44,6 @@ import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import MuiAccordion from "../Reuseables/Accordions/MuiAccordion";
 import {SaveAs} from "./SaveResignTool/SaveAs";
 import {styles} from "./GameRoot.jss";
 
@@ -469,9 +467,6 @@ class GameRoot extends React.Component {
                                             variant='outlined'
                                             label='franchise theme'
                                             inputLabel='franchise theme'
-                                            inputLabelStyle={
-                                                input_label(this.state.theme)
-                                            }
                                             genStyle={{marginTop: 'auto', marginBottom: 'auto'}}
                                             overrideItem={getFranchiseThemeOverride(this.state.theme)}
                                         >

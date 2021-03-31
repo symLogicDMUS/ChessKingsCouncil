@@ -6,9 +6,9 @@ import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {Background} from "../Reuseables/Background/Background";
 import '../Reuseables/Background/_backgrounds.scss';
-import {useStyles} from "./LoginPage.jss";
+import {useStyles} from "./SignInPage.jss";
 
-export function LoginPage(props) {
+export function SignInPage(props) {
     let [theme, setTheme] = useState("tan");
     const classes = useStyles({theme: theme, fontSize: fontSize002});
 
@@ -21,11 +21,13 @@ export function LoginPage(props) {
             <MediaQuery minWidth={960}>
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
-                    <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.app_title_wide}/>
-                    <StyledFirebaseAuth
-                        uiConfig={props.uiConfig}
-                        firebaseAuth={firebase.auth()}
-                    />
+                    <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.appTitleMd}/>
+                    <div className={classes.login_in_buttons}>
+                        <StyledFirebaseAuth
+                            uiConfig={props.uiConfig}
+                            firebaseAuth={firebase.auth()}
+                        />
+                    </div>
                     <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
@@ -33,13 +35,15 @@ export function LoginPage(props) {
                 <Background theme={theme}/>
                 <div className={classes.login_page}>
                     <img
-                        src={`/Images/titles/mobile/login/title-${theme}.svg`}
-                        className={classes.app_title_thin}
+                        src={`/Images/titles/desktop/title-${theme}.svg`}
+                        className={classes.appTitleSm}
                     />
-                    <StyledFirebaseAuth
-                        uiConfig={props.uiConfig}
-                        firebaseAuth={firebase.auth()}
-                    />
+                    <div className={classes.login_in_buttons}>
+                        <StyledFirebaseAuth
+                            uiConfig={props.uiConfig}
+                            firebaseAuth={firebase.auth()}
+                        />
+                    </div>
                     <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>

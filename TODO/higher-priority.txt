@@ -1,15 +1,8 @@
 short:
     fixed Facebook button not working (still developer mode)
-    fix path to sign out and title on home page, referenced by thin screens
     add Ok button and maybe Promo All checkbox to bottom of Create Piece
-    fix navBar width for thin screens
 medium:
-    replace LoadGame page permenant and and persistent drawers with responsive drawer
-    re-render game board and pieces on screen re-size
-    need different way to detect touch screen vs. mouse/keyboard for game board DnD
+    replace LoadGame page permanent and and persistent drawers with responsive drawer
     thin version of gifs for help modal, for how to add piece to game, and other
-    thin version of styles for PieceProfiles.
-    add style back to Name text field CreatePiece
     fix style for BoardTool components
 long:
-    have repositioning of pieces on screen resize, for GameBoard.

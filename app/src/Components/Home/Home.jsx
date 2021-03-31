@@ -1,17 +1,26 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
-import { MainMenuDesktop } from "./MainMenuDesktop";
-import { MainMenuMobile } from "./MainMenuMobile";
 import "../Reuseables/Background/_backgrounds.scss";
+import { MainMenuDesktop } from "./MainMenuDesktop";
+import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
 
 export class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = { theme: "tan" };
+        this.updateTheme = this.updateTheme.bind(this);
     }
 
     componentDidMount() {
-        document.body.className = "tan-background";
+        document.body.className = `${this.state.theme}-background`;
+    }
+
+    componentDidUpdate() {
+        document.body.className = `${this.state.theme}-background`;
+    }
+
+    updateTheme(theme) {
+        this.setState({theme: theme})
     }
 
     render() {
@@ -24,9 +33,10 @@ export class Home extends React.Component {
                     />
                 </MediaQuery>
                 <MediaQuery maxWidth={960}>
-                    <MainMenuMobile
-                        signOut={this.props.signOut}
+                    <MainMenuDrawer
                         theme={this.state.theme}
+                        updateTheme={this.updateTheme}
+                        signOut={this.props.signOut}
                     />
                 </MediaQuery>
             </>

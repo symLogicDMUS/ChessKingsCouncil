@@ -13,15 +13,6 @@ export const useStyles = makeStyles({
         border: 'none',
         outline: 'none',
     }),
-    em_square: props => ({
-        fontSize: props.fontSize,
-        zIndex: 'inherit',
-        ...rfToGridLoc(props.rf),
-        width: '1em',
-        height: '1em',
-        margin: 0,
-        cursor: 'pointer',
-    }),
     dark_normal: props => ({
         backgroundColor: themes[props.theme].dark_normal,
     }),

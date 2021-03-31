@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     title: props => ({
-        width: availWidth() * 0.8,
+        width: '80vw',
     }),
     page_links: props => ({
         fontSize: fontSize00392,
@@ -24,7 +24,7 @@ export const useStyles = makeStyles({
     }),
     top: props => ({
         position: 'fixed',
-        width: '99%',
+        width: '100vw',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -33,6 +33,7 @@ export const useStyles = makeStyles({
     }),
     sign_out_button: props => ({
         fontSize: fontSize002,
+        marginRight: '0.7vw',
     }),
     icon: props => ({
         fontSize: fontSize002,

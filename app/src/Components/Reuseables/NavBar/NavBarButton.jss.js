@@ -11,12 +11,17 @@ export const useStyles = makeStyles({
         flexGrow: 3,
         borderRadius: 0,
         '@media screen and (max-width: 960px)': {
-            fontSize: '3vw',
-            justifyContent: "flex-start",
+            fontSize: '1.25rem',
             width: "99%",
-            height: "2.5em"
+            height: "2em",
+            justifyContent: "flex-start",
         },
-        '@media screen and (min-width: 960px)': {
+        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
+            fontSize: fontSize0015,
+            justifyContent: "center",
+            height: "2.25em",
+        },
+        '@media screen and (min-width: 1220px)': {
             fontSize: fontSize00184,
             justifyContent: "center",
             height: "2.25em",
@@ -27,21 +32,20 @@ export const useStyles = makeStyles({
         },
     }),
     box: props => ({
-        ...props.style,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         flexGrow: 4,
     }),
     icon: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize00184,
-        },
         '@media screen and (max-width: 960px)': {
-            fontSize: thinScreenFontSize,
+            fontSize: '1.1rem',
         },
         '@media screen and (min-width: 960px) and (max-width: 1220px)': {
             fontSize: fontSize0015,
+        },
+        '@media screen and (min-width: 1220px)': {
+            fontSize: fontSize00184,
         },
         marginRight: margin,
     }),
@@ -63,12 +67,7 @@ export const useStyles = makeStyles({
         },
     }),
     normal_color: props => ({
-        '@media screen and (max-width: 960px)': {
-            color: themes[props.theme].text,
-        },
-        '@media screen and (min-width: 960px)': {
-            color: themes[props.theme].nav_text,
-        },
+        color: themes[props.theme].nav_text,
     }),
     hover_color: props => ({
         color: themes[props.theme].button_hover_text,

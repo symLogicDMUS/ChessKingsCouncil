@@ -11,7 +11,7 @@ import LoadGame from "./Components/LoadGame/LoadGame";
 import GameRoot from "./Components/GameRoot/GameRoot";
 import MyPieces from "./Components/MyPieces/MyPieces";
 import {Home} from "./Components/Home/Home";
-import {LoginPage} from "./Components/Home/LoginPage";
+import {SignInPage} from "./Components/Home/SignInPage";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/saveSampleData";
 import {saveUser} from "./API/saveUser";
@@ -109,7 +109,7 @@ export class App extends React.Component {
             );
         } else {
             return (
-                <LoginPage uiConfig={this.uiConfig} anonymousLogin={this.anonymousLogin} />
+                <SignInPage uiConfig={this.uiConfig} anonymousLogin={this.anonymousLogin} />
             );
         }
     }

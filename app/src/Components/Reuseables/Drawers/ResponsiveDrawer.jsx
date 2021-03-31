@@ -29,8 +29,10 @@ function ResponsiveDrawer({
     const [toolDrawerWidth, setToolDrawerWidth] = useState(viewWidth() * 0.25);
     useEffect(() => {
         function handleResize() {
-            setNavDrawerWidth(viewWidth() * 0.18);
-            setToolDrawerWidth(viewWidth() * 0.25);
+            if (viewWidth() >= 960) {
+                setNavDrawerWidth(viewWidth() * 0.18);
+                setToolDrawerWidth(viewWidth() * 0.25);
+            }
         }
         window.addEventListener("resize", handleResize);
         return (_) => {
@@ -59,7 +61,7 @@ function ResponsiveDrawer({
                     position="fixed"
                     elevation={elevation} //default: 4,
                     className={clsx(classes.appBar, {
-                        [classes.appBarCompressed]: open,
+                        [classes.appBarSmCompressed]: open,
                         [classes.appBarRelaxed]: !open,
                     })}
                 >
@@ -89,7 +91,7 @@ function ResponsiveDrawer({
                 <AppBar
                     position="fixed"
                     className={clsx(classes.appBar, {
-                        [classes.appBarCompressed]: true,
+                        [classes.appBarMdCompressed]: true,
                     })}
                 >
                     <Toolbar>
