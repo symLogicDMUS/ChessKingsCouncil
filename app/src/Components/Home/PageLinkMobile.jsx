@@ -28,15 +28,12 @@ export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
         <Box
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            className={clsx(classes.page_link, {
-                [classes.height_and_font_size]: true,
-            })}
+            className={classes.page_link}
         >
             <SvgIcon
                 className={clsx(classes.page_icon, {
                     [classes2.normal_color]: !hover,
                     [classes2.hover_color]: hover,
-                    [classes.height_and_font_size]: true,
                 })}
             >
                 {icons[icon]}
@@ -46,7 +43,6 @@ export function PageLinkMobile({icon, path, pathType, pageName, theme}) {
                     hover ? `/Images/text/main menu/mobile/${theme}/hover/${pageName}.svg`
                         : `/Images/text/main menu/mobile/${theme}/normal/${pageName}.svg`
                 }
-                className={classes.height_and_font_size}
             />
         </Box>
     );

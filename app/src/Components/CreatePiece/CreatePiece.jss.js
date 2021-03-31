@@ -95,16 +95,15 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
     }),
     close: props => ({
-        width: '1.75vw',
-        height: '1.75vw',
+        width: '1vw',
+        height: '1vw',
     }),
     icon: props => ({
-        width: '1.5vw',
-        height: '1.5vw',
-        color: themes[props.theme].text,
+        width: '2vw',
+        height: '2vw',
     }),
     modal: props => ({
         position: 'absolute',

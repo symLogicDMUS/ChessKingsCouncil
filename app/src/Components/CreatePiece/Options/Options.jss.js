@@ -1,6 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
-import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
     options_tool: (props) => ({
@@ -26,25 +25,14 @@ export const useStyles = makeStyles({
         alignItems: 'center',
 
     }),
-    close_area: props => ({
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-    }),
-    close: props => ({
-       width: '1vw',
-       height: '1vw',
-    }),
-    close_icon: props => ({
-        width: '2vw',
-        height: '2vw',
-    }),
     smOption: props => ({
         marinTop: '1vw',
         marginLeft: '2vw',
         marginRight: '2vw',
         marginBottom: '2vw',
+    }),
+    draggable_icon: props => ({
+        color: themes[props.theme].text_alt,
+        cursor: 'move',
     }),
 }, {index: 1});

@@ -1,8 +1,11 @@
 short:
+    add description to main menu page
+    word "span" appears bellow span arrow on board.
     game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
     adjust navBar text to be smaller, for thinner viewports.
     consider memoizing ScrollTable items
 medium:
+    memoize createPieceBoard
     add help question mark icon to Promotion "Menu" that goes to pawn promotions part of help modal menu.
     fix Customize page Pawn Promotions table
     fix Subs header

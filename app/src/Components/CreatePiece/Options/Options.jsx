@@ -4,17 +4,14 @@ import { Save } from "./Save";
 import { Load } from "./Load";
 import { Erase } from "./Erase";
 import { Reset } from "./Reset";
+import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
-import {
-    ClickAwayListener,
-    Hidden,
-    Portal,
-    Typography,
-} from "@material-ui/core";
+import { Close } from "../../Reuseables/Modals/Close";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
+import {ClickAwayListener, Portal, Typography} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
-import { Close } from "../../Reuseables/Modals/Close";
 
 export function Options({
     load,
@@ -65,12 +62,17 @@ export function Options({
                             mouseEvent="onMouseDown"
                             touchEvent="onTouchStart"
                         >
-                            <Box className={classes.options_window}>
-                                <Box className={classes.close_area}>
+                            <motion.div drag className={classes.options_window}>
+                                <Box className={classes2.close_area}>
+                                    <DragIndicatorIcon className={
+                                        clsx(classes2.icon, {
+                                            [classes.draggable_icon] : true,
+                                        })}
+                                    />
                                     <Close
                                         onClick={handleClickAway}
-                                        className={classes.close}
-                                        iconClassName={classes.close_icon}
+                                        className={classes2.close}
+                                        iconClassName={classes2.icon}
                                         theme={theme}
                                     />
                                 </Box>
@@ -99,7 +101,7 @@ export function Options({
                                         className={classes.smOption}
                                     />
                                 </Box>
-                            </Box>
+                            </motion.div>
                         </ClickAwayListener>
                     </div>
                 </Portal>

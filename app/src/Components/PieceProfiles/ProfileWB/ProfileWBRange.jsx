@@ -21,7 +21,6 @@ function ProfileWBRange ({
     const classes = useStyles({ theme: theme, board_img: rangeBoardImgStr });
     const classes2 = useMoreStyles({ theme: theme });
 
-
     return (
         <Box
             className={clsx(classes2.sqr_item_area, {

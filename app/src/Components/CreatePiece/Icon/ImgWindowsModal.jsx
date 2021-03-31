@@ -1,8 +1,10 @@
 import React from "react";
+import clsx from "clsx";
+import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
-import {ClickAwayListener, Portal} from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
+import {Portal} from "@material-ui/core";
+import {Close} from "../../Reuseables/Modals/Close";
+import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./ImgWindowsModal.jss";
 
@@ -10,31 +12,24 @@ export function ImgWindowsModal({theme, toggleMiniVariantTool, children}) {
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles({theme: theme})
 
-    const handleClickAway = () => {
-        console.log('clicked')
-        toggleMiniVariantTool("Icon")
-    };
-
     return (
         <Portal>
             <div className={classes2.modal}>
-                {/*<ClickAwayListener*/}
-                {/*    onClickAway={handleClickAway}*/}
-                {/*    mouseEvent="onMouseDown"*/}
-                {/*    touchEvent="onTouchStart"*/}
-                {/*>*/}
-                    <Box className={classes.window}>
+                    <motion.div drag className={classes.window}>
                         <Box className={classes2.close_area}>
-                            <IconButton
-                                onClick={() => toggleMiniVariantTool("Icon")}
+                            <DragIndicatorIcon className={
+                                clsx(classes2.icon, {
+                                [classes.draggable_icon] : true,
+                            })}/>
+                            <Close
+                                theme={theme}
                                 className={classes2.close}
-                            >
-                                <CloseIcon className={classes2.icon}/>
-                            </IconButton>
+                                iconClassName={classes2.icon}
+                                onClick={() => toggleMiniVariantTool("Icon")}
+                            />
                         </Box>
                         <Box className={classes.window_area}>{children}</Box>
-                    </Box>
-                {/*</ClickAwayListener>*/}
+                    </motion.div>
             </div>
         </Portal>
     );

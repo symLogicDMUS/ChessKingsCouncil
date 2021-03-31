@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
 import { ProfileWB } from "./ProfileWB";
+import {Typography} from "@material-ui/core";
 import { Close } from "../../Reuseables/Modals/Close";
 import { getColorName } from "../../helpers/getColorName";
 import {useStyles} from "./ProfileWBModal.jss";

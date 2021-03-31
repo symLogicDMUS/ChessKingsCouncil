@@ -1,4 +1,5 @@
 short:
+    Play button in new game too wide
     for SubDropdown, decide if want to keep list items both icons and text, or just have icons
     replace ImgWindows Icons from Image icon to AddPhoto icon
     new icon of a board for Load Game modal

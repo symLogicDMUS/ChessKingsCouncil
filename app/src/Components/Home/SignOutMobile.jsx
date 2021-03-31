@@ -1,12 +1,12 @@
 import React, {useState} from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {AccountCircle} from "@material-ui/icons";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import {adjuster, iconAdjuster} from "./SignOutMobile.jss";
 import { useStyles } from "./PageLinkMobile.jss";
 
 export function SignOutMobile({signOut, theme}) {
-    let [hover, setHover] = useState();
+    const [hover, setHover] = useState(false);
     const classes = useStyles({ theme: theme});
     return (
         <Box
@@ -14,20 +14,28 @@ export function SignOutMobile({signOut, theme}) {
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             className={classes.page_link}
-            style={adjuster()}
         >
             <SvgIcon
-                className={
-                    hover ? classes.page_icon_hover : classes.page_icon_normal
-                }
-                style={iconAdjuster()}
+                className={clsx(classes.page_icon, {
+                    [classes.normal_color]: ! hover,
+                    [classes.hover_color]: hover,
+                })}
             >
                 <AccountCircle />
             </SvgIcon>
-            <img
-                src={`/Images/text/main menu/thin/${theme}/${hover ? 'hover' : 'normal'}/Sign Out.svg`}
-                className={classes.page_name}
-            />
+            {hover ? (
+                <img
+                    src={`/Images/text/main menu/mobile/${theme}/hover/Sign Out.svg`}
+                    className={classes.page_name}
+                    alt={"name and link to page"}
+                />
+            ) : (
+                <img
+                    src={`/Images/text/main menu/mobile/${theme}/normal/Sign Out.svg`}
+                    className={classes.page_name}
+                    alt={"name and link to page"}
+                />
+            )}
         </Box>
     )
 }

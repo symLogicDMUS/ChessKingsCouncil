@@ -22,8 +22,8 @@ export function SavedGames(props) {
             <MediaQuery minWidth={960}>
                 <Background theme={props.theme} navBar={true} currentPage='LoadGame'/>
                 <NavBar
-                    currentPage="LoadGame"
                     screenCase='wide'
+                    currentPage="LoadGame"
                     theme={props.theme}
                     updateTheme={props.updateTheme}
                     helpText={HelpText(fontSize002, props.theme)}

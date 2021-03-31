@@ -1,16 +1,20 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {sqrSize} from "./ProfileWB.jss";
+import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm} from "../constants.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     board_window: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: '42.5vw',
-            height: '42.5vw',
+        '@media screen and (max-width: 600px)': {
+            width: sqrItemSizeSm,
+            height: sqrItemSizeSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: sqrItemSizeMd,
+            height: sqrItemSizeMd,
         },
         '@media screen and (min-width: 960px)': {
-            width: '14.333vw',
-            height: '14.333vw',
+            width: sqrItemSizeLg,
+            height: sqrItemSizeLg,
         },
     }),
     board_img: props => ({
@@ -20,10 +24,15 @@ export const useStyles = makeStyles({
     board_grid: props => ({
         display: 'grid',
         position: 'relative',
-        '@media screen and (max-width: 960px)': {
-            gridTemplateColumns: 'repeat(8, 5.3125vw)',
-            gridTemplateRows: 'repeat(8, 5.3125vw)',
-            top: '-42.95vw',
+        '@media screen and (max-width: 600px)': {
+            gridTemplateColumns: 'repeat(8, 4.5625vw)',
+            gridTemplateRows: 'repeat(8, 4.5625vw)',
+            top: '-37.5vw',
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            gridTemplateColumns: 'repeat(8, 5vw)',
+            gridTemplateRows: 'repeat(8, 5vw)',
+            top: '-40.65vw',
         },
         '@media screen and (min-width: 960px)': {
             gridTemplateColumns: 'repeat(8, 1.791625vw)',

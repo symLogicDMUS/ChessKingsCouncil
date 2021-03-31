@@ -35,7 +35,8 @@ export function NavBar(props) {
                         screenCase === "wide" &&
                         (props.currentPage === "CreatePiece" ||
                             props.currentPage === "GameRoot" ||
-                            props.currentPage === "Customize"),
+                            props.currentPage === "Customize" ||
+                            props.currentPage === "MainMenu"),
                 })}
             >
                 <HelpButton

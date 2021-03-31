@@ -5,12 +5,17 @@ import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantD
 
 export const useStyles = makeStyles({
     window: props => ({
+        margin: 'auto',
         borderRadius: '0.5rem',
         backgroundColor: themes[props.theme].fill,
-        margin: 'auto',
+        border: `0.05rem solid ${themes[props.theme].odd_row}`,
     }),
     window_area: props => ({
         display: 'flex',
         flexDirection: 'row',
+    }),
+    draggable_icon: props => ({
+        color: themes[props.theme].text_alt,
+        cursor: 'move',
     }),
 }, {index: 1});

@@ -1,23 +1,30 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {viewHeight} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const useStyles = makeStyles({
     page_link: props => ({
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'baseline',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
         justifyContent: 'flex-start',
+        cursor: 'pointer',
+        width: '85vw',
+        maxHeight: '10vw',
+        border: '1px dashed pink',
     }),
     page_icon: props => ({
-        width: '0.8em',
-        height: '0.8em',
-        marginRight: '0.5em',
+        height: '100%',
+        border: '1px dashed blue',
     }),
-    height_and_font_size: props => ({
-        height: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
-        fontSize: (viewHeight() - (appBarHeight + viewHeight() * 0.075))*0.45*0.1,
+    page_name: props => ({
+        height: '100%',
+        border: '1px dashed green',
+    }),
+    normal_color: props => ({
+        color: themes[props.theme].page_link,
+    }),
+    hover_color: props => ({
+        color: themes[props.theme].page_link_hover,
     }),
 }, {index: 1});

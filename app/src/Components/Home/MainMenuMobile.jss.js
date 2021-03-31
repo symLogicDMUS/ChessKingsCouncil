@@ -3,17 +3,21 @@ import {availWidth, viewHeight} from "../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     main_menu: props => ({
+        width: '85vw',
+        margin: '7.5vw',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        width: availWidth() * 0.6,
-        height: viewHeight()*0.84,
-        marginTop: '7.5vh',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        border: '1px dashed black',
+    }),
+    title_area: props => ({
+        width: '85vw',
+        border: '1px dashed red',
     }),
     title: props => ({
-        width: '100%'
+        width: '100%',
+        maxHeight: '40vh',
+        marginRight: 'auto',
     }),
     page_links: props => ({
         flexGrow: 3,
