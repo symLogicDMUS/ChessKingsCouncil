@@ -62,7 +62,6 @@ class MyPieces extends React.Component {
                                 searchText={this.state.searchText}
                             >
                                 <ProfilesTitle
-                                    screenCase='wide'
                                     theme={this.state.theme}
                                     updateSearchText={this.updateSearchText}
                                 >
@@ -99,7 +98,6 @@ class MyPieces extends React.Component {
                                     style={piece_profiles()}
                                 >
                                     <ProfilesTitle
-                                        screenCase='thin'
                                         theme={this.state.theme}
                                         updateSearchText={this.updateSearchText}
                                     >

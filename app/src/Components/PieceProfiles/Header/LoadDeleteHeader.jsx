@@ -12,7 +12,6 @@ import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 import {useStyles as useMoreStyles}
     from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 export function LoadDeleteHeader({
     def,
@@ -72,11 +71,13 @@ export function LoadDeleteHeader({
                 <Typography variant='subtitle2' className={classes2.piece_name}>
                     {pieceName}
                 </Typography>
-                <Box className={classes.buttons_flexbox}>
                     <Button
                         theme={theme}
                         startIcon={<StorageIcon className={classes.icon}/>}
-                        rootClassName={classes.button}
+                        rootClassName={clsx(classes.button, {
+                            [classes.button_size]: true,
+                            [classes.button_border]: true,
+                        })}
                         addedClassName={classes.load_button}
                         onClick={loadMethod}
                     >
@@ -91,12 +92,14 @@ export function LoadDeleteHeader({
                             [classes.delete_icon]: true
                         })} />}
                         variant='outlined'
-                        rootClassName={classes.button}
+                        rootClassName={clsx(classes.button, {
+                            [classes.button_size]: true,
+                            [classes.button_border]: true,
+                        })}
                         addedClassName={classes.delete_button}
                         isDisabled={false}
                         theme={theme}
                     />
-                </Box>
             </div>
         </>
     );

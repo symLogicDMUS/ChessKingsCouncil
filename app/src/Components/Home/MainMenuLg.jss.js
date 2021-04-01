@@ -1,11 +1,10 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {fontSize002, fontSize00392} from "../styles/fontSizes.jss";
+import {availHeight} from "../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     main_menu: props => ({
-        width: '100%',
-        height: availHeight(),
+        width: '100vw',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -15,14 +14,13 @@ export const useStyles = makeStyles({
         width: '80vw',
     }),
     page_links: props => ({
-        fontSize: fontSize00392,
         width: '66.25%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         justifyContent: 'space-between',
     }),
-    top: props => ({
+    top_area: props => ({
         position: 'fixed',
         width: '100vw',
         display: 'flex',
@@ -32,10 +30,10 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     sign_out_button: props => ({
-        fontSize: fontSize002,
-        marginRight: '0.7vw',
+        fontSize: '1rem',
+        marginRight: '0.25vw',
     }),
     icon: props => ({
-        fontSize: fontSize002,
+        fontSize: '1rem',
     }),
 }, {index: 1});

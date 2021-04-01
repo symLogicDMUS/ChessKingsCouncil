@@ -1,7 +1,7 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
-import { MainMenuDesktop } from "./MainMenuDesktop";
+import { MainMenuLg } from "./MainMenuLg";
 import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
 
 export class Home extends React.Component {
@@ -27,7 +27,7 @@ export class Home extends React.Component {
         return (
             <>
                 <MediaQuery minWidth={960}>
-                    <MainMenuDesktop
+                    <MainMenuLg
                         signOut={this.props.signOut}
                         theme={this.state.theme}
                     />

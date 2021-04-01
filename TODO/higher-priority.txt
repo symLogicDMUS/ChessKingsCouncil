@@ -1,8 +1,8 @@
 short:
-    fixed Facebook button not working (still developer mode)
-    add Ok button and maybe Promo All checkbox to bottom of Create Piece
+    fix Facebook button not working (still developer mode)
+    add Ok button and maybe Promo All checkbox to bottom of Customize page
 medium:
+    page won't scroll when board cut of the bottom
     replace LoadGame page permanent and and persistent drawers with responsive drawer
-    thin version of gifs for help modal, for how to add piece to game, and other
-    fix style for BoardTool components
+    mobile version of gifs for help modal, for how to add piece to game, and other
 long:

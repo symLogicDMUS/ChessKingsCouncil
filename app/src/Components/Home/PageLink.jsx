@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../styles/icons/top/icons.jss";
-import {useStyles} from "./PageLinkDesktop.jss";
+import {useStyles} from "./PageLink.jss";
 
-export function PageLinkDesktop({icon, path, pathType, pageName, theme}) {
+export function PageLink({icon, path, pathType, pageName, theme}) {
     let [hover, setHover] = useState(false);
     const classes = useStyles({theme: theme});
 

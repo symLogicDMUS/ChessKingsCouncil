@@ -5,7 +5,7 @@ import {lighten} from "@material-ui/core/styles";
 
 
 export const useStyles = makeStyles((theme) => ({
-    search: props => ({
+     search: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
@@ -21,6 +21,8 @@ export const useStyles = makeStyles((theme) => ({
         width: '1.6ch',
         height: '1.6ch',
         margin: 'auto',
+        paddingLeft: '0.3em',
+
         color: themes[props.theme].text,
     }),
     input_root: props => ({

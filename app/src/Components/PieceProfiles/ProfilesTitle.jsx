@@ -4,23 +4,13 @@ import Typography from "@material-ui/core/Typography";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {useStyles} from "./ProfilesTitle.jss";
 
-export const widths = {
-    wide: '10.55em',
-    thin: '42.5vw',
-    ipx: '8.25em',
-    ipad: '8.25em',
-}
-
-/**
- * For pages without Permanent Drawer
- * */
-export function ProfilesTitle({theme, updateSearchText, screenCase, children}) {
+export function ProfilesTitle({theme, updateSearchText, children}) {
     const classes = useStyles({theme: theme});
     return (
         <>
             <Box className={classes.title_bar}>
                 <Typography className={classes.title} variant='h6'>{children}</Typography>
-                <SearchBox theme={theme} width={widths[screenCase]} updateSearchText={updateSearchText} />
+                <SearchBox theme={theme} className={classes.search} updateSearchText={updateSearchText} />
             </Box>
         </>
     );

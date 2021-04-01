@@ -15,15 +15,34 @@ export const useStyles = makeStyles({
     }),
     button: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '3vh',
+            fontSize: '1.25rem',
+        },
+        '@media screen and (min-width: 960px) and (max-width: 1360px)': {
+            fontSize: '1.1vw',
+            border: '1px dashed red',
+        },
+        '@media screen and (min-width: 1360px) and (max-width: 1460px)': {
+            fontSize: '0.9rem',
+        },
+        '@media screen and (min-width: 1460px)': {
+            fontSize: '1.1rem',
+        },
+    }),
+    button_size: props => ({
+        '@media screen and (max-width: 960px)': {
             width: '18.75vw',
             height: '5.75vh',
+        },
+        '@media screen and (min-width: 960px)': {
+            width: '6.5vw',
+            height: '4.5vh',
+        },
+    }),
+    button_border: props => ({
+        '@media screen and (max-width: 960px)': {
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '2.25vh',
-            width: '6.5vw',
-            height: '4.5vh',
             border: `0.05em solid ${themes[props.theme].outline}`
         },
         '@media screen and (max-device-width: 460px)': {
@@ -32,7 +51,7 @@ export const useStyles = makeStyles({
     }),
     load_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginRight: '2.5vw',
+            marginRight: '1.25vw',
         },
         '@media screen and (min-width: 960px)': {
             marginRight: '0.65vw',
@@ -40,15 +59,26 @@ export const useStyles = makeStyles({
     }),
     delete_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginLeft: '2.5vw',
+            marginLeft: '1.25vw',
         },
         '@media screen and (min-width: 960px)': {
             marginLeft: '0.65vw',
         },
     }),
     icon: props => ({
+        minWidth: 'unset',
+        minHeight: 'unset',
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize001685
+            fontSize: '1.35rem',
+        },
+        '@media screen and (min-width: 960px) and (max-width: 1360px)': {
+            width: '1.5vw',
+        },
+        '@media screen and (min-width: 1360px) and (max-width: 1460px)': {
+            width: '1.25vw',
+        },
+        '@media screen and (min-width: 1460px)': {
+            fontSize: '1rem',
         },
         color: themes[props.theme].text,
     }),

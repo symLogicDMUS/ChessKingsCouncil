@@ -56,7 +56,7 @@ export const useStyles = makeStyles({
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        fontSize: fontSize002,
+        fontSize: '1.25rem',
         width: '99%',
     }),
     tooltip: props => ({
