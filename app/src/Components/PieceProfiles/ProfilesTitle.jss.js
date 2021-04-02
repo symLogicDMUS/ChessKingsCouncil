@@ -1,7 +1,15 @@
 import {themes} from "../styles/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm
+import {
+    marginMd,
+    marginSm,
+    marginSm2x,
+    sqrItemSizeLg,
+    sqrItemSizeMd,
+    sqrItemSizeSm,
+    headerWidthMd,
+    headerWidthSm,
 } from "./constants.jss";
 
 export const useStyles = makeStyles({
@@ -15,9 +23,18 @@ export const useStyles = makeStyles({
         paddingBottom: '1rem',
         color: themes[props.theme].text,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-width: 960px)': {
-            width: '90vw',
-            marginLeft: '5vw',
+        '@media screen and (max-width: 600px)': {
+            width: headerWidthSm,
+            marginLeft: marginSm2x,
+            marginTop: marginSm,
+            marginBottom: marginSm,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: headerWidthMd,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginTop: marginMd,
+            marginBottom: marginMd,
         },
         '@media screen and (min-width: 960px)': {
             width: '46.25vw',
@@ -25,7 +42,7 @@ export const useStyles = makeStyles({
         },
     }),
     title: props => ({
-       fontSize: fontSize002
+        fontSize: fontSize002
     }),
     search: props => ({
         '@media screen and (max-width: 600px)': {
@@ -38,5 +55,9 @@ export const useStyles = makeStyles({
             width: sqrItemSizeLg,
         },
         height: '1.85rem',
+    }),
+    icon: props => ({
+        marginLeft: '0.5rem',
+        fontSize: '1.25rem',
     }),
 }, {index: 1});

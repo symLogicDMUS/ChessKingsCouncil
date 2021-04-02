@@ -42,12 +42,12 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar theme={theme} className={className}>
+                        <TwoItemAppBar open={open} theme={theme} className={className}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar theme={theme} className={className}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className}>
                             {children}
                         </ThreeItemAppBar>
                     ) : null}
@@ -71,12 +71,12 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar theme={theme} className={className}>
+                        <TwoItemAppBar open={open} theme={theme} className={className}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar theme={theme} className={className}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className}>
                             {children}
                         </ThreeItemAppBar>
                     ) : null}

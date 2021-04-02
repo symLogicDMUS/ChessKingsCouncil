@@ -5,8 +5,8 @@ import {mechwarrior_theme} from "./mechwarrior_theme";
 export const themes = {
     dark: {
         outline: '#2b2b2b',
-        fill: '#3f3f3f',
-        fill2: '#3f3f3f',
+        fill: '#3d3d3d',
+        fill2: '#3d3d3d',
         text: '#a9a9a9',
         text_alt: '#707070',
         text_alt2: '#252525',

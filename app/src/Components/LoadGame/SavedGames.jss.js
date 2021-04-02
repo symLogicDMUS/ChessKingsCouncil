@@ -40,11 +40,15 @@ export const useStyles = makeStyles({
         transform: 'translate(0, 1.4em)',
     }),
     title: props => ({
-        fontSize: '2em',
-        lineHeight: '0.7em',
-        marginRight: '0.25em',
-        fontFamily: 'Roboto-Light, Roboto',
+        fontWeight: 500,
+        lineHeight: 1.6,
+        overflow: 'hidden',
+        fontSize: '1.08rem',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        letterSpacing: '0.0075em',
         color: themes[props.theme].text,
+        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
     }),
     title_icon: props => ({
         '@media screen and (min-width: 960px)': {

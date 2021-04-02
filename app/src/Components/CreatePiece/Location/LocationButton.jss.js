@@ -8,7 +8,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     button_normal: (props) => ({
-        background: themes[props.theme].button_fill,
+        background: themes[props.theme].fill,
         border: `0.04em solid ${themes[props.theme].outline}`,
     }),
     button_selected: (props) => ({

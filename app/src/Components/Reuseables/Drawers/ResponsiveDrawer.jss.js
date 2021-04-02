@@ -1,17 +1,25 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {viewWidth} from "../../helpers/windowMeasurments";
 import {themes} from "../../styles/themes.jss";
+import {miniVariantIconsColumnWidth} from "./MiniVariantDrawer.jss";
 
 const z = 5;
 export const appBarHeight = 48;
-export const toolDrawerWidth = viewWidth() * 0.25;
 export const navDrawerSmWidth = 180;
+
+export const pageTitle = (theme) => ({
+    fontWeight: 500,
+    lineHeight: 1.6,
+    overflow: 'hidden',
+    fontSize: '1.08rem',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    letterSpacing: '0.0075em',
+    color: themes[theme].text,
+    fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+});
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
-        display: 'flex',
-        minHeight: 48,
-        height: 48,
         '& .MuiToolbar-regular': {
             minHeight: 48,
             height: 48,
@@ -21,6 +29,11 @@ export const useStyles = makeStyles((theme) => ({
                 padding: 0
             },
         },
+    }),
+    main: props => ({
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
     }),
     drawer: props => ({
         [theme.breakpoints.up('md')]: {
@@ -54,17 +67,6 @@ export const useStyles = makeStyles((theme) => ({
         minHeight: 48,
         height: 48,
     },
-    title: props => ({
-        fontWeight: 500,
-        lineHeight: 1.6,
-        overflow: 'hidden',
-        fontSize: '1.25rem',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
-        letterSpacing: '0.0075em',
-        color: themes[props.theme].text,
-        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-    }),
     drawerPaper: props => ({
         zIndex: z,
         backgroundColor: themes[props.theme].fill2,
@@ -91,5 +93,8 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
+    }),
+    hidden: props => ({
+       display: 'none',
     }),
 }), {index: 1});

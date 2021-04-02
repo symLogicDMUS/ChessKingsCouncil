@@ -1,8 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import { useStyles } from "./TwoItemAppBar.jss";
 import {useStyles as useMoreStyles} from "./AppBarWithContent.jss";
+import { useStyles } from "./TwoItemAppBar.jss";
 
 export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, className, children}) {
 
@@ -22,7 +22,13 @@ export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, cla
                 [classes2.appBarRelaxed]: !open,
             })}
         >
-            {children}
+            <div className={classes.child1}>
+                {children[0]}
+            </div>
+            <div className={classes.child2}>
+                {children[1]}
+            </div>
+
         </Box>
     );
 }

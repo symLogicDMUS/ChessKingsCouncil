@@ -1,5 +1,4 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     background: props => ({
@@ -27,14 +26,12 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: 'auto',
     }),
     toolbar: {
-        fontSize: fontSize002,
-        height: '3em',
+        height: 48,
+        width: '100vw',
     },
-    drawerHeader: props => ({
-        display: 'flex',
-        alignItems: 'center',
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-        justifyContent: 'flex-end',
+    navbar: props => ({
+        fontSize: '1vw',
+        height: '2.35em',
+        width: '100vw',
     }),
 }), {index: 1});

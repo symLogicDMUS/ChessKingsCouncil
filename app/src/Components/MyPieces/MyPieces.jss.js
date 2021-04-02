@@ -1,25 +1,15 @@
-import {availHeight, viewHeight} from "../helpers/windowMeasurments";
-import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import { makeStyles } from "@material-ui/core/styles";
 
-// bold
-export const piece_profiles = () => ({
-    height: (viewHeight() - appBarHeight)*0.98,
-});
-
-export const styles = {
+export const useStyles = makeStyles({
     my_pieces: props => ({
         overflowX: 'hidden',
-        '@media screen and (max-width: 960px)': {
-            height: availHeight() - appBarHeight,
-            width: '100vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            height: viewHeight() * 0.95,
-            width: '98.75vw',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
+        width: '100vw',
+        flexGrow: 3,
+        display: 'flex',
+        flexDirection: 'column',
     }),
-};
+    piece_profiles: props => ({
+        margin: 'auto',
+        borderRadius: '0.5rem',
+    }),
+}, {index: 1});

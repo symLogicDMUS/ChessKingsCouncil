@@ -1,5 +1,4 @@
-import React from "react";
-import MediaQuery from "react-responsive";
+import React, {useEffect, useState} from "react";
 import Typography from "@material-ui/core/Typography";
 import "../Reuseables/Background/_backgrounds.scss";
 import {HelpText} from "./HelpText";
@@ -7,125 +6,77 @@ import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
-import withStyles from "@material-ui/core/styles/withStyles";
-import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
-import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
-import {piece_profiles, styles} from "./MyPieces.jss";
+import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
+import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {pageTitle} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {useStyles} from "./MyPieces.jss";
 
-class MyPieces extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            theme: "dark",
-            binaryValue: true,
-            searchText: ''
-        };
-        this.updateTheme = this.updateTheme.bind(this);
-        this.updateSearchText = this.updateSearchText.bind(this);
-    }
+function MyPieces() {
+    const [theme, setTheme] = useState("dark");
+    const [searchText, setSearchText] = useState("");
+    const isWide = useMediaQuery("(min-width:960px)");
+    const classes = useStyles();
 
-    componentDidMount() {
-        document.body.className = "dark-background";
-    }
+    useEffect(() => {
+        document.body.className = `${theme}-background`;
+    }, [theme])
 
-    componentDidUpdate() {
-        document.body.className = `${this.state.theme}-background`;
-    }
+    const updateSearchText = (searchText) => {
+        setSearchText(searchText)
+    };
 
-    updateSearchText(searchText) {
-        this.setState({searchText: searchText})
-    }
+    const updateTheme = (theme) => {
+        setTheme(theme)
+    };
 
-    updateTheme(theme) {
-        this.setState({theme: theme})
-    }
-
-    render() {
-        return (
-            <>
-                <MediaQuery minWidth={960}>
-                    <NavBar
-                        screenCase='wide'
-                        currentPage="MyPieces"
-                        theme={this.state.theme}
-                        updateTheme={this.updateTheme}
-                        helpText={HelpText(fontSize002, this.state.theme)}
-                        helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Your Pieces</HelpTitle>}
-                        additionalSettings={null}
-                    />
-                    <div className={this.props.classes.my_pieces}>
-                            <PieceProfiles
-                                title="My Pieces"
-                                parentPage="MyPieces"
-                                theme={this.state.theme}
-                                searchText={this.state.searchText}
-                            >
-                                <ProfilesTitle
-                                    theme={this.state.theme}
-                                    updateSearchText={this.updateSearchText}
-                                >
-                                    Saved Pieces
-                                </ProfilesTitle>
-                            </PieceProfiles>
-                    </div>
-                </MediaQuery>
-                <MediaQuery maxWidth={960}>
-                    <PersistentDrawer
-                        theme={this.state.theme}
-                        spacing={0}
-                        drawer={
-                            <NavBar
-                                screenCase="thin"
-                                flexDirection="column"
-                                currentPage="MyPieces"
-                                helpText={HelpText(fontSizeW0045, this.state.theme)}
-                                helpTitle={<HelpTitle theme={this.state.theme} fontSize={fontSize0026}>Your Pieces</HelpTitle>}
-                                redirectMessage={null}
-                                theme={this.state.theme}
-                                updateTheme={this.updateTheme}
-                                additionalSettings={null}
-                            />
-                        }
-                        appBarContent={<Typography variant='subtitle1' style={pageTitleStyle} noWrap>My Pieces</Typography>}
+    return (
+        <ResponsiveDrawer
+            theme={theme}
+            navBar={
+                <NavBar
+                    screenCase="thin"
+                    flexDirection="column"
+                    currentPage="MyPieces"
+                    helpText={HelpText(fontSizeW0045, theme)}
+                    helpTitle={
+                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                            Your Pieces
+                        </HelpTitle>
+                    }
+                    theme={theme}
+                    redirectMessage={null}
+                    updateTheme={updateTheme}
+                    additionalSettings={null}
+                />
+            }
+            navHorizontal={isWide}
+            appBarContent={
+                <Typography variant='subtitle1' style={pageTitle(theme)} noWrap>
+                    My Pieces
+                </Typography>
+            }
+            tools={null}
+            toolButtons={null}
+        >
+            <div className={classes.my_pieces}>
+                <PieceProfiles
+                    title="My Pieces"
+                    parentPage="MyPieces"
+                    theme={theme}
+                    searchText={searchText}
+                    className={classes.piece_profiles}
+                >
+                    <ProfilesTitle
+                        theme={theme}
+                        updateSearchText={updateSearchText}
                     >
-                        <div className={this.props.classes.my_pieces}>
-                                <PieceProfiles
-                                    title="My Pieces"
-                                    parentPage="MyPieces"
-                                    theme={this.state.theme}
-                                    searchText={this.state.searchText}
-                                    style={piece_profiles()}
-                                >
-                                    <ProfilesTitle
-                                        theme={this.state.theme}
-                                        updateSearchText={this.updateSearchText}
-                                    >
-                                        Saved Pieces
-                                    </ProfilesTitle>
-                                </PieceProfiles>
-                        </div>
-                    </PersistentDrawer>
-                </MediaQuery>
-                {/*<div className={this.props.classes.my_pieces}>*/}
-                {/*    <PieceProfiles*/}
-                {/*        title="My Pieces"*/}
-                {/*        parentPage="MyPieces"*/}
-                {/*        theme={this.state.theme}*/}
-                {/*        searchText={this.state.searchText}*/}
-                {/*    >*/}
-                {/*        <ProfilesTitle*/}
-                {/*            screenCase='wide'*/}
-                {/*            theme={this.state.theme}*/}
-                {/*            updateSearchText={this.updateSearchText}*/}
-                {/*        >*/}
-                {/*            Saved Pieces*/}
-                {/*        </ProfilesTitle>*/}
-                {/*    </PieceProfiles>*/}
-                {/*</div>*/}
-            </>
-        );
-    }
+                        Saved Pieces
+                    </ProfilesTitle>
+                </PieceProfiles>
+            </div>
+        </ResponsiveDrawer>
+    );
 }
 
-export default withStyles(styles)(MyPieces);
+export default MyPieces;

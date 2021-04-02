@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
-import MediaQuery from "react-responsive/src";
-import {Typography} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import "../Reuseables/Background/_backgrounds.scss";
 import {Play} from "./Play";
@@ -9,8 +7,6 @@ import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
-import {pageTitleStyle} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
@@ -18,6 +14,8 @@ import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background/Background";
+import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./NewGame.jss";
 
 
@@ -32,6 +30,9 @@ function NewGame() {
     useEffect(() => {
         document.body.className = "tan-background";
     });
+
+    const isThin = useMediaQuery("(max-width:960px)");
+    const isWide = useMediaQuery("(min-width:960px)");
 
     const classes = useStyles();
 
@@ -74,36 +75,45 @@ function NewGame() {
 
     return (
         <>
-            <MediaQuery minWidth={960}>
-                <Background theme={theme} navBar={true} currentPage='NewGame'/>
-                <NavBar
-                    currentPage="NewGame"
-                    screenCase='wide'
-                    helpText={HelpText(fontSize002, theme)}
-                    helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
-                    additionalSettings={null}
-                    updateTheme={updateTheme}
-                    theme={theme}
-                />
+            <Background theme={theme} appBar={isThin} navBar={isWide}/>
+            <ResponsiveDrawer
+                theme={theme}
+                navBar={
+                    <NavBar
+                        currentPage="NewGame"
+                        helpText={HelpText(fontSizeW0045, theme)}
+                        helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
+                        redirectMessage={null}
+                        updateTheme={updateTheme}
+                        additionalSettings={null}
+                        theme={theme}
+                    />
+                }
+                navHorizontal={isWide}
+                appBarContent="New Game"
+                appBarType="title"
+                toolButtons={null}
+                tools={null}
+            >
                 <Box className={classes.new_game}>
                     <GameName
-                        key='GameName-wide'
                         theme={theme}
+                        key='GameName'
                         setGameName={setGameName}
-                        screenCase='wide'
+                        screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <PickType
-                        key='PickType-wide'
                         theme={theme}
+                        key="PickType"
                         gameType={gameType}
                         setGameType={setGameType}
-                        screenCase='wide'
+                        screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <PlayAs
                         theme={theme}
-                        key='PlayAs-wide'
                         setPlayerType={setPlayerType}
-                        screenCase='wide'
+                        key="PlayAs"
+                        screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <Play
                         theme={theme}
@@ -112,7 +122,7 @@ function NewGame() {
                         playerType={playerType}
                         gameType={gameType} gameName={gameName}
                         predicate={(c) => charNotInStr(c, gameName)}
-                        key='Play-Button-wide'
+                        key='Play-Button-thin'
                     />
                 </Box>
                 {confirmModal ? (
@@ -128,74 +138,7 @@ function NewGame() {
                         }}
                     />
                 ) : null}
-            </MediaQuery>
-            <MediaQuery maxWidth={960}>
-                <Background theme={theme} appBar={true}/>
-                <PersistentDrawer
-                    theme={theme}
-                    drawer={
-                        <NavBar
-                            currentPage="NewGame"
-                            screenCase='thin'
-                            helpText={HelpText(fontSizeW0045, theme)}
-                            helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
-                            redirectMessage={null}
-                            updateTheme={updateTheme}
-                            additionalSettings={null}
-                            theme={theme}
-                        />
-                    }
-                    appBarContent={
-                        <Typography variant='subtitle1' style={pageTitleStyle} noWrap>
-                            New Game
-                        </Typography>
-                    }
-                >
-                    <Box className={classes.new_game}>
-                        <GameName
-                            theme={theme}
-                            key='GameName-thin'
-                            setGameName={setGameName}
-                            screenCase='thin'
-                        />
-                        <PickType
-                            theme={theme}
-                            key="PickType-thin"
-                            gameType={gameType}
-                            setGameType={setGameType}
-                            screenCase='thin'
-                        />
-                        <PlayAs
-                            theme={theme}
-                            setPlayerType={setPlayerType}
-                            key="PlayAs-thin"
-                            screenCase='thin'
-                        />
-                        <Play
-                            theme={theme}
-                            onClick={finish}
-                            classes={classes}
-                            playerType={playerType}
-                            gameType={gameType} gameName={gameName}
-                            predicate={(c) => charNotInStr(c, gameName)}
-                            key='Play-Button-thin'
-                        />
-                    </Box>
-                    {confirmModal ? (
-                        <ConfirmStandard
-                            theme={theme}
-                            closeClick={() => {
-                                updateGameType('Standard')
-                                setConfirmModal(false)
-                            }}
-                            onClick={() => {
-                                updateGameType('Custom')
-                                setConfirmModal(false)
-                            }}
-                        />
-                    ) : null}
-                </PersistentDrawer>
-            </MediaQuery>
+            </ResponsiveDrawer>
         </>
     );
 }

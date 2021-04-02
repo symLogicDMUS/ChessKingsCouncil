@@ -1,75 +1,100 @@
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize0015, fontSize00184} from "../../styles/fontSizes.jss";
+import {lighten} from "@material-ui/core/styles";
 
-const margin = '0.4em';
-const thinScreenFontSize = '3vw';
+const margin = '0.6em';
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({
-        display: 'flex',
-        flexGrow: 3,
+        cursor: 'pointer',
         borderRadius: 0,
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.25rem',
-            width: "99%",
-            height: "2em",
-            justifyContent: "flex-start",
-        },
-        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
-            fontSize: fontSize0015,
-            justifyContent: "center",
-            height: "2.25em",
-        },
-        '@media screen and (min-width: 1220px)': {
-            fontSize: fontSize00184,
-            justifyContent: "center",
-            height: "2.25em",
-        },
+        display: 'flex',
+        flexDirection: 'column',
         background: themes[props.theme].fill,
-        '&:hover':{
+        '&:hover': {
             backgroundColor: themes[props.theme].button_hover_fill,
         },
     }),
-    box: props => ({
+    row_direction: props => ({
+        fontSize: '1.85vw',
+        height: '1.35em',
+        flexGrow: 10,
+        borderLeft: `0.05rem solid ${lighten(themes[props.theme].outline, 0.05)}`,
+        borderBottom: `0.05rem solid ${lighten(themes[props.theme].outline, 0.05)}`,
+    }),
+    column_direction: props => ({
+        fontSize: '2.25vh',
+        height: '2.75em',
+    }),
+    icon_and_text_area: props => ({
         display: 'flex',
         flexDirection: 'row',
-        alignItems: 'center',
-        flexGrow: 4,
+        flexWrap: 'nowrap',
+        justifyContent: 'center',
     }),
-    icon: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.1rem',
-        },
-        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
-            fontSize: fontSize0015,
-        },
-        '@media screen and (min-width: 1220px)': {
-            fontSize: fontSize00184,
-        },
-        marginRight: margin,
+    parent_column_text: props => ({
+        fontSize: '1em',
+    }),
+    parent_column_icon: props => ({
+        fontSize: '0.7em',
+        marginLeft: '0.6em',
+        marginRight: '0.5em',
+    }),
+    icon_lg_column: props => ({
+        fontSize: '0.85em',
+        marginLeft: '0.5em',
+        marginRight: '0.4em',
+    }),
+    icon_lg_row: props => ({
+        fontSize: '0.5em',
+        marginLeft: '0.2em',
+        marginRight: '0.2em',
+    }),
+    parent_row_text: props => ({
+        fontSize: '0.55em',
+        flexGrow: 3,
+    }),
+    parent_row_icon: props => ({
+        fontSize: '0.375em',
+        marginRight: '0.5em',
+    }),
+    alignCenter: props => ({
+        alignItems: 'center',
+    }),
+    alignBaseline: props => ({
+        alignItems: 'baseline',
     }),
     text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSize00184,
-            marginRight: margin,
-            marginTop: '0.1525em',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize00184,
-            marginRight: margin,
-            marginTop: '0.15em',
-        },
+        fontWeight: 100,
+        lineHeight: 1.6,
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        letterSpacing: '0.008em',
+        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
     }),
-    horizontal_nav_text_adjust: props => ({
-        '@media screen and (min-width: 960px) and (max-width: 1220px)': {
-            fontSize: fontSize0015,
-        },
+    color: props => ({
+        color: themes[props.theme].text,
     }),
     normal_color: props => ({
         color: themes[props.theme].nav_text,
     }),
     hover_color: props => ({
         color: themes[props.theme].button_hover_text,
+    }),
+    marginLeft: props => ({
+        marginLeft: 'auto',
+    }),
+    marginRight: props => ({
+       marginRight: 'auto',
+    }),
+    marginTop: props => ({
+        marginTop: 'auto',
+    }),
+    marginBottom: props => ({
+       marginBottom: 'auto',
+    }),
+    margin: props => ({
+       margin: 'auto',
     }),
 }, {index: 1});

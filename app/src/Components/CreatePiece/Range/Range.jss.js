@@ -50,6 +50,7 @@ export const useStyles = makeStyles({
         height: '1.0625vw',
         width: "10.625vw",
         minHeight: 'unset',
+        backgroundColor: themes[props.theme].fill,
     }),
     top_arrow_button: props => ({
        borderTopLeftRadius: '0.2rem',

@@ -3,12 +3,14 @@ import Box from "@material-ui/core/Box";
 import {Button, Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import {findDidUserVisitPage, recordUserVisitedPage
+import {
+    findDidUserVisitPage, recordUserVisitedPage
 } from "../../../../API/findRecordDidUserVisitPage";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {HelpModal} from "./HelpModal";
 import {useStyles} from "../NavBarButton.jss";
 import clsx from "clsx";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, children}) {
     const [hover, setHover] = useState(false);
@@ -30,6 +32,16 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
         });
     }, [currentPage])
 
+    const isRow = () => {
+        return (
+            screenCase === "wide" &&
+            (currentPage === "NewGame" ||
+                currentPage === "LoadGame" ||
+                currentPage === "MyPieces" ||
+                currentPage === "CouncilRules")
+        );
+    };
+
     return (
         <>
             {(slideshow || isFirstTime) ? (
@@ -47,47 +59,49 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                     </HelpSlideshow>
                 </Portal>
             ) : null}
-            {modal ? (<HelpModal theme={theme} screenCase={screenCase} onClose={() => setModal(false)} />) : null}
-            <Button
+            {modal ? (<HelpModal theme={theme} screenCase={screenCase} onClose={() => setModal(false)}/>) : null}
+            <Box
                 onClick={() => setModal(!modal)}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 className={clsx(classes.nav_bar_button, {
                     [classes.normal_color]: !hover,
                     [classes.hover_color]: hover,
+                    [classes.column_direction]: ! isRow(),
+                    [classes.row_direction]: isRow(),
                 })}
             >
-                <Box className={classes.box}>
+                <Box
+                    className={clsx(classes.icon_and_text_area, {
+                        [classes.alignCenter]: true,
+                        [classes.margin]: isRow(),
+                        [classes.marginRight]: ! isRow(),
+                        [classes.marginTop]: ! isRow(),
+                        [classes.marginBottom]: ! isRow(),
+                    })}
+                >
                     <ContactSupportIcon
                         className={clsx(classes.icon, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
-                            [classes.horizontal_nav_text_adjust]:
-                            screenCase === "wide" &&
-                            (currentPage === "NewGame" ||
-                                currentPage === "LoadGame" ||
-                                currentPage === "MyPieces" ||
-                                currentPage === "CouncilRules"),
-
+                            [classes.icon_lg_column]: ! isRow(),
+                            [classes.icon_lg_row]: isRow(),
                         })}
                     />
                     <Typography
+                        variant='button'
                         className={clsx(classes.text, {
                             [classes.normal_color]: !hover,
                             [classes.hover_color]: hover,
-                            [classes.horizontal_nav_text_adjust]:
-                            screenCase === "wide" &&
-                            (currentPage === "NewGame" ||
-                                currentPage === "LoadGame" ||
-                                currentPage === "MyPieces" ||
-                                currentPage === "CouncilRules"),
+                            [classes.parent_column_text]: ! isRow(),
+                            [classes.parent_row_text]: isRow(),
                         })}
                         noWrap
                     >
                         Help
                     </Typography>
                 </Box>
-            </Button>
+            </Box>
         </>
     );
 }

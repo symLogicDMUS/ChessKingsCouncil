@@ -4,10 +4,10 @@ short:
     replace ImgWindows Icons from Image icon to AddPhoto icon
     new icon of a board for Load Game modal
     fix background board tile decoration for skinner screen widths (less than 1040px)
-    consider making tool buttons text/icons bigger
+    consider making tool buttons text/icons bigger.
 medium:
     * consistent border radius especially on CreatePiece page.
-
+    * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
 long:
-    * Make functional Components in addition to class components be a default export, to be consistent
-    * go and through every document and add documentation as well as use the Prettier command on file
+    * Make functional Components in addition to class components be a default export, to be consistent.
+    * go and through every document and add documentation as well as use the Prettier command on file.

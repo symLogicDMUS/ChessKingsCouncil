@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Portal} from "@material-ui/core";
-import {NavBarExample} from "../NavBar/NavBarExample";
 import {useStyles} from "./Background.jss";
 
 export function Background(props) {
@@ -10,8 +9,8 @@ export function Background(props) {
     return (
         <Portal>
             <div className={classes.background}>
-                {props.navBar ? (<NavBarExample currentPage={props.currentPage} theme={props.theme} screenCase='wide' />) : null}
-                {props.appBar ? (<div className={classes.drawerHeader} />) : null}
+                {props.navBar ? (<div className={classes.navbar} />) : null}
+                {props.appBar ? (<div className={classes.toolbar} />) : null}
                     <Box className={classes.row}>
                         <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}
                              className={classes.board_pattern}

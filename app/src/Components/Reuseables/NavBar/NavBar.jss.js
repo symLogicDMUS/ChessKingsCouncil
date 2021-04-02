@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
     }),
     row_direction: props => ({
-        width: "100%",
+        width: "100vw",
         flexDirection: 'row',
         flexWrap: 'nowrap',
     }),

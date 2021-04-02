@@ -5,9 +5,18 @@ import {themes} from "../../styles/themes.jss";
 export const appBarHeight = 48;
 export const neighborWidth = viewWidth()*0.5;
 
-export const pageTitleStyle = {
+export const pageTitle = (theme) => ({
     fontWeight: 500,
-};
+    lineHeight: 1.6,
+    overflow: 'hidden',
+    fontSize: '1.25rem',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    letterSpacing: '0.0075em',
+    color: themes[theme].text,
+    fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+
+});
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({

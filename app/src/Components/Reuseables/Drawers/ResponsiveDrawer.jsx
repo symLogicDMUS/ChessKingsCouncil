@@ -17,9 +17,10 @@ import { useStyles } from "./ResponsiveDrawer.jss";
 
 function ResponsiveDrawer({
     theme,
-    navBar,
     tools,
+    navBar,
     toolButtons,
+    navHorizontal,
     appBarType,
     appBarContent,
     elevation,
@@ -59,7 +60,7 @@ function ResponsiveDrawer({
             <Hidden mdUp>
                 <AppBar
                     position="fixed"
-                    elevation={elevation} //default: 4,
+                    elevation={elevation}
                     className={clsx(classes.appBar, {
                         [classes.appBarSmCompressed]: open,
                         [classes.appBarRelaxed]: !open,
@@ -86,19 +87,48 @@ function ResponsiveDrawer({
                         </AppBarWithContent>
                     </Toolbar>
                 </AppBar>
+                <div className={classes.drawer} aria-label="nav bar component">
+                    <Drawer
+                        open={open}
+                        variant="temporary"
+                        anchor={muiTheme.direction === "rtl" ? "right" : "left"}
+                        onClose={handleDrawerToggle}
+                        classes={{
+                            paper: clsx(classes.drawerPaper, {
+                                [classes.navPersistentPaper]: true,
+                                [classes.hidden]: navHorizontal,
+                            }),
+                        }}
+                        ModalProps={{
+                            keepMounted: true,
+                        }}
+                    >
+                        <div className={classes.toolbar}/>
+                        <Divider />
+                        {navBar}
+                    </Drawer>
+                    {toolButtons && (
+                        <Portal>
+                            <MiniVariantDrawer theme={theme}>
+                                {toolButtons}
+                            </MiniVariantDrawer>
+                        </Portal>
+                    )}
+                </div>
             </Hidden>
             <Hidden smDown>
                 <AppBar
                     position="fixed"
                     className={clsx(classes.appBar, {
                         [classes.appBarMdCompressed]: true,
+                        [classes.hidden]: navHorizontal
                     })}
                 >
                     <Toolbar>
                         <IconButton
+                            edge="start"
                             color="inherit"
                             aria-label="open drawer"
-                            edge="start"
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
@@ -115,42 +145,16 @@ function ResponsiveDrawer({
                         </AppBarWithContent>
                     </Toolbar>
                 </AppBar>
-            </Hidden>
-            <div className={classes.drawer} aria-label="nav bar component">
-                <Hidden mdUp>
-                    <Drawer
-                        open={open}
-                        variant="temporary"
-                        anchor={muiTheme.direction === "rtl" ? "right" : "left"}
-                        onClose={handleDrawerToggle}
-                        classes={{
-                            paper: clsx(classes.drawerPaper, {
-                                [classes.navPersistentPaper]: true,
-                            }),
-                        }}
-                        ModalProps={{
-                            keepMounted: true,
-                        }}
-                    >
-                        <div className={classes.toolbar} />
-                        <Divider />
-                        {navBar}
-                    </Drawer>
-                    <Portal>
-                        <MiniVariantDrawer theme={theme}>
-                            {toolButtons}
-                        </MiniVariantDrawer>
-                    </Portal>
-                </Hidden>
-                <Hidden smDown>
+                <div className={classes.drawer} aria-label="nav bar component">
                     <Drawer
                         classes={{
                             paper: clsx(classes.navPermanentPaper, {
-                                [classes.drawerPaper]: true,
+                                [classes.hidden]: navHorizontal,
+                                [classes.drawerPaper]: ! navHorizontal,
                             }),
                         }}
-                        variant="permanent"
                         open
+                        variant="permanent"
                     >
                         <div className={classes.toolbar} />
                         <Divider />
@@ -161,6 +165,7 @@ function ResponsiveDrawer({
                             classes={{
                                 paper: clsx(classes.toolDrawerPaper, {
                                     [classes.drawerPaper]: true,
+                                    [classes.hidden]: navHorizontal,
                                 }),
                             }}
                             variant="permanent"
@@ -171,10 +176,10 @@ function ResponsiveDrawer({
                             <Box className={classes.tools}>{tools}</Box>
                         </Drawer>
                     </Portal>
-                </Hidden>
-            </div>
-            <main>
-                <div className={classes.toolbar} />
+                </div>
+            </Hidden>
+            <main className={classes.main}>
+                {navHorizontal ? (navBar) : <div className={classes.toolbar}/>}
                 {children}
             </main>
         </div>

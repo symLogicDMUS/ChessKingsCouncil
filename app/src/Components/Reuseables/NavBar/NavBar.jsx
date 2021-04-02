@@ -1,18 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import { NavBarButton } from "./NavBarButton";
 import { HelpButton } from "./Help/HelpButton";
 import { SettingsButton } from "./SettingsButton";
-import { NavBarButton } from "./NavBarButton";
-import { useStyles } from "./NavBar.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useStyles } from "./NavBar.jss";
 
 /**
  * children is settings content unique to parent page.
- *
- * @param props
- * @returns {JSX.Element}
- * @constructor
  */
 export function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");

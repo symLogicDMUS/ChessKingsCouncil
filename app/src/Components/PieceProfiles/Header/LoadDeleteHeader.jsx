@@ -71,35 +71,29 @@ export function LoadDeleteHeader({
                 <Typography variant='subtitle2' className={classes2.piece_name}>
                     {pieceName}
                 </Typography>
-                    <Button
-                        theme={theme}
-                        startIcon={<StorageIcon className={classes.icon}/>}
-                        rootClassName={clsx(classes.button, {
-                            [classes.button_size]: true,
-                            [classes.button_border]: true,
-                        })}
-                        addedClassName={classes.load_button}
-                        onClick={loadMethod}
-                    >
-                        Load
-                    </Button>
-                    <DeleteButton
-                        onAcceptDelete={() => deletePiece(pieceName)}
-                        modalTitle={`You are asking to delete piece ${pieceName}.`}
-                        modalText={`Game in progress will no be effected but the record of the piece for new games will be 
+                <Button
+                    theme={theme}
+                    startIcon={<StorageIcon className={classes.icon}/>}
+                    rootClassName={classes.button}
+                    addedClassName={classes.load_button}
+                    onClick={loadMethod}
+                >
+                    Load
+                </Button>
+                <DeleteButton
+                    onAcceptDelete={() => deletePiece(pieceName)}
+                    modalTitle={`You are asking to delete piece ${pieceName}.`}
+                    modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                        startIcon={<DeleteForever className={clsx(classes.icon,  {
-                            [classes.delete_icon]: true
-                        })} />}
-                        variant='outlined'
-                        rootClassName={clsx(classes.button, {
-                            [classes.button_size]: true,
-                            [classes.button_border]: true,
-                        })}
-                        addedClassName={classes.delete_button}
-                        isDisabled={false}
-                        theme={theme}
-                    />
+                    startIcon={<DeleteForever className={clsx(classes.icon, {
+                        [classes.delete_icon]: true
+                    })}/>}
+                    variant='outlined'
+                    rootClassName={classes.button}
+                    addedClassName={classes.delete_button}
+                    isDisabled={false}
+                    theme={theme}
+                />
             </div>
         </>
     );

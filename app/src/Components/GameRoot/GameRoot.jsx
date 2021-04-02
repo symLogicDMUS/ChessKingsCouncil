@@ -485,6 +485,7 @@ class GameRoot extends React.Component {
                             }
                         />
                     }
+                    navHorizontal={false}
                     neighborOpen={this.state.secondaryDrawer}
                 >
                     <Board gameRoot={this}/>

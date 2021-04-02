@@ -1,4 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {darken, lighten} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
@@ -23,7 +24,7 @@ export const useStyles = makeStyles({
 
         /*root*/
         "& .MuiInputLabel-root": {
-            color: themes[props.theme].outline,
+            color: darken(themes[props.theme].text, 0.2),
         },
         /*root when variant is outline*/
         "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -41,7 +42,7 @@ export const useStyles = makeStyles({
             color: themes[props.theme].text,
         },
         "&:hover .MuiInputLabel-root": {
-            color: themes[props.theme].outline,
+            color: themes[props.theme].text,
         },
 
         /*focused*/
@@ -57,5 +58,12 @@ export const useStyles = makeStyles({
     }),
     thin_screen: props => ({
         width: '100%',
+    }),
+    close_area: props => ({
+       display: 'flex',
+       flexDirection: 'row',
+       flexWrap: 'nowrap',
+       alignItems: 'center',
+       justifyContent: 'flex-end',
     }),
 }, {index: 1});

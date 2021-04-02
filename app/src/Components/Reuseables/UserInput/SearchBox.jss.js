@@ -20,9 +20,6 @@ export const useStyles = makeStyles((theme) => ({
     icon: props => ({
         width: '1.6ch',
         height: '1.6ch',
-        margin: 'auto',
-        paddingLeft: '0.3em',
-
         color: themes[props.theme].text,
     }),
     input_root: props => ({

@@ -10,7 +10,7 @@ export function ProfilesTitle({theme, updateSearchText, children}) {
         <>
             <Box className={classes.title_bar}>
                 <Typography className={classes.title} variant='h6'>{children}</Typography>
-                <SearchBox theme={theme} className={classes.search} updateSearchText={updateSearchText} />
+                <SearchBox theme={theme} className={classes.search} iconClassName={classes.icon} updateSearchText={updateSearchText} />
             </Box>
         </>
     );

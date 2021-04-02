@@ -598,6 +598,7 @@ class CreatePiece extends React.Component {
                             updateTheme={this.updateTheme}
                         />
                     }
+                    navHorizontal={false}
                 >
                     <Board
                         key="Board"
