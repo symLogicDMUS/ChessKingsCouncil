@@ -1,3 +1,5 @@
+import { makeStyles } from "@material-ui/core/styles";
+import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const styles = {
     /**Use .style for page-level components when only property is document.className.body */
@@ -12,3 +14,18 @@ export const styles = {
         flexDirection: 'row-reverse',
     }),
 }
+
+export const useStyles = makeStyles({
+    modal: props => ({
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        zIndex: 20,
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+        backgroundColor: 'rgba(255, 0, 0, 0.15)',
+        border: '1px dashed red',
+    }),
+}, {index: 1});

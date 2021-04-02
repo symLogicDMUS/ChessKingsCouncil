@@ -349,6 +349,7 @@ class GameRoot extends React.Component {
                             defs={this.defs}
                             gameType={this.gameType}
                             theme={this.state.theme}
+                            toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
                     {this.state.miniVariantTool === "Resign" ? (
@@ -399,8 +400,9 @@ class GameRoot extends React.Component {
                                 toggleSecondaryDrawer={doNothing}
                             />
                             <CapturedPieceImages
-                                captured={this.captured}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
                                 capturedIds={this.capturedIds}
+                                captured={this.captured}
                                 gameType={this.gameType}
                                 theme={this.state.theme}
                                 idDict={this.idDict}

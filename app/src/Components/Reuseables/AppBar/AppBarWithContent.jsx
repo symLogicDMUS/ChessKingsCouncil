@@ -34,6 +34,7 @@ export function AppBarWithContent({
                 >
                     {type === "title" ? (
                         <Typography
+                            variant='h6'
                             className={clsx(classes.title, {
                                 [className]: className,
                             })}
@@ -63,6 +64,7 @@ export function AppBarWithContent({
                 >
                     {type === "title" ? (
                         <Typography
+                            variant='h6'
                             className={clsx(classes.title, {
                                 [className]: className,
                             })}

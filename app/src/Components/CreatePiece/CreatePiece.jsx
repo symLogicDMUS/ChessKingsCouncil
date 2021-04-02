@@ -430,15 +430,8 @@ class CreatePiece extends React.Component {
                 </div>
                 <ResponsiveDrawer
                     theme={this.state.theme}
-                    titleBar={
-                        <Typography
-                            style={pageTitle(this.state.theme)}
-                            noWrap
-                        >
-                            Create Piece
-                        </Typography>
-                    }
-                    withSearch={false}
+                    appBarContent="Create Piece"
+                    appBarType="title"
                     tools={
                         <>
                             <Name

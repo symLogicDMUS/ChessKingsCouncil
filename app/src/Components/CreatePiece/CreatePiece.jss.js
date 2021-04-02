@@ -3,17 +3,6 @@ import {themes} from "../styles/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
-export const pageTitle = (theme) => ({
-    color: themes[theme].text,
-    fontSize: '1.25rem'
-});
-
-export const appBarTitle = {
-    fontSize: fontSize002,
-    marginLeft: '1.5vw',
-    fontWeight: 450,
-}
-
 export const styles = {
     modal: {
         ...modal,

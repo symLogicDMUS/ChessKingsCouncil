@@ -1,15 +1,13 @@
 short:
+    add title and GameStatus bar back to GameRoot
     word "span" appears bellow span arrow on board.
     game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
     consider memoizing ScrollTable items
 medium:
     add new function for GameBoard image strings back to SavedGames MuiGrid component
     memoize createPieceBoard
-    fix Customize page Pawn Promotions table
     implement 1 item accordion for BoardTool
     fixe PieceProfiles Skeleton component (thin screens)
-    convert BoardTool component styles to vw and vh units
-    decide if to wrap CustomizeHeader togglePromo and toggleSub props in useCallback hooks.
     add help question mark icon to Promotion "Menu" that goes to pawn promotions part of help modal menu.
 long:
     optimize CreatePiece Board

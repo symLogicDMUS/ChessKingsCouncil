@@ -1,17 +1,6 @@
 import {themes} from "../../styles/themes.jss";
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {availHeight, viewWidth} from "../../helpers/windowMeasurments";
-import {fontSize00175, fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
-
-export const whiteList = () => {
-    if (viewWidth() <= 1040) {
-        return {marginBottom: '8%'}
-    }
-    else {
-        return {marginBottom: '5%'}
-    }
-};
 
 export const useStyles = makeStyles({
     captured_piece_images: props => ({
@@ -19,21 +8,45 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'flex-start',
     }),
+    captured_piece_images_modal: props => ({
+        margin: 'auto',
+        borderRadius: '0.25rem',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.05rem solid ${themes[props.theme].odd_row}`,
+    }),
+    caption: props => ({
+        flexGrow: 2,
+        fontSize: '1.65vh',
+        textAlign: 'center',
+        transform: 'translate(-0.5em, 0)',
+        color: themes[props.theme].text,
+        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+    }),
     outlined_box: props => ({
-        fontSize: fontSize00175,
+        fontSize: '1.75vh',
         border: `0.05em solid ${themes[props.theme].outline}`,
         borderRadius: '0.25em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        /*media query for phones/tablets (generalized)*/
         '@media screen and (max-width: 960px)': {
             width: '30vw',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             marginLeft: '5%',
+        },
+    }),
+    white_captured: props => ({
+        '@media screen and (max-width: 960px)': {
+            marginTop: '1rem',
+            marginBottom: '1.5rem',
+        },
+    }),
+    black_captured: props => ({
+        '@media screen and (max-width: 960px)': {
+            marginTop: '1.5rem',
         },
     }),
     label: props => ({
@@ -44,6 +57,11 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill2,
         transform: 'translate(0.65em, -0.65em)',
+    }),
+    piece_list_area: props => ({
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        paddingBottom: '1rem',
     }),
     piece_list: props => ({
         flexGrow: 10,
@@ -59,38 +77,49 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
-            fontSize: fontSize00175,
+            fontSize: '1.75vh',
             transform: 'translate(0, -0.5em)',
         },
     }),
     empty_list: props => ({
         '@media screen and (max-width: 960px)': {
             width: '30vw',
-            fontSize: fontSize0023,
+            fontSize: '2.3vh',
             height: '1.5em',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
-            fontSize: fontSize00175,
+            fontSize: '1.75vh',
             height: '1.5em',
             transform: 'translate(0, -0.5em)',
         },
     }),
     piece: props => ({
-        fontSize: fontSize002,
+        fontSize: '2vh',
         height: '1.5em',
         marginLeft: '0.2em',
         marginTop: '0.2em',
     }),
-    title: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.8vh',
-            width: drawerItemWidth,
-            marginLeft: '5%',
-            marginBottom: '5%',
-            lineHeight: '1em',
-            color: themes[props.theme].text,
-            fontFamily: 'Roboto-Light, Roboto',
-        },
+    top_area: props => ({
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'nowrap',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+    }),
+    close: props => ({
+        minHeight: 'unset',
+        height: '1vh',
+        width: '1vh',
+    }),
+    close_icon: props => ({
+        minHeight: 'unset',
+        height: '1.75vh',
+        width: '1.75vh',
+        color: themes[props.theme].text,
+    }),
+    drag_icon: props => ({
+        fontSize: '1.8vh',
+        color: themes[props.theme].text_alt,
     }),
 }, {index: 1});

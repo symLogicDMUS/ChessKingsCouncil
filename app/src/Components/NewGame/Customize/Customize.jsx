@@ -1,6 +1,5 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
@@ -27,7 +26,6 @@ import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
 import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {textColor, styles} from "./Customize.jss";
-import clsx from "clsx";
 import {SearchBox} from "../../Reuseables/UserInput/SearchBox";
 
 class Customize extends React.Component {

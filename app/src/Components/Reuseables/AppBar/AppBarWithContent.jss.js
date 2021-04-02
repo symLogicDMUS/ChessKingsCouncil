@@ -23,14 +23,16 @@ export const useStyles = makeStyles({
         width: `calc(100% - ${miniVariantIconsColumnWidth + 24}px)`,
     }),
     title: props => ({
-        fontWeight: 500,
-        lineHeight: 1.6,
-        overflow: 'hidden',
-        fontSize: '1.08rem',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
+        // lineHeight: 1.6,
         letterSpacing: '0.0075em',
-        color: themes[props.theme].text,
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+        color: themes[props.theme].text,
+        '@media screen and (max-width: 960px)': {
+            fontSize: '1rem',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '2.25vh',
+            marginLeft: 12,
+        },
     }),
 }, {index: 1});
