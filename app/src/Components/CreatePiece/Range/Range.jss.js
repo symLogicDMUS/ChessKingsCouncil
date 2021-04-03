@@ -1,5 +1,4 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
@@ -14,11 +13,9 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
         },
         '@media screen and (min-width: 960px)': {
-            width: '93%',
-            marginLeft: '3.5%',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginBottom: '2vh',
+            marginBottom: '1.15vw',
         },
         ...props.styles,
     }),

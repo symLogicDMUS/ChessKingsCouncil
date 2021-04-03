@@ -89,10 +89,12 @@ export const useStyles = makeStyles((theme) => ({
     tools: props => ({
         zIndex: z,
         flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+        paddingLeft: '1.15vw',
+        paddingRight: '1.15vw',
+        // display: 'flex',
+        // flexDirection: 'column',
+        // alignItems: 'center',
+        // justifyContent: 'flex-start',
     }),
     hidden: props => ({
        display: 'none',

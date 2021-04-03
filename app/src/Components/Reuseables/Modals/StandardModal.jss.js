@@ -1,6 +1,4 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {availHeight, availWidth} from "../../helpers/windowMeasurments";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 
@@ -10,23 +8,25 @@ export const useStyles = makeStyles({
         zIndex: 8,
     }),
     window: props => ({
-        zIndex: 8,
-        fontSize: fontSize002,
+        fontSize: '2vh',
+        padding: '2vh',
+        display: 'flex',
+        borderRadius: '0.35em',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.075em solid ${themes[props.theme].odd_row}`,
         '@media screen and (min-width: 960px)': {
-            width: availWidth() * 0.333,
-            height: availHeight() * 0.333,
+            width: '33.333vw',
+            height: '33.333vh',
         },
         '@media screen and (max-width: 960px)': {
-            width: availWidth()*0.98,
-            height: availHeight() * 0.4
+            width: '98vw',
+            height: '40vh',
         },
-        borderRadius: '0.3em',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
-    top_flexbox: props => ({
-        zIndex: 8,
-        fontSize: fontSize002,
+    top_area: props => ({
+        fontSize: '2vh',
         height: '1.5em',
         display: 'flex',
         flexDirection: 'row',
@@ -35,43 +35,35 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     title: props => ({
-        zIndex: 8,
-        fontSize: fontSize002,
-        width: '95%',
-        marginLeft: '2.5%',
-        marginRight: '2.5%',
-        marginBottom: '1%',
+        fontSize: '2vh',
         textAlign: 'center',
+        marginBottom: '2vh',
         color: themes[props.theme].text,
     }),
     paragraph: props => ({
-        zIndex: 8,
-        display: 'flex',
-        width: '95%',
-        margin: '2.5%',
-        height: '9em',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        color: themes[props.theme].text,
+        flexGrow: 100,
         overflow: 'hidden',
+        marginBottom: '2vh',
+        color: themes[props.theme].text,
     }),
     buttons: props => ({
-        zIndex: 8,
-        fontSize: fontSize002,
-        width: '100%',
+        fontSize: '2vh',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         alignContent: 'center',
         justifyContent: 'center',
     }),
+    close: props => ({
+        width: '1.2rem',
+        height: '1.2rem',
+    }),
     close_icon: props => ({
-        fontSize: fontSize002,
-        width: '1.5em',
-        height: '1.5em',
+       width: '1rem',
+       height: '1rem',
     }),
     button: props => ({
-        fontSize: fontSize002,
+        fontSize: '2vh',
         width: '7.5em',
         height: '2em',
     }),

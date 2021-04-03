@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
 import { AnimatePresencePortal } from "../../Reuseables/Animations/AnimatePresencePortal";
@@ -9,8 +8,7 @@ import { SaveAs } from "./SaveAs";
 import { themes } from "../../styles/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SaveResignTool.jss";
-import {StandardModal} from "../../Reuseables/Modals/StandardModal";
-import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import { ResignModal } from "./ResignModal";
 
 export function SaveResignTool({
     theme,
@@ -20,54 +18,48 @@ export function SaveResignTool({
     isSaveMessage,
     messageCallback,
 }) {
-    let [saveAs, setSaveAs] = useState(false);
+    const [saveAs, setSaveAs] = useState(false);
     const [resignModal, setResignModal] = useState(false);
     const classes = useStyles({ theme: theme });
 
     return (
         <>
-            <Box className={classes.save_resign_tool}>
-                <Button className={classes.option}>
-                    <IconButton
-                        className={classes.button}
-                        classes={{ label: classes.label }}
-                        onClick={triggerSaveProcess}
-                    >
-                        <SvgIcon className={classes.icon}>
-                            {icons.save(themes[theme].button_text)}
-                        </SvgIcon>
-                        <Typography className={classes.text}>Save</Typography>
-                    </IconButton>
-                </Button>
+            <span className={classes.save_resign_tool}>
+                <IconButton
+                    className={classes.option}
+                    classes={{ label: classes.label }}
+                    onClick={triggerSaveProcess}
+                >
+                    <SvgIcon className={classes.icon}>
+                        {icons.save(themes[theme].button_text)}
+                    </SvgIcon>
+                    <Typography className={classes.text}>Save</Typography>
+                </IconButton>
                 <div className={classes.divider} />
-                <Button className={classes.option}>
-                    <IconButton
-                        className={classes.button}
-                        classes={{ label: classes.label }}
-                        onClick={() => setSaveAs(true)}
-                    >
-                        <SvgIcon className={classes.icon}>
-                            {icons.save_as(themes[theme].button_text)}
-                        </SvgIcon>
-                        <Typography className={classes.text}>
-                            Save As
-                        </Typography>
-                    </IconButton>
-                </Button>
+                <IconButton
+                    className={classes.option}
+                    classes={{ label: classes.label }}
+                    onClick={() => setSaveAs(true)}
+                >
+                    <SvgIcon className={classes.icon}>
+                        {icons.save_as(themes[theme].button_text)}
+                    </SvgIcon>
+                    <Typography noWrap className={classes.text}>
+                        Save As
+                    </Typography>
+                </IconButton>
                 <div className={classes.divider} />
-                <Button className={classes.option}>
-                    <IconButton
-                        className={classes.button}
-                        classes={{ label: classes.label }}
-                        onClick={() => setResignModal(true)}
-                    >
-                        <SvgIcon className={classes.icon}>
-                            {icons.resign(themes[theme].text)}
-                        </SvgIcon>
-                        <Typography className={classes.text}>Resign</Typography>
-                    </IconButton>
-                </Button>
-            </Box>
+                <IconButton
+                    className={classes.option}
+                    classes={{ label: classes.label }}
+                    onClick={() => setResignModal(true)}
+                >
+                    <SvgIcon className={classes.icon}>
+                        {icons.resign(themes[theme].text)}
+                    </SvgIcon>
+                    <Typography className={classes.text}>Resign</Typography>
+                </IconButton>
+            </span>
             {isSaveMessage ? (
                 <AnimatePresencePortal>
                     <GameSavedSuccessfully
@@ -87,29 +79,14 @@ export function SaveResignTool({
                 </Portal>
             ) : null}
             {resignModal ? (
-                <Portal>
-                    <StandardModal title='Are you sure you want to resign?' theme={theme}>
-                        <MuiButton
-                            onClick={() => {
-                                setResignModal(false)
-                                resign()
-                            }}
-                            className={classes.button}
-                            variant={'contained'}
-                            theme={theme}
-                        >
-                            Yes
-                        </MuiButton>
-                        <MuiButton
-                            onClick={() => setResignModal(false)}
-                            className={classes.button}
-                            variant={'contained'}
-                            theme={theme}
-                        >
-                            No
-                        </MuiButton>
-                    </StandardModal>
-                </Portal>
+                <ResignModal
+                    theme={theme}
+                    onYesClick={() => {
+                        setResignModal(false);
+                        resign();
+                    }}
+                    onNoClick={() => setResignModal(false)}
+                />
             ) : null}
         </>
     );

@@ -10,9 +10,7 @@ export const useStyles = makeStyles({
             width: '100vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: '93%',
-            marginLeft: '3.5%',
-            marginBottom: '2vh',
+            marginBottom: '1.15vw',
         },
     }),
     img_windows_flexbox: props => ({

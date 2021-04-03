@@ -1,38 +1,34 @@
 import React from "react";
 import { Close } from "./Close";
 import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
+import {ClickAwayListener, Typography} from "@material-ui/core";
 import { useStyles } from "./StandardModal.jss";
+import CloseIcon from "@material-ui/icons/Close";
 
 export function StandardModal({ text, title, theme, closeClick, children }) {
     const classes = useStyles({ theme: theme });
 
     return (
         <div className={classes.modal}>
-            <Box className={classes.window}>
-                <Box className={classes.top_flexbox}>
-                    <Close
-                        onClick={closeClick}
-                        className={classes.close_icon}
-                        theme={theme}
-                    />
-                </Box>
-                <Typography
-                    className={classes.title}
-                    align={"center"}
-                    noWrap={true}
-                >
+            <ClickAwayListener
+                onClickAway={closeClick}
+                mouseEvent="onMouseDown"
+                touchEvent="onTouchStart"
+            >
+                <Box className={classes.window}>
+                <span className={classes.title}>
                     {title}
-                </Typography>
-                <Typography
-                    className={classes.paragraph}
-                    align={"center"}
-                    paragraph={true}
-                >
-                    {text}
-                </Typography>
-                <Box className={classes.buttons}>{children}</Box>
-            </Box>
+                </span>
+                    <Typography
+                        paragraph
+                        align="center"
+                        className={classes.paragraph}
+                    >
+                        {text}
+                    </Typography>
+                    <span className={classes.buttons}>{children}</span>
+                </Box>
+            </ClickAwayListener>
         </div>
     );
 }

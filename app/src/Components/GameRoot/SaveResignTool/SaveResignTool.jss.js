@@ -1,12 +1,3 @@
-import {
-    fontSize002,
-    fontSize00224,
-    fontSizeW0027,
-    fontSizeW005,
-    fontSizeW0056,
-    fontSizeW0033,
-    fontSizeW004, fontSizeW0055, fontSizeW0025,
-} from "../../styles/fontSizes.jss";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
@@ -16,67 +7,46 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '2vh',
             width: '100%',
             height: '100%',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
         '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-            fontSize: fontSize002,
-            height: '5em',
-            marginLeft: '1em',
-            marginBottom: '1em',
+            // width: drawerItemWidth,
+            fontSize: '2vh',
+            // marginLeft: '1em',
+            marginBottom: '1vw',
             flexWrap: 'nowrap',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
+
     }),
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
+        paddingTop: '2.5vh',
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSizeW0027,
-            width: '10em',
-            height: '10em',
+            width: '10vw',
+            height: '10vw',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
-            width: '5em',
-            height: '5em',
+            width: '5.5vw',
+            height: '5.5vw',
         },
-        color: themes[props.theme].button_text,
-        border: `0.05em solid ${themes[props.theme].outline}`,
+        minWidth: 16,
+        minHeight: 16,
+        borderRadius: '0.25rem',
+        color: themes[props.theme].text,
+        border: `0.05rem solid ${themes[props.theme].outline}`,
     }),
-    button: props => ({
-        '&:hover': {
-            background: 'none'
-        },
-        '@media screen and (max-width: 412px)': {
-            fontSize: fontSizeW0033,
-            width: '4.95em',
-            height: '4.95em',
-            marginTop: '0.5em',
-        },
-        '@media screen and (min-width: 412px) and (max-width: 767px)': {
-            fontSize: fontSizeW0027,
-            width: '9.5em',
-            height: '9.5em',
-            marginTop: '1em',
-        },
-        '@media screen and (min-width: 768px) and (max-width: 960px)':{
-            fontSize: fontSizeW0033,
-            width: '4.95em',
-            height: '4.95em',
-            marginTop: '0.5em',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
-            width: '4.9em',
-            height: '4.9em',
-            marginTop: '0.5em',
-        },
+    yes_button: props => ({
+       marginRight: '2vw',
+    }),
+    no_button: props => ({
+        marginLeft: '2vw',
     }),
     label: props => ({
         display: "flex",
@@ -85,37 +55,14 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     icon: props => ({
-        '@media screen and (max-width: 768px)': {
-            fontSize: fontSizeW0027,
-            width: '6em',
-            height: '6em',
-        },
-        /*tablets*/
-        '@media screen and (min-width: 768px) and (max-width: 960px)': {
-            fontSize: fontSizeW0025,
-            width: '6em',
-            height: '6em',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
-            width: '3em',
-            height: '3em',
-        },
         color: themes[props.theme].text,
+        width: '3.25vw',
+        height: '3.25vw',
     }),
     text: props => ({
-        '@media screen and (max-width: 768px)': {
-            fontSize: fontSizeW0056,
-        },
-        '@media screen and (min-width: 768px) and (max-width: 960px)': {
-            fontSize: fontSizeW005,
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize00224,
-        },
+        fontSize: '1.2vw',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].button_text,
-        width: '4em',
     }),
     divider: props => ({
         width: '6.5%',

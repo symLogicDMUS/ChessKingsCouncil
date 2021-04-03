@@ -1,10 +1,10 @@
 import React, {useEffect, useReducer} from "react";
 import clsx from "clsx";
+import {motion} from "framer-motion";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {isPiece} from "../../helpers/isPiece";
 import {getCapturedDict} from "./getCapturedDict";
-import {Close} from "../../Reuseables/Modals/Close";
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import {ClickAwayListener, Portal, Typography} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../GameRoot.jss";
@@ -53,13 +53,12 @@ export function CapturedPieceImages({captured, capturedIds, idDict, defs, toggle
                             mouseEvent="onMouseDown"
                             touchEvent="onTouchStart"
                         >
-                            <div className={classes.captured_piece_images_modal}>
+                            <motion.div drag className={classes.captured_piece_images_modal}>
                                 <Box className={classes.top_area}>
                                     <DragIndicatorIcon className={classes.drag_icon} />
                                     <Typography variant="caption" className={classes.caption}>
                                         Captured Pieces
                                     </Typography>
-                                    {/*<Close className={classes.close} iconClassName={classes.close_icon} theme={theme} />*/}
                                 </Box>
                                 <Box className={classes.piece_list_area}>
                                     <Box className={clsx(classes.outlined_box, {
@@ -83,14 +82,16 @@ export function CapturedPieceImages({captured, capturedIds, idDict, defs, toggle
                                         </Box>
                                     </Box>
                                 </Box>
-                            </div>
+                            </motion.div>
                         </ClickAwayListener>
                     </div>
                 </Portal>
             </MediaQuery>
             <MediaQuery minWidth={960}>
                 <div className={classes.captured_piece_images}>
-                    <Box className={classes.outlined_box}>
+                    <Box className={clsx(classes.outlined_box, {
+                        [classes.white_captured]: true,
+                    })}>
                         <Typography className={classes.label}>white</Typography>
                         {state.W.length === 0 ? (
                             <Box className={classes.empty_list}/>
@@ -100,7 +101,9 @@ export function CapturedPieceImages({captured, capturedIds, idDict, defs, toggle
                             </Box>
                         )}
                     </Box>
-                    <Box className={classes.outlined_box}>
+                    <Box className={clsx(classes.outlined_box, {
+                        [classes.black_captured]: true,
+                    })}>
                         <Typography className={classes.label}>black</Typography>
                         {state.B.length === 0 ? (
                             <Box className={classes.empty_list}/>

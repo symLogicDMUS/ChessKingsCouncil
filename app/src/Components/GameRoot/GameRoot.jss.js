@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const styles = {
-    /**Use .style for page-level components when only property is document.className.body */
     game_root_body: {
         backgroundImage: 'url("/Images/Backgrounds/background.png")',
         backgroundSize: 'cover',
@@ -26,6 +25,6 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
         backgroundColor: 'rgba(255, 0, 0, 0.15)',
-        border: '1px dashed red',
+
     }),
 }, {index: 1});

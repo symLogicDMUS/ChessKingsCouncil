@@ -29,7 +29,7 @@ export function BoardTool({
     const classes = useStyles({ theme: theme });
 
     return (
-        <div className={classes.board_tool}>
+        <span className={classes.board_tool}>
             <MediaQuery minWidth={960}>
                 <Box className={classes.flex_header}>
                     <Typography className={classes.title}>
@@ -51,6 +51,6 @@ export function BoardTool({
                 showProfileOnClick={showProfileOnClick}
                 toggleSecondaryDrawer={toggleSecondaryDrawer}
             />
-        </div>
+        </span>
     );
 }

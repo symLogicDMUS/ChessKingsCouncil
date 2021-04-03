@@ -1,7 +1,7 @@
 import {themes} from "../../styles/themes.jss";
 import {fontSize0016, fontSize0023} from "../../styles/fontSizes.jss";
 
-export const drawerItemWidth = '22.5vw';
+export const drawerItemWidth = '22.4vw';
 export const arrowButtonBorderRadius = '0.35rem';
 export const drawerItemMarginTopBottom = '0.8vw';
 export const drawerItemMarginLeft = 0;

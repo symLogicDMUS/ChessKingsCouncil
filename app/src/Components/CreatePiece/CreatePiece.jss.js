@@ -2,6 +2,7 @@ import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
+import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const styles = {
     modal: {
@@ -40,12 +41,10 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     tool_flexbox: props => ({
-        width: '93%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        marginLeft: '3.5%',
-        marginBottom: '2vh',
+        marginBottom: '1.15vw',
         alignItems: 'center',
         justifyContent: 'space-between',
     }),
@@ -67,7 +66,6 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     four_button_group: props => ({
-        width: '93%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -95,15 +93,15 @@ export const useStyles = makeStyles({
         height: '2vw',
     }),
     modal: props => ({
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: '100vw',
-        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
+        height: '100vh',
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        position: 'absolute',
         zIndex: 2,
+        top: 0,
+        left: 0,
     }),
     caption: props => ({
         fontSize: '1.1rem',

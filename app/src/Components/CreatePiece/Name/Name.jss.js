@@ -10,9 +10,9 @@ export const useStyles = makeStyles({
     }),
     name: props => ({
         '@media screen and (min-width: 960px)': {
-            width: '93%',
-            marginLeft: '3.5%',
-            marginBottom: '2vh',
+            // width: '93%',
+            // marginLeft: '3.5%',
+            marginBottom: '1.15vw',
         },
         '@media screen and (max-width: 960px)': {
             width: '35vw',

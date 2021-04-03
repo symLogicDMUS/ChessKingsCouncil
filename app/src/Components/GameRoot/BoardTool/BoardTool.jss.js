@@ -12,6 +12,7 @@ export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
+
             '@media screen and (max-width: 960px)': {
                 flexDirection: 'row',
                 flex: 'nowrap',
@@ -21,11 +22,9 @@ export const useStyles = makeStyles({
             '@media screen and (min-width: 960px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                // fontSize: drawerItemWidth * 0.125,
-                width: drawerItemWidth,
-                marginLeft: '5%',
-                marginBottom: '6vh',
-                height: '8em',
+                // width: drawerItemWidth,
+                // marginLeft: '1.25vw',
+                marginBottom: '1vw',
             },
         }),
         flex_header: props => ({

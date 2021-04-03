@@ -3,7 +3,6 @@ import {copy} from "../helpers/copy";
 import {Portal} from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
 import {rankfiles} from "../helpers/rankfiles";
 import {OVER} from "../helpers/gStatusTypes";
@@ -355,11 +354,20 @@ class GameRoot extends React.Component {
                     {this.state.miniVariantTool === "Resign" ? (
                         <ResignModal
                             theme={this.state.theme}
-                            onClick={() => {
+                            onYesClick={() => {
                                 this.toggleMiniVariantTool(null)
                                 this.resign()
                             }}
-                            onClick1={() => this.toggleMiniVariantTool(null)}
+                            onNoClick={() => this.toggleMiniVariantTool(null)}
+                        />
+                    ) : null}
+                    {this.state.miniVariantTool === "Game-Info" ? (
+                        <GameInfo
+                            gameName={this.gameName}
+                            gameType={this.gameType}
+                            theme={this.state.theme}
+                            playerType={this.playerType}
+                            toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
                 </div>
@@ -373,6 +381,7 @@ class GameRoot extends React.Component {
                                 gameType={this.gameType}
                                 theme={this.state.theme}
                                 playerType={this.playerType}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
                             />
                             <SaveResignTool
                                 triggerSaveProcess={() =>
@@ -490,7 +499,7 @@ class GameRoot extends React.Component {
                     navHorizontal={false}
                     neighborOpen={this.state.secondaryDrawer}
                 >
-                    <Board gameRoot={this}/>
+                    {/*<Board gameRoot={this}/>*/}
                     {/*<MuiAccordion />*/}
                 </ResponsiveDrawer>
             </>

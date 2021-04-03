@@ -1,29 +1,33 @@
 import React from "react";
+import clsx from "clsx";
 import {Portal} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import {StandardModal} from "../../Reuseables/Modals/StandardModal";
-import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 import {useStyles} from "./SaveResignTool.jss";
 
-export function ResignModal({onClick, onClick1, theme}) {
+export function ResignModal({onYesClick, onNoClick, theme}) {
     const classes = useStyles({theme});
+
     return <Portal>
-        <StandardModal title='Are you sure you want to resign?' theme={theme}>
-            <MuiButton
-                onClick={onClick}
-                className={classes.button}
-                variant={"contained"}
-                theme={theme}
+        <StandardModal title='Are you sure you want to resign?' theme={theme} closeClick={onNoClick}>
+            <Button
+                variant={'contained'}
+                className={clsx(classes.button, {
+                    [classes.yes_button]: true,
+                })}
+                onClick={onYesClick}
             >
                 Yes
-            </MuiButton>
-            <MuiButton
-                onClick={onClick1}
-                className={classes.button}
-                variant={"contained"}
-                theme={theme}
+            </Button>
+            <Button
+                variant={'contained'}
+                classes={{root: clsx(classes.button, {
+                        [classes.no_button]: true,
+                    })}}
+                onClick={onNoClick}
             >
                 No
-            </MuiButton>
+            </Button>
         </StandardModal>
     </Portal>;
 }

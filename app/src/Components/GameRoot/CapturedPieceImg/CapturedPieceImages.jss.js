@@ -24,18 +24,14 @@ export const useStyles = makeStyles({
     }),
     outlined_box: props => ({
         fontSize: '1.75vh',
-        border: `0.05em solid ${themes[props.theme].outline}`,
         borderRadius: '0.25em',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
+        border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
             width: '30vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-            marginLeft: '5%',
         },
     }),
     white_captured: props => ({
@@ -43,10 +39,16 @@ export const useStyles = makeStyles({
             marginTop: '1rem',
             marginBottom: '1.5rem',
         },
+        '@media screen and (min-width: 960px)': {
+            marginBottom: '0.75vw',
+        },
     }),
     black_captured: props => ({
         '@media screen and (max-width: 960px)': {
             marginTop: '1.5rem',
+        },
+        '@media screen and (min-width: 960px)': {
+            marginTop: '0.75vw',
         },
     }),
     label: props => ({
@@ -121,5 +123,6 @@ export const useStyles = makeStyles({
     drag_icon: props => ({
         fontSize: '1.8vh',
         color: themes[props.theme].text_alt,
+        cursor: 'move',
     }),
 }, {index: 1});
