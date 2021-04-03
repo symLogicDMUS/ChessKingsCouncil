@@ -51,7 +51,7 @@ export const useStyles = makeStyles({
     }),
     content: props => ({
         overflow: 'scroll',
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
@@ -76,7 +76,7 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         /*media query for phones (generalized)*/
         '@media screen and (max-width: 960px)': {
             height: windowHeightthin()*0.1,
@@ -103,6 +103,6 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     button_icon: props => ({
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
     }),
 }, {index: 1});

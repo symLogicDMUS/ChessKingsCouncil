@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     custom_drag_layer: props => ({
-        position: 'fixed',
+        position: 'absolute',
         pointerEvents: 'none',
         zIndex: 4,
         left: 0,

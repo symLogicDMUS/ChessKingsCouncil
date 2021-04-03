@@ -58,4 +58,7 @@ export const useStyles = makeStyles({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
     }),
+    piece_loc_highlight: props => ({
+        backgroundColor: themes[props.theme].dark_in_range,
+    }),
 }, {index: 1});

@@ -32,27 +32,27 @@ export function Range({spans, offsets, toggleSpan, theme, styles}) {
     };
 
     return (
-        <Box className={classes.range_tool}>
-            <MediaQuery minWidth={960}>
+        <MediaQuery minWidth={960}>
+            <span className={classes.range_tool}>
                 <Typography className={classes2.tool_title}>Range</Typography>
-            </MediaQuery>
-            <ScrollTable
-                numRows={5}
-                theme={theme}
-                textClassName={classes.scroll_table_text}
-                listItemClassName={classes.scroll_table_list_item}
-                arrowButtonTopClassName={classes.top_arrow_button}
-                arrowButtonBottomClassName={classes.bottom_arrow_button}
-                arrowButtonClassName={classes.scroll_table_arrow_button}
-                listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
-            />
-            <div className={classes.divider} />
-            <SpanArrowButtons
-                spans={spans}
-                toggleSpan={toggleSpan}
-                screenCase={screenCase}
-                theme={theme}
-            />
-        </Box>
+                <ScrollTable
+                    numRows={5}
+                    theme={theme}
+                    textClassName={classes.scroll_table_text}
+                    listItemClassName={classes.scroll_table_list_item}
+                    arrowButtonTopClassName={classes.top_arrow_button}
+                    arrowButtonBottomClassName={classes.bottom_arrow_button}
+                    arrowButtonClassName={classes.scroll_table_arrow_button}
+                    listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
+                />
+                <div className={classes.divider} />
+                <SpanArrowButtons
+                    spans={spans}
+                    toggleSpan={toggleSpan}
+                    screenCase={screenCase}
+                    theme={theme}
+                />
+            </span>
+        </MediaQuery>
     );
 }

@@ -22,8 +22,6 @@ export const useStyles = makeStyles({
             '@media screen and (min-width: 960px)': {
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                // width: drawerItemWidth,
-                // marginLeft: '1.25vw',
                 marginBottom: '1vw',
             },
         }),

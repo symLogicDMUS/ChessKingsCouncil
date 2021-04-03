@@ -30,8 +30,7 @@ import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extr
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
-import {Typography} from "@material-ui/core";
-import {pageTitle, styles} from "./CreatePiece.jss";
+import {styles} from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -398,7 +397,6 @@ class CreatePiece extends React.Component {
                             defaultValue={this.name}
                             theme={this.state.theme}
                             updateName={this.updateName}
-                            screenCase="thin"
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
@@ -549,7 +547,7 @@ class CreatePiece extends React.Component {
                                     Creating a Piece
                                 </HelpTitle>
                             }
-                            helpText={HelpText(fontSize002, this.state.theme)}
+                            helpText={HelpText('1.5vw', this.state.theme)}
                             updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
@@ -595,7 +593,6 @@ class CreatePiece extends React.Component {
                 >
                     <Board
                         key="Board"
-                        screenCase="thin"
                         theme={this.state.theme}
                         pieceLoc={this.location}
                         setLoc={this.setLoc}

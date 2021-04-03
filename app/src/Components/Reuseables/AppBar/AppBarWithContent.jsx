@@ -14,6 +14,7 @@ export function AppBarWithContent({
     className,
     navDrawerWidth,
     toolDrawerWidth,
+    seeMoreIcon,
     children,
 }) {
     const classes = useStyles({
@@ -43,14 +44,19 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className}>
+                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
                             {children}
                         </ThreeItemAppBar>
+                    ) : null}
+                    {type === "custom" ? (
+                        <>
+                            {children}
+                        </>
                     ) : null}
                 </Box>
             </Hidden>
@@ -73,14 +79,19 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className}>
+                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
                             {children}
                         </ThreeItemAppBar>
+                    ) : null}
+                    {type === "custom" ? (
+                        <>
+                            {children}
+                        </>
                     ) : null}
                 </Box>
             </Hidden>

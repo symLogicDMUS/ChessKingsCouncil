@@ -3,23 +3,18 @@ import {darken, lighten} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    window: props => ({
+    name_modal: props => ({
         margin: 'auto',
         borderRadius: '0.5rem',
+        padding: '3.5vw',
         backgroundColor: themes[props.theme].fill,
     }),
     name: props => ({
         '@media screen and (min-width: 960px)': {
-            // width: '93%',
-            // marginLeft: '3.5%',
             marginBottom: '1.15vw',
         },
         '@media screen and (max-width: 960px)': {
-            width: '35vw',
-            marginTop: '1.75vw',
-            marginLeft: '3.5vw',
-            marginRight: '3.5vw',
-            marginBottom: '3.5vw',
+            width: '50vw',
         },
 
         /*root*/

@@ -107,7 +107,7 @@ export const useStyles = makeStyles({
             width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
         },
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '1.5vw',
             width: getTextWidth('Council of Kings', fontSizeW01, 'Garamond'),
             flexGrow: 100,
             height: availHeight() * 0.7,

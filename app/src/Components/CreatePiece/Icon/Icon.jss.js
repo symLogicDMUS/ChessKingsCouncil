@@ -10,6 +10,7 @@ export const useStyles = makeStyles({
             width: '100vw',
         },
         '@media screen and (min-width: 960px)': {
+            width: '22.5vw',
             marginBottom: '1.15vw',
         },
     }),

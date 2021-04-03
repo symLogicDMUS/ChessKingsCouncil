@@ -1,5 +1,6 @@
 import React from "react";
 import "../../helpers/stepFuncs";
+import {useMediaQuery} from "@material-ui/core";
 import { difference } from "../../helpers/setOps";
 import { rankfiles } from "../../helpers/rankfiles";
 import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
@@ -8,7 +9,8 @@ import { ArrowButton } from "../Range/SpanArrowButtons/ArrowButton";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import { useStyles } from "./CreatePieceBoard.jss";
-import {useMediaQuery} from "@material-ui/core";
+import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
+import {getOffset} from "../../helpers/getOffset";
 
 export function CreatePieceBoard({
     theme,
@@ -48,7 +50,7 @@ export function CreatePieceBoard({
         );
     };
 
-    const getSquareWithPiece = (rf) => {
+    const getSquareWithPiece = (rf, pieceLocHighlight) => {
         return (
             <Square
                 rf={rf}
@@ -61,19 +63,22 @@ export function CreatePieceBoard({
                 screenCase={screenCase}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                pieceLocHighlight={pieceLocHighlight}
                 hasToolChild={false}
             >
                 <Piece
                     key='piece'
                     theme={theme}
-                    rf={rf.toUpperCase()}
                     imgUrl={imgUrl}
+                    rf={rf.toUpperCase()}
+                    pieceLocHighlight={pieceLocHighlight}
                 />
             </Square>
         );
     };
 
     const getSquareWithArrowButton = (rf, angle) => {
+        let hasToolChild;
         return (
             <Square
                 rf={rf}
@@ -89,11 +94,13 @@ export function CreatePieceBoard({
                 hasToolChild={true}
             >
                 <ArrowButton
+                    rf={rf}
                     angle={angle}
-                    isActive={spanDisplays[rf]}
                     toggleSpan={toggleSpan}
-                    screenCase='thin'
+                    isActive={spanDisplays[rf]}
                     isOffset={offsetDisplays[rf]}
+                    pieceLoc={pieceLoc}
+                    screenCase='thin'
                     theme={theme}
                 />
             </Square>
@@ -139,7 +146,7 @@ export function CreatePieceBoard({
         );
         for (const rf of remainingRfs) {
             if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf));
+                squares.push(getSquareWithPiece(rf, false));
             } else {
                 squares.push(getEmptySquare(rf));
             }
@@ -152,7 +159,7 @@ export function CreatePieceBoard({
         const squares = [];
         for (const rf of rankfiles) {
             if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf));
+                squares.push(getSquareWithPiece(rf, true));
             } else if (locations.includes(rf)) {
                 squares.push(getSquareWithLocationButton(rf));
             }
@@ -167,7 +174,7 @@ export function CreatePieceBoard({
         const squares = [];
         for (const rf of rankfiles) {
             if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf));
+                squares.push(getSquareWithPiece(rf, false));
             } else {
                 squares.push(getEmptySquare(rf));
             }
@@ -175,19 +182,22 @@ export function CreatePieceBoard({
         return squares;
     };
 
+    const getBoard = () => {
+        if (screenCase==='thin') {
+            if (miniVariantTool==="Range") {
+                return getRangToolBoard()
+            }
+            if (miniVariantTool==="Location") {
+                return getLocationToolBoard()
+            }
+        }
+        return getRegularBoard()
+    };
+
     return (
         <>
             <div className={classes.board}>
-                {screenCase === 'thin' && miniVariantTool === "Range" ? (
-                    getRangToolBoard()
-                ) : (
-                    getRegularBoard()
-                )}
-                {screenCase === 'thin' && miniVariantTool === "Location" ? (
-                    getLocationToolBoard()
-                ) : (
-                    getRegularBoard()
-                )}
+                {getBoard()}
             </div>
         </>
     );

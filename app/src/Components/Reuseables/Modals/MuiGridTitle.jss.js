@@ -1,6 +1,5 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../../styles/themes.jss";
-import {fontSize0015, fontSize0016} from "../../../styles/fontSizes.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const searchBackgroundColor = (theme) => ({
     backgroundColor: lighten(themes[theme].odd_row, 0.085),

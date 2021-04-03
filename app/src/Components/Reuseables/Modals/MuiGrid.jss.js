@@ -1,8 +1,6 @@
-import {fontSize001685, fontSize002} from "../../styles/fontSizes.jss";
 import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
 
 const widthLg = '90vw';
 
@@ -10,14 +8,14 @@ export const useStyles = makeStyles((theme) => ({
     window: props => ({
         '@media screen and (max-width: 960px)': {
             width: '100vw',
-            height: `calc(100vh - ${appBarHeight}px)`,
+            // height: `calc(100vh - ${appBarHeight}px)`,
             position: 'absolute',
             top: appBarHeight,
             left: 0,
         },
         '@media screen and (min-width: 960px)': {
             width: widthLg,
-            height: '90vh',
+            // height: '90vh',
             position: 'absolute',
             top: `calc(${appBarHeight}px)`,
             left: '5vw',
@@ -53,7 +51,7 @@ export const useStyles = makeStyles((theme) => ({
         border: `0.002em solid ${themes[props.theme].outline}`,
         backgroundColor: themes[props.theme].modal_fill,
     }),
-    bottom_flexbox: props => ({
+    bottom_area: props => ({
         display: 'flex',
         flexDirection: 'row',
         '@media screen and (max-width: 960px)': {
@@ -65,35 +63,82 @@ export const useStyles = makeStyles((theme) => ({
         },
         '@media screen and (min-width: 960px)': {
             width: '85.5vw',
+            paddingTop: '1.5rem',
+            paddingBottom: '1.5rem',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
         flexGrow: 3,
     }),
     bottom_button: props => ({
-        border: `0.025rem solid ${themes[props.theme].outline}`,
+        '@media screen and (max-width: 600px)': {
+            fontSize: '2.75vw',
+            width: '6.15em',
+            height: '2em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2.75vw',
+            width: '6.8em',
+            height: '1.95em',
+            border: `0.05em solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (min-width: 960px)': {
+            border: `0.05em solid ${themes[props.theme].outline}`,
+            fontSize: '1vw',
+            width: '6.5em',
+            height: '2.1em',
+        },
     }),
     ok_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginRight: '1rem',
+            marginRight: '3.5vw',
         },
         '@media screen and (min-width: 960px)': {
             marginRight: '2vw'
         },
     }),
+    icon: props => ({
+        '@media screen and (max-width: 600px)': {
+            fontSize: '1vw',
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '1vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1vw',
+        },
+        width: '0.9em',
+        height: '0.9em',
+
+    }),
     close_icon: props => ({
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         width: '1.5em',
         height: '1.5em',
     }),
     show_names_gen: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
+        '@media screen and (max-width: 600px)': {
+            fontSize: '2.75vw',
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2.75vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1vw',
         },
     }),
     show_names_checkbox: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.1rem'
+        '@media screen and (max-width: 600px)': {
+            fontSize: '2.75vw',
         },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2.75vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1vw',
+        },
+        width: '1.25em',
+        height: '1.25em',
     }),
 }), {index: 1});

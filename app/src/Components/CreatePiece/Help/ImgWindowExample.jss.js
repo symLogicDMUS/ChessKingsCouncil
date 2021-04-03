@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
     img_window1: props => ({
         ...img_window(props.theme),
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '1.5vw',
             width: "9em",
             height: "9em",
             marginRight: '1vw',
@@ -55,14 +55,14 @@ export const useStyles = makeStyles({
             border: "0.0075em solid #2b2b2b",
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '1.5vw',
             width: "9em",
             height: "9em",
             marginLeft: '1vw',
         },
     }),
     img_label: props => ({
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         display: 'flex',
         direction: 'row',
         alignItems: 'center',
@@ -70,7 +70,7 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         color: themes[props.theme].text,
         padding: 0,
     }),

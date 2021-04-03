@@ -31,14 +31,14 @@ export function MuiGrid(props) {
             ) : (
                 <MuiSkeleton classesObj={{root: classes.item_choices}} theme={props.theme}/>
             )}
-            <Box className={classes.bottom_flexbox}>
+            <Box className={classes.bottom_area}>
                 <Button
                     onClick={props.onOkClick}
                     isDisabled={props.selectedItem === null}
                     rootClassName={classes.bottom_button}
                     addedClassName={classes.ok_button}
                     size={isThin ? 'small' : 'medium'}
-                    startIcon={<CheckCircleOutlineIcon/>}
+                    startIcon={<CheckCircleOutlineIcon className={classes.icon}/>}
                     variant="outlined"
                     theme={props.theme}
                 >
@@ -49,7 +49,7 @@ export function MuiGrid(props) {
                     modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.selectedItem === null}
                     rootClassName={classes.bottom_button}
-                    startIcon={<DeleteForeverIcon/>}
+                    startIcon={<DeleteForeverIcon className={classes.icon}/>}
                     size={isThin ? 'small' : 'medium'}
                     theme={props.theme}
                     variant="outlined"

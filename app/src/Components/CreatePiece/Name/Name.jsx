@@ -1,8 +1,5 @@
 import React from "react";
-import clsx from "clsx";
-import Box from "@material-ui/core/Box";
-import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
+import {motion} from "framer-motion";
 import {ClickAwayListener, Hidden, Portal, useMediaQuery} from '@material-ui/core'
 import {MuiTextField as TextField} from "../../Reuseables/UserInput/MuiTextField";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
@@ -31,15 +28,7 @@ export function Name({updateName, toggleMiniVariantTool, theme, defaultValue}) {
                             mouseEvent="onMouseDown"
                             touchEvent="onTouchStart"
                         >
-                            <Box className={classes.window}>
-                                <Box className={classes2.close_area}>
-                                    <IconButton
-                                        onClick={() => toggleMiniVariantTool("Name")}
-                                        className={classes2.close}
-                                    >
-                                        <CloseIcon className={classes2.icon}/>
-                                    </IconButton>
-                                </Box>
+                            <motion.div drag className={classes.name_modal}>
                                 <TextField
                                     theme={theme}
                                     fullWidth={true}
@@ -53,7 +42,7 @@ export function Name({updateName, toggleMiniVariantTool, theme, defaultValue}) {
                                     rootClassName={classes.name}
                                     id="game-name"
                                 />
-                            </Box>
+                            </motion.div>
                         </ClickAwayListener>
                     </div>
                 </Portal>

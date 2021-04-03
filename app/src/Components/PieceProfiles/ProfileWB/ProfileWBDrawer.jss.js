@@ -20,10 +20,12 @@ export const useStyles = makeStyles((theme) => ({
         position: "relative",
     },
     drawer: props => ({
+        padding: '1vw',
+
         width: '100%',
         height: '100vh',
         backgroundColor: themes[props.theme].fill,
-        border: `0.2em solid ${themes[props.theme].outline}`,
+        border: `0.05rem solid ${themes[props.theme].outline}`,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

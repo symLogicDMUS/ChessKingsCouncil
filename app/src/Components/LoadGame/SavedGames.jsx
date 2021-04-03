@@ -2,14 +2,16 @@ import React from "react";
 import {HelpText} from "./HelpText";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {Portal, Typography} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import {Background} from "../Reuseables/Background/Background";
-import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {useStyles} from "./SavedGames.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {SavedGamesTitle} from "./SavedGamesTitle";
+import {useStyles} from "./SavedGames.jss";
+import SearchIcon from "@material-ui/icons/Search";
 
 export function SavedGames(props) {
     const isThin = useMediaQuery("(max-width:960px)");
@@ -51,6 +53,7 @@ export function SavedGames(props) {
                     />,
                 ]}
                 appBarType='2item'
+                seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
             >
                 <MuiGrid
                     loaded={props.loaded}
@@ -63,6 +66,9 @@ export function SavedGames(props) {
                     theme={props.theme}
                     confirmDeleteMessage={
                         props.confirmDeleteMessage
+                    }
+                    title={
+                        isWide ? <SavedGamesTitle theme={props.theme} updateSearchText={props.updateSearchText} /> : null
                     }
                     topFlexbox={null}
                     onClose={null}

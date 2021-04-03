@@ -18,6 +18,7 @@ export const CreatePieceSquare = memo(({
     isOffset,
     showSpanText,
     showOffsetText,
+    pieceLocHighlight,
     hasToolChild,
     children,
 }) => {
@@ -44,16 +45,16 @@ export const CreatePieceSquare = memo(({
                 [classes2.on_hover]: ! hasToolChild,
                 [classes.offset]: isOffset,
                 [classes.span]: isSpan,
+                [classes.piece_loc_highlight]: pieceLocHighlight,
             })}
         >
             {(isSpan && showSpanText && ! hasToolChild) ? (
                 <SpanLabel theme={theme}/>
             ) : null}
             {children}
-            {(isOffset && ! isSpan && showOffsetText ) ? (
+            {(isOffset && showOffsetText && ! hasToolChild ) ? (
                 <OffsetLabel
                     theme={theme}
-                    hasToolChild={hasToolChild}
                     offset={getOffset(rf, pieceLoc)}
                 />
             ) : null}

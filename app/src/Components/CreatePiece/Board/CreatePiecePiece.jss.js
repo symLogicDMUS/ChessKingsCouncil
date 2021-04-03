@@ -20,4 +20,7 @@ export const useStyles = makeStyles({
     dark_sqr_text: props => ({
         color: themes[props.theme].sqr_text_dark,
     }),
+    piece_loc_highlight: props => ({
+        color: themes[props.theme].sqr_hover,
+    }),
 }, {index: 1})

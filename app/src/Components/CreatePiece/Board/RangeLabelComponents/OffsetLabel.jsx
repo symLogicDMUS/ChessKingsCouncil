@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import {Typography} from "@material-ui/core";
 import {useStyles} from "./SquareText.jss";
 
@@ -26,9 +25,7 @@ export function OffsetLabel({offset, hasToolChild, theme}) {
 
     return (
         <>
-            <Typography className={clsx(classes.sqr_text, {
-                [classes.adjust]: hasToolChild,
-            })} nowrap>
+            <Typography className={classes.sqr_text} nowrap>
                 x {xSign} {Math.abs(offset[0])}
                 < br />
                 y {ySign} {Math.abs(offset[1])}

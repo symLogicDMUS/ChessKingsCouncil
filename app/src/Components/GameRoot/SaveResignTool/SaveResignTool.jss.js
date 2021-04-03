@@ -42,6 +42,17 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         border: `0.05rem solid ${themes[props.theme].outline}`,
     }),
+    button: props => ({
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            fontSize: '2vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1.5vw',
+        },
+        width: '6.5em',
+        height: '2.1em',
+        border: `0.05em solid ${themes[props.theme].outline}`,
+    }),
     yes_button: props => ({
        marginRight: '2vw',
     }),

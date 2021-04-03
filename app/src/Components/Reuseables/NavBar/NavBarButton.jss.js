@@ -19,8 +19,6 @@ export const useStyles = makeStyles({
         fontSize: '1.85vw',
         height: '1.35em',
         flexGrow: 10,
-        borderLeft: `0.05rem solid ${lighten(themes[props.theme].outline, 0.05)}`,
-        borderBottom: `0.05rem solid ${lighten(themes[props.theme].outline, 0.05)}`,
     }),
     column_direction: props => ({
         fontSize: '2.25vh',

@@ -1,11 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
+import {SeeMore} from "../UserInput/SeeMore";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles as useMoreStyles} from "./AppBarWithContent.jss";
 import { useStyles } from "./TwoItemAppBar.jss";
 
-export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, className, children}) {
-
+export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, className, seeMoreIcon, children}) {
+    const sm = useMediaQuery("(max-width: 500px)");
     const classes = useStyles()
 
     const classes2 = useMoreStyles({
@@ -15,7 +16,7 @@ export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, cla
     });
 
     return (
-        <Box
+        <span
             className={clsx(classes.two_item_app_bar, {
                 [className]: className,
                 [classes2.appBarMdCompressed]: open,
@@ -25,10 +26,15 @@ export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, cla
             <div className={classes.child1}>
                 {children[0]}
             </div>
-            <div className={classes.child2}>
-                {children[1]}
-            </div>
-
-        </Box>
+            {sm ? (
+                <SeeMore theme={theme} icon={seeMoreIcon}>
+                    {children[1]}
+                </SeeMore>
+            ) : (
+                <div className={classes.child2}>
+                    {children[1]}
+                </div>
+            )}
+        </span>
     );
 }

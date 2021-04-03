@@ -12,7 +12,7 @@ export const styles = {
         width: '33.333%',
     },
     box: props => ({
-        fontSize: fontSize002,
+        fontSize: '1.5vw',
         display: 'flex',
     }),
     sqr_text_checkbox: props => ({
@@ -41,6 +41,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     tool_flexbox: props => ({
+        width: '22.5vw',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -66,6 +67,7 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     four_button_group: props => ({
+        width: '22.5vw',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',

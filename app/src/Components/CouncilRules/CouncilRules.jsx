@@ -15,7 +15,7 @@ export function CouncilRules() {
 
     const helpText = <Typography
         style={{
-            fontSize: fontSize002,
+            fontSize: '1.5vw',
             color: themes.tan.text
         }}
         variant='h6'

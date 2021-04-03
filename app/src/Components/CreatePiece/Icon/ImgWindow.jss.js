@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 const windowSize = '30vw';
-export const borderRadius = {borderRadius: '0.5rem'};
+export const borderRadius = {borderRadius: '0.25rem'};
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -71,7 +71,7 @@ export const useStyles = makeStyles({
             borderRadius: '0.035rem',
         },
         '@media screen and (min-width: 960px)': {
-            borderRadius: '0.35rem',
+            borderRadius: '0.25rem',
         },
     }),
 }, {index: 1});

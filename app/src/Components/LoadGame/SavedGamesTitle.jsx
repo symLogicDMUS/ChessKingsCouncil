@@ -1,22 +1,23 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
-import { Typography } from "@material-ui/core";
-import WallpaperIcon from "@material-ui/icons/Wallpaper";
+import {SeeMore} from "../Reuseables/UserInput/SeeMore";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
-import { SeeMore } from "../../../Reuseables/UserInput/SeeMore";
-import { SearchBox } from "../../../Reuseables/UserInput/SearchBox";
-import {searchBackgroundColor, useStyles} from "../../../Reuseables/Modals/MuiGridTitle.jss";
+import { searchBackgroundColor, useStyles} from "../Reuseables/Modals/MuiGridTitle.jss";
+import SearchIcon from "@material-ui/icons/Search";
+import {MoreVert, Storage} from "@material-ui/icons";
+import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 
-export function ImgChoicesTitle({ theme, updateSearchText }) {
-    const classes = useStyles({ theme: theme });
+export function SavedGamesTitle({updateSearchText, theme}) {
+    const classes = useStyles({theme});
 
     return (
         <Box className={classes.title_area}>
             <Box className={classes.title_box}>
-                <Typography className={classes.title}>Images</Typography>
-                <WallpaperIcon className={classes.title_icon} size="small" />
+                <Typography className={classes.title}>Load Game</Typography>
+                <Storage className={classes.title_icon} size="small" />
             </Box>
             <MediaQuery maxWidth={600}>
                 <SeeMore
@@ -35,7 +36,7 @@ export function ImgChoicesTitle({ theme, updateSearchText }) {
                         className={classes.search}
                         updateSearchText={updateSearchText}
                         icon={
-                            <ImageSearchIcon
+                            <MoreVert
                                 className={clsx(classes.search_icon, {
                                     [classes.small_icon]: true,
                                 })}
@@ -50,10 +51,10 @@ export function ImgChoicesTitle({ theme, updateSearchText }) {
                     className={classes.search}
                     updateSearchText={updateSearchText}
                     icon={
-                        <ImageSearchIcon
+                        <SearchIcon
                             className={clsx(classes.search_icon, {
                                 [classes.small_icon]: true,}
-                                )}
+                            )}
                         />
                     }
                 />

@@ -62,6 +62,10 @@ export const useStyles = makeStyles({
         marginLeft: '0.25em',
         color: themes[props.theme].text,
     }),
+    see_more_icon: props => ({
+        color: themes[props.theme].text,
+        fontSize: '1.25rem',
+    }),
     img_grid_root: props => ({
         position: 'absolute',
         left: '50%',

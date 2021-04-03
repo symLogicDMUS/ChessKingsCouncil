@@ -13,6 +13,6 @@ export const useStyles = makeStyles({
         flexGrow: 1,
     }),
     child2: props => ({
-
+        marginRight: 'auto',
     }),
 }, {index: 1});

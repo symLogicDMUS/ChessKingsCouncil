@@ -53,10 +53,15 @@ export const useStyles = makeStyles({
         border: `0.018em solid ${themes[props.theme].text_alt}`
     }),
     item_name: props => ({
+        '@media screen and (max-width: 960px)': {
+            fontSize: '0.9rem',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1.5vw',
+        },
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: themes[props.theme].text,
-        fontSize: '1.25rem',
         width: '99%',
     }),
     tooltip: props => ({

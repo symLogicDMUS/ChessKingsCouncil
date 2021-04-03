@@ -53,8 +53,8 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
             ) : null}
             <div className={clsx(classes.profile_wb, {
                 [classes.profile_wb_drawer_item]: hasDrawerParent,
-                [classes.profile_w]: color === 'W',
-                [classes.profile_b]: color === 'B'
+                [classes.profile_w]: color === 'W' && ! hasDrawerParent,
+                [classes.profile_b]: color === 'B' && ! hasDrawerParent,
             })}>
                 <ProfileWBAvatar
                     src={def.img}

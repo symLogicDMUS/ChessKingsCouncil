@@ -46,7 +46,7 @@ export const button_content = () => ({
     width: "3em",
 });
 export const button_text = (theme) => ({
-    fontSize: fontSize002,
+    fontSize: '1.5vw',
     marginLeft: '0.5em',
     color: themes[theme].text_alt2,
     '@media screen and (max-width: 960px)': {
@@ -54,7 +54,7 @@ export const button_text = (theme) => ({
     },
 });
 export const icon = (theme) => ({
-    fontSize: fontSize002,
+    fontSize: '1.5vw',
     color: themes[theme].text_alt2,
     '@media screen and (max-width: 960px)': {
         color: themes[theme].nav_text,

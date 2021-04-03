@@ -59,13 +59,13 @@ export function MiniPiece({
                                             className={classes.icon}
                                         />
                                     </IconButton>
-                                    <Typography
-                                        noWrap
-                                        variant="h6"
+                                    <span
+                                        // noWrap
+                                        // variant="h6"
                                         className={classes.piece_name}
                                     >
                                         {getColorName(color)} {pieceName}
-                                    </Typography>
+                                    </span>
                                 </Box>
                                 <ProfileWB
                                     def={def}

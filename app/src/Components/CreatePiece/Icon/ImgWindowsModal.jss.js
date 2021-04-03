@@ -18,4 +18,14 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text_alt,
         cursor: 'move',
     }),
+    done_button: props => ({
+        fontSize: '2vw',
+        width: '63.5vw',
+        height: '2.1em',
+        marginLeft: '3.5vw',
+    }),
+    icon: props => ({
+        height: '2vw',
+        width: '2vw',
+    }),
 }, {index: 1});

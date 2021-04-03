@@ -1,4 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
@@ -13,6 +14,7 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
         },
         '@media screen and (min-width: 960px)': {
+            width: '22.5vw',
             alignItems: 'center',
             justifyContent: 'space-between',
             marginBottom: '1.15vw',
@@ -36,11 +38,8 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             fontSize: '1rem',
         },
-        '@media screen and (min-width: 960px) and (max-width: 1080px)': {
-            fontSize: '0.8em',
-        },
-        '@media screen and (min-width: 1080px)': {
-            fontSize: '0.8rem',
+        '@media screen and (min-width: 960px)': {
+            fontSize: '0.9vw',
         },
     }),
     scroll_table_arrow_button: props => ({

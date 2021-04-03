@@ -44,7 +44,7 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVarian
             ) : null}
             <MediaQuery minWidth={960}>
                 <Typography className={classes.title}>Icon</Typography>
-                <Box className={classes.img_windows_flexbox}>
+                <span className={classes.img_windows_flexbox}>
                     <ImgWindow
                         color="White"
                         theme={theme}
@@ -65,10 +65,10 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVarian
                             toggleImgButtonsModal(true);
                         }}
                     />
-                </Box>
+                </span>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <ImgWindowsModal theme={theme} toggleMiniVariantTool={toggleMiniVariantTool}>
+                <ImgWindowsModal theme={theme} toggleMiniVariantTool={toggleMiniVariantTool} isImgButtonsModal={imgButtonsModal}>
                     <ImgWindow
                         color="White"
                         theme={theme}

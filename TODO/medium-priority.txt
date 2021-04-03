@@ -1,7 +1,6 @@
 short:
     add title and GameStatus bar back to GameRoot
-    word "span" appears bellow span arrow on board.
-    game board more sluggish with absolute instead of fixed positioning for drag and drop layers???
+    making Dnd layers absolute instead of fixed positioning because otherwise when board cut of bottom, you can't scroll
     consider memoizing ScrollTable items
 medium:
     add new function for GameBoard image strings back to SavedGames MuiGrid component

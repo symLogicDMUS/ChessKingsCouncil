@@ -6,7 +6,8 @@ import MediaQuery from "react-responsive/src";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { TouchBackend } from "react-dnd-touch-backend";
 import { GameDisplayBoard } from "./GameDisplayBoard";
-import { reducer, updateOnResize } from "./Board.red";
+import {updateOnResize} from "./updateOnResize";
+import { reducer} from "./Board.red";
 
 export const Board = ({ gameRoot }) => {
     const dndBackend = useMemo(() => {

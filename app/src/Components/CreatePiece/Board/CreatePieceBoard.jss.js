@@ -1,10 +1,9 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
-import {viewHeight} from "../../helpers/windowMeasurments";
 
 export const sqrSize = {
     wide: '5.3125vw',
-    thin: '11.5vw',
+    thin: '10.5vw',
 };
 
 export const useStyles = makeStyles({
@@ -13,7 +12,7 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             position: 'fixed',
             left: '4vw',
-            top: appBarHeight + viewHeight()*0.01,
+            top: appBarHeight*1.1,
         },
         '@media screen and (min-width: 960px)': {
             boxShadow: '0 0 0.1em white',
