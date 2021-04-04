@@ -3,34 +3,13 @@ import {fontSize0023} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    profile_top: props => ({
-        position: 'absolute',
-        top: 0,
+    no_profile: props => ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'no-wrap',
         alignItems: 'center',
-        justifyContent: 'flex-end',
-    }),
-    profile_flexbox: props => ({
-        zIndex: 5,
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.035em solid ${themes[props.theme].outline}`,
-    }),
-    content: props => ({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-end',
-        justifyContent: 'center',
+        transform: 'translate(0, 0.5rem)',
     }),
     caption: props => ({
         color: themes[props.theme].text,
@@ -38,8 +17,8 @@ export const useStyles = makeStyles({
         lineHeight: '1em',
     }),
     inline_piece: props => ({
-        width: '1.1em',
-        height: '1.1em',
+        width: '1.25rem',
+        height: '1.25rem',
         marginLeft: '0.25em',
     }),
     close_icon: props => ({

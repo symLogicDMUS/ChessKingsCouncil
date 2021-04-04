@@ -9,14 +9,13 @@ import { useStyles } from "./ProfileWB.jss";
  * color: is for W or B piece,
  * def: spans, offsets, and img of W or B piece
  * */
-export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDrawerParent }) => {
+export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
 
     const classes = useStyles({ theme: theme });
 
     return (
         <>
             <div className={clsx(classes.profile_wb, {
-                [classes.profile_wb_drawer_item]: hasDrawerParent,
                 [classes.profile_w]: color === 'W',
                 [classes.profile_b]: color === 'B',
             })}>
@@ -25,7 +24,6 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                     color={color}
                     theme={theme}
                     pieceName={pieceName}
-                    hasDrawerParent={hasDrawerParent}
                 />
                 <ProfileWBRange
                     pieceName={pieceName}
@@ -34,7 +32,6 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                     rangeType='span'
                     color={color}
                     theme={theme}
-                    hasDrawerParent={hasDrawerParent}
                     screenCase={screenCase}
                 />
                 <ProfileWBRange
@@ -44,7 +41,6 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, hasDr
                     rangeType='offset'
                     color={color}
                     theme={theme}
-                    hasDrawerParent={hasDrawerParent}
                     screenCase={screenCase}
                 />
             </div>

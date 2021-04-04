@@ -14,7 +14,7 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         border: `0.075em solid ${themes[props.theme].outline}`,
     }),
-    profile_top: props => ({
+    top_area: props => ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',

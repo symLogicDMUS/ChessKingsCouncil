@@ -6,6 +6,7 @@ short:
     fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger.
 medium:
+    * modification of styles of of Promo modal
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
 long:

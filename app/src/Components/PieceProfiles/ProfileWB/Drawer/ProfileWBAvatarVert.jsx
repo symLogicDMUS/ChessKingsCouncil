@@ -2,11 +2,11 @@ import React, {memo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import { resolvePlayerType } from "../../helpers/resolvePlayerType";
-import {useStyles as useMoreStyles} from "../ProfileWB/ProfileWB.jss";
-import { useStyles } from "./ProfileWBAvatar.jss";
+import { resolvePlayerType } from "../../../helpers/resolvePlayerType";
+import { useStyles as useMoreStyles } from "./ProfileWBDrawer.jss";
+import { useStyles } from "./ProfileWBAvatarVert.jss";
 
-const ProfileWBAvatar = memo(function WrappedComponent({src, pieceName, color, theme}) {
+const ProfileWBAvatarVert = memo(function WrappedComponent({src, pieceName, color, theme}) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({theme: theme});
 
@@ -32,4 +32,4 @@ const ProfileWBAvatar = memo(function WrappedComponent({src, pieceName, color, t
     );
 });
 
-export default ProfileWBAvatar;
+export default ProfileWBAvatarVert;

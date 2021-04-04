@@ -1,18 +1,14 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {neighborWidth} from "../../Reuseables/Drawers/PersistentDrawer.jss";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes.jss";
 import {
-    headerWidthLg,
     marginLg,
-    marginLgHalf,
     marginMd,
-    marginSm,
-    marginSm2x,
+    headerWidthLg,
+    sqrItemSizeLg,
     sqrItemHeaderHeightLg,
     sqrItemHeaderHeightMd,
     sqrItemHeaderHeightSm,
-    sqrItemSizeLg,
     sqrItemSizeMd,
     sqrItemSizeSm,
 } from "../constants.jss";
@@ -143,27 +139,6 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             marginLeft: marginLg,
         },
-    }),
-    profile_wb_drawer_item: props => ({
-        fontSize: neighborWidth * 0.13333 * 0.65,
-    }),
-    drawer_item_margins: props => ({
-        marginTop: '1.5em',
-    }),
-    range_analysis: props => ({
-        display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        '@media screen and (min-width: 960px)': {
-            margin: 'auto',
-            width: '25vw',
-            height: '80vh',
-            borderRadius: '0.65rem',
-            border: `0.2rem solid ${themes[props.theme].odd_row}`,
-        },
-        backgroundColor: themes[props.theme].fill,
     }),
     close_area: props => ({
         width: '100%',

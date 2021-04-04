@@ -1,13 +1,10 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
-import Box from "@material-ui/core/Box";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { IconButton, Portal, Typography } from "@material-ui/core";
+import { Portal } from "@material-ui/core";
 import { NoProfile } from "../../PieceProfiles/ProfileWB/NoProfile";
-import { ProfileWBDrawer } from "../../PieceProfiles/ProfileWB/ProfileWBDrawer";
+import { ProfileWBDrawer } from "../../PieceProfiles/ProfileWB/Drawer/ProfileWBDrawer";
 import { ProfileWBModal } from "../../PieceProfiles/ProfileWB/ProfileWBModal";
-import { ProfileWB } from "../../PieceProfiles/ProfileWB/ProfileWB";
-import { getColorName } from "../../helpers/getColorName";
+import { ToolModal } from "../../NewGame/Customize/ToolModal";
 import { useStyles } from "./MiniPiece.jss";
 
 export function MiniPiece({
@@ -32,13 +29,14 @@ export function MiniPiece({
                 {showProfileOnClick ? (
                     <Portal>
                         {isSpecial && rf === selectedSqr ? (
-                            <NoProfile
-                                imgUrl={imgUrl}
-                                pieceName={pieceName}
-                                screenCase={screenCase}
-                                closeProfile={closeProfile}
-                                theme={theme}
-                            />
+                            <ToolModal theme={theme} onClose={closeProfile}>
+                                <NoProfile
+                                    imgUrl={imgUrl}
+                                    pieceName={pieceName}
+                                    screenCase={screenCase}
+                                    theme={theme}
+                                />
+                            </ToolModal>
                         ) : (
                             <ProfileWBDrawer
                                 def={def}
@@ -48,32 +46,7 @@ export function MiniPiece({
                                 closeProfile={closeProfile}
                                 screenCase={screenCase}
                                 theme={theme}
-                            >
-                                <Box className={classes.piece_header}>
-                                    <IconButton
-                                        edge="end"
-                                        onClick={closeProfile}
-                                        className={classes.icon_button}
-                                    >
-                                        <ChevronRightIcon
-                                            className={classes.icon}
-                                        />
-                                    </IconButton>
-                                    <Typography
-                                        className={classes.piece_name}
-                                    >
-                                        {getColorName(color)} {pieceName}
-                                    </Typography>
-                                </Box>
-                                <ProfileWB
-                                    def={def}
-                                    color={color}
-                                    theme={theme}
-                                    pieceName={pieceName}
-                                    screenCase={screenCase}
-                                    hasDrawerParent={true}
-                                />
-                            </ProfileWBDrawer>
+                            />
                         )}
                     </Portal>
                 ) : null}
@@ -82,14 +55,14 @@ export function MiniPiece({
                 {rf === selectedSqr && showProfileOnClick ? (
                     <Portal>
                         {isSpecial ? (
-                            <NoProfile
-                                color={color}
-                                imgUrl={imgUrl}
-                                pieceName={pieceName}
-                                screenCase={screenCase}
-                                closeProfile={closeProfile}
-                                theme={theme}
-                            />
+                            <ToolModal theme={theme} onClose={closeProfile}>
+                                <NoProfile
+                                    imgUrl={imgUrl}
+                                    pieceName={pieceName}
+                                    screenCase={screenCase}
+                                    theme={theme}
+                                />
+                            </ToolModal>
                         ) : (
                             <ProfileWBModal
                                 def={def}

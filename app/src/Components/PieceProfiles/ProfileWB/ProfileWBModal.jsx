@@ -25,7 +25,7 @@ export function ProfileWBModal({
                     theme={theme}
                 />
             </Box>
-            <Box className={classes.profile_top}>
+            <Box className={classes.top_area}>
                 <Typography variant="h6" noWrap className={classes.header}>
                     {getColorName(color)} {pieceName}
                 </Typography>

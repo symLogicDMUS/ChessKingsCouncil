@@ -9,7 +9,7 @@ export const useStyles = makeStyles({
         height: '100vh',
         width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
         backgroundColor: 'rgba(0, 0, 0, 0.1)',
-        position: 'absolute',
+        position: 'fixed',
         zIndex: 2,
         top: 0,
         left: 0,

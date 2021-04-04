@@ -2,12 +2,12 @@ import React, { useMemo } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import {getRangeBoardImgStr} from "./BoardSvgStr/getRangeBoardImgStr";
-import { useStyles as useMoreStyles } from "./ProfileWB.jss";
-import {resolvePlayerType} from "../../helpers/resolvePlayerType";
-import { useStyles } from "./ProfileWBRange.jss";
+import {getRangeBoardImgStr} from "../BoardSvgStr/getRangeBoardImgStr";
+import {resolvePlayerType} from "../../../helpers/resolvePlayerType";
+import { useStyles as useMoreStyles } from "./ProfileWBDrawer.jss";
+import { useStyles } from "./ProfileWBRangeVert.jss";
 
-function ProfileWBRange ({
+function ProfileWBRangeVert ({
     pieceName,
     pieceImgUrl,
     theme,
@@ -51,4 +51,4 @@ function ProfileWBRange ({
     );
 }
 
-export default ProfileWBRange;
+export default ProfileWBRangeVert;
