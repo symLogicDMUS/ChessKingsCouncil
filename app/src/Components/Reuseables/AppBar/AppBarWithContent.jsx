@@ -15,6 +15,7 @@ export function AppBarWithContent({
     navDrawerWidth,
     toolDrawerWidth,
     seeMoreIcon,
+    seeMoreIcon2,
     children,
 }) {
     const classes = useStyles({
@@ -44,12 +45,12 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
+                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
                             {children}
                         </ThreeItemAppBar>
                     ) : null}
@@ -79,12 +80,12 @@ export function AppBarWithContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
+                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon}>
+                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
                             {children}
                         </ThreeItemAppBar>
                     ) : null}

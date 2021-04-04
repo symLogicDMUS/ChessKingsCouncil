@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm, sqrItemSizeXs} from "../constants.jss";
+import {marginLgHalf, sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm, sqrItemSizeXs} from "../constants.jss";
 
 export const useStyles = makeStyles({
     header: props => ({
@@ -16,16 +16,26 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'baseline',
     }),
-    header_box_wide_screen: props => ({
+    header_box_lg_screen: props => ({
         width: sqrItemSizeLg,
     }),
-    header_box_thin_screen: props => ({
+    header_box_sm_screen: props => ({
         '@media screen and (max-width: 600px)': {
             flexGrow: 10,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: sqrItemSizeMd,
         },
+    }),
+    lg1: props => ({
+        marginRight: marginLgHalf,
+    }),
+    lg2: props => ({
+        marginLeft: marginLgHalf,
+        marginRight: marginLgHalf,
+    }),
+    lg3: props => ({
+        marginLeft: marginLgHalf,
     }),
     promo_checkbox: props => ({
         "& .MuiCheckbox-root": {

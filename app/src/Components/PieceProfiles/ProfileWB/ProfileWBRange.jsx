@@ -1,9 +1,10 @@
 import React, { useMemo } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import {getRangeBoardImgStr} from "./BoardSvgStr/getRangeBoardImgStr";
-import { ProfileWBRangeHeader } from "../ProfileWBRangeHeader";
 import { useStyles as useMoreStyles } from "./ProfileWB.jss";
+import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 import { useStyles } from "./ProfileWBRange.jss";
 
 function ProfileWBRange ({
@@ -13,7 +14,6 @@ function ProfileWBRange ({
     color,
     range,
     rangeType,
-    openRangeModal,
     hasDrawerParent,
 }) {
     const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [])
@@ -30,13 +30,13 @@ function ProfileWBRange ({
                 [classes2.drawer_item_margins]: hasDrawerParent,
             })}
         >
-            <ProfileWBRangeHeader
-                theme={theme}
-                color={color}
-                rangeType={rangeType}
-                openRangeModal={openRangeModal}
-                hasDrawerParent={hasDrawerParent}
-            />
+            <Box className={clsx(classes2.sqr_item_header, {
+                [classes2.profile_wb_drawer_item]: hasDrawerParent,
+            })}>
+                <Typography variant='caption' className={classes2.sqr_item_title}>
+                    {resolvePlayerType(color)} {rangeType}s
+                </Typography>
+            </Box>
             <Box
                 className={clsx(classes.board_window, {
                     [classes2.sqr_item]: true,

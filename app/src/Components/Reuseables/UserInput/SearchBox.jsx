@@ -26,7 +26,6 @@ export function SearchBox({
         <Box
             className={clsx(classes.search, {
                 [className]: className,
-                [classes.lighten]: isMenuItem,
             })}
             style={style}
         >

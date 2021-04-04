@@ -39,12 +39,12 @@ export function BoardTool({
             </MediaQuery>
             <MiniBoard
                 theme={theme}
-                screenCase={screenCase}
-                gameType={gameType}
                 board={board}
                 idDict={idDict}
+                gameType={gameType}
                 pieceDefs={pieceDefs}
                 allRanges={allRanges}
+                screenCase={screenCase}
                 parentDispatch={dispatch}
                 rangeBoard={state.rangeBoard}
                 selectedSqr={state.selectedSqr}

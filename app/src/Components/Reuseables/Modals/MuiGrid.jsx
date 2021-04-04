@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react";
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import React  from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {MuiCheckbox} from "../Clickables/MuiCheckbox";
 import {MuiButton as Button} from "../Clickables/MuiButton";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
@@ -10,18 +11,13 @@ import {MuiSkeleton} from "../Animations/MuiSkeleton";
 import {useStyles} from "./MuiGrid.jss";
 
 export function MuiGrid(props) {
-
-    const classes = useStyles({
-        theme: props.theme,
-        rootStyle: props.rootStyle,
-        itemWindowStyle: props.itemWindowStyle,
-    });
+    const classes = useStyles({theme: props.theme});
     const isThin = useMediaQuery("(max-width: 720px)");
 
-    /*removed useEffect from resizing*/
-
     return (
-        <div className={classes.window}>
+        <div className={clsx(classes.window, {
+            [props.className]: props.className,
+        })}>
             {props.topFlexbox}
             {props.title}
             {props.loaded ? (

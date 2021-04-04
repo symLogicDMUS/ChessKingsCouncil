@@ -13,7 +13,8 @@ export const useStyles = makeStyles(
             justifyContent: "space-between",
             '@media screen and (max-width: 600px)': {
                 width: headerWidthSm,
-                marginLeft: marginSm2x,
+                marginLeft: 'auto',
+                marginRight: 'auto',
                 marginTop: marginSm,
                 marginBottom: marginSm,
             },
@@ -27,6 +28,7 @@ export const useStyles = makeStyles(
             "@media screen and (min-width: 960px)": {
                 width: headerWidthLg,
                 marginTop: "2vh",
+                marginBottom: '0.5vh',
             },
         }),
         piece_name: (props) => ({
@@ -35,11 +37,9 @@ export const useStyles = makeStyles(
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
                 fontSize: "3vw",
-                lineHeight: "2.75rem",
             },
             "@media screen and (min-width: 960px)": {
                 fontSize: "1.5vw",
-                lineHeight: "2.75rem",
             },
             flexGrow: 10,
             color: themes[props.theme].text,

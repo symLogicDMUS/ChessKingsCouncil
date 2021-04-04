@@ -7,7 +7,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles as useMoreStyles} from "../UserInput/SeeMore.jss";
 import {useStyles} from "./ThreeItemAppBar.jss";
 
-export function ThreeItemAppBar({className, theme, seeMoreIcon, children}) {
+export function ThreeItemAppBar({className, theme, seeMoreIcon, seeMoreIcon2, children}) {
 
     const lg = useMediaQuery("(min-width:960px)");
     const md = useMediaQuery("(min-width:580px) and (max-width:960px)");
@@ -42,9 +42,9 @@ export function ThreeItemAppBar({className, theme, seeMoreIcon, children}) {
             return (
                 <Box
                     className={clsx(classes.appBar, {
-                            [classes.appBarMd]: true,
-                            [classes.marginRight]: true,
-                            [className]: className
+                        [classes.appBarMd]: true,
+                        [classes.marginRight]: true,
+                        [className]: className
                     })}
                 >
                     <Box className={clsx(classes.itemBox, {[classes.justifyStart]: true})}>
@@ -77,7 +77,7 @@ export function ThreeItemAppBar({className, theme, seeMoreIcon, children}) {
                         <SeeMore theme={theme} icon={seeMoreIcon}>
                             {children[1]}
                         </SeeMore>
-                        <SeeMore theme={theme} icon={seeMoreIcon}>
+                        <SeeMore theme={theme} icon={seeMoreIcon2}>
                             {children[2]}
                         </SeeMore>
                     </Box>

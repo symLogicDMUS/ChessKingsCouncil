@@ -1,33 +1,41 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
-import {fontSize004025} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
+        display: 'grid',
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
             marginBottom: drawerItemMarginTopBottom,
+            gridTemplateColumns: '7.5vw 15vw',
         },
-        display: 'grid',
-        gridTemplateColumns: '7.5vw 15vw',
+        '@media screen and (max-width: 960px)': {
+            gridTemplateColumns: '16vw 34vw',
+        },
+
     }),
     header: props => ({
         gridColumn: '1/3',
-        fontSize: '1.2vw',
-        borderBottom: `0.08em solid ${themes[props.theme].outline}`,
+        '@media screen and (max-width: 960px)': {
+            fontSize: '1.2rem',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1.2vw',
+        },
+        borderBottom: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     cell: props => ({
         textAlign: 'center',
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
-        borderRight: `0.08em solid ${themes[props.theme].outline}`,
+        borderRight: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     row: props => ({
         '@media screen and (max-width: 960px)': {
-            height: '2.5vw',
+            height: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             height: '2vw',
@@ -40,11 +48,11 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     last_row: props => ({
-        borderBottom: `0.08em solid ${themes[props.theme].outline}`,
+        borderBottom: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     col1: props => ({
         gridColumn: 1,
-        borderLeft: `0.08em solid ${themes[props.theme].outline}`,
+        borderLeft: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     col2: props => ({
         gridColumn: 2,

@@ -11,8 +11,10 @@ import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
 import {HelpText} from "./Help/HelpText";
 import {ListTitle} from "./ListTitle";
 import {SubList} from "./SubList";
-import {copy} from "../../helpers/copy";
 import {newData} from "../NewData";
+import {ToolModal} from "./ToolModal";
+import {copy} from "../../helpers/copy";
+import MediaQuery from "react-responsive/src";
 import {difference} from "../../helpers/setOps";
 import {isSpecial} from "../../helpers/isSpecial";
 import {standardPieceDefs} from "../standardPieceDefs/dev1";
@@ -25,8 +27,10 @@ import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1
 import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
 import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {textColor, styles} from "./Customize.jss";
 import {SearchBox} from "../../Reuseables/UserInput/SearchBox";
+import SearchIcon from "@material-ui/icons/Search";
+import {textColor, styles} from "./Customize.jss";
+import Box from "@material-ui/core/Box";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -68,7 +72,7 @@ class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = { none: null };
+        this.hmChildren = {none: null};
         this.isTooltip = false;
         this.nameDisp = null;
         this.navExpanded = true;
@@ -99,8 +103,8 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = { ...standardPieceDefs, ...defs };
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.defs = {...standardPieceDefs, ...defs};
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     accept() {
@@ -108,7 +112,7 @@ class Customize extends React.Component {
         this.addStartingStandardsToPromos();
         this.addBackupStandards();
         this.bundleGameData();
-        this.setState({ redirect: true });
+        this.setState({redirect: true});
     }
 
     /**
@@ -248,7 +252,7 @@ class Customize extends React.Component {
             this.newReplacement = null;
             this.newReplaced = null;
         }
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togglePromo(pieceName) {
@@ -256,7 +260,7 @@ class Customize extends React.Component {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     togglePromoAll() {
@@ -274,19 +278,19 @@ class Customize extends React.Component {
         } else {
             this.promos = [];
         }
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null });
+            this.setState({miniVariantTool: null});
         } else {
-            this.setState({ miniVariantTool: toolName });
+            this.setState({miniVariantTool: toolName});
         }
     }
 
     updateSearchText(searchText) {
-        this.setState({ searchText: searchText });
+        this.setState({searchText: searchText});
     }
 
     play() {
@@ -307,7 +311,7 @@ class Customize extends React.Component {
     }
 
     updateTheme(theme) {
-        this.setState({ theme: theme });
+        this.setState({theme: theme});
     }
 
     render() {
@@ -315,32 +319,35 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? this.play() : null}
                 {this.state.miniVariantTool === "Subs" ? (
-                    <SubList subs={this.subs} theme={this.state.theme} />
+                    <ToolModal theme={this.state.theme} onClose={() => this.toggleMiniVariantTool("Subs")}>
+                        <SubList subs={this.subs} theme={this.state.theme}/>
+                    </ToolModal>
                 ) : null}
-
                 {this.state.miniVariantTool === "Promos" ? (
-                    <ScrollTable
-                        numRows={6}
-                        listItems={this.promos}
-                        theme={this.state.theme}
-                        key="pawn-promotions-wide"
-                        rootClassName={this.props.classes.scroll_table}
-                        addedClassName={this.props.classes.drawer_component}
-                        listItemClassName={
-                            this.props.classes.scroll_table_list_item
-                        }
-                        arrowButtonClassName={
-                            this.props.classes.scroll_table_button
-                        }
-                        textClassName={
-                            this.props.classes.scroll_table_text
-                        }
-                        title={
-                            <ListTitle className={this.props.classes.scroll_table_title} theme={this.state.theme}>
-                                Pawn Promotions
-                            </ListTitle>
-                        }
-                    />
+                    <ToolModal theme={this.state.theme} onClose={() => this.toggleMiniVariantTool("Promos")}>
+                        <ScrollTable
+                            numRows={6}
+                            listItems={this.promos}
+                            theme={this.state.theme}
+                            key="pawn-promotions-wide"
+                            rootClassName={this.props.classes.scroll_table}
+                            addedClassName={this.props.classes.drawer_component}
+                            listItemClassName={
+                                this.props.classes.scroll_table_list_item
+                            }
+                            arrowButtonClassName={
+                                this.props.classes.scroll_table_button
+                            }
+                            textClassName={
+                                this.props.classes.scroll_table_text
+                            }
+                            title={
+                                <ListTitle className={this.props.classes.scroll_table_title} variant='h6' theme={this.state.theme}>
+                                    Pawn Promotions
+                                </ListTitle>
+                            }
+                        />
+                    </ToolModal>
                 ) : null}
                 <ResponsiveDrawer
                     elevation={0}
@@ -370,8 +377,11 @@ class Customize extends React.Component {
                             isMenuItem={true}
                         />,
                     ]}
+                    seeMoreIcon2={
+                        <SearchIcon style={textColor(this.state.theme)}/>
+                    }
                     tools={
-                        <>
+                        <Box className={this.props.classes.tools}>
                             <SubList
                                 subs={this.subs}
                                 theme={this.state.theme}
@@ -395,7 +405,8 @@ class Customize extends React.Component {
                                     this.props.classes.scroll_table_text
                                 }
                                 title={
-                                    <ListTitle className={this.props.classes.scroll_table_title} theme={this.state.theme}>
+                                    <ListTitle className={this.props.classes.scroll_table_title}
+                                               theme={this.state.theme}>
                                         Pawn Promotions
                                     </ListTitle>
                                 }
@@ -404,15 +415,12 @@ class Customize extends React.Component {
                                 onClick={this.accept}
                                 className={this.props.classes.ok_button}
                                 theme={this.state.theme}
-                                variant={"outline"}
-                                startIcon={
-                                    <CheckCircleOutlineIcon/>
-                                }
+                                variant={"contained"}
                                 size="large"
                             >
                                 Ok
                             </Button>
-                        </>
+                        </Box>
                     }
                     toolButtons={
                         <>
@@ -471,6 +479,17 @@ class Customize extends React.Component {
                         className={this.props.classes.piece_profiles}
                         theme={this.state.theme}
                     />
+                    <MediaQuery maxWidth={960}>
+                        <Button
+                            onClick={this.accept}
+                            className={this.props.classes.ok_button}
+                            theme={this.state.theme}
+                            variant={"contained"}
+                            size="large"
+                        >
+                            Ok
+                        </Button>
+                    </MediaQuery>
                 </ResponsiveDrawer>
             </>
         );

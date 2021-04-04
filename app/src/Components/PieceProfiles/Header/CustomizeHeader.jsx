@@ -56,7 +56,7 @@ export function CustomizeHeader({
                     </Typography>
                     <Box
                         className={clsx(classes.options_box, {
-                            [classes.header_box_thin_screen]: true,
+                            [classes.header_box_sm_screen]: true,
                             [classes.justify_between]: ! sm,
                             [classes.justify_end]: sm,
                             [classes.align_center]: true,
@@ -96,7 +96,7 @@ export function CustomizeHeader({
                 <MediaQuery minWidth={960}>
                     <Box
                         className={clsx(classes.options_box, {
-                            [classes.header_box_wide_screen]: true,
+                            [classes.header_box_lg_screen]: true,
                         })}
                     >
                         <Typography
@@ -109,7 +109,7 @@ export function CustomizeHeader({
                     </Box>
                     <Box
                         className={clsx(classes.options_box, {
-                            [classes.header_box_wide_screen]: true,
+                            [classes.header_box_lg_screen]: true,
                         })}
                     >
                         <MuiCheckbox
@@ -124,7 +124,7 @@ export function CustomizeHeader({
                     </Box>
                     <Box
                         className={clsx(classes.options_box, {
-                            [classes.header_box_wide_screen]: true,
+                            [classes.header_box_lg_screen]: true,
                             [classes.justify_between]: true,
                         })}
                     >

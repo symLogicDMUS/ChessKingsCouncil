@@ -18,8 +18,9 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     icon: props => ({
-        width: '1.6ch',
-        height: '1.6ch',
+        width: '1.1rem',
+        height: '1.1rem',
+        marginLeft: '0.35rem',
         color: themes[props.theme].text,
     }),
     input_root: props => ({
@@ -30,11 +31,5 @@ export const useStyles = makeStyles((theme) => ({
         height: '1ch',
         paddingLeft: '0.5em',
         transition: theme.transitions.create('width'),
-    }),
-    lighten: props => ({
-        backgroundColor: lighten(themes[props.theme].odd_row, 0.075),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.085),
-        },
     }),
 }), {index: 1});

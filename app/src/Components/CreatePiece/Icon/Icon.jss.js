@@ -1,7 +1,5 @@
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize0016, fontSize002} from "../../styles/fontSizes.jss";
-import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({
     icon_tool: props => ({
@@ -22,7 +20,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
     }),
     title: props => ({
-        fontSize: availHeight() * 0.018,
+        fontSize: '1.8vh',
         width: '100%',
         lineHeight: '1em',
         color: themes[props.theme].text,
@@ -38,12 +36,12 @@ export const useStyles = makeStyles({
     button_group: (props) => ({
         display: 'flex',
         flexDirection: 'column',
-        fontSize: fontSize002,
+        fontSize: '2vh',
         justifyContent: 'space-between',
         height: '5em',
     }),
     button: (props) => ({
-        fontSize: fontSize0016,
+        fontSize: '1.6vh',
         background: themes[props.theme].button_fill,
         color: themes[props.theme].button_text,
         width: '7.5em',

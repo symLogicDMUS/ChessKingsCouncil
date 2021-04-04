@@ -5,18 +5,19 @@ import {themes} from "../../styles/themes.jss";
 import {
     headerWidthLg,
     marginLg,
+    marginLgHalf,
     marginMd,
     marginSm,
     marginSm2x,
-    sqrItemSizeLg,
-    sqrItemSizeMd,
-    sqrItemSizeSm,
     sqrItemHeaderHeightLg,
     sqrItemHeaderHeightMd,
     sqrItemHeaderHeightSm,
+    sqrItemSizeLg,
+    sqrItemSizeMd,
+    sqrItemSizeSm,
 } from "../constants.jss";
 
-/*Labeled by size in screen width*/
+
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
@@ -39,20 +40,13 @@ export const useStyles = makeStyles({
         },
     }),
     profile_w: props => ({
-        '@media screen and (max-width: 600px)': {
-            marginLeft: marginSm2x,
-            marginRight: marginSm,
-        },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: 'auto',
             marginRight: marginMd,
         },
     }),
     profile_b: props => ({
-        '@media screen and (max-width: 600px)': {
-            marginLeft: marginSm,
-        },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginLeft: marginMd,
             marginRight: 'auto'
         },
@@ -66,19 +60,17 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 600px)': {
             width: sqrItemSizeSm,
             height: sqrItemSizeSm,
-            outline: `0.08rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: sqrItemSizeMd,
             height: sqrItemSizeMd,
-            outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
             width: sqrItemSizeLg,
             height: sqrItemSizeLg,
-            outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
         backgroundColor: themes[props.theme].fill,
+        outline: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     sqr_item_header: props => ({
         display: 'flex',
@@ -89,22 +81,20 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 600px)': {
             width: sqrItemSizeSm,
             height: sqrItemHeaderHeightSm,
-            outline: `0.08rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: sqrItemSizeMd,
             height: sqrItemHeaderHeightMd,
-            outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
             width: sqrItemSizeLg,
             height: sqrItemHeaderHeightLg,
-            outline: `0.05rem solid ${themes[props.theme].outline}`,
         },
+        outline: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     sqr_item_title: props => ({
         '@media screen and (max-width: 600px)': {
-            fontSize: '1rem',
+            fontSize: '0.75rem',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             fontSize: '2.5vw',
@@ -116,8 +106,8 @@ export const useStyles = makeStyles({
     }),
     item1: props => ({
         '@media screen and (max-width: 600px)': {
-            marginTop: marginSm,
-            marginBottom: marginSm,
+            marginTop: '1.5vw',
+            marginBottom: '1.5vw',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             marginTop: marginMd,
@@ -129,8 +119,8 @@ export const useStyles = makeStyles({
     }),
     item2: props => ({
         '@media screen and (max-width: 600px)': {
-            marginTop: marginSm,
-            marginBottom: marginSm,
+            marginTop: '1.5vw',
+            marginBottom: '1.5vw',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             marginTop: marginMd,
@@ -143,8 +133,8 @@ export const useStyles = makeStyles({
     }),
     item3: props => ({
         '@media screen and (max-width: 600px)': {
-            marginTop: marginSm,
-            marginBottom: marginSm,
+            marginTop: '1.5vw',
+            marginBottom: '1.5vw',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             marginTop: marginMd,

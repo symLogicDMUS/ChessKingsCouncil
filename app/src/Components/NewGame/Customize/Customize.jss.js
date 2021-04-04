@@ -1,5 +1,6 @@
 import {themes} from "../../styles/themes.jss";
 import {fontSize0016, fontSize0023} from "../../styles/fontSizes.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const drawerItemWidth = '22.4vw';
 export const arrowButtonBorderRadius = '0.35rem';
@@ -23,16 +24,13 @@ export const styles = {
     }),
     scroll_table: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize0016,
-            width: '48vw',
-            height: '4em',
+            width: '50vw',
         },
         '@media screen and (min-width: 960px)': {
-            height: '16vw',
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
             marginTop: drawerItemMarginTopBottom,
-            marginBottom: drawerItemMarginTopBottom,
+            marginBottom: '1.6vw',
         },
     }),
     scroll_table_added: props => ({
@@ -45,7 +43,7 @@ export const styles = {
     }),
     scroll_table_list_item: props => ({
         '@media screen and (max-width: 960px)': {
-            height: '2.5vw',
+            height: '7.5vh',
         },
         '@media screen and (min-width: 960px)': {
             height: '2vw',
@@ -57,7 +55,7 @@ export const styles = {
     }),
     scroll_table_text: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '0.8vw',
+            fontSize: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             fontSize: '1vw',
@@ -66,7 +64,7 @@ export const styles = {
     }),
     scroll_table_title: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '2vw',
+            fontSize: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             fontSize: '1.2vw',
@@ -84,12 +82,12 @@ export const styles = {
         },
     }),
     ok_button: props => ({
-        fontSize: fontSize0023,
+        fontSize: '2.3vh',
         '@media screen and (max-width: 960px)': {
-            width: '100%',
+            width: `calc(100% - ${miniVariantIconsColumnWidth}px)`,
         },
         '@media screen and (min-width: 960px)': {
-            width: '5vw',
+            width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
         },
         fontFamily: 'Roboto-Light, Roboto',
@@ -147,5 +145,14 @@ export const styles = {
         '@media screen and (min-width: 1040px)': {
             fontSize: '1rem',
         },
+    }),
+    tools: props => ({
+        // height: '40vw',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: 24,
+        marginBottom: 'auto',
     }),
 }

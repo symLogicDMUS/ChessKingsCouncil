@@ -27,6 +27,7 @@ export const useStyles = makeStyles({
             fontSize: '2.75vw',
             width: '6.15em',
             height: '2em',
+            minWidth: 'unset',
             border: `0.05em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {

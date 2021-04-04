@@ -8,14 +8,12 @@ export const useStyles = makeStyles((theme) => ({
     window: props => ({
         '@media screen and (max-width: 960px)': {
             width: '100vw',
-            // height: `calc(100vh - ${appBarHeight}px)`,
             position: 'absolute',
             top: appBarHeight,
             left: 0,
         },
         '@media screen and (min-width: 960px)': {
             width: widthLg,
-            // height: '90vh',
             position: 'absolute',
             top: `calc(${appBarHeight}px)`,
             left: '5vw',
@@ -63,8 +61,6 @@ export const useStyles = makeStyles((theme) => ({
         },
         '@media screen and (min-width: 960px)': {
             width: '85.5vw',
-            paddingTop: '1.5rem',
-            paddingBottom: '1.5rem',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },

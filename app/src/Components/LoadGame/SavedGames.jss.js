@@ -80,4 +80,7 @@ export const useStyles = makeStyles({
             transform: 'translate(0, -1em)'
         },
     }),
+    mui_grid_padding: props => ({
+       paddingTop: '3vh',
+    }),
 }, {index: 1});

@@ -1,6 +1,5 @@
 import {modal} from "../../../helpers/modal.jss";
-import {themes} from "../../../styles/themes.jss";
-import {fontSize0015, fontSize0016, fontSize00175, fontSize002} from "../../../styles/fontSizes.jss";
+import {fontSize00175, fontSize002} from "../../../styles/fontSizes.jss";
 import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 
 export const styles = {
@@ -41,6 +40,14 @@ export const styles = {
     img_grid_root: props => ({
         '@media screen and (max-width: 960px)': {
             marginTop: appBarHeight
+        },
+    }),
+    mui_grid: props => ({
+        '@media screen and (max-width: 960px)': {
+            height: `calc(100vh - ${appBarHeight}px)`,
+        },
+        '@media screen and (min-width: 960px)': {
+            height: '90vh',
         },
     }),
 };

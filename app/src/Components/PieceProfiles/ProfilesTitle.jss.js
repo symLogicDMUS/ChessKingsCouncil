@@ -25,8 +25,8 @@ export const useStyles = makeStyles({
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 600px)': {
             width: headerWidthSm,
-            marginLeft: marginSm2x,
-            marginTop: marginSm,
+            marginLeft: 'auto',
+            marginRight: 'auto',
             marginBottom: marginSm,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {

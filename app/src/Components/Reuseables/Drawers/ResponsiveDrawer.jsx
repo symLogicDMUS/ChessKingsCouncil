@@ -25,6 +25,7 @@ function ResponsiveDrawer({
     appBarContent,
     elevation,
     seeMoreIcon,
+    seeMoreIcon2,
     children,
 }) {
     const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
@@ -82,6 +83,7 @@ function ResponsiveDrawer({
                             theme={theme}
                             type={appBarType}
                             seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
                             navDrawerWidth={navDrawerWidth}
                             toolDrawerWidth={toolDrawerWidth}
                         >
@@ -141,6 +143,7 @@ function ResponsiveDrawer({
                             theme={theme}
                             type={appBarType}
                             seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
                             navDrawerWidth={navDrawerWidth}
                             toolDrawerWidth={toolDrawerWidth}
                         >

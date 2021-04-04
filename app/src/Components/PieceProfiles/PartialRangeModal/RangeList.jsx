@@ -40,7 +40,7 @@ export function RangeList({
                     theme={theme}
                     key={offsetToText(offset)}
                     onClick={() => parentDispatch({
-                        type: "offset",
+                        type: "Offsets",
                         offset: offset,
                     })}
                 >

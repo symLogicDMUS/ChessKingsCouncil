@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {miniVariantIconsColumnWidth} from "./MiniVariantDrawer.jss";
 
 const z = 5;
 export const appBarHeight = 48;
@@ -91,10 +90,8 @@ export const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         paddingLeft: '1.15vw',
         paddingRight: '1.15vw',
-        // display: 'flex',
-        // flexDirection: 'column',
-        // alignItems: 'center',
-        // justifyContent: 'flex-start',
+        display: 'flex',
+        flexDirection: 'column',
     }),
     hidden: props => ({
        display: 'none',

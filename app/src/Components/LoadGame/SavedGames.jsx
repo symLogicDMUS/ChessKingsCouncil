@@ -10,8 +10,8 @@ import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {SavedGamesTitle} from "./SavedGamesTitle";
-import {useStyles} from "./SavedGames.jss";
 import SearchIcon from "@material-ui/icons/Search";
+import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
     const isThin = useMediaQuery("(max-width:960px)");
@@ -72,6 +72,7 @@ export function SavedGames(props) {
                     }
                     topFlexbox={null}
                     onClose={null}
+                    className={isThin ? classes.mui_grid_padding : null}
                 >
                     {props.children}
                 </MuiGrid>

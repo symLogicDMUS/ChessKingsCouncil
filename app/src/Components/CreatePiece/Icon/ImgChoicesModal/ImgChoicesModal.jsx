@@ -141,6 +141,7 @@ class ImgChoicesModal extends React.Component {
                                 updateSearchText={this.updateSearchText}
                             />
                         }
+                        className={this.props.classes.mui_grid}
                         confirmDeleteMessage={`Are you sure you want to delete image ${this.state.imgNameChoice}?`}
                     >
                         {this.imgItems}
