@@ -13,8 +13,8 @@ export const useStyles = makeStyles({
         border: `0.12rem solid ${themes[props.theme].odd_row}`,
         '@media screen and (max-width: 960px)': {
             height: '87.5vh',
+            paddingTop: '1vh',
             width: `calc(100% - ${miniVariantIconsColumnWidth}px)`,
-            borderTop: 'unset',
         },
         '@media screen and (min-width: 960px)': {
             width: '50vw',

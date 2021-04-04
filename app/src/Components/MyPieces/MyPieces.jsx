@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import "../Reuseables/Background/_backgrounds.scss";
-import {HelpText} from "./HelpText";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
-import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
+import { HelpText } from "./HelpText";
+import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
+import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
+import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import { fontSize0026, fontSizeW0045 } from "../styles/fontSizes.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {textColor, useStyles} from "./MyPieces.jss";
+import { SearchBox } from "../Reuseables/UserInput/SearchBox";
+import { textColor, useStyles } from "./MyPieces.jss";
+import SearchIcon from "@material-ui/icons/Search";
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
@@ -20,14 +21,14 @@ function MyPieces() {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
-    }, [theme])
+    }, [theme]);
 
     const updateSearchText = (searchText) => {
-        setSearchText(searchText)
+        setSearchText(searchText);
     };
 
     const updateTheme = (theme) => {
-        setTheme(theme)
+        setTheme(theme);
     };
 
     return (
@@ -52,12 +53,26 @@ function MyPieces() {
             }
             navHorizontal={isWide}
             appBarContent={[
-                <Typography variant='subtitle1' className={classes.title} style={textColor(theme)} noWrap>
-                    My Pieces
+                <Typography
+                    // variant='h6'
+                    className={classes.title}
+                    style={textColor(theme)}
+                    noWrap
+                >
+                    Saved Pieces
                 </Typography>,
-                <SearchBox theme={theme} className={classes.search} iconClassName={classes.icon} updateSearchText={updateSearchText} />
+                <SearchBox
+                    theme={theme}
+                    className={classes.search}
+                    iconClassName={classes.icon}
+                    updateSearchText={updateSearchText}
+                    style={textColor(theme)}
+                />,
             ]}
-            appBarType='2item'
+            appBarType="2item"
+            seeMoreIcon={
+                <SearchIcon className={classes.icon} style={textColor(theme)} />
+            }
             tools={null}
             toolButtons={null}
         >

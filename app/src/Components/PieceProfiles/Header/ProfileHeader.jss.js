@@ -33,7 +33,7 @@ export const useStyles = makeStyles(
         }),
         piece_name: (props) => ({
             "@media screen and (max-width: 600px)": {
-                fontSize: "1.1rem",
+                fontSize: "1rem",
             },
             "@media screen and (min-width: 600px) and (max-width: 960px)": {
                 fontSize: "3vw",

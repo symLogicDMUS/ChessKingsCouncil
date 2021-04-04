@@ -1,9 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
+import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm} from "../PieceProfiles/constants.jss";
 import {themes} from "../styles/themes.jss";
 
-export const textColor = (theme) => ({
-    color: themes[theme].text,
-});
+export const textColor = (theme) => ({color: themes[theme].text});
+
 export const useStyles = makeStyles({
     my_pieces: props => ({
         overflowX: 'hidden',
@@ -25,6 +25,25 @@ export const useStyles = makeStyles({
         textOverflow: 'ellipsis',
         letterSpacing: '0.0075em',
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-
+    }),
+    search: props => ({
+        '@media screen and (max-width: 500px)': {
+            width: '100%',
+        },
+        '@media screen and (min-width: 501px) and (max-width: 600px)': {
+            width: sqrItemSizeSm,
+            marginRight: '11.5vw',
+        },
+        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+            width: sqrItemSizeMd,
+            marginRight: '8vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            width: sqrItemSizeLg,
+        },
+        height: '1.85rem',
+    }),
+    icon: props => ({
+       fontSize: '1.25rem',
     }),
 }, {index: 1});

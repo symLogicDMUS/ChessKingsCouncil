@@ -1,6 +1,5 @@
 short:
     change second MoreVert icon in Customize page header to SearchIcon
-    add title and GameStatus bar back to GameRoot
     making Dnd layers absolute instead of fixed positioning because otherwise when board cut of bottom, you can't scroll
     consider memoizing ScrollTable items
 medium:
@@ -8,7 +7,6 @@ medium:
     tweak icons for Customize page
     add new function for GameBoard image strings back to SavedGames MuiGrid component
     memoize createPieceBoard
-    implement 1 item accordion for BoardTool
     fixe PieceProfiles Skeleton component (thin screens)
     add help question mark icon to Promotion "Menu" that goes to pawn promotions part of help modal menu.
 long:
