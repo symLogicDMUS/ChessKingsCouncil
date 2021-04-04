@@ -23,8 +23,12 @@ export const useStyles = makeStyles((theme) => ({
             minHeight: 48,
             height: 48,
         },
-        '@media screen and (min-width: 960px)': {
-            "& .MuiToolbar-gutters": {
+        "& .MuiToolbar-gutters": {
+            '@media screen and (max-width: 960px)': {
+                paddingLeft: 16,
+                paddingRight: 4,
+            },
+            '@media screen and (min-width: 960px)': {
                 padding: 0
             },
         },
@@ -41,10 +45,11 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     appBar: props => ({
+        flexGrow: 1,
         zIndex: z,
         marginLeft: props.navDrawerWidth,
         background: themes[props.theme].fill,
-        borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`
+        borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`,
     }),
     appBarMdCompressed: props => ({
         width: `calc(100% - ${props.navDrawerWidth}px)`,

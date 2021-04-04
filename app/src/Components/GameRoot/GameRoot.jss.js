@@ -19,7 +19,6 @@ export const styles = {
         marginLeft: 24,
         marginRight: 24,
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-        border: '1px dashed #b1faae',
     }),
 }
 

@@ -4,7 +4,9 @@ import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
 import {navDrawerSmWidth} from "../Drawers/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles({
-    app_bar: props => ({}),
+    app_bar: props => ({
+        flexGrow: 1,
+    }),
     appBarCompressedLg: props => ({
         width: `calc(100% - ${props.navDrawerWidth + props.toolDrawerWidth}px)`,
     }),

@@ -8,9 +8,9 @@ import {ProfilesTitle} from "../PieceProfiles/ProfilesTitle";
 import {PieceProfiles} from "../PieceProfiles/PieceProfiles";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
-import {pageTitle} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {useStyles} from "./MyPieces.jss";
+import {SearchBox} from "../Reuseables/UserInput/SearchBox";
+import {textColor, useStyles} from "./MyPieces.jss";
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
@@ -51,11 +51,13 @@ function MyPieces() {
                 />
             }
             navHorizontal={isWide}
-            appBarContent={
-                <Typography variant='subtitle1' style={pageTitle(theme)} noWrap>
+            appBarContent={[
+                <Typography variant='subtitle1' className={classes.title} style={textColor(theme)} noWrap>
                     My Pieces
-                </Typography>
-            }
+                </Typography>,
+                <SearchBox theme={theme} className={classes.search} iconClassName={classes.icon} updateSearchText={updateSearchText} />
+            ]}
+            appBarType='2item'
             tools={null}
             toolButtons={null}
         >
@@ -67,12 +69,14 @@ function MyPieces() {
                     searchText={searchText}
                     className={classes.piece_profiles}
                 >
-                    <ProfilesTitle
-                        theme={theme}
-                        updateSearchText={updateSearchText}
-                    >
-                        Saved Pieces
-                    </ProfilesTitle>
+                    {isWide ? (
+                        <ProfilesTitle
+                            theme={theme}
+                            updateSearchText={updateSearchText}
+                        >
+                            Saved Pieces
+                        </ProfilesTitle>
+                    ) : null}
                 </PieceProfiles>
             </div>
         </ResponsiveDrawer>
