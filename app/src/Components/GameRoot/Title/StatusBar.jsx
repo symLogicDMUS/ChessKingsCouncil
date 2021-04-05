@@ -9,23 +9,23 @@ import { getOppositeColorName } from "../../helpers/getOppositeColorName";
 import { useStyles } from "./StatusBar.jss";
 
 export function StatusBar({ turn, winner, condition, theme }) {
-    const lg = useMediaQuery("(min-width:960px)");
-    const sm = useMediaQuery("(max-width:960px)");
+    // const lg = useMediaQuery("(min-width:960px)");
+    // const sm = useMediaQuery("(max-width:960px)");
 
-    const [toolDrawerWidth, setToolDrawerWidth] = useState(viewWidth() * 0.25);
-    useEffect(() => {
-        function handleResize() {
-            if (viewWidth() >= 960) {
-                setToolDrawerWidth(viewWidth() * 0.25);
-            }
-        }
-        window.addEventListener("resize", handleResize);
-        return (_) => {
-            window.removeEventListener("resize", handleResize);
-        };
-    });
+    // const [toolDrawerWidth, setToolDrawerWidth] = useState(viewWidth() * 0.25);
+    // useEffect(() => {
+    //     function handleResize() {
+    //         if (viewWidth() >= 960) {
+    //             setToolDrawerWidth(viewWidth() * 0.25);
+    //         }
+    //     }
+    //     window.addEventListener("resize", handleResize);
+    //     return (_) => {
+    //         window.removeEventListener("resize", handleResize);
+    //     };
+    // });
 
-    const classes = useStyles({ theme: theme, toolDrawerWidth: toolDrawerWidth });
+    const classes = useStyles({theme: theme}); // toolDrawerWidth: toolDrawerWidth
 
     const getMessage = () => {
         condition = capitalize(condition);
@@ -51,10 +51,7 @@ export function StatusBar({ turn, winner, condition, theme }) {
             <Typography
                 variant="h6"
                 noWrap={true}
-                className={clsx(classes.statusBar, {
-                    [classes.statusBarSm]: sm,
-                    [classes.statusBarLg]: lg,
-                })}
+                className={classes.statusBar}
             >
                 {getMessage()}
             </Typography>

@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {headerWidthLg, headerWidthMd, marginMd2x, sqrItemSizeLg} from "../../PieceProfiles/constants.jss";
+import {headerWidthLg, headerWidthMd, sqrItemSizeLg} from "../../PieceProfiles/constants.jss";
 
 export const originTransform = {vertical: 'top', horizontal: 'right'};
 

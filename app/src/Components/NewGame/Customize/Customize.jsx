@@ -1,36 +1,37 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
-import {NavBar} from "../../Reuseables/NavBar/NavBar";
-import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
+import { Redirect } from "react-router-dom";
+import { NavBar } from "../../Reuseables/NavBar/NavBar";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
-import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
-import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
-import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
-import {HelpText} from "./Help/HelpText";
-import {ListTitle} from "./ListTitle";
-import {SubList} from "./SubList";
-import {newData} from "../NewData";
-import {ToolModal} from "./ToolModal";
-import {copy} from "../../helpers/copy";
+import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
+import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
+import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
+import { HelpText } from "./Help/HelpText";
+import { ListTitle } from "./ListTitle";
+import { SubList } from "./SubList";
+import { newData } from "../NewData";
+import { ToolModal } from "./ToolModal";
+import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {difference} from "../../helpers/setOps";
-import {isSpecial} from "../../helpers/isSpecial";
-import {standardPieceDefs} from "../standardPieceDefs/dev1";
-import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
-import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
-import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
-import {fontSize0023, fontSize0026} from "../../styles/fontSizes.jss";
-import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1";
+import { difference } from "../../helpers/setOps";
+import { isSpecial } from "../../helpers/isSpecial";
+import { standardPieceDefs } from "../standardPieceDefs/dev1";
+import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
+import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
+import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
+import { fontSize0023, fontSize0026 } from "../../styles/fontSizes.jss";
+import { specialPieceImgUrlList } from "../../MyPieces/specialPieceImgUrlList/dev1";
 import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
-import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
+import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {SearchBox} from "../../Reuseables/UserInput/SearchBox";
-import {PageTitle} from "../../Reuseables/AppBar/PageTitle";
+import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
+import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import {textColor, styles} from "./Customize.jss";
+import { textColor, styles } from "./Customize.jss";
+import { ThreeItemAppBar } from "../../Reuseables/AppBar/ThreeItemAppBar";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -72,7 +73,7 @@ class Customize extends React.Component {
         this.helpTitle = null;
         this.helpText = null;
         this.hmChildName = "none";
-        this.hmChildren = {none: null};
+        this.hmChildren = { none: null };
         this.isTooltip = false;
         this.nameDisp = null;
         this.navExpanded = true;
@@ -103,8 +104,8 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = {...standardPieceDefs, ...defs};
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.defs = { ...standardPieceDefs, ...defs };
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     accept() {
@@ -112,7 +113,7 @@ class Customize extends React.Component {
         this.addStartingStandardsToPromos();
         this.addBackupStandards();
         this.bundleGameData();
-        this.setState({redirect: true});
+        this.setState({ redirect: true });
     }
 
     /**
@@ -252,7 +253,7 @@ class Customize extends React.Component {
             this.newReplacement = null;
             this.newReplaced = null;
         }
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromo(pieceName) {
@@ -260,7 +261,7 @@ class Customize extends React.Component {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     togglePromoAll() {
@@ -278,19 +279,19 @@ class Customize extends React.Component {
         } else {
             this.promos = [];
         }
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({miniVariantTool: null});
+            this.setState({ miniVariantTool: null });
         } else {
-            this.setState({miniVariantTool: toolName});
+            this.setState({ miniVariantTool: toolName });
         }
     }
 
     updateSearchText(searchText) {
-        this.setState({searchText: searchText});
+        this.setState({ searchText: searchText });
     }
 
     play() {
@@ -311,7 +312,7 @@ class Customize extends React.Component {
     }
 
     updateTheme(theme) {
-        this.setState({theme: theme});
+        this.setState({ theme: theme });
     }
 
     render() {
@@ -319,12 +320,18 @@ class Customize extends React.Component {
             <>
                 {this.state.redirect ? this.play() : null}
                 {this.state.miniVariantTool === "Subs" ? (
-                    <ToolModal theme={this.state.theme} onClose={() => this.toggleMiniVariantTool("Subs")}>
-                        <SubList subs={this.subs} theme={this.state.theme}/>
+                    <ToolModal
+                        theme={this.state.theme}
+                        onClose={() => this.toggleMiniVariantTool("Subs")}
+                    >
+                        <SubList subs={this.subs} theme={this.state.theme} />
                     </ToolModal>
                 ) : null}
                 {this.state.miniVariantTool === "Promos" ? (
-                    <ToolModal theme={this.state.theme} onClose={() => this.toggleMiniVariantTool("Promos")}>
+                    <ToolModal
+                        theme={this.state.theme}
+                        onClose={() => this.toggleMiniVariantTool("Promos")}
+                    >
                         <ScrollTable
                             numRows={6}
                             listItems={this.promos}
@@ -338,11 +345,15 @@ class Customize extends React.Component {
                             arrowButtonClassName={
                                 this.props.classes.scroll_table_button
                             }
-                            textClassName={
-                                this.props.classes.scroll_table_text
-                            }
+                            textClassName={this.props.classes.scroll_table_text}
                             title={
-                                <ListTitle className={this.props.classes.scroll_table_title} variant='h6' theme={this.state.theme}>
+                                <ListTitle
+                                    className={
+                                        this.props.classes.scroll_table_title
+                                    }
+                                    variant="h6"
+                                    theme={this.state.theme}
+                                >
                                     Pawn Promotions
                                 </ListTitle>
                             }
@@ -353,32 +364,38 @@ class Customize extends React.Component {
                     elevation={0}
                     className={this.props.classes.drawer}
                     theme={this.state.theme}
-                    appBarType='3item'
-                    appBarContent={[
-                        <PageTitle theme={this.state.theme}>
-                            Customize Game
-                        </PageTitle>,
-                        <MuiCheckbox
-                            noWrap={true}
-                            variant='caption'
+                    appBarType="3item"
+                    appBarContent={
+                        <ThreeItemAppBar
                             theme={this.state.theme}
-                            onClick={this.togglePromoAll}
-                            rootClassName={this.props.classes.promo_all}
+                            seeMoreIcon={
+                                <MoreIcon style={textColor(this.state.theme)} />
+                            }
+                            seeMoreIcon2={
+                                <SearchIcon
+                                    style={textColor(this.state.theme)}
+                                />
+                            }
                         >
-                            Promo All
-                        </MuiCheckbox>,
-                        <SearchBox
-                            updateSearchText={this.updateSearchText}
-                            className={this.props.classes.search}
-                            theme={this.state.theme}
-                            isMenuItem={true}
-                        />,
-                    ]}
-                    seeMoreIcon={
-                        <MoreIcon style={textColor(this.state.theme)}/>
-                    }
-                    seeMoreIcon2={
-                        <SearchIcon style={textColor(this.state.theme)}/>
+                            <PageTitle theme={this.state.theme}>
+                                Customize Game
+                            </PageTitle>
+                            <MuiCheckbox
+                                noWrap={true}
+                                variant="caption"
+                                theme={this.state.theme}
+                                onClick={this.togglePromoAll}
+                                rootClassName={this.props.classes.promo_all}
+                            >
+                                Promo All
+                            </MuiCheckbox>
+                            <SearchBox
+                                updateSearchText={this.updateSearchText}
+                                className={this.props.classes.search}
+                                theme={this.state.theme}
+                                isMenuItem={true}
+                            />
+                        </ThreeItemAppBar>
                     }
                     tools={
                         <Box className={this.props.classes.tools}>
@@ -405,8 +422,13 @@ class Customize extends React.Component {
                                     this.props.classes.scroll_table_text
                                 }
                                 title={
-                                    <ListTitle className={this.props.classes.scroll_table_title}
-                                               theme={this.state.theme}>
+                                    <ListTitle
+                                        className={
+                                            this.props.classes
+                                                .scroll_table_title
+                                        }
+                                        theme={this.state.theme}
+                                    >
                                         Pawn Promotions
                                     </ListTitle>
                                 }

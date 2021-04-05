@@ -29,7 +29,7 @@ export function MiniPiece({
                 {showProfileOnClick ? (
                     <Portal>
                         {isSpecial && rf === selectedSqr ? (
-                            <ToolModal theme={theme} onClose={closeProfile}>
+                            <ToolModal theme={theme} contentClassName={classes.tool_modal} onClose={closeProfile}>
                                 <NoProfile
                                     imgUrl={imgUrl}
                                     pieceName={pieceName}
@@ -55,7 +55,7 @@ export function MiniPiece({
                 {rf === selectedSqr && showProfileOnClick ? (
                     <Portal>
                         {isSpecial ? (
-                            <ToolModal theme={theme} onClose={closeProfile}>
+                            <ToolModal theme={theme} contentClassName={classes.tool_modal} onClose={closeProfile}>
                                 <NoProfile
                                     imgUrl={imgUrl}
                                     pieceName={pieceName}

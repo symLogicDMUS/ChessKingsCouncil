@@ -28,8 +28,10 @@ import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresenceP
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {ToolButton} from "../Reuseables/Clickables/ToolButton";
-import {styles} from "./CreatePiece.jss";
+import { ToolButton } from "../Reuseables/Clickables/ToolButton";
+import { styles } from "./CreatePiece.jss";
+import { LocationButton } from "./Location/LocationButton";
+import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -361,7 +363,7 @@ class CreatePiece extends React.Component {
                         title={
                             <HelpTitle
                                 theme={this.state.theme}
-                                fontSize={'2.6vh'}
+                                fontSize={"2.6vh"}
                             >
                                 Congratulations on Creating Your First Piece!
                                 Here's How To Put it Into a Game
@@ -427,7 +429,11 @@ class CreatePiece extends React.Component {
                 </div>
                 <ResponsiveDrawer
                     appBarType="title"
-                    appBarContent="Create Piece"
+                    appBarContent={
+                        <PageTitle theme={this.state.theme}>
+                            Create Piece
+                        </PageTitle>
+                    }
                     theme={this.state.theme}
                     className={this.props.classes.drawer}
                     tools={
@@ -437,7 +443,9 @@ class CreatePiece extends React.Component {
                                 updateName={this.updateName}
                                 defaultValue={this.name}
                                 theme={this.state.theme}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
+                                }
                             />
                             <Icon
                                 key="Icon"
@@ -445,7 +453,9 @@ class CreatePiece extends React.Component {
                                 resetImg={this.resetImg}
                                 setPieceImg={this.setPieceImg}
                                 whiteAndBlackImgs={this.whiteAndBlackImgs}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
+                                }
                             />
                             <Range
                                 key="Range"
@@ -454,12 +464,18 @@ class CreatePiece extends React.Component {
                                 toggleSpan={this.toggleSpan}
                                 pieceLoc={this.location}
                                 theme={this.state.theme}
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
+                                }
                             />
                             <Location
                                 key="Location"
                                 setLoc={this.setLoc}
                                 theme={this.state.theme}
                                 selectedLoc={this.location}
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
+                                }
                             />
                             <Options
                                 key="Options"
@@ -471,36 +487,34 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
+                                }
                             />
                         </>
                     }
                     toolButtons={
                         <>
                             <ToolButton
-                                text='piece name'
+                                text="piece name"
                                 iconName={"name_tool"}
                                 theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Name"
-                                }
+                                isActive={this.state.miniVariantTool === "Name"}
                                 onClick={() =>
                                     this.toggleMiniVariantTool("Name")
                                 }
                             />
                             <ToolButton
-                                text='piece image'
+                                text="piece image"
                                 iconName={"icon_tool"}
                                 theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Icon"
-                                }
+                                isActive={this.state.miniVariantTool === "Icon"}
                                 onClick={() =>
                                     this.toggleMiniVariantTool("Icon")
                                 }
                             />
                             <ToolButton
-                                text='piece range'
+                                text="piece range"
                                 theme={this.state.theme}
                                 iconName={"range_tool"}
                                 isActive={
@@ -511,7 +525,7 @@ class CreatePiece extends React.Component {
                                 }
                             />
                             <ToolButton
-                                text='location'
+                                text="location"
                                 theme={this.state.theme}
                                 iconName={"location_tool"}
                                 isActive={
@@ -522,7 +536,7 @@ class CreatePiece extends React.Component {
                                 }
                             />
                             <ToolButton
-                                text='options'
+                                text="options"
                                 theme={this.state.theme}
                                 iconName={"options_tool"}
                                 isActive={
@@ -542,12 +556,12 @@ class CreatePiece extends React.Component {
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}
-                                    fontSize={'2.6vh'}
+                                    fontSize={"2.6vh"}
                                 >
                                     Creating a Piece
                                 </HelpTitle>
                             }
-                            helpText={HelpText('1.5vw', this.state.theme)}
+                            helpText={HelpText("1.5vw", this.state.theme)}
                             updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
@@ -599,11 +613,12 @@ class CreatePiece extends React.Component {
                         toggleSpan={this.toggleSpan}
                         toggleOffset={this.toggleOffset}
                         spanDisplays={this.spanDisplays}
+                        imgUrl={this.whiteAndBlackImgs.white}
                         offsetDisplays={this.offsetDisplays}
                         showSpanText={this.state.showSpanText}
                         showOffsetText={this.state.showOffsetText}
                         miniVariantTool={this.state.miniVariantTool}
-                        imgUrl={this.whiteAndBlackImgs.white}
+                        toggleMiniVariantTool={this.toggleMiniVariantTool}
                     />
                 </ResponsiveDrawer>
             </>

@@ -6,8 +6,8 @@ medium:
     change size of Play button in NewGame page.
     add custom styles back to SaveAs text field
     fixe PieceProfiles Skeleton component (thin screens)
-    add new function for GameBoard image strings back to SavedGames MuiGrid component
     animations for of MiniVariant tool modals (enter in)
     Close Icon for MiniVariant Range and Location tool.
+    Modification of styles of of Promo modal
 long:
     optimize CreatePiece Board

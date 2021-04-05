@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import {rightDrawerWidth} from "./ResponsiveDrawer.jss";
 
 const z = 6;
 export const miniVariantIconsColumnWidth = 56;
@@ -20,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     drawerOpen: props => ({
         zIndex: z,
-        width: '25vw',
+        width: rightDrawerWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,

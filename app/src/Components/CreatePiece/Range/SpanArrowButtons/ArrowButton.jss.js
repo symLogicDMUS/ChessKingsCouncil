@@ -80,4 +80,10 @@ export const useStyles = makeStyles({
             borderRadius: '0.2em',
         },
     }),
+    chip: props => ({
+       zIndex: 3,
+        backgroundColor: themes[props.theme].fill,
+        color: themes[props.theme].text,
+
+    }),
 }, {index: 1});

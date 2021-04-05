@@ -11,11 +11,13 @@ import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import { useStyles } from "./CreatePieceBoard.jss";
 import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {getOffset} from "../../helpers/getOffset";
+import {Options} from "../Options/Options";
 
 export function CreatePieceBoard({
     theme,
-    pieceLoc,
+    imgUrl,
     setLoc,
+    pieceLoc,
     spanDisplays,
     offsetDisplays,
     toggleOffset,
@@ -23,7 +25,7 @@ export function CreatePieceBoard({
     showSpanText,
     showOffsetText,
     miniVariantTool,
-    imgUrl,
+    toggleMiniVariantTool
 }) {
     const isWide = useMediaQuery('(min-width: 960px)');
     const screenCase = isWide ? 'wide' : 'thin';
@@ -99,6 +101,7 @@ export function CreatePieceBoard({
                     toggleSpan={toggleSpan}
                     isActive={spanDisplays[rf]}
                     isOffset={offsetDisplays[rf]}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                     pieceLoc={pieceLoc}
                     screenCase='thin'
                     theme={theme}
@@ -127,6 +130,7 @@ export function CreatePieceBoard({
                     theme={theme}
                     key={`location-${rf}`}
                     onClick={() => setLoc(rf)}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </Square>
         );

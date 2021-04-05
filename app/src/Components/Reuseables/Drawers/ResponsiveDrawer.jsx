@@ -11,44 +11,20 @@ import { Portal, useTheme } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MiniVariantDrawer from "./MiniVariantDrawer";
-import { viewWidth } from "../../helpers/windowMeasurments";
-import { AppBarContent } from "../AppBar/AppBarContent";
 import { useStyles } from "./ResponsiveDrawer.jss";
 
 function ResponsiveDrawer({
     theme,
-    tools,
     navBar,
+    tools,
     toolButtons,
     navHorizontal,
-    appBarType,
     appBarContent,
     elevation,
-    seeMoreIcon,
-    seeMoreIcon2,
     className,
     children,
 }) {
-    const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
-    const [toolDrawerWidth, setToolDrawerWidth] = useState(viewWidth() * 0.25);
-    useEffect(() => {
-        function handleResize() {
-            if (viewWidth() >= 960) {
-                setNavDrawerWidth(viewWidth() * 0.18);
-                setToolDrawerWidth(viewWidth() * 0.25);
-            }
-        }
-        window.addEventListener("resize", handleResize);
-        return (_) => {
-            window.removeEventListener("resize", handleResize);
-        };
-    });
-
-    const classes = useStyles({
-        theme: theme,
-        navDrawerWidth: navDrawerWidth,
-        toolDrawerWidth: toolDrawerWidth,
-    });
+    const classes = useStyles({ theme: theme });
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);
@@ -58,40 +34,32 @@ function ResponsiveDrawer({
     };
 
     return (
-        <div className={clsx(classes.root, {
-            [className]: className,
-        })}>
+        <div
+            className={clsx(classes.root, {
+                [className]: className,
+            })}
+        >
             <CssBaseline />
             <Hidden mdUp>
                 <AppBar
                     position="fixed"
                     elevation={elevation}
                     className={clsx(classes.appBar, {
-                        [classes.appBarSmCompressed]: open,
-                        [classes.appBarMdRelaxed]: !open,
+                        [classes.appBarCompressed]: open,
+                        [classes.appBarRelaxed]: !open,
                     })}
                 >
                     <Toolbar>
                         <IconButton
+                            edge="start"
                             color="inherit"
                             aria-label="open drawer"
-                            edge="start"
                             onClick={handleDrawerToggle}
                             className={classes.menuButton}
                         >
                             <MenuIcon />
                         </IconButton>
-                        <AppBarContent
-                            open={open}
-                            theme={theme}
-                            type={appBarType}
-                            seeMoreIcon={seeMoreIcon}
-                            seeMoreIcon2={seeMoreIcon2}
-                            navDrawerWidth={navDrawerWidth}
-                            toolDrawerWidth={toolDrawerWidth}
-                        >
-                            {appBarContent}
-                        </AppBarContent>
+                        {appBarContent}
                     </Toolbar>
                 </AppBar>
                 <div className={classes.drawer} aria-label="nav bar component">
@@ -110,7 +78,7 @@ function ResponsiveDrawer({
                             keepMounted: true,
                         }}
                     >
-                        <div className={classes.toolbar}/>
+                        <div className={classes.toolbar} />
                         <Divider />
                         {navBar}
                     </Drawer>
@@ -127,8 +95,8 @@ function ResponsiveDrawer({
                 <AppBar
                     position="fixed"
                     className={clsx(classes.appBar, {
-                        [classes.appBarMdCompressed]: true,
-                        [classes.hidden]: navHorizontal
+                        [classes.appBarLg]: true,
+                        [classes.hidden]: navHorizontal,
                     })}
                 >
                     <Toolbar>
@@ -141,17 +109,7 @@ function ResponsiveDrawer({
                         >
                             <MenuIcon />
                         </IconButton>
-                        <AppBarContent
-                            open={open}
-                            theme={theme}
-                            type={appBarType}
-                            seeMoreIcon={seeMoreIcon}
-                            seeMoreIcon2={seeMoreIcon2}
-                            navDrawerWidth={navDrawerWidth}
-                            toolDrawerWidth={toolDrawerWidth}
-                        >
-                            {appBarContent}
-                        </AppBarContent>
+                        {appBarContent}
                     </Toolbar>
                 </AppBar>
                 <div className={classes.drawer} aria-label="nav bar component">
@@ -159,7 +117,7 @@ function ResponsiveDrawer({
                         classes={{
                             paper: clsx(classes.navPermanentPaper, {
                                 [classes.hidden]: navHorizontal,
-                                [classes.drawerPaper]: ! navHorizontal,
+                                [classes.drawerPaper]: !navHorizontal,
                             }),
                         }}
                         open
@@ -188,7 +146,7 @@ function ResponsiveDrawer({
                 </div>
             </Hidden>
             <main className={classes.main}>
-                {navHorizontal ? (navBar) : <div className={classes.toolbar}/>}
+                {navHorizontal ? navBar : <div className={classes.toolbar} />}
                 {children}
             </main>
         </div>

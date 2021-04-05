@@ -31,6 +31,8 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         color: themes[props.theme].text,
-
+    }),
+    tool_modal: props => ({
+       paddingBottom: '-3rem',
     }),
 }, {index: 1});

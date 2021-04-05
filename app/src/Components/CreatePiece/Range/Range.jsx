@@ -10,7 +10,7 @@ import {useStyles as useMoreStyles} from "../CreatePiece.jss"
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./Range.jss";
 
-export function Range({spans, offsets, toggleSpan, theme, styles}) {
+export function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool}) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
 
@@ -48,9 +48,10 @@ export function Range({spans, offsets, toggleSpan, theme, styles}) {
                 <div className={classes.divider} />
                 <SpanArrowButtons
                     spans={spans}
-                    toggleSpan={toggleSpan}
-                    screenCase={screenCase}
                     theme={theme}
+                    screenCase={screenCase}
+                    toggleSpan={toggleSpan}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </span>
         </MediaQuery>

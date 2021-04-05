@@ -3,10 +3,10 @@ short:
     new icon of a board for Load Game modal
     consider making tool buttons text/icons bigger.
 medium:
-    find all zIndex, make theme organized in right order with no unnecessary gaps in numbering
-    * modification of styles of of Promo modal
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
 long:
+    * consider adding new function for GameBoard image strings back to SavedGames MuiGrid component
     * Make functional Components in addition to class components be a default export, to be consistent.
     * go and through every document and add documentation as well as use the Prettier command on file.
+    * find all zIndex, make theme organized in right order with no unnecessary gaps in numbering

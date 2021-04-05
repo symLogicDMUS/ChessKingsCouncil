@@ -1,15 +1,22 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import { Typography } from "@material-ui/core";
-import { SubDropdown } from "../../NewGame/Customize/SubDropdown";
-import { SubButtonGroup } from "../../NewGame/Customize/SubButtonGroup";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
-import { useStyles as useMoreStyles } from "../Header/ProfileHeader.jss";
+import {Typography} from "@material-ui/core";
+import {SubDropdown} from "../../NewGame/Customize/SubDropdown";
+import {SubButtonGroup} from "../../NewGame/Customize/SubButtonGroup";
+import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
+import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
-import { useStyles } from "./CustomizeHeader.jss";
+import {useStyles} from "./CustomizeHeader.jss";
+import * as PropTypes from "prop-types";
+import {PieceName} from "./PieceName";
+
+PieceName.propTypes = {
+    classes2: PropTypes.any,
+    customPieceName: PropTypes.any
+};
 
 export function CustomizeHeader({
     subs,
@@ -47,17 +54,13 @@ export function CustomizeHeader({
                 })}
             >
                 <MediaQuery maxWidth={960}>
-                    <Typography
-                        noWrap
-                        variant="h6"
-                        className={classes2.piece_name}
-                    >
+                    <PieceName theme={theme}>
                         {customPieceName}
-                    </Typography>
+                    </PieceName>
                     <Box
                         className={clsx(classes.options_box, {
                             [classes.header_box_sm_screen]: true,
-                            [classes.justify_between]: ! sm,
+                            [classes.justify_between]: !sm,
                             [classes.justify_end]: sm,
                             [classes.align_center]: true,
                         })}
@@ -99,13 +102,9 @@ export function CustomizeHeader({
                             [classes.header_box_lg_screen]: true,
                         })}
                     >
-                        <Typography
-                            noWrap
-                            variant="h6"
-                            className={classes2.piece_name}
-                        >
+                        <PieceName theme={theme}>
                             {customPieceName}
-                        </Typography>
+                        </PieceName>
                     </Box>
                     <Box
                         className={clsx(classes.options_box, {

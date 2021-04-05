@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowButton } from "./ArrowButton";
 import { useStyles } from "./SpanArrowButtons.jss";
 
-export function SpanArrowButtons({ spans, toggleSpan, screenCase, theme }) {
+export function SpanArrowButtons({ spans, toggleSpan, screenCase, theme, toggleMiniVariantTool }) {
     const classes = useStyles({theme: theme})
 
     const getArrowButtons = (angles) => {
@@ -15,6 +15,7 @@ export function SpanArrowButtons({ spans, toggleSpan, screenCase, theme }) {
                     isActive={spans[angle]}
                     toggleSpan={toggleSpan}
                     screenCase={screenCase}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                     theme={theme}
                 />
             );

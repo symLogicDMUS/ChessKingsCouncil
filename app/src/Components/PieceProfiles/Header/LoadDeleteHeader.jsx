@@ -12,6 +12,7 @@ import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 import {useStyles as useMoreStyles}
     from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
+import {PieceName} from "./PieceName";
 
 export function LoadDeleteHeader({
     def,
@@ -68,9 +69,9 @@ export function LoadDeleteHeader({
             <div className={clsx(classes.header, {
                 [classes2.header]: true,
             })}>
-                <Typography variant='subtitle2' className={classes2.piece_name}>
+                <PieceName theme={theme}>
                     {pieceName}
-                </Typography>
+                </PieceName>
                 <Button
                     theme={theme}
                     startIcon={<StorageIcon className={classes.icon}/>}

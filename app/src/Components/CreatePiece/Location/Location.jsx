@@ -7,8 +7,9 @@ import { LocationButton } from "./LocationButton";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Location.jss";
 import MediaQuery from "react-responsive/src";
+import {ArrowButton} from "../Range/SpanArrowButtons/ArrowButton";
 
-export function Location({ selectedLoc, setLoc, theme }) {
+export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  }) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
@@ -31,6 +32,7 @@ export function Location({ selectedLoc, setLoc, theme }) {
                     selected={selectedLoc === "d4"}
                     theme={theme}
                     key="location-d4"
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
                 <LocationButton
                     rf="e4"
@@ -38,6 +40,7 @@ export function Location({ selectedLoc, setLoc, theme }) {
                     selected={selectedLoc === "e4"}
                     theme={theme}
                     key="location-e4"
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
                 <LocationButton
                     rf="d5"
@@ -45,6 +48,7 @@ export function Location({ selectedLoc, setLoc, theme }) {
                     selected={selectedLoc === "d5"}
                     theme={theme}
                     key="location-d5"
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
                 <LocationButton
                     rf="e5"
@@ -52,6 +56,7 @@ export function Location({ selectedLoc, setLoc, theme }) {
                     selected={selectedLoc === "e5"}
                     theme={theme}
                     key="location-e5"
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </span>
         </MediaQuery>

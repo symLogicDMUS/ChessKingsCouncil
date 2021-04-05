@@ -1,11 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+import {miniVariantIconsColumnWidth} from "./MiniVariantDrawer.jss";
 
 const z = 5;
 export const appBarHeight = 48;
-export const navDrawerSmWidth = 180;
+export const toolBarPadding = 4;
 export const menuIconWidth = 48;
-export const menuIconMargin = 12;
+export const menuIconPadding = 12;
+export const navDrawerSmWidth = 180;
+export const menuIconMarginRight = 8;
+export const rightDrawerWidth = '25vw';
+export const leftDrawerWidth = '18vw';
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -21,25 +26,26 @@ export const useStyles = makeStyles((theme) => ({
     }),
     drawer: props => ({
         [theme.breakpoints.up('md')]: {
-            width: props.navDrawerWidth,
+            width: '18vw',
             flexShrink: 0,
         },
     }),
     appBar: props => ({
         flexGrow: 1,
         zIndex: z,
-        marginLeft: props.navDrawerWidth,
         background: themes[props.theme].fill,
         borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`,
     }),
-    appBarMdCompressed: props => ({
-        width: `calc(100% - ${props.navDrawerWidth}px)`,
+    appBarLg: props => ({
+        width: '57vw',
+        marginRight: rightDrawerWidth,
     }),
-    appBarSmCompressed: props => ({
-       width: `calc(100% - ${navDrawerSmWidth}px)`
+    appBarCompressed: props => ({
+        width: `calc(82vw - ${miniVariantIconsColumnWidth}px)`,
+        marginRight: miniVariantIconsColumnWidth,
     }),
-    appBarMdRelaxed: props => ({
-        width: '100%',
+    appBarRelaxed: props => ({
+        width: '100vw',
     }),
     menuButton: props => ({
         marginRight: theme.spacing(1),
@@ -58,7 +64,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     navPermanentPaper: props => ({
         zIndex: z,
-        width: props.navDrawerWidth,
+        width: leftDrawerWidth,
         '@media screen and (max-width: 960px)': {
             width: 0,
         },
@@ -69,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     toolDrawerPaper: props => ({
         zIndex: z,
-        width: props.toolDrawerWidth,
+        width: rightDrawerWidth,
     }),
     tools: props => ({
         zIndex: z,
@@ -80,6 +86,6 @@ export const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
     }),
     hidden: props => ({
-       display: 'none',
+        display: 'none',
     }),
 }), {index: 1});

@@ -397,14 +397,14 @@ class GameRoot extends React.Component {
                 <ResponsiveDrawer
                     theme={this.state.theme}
                     appBarType={"custom"}
-                    appBarContent={[
+                    appBarContent={
                         <StatusBar
                             turn={this.turn}
                             theme={this.state.theme}
                             condition={this.gameStatus.condition}
                             winner={this.gameStatus.winner}
-                        />,
-                    ]}
+                        />
+                    }
                     tools={
                         <>
                             <GameInfo

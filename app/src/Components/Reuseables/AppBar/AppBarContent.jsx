@@ -1,29 +1,23 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import { PageTitle } from "./PageTitle";
+import { Typography } from "@material-ui/core";
 import Hidden from "@material-ui/core/Hidden";
 import { TwoItemAppBar } from "./TwoItemAppBar";
 import { ThreeItemAppBar } from "./ThreeItemAppBar";
 import { useStyles } from "./AppBarContent.jss";
-import {PageTitle} from "./PageTitle";
 
 export function AppBarContent({
     open,
     theme,
     type,
     className,
-    navDrawerWidth,
-    toolDrawerWidth,
     seeMoreIcon,
     seeMoreIcon2,
     children,
 }) {
-    const classes = useStyles({
-        theme: theme,
-        navDrawerWidth: navDrawerWidth,
-        toolDrawerWidth: toolDrawerWidth,
-    });
+    const classes = useStyles({theme: theme});
 
     return (
         <>
@@ -39,19 +33,26 @@ export function AppBarContent({
                         </PageTitle>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
+                        <TwoItemAppBar
+                            open={open}
+                            theme={theme}
+                            className={className}
+                            seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
+                        >
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
+                        <ThreeItemAppBar
+                            open={open}
+                            theme={theme}
+                            className={className}
+                            seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
+                        >
                             {children}
                         </ThreeItemAppBar>
-                    ) : null}
-                    {type === "custom" ? (
-                        <>
-                            {children}
-                        </>
                     ) : null}
                 </Box>
             </Hidden>
@@ -63,7 +64,7 @@ export function AppBarContent({
                 >
                     {type === "title" ? (
                         <Typography
-                            variant='h6'
+                            variant="h6"
                             className={clsx(classes.title, {
                                 [className]: className,
                             })}
@@ -72,22 +73,30 @@ export function AppBarContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
+                        <TwoItemAppBar
+                            open={open}
+                            theme={theme}
+                            className={className}
+                            seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
+                        >
                             {children}
                         </TwoItemAppBar>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
+                        <ThreeItemAppBar
+                            open={open}
+                            theme={theme}
+                            className={className}
+                            seeMoreIcon={seeMoreIcon}
+                            seeMoreIcon2={seeMoreIcon2}
+                        >
                             {children}
                         </ThreeItemAppBar>
                     ) : null}
-                    {type === "custom" ? (
-                        <>
-                            {children}
-                        </>
-                    ) : null}
                 </Box>
             </Hidden>
+            {type === "custom" ? <>{children}</> : null}
         </>
     );
 }
