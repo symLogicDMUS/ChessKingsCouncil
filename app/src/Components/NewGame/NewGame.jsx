@@ -7,11 +7,10 @@ import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {fontSize002, fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
-import {HelpText} from "./GameOptions/HelpText";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {HelpText} from "./GameOptions/HelpText";
 import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background/Background";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
@@ -81,8 +80,8 @@ function NewGame() {
                 navBar={
                     <NavBar
                         currentPage="NewGame"
-                        helpText={HelpText(fontSizeW0045, theme)}
-                        helpTitle={<HelpTitle theme={theme} fontSize={fontSize0026}>New Game</HelpTitle>}
+                        helpText={HelpText('4.5vw', theme)}
+                        helpTitle={<HelpTitle theme={theme} fontSize={'2.6vh'}>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}
                         additionalSettings={null}

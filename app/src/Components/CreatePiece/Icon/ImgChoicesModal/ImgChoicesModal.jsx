@@ -74,7 +74,7 @@ class ImgChoicesModal extends React.Component {
 
     submitChoice(imgNameChoice) {
         this.props.setPieceImg(this.props.color, this.imgDict[imgNameChoice]);
-        this.props.closeAll();
+        this.props.close();
     }
 
     setChoice(imgNameChoice) {
@@ -132,7 +132,7 @@ class ImgChoicesModal extends React.Component {
                                 className={this.props.classes.close}
                                 iconClassName={this.props.classes.close_icon}
                                 theme={this.props.theme}
-                                onClick={this.props.closeAll}
+                                onClick={this.props.close}
                             />
                         }
                         title={

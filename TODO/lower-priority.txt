@@ -1,11 +1,9 @@
 short:
-    Play button in new game too wide
     for SubDropdown, decide if want to keep list items both icons and text, or just have icons
-    replace ImgWindows Icons from Image icon to AddPhoto icon
     new icon of a board for Load Game modal
-    fix background board tile decoration for skinner screen widths (less than 1040px)
     consider making tool buttons text/icons bigger.
 medium:
+    find all zIndex, make theme organized in right order with no unnecessary gaps in numbering
     * modification of styles of of Promo modal
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)

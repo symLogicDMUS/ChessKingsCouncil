@@ -16,7 +16,7 @@ export function HelpSlideshow({initialState, title, onClose, theme, children}) {
 
         <div className={classes.modal}>
             <div className={classes.window}>
-                <Box className={classes.top_flexbox}>
+                <Box className={classes.top_area}>
                     <Box className={classes.x_symbol_flexbox}>
                         <Close onClick={onClose} theme={theme} className={classes.close_icon}/>
                     </Box>

@@ -33,7 +33,7 @@ export const useStyles = makeStyles({
             marginBottom: 'auto',
         },
     }),
-    top_flexbox: props => ({
+    top_area: props => ({
         width: '100%',
     }),
     x_symbol_flexbox: props => ({

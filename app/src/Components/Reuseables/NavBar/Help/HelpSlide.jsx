@@ -25,7 +25,7 @@ export function HelpSlide({theme, title, onClose, children}) {
         <div className={`scrollbar-${theme}`}>
             <div className={classes.modal}>
                 <div className={classes.window}>
-                    <Box className={classes.top_flexbox}>
+                    <Box className={classes.top_area}>
                         <Box className={classes.x_symbol_flexbox}>
                             <Close onClick={onClose} theme={theme} className={classes.close_icon}/>
                         </Box>
@@ -36,7 +36,7 @@ export function HelpSlide({theme, title, onClose, children}) {
                     <Typography paragraph className={classes.content}>
                         {children}
                     </Typography>
-                    <Box className={classes.top_flexbox} style={done_flexbox()}>
+                    <Box className={classes.top_area} style={done_flexbox()}>
                         <MuiButton
                             theme={theme}
                             classesObj={{root: classes.done_button}}

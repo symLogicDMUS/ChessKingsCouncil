@@ -5,7 +5,7 @@ import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 export const styles = {
     modal: props => ({
         ...modal,
-        zIndex: 12,
+        zIndex: 6,
     }),
     close: props => ({
         '@media screen and (max-width: 960px)': {

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { HelpText } from "./HelpText";
 import Typography from "@material-ui/core/Typography";
 import "../Reuseables/Background/_backgrounds.scss";
-import { HelpText } from "./HelpText";
+import SearchIcon from "@material-ui/icons/Search";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
@@ -11,12 +12,14 @@ import { fontSize0026, fontSizeW0045 } from "../styles/fontSizes.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { textColor, useStyles } from "./MyPieces.jss";
-import SearchIcon from "@material-ui/icons/Search";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
     const [searchText, setSearchText] = useState("");
+
     const isWide = useMediaQuery("(min-width:960px)");
+
     const classes = useStyles();
 
     useEffect(() => {
@@ -53,14 +56,9 @@ function MyPieces() {
             }
             navHorizontal={isWide}
             appBarContent={[
-                <Typography
-                    // variant='h6'
-                    className={classes.title}
-                    style={textColor(theme)}
-                    noWrap
-                >
+                <PageTitle theme={theme}>
                     Saved Pieces
-                </Typography>,
+                </PageTitle>,
                 <SearchBox
                     theme={theme}
                     className={classes.search}

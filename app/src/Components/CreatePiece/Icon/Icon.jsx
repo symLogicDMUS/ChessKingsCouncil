@@ -1,93 +1,58 @@
-import React, {memo, useState} from "react";
-import Box from "@material-ui/core/Box";
+import React, {useState} from "react";
+import {ImgWindow} from "./ImgWindow";
 import MediaQuery from "react-responsive/src";
 import {Portal, Typography} from "@material-ui/core";
 import ChooseModal from "./ImgChoicesModal/ImgChoicesModal";
-import {ImgButtonsModal} from "./ImgButtonsModal";
+import {MuiMenu} from "../../Reuseables/UserInput/MuiMenu";
 import {ImgWindowsModal} from "./ImgWindowsModal";
-import {ImgWindow} from "./ImgWindow";
-import {useStyles} from "./Icon.jss";
+import {originTransform, useStyles} from "./Icon.jss";
 
 export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVariantTool, theme}) {
-    const [color, setColor] = useState(null);
-    const [imgButtonsModal, toggleImgButtonsModal] = useState(false);
-    const [chooseModal, toggleChooseModal] = useState(false);
     const classes = useStyles({theme: theme});
 
     return (
         <div className={classes.icon_tool}>
-            {chooseModal ? (
-                <Portal>
-                    <ChooseModal
-                        closeAll={() => {
-                            toggleChooseModal(false);
-                            toggleImgButtonsModal(false);
-                            setColor(null);
-                        }}
-                        color={color}
-                        resetImg={resetImg}
-                        setPieceImg={setPieceImg}
-                        theme={theme}
-                    />
-                </Portal>
-            ) : null}
-            {imgButtonsModal ? (
-                <Portal>
-                    <ImgButtonsModal
-                        color={color}
-                        theme={theme}
-                        setPieceImg={setPieceImg}
-                        showChooseModal={() => toggleChooseModal(true)}
-                        close={() => toggleImgButtonsModal(null)}
-                    />
-                </Portal>
-            ) : null}
             <MediaQuery minWidth={960}>
                 <Typography className={classes.title}>Icon</Typography>
                 <span className={classes.img_windows_flexbox}>
                     <ImgWindow
-                        color="White"
+                        color="white"
                         theme={theme}
                         whiteWindow={true}
+                        resetImg={resetImg}
+                        setPieceImg={setPieceImg}
                         src={whiteAndBlackImgs.white}
-                        setColorAndImgButtons={() => {
-                            setColor("white");
-                            toggleImgButtonsModal(true);
-                        }}
                     />
                     <ImgWindow
-                        color="Black"
+                        color="black"
                         theme={theme}
                         whiteWindow={false}
+                        resetImg={resetImg}
+                        setPieceImg={setPieceImg}
                         src={whiteAndBlackImgs.black}
-                        setColorAndImgButtons={() => {
-                            setColor("black");
-                            toggleImgButtonsModal(true);
-                        }}
                     />
                 </span>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <ImgWindowsModal theme={theme} toggleMiniVariantTool={toggleMiniVariantTool} isImgButtonsModal={imgButtonsModal}>
+                <ImgWindowsModal
+                    theme={theme}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
+                >
                     <ImgWindow
-                        color="White"
-                        theme={theme}
+                        color="white"
                         whiteWindow={true}
+                        resetImg={resetImg}
+                        setPieceImg={setPieceImg}
                         src={whiteAndBlackImgs.white}
-                        setColorAndImgButtons={() => {
-                            setColor("white");
-                            toggleImgButtonsModal(true);
-                        }}
+                        theme={theme}
                     />
                     <ImgWindow
-                        color="Black"
-                        theme={theme}
+                        color="black"
                         whiteWindow={false}
+                        resetImg={resetImg}
+                        setPieceImg={setPieceImg}
                         src={whiteAndBlackImgs.black}
-                        setColorAndImgButtons={() => {
-                            setColor("black");
-                            toggleImgButtonsModal(true);
-                        }}
+                        theme={theme}
                     />
                 </ImgWindowsModal>
             </MediaQuery>

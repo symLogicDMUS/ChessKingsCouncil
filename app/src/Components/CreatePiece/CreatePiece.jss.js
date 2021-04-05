@@ -19,6 +19,17 @@ export const styles = {
         marginLeft: 0,
         flexDirection: 'row-reverse',
     }),
+    drawer: props => ({
+        "& .MuiToolbar-gutters": {
+            '@media screen and (max-width: 960px)': {
+                paddingLeft: 16,
+                paddingRight: 4,
+            },
+            '@media screen and (min-width: 960px)': {
+                paddingLeft: 12,
+            },
+        },
+    }),
 };
 
 export const useStyles = makeStyles({
@@ -87,12 +98,12 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     close: props => ({
-        width: '1vw',
-        height: '1vw',
+        width: '1.1rem',
+        height: '1.1rem',
     }),
     icon: props => ({
-        width: '2vw',
-        height: '2vw',
+        width: '0.9rem',
+        height: '0.9rem',
     }),
     modal: props => ({
         display: 'flex',

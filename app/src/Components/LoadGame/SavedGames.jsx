@@ -12,6 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {SavedGamesTitle} from "./SavedGamesTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import {useStyles} from "./SavedGames.jss";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 
 export function SavedGames(props) {
     const isThin = useMediaQuery("(max-width:960px)");
@@ -43,9 +44,9 @@ export function SavedGames(props) {
                 toolButtons={null}
                 navHorizontal={isWide}
                 appBarContent={[
-                    <Typography variant="subtitle1" noWrap className={classes.title}>
+                    <PageTitle theme={props.theme}>
                         Load Game
-                    </Typography>,
+                    </PageTitle>,
                     <SearchBox
                         theme={props.theme}
                         className={classes.search_box}

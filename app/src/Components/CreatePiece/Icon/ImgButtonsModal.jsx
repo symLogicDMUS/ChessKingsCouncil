@@ -3,9 +3,8 @@ import Box from "@material-ui/core/Box";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import { Close } from "../../Reuseables/Modals/Close";
 import { UploadImgButton } from "./UploadImgButton";
-import { fontSize002 } from "../../styles/fontSizes.jss";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { button, close_icon, useStyles } from "./ImgButtonsModal.jss";
+import { useStyles } from "./ImgButtonsModal.jss";
 
 export function ImgButtonsModal({
     theme,
@@ -19,11 +18,12 @@ export function ImgButtonsModal({
     return (
         <div className={classes.modal}>
             <Box className={classes.window}>
-                <Box className={classes.top_flexbox}>
+                <Box className={classes.top_area}>
                     <Close
                         theme={theme}
-                        className={classes.close_icon}
                         onClick={close}
+                        className={classes.close}
+                        iconClassName={classes.close_icon}
                     />
                 </Box>
                 <Box className={classes.button_group}>

@@ -17,14 +17,17 @@ export const useStyles = makeStyles({
         borderRadius: '0.5rem',
     }),
     title: props => ({
-        fontWeight: 500,
-        lineHeight: 1.6,
-        overflow: 'hidden',
-        fontSize: '1.08rem',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
         letterSpacing: '0.0075em',
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+        '@media screen and (max-width: 960px)': {
+            fontSize: '1rem',
+        },
+        '@media screen and (min-width: 960px) and (max-width: 1040px)': {
+            fontSize: '0.9rem'
+        },
+        '@media screen and (min-width: 1040px)': {
+            fontSize: '1rem',
+        },
     }),
     search: props => ({
         '@media screen and (max-width: 500px)': {

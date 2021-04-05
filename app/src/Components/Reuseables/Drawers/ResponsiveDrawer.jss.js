@@ -4,33 +4,14 @@ import {themes} from "../../styles/themes.jss";
 const z = 5;
 export const appBarHeight = 48;
 export const navDrawerSmWidth = 180;
-
-export const pageTitle = (theme) => ({
-    fontWeight: 500,
-    lineHeight: 1.6,
-    overflow: 'hidden',
-    fontSize: '1.08rem',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    letterSpacing: '0.0075em',
-    color: themes[theme].text,
-    fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-});
+export const menuIconWidth = 48;
+export const menuIconMargin = 12;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
         '& .MuiToolbar-regular': {
             minHeight: 48,
             height: 48,
-        },
-        "& .MuiToolbar-gutters": {
-            '@media screen and (max-width: 960px)': {
-                paddingLeft: 16,
-                paddingRight: 4,
-            },
-            '@media screen and (min-width: 960px)': {
-                padding: 0
-            },
         },
     }),
     main: props => ({
@@ -57,7 +38,7 @@ export const useStyles = makeStyles((theme) => ({
     appBarSmCompressed: props => ({
        width: `calc(100% - ${navDrawerSmWidth}px)`
     }),
-    appBarRelaxed: props => ({
+    appBarMdRelaxed: props => ({
         width: '100%',
     }),
     menuButton: props => ({
@@ -93,9 +74,9 @@ export const useStyles = makeStyles((theme) => ({
     tools: props => ({
         zIndex: z,
         flexGrow: 1,
+        display: 'flex',
         paddingLeft: '1.15vw',
         paddingRight: '1.15vw',
-        display: 'flex',
         flexDirection: 'column',
     }),
     hidden: props => ({

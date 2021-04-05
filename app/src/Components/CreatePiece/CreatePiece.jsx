@@ -24,7 +24,6 @@ import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
-import {fontSize002, fontSize0026} from "../styles/fontSizes.jss";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
@@ -340,13 +339,13 @@ class CreatePiece extends React.Component {
 
     /**
      * set white or black image to null if it was just deleted from database
-     * @param deletedBase64ImgStr (str)
+     * @param deletedImgUrl (str)
      */
-    resetImg(deletedBase64ImgStr) {
-        if (this.whiteAndBlackImgs.white === deletedBase64ImgStr) {
+    resetImg(deletedImgUrl) {
+        if (this.whiteAndBlackImgs.white === deletedImgUrl) {
             this.whiteAndBlackImgs.white = null;
         }
-        if (this.whiteAndBlackImgs.black === deletedBase64ImgStr) {
+        if (this.whiteAndBlackImgs.black === deletedImgUrl) {
             this.whiteAndBlackImgs.black = null;
         }
         this.triggerRender();
@@ -362,7 +361,7 @@ class CreatePiece extends React.Component {
                         title={
                             <HelpTitle
                                 theme={this.state.theme}
-                                fontSize={fontSize0026}
+                                fontSize={'2.6vh'}
                             >
                                 Congratulations on Creating Your First Piece!
                                 Here's How To Put it Into a Game
@@ -427,9 +426,10 @@ class CreatePiece extends React.Component {
                     ) : null}
                 </div>
                 <ResponsiveDrawer
-                    theme={this.state.theme}
-                    appBarContent="Create Piece"
                     appBarType="title"
+                    appBarContent="Create Piece"
+                    theme={this.state.theme}
+                    className={this.props.classes.drawer}
                     tools={
                         <>
                             <Name
@@ -542,7 +542,7 @@ class CreatePiece extends React.Component {
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}
-                                    fontSize={fontSize0026}
+                                    fontSize={'2.6vh'}
                                 >
                                     Creating a Piece
                                 </HelpTitle>

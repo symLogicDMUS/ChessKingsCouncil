@@ -19,6 +19,7 @@ export function MuiButton(props) {
                 disabled={props.isDisabled}
                 startIcon={props.startIcon}
                 endIcon={props.endIcon}
+                style={props.style}
                 size={props.size}
             >
                 {props.children}

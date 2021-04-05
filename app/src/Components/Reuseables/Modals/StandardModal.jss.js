@@ -5,7 +5,7 @@ import {themes} from "../../styles/themes.jss";
 export const useStyles = makeStyles({
     modal: props => ({
         ...modal,
-        zIndex: 8,
+        zIndex: 7,
     }),
     window: props => ({
         fontSize: '2vh',

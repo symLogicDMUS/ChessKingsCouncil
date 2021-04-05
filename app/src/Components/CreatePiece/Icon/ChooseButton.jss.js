@@ -3,13 +3,10 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     button: props => ({
+        fontSize: '1rem',
+        color: themes[props.theme].text,
+        borderRadius: 0,
         width: '100%',
         height: '100%',
-        fontSize: '1rem',
-        borderRadius: 0,
-        color: themes[props.theme].text,
-    }),
-    icon: props => ({
-        fontSize: 'inherit',
     }),
 }, {index: 1});

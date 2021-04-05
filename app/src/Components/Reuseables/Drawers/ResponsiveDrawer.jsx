@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MiniVariantDrawer from "./MiniVariantDrawer";
 import { viewWidth } from "../../helpers/windowMeasurments";
-import { AppBarWithContent } from "../AppBar/AppBarWithContent";
+import { AppBarContent } from "../AppBar/AppBarContent";
 import { useStyles } from "./ResponsiveDrawer.jss";
 
 function ResponsiveDrawer({
@@ -26,6 +26,7 @@ function ResponsiveDrawer({
     elevation,
     seeMoreIcon,
     seeMoreIcon2,
+    className,
     children,
 }) {
     const [navDrawerWidth, setNavDrawerWidth] = useState(viewWidth() * 0.18);
@@ -57,7 +58,9 @@ function ResponsiveDrawer({
     };
 
     return (
-        <div className={classes.root}>
+        <div className={clsx(classes.root, {
+            [className]: className,
+        })}>
             <CssBaseline />
             <Hidden mdUp>
                 <AppBar
@@ -65,7 +68,7 @@ function ResponsiveDrawer({
                     elevation={elevation}
                     className={clsx(classes.appBar, {
                         [classes.appBarSmCompressed]: open,
-                        [classes.appBarRelaxed]: !open,
+                        [classes.appBarMdRelaxed]: !open,
                     })}
                 >
                     <Toolbar>
@@ -78,7 +81,7 @@ function ResponsiveDrawer({
                         >
                             <MenuIcon />
                         </IconButton>
-                        <AppBarWithContent
+                        <AppBarContent
                             open={open}
                             theme={theme}
                             type={appBarType}
@@ -88,7 +91,7 @@ function ResponsiveDrawer({
                             toolDrawerWidth={toolDrawerWidth}
                         >
                             {appBarContent}
-                        </AppBarWithContent>
+                        </AppBarContent>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.drawer} aria-label="nav bar component">
@@ -138,7 +141,7 @@ function ResponsiveDrawer({
                         >
                             <MenuIcon />
                         </IconButton>
-                        <AppBarWithContent
+                        <AppBarContent
                             open={open}
                             theme={theme}
                             type={appBarType}
@@ -148,7 +151,7 @@ function ResponsiveDrawer({
                             toolDrawerWidth={toolDrawerWidth}
                         >
                             {appBarContent}
-                        </AppBarWithContent>
+                        </AppBarContent>
                     </Toolbar>
                 </AppBar>
                 <div className={classes.drawer} aria-label="nav bar component">

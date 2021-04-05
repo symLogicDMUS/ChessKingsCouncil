@@ -5,9 +5,10 @@ import {Typography} from "@material-ui/core";
 import Hidden from "@material-ui/core/Hidden";
 import { TwoItemAppBar } from "./TwoItemAppBar";
 import { ThreeItemAppBar } from "./ThreeItemAppBar";
-import { useStyles } from "./AppBarWithContent.jss";
+import { useStyles } from "./AppBarContent.jss";
+import {PageTitle} from "./PageTitle";
 
-export function AppBarWithContent({
+export function AppBarContent({
     open,
     theme,
     type,
@@ -28,21 +29,14 @@ export function AppBarWithContent({
         <>
             <Hidden mdUp>
                 <Box
-                    className={clsx(classes.app_bar, {
+                    className={clsx(classes.content, {
                         [className]: className,
-                        [classes.appBarCompressedSm]: open,
-                        [classes.appBarRelaxedSm]: !open,
                     })}
                 >
                     {type === "title" ? (
-                        <Typography
-                            variant='h6'
-                            className={clsx(classes.title, {
-                                [className]: className,
-                            })}
-                        >
+                        <PageTitle theme={theme} className={className}>
                             {children}
-                        </Typography>
+                        </PageTitle>
                     ) : null}
                     {type === "2item" ? (
                         <TwoItemAppBar open={open} theme={theme} className={className} seeMoreIcon={seeMoreIcon} seeMoreIcon2={seeMoreIcon2}>
@@ -63,10 +57,8 @@ export function AppBarWithContent({
             </Hidden>
             <Hidden smDown>
                 <Box
-                    className={clsx(classes.app_bar, {
+                    className={clsx(classes.content, {
                         [className]: className,
-                        [classes.appBarCompressedLg]: open,
-                        [classes.appBarRelaxedLg]: !open,
                     })}
                 >
                     {type === "title" ? (

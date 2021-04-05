@@ -1,6 +1,6 @@
 import React from "react";
 import { copy } from "../helpers/copy";
-import { Portal, Typography } from "@material-ui/core";
+import { Portal } from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { saveGame } from "../../API/saveGame";

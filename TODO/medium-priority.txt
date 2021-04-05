@@ -1,13 +1,13 @@
 short:
-    change second MoreVert icon in Customize page header to SearchIcon
-    making Dnd layers absolute instead of fixed positioning because otherwise when board cut of bottom, you can't scroll
     consider memoizing ScrollTable items
 medium:
-    change size of Play button in NewGame page.
-    tweak icons for Customize page
-    add new function for GameBoard image strings back to SavedGames MuiGrid component
     memoize createPieceBoard
+    tweak icons for Customize page
+    change size of Play button in NewGame page.
+    add custom styles back to SaveAs text field
     fixe PieceProfiles Skeleton component (thin screens)
-    add help question mark icon to Promotion "Menu" that goes to pawn promotions part of help modal menu.
+    add new function for GameBoard image strings back to SavedGames MuiGrid component
+    animations for of MiniVariant tool modals (enter in)
+    Close Icon for MiniVariant Range and Location tool.
 long:
     optimize CreatePiece Board

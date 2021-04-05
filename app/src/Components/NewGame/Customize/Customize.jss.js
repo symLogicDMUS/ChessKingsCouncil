@@ -82,11 +82,16 @@ export const styles = {
         },
     }),
     ok_button: props => ({
-        fontSize: '2.3vh',
         '@media screen and (max-width: 960px)': {
+            height: `calc(12.5vh - ${48}px)`,
+            fontSize: '1rem',
             width: `calc(100% - ${miniVariantIconsColumnWidth}px)`,
+            position: 'fixed',
+            bottom: 0,
+            borderRadius: 0,
         },
         '@media screen and (min-width: 960px)': {
+            fontSize: '2.3vh',
             width: drawerItemWidth,
             marginLeft: drawerItemMarginLeft,
         },
@@ -132,9 +137,9 @@ export const styles = {
         },
     }),
     title: props => ({
+        lineHeight: 1.6,
         marginRight: 'auto',
         letterSpacing: '0.0075em',
-        lineHeight: 1.6,
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
         '@media screen and (max-width: 960px)': {
             fontSize: '1rem',
@@ -147,12 +152,22 @@ export const styles = {
         },
     }),
     tools: props => ({
-        // height: '40vw',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginTop: 24,
         marginBottom: 'auto',
+    }),
+    drawer: props => ({
+        "& .MuiToolbar-gutters": {
+            '@media screen and (max-width: 960px)': {
+                paddingLeft: 16,
+                paddingRight: 56,
+            },
+            '@media screen and (min-width: 960px)': {
+                padding: 0
+            },
+        },
     }),
 }

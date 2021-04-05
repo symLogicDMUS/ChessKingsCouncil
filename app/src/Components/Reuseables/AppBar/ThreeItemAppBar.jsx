@@ -1,10 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {SeeMore} from "../UserInput/SeeMore";
-import SearchIcon from "@material-ui/icons/Search";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {useStyles as useMoreStyles} from "../UserInput/SeeMore.jss";
 import {useStyles} from "./ThreeItemAppBar.jss";
 
 export function ThreeItemAppBar({className, theme, seeMoreIcon, seeMoreIcon2, children}) {
@@ -14,7 +12,6 @@ export function ThreeItemAppBar({className, theme, seeMoreIcon, seeMoreIcon2, ch
     const sm = useMediaQuery("(max-width: 580px)");
 
     const classes = useStyles();
-    const classes2 = useMoreStyles({theme: theme});
 
     const getComponent = () => {
         if (lg) {
@@ -73,7 +70,7 @@ export function ThreeItemAppBar({className, theme, seeMoreIcon, seeMoreIcon2, ch
                     <Box className={clsx(classes.itemBox, {[classes.justifyStart]: true})}>
                         {children[0]}
                     </Box>
-                    <Box className={clsx(classes.itemBox, {[classes.justifyEndAndGrow]: true})}>
+                    <Box className={clsx(classes.itemBox)} style={{marginLeft: 'auto'}}>
                         <SeeMore theme={theme} icon={seeMoreIcon}>
                             {children[1]}
                         </SeeMore>

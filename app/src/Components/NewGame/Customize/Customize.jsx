@@ -1,6 +1,5 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
 import {NavBar} from "../../Reuseables/NavBar/NavBar";
 import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
@@ -14,6 +13,7 @@ import {SubList} from "./SubList";
 import {newData} from "../NewData";
 import {ToolModal} from "./ToolModal";
 import {copy} from "../../helpers/copy";
+import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import {difference} from "../../helpers/setOps";
 import {isSpecial} from "../../helpers/isSpecial";
@@ -22,15 +22,15 @@ import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
 import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
 import {fontSize0023, fontSize0026} from "../../styles/fontSizes.jss";
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import {specialPieceImgUrlList} from "../../MyPieces/specialPieceImgUrlList/dev1";
 import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
 import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {SearchBox} from "../../Reuseables/UserInput/SearchBox";
+import {PageTitle} from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
+import MoreIcon from "@material-ui/icons/MoreVert";
 import {textColor, styles} from "./Customize.jss";
-import Box from "@material-ui/core/Box";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -351,16 +351,13 @@ class Customize extends React.Component {
                 ) : null}
                 <ResponsiveDrawer
                     elevation={0}
+                    className={this.props.classes.drawer}
                     theme={this.state.theme}
                     appBarType='3item'
                     appBarContent={[
-                        <Typography
-                            variant='h6'
-                            className={this.props.classes.title}
-                            style={textColor(this.state.theme)}
-                        >
+                        <PageTitle theme={this.state.theme}>
                             Customize Game
-                        </Typography>,
+                        </PageTitle>,
                         <MuiCheckbox
                             noWrap={true}
                             variant='caption'
@@ -377,6 +374,9 @@ class Customize extends React.Component {
                             isMenuItem={true}
                         />,
                     ]}
+                    seeMoreIcon={
+                        <MoreIcon style={textColor(this.state.theme)}/>
+                    }
                     seeMoreIcon2={
                         <SearchIcon style={textColor(this.state.theme)}/>
                     }
@@ -465,17 +465,17 @@ class Customize extends React.Component {
                     }
                 >
                     <PieceProfiles
-                        parentPage="Customize"
                         defs={this.defs}
                         subs={this.subs}
                         promos={this.promos}
-                        updateParent={this.setDefs}
-                        newReplacement={this.newReplacement}
-                        newReplaced={this.newReplaced}
+                        parentPage="Customize"
                         toggleSub={this.toggleSub}
+                        updateParent={this.setDefs}
+                        newReplaced={this.newReplaced}
                         togglePromo={this.togglePromo}
-                        searchText={this.state.searchText}
                         updateTheme={this.updateTheme}
+                        searchText={this.state.searchText}
+                        newReplacement={this.newReplacement}
                         className={this.props.classes.piece_profiles}
                         theme={this.state.theme}
                     />

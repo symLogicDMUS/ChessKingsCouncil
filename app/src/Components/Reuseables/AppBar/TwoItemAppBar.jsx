@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {SeeMore} from "../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {useStyles as useMoreStyles} from "./AppBarWithContent.jss";
+import {useStyles as useMoreStyles} from "./AppBarContent.jss";
 import { useStyles } from "./TwoItemAppBar.jss";
 
 export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, className, seeMoreIcon, children}) {
@@ -21,7 +21,7 @@ export function TwoItemAppBar({open, navDrawerWidth, toolDrawerWidth, theme, cla
             className={clsx(classes.two_item_app_bar, {
                 [className]: className,
                 [classes2.appBarMdCompressed]: open,
-                [classes2.appBarRelaxed]: ! open,
+                [classes2.appBarMdRelaxed]: ! open,
             })}
         >
             <div className={classes.child1}>

@@ -2,15 +2,15 @@ import React from "react";
 import * as firebase from "firebase";
 import "firebase/storage";
 import "firebase/database";
-import {Button} from "@material-ui/core";
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import { useStyles } from "../../Reuseables/Clickables/MuiButton.jss";
-import {saveImg} from "../../../API/saveImg";
 import clsx from "clsx";
+import {Button} from "@material-ui/core";
+import {saveImg} from "../../../API/saveImg";
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import {useStyles} from "./UploadImgButton.jss";
 
-export function UploadImgButton({color, id, setPieceImg, close, theme, className, addedClassName}) {
+export function UploadImgButton({color, id, setPieceImg, close, theme, className, addedClassName, style, children}) {
 
-    const classes = useStyles({ theme: theme});
+    const classes = useStyles({theme});
 
     const saveCopy = (file, uid) => {
         const filePartitions = file.name.split('.')
@@ -69,15 +69,16 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, className
 
     return (
         <Button
-            variant="contained"
+            variant="text"
             component="label"
             className={clsx(classes.button, {
                 [className]: className,
                 [addedClassName]: addedClassName,
             })}
-            startIcon={<CloudUploadIcon style={{fontSize: 'inherit'}}/>}
+            style={style}
+            startIcon={<CloudUploadIcon className={classes.icon}/>}
         >
-            Upload
+            {children}
             <input id={id} type="file" onChange={(e) => handleChange(e)} hidden/>
         </Button>
     );

@@ -3,6 +3,7 @@ import {themes} from "../../styles/themes.jss";
 
 const windowSize = '30vw';
 export const borderRadius = {borderRadius: '0.25rem'};
+export const originTransform = {vertical: 'top', horizontal: 'right'};
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -10,7 +11,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
-        '@media screen and (max-width: 960px)':{
+        '@media screen and (max-width: 960px)': {
             width: windowSize,
             height: windowSize,
             border: `0.02em solid ${themes[props.theme].outline}`,
@@ -22,12 +23,12 @@ export const useStyles = makeStyles({
         },
     }),
     white_window: props => ({
-       '@media screen and (max-width: 960px)': {
-           marginRight: '1.75vw',
-           marginLeft: '3.5vw',
-           marginTop: '1.75vw',
-           marginBottom: '3.5vw',
-       },
+        '@media screen and (max-width: 960px)': {
+            marginRight: '1.75vw',
+            marginLeft: '3.5vw',
+            marginTop: '1.75vw',
+            marginBottom: '3.5vw',
+        },
     }),
     black_window: props => ({
         '@media screen and (max-width: 960px)': {
@@ -45,33 +46,26 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '3vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.25vw',
-        },
+        fontSize: 'inherit',
         color: themes[props.theme].text,
-        padding: 0,
+        marginRight: '0.2rem',
     }),
     text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '3vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.25vw',
-        },
+        fontSize: '2.85vh',
         color: themes[props.theme].text,
-        fontFamily: 'Roboto-Light, Roboto',
-        marginLeft: '0.25em',
-        lineHeight: '0.7em',
     }),
     borderRadius: props => ({
-        '@media screen and (max-width: 960px)':{
+        '@media screen and (max-width: 960px)': {
             borderRadius: '0.035rem',
         },
         '@media screen and (min-width: 960px)': {
             borderRadius: '0.25rem',
         },
+    }),
+    img_upload_option: props => ({
+        backgroundColor: 'unset',
+    }),
+    menu_item: props => ({
+        padding: 0,
     }),
 }, {index: 1});
