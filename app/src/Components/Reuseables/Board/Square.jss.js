@@ -1,6 +1,8 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
+import {darken, getLuminance, lighten} from "@material-ui/core/styles";
+import {fade} from "@material-ui/core";
 
 
 export const useStyles = makeStyles({
@@ -19,17 +21,37 @@ export const useStyles = makeStyles({
     light_normal: props => ({
         backgroundColor: themes[props.theme].light_normal,
     }),
-    light_in_range: props => ({
-        backgroundColor: themes[props.theme].light_in_range,
+    dark_with_hover: props => ({
+        // backgroundColor: themes[props.theme].dark_normal,
+        backgroundColor: fade('#fff', 0.085),
+        '&:hover':{
+            backgroundColor: themes[props.theme].sqr_hover,
+        }
+    }),
+    light_with_hover: props => ({
+        // backgroundColor: themes[props.theme].light_normal,
+        backgroundColor: fade('#fff', 0.115),
+        '&:hover':{
+            backgroundColor: themes[props.theme].sqr_hover,
+        }
     }),
     dark_in_range: props => ({
         background: themes[props.theme].dark_in_range,
     }),
+    light_in_range: props => ({
+        backgroundColor: themes[props.theme].light_in_range,
+    }),
     offset: props => ({
         backgroundColor: themes[props.theme].offset,
+        '&:hover':{
+            backgroundColor: lighten(themes[props.theme].offset, 0.2),
+        },
     }),
     span: props => ({
         backgroundColor: themes[props.theme].span,
+        '&:hover':{
+            backgroundColor: lighten(themes[props.theme].span, 0.2),
+        },
     }),
     span_alt: props => ({
         backgroundColor: themes[props.theme].span_alt,
@@ -39,7 +61,6 @@ export const useStyles = makeStyles({
     }),
     profile_wb_light: props => ({
         backgroundColor: themes[props.theme].even_row,
-        ...props.style,
     }),
     transparent: props => ({
         opacity: 0,

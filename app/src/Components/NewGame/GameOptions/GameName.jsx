@@ -17,7 +17,7 @@ export function GameName({setGameName, theme, screenCase}) {
             })}>
                 <img src={`/Images/text/new game/subtitles/${theme}/Game Name.svg`} className={classes2.title} />
                 <MuiTextField
-                    rootClassName={classes.game_name}
+                    className={classes.game_name}
                     onChange={setGameName}
                     id="pick-game-name"
                     label="Pick game name"

@@ -1,18 +1,17 @@
 import React from "react";
 import {HelpText} from "./HelpText";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {Typography} from "@material-ui/core";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {Background} from "../Reuseables/Background/Background";
 import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SavedGamesTitle} from "./SavedGamesTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import {useStyles} from "./SavedGames.jss";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 
 export function SavedGames(props) {
     const isThin = useMediaQuery("(max-width:960px)");

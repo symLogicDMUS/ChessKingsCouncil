@@ -39,7 +39,7 @@ export function Name({updateName, toggleMiniVariantTool, theme, defaultValue}) {
                                     onChange={handleInput}
                                     defaultValue={defaultValue}
                                     size={isThin ? 'small' : 'medium'}
-                                    rootClassName={classes.name}
+                                    className={classes.name}
                                     id="game-name"
                                 />
                             </motion.div>
@@ -58,7 +58,7 @@ export function Name({updateName, toggleMiniVariantTool, theme, defaultValue}) {
                     onChange={handleInput}
                     defaultValue={defaultValue}
                     size={isThin ? 'small' : 'medium'}
-                    rootClassName={classes.name}
+                    className={classes.name}
                     id="game-name"
                 />
             </Hidden>

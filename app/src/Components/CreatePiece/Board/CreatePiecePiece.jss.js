@@ -20,6 +20,15 @@ export const useStyles = makeStyles({
     dark_sqr_text: props => ({
         color: themes[props.theme].sqr_text_dark,
     }),
+    rf_text: props => ({
+        '@media screen and (max-width: 960px)': {
+            fontSize: '3.25vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            fontSize: '1.5vw',
+        },
+        color: themes[props.theme].sqr_hover_alt,
+    }),
     piece_loc_highlight: props => ({
         color: themes[props.theme].sqr_hover,
     }),

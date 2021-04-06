@@ -1,5 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
+import {themes} from "../../styles/themes.jss";
 
 export const sqrSize = {
     wide: '5.3125vw',
@@ -20,9 +21,9 @@ export const useStyles = makeStyles({
             top: smTop,
         },
         '@media screen and (min-width: 960px)': {
-            boxShadow: '0 0 0.1em white',
             left: lgLeft,
             top: lgTop,
         },
+        boxShadow: '0 0 0.15rem white',
     }),
 }, {index: 1});

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { Fab } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
@@ -12,18 +12,29 @@ export function FabChild({
     className,
     style,
     theme,
+    isHoverRed,
 }) {
+    const [hover, setHover] = useState(false);
+
     const classes = useStyles({ theme: theme });
+
     return (
         <Fab
             onClick={onClick}
             className={clsx(classes.fab, {
                 [className]: className,
+                [classes.rangeHoverButton]: isHoverRed,
+                [classes.locHoverButton]: ! isHoverRed,
             })}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
             size='small'
             style={style}
         >
-            <CloseIcon />
+            <CloseIcon className={clsx(classes.fab_icon, {
+                [classes.rangeHoverIcon]: isHoverRed && hover,
+                [classes.locHoverIcon]: ! isHoverRed && hover,
+            })} />
         </Fab>
     );
 }

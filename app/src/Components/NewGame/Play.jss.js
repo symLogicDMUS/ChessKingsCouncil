@@ -1,20 +1,17 @@
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize001725, fontSize0018, fontSize002} from "../styles/fontSizes.jss";
-import {viewWidth} from "../helpers/windowMeasurments";
-
-export const icon = () => ({
-    fontSize: 'inherit',
-    height: '1.5em',
-});
 
 export const useStyles = makeStyles({
     play_button: props => ({
-        /*phones/tablets (generalized)*/
-        '@media screen and (max-width: 960px)':{
-            width: '40vw',
+        "@media screen and (max-width: 640px)":{
+            width: '45vw',
         },
-        /*laptop/wide*/
+        '@media screen and (min-width: 640px) and (max-width: 912px)': {
+            width: '30vw',
+        },
+        '@media screen and (min-width: 912px) and (max-width: 960px)': {
+            width: '22.5vw',
+        },
         '@media screen and (min-width: 960px)': {
             width: '17.5vw',
         },

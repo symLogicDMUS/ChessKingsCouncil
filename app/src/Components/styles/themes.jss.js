@@ -33,7 +33,7 @@ export const themes = {
         sqr_text_light: '#a9a9a9',
         sqr_text_dark: '#ffffff',
         sqr_border: '#00CCff',
-        sqr_hover: '#00ccff',
+        sqr_hover: 'rgba(255, 255, 255, 0.2)',
         sqr_hover_alt: '#669df6',
         page_link: '#a9a9a9',
         page_link_hover: '#ffffff',

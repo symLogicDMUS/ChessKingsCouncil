@@ -1,14 +1,11 @@
 short:
     consider memoizing ScrollTable items
 medium:
+    modify Saved Pieces header for thin screens.
     loading bar for uploading a piece from computer.
-    memoize createPieceBoard
-    tweak icons for Customize page
-    change size of Play button in NewGame page.
-    add custom styles back to SaveAs text field
-    fixe PieceProfiles Skeleton component (thin screens)
+    memoize createPieceBoard.
+    tweak icons for Customize page.
     animations for of MiniVariant tool modals (enter in)
-    Close Icon for MiniVariant Range and Location tool.
     Modification of styles of of Promo modal
 long:
     optimize CreatePiece Board

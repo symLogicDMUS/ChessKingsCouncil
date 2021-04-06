@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 export function MuiTextField(props) {
 
     return (
-        <Box className={props.rootClassName}>
+        <Box className={props.className}>
             <TextField
                 id={props.id}
                 size={props.size}

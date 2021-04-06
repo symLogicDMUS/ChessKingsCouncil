@@ -21,8 +21,6 @@ export function PieceProfiles (props) {
 
     useEffect(() => {
         let defs;
-        // defs = getSampleDefs();
-        // afterLoaded(defs)
         getDefs().then(([result]) => {
             if (!result) {
                 saveDefs(dbSampleDefs).then(([r]) => {

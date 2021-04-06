@@ -22,7 +22,7 @@ export const styles = {
     drawer: props => ({
         "& .MuiToolbar-gutters": {
             '@media screen and (max-width: 960px)': {
-                paddingLeft: 30,
+                paddingLeft: 20,
                 paddingRight: 4,
             },
             '@media screen and (min-width: 960px)': {

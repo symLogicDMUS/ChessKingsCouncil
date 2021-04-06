@@ -36,6 +36,7 @@ export function SaveAs({changeName, save, close, theme}) {
                         margin="dense"
                         label="Enter new name of game"
                         variant={"outlined"}
+                        className={classes.text_field}
                         onChange={handleChange}
                     />
                 </DialogContent>

@@ -14,6 +14,6 @@ export const useStyles = makeStyles({
     }),
     adjust: props => ({
         position: 'relative',
-        top: 18,
+        top: '1.75vw',
     }),
 }, {index: 1});

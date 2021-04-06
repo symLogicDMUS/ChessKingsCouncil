@@ -1,8 +1,10 @@
 short:
+    change color of Close Icon for Location and Range MiniVariant tools on hover
     for SubDropdown, decide if want to keep list items both icons and text, or just have icons
     new icon of a board for Load Game modal
     consider making tool buttons text/icons bigger.
 medium:
+    * add to settings, option to choose between light board style and dark board style (for all themes)
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
 long:

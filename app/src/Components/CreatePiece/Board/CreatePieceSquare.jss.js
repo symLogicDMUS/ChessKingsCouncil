@@ -1,8 +1,13 @@
-/**
- * see ChessKingsCouncil/app/src/Reuseables/Square.jss
- * */
-import {makeStyles} from "@material-ui/core/styles";
+import {lighten, makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
+
+export const arrowHover = (theme) => ({
+    backgroundColor: themes[theme].offset,
+});
+
+export const rfHover = (theme) => ({
+    backgroundColor: lighten(themes[theme].sqr_hover_alt, 0.2),
+});
 
 export const useStyles = makeStyles({
     square: props => ({
@@ -16,9 +21,12 @@ export const useStyles = makeStyles({
             maxHeight: '11vh',
         },
     }),
-    on_hover: props => ({
-        '&:hover': {
-            backgroundColor: themes[props.theme].sqr_hover
+    arrow_hover: props => ({
+        '&:hover':{
+            backgroundColor: themes[props.theme].offset,
         },
     }),
 }, {index: 1});
+/**
+ * see ChessKingsCouncil/app/src/Reuseables/Square.jss for other
+ * */

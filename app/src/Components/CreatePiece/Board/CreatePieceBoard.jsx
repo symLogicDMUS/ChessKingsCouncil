@@ -29,7 +29,7 @@ export function CreatePieceBoard({
     const isWide = useMediaQuery("(min-width: 960px)");
     const screenCase = isWide ? "wide" : "thin";
 
-    const classes = useStyles();
+    const classes = useStyles({theme: theme});
 
     const getRegularSquare = (rf) => {
         const hasFabChild = getHasFabChild(rf, pieceLoc, miniVariantTool)
@@ -49,7 +49,11 @@ export function CreatePieceBoard({
                 hasToolChild={false}
             >
                 {hasFabChild ? (
-                    <FabChild theme={theme} onClick={() => toggleMiniVariantTool(miniVariantTool)} />
+                    <FabChild
+                        theme={theme}
+                        isHoverRed={miniVariantTool==="Range"}
+                        onClick={() => toggleMiniVariantTool(miniVariantTool)}
+                    />
                 ) : null}
             </Square>
         );
@@ -75,10 +79,10 @@ export function CreatePieceBoard({
                 hasToolChild={false}
             >
                 <Piece
+                    rf={rf}
                     key="piece"
                     theme={theme}
                     imgUrl={imgUrl}
-                    rf={rf.toUpperCase()}
                     pieceLocHighlight={pieceLocHighlight}
                 />
             </Square>
@@ -102,6 +106,7 @@ export function CreatePieceBoard({
                 toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
+                toolChildType="arrow"
             >
                 <ArrowButton
                     rf={rf}
@@ -135,6 +140,7 @@ export function CreatePieceBoard({
                 toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
+                toolChildType="rf"
             >
                 <LocationButton
                     rf={rf}

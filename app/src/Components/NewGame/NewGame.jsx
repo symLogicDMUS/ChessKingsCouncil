@@ -16,6 +16,7 @@ import {Background} from "../Reuseables/Background/Background";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./NewGame.jss";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 
 
 function NewGame() {
@@ -81,7 +82,7 @@ function NewGame() {
                     <NavBar
                         currentPage="NewGame"
                         helpText={HelpText('4.5vw', theme)}
-                        helpTitle={<HelpTitle theme={theme} fontSize={'2.6vh'}>New Game</HelpTitle>}
+                        helpTitle={<HelpTitle theme={theme} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}
                         additionalSettings={null}
@@ -89,7 +90,7 @@ function NewGame() {
                     />
                 }
                 navHorizontal={isWide}
-                appBarContent="New Game"
+                appBarContent={<PageTitle theme={theme}>New Game</PageTitle>}
                 appBarType="title"
                 toolButtons={null}
                 tools={null}

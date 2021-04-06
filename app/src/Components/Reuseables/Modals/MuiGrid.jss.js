@@ -62,6 +62,8 @@ export const useStyles = makeStyles((theme) => ({
         },
         '@media screen and (min-width: 960px)': {
             width: '85.5vw',
+            paddingTop: '1vw',
+            paddingBottom: '1vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
         },
