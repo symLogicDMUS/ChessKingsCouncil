@@ -17,6 +17,7 @@ export function SpanArrowButtons({ spans, toggleSpan, screenCase, theme, toggleM
                     screenCase={screenCase}
                     toggleMiniVariantTool={toggleMiniVariantTool}
                     theme={theme}
+                    rf={null}
                 />
             );
         }

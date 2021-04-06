@@ -3,14 +3,17 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles({
     sqr_text: props => ({
         '@media screen and (max-width: 960px)':{
-            fontSize: '2.6vw',
+            fontSize: '2.25vw',
         },
-        /*laptop/wide*/
         '@media screen and (min-width: 960px)':{
-            fontSize: '2.75vh',
+            fontSize: '1.2vw',
         },
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
         color: '#ffffff',
+    }),
+    adjust: props => ({
+        position: 'relative',
+        top: 18,
     }),
 }, {index: 1});

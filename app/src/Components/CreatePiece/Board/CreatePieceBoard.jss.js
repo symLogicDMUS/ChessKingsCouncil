@@ -6,19 +6,23 @@ export const sqrSize = {
     thin: '10.5vw',
 };
 
+export const smLeft = '4vw';
+export const lgLeft = '25.25vw';
+export const smTop = appBarHeight*1.1;
+export const lgTop = 56;
+
 export const useStyles = makeStyles({
     board: props => ({
         display: 'grid',
+        position: 'absolute',
         '@media screen and (max-width: 960px)': {
-            position: 'fixed',
-            left: '4vw',
-            top: appBarHeight*1.1,
+            left: smLeft,
+            top: smTop,
         },
         '@media screen and (min-width: 960px)': {
             boxShadow: '0 0 0.1em white',
-            position: 'absolute',
-            left: '25.25vw',
-            top: 56,
+            left: lgLeft,
+            top: lgTop,
         },
     }),
 }, {index: 1});

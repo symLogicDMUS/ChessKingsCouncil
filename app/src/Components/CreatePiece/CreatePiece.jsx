@@ -222,8 +222,10 @@ class CreatePiece extends React.Component {
         });
     }
 
+    /**
+     * used by Reset Option when not a loaded piece
+     * */
     clear() {
-        /*used by Reset Option when not a loaded piece*/
         this.resetOffsetsAndRange();
         this.whiteAndBlackImgs = { white: null, black: null };
         this.name = "";
@@ -248,11 +250,14 @@ class CreatePiece extends React.Component {
 
     /**used by Range tool*/
     toggleSpan(angle) {
-        this.spans[angle] = !this.spans[angle];
+        this.spans[angle] = ! this.spans[angle];
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = this.spans[angle];
+            if (this.offsetDisplays[rf]) {
+                this.removeOffset(rf)
+            }
             rf = stepFunc(rf);
         }
         this.setState({ unsavedChanges: true });
@@ -287,13 +292,24 @@ class CreatePiece extends React.Component {
 
     /**used by Range tool*/
     toggleOffset(rf, offset) {
-        this.offsetDisplays[rf] = !this.offsetDisplays[rf];
+        this.offsetDisplays[rf] = ! this.offsetDisplays[rf];
         let offsetStrs = this.offsets.map((o) => JSON.stringify(o));
         if (offsetStrs.includes(JSON.stringify(offset))) {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
         this.setState({ unsavedChanges: true });
+    }
+
+    /**called by this.toggleSpan() used when span is overriding an offset */
+    removeOffset(rf) {
+        this.offsetDisplays[rf] = false;
+        let [x1, y1] = rfToXy(this.location);
+        let [x2, y2] = rfToXy(rf);
+        let offset = [x2 - x1, y2 - y1];
+        let offsetStrs = this.offsets.map((o) => JSON.stringify(o));
+        let i = offsetStrs.indexOf(JSON.stringify(offset));
+        this.offsets.splice(i, 1);
     }
 
     /**used by the Location tool. Changes the spans displayed on board when piece location changes*/
@@ -624,6 +640,7 @@ class CreatePiece extends React.Component {
             </>
         );
     }
+
 }
 
 export default withStyles(styles)(CreatePiece);

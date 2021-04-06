@@ -20,6 +20,7 @@ export const CreatePieceSquare = memo(({
     showOffsetText,
     pieceLocHighlight,
     hasToolChild,
+    hasFabChild,
     children,
 }) => {
     const classes = useStyles({
@@ -30,7 +31,7 @@ export const CreatePieceSquare = memo(({
     const classes2 = useMoreStyles({theme: theme});
 
     const handleClick = () => {
-        if (! hasToolChild) {
+        if (! hasToolChild && ! isSpan) {
             toggleOffset(rf, getOffset(rf, pieceLoc))
         }
     };
@@ -49,15 +50,16 @@ export const CreatePieceSquare = memo(({
             })}
         >
             {(isSpan && showSpanText && ! hasToolChild) ? (
-                <SpanLabel theme={theme}/>
+                <SpanLabel theme={theme} hasFabChild={hasFabChild}/>
             ) : null}
-            {children}
             {(isOffset && showOffsetText && ! hasToolChild ) ? (
                 <OffsetLabel
-                    theme={theme}
                     offset={getOffset(rf, pieceLoc)}
+                    hasFabChild={hasFabChild}
+                    theme={theme}
                 />
             ) : null}
+            {children}
         </div>
     );
 });

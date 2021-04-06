@@ -69,7 +69,7 @@ export function LoadDeleteHeader({
             <div className={clsx(classes.header, {
                 [classes2.header]: true,
             })}>
-                <PieceName theme={theme}>
+                <PieceName theme={theme} tooltipPlacement={'left-start'}>
                     {pieceName}
                 </PieceName>
                 <Button

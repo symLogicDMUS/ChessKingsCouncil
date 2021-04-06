@@ -1,17 +1,16 @@
 import React from "react";
 import "../../helpers/stepFuncs";
-import {useMediaQuery} from "@material-ui/core";
+import {FabChild} from "./FabChild";
+import {getHasFabChild} from "./getHasFabChild";
 import { difference } from "../../helpers/setOps";
 import { rankfiles } from "../../helpers/rankfiles";
-import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
+import { useMediaQuery } from "@material-ui/core";
 import { LocationButton } from "../Location/LocationButton";
+import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
 import { ArrowButton } from "../Range/SpanArrowButtons/ArrowButton";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import { useStyles } from "./CreatePieceBoard.jss";
-import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
-import {getOffset} from "../../helpers/getOffset";
-import {Options} from "../Options/Options";
 
 export function CreatePieceBoard({
     theme,
@@ -25,14 +24,15 @@ export function CreatePieceBoard({
     showSpanText,
     showOffsetText,
     miniVariantTool,
-    toggleMiniVariantTool
+    toggleMiniVariantTool,
 }) {
-    const isWide = useMediaQuery('(min-width: 960px)');
-    const screenCase = isWide ? 'wide' : 'thin';
+    const isWide = useMediaQuery("(min-width: 960px)");
+    const screenCase = isWide ? "wide" : "thin";
 
     const classes = useStyles();
 
-    const getEmptySquare = (rf) => {
+    const getRegularSquare = (rf) => {
+        const hasFabChild = getHasFabChild(rf, pieceLoc, miniVariantTool)
         return (
             <Square
                 rf={rf}
@@ -45,9 +45,12 @@ export function CreatePieceBoard({
                 screenCase={screenCase}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                hasFabChild={hasFabChild}
                 hasToolChild={false}
             >
-                {null}
+                {hasFabChild ? (
+                    <FabChild theme={theme} onClick={() => toggleMiniVariantTool(miniVariantTool)} />
+                ) : null}
             </Square>
         );
     };
@@ -66,10 +69,13 @@ export function CreatePieceBoard({
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
                 pieceLocHighlight={pieceLocHighlight}
+                miniVariantTool={miniVariantTool}
+                toggleMiniVariantTool={toggleMiniVariantTool}
+                hasFabChild={false}
                 hasToolChild={false}
             >
                 <Piece
-                    key='piece'
+                    key="piece"
                     theme={theme}
                     imgUrl={imgUrl}
                     rf={rf.toUpperCase()}
@@ -80,7 +86,6 @@ export function CreatePieceBoard({
     };
 
     const getSquareWithArrowButton = (rf, angle) => {
-        let hasToolChild;
         return (
             <Square
                 rf={rf}
@@ -93,6 +98,9 @@ export function CreatePieceBoard({
                 screenCase={screenCase}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                miniVariantTool={miniVariantTool}
+                toggleMiniVariantTool={toggleMiniVariantTool}
+                hasFabChild={false}
                 hasToolChild={true}
             >
                 <ArrowButton
@@ -103,7 +111,7 @@ export function CreatePieceBoard({
                     isOffset={offsetDisplays[rf]}
                     toggleMiniVariantTool={toggleMiniVariantTool}
                     pieceLoc={pieceLoc}
-                    screenCase='thin'
+                    screenCase="thin"
                     theme={theme}
                 />
             </Square>
@@ -123,6 +131,9 @@ export function CreatePieceBoard({
                 screenCase={screenCase}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
+                miniVariantTool={miniVariantTool}
+                toggleMiniVariantTool={toggleMiniVariantTool}
+                hasFabChild={false}
                 hasToolChild={true}
             >
                 <LocationButton
@@ -152,7 +163,7 @@ export function CreatePieceBoard({
             if (rf === pieceLoc) {
                 squares.push(getSquareWithPiece(rf, false));
             } else {
-                squares.push(getEmptySquare(rf));
+                squares.push(getRegularSquare(rf));
             }
         }
         return squares;
@@ -166,9 +177,8 @@ export function CreatePieceBoard({
                 squares.push(getSquareWithPiece(rf, true));
             } else if (locations.includes(rf)) {
                 squares.push(getSquareWithLocationButton(rf));
-            }
-            else {
-                squares.push(getEmptySquare(rf))
+            } else {
+                squares.push(getRegularSquare(rf));
             }
         }
         return squares;
@@ -180,29 +190,27 @@ export function CreatePieceBoard({
             if (rf === pieceLoc) {
                 squares.push(getSquareWithPiece(rf, false));
             } else {
-                squares.push(getEmptySquare(rf));
+                squares.push(getRegularSquare(rf));
             }
         }
         return squares;
     };
 
     const getBoard = () => {
-        if (screenCase==='thin') {
-            if (miniVariantTool==="Range") {
-                return getRangToolBoard()
+        if (screenCase === "thin") {
+            if (miniVariantTool === "Range") {
+                return getRangToolBoard();
             }
-            if (miniVariantTool==="Location") {
-                return getLocationToolBoard()
+            if (miniVariantTool === "Location") {
+                return getLocationToolBoard();
             }
         }
-        return getRegularBoard()
+        return getRegularBoard();
     };
 
     return (
         <>
-            <div className={classes.board}>
-                {getBoard()}
-            </div>
+            <div className={classes.board}>{getBoard()}</div>
         </>
     );
 }

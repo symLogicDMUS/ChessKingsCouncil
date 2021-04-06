@@ -1,15 +1,14 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {Chip, Typography} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import {Typography} from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
-import CloseIcon from "@material-ui/icons/Close";
 import { useStyles } from "./LocationButton.jss";
 
-export function LocationButton({rf, onClick, selected, theme, toggleMiniVariantTool}) {
+export const LocationButton = memo(({rf, onClick, selected, theme, toggleMiniVariantTool}) => {
     const classes = useStyles({theme: theme, rf: rf})
     const classes2 = useMoreStyles({theme: theme});
     return (
@@ -20,13 +19,6 @@ export function LocationButton({rf, onClick, selected, theme, toggleMiniVariantT
                         <Typography className={classes.text} variant='button'>{rf}</Typography>
                     </IconButton>
                 </Box>
-                {rf === 'e5' ? (
-                        <Chip
-                            label="close"
-                            onDelete={() => toggleMiniVariantTool("Location")}
-                            // className={classes.chip}
-                        />
-                ) : null}
             </MediaQuery>
             <MediaQuery minWidth={960}>
                 <Button
@@ -42,4 +34,4 @@ export function LocationButton({rf, onClick, selected, theme, toggleMiniVariantT
             </MediaQuery>
         </>
     );
-}
+});

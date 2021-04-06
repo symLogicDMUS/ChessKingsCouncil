@@ -1,10 +1,10 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import { Avatar } from "@material-ui/core";
 import { binaryBoard } from "../../helpers/binaryBoard";
 import { useStyles } from "./CreatePiecePiece.jss";
 
-export function CreatePiecePiece({ imgUrl, rf, theme, pieceLocHighlight }) {
+export const CreatePiecePiece = memo(({ imgUrl, rf, theme, pieceLocHighlight }) => {
     const classes = useStyles({
         theme: theme,
     });
@@ -27,4 +27,4 @@ export function CreatePiecePiece({ imgUrl, rf, theme, pieceLocHighlight }) {
             )}
         </>
     );
-}
+});

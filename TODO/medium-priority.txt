@@ -1,6 +1,7 @@
 short:
     consider memoizing ScrollTable items
 medium:
+    loading bar for uploading a piece from computer.
     memoize createPieceBoard
     tweak icons for Customize page
     change size of Play button in NewGame page.

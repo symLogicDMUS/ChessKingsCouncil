@@ -21,19 +21,19 @@ export function PieceProfiles (props) {
 
     useEffect(() => {
         let defs;
-        defs = getSampleDefs();
-        afterLoaded(defs)
-        // getDefs().then(([result]) => {
-        //     if (!result) {
-        //         saveDefs(dbSampleDefs).then(([r]) => {
-        //             defs = getSampleDefs();
-        //             afterLoaded(defs)
-        //         })
-        //     } else {
-        //         defs = result;
-        //         afterLoaded(defs)
-        //     }
-        // });
+        // defs = getSampleDefs();
+        // afterLoaded(defs)
+        getDefs().then(([result]) => {
+            if (!result) {
+                saveDefs(dbSampleDefs).then(([r]) => {
+                    defs = getSampleDefs();
+                    afterLoaded(defs)
+                })
+            } else {
+                defs = result;
+                afterLoaded(defs)
+            }
+        });
     }, []);
 
     const isWide = useMediaQuery("(min-width:960px)");
