@@ -60,7 +60,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     drawerPaper: props => ({
         zIndex: z,
-        backgroundColor: themes[props.theme].fill2,
+        backgroundColor: themes[props.theme].fill,
     }),
     navPermanentPaper: props => ({
         zIndex: z,

@@ -1,11 +1,11 @@
 short:
     consider memoizing ScrollTable items
 medium:
-    modify Saved Pieces header for thin screens.
-    loading bar for uploading a piece from computer.
     memoize createPieceBoard.
-    tweak icons for Customize page.
+    loading bar for uploading an image from device.
     animations for of MiniVariant tool modals (enter in)
+    Zoom animation component for Location and Spans MiniVariant tool.
     Modification of styles of of Promo modal
+    change ripple color of Sub Buttons, Span Arrows, and anywhere else applicable
 long:
     optimize CreatePiece Board

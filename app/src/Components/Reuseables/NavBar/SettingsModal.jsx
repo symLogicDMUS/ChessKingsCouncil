@@ -47,7 +47,7 @@ export function SettingsModal(props) {
                         updateParent={props.updateTheme}
                         size={isWide ? 'medium' : 'small'}
                         overrideItem={getOverrideItem(props.theme)}
-                        rootClassName={classes.select_theme}
+                        className={classes.select_theme}
                     >
                         {themesMenuItemList}
                     </MuiDropdown>

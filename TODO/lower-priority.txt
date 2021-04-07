@@ -7,6 +7,7 @@ medium:
     * add to settings, option to choose between light board style and dark board style (for all themes)
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
+    consider making MechWarrior fill a texture, if possible.
 long:
     * consider adding new function for GameBoard image strings back to SavedGames MuiGrid component
     * Make functional Components in addition to class components be a default export, to be consistent.

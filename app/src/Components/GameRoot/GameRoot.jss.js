@@ -9,9 +9,8 @@ export const styles = {
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center center'
     },
-    sqr_text_checkbox: props => ({
-        marginLeft: 0,
-        flexDirection: 'row-reverse',
+    settings_dropdown: props => ({
+
     }),
     title: props => ({
         fontSize: '2.25vh',

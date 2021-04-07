@@ -21,7 +21,7 @@ export function PlayAs({setPlayerType, theme, screenCase}) {
                 variant='outlined'
                 inputLabel='Play As'
                 updateParent={setPlayerType}
-                rootClassName={classes.play_as}
+                className={classes.play_as}
                 size={(screenCase === 'wide') ? 'medium' : 'small'}
             >
                 <MenuItem value="None">

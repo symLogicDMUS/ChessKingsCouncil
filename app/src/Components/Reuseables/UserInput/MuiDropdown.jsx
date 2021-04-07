@@ -9,7 +9,7 @@ export function MuiDropdown(props) {
         <FormControl
             variant={props.variant}
             fullWidth={props.fullWidth}
-            className={props.rootClassName}
+            className={props.className}
         >
             <InputLabel id={props.inputId}>{props.inputLabel}</InputLabel>
             <MuiSelect

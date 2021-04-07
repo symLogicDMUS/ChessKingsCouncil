@@ -1,53 +1,59 @@
 import React from "react";
-import { copy } from "../helpers/copy";
-import { Portal } from "@material-ui/core";
+import {copy} from "../helpers/copy";
+import {Portal} from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { saveGame } from "../../API/saveGame";
-import { rankfiles } from "../helpers/rankfiles";
-import { OVER } from "../helpers/gStatusTypes";
-import { isPawn } from "../helpers/isPawn";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { replacePawnIdWithCurrentLoc } from "../helpers/replacePawnIdWithCurrentLoc";
-import { getFen } from "../../game_logic/fenParser/getFen/top/getFen";
-import { kingStartingRf, rookStartingRf } from "../helpers/castleRankfiles";
-import { updateCouncil } from "../../game_logic/callHierarchyTop/updateCouncil";
-import { getFullFen } from "../../game_logic/fenParser/getFen/getFullFen";
-import { initPawnIds } from "../../game_logic/JsonRecords/initPawnIds";
-import { update } from "../../game_logic/callHierarchyTop/update";
-import { SaveResignTool } from "./SaveResignTool/SaveResignTool";
-import { BoardTool } from "./BoardTool/BoardTool";
-import { doNothing } from "../helpers/doNothing";
-import { GameInfo } from "./GameInfo/GameInfo";
-import { HelpText } from "./Help/HelpText";
-import { Board } from "./GameBoard/Board";
-import { Fen } from "../../game_logic/fenParser/Fen";
-import { GameStatus } from "../../game_logic/fenParser/GameStatus/GameStatus";
-import { SpecialMoves } from "../../game_logic/ranges/specialMoves/SpecialMoves";
-import { JsonRecords } from "../../game_logic/JsonRecords/JsonRecords";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { CapturedPieceImages } from "./CapturedPieceImg/CapturedPieceImages";
-import { getFranchiseThemeOverride } from "../MyPieces/getFranchiseThemeOverride";
-import { fontSize0026, fontSizeW0045 } from "../styles/fontSizes.jss";
-import { gameDefsOffsetListsToStrs } from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
-import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
-import { GameSavedSuccessfully } from "../CreatePiece/animations/GameSavedSuccessfully";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
-import { specialThemeMenuItemList } from "../styles/themes.jss";
-import { newData, newStandardImgUrls } from "../NewGame/NewData";
-import { MuiCheckbox } from "../Reuseables/Clickables/MuiCheckbox";
-import { MuiDropdown } from "../Reuseables/UserInput/MuiDropdown";
-import { standardPieceDefs } from "../NewGame/standardPieceDefs/dev1";
-import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
-import { getDoesGameExist } from "../../API/getDoesGameExist";
-import { ResignModal } from "./SaveResignTool/ResignModal";
-import { ToolButton } from "../Reuseables/Clickables/ToolButton";
+import {saveGame} from "../../API/saveGame";
+import {rankfiles} from "../helpers/rankfiles";
+import {OVER} from "../helpers/gStatusTypes";
+import {isPawn} from "../helpers/isPawn";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
+import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
+import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
+import {kingStartingRf, rookStartingRf} from "../helpers/castleRankfiles";
+import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
+import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
+import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
+import {update} from "../../game_logic/callHierarchyTop/update";
+import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
+import {BoardTool} from "./BoardTool/BoardTool";
+import {doNothing} from "../helpers/doNothing";
+import {GameInfo} from "./GameInfo/GameInfo";
+import {HelpText} from "./Help/HelpText";
+import {Board} from "./GameBoard/Board";
+import {Fen} from "../../game_logic/fenParser/Fen";
+import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
+import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
+import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
+import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
+import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {newData, newStandardImgUrls} from "../NewGame/NewData";
+import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
+import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
+import {getDoesGameExist} from "../../API/getDoesGameExist";
+import {ResignModal} from "./SaveResignTool/ResignModal";
+import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import { BoardToolAccordion } from "./BoardTool/BoardToolAccordion";
-import { SaveAs } from "./SaveResignTool/SaveAs";
+import {BoardToolAccordion} from "./BoardTool/BoardToolAccordion";
+import {SaveAs} from "./SaveResignTool/SaveAs";
 import MediaQuery from "react-responsive/src";
-import { StatusBar } from "./Title/StatusBar";
+import {StatusBar} from "./Title/StatusBar";
 import {styles} from "./GameRoot.jss";
+import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
+import {ShowProfileOnClick} from "./BoardTool/ShowProfileOnClick";
+import * as PropTypes from "prop-types";
+import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
+
+FranchiseThemeDropdown.propTypes = {
+    theme: PropTypes.any,
+    updateParent: PropTypes.func,
+    classes: PropTypes.any
+};
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -537,43 +543,27 @@ class GameRoot extends React.Component {
                             additionalSettings={
                                 <>
                                     {this.gameType === "Standard" ? (
-                                        <MuiDropdown
-                                            updateParent={this.updateTheme}
-                                            theme={this.state.theme}
-                                            fullWidth={true}
-                                            size="medium"
-                                            variant="outlined"
-                                            label="franchise theme"
-                                            inputLabel="franchise theme"
-                                            genStyle={{
-                                                marginTop: "auto",
-                                                marginBottom: "auto",
-                                            }}
-                                            overrideItem={getFranchiseThemeOverride(
-                                                this.state.theme
-                                            )}
-                                        >
-                                            {specialThemeMenuItemList}
-                                        </MuiDropdown>
+                                        <FranchiseThemeDropdown theme={this.state.theme} updateParent={this.updateTheme} />
                                     ) : null}
-                                    <MuiCheckbox
+                                    <MuiSwitch
                                         theme={this.state.theme}
-                                        rootClassName={
-                                            this.props.classes.sqr_text_checkbox
-                                        }
-                                        defaultChecked={
-                                            this.state.showProfileOnClick
-                                        }
-                                        onClick={() =>
-                                            this.setState({
-                                                showProfileOnClick: !this.state
-                                                    .showProfileOnClick,
-                                            })
+                                        control={
+                                            <ShowProfileOnClick
+                                                checked={
+                                                    this.state.showProfileOnClick
+                                                }
+                                                onChange={() =>
+                                                    this.setState({
+                                                        showProfileOnClick: !this.state
+                                                            .showProfileOnClick,
+                                                    })
+                                                }
+                                                theme={this.state.theme}
+                                            />
                                         }
                                     >
-                                        Show Piece Profile on Click (Range
-                                        Board)
-                                    </MuiCheckbox>
+                                        Show Piece Profile on Click (Range Board)
+                                    </MuiSwitch>
                                 </>
                             }
                         />

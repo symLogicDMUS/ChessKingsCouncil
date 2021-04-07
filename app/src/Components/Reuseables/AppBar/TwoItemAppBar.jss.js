@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     two_item_app_bar: props => ({
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',

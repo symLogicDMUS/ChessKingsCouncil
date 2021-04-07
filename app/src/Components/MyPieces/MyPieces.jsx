@@ -13,6 +13,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { textColor, useStyles } from "./MyPieces.jss";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
+import {TwoItemAppBar} from "../Reuseables/AppBar/TwoItemAppBar";
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
@@ -55,18 +56,20 @@ function MyPieces() {
                 />
             }
             navHorizontal={isWide}
-            appBarContent={[
-                <PageTitle theme={theme}>
-                    Saved Pieces
-                </PageTitle>,
-                <SearchBox
-                    theme={theme}
-                    className={classes.search}
-                    iconClassName={classes.icon}
-                    updateSearchText={updateSearchText}
-                    style={textColor(theme)}
-                />,
-            ]}
+            appBarContent={
+                <TwoItemAppBar theme={theme} seeMoreIcon={<SearchIcon className={classes.icon} style={textColor(theme)} />}>
+                    <PageTitle theme={theme}>
+                        Saved Pieces
+                    </PageTitle>
+                    <SearchBox
+                        theme={theme}
+                        className={classes.search}
+                        iconClassName={classes.icon}
+                        updateSearchText={updateSearchText}
+                        style={textColor(theme)}
+                    />
+                </TwoItemAppBar>
+            }
             appBarType="2item"
             seeMoreIcon={
                 <SearchIcon className={classes.icon} style={textColor(theme)} />

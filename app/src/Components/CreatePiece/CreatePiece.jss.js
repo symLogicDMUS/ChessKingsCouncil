@@ -1,6 +1,5 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
@@ -15,9 +14,11 @@ export const styles = {
         fontSize: '1.5vw',
         display: 'flex',
     }),
-    sqr_text_checkbox: props => ({
-        marginLeft: 0,
-        flexDirection: 'row-reverse',
+    show_offset: props => ({
+       marginTop: 'auto',
+    }),
+    show_span: props => ({
+        marginBottom: 'auto',
     }),
     drawer: props => ({
         "& .MuiToolbar-gutters": {

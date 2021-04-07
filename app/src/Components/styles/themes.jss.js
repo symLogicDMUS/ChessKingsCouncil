@@ -225,8 +225,8 @@ export const themesMenuItemList = [
 ];
 
 export const specialThemeMenuItemList = [
-    <MenuItem value="star_wars">star_wars</MenuItem>,
-    <MenuItem value="mechwarrior_a_team">mechwarrior_a_team</MenuItem>,
-    <MenuItem value="mechwarrior_b_team">mechwarrior_b_team</MenuItem>,
+    <MenuItem value="star_wars">Star Wars</MenuItem>,
+    <MenuItem value="mechwarrior_a_team">MechWarrior A-Team</MenuItem>,
+    <MenuItem value="mechwarrior_b_team">MechWarrior B-team</MenuItem>,
     <MenuItem value="NBA">NBA</MenuItem>,
 ]

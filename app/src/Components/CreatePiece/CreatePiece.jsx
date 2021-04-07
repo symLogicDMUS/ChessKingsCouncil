@@ -14,7 +14,6 @@ import { Location } from "./Location/Location";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { incrementImgRefCount } from "../../API/incrementImgRefCount";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { MuiCheckbox } from "../Reuseables/Clickables/MuiCheckbox";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
@@ -27,11 +26,13 @@ import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
+import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
+import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import { ToolButton } from "../Reuseables/Clickables/ToolButton";
-import { styles } from "./CreatePiece.jss";
-import { LocationButton } from "./Location/LocationButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
+import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
+import { styles } from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -250,13 +251,13 @@ class CreatePiece extends React.Component {
 
     /**used by Range tool*/
     toggleSpan(angle) {
-        this.spans[angle] = ! this.spans[angle];
+        this.spans[angle] = !this.spans[angle];
         const stepFunc = stepFuncDict[angle];
         let rf = stepFunc(this.location);
         while (!oob(rf)) {
             this.spanDisplays[rf] = this.spans[angle];
             if (this.offsetDisplays[rf]) {
-                this.removeOffset(rf)
+                this.removeOffset(rf);
             }
             rf = stepFunc(rf);
         }
@@ -292,7 +293,7 @@ class CreatePiece extends React.Component {
 
     /**used by Range tool*/
     toggleOffset(rf, offset) {
-        this.offsetDisplays[rf] = ! this.offsetDisplays[rf];
+        this.offsetDisplays[rf] = !this.offsetDisplays[rf];
         let offsetStrs = this.offsets.map((o) => JSON.stringify(o));
         if (offsetStrs.includes(JSON.stringify(offset))) {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
@@ -581,38 +582,41 @@ class CreatePiece extends React.Component {
                             updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
-                                    <MuiCheckbox
-                                        onClick={() =>
-                                            this.setState({
-                                                showSpanText: !this.state
-                                                    .showSpanText,
-                                            })
-                                        }
-                                        defaultChecked={this.state.showSpanText}
-                                        rootClassName={
-                                            this.props.classes.sqr_text_checkbox
-                                        }
+                                    <MuiSwitch
                                         theme={this.state.theme}
-                                    >
-                                        Show Span Text
-                                    </MuiCheckbox>
-                                    <MuiCheckbox
-                                        onClick={() =>
-                                            this.setState({
-                                                showOffsetText: !this.state
-                                                    .showOffsetText,
-                                            })
+                                        className={this.props.classes.show_offset}
+                                        control={
+                                            <ShowOffsetText
+                                                theme={this.state.theme}
+                                                onChange={() =>
+                                                    this.setState({
+                                                        showOffsetText: !this
+                                                            .state
+                                                            .showOffsetText,
+                                                    })
+                                                }
+                                            />
                                         }
-                                        defaultChecked={
-                                            this.state.showOffsetText
-                                        }
-                                        rootClassName={
-                                            this.props.classes.sqr_text_checkbox
-                                        }
-                                        theme={this.state.theme}
                                     >
                                         Show Offset Text
-                                    </MuiCheckbox>
+                                    </MuiSwitch>
+                                    <MuiSwitch
+                                        theme={this.state.theme}
+                                        className={this.props.classes.show_span}
+                                        control={
+                                            <ShowSpanText
+                                                theme={this.state.theme}
+                                                onChange={() =>
+                                                    this.setState({
+                                                        showSpanText: !this
+                                                            .state.showSpanText,
+                                                    })
+                                                }
+                                            />
+                                        }
+                                    >
+                                        Show Span Text
+                                    </MuiSwitch>
                                 </>
                             }
                             isUnsavedChanges={this.isUnsavedChanges}
@@ -640,7 +644,6 @@ class CreatePiece extends React.Component {
             </>
         );
     }
-
 }
 
 export default withStyles(styles)(CreatePiece);
