@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import {themes} from "../../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     sqr_text: props => ({
@@ -10,7 +11,7 @@ export const useStyles = makeStyles({
         },
         textAlign: 'center',
         fontFamily: 'Roboto-Light, Roboto',
-        color: '#ffffff',
+        color: themes[props.theme].sqr_text,
     }),
     adjust: props => ({
         position: 'relative',

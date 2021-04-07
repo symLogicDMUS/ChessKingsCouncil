@@ -1,4 +1,4 @@
-import {makeStyles} from "@material-ui/core/styles"
+import {lighten, makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
 import {sqrSize} from "../Board/CreatePieceBoard.jss";
 import {fontSize00301} from "../../styles/fontSizes.jss";
@@ -18,8 +18,13 @@ export const useStyles = makeStyles({
         },
     }),
     sqr_button: props => ({
+        borderRadius: 0,
         width: sqrSize.thin,
         height: sqrSize.thin,
+        backgroundColor: themes[props.theme].dark_in_range,
+        '&:hover':{
+            backgroundColor: lighten(themes[props.theme].dark_in_range, 0.08),
+        },
         '@media screen and (max-width: 960px)': {
             maxWidth: '11vh',
             maxHeight: '11vh',
@@ -28,12 +33,11 @@ export const useStyles = makeStyles({
             width: '100%',
             height: '100%',
         },
-        backgroundColor: themes[props.theme].dark_in_range,
     }),
 
     text: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize00301,
+            fontSize: '3vw',
         },
         '@media screen and (min-width: 960px)': {
             fontSize: '3.5vw',

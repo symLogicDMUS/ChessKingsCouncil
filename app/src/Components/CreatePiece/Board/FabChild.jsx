@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import clsx from "clsx";
 import { Fab } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
@@ -7,13 +7,13 @@ import { useStyles } from "./FabChild.jss";
 /**
  * Close the interactive tools that are displayed on the CreatePiece board for thin screens
  */
-export function FabChild({
+export const FabChild = memo(({
     onClick,
     className,
     style,
     theme,
     isHoverRed,
-}) {
+}) => {
     const [hover, setHover] = useState(false);
 
     const classes = useStyles({ theme: theme });
@@ -37,4 +37,4 @@ export function FabChild({
             })} />
         </Fab>
     );
-}
+});

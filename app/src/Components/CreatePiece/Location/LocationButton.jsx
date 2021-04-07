@@ -14,11 +14,9 @@ export const LocationButton = memo(({rf, onClick, selected, theme, toggleMiniVar
     return (
         <>
             <MediaQuery maxWidth={960}>
-                <Box className={classes.sqr_button}>
-                    <IconButton onClick={onClick}>
-                        <Typography className={classes.text} variant='button'>{rf}</Typography>
-                    </IconButton>
-                </Box>
+                <IconButton onClick={onClick} className={classes.sqr_button}>
+                    <Typography className={classes.text} variant='button'>{rf}</Typography>
+                </IconButton>
             </MediaQuery>
             <MediaQuery minWidth={960}>
                 <Button

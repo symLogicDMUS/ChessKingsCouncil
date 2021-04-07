@@ -3,7 +3,6 @@ short:
 medium:
     memoize createPieceBoard.
     loading bar for uploading an image from device.
-    animations for of MiniVariant tool modals (enter in)
     Zoom animation component for Location and Spans MiniVariant tool.
     Modification of styles of of Promo modal
     change ripple color of Sub Buttons, Span Arrows, and anywhere else applicable

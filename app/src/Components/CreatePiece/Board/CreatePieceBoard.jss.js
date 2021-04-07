@@ -1,6 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
-import {themes} from "../../styles/themes.jss";
 
 export const sqrSize = {
     wide: '5.3125vw',

@@ -14,8 +14,11 @@ export const useStyles = makeStyles({
         minHeight: 20,
         marginTop: 'auto',
         marginRight: 'auto',
-        backgroundColor: themes[props.theme].fill,
         color: themes[props.theme].text,
+        backgroundColor: themes[props.theme].fill,
+        '@media screen and (min-width: 960px)': {
+            display: 'none',
+        },
     }),
     fab_icon: props => ({
         width: '2.5vw',
@@ -30,13 +33,13 @@ export const useStyles = makeStyles({
     }),
     locHoverButton: props => ({
         '&:hover':{
-            backgroundColor: darken(themes[props.theme].sqr_hover_alt, 0.15),
+            backgroundColor: lighten(themes[props.theme].dark_in_range, 0.08),
         },
     }),
     rangeHoverIcon: props => ({
         color: themes[props.theme].span,
     }),
     locHoverIcon: props => ({
-        color: lighten(themes[props.theme].sqr_hover_alt, 0.5),
+        color: lighten(themes[props.theme].dark_in_range, 0.8),
     }),
 }, {index: 1});

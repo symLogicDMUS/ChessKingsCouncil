@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { Save } from "./Save";
 import { Load } from "./Load";
@@ -9,7 +9,7 @@ import Box from "@material-ui/core/Box";
 import { Close } from "../../Reuseables/Modals/Close";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
-import {ClickAwayListener, Portal, Typography} from "@material-ui/core";
+import {ClickAwayListener, Portal, Slide, Typography} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
 
@@ -24,6 +24,7 @@ export function Options({
     blackImg,
     toggleMiniVariantTool,
 }) {
+    const [drag, setDrag] = useState(false);
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
@@ -62,46 +63,48 @@ export function Options({
                             mouseEvent="onMouseDown"
                             touchEvent="onTouchStart"
                         >
-                            <motion.div drag className={classes.options_window}>
-                                <Box className={classes2.close_area}>
-                                    <DragIndicatorIcon className={
-                                        clsx(classes2.icon, {
-                                            [classes.draggable_icon] : true,
-                                        })}
-                                    />
-                                    <Close
-                                        onClick={handleClickAway}
-                                        className={classes2.close}
-                                        iconClassName={classes2.icon}
-                                        theme={theme}
-                                    />
-                                </Box>
-                                <Box className={classes.options_area}>
-                                    <Load
-                                        theme={theme}
-                                        load={load}
-                                        className={classes.smOption}
-                                    />
-                                    <Save
-                                        save={save}
-                                        theme={theme}
-                                        whiteImg={whiteImg}
-                                        blackImg={blackImg}
-                                        pieceName={pieceName}
-                                        className={classes.smOption}
-                                    />
-                                    <Reset
-                                        reset={reset}
-                                        theme={theme}
-                                        className={classes.smOption}
-                                    />
-                                    <Erase
-                                        erase={erase}
-                                        theme={theme}
-                                        className={classes.smOption}
-                                    />
-                                </Box>
-                            </motion.div>
+                            <Slide in={true} direction='left' mountOnEnter unmountOnExit onEnter={() => setDrag(true)}>
+                                <motion.div drag={drag} className={classes.options_window}>
+                                    <Box className={classes2.close_area}>
+                                        <DragIndicatorIcon className={
+                                            clsx(classes2.icon, {
+                                                [classes.draggable_icon] : true,
+                                            })}
+                                        />
+                                        <Close
+                                            onClick={handleClickAway}
+                                            className={classes2.close}
+                                            iconClassName={classes2.icon}
+                                            theme={theme}
+                                        />
+                                    </Box>
+                                    <Box className={classes.options_area}>
+                                        <Load
+                                            theme={theme}
+                                            load={load}
+                                            className={classes.smOption}
+                                        />
+                                        <Save
+                                            save={save}
+                                            theme={theme}
+                                            whiteImg={whiteImg}
+                                            blackImg={blackImg}
+                                            pieceName={pieceName}
+                                            className={classes.smOption}
+                                        />
+                                        <Reset
+                                            reset={reset}
+                                            theme={theme}
+                                            className={classes.smOption}
+                                        />
+                                        <Erase
+                                            erase={erase}
+                                            theme={theme}
+                                            className={classes.smOption}
+                                        />
+                                    </Box>
+                                </motion.div>
+                            </Slide>
                         </ClickAwayListener>
                     </div>
                 </Portal>

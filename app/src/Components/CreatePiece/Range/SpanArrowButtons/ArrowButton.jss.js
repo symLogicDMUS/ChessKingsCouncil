@@ -5,6 +5,11 @@ import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
 const buttonSizeSm = '100%';
 const arrowSizeSm = '100%';
 
+export const transitionDuration = {
+    enter: 500,
+    exit: 500,
+}
+
 export const useStyles = makeStyles({
     arrow_button: props => ({
         '@media screen and (max-width: 960px)': {
@@ -79,5 +84,10 @@ export const useStyles = makeStyles({
             height: '2.75em',
             borderRadius: '0.2em',
         },
+    }),
+    hover: props => ({
+       '&:hover':{
+           backgroundColor: themes[props.theme].offset,
+       },
     }),
 }, {index: 1});

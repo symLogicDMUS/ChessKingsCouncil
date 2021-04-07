@@ -1,11 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import {ImgWindow} from "./ImgWindow";
 import MediaQuery from "react-responsive/src";
-import {Portal, Typography} from "@material-ui/core";
-import ChooseModal from "./ImgChoicesModal/ImgChoicesModal";
-import {MuiMenu} from "../../Reuseables/UserInput/MuiMenu";
+import {Typography} from "@material-ui/core";
 import {ImgWindowsModal} from "./ImgWindowsModal";
-import {originTransform, useStyles} from "./Icon.jss";
+import {useStyles} from "./Icon.jss";
 
 export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVariantTool, theme}) {
     const classes = useStyles({theme: theme});

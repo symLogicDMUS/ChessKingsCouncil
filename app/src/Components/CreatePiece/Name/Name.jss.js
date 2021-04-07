@@ -6,8 +6,9 @@ export const useStyles = makeStyles({
     name_modal: props => ({
         margin: 'auto',
         borderRadius: '0.5rem',
-        padding: '3.5vw',
+        padding: '0.35vw',
         backgroundColor: themes[props.theme].fill,
+        border: `0.05rem solid ${themes[props.theme].odd_row}`,
     }),
     name: props => ({
         '@media screen and (min-width: 960px)': {
@@ -53,6 +54,22 @@ export const useStyles = makeStyles({
     }),
     thin_screen: props => ({
         width: '100%',
+    }),
+    top_area: props => ({
+        width: '100%',
+        display: 'flex',
+        flexWrap: 'nowrap',
+        justifyContent: 'space-between',
+        marginBottom: '0.5vh',
+    }),
+    content_area: props => ({
+        paddingLeft: '2vw',
+        paddingRight: '2vw',
+        paddingBottom: '2vw',
+    }),
+    drag_icon: props => ({
+        fontSize: '0.8rem',
+        color: themes[props.theme].text_alt,
     }),
     close_area: props => ({
        display: 'flex',

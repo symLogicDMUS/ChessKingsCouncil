@@ -28,6 +28,7 @@ export const mechwarrior_theme = {
     sqr_text_light: '#a9a9a9',
     sqr_text_dark: '#ffffff',
     sqr_border: 'rgba(255, 0, 0, 0.6)',
+    sqr_text: '#ffccbc',
     sqr_hover: '#ff0000',
     sqr_hover_alt: '#72e2ff',
     page_link: '#a9a9a9',

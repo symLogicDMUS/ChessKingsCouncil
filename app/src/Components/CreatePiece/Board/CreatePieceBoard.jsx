@@ -80,7 +80,6 @@ export function CreatePieceBoard({
             >
                 <Piece
                     rf={rf}
-                    key="piece"
                     theme={theme}
                     imgUrl={imgUrl}
                     pieceLocHighlight={pieceLocHighlight}
@@ -106,7 +105,6 @@ export function CreatePieceBoard({
                 toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
-                toolChildType="arrow"
             >
                 <ArrowButton
                     rf={rf}
@@ -140,12 +138,10 @@ export function CreatePieceBoard({
                 toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
-                toolChildType="rf"
             >
                 <LocationButton
                     rf={rf}
                     theme={theme}
-                    key={`location-${rf}`}
                     onClick={() => setLoc(rf)}
                     toggleMiniVariantTool={toggleMiniVariantTool}
                 />
