@@ -1,80 +1,46 @@
 import React, {memo, useState} from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import MediaQuery from "react-responsive/src";
 import Button from "@material-ui/core/Button";
-import {fade, Grow, Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { binaryBoard } from "../../helpers/binaryBoard";
-import { themes } from "../../styles/themes.jss";
-import {darken, lighten} from "@material-ui/core/styles";
 import { useStyles } from "./LocationButton.jss";
+import { lighten } from "@material-ui/core/styles";
+import { themes } from "../../styles/themes.jss";
 
-export const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
+export const LocationButton = memo(
+    ({ rf, onClick, selected, theme, children }) => {
         const classes = useStyles({ theme: theme, rf: rf });
         const classes2 = useMoreStyles({ theme: theme });
-        const [colorShift, setColorShift] = useState(true);
-        const [growDuration, setGrowDuration] = useState(1000);
+        const [animate, setAnimate] = useState(false);
 
+        const variants = {
+            colorShift: {
+                backgroundColor: [
+                    lighten(themes[theme].dark_in_range, 0.7),
+                    themes[theme].dark_in_range,
+                ],
+            },
+            none: {}
+        };
         return (
             <>
                 <MediaQuery maxWidth={960}>
-                    {colorShift ? (
-                        <>
-                            <Grow
-                                in={true}
-                                timeout={{
-                                    enter: growDuration,
-                                    exit: growDuration
-                                }}
-                                onEnter={() => setGrowDuration(0)}
-                            >
-                                <motion.div
-                                    className={classes.sqr_button}
-                                    animate={{
-                                        backgroundColor: [
-                                            lighten(themes[theme].dark_in_range, 0.6),
-                                            lighten(themes[theme].dark_in_range, 0.08),
-                                        ],
-                                    }}
-                                    transition={{
-                                        duration: 0.7,
-                                    }}
-                                    onAnimationComplete={() => setColorShift(false)}
-                                >
-                                    <Typography
-                                        className={classes.text}
-                                        variant="button"
-                                    >
-                                        {children}
-                                    </Typography>
-                                </motion.div>
-                            </Grow>
-                        </>
-                    ) : (
-                        <div
-                            onClick={() => {
-                                setColorShift(true);
-                                onClick();
-                            }}
-                            className={classes.sqr_button}
-                        >
-                            <div
-                                className={classes.sqr_button}
-                                onClick={() => {
-                                    setColorShift(true);
-                                    onClick();
-                                }}
-                            >
-                                <Typography
-                                    className={classes.text}
-                                    variant="button"
-                                >
-                                    {children}
-                                </Typography>
-                            </div>
-                        </div>
-                    )}
+                    <motion.div
+                        onClick={() => {
+                            onClick()
+                            setAnimate(true)
+                        }}
+                        variants={variants}
+                        animate={animate ? "colorShift" : "none"}
+                        className={classes.sqr_button}
+                        onAnimationComplete={() => setAnimate(false)}
+                    >
+                        <Typography className={classes.text} variant="button">
+                            {children}
+                        </Typography>
+                    </motion.div>
                 </MediaQuery>
                 <MediaQuery minWidth={960}>
                     <Button
@@ -93,37 +59,3 @@ export const LocationButton = memo(({ rf, onClick, selected, theme, children }) 
         );
     }
 );
-
-
-
-// export function Success({setSaveStatus}) {
-//
-//     const [seconds, setSeconds] = useState(1);
-//
-//     useEffect(() => {
-//         const interval = setInterval(() => {
-//             setSeconds(seconds => seconds - 1);
-//         }, 1000);
-//         return () => clearInterval(interval);
-//     }, []);
-//
-//     if (seconds === 0)
-//         setSaveStatus("reset");
-//
-//     return (<div style={{
-//         position: "absolute",
-//         zIndex:"3",
-//         width: "100%",
-//         height: "100%"
-//     }}>
-//         <div style={{
-//             position:"absolute",
-//             zIndex:"3",
-//             fontSize:"50px",
-//             fontFamily:"Tahoma",
-//             color:"#72e2ff",
-//             left: "20%",
-//             top:"40%"}}>Piece saved successfully!</div>
-//     </div>)
-//
-// };

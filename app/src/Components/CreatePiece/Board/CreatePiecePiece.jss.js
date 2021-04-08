@@ -6,14 +6,17 @@ import {lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     piece: props => ({
-        zIndex: 0,
+        zIndex: 2,
         width: '100%',
         height: '100%',
+        margin: 'auto',
         background: 'none',
         fontSize: fontSize00301,
     }),
     img: props => ({
+        zIndex: 2,
         ...imgFillDiv,
+        margin: 'auto',
     }),
     light_sqr_text: props => ({
         color: themes[props.theme].sqr_text_light,

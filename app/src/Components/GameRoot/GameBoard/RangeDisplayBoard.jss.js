@@ -1,8 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {game_board} from "../../Reuseables/Board/Board.jss";
 
 export const useStyles = makeStyles({
     board: props => ({
-        ...game_board(props.boardSize, props.boardPos, 2),
+        zIndex: 2,
+        position: 'absolute',
+        top: props.boardPos.top,
+        left: props.boardPos.left,
+        display: 'grid',
+        gridTemplateColumns: `repeat(8, ${props.sqrSize}px)`,
+        gridTemplateRows: `repeat(8, ${props.sqrSize}px)`,
     }),
 }, {index: 1});

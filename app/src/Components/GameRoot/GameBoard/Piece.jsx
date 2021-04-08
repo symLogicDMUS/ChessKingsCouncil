@@ -1,14 +1,14 @@
-import React from "react";
+import React, { memo } from "react";
 import { useStyles } from "./Piece.jss";
 
-/**
- * @param src: a base 64 binary string
- * @param board
- */
-export const Piece = ({ src, sqrSize }) => {
-    const classes = useStyles({sqrSize});
-    console.log('piece source:', src)
+export const Piece = memo(({ src, sqrSize }) => {
+    const classes = useStyles({ sqrSize });
     return (
-        <img className={classes.piece} src={src} alt='icon of a piece' onContextMenu={(e)=> e.preventDefault()} />
+        <img
+            src={src}
+            alt="icon of a piece"
+            className={classes.piece}
+            onContextMenu={(e) => e.preventDefault()}
+        />
     );
-};
+});

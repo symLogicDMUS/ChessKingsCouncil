@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDrag } from "react-dnd";
+import { Piece } from "./Piece";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import { updatePosition } from "./DraggablePiece.jss";
-import { Piece } from "./Piece";
-import {sqrSizes} from "../../Reuseables/Board/Board.jss";
 
 export const DraggablePiece = (props) => {
     const { id, src, left, top } = props;

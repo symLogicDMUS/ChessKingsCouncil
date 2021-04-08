@@ -33,6 +33,7 @@ import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { styles } from "./CreatePiece.jss";
+import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class CreatePiece extends React.Component {
             justSaved: false,
             showSpanText: true,
             showOffsetText: true,
+            locSqrAnimate: false,
             isFirstVisit: false,
             miniVariantTool: null,
         };
@@ -88,6 +90,7 @@ class CreatePiece extends React.Component {
         this.isUnsavedChanges = this.isUnsavedChanges.bind(this);
         this.updateFirstVisit = this.updateFirstVisit.bind(this);
         this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
+        this.locationToolClick = this.locationToolClick.bind(this);
         //if MyPieces page redirected to here:
         if (
             this.props.location !== undefined &&
@@ -129,6 +132,14 @@ class CreatePiece extends React.Component {
             this.setState({ miniVariantTool: null });
         } else {
             this.setState({ miniVariantTool: toolName });
+        }
+    }
+
+    locationToolClick() {
+        if (this.state.miniVariantTool === "Location") {
+            this.setState({ miniVariantTool: null });
+        } else {
+            this.setState({ locSqrAnimate: true, miniVariantTool: null });
         }
     }
 
@@ -396,6 +407,19 @@ class CreatePiece extends React.Component {
                         />
                     </AnimatePresencePortal>
                 )}
+                {this.state.locSqrAnimate && (
+                    <LocationSquaresEnter
+                        theme={this.state.theme}
+                        pieceLoc={this.location}
+                        isImg={this.whiteAndBlackImgs.white}
+                        onAnimationComplete={() =>
+                            this.setState({
+                                miniVariantTool: "Location",
+                                locSqrAnimate: false,
+                            })
+                        }
+                    />
+                )}
             </>
         );
     }
@@ -548,9 +572,7 @@ class CreatePiece extends React.Component {
                                 isActive={
                                     this.state.miniVariantTool === "Location"
                                 }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Location")
-                                }
+                                onClick={this.locationToolClick}
                             />
                             <ToolButton
                                 text="options"
@@ -584,7 +606,9 @@ class CreatePiece extends React.Component {
                                 <>
                                     <MuiSwitch
                                         theme={this.state.theme}
-                                        className={this.props.classes.show_offset}
+                                        className={
+                                            this.props.classes.show_offset
+                                        }
                                         control={
                                             <ShowOffsetText
                                                 theme={this.state.theme}

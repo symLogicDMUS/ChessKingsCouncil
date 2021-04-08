@@ -25,20 +25,10 @@ export const useStyles = makeStyles({
         height: sqrSize.thin,
         maxWidth: '11vh',
         maxHeight: '11vh',
-    }),
-    sqr_color: props => ({
         backgroundColor: themes[props.theme].dark_in_range,
         '&:hover':{
             backgroundColor: lighten(themes[props.theme].dark_in_range, 0.08),
         },
-    }),
-    adjust_down: props => ({
-        position: 'relative',
-        top: '5vw',
-    }),
-    adjust_up: props => ({
-        position: 'relative',
-        top: '-5vw',
     }),
     text: props => ({
         '@media screen and (max-width: 960px)': {
