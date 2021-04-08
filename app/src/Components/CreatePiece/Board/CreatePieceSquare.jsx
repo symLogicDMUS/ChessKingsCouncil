@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, {memo, useState} from "react";
 import clsx from "clsx";
 import {sqrSize} from "./CreatePieceBoard.jss";
 import {getOffset} from "../../helpers/getOffset";
@@ -19,11 +19,11 @@ export const CreatePieceSquare = memo(
          isOffset,
          showSpanText,
          showOffsetText,
-         pieceLocHighlight,
          hasToolChild,
          hasFabChild,
          children,
      }) => {
+        const [hover, setHover] = useState(false);
         const classes = useStyles({
             rf: rf,
             theme: theme,
@@ -46,9 +46,10 @@ export const CreatePieceSquare = memo(
                     [classes.dark_with_hover]: !binaryBoard[rf],
                     [classes.span]: isSpan,
                     [classes.offset]: isOffset,
-                    [classes.piece_loc_highlight]: pieceLocHighlight,
                 })}
-                style={rf === pieceLoc ? pieceLocHover(theme) : null}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                style={rf === pieceLoc && hover ? pieceLocHover(theme) : null}
             >
                 {isSpan && showSpanText && !hasToolChild ? (
                     <SpanLabel theme={theme} hasFabChild={hasFabChild} />

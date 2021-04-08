@@ -59,7 +59,7 @@ export function CreatePieceBoard({
         );
     };
 
-    const getSquareWithPiece = (rf, pieceLocHighlight) => {
+    const getSquareWithPiece = (rf) => {
         return (
             <Square
                 rf={rf}
@@ -72,7 +72,6 @@ export function CreatePieceBoard({
                 screenCase={screenCase}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
-                pieceLocHighlight={pieceLocHighlight}
                 miniVariantTool={miniVariantTool}
                 toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
@@ -82,7 +81,6 @@ export function CreatePieceBoard({
                     rf={rf}
                     theme={theme}
                     imgUrl={imgUrl}
-                    pieceLocHighlight={pieceLocHighlight}
                 />
             </Square>
         );
@@ -109,6 +107,7 @@ export function CreatePieceBoard({
                 <ArrowButton
                     rf={rf}
                     angle={angle}
+                    key={'location-' + rf}
                     toggleSpan={toggleSpan}
                     isActive={spanDisplays[rf]}
                     isOffset={offsetDisplays[rf]}
@@ -128,8 +127,8 @@ export function CreatePieceBoard({
                 key={rf}
                 theme={theme}
                 isSpan={spanDisplays[rf]}
-                toggleOffset={toggleOffset}
                 isOffset={offsetDisplays[rf]}
+                toggleOffset={toggleOffset}
                 pieceLoc={pieceLoc}
                 screenCase={screenCase}
                 showSpanText={showSpanText}
@@ -143,8 +142,17 @@ export function CreatePieceBoard({
                     rf={rf}
                     theme={theme}
                     onClick={() => setLoc(rf)}
+                    hasPieceChild={rf===pieceLoc}
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                />
+                >
+                    {rf===pieceLoc ? (
+                        <Piece
+                            rf={rf}
+                            theme={theme}
+                            imgUrl={imgUrl}
+                        />
+                    ) : rf}
+                </LocationButton>
             </Square>
         );
     };
@@ -163,7 +171,7 @@ export function CreatePieceBoard({
         );
         for (const rf of remainingRfs) {
             if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf, false));
+                squares.push(getSquareWithPiece(rf));
             } else {
                 squares.push(getRegularSquare(rf));
             }
@@ -175,9 +183,7 @@ export function CreatePieceBoard({
         const locations = ["d4", "e4", "d5", "e5"];
         const squares = [];
         for (const rf of rankfiles) {
-            if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf, true));
-            } else if (locations.includes(rf)) {
+            if (locations.includes(rf)) {
                 squares.push(getSquareWithLocationButton(rf));
             } else {
                 squares.push(getRegularSquare(rf));
@@ -190,7 +196,7 @@ export function CreatePieceBoard({
         const squares = [];
         for (const rf of rankfiles) {
             if (rf === pieceLoc) {
-                squares.push(getSquareWithPiece(rf, false));
+                squares.push(getSquareWithPiece(rf));
             } else {
                 squares.push(getRegularSquare(rf));
             }

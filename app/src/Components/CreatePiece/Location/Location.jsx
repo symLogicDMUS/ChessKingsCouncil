@@ -1,16 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
 import { Typography } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { LocationButton } from "./LocationButton";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { useStyles } from "./Location.jss";
+import { LocationButton } from "./LocationButton";
 import MediaQuery from "react-responsive/src";
-import {ArrowButton} from "../Range/SpanArrowButtons/ArrowButton";
 
 export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  }) {
-    const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
 
@@ -33,7 +29,9 @@ export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  })
                     theme={theme}
                     key="location-d4"
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                />
+                >
+                    d4
+                </LocationButton>
                 <LocationButton
                     rf="e4"
                     onClick={() => setLoc("e4")}
@@ -41,7 +39,9 @@ export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  })
                     theme={theme}
                     key="location-e4"
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                />
+                >
+                    e4
+                </LocationButton>
                 <LocationButton
                     rf="d5"
                     onClick={() => setLoc("d5")}
@@ -49,7 +49,9 @@ export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  })
                     theme={theme}
                     key="location-d5"
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                />
+                >
+                    d5
+                </LocationButton>
                 <LocationButton
                     rf="e5"
                     onClick={() => setLoc("e5")}
@@ -57,7 +59,9 @@ export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool  })
                     theme={theme}
                     key="location-e5"
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                />
+                >
+                    e5
+                </LocationButton>
             </span>
         </MediaQuery>
     );

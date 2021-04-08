@@ -2,6 +2,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes.jss";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {fontSize00301} from "../../styles/fontSizes.jss";
+import {lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     piece: props => ({
@@ -27,7 +28,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             fontSize: '1.5vw',
         },
-        color: themes[props.theme].sqr_hover_alt,
+        color: lighten(themes[props.theme].sqr_hover_alt, 0.2),
     }),
     piece_loc_highlight: props => ({
         color: themes[props.theme].sqr_hover,

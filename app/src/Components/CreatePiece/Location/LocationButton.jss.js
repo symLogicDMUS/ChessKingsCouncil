@@ -18,23 +18,28 @@ export const useStyles = makeStyles({
         },
     }),
     sqr_button: props => ({
+        display: 'flex',
+        flexDirection: 'column',
         borderRadius: 0,
         width: sqrSize.thin,
         height: sqrSize.thin,
+        maxWidth: '11vh',
+        maxHeight: '11vh',
+    }),
+    sqr_color: props => ({
         backgroundColor: themes[props.theme].dark_in_range,
         '&:hover':{
             backgroundColor: lighten(themes[props.theme].dark_in_range, 0.08),
         },
-        '@media screen and (max-width: 960px)': {
-            maxWidth: '11vh',
-            maxHeight: '11vh',
-        },
-        "& .MuiIconButton-root": {
-            width: '100%',
-            height: '100%',
-        },
     }),
-
+    adjust_down: props => ({
+        position: 'relative',
+        top: '5vw',
+    }),
+    adjust_up: props => ({
+        position: 'relative',
+        top: '-5vw',
+    }),
     text: props => ({
         '@media screen and (max-width: 960px)': {
             fontSize: '3vw',
@@ -42,6 +47,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             fontSize: '3.5vw',
         },
-        color: '#e3f2fd',
+        margin: 'auto',
+        color: lighten(themes[props.theme].dark_in_range, 0.5),
     }),
 }, {index: 1});

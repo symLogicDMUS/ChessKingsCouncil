@@ -40,6 +40,6 @@ export const useStyles = makeStyles({
         color: themes[props.theme].span,
     }),
     locHoverIcon: props => ({
-        color: lighten(themes[props.theme].dark_in_range, 0.8),
+        color: lighten(themes[props.theme].sqr_hover_alt, 0.2),
     }),
 }, {index: 1});
