@@ -12,6 +12,9 @@ export const transitionDuration = {
 
 export const useStyles = makeStyles({
     arrow_button: props => ({
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].span,
+        },
         '@media screen and (max-width: 960px)': {
             border: 'unset',
             borderRadius: 0,

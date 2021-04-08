@@ -2,6 +2,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
+    root: props => ({
+       "& .MuiTouchRipple-root": {
+           color: themes[props.theme].text,
+       },
+    }),
     /*wide viewports only: */
     sub_button: props => ({
         width: '2.75vw',

@@ -25,7 +25,7 @@ export function SubButtonGroup({
     const classes = useStyles({ theme: theme });
 
     return (
-        <>
+        <div className={classes.root}>
             <IconButton
                 onClick={onNoSymbolClick}
                 className={classes.sub_button}
@@ -77,7 +77,7 @@ export function SubButtonGroup({
                     {icons.bishop_outline(themes[theme].outline)}
                 </SvgIcon>
             </IconButton>
-        </>
+        </div>
     );
 }
 /*

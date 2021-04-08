@@ -4,6 +4,7 @@ short:
     new icon of a board for Load Game modal
     consider making tool buttons text/icons bigger.
 medium:
+    * memoize createPieceBoard.
     * add to settings, option to choose between light board style and dark board style (for all themes)
     * consistent border radius especially on CreatePiece page.
     * figure out how to get slightly larger border for touch screen devices. (buttons, modal borders, etc.)
