@@ -255,8 +255,8 @@ class CreatePiece extends React.Component {
     }
 
     /**used by Icon tool*/
-    setPieceImg(color, pieceImgBase64Str) {
-        this.whiteAndBlackImgs[color] = pieceImgBase64Str;
+    setPieceImg(color, imgUrl) {
+        this.whiteAndBlackImgs[color] = imgUrl;
         this.setState({ unsavedChanges: true });
     }
 

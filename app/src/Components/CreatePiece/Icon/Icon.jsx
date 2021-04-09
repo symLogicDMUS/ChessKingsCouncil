@@ -4,6 +4,7 @@ import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import {ImgWindowsModal} from "./ImgWindowsModal";
 import {useStyles} from "./Icon.jss";
+import Box from "@material-ui/core/Box";
 
 export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVariantTool, theme}) {
     const classes = useStyles({theme: theme});
@@ -34,25 +35,11 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVarian
             <MediaQuery maxWidth={960}>
                 <ImgWindowsModal
                     theme={theme}
+                    resetImg={resetImg}
+                    setPieceImg={setPieceImg}
+                    whiteAndBlackImgs={whiteAndBlackImgs}
                     toggleMiniVariantTool={toggleMiniVariantTool}
-                >
-                    <ImgWindow
-                        color="white"
-                        whiteWindow={true}
-                        resetImg={resetImg}
-                        setPieceImg={setPieceImg}
-                        src={whiteAndBlackImgs.white}
-                        theme={theme}
-                    />
-                    <ImgWindow
-                        color="black"
-                        whiteWindow={false}
-                        resetImg={resetImg}
-                        setPieceImg={setPieceImg}
-                        src={whiteAndBlackImgs.black}
-                        theme={theme}
-                    />
-                </ImgWindowsModal>
+                />
             </MediaQuery>
         </div>
     );

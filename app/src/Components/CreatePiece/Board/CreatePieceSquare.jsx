@@ -1,6 +1,5 @@
 import React, {memo, useState} from "react";
 import clsx from "clsx";
-import {sqrSize} from "./CreatePieceBoard.jss";
 import {getOffset} from "../../helpers/getOffset";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";

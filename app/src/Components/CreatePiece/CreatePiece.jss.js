@@ -111,7 +111,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         height: '100vh',
         width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
         position: 'absolute',
         zIndex: 2,
         top: 0,
