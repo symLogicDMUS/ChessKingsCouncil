@@ -3,6 +3,13 @@ import {themes} from "../../styles/themes.jss";
 import {sqrSize} from "../Board/CreatePieceBoard.jss";
 import {fontSize00301} from "../../styles/fontSizes.jss";
 
+export const frame = (theme) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: themes[theme].dark_in_range,
+    padding: 0,
+});
+
 export const useStyles = makeStyles({
     button: props => ({
         color: themes[props.theme].text,
@@ -17,20 +24,6 @@ export const useStyles = makeStyles({
             background: themes[props.theme].location_button_selected,
         },
     }),
-    sqr_button: props => ({
-        display: 'flex',
-        flexDirection: 'column',
-        borderRadius: 0,
-        padding: 0,
-        width: sqrSize.thin,
-        height: sqrSize.thin,
-        maxWidth: '11vh',
-        maxHeight: '11vh',
-        backgroundColor: themes[props.theme].dark_in_range,
-        '&:hover':{
-            backgroundColor: lighten(themes[props.theme].dark_in_range, 0.08),
-        },
-    }),
     text: props => ({
         '@media screen and (max-width: 960px)': {
             fontSize: '3vw',
@@ -39,6 +32,6 @@ export const useStyles = makeStyles({
             fontSize: '3.5vw',
         },
         margin: 'auto',
-        color: lighten(themes[props.theme].dark_in_range, 0.5),
+        color: lighten(themes[props.theme].sqr_hover_alt, 0.6),
     }),
 }, {index: 1});

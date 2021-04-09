@@ -39,7 +39,6 @@ export const CreatePieceSquare = memo(
                 className={clsx(classes.square, {
                     [classes2.light_with_hover]: binaryBoard[rf],
                     [classes2.dark_with_hover]: !binaryBoard[rf],
-                    // [classes2.span]: isSpan,
                     [classes2.offset]: isOffset,
                 })}
                 onMouseEnter={() => setHover(true)}

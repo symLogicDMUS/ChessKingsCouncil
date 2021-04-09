@@ -1,17 +1,32 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
 import {themes} from "../../styles/themes.jss";
+import {sqrSize} from "../../CreatePiece/Board/CreatePieceBoard.jss";
 
 export const useStyles = makeStyles({
     square: props => ({
+        zIndex: 2,
         ...rfToGridLoc(props.rf),
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         alignContent: "center",
-        width: '100%',
-        height: '100%',
+        '@media screen and (max-width: 960px)': {
+            width: sqrSize.thin,
+            height: sqrSize.thin,
+        },
+        '@media screen and (min-width: 960px)': {
+            width: sqrSize.wide,
+            height: sqrSize.wide,
+        },
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].sqr_text,
+        },
+        maxWidth: '11vh',
+        maxHeight: '11vh',
+        minWidth: 'unset',
+        minHeight: 'unset',
         backgroundColor: themes[props.theme].dark_in_range,
     }),
     text: props => ({

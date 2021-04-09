@@ -1,7 +1,8 @@
 import React from "react";
 import clsx from "clsx";
 import {Typography} from "@material-ui/core";
-import {useStyles} from "./SquareText.jss";
+import {offsetFrame, spanFrame, useStyles} from "./SquareText.jss";
+import {Frame} from "framer";
 
 export function OffsetLabel({offset, hasFabChild, theme}) {
 
@@ -25,14 +26,16 @@ export function OffsetLabel({offset, hasFabChild, theme}) {
         ySign = "+"
 
     return (
-        <>
-            <Typography className={clsx(classes.sqr_text, {
-                [classes.adjust]: hasFabChild,
-            })} nowrap>
+        <Frame
+            width="100%"
+            height="100%"
+            style={offsetFrame(theme)}
+        >
+            <Typography className={classes.sqr_text} nowrap>
                 x {xSign} {Math.abs(offset[0])}
                 < br />
                 y {ySign} {Math.abs(offset[1])}
             </Typography>
-        </>
+        </Frame>
     )
 }

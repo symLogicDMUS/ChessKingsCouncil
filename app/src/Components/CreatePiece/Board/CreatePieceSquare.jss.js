@@ -31,6 +31,7 @@ export const useStyles = makeStyles({
         justifyContent: "center",
         alignContent: "center",
         borderRadius: 0,
+        padding: 0,
     }),
 }, {index: 1});
 /**

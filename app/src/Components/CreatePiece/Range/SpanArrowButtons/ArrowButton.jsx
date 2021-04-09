@@ -1,11 +1,12 @@
-import React, { memo } from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
+import {Frame} from "framer";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { icons } from "../../../styles/icons/top/icons.jss";
-import { IconButton, Zoom } from "@material-ui/core";
-import { transitionDuration, useStyles } from "./ArrowButton.jss";
+import {icons} from "../../../styles/icons/top/icons.jss";
+import {IconButton} from "@material-ui/core";
+import {transition, useStyles, variants} from "./ArrowButton.jss";
 
 export const ArrowButton = memo(
     ({
@@ -21,7 +22,15 @@ export const ArrowButton = memo(
         return (
             <>
                 <MediaQuery maxWidth={960}>
-                    <Zoom in={true} timeout={transitionDuration}>
+                    <Frame
+                        width='100%'
+                        height='100%'
+                        initial='start'
+                        animate='end'
+                        variants={variants}
+                        transition={transition}
+                        backgroundColor='unset'
+                    >
                         <IconButton
                             onClick={() => toggleSpan(angle)}
                             className={clsx(classes.arrow_button, {
@@ -40,7 +49,7 @@ export const ArrowButton = memo(
                                 {icons[screenCase + "-" + angle]}
                             </SvgIcon>
                         </IconButton>
-                    </Zoom>
+                    </Frame>
                 </MediaQuery>
                 <MediaQuery minWidth={960}>
                     {angle === "mid" ? (

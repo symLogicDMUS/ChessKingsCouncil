@@ -2,8 +2,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../../../styles/themes.jss";
 import {sqrSize} from "../CreatePieceBoard.jss";
 
-export const frame = (theme) => ({
+export const spanFrame = (theme) => ({
     backgroundColor: themes[theme].span,
+    display: 'flex',
+    flexDirection: 'column',
+});
+
+export const offsetFrame = (theme) => ({
+    backgroundColor: themes[theme].offset,
     display: 'flex',
     flexDirection: 'column',
 });
@@ -16,16 +22,10 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)':{
             fontSize: '1.2vw',
         },
+        margin: 'auto',
         textTransform: 'none',
         letterSpacing: '0.0075em',
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
         color: themes[props.theme].sqr_text,
-    }),
-    span: props => ({
-        margin: 'auto'
-    }),
-    adjust: props => ({
-        position: 'relative',
-        top: '1.75vw',
     }),
 }, {index: 1});

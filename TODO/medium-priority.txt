@@ -3,6 +3,7 @@ short:
 medium:
     loading bar for uploading an image from device.
     Modification of styles of of Promo modal
-    change ripple color of Sub Buttons, Span Arrows, and anywhere else applicable
+    fix new issue with Location button squares.
+    tweak entry animation of arrow button squares.
 long:
-    optimize CreatePiece Board
+    optimize CreatePiece Board.

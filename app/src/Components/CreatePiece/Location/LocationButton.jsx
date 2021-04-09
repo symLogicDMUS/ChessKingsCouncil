@@ -1,46 +1,40 @@
 import React, {memo, useState} from "react";
 import clsx from "clsx";
-import {motion} from "framer-motion";
+import { Frame } from "framer";
 import MediaQuery from "react-responsive/src";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { useStyles } from "./LocationButton.jss";
-import { lighten } from "@material-ui/core/styles";
 import { themes } from "../../styles/themes.jss";
+import { useStyles as useMoreStyles } from "../CreatePiece.jss";
+import {frame, useStyles } from "./LocationButton.jss";
+import {lighten} from "@material-ui/core/styles";
 
 export const LocationButton = memo(
     ({ rf, onClick, selected, theme, children }) => {
         const classes = useStyles({ theme: theme, rf: rf });
         const classes2 = useMoreStyles({ theme: theme });
         const [animate, setAnimate] = useState(false);
-
-        const variants = {
-            colorShift: {
-                backgroundColor: [
-                    lighten(themes[theme].dark_in_range, 0.7),
-                    themes[theme].dark_in_range,
-                ],
-            },
-            none: {}
-        };
         return (
             <>
                 <MediaQuery maxWidth={960}>
-                    <motion.div
-                        onClick={() => {
-                            onClick()
-                            setAnimate(true)
-                        }}
-                        variants={variants}
-                        className={classes.sqr_button}
-                        animate={animate ? "colorShift" : "none"}
+                    <Frame
+                        width="100%"
+                        height="100%"
+                        onClick={onClick}
+                        style={frame(theme)}
+                        animate={animate ? {
+                            backgroundColor: [
+                                lighten(themes[theme].dark_in_range, 0.75),
+                                themes[theme].dark_in_range,
+                            ],
+                        } : {}}
+                        onTap={() => setAnimate(true)}
                         onAnimationComplete={() => setAnimate(false)}
                     >
                         <Typography className={classes.text} variant="button">
                             {children}
                         </Typography>
-                    </motion.div>
+                    </Frame>
                 </MediaQuery>
                 <MediaQuery minWidth={960}>
                     <Button

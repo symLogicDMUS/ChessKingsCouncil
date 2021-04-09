@@ -26,10 +26,10 @@ export const useStyles = makeStyles({
     }),
     rf_text: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '3.25vw',
+            fontSize: '3vw',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '1.5vw',
+            fontSize: '3.5vw',
         },
         color: lighten(themes[props.theme].sqr_hover_alt, 0.2),
     }),

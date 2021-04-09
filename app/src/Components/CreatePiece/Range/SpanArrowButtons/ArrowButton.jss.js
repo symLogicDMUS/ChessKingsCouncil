@@ -1,32 +1,25 @@
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
-import {sqrSize} from "../../Board/CreatePieceBoard.jss";
 
-const buttonSizeSm = '100%';
 const arrowSizeSm = '100%';
 
-export const transitionDuration = {
-    enter: 500,
-    exit: 500,
+export const transition = {
+    type: 'spring',
+    stiffness: 200,
+};
+export const variants = {
+    'start': {
+        scale: 0,
+    },
+    'end': {
+        scale: 1,
+    }
 }
 
 export const useStyles = makeStyles({
     arrow_button: props => ({
         '@media screen and (max-width: 960px)': {
-            border: 'unset',
             borderRadius: 0,
-            backgroundColor: 'none',
-            '@media screen and (max-width: 960px)': {
-                width: sqrSize.thin,
-                height: sqrSize.thin,
-                maxWidth: '11vh',
-                maxHeight: '11vh',
-            },
-            '@media screen and (min-width: 960px)': {
-                width: sqrSize.wide,
-                height: sqrSize.wide,
-            },
             "& .MuiTouchRipple-root": {
                 color: themes[props.theme].sqr_text,
             },
@@ -85,21 +78,12 @@ export const useStyles = makeStyles({
         },
     }),
     mid: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: buttonSizeSm,
-            height: buttonSizeSm,
-            borderRadius: '0.2em',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: (drawerWidth - 55) * 0.5 * 0.333 * 0.333,
-            width: '2.75em',
-            height: '2.75em',
-            borderRadius: '0.2em',
-        },
+        width: '3.2125vw',
+        height: '3.2125vw',
     }),
     hover: props => ({
-       '&:hover':{
-           backgroundColor: themes[props.theme].offset,
-       },
+        '&:hover': {
+            backgroundColor: themes[props.theme].offset,
+        },
     }),
 }, {index: 1});

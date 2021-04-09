@@ -3,10 +3,10 @@ import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     fab: props => ({
-        zIndex: 6,
+        zIndex: 3,
         position: 'relative',
         right: '2.5vw',
-        top: '2.5vw',
+        top: '5vw',
         width: '5vw',
         height: '5vw',
         padding: '1vw',
