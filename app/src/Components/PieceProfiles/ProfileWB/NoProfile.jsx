@@ -1,9 +1,9 @@
-import React from "react";
+import React, {memo} from "react";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./NoProfile.jss";
 
-export function NoProfile({pieceName, imgUrl, theme}) {
+export const NoProfile = memo(({pieceName, imgUrl, theme}) => {
     const classes = useStyles({theme: theme});
     return (
         <Box className={classes.no_profile}>
@@ -13,4 +13,4 @@ export function NoProfile({pieceName, imgUrl, theme}) {
             <img src={imgUrl} className={classes.inline_piece}/>
         </Box>
     );
-}
+});

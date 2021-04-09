@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
         position: 'relative',
         gridTemplateColumns: `repeat(8, ${boardSqrSize})`,
         gridTemplateRows: `repeat(8, ${boardSqrSize})`,
-        top: '-22vh',
+        top: '-23.75vh',
     }),
     /* assumes position of d4*/
     piece_img: props => ({

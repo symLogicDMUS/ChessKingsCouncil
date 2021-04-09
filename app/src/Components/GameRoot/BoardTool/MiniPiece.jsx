@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import MediaQuery from "react-responsive/src";
 import { Portal } from "@material-ui/core";
 import { NoProfile } from "../../PieceProfiles/ProfileWB/NoProfile";
@@ -6,8 +6,9 @@ import { ProfileWBDrawer } from "../../PieceProfiles/ProfileWB/Drawer/ProfileWBD
 import { ProfileWBModal } from "../../PieceProfiles/ProfileWB/ProfileWBModal";
 import { ToolModal } from "../../NewGame/Customize/ToolModal";
 import { useStyles } from "./MiniPiece.jss";
+import IconButton from "@material-ui/core/IconButton";
 
-export function MiniPiece({
+export const MiniPiece = memo(({
     rf,
     def,
     color,
@@ -21,7 +22,7 @@ export function MiniPiece({
     screenCase,
     theme,
     alt,
-}) {
+}) => {
     const classes = useStyles({ theme: theme });
     return (
         <>
@@ -76,12 +77,14 @@ export function MiniPiece({
                     </Portal>
                 ) : null}
             </MediaQuery>
-            <img
-                src={imgUrl}
-                className={classes.piece}
-                onClick={rf === selectedSqr ? closeProfile : openProfile}
-                alt={`${alt} (icon of a piece)`}
-            />
+            <IconButton className={classes.piece_button}>
+                <img
+                    src={imgUrl}
+                    className={classes.piece_img}
+                    onClick={rf === selectedSqr ? closeProfile : openProfile}
+                    alt={`${alt} (icon of a piece)`}
+                />
+            </IconButton>
         </>
     );
-}
+});

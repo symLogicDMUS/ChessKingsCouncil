@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import clsx from "clsx";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
@@ -11,7 +11,7 @@ import Box from "@material-ui/core/Box";
 import {getColorName} from "../../../helpers/getColorName";
 import IconButton from "@material-ui/core/IconButton";
 
-export function ProfileWBDrawer({theme, closeProfile, isActive, def, color, pieceName, screenCase}) {
+export const ProfileWBDrawer = memo(({theme, closeProfile, isActive, def, color, pieceName, screenCase}) => {
 
     const classes = useStyles({theme});
 
@@ -77,4 +77,4 @@ export function ProfileWBDrawer({theme, closeProfile, isActive, def, color, piec
             </div>
         </div>
     );
-}
+});

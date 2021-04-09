@@ -21,6 +21,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: 0,
+        padding: 0,
         width: sqrSize.thin,
         height: sqrSize.thin,
         maxWidth: '11vh',

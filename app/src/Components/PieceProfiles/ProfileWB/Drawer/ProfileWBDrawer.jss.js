@@ -6,7 +6,7 @@ import {modal} from "../../../helpers/modal.jss";
 export const margin = '5vh';
 export const headerHeight = '3.5vh';
 export const sqrSize = '23vh';
-export const boardSqrSize = '2.75vh';
+export const boardSqrSize = '2.875vh';
 export const halfMargin = '2.5vh';
 
 export const useStyles = makeStyles((theme) => ({

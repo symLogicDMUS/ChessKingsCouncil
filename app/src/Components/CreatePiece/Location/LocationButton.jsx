@@ -33,8 +33,8 @@ export const LocationButton = memo(
                             setAnimate(true)
                         }}
                         variants={variants}
-                        animate={animate ? "colorShift" : "none"}
                         className={classes.sqr_button}
+                        animate={animate ? "colorShift" : "none"}
                         onAnimationComplete={() => setAnimate(false)}
                     >
                         <Typography className={classes.text} variant="button">

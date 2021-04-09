@@ -1,6 +1,7 @@
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../../Reuseables/Drawers/PermanentDrawer.jss";
+import {sqrSize} from "../../Board/CreatePieceBoard.jss";
 
 const buttonSizeSm = '100%';
 const arrowSizeSm = '100%';
@@ -12,16 +13,22 @@ export const transitionDuration = {
 
 export const useStyles = makeStyles({
     arrow_button: props => ({
-        "& .MuiTouchRipple-root": {
-            color: themes[props.theme].span,
-        },
         '@media screen and (max-width: 960px)': {
             border: 'unset',
             borderRadius: 0,
             backgroundColor: 'none',
-            "& .MuiIconButton-root": {
-                width: buttonSizeSm,
-                height: buttonSizeSm,
+            '@media screen and (max-width: 960px)': {
+                width: sqrSize.thin,
+                height: sqrSize.thin,
+                maxWidth: '11vh',
+                maxHeight: '11vh',
+            },
+            '@media screen and (min-width: 960px)': {
+                width: sqrSize.wide,
+                height: sqrSize.wide,
+            },
+            "& .MuiTouchRipple-root": {
+                color: themes[props.theme].sqr_text,
             },
         },
         '@media screen and (min-width: 960px)': {
@@ -29,6 +36,9 @@ export const useStyles = makeStyles({
             height: '3.2125vw',
             borderRadius: '0.25rem',
             border: `0.05em solid ${themes[props.theme].outline}`,
+            "& .MuiTouchRipple-root": {
+                color: themes[props.theme].span,
+            },
         },
     }),
     arrow_button_normal: props => ({
@@ -63,13 +73,12 @@ export const useStyles = makeStyles({
             color: themes[props.theme].arrow_active,
         },
         '@media screen and (min-width: 960px)': {
-            color: themes[props.theme].text,
+            color: themes[props.theme].sqr_text,
         },
     }),
     vector_inactive: props => ({
         '@media screen and (max-width: 960px)': {
             color: themes[props.theme].arrow_inactive,
-            // color: themes[props.theme].text_alt,
         },
         '@media screen and (min-width: 960px)': {
             color: themes[props.theme].text,

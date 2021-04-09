@@ -5,8 +5,9 @@ import {getOffset} from "../../helpers/getOffset";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
 import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
-import {useStyles} from "../../Reuseables/Board/Square.jss";
-import {pieceLocHover, useStyles as useMoreStyles} from "./CreatePieceSquare.jss";
+import {useStyles as useMoreStyles} from "../../Reuseables/Board/Square.jss";
+import {pieceLocHover, useStyles} from "./CreatePieceSquare.jss";
+import Button from "@material-ui/core/Button";
 
 export const CreatePieceSquare = memo(
     ({
@@ -14,7 +15,6 @@ export const CreatePieceSquare = memo(
          theme,
          pieceLoc,
          toggleOffset,
-         screenCase,
          isSpan,
          isOffset,
          showSpanText,
@@ -24,12 +24,8 @@ export const CreatePieceSquare = memo(
          children,
      }) => {
         const [hover, setHover] = useState(false);
-        const classes = useStyles({
-            rf: rf,
-            theme: theme,
-            sqrSize: sqrSize[screenCase],
-        });
-        const classes2 = useMoreStyles({ theme: theme });
+        const classes = useStyles({ theme: theme, rf: rf });
+        const classes2 = useMoreStyles({rf: rf, theme: theme});
 
         const handleClick = () => {
             if (!hasToolChild && !isSpan) {
@@ -38,18 +34,18 @@ export const CreatePieceSquare = memo(
         };
 
         return (
-            <div
+            <Button
                 onClick={handleClick}
-                className={clsx(classes2.square, {
-                    [classes.square]: true,
-                    [classes.light_with_hover]: binaryBoard[rf],
-                    [classes.dark_with_hover]: !binaryBoard[rf],
-                    [classes.span]: isSpan,
-                    [classes.offset]: isOffset,
+                className={clsx(classes.square, {
+                    [classes2.light_with_hover]: binaryBoard[rf],
+                    [classes2.dark_with_hover]: !binaryBoard[rf],
+                    // [classes2.span]: isSpan,
+                    [classes2.offset]: isOffset,
                 })}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 style={rf === pieceLoc && hover ? pieceLocHover(theme) : null}
+                disableRipple={hasToolChild}
             >
                 {isSpan && showSpanText && !hasToolChild ? (
                     <SpanLabel theme={theme} hasFabChild={hasFabChild} />
@@ -62,7 +58,7 @@ export const CreatePieceSquare = memo(
                     />
                 ) : null}
                 {children}
-            </div>
+            </Button>
         );
     }
 );

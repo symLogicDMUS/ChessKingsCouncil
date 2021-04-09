@@ -22,14 +22,12 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].light_normal,
     }),
     dark_with_hover: props => ({
-        // backgroundColor: themes[props.theme].dark_normal,
         backgroundColor: fade('#fff', 0.085),
         '&:hover':{
             backgroundColor: themes[props.theme].sqr_hover,
         }
     }),
     light_with_hover: props => ({
-        // backgroundColor: themes[props.theme].light_normal,
         backgroundColor: fade('#fff', 0.115),
         '&:hover':{
             backgroundColor: themes[props.theme].sqr_hover,

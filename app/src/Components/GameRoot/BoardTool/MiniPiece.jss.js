@@ -1,14 +1,21 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {themes} from "../../styles/themes.jss";
-import {getDrawerFontSize} from "../../PieceProfiles/ProfileWB/ProfileWB.jss";
 
 export const useStyles = makeStyles({
-    piece: {
-        cursor: 'pointer',
+    piece_button: props => ({
         zIndex: 'inherit',
         ...imgFillDiv,
-    },
+        padding: 0,
+        borderRadius: 0,
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].text,
+        },
+    }),
+    piece_img: props => ({
+        width: '100%',
+        height: '100%',
+    }),
     piece_header: props => ({
         width: '100%',
         display: 'flex',

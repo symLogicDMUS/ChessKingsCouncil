@@ -6,7 +6,7 @@ import { resolvePlayerType } from "../../../helpers/resolvePlayerType";
 import { useStyles as useMoreStyles } from "./ProfileWBDrawer.jss";
 import { useStyles } from "./ProfileWBAvatarVert.jss";
 
-const ProfileWBAvatarVert = memo(function WrappedComponent({src, pieceName, color, theme}) {
+function ProfileWBAvatarVert({src, pieceName, color, theme}) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({theme: theme});
 
@@ -30,6 +30,6 @@ const ProfileWBAvatarVert = memo(function WrappedComponent({src, pieceName, colo
             </Box>
         </Box>
     );
-});
+}
 
 export default ProfileWBAvatarVert;
