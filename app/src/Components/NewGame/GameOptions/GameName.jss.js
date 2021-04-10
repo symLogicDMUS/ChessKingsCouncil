@@ -16,6 +16,5 @@ export const useStyles = makeStyles({
             width: '30vw',
         },
         ...mui_input(props.theme),
-
     }),
 }, {index: 1});

@@ -36,6 +36,11 @@ export const mui_input = (theme) => ({
     "& .MuiInputLabel-root.Mui-focused": {
         color: themes[theme].outline,
     },
+
+    /*arrow icon*/
+    "& .MuiSelect-icon": {
+        color: themes[theme].outline,
+    },
 });
 
 export const useStyles = makeStyles({

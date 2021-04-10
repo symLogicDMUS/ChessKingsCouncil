@@ -3,19 +3,9 @@ import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    piece_button: props => ({
-        zIndex: 'inherit',
-        width: '100%',
-        height: '100%',
-        padding: 0,
-        borderRadius: 0,
-        "& .MuiTouchRipple-root": {
-            color: themes[props.theme].dark_in_range,
-        },
-    }),
     piece_img: props => ({
-        width: '100%',
-        height: '100%',
+        zIndex: 'inherit',
+        ...imgFillDiv,
     }),
     piece_header: props => ({
         width: '100%',

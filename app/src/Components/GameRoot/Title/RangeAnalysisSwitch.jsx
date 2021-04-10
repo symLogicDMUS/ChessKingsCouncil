@@ -6,10 +6,10 @@ export const RangeAnalysisSwitch = withStyles({
     switchBase: props => ({
         color: themes[props.theme].text,
         '&$checked': {
-            color: lighten(themes[props.theme].light_in_range, 0.3),
+            color: lighten(themes[props.theme].switch_active, 0.3),
         },
         '&$checked + $track': {
-            backgroundColor: themes[props.theme].light_in_range,
+            backgroundColor: themes[props.theme].switch_active,
         },
         ...props.style
     }),

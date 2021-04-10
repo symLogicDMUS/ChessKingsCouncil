@@ -1,13 +1,17 @@
 import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import { ProfileWB } from "./ProfileWB";
 import {Typography} from "@material-ui/core";
 import { Close } from "../../Reuseables/Modals/Close";
 import { getColorName } from "../../helpers/getColorName";
+import ProfileWBAvatar from "./ProfileWBAvatar";
+import ProfileWBRange from "./ProfileWBRange";
+import { useStyles as useMoreStyles } from "./ProfileWB.jss";
 import {useStyles} from "./ProfileWBModal.jss";
 
 export function ProfileWBModal({
     pieceName,
+    imgUrl,
     def,
     color,
     theme,
@@ -15,7 +19,7 @@ export function ProfileWBModal({
     closeProfile,
 }) {
     const classes = useStyles({ theme: theme });
-
+    const classes2 = useMoreStyles({theme})
     return (
         <Box className={classes.profile_wb_modal}>
             <Box className={classes.close_window_row}>
@@ -31,13 +35,35 @@ export function ProfileWBModal({
                 </Typography>
             </Box>
             <Box className={classes.wb_container}>
-                <ProfileWB
-                    def={def}
-                    color={color}
-                    theme={theme}
-                    pieceName={pieceName}
-                    screenCase={screenCase}
-                />
+                <div className={clsx(classes2.profile_wb, {
+                    [classes2.profile_w]: color === 'W',
+                    [classes2.profile_b]: color === 'B',
+                })}>
+                    <ProfileWBAvatar
+                        src={imgUrl}
+                        color={color}
+                        theme={theme}
+                        pieceName={pieceName}
+                    />
+                    <ProfileWBRange
+                        pieceName={pieceName}
+                        pieceImgUrl={imgUrl}
+                        range={def.spans}
+                        rangeType='span'
+                        color={color}
+                        theme={theme}
+                        screenCase={screenCase}
+                    />
+                    <ProfileWBRange
+                        pieceName={pieceName}
+                        pieceImgUrl={imgUrl}
+                        range={def.offsets}
+                        rangeType='offset'
+                        color={color}
+                        theme={theme}
+                        screenCase={screenCase}
+                    />
+                </div>
             </Box>
         </Box>
     );

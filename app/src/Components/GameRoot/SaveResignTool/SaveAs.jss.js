@@ -80,6 +80,5 @@ export const useStyles = makeStyles({
         "& .MuiInputLabel-root.Mui-focused": {
             color: themes[props.theme].text,
         },
-
     }),
 }, {index: 1});

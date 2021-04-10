@@ -1,16 +1,24 @@
-import React, {memo} from "react";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
-import {useStyles} from "./NoProfile.jss";
+import React, { memo } from "react";
+import {Avatar, Chip, ClickAwayListener} from "@material-ui/core";
+import { useStyles } from "./NoProfile.jss";
 
-export const NoProfile = memo(({pieceName, imgUrl, theme}) => {
-    const classes = useStyles({theme: theme});
+export const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
+    const classes = useStyles({ theme: theme });
     return (
-        <Box className={classes.no_profile}>
-            <Typography variant='h6'  className={classes.caption}>
-                No profile for {pieceName}
-            </Typography>
-            <img src={imgUrl} className={classes.inline_piece}/>
-        </Box>
+        <div className={classes.modal}>
+            <ClickAwayListener
+                onClickAway={closeProfile}
+                mouseEvent="onMouseDown"
+                touchEvent="onTouchStart"
+            >
+                <Chip
+                    className={classes.window}
+                    avatar={<Avatar src={imgUrl}  />}
+                    label={`No profile for ${pieceName}`}
+                    onClick={closeProfile}
+                    onDelete={closeProfile}
+                />
+            </ClickAwayListener>
+        </div>
     );
 });
