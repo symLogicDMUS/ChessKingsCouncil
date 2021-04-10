@@ -31,7 +31,6 @@ export const useStyles = makeStyles({
         border: `0.05rem solid ${themes[props.theme].odd_row}`,
     }),
     title: props => ({
-        fontSize: props.fontSize,
         color: themes[props.theme].text,
     }),
     dialog_actions: props => ({

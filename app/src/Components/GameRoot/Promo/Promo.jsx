@@ -1,20 +1,29 @@
-import React, { useEffect, useReducer } from "react";
-import MediaQuery from "react-responsive/src";
+import React, {useEffect,useReducer} from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import ScrollMenu from "react-horizontal-scrolling-menu";
-import { shuffle } from "../../helpers/shuffleArray";
-import { PromoArrow } from "./PromoArrow";
-import { reducer } from "./reducer.red";
-import { MuiButton as OkButton } from "../../Reuseables/Clickables/MuiButton";
-import { itemStyle, ok_button, useStyles } from "./Promo.jss";
+import {PromoChoice} from "./PromoChoice";
+import {shuffle} from "../../helpers/shuffleArray";
+import {IconButton, Portal} from "@material-ui/core";
+import {ArrowLeft, ArrowRight} from "@material-ui/icons";
+import Typography from "@material-ui/core/Typography";
+import ForwardIcon from '@material-ui/icons/Forward';
+import {reducer} from "./Promo.red";
+import {useStyles} from "./Promo.jss";
+import {getPawnImg} from "./getPawnImg";
 
-function Promo(props) {
+export function Promo(props) {
+
+    const classes = useStyles({theme: props.theme});
+
+    // const pawnImg = useMemo(() => getPawnImg(props.gameType, props.color, props.theme), [])
+    const pawnImg = getPawnImg(props.gameType, props.color, props.theme);
 
     const [state, dispatch] = useReducer(reducer, {
-        promoChoice: null,
-        promoChoices: [],
+        current: 0,
+        prev: props.promoChoices.length - 1,
+        numPieces: props.promoChoices.length,
+        direction: 'right',
+        reverseDirection: 'left',
     });
 
     useEffect(() => {
@@ -22,8 +31,6 @@ function Promo(props) {
             aiPromote(props.promoDest);
         }
     }, [props.color]);
-
-    const classes = useStyles({ theme: props.theme});
 
     /**
      * Pawn promotion means we are adding another piece,
@@ -49,17 +56,20 @@ function Promo(props) {
         props.board[pawnLoc] = newId;
     };
 
-    const promote = (pawnLoc) => {
-        let idNumber = getIdNumber(state.promoChoice);
-        let newId = getNewId(state.promoChoice, idNumber);
-        let oldId = props.board[pawnLoc];
+    const promote = () => {
+        const pawnLoc = props.promoDest;
+        const pieceName = props.promoChoices[state.current]
+        const id = props.pieceDict[pieceName]
+        const idNumber = getIdNumber(id);
+        const newId = getNewId(id, idNumber);
+        const oldId = props.board[pawnLoc];
         replacePawnWithPromo(pawnLoc, newId);
         removePawnHistory(oldId);
         props.piecesDispatch({
             type: "promote",
             oldId: oldId,
             newId: newId,
-            defs: props.pieceDefs,
+            defs: props.defs,
             idDict: props.idDict,
         });
         props.finishMove(props.promoStart, pawnLoc);
@@ -68,17 +78,17 @@ function Promo(props) {
     const aiPromote = (pawnLoc) => {
         let ids = aiPromoChoices();
         ids = shuffle(ids);
-        let idType = ids[0];
-        let idNumber = getIdNumber(idType);
-        let newId = getNewId(idType, idNumber);
-        let oldId = props.board[pawnLoc];
+        const idType = ids[0];
+        const idNumber = getIdNumber(idType);
+        const newId = getNewId(idType, idNumber);
+        const oldId = props.board[pawnLoc];
         replacePawnWithPromo(pawnLoc, newId);
         removePawnHistory(oldId);
         props.piecesDispatch({
             type: "promote",
             oldId: oldId,
             newId: newId,
-            defs: props.pieceDefs,
+            defs: props.defs,
             idDict: props.idDict,
         });
         props.finishMove(props.promoStart, pawnLoc);
@@ -86,92 +96,67 @@ function Promo(props) {
 
     const aiPromoChoices = () => {
         let pieceName = null;
-        let promoChoices = [];
+        const promoChoices = [];
         for (const id of Object.keys(props.idDict)) {
             pieceName = props.idDict[id];
             if (props.promoChoices.includes(pieceName)) {
                 promoChoices.push(id);
             }
         }
-
         return promoChoices;
     };
 
-    useEffect(() => {
-            dispatch({
-                type: "new-list",
-                idDict: props.idDict,
-                pieceDefs: props.pieceDefs,
-                promoChoices: props.promoChoices,
-                color: props.color,
-                theme: props.theme,
-            });
-    }, [props.promoChoices]);
-
-    const selectPiece = (key) => {
-        dispatch({ type: "select", key: key });
-        dispatch({
-            type: "new-list",
-            idDict: props.idDict,
-            pieceDefs: props.pieceDefs,
-            promoChoices: props.promoChoices,
-            color: props.color,
-            theme: props.theme,
-        });
-    };
-
     return (
-        <>
-            <Box className={classes.modal}>
-                <div className={classes.promos}>
-                    <Box className={classes.img_group}>
-                        <ScrollMenu
-                            data={state.promoChoices}
-                            promoChoice={state.promoChoice}
-                            onSelect={selectPiece}
-                            menuClass={classes.menu}
-                            itemStyle={itemStyle()}
-                            itemClassActive={classes.item_active}
-                            arrowLeft={
-                                <PromoArrow
-                                    icon={<NavigateBeforeIcon />}
-                                    theme={props.theme}
-                                />
-                            }
-                            arrowRight={
-                                <PromoArrow
-                                    icon={<NavigateNextIcon />}
-                                    theme={props.theme}
-                                />
-                            }
+        <Portal>
+            <div className={classes.modal}>
+                    <IconButton
+                        className={clsx(classes.nav_button, {
+                            [classes.prevButton]: true,
+                        })}
+                        onClick={() => dispatch({type: "previous"})}
+                    >
+                        <ArrowLeft className={classes.arrow_icon}/>
+
+                    </IconButton>
+                    {props.promoChoices.map((pieceName, i) => (
+                        <PromoChoice
+                            key={i}
+                            onClick={promote}
+                            theme={props.theme}
+                            pieceName={pieceName}
+                            pieceId={props.pieceDict[pieceName]}
+                            imgUrl={props.defs[pieceName][props.color].img}
+                            isCurrent={props.promoChoices[state.current] === pieceName}
+                            isLast={i === props.promoChoices.length - 1}
+                            reverseDirection={state.reverseDirection}
+                            direction={state.direction}
                         />
+                    ))}
+                    <IconButton
+                        className={clsx(classes.nav_button, {
+                            [classes.nextButton]: true,
+                        })}
+                        onClick={() => dispatch({type: "next"})}
+                    >
+                        <ArrowRight className={classes.arrow_icon}/>
+                    </IconButton>
+                    <Box
+                        onClick={promote}
+                        className={classes.promote_button}
+                    >
+                        <Box className={classes.icons}>
+                            <img src={pawnImg} className={classes.piece_img} alt='icon of Pawn'/>
+                            <ForwardIcon className={clsx(classes.piece_img, {[classes.icon]: true})} />
+                            <img src={props.defs[props.promoChoices[state.current]][props.color].img}
+                                 className={classes.piece_img}
+                                 alt='icon of potential promo'
+                            />
+                        </Box>
+                        <Typography variant='button' className={classes.text}>
+                            Promote
+                        </Typography>
                     </Box>
-                    <MediaQuery minWidth={960}>
-                        <OkButton
-                            onClick={() => promote(props.promoDest)}
-                            className={classes.ok_button}
-                            isDisabled={!state.promoChoice}
-                            theme={props.theme}
-                            variant={"contained"}
-                        >
-                            Ok
-                        </OkButton>
-                    </MediaQuery>
-                    <MediaQuery maxWidth={960}>
-                        <OkButton
-                            onClick={() => promote(props.promoDest)}
-                            className={classes.ok_button}
-                            isDisabled={!state.promoChoice}
-                            theme={props.theme}
-                            variant={"contained"}
-                        >
-                            Ok
-                        </OkButton>
-                    </MediaQuery>
-                </div>
-            </Box>
-        </>
+            </div>
+        </Portal>
     );
 }
-
-export default Promo;

@@ -63,7 +63,7 @@ export const Board = ({ gameRoot }) => {
                 </DndProvider>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <DndProvider backend={dndBackend}>
+                <DndProvider backend={dndBackend}> {/*backend={dndBackend} */}
                     <DropLayer
                         state={state}
                         dispatch={dispatch}

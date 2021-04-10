@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
+import {Promo} from "../Promo/Promo";
 import { useDrop } from "react-dnd";
-import { isLegal } from "../Move/isLegal";
 import { move } from "../Move/move";
+import { AIMove } from "./AIMove";
+import { isLegal } from "../Move/isLegal";
 import { ItemTypes } from "./ItemTypes";
 import { getCoords } from "./getCoords";
 import { renderPiece } from "./renderPiece.js";
-import { Portal } from "@material-ui/core";
-import Promo from "../Promo/Promo";
-import { AIMove } from "./AIMove";
 import { getAiMove } from "../../../API/apiHelpers/getAiMove";
 import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
 import { rfToXy, xyToPx } from "./DndCrdCnvrt";
@@ -156,25 +155,25 @@ const DropLayer = ({
                 )}
             </div>
             {state.isPromo ? (
-                <Portal>
-                    <Promo
-                        board={gameRoot.board}
-                        color={gameRoot.turn}
-                        idDict={gameRoot.idDict}
-                        pieceDefs={gameRoot.defs}
-                        aiColor={gameRoot.aiColor}
-                        isCouncil={gameRoot.isCouncil}
-                        jsonRecords={gameRoot.jsonRecords}
-                        promoChoices={gameRoot.promoChoices}
-                        triggerRender={gameRoot.triggerRender}
-                        updateTurnData={gameRoot.updateTurnData}
-                        promoStart={gameRoot.specialMoves.promoStart}
-                        promoDest={gameRoot.specialMoves.promoDest}
-                        theme={gameRoot.state.theme}
-                        finishMove={finishMove}
-                        piecesDispatch={dispatch}
-                    />
-                </Portal>
+                <Promo
+                    board={gameRoot.board}
+                    color={gameRoot.turn}
+                    idDict={gameRoot.idDict}
+                    pieceDict={gameRoot.pieceDict}
+                    defs={gameRoot.defs}
+                    aiColor={gameRoot.aiColor}
+                    isCouncil={gameRoot.isCouncil}
+                    jsonRecords={gameRoot.jsonRecords}
+                    promoChoices={gameRoot.promoChoices}
+                    triggerRender={gameRoot.triggerRender}
+                    updateTurnData={gameRoot.updateTurnData}
+                    promoStart={gameRoot.specialMoves.promoStart}
+                    promoDest={gameRoot.specialMoves.promoDest}
+                    gameType={gameRoot.gameType}
+                    theme={gameRoot.state.theme}
+                    finishMove={finishMove}
+                    piecesDispatch={dispatch}
+                />
             ) : null}
             {state.aiDisplay ? (
                 <AIMove

@@ -5,7 +5,6 @@ import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantD
 
 export function getBoardPos() {
     const vw = viewWidth();
-    const vh = viewHeight();
     const {sqrSizeLg, sqrSizeSm} = getSqrSize();
     return {
         wide: {

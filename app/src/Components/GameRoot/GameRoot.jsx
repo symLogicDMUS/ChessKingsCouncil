@@ -48,6 +48,7 @@ import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {ShowProfileOnClick} from "./BoardTool/ShowProfileOnClick";
 import * as PropTypes from "prop-types";
 import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
+import {flipKeysValues} from "../helpers/flipKeysValues";
 
 FranchiseThemeDropdown.propTypes = {
     theme: PropTypes.any,
@@ -101,6 +102,7 @@ class GameRoot extends React.Component {
         this.promoChoices = gameData.promos;
         this.enemyRanges = gameData.enemy_ranges;
         this.capturedIds = gameData.captured;
+        this.pieceDict = flipKeysValues(this.idDict);
         if (!this.capturedIds) this.capturedIds = copy(newData.captured);
         if (!this.capturedIds.W) this.capturedIds.W = [];
         if (!this.capturedIds.B) this.capturedIds.B = [];

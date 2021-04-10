@@ -1,30 +1,36 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
-import {promoChoicesSize} from "./Promo.jss";
 
+export const timeout = {
+    enter: 500,
+    exit: 500,
+};
 
-export const promoChoice = (fontSize, theme) => ({
-    fontSize: fontSize,
-    '@media screen and (min-width: 960px)': {
-        width: promoChoicesSize.wide,
-        height: promoChoicesSize.wide,
-    },
-    '@media screen and (max-width: 960px)': {
-        width: promoChoicesSize.thin,
-        height: promoChoicesSize.thin,
-    },
-    borderRadius: '0.01em',
-    marginTop: '0.2em',
-    cursor: 'pointer',
-});
+export const style = (isCurrent, isLast) => {
+    if (isLast && !isCurrent) {
+        return {
+            display: 'none'
+        }
+    }
+    return {
+        transitionDelay: isCurrent ? 250 : 0,
+    }
+};
 
 export const useStyles = makeStyles({
-    normal: props => ({
-        ...promoChoice(props.fontSize, props.theme),
-
-    }),
-    selected: props => ({
-        ...promoChoice(props.fontSize, props.theme),
-        backgroundColor: themes[props.theme].text,
+    promo_choice: props => ({
+        position: 'absolute',
+        '@media screen and (max-width: 960px)': {
+            width: '40vw',
+            height: '40vw',
+            left: '30vw',
+            top: `calc(50vh - 20vw)`,
+        },
+        '@media screen and (min-width: 960px)': {
+            width: '20vw',
+            height: '20vw',
+            left: '40vw',
+            top: `calc(50vh - 10vw)`,
+        },
+        cursor: 'pointer',
     }),
 }, {index: 1});

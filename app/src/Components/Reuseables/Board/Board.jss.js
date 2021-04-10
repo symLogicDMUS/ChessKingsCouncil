@@ -9,7 +9,7 @@ export const dnd_layer = (boardSize, boardPos, z) => ({
     height: boardSize,
     top: boardPos.top,
     left: boardPos.left,
-    position: 'absolute',
+    position: 'fixed',
 });
 
 export const game_board = (boardSize, boardPos, z) => ({
