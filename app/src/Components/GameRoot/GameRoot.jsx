@@ -16,7 +16,7 @@ import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
 import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
 import {update} from "../../game_logic/callHierarchyTop/update";
 import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
-import {BoardTool} from "./BoardTool/BoardTool";
+import {RangeAnalysis} from "./RangeAnalysis/RangeAnalysis";
 import {doNothing} from "../helpers/doNothing";
 import {GameInfo} from "./GameInfo/GameInfo";
 import {HelpText} from "./Help/HelpText";
@@ -39,22 +39,14 @@ import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {BoardToolAccordion} from "./BoardTool/BoardToolAccordion";
 import {SaveAs} from "./SaveResignTool/SaveAs";
 import MediaQuery from "react-responsive/src";
 import {StatusBar} from "./Title/StatusBar";
 import {styles} from "./GameRoot.jss";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
-import {ShowProfileOnClick} from "./BoardTool/ShowProfileOnClick";
-import * as PropTypes from "prop-types";
+import {ShowProfileOnClick} from "./RangeAnalysis/ShowProfileOnClick";
 import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
 import {flipKeysValues} from "../helpers/flipKeysValues";
-
-FranchiseThemeDropdown.propTypes = {
-    theme: PropTypes.any,
-    updateParent: PropTypes.func,
-    classes: PropTypes.any
-};
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -62,6 +54,7 @@ class GameRoot extends React.Component {
         this.state = {
             bValue: true,
             theme: "dark",
+            rangeAnalysis: false,
             miniVariantTool: null,
             resignModal: false,
             saveProcess: false,
@@ -117,10 +110,11 @@ class GameRoot extends React.Component {
         this.save = this.save.bind(this);
         this.resign = this.resign.bind(this);
         this.saveToDb = this.saveToDb.bind(this);
-        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
+        this.toggleRangeAnalysis = this.toggleRangeAnalysis.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
+        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.updateTheme = this.updateTheme.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
@@ -304,6 +298,10 @@ class GameRoot extends React.Component {
         this.setState({ secondaryDrawer: bValue });
     }
 
+    toggleRangeAnalysis() {
+        this.setState({rangeAnalysis: ! this.state.rangeAnalysis})
+    }
+
     toggleSaveProcess(bValue) {
         this.setState({ saveProcess: bValue });
     }
@@ -387,20 +385,6 @@ class GameRoot extends React.Component {
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
-                    <MediaQuery maxWidth={960}>
-                        <BoardToolAccordion
-                            board={this.board}
-                            theme={this.state.theme}
-                            gameType={this.gameType}
-                            pieceDefs={this.defs}
-                            idDict={this.idDict}
-                            aiStart={this.aiStart}
-                            allRanges={{ ...this.ranges, ...this.enemyRanges }}
-                            showProfileOnClick={this.state.showProfileOnClick}
-                            triggerRender={this.triggerRender}
-                            toggleSecondaryDrawer={doNothing}
-                        />
-                    </MediaQuery>
                 </div>
                 <ResponsiveDrawer
                     theme={this.state.theme}
@@ -409,8 +393,9 @@ class GameRoot extends React.Component {
                         <StatusBar
                             turn={this.turn}
                             theme={this.state.theme}
-                            condition={this.gameStatus.condition}
                             winner={this.gameStatus.winner}
+                            condition={this.gameStatus.condition}
+                            onChange={this.toggleRangeAnalysis}
                         />
                     }
                     tools={
@@ -437,7 +422,7 @@ class GameRoot extends React.Component {
                                     this.setState({ isSaveMessage: false })
                                 }
                             />
-                            <BoardTool
+                            <RangeAnalysis
                                 board={this.board}
                                 theme={this.state.theme}
                                 gameType={this.gameType}
@@ -573,7 +558,28 @@ class GameRoot extends React.Component {
                     navHorizontal={false}
                     neighborOpen={this.state.secondaryDrawer}
                 >
-                    <Board gameRoot={this} />
+                    <MediaQuery maxWidth={960}>
+                        {this.state.rangeAnalysis ? (
+                            <RangeAnalysis
+                                theme={this.state.theme}
+                                board={this.board}
+                                gameType={this.gameType}
+                                allRanges={{
+                                    ...this.ranges,
+                                    ...this.enemyRanges,
+                                }}
+                                pieceDefs={this.defs}
+                                idDict={this.idDict}
+                                toggleSecondaryDrawer={this.toggleSecondaryDrawer}
+                                showProfileOnClick={this.state.showProfileOnClick}
+                            />
+                        ) : (
+                            <Board gameRoot={this} />
+                        )}
+                    </MediaQuery>
+                    <MediaQuery minWidth={960}>
+                        <Board gameRoot={this} />
+                    </MediaQuery>
                 </ResponsiveDrawer>
             </>
         );

@@ -5,11 +5,12 @@ import {themes} from "../../styles/themes.jss";
 export const useStyles = makeStyles({
     piece_button: props => ({
         zIndex: 'inherit',
-        ...imgFillDiv,
+        width: '100%',
+        height: '100%',
         padding: 0,
         borderRadius: 0,
         "& .MuiTouchRipple-root": {
-            color: themes[props.theme].text,
+            color: themes[props.theme].dark_in_range,
         },
     }),
     piece_img: props => ({

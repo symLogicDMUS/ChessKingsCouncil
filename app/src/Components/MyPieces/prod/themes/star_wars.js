@@ -1,0 +1,15 @@
+export const star_wars = {
+    "a-wing.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fa-wing.PNG?alt=media&token=dc2f2d96-2f54-444f-b74d-a1c9b2b6b488",
+    "b-wing.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fb-wing.PNG?alt=media&token=4491e6c3-f659-4bd2-b610-a8a860fda88d",
+    "darth-vader-tie-fighter.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fdarth-vader-tie-fighter.PNG?alt=media&token=7a51e35e-0dfd-488d-80e9-8d11ac5816ea",
+    "millenium-falcon.png": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fmillenium-falcon.png?alt=media&token=2c5fba5d-fd13-42a4-98a7-16e40f7ea963",
+    "rebel-fleet-ship.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Frebel-fleet-ship.PNG?alt=media&token=5ed7cb50-11d6-4ea6-937c-26f2761df964",
+    "star-destroyer.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fstar-destroyer.PNG?alt=media&token=085b816c-19e0-458b-8b7e-0cf6756be999",
+    "super-star-destroyer.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fsuper-star-destroyer.PNG?alt=media&token=4a9befb2-5faa-4f17-aee9-766d357dbf28",
+    "tie-bomber.png": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Ftie-bomber.png?alt=media&token=c3f1555b-3a31-4c46-a9b8-f2ff26dd0ae9",
+    "tie-defender.png": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Ftie-defender.png?alt=media&token=03bed0cd-2b49-4cef-a10d-dae8cbcfc381",
+    "tie-fighter.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Ftie-fighter.PNG?alt=media&token=3d3376eb-a2e5-457f-aee2-12d96d64b9d3",
+    "tie-interceptor.png": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Ftie-interceptor.png?alt=media&token=8820441b-9fdf-4f05-9992-1aa3402dd3f7",
+    "x-wing.png": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fx-wing.png?alt=media&token=18c3116f-63ce-49c0-a9ea-5aef786dfa8f",
+    "y-wing.PNG": "https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Ffranchise%20piece%20images%2FStar%20Wars%2Fy-wing.PNG?alt=media&token=eabd8879-608b-4f39-903a-155aa166d428"
+}

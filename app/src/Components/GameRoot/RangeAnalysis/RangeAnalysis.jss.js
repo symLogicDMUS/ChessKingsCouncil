@@ -1,18 +1,16 @@
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {fontSize002, fontSize00219,} from "../../styles/fontSizes.jss";
 
 export const sqrSize = {
     wide: '2.8vw',
-    thin: '7.475vw',
+    thin: '10.5vw',
 }
 
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-
             '@media screen and (max-width: 960px)': {
                 flexDirection: 'row',
                 flex: 'nowrap',

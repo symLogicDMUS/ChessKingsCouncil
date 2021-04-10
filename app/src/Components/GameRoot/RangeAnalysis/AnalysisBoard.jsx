@@ -1,14 +1,14 @@
 import React from "react";
 import { rankfiles } from "../../helpers/rankfiles";
-import { MiniSquare as Square } from "./MiniSquare";
-import { MiniPiece as Piece } from "./MiniPiece";
+import { AnalysisSquare as Square } from "./AnalysisSquare";
+import { AnalysisPiece as Piece } from "./AnalysisPiece";
 import { isSpecial } from "../../helpers/isSpecial";
 import { getPieceImg } from "../../MyPieces/getPieceImg";
 import { specialThemeList } from "../../styles/themes.jss";
 import { getFranchisePieceImg } from "../../MyPieces/getFranchisePieceImg";
-import { useStyles } from "./MiniBoard.jss";
+import { useStyles } from "./AnalysisBoard.jss";
 
-export function MiniBoard({
+export function AnalysisBoard({
     theme,
     screenCase,
     gameType,
