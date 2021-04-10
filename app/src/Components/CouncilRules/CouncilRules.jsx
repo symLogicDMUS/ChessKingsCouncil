@@ -10,7 +10,7 @@ import {doNothing} from "../helpers/doNothing";
 import {themes} from "../styles/themes.jss";
 import {useStyles} from "./CouncilRules.jss";
 
-export function CouncilRules() {
+function CouncilRules() {
     const classes = useStyles({fontSize: fontSize002});
 
     const helpText = <Typography
@@ -213,3 +213,5 @@ export function CouncilRules() {
         </div>
     );
 }
+
+export default CouncilRules;

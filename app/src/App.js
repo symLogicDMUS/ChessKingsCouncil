@@ -1,21 +1,23 @@
-import React from "react";
+import React, {Suspense, lazy} from "react";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {CouncilRules} from "./Components/CouncilRules/CouncilRules";
-import CreatePiece from "./Components/CreatePiece/CreatePiece";
-import Customize from "./Components/NewGame/Customize/Customize";
-import NewGame from "./Components/NewGame/NewGame";
-import LoadGame from "./Components/LoadGame/LoadGame";
-import GameRoot from "./Components/GameRoot/GameRoot";
-import MyPieces from "./Components/MyPieces/MyPieces";
-import {Home} from "./Components/Home/Home";
-import {SignInPage} from "./Components/Home/SignInPage";
+import {saveUser} from "./API/saveUser";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/saveSampleData";
-import {saveUser} from "./API/saveUser";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import SignInPage from "./Components/Home/SignInPage";
 import "./App.scss";
+
+const Home = lazy(() => import("./Components/Home/Home"));
+const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
+const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
+const GameRoot = lazy(() => import("./Components/GameRoot/GameRoot"));
+const MyPieces = lazy(() => import("./Components/MyPieces/MyPieces"));
+const CreatePiece = lazy(() => import("./Components/CreatePiece/CreatePiece"));
+const Customize = lazy(() => import("./Components/NewGame/Customize/Customize"));
+const CouncilRules = lazy(() => import("./Components/CouncilRules/CouncilRules"));
+
 
 export class App extends React.Component {
     constructor(props) {
@@ -95,16 +97,18 @@ export class App extends React.Component {
         if (this.state.isSignedIn) {
             return (
                 <Router>
-                    <Switch>
-                        <Route exact path="/" exact strict render={() => <Home signOut={this.signOut} isTouchscreen={this.state.userTouchedScreen}/>}/>
-                        <Route exact path="/NewGame" exact strict render={() => <NewGame isTouchscreen={this.state.userTouchedScreen}/>}/>
-                        <Route exact path="/LoadGame" exact strict render={() => <LoadGame isTouchscreen={this.state.userTouchedScreen}/>}/>
-                        <Route exact path="/Customize" exact strict render={(props) => <Customize {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
-                        <Route exact path="/Play" exact strict render={(props) => <GameRoot {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
-                        <Route exact path="/CreatePiece" exact strict render={(props) => <CreatePiece {...props} isTouchscreen={this.state.userTouchedScreen} />}/>
-                        <Route exact path="/MyPieces" exact strict render={() => <MyPieces isTouchscreen={this.state.userTouchedScreen}/>}/>
-                        <Route exact path="/CouncilRules" exact strict render={() => <CouncilRules isTouchscreen={this.state.userTouchedScreen} />}/>
-                    </Switch>
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/NewGame" component={NewGame}/>
+                            <Route exact path="/LoadGame" component={LoadGame} />
+                            <Route exact path="/CreatePiece" component={CreatePiece} />
+                            <Route exact path="/Customize" component={Customize}/>
+                            <Route exact path="/Play" component={GameRoot}/>
+                            <Route exact path="/MyPieces" component={MyPieces} />
+                            <Route exact path="/CouncilRules" component={CouncilRules} />
+                        </Switch>
+                    </Suspense>
                 </Router>
             );
         } else {

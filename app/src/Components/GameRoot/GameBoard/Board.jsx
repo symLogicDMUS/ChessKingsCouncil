@@ -37,56 +37,56 @@ export const Board = ({ gameRoot }) => {
     return (
         <>
             <MediaQuery minWidth={960}>
-                {/*<DndProvider backend={dndBackend}>*/}
-                {/*    <DropLayer*/}
-                {/*        state={state}*/}
-                {/*        dispatch={dispatch}*/}
-                {/*        gameRoot={gameRoot}*/}
-                {/*        sqrSize={state.sqrSizes.wide}*/}
-                {/*        boardSize={state.boardSizes.wide}*/}
-                {/*        boardPos={state.boardPos.wide}*/}
-                {/*        theme={gameRoot.state.theme}*/}
-                {/*    />*/}
-                {/*    <DragLayer*/}
-                {/*        gameRoot={gameRoot}*/}
-                {/*        sqrSize={state.sqrSizes.wide}*/}
-                {/*        boardSize={state.boardSizes.wide}*/}
-                {/*        boardPos={state.boardPos.wide}*/}
-                {/*        theme={gameRoot.state.theme}*/}
-                {/*    />*/}
+                <DndProvider backend={dndBackend}>
+                    <DropLayer
+                        state={state}
+                        dispatch={dispatch}
+                        gameRoot={gameRoot}
+                        sqrSize={state.sqrSizes.wide}
+                        boardSize={state.boardSizes.wide}
+                        boardPos={state.boardPos.wide}
+                        theme={gameRoot.state.theme}
+                    />
+                    <DragLayer
+                        gameRoot={gameRoot}
+                        sqrSize={state.sqrSizes.wide}
+                        boardSize={state.boardSizes.wide}
+                        boardPos={state.boardPos.wide}
+                        theme={gameRoot.state.theme}
+                    />
                     <GameDisplayBoard
                         theme={gameRoot.state.theme}
                         sqrSize={state.sqrSizes.wide}
                         boardSize={state.boardSizes.wide}
                         boardPos={state.boardPos.wide}
                     />
-                {/*</DndProvider>*/}
+                </DndProvider>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                {/*<DndProvider backend={dndBackend}>*/}
-                    {/*<DropLayer*/}
-                    {/*    state={state}*/}
-                    {/*    dispatch={dispatch}*/}
-                    {/*    gameRoot={gameRoot}*/}
-                    {/*    sqrSize={state.sqrSizes.thin}*/}
-                    {/*    boardSize={state.boardSizes.thin}*/}
-                    {/*    boardPos={state.boardPos.thin}*/}
-                    {/*    theme={gameRoot.state.theme}*/}
-                    {/*/>*/}
-                    {/*<DragLayer*/}
-                    {/*    gameRoot={gameRoot}*/}
-                    {/*    sqrSize={state.sqrSizes.thin}*/}
-                    {/*    boardSize={state.boardSizes.thin}*/}
-                    {/*    boardPos={state.boardPos.thin}*/}
-                    {/*    theme={gameRoot.state.theme}*/}
-                    {/*/>*/}
+                <DndProvider backend={dndBackend}>
+                    <DropLayer
+                        state={state}
+                        dispatch={dispatch}
+                        gameRoot={gameRoot}
+                        sqrSize={state.sqrSizes.thin}
+                        boardSize={state.boardSizes.thin}
+                        boardPos={state.boardPos.thin}
+                        theme={gameRoot.state.theme}
+                    />
+                    <DragLayer
+                        gameRoot={gameRoot}
+                        sqrSize={state.sqrSizes.thin}
+                        boardSize={state.boardSizes.thin}
+                        boardPos={state.boardPos.thin}
+                        theme={gameRoot.state.theme}
+                    />
                     <GameDisplayBoard
                         theme={gameRoot.state.theme}
                         sqrSize={state.sqrSizes.thin}
                         boardSize={state.boardSizes.thin}
                         boardPos={state.boardPos.thin}
                     />
-                {/*</DndProvider>*/}
+                </DndProvider>
             </MediaQuery>
         </>
     );

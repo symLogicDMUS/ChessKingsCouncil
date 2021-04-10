@@ -3,14 +3,13 @@ import MediaQuery from "react-responsive/src";
 import * as firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
-import {fontSize002} from "../styles/fontSizes.jss";
 import {Background} from "../Reuseables/Background/Background";
 import '../Reuseables/Background/_backgrounds.scss';
 import {useStyles} from "./SignInPage.jss";
 
-export function SignInPage(props) {
-    let [theme, setTheme] = useState("tan");
-    const classes = useStyles({theme: theme, fontSize: fontSize002});
+function SignInPage(props) {
+    const [theme, setTheme] = useState("tan");
+    const classes = useStyles({theme: theme});
 
     useEffect(() => {
         document.body.className = `${theme}-background`
@@ -50,3 +49,5 @@ export function SignInPage(props) {
         </>
     );
 }
+
+export default SignInPage;

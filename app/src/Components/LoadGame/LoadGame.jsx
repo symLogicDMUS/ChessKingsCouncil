@@ -5,15 +5,14 @@ import { copy } from "../helpers/copy";
 import { getGames } from "../../API/getGames";
 import { getBoardObjs } from "./getBoardObjs";
 import { deleteGame } from "../../API/deleteGame";
-import { getSampleGames } from "../../API/getSampleGames";
+import "../Reuseables/Background/_backgrounds.scss";
+import { getGameSnapshots } from "./getGameSnapshots";
 import { saveGameDict } from "../../API/saveGameDict";
+import { parseData } from "../../API/apiHelpers/parseData";
+import {getDbSampleGames} from "../../API/getDbSampleGames";
 import { initEmptyRanges } from "../../API/apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../API/apiHelpers/offsetStrsToList";
 import { dbSampleGames } from "../../API/apiHelpers/sampleGames/dev1";
-import { parseData } from "../../API/apiHelpers/parseData";
-import { getGameSnapshots } from "./getGameSnapshots";
-import "../Reuseables/Background/_backgrounds.scss";
-import {getDbSampleGames} from "../../API/getDbSampleGames";
 import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 
 class LoadGame extends React.Component {

@@ -20,7 +20,6 @@ import {RangeAnalysis} from "./RangeAnalysis/RangeAnalysis";
 import {doNothing} from "../helpers/doNothing";
 import {GameInfo} from "./GameInfo/GameInfo";
 import {HelpText} from "./Help/HelpText";
-import {Board} from "./GameBoard/Board";
 import {Fen} from "../../game_logic/fenParser/Fen";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
@@ -39,14 +38,15 @@ import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {SaveAs} from "./SaveResignTool/SaveAs";
-import MediaQuery from "react-responsive/src";
-import {StatusBar} from "./Title/StatusBar";
-import {styles} from "./GameRoot.jss";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {ShowProfileOnClick} from "./RangeAnalysis/ShowProfileOnClick";
 import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
 import {flipKeysValues} from "../helpers/flipKeysValues";
+import {SaveAs} from "./SaveResignTool/SaveAs";
+import MediaQuery from "react-responsive/src";
+import {StatusBar} from "./Title/StatusBar";
+import {Board} from "./GameBoard/Board";
+import {styles} from "./GameRoot.jss";
 
 class GameRoot extends React.Component {
     constructor(props) {

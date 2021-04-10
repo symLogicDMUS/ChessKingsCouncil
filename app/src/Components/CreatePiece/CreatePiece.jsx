@@ -23,6 +23,7 @@ import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
+import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
@@ -33,7 +34,6 @@ import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { styles } from "./CreatePiece.jss";
-import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 
 class CreatePiece extends React.Component {
     constructor(props) {
