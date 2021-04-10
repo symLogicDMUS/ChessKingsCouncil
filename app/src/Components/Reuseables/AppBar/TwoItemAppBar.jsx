@@ -1,13 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import {MoreVert} from "@material-ui/icons";
 import {SeeMore} from "../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./TwoItemAppBar.jss";
 
 export function TwoItemAppBar({theme, className, seeMoreIcon, children}) {
     const sm = useMediaQuery("(max-width: 500px)");
-    const classes = useStyles()
+    const classes = useStyles({theme: theme})
 
     return (
         <Box
@@ -19,7 +20,7 @@ export function TwoItemAppBar({theme, className, seeMoreIcon, children}) {
                 {children[0]}
             </div>
             {sm ? (
-                <SeeMore theme={theme} icon={seeMoreIcon}>
+                <SeeMore theme={theme} icon={seeMoreIcon ? seeMoreIcon : <MoreVert className={classes.icon} />}>
                     {children[1]}
                 </SeeMore>
             ) : (

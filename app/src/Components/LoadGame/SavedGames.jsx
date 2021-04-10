@@ -11,6 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SavedGamesTitle} from "./SavedGamesTitle";
 import SearchIcon from "@material-ui/icons/Search";
+import {TwoItemAppBar} from "../Reuseables/AppBar/TwoItemAppBar";
 import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
@@ -42,16 +43,18 @@ export function SavedGames(props) {
                 tools={null}
                 toolButtons={null}
                 navHorizontal={isWide}
-                appBarContent={[
-                    <PageTitle theme={props.theme}>
-                        Load Game
-                    </PageTitle>,
-                    <SearchBox
-                        theme={props.theme}
-                        className={classes.search_box}
-                        updateSearchText={props.updateSearchText}
-                    />,
-                ]}
+                appBarContent={
+                    <TwoItemAppBar theme={props.theme} seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}>
+                        <PageTitle theme={props.theme}>
+                            Load Game
+                        </PageTitle>
+                        <SearchBox
+                            theme={props.theme}
+                            className={classes.search_box}
+                            updateSearchText={props.updateSearchText}
+                        />
+                    </TwoItemAppBar>
+                }
                 appBarType='2item'
                 seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
             >

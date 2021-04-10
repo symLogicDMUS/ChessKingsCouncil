@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     two_item_app_bar: props => ({
@@ -14,5 +15,9 @@ export const useStyles = makeStyles({
     }),
     child2: props => ({
         marginRight: 'auto',
+    }),
+    icon: props => ({
+        color: themes[props.theme].text,
+        fontSize: '1.1rem',
     }),
 }, {index: 1});

@@ -1,7 +1,10 @@
 short:
-    consider memoizing ScrollTable items
+
 medium:
     loading bar for uploading an image from device.
-    Modification of styles of of Promo modal
+    make all CreatePiece options be miniVaraint buttons for small screens
+    finish updating Promo modal.
+    check all small screen app bars styled correctly
+    Load game boards alignment seem off for smallest screens (bellow 400px)
 long:
-    optimize CreatePiece Board.
+    Custom Loading animation.
