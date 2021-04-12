@@ -101,11 +101,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     item1: props => ({
-        '@media screen and (max-width: 600px)': {
-            marginTop: '1.5vw',
-            marginBottom: '1.5vw',
-        },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: marginMd,
             marginBottom: marginMd,
         },
@@ -114,11 +110,7 @@ export const useStyles = makeStyles({
         },
     }),
     item2: props => ({
-        '@media screen and (max-width: 600px)': {
-            marginTop: '1.5vw',
-            marginBottom: '1.5vw',
-        },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: marginMd,
             marginBottom: marginMd,
         },
@@ -128,11 +120,7 @@ export const useStyles = makeStyles({
         },
     }),
     item3: props => ({
-        '@media screen and (max-width: 600px)': {
-            marginTop: '1.5vw',
-            marginBottom: '1.5vw',
-        },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: marginMd,
             marginBottom: marginMd,
         },

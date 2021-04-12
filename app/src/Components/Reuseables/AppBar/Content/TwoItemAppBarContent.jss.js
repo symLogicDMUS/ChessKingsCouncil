@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     two_item_app_bar: props => ({

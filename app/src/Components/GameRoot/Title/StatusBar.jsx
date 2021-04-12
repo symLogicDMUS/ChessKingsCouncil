@@ -9,8 +9,9 @@ import {MuiSwitch} from "../../Reuseables/Clickables/MuiSwitch";
 import {RangeAnalysisSwitch} from "./RangeAnalysisSwitch";
 import {Adjuster} from "../../Reuseables/AppBar/Adjuster";
 import { useStyles } from "./StatusBar.jss";
+import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 
-export function StatusBar({ turn, winner, condition, onChange, theme }) {
+export function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }) {
 
     const classes = useStyles({theme: theme});
 
@@ -39,23 +40,38 @@ export function StatusBar({ turn, winner, condition, onChange, theme }) {
             <MediaQuery maxWidth={960}>
                 <Box className={classes.statusBarSm}>
                     <Box className={classes.statusMessage}>
-                        <Adjuster>
-                            <Typography className={classes.statusTextSm}>
-                                Range Analysis
-                            </Typography>
-                        </Adjuster>
+                        <MediaQuery minWidth={560}>
+                            <Adjuster>
+                                <Typography className={classes.statusTextSm}>
+                                    Range Analysis
+                                </Typography>
+                            </Adjuster>
+                        </MediaQuery>
                         <Typography className={classes.statusTextSm} variant='h6'>
                             {getMessage()}
                         </Typography>
                     </Box>
-                    <MuiSwitch
-                        theme={theme}
-                        control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
-                        className={classes.rangeAnalysisSwitch}
-                        labelPlacement={'start'}
-                    >
-                        Range Analysis
-                    </MuiSwitch>
+                    <MediaQuery minWidth={560}>
+                        <MuiSwitch
+                            theme={theme}
+                            isChecked={isRangeAnalysis}
+                            control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
+                            labelPlacement={'start'}
+                        >
+                            Range Analysis
+                        </MuiSwitch>
+                    </MediaQuery>
+                    <MediaQuery maxWidth={560}>
+                        <SeeMore theme={theme}>
+                            <MuiSwitch
+                                theme={theme}
+                                control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
+                                labelPlacement={'start'}
+                            >
+                                Range Analysis
+                            </MuiSwitch>
+                        </SeeMore>
+                    </MediaQuery>
                 </Box>
             </MediaQuery>
             <MediaQuery minWidth={960}>

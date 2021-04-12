@@ -1,11 +1,11 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import { PageTitle } from "./PageTitle";
+import { PageTitle } from "../PageTitle";
 import { Typography } from "@material-ui/core";
 import Hidden from "@material-ui/core/Hidden";
-import { TwoItemAppBar } from "./TwoItemAppBar";
-import { ThreeItemAppBar } from "./ThreeItemAppBar";
+import { TwoItemAppBarContent } from "./TwoItemAppBarContent";
+import { ThreeItemAppBarContent } from "./ThreeItemAppBarContent";
 import { useStyles } from "./AppBarContent.jss";
 
 export function AppBarContent({
@@ -33,7 +33,7 @@ export function AppBarContent({
                         </PageTitle>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar
+                        <TwoItemAppBarContent
                             open={open}
                             theme={theme}
                             className={className}
@@ -41,10 +41,10 @@ export function AppBarContent({
                             seeMoreIcon2={seeMoreIcon2}
                         >
                             {children}
-                        </TwoItemAppBar>
+                        </TwoItemAppBarContent>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar
+                        <ThreeItemAppBarContent
                             open={open}
                             theme={theme}
                             className={className}
@@ -52,7 +52,7 @@ export function AppBarContent({
                             seeMoreIcon2={seeMoreIcon2}
                         >
                             {children}
-                        </ThreeItemAppBar>
+                        </ThreeItemAppBarContent>
                     ) : null}
                 </Box>
             </Hidden>
@@ -73,7 +73,7 @@ export function AppBarContent({
                         </Typography>
                     ) : null}
                     {type === "2item" ? (
-                        <TwoItemAppBar
+                        <TwoItemAppBarContent
                             open={open}
                             theme={theme}
                             className={className}
@@ -81,10 +81,10 @@ export function AppBarContent({
                             seeMoreIcon2={seeMoreIcon2}
                         >
                             {children}
-                        </TwoItemAppBar>
+                        </TwoItemAppBarContent>
                     ) : null}
                     {type === "3item" ? (
-                        <ThreeItemAppBar
+                        <ThreeItemAppBarContent
                             open={open}
                             theme={theme}
                             className={className}
@@ -92,7 +92,7 @@ export function AppBarContent({
                             seeMoreIcon2={seeMoreIcon2}
                         >
                             {children}
-                        </ThreeItemAppBar>
+                        </ThreeItemAppBarContent>
                     ) : null}
                 </Box>
             </Hidden>

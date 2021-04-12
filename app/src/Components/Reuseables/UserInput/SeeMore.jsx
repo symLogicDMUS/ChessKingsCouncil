@@ -1,11 +1,12 @@
-import React, {useState} from "react";
-import {MuiMenu} from "./MuiMenu";
-import {originTransform} from "../AppBar/ThreeItemAppBar.jss";
+import React, { useState } from "react";
+import clsx from "clsx";
+import { MuiMenu } from "./MuiMenu";
+import { originTransform } from "../AppBar/Content/ThreeItemAppBarContent.jss";
 import IconButton from "@material-ui/core/IconButton";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { useStyles } from "./SeeMore.jss";
 
-export function SeeMore({theme, icon, children}) {
+export function SeeMore({ theme, icon, className, style, edge, children }) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -17,7 +18,7 @@ export function SeeMore({theme, icon, children}) {
         setMobileMoreAnchorEl(null);
     };
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     return (
         <>
@@ -31,11 +32,14 @@ export function SeeMore({theme, icon, children}) {
             >
                 {children}
             </MuiMenu>
-            <div className={classes.seeMore}>
-                <IconButton onClick={handleMobileMenuOpen}>
-                    {icon ? (icon) : (
-                        <MoreIcon className={classes.icon} />
-                    )}
+            <div
+                className={clsx(classes.seeMore, {
+                    [className]: className,
+                })}
+                style={style}
+            >
+                <IconButton onClick={handleMobileMenuOpen} edge={edge} >
+                    {icon ? icon : <MoreIcon className={classes.icon} />}
                 </IconButton>
             </div>
         </>

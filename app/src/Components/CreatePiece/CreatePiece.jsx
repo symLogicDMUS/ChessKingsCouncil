@@ -13,7 +13,6 @@ import { Options } from "./Options/Options";
 import { Location } from "./Location/Location";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { incrementImgRefCount } from "../../API/incrementImgRefCount";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
@@ -33,6 +32,7 @@ import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { styles } from "./CreatePiece.jss";
 
 class CreatePiece extends React.Component {
@@ -648,6 +648,7 @@ class CreatePiece extends React.Component {
                         />
                     }
                     navHorizontal={false}
+                    contentClassName={this.props.classes.content}
                 >
                     <Board
                         key="Board"

@@ -1,4 +1,3 @@
-import {appBarHeight} from "../Drawers/PersistentDrawer.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
@@ -8,17 +7,12 @@ export const useStyles = makeStyles((theme) => ({
     window: props => ({
         '@media screen and (max-width: 960px)': {
             width: '100vw',
-            position: 'absolute',
-            top: appBarHeight,
-            left: 0,
         },
         '@media screen and (min-width: 960px)': {
             width: widthLg,
-            position: 'absolute',
-            top: `calc(${appBarHeight}px)`,
-            left: '5vw',
         },
         zIndex: 6,
+        margin: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

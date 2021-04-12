@@ -5,8 +5,8 @@ import {themes} from "../../styles/themes.jss";
 export const useStyles = makeStyles({
     name_modal: props => ({
         margin: 'auto',
-        borderRadius: '0.5rem',
         padding: '0.35vw',
+        borderRadius: '0.5rem',
         backgroundColor: themes[props.theme].fill,
         border: `0.05rem solid ${themes[props.theme].odd_row}`,
     }),

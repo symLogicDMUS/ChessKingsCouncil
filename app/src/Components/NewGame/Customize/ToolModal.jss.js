@@ -18,9 +18,9 @@ export const useStyles = makeStyles({
         },
     }),
     window: props => ({
+        borderRadius: '0.25rem',
         backgroundColor: themes[props.theme].fill,
         border: `0.05rem solid ${themes[props.theme].odd_row}`,
-        borderRadius: '0.25rem',
         margin: 'auto',
     }),
     top_area: props => ({

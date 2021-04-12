@@ -1,19 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { useTheme } from "@material-ui/core/styles";
-import {
-    ClickAwayListener,
-    Grow,
-    Hidden,
-    Portal,
-    Slide,
-    useMediaQuery,
-    Zoom,
-} from "@material-ui/core";
+import {ClickAwayListener, Hidden, Portal, Slide, useMediaQuery,} from "@material-ui/core";
 import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextField";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { useStyles } from "./Name.jss";
 import { DragIndicator } from "@material-ui/icons";
+import { useStyles } from "./Name.jss";
 
 export function Name({
     updateName,

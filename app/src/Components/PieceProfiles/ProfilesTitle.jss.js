@@ -3,7 +3,7 @@ import {fontSize002} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
     marginMd,
-    marginSm,
+    headerMarginSm,
     marginSm2x,
     sqrItemSizeLg,
     sqrItemSizeMd,
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
             width: headerWidthSm,
             marginLeft: 'auto',
             marginRight: 'auto',
-            marginBottom: marginSm,
+            marginBottom: headerMarginSm,
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: headerWidthMd,

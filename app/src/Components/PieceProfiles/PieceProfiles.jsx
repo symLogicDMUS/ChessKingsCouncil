@@ -1,7 +1,6 @@
-import React, {memo, useEffect, useMemo, useReducer} from "react";
-import {Profile} from "./Profile";
+import React, {useEffect, useReducer} from "react";
+import Profile from "./Profile";
 import {copy} from "../helpers/copy";
-import MediaQuery from "react-responsive/src";
 import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
@@ -16,7 +15,7 @@ import {useStyles} from "./PieceProfiles.jss";
 import clsx from "clsx";
 
 /*children is a header or none, depending on the parent page*/
-export function PieceProfiles (props) {
+function PieceProfiles (props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
 
     useEffect(() => {
@@ -140,3 +139,5 @@ export function PieceProfiles (props) {
         </div>
     );
 }
+
+export default PieceProfiles;

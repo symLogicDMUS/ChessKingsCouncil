@@ -2,11 +2,11 @@ import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {MoreVert} from "@material-ui/icons";
-import {SeeMore} from "../UserInput/SeeMore";
+import {SeeMore} from "../../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useStyles } from "./TwoItemAppBar.jss";
+import { useStyles } from "./TwoItemAppBarContent.jss";
 
-export function TwoItemAppBar({theme, className, seeMoreIcon, children}) {
+export function TwoItemAppBarContent({theme, className, seeMoreIcon, children}) {
     const sm = useMediaQuery("(max-width: 500px)");
     const classes = useStyles({theme: theme})
 

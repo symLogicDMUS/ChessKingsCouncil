@@ -1,18 +1,25 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
-import AppBar from "@material-ui/core/AppBar";
-import Divider from "@material-ui/core/Divider";
-import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
-import { Portal, useTheme } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBarSmScreen from "../AppBar/AppBarSmScreen";
+import AppBarLgScreen from "../AppBar/AppBarLgScreen";
 import MiniVariantDrawer from "./MiniVariantDrawer";
+import PermanentDrawerRight from "./PermanentDrawerRight";
+import PermanentDrawerLeft from "./PermanentDrawerLeft";
+import PersistentDrawerLeft from "./PersistantDrawerLeft";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./ResponsiveDrawer.jss";
+import {MoreHoriz} from "@material-ui/icons";
+import IconButton from "@material-ui/core/IconButton";
 
+
+/**
+ * @on left of screen: navBar is in open/close drawer for screen width 960px down and in permanent drawer for 960px up
+ * @on right of screen: tools of page in permanent drawer for 960px up and tool buttons that open modals with tools onClick, for 960px down.
+ * @some pages have navBar spanning top instead of left and right drawers, which changes how main content is displayed.
+ *  this is indicated by the boolean prop 'navHorizontal'.
+ */
 function ResponsiveDrawer({
     theme,
     navBar,
@@ -22,11 +29,12 @@ function ResponsiveDrawer({
     appBarContent,
     elevation,
     className,
+    appBarClassName,
+    contentClassName,
     children,
 }) {
     const classes = useStyles({ theme: theme });
-    const muiTheme = useTheme();
-
+    const lg = useMediaQuery("(min-width:960px)");
     const [open, setOpen] = useState(false);
 
     const handleDrawerToggle = () => {
@@ -41,113 +49,66 @@ function ResponsiveDrawer({
         >
             <CssBaseline />
             <Hidden mdUp>
-                <AppBar
-                    position="fixed"
+                <AppBarSmScreen
+                    theme={theme}
                     elevation={elevation}
-                    className={clsx(classes.appBar, {
-                        [classes.appBarCompressed]: open,
-                        [classes.appBarRelaxed]: !open,
-                    })}
+                    className={appBarClassName}
+                    handleDrawerToggle={handleDrawerToggle}
                 >
-                    <Toolbar>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerToggle}
-                            className={classes.menuButton}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        {appBarContent}
-                    </Toolbar>
-                </AppBar>
-                <div className={classes.drawer} aria-label="nav bar component">
-                    <Drawer
-                        open={open}
-                        variant="temporary"
-                        anchor={muiTheme.direction === "rtl" ? "right" : "left"}
-                        onClose={handleDrawerToggle}
-                        classes={{
-                            paper: clsx(classes.drawerPaper, {
-                                [classes.navPersistentPaper]: true,
-                                [classes.hidden]: navHorizontal,
-                            }),
-                        }}
-                        ModalProps={{
-                            keepMounted: true,
-                        }}
-                    >
-                        <div className={classes.toolbar} />
-                        <Divider />
-                        {navBar}
-                    </Drawer>
-                    {toolButtons && (
-                        <Portal>
-                            <MiniVariantDrawer theme={theme}>
-                                {toolButtons}
-                            </MiniVariantDrawer>
-                        </Portal>
-                    )}
-                </div>
+                    {appBarContent}
+                </AppBarSmScreen>
+                <PersistentDrawerLeft
+                    open={open}
+                    handleDrawerToggle={handleDrawerToggle}
+                    isHidden={navHorizontal}
+                    theme={theme}
+                >
+                    {navBar}
+                </PersistentDrawerLeft>
+                {toolButtons && (
+                    <MiniVariantDrawer theme={theme}>
+                        {toolButtons}
+                    </MiniVariantDrawer>
+                )}
             </Hidden>
             <Hidden smDown>
-                <AppBar
-                    position="fixed"
-                    className={clsx(classes.appBar, {
-                        [classes.appBarLg]: true,
-                        [classes.hidden]: navHorizontal,
+                <AppBarLgScreen
+                    theme={theme}
+                    isHidden={navHorizontal}
+                    className={appBarClassName}
+                    onMenuButtonClick={handleDrawerToggle}
+                >
+                    {appBarContent}
+                </AppBarLgScreen>
+                <PermanentDrawerLeft
+                    theme={theme}
+                    isHidden={navHorizontal}
+                    ariaLabel="navBar"
+                >
+                    {navBar}
+                </PermanentDrawerLeft>
+                <PermanentDrawerRight
+                    theme={theme}
+                    isHidden={navHorizontal}
+                    ariaLabel="tools"
+                >
+                    {tools}
+                </PermanentDrawerRight>
+            </Hidden>
+            <main>
+                {navHorizontal ? navBar : <div className={classes.toolbar} />}
+                <div
+                    className={clsx(classes.mainContent, {
+                        [contentClassName]: contentClassName,
+                        [classes.lgMainWithNB]: lg && navHorizontal,
+                        [classes.lgMainWithDrawer]: lg && !navHorizontal,
+                        [classes.smMainWithMiniVariant]: !lg && toolButtons,
+                        [classes.smMainFull]: !lg && !toolButtons,
+                        [classes.smMain]: !lg,
                     })}
                 >
-                    <Toolbar>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerToggle}
-                            className={classes.menuButton}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        {appBarContent}
-                    </Toolbar>
-                </AppBar>
-                <div className={classes.drawer} aria-label="nav bar component">
-                    <Drawer
-                        classes={{
-                            paper: clsx(classes.navPermanentPaper, {
-                                [classes.hidden]: navHorizontal,
-                                [classes.drawerPaper]: !navHorizontal,
-                            }),
-                        }}
-                        open
-                        variant="permanent"
-                    >
-                        <div className={classes.toolbar} />
-                        <Divider />
-                        {navBar}
-                    </Drawer>
-                    <Portal>
-                        <Drawer
-                            classes={{
-                                paper: clsx(classes.toolDrawerPaper, {
-                                    [classes.drawerPaper]: true,
-                                    [classes.hidden]: navHorizontal,
-                                }),
-                            }}
-                            variant="permanent"
-                            anchor="right"
-                            open
-                        >
-                            <div className={classes.toolbar} />
-                            <Box className={classes.tools}>{tools}</Box>
-                        </Drawer>
-                    </Portal>
+                    {children}
                 </div>
-            </Hidden>
-            <main className={classes.main}>
-                {navHorizontal ? navBar : <div className={classes.toolbar} />}
-                {children}
             </main>
         </div>
     );

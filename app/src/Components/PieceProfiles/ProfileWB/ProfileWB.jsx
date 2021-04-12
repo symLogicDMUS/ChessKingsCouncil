@@ -9,7 +9,7 @@ import { useStyles } from "./ProfileWB.jss";
  * color: is for W or B piece,
  * def: spans, offsets, and img of W or B piece
  * */
-export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
+const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
 
     const classes = useStyles({ theme: theme });
 
@@ -47,3 +47,5 @@ export const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => 
         </>
     );
 })
+
+export default ProfileWB;

@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import { ResolvePieceIcon } from "./ResolvePieceIcon";
 import { icons } from "../../styles/icons/top/icons.jss";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import { originTransform } from "../../Reuseables/AppBar/ThreeItemAppBar.jss";
+import { originTransform } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent.jss";
 import {MuiMenuWithCaption} from "../../Reuseables/UserInput/MuiMenuWithCaption";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./SubDropdown.jss";
@@ -95,7 +95,7 @@ export function SubDropdown({
                         {pieceName}
                     </Typography>
                 ) : null}
-                <IconButton onClick={handleMobileMenuOpen}>
+                <IconButton onClick={handleMobileMenuOpen} edge='end'>
                     <ResolvePieceIcon
                         theme={theme}
                         pieceName={pieceName}

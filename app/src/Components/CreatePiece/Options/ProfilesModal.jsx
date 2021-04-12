@@ -2,9 +2,9 @@ import React from 'react'
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {Close} from "../../Reuseables/Modals/Close";
-import {PieceProfiles} from "../../PieceProfiles/PieceProfiles";
+import PieceProfiles from "../../PieceProfiles/PieceProfiles";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {close_icon, useStyles} from "./ProfilesModal.jss";
+import {useStyles} from "./ProfilesModal.jss";
 
 export function ProfilesModal({load, close, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize002});

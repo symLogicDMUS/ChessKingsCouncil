@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { HelpText } from "./HelpText";
-import Typography from "@material-ui/core/Typography";
 import "../Reuseables/Background/_backgrounds.scss";
 import SearchIcon from "@material-ui/icons/Search";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { NavBar } from "../Reuseables/NavBar/NavBar";
+import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import { PieceProfiles } from "../PieceProfiles/PieceProfiles";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import { fontSize0026, fontSizeW0045 } from "../styles/fontSizes.jss";
+import { TwoItemAppBarContent } from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
+import { PageTitle } from "../Reuseables/AppBar/PageTitle";
+import PieceProfiles from "../PieceProfiles/PieceProfiles";
 import { textColor, useStyles } from "./MyPieces.jss";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import {TwoItemAppBar} from "../Reuseables/AppBar/TwoItemAppBar";
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
@@ -43,9 +41,9 @@ function MyPieces() {
                     screenCase="thin"
                     flexDirection="column"
                     currentPage="MyPieces"
-                    helpText={HelpText(fontSizeW0045, theme)}
+                    helpText={HelpText('4.5vw', theme)}
                     helpTitle={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme} fontSize={'2.6vh'}>
                             Your Pieces
                         </HelpTitle>
                     }
@@ -57,10 +55,16 @@ function MyPieces() {
             }
             navHorizontal={isWide}
             appBarContent={
-                <TwoItemAppBar theme={theme} seeMoreIcon={<SearchIcon className={classes.icon} style={textColor(theme)} />}>
-                    <PageTitle theme={theme}>
-                        Saved Pieces
-                    </PageTitle>
+                <TwoItemAppBarContent
+                    theme={theme}
+                    seeMoreIcon={
+                        <SearchIcon
+                            className={classes.icon}
+                            style={textColor(theme)}
+                        />
+                    }
+                >
+                    <PageTitle theme={theme}>Saved Pieces</PageTitle>
                     <SearchBox
                         theme={theme}
                         className={classes.search}
@@ -68,7 +72,7 @@ function MyPieces() {
                         updateSearchText={updateSearchText}
                         style={textColor(theme)}
                     />
-                </TwoItemAppBar>
+                </TwoItemAppBarContent>
             }
             appBarType="2item"
             seeMoreIcon={

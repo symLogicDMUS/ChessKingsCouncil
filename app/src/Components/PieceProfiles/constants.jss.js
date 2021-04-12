@@ -4,16 +4,14 @@
 
 /*header of a profile*/
 export const headerWidthXs = '51vw';
-export const headerWidthSm = '76vw';
-export const headerWidthMd = '83vw';
+export const headerWidthSm = '77.5vw';
+export const headerWidthMd = '85vw';
 export const headerWidthLg = '46.5vw';
+export const headerMarginSm = "0.65vw";
+export const headerMarginMd = "0.85vw";
 
-export const marginSm = "1vw";
-export const marginMd = '1.5vw';
+export const marginMd = '2.25vw';
 export const marginLg = '0.875vw';
-export const marginXs2x = '1vw';
-export const marginSm2x = '2vw';
-export const marginMd2x = '3vw';
 export const marginLgHalf = '0.4375vw';
 
 /*square items (range board and profile image of piece) */

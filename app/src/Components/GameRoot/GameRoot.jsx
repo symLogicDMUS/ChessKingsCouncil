@@ -394,6 +394,7 @@ class GameRoot extends React.Component {
                             turn={this.turn}
                             theme={this.state.theme}
                             winner={this.gameStatus.winner}
+                            isRangeAnalysis={this.state.rangeAnalysis}
                             condition={this.gameStatus.condition}
                             onChange={this.toggleRangeAnalysis}
                         />

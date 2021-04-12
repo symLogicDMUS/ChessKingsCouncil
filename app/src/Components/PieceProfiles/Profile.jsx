@@ -1,10 +1,10 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { ProfileWB } from "./ProfileWB/ProfileWB";
+import  ProfileWB from "./ProfileWB/ProfileWB";
 import { useStyles } from "./Profile.jss";
 
 /**children is a header for the profile of the piece */
-export function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
+function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
 
     const classes = useStyles({theme: theme});
 
@@ -30,3 +30,5 @@ export function Profile ({pieceName, expand, defs, theme, screenCase, children }
         </Box>
     );
 }
+
+export default Profile;

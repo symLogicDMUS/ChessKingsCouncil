@@ -2,6 +2,7 @@ import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const styles = {
     modal: {
@@ -22,14 +23,13 @@ export const styles = {
     }),
     drawer: props => ({
         "& .MuiToolbar-gutters": {
-            '@media screen and (max-width: 960px)': {
-                paddingLeft: 20,
-                paddingRight: 4,
-            },
             '@media screen and (min-width: 960px)': {
-                paddingLeft: 12,
+                paddingLeft: 24,
             },
         },
+    }),
+    content: props => ({
+       paddingTop: appBarHeight*0.5,
     }),
 };
 

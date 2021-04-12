@@ -13,13 +13,8 @@ export const textColor = (theme) => ({
 
 export const styles = {
     piece_profiles: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginRight: 'auto',
-        },
         '@media screen and (min-width: 960px)': {
-            position: 'absolute',
-            left: '21.5vw',
-            top: '11vh',
+            margin: 'auto',
         },
     }),
     scroll_table: props => ({
@@ -169,5 +164,12 @@ export const styles = {
                 padding: 0
             },
         },
+    }),
+    appBar: props => ({
+       '@media screen and (max-width: 340px)': {
+           "& .MuiIconButton-root": {
+               padding: 4,
+           },
+       },
     }),
 }

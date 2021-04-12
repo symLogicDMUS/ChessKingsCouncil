@@ -1,8 +1,8 @@
 import React from "react";
+import {Portal} from "@material-ui/core";
 import {LocationSqrGrow} from "./LocationSqrGrow";
 import {useStyles as useMoreStyles} from "../../CreatePiece/CreatePiece.jss";
 import {locSqrEnter, useStyles} from "./LocationSquaresEnter.jss";
-import {Portal} from "@material-ui/core";
 
 
 export function LocationSquaresEnter({theme, pieceLoc, isImg, onAnimationComplete}) {

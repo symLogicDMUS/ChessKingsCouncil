@@ -1,7 +1,6 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
-import {sqrSize} from "./CreatePieceBoard.jss";
 
 export const pieceLocHover = (theme) => ({
     backgroundColor: lighten(themes[theme].dark_in_range, 0.08),
@@ -9,13 +8,17 @@ export const pieceLocHover = (theme) => ({
 
 export const useStyles = makeStyles({
     square: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: sqrSize.thin,
-            height: sqrSize.thin,
+        '@media screen and (max-width: 360px)': {
+            width: '10vw',
+            height: '10vw',
+        },
+        '@media screen and (min-width: 360px) and (max-width: 960px)': {
+            width: '10.5vw',
+            height: '10.5vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: sqrSize.wide,
-            height: sqrSize.wide,
+            width: '5.3125vw',
+            height: '5.3125vw',
         },
         "& .MuiTouchRipple-root": {
             color: themes[props.theme].sqr_text,

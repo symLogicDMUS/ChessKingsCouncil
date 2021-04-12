@@ -42,8 +42,4 @@ export const useStyles = makeStyles({
         textAlign: "center",
         color: themes[props.theme].text,
     }),
-    rangeAnalysisSwitch: props => ({
-        marginRight: 16,
-        marginLeft: -11,
-    }),
 }, {index: 1});

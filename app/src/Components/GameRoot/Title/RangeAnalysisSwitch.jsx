@@ -1,18 +1,7 @@
 import {lighten, withStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
 import Switch from "@material-ui/core/Switch";
+import {styles} from "./RangeAnalysis.jss";
 
-export const RangeAnalysisSwitch = withStyles({
-    switchBase: props => ({
-        color: themes[props.theme].text,
-        '&$checked': {
-            color: lighten(themes[props.theme].switch_active, 0.3),
-        },
-        '&$checked + $track': {
-            backgroundColor: themes[props.theme].switch_active,
-        },
-        ...props.style
-    }),
-    checked: props => ({}),
-    track: props => ({}),
-})(Switch);
+export const RangeAnalysisSwitch = withStyles(styles)((props) => (
+    <Switch {...props}>{props.children}</Switch>
+));

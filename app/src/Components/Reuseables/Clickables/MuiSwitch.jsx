@@ -3,7 +3,7 @@ import clsx from "clsx";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { useStyles } from "./MuiSwitch.jss";
 
-export function MuiSwitch({control, className, theme, labelPlacement, children}) {
+export function MuiSwitch({control, isChecked, className, theme, labelPlacement, children}) {
     const classes = useStyles({theme: theme});
     return (
         <FormControlLabel
@@ -13,6 +13,7 @@ export function MuiSwitch({control, className, theme, labelPlacement, children})
                 [className]: className,
             })}
             labelPlacement={labelPlacement}
+            checked={isChecked}
         />
     );
 }

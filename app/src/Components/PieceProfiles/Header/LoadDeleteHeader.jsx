@@ -1,18 +1,15 @@
 import React from "react";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
-import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import StorageIcon from "@material-ui/icons/Storage";
 import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
+import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
-import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
-import {useStyles as useMoreStyles}
-    from "../../PieceProfiles/Header/ProfileHeader.jss"
-import {useStyles} from "./LoadDeleteHeader.jss";
+import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {PieceName} from "./PieceName";
+import {useStyles} from "./LoadDeleteHeader.jss";
 
 export function LoadDeleteHeader({
     def,
@@ -74,9 +71,9 @@ export function LoadDeleteHeader({
                 </PieceName>
                 <Button
                     theme={theme}
-                    startIcon={<StorageIcon className={classes.icon}/>}
                     rootClassName={classes.button}
                     addedClassName={classes.load_button}
+                    startIcon={<StorageIcon className={classes.icon}/>}
                     onClick={loadMethod}
                 >
                     Load

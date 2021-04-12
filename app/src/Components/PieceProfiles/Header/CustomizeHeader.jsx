@@ -2,7 +2,7 @@ import React, {useMemo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {Typography} from "@material-ui/core";
+import {PieceName} from "./PieceName";
 import {SubDropdown} from "../../NewGame/Customize/SubDropdown";
 import {SubButtonGroup} from "../../NewGame/Customize/SubButtonGroup";
 import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";
@@ -10,13 +10,6 @@ import {useStyles as useMoreStyles} from "../Header/ProfileHeader.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 import {useStyles} from "./CustomizeHeader.jss";
-import * as PropTypes from "prop-types";
-import {PieceName} from "./PieceName";
-
-PieceName.propTypes = {
-    classes2: PropTypes.any,
-    customPieceName: PropTypes.any
-};
 
 export function CustomizeHeader({
     subs,
@@ -27,6 +20,7 @@ export function CustomizeHeader({
     theme,
 }) {
     const sm = useMediaQuery("(max-width: 600px)");
+    const xs = useMediaQuery("(max-width: 376px");
 
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
@@ -66,7 +60,7 @@ export function CustomizeHeader({
                         })}
                     >
                         {sm ? (
-                            <SeeMore theme={theme}>
+                            <SeeMore theme={theme} edge={ xs ? 'end' : null}>
                                 <MuiCheckbox
                                     checkmarkState={isCheckmark}
                                     rootClassName={classes.promo_checkbox}

@@ -19,14 +19,32 @@ export const useStyles = makeStyles((theme) => ({
             height: 48,
         },
     }),
-    main: props => ({
+    mainContent: props => ({
         display: 'flex',
         flexDirection: 'column',
-        height: '100vh',
+    }),
+    lgMainWithDrawer: props => ({
+        width: '57vw',
+        marginLeft: '18vw',
+        height: `calc(100vh - ${appBarHeight}px)`,
+    }),
+    lgMainWithNB: props => ({
+        width: '100vw',
+        fontSize: '1.85vw',
+        height: `calc(100vh - 1.35em)`,
+    }),
+    smMain: props => ({
+        height: `calc(100vh - ${appBarHeight}px)`,
+    }),
+    smMainWithMiniVariant: props => ({
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+    }),
+    smMainFull: props => ({
+       width: '100vw',
     }),
     drawer: props => ({
         [theme.breakpoints.up('md')]: {
-            width: '18vw',
+            width: leftDrawerWidth,
             flexShrink: 0,
         },
     }),
@@ -35,17 +53,6 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         background: themes[props.theme].fill,
         borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`,
-    }),
-    appBarLg: props => ({
-        width: '57vw',
-        marginRight: rightDrawerWidth,
-    }),
-    appBarCompressed: props => ({
-        width: `calc(82vw - ${miniVariantIconsColumnWidth}px)`,
-        marginRight: miniVariantIconsColumnWidth,
-    }),
-    appBarRelaxed: props => ({
-        width: '100vw',
     }),
     menuButton: props => ({
         marginRight: theme.spacing(1),
@@ -61,29 +68,6 @@ export const useStyles = makeStyles((theme) => ({
     drawerPaper: props => ({
         zIndex: z,
         backgroundColor: themes[props.theme].fill,
-    }),
-    navPermanentPaper: props => ({
-        zIndex: z,
-        width: leftDrawerWidth,
-        '@media screen and (max-width: 960px)': {
-            width: 0,
-        },
-    }),
-    navPersistentPaper: props => ({
-        zIndex: z,
-        width: navDrawerSmWidth,
-    }),
-    toolDrawerPaper: props => ({
-        zIndex: z,
-        width: rightDrawerWidth,
-    }),
-    tools: props => ({
-        zIndex: z,
-        flexGrow: 1,
-        display: 'flex',
-        paddingLeft: '1.15vw',
-        paddingRight: '1.15vw',
-        flexDirection: 'column',
     }),
     hidden: props => ({
         display: 'none',

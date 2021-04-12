@@ -35,7 +35,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (min-width: 501px) and (max-width: 600px)': {
             width: sqrItemSizeSm,
-            marginRight: '11.5vw',
+            marginRight: '9.25vw',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             width: sqrItemSizeMd,

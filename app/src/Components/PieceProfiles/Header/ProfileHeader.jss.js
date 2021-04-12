@@ -1,6 +1,6 @@
 import { themes } from "../../styles/themes.jss";
 import { makeStyles } from "@material-ui/core/styles";
-import {headerWidthLg, headerWidthMd, headerWidthSm, marginMd, marginMd2x, marginSm, marginSm2x}
+import {headerWidthLg, headerWidthMd, headerWidthSm, marginMd, marginMd2x, headerMarginSm, marginSm2x, headerMarginMd}
     from "../constants.jss";
 
 export const useStyles = makeStyles(
@@ -15,15 +15,15 @@ export const useStyles = makeStyles(
                 width: headerWidthSm,
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                marginTop: marginSm,
-                marginBottom: marginSm,
+                marginTop: headerMarginSm,
+                marginBottom: headerMarginSm,
             },
             '@media screen and (min-width: 600px) and (max-width: 960px)': {
                 width: headerWidthMd,
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginTop: marginMd,
-                marginBottom: marginMd,
+                marginBottom: headerMarginMd,
             },
             "@media screen and (min-width: 960px)": {
                 width: headerWidthLg,

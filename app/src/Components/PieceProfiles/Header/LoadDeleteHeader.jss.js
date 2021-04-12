@@ -46,7 +46,7 @@ export const useStyles = makeStyles({
 
     load_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginRight: '1.35vw',
+            marginRight: '1.5vw',
         },
         '@media screen and (min-width: 960px)': {
             marginRight: '0.65vw',
@@ -54,7 +54,7 @@ export const useStyles = makeStyles({
     }),
     delete_button: props => ({
         '@media screen and (max-width: 960px)': {
-            marginLeft: '1.35vw',
+            marginLeft: '1.5vw',
         },
         '@media screen and (min-width: 960px)': {
             marginLeft: '0.65vw',

@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
+import {ImgWindow} from "./ImgWindow";
 import { Close } from "../../Reuseables/Modals/Close";
 import {ClickAwayListener, Portal, Slide,} from "@material-ui/core";
 import DragIndicatorIcon from "@material-ui/icons/DragIndicator";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./ImgWindowsModal.jss";
-import {ImgWindow} from "./ImgWindow";
 
 export function ImgWindowsModal({toggleMiniVariantTool, whiteAndBlackImgs, resetImg, setPieceImg, theme}) {
     const [drag, setDrag] = useState(false);
@@ -41,6 +41,7 @@ export function ImgWindowsModal({toggleMiniVariantTool, whiteAndBlackImgs, reset
                         unmountOnExit
                         onEnter={() => setDrag(true)}
                         onExit={() => toggleMiniVariantTool(null)}
+                        timeout={{enter: 5500, exit: 5500}}
                     >
                         <motion.div drag={drag} className={classes.window}>
                             <Box className={classes2.close_area}>

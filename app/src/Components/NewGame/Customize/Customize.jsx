@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { NavBar } from "../../Reuseables/NavBar/NavBar";
 import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import { PieceProfiles } from "../../PieceProfiles/PieceProfiles";
+import  PieceProfiles from "../../PieceProfiles/PieceProfiles";
 import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
@@ -31,7 +31,14 @@ import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { textColor, styles } from "./Customize.jss";
-import { ThreeItemAppBar } from "../../Reuseables/AppBar/ThreeItemAppBar";
+import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
+import {MoreVert} from "@material-ui/icons";
+import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import clsx from "clsx";
+import {icons} from "../../styles/icons/top/icons.jss";
+import {containsDescenders} from "../../helpers/containsDescender";
+import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -362,20 +369,14 @@ class Customize extends React.Component {
                 ) : null}
                 <ResponsiveDrawer
                     elevation={0}
-                    className={this.props.classes.drawer}
-                    theme={this.state.theme}
                     appBarType="3item"
+                    theme={this.state.theme}
+                    className={this.props.classes.drawer}
+                    appBarClassName={this.props.classes.appBar}
                     appBarContent={
-                        <ThreeItemAppBar
+                        <ThreeItemAppBarContent
                             theme={this.state.theme}
-                            seeMoreIcon={
-                                <MoreIcon style={textColor(this.state.theme)} />
-                            }
-                            seeMoreIcon2={
-                                <SearchIcon
-                                    style={textColor(this.state.theme)}
-                                />
-                            }
+                            seeMoreIcon2={<SearchIcon style={textColor(this.state.theme)}/>}
                         >
                             <PageTitle theme={this.state.theme}>
                                 Customize Game
@@ -395,7 +396,7 @@ class Customize extends React.Component {
                                 theme={this.state.theme}
                                 isMenuItem={true}
                             />
-                        </ThreeItemAppBar>
+                        </ThreeItemAppBarContent>
                     }
                     tools={
                         <Box className={this.props.classes.tools}>
@@ -471,11 +472,11 @@ class Customize extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="Customize"
-                            helpText={HelpText(fontSize0023, this.state.theme)}
+                            helpText={HelpText('2.3vh', this.state.theme)}
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}
-                                    fontSize={fontSize0026}
+                                    fontSize='2.3vh'
                                 >
                                     Customizing a Game
                                 </HelpTitle>

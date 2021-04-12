@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {headerWidthLg, headerWidthMd, sqrItemSizeLg} from "../../PieceProfiles/constants.jss";
+import {headerWidthLg, headerWidthMd, sqrItemSizeLg} from "../../../PieceProfiles/constants.jss";
 
 export const originTransform = {vertical: 'top', horizontal: 'right'};
 
@@ -58,5 +58,8 @@ export const useStyles = makeStyles({
        '@media screen and (min-width: 820px) and (max-width: 960px)': {
            marginRight: '5.5vw',
        },
+    }),
+    marginLeftAuto: props => ({
+       marginLeft: 'auto',
     }),
 }, {index: 1});

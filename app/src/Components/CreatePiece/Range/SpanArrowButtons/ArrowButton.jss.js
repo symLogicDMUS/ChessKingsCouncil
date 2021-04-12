@@ -23,6 +23,9 @@ export const useStyles = makeStyles({
             "& .MuiTouchRipple-root": {
                 color: themes[props.theme].sqr_text,
             },
+            '@media screen and (max-width: 426px)': {
+                padding: '0.25em',
+            },
         },
         '@media screen and (min-width: 960px)': {
             width: '3.2125vw',
