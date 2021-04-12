@@ -20,6 +20,9 @@ export const styles = {
     scroll_table: props => ({
         '@media screen and (max-width: 960px)': {
             width: '50vw',
+            marginLeft: '2.5vw',
+            marginRight: '2.5vw',
+            marginBottom: '2.5vw',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
@@ -45,12 +48,12 @@ export const styles = {
         },
     }),
     scroll_table_button: props => ({
-        height: '1.55vw',
+        height: '3.5vw',
         borderRadius: 0,
     }),
     scroll_table_text: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
+            fontSize: '1.75rem',
         },
         '@media screen and (min-width: 960px)': {
             fontSize: '1vw',
@@ -151,8 +154,8 @@ export const styles = {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: 24,
         marginBottom: 'auto',
+        marginTop: 24,
     }),
     drawer: props => ({
         "& .MuiToolbar-gutters": {
@@ -166,10 +169,20 @@ export const styles = {
         },
     }),
     appBar: props => ({
-       '@media screen and (max-width: 340px)': {
-           "& .MuiIconButton-root": {
-               padding: 4,
-           },
-       },
+        '@media screen and (max-width: 340px)': {
+            "& .MuiIconButton-root": {
+                padding: 4,
+            },
+        },
+    }),
+    subs_modal: props => ({
+        position: 'absolute',
+        left: '21.5vw',
+        top: `calc(50vh - (2.6rem + 3.5vw))`,
+    }),
+    promos_modal: props => ({
+        position: 'absolute',
+        left: '22.5vw',
+        top: 'calc(50vh - (22.5vh + 3.5vw + 0.875rem))',
     }),
 }

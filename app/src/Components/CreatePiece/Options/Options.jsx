@@ -22,6 +22,7 @@ export function Options({
     pieceName,
     whiteImg,
     blackImg,
+    miniVariantTool,
     toggleMiniVariantTool,
 }) {
     const [drag, setDrag] = useState(false);

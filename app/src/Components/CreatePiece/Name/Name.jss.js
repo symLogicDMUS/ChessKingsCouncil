@@ -3,19 +3,21 @@ import {darken, lighten} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    name_modal: props => ({
-        margin: 'auto',
-        padding: '0.35vw',
-        borderRadius: '0.5rem',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.05rem solid ${themes[props.theme].odd_row}`,
+    tool_window: props => ({
+        position: 'absolute',
+        left: '22.5vw',
+        top: 'calc(50vh - (20px + 24px + 2.5vw))',
     }),
     name: props => ({
-        '@media screen and (min-width: 960px)': {
-            marginBottom: '1.15vw',
-        },
         '@media screen and (max-width: 960px)': {
             width: '50vw',
+            marginTop: '0.5vw',
+            marginLeft: '2.5vw',
+            marginRight: '2.5vw',
+            marginBottom: '2.5vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            marginBottom: '1.15vw',
         },
 
         /*root*/
@@ -51,31 +53,5 @@ export const useStyles = makeStyles({
         "& .MuiInputLabel-root.Mui-focused": {
             color: themes[props.theme].text,
         },
-    }),
-    thin_screen: props => ({
-        width: '100%',
-    }),
-    top_area: props => ({
-        width: '100%',
-        display: 'flex',
-        flexWrap: 'nowrap',
-        justifyContent: 'space-between',
-        marginBottom: '0.5vh',
-    }),
-    content_area: props => ({
-        paddingLeft: '2vw',
-        paddingRight: '2vw',
-        paddingBottom: '2vw',
-    }),
-    drag_icon: props => ({
-        fontSize: '0.8rem',
-        color: themes[props.theme].text_alt,
-    }),
-    close_area: props => ({
-       display: 'flex',
-       flexDirection: 'row',
-       flexWrap: 'nowrap',
-       alignItems: 'center',
-       justifyContent: 'flex-end',
     }),
 }, {index: 1});

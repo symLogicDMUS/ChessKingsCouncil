@@ -439,6 +439,7 @@ class CreatePiece extends React.Component {
                             defaultValue={this.name}
                             theme={this.state.theme}
                             updateName={this.updateName}
+                            miniVariantTool={this.state.miniVariantTool}
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
@@ -449,6 +450,7 @@ class CreatePiece extends React.Component {
                             setPieceImg={this.setPieceImg}
                             resetImg={this.resetImg}
                             whiteAndBlackImgs={this.whiteAndBlackImgs}
+                            miniVariantTool={this.state.miniVariantTool}
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
@@ -460,10 +462,11 @@ class CreatePiece extends React.Component {
                             save={this.save}
                             reset={this.reset}
                             erase={this.erase}
+                            theme={this.state.theme}
                             whiteImg={this.whiteAndBlackImgs.white}
                             blackImg={this.whiteAndBlackImgs.black}
                             isFirstVisit={this.state.isFirstVisit}
-                            theme={this.state.theme}
+                            miniVariantTool={this.state.miniVariantTool}
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
@@ -484,6 +487,7 @@ class CreatePiece extends React.Component {
                                 updateName={this.updateName}
                                 defaultValue={this.name}
                                 theme={this.state.theme}
+                                miniVariantTool={this.state.miniVariantTool}
                                 toggleMiniVariantTool={
                                     this.toggleMiniVariantTool
                                 }
@@ -494,6 +498,7 @@ class CreatePiece extends React.Component {
                                 resetImg={this.resetImg}
                                 setPieceImg={this.setPieceImg}
                                 whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                miniVariantTool={this.state.miniVariantTool}
                                 toggleMiniVariantTool={
                                     this.toggleMiniVariantTool
                                 }
@@ -505,6 +510,7 @@ class CreatePiece extends React.Component {
                                 toggleSpan={this.toggleSpan}
                                 pieceLoc={this.location}
                                 theme={this.state.theme}
+                                miniVariantTool={this.state.miniVariantTool}
                                 toggleMiniVariantTool={
                                     this.toggleMiniVariantTool
                                 }
@@ -514,6 +520,7 @@ class CreatePiece extends React.Component {
                                 setLoc={this.setLoc}
                                 theme={this.state.theme}
                                 selectedLoc={this.location}
+                                miniVariantTool={this.state.miniVariantTool}
                                 toggleMiniVariantTool={
                                     this.toggleMiniVariantTool
                                 }
@@ -528,6 +535,7 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
+                                miniVariantTool={this.state.miniVariantTool}
                                 toggleMiniVariantTool={
                                     this.toggleMiniVariantTool
                                 }

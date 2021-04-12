@@ -6,7 +6,7 @@ import {ImgWindowsModal} from "./ImgWindowsModal";
 import {useStyles} from "./Icon.jss";
 import Box from "@material-ui/core/Box";
 
-export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVariantTool, theme}) {
+export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, theme}) {
     const classes = useStyles({theme: theme});
 
     return (
@@ -38,6 +38,7 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, toggleMiniVarian
                     resetImg={resetImg}
                     setPieceImg={setPieceImg}
                     whiteAndBlackImgs={whiteAndBlackImgs}
+                    miniVariantTool={miniVariantTool}
                     toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </MediaQuery>

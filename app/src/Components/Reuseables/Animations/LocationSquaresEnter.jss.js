@@ -9,8 +9,14 @@ export const useStyles = makeStyles({
         marginTop: appBarHeight*1.5,
         marginLeft: 'auto',
         marginRight: 'auto',
-        width: '84vw',
-        height: '84vw',
+        '@media screen and (max-width: 360px)': {
+            width: '80vw',
+            height: '80vw',
+        },
+        '@media screen and (min-width: 360px) and (max-width: 960px)': {
+            width: '84vw',
+            height: '84vw',
+        },
         maxWidth: '88vh',
         maxHeight: '88vh',
         display: 'grid',

@@ -1,23 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
-    window: props => ({
-        margin: 'auto',
-        borderRadius: '0.5rem',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.05rem solid ${themes[props.theme].odd_row}`,
+    tool_window: props => ({
+        position: 'absolute',
+        top: `calc(50vh - (18.5vw + 24px))`,
+        left: '14.75vw',
     }),
-    window_area: props => ({
-        display: 'flex',
-        flexDirection: 'row',
-    }),
-    draggable_icon: props => ({
-        color: themes[props.theme].text_alt,
-        cursor: 'move',
-    }),
-    icon: props => ({
-        height: '2vw',
-        width: '2vw',
+    img_windows: props => ({
+       display: 'flex',
+       flexDirection: 'row',
     }),
 }, {index: 1});

@@ -13,6 +13,10 @@ export const useStyles = makeStyles({
             gridTemplateColumns: '7.5vw 15vw',
         },
         '@media screen and (max-width: 960px)': {
+            marginTop: '0.5vw',
+            marginLeft: '2.5vw',
+            marginRight: '2.5vw',
+            marginBottom: '2.5vw',
             gridTemplateColumns: '16vw 34vw',
         },
 

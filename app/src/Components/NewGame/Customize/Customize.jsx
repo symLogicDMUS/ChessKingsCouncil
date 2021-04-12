@@ -20,25 +20,16 @@ import { isSpecial } from "../../helpers/isSpecial";
 import { standardPieceDefs } from "../standardPieceDefs/dev1";
 import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
-import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import { fontSize0023, fontSize0026 } from "../../styles/fontSizes.jss";
 import { specialPieceImgUrlList } from "../../MyPieces/specialPieceImgUrlList/dev1";
+import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
+import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
 import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
 import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import { textColor, styles } from "./Customize.jss";
-import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
-import {MoreVert} from "@material-ui/icons";
-import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
-import SvgIcon from "@material-ui/core/SvgIcon";
-import clsx from "clsx";
-import {icons} from "../../styles/icons/top/icons.jss";
-import {containsDescenders} from "../../helpers/containsDescender";
-import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -329,15 +320,21 @@ class Customize extends React.Component {
                 {this.state.miniVariantTool === "Subs" ? (
                     <ToolModal
                         theme={this.state.theme}
+                        isIn={this.state.miniVariantTool==="Subs"}
                         onClose={() => this.toggleMiniVariantTool("Subs")}
+                        className={this.props.classes.subs_modal}
+                        direction='left'
                     >
                         <SubList subs={this.subs} theme={this.state.theme} />
                     </ToolModal>
                 ) : null}
                 {this.state.miniVariantTool === "Promos" ? (
                     <ToolModal
-                        theme={this.state.theme}
+                        isIn={this.state.miniVariantTool==="Promos"}
                         onClose={() => this.toggleMiniVariantTool("Promos")}
+                        className={this.props.classes.promos_modal}
+                        theme={this.state.theme}
+                        direction='left'
                     >
                         <ScrollTable
                             numRows={6}

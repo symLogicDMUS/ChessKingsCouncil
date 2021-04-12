@@ -10,7 +10,7 @@ import {useStyles as useMoreStyles} from "../CreatePiece.jss"
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./Range.jss";
 
-export function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool}) {
+export function Range({spans, offsets, toggleSpan, theme, styles, miniVariantTool, toggleMiniVariantTool}) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
 

@@ -1,9 +1,16 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-const windowSize = '30vw';
+const windowSizeSm = '30vw';
+const windowSizeLg = "10.625vw";
+
+/* Sm */
+const halfMargin = '1.75vw';
+const margin = '3.5vw';
+
 export const borderRadius = {borderRadius: '0.25rem'};
 export const originTransform = {vertical: 'top', horizontal: 'right'};
+
 
 export const useStyles = makeStyles({
     img_window: props => ({
@@ -12,30 +19,30 @@ export const useStyles = makeStyles({
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 960px)': {
-            width: windowSize,
-            height: windowSize,
+            width: windowSizeSm,
+            height: windowSizeSm,
             border: `0.02em solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
-            width: "10.625vw",
-            height: "10.625vw",
+            width: windowSizeLg,
+            height: windowSizeLg,
             border: `0.005em solid ${themes[props.theme].outline}`,
         },
     }),
     white_window: props => ({
         '@media screen and (max-width: 960px)': {
-            marginRight: '1.75vw',
-            marginLeft: '3.5vw',
-            marginTop: '1.75vw',
-            marginBottom: '3.5vw',
+            marginRight: halfMargin,
+            marginLeft: margin,
+            marginTop: '1vw',
+            marginBottom: margin,
         },
     }),
     black_window: props => ({
         '@media screen and (max-width: 960px)': {
-            marginLeft: '1.75vw',
-            marginRight: '3.5vw',
-            marginTop: '1.75vw',
-            marginBottom: '3.5vw',
+            marginLeft: halfMargin,
+            marginRight: margin,
+            marginTop: '1vw',
+            marginBottom: margin,
         },
     }),
     img_label: props => ({

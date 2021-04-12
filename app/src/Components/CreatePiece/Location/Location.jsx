@@ -6,7 +6,7 @@ import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { LocationButton } from "./LocationButton";
 import MediaQuery from "react-responsive/src";
 
-export function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool }) {
+export function Location({ selectedLoc, setLoc, theme, miniVariantTool, toggleMiniVariantTool }) {
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
 

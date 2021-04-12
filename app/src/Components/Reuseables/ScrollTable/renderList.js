@@ -22,7 +22,7 @@ export function renderList(inView, numRows, classes, textClassName, listItemClas
             >
                 <Typography
                     noWrap
-                    variant='caption'
+                    variant='subtitle1'
                     className={clsx(textClassName, {
                         [textClassName] : textClassName,
                     })}
