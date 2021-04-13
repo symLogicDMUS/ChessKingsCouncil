@@ -37,8 +37,8 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool,
                     theme={theme}
                     resetImg={resetImg}
                     setPieceImg={setPieceImg}
-                    whiteAndBlackImgs={whiteAndBlackImgs}
                     miniVariantTool={miniVariantTool}
+                    whiteAndBlackImgs={whiteAndBlackImgs}
                     toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </MediaQuery>

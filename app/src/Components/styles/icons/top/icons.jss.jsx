@@ -1,8 +1,11 @@
 import React from "react";
 import {save} from "../options/save.jss";
 import {load} from "../options/load.jss";
+import {load_alt} from "../create-piece/load_alt.jss";
 import {erase} from "../options/erase.jss";
+import {erase_alt} from "../create-piece/erase_alt.jss";
 import {reset} from "../options/reset.jss";
+import {reset_alt} from "../create-piece/reset_alt";
 import {home} from "../nav-bar/home.jss";
 import {app_title} from "../other/app_title.jss";
 import {new_game} from "../nav-bar/new_game.jss";
@@ -63,6 +66,7 @@ import {captured_pieces} from "../game root/captured_pieces.jss";
 import {captured_pieces_alt} from "../game root/captured_pieces_alt.jss";
 import {subs} from "../customize/subs.jss";
 import {promos} from "../customize/promos.jss";
+import {promos_alt} from "../customize/promos_alt";
 
 export const icons = {
     home: home,
@@ -115,6 +119,7 @@ export const icons = {
     'thin-315d': down_right_bold,
     subs: subs,
     promos: promos,
+    promos_alt: promos_alt,
     save: save,
     save_as: save_as,
     save_alt: save_alt,
@@ -122,8 +127,11 @@ export const icons = {
     resign: resign,
     resign_alt: resign_alt,
     load: load,
+    load_alt: load_alt,
     reset: reset,
+    reset_alt: reset_alt,
     erase: erase,
+    erase_alt: erase_alt,
     game_info: game_info,
     game_info2: game_info2,
     captured_pieces: captured_pieces,

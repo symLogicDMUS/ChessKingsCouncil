@@ -29,7 +29,8 @@ export function ImgWindowsModal({
         <>
             <ToolModal
                 isIn={miniVariantTool==="Icon" && (white || black)}
-                onClose={() => toggleMiniVariantTool("Icon")}
+                onClose={() => toggleMiniVariantTool(null)}
+                onExit={() => toggleMiniVariantTool(null)}
                 className={classes.tool_window}
                 direction='left'
                 theme={theme}

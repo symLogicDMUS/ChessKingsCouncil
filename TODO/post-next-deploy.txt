@@ -1,0 +1,1 @@
+have exit animations in addition to enter animations for modals and boardTool squares

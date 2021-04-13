@@ -1,12 +1,13 @@
 import React from "react";
 
 export const location_tool = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24.013" height="24" viewBox="0 0 24.013 24">
-        <g id="Group_63" data-name="Group 63" transform="translate(-986.007 -443.227)">
-            <path id="rect898-4" d="M3.183.614v12h12v-12ZM9.176,4.547h.007a2.076,2.076,0,1,1-.007,0Z" transform="translate(994.837 442.613)"/>
-            <path id="Path_9" data-name="Path 9" d="M2,0A2,2,0,1,1,0,2,2,2,0,0,1,2,0Z" transform="translate(1002.014 459.195)"/>
-            <path id="Path_8" data-name="Path 8" d="M2,0A2,2,0,1,1,0,2,2,2,0,0,1,2,0Z" transform="translate(990 447.258)"/>
-            <path id="rect898-4-2" data-name="rect898-4" d="M3.183.614v12h12v-12ZM9.176,4.547h.007a2.076,2.076,0,1,1-.007,0Z" transform="translate(982.823 454.613)"/>
-        </g>
+    <svg id="g859" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <rect id="rect1617" width="12" height="12" transform="translate(12 12)"/>
+            <path id="rect1617-3" d="M0,0V12H1.758a5.559,5.559,0,0,1-1.4-3.7,5.45,5.45,0,0,1,5.4-5.5,5.45,5.45,0,0,1,5.4,5.5A5.559,5.559,0,0,1,9.752,12H12V0Z"/>
+            <path id="path1731" d="M8.165,7.607A2.388,2.388,0,1,1,5.777,5.219,2.388,2.388,0,0,1,8.165,7.607Z"/>
+            <path id="path1733" d="M.864,12l5.071,6.716,4.662-6.7-.831-.035L5.914,17.061l-4.16-5.073Z"/>
+            <path id="rect1742-5-8" d="M0,12V24H12V12H9.764l-.158.25H11.75v11.5H.25V12.25H1.934L1.758,12Z"/>
+            <path id="rect3405" d="M11.8,0V12.2H24V0Zm1.271,1.271h9.658v9.658H13.071Z"/>
+            <path id="rect3405-6" d="M0,11.8V24H12.2V11.8H9.907l-.8,1.271h1.825v9.658H1.271V13.071l1.377.008L1.594,11.8Z"/>
     </svg>
-)
+);

@@ -33,7 +33,19 @@ import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { styles } from "./CreatePiece.jss";
+import {Load} from "./Options/Load";
+import {Save} from "./Options/Save";
+import {Reset} from "./Options/Reset";
+import {Erase} from "./Options/Erase";
+import {pieceNameColor, styles} from "./CreatePiece.jss";
+import {PieceName} from "../PieceProfiles/Header/PieceName";
+import MediaQuery from "react-responsive/src";
+import Box from "@material-ui/core/Box";
+import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {Typography} from "@material-ui/core";
+import {GameType} from "../NewGame/GameOptions/GameType";
+import {Add} from "@material-ui/icons";
+import {Adjuster} from "../Reuseables/AppBar/Adjuster";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -435,10 +447,10 @@ class CreatePiece extends React.Component {
                 <div>
                     {this.state.miniVariantTool === "Name" ? (
                         <Name
-                            key={`Name-thin${this.state.loadInstance}`}
                             defaultValue={this.name}
                             theme={this.state.theme}
                             updateName={this.updateName}
+                            key={`Name-thin${this.state.loadInstance}`}
                             miniVariantTool={this.state.miniVariantTool}
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
@@ -454,32 +466,37 @@ class CreatePiece extends React.Component {
                             toggleMiniVariantTool={this.toggleMiniVariantTool}
                         />
                     ) : null}
-                    {this.state.miniVariantTool === "Options" ? (
-                        <Options
-                            key="Options-thin"
-                            pieceName={this.name}
-                            load={this.load}
-                            save={this.save}
-                            reset={this.reset}
-                            erase={this.erase}
-                            theme={this.state.theme}
-                            whiteImg={this.whiteAndBlackImgs.white}
-                            blackImg={this.whiteAndBlackImgs.black}
-                            isFirstVisit={this.state.isFirstVisit}
-                            miniVariantTool={this.state.miniVariantTool}
-                            toggleMiniVariantTool={this.toggleMiniVariantTool}
-                        />
-                    ) : null}
                 </div>
                 <ResponsiveDrawer
                     appBarType="title"
                     appBarContent={
-                        <PageTitle theme={this.state.theme}>
-                            Create Piece
-                        </PageTitle>
+                        <>
+                            <MediaQuery maxWidth={960}>
+                                {this.name ? (
+                                    <PieceName
+                                        theme={this.state.theme}
+                                        className={this.props.classes.piece_name}
+                                        style={pieceNameColor(this.state.theme)}
+                                        title={`Piece name: "${this.name}" (Create Piece page)`}
+                                    >
+                                        {this.name}
+                                    </PieceName>
+                                ) : (
+                                    <PageTitle theme={this.state.theme}>
+                                        Create Piece
+                                    </PageTitle>
+                                )}
+                            </MediaQuery>
+                            <MediaQuery minWidth={960}>
+                                <PageTitle theme={this.state.theme}>
+                                    Create Piece
+                                </PageTitle>
+                            </MediaQuery>
+                        </>
                     }
                     theme={this.state.theme}
                     className={this.props.classes.drawer}
+                    appBarClassName={this.name ? this.props.classes.app_bar_padding : null}
                     tools={
                         <>
                             <Name
@@ -582,16 +599,45 @@ class CreatePiece extends React.Component {
                                 }
                                 onClick={this.locationToolClick}
                             />
-                            <ToolButton
-                                text="options"
+                            <Load
+                                load={this.load}
                                 theme={this.state.theme}
-                                iconName={"options_tool"}
-                                isActive={
-                                    this.state.miniVariantTool === "Options"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Options")
-                                }
+                                className={this.props.classes.smOption}
+                                miniVariantTool={this.state.miniVariantTool}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                isActive={this.state.miniVariantTool==="Load"}
+                                buttonType="tool"
+
+                            />
+                            <Save
+                                save={this.save}
+                                pieceName={this.name}
+                                className={this.props.classes.smOption}
+                                whiteImg={this.whiteAndBlackImgs.white}
+                                blackImg={this.whiteAndBlackImgs.black}
+                                miniVariantTool={this.state.miniVariantTool}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                isActive={this.state.miniVariantTool==="Save"}
+                                theme={this.state.theme}
+                                buttonType="tool"
+                            />
+                            <Reset
+                                reset={this.reset}
+                                theme={this.state.theme}
+                                className={this.props.classes.smOption}
+                                miniVariantTool={this.state.miniVariantTool}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                isActive={this.state.miniVariantTool==="Reset"}
+                                buttonType="tool"
+                            />
+                            <Erase
+                                erase={this.erase}
+                                theme={this.state.theme}
+                                className={this.props.classes.smOption}
+                                miniVariantTool={this.state.miniVariantTool}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                                isActive={this.state.miniVariantTool==="Erase"}
+                                buttonType="tool"
                             />
                         </>
                     }

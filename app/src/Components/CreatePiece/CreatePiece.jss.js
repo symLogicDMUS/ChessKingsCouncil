@@ -1,8 +1,12 @@
 import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes.jss";
-import {makeStyles} from "@material-ui/core/styles";
+import {lighten, makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+
+export const pieceNameColor = (theme) => ({
+    color: lighten(themes[theme].sqr_hover_alt, 0.2),
+});
 
 export const styles = {
     modal: {
@@ -30,6 +34,21 @@ export const styles = {
     }),
     content: props => ({
        paddingTop: appBarHeight*0.5,
+    }),
+    smOption: props => ({
+        marinTop: '1vw',
+        marginLeft: '2vw',
+        marginRight: '2vw',
+        marginBottom: '2vw',
+    }),
+    piece_name: props => ({
+        width: '100%',
+        textAlign: 'center',
+    }),
+    app_bar_padding: props => ({
+        "& .MuiToolbar-gutters": {
+            paddingRight: 108,
+        },
     }),
 };
 
