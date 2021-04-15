@@ -1,11 +1,15 @@
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
+import "firebase/database";
+import "firebase/auth";
 
-async function getIsPieceNameInDb(pieceName) {
+export async function getIsPieceNameInDb(pieceName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child('defs').child(uid).child(pieceName).once('value').then(function (snapshot) {
-        return snapshot.exists();
-    });
+    return await firebase.database().ref().child(`defs/${uid}/${pieceName}`).once('value').then(
+        function (snapshot) {
+            return snapshot.exists();
+        }
+    );
 }
 
 export function getDoesPieceNameExist(pieceName) {

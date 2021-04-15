@@ -2,12 +2,12 @@ import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import { Close } from "../../Reuseables/Modals/Close";
-import { getColorName } from "../../helpers/getColorName";
+import {Close} from "../../Reuseables/Modals/Close";
+import {getColorName} from "../../helpers/getColorName";
 import ProfileWBAvatar from "./ProfileWBAvatar";
 import ProfileWBRange from "./ProfileWBRange";
-import { useStyles as useMoreStyles } from "./ProfileWB.jss";
-import {useStyles} from "./ProfileWBModal.jss";
+import {useStyles as useMoreStyles} from "./ProfileWB.jss";
+import {boardGridAdjust, useStyles} from "./ProfileWBModal.jss";
 
 export function ProfileWBModal({
     pieceName,
@@ -53,6 +53,7 @@ export function ProfileWBModal({
                         color={color}
                         theme={theme}
                         screenCase={screenCase}
+                        boardGridStyle={boardGridAdjust}
                     />
                     <ProfileWBRange
                         pieceName={pieceName}
@@ -62,6 +63,7 @@ export function ProfileWBModal({
                         color={color}
                         theme={theme}
                         screenCase={screenCase}
+                        boardGridStyle={boardGridAdjust}
                     />
                 </div>
             </Box>

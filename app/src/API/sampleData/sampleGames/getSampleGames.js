@@ -1,4 +1,4 @@
-import {sampleGames} from "./apiHelpers/sampleGames/dev1";
+import {sampleGames} from "./frontend/dev1";
 
 export function getSampleGames() {
     return sampleGames;

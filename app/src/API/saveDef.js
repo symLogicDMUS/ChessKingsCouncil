@@ -8,7 +8,7 @@ async function savePieceDefToDb(pieceName, pieceDef) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     const pieceDefObj = gameDefsOffsetListsToStrs({[pieceName]: pieceDef});
-    return await firebase.database().ref().child('defs').child(uid).update(pieceDefObj)
+    return await firebase.database().ref().child(`defs/${uid}`).update(pieceDefObj)
 }
 
 export function saveDef(pieceName, pieceDef) {

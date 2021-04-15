@@ -5,7 +5,7 @@ import "firebase/auth";
 async function deleteGameFromDb(gameName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return firebase.database().ref().child('games').child(uid).child(gameName).remove()
+    return firebase.database().ref().child(`games/${uid}/${gameName}`).remove()
 }
 
 

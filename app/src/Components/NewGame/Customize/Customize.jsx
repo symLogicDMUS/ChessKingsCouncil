@@ -20,7 +20,6 @@ import { isSpecial } from "../../helpers/isSpecial";
 import { standardPieceDefs } from "../standardPieceDefs/dev1";
 import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
-import { specialPieceImgUrlList } from "../../MyPieces/specialPieceImgUrlList/dev1";
 import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
 import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
 import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
@@ -129,7 +128,6 @@ class Customize extends React.Component {
             promos: this.promos,
             id_dict: this.idDict,
             piece_defs: standardPieceDefs,
-            imgUrlList: copy(specialPieceImgUrlList),
         }; //1.
         let name;
         for (const id of Object.keys(this.idDict)) {
@@ -154,7 +152,7 @@ class Customize extends React.Component {
 
         for (const pieceName of Object.keys(this.gameData.piece_defs)) {
             for (const color of this.colors) {
-                this.gameData.imgUrlList.push(
+                this.gameData.imgUrlStrs.push(
                     this.gameData.piece_defs[pieceName][color].img
                 );
             }

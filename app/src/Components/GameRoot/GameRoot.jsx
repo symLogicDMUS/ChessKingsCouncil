@@ -3,6 +3,7 @@ import {copy} from "../helpers/copy";
 import {Portal} from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
+import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
 import {rankfiles} from "../helpers/rankfiles";
 import {OVER} from "../helpers/gStatusTypes";
@@ -31,19 +32,18 @@ import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetList
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {newData, newStandardImgUrls} from "../NewGame/NewData";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {ShowProfileOnClick} from "./RangeAnalysis/ShowProfileOnClick";
 import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
+import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {flipKeysValues} from "../helpers/flipKeysValues";
+import {newData} from "../NewGame/NewData";
 import {SaveAs} from "./SaveResignTool/SaveAs";
-import MediaQuery from "react-responsive/src";
 import {StatusBar} from "./Title/StatusBar";
 import {Board} from "./GameBoard/Board";
 import {styles} from "./GameRoot.jss";
@@ -57,7 +57,6 @@ class GameRoot extends React.Component {
             rangeAnalysis: false,
             miniVariantTool: null,
             resignModal: false,
-            saveProcess: false,
             messageModal: false,
             secondaryDrawer: false,
             showProfileOnClick: true,
@@ -77,12 +76,11 @@ class GameRoot extends React.Component {
             gameData = {
                 ...copy(newData),
                 piece_defs: copy(standardPieceDefs),
-                imgUrlList: copy(newStandardImgUrls),
             };
         }
         this.board = gameData.board;
         this.turn = gameData.color;
-        this.imgUrlList = gameData.imgUrlList;
+        this.imgUrlStrs = gameData.imgUrlStrs;
         this.fenObj = new Fen(gameData.fen_data);
         this.gameStatus = new GameStatus(gameData.status);
         this.specialMoves = new SpecialMoves(gameData.special_moves);
@@ -111,7 +109,6 @@ class GameRoot extends React.Component {
         this.resign = this.resign.bind(this);
         this.saveToDb = this.saveToDb.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
-        this.toggleSaveProcess = this.toggleSaveProcess.bind(this);
         this.toggleRangeAnalysis = this.toggleRangeAnalysis.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
         this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
@@ -227,21 +224,21 @@ class GameRoot extends React.Component {
         records.pawn_histories = replacePawnIdWithCurrentLoc(
             records.pawn_histories
         );
-        const pieceDefs = gameDefsOffsetListsToStrs(this.defs);
+        const defs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
 
         getDoesGameExist(this.gameName).then(([gameExists]) => {
-            if (!gameExists) {
-                incrementImgRefCounts(this.imgUrlList).then((r) => {
-                    this.saveToDb(fen, records, pieceDefs, status);
+            if (! gameExists && this.imgUrlStrs.length !== 0) {
+                incrementImgRefCounts(this.imgUrlStrs).then((r) => {
+                    this.saveToDb(fen, records, defs, status);
                 });
             } else {
-                this.saveToDb(fen, records, pieceDefs, status);
+                this.saveToDb(fen, records, defs, status);
             }
         });
     }
 
-    saveToDb(fen, records, pieceDefs, status) {
+    saveToDb(fen, records, defs, status) {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
@@ -249,12 +246,13 @@ class GameRoot extends React.Component {
             player_type: this.playerType,
             promos: this.promoChoices,
             json_records: records,
-            piece_defs: pieceDefs,
+            piece_defs: defs,
             id_dict: this.idDict,
             captured: this.capturedIds,
+            imgUrlStrs: this.imgUrlStrs,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({ isSaveMessage: true, saveProcess: false });
+            this.setState({miniVariantTool: 'Save'});
         });
     }
 
@@ -302,10 +300,6 @@ class GameRoot extends React.Component {
         this.setState({rangeAnalysis: ! this.state.rangeAnalysis})
     }
 
-    toggleSaveProcess(bValue) {
-        this.setState({ saveProcess: bValue });
-    }
-
     getColorLastMove() {
         if (this.turn === "W") {
             return "B";
@@ -348,10 +342,10 @@ class GameRoot extends React.Component {
                     {this.state.miniVariantTool === "Save-As" ? (
                         <Portal>
                             <SaveAs
+                                save={this.save}
+                                theme={this.state.theme}
                                 changeName={this.changeName}
                                 close={() => this.toggleMiniVariantTool(null)}
-                                save={() => this.toggleSaveProcess(true)}
-                                theme={this.state.theme}
                             />
                         </Portal>
                     ) : null}
@@ -411,16 +405,12 @@ class GameRoot extends React.Component {
                                 }
                             />
                             <SaveResignTool
-                                triggerSaveProcess={() =>
-                                    this.toggleSaveProcess(true)
-                                }
                                 save={this.save}
                                 resign={this.resign}
                                 theme={this.state.theme}
                                 changeName={this.changeName}
-                                isSaveMessage={this.state.isSaveMessage}
-                                messageCallback={() =>
-                                    this.setState({ isSaveMessage: false })
+                                toggleMiniVariantTool={
+                                    this.toggleMiniVariantTool
                                 }
                             />
                             <RangeAnalysis
@@ -460,9 +450,7 @@ class GameRoot extends React.Component {
                                 iconName={"save_alt"}
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Save"}
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Save")
-                                }
+                                onClick={this.save}
                             />
                             <ToolButton
                                 text="save as"

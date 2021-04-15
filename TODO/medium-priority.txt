@@ -1,10 +1,8 @@
 short:
 
 medium:
-    loading bar for uploading an image from device.
-    make all CreatePiece options be miniVaraint buttons for small screens
     finish updating Promo modal.
-    check all small screen app bars styled correctly
+    loading bar for uploading an image from device.
     Load game boards alignment seem off for smallest screens (bellow 400px)
 long:
-    Custom Loading animation.
+    Custom Loading animation. (Loading when switching pages)

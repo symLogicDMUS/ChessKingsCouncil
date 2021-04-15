@@ -42,10 +42,7 @@ export function SaveAs({changeName, save, close, theme}) {
                 </DialogContent>
                 <DialogActions className={classes.dialog_actions}>
                     <Button
-                        onClick={() => {
-                            close();
-                            save();
-                        }}
+                        onClick={save}
                         style={button(theme)}
                         startIcon={<CheckCircleOutlineIcon/>}
                     >

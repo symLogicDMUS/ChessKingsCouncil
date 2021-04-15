@@ -4,6 +4,7 @@ import "firebase/storage";
 import "firebase/auth";
 import {updateImgRefCounts} from "./updateImgRefCounts";
 import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
+import {updateImgRefCount} from "./updateImgRefCount";
 
 /**
  * when saving a piece and you uploaded image for it
@@ -14,10 +15,12 @@ import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
 export async function incrementImgRefCount(imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref(`img_refs/${uid}`).once('value').then( function(snapshot) {
-        const imgRefCounts = snapshot.val()
-        const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl) //HERE map imgUrl argument
-        imgRefCounts[imgUrlEscaped] = imgRefCounts[imgUrlEscaped] + 1;
-        return Promise.all([updateImgRefCounts(uid, imgRefCounts)])
-    })
+    const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl)
+    return await firebase.database().ref(`img_refs/${uid}/${imgUrlEscaped}`).once('value').then(
+        function(snapshot) {
+            let count = snapshot.val()
+            count = count + 1;
+            return Promise.all([updateImgRefCount(imgUrlEscaped, count)])
+        }
+    )
 }

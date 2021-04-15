@@ -7,8 +7,6 @@ export function Reset({
     reset,
     className,
     buttonType,
-    miniVariantTool,
-    toggleMiniVariantTool,
 }) {
     return (
         <>
@@ -22,11 +20,8 @@ export function Reset({
             ) : (
                 <ToolButton
                     theme={theme}
-                    isActive={miniVariantTool === "Reset"}
-                    onClick={() => {
-                        reset()
-                        toggleMiniVariantTool("Reset")
-                    }}
+                    isActive={false}
+                    onClick={reset}
                     iconName={"reset_alt"}
                     text={"reset"}
                 />

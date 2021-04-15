@@ -55,6 +55,7 @@ export const newData = {
         num_consecutive_non_pawn_moves: 0,
     },
     tal: 0,
+    "imgUrlStrs":[],
     moves: { en_passant: [], castles: [], promos: [] },
     status: { condition: "", status: IN_PROGRESS, winner: "-" },
     ranges: {
@@ -93,14 +94,11 @@ export const newData = {
         BN1: ["a6", "c6"],
         BN2: ["f6", "h6"],
     },
-
     promos: ["Queen", "Rook", "Bishop", "Knight"],
-
     captured: {
         W: [],
         B: [],
     },
-
     id_dict: {
         k: "King",
         q: "Queen",

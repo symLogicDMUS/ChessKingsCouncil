@@ -1,22 +1,16 @@
 import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
 import { ProfilesModal } from "./ProfilesModal";
-import { Option } from "./Option";
 import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
+import { Option } from "./Option";
 
 export function Load({
     load,
     theme,
     className,
     buttonType,
-    miniVariantTool,
-    toggleMiniVariantTool,
 }) {
     const [modal, setModal] = useState(false);
-
-    const toggleModal = () => {
-        setModal(!modal);
-    };
 
     return (
         <>
@@ -25,10 +19,7 @@ export function Load({
                     <ProfilesModal
                         load={load}
                         theme={theme}
-                        close={() => {
-                            toggleModal();
-                            toggleMiniVariantTool(null);
-                        }}
+                        close={() => setModal(false)}
                     />
                 </Portal>
             ) : null}
@@ -38,16 +29,13 @@ export function Load({
                     theme={theme}
                     key="load-option"
                     className={className}
-                    onClick={toggleModal}
+                    onClick={() => setModal(true)}
                 />
             ) : (
                 <ToolButton
                     theme={theme}
-                    onClick={() => {
-                        toggleModal();
-                        toggleMiniVariantTool("Load");
-                    }}
-                    isActive={miniVariantTool === "Load"}
+                    onClick={() => setModal(true)}
+                    isActive={modal}
                     iconName={"load_alt"}
                     text={"Load"}
                 />

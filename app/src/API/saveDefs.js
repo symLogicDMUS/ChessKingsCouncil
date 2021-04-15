@@ -6,7 +6,7 @@ import "firebase/auth";
 export async function saveDefsToDb(defs) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child('defs').child(uid).update(defs)
+    return await firebase.database().ref().child(`defs/${uid}`).update(defs)
 }
 
 export function saveDefs(defs) {

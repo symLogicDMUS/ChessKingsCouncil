@@ -5,9 +5,9 @@ import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {dbSampleDefs} from "../../API/apiHelpers/sampleDefs/dev1";
+import {dbSampleDefs} from "../../API/sampleData/sampleDefs/db/dev1";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {getSampleDefs} from "../../API/getSampleDefs";
+import {getSampleDefs} from "../../API/sampleData/sampleDefs/getSampleDefs";
 import {saveDefs} from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
@@ -22,10 +22,7 @@ function PieceProfiles (props) {
         let defs;
         getDefs().then(([result]) => {
             if (!result) {
-                saveDefs(dbSampleDefs).then(([r]) => {
-                    defs = getSampleDefs();
-                    afterLoaded(defs)
-                })
+                defs = {}
             } else {
                 defs = result;
                 afterLoaded(defs)
@@ -80,9 +77,9 @@ function PieceProfiles (props) {
                     >
                         <LoadDeleteHeader
                             key={`${pieceName}-header`}
-                            pieceName={pieceName}
                             load={props.load}
                             dispatch={dispatch}
+                            pieceName={pieceName}
                             def={state.defs[pieceName]}
                             parentPage={props.parentPage}
                             toggleModal={props.toggleModal}

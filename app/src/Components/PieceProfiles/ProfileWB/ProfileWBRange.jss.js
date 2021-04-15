@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm} from "../constants.jss";
-import {themes} from "../../styles/themes.jss";
 
 export const useStyles = makeStyles({
     board_window: props => ({
@@ -37,7 +36,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             gridTemplateColumns: 'repeat(8, 1.791625vw)',
             gridTemplateRows: 'repeat(8, 1.791625vw)',
-            top: '-14.6vw',
+            top: '-15vw',
         },
     }),
     /* assumes position of d4*/

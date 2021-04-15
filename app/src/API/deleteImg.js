@@ -5,7 +5,7 @@ import "firebase/auth";
 async function deletePieceImgFromDb(imgName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return firebase.database().ref().child('images').child(uid).child(imgName).remove()
+    return firebase.database().ref().child(`images/${uid}/${imgName}`).remove()
 }
 
 

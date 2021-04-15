@@ -4,7 +4,7 @@ import "firebase/database";
 import "firebase/auth";
 import {saveUser} from "./API/saveUser";
 import {getDoesUserExists} from "./API/isNewUser";
-import {saveSampleData} from "./API/saveSampleData";
+import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SignInPage from "./Components/Home/SignInPage";
 import "./App.scss";
@@ -56,7 +56,10 @@ export class App extends React.Component {
                 getDoesUserExists().then(([userExists]) => {
                     if (! userExists) {
                         saveUser().then(r => {
-                            saveSampleData()
+                            this.setState({userExists: true})
+                            // saveSampleData().then(r => {
+                            //     this.setState({userExists: true})
+                            // })
                         })
                     }
                 })
@@ -99,7 +102,7 @@ export class App extends React.Component {
                 <Router>
                     <Suspense fallback={<div>Loading...</div>}>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/" render={() => <Home signOut={this.signOut} />}/>
                             <Route exact path="/NewGame" component={NewGame}/>
                             <Route exact path="/LoadGame" component={LoadGame} />
                             <Route exact path="/CreatePiece" component={CreatePiece} />

@@ -6,14 +6,14 @@ import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
 async function saveImgToDb(imgName, imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child('images').child(uid).update({[imgName]: imgUrl})
+    return await firebase.database().ref().child(`images/${uid}`).update({[imgName]: imgUrl})
 }
 
 async function saveRefToDb(imgUrl) {
         const user = firebase.auth().currentUser;
         const uid = user.uid;
         const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl)
-        return await firebase.database().ref().child('img_refs').child(uid).update({[imgUrlEscaped]: 1});
+        return await firebase.database().ref().child(`img_refs/${uid}`).update({[imgUrlEscaped]: 1});
 }
 
 export function saveImg(imgName, imgUrl) {

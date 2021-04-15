@@ -1,9 +1,8 @@
 import React from "react";
 import {Option} from "./Option";
 import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
-export function Erase({erase, theme, className, buttonType, miniVariantTool, toggleMiniVariantTool}) {
+export function Erase({erase, theme, className, buttonType}) {
     return (
         <>
             {buttonType==="option" ? (
@@ -16,11 +15,8 @@ export function Erase({erase, theme, className, buttonType, miniVariantTool, tog
             ) : (
                 <ToolButton
                     theme={theme}
-                    onClick={() => {
-                        erase()
-                        toggleMiniVariantTool("Erase")
-                    }}
-                    isActive={miniVariantTool==="Erase"}
+                    onClick={erase}
+                    isActive={false}
                     iconName='erase_alt'
                     text="Erase"
                 />

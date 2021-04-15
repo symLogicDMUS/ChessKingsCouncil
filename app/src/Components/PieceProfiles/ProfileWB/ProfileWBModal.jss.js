@@ -1,9 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
-import {fontSize0023} from "../../styles/fontSizes.jss";
+
+export const boardGridAdjust =  {
+    top: '-14.6vw'
+};
 
 export const useStyles = makeStyles({
     profile_wb_modal: props => ({
+        zIndex: 7,
         width: '50vw',
         height: '47.5vh',
         position: 'absolute',

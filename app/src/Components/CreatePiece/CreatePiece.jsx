@@ -1,51 +1,49 @@
 import React from "react";
+import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
-import { HelpText } from "./Help/HelpText";
-import { messageStr } from "./helpers/messageStr";
-import { saveDef } from "../../API/saveDef";
-import { copy } from "../helpers/copy";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Options } from "./Options/Options";
-import { Location } from "./Location/Location";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
-import { incrementImgRefCount } from "../../API/incrementImgRefCount";
-import { stepFuncDict } from "../helpers/stepFuncs";
-import { outOfBounds as oob } from "../helpers/oob";
-import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
-import { getRotations } from "./helpers/getRotations";
-import { getSpansDict } from "./helpers/getSpansDict";
-import { flipOffsets } from "./helpers/flipOffsets";
-import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
-import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
-import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
-import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
-import { getDoesPieceNameExist } from "../../API/getDoesPieceNameExist";
-import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
-import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {HelpText} from "./Help/HelpText";
+import {messageStr} from "./helpers/messageStr";
+import {copy} from "../helpers/copy";
+import {Name} from "./Name/Name";
+import {Icon} from "./Icon/Icon";
+import {Range} from "./Range/Range";
+import {Options} from "./Options/Options";
+import {Location} from "./Location/Location";
+import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {stepFuncDict} from "../helpers/stepFuncs";
+import {outOfBounds as oob} from "../helpers/oob";
+import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
+import {getRotations} from "./helpers/getRotations";
+import {getSpansDict} from "./helpers/getSpansDict";
+import {flipOffsets} from "./helpers/flipOffsets";
+import {saveDef} from "../../API/saveDef";
+import {getDef} from "../../API/getDef";
+import {getStepFuncNames} from "./helpers/getStepFuncNames";
+import {setRefIfNotExists} from "../../API/setRefIfNotExists";
+import {decrementIfOverride} from "../../API/decrementIfOverride";
+import {incrementImgRefCount} from "../../API/incrementImgRefCount";
+import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
+import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
+import {LocationSquaresEnter} from "../Reuseables/Animations/LocationSquaresEnter";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
+import {PuttingThePieceICreatedIntoAGame} from
+        "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
+import {ShowOffsetText} from "./Board/RangeLabelComponents/ShowOffsetText";
+import {ShowSpanText} from "./Board/RangeLabelComponents/ShowSpanText";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import { ToolButton } from "../Reuseables/Clickables/ToolButton";
-import { PageTitle } from "../Reuseables/AppBar/PageTitle";
-import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import {ToolButton} from "../Reuseables/Clickables/ToolButton";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
+import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
+import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
+import {PieceName} from "../PieceProfiles/Header/PieceName";
 import {Load} from "./Options/Load";
 import {Save} from "./Options/Save";
 import {Reset} from "./Options/Reset";
 import {Erase} from "./Options/Erase";
-import {pieceNameColor, styles} from "./CreatePiece.jss";
-import {PieceName} from "../PieceProfiles/Header/PieceName";
-import MediaQuery from "react-responsive/src";
-import Box from "@material-ui/core/Box";
-import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
-import {Typography} from "@material-ui/core";
-import {GameType} from "../NewGame/GameOptions/GameType";
-import {Add} from "@material-ui/icons";
-import {Adjuster} from "../Reuseables/AppBar/Adjuster";
+import {styles} from "./CreatePiece.jss";
+
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -78,7 +76,7 @@ class CreatePiece extends React.Component {
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
 
         //these are used because of Reset Option.
         this.loadedName = "";
@@ -132,26 +130,26 @@ class CreatePiece extends React.Component {
     }
 
     updateFirstVisit(isFirstVisit) {
-        this.setState({ isFirstVisit: isFirstVisit });
+        this.setState({isFirstVisit: isFirstVisit});
     }
 
     triggerRender() {
-        this.setState({ binaryValue: !this.state.binaryValue });
+        this.setState({binaryValue: !this.state.binaryValue});
     }
 
     toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null });
+            this.setState({miniVariantTool: null});
         } else {
-            this.setState({ miniVariantTool: toolName });
+            this.setState({miniVariantTool: toolName});
         }
     }
 
     locationToolClick() {
         if (this.state.miniVariantTool === "Location") {
-            this.setState({ miniVariantTool: null });
+            this.setState({miniVariantTool: null});
         } else {
-            this.setState({ locSqrAnimate: true, miniVariantTool: null });
+            this.setState({locSqrAnimate: true, miniVariantTool: null});
         }
     }
 
@@ -159,12 +157,12 @@ class CreatePiece extends React.Component {
         return this.unsavedChanges;
     }
 
-    load({ name, spans, offsets, whiteImg, blackImg }) {
+    load({name, spans, offsets, whiteImg, blackImg}) {
         this.name = name;
         this.offsets = offsets;
         this.spans = getSpansDict(spans);
-        this.whiteAndBlackImgs = { white: whiteImg, black: blackImg };
-        this.loadedName = copy(name);
+        this.whiteAndBlackImgs = {white: whiteImg, black: blackImg};
+        this.loadedName = copy(this.name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
         this.loadedImgs = copy(this.whiteAndBlackImgs);
@@ -175,10 +173,10 @@ class CreatePiece extends React.Component {
         this.setLoc("d4");
     }
 
-    save() {
+     save() {
         const newPiece = {
-            W: { spans: null, offsets: null, img: null },
-            B: { spans: null, offsets: null, img: null },
+            W: {spans: null, offsets: null, img: null},
+            B: {spans: null, offsets: null, img: null},
         };
         const angles = [];
         for (const s of Object.keys(this.spans)) {
@@ -191,25 +189,42 @@ class CreatePiece extends React.Component {
         newPiece.B.offsets = flipOffsets(this.offsets);
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
-
-        getDoesPieceNameExist(this.name).then(([pieceNameExists]) => {
-            if (!pieceNameExists) {
-                saveDef(this.name, newPiece).then(([r]) => {
-                    incrementImgRefCount(newPiece.W.img).then(([r]) => {
-                        incrementImgRefCount(newPiece.B.img).then(([r]) => {
-                            this.setState({
-                                unsavedChanges: false,
-                                justSaved: true,
-                            });
-                        });
-                    });
-                });
-            } else {
-                saveDef(this.name, newPiece).then(([r]) => {
-                    this.setState({ unsavedChanges: false, justSaved: true });
-                });
-            }
-        });
+        Promise.all([
+                setRefIfNotExists(this.whiteAndBlackImgs.white),
+                setRefIfNotExists(this.whiteAndBlackImgs.black)
+            ]
+        ).then(r => {
+            getDef(this.name).then(([pieceDef]) => {
+                if (pieceDef) {
+                    decrementIfOverride(pieceDef.W.img, this.whiteAndBlackImgs.white).then(r => {
+                        decrementIfOverride(pieceDef.B.img, this.whiteAndBlackImgs.black).then(r => {
+                            saveDef(this.name, newPiece).then(r => {
+                                incrementImgRefCount(newPiece.W.img).then(r => {
+                                    incrementImgRefCount(newPiece.B.img).then(r => {
+                                        this.setState({
+                                            unsavedChanges: false,
+                                            justSaved: true,
+                                        });
+                                    })
+                                })
+                            })
+                        })
+                    })
+                }
+                else {
+                    saveDef(this.name, newPiece).then(r => {
+                        incrementImgRefCount(newPiece.W.img).then(r => {
+                            incrementImgRefCount(newPiece.B.img).then(r => {
+                                this.setState({
+                                    unsavedChanges: false,
+                                    justSaved: true,
+                                });
+                            })
+                        })
+                    })
+                }
+            })
+        })
     }
 
     /**
@@ -239,7 +254,7 @@ class CreatePiece extends React.Component {
     erase() {
         this.resetOffsetsAndRange();
         this.name = "";
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
@@ -251,7 +266,7 @@ class CreatePiece extends React.Component {
      * */
     clear() {
         this.resetOffsetsAndRange();
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {white: null, black: null};
         this.name = "";
         this.location = "d4";
         this.setState({
@@ -263,13 +278,13 @@ class CreatePiece extends React.Component {
     /**used by Name tool*/
     updateName(name) {
         this.name = name;
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by Icon tool*/
     setPieceImg(color, imgUrl) {
         this.whiteAndBlackImgs[color] = imgUrl;
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by Range tool*/
@@ -284,7 +299,7 @@ class CreatePiece extends React.Component {
             }
             rf = stepFunc(rf);
         }
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**used by Location tool, called by this.setDisplaySpans()*/
@@ -322,7 +337,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({ unsavedChanges: true });
+        this.setState({unsavedChanges: true});
     }
 
     /**called by this.toggleSpan() used when span is overriding an offset */
@@ -414,7 +429,7 @@ class CreatePiece extends React.Component {
                 {!this.state.isFirstVisit && this.state.justSaved && (
                     <AnimatePresencePortal>
                         <PieceSavedSuccessfully
-                            callback={() => this.setState({ justSaved: false })}
+                            callback={() => this.setState({justSaved: false})}
                             theme={this.state.theme}
                         />
                     </AnimatePresencePortal>
@@ -437,7 +452,7 @@ class CreatePiece extends React.Component {
     }
 
     updateTheme(theme) {
-        this.setState({ theme: theme });
+        this.setState({theme: theme});
     }
 
     render() {
@@ -476,7 +491,6 @@ class CreatePiece extends React.Component {
                                     <PieceName
                                         theme={this.state.theme}
                                         className={this.props.classes.piece_name}
-                                        style={pieceNameColor(this.state.theme)}
                                         title={`Piece name: "${this.name}" (Create Piece page)`}
                                     >
                                         {this.name}
@@ -552,10 +566,7 @@ class CreatePiece extends React.Component {
                                 theme={this.state.theme}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
+                                justSaved={this.state.justSaved}
                             />
                         </>
                     }
@@ -603,9 +614,6 @@ class CreatePiece extends React.Component {
                                 load={this.load}
                                 theme={this.state.theme}
                                 className={this.props.classes.smOption}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
-                                isActive={this.state.miniVariantTool==="Load"}
                                 buttonType="tool"
 
                             />
@@ -615,9 +623,7 @@ class CreatePiece extends React.Component {
                                 className={this.props.classes.smOption}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
-                                isActive={this.state.miniVariantTool==="Save"}
+                                justSaved={this.state.justSaved}
                                 theme={this.state.theme}
                                 buttonType="tool"
                             />
@@ -625,18 +631,12 @@ class CreatePiece extends React.Component {
                                 reset={this.reset}
                                 theme={this.state.theme}
                                 className={this.props.classes.smOption}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
-                                isActive={this.state.miniVariantTool==="Reset"}
                                 buttonType="tool"
                             />
                             <Erase
                                 erase={this.erase}
                                 theme={this.state.theme}
                                 className={this.props.classes.smOption}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={this.toggleMiniVariantTool}
-                                isActive={this.state.miniVariantTool==="Erase"}
                                 buttonType="tool"
                             />
                         </>

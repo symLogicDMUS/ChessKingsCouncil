@@ -4,10 +4,6 @@ import {lighten, makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
 
-export const pieceNameColor = (theme) => ({
-    color: lighten(themes[theme].sqr_hover_alt, 0.2),
-});
-
 export const styles = {
     modal: {
         ...modal,

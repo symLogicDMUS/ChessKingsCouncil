@@ -1,9 +1,10 @@
 short:
     fix Facebook button not working (still developer mode)
 medium:
-    make options on CreatPiece page be tool buttons
-    SAVE AS not trigger load animation (GameRoot)
+    MuiGrid Ok button still active when no game has been selected, leads to error when press ok.
     mobile version of gifs for help modal, for how to add piece to game, and other
-    imgUrlStrs and sample defs for prod
+    sample imgUrlStrs and sample defs for prod
 long:
     update help modals, especially for thin screens.
+    make sure that new method of keeping track of user images by tracking storage images using realtime db, works correctly.
+    realtime db reference to image of gitHub logo (from sample images) breaking.

@@ -8,7 +8,7 @@ import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
 
-export function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, miniVariantTool, toggleMiniVariantTool}) {
+export function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, justSaved}) {
 
     let [pieceNameExists, setPieceNameExists] = useState(false);
     let [message, setMessage] = useState(null);
@@ -55,9 +55,6 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
         const saveStatus = getSaveStatus()
         if (saveStatus === 'ready') {
             save()
-            if (buttonType==="tool") {
-                toggleMiniVariantTool(null)
-            }
         } else {
             switch (saveStatus) {
                 case 'standard-name':
@@ -106,7 +103,6 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
                             onClick={() => {
                                 save()
                                 closeModal()
-                                toggleMiniVariantTool(null)
                             }}
                             variant={'contained'}
                             className={classes.button}
@@ -118,7 +114,6 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
                         <MuiButton
                             onClick={() => {
                                 closeModal()
-                                toggleMiniVariantTool(null)
                             }}
                             variant={'contained'}
                             className={classes.button}
@@ -137,13 +132,11 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
                         theme={theme}
                         closeClick={() => {
                             closeModal()
-                            toggleMiniVariantTool(null)
                         }}
                     >
                         <MuiButton
                             onClick={() => {
                                 closeModal()
-                                toggleMiniVariantTool(null)
                             }}
                             className={classes.button}
                             variant={'contained'}
@@ -153,7 +146,7 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
                         </MuiButton>
                     </StandardModal>
                 </Portal>
-                ) : null}
+            ) : null}
             {buttonType === 'option' ? (
                 <Option
                     theme={theme}
@@ -167,11 +160,8 @@ export function Save({save, pieceName, whiteImg, blackImg, theme, className, but
                     text="Save"
                     theme={theme}
                     iconName={"save_alt"}
-                    isActive={miniVariantTool === "Save"}
-                    onClick={() => {
-                        toggleMiniVariantTool("Save")
-                        makeSaveAttempt()
-                    }}
+                    isActive={modal || justSaved}
+                    onClick={makeSaveAttempt}
                 />
             )}
         </>

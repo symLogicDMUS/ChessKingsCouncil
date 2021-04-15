@@ -7,7 +7,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
-        backgroundColor: 'rgba(255, 0, 0, 0.3)',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
         position: 'fixed',
         zIndex: 7,
         top: 0,

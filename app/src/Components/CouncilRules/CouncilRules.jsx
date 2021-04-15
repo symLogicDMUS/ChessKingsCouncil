@@ -13,16 +13,6 @@ import {useStyles} from "./CouncilRules.jss";
 function CouncilRules() {
     const classes = useStyles({fontSize: fontSize002});
 
-    const helpText = <Typography
-        style={{
-            fontSize: '1.5vw',
-            color: themes.tan.text
-        }}
-        variant='h6'
-    >
-        No help content for this page.
-    </Typography>
-
     return (
         <div>
             <MediaQuery minWidth={960}>
@@ -32,7 +22,8 @@ function CouncilRules() {
                     currentPage="CouncilRules"
                     screenCase='wide'
                     unsavedChanges={false}
-                    helpText={[helpText]}
+                    helpText={null}
+                    helpTitle={null}
                     updateTheme={doNothing}
                 />
                 <div className={classes.council_rules}>

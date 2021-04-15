@@ -10,12 +10,3 @@ export function mapDefs(defs) {
     }
     return defs
 }
-
-// module.exports = mapDefs;
-
-/** for node.js
-if (require.main === module) {
-    //TODO: implement test
-
-}
-*/

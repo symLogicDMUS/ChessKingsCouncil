@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
-import { AnimatePresencePortal } from "../../Reuseables/Animations/AnimatePresencePortal";
-import { GameSavedSuccessfully } from "../../CreatePiece/animations/GameSavedSuccessfully";
 import { SaveAs } from "./SaveAs";
 import { themes } from "../../styles/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
@@ -11,12 +8,10 @@ import { useStyles } from "./SaveResignTool.jss";
 import { ResignModal } from "./ResignModal";
 
 export function SaveResignTool({
-    theme,
-    triggerSaveProcess,
+    save,
     resign,
     changeName,
-    isSaveMessage,
-    messageCallback,
+    theme,
 }) {
     const [saveAs, setSaveAs] = useState(false);
     const [resignModal, setResignModal] = useState(false);
@@ -28,7 +23,7 @@ export function SaveResignTool({
                 <IconButton
                     className={classes.option}
                     classes={{ label: classes.label }}
-                    onClick={triggerSaveProcess}
+                    onClick={save}
                 >
                     <SvgIcon className={classes.icon}>
                         {icons.save(themes[theme].button_text)}
@@ -60,21 +55,13 @@ export function SaveResignTool({
                     <Typography className={classes.text}>Resign</Typography>
                 </IconButton>
             </span>
-            {isSaveMessage ? (
-                <AnimatePresencePortal>
-                    <GameSavedSuccessfully
-                        callback={messageCallback}
-                        theme={theme}
-                    />
-                </AnimatePresencePortal>
-            ) : null}
             {saveAs ? (
                 <Portal>
                     <SaveAs
+                        save={save}
+                        theme={theme}
                         changeName={changeName}
                         close={() => setSaveAs(false)}
-                        save={triggerSaveProcess}
-                        theme={theme}
                     />
                 </Portal>
             ) : null}

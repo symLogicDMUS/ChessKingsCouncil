@@ -7,12 +7,9 @@ import { getBoardObjs } from "./getBoardObjs";
 import { deleteGame } from "../../API/deleteGame";
 import "../Reuseables/Background/_backgrounds.scss";
 import { getGameSnapshots } from "./getGameSnapshots";
-import { saveGameDict } from "../../API/saveGameDict";
 import { parseData } from "../../API/apiHelpers/parseData";
-import {getDbSampleGames} from "../../API/getDbSampleGames";
 import { initEmptyRanges } from "../../API/apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../API/apiHelpers/offsetStrsToList";
-import { dbSampleGames } from "../../API/apiHelpers/sampleGames/dev1";
 import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 
 class LoadGame extends React.Component {
@@ -36,7 +33,6 @@ class LoadGame extends React.Component {
         this.setChoice = this.setChoice.bind(this);
         this.deleteGame = this.deleteGame.bind(this);
         this.updateSnapshots = this.updateSnapshots.bind(this);
-        this.getGameImgDict = this.getGameImgDict.bind(this);
         this.updateSearchText = this.updateSearchText.bind(this);
         this.toggleShowNames = this.toggleShowNames.bind(this);
         this.triggerRender = this.triggerRender.bind(this);
@@ -62,19 +58,7 @@ class LoadGame extends React.Component {
                 );
                 this.setState({ loaded: true });
             } else {
-                saveGameDict(dbSampleGames).then(([r]) => {
-                    this.games = getDbSampleGames();
-                    this.boardObjs = getBoardObjs(this.games);
-                    this.gameSnapshotComponents = getGameSnapshots(
-                        this.boardObjs,
-                        this.setChoice,
-                        this.state.selectedGame,
-                        this.state.searchText,
-                        this.state.showNames,
-                        this.state.theme
-                    );
-                    this.setState({ loaded: true });
-                });
+                this.games = {}
             }
         });
     }
@@ -98,7 +82,7 @@ class LoadGame extends React.Component {
     }
 
     deleteGame(gameName) {
-        decrementImgRefCounts(this.games.imgUrlList).then(r => {
+        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then(r => {
             deleteGame(gameName).then(([r]) => {
                 delete this.games[gameName];
                 delete this.boardObjs[gameName];
@@ -116,14 +100,6 @@ class LoadGame extends React.Component {
                 });
             });
         })
-    }
-
-    getGameImgDict() {
-        const imgDict = {};
-        Object.keys(this.games).forEach((gameName) => {
-            imgDict[gameName] = this.games[gameName].img;
-        });
-        return imgDict;
     }
 
     load() {

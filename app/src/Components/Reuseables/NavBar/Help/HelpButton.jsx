@@ -44,7 +44,7 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
 
     return (
         <>
-            {(slideshow || isFirstTime) ? (
+            {(slideshow || isFirstTime) && children ? (
                 <Portal>
                     <HelpSlideshow
                         onClose={() => {

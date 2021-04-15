@@ -15,14 +15,18 @@ import {mapUrlListCharsToValidKeyChars} from "./mapUrlListCharsToValidKeyChars";
 export async function incrementImgRefCounts(imgUrlList) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    firebase.database().ref(`img_refs/${uid}`).once('value').then( function(snapshot) {
-        const imgRefsCounts = snapshot.val();
-        const imgUrlListEscaped = mapUrlListCharsToValidKeyChars(imgUrlList) //HERE map imgUrlList argument
-        const imgRefOverlappingKeys = Array.from(intersection(new Set(imgUrlListEscaped), new Set(Object.keys(imgRefsCounts))))
-        imgRefOverlappingKeys.forEach(imgPath => {
-            imgRefsCounts[imgPath] = imgRefsCounts[imgPath] + 1;
-        })
-        return Promise.all([updateImgRefCounts(uid, imgRefsCounts)])
+    firebase.database().ref(`img_refs/${uid}`).once('value').then(
+        function(snapshot) {
+            const imgRefsCounts = snapshot.val();
+            const imgUrlListEscaped = mapUrlListCharsToValidKeyChars(imgUrlList)
+            const imgRefOverlappingKeys = Array.from(intersection(
+                new Set(imgUrlListEscaped),
+                new Set(Object.keys(imgRefsCounts))
+            ))
+            imgRefOverlappingKeys.forEach(imgPath => {
+                imgRefsCounts[imgPath] = imgRefsCounts[imgPath] + 1;
+            })
+            return Promise.all([updateImgRefCounts(imgRefsCounts)])
     }).catch((error) => {
         console.log('this is the error that occurred:', error)
     });

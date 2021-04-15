@@ -6,8 +6,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
 import {saveImgUrls} from "../../../../API/saveImgUrls";
-import {getSampleImgUrls} from "../../../../API/getSampleImgUrls";
-import {sampleImgUrls} from "../../../../API/apiHelpers/sampleImgUrls/dev1";
+import {getSampleImgUrls} from "../../../../API/sampleData/sampleImgUrls/getSampleImgUrls";
+import {sampleImgUrls} from "../../../../API/sampleData/sampleImgUrls/dev1";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {styles} from "./ImgChoicesModal.jss";
@@ -35,11 +35,7 @@ class ImgChoicesModal extends React.Component {
     componentDidMount() {
         getImgDict().then(([imgDict]) => {
             if (!imgDict) {
-                saveImgUrls(sampleImgUrls).then(([r]) => {
-                    this.imgDict = getSampleImgUrls();
-                    this.updateImgComponents();
-                    this.setState({loaded: true});
-                });
+                this.imgDict = {}
             } else {
                 this.imgDict = imgDict;
                 this.updateImgComponents();

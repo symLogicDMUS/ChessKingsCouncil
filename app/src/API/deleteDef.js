@@ -5,9 +5,8 @@ import "firebase/auth";
 async function deletePieceDefFromDb(pieceName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return firebase.database().ref().child('defs').child(uid).child(pieceName).remove()
+    return firebase.database().ref().child(`defs/${uid}/${pieceName}`).remove()
 }
-
 
 export function deleteDef(pieceName) {
     return Promise.all([deletePieceDefFromDb(pieceName)])

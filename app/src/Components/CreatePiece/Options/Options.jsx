@@ -18,10 +18,12 @@ export function Options({
     save,
     reset,
     erase,
+    clear,
     theme,
     pieceName,
     whiteImg,
     blackImg,
+    justSaved,
 }) {
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
@@ -47,6 +49,7 @@ export function Options({
                     whiteImg={whiteImg}
                     blackImg={blackImg}
                     pieceName={pieceName}
+                    justSaved={justSaved}
                     buttonType='option'
                 />
                 <Reset

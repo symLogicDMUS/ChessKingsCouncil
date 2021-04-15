@@ -6,7 +6,7 @@ import "firebase/auth";
 async function saveGameToDb(gameName, data) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    return await firebase.database().ref().child('games').child(uid).update({
+    return await firebase.database().ref().child(`games/${uid}`).update({
         [gameName]: {
             'fen': data.fen,
             'type': data.game_type,
@@ -17,6 +17,7 @@ async function saveGameToDb(gameName, data) {
             'defs': data.piece_defs,
             'ids': data.id_dict,
             'captured': data.captured,
+            'imgUrlStrs': data.imgUrlStrs,
         }
     });
 }
