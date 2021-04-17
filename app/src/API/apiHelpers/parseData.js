@@ -14,10 +14,9 @@ import {getNextColor as getEnemyColor} from "../../game_logic/color/getNextColor
  * The method gathers all relevant data into single object and returns it.
  */
 export function parseData(data) {
-    const [fen, records, playerColor, pieceDefs, idDict] = [
+    const [fen, records, pieceDefs, idDict] = [
         data.fen,
         data.json,
-        data.pt,
         data.defs,
         data.ids,
     ];
@@ -38,20 +37,10 @@ export function parseData(data) {
     }
 
     return {
-        color: color,
         board: board,
-        img: data.img,
-        json_records: jsonRecords.getRecords(),
-        special_moves: turnData.special_moves,
-        fen_data: fenObj.getData(),
-        piece_defs: pieceDefs,
-        id_dict: idDict,
         ranges: turnData.ranges,
-        enemy_ranges: enemyTurnData.ranges,
-        status: data.status,
-        promos: data.promos,
-        type: data.type,
-        pt: playerColor,
-        captured: data.captured,
+        fenData: fenObj.getData(),
+        enemyRanges: enemyTurnData.ranges,
+        specialMoves: turnData.specialMoves,
     };
 }

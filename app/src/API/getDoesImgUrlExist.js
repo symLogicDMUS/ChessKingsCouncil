@@ -4,7 +4,7 @@ import "firebase/auth";
 import  {mapUrlCharsToValidKeyChars}
         from "./mapUrlCharsToValidKeyChars";
 
-export async function getDoesImgUrlExistInDb(imgUrl) {
+export async function getDoesImgUrlExist(imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl)
@@ -13,8 +13,4 @@ export async function getDoesImgUrlExistInDb(imgUrl) {
             return snapshot.exists()
         }
     )
-}
-
-export function getDoesImgUrlExist(imgUrl) {
-    return Promise.all([getDoesImgUrlExistInDb(imgUrl)])
 }

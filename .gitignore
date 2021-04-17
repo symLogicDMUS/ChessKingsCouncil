@@ -126,13 +126,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# key
-Chess King Council-10297b2460f1.json
-
 #symbols
 .vs
-python_backend/db_setup.py
-python_backend/run_setup
-docker_rmi.py
 TODO/TODO.txt
 .vscode/launch.json
+app/src/API/sampleData/devTests/dev1.json

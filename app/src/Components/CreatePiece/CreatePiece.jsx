@@ -43,6 +43,8 @@ import {Save} from "./Options/Save";
 import {Reset} from "./Options/Reset";
 import {Erase} from "./Options/Erase";
 import {styles} from "./CreatePiece.jss";
+import {decrementImgRefCount} from "../../API/decrementImgRefCount";
+import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
 
 
 class CreatePiece extends React.Component {
@@ -189,18 +191,17 @@ class CreatePiece extends React.Component {
         newPiece.B.offsets = flipOffsets(this.offsets);
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
-        Promise.all([
-                setRefIfNotExists(this.whiteAndBlackImgs.white),
-                setRefIfNotExists(this.whiteAndBlackImgs.black)
-            ]
-        ).then(r => {
-            getDef(this.name).then(([pieceDef]) => {
-                if (pieceDef) {
-                    decrementIfOverride(pieceDef.W.img, this.whiteAndBlackImgs.white).then(r => {
-                        decrementIfOverride(pieceDef.B.img, this.whiteAndBlackImgs.black).then(r => {
-                            saveDef(this.name, newPiece).then(r => {
-                                incrementImgRefCount(newPiece.W.img).then(r => {
-                                    incrementImgRefCount(newPiece.B.img).then(r => {
+        getDef(this.name).then(([oldPieceFromDb]) => {
+            if (oldPieceFromDb) {
+                decrementImgRefCount(oldPieceFromDb.W.img).then(r => {
+                    decrementImgRefCount(oldPieceFromDb.B.img).then(r => {
+                        incrementImgRefCount(newPiece.W.img).then(r => {
+                            incrementImgRefCount(newPiece.B.img).then(r => {
+                                saveDef(this.name, newPiece).then(r => {
+                                    deleteImgsWithNoRef([
+                                        oldPieceFromDb.W.img,
+                                        oldPieceFromDb.B.img
+                                    ]).then(r => {
                                         this.setState({
                                             unsavedChanges: false,
                                             justSaved: true,
@@ -210,20 +211,20 @@ class CreatePiece extends React.Component {
                             })
                         })
                     })
-                }
-                else {
-                    saveDef(this.name, newPiece).then(r => {
-                        incrementImgRefCount(newPiece.W.img).then(r => {
-                            incrementImgRefCount(newPiece.B.img).then(r => {
-                                this.setState({
-                                    unsavedChanges: false,
-                                    justSaved: true,
-                                });
-                            })
+                })
+            }
+            else {
+                incrementImgRefCount(newPiece.W.img).then(r => {
+                    incrementImgRefCount(newPiece.B.img).then(r => {
+                        saveDef(this.name, newPiece).then(r => {
+                            this.setState({
+                                unsavedChanges: false,
+                                justSaved: true,
+                            });
                         })
                     })
-                }
-            })
+                })
+            }
         })
     }
 

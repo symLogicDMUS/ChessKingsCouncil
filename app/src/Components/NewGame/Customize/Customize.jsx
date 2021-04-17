@@ -10,7 +10,7 @@ import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
 import { HelpText } from "./Help/HelpText";
 import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
-import { newData } from "../NewData";
+import {newData, standardImgUrls} from "../NewData";
 import { ToolModal } from "./ToolModal";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
@@ -116,7 +116,7 @@ class Customize extends React.Component {
     /**
      * called by this.accept()
      * because will redirect to another page, combine game data into one object to make it easier.
-     * 1. get new (standard) game data, promos and idDict from what user put, and empty piece_defs
+     * 1. get new (standard) game data, promos and idDict from what user put, and empty defs
      * 2. for ids not pawn or king, use the id to get the name, then use the name to get the def. Building object of defs
      *    used in this game.
      * 3. because using pieces the user created, need to do a run through of the game logic to know what the starting ranges
@@ -126,37 +126,47 @@ class Customize extends React.Component {
         this.gameData = {
             ...copy(newData),
             promos: this.promos,
-            id_dict: this.idDict,
-            piece_defs: standardPieceDefs,
+            ids: this.idDict,
+            defs: standardPieceDefs,
         }; //1.
+        console.log(standardPieceDefs)
+        console.log(newData)
         let name;
         for (const id of Object.keys(this.idDict)) {
             //2.
             if (id !== "k" && id !== "p") {
                 name = this.idDict[id];
-                this.gameData.piece_defs[name] = this.defs[name];
+                this.gameData.defs[name] = this.defs[name];
             }
         }
 
         //3.
         const dataEntry = firstUpdate(
             this.gameData.board,
-            this.gameData.json_records,
+            this.gameData.json,
             "W",
-            this.gameData.piece_defs,
-            this.gameData.id_dict
+            this.gameData.defs,
+            this.gameData.ids
         );
 
         this.gameData.ranges = dataEntry.ranges;
-        this.gameData.enemy_ranges = dataEntry.enemyRanges;
+        this.gameData.enemyRanges = dataEntry.enemyRanges;
 
-        for (const pieceName of Object.keys(this.gameData.piece_defs)) {
+        this.gameData.imgUrlStrs = this.resolveUrlImgRefs()
+    }
+
+    resolveUrlImgRefs() {
+        const imgUrlRefs = []
+        for (const pieceName of Object.keys(this.gameData.defs)) {
             for (const color of this.colors) {
-                this.gameData.imgUrlStrs.push(
-                    this.gameData.piece_defs[pieceName][color].img
-                );
+                if (! standardImgUrls.includes(this.gameData.defs[pieceName][color].img)) {
+                    imgUrlRefs.push(
+                        this.gameData.defs[pieceName][color].img
+                    );
+                }
             }
         }
+        return Array.from(new Set(imgUrlRefs))
     }
 
     /**

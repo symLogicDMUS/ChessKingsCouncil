@@ -11,6 +11,7 @@ import { parseData } from "../../API/apiHelpers/parseData";
 import { initEmptyRanges } from "../../API/apiHelpers/initEmptyRanges";
 import { offsetStrsToList } from "../../API/apiHelpers/offsetStrsToList";
 import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
+import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class LoadGame extends React.Component {
         };
         this.games = {};
         this.boardObjs = {};
-        this.load = this.load.bind(this);
+        this.loadGame = this.loadGame.bind(this);
         this.updateTheme = this.updateTheme.bind(this);
         this.isDisabled = this.isDisabled.bind(this);
         this.setChoice = this.setChoice.bind(this);
@@ -63,7 +64,38 @@ class LoadGame extends React.Component {
         });
     }
 
-    isDisabled() {
+    loadGame() {
+        this.gameData = this.games[this.state.selectedGame];
+        this.gameData.defs = initEmptyRanges(this.gameData.defs);
+        this.gameData.defs = offsetStrsToList(this.gameData.defs);
+        this.gameData = {...this.gameData, ...parseData(this.gameData)};
+        this.setState({ userChoseGame: true });
+    }
+
+    deleteGame(gameName) {
+        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then(r => {
+            deleteImgsWithNoRef(this.games[gameName].imgUrlStrs).then(r => {
+                deleteGame(gameName).then(([r]) => {
+                    delete this.games[gameName];
+                    delete this.boardObjs[gameName];
+                    this.gameSnapshotComponents = getGameSnapshots(
+                        this.boardObjs,
+                        this.setChoice,
+                        this.state.selectedGame,
+                        this.state.searchText,
+                        this.state.showNames,
+                        this.state.theme
+                    );
+                    this.setState({
+                        selectedGame: "none",
+                        userChoseGame: false,
+                    });
+                });
+            })
+        })
+    }
+
+    isDisabled() { //TODO: bug: delete button not disabled when no selection
         return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
@@ -79,35 +111,6 @@ class LoadGame extends React.Component {
             );
             this.triggerRender()
         });
-    }
-
-    deleteGame(gameName) {
-        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then(r => {
-            deleteGame(gameName).then(([r]) => {
-                delete this.games[gameName];
-                delete this.boardObjs[gameName];
-                this.gameSnapshotComponents = getGameSnapshots(
-                    this.boardObjs,
-                    this.setChoice,
-                    this.state.selectedGame,
-                    this.state.searchText,
-                    this.state.showNames,
-                    this.state.theme
-                );
-                this.setState({
-                    selectedGame: "none",
-                    userChoseGame: false,
-                });
-            });
-        })
-    }
-
-    load() {
-        this.gameData = this.games[this.state.selectedGame];
-        this.gameData.defs = initEmptyRanges(this.gameData.defs);
-        this.gameData.defs = offsetStrsToList(this.gameData.defs);
-        this.gameData = parseData(this.gameData);
-        this.setState({ userChoseGame: true });
     }
 
     updateSnapshots() {
@@ -167,7 +170,7 @@ class LoadGame extends React.Component {
         return (
             <>
                 <SavedGames
-                    load={this.load}
+                    load={this.loadGame}
                     imgDict={this.imgDict}
                     loaded={this.state.loaded}
                     searchText={this.state.searchText}

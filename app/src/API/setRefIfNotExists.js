@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {getDoesImgUrlExistInDb} from "./getDoesImgUrlExist";
+import {getDoesImgUrlExist} from "./getDoesImgUrlExist";
 import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
 
 /**
@@ -13,15 +13,10 @@ import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
 export async function setRefIfNotExists(imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
-    getDoesImgUrlExistInDb(imgUrl).then(doesExist => {
+    getDoesImgUrlExist(imgUrl).then(async (doesExist) => {
         if (! doesExist) {
             const imgUrlEscaped = mapUrlCharsToValidKeyChars(imgUrl)
-            firebase.database().ref().child(`/img_refs/${uid}`).update({[imgUrlEscaped]: 0}).then(r => {
-                return null;
-            })
-        }
-        else {
-            return null;
+            return await firebase.database().ref().child(`/img_refs/${uid}`).update({[imgUrlEscaped]: 0})
         }
     })
 }

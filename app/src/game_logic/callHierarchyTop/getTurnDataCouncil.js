@@ -25,7 +25,7 @@ export function getTurnDataCouncil(board, color, jsonRecords, pieceDefs, idDict)
 
     return {
         ranges: finalRanges,
-        special_moves: specialMoves.getMoves(),
+        specialMoves: specialMoves.getMoves(),
         tal: threatArea.length
     };
 }

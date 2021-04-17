@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
+import {PieceName} from "./PieceName";
 import StorageIcon from "@material-ui/icons/Storage";
 import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
@@ -8,9 +9,9 @@ import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
-import {PieceName} from "./PieceName";
 import {useStyles} from "./LoadDeleteHeader.jss";
-import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
+import {deleteStorageAndRefIfCountZero} from "../../../API/deleteStorageAndRefIfCountZero";
+import {deleteImgsWithNoRef} from "../../../API/deleteImgsWithNoRef";
 
 export function LoadDeleteHeader({
     def,
@@ -27,10 +28,14 @@ export function LoadDeleteHeader({
     const classes2 = useMoreStyles({theme: theme});
 
     const deletePiece = (pieceName) => {
-        decrementImgRefCounts([def.W.img, def.B.img]).then(r => {
-            deleteDef(pieceName).then(([r]) => {
-                dispatch({type: 'delete', payload: pieceName})
-            });
+        decrementImgRefCount(def.W.img).then(r => {
+            decrementImgRefCount(def.B.img).then(r => {
+                deleteImgsWithNoRef([def.W.img, def.B.img]).then(r => {
+                    deleteDef(pieceName).then(([r]) => {
+                        dispatch({type: 'delete', payload: pieceName})
+                    });
+                })
+            })
         })
     };
 

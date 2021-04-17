@@ -34,7 +34,7 @@ export function getTurnData(board, color, jsonRecords, pieceDefs, idDict) {
     specialMoves.convertToRf()
     return {
         ranges: finalRanges,
-        special_moves: specialMoves.getMoves(),
+        specialMoves: specialMoves.getMoves(),
         npck: npck,
     };
 

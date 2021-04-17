@@ -11,6 +11,7 @@ import {sampleImgUrls} from "../../../../API/sampleData/sampleImgUrls/dev1";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {styles} from "./ImgChoicesModal.jss";
+import {deleteStorageAndRefIfCountZero} from "../../../../API/deleteStorageAndRefIfCountZero";
 
 class ImgChoicesModal extends React.Component {
     constructor(props) {
@@ -57,14 +58,16 @@ class ImgChoicesModal extends React.Component {
 
     deleteImg(imgNameChoice) {
         decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
-            deleteImg(imgNameChoice).then(([r]) => {
-                this.props.resetImg(this.imgDict[imgNameChoice]);
-                delete this.imgDict[imgNameChoice];
-                this.setState({imgNameChoice: null}, () => {
-                    this.updateImgComponents();
-                    this.triggerRender();
+            deleteStorageAndRefIfCountZero(this.imgDict[imgNameChoice]).then(r => {
+                deleteImg(imgNameChoice).then(([r]) => {
+                    this.props.resetImg(this.imgDict[imgNameChoice]);
+                    delete this.imgDict[imgNameChoice];
+                    this.setState({imgNameChoice: null}, () => {
+                        this.updateImgComponents();
+                        this.triggerRender();
+                    });
                 });
-            });
+            })
         })
     }
 

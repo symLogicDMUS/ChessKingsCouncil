@@ -328,7 +328,6 @@ export const dbSampleGames = {
             "q" : "Queen",
             "r" : "Rook"
         },
-        "img" : "",
         "json" : {
             "kings_moved" : {
                 "e1" : false,
@@ -548,7 +547,6 @@ export const dbSampleGames = {
             "q" : "Queen",
             "r" : "Rook"
         },
-        "img" : "",
         "json" : {
             "kings_moved" : {
                 "e1" : true,

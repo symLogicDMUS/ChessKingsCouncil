@@ -1,5 +1,5 @@
 export let game_entry1 = {
-        "piece_defs": {
+        "defs": {
             "Octocat": {
                 "B": {
                     "img": "Octocat-black.svg",

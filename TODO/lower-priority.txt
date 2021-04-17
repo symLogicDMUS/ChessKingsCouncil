@@ -2,6 +2,7 @@ short:
     change color of Close Icon for Location and Range MiniVariant tools on hover
     for SubDropdown, decide if want to keep list items both icons and text, or just have icons
     new icon of a board for Load Game modal
+    choose option for ImgWindow component can be something other than image icon, because ImgWindow already has image icon
     consider making tool buttons text/icons bigger.
 medium:
     * test with red and blue piece colors.

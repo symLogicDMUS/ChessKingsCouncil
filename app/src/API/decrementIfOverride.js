@@ -3,9 +3,7 @@ import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
 import {mapUrlCharsToValidKeyChars} from "./mapUrlCharsToValidKeyChars";
-import {updateImgRefCounts} from "./updateImgRefCounts";
 import {deleteStorageImg} from "./deleteStorageImg";
-import {setImgRefCounts} from "./setImgRefCounts";
 import {updateImgRefCount} from "./updateImgRefCount";
 
 

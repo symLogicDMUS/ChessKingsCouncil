@@ -56,10 +56,9 @@ export class App extends React.Component {
                 getDoesUserExists().then(([userExists]) => {
                     if (! userExists) {
                         saveUser().then(r => {
-                            this.setState({userExists: true})
-                            // saveSampleData().then(r => {
-                            //     this.setState({userExists: true})
-                            // })
+                            saveSampleData().then(r => {
+                                this.setState({userExists: true})
+                            })
                         })
                     }
                 })

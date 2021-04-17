@@ -2,14 +2,13 @@ import {strfind} from "../helpers/strfind";
 
 
 export class Fen {
-
     constructor(data) {
-        this.fen = data["fen"]
-        this.turn = data["turn"]
-        this.castleAvail = data["castle_avail"]
-        this.enPassantAvail = data["en_passant_avail"]
-        this.hmClock = parseInt(data["hm_clock"], 10)
-        this.fmClock = parseInt(data["fm_clock"], 10)
+        this.fen = data.fen;
+        this.turn = data.turn;
+        this.castleAvail = data.castle_avail;
+        this.enPassantAvail = data.en_passant_avail;
+        this.hmClock = parseInt(data.hm_clock, 10)
+        this.fmClock = parseInt(data.fm_clock, 10)
     }
 
     update(specialMoves, jsonRecords, start, dest, captured, color) {

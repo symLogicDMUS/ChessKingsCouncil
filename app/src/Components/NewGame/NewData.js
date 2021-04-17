@@ -5,7 +5,7 @@ const [OVER, IN_PROGRESS] = [0, 1];
  * */
 export const newData = {
     color: "W",
-    fen_data: {
+    fenData: {
         turn: "w",
         castle_avail: "KQkq",
         en_passant_avail: "-",
@@ -22,7 +22,7 @@ export const newData = {
         g1: 'WN2', g2: 'WP7', g3: '#', g4: '#', g5: '#', g6: '#', g7: 'BP7', g8: 'BN2',
         h1: 'WR2', h2: 'WP8', h3: '#', h4: '#', h5: '#', h6: '#', h7: 'BP8', h8: 'BR2'
     },
-    json_records: {
+    json: {
         rooks_moved: {
             h1: false,
             a1: false,
@@ -55,7 +55,7 @@ export const newData = {
         num_consecutive_non_pawn_moves: 0,
     },
     tal: 0,
-    "imgUrlStrs":[],
+    imgUrlStrs:[],
     moves: { en_passant: [], castles: [], promos: [] },
     status: { condition: "", status: IN_PROGRESS, winner: "-" },
     ranges: {
@@ -76,7 +76,7 @@ export const newData = {
         WN1: ["a3", "c3"],
         WN2: ["f3", "h3"],
     },
-    enemy_ranges: {
+    enemyRanges: {
         BB1: [],
         BR1: [],
         BB2: [],
@@ -99,7 +99,7 @@ export const newData = {
         W: [],
         B: [],
     },
-    id_dict: {
+    ids: {
         k: "King",
         q: "Queen",
         r: "Rook",
@@ -158,7 +158,7 @@ export const standardIdDict = {
 
 export const standardPromoNames = ["Queen", "Rook", "Bishop", "Knight"];
 
-export const newStandardImgUrls = [
+export const standardImgUrls = [
     "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=e84dac52-fd53-46c4-a06c-06ea93053612",
     "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBK.svg?alt=media&token=bed8526b-b997-4f19-a87e-ca5a0c8bc170",
     "https://firebasestorage.googleapis.com/v0/b/custom-chess-dev1.appspot.com/o/source%2Fstandard%20piece%20images%2FBN.svg?alt=media&token=ad698ee8-6f1c-41ae-8dc4-22a5e363d0a3",

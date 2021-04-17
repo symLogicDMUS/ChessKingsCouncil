@@ -52,6 +52,7 @@
   "main": "index.js",
   "devDependencies": {
     "@material-ui/styles": "^4.11.2",
+    "firebase-admin": "^9.6.0",
     "framer": "^1.2.29",
     "immutability-helper": "^3.1.1",
     "prop-types": "^15.7.2"

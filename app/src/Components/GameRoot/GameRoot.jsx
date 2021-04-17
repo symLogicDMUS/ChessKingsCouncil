@@ -33,7 +33,9 @@ import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePor
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
+import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
+import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ResignModal} from "./SaveResignTool/ResignModal";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
@@ -47,6 +49,7 @@ import {SaveAs} from "./SaveResignTool/SaveAs";
 import {StatusBar} from "./Title/StatusBar";
 import {Board} from "./GameBoard/Board";
 import {styles} from "./GameRoot.jss";
+import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -75,23 +78,23 @@ class GameRoot extends React.Component {
         } else {
             gameData = {
                 ...copy(newData),
-                piece_defs: copy(standardPieceDefs),
+                defs: copy(standardPieceDefs),
             };
         }
         this.board = gameData.board;
-        this.turn = gameData.color;
         this.imgUrlStrs = gameData.imgUrlStrs;
-        this.fenObj = new Fen(gameData.fen_data);
+        this.fenObj = new Fen(gameData.fenData);
+        this.turn =this.fenObj.turn.toUpperCase();
         this.gameStatus = new GameStatus(gameData.status);
-        this.specialMoves = new SpecialMoves(gameData.special_moves);
+        this.specialMoves = new SpecialMoves(gameData.specialMoves);
         this.jsonRecords = new JsonRecords(
-            initPawnIds(gameData.json_records, this.board)
+            initPawnIds(gameData.json, this.board)
         );
-        this.idDict = gameData.id_dict;
-        this.defs = gameData.piece_defs;
+        this.idDict = gameData.ids;
+        this.defs = gameData.defs;
         this.ranges = gameData.ranges;
         this.promoChoices = gameData.promos;
-        this.enemyRanges = gameData.enemy_ranges;
+        this.enemyRanges = gameData.enemyRanges;
         this.capturedIds = gameData.captured;
         this.pieceDict = flipKeysValues(this.idDict);
         if (!this.capturedIds) this.capturedIds = copy(newData.captured);
@@ -156,8 +159,8 @@ class GameRoot extends React.Component {
         }
 
         this.ranges = turnData.ranges;
-        this.enemyRanges = turnData.enemy_ranges;
-        this.specialMoves.update(turnData.special_moves);
+        this.enemyRanges = turnData.enemyRanges;
+        this.specialMoves.update(turnData.specialMoves);
 
         if (this.gameType === "council")
             this.gameStatus.updateCouncil(
@@ -226,14 +229,22 @@ class GameRoot extends React.Component {
         );
         const defs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
-
         getDoesGameExist(this.gameName).then(([gameExists]) => {
-            if (! gameExists && this.imgUrlStrs.length !== 0) {
+            if (gameExists) {
+                getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
+                    decrementImgRefCounts(prevImgUrlStrs).then(r => {
+                        incrementImgRefCounts(this.imgUrlStrs).then((r) => {
+                            deleteImgsWithNoRef(prevImgUrlStrs).then(r => {
+                                this.saveToDb(fen, records, defs, status);
+                            })
+                        });
+                    })
+                })
+            }
+            else {
                 incrementImgRefCounts(this.imgUrlStrs).then((r) => {
                     this.saveToDb(fen, records, defs, status);
                 });
-            } else {
-                this.saveToDb(fen, records, defs, status);
             }
         });
     }
@@ -242,12 +253,12 @@ class GameRoot extends React.Component {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
-            game_type: this.gameType,
-            player_type: this.playerType,
+            type: this.gameType,
+            pt: this.playerType,
             promos: this.promoChoices,
-            json_records: records,
-            piece_defs: defs,
-            id_dict: this.idDict,
+            json: records,
+            defs: defs,
+            ids: this.idDict,
             captured: this.capturedIds,
             imgUrlStrs: this.imgUrlStrs,
         }).then(([res]) => {

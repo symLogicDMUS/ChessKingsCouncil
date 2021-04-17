@@ -8,3 +8,4 @@ long:
     update help modals, especially for thin screens.
     make sure that new method of keeping track of user images by tracking storage images using realtime db, works correctly.
     realtime db reference to image of gitHub logo (from sample images) breaking.
+    code splitting
