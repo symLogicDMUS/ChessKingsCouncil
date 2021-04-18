@@ -10,12 +10,3 @@ export function convertOffsetStrsToPairs(offsets) {
     }
     return newOffsets;
 }
-
-// module.exports = convertOffsetStrsToPairs;
-
-/** for node.js
-if (require.main === module) {
-    console.log(convertOffsetStrsToPairs(["1,-1", "3,-2", "5,-8", "7,3"]))
-
-}
-*/

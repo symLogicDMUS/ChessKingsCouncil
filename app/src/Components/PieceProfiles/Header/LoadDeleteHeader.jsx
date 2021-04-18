@@ -1,21 +1,20 @@
 import React from "react";
 import clsx from "clsx";
-import { useHistory } from "react-router-dom";
 import {PieceName} from "./PieceName";
+import { useHistory } from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
 import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import {decrementImgRefCount} from "../../../API/decrementImgRefCount";
+import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
-import {deleteStorageAndRefIfCountZero} from "../../../API/deleteStorageAndRefIfCountZero";
-import {deleteImgsWithNoRef} from "../../../API/deleteImgsWithNoRef";
 
 export function LoadDeleteHeader({
     def,
     load,
+    erase,
     theme,
     dispatch,
     pieceName,
@@ -28,14 +27,13 @@ export function LoadDeleteHeader({
     const classes2 = useMoreStyles({theme: theme});
 
     const deletePiece = (pieceName) => {
-        decrementImgRefCount(def.W.img).then(r => {
-            decrementImgRefCount(def.B.img).then(r => {
-                deleteImgsWithNoRef([def.W.img, def.B.img]).then(r => {
-                    deleteDef(pieceName).then(([r]) => {
-                        dispatch({type: 'delete', payload: pieceName})
-                    });
-                })
-            })
+        decrementImgRefCounts(Array.from(new Set([def.W.img, def.B.img]))).then(r => {
+            deleteDef(pieceName).then(([r]) => {
+                dispatch({type: 'delete', payload: pieceName})
+                if (parentPage === "CreatePiece") {
+                    erase()
+                }
+            });
         })
     };
 

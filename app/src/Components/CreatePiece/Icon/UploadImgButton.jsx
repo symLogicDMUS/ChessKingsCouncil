@@ -20,7 +20,10 @@ export function UploadImgButton({color, id, setPieceImg, close, theme, className
         const storageRef = firebase.storage().ref(`users/images/${uid}`)
         const task = storageRef.child(`${fileCopyName}`).put(file); //upload file
         task.on('state_changed',
-            function progress(snapshot) {},
+            function progress(snapshot) {
+                const percentage = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+                // uploader.value = percentage;
+            },
             function error(err) {},
             function complete() {
                 firebase.storage().ref(`users/images/${uid}/${fileCopyName}`).getDownloadURL().then(url => {

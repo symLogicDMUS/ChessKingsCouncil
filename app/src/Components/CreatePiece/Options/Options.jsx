@@ -18,7 +18,6 @@ export function Options({
     save,
     reset,
     erase,
-    clear,
     theme,
     pieceName,
     whiteImg,
@@ -40,6 +39,7 @@ export function Options({
                 </Typography>
                 <Load
                     load={load}
+                    erase={erase}
                     theme={theme}
                     buttonType='option'
                 />

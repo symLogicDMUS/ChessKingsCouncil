@@ -1,0 +1,15 @@
+const test5Before = {
+    "2Fblack_firehat|,svg": 1, //er: missing,
+    "2Fdocker-red|,svg": 2, //er: 1,
+    "2Fdocker|,svg": 1, //er: missing,
+    "2Fdragon-black|,svg": 1, //er: missing,
+    "2Fdragon-white|,svg": 2, //er: 1,
+    "2Fevil_morty_red|,svg": 1, //er: missing,
+    "2Fevil_morty_white|,svg": 1, //er: missing,
+    "2Fmaterial-ui-red|,svg": 2, //er: 1,
+    "2Fmaterial-ui|,svg": 2, //er: 1,
+    "2Fnode-green|,png": 3, //er: 3 (in new & old),
+    "2Fnode-red|,png": 1, //er: missing,
+    "2Fwhite_firehat|,svg": 1, //er: missing,
+    "2Fsilver-node|,png": 2 //er: 3 (in new game),
+}

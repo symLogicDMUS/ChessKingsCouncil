@@ -9,4 +9,7 @@ export async function deleteStorageImg(imgUrl) {
         const response = await httpsReference.delete()
         const result = await response;
     }
+    else {
+        return undefined;
+    }
 }

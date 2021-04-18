@@ -1,0 +1,10 @@
+in google cloud sdk:
+
+1. prod:
+gsutil -m cp -R gs://custom-chess.appspot.com .
+
+2. any of development buckets (dev number goes in place of <n>):
+gsutil -m cp -R gs://custom-chess-dev<n>.appspot.com .
+
+3. other:
+gsutil -m cp -R gs://<bucket-name>.appspot.com .

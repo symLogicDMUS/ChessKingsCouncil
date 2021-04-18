@@ -6,13 +6,14 @@ import PieceProfiles from "../../PieceProfiles/PieceProfiles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./ProfilesModal.jss";
 
-export function ProfilesModal({load, close, theme}) {
+export function ProfilesModal({load, erase, close, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize002});
 
     return (
         <div className={classes.modal}>
             <PieceProfiles
                 load={load}
+                erase={erase}
                 theme={theme}
                 toggleModal={close}
                 parentPage="CreatePiece"

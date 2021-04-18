@@ -8,10 +8,7 @@ import { deleteGame } from "../../API/deleteGame";
 import "../Reuseables/Background/_backgrounds.scss";
 import { getGameSnapshots } from "./getGameSnapshots";
 import { parseData } from "../../API/apiHelpers/parseData";
-import { initEmptyRanges } from "../../API/apiHelpers/initEmptyRanges";
-import { offsetStrsToList } from "../../API/apiHelpers/offsetStrsToList";
-import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
-import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
+import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -59,43 +56,40 @@ class LoadGame extends React.Component {
                 );
                 this.setState({ loaded: true });
             } else {
-                this.games = {}
+                this.games = {};
             }
         });
     }
 
     loadGame() {
         this.gameData = this.games[this.state.selectedGame];
-        this.gameData.defs = initEmptyRanges(this.gameData.defs);
-        this.gameData.defs = offsetStrsToList(this.gameData.defs);
-        this.gameData = {...this.gameData, ...parseData(this.gameData)};
+        this.gameData = { ...this.gameData, ...parseData(this.gameData) };
         this.setState({ userChoseGame: true });
     }
 
     deleteGame(gameName) {
-        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then(r => {
-            deleteImgsWithNoRef(this.games[gameName].imgUrlStrs).then(r => {
-                deleteGame(gameName).then(([r]) => {
-                    delete this.games[gameName];
-                    delete this.boardObjs[gameName];
-                    this.gameSnapshotComponents = getGameSnapshots(
-                        this.boardObjs,
-                        this.setChoice,
-                        this.state.selectedGame,
-                        this.state.searchText,
-                        this.state.showNames,
-                        this.state.theme
-                    );
-                    this.setState({
-                        selectedGame: "none",
-                        userChoseGame: false,
-                    });
+        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then((r) => {
+            deleteGame(gameName).then(([r]) => {
+                delete this.games[gameName];
+                delete this.boardObjs[gameName];
+                this.gameSnapshotComponents = getGameSnapshots(
+                    this.boardObjs,
+                    this.setChoice,
+                    this.state.selectedGame,
+                    this.state.searchText,
+                    this.state.showNames,
+                    this.state.theme
+                );
+                this.setState({
+                    selectedGame: "none",
+                    userChoseGame: false,
                 });
-            })
-        })
+            });
+        });
     }
 
-    isDisabled() { //TODO: bug: delete button not disabled when no selection
+    isDisabled() {
+        //TODO: bug: delete button not disabled when no selection
         return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
@@ -107,9 +101,9 @@ class LoadGame extends React.Component {
                 this.state.selectedGame,
                 this.state.searchText,
                 this.state.showNames,
-                this.state.theme,
+                this.state.theme
             );
-            this.triggerRender()
+            this.triggerRender();
         });
     }
 
@@ -120,33 +114,33 @@ class LoadGame extends React.Component {
             this.state.selectedGame,
             this.state.searchText,
             this.state.showNames,
-            this.state.theme,
+            this.state.theme
         );
     }
 
     updateTheme(theme) {
         this.setState({ theme: theme }, () => {
-            this.updateSnapshots()
-            this.triggerRender()
+            this.updateSnapshots();
+            this.triggerRender();
         });
     }
 
     updateSearchText(newText) {
         this.setState({ searchText: newText }, () => {
-            this.updateSnapshots()
-            this.triggerRender()
+            this.updateSnapshots();
+            this.triggerRender();
         });
     }
 
     toggleShowNames() {
-        this.setState({showNames: ! this.state.showNames}, () => {
-            this.updateSnapshots()
-            this.triggerRender()
-        })
+        this.setState({ showNames: !this.state.showNames }, () => {
+            this.updateSnapshots();
+            this.triggerRender();
+        });
     }
 
     triggerRender() {
-        this.setState({bValue: ! this.state.bValue})
+        this.setState({ bValue: !this.state.bValue });
     }
 
     render() {

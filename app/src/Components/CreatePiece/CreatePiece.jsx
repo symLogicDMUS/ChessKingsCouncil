@@ -2,50 +2,50 @@ import React from "react";
 import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {HelpText} from "./Help/HelpText";
-import {messageStr} from "./helpers/messageStr";
-import {copy} from "../helpers/copy";
-import {Name} from "./Name/Name";
-import {Icon} from "./Icon/Icon";
-import {Range} from "./Range/Range";
-import {Options} from "./Options/Options";
-import {Location} from "./Location/Location";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {stepFuncDict} from "../helpers/stepFuncs";
-import {outOfBounds as oob} from "../helpers/oob";
-import {rfToXy, xyToRf} from "../helpers/crdCnvrt";
-import {getRotations} from "./helpers/getRotations";
-import {getSpansDict} from "./helpers/getSpansDict";
-import {flipOffsets} from "./helpers/flipOffsets";
-import {saveDef} from "../../API/saveDef";
-import {getDef} from "../../API/getDef";
-import {getStepFuncNames} from "./helpers/getStepFuncNames";
-import {setRefIfNotExists} from "../../API/setRefIfNotExists";
-import {decrementIfOverride} from "../../API/decrementIfOverride";
-import {incrementImgRefCount} from "../../API/incrementImgRefCount";
-import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
-import {PieceSavedSuccessfully} from "./animations/PieceSavedSuccessfully";
-import {LocationSquaresEnter} from "../Reuseables/Animations/LocationSquaresEnter";
-import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
-import {PuttingThePieceICreatedIntoAGame} from
-        "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
-import {ShowOffsetText} from "./Board/RangeLabelComponents/ShowOffsetText";
-import {ShowSpanText} from "./Board/RangeLabelComponents/ShowSpanText";
+import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
+import { HelpText } from "./Help/HelpText";
+import { messageStr } from "./helpers/messageStr";
+import { copy } from "../helpers/copy";
+import { Name } from "./Name/Name";
+import { Icon } from "./Icon/Icon";
+import { Range } from "./Range/Range";
+import { Options } from "./Options/Options";
+import { Location } from "./Location/Location";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
+import { stepFuncDict } from "../helpers/stepFuncs";
+import { outOfBounds as oob } from "../helpers/oob";
+import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
+import { getRotations } from "./helpers/getRotations";
+import { getSpansDict } from "./helpers/getSpansDict";
+import { flipOffsets } from "./helpers/flipOffsets";
+import { saveDef } from "../../API/saveDef";
+import { getDef } from "../../API/getDef";
+import { getStepFuncNames } from "./helpers/getStepFuncNames";
+import { incrementImgRefCount } from "../../API/incrementImgRefCount";
+import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
+import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
+import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
+import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
+import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
+import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
+import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {ToolButton} from "../Reuseables/Clickables/ToolButton";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
-import {CreatePieceBoard as Board} from "./Board/CreatePieceBoard";
-import {PieceName} from "../PieceProfiles/Header/PieceName";
-import {Load} from "./Options/Load";
-import {Save} from "./Options/Save";
-import {Reset} from "./Options/Reset";
-import {Erase} from "./Options/Erase";
-import {styles} from "./CreatePiece.jss";
-import {decrementImgRefCount} from "../../API/decrementImgRefCount";
-import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
-
+import { ToolButton } from "../Reuseables/Clickables/ToolButton";
+import { PageTitle } from "../Reuseables/AppBar/PageTitle";
+import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
+import { PieceName } from "../PieceProfiles/Header/PieceName";
+import { Load } from "./Options/Load";
+import { Save } from "./Options/Save";
+import { Reset } from "./Options/Reset";
+import { Erase } from "./Options/Erase";
+import { styles } from "./CreatePiece.jss";
+import { decrementImgRefCount } from "../../API/decrementImgRefCount";
+import { deleteImgsWithNoRef } from "../../API/deleteImgsWithNoRef";
+import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
+import { difference } from "../../API/sampleData/devTests/setOps";
+import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
+import { updateCountsOnOverwrite } from "../../API/updateCountsOnOverwrite";
 
 class CreatePiece extends React.Component {
     constructor(props) {
@@ -78,7 +78,7 @@ class CreatePiece extends React.Component {
         this.spanDisplays = getBinaryBoarAllFalse();
         this.offsetDisplays = getBinaryBoarAllFalse();
 
-        this.whiteAndBlackImgs = {white: null, black: null};
+        this.whiteAndBlackImgs = { white: null, black: null };
 
         //these are used because of Reset Option.
         this.loadedName = "";
@@ -90,7 +90,6 @@ class CreatePiece extends React.Component {
         this.save = this.save.bind(this);
         this.reset = this.reset.bind(this);
         this.erase = this.erase.bind(this);
-        this.clear = this.clear.bind(this);
         this.setLoc = this.setLoc.bind(this);
         this.resetImg = this.resetImg.bind(this);
         this.setPieceImg = this.setPieceImg.bind(this);
@@ -132,26 +131,26 @@ class CreatePiece extends React.Component {
     }
 
     updateFirstVisit(isFirstVisit) {
-        this.setState({isFirstVisit: isFirstVisit});
+        this.setState({ isFirstVisit: isFirstVisit });
     }
 
     triggerRender() {
-        this.setState({binaryValue: !this.state.binaryValue});
+        this.setState({ binaryValue: !this.state.binaryValue });
     }
 
     toggleMiniVariantTool(toolName) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({miniVariantTool: null});
+            this.setState({ miniVariantTool: null });
         } else {
-            this.setState({miniVariantTool: toolName});
+            this.setState({ miniVariantTool: toolName });
         }
     }
 
     locationToolClick() {
         if (this.state.miniVariantTool === "Location") {
-            this.setState({miniVariantTool: null});
+            this.setState({ miniVariantTool: null });
         } else {
-            this.setState({locSqrAnimate: true, miniVariantTool: null});
+            this.setState({ locSqrAnimate: true, miniVariantTool: null });
         }
     }
 
@@ -159,11 +158,11 @@ class CreatePiece extends React.Component {
         return this.unsavedChanges;
     }
 
-    load({name, spans, offsets, whiteImg, blackImg}) {
+    load({ name, spans, offsets, whiteImg, blackImg }) {
         this.name = name;
         this.offsets = offsets;
         this.spans = getSpansDict(spans);
-        this.whiteAndBlackImgs = {white: whiteImg, black: blackImg};
+        this.whiteAndBlackImgs = { white: whiteImg, black: blackImg };
         this.loadedName = copy(this.name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
@@ -175,16 +174,15 @@ class CreatePiece extends React.Component {
         this.setLoc("d4");
     }
 
-     save() {
+    save() {
         const newPiece = {
-            W: {spans: null, offsets: null, img: null},
-            B: {spans: null, offsets: null, img: null},
+            W: { spans: null, offsets: null, img: null },
+            B: { spans: null, offsets: null, img: null },
         };
         const angles = [];
         for (const s of Object.keys(this.spans)) {
             if (this.spans[s]) angles.push(s);
         }
-
         newPiece.W.offsets = this.offsets;
         newPiece.W.spans = getStepFuncNames(angles);
         newPiece.B.spans = getStepFuncNames(getRotations(angles, 180));
@@ -193,39 +191,30 @@ class CreatePiece extends React.Component {
         newPiece.B.img = this.whiteAndBlackImgs.black;
         getDef(this.name).then(([oldPieceFromDb]) => {
             if (oldPieceFromDb) {
-                decrementImgRefCount(oldPieceFromDb.W.img).then(r => {
-                    decrementImgRefCount(oldPieceFromDb.B.img).then(r => {
-                        incrementImgRefCount(newPiece.W.img).then(r => {
-                            incrementImgRefCount(newPiece.B.img).then(r => {
-                                saveDef(this.name, newPiece).then(r => {
-                                    deleteImgsWithNoRef([
-                                        oldPieceFromDb.W.img,
-                                        oldPieceFromDb.B.img
-                                    ]).then(r => {
-                                        this.setState({
-                                            unsavedChanges: false,
-                                            justSaved: true,
-                                        });
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
+                updateCountsOnOverwrite(
+                    [oldPieceFromDb.W.img, oldPieceFromDb.B.img],
+                    [newPiece.W.img, newPiece.B.img]
+                ).then((r) => {
+                    saveDef(this.name, newPiece).then((r) => {
+                        this.setState({
+                            unsavedChanges: false,
+                            justSaved: true,
+                        });
+                    });
+                });
+            } else {
+                incrementImgRefCounts(
+                    Array.from(new Set([newPiece.W.img, newPiece.B.img]))
+                ).then((r) => {
+                    saveDef(this.name, newPiece).then((r) => {
+                        this.setState({
+                            unsavedChanges: false,
+                            justSaved: true,
+                        });
+                    });
+                });
             }
-            else {
-                incrementImgRefCount(newPiece.W.img).then(r => {
-                    incrementImgRefCount(newPiece.B.img).then(r => {
-                        saveDef(this.name, newPiece).then(r => {
-                            this.setState({
-                                unsavedChanges: false,
-                                justSaved: true,
-                            });
-                        })
-                    })
-                })
-            }
-        })
+        });
     }
 
     /**
@@ -233,7 +222,7 @@ class CreatePiece extends React.Component {
      */
     reset() {
         if (!this.loadedName) {
-            this.clear();
+            this.erase();
         } else {
             this.name = copy(this.loadedName);
             this.spans = copy(this.loadedSpans);
@@ -255,21 +244,7 @@ class CreatePiece extends React.Component {
     erase() {
         this.resetOffsetsAndRange();
         this.name = "";
-        this.whiteAndBlackImgs = {white: null, black: null};
-        this.setState({
-            unsavedChanges: false,
-            loadInstance: this.state.loadInstance + 1,
-        });
-    }
-
-    /**
-     * used by Reset Option when not a loaded piece
-     * */
-    clear() {
-        this.resetOffsetsAndRange();
-        this.whiteAndBlackImgs = {white: null, black: null};
-        this.name = "";
-        this.location = "d4";
+        this.whiteAndBlackImgs = { white: null, black: null };
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
@@ -279,13 +254,13 @@ class CreatePiece extends React.Component {
     /**used by Name tool*/
     updateName(name) {
         this.name = name;
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     /**used by Icon tool*/
     setPieceImg(color, imgUrl) {
         this.whiteAndBlackImgs[color] = imgUrl;
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     /**used by Range tool*/
@@ -300,7 +275,7 @@ class CreatePiece extends React.Component {
             }
             rf = stepFunc(rf);
         }
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     /**used by Location tool, called by this.setDisplaySpans()*/
@@ -338,7 +313,7 @@ class CreatePiece extends React.Component {
             let i = offsetStrs.indexOf(JSON.stringify(offset));
             this.offsets.splice(i, 1);
         } else this.offsets.push(offset);
-        this.setState({unsavedChanges: true});
+        this.setState({ unsavedChanges: true });
     }
 
     /**called by this.toggleSpan() used when span is overriding an offset */
@@ -430,7 +405,7 @@ class CreatePiece extends React.Component {
                 {!this.state.isFirstVisit && this.state.justSaved && (
                     <AnimatePresencePortal>
                         <PieceSavedSuccessfully
-                            callback={() => this.setState({justSaved: false})}
+                            callback={() => this.setState({ justSaved: false })}
                             theme={this.state.theme}
                         />
                     </AnimatePresencePortal>
@@ -453,7 +428,7 @@ class CreatePiece extends React.Component {
     }
 
     updateTheme(theme) {
-        this.setState({theme: theme});
+        this.setState({ theme: theme });
     }
 
     render() {
@@ -491,7 +466,9 @@ class CreatePiece extends React.Component {
                                 {this.name ? (
                                     <PieceName
                                         theme={this.state.theme}
-                                        className={this.props.classes.piece_name}
+                                        className={
+                                            this.props.classes.piece_name
+                                        }
                                         title={`Piece name: "${this.name}" (Create Piece page)`}
                                     >
                                         {this.name}
@@ -511,7 +488,9 @@ class CreatePiece extends React.Component {
                     }
                     theme={this.state.theme}
                     className={this.props.classes.drawer}
-                    appBarClassName={this.name ? this.props.classes.app_bar_padding : null}
+                    appBarClassName={
+                        this.name ? this.props.classes.app_bar_padding : null
+                    }
                     tools={
                         <>
                             <Name
@@ -565,6 +544,7 @@ class CreatePiece extends React.Component {
                                 erase={this.erase}
                                 pieceName={this.name}
                                 theme={this.state.theme}
+                                resetImg={this.resetImg}
                                 whiteImg={this.whiteAndBlackImgs.white}
                                 blackImg={this.whiteAndBlackImgs.black}
                                 justSaved={this.state.justSaved}
@@ -613,10 +593,10 @@ class CreatePiece extends React.Component {
                             />
                             <Load
                                 load={this.load}
+                                erase={this.erase}
                                 theme={this.state.theme}
                                 className={this.props.classes.smOption}
                                 buttonType="tool"
-
                             />
                             <Save
                                 save={this.save}

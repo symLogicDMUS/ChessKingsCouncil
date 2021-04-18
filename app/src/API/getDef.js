@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
+import {convertOffsetStrsToPairs} from "./apiHelpers/convertOffsetStrsToPairs";
 
 async function getPieceDefFromDb(pieceName) {
     const user = firebase.auth().currentUser;
@@ -21,6 +22,8 @@ async function getPieceDefFromDb(pieceName) {
                 if (! def.B.offsets) {
                     def.B.offsets = []
                 }
+                def.B.offsets = convertOffsetStrsToPairs(def.B.offsets)
+                def.W.offsets = convertOffsetStrsToPairs(def.W.offsets)
             }
             return def;
         }

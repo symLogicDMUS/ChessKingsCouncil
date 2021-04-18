@@ -6,6 +6,7 @@ import { Option } from "./Option";
 
 export function Load({
     load,
+    erase,
     theme,
     className,
     buttonType,
@@ -18,6 +19,7 @@ export function Load({
                 <Portal>
                     <ProfilesModal
                         load={load}
+                        erase={erase}
                         theme={theme}
                         close={() => setModal(false)}
                     />

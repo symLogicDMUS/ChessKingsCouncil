@@ -15,7 +15,7 @@ export function ToolModal({
     className,
     children,
 }) {
-    const [drag, setDrag] = useState(false);
+    // const [drag, setDrag] = useState(false);
 
     const classes = useStyles({ theme: theme });
 
@@ -31,11 +31,11 @@ export function ToolModal({
                     mountOnEnter
                     unmountOnExit
                     onExit={onExit}
-                    onEnter={() => setDrag(true)}
+                    // onEnter={() => setDrag(true)}
                     direction={direction}
                 >
                     <motion.div
-                        drag={drag}
+                        // drag={drag}
                         className={clsx(classes.window, {
                             [className]: className,
                         })}

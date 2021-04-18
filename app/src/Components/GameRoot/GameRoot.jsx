@@ -28,6 +28,7 @@ import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
+import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
@@ -49,7 +50,8 @@ import {SaveAs} from "./SaveResignTool/SaveAs";
 import {StatusBar} from "./Title/StatusBar";
 import {Board} from "./GameBoard/Board";
 import {styles} from "./GameRoot.jss";
-import {deleteImgsWithNoRef} from "../../API/deleteImgsWithNoRef";
+import {difference} from "../helpers/setOps";
+import {updateCountsOnOverwrite} from "../../API/updateCountsOnOverwrite";
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -232,12 +234,8 @@ class GameRoot extends React.Component {
         getDoesGameExist(this.gameName).then(([gameExists]) => {
             if (gameExists) {
                 getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
-                    decrementImgRefCounts(prevImgUrlStrs).then(r => {
-                        incrementImgRefCounts(this.imgUrlStrs).then((r) => {
-                            deleteImgsWithNoRef(prevImgUrlStrs).then(r => {
-                                this.saveToDb(fen, records, defs, status);
-                            })
-                        });
+                    updateCountsOnOverwrite(prevImgUrlStrs, this.imgUrlStrs).then(r => {
+                        this.saveToDb(fen, records, defs, status);
                     })
                 })
             }

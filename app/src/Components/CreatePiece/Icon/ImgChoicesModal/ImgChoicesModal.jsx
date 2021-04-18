@@ -1,17 +1,14 @@
 import React from "react";
+import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
+import {deleteStorageAndRefIfCountZero} from "../../../../API/deleteStorageAndRefIfCountZero";
 import {Close} from "../../../Reuseables/Modals/Close";
 import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {deleteImg} from "../../../../API/deleteImg";
 import {getImgDict} from "../../../../API/getImgDict";
-import {saveImgUrls} from "../../../../API/saveImgUrls";
-import {getSampleImgUrls} from "../../../../API/sampleData/sampleImgUrls/getSampleImgUrls";
-import {sampleImgUrls} from "../../../../API/sampleData/sampleImgUrls/dev1";
-import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {styles} from "./ImgChoicesModal.jss";
-import {deleteStorageAndRefIfCountZero} from "../../../../API/deleteStorageAndRefIfCountZero";
 
 class ImgChoicesModal extends React.Component {
     constructor(props) {
@@ -58,16 +55,14 @@ class ImgChoicesModal extends React.Component {
 
     deleteImg(imgNameChoice) {
         decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
-            deleteStorageAndRefIfCountZero(this.imgDict[imgNameChoice]).then(r => {
-                deleteImg(imgNameChoice).then(([r]) => {
-                    this.props.resetImg(this.imgDict[imgNameChoice]);
-                    delete this.imgDict[imgNameChoice];
-                    this.setState({imgNameChoice: null}, () => {
-                        this.updateImgComponents();
-                        this.triggerRender();
-                    });
+            deleteImg(imgNameChoice).then(([r]) => {
+                this.props.resetImg(this.imgDict[imgNameChoice]);
+                delete this.imgDict[imgNameChoice];
+                this.setState({imgNameChoice: null}, () => {
+                    this.updateImgComponents();
+                    this.triggerRender();
                 });
-            })
+            });
         })
     }
 

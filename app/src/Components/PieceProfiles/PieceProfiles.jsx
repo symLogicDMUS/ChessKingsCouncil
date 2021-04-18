@@ -76,14 +76,15 @@ function PieceProfiles (props) {
                         screenCase={screenCase}
                     >
                         <LoadDeleteHeader
-                            key={`${pieceName}-header`}
                             load={props.load}
+                            erase={props.erase}
+                            theme={props.theme}
                             dispatch={dispatch}
                             pieceName={pieceName}
+                            key={`${pieceName}-header`}
                             def={state.defs[pieceName]}
                             parentPage={props.parentPage}
                             toggleModal={props.toggleModal}
-                            theme={props.theme}
                         />
                     </Profile>
                 );

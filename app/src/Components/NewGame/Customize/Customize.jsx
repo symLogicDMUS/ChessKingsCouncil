@@ -29,6 +29,7 @@ import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import { textColor, styles } from "./Customize.jss";
+import {Typography} from "@material-ui/core";
 
 class Customize extends React.Component {
     constructor(props) {
@@ -321,6 +322,20 @@ class Customize extends React.Component {
         this.setState({ theme: theme });
     }
 
+    getPieceListData() {
+        const pieceNames = Array.from(new Set(
+            [...Object.values(this.subs), ...this.promos]
+        ))
+        return pieceNames.map((pieceName, index) => (
+            <Typography
+                key={index}
+                style={textColor(this.state.theme)}
+            >
+                {pieceName}
+            </Typography>
+        ))
+    }
+
     render() {
         return (
             <>
@@ -367,6 +382,42 @@ class Customize extends React.Component {
                                     theme={this.state.theme}
                                 >
                                     Pawn Promotions
+                                </ListTitle>
+                            }
+                        />
+                    </ToolModal>
+                ) : null}
+                {this.state.miniVariantTool === "Pieces" ? (
+                    <ToolModal
+                        isIn={this.state.miniVariantTool==="Pieces"}
+                        onClose={() => this.toggleMiniVariantTool("Pieces")}
+                        className={this.props.classes.promos_modal}
+                        theme={this.state.theme}
+                        direction='left'
+                    >
+                        <ScrollTable
+                            numRows={6}
+                            key="piece-data"
+                            theme={this.state.theme}
+                            listItems={this.getPieceListData()}
+                            rootClassName={this.props.classes.scroll_table}
+                            addedClassName={this.props.classes.drawer_component}
+                            listItemClassName={
+                                this.props.classes.scroll_table_list_item
+                            }
+                            arrowButtonClassName={
+                                this.props.classes.scroll_table_button
+                            }
+                            textClassName={this.props.classes.scroll_table_text}
+                            title={
+                                <ListTitle
+                                    className={
+                                        this.props.classes.scroll_table_title
+                                    }
+                                    variant="h6"
+                                    theme={this.state.theme}
+                                >
+                                    All Pieces
                                 </ListTitle>
                             }
                         />
@@ -470,6 +521,17 @@ class Customize extends React.Component {
                                 }
                                 onClick={() =>
                                     this.toggleMiniVariantTool("Promos")
+                                }
+                            />
+                            <ToolButton
+                                text="All Pieces"
+                                iconName="piece_list"
+                                theme={this.state.theme}
+                                isActive={
+                                    this.state.miniVariantTool === "Pieces"
+                                }
+                                onClick={() =>
+                                    this.toggleMiniVariantTool("Pieces")
                                 }
                             />
                         </>

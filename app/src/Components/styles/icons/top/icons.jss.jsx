@@ -67,6 +67,7 @@ import {captured_pieces_alt} from "../game root/captured_pieces_alt.jss";
 import {subs} from "../customize/subs.jss";
 import {promos} from "../customize/promos.jss";
 import {promos_alt} from "../customize/promos_alt";
+import {piece_list} from "../customize/piece_list.jss";
 
 export const icons = {
     home: home,
@@ -136,5 +137,6 @@ export const icons = {
     game_info2: game_info2,
     captured_pieces: captured_pieces,
     captured_pieces_alt: captured_pieces_alt,
+    piece_list: piece_list,
     none: none,
 };
