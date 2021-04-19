@@ -9,6 +9,9 @@ async function addUser() {
     return await firebase.database().ref().child('users').update({
         [uid] : true
     })
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 export function saveUser() {

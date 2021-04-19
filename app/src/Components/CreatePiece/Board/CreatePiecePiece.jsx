@@ -18,6 +18,7 @@ export const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
                     className={clsx(classes.piece, {
                         [className]: className,
                     })}
+                    src={imgUrl}
                 >
                     <Typography className={classes.rf_text} variant='button'>{rf}</Typography>
                 </Avatar>

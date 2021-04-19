@@ -18,6 +18,9 @@ async function getPieceDefsFromDb() {
             return defs;
         }
     )
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 export function getDefs() {

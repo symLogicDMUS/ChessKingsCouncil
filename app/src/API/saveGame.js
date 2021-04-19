@@ -19,7 +19,10 @@ async function saveGameToDb(gameName, data) {
             'captured': data.captured,
             'imgUrlStrs': data.imgUrlStrs,
         }
-    });
+    })
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 export function saveGame(gameName, data) {

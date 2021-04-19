@@ -1,51 +1,48 @@
 import React from "react";
+import { copy } from "../helpers/copy";
+import { getDef } from "../../API/getDef";
+import { saveDef } from "../../API/saveDef";
 import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { HelpText } from "./Help/HelpText";
 import { messageStr } from "./helpers/messageStr";
-import { copy } from "../helpers/copy";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Options } from "./Options/Options";
-import { Location } from "./Location/Location";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
 import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
 import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
-import { saveDef } from "../../API/saveDef";
-import { getDef } from "../../API/getDef";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { incrementImgRefCount } from "../../API/incrementImgRefCount";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
-import { PuttingThePieceICreatedIntoAGame } from "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
+import { PuttingThePieceICreatedIntoAGame } from
+        "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
+import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
+import { updateCountsOnOverwrite } from "../../API/updateCountsOnOverwrite";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { PieceName } from "../PieceProfiles/Header/PieceName";
+import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
 import { Load } from "./Options/Load";
 import { Save } from "./Options/Save";
 import { Reset } from "./Options/Reset";
 import { Erase } from "./Options/Erase";
+import { Name } from "./Name/Name";
+import { Icon } from "./Icon/Icon";
+import { Range } from "./Range/Range";
+import { Options } from "./Options/Options";
+import { Location } from "./Location/Location";
+import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { styles } from "./CreatePiece.jss";
-import { decrementImgRefCount } from "../../API/decrementImgRefCount";
-import { deleteImgsWithNoRef } from "../../API/deleteImgsWithNoRef";
-import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
-import { difference } from "../../API/sampleData/devTests/setOps";
-import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
-import { updateCountsOnOverwrite } from "../../API/updateCountsOnOverwrite";
+
 
 class CreatePiece extends React.Component {
     constructor(props) {

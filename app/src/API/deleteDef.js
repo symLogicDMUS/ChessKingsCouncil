@@ -6,8 +6,14 @@ async function deletePieceDefFromDb(pieceName) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     return firebase.database().ref().child(`defs/${uid}/${pieceName}`).remove()
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 export function deleteDef(pieceName) {
     return Promise.all([deletePieceDefFromDb(pieceName)])
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }

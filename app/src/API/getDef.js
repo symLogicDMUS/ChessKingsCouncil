@@ -28,8 +28,14 @@ async function getPieceDefFromDb(pieceName) {
             return def;
         }
     )
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 export function getDef(pieceName) {
     return Promise.all([getPieceDefFromDb(pieceName)])
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }

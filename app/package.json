@@ -51,6 +51,7 @@
   },
   "main": "index.js",
   "devDependencies": {
+    "@google-cloud/storage": "^5.8.3",
     "@material-ui/styles": "^4.11.2",
     "firebase-admin": "^9.6.0",
     "framer": "^1.2.29",

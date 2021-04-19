@@ -10,13 +10,13 @@ import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
 import { HelpText } from "./Help/HelpText";
 import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
-import {newData, standardImgUrls} from "../NewData";
 import { ToolModal } from "./ToolModal";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
+import {newData, standardImgUrls} from "../NewData";
 import { standardPieceDefs } from "../standardPieceDefs/dev1";
 import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
@@ -63,6 +63,8 @@ class Customize extends React.Component {
         this.idDict = {};
         this.gameData = {};
         this.promos = [];
+        this.standardPieceDefs = copy(standardPieceDefs);
+        this.newData  = copy(newData);
         this.firstTime = false;
         this.promoAll = false;
         this.newReplacement = null;
@@ -102,7 +104,7 @@ class Customize extends React.Component {
     }
 
     setDefs(defs) {
-        this.defs = { ...standardPieceDefs, ...defs };
+        this.defs = { ...this.standardPieceDefs, ...defs };
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
@@ -125,13 +127,11 @@ class Customize extends React.Component {
      */
     bundleGameData() {
         this.gameData = {
-            ...copy(newData),
+            ...this.newData,
             promos: this.promos,
             ids: this.idDict,
-            defs: standardPieceDefs,
+            defs: this.standardPieceDefs,
         }; //1.
-        console.log(standardPieceDefs)
-        console.log(newData)
         let name;
         for (const id of Object.keys(this.idDict)) {
             //2.
@@ -234,7 +234,7 @@ class Customize extends React.Component {
                     )
                 );
                 this.idDict[idChoices[0]] = pieceName;
-                this.defs[pieceName] = standardPieceDefs[pieceName];
+                this.defs[pieceName] = this.standardPieceDefs[pieceName];
                 this.promos.push(pieceName);
             }
         }

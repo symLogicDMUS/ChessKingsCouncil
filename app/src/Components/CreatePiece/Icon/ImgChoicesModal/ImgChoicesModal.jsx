@@ -1,7 +1,6 @@
 import React from "react";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
-import {deleteStorageAndRefIfCountZero} from "../../../../API/deleteStorageAndRefIfCountZero";
 import {Close} from "../../../Reuseables/Modals/Close";
 import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import withStyles from "@material-ui/core/styles/withStyles";

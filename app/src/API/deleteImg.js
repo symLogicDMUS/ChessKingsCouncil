@@ -11,4 +11,7 @@ async function deletePieceImgFromDb(imgName) {
 
 export function deleteImg(imgName) {
     return Promise.all([deletePieceImgFromDb(imgName)])
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }

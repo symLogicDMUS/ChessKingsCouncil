@@ -1,8 +1,8 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
-import { MainMenuLg } from "./MainMenuLg";
 import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
+import { MainMenuLg } from "./MainMenuLg";
 
 class Home extends React.Component {
     constructor(props) {

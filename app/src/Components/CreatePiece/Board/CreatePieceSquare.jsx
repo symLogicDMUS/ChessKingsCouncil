@@ -1,12 +1,12 @@
 import React, {memo, useState} from "react";
 import clsx from "clsx";
+import Button from "@material-ui/core/Button";
 import {getOffset} from "../../helpers/getOffset";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {SpanLabel} from "./RangeLabelComponents/SpanLabel";
 import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {useStyles as useMoreStyles} from "../../Reuseables/Board/Square.jss";
 import {pieceLocHover, useStyles} from "./CreatePieceSquare.jss";
-import Button from "@material-ui/core/Button";
 
 export const CreatePieceSquare = memo(
     ({

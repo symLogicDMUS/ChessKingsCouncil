@@ -7,6 +7,9 @@ async function saveImgToDb(imgName, imgUrl) {
     const user = firebase.auth().currentUser;
     const uid = user.uid;
     return await firebase.database().ref().child(`images/${uid}`).update({[imgName]: imgUrl})
+    .catch((err) => {
+        console.log(`ERROR: ${err}`)
+    })
 }
 
 async function saveRefToDb(imgUrl) {
