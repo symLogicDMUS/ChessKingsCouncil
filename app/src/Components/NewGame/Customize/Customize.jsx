@@ -17,7 +17,7 @@ import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
 import {newData, standardImgUrls} from "../NewData";
-import { standardPieceDefs } from "../standardPieceDefs/dev1";
+import { standardPieceDefs } from "../standardPieceDefs/prod";
 import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
 import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";

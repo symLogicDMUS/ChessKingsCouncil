@@ -6,6 +6,6 @@ import "firebase/auth";
 import {configs} from "./configs";
 import { App } from "./App";
 
-firebase.initializeApp(configs.dev1);
+firebase.initializeApp(configs.prod);
 
 ReactDOM.render(<App />, document.getElementById("root"));

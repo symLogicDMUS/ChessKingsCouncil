@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
-import {getFranchiseThemeOverride} from "../../MyPieces/getFranchiseThemeOverride";
+import {getFranchiseThemeOverride} from "../../../API/sampleData/specialThemeImgs/getFranchiseThemeOverride";
 import {specialThemeMenuItemList} from "../../styles/themes.jss";
 import { useStyles as useMoreStyles } from "../../Reuseables/NavBar/SettingsModal.jss";
 import { useStyles } from "./FranchiseThemeDropdown.jss";

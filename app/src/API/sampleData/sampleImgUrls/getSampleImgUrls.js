@@ -1,4 +1,4 @@
-import {sampleImgUrls} from "./dev1";
+import {sampleImgUrls} from "./prod";
 import {copy} from "../../../Components/helpers/copy";
 
 export function getSampleImgUrls() {

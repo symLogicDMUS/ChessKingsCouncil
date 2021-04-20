@@ -9,7 +9,7 @@ const itemMarginMd = '3vw';
 
 /**
  * item_choice: box item goes in + name of item
- * item_container: (normal and selected) box item goes in
+ * item_container: (cutouts and selected) box item goes in
  */
 export const useStyles = makeStyles({
     item_choice: props => ({

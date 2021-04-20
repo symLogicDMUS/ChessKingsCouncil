@@ -24,7 +24,7 @@ import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
-import {standardPieceDefs} from "../NewGame/standardPieceDefs/dev1";
+import {standardPieceDefs} from "../NewGame/standardPieceDefs/prod";
 import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {ToolButton} from "../Reuseables/Clickables/ToolButton";
@@ -64,7 +64,7 @@ class GameRoot extends React.Component {
             showProfileOnClick: true,
         };
         this.unsavedProgress = false;
-        this.isTouchscreen = this.props.isTouchscreen;
+        this.touchScreen = this.props.userTouchedScreen;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;

@@ -11,12 +11,12 @@ import { reducer} from "./Board.red";
 
 export const Board = ({ gameRoot }) => {
     const dndBackend = useMemo(() => {
-        if (gameRoot.isTouchscreen) {
+        if (gameRoot.touchScreen) {
             return TouchBackend;
         } else {
             return HTML5Backend;
         }
-    }, []);
+    }, [gameRoot.state.userTouchedScreen]);
 
     const [state, dispatch] = useReducer(reducer, {
         isPromo: false,
@@ -37,7 +37,7 @@ export const Board = ({ gameRoot }) => {
     return (
         <>
             <MediaQuery minWidth={960}>
-                <DndProvider backend={dndBackend}>
+                <DndProvider backend={TouchBackend}>
                     <DropLayer
                         state={state}
                         dispatch={dispatch}
@@ -63,7 +63,7 @@ export const Board = ({ gameRoot }) => {
                 </DndProvider>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <DndProvider backend={dndBackend}>
+                <DndProvider backend={TouchBackend}>
                     <DropLayer
                         state={state}
                         dispatch={dispatch}

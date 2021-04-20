@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import "firebase/storage";
-import {sampleUrlList} from "./sampleData/sampleImgUrls/dev1";
+import {sampleUrlList} from "./sampleData/sampleImgUrls/prod";
 
 export async function deleteStorageImg(imgUrl) {
     const storage = firebase.storage();

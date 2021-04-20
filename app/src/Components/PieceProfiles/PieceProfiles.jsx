@@ -1,18 +1,15 @@
 import React, {useEffect, useReducer} from "react";
+import clsx from "clsx";
 import Profile from "./Profile";
 import {copy} from "../helpers/copy";
 import {ProfileSkeleton} from "./ProfileSkeleton";
 import {CustomizeHeader} from "./Header/CustomizeHeader";
 import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
-import {dbSampleDefs} from "../../API/sampleData/sampleDefs/db/dev1";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {getSampleDefs} from "../../API/sampleData/sampleDefs/getSampleDefs";
-import {saveDefs} from "../../API/saveDefs";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
-import clsx from "clsx";
 
 /*children is a header or none, depending on the parent page*/
 function PieceProfiles (props) {

@@ -1,7 +1,7 @@
 import {rfToXy, xyToPx} from "./DndCrdCnvrt";
-import {getPieceImg} from "../../MyPieces/getPieceImg";
+import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
 import {specialThemeList} from "../../styles/themes.jss";
-import {getFranchisePieceImg} from "../../MyPieces/getFranchisePieceImg";
+import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
 
 export function getPieceObj(gameRoot, posAndId, sqrSize) {
     let [x, y] = rfToXy(posAndId[0])

@@ -1,4 +1,4 @@
-import {sampleGames} from "./frontend/dev1";
+import {sampleGames} from "./frontend/prod";
 import {copy} from "../../../Components/helpers/copy";
 
 export function getSampleGames() {

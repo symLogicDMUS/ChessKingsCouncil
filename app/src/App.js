@@ -8,6 +8,7 @@ import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SignInPage from "./Components/Home/SignInPage";
 import "./App.scss";
+import {Loading} from "./Components/Reuseables/Animations/Loading";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
@@ -55,10 +56,8 @@ export class App extends React.Component {
                 this.isAnonymous = user.isAnonymous;
                 getDoesUserExists().then(([userExists]) => {
                     if (! userExists) {
-                        saveUser().then(r => {
-                            saveSampleData().then(r => {
-                                this.setState({userExists: true})
-                            })
+                        saveUser().then(async r => {
+                            return await saveSampleData()
                         })
                     }
                 })
@@ -74,7 +73,7 @@ export class App extends React.Component {
      */
     onFirstTouch() {
         this.setState({userTouchedScreen: true});
-        window.removeEventListener('touchstart', this.onFirstTouch, false); // remove listener after touch.
+        window.removeEventListener('touchstart', this.onFirstTouch, false);
     }
 
     anonymousLogin() {
@@ -99,14 +98,14 @@ export class App extends React.Component {
         if (this.state.isSignedIn) {
             return (
                 <Router>
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<Loading />}>
                         <Switch>
                             <Route exact path="/" render={() => <Home signOut={this.signOut} />}/>
                             <Route exact path="/NewGame" component={NewGame}/>
                             <Route exact path="/LoadGame" component={LoadGame} />
                             <Route exact path="/CreatePiece" component={CreatePiece} />
                             <Route exact path="/Customize" component={Customize}/>
-                            <Route exact path="/Play" component={GameRoot}/>
+                            <Route exact path="/Play" render={(props) => <GameRoot {...props} userTouchedScreen={this.state.userTouchedScreen} />}/>
                             <Route exact path="/MyPieces" component={MyPieces} />
                             <Route exact path="/CouncilRules" component={CouncilRules} />
                         </Switch>

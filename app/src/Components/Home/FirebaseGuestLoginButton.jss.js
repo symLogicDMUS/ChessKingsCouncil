@@ -8,7 +8,7 @@ export const useStyles = makeStyles((theme) => ({
         height: theme.typography.pxToRem(24),
         margin: "0.25em",
         display: "inline-block",
-        lineHeight: "normal",
+        lineHeight: "cutouts",
         textAlign: "left",
         direction: "ltr",
         cursor: "pointer",

@@ -1,4 +1,4 @@
-import {dbSampleGames} from "./sampleData/sampleGames/db/dev1";
+import {dbSampleGames} from "./sampleData/sampleGames/db/prod";
 
 export function getDbSampleGames() {
     return dbSampleGames;

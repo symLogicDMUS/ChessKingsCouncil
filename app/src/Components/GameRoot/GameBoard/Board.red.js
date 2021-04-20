@@ -1,7 +1,7 @@
 import {copy} from "../../helpers/copy";
-import {getPieceImg} from "../../MyPieces/getPieceImg";
+import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
 import {specialThemeList} from "../../styles/themes.jss";
-import {getFranchisePieceImg} from "../../MyPieces/getFranchisePieceImg";
+import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
 import {updateOnResize} from "./updateOnResize";
 
 export function reducer(state, action) {

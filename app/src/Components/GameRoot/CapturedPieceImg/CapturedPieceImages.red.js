@@ -1,7 +1,7 @@
 import {getCapturedDict} from "./getCapturedDict";
 import {getColor} from "../../helpers/getColor";
-import {getPieceImg} from "../../MyPieces/getPieceImg";
-import {getStandardPieceImg} from "../../MyPieces/getStandardPieceImg";
+import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
+import {getStandardPieceImg} from "../../../API/sampleData/specialThemeImgs/getStandardPieceImg";
 
 export function reducer(state, action) {
     switch (action.type) {

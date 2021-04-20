@@ -8,5 +8,4 @@ export function mapUrlListCharsToValidKeyChars(imgUrlList) {
         newImgUrlList.push(newImgUrl)
     }
     return newImgUrlList;
-    // return imgUrlList.map(imgUrl => mapUrlCharsToValidKeyChars(imgUrl))
 }

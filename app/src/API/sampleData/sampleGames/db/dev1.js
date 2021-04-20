@@ -1,4 +1,3 @@
-
 export const dbSampleGames = {
     "Docker and Dragon" : {
         "defs" : {

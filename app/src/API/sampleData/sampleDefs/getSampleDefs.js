@@ -1,4 +1,4 @@
-import {sampleDefs} from "./frontend/dev1";
+import {sampleDefs} from "./frontend/prod";
 import {copy} from "../../../Components/helpers/copy";
 
 export function getSampleDefs() {

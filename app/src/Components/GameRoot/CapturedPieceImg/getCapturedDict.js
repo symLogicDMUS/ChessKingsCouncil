@@ -1,5 +1,5 @@
-import {getPieceImg} from "../../MyPieces/getPieceImg";
-import {getStandardPieceImg} from "../../MyPieces/getStandardPieceImg";
+import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
+import {getStandardPieceImg} from "../../../API/sampleData/specialThemeImgs/getStandardPieceImg";
 
 export const getCapturedDict = (idDict, defs, capturedIds, gameType, theme) => {
     if (gameType === 'Standard') {

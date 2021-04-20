@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles ({
     background: props => ({
         zIndex: -1,
         width: '100%',
@@ -34,4 +34,4 @@ export const useStyles = makeStyles((theme) => ({
         height: '2.35em',
         width: '100vw',
     }),
-}), {index: 1});
+}, {index: 1});

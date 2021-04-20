@@ -15,3 +15,4 @@ export const sampleImgRefCounts = {
     "https:||||firebasestorage|,googleapis|,com||v0||b||custom-chess-dev1|,appspot|,com||o||source%2Fsample%20images%2Fmaterial-ui|,svg?alt=media&token=5507f219-7f7f-4560-a9a9-b5475a00ccfa": 3,
     "https:||||firebasestorage|,googleapis|,com||v0||b||custom-chess-dev1|,appspot|,com||o||source%2Fsample%20images%2Fnode-red|,png?alt=media&token=019e8124-d16a-440c-a642-443e27f0af11": 4,
 }
+
