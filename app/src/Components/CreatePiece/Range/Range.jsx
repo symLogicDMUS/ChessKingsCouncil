@@ -1,16 +1,17 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import {angleToText} from "../../helpers/spanToText";
 import {offsetToText} from "../../helpers/offsetToText";
-import {SpanArrowButtons} from "./SpanArrowButtons/SpanArrowButtons";
-import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss"
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./Range.jss";
 
-export function Range({spans, offsets, toggleSpan, theme, styles, miniVariantTool, toggleMiniVariantTool}) {
+const SpanArrowButtons = React.lazy(() => import("./SpanArrowButtons/SpanArrowButtons"));
+const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
+
+
+function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool}) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
 
@@ -57,3 +58,4 @@ export function Range({spans, offsets, toggleSpan, theme, styles, miniVariantToo
         </MediaQuery>
     );
 }
+export default Range;

@@ -11,7 +11,7 @@ import {Adjuster} from "../../Reuseables/AppBar/Adjuster";
 import { useStyles } from "./StatusBar.jss";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 
-export function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }) {
+function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }) {
 
     const classes = useStyles({theme: theme});
 
@@ -86,3 +86,5 @@ export function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, 
         </>
     );
 }
+
+export default StatusBar;

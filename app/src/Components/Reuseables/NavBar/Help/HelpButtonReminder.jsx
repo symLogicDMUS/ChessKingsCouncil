@@ -3,22 +3,18 @@ import Box from "@material-ui/core/Box";
 import {Button} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
-import {help_text} from "./HelpText.jss";
-import {
-    button,
-    button_content,
-    button_text, icon
-} from "../../../CreatePiece/Help/HelpText.jss";
+import { useStyles } from "./HelpText.jss";
 
-export function HelpButtonReminder({fontSize, theme}) {
+export function HelpButtonReminder({theme}) {
+    const classes = useStyles({theme});
     return <div>
-        <Typography paragraph style={help_text(fontSize, theme)}>
+        <Typography className={classes.text} paragraph>
             Remember: You can return to the help menu any time through the Help
             option on the NavBar
-            <Button style={button(theme)}>
-                <Box style={button_content()}>
-                    <ContactSupportIcon style={icon(theme)}/>
-                    <Typography style={button_text(theme)}>
+            <Button>
+                <Box>
+                    <ContactSupportIcon/>
+                    <Typography>
                         Help
                     </Typography>
                 </Box>

@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {darken, makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 
@@ -7,7 +7,7 @@ export const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-evenly',
-        height: availHeight() * 0.55,
+        height: '55vh',
         '@media screen and (min-width: 960px)': {
             flexDirection: 'row',
             flexWrap: 'nowrap',
@@ -15,30 +15,57 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             flexDirection: 'column',
         },
+        border: '1px dashed blue',
     }),
-    incorrect_entry: props => ({
-        "& .MuiInputLabel-root": {
-            fontSize: props.fontSize,
-            fontFamily: 'Roboto-Light, Roboto'
-        },
-        "& .MuiOutlinedInput-input": {
-            fontSize: props.fontSize,
-            fontFamily: 'Roboto-Light, Roboto'
-        },
-    }),
-    block_icons: props => ({
+    example: props => ({
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
-        transform: 'translate(0, -18em)'
+        justifyContent: 'flex-start',
+        marginTop: '2.5rem',
     }),
-    block_icon: props => ({
-        fontSize: 'inherit',
-       color: 'red',
-       width: '8em',
-       height: '8em',
+    warning: props => ({
+        color: '#ec2525',
+        fontSize: '1.5rem',
+    }),
+    text_field: props => ({
+        marginRight: '2.5rem',
+        marginLeft: '2.5rem',
+        /*root*/
+        "& .MuiInputLabel-root": {
+            color: darken(themes[props.theme].text, 0.2),
+        },
+        /*root when variant is outline*/
+        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: themes[props.theme].text,
+        },
+        "& .MuiOutlinedInput-root .MuiOutlinedInput-input": {
+            color: themes[props.theme].text,
+        },
+
+        /*hover*/
+        "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            borderColor: themes[props.theme].text,
+        },
+        "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-input": {
+            color: themes[props.theme].text,
+        },
+        "&:hover .MuiInputLabel-root": {
+            color: themes[props.theme].text,
+        },
+
+        /*focused*/
+        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiInputLabel-root.Mui-focused": {
+            color: themes[props.theme].text,
+        },
     }),
 }, {index: 1});
 

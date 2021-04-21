@@ -10,7 +10,7 @@ import { useStyles as useMoreStyles } from "../GameRoot.jss";
 import {DragIndicator} from "@material-ui/icons";
 import { useStyles } from "./GameInfo.jss";
 
-export function GameInfo({
+function GameInfo({
     theme,
     gameName,
     gameType,
@@ -205,3 +205,5 @@ export function GameInfo({
         </>
     );
 }
+
+export default GameInfo;

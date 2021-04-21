@@ -1,10 +1,10 @@
-import Typography from "@material-ui/core/Typography";
-import {help_text} from "../HelpText.jss";
-import {fontSize0026} from "../../../../styles/fontSizes.jss";
 import React from "react";
+import Typography from "@material-ui/core/Typography";
+import { useStyles } from "../HelpText.jss";
 
 export function GameTypesExplained(props) {
-    return <Typography key='game-types-paragraph' paragraph={true} style={help_text(fontSize0026, props.theme)}>
+    const classes = useStyles({theme: props.theme});
+    return <Typography className={classes.text} paragraph={true}>
         <ol>
             <li><i>Standard</i>: Regular Chess. Chess is played by millions of people all over the world.</li>
             <li>

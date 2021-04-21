@@ -2,63 +2,20 @@ import {fontSize002, fontSizeW041} from "../../styles/fontSizes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-export const img_window = (theme) => ({
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: themes[theme].fill,
-    border: `0.05em solid ${themes[theme].outline}`,
-});
-
-export const text = (theme) => ({
-    fontSize: fontSize002,
-    color: themes[theme].text,
-    fontFamily: 'Roboto-Light, Roboto',
-});
-
 export const useStyles = makeStyles({
-    flexbox: props => ({
+    windows_area: props => ({
         width: '95%',
-        margin: 'auto',
         display: 'flex',
-        flexDirection: 'row',
-        '@media screen and (min-width: 960px)': {
-            justifyContent: 'center',
-        },
-        '@media screen and (max-width: 960px)': {
-            justifyContent: 'space-between',
-        },
+        justifyContent: 'space-between',
+        border: '1px dashed red',
     }),
-    img_window1: props => ({
-        ...img_window(props.theme),
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.5vw',
-            width: "9em",
-            height: "9em",
-            marginRight: '1vw',
-        },
+    img_window: props => ({
+        backgroundColor: themes[props.theme].fill,
+        border: `0.05rem solid ${themes[props.theme].text}`,
+        borderRadius: '0.5rem',
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSizeW041,
-            width: '1em',
-            height: '1em',
-            borderRadius: '0.035em',
-            border: "0.0075em solid #2b2b2b",
-        },
-    }),
-    img_window2: props => ({
-        ...img_window(props.theme),
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSizeW041,
-            width: '1em',
-            height: '1em',
-            borderRadius: '0.035em',
-            border: "0.0075em solid #2b2b2b",
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.5vw',
-            width: "9em",
-            height: "9em",
-            marginLeft: '1vw',
+            width: '40vw',
+            height: '40vw',
         },
     }),
     img_label: props => ({
@@ -70,17 +27,14 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        fontSize: '1.5vw',
+        width: '2rem',
+        height: '2rem',
         color: themes[props.theme].text,
         padding: 0,
     }),
     text: props => ({
-        ...text(props.theme),
-        margin: '0.75em',
-    }),
-    img_text: props => ({
-        ...text(props.theme),
-        marginLeft: '0.1em',
-        lineHeight: '0.7em',
+        fontSize: '2rem',
+        marginLeft: '0.5rem',
+        color: themes[props.theme].text,
     }),
 }, {index: 1});

@@ -11,7 +11,7 @@ import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/Mui
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
 
-export function LoadDeleteHeader({
+function LoadDeleteHeader({
     def,
     load,
     erase,
@@ -98,3 +98,4 @@ export function LoadDeleteHeader({
         </>
     );
 }
+export default LoadDeleteHeader;

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
-import { ProfilesModal } from "./ProfilesModal";
-import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
-import { Option } from "./Option";
 
-export function Load({
+const Option = React.lazy(() => import('./Option'));
+const ProfilesModal = React.lazy(() => import('./ProfilesModal'));
+const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+
+function Load({
     load,
     erase,
     theme,
@@ -45,3 +46,5 @@ export function Load({
         </>
     );
 }
+
+export default Load;

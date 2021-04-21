@@ -1,12 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import {IconButton, SvgIcon} from "@material-ui/core";
 import {themes} from "../../styles/themes.jss";
+import {IconButton, SvgIcon} from "@material-ui/core";
 import {icons} from "../../styles/icons/top/icons.jss";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./Option.jss";
 
-export function Option({onClick, iconType, theme, className}) {
+function Option({onClick, iconType, theme, className}) {
     const classes = useStyles({theme: theme})
     const classes2 = useMoreStyles({theme: theme})
     return (
@@ -25,3 +25,5 @@ export function Option({onClick, iconType, theme, className}) {
         </IconButton>
     );
 }
+
+export default Option;

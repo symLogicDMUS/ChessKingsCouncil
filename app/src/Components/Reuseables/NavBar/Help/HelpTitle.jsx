@@ -3,8 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { useStyles } from "./HelpTitle.jss";
 
 
-export const HelpTitle = ({theme, fontSize, children}) => {
-    const classes = useStyles({theme: theme, fontSize: fontSize});
+export const HelpTitle = ({theme, children}) => {
+    const classes = useStyles({theme: theme});
     return (
         <Typography variant="h6" className={classes.help_title}>
             {children}

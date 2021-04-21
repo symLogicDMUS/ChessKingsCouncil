@@ -6,7 +6,7 @@ import PieceProfiles from "../../PieceProfiles/PieceProfiles";
 import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./ProfilesModal.jss";
 
-export function ProfilesModal({load, erase, close, theme}) {
+function ProfilesModal({load, erase, close, theme}) {
     const classes = useStyles({theme: theme, fontSize: fontSize002});
 
     return (
@@ -28,3 +28,5 @@ export function ProfilesModal({load, erase, close, theme}) {
         </div>
     );
 }
+
+export default ProfilesModal;

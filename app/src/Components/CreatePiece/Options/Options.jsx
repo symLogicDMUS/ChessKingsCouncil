@@ -1,19 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
-import { Save } from "./Save";
-import { Load } from "./Load";
-import { Erase } from "./Erase";
-import { Reset } from "./Reset";
-import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
-import { Close } from "../../Reuseables/Modals/Close";
+import {Typography} from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import DragIndicatorIcon from "@material-ui/icons/DragIndicator";
-import {ClickAwayListener,Portal,Slide,Typography} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss";
 
-export function Options({
+const Save = React.lazy(() => import('./Save'));
+const Load = React.lazy(() => import('./Load'));
+const Erase = React.lazy(() => import('./Erase'));
+const Reset = React.lazy(() => import('./Reset'));
+
+
+function Options({
     load,
     save,
     reset,
@@ -66,3 +65,5 @@ export function Options({
         </>
     );
 }
+
+export default Options;

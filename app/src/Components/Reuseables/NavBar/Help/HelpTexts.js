@@ -1,18 +1,18 @@
 import React from "react";
-import {HelpText} from "../../../CreatePiece/Help/HelpText"
-import {HelpText} from "../../../NewGame/GameOptions/HelpText"
-import {HelpText} from "../../../LoadGame/HelpText"
-import {HelpText} from "../../../GameRoot/Help/HelpText"
-import {HelpText} from "../../../NewGame/Customize/Help/HelpText"
-import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
+import {CreatePieceHelp} from "../../../CreatePiece/Help/CreatePieceHelp"
+import {NewGameHelp} from "../../../NewGame/GameOptions/NewGameHelp"
+import {LoadGameHelp} from "../../../LoadGame/LoadGameHelp"
+import {GameRootHelp} from "../../../GameRoot/Help/GameRootHelp"
+import {NewGameHelpText} from "../../../NewGame/Customize/Help/NewGameHelpText"
+import {PieceProfilesHelp} from "../../../PieceProfiles/Help/PieceProfilesHelp";
 
 export const helpTexts = {
-    "Home": HelpText(),
-    "New Game": HelpText(),
-    "Load Game": HelpText(),
-    "Create Piece": HelpText(),
-    "Saved Pieces": HelpText(),
-    "Customize": HelpText(),
+    "Home": NewGameHelpText(),
+    "New Game": NewGameHelpText(),
+    "Load Game": NewGameHelpText(),
+    "Create Piece": NewGameHelpText(),
+    "Saved Pieces": NewGameHelpText(),
+    "Customize": NewGameHelpText(),
 }
 export const getHelpText = (page, fontSize) => {
 }

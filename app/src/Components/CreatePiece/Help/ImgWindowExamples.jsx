@@ -1,28 +1,28 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {Avatar} from "@material-ui/core";
-import MediaQuery from "react-responsive/src";
-import ImageIcon from "@material-ui/icons/Image";
 import Typography from "@material-ui/core/Typography";
+import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
 import {useStyles} from "./ImgWindowExample.jss";
+
 
 export function ImgWindowExamples({theme}) {
     const classes = useStyles({theme});
     return (
-        <Box className={classes.flexbox}>
+        <Box className={classes.windows_area}>
             <Avatar
                 variant="rounded"
-                className={classes.img_window1}
+                className={classes.img_window}
             >
-                <ImageIcon className={classes.icon}/>
-                <Typography className={classes.img_text}>White</Typography>
+                <AddPhotoAlternateIcon className={classes.icon}/>
+                <Typography className={classes.text}>White</Typography>
             </Avatar>
             <Avatar
                 variant="rounded"
-                className={classes.img_window2}
+                className={classes.img_window}
             >
-                <ImageIcon className={classes.icon}/>
-                <Typography className={classes.img_text}>White</Typography>
+                <AddPhotoAlternateIcon className={classes.icon}/>
+                <Typography className={classes.text}>Black</Typography>
             </Avatar>
         </Box>
     )

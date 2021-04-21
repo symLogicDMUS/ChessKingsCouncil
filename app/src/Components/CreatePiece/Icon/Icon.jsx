@@ -4,9 +4,8 @@ import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
 import {ImgWindowsModal} from "./ImgWindowsModal";
 import {useStyles} from "./Icon.jss";
-import Box from "@material-ui/core/Box";
 
-export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, theme}) {
+function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, theme}) {
     const classes = useStyles({theme: theme});
 
     return (
@@ -45,3 +44,5 @@ export function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool,
         </div>
     );
 }
+
+export default Icon;

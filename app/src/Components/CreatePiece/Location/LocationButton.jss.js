@@ -1,7 +1,5 @@
 import {lighten, makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes.jss";
-import {sqrSize} from "../Board/CreatePieceBoard.jss";
-import {fontSize00301} from "../../styles/fontSizes.jss";
 
 export const frame = (theme) => ({
     display: 'flex',

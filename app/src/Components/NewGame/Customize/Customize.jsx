@@ -1,35 +1,38 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { NavBar } from "../../Reuseables/NavBar/NavBar";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
-import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import  PieceProfiles from "../../PieceProfiles/PieceProfiles";
-import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
-import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
-import { HelpText } from "./Help/HelpText";
 import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
 import { ToolModal } from "./ToolModal";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
+import {Typography} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
 import {newData, standardImgUrls} from "../NewData";
+import { NewGameHelpText } from "./Help/NewGameHelpText";
 import { standardPieceDefs } from "../standardPieceDefs/prod";
+import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
+import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
+import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
-import { ThreeItemAppBarContent } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
+import { ThreeItemAppBarContent } from
+        "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
 import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import ResponsiveDrawer from "../../Reuseables/Drawers/ResponsiveDrawer";
-import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import { textColor, styles } from "./Customize.jss";
-import {Typography} from "@material-ui/core";
+
+const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
+const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
+const ResponsiveDrawer = React.lazy(() => import('../../Reuseables/Drawers/ResponsiveDrawer'));
+const ToolButton = React.lazy(() => import("../../Reuseables/Clickables/ToolButton"));
+const NavBar = React.lazy(() => import('../../Reuseables/NavBar/NavBar'));
+
 
 class Customize extends React.Component {
     constructor(props) {
@@ -539,7 +542,7 @@ class Customize extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="Customize"
-                            helpText={HelpText('2.3vh', this.state.theme)}
+                            helpText={NewGameHelpText('2.3vh', this.state.theme)}
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}

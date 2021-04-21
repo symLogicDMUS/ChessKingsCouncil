@@ -8,7 +8,7 @@ import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./RangeAnalysis.red";
 import { useStyles } from "./RangeAnalysis.jss";
 
-export function RangeAnalysis({
+function RangeAnalysis({
     theme,
     board,
     gameType,
@@ -72,3 +72,4 @@ export function RangeAnalysis({
         </>
     );
 }
+export default RangeAnalysis;

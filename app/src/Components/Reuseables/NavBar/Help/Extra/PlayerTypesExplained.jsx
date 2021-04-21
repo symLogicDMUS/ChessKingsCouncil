@@ -1,10 +1,10 @@
-import Typography from "@material-ui/core/Typography";
-import {help_text} from "../HelpText.jss";
-import {fontSize0026} from "../../../../styles/fontSizes.jss";
 import React from "react";
+import Typography from "@material-ui/core/Typography";
+import { useStyles } from "../HelpText.jss";
 
 export function PlayerTypesExplained(props) {
-    return <Typography paragraph={true} style={help_text(fontSize0026, props.theme)}>
+    const classes = useStyles({theme: props.theme});
+    return <Typography className={classes.text} paragraph={true}>
         <p>
             You can play as black or white as usual, but there is also the 'Test' option, to test the game or pieces
             that you created to see if you like it, demonstrate a sequence of moves to someone, or in the developer's

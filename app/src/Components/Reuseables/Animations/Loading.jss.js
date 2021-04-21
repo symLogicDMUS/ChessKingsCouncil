@@ -7,11 +7,11 @@ export const variants = {
     },
     animate: {
         pathLength: 1,
-        fill: "rgba(0, 0, 0, 1)",
+        fill: "rgba(236, 37, 37, 1)",
     }
 }
 
-export const transition = { repeat: Infinity, duration: 2.5 }
+export const transition = { repeat: Infinity, duration: 1 }
 
 export const useStyles = makeStyles((theme) => ({
     body: props => ({
@@ -19,6 +19,7 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        backgroundColor: '#1b1b1b',
     }),
     animation: props => ({
        margin: 'auto',

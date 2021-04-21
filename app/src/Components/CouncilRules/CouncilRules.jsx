@@ -2,7 +2,7 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import Typography from "@material-ui/core/Typography";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
+import NavBar from "../Reuseables/NavBar/NavBar";
 import {fontSize002, fontSizeW0045} from "../styles/fontSizes.jss";
 import PersistentDrawer from "../Reuseables/Drawers/PersistentDrawer";
 import {Background} from "../Reuseables/Background/Background";

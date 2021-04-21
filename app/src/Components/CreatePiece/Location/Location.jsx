@@ -1,12 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 import { Typography } from "@material-ui/core";
+import MediaQuery from "react-responsive/src";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { LocationButton } from "./LocationButton";
-import MediaQuery from "react-responsive/src";
 
-export function Location({ selectedLoc, setLoc, theme, miniVariantTool, toggleMiniVariantTool }) {
+const LocationButton = React.lazy(() => import('./LocationButton'));
+
+function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool }) {
     const classes2 = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
 
@@ -66,3 +67,5 @@ export function Location({ selectedLoc, setLoc, theme, miniVariantTool, toggleMi
         </MediaQuery>
     );
 }
+
+export default Location;

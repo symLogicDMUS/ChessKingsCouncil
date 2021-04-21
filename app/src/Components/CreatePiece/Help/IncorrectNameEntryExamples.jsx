@@ -1,23 +1,40 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import BlockIcon from "@material-ui/icons/Block";
 import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
 import {useStyles} from "./IncorrectNameEntryExamples.jss";
+import {Typography} from "@material-ui/core";
 
-export function IncorrectNameEntryExamples({fontSize, theme}) {
-    const classes = useStyles({fontSize: fontSize, theme: theme});
+export function IncorrectNameEntryExamples({theme}) {
+    const classes = useStyles({theme: theme});
     return (
         <div>
-            <Box className={classes.incorrect_name_entry_examples}>
-                <MuiTextField variant='outlined' defaultValue='Queen' disabled={true} />
-                <MuiTextField variant='outlined' defaultValue='' disabled={true} />
-                <MuiTextField variant='outlined' defaultValue='#$[].' disabled={true} />
+            <Box className={classes.example}>
+                <MuiTextField
+                    className={classes.text_field}
+                    variant="outlined"
+                    defaultValue="Queen"
+                    disabled={true}
+                />
+                <Typography variant='button' className={classes.warning}>no</Typography>
             </Box>
-            <Box className={classes.block_icons}>
-                <BlockIcon className={classes.block_icon} />
-                <BlockIcon className={classes.block_icon} />
-                <BlockIcon className={classes.block_icon} />
+            <Box className={classes.example}>
+                <MuiTextField
+                    className={classes.text_field}
+                    variant="outlined"
+                    defaultValue="#$[]."
+                    disabled={true}
+                />
+                <Typography variant='button' className={classes.warning}>not allowed</Typography>
+            </Box>
+            <Box className={classes.example}>
+                <MuiTextField
+                    className={classes.text_field}
+                    variant="outlined"
+                    defaultValue=""
+                    disabled={true}
+                />
+                <Typography variant='button' className={classes.warning}>can't do it</Typography>
             </Box>
         </div>
-    )
+    );
 }

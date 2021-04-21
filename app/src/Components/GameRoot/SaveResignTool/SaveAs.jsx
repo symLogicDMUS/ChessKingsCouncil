@@ -9,7 +9,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
 import {button, useStyles} from "./SaveAs.jss";
 
-export function SaveAs({changeName, save, close, theme}) {
+function SaveAs({changeName, save, close, theme}) {
 
     const classes = useStyles({theme: theme});
 
@@ -60,3 +60,5 @@ export function SaveAs({changeName, save, close, theme}) {
         </div>
     )
 }
+
+export default SaveAs;

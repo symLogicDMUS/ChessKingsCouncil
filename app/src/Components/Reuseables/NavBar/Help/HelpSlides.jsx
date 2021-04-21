@@ -2,28 +2,28 @@ import React from "react";
 import {HelpTitle} from "./HelpTitle";
 import {HelpSlide} from "./HelpSlide";
 import {HelpSlideshow} from "./HelpSlideshow";
-import {fontSize0026} from "../../../styles/fontSizes.jss";
 import {UsingRangeDisplay} from "./Extra/UsingRangeDisplay";
 import {GameTypesExplained} from "./Extra/GameTypesExplained";
 import {PlayerTypesExplained} from "./Extra/PlayerTypesExplained";
-import {HelpText as LoadGameHelp} from "../../../LoadGame/HelpText";
-import {HelpText as SavedPiecesHelp} from "../../../MyPieces/HelpText";
-import {HelpText as GameRootHelp} from "../../../GameRoot/Help/HelpText";
-import {HelpText as NewGameHelp} from "../../../NewGame/GameOptions/HelpText";
-import {HelpText as CreatePieceHelp} from "../../../CreatePiece/Help/HelpText";
-import {HelpText as CustomizeHelp} from "../../../NewGame/Customize/Help/HelpText";
+import {LoadGameHelp} from "../../../LoadGame/LoadGameHelp";
+import {SavedPiecesHelp} from "../../../MyPieces/Help/SavedPiecesHelp";
+import {GameRootHelp} from "../../../GameRoot/Help/GameRootHelp";
+import {NewGameHelp} from "../../../NewGame/GameOptions/NewGameHelp";
+import {CreatePieceHelp} from "../../../CreatePiece/Help/CreatePieceHelp";
+import {NewGameHelpText} from "../../../NewGame/Customize/Help/NewGameHelpText";
 import {InvalidNameExplanation} from "../../../CreatePiece/Help/InvalidNameExplanation";
 import {ImageUploadExplanation} from "../../../CreatePiece/Help/ImageUploadExplanation";
 import {OptionsToolExplanation} from "../../../CreatePiece/Help/OptionsToolExplanation";
 import {LocationToolExplanation} from "../../../CreatePiece/Help/LocationToolExplanation";
-import {PuttingThePieceICreatedIntoAGame} from "./Extra/PuttingThePieceICreatedIntoAGame";
 import {OffsetsAndSpansExplanation} from "../../../CreatePiece/Help/OffsetsAndSpansExplanation";
 import {MakingYourPieceAnOptionForPawnsToPromoteTo} from "./Extra/MakingYourPieceAnOptionForPawnsToPromoteTo";
 import {SubbingYourPiecesForRegularOnes} from "./Extra/SubbingYourPiecesForRegularOnes";
-import {ProfileHelpText} from "../../../PieceProfiles/Help/ProfileHelpText";
-import {fontSizes, useStyles} from "./HelpSlides.jss";
+import {PieceProfilesHelp} from "../../../PieceProfiles/Help/PieceProfilesHelp";
+import {useStyles} from "./HelpSlides.jss";
 
-export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
+const PuttingThePieceICreatedIntoAGame = React.lazy(() => import('./Extra/PuttingThePieceICreatedIntoAGame'));
+
+export function HelpSlides({ helpItem, setHelpItem, theme }) {
     const classes = useStyles({ theme });
 
     return (
@@ -33,7 +33,7 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Putting the Piece I Created Into a Game
                         </HelpTitle>
                     }
@@ -44,13 +44,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 4 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Starting a New Game
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {NewGameHelp(fontSizes[screenCase], theme)}
+                    {NewGameHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "game types" ? (
@@ -58,10 +58,7 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             game types
                         </HelpTitle>
                     }
@@ -74,10 +71,7 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             player types
                         </HelpTitle>
                     }
@@ -90,10 +84,7 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             range display
                         </HelpTitle>
                     }
@@ -106,13 +97,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 2 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Loading a Game
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {LoadGameHelp(fontSizes[screenCase], theme)}
+                    {LoadGameHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "Create Piece (all)" ? (
@@ -120,13 +111,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 6 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Creating a Piece
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {CreatePieceHelp(fontSizes[screenCase], theme)}
+                    {CreatePieceHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "invalid pieces names" ? (
@@ -134,15 +125,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             Invalid Pieces Names
                         </HelpTitle>
                     }
                 >
-                    <InvalidNameExplanation key='invalid-name-explanation' fontSize={fontSize0026} theme={theme}/>
+                    <InvalidNameExplanation key='invalid-name-explanation' theme={theme}/>
                 </HelpSlide>
             ) : null}
             {helpItem === "uploading images for your piece" ? (
@@ -150,15 +138,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             Uploading/Choosing Images for Your Piece
                         </HelpTitle>
                     }
                 >
-                    <ImageUploadExplanation key='invalid-upload-explanation' fontSize={fontSize0026} theme={theme}/>
+                    <ImageUploadExplanation key='invalid-upload-explanation' theme={theme}/>
                 </HelpSlide>
             ) : null}
             {helpItem === "offsets and spans explained" ? (
@@ -166,15 +151,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             offsets and spans explained
                         </HelpTitle>
                     }
                 >
-                    <OffsetsAndSpansExplanation key='offsets-and-spans-explanation' fontSize={fontSize0026} theme={theme}/>
+                    <OffsetsAndSpansExplanation key='offsets-and-spans-explanation' theme={theme}/>
                 </HelpSlide>
             ) : null}
             {helpItem === "location of the piece on the board when creating it" ? (
@@ -182,15 +164,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     theme={theme}
                     onClose={() => setHelpItem(null)}
                     title={
-                        <HelpTitle
-                            theme={theme}
-                            fontSize={fontSize0026}
-                        >
+                        <HelpTitle theme={theme}>
                             location of the piece on the board when creating it
                         </HelpTitle>
                     }
                 >
-                    <LocationToolExplanation fontSize={fontSize0026} theme={theme}/>
+                    <LocationToolExplanation theme={theme}/>
                 </HelpSlide>
             ) : null}
 
@@ -201,13 +180,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     title={
                         <HelpTitle
                             theme={theme}
-                            fontSize={fontSize0026}
                         >
                             Create Piece Page Options (Load, Save, Reset, and Erase)
                         </HelpTitle>
                     }
                 >
-                    <OptionsToolExplanation fontSize={fontSize0026} theme={theme}/>
+                    <OptionsToolExplanation theme={theme}/>
                 </HelpSlide>
             ) : null}
             {helpItem === "Saved Pieces (all)" ? (
@@ -215,13 +193,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 3 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Saved Pieces
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {SavedPiecesHelp(fontSizes[screenCase], theme)}
+                    {SavedPiecesHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "make your piece a pawn promotion option" ? (
@@ -234,7 +212,6 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     title={
                         <HelpTitle
                             theme={theme}
-                            fontSize={fontSize0026}
                         >
                             subbing your pieces for regular ones
                         </HelpTitle>
@@ -248,13 +225,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 2 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Playing a Game
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {GameRootHelp(fontSizes[screenCase], theme)}
+                    {GameRootHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "Customize (all)" ? (
@@ -262,13 +239,13 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     onClose={() => setHelpItem(null)}
                     initialState={{ pos: 0, numSlides: 3 }}
                     title={
-                        <HelpTitle theme={theme} fontSize={fontSize0026}>
+                        <HelpTitle theme={theme}>
                             Customizing a New Game
                         </HelpTitle>
                     }
                     theme={theme}
                 >
-                    {CustomizeHelp(fontSizes[screenCase], theme)}
+                    {NewGameHelpText(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "piece profiles" ? (
@@ -278,13 +255,12 @@ export function HelpSlides({ helpItem, setHelpItem, screenCase, theme }) {
                     title={
                         <HelpTitle
                             theme={theme}
-                            fontSize={fontSize0026}
                         >
                             Piece Profiles
                         </HelpTitle>
                     }
                 >
-                    <ProfileHelpText fontSize={fontSize0026} theme={theme} />
+                    <PieceProfilesHelp theme={theme} />
                 </HelpSlide>
             ) : null}
         </div>

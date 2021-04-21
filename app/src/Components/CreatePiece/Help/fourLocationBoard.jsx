@@ -1,8 +1,7 @@
-export const fourLocationsBoard = (width, height, light_sqr_fill, dark_sqr_fill) => (
+export const fourLocationsBoard = (className, light_sqr_fill, dark_sqr_fill) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        width={width}
-        height={height}
+        className={className}
         viewBox="0 0 740 740"
     >
         <g id="Group_10" data-name="Group 10" transform="translate(-645 -1121)">

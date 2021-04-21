@@ -1,8 +1,9 @@
 import React from "react";
-import {Option} from "./Option";
-import {ToolButton} from "../../Reuseables/Clickables/ToolButton";
 
-export function Erase({erase, theme, className, buttonType}) {
+const Option = React.lazy(() => import('./Option'));
+const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+
+function Erase({erase, theme, className, buttonType}) {
     return (
         <>
             {buttonType==="option" ? (
@@ -24,3 +25,5 @@ export function Erase({erase, theme, className, buttonType}) {
         </>
     );
 }
+
+export default Erase;

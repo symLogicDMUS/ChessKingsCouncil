@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import {NavBar} from "../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import {MainMenuBody} from "../../Home/MainMenuBody";
 import MediaQuery from "react-responsive/src";
 import { Button } from "@material-ui/core";

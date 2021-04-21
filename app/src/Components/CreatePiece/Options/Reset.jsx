@@ -1,8 +1,9 @@
 import React from "react";
-import { Option } from "./Option";
-import { ToolButton } from "../../Reuseables/Clickables/ToolButton";
 
-export function Reset({
+const Option = React.lazy(() => import('./Option'));
+const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+
+function Reset({
     theme,
     reset,
     className,
@@ -29,3 +30,4 @@ export function Reset({
         </>
     );
 }
+export default Reset;

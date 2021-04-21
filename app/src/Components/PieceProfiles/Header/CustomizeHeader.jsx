@@ -11,7 +11,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
 import {useStyles} from "./CustomizeHeader.jss";
 
-export function CustomizeHeader({
+function CustomizeHeader({
     subs,
     promos,
     toggleSub,
@@ -151,3 +151,4 @@ export function CustomizeHeader({
         </>
     );
 }
+export default CustomizeHeader;

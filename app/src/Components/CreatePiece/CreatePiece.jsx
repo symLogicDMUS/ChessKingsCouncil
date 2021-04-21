@@ -6,7 +6,7 @@ import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
-import { HelpText } from "./Help/HelpText";
+import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { messageStr } from "./helpers/messageStr";
 import { stepFuncDict } from "../helpers/stepFuncs";
 import { outOfBounds as oob } from "../helpers/oob";
@@ -16,32 +16,32 @@ import { getSpansDict } from "./helpers/getSpansDict";
 import { flipOffsets } from "./helpers/flipOffsets";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
-import { PieceSavedSuccessfully } from "./animations/PieceSavedSuccessfully";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
-import { PuttingThePieceICreatedIntoAGame } from
-        "../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame";
 import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
 import { updateCountsOnOverwrite } from "../../API/updateCountsOnOverwrite";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
-import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import { ToolButton } from "../Reuseables/Clickables/ToolButton";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { PieceName } from "../PieceProfiles/Header/PieceName";
-import { CreatePieceBoard as Board } from "./Board/CreatePieceBoard";
-import { Load } from "./Options/Load";
-import { Save } from "./Options/Save";
-import { Reset } from "./Options/Reset";
-import { Erase } from "./Options/Erase";
-import { Name } from "./Name/Name";
-import { Icon } from "./Icon/Icon";
-import { Range } from "./Range/Range";
-import { Options } from "./Options/Options";
-import { Location } from "./Location/Location";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { styles } from "./CreatePiece.jss";
+
+const Load = React.lazy(() => import('./Options/Load'));
+const Save = React.lazy(() => import('./Options/Save'));
+const Reset = React.lazy(() => import('./Options/Reset'));
+const Erase = React.lazy(() => import('./Options/Erase'));
+const Name = React.lazy(() => import('./Name/Name'));
+const Icon = React.lazy(() => import('./Icon/Icon'));
+const Range = React.lazy(() => import('./Range/Range'));
+const Options = React.lazy(() => import('./Options/Options'));
+const Location = React.lazy(() => import('./Location/Location'));
+const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
+const CreatePieceBoard = React.lazy(() => import('./Board/CreatePieceBoard'));
+const ToolButton = React.lazy(() => import('../Reuseables/Clickables/ToolButton'));
+const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
+const PieceSavedSuccessfully = React.lazy(() => import('./animations/PieceSavedSuccessfully'));
+const PuttingThePieceICreatedIntoAGame = React.lazy(() => import('../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame'));
 
 
 class CreatePiece extends React.Component {
@@ -632,7 +632,7 @@ class CreatePiece extends React.Component {
                                     Creating a Piece
                                 </HelpTitle>
                             }
-                            helpText={HelpText("1.5vw", this.state.theme)}
+                            helpText={CreatePieceHelp(this.state.theme)}
                             updateFirstVisit={this.updateFirstVisit}
                             additionalSettings={
                                 <>
@@ -682,7 +682,7 @@ class CreatePiece extends React.Component {
                     navHorizontal={false}
                     contentClassName={this.props.classes.content}
                 >
-                    <Board
+                    <CreatePieceBoard
                         key="Board"
                         theme={this.state.theme}
                         pieceLoc={this.location}

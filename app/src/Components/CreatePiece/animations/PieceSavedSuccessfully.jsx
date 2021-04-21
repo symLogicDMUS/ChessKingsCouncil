@@ -7,7 +7,7 @@ import {
 } from "../../Reuseables/Animations/Variants1.jss";
 import {piece_saved_successfully} from "../../Reuseables/Animations/piece_saved_successfully";
 
-export function PieceSavedSuccessfully({callback, theme}) {
+function PieceSavedSuccessfully({callback, theme}) {
 
     let [frame, setFrame] = useState(1);
 
@@ -22,3 +22,5 @@ export function PieceSavedSuccessfully({callback, theme}) {
         </>
     )
 }
+
+export default PieceSavedSuccessfully;

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { themes } from "../../styles/themes.jss";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
-import { SaveAs } from "./SaveAs";
-import { themes } from "../../styles/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SaveResignTool.jss";
-import { ResignModal } from "./ResignModal";
 
-export function SaveResignTool({
+const SaveAs = React.lazy(() => import('./SaveAs'));
+const ResignModal = React.lazy(() => import('./ResignModal'));
+
+function SaveResignTool({
     save,
     resign,
     changeName,
@@ -78,3 +79,5 @@ export function SaveResignTool({
         </>
     );
 }
+
+export default SaveResignTool;

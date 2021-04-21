@@ -1,8 +1,9 @@
 import React, {memo} from "react";
 import clsx from "clsx";
-import ProfileWBAvatar  from "./ProfileWBAvatar";
-import ProfileWBRange from "./ProfileWBRange";
 import { useStyles } from "./ProfileWB.jss";
+
+const ProfileWBRange = React.lazy(() => import('./ProfileWBRange'));
+const ProfileWBAvatar = React.lazy(() => import('./ProfileWBAvatar'));
 
 /**
  * className: profileWB class

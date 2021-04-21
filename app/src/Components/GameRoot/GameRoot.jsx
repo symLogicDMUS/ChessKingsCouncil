@@ -27,28 +27,30 @@ import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessf
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/prod";
 import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
-import {ToolButton} from "../Reuseables/Clickables/ToolButton";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
-import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import {ShowProfileOnClick} from "./RangeAnalysis/ShowProfileOnClick";
 import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import {SaveResignTool} from "./SaveResignTool/SaveResignTool";
-import {ResignModal} from "./SaveResignTool/ResignModal";
-import {RangeAnalysis} from "./RangeAnalysis/RangeAnalysis";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {HelpText} from "./Help/HelpText";
-import {newData} from "../NewGame/NewData";
-import {SaveAs} from "./SaveResignTool/SaveAs";
-import {StatusBar} from "./Title/StatusBar";
-import {GameInfo} from "./GameInfo/GameInfo";
 import {Fen} from "../../game_logic/fenParser/Fen";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
-import {Board} from "./GameBoard/Board";
+import {GameRootHelp} from "./Help/GameRootHelp";
+import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+
+const Board = React.lazy(() => import('./GameBoard/Board'));
+const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
+const StatusBar = React.lazy(() => import('./Title/StatusBar'));
+const GameInfo = React.lazy(() => import('./GameInfo/GameInfo'));
+const SaveAs = React.lazy(() => import('./SaveResignTool/SaveAs'));
+const ResignModal = React.lazy(() => import('./SaveResignTool/ResignModal'));
+const SaveResignTool = React.lazy(() => import('./SaveResignTool/SaveResignTool'));
+const RangeAnalysis = React.lazy(() => import('./RangeAnalysis/RangeAnalysis'));
+const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
+const ToolButton = React.lazy(() => import('../Reuseables/Clickables/ToolButton'));
+
 
 class GameRoot extends React.Component {
     constructor(props) {
@@ -510,7 +512,7 @@ class GameRoot extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="GameRoot"
-                            helpText={HelpText(fontSizeW0045, this.state.theme)}
+                            helpText={GameRootHelp(fontSizeW0045, this.state.theme)}
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}

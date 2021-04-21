@@ -6,7 +6,7 @@ import {StandardModal} from "../../Reuseables/Modals/StandardModal";
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 import {useStyles} from "./SaveResignTool.jss";
 
-export function ResignModal({onYesClick, onNoClick, theme}) {
+function ResignModal({onYesClick, onNoClick, theme}) {
     const classes = useStyles({theme});
 
     return <Portal>
@@ -36,3 +36,5 @@ export function ResignModal({onYesClick, onNoClick, theme}) {
         </StandardModal>
     </Portal>;
 }
+
+export default ResignModal;

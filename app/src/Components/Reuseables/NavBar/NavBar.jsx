@@ -10,7 +10,7 @@ import { useStyles } from "./NavBar.jss";
 /**
  * children is settings content unique to parent page.
  */
-export function NavBar(props) {
+function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? "wide" : "thin";
 
@@ -154,3 +154,5 @@ export function NavBar(props) {
         </>
     );
 }
+
+export default NavBar;

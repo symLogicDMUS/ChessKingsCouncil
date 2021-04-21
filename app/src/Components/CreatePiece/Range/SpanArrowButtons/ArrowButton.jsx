@@ -2,13 +2,13 @@ import React, {memo} from "react";
 import clsx from "clsx";
 import {Frame} from "framer";
 import Box from "@material-ui/core/Box";
+import {IconButton} from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../../../styles/icons/top/icons.jss";
-import {IconButton} from "@material-ui/core";
 import {transition, useStyles, variants} from "./ArrowButton.jss";
 
-export const ArrowButton = memo(
+const ArrowButton = memo(
     ({
         angle,
         isActive,
@@ -79,3 +79,5 @@ export const ArrowButton = memo(
         );
     }
 );
+
+export default ArrowButton;

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { HelpText } from "./HelpText";
+import { SavedPiecesHelp } from "./Help/SavedPiecesHelp";
 import "../Reuseables/Background/_backgrounds.scss";
 import SearchIcon from "@material-ui/icons/Search";
-import { NavBar } from "../Reuseables/NavBar/NavBar";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
-import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import { TwoItemAppBarContent } from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
+import { TwoItemAppBarContent } from
+        "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
-import PieceProfiles from "../PieceProfiles/PieceProfiles";
 import { textColor, useStyles } from "./MyPieces.jss";
+
+const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
+const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'));
+const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 
 function MyPieces() {
     const [theme, setTheme] = useState("dark");
@@ -41,7 +43,7 @@ function MyPieces() {
                     screenCase="thin"
                     flexDirection="column"
                     currentPage="MyPieces"
-                    helpText={HelpText('4.5vw', theme)}
+                    helpText={SavedPiecesHelp('4.5vw', theme)}
                     helpTitle={
                         <HelpTitle theme={theme} fontSize={'2.6vh'}>
                             Your Pieces

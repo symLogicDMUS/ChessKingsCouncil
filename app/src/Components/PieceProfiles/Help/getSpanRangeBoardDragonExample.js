@@ -2,9 +2,9 @@ import {getSpanDisplays} from "../ProfileWB/BoardSvgStr/getSpanDisplays";
 import {themes} from "../../styles/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
-import {src} from "./dragonSrcStr";
+import {dragonSrcStrBlack, dragonSrcStrWhite} from "./dragonSrcStr";
 
-export function getSpanRangeBoardDragonExample({theme}) {
+export function getSpanRangeBoardDragonExample({theme, color}) {
     const fToTop = {
         8: 0,
         7: 60,
@@ -35,7 +35,7 @@ export function getSpanRangeBoardDragonExample({theme}) {
         "step_1sqr180d",
         "step_1sqr135d",
     ]
-
+    const src = (color==='W') ? dragonSrcStrWhite : dragonSrcStrBlack;
     let rangeBoard = getSpanDisplays(range, 'd4')
     const light_sqr_fill = themes[theme].even_row;
     const dark_sqr_fill = themes[theme].odd_row;

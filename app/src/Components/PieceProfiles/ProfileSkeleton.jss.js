@@ -1,12 +1,14 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {themes} from "../styles/themes.jss";
 import {
+    marginLg,
+    marginMd,
     headerWidthLg,
-    marginLg, marginMd, sqrItemHeaderHeightLg,
     sqrItemSizeLg,
     sqrItemSizeMd,
-    sqrItemSizeSm
+    sqrItemSizeSm,
+    sqrItemHeaderHeightLg,
 } from "./constants.jss";
-import {themes} from "../styles/themes.jss";
 
 export const box = {
     minHeight: 'unset',
@@ -81,7 +83,6 @@ export const useStyles = makeStyles({
                 width: sqrItemSizeLg,
                 height: sqrItemSizeLg,
             },
-            backgroundColor: themes[props.theme].odd_row,
         },
     }),
     sqr_item_header: props => ({
@@ -104,7 +105,6 @@ export const useStyles = makeStyles({
                 width: sqrItemSizeLg,
                 height: sqrItemHeaderHeightLg,
             },
-            backgroundColor: themes[props.theme].odd_row,
         },
     }),
     sqr_item_title: props => ({

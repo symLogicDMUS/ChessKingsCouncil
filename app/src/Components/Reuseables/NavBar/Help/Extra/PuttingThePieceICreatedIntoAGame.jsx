@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core";
 import {HelpSlideshow} from "../HelpSlideshow";
 import {useStyles} from "./GifDiagrams.jss";
 
-export function PuttingThePieceICreatedIntoAGame(props) {
+function PuttingThePieceICreatedIntoAGame(props) {
     const classes = useStyles({theme: props.theme});
 
     return <HelpSlideshow
@@ -63,3 +63,5 @@ export function PuttingThePieceICreatedIntoAGame(props) {
         </Box>
     </HelpSlideshow>;
 }
+
+export default PuttingThePieceICreatedIntoAGame;

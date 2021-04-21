@@ -1,15 +1,16 @@
 import React, {useEffect, useReducer} from "react";
 import clsx from "clsx";
-import Profile from "./Profile";
 import {copy} from "../helpers/copy";
-import {ProfileSkeleton} from "./ProfileSkeleton";
-import {CustomizeHeader} from "./Header/CustomizeHeader";
-import {LoadDeleteHeader} from "./Header/LoadDeleteHeader";
+import CustomizeHeader from "./Header/CustomizeHeader";
+import LoadDeleteHeader from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
+
+const Profile = React.lazy(() => import('./Profile'));
+const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
 
 /*children is a header or none, depending on the parent page*/
 function PieceProfiles (props) {

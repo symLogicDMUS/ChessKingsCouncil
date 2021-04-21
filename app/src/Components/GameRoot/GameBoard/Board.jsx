@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, useReducer } from "react";
-import DragLayer from "./DragLayer";
-import DropLayer from "./DropLayer";
 import { DndProvider } from "react-dnd";
 import MediaQuery from "react-responsive/src";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -9,7 +7,10 @@ import { GameDisplayBoard } from "./GameDisplayBoard";
 import {updateOnResize} from "./updateOnResize";
 import { reducer} from "./Board.red";
 
-export const Board = ({ gameRoot }) => {
+const DropLayer = React.lazy(() => import('./DropLayer'));
+const DragLayer = React.lazy(() => import('./DragLayer'));
+
+const Board = ({ gameRoot }) => {
     const dndBackend = useMemo(() => {
         if (gameRoot.touchScreen) {
             return TouchBackend;
@@ -37,7 +38,7 @@ export const Board = ({ gameRoot }) => {
     return (
         <>
             <MediaQuery minWidth={960}>
-                <DndProvider backend={TouchBackend}>
+                <DndProvider backend={dndBackend}>
                     <DropLayer
                         state={state}
                         dispatch={dispatch}
@@ -63,7 +64,7 @@ export const Board = ({ gameRoot }) => {
                 </DndProvider>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <DndProvider backend={TouchBackend}>
+                <DndProvider backend={dndBackend}>
                     <DropLayer
                         state={state}
                         dispatch={dispatch}
@@ -91,3 +92,5 @@ export const Board = ({ gameRoot }) => {
         </>
     );
 };
+
+export default Board;

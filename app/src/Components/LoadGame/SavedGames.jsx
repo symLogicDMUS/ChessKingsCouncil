@@ -1,6 +1,6 @@
 import React from "react";
-import {HelpText} from "./HelpText";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
+import {LoadGameHelp} from "./LoadGameHelp";
+import NavBar from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
@@ -29,7 +29,7 @@ export function SavedGames(props) {
                     <NavBar
                         currentPage="LoadGame"
                         redirectMessage={null}
-                        helpText={HelpText(fontSizeW0045, props.theme)}
+                        helpText={LoadGameHelp(fontSizeW0045, props.theme)}
                         helpTitle={
                             <HelpTitle theme={props.theme} fontSize={fontSize0026}>
                                 Loading a Game

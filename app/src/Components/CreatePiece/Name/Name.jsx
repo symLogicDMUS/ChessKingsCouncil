@@ -4,7 +4,7 @@ import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextFie
 import {ToolModal} from "../../NewGame/Customize/ToolModal";
 import { useStyles } from "./Name.jss";
 
-export function Name({
+function Name({
     updateName,
     miniVariantTool,
     toggleMiniVariantTool,
@@ -61,3 +61,5 @@ export function Name({
         </>
     );
 }
+
+export default Name;

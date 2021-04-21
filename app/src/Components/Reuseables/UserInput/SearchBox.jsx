@@ -7,12 +7,11 @@ import { useStyles } from "./SearchBox.jss";
 
 export function SearchBox({
     updateSearchText,
-    className,
     iconClassName,
+    className,
     theme,
     style,
     icon,
-    isMenuItem,
 }) {
     const classes = useStyles({
         theme: theme,

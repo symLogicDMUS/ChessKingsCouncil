@@ -7,8 +7,8 @@ import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import SignInPage from "./Components/Home/SignInPage";
-import "./App.scss";
 import {Loading} from "./Components/Reuseables/Animations/Loading";
+import "./App.scss";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
@@ -83,6 +83,7 @@ export class App extends React.Component {
             .catch(function (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(`error: ${errorMessage} code: ${errorCode}`)
             })
     }
 

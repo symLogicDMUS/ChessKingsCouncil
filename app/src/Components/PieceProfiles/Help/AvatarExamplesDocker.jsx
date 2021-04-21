@@ -3,7 +3,6 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {dockerSrcBlue, dockerSrcRed} from "./dockerSrcStr";
 import { useStyles } from "./ProfileHelpText.jss";
-import {resolvePlayerType} from "../../helpers/resolvePlayerType";
 
 export function AvatarExamplesDocker({theme}) {
     const classes = useStyles({ theme: theme });

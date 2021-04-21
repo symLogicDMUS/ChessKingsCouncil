@@ -6,7 +6,7 @@ import { containsDescenders } from "../../helpers/containsDescender";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { useStyles } from "./ToolButton.jss";
 
-export function ToolButton({ onClick, isActive, iconName, text, theme, children }) {
+function ToolButton({ onClick, isActive, iconName, text, theme, children }) {
     const classes = useStyles({ theme });
 
     return (
@@ -38,3 +38,5 @@ export function ToolButton({ onClick, isActive, iconName, text, theme, children 
         </>
     );
 }
+
+export default ToolButton;

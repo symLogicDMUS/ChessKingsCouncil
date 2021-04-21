@@ -23,7 +23,6 @@ function ScrollTable({
     arrowIconTopClassName,
     arrowIconBottomClassName,
     textClassName,
-    addedClassName,
 }) {
     const classes = useStyles({theme: theme});
 

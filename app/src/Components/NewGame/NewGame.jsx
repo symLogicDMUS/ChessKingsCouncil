@@ -1,23 +1,23 @@
 import React, {useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import "../Reuseables/Background/_backgrounds.scss";
 import {Play} from "./Play";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
-import {NavBar} from "../Reuseables/NavBar/NavBar";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {HelpText} from "./GameOptions/HelpText";
-import {ConfirmStandard} from "./ConfirmStandard";
 import {Background} from "../Reuseables/Background/Background";
-import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {useStyles} from "./NewGame.jss";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
+import {ConfirmStandard} from "./ConfirmStandard";
+import "../Reuseables/Background/_backgrounds.scss";
+import {NewGameHelp} from "./GameOptions/NewGameHelp";
+import {useStyles} from "./NewGame.jss";
 
+const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
+const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 
 function NewGame() {
     const history = useHistory();
@@ -81,7 +81,7 @@ function NewGame() {
                 navBar={
                     <NavBar
                         currentPage="NewGame"
-                        helpText={HelpText('4.5vw', theme)}
+                        helpText={NewGameHelp('4.5vh', theme)}
                         helpTitle={<HelpTitle theme={theme} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}

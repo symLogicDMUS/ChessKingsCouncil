@@ -1,7 +1,8 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import  ProfileWB from "./ProfileWB/ProfileWB";
 import { useStyles } from "./Profile.jss";
+
+const ProfileWB = React.lazy(() => import('./ProfileWB/ProfileWB'));
 
 /**children is a header for the profile of the piece */
 function Profile ({pieceName, expand, defs, theme, screenCase, children }) {

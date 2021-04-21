@@ -5,14 +5,15 @@ import {getHasFabChild} from "./getHasFabChild";
 import { difference } from "../../helpers/setOps";
 import { rankfiles } from "../../helpers/rankfiles";
 import { useMediaQuery } from "@material-ui/core";
-import { LocationButton } from "../Location/LocationButton";
 import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
-import { ArrowButton } from "../Range/SpanArrowButtons/ArrowButton";
 import { CreatePieceSquare as Square } from "./CreatePieceSquare";
 import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
 import { useStyles } from "./CreatePieceBoard.jss";
 
-export function CreatePieceBoard({
+const LocationButton = React.lazy(() => import("../Location/LocationButton"));
+const ArrowButton = React.lazy(() => import('../Range/SpanArrowButtons/ArrowButton'));
+
+function CreatePieceBoard({
     theme,
     imgUrl,
     setLoc,
@@ -218,3 +219,5 @@ export function CreatePieceBoard({
         </>
     );
 }
+
+export default CreatePieceBoard;

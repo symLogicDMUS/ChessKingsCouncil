@@ -5,7 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import {ListItem} from "../../ScrollTable/ListItem";
 import ScrollTable from "../../ScrollTable/ScrollTable";
 import {fontSize002} from "../../../styles/fontSizes.jss";
-import {buttonStyle, closeIcon, listStyle, rowStyle, useStyles} from "./HelpTable.jss";
+import {closeIcon, useStyles} from "./HelpTable.jss";
 
 export function HelpTable({setHelpItem, onClose, theme}) {
     const classes = useStyles({theme: theme});
