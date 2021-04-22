@@ -1,4 +1,5 @@
 import React from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Avatar} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -12,7 +13,9 @@ export function ImgWindowExamples({theme}) {
         <Box className={classes.windows_area}>
             <Avatar
                 variant="rounded"
-                className={classes.img_window}
+                className={clsx(classes.img_window, {
+                    [classes.window1]: true,
+                })}
             >
                 <AddPhotoAlternateIcon className={classes.icon}/>
                 <Typography className={classes.text}>White</Typography>

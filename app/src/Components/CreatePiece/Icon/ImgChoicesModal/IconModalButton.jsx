@@ -1,5 +1,4 @@
 import React from "react";
-import { getButtonSize } from "../../../styles/button/button-size";
 import {useStyles} from "./IconModalButton.jss";
 
 export function IconModalButton({ buttonText, buttonType, clickMethod, imgNameChoice }) {

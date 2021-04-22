@@ -24,6 +24,7 @@ export const useStyles = makeStyles({
         height: '30vw',
         float: 'left',
         marginRight: '1.2rem',
+        marginTop: '0.5rem',
     }),
     location_buttons: props => ({
         float: 'left',

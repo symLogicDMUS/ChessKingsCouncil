@@ -15,10 +15,10 @@ export function PieceProfilesHelp(props) {
     return (
         <div>
             <Typography className={classes2.text} paragraph>
-                The <div className={classes2.emphasis}>profile</div> of a piece shows the image, spans, and offsets, for the white and black version of the
-                piece. Each profile also has a header including the name and other content which differs depending on
-                the page you're viewing it on. Below are the white image, spans, and offsets, for the piece named
-                {" "}<div className={classes2.emphasis}>Dragon</div>
+                The <div className={classes2.emphasis}>profile</div> of a piece shows the image, spans, and offsets, for
+                the white and black version of the piece. Each profile also has a header including the name and other
+                content which differs depending on the page you're viewing it on. Below are the white image, spans, and
+                offsets, for the piece named {" "}<div className={classes2.emphasis}>Dragon</div>
             </Typography>
             <Typography className={classes2.text} paragraph>
                 <Box className={classes.profile_wb_example}>

@@ -1,8 +1,8 @@
 import React, {useMemo} from "react";
 import clsx from "clsx";
+import {PieceName} from "./PieceName";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
-import {PieceName} from "./PieceName";
 import {SubDropdown} from "../../NewGame/Customize/SubDropdown";
 import {SubButtonGroup} from "../../NewGame/Customize/SubButtonGroup";
 import {MuiCheckbox} from "../../Reuseables/Clickables/MuiCheckbox";

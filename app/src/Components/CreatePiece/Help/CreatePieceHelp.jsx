@@ -1,5 +1,4 @@
 import React from "react";
-import {v4 as uuidv4} from "uuid";
 import {InvalidNameExplanation} from "./InvalidNameExplanation";
 import {ImageUploadExplanation} from "./ImageUploadExplanation";
 import {OffsetsAndSpansExplanation} from "./OffsetsAndSpansExplanation";
