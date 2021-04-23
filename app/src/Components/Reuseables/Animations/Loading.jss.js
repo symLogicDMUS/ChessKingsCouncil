@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const variants = {
     initial: {
@@ -7,11 +7,11 @@ export const variants = {
     },
     animate: {
         pathLength: 1,
-        fill: "rgba(236, 37, 37, 1)",
+        fill: "rgba(0, 0, 0, 0.75)",
     }
 }
 
-export const transition = { repeat: Infinity, duration: 1 }
+export const transition = {repeat: Infinity, duration: 1}
 
 export const useStyles = makeStyles((theme) => ({
     body: props => ({
@@ -19,26 +19,6 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: '#1b1b1b',
-    }),
-    animation: props => ({
-       margin: 'auto',
-    }),
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
-    board_pattern_area: props => ({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    }),
-    row1: props => ({
-        marginBottom: 'auto',
-    }),
-    row2: props => ({
-        marginTop: 'auto',
     }),
     content: props => ({
         width: '100%',
@@ -48,10 +28,8 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
     }),
-    site_title: props => ({
-        width: '100%',
-    }),
-    paragraph: props => ({
-        color: '#000',
+    animation: props => ({
+        width: '25vw',
+        margin: 'auto',
     }),
 }), {index: 1});

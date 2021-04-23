@@ -19,7 +19,6 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useStyles } from "./MainMenuDrawer.jss";
-import {Adjuster} from "../AppBar/Adjuster";
 
 export default function MainMenuDrawer({signOut, theme, updateTheme}) {
     const classes = useStyles({ theme: theme });

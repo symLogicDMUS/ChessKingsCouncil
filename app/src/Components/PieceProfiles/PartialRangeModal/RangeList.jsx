@@ -59,7 +59,7 @@ export function RangeList({
                     theme={theme}
                     listItems={getOffsetListItems()}
                     listItemClassName={classes.row_style}
-                    rootClassName={classes.range_list_style}
+                    className={classes.range_list_style}
                     addedClassName={classes.range_list_style}
                     arrowButtonClassName={classes.button_style}
                 >
@@ -71,7 +71,7 @@ export function RangeList({
                     theme={theme}
                     listItems={getSpanListItems()}
                     listItemClassName={classes.row_style}
-                    rootClassName={classes.range_list_style}
+                    className={classes.range_list_style}
                     addedClassName={classes.range_list_style}
                     arrowButtonClassName={classes.button_style}
                 />

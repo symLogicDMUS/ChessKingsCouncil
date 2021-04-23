@@ -1,12 +1,11 @@
 import {themes} from "../../styles/themes.jss";
 import {modal} from "../../helpers/modal.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     modal: props => ({
        ...modal,
-        zIndex: 8,
+        zIndex: 13,
     }),
     window: props => ({
         '@media screen and (max-width: 600px)': {

@@ -109,7 +109,6 @@ class ImgChoicesModal extends React.Component {
                     <MuiGrid
                         setChoice={this.setChoice}
                         selectedItem={this.state.imgNameChoice}
-                        rootClassName={this.props.classes.img_grid_root}
                         toggleShowNames={this.toggleShowNames}
                         loaded={this.state.loaded}
                         theme={this.props.theme}

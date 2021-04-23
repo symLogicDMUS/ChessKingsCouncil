@@ -387,6 +387,7 @@ class CreatePiece extends React.Component {
                 {this.state.isFirstVisit && this.state.justSaved && (
                     <PuttingThePieceICreatedIntoAGame
                         theme={this.state.theme}
+                        updateTheme={this.updateTheme}
                         onClose={() => this.updateFirstVisit(false)}
                         title={
                             <HelpTitle
@@ -551,7 +552,7 @@ class CreatePiece extends React.Component {
                     toolButtons={
                         <>
                             <ToolButton
-                                text="piece name"
+                                text="Name"
                                 iconName={"name_tool"}
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Name"}
@@ -560,7 +561,7 @@ class CreatePiece extends React.Component {
                                 }
                             />
                             <ToolButton
-                                text="piece image"
+                                text="Icon"
                                 iconName={"icon_tool"}
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Icon"}
@@ -569,7 +570,7 @@ class CreatePiece extends React.Component {
                                 }
                             />
                             <ToolButton
-                                text="piece range"
+                                text="Spans"
                                 theme={this.state.theme}
                                 iconName={"range_tool"}
                                 isActive={
@@ -580,7 +581,7 @@ class CreatePiece extends React.Component {
                                 }
                             />
                             <ToolButton
-                                text="location"
+                                text="Location"
                                 theme={this.state.theme}
                                 iconName={"location_tool"}
                                 isActive={

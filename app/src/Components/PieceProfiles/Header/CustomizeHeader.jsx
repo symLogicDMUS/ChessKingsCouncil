@@ -63,7 +63,7 @@ function CustomizeHeader({
                             <SeeMore theme={theme} edge={ xs ? 'end' : null}>
                                 <MuiCheckbox
                                     checkmarkState={isCheckmark}
-                                    rootClassName={classes.promo_checkbox}
+                                    className={classes.promo_checkbox}
                                     onClick={() => togglePromo(customPieceName)}
                                     theme={theme}
                                 >
@@ -73,7 +73,7 @@ function CustomizeHeader({
                         ) : (
                             <MuiCheckbox
                                 checkmarkState={isCheckmark}
-                                rootClassName={classes.promo_checkbox}
+                                className={classes.promo_checkbox}
                                 onClick={() => togglePromo(customPieceName)}
                                 theme={theme}
                             >
@@ -107,7 +107,7 @@ function CustomizeHeader({
                     >
                         <MuiCheckbox
                             checkmarkState={isCheckmark}
-                            rootClassName={classes.promo_checkbox}
+                            className={classes.promo_checkbox}
                             onClick={() => togglePromo(customPieceName)}
                             variant='subtitle1'
                             theme={theme}

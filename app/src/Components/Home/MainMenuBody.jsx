@@ -57,7 +57,6 @@ export function MainMenuBody({theme}) {
                 />
             </Box>
             <div className={classes.toolbar} />
-
         </div>
     );
 }

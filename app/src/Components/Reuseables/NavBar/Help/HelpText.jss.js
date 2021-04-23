@@ -11,4 +11,8 @@ export const useStyles = makeStyles({
         letterSpacing: '0.06rem',
         display: 'inline-block'
     }),
+    flex: props => ({
+        display: 'flex',
+        alignItems: 'center',
+    }),
 }, {index: 1});

@@ -1,11 +1,10 @@
-import Box from "@material-ui/core/Box";
-import clsx from "clsx";
 import React, {useMemo} from "react";
-import {getOffsetRangeBoardDragonExample} from "./getOffsetRangeBoardDragonExample";
-import {useStyles} from "./RangeBoardExample.jss";
+import clsx from "clsx";
+import Box from "@material-ui/core/Box";
+import {getOffsetRangeBoardDragonExample}
+from "./getOffsetRangeBoardDragonExample";
 
 export function OffsetsExample(props) {
-    const classes = useStyles({theme: props.theme});
     const src = useMemo(() =>
         getOffsetRangeBoardDragonExample({theme: props.theme, color: "W"}), []
     )
@@ -15,7 +14,7 @@ export function OffsetsExample(props) {
         })}
     >
         <Box className={props.classes.sqr_item}>
-            <img src={src} className={classes.img} alt='example of offsets' />
+            <img src={src} className={props.classes.img} alt='example of offsets' />
         </Box>
     </Box>;
 }

@@ -7,9 +7,6 @@ import {loading_path} from "./loading_path";
 import { useStyles } from "./Loading.jss";
 
 export function Loading() {
-    useEffect(() => {
-        document.body.className = 'dark-background';
-    }, [])
 
     const classes = useStyles()
 
@@ -17,12 +14,9 @@ export function Loading() {
         <div className={classes.body}>
             <Box className={classes.content}>
                 <AnimatePresence>
-                    <div className={classes.animation}>
-                        {loading_path}
-                    </div>
+                    {loading_path(classes.animation)}
                 </AnimatePresence>
             </Box>
         </div>
     );
-
 }

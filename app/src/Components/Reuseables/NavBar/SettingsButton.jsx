@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {SettingsModal} from "./SettingsModal";
 import SettingsIcon from "@material-ui/icons/Settings";
-import {Button, Portal, Typography} from "@material-ui/core";
+import {Portal, Typography} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
 export function SettingsButton({updateTheme, theme, screenCase, currentPage, children}) {

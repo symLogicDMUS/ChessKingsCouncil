@@ -48,7 +48,7 @@ export const styles = {
         },
     }),
     scroll_table_button: props => ({
-        height: '3.5vw',
+        height: '1.2rem',
         borderRadius: 0,
     }),
     scroll_table_text: props => ({

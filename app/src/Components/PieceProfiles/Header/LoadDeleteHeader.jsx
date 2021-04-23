@@ -73,7 +73,7 @@ function LoadDeleteHeader({
                 </PieceName>
                 <Button
                     theme={theme}
-                    rootClassName={classes.button}
+                    className={classes.button}
                     addedClassName={classes.load_button}
                     startIcon={<StorageIcon className={classes.icon}/>}
                     onClick={loadMethod}
@@ -89,7 +89,7 @@ function LoadDeleteHeader({
                         [classes.delete_icon]: true
                     })}/>}
                     variant='outlined'
-                    rootClassName={classes.button}
+                    className={classes.button}
                     addedClassName={classes.delete_button}
                     isDisabled={false}
                     theme={theme}

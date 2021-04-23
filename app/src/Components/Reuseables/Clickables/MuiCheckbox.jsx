@@ -18,7 +18,7 @@ export function MuiCheckbox(props) {
             classes={props.classesObj}
             className={clsx(classes.form_control_label_root, {
                 [props.className]: props.className,
-                [props.rootClassName]: props.rootClassName,
+                [props.className]: props.className,
                 [props.addedClassName]: props.addedClassName,
             })}
             label={

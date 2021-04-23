@@ -35,6 +35,7 @@ export const mechwarrior_theme = {
     page_link_hover: '#ffffff',
     drawer_outline: '#373737',
     switch_active: '#ff5309',
+    link: '#90caf9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

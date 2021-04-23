@@ -50,10 +50,9 @@ export function MuiDeleteButton(props) {
                 onClick={() => setModal(true)}
                 isDisabled={props.isDisabled}
                 startIcon={props.startIcon}
-                className={props.className}
                 classesObj={props.classesObj}
                 addedClassName={props.addedClassName}
-                rootClassName={props.rootClassName}
+                className={props.className}
                 variant={props.variant}
                 style={props.style}
                 theme={props.theme}

@@ -1,8 +1,5 @@
 import {themes} from "../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {lighten} from "@material-ui/core/styles";
-
-const margin = '0.6em';
 
 export const useStyles = makeStyles({
     nav_bar_button: props => ({

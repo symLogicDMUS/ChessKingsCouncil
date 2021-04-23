@@ -1,58 +1,41 @@
-import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {viewWidth} from "../../../helpers/windowMeasurments";
-import {fontSize00276, fontSize00301} from "../../../styles/fontSizes.jss";
-
-export const listStyle = () => ({
-    width: "100%",
-    height: 30,
-    fontSize: fontSize00301,
-});
-
-export const buttonStyle = () => ({
-    display: 'none',
-    pointerEvents: 'none',
-    minWidth: 'unset',
-    minHeight: 'unset',
-    width: 0,
-    height: 0,
-});
-
-export const rowStyle = () => ({
-    cursor: "pointer"
-});
-
-export const closeIcon = (fontSize, theme) => ({
-    fontSize: fontSize,
-    width: '1.2em',
-    height: '1.2em',
-    color: themes[theme].text,
-    borderRadius: 'unset',
-    cursor: 'pointer',
-    alignSelf: 'flex-start',
-});
 
 export const useStyles = makeStyles({
-    modal: props => ({
+    window: props => ({
         position: 'fixed',
         left: 0,
         top: 0,
         width: '100vw',
         height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 10,
-    }),
-    window: props => ({
-        width: viewWidth() * 0.4,
-        display: 'flex',
-        flexDirection: 'column',
-        marginTop: 'auto',
         zIndex: 11,
+    }),
+    help_table: props => ({
+        width: '100vw',
         height: '95vh',
+        zIndex: 11,
+    }),
+    list_item: props => ({
+        flexGrow: 2,
+        paddingLeft: 12,
+        paddingBottom: '0.1rem'
+    }),
+
+    arrow_button_top: props => ({
+        display: 'none',
+    }),
+    arrow_button_bottom: props => ({
+        height: '2rem',
+        borderRadius: 0,
+        border: `0.075rem solid ${themes[props.theme].outline}`,
+        "& .MuiSvgIcon-root": {
+            display: 'none',
+        },
+    }),
+    text: props => ({
+        '&:hover': {
+            color: themes[props.theme].sqr_hover_alt,
+        },
     }),
     top: props => ({
         width: '100%',
@@ -65,30 +48,28 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 412px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
+            border: `0.05em solid ${themes[props.theme].odd_row}`,
         },
         "@media screen and (min-width: 412px) and (max-width: 768px)": {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
-            border: `0.05em solid ${themes[props.theme].outline}`,
+            border: `0.05em solid ${themes[props.theme].odd_row}`,
         },
         '@media screen and (min-width: 768px) and (max-width: 960px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
-            border: `0.01em solid ${themes[props.theme].outline}`,
+            border: `0.01em solid ${themes[props.theme].odd_row}`,
         },
         '@media screen and (min-width: 960px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',
-            border: `0.08em solid ${themes[props.theme].outline}`,
+            border: `0.08em solid ${themes[props.theme].odd_row}`,
         },
     }),
     title: props => ({
         width: '100%',
         textAlign: 'center',
-        fontSize: fontSize00276,
-        paddingLeft: '1em',
+        fontSize: '1.1rem',
         color: themes[props.theme].text,
-        fontFamily: 'Roboto-Light, Roboto',
     }),
 }, {index: 1})

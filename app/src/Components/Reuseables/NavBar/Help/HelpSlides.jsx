@@ -8,9 +8,9 @@ import {PlayerTypesExplained} from "./Extra/PlayerTypesExplained";
 import {LoadGameHelp} from "../../../LoadGame/LoadGameHelp";
 import {SavedPiecesHelp} from "../../../MyPieces/Help/SavedPiecesHelp";
 import {GameRootHelp} from "../../../GameRoot/Help/GameRootHelp";
-import {NewGameHelp} from "../../../NewGame/GameOptions/NewGameHelp";
+import {GameOptionsHelp} from "../../../NewGame/GameOptions/Help/GameOptionsHelp";
 import {CreatePieceHelp} from "../../../CreatePiece/Help/CreatePieceHelp";
-import {NewGameHelpText} from "../../../NewGame/Customize/Help/NewGameHelpText";
+import {CustomizeHelp} from "../../../NewGame/Customize/Help/CustomizeHelp";
 import {InvalidNameExplanation} from "../../../CreatePiece/Help/InvalidNameExplanation";
 import {ImageUploadExplanation} from "../../../CreatePiece/Help/ImageUploadExplanation";
 import {OptionsToolExplanation} from "../../../CreatePiece/Help/OptionsToolExplanation";
@@ -50,7 +50,7 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     }
                     theme={theme}
                 >
-                    {NewGameHelp(theme)}
+                    {GameOptionsHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "game types" ? (
@@ -172,7 +172,6 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     <LocationToolExplanation theme={theme}/>
                 </HelpSlide>
             ) : null}
-
             {helpItem === "create piece page options" ? (
                 <HelpSlide
                     theme={theme}
@@ -245,7 +244,7 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     }
                     theme={theme}
                 >
-                    {NewGameHelpText(theme)}
+                    {CustomizeHelp(theme)}
                 </HelpSlideshow>
             ) : null}
             {helpItem === "piece profiles" ? (

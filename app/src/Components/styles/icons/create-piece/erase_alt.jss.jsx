@@ -1,10 +1,7 @@
 import React from "react";
 
 export const erase_alt = (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <g id="Group_91" data-name="Group 91" transform="translate(-426 -578)">
-            <path id="path2" d="M4,21.333A2.675,2.675,0,0,0,6.667,24H17.333A2.675,2.675,0,0,0,20,21.333v-16H4ZM7.28,11.84,9.16,9.96,12,12.787,14.827,9.96l1.88,1.88L13.88,14.667l2.827,2.827-1.88,1.88L12,16.547,9.173,19.373l-1.88-1.88,2.827-2.827ZM16.667,1.333,15.333,0H8.667L7.333,1.333H2.667V4H21.333V1.333Z" transform="translate(426.333 578)"/>
-            <rect id="Rectangle_33" data-name="Rectangle 33" width="24" height="24" transform="translate(426 578)" fill="#fff" opacity="0"/>
-        </g>
+    <svg className="MuiSvgIcon-root jss174" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3 12.59L17.59 17 14 13.41 10.41 17 9 15.59 12.59 12 9 8.41 10.41 7 14 10.59 17.59 7 19 8.41 15.41 12 19 15.59z"/>
     </svg>
 )

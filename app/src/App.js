@@ -6,8 +6,8 @@ import {saveUser} from "./API/saveUser";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import SignInPage from "./Components/Home/SignInPage";
 import {Loading} from "./Components/Reuseables/Animations/Loading";
+import SignInPage from "./Components/Home/SignInPage";
 import "./App.scss";
 
 const Home = lazy(() => import("./Components/Home/Home"));

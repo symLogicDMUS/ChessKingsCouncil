@@ -39,9 +39,9 @@ function NavBar(props) {
                     key="Help"
                     pageIcon="help"
                     theme={props.theme}
-                    screenCase={screenCase}
-                    helpTitle={props.helpTitle}
                     currentPage={props.currentPage}
+                    helpTitle={props.helpTitle}
+                    screenCase={screenCase}
                     updateFirstVisit={props.updateFirstVisit}
                 >
                     {props.helpText}
@@ -60,7 +60,6 @@ function NavBar(props) {
                     key="/"
                     pageName="Home"
                     pageIcon="home"
-                    className="home"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -71,7 +70,6 @@ function NavBar(props) {
                     path="/NewGame"
                     pageName="New Game"
                     pageIcon="new-game"
-                    className="new_game"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -83,7 +81,6 @@ function NavBar(props) {
                     key="/LoadGame"
                     pageName="Load Game"
                     pageIcon="load-game"
-                    className="load_game"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -95,7 +92,6 @@ function NavBar(props) {
                     key="/CreatePiece"
                     pageName="Create Piece"
                     pageIcon="create-piece"
-                    className="create_piece"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -107,7 +103,6 @@ function NavBar(props) {
                     key="/MyPieces"
                     pageName="Saved Pieces"
                     pageIcon="my-pieces"
-                    className="my_pieces"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -119,7 +114,6 @@ function NavBar(props) {
                     path="https://www.chess.com/learn-how-to-play-chess"
                     pageName="Chess Rules"
                     pageIcon="chess-rules"
-                    className="chess_rules"
                     isLocalLink={false}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -131,7 +125,6 @@ function NavBar(props) {
                     path="/CouncilRules"
                     pageName="Council Rules"
                     pageIcon="council-rules"
-                    className="council_rules"
                     isLocalLink={true}
                     theme={props.theme}
                     screenCase={screenCase}
@@ -143,7 +136,6 @@ function NavBar(props) {
                     path="https://github.com/symLogicDMUS"
                     pageName="Author Github"
                     pageIcon="author-github"
-                    className="author_github"
                     isLocalLink={false}
                     theme={props.theme}
                     screenCase={screenCase}

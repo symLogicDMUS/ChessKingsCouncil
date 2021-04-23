@@ -3,10 +3,8 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {getSpanRangeBoardDragonExample}
         from "./getSpanRangeBoardDragonExample";
-import { useStyles } from "./RangeBoardExample.jss";
 
 export function SpansExample(props) {
-    const classes = useStyles({theme: props.theme});
     const src = useMemo(() =>
         getSpanRangeBoardDragonExample({theme: props.theme, color: "W"}), []
     )
@@ -16,7 +14,7 @@ export function SpansExample(props) {
         })}
     >
         <Box className={props.classes.sqr_item}>
-            <img src={src} className={classes.img} alt='example of spans' />
+            <img src={src} className={props.classes.img} alt='example of spans' />
         </Box>
     </Box>;
 }

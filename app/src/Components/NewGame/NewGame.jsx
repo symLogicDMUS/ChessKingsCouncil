@@ -13,7 +13,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {ConfirmStandard} from "./ConfirmStandard";
 import "../Reuseables/Background/_backgrounds.scss";
-import {NewGameHelp} from "./GameOptions/NewGameHelp";
+import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {useStyles} from "./NewGame.jss";
 
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
@@ -81,7 +81,7 @@ function NewGame() {
                 navBar={
                     <NavBar
                         currentPage="NewGame"
-                        helpText={NewGameHelp('4.5vh', theme)}
+                        helpText={GameOptionsHelp('4.5vh', theme)}
                         helpTitle={<HelpTitle theme={theme} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}

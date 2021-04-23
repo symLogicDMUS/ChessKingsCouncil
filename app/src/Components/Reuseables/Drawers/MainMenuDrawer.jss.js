@@ -13,6 +13,7 @@ export const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.leavingScreen,
         }),
         backgroundColor: themes[props.theme].fill,
+        zIndex: 10,
     }),
     appBarShift: props => ({
         width: `calc(100% - ${drawerWidth}px)`,
@@ -34,6 +35,7 @@ export const useStyles = makeStyles((theme) => ({
         flexShrink: 0,
     }),
     drawerPaper: props => ({
+        zIndex: 12,
         width: drawerWidth,
         backgroundColor: themes[props.theme].fill,
     }),

@@ -14,7 +14,7 @@ function ResignModal({onYesClick, onNoClick, theme}) {
             <MuiButton
                 theme={theme}
                 variant={'outline'}
-                rootClassName={
+                className={
                     clsx(classes.button, {
                         [classes.yes_button]: true,
                     })}
@@ -25,7 +25,7 @@ function ResignModal({onYesClick, onNoClick, theme}) {
             <MuiButton
                 theme={theme}
                 variant={'outline'}
-                rootClassName={
+                className={
                     clsx(classes.button, {
                         [classes.no_button]: true,
                 })}

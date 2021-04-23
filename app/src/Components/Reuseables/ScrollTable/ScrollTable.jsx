@@ -13,8 +13,7 @@ function ScrollTable({
     listItems,
     title,
     numRows,
-    theme,
-    rootClassName,
+    className,
     listItemClassName,
     arrowButtonClassName,
     arrowButtonTopClassName,
@@ -23,6 +22,8 @@ function ScrollTable({
     arrowIconTopClassName,
     arrowIconBottomClassName,
     textClassName,
+    disableArrows,
+    theme,
 }) {
     const classes = useStyles({theme: theme});
 
@@ -51,7 +52,7 @@ function ScrollTable({
     return (
         <Box
             className={clsx(classes.scroll_table, {
-                [rootClassName]: rootClassName,
+                [className]: className,
             })}
         >
             {title ? title : null}
@@ -71,6 +72,7 @@ function ScrollTable({
                 })}
                 fullWidth={true}
                 disableElevation={true}
+                disabled={disableArrows}
                 variant="outlined"
             >
                 <ArrowDropUpIcon
@@ -95,8 +97,9 @@ function ScrollTable({
                     [arrowButtonClassName]: arrowButtonClassName,
                     [arrowButtonBottomClassName]: arrowButtonBottomClassName,
                 })}
-                disableElevation={true}
                 fullWidth={true}
+                disableElevation={true}
+                disabled={disableArrows}
                 variant="outlined"
             >
                 <ArrowDropDownIcon

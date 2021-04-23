@@ -4,10 +4,12 @@ import {Typography} from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import {ListItem} from "../../ScrollTable/ListItem";
 import ScrollTable from "../../ScrollTable/ScrollTable";
-import {fontSize002} from "../../../styles/fontSizes.jss";
-import {closeIcon, useStyles} from "./HelpTable.jss";
+import {useStyles} from "./HelpTable.jss";
+import TemporaryDrawerButton from "../../Drawers/TemporaryDrawerButton";
+import {NavBarAlt} from "../NavBarAlt";
+import {Close} from "../../Modals/Close";
 
-export function HelpTable({setHelpItem, onClose, theme}) {
+export function HelpTable({setHelpItem, onClose, theme, updateTheme}) {
     const classes = useStyles({theme: theme});
 
     const listItems = [
@@ -121,18 +123,23 @@ export function HelpTable({setHelpItem, onClose, theme}) {
         </ListItem>,
     ]
     return (
-        <div className={classes.modal}>
-            <div className={classes.window}>
-                <Box className={classes.top}>
-                    <Typography variant='h6' className={classes.title}>Help</Typography>
-                    <CloseIcon fontSize="inherit" onClick={onClose} style={closeIcon(fontSize002, theme)} />
-                </Box>
-                <ScrollTable
-                    theme={theme}
-                    listItems={listItems}
-                    numRows={listItems.length}
-                />
-            </div>
+        <div className={classes.window}>
+            <Box className={classes.top}>
+                <TemporaryDrawerButton theme={theme}> <NavBarAlt theme={theme} updateTheme={updateTheme} /></TemporaryDrawerButton>
+                <Typography variant='button' className={classes.title}>Help</Typography>
+                <Close onClick={onClose} theme={theme} />
+            </Box>
+            <ScrollTable
+                theme={theme}
+                listItems={listItems}
+                numRows={listItems.length}
+                className={classes.help_table}
+                listItemClassName={classes.list_item}
+                arrowButtonTopClassName={classes.arrow_button_top}
+                arrowButtonBottomClassName={classes.arrow_button_bottom}
+                textClassName={classes.text}
+                disableArrows={true}
+            />
         </div>
     );
 }

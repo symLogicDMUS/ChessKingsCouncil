@@ -54,7 +54,7 @@ export const useStyles = makeStyles({
     }),
     item_name: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: '0.9rem',
+            fontSize: '1.1rem',
         },
         '@media screen and (min-width: 960px)': {
             fontSize: '1.5vw',

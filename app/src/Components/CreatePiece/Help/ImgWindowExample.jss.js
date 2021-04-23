@@ -12,14 +12,12 @@ export const useStyles = makeStyles({
         marginTop: '0.25rem',
     }),
     img_window: props => ({
-        backgroundColor: themes[props.theme].fill,
-        border: `0.05rem solid ${themes[props.theme].text}`,
+        width: 180,
+        height: 180,
         borderRadius: '0.5rem',
-        '@media screen and (max-width: 960px)': {
-            width: windowSizeSm,
-            height: windowSizeSm,
-        },
         marginRight: '1.5rem',
+        backgroundColor: themes[props.theme].fill,
+        border: `0.075rem solid ${themes[props.theme].outline}`,
     }),
     window1: props => ({
         marginBottom: '1rem',

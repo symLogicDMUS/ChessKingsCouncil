@@ -37,14 +37,10 @@ export const styles = {
             margin: '0.15em',
         },
     }),
-    img_grid_root: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: appBarHeight
-        },
-    }),
     mui_grid: props => ({
         '@media screen and (max-width: 960px)': {
             height: `calc(100vh - ${appBarHeight}px)`,
+            marginTop: appBarHeight
         },
         '@media screen and (min-width: 960px)': {
             height: '90vh',

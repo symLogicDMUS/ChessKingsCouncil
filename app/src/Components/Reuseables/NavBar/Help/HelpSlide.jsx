@@ -1,13 +1,12 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {Close} from "../../Modals/Close";
-import {close_icon} from "../../Modals/StandardModal.jss";
-import {fontSize002} from "../../../styles/fontSizes.jss";
+import {NavBarAlt} from "../NavBarAlt";
 import {Typography} from "@material-ui/core";
-import {useStyles} from "./HelpSlideshow.jss";
-import {MuiButton} from "../../Clickables/MuiButton";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
-import {done_flexbox} from "./HelpSlide.jss";
+import TemporaryDrawerButton from "../../Drawers/TemporaryDrawerButton";
+import {MuiButton} from "../../Clickables/MuiButton";
+import {useStyles} from "./HelpSlideshow.jss";
 
 /**
  * as single page of help slideshow (same component without the next and previous buttons
@@ -18,36 +17,29 @@ import {done_flexbox} from "./HelpSlide.jss";
  * @returns {JSX.Element}
  * @constructor
  */
-export function HelpSlide({theme, title, onClose, children}) {
+export function HelpSlide({title, onClose, theme, children}) {
     const classes = useStyles({theme: theme});
 
     return (
-        <div className={`scrollbar-${theme}`}>
-            <div className={classes.modal}>
-                <div className={classes.window}>
-                    <Box className={classes.top_area}>
-                        <Box className={classes.x_symbol_flexbox}>
-                            <Close onClick={onClose} theme={theme} className={classes.close_icon}/>
-                        </Box>
-                        <Box className={classes.title_flexbox}>
-                            {title}
-                        </Box>
-                    </Box>
-                    <Typography paragraph className={classes.content}>
-                        {children}
-                    </Typography>
-                    <Box className={classes.top_area} style={done_flexbox()}>
-                        <MuiButton
-                            theme={theme}
-                            classesObj={{root: classes.done_button}}
-                            startIcon={<CheckCircleOutlineIcon className={classes.button_icon}/>}
-                            onClick={onClose}
-                        >
-                            Done
-                        </MuiButton>
-                    </Box>
-                </div>
-            </div>
+        <div className={classes.window}>
+            <Box className={classes.top_area}>
+                <TemporaryDrawerButton theme={theme}><NavBarAlt theme={theme} /></TemporaryDrawerButton>
+                <Typography className={classes.title} variant='h6' noWrap>{title}</Typography>
+                <Close onClick={onClose} theme={theme} />
+            </Box>
+            <Typography paragraph className={classes.content}>
+                {children}
+            </Typography>
+            <Box className={classes.buttons}>
+                <MuiButton
+                    theme={theme}
+                    classesObj={{root: classes.done_button}}
+                    startIcon={<CheckCircleOutlineIcon className={classes.button_icon}/>}
+                    onClick={onClose}
+                >
+                    Done
+                </MuiButton>
+            </Box>
         </div>
     );
 }

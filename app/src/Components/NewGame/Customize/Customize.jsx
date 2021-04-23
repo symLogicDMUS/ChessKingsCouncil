@@ -10,7 +10,7 @@ import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
 import {newData, standardImgUrls} from "../NewData";
-import { NewGameHelpText } from "./Help/NewGameHelpText";
+import { CustomizeHelp } from "./Help/CustomizeHelp";
 import { standardPieceDefs } from "../standardPieceDefs/prod";
 import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
 import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
@@ -367,7 +367,7 @@ class Customize extends React.Component {
                             listItems={this.promos}
                             theme={this.state.theme}
                             key="pawn-promotions-wide"
-                            rootClassName={this.props.classes.scroll_table}
+                            className={this.props.classes.scroll_table}
                             addedClassName={this.props.classes.drawer_component}
                             listItemClassName={
                                 this.props.classes.scroll_table_list_item
@@ -403,7 +403,7 @@ class Customize extends React.Component {
                             key="piece-data"
                             theme={this.state.theme}
                             listItems={this.getPieceListData()}
-                            rootClassName={this.props.classes.scroll_table}
+                            className={this.props.classes.scroll_table}
                             addedClassName={this.props.classes.drawer_component}
                             listItemClassName={
                                 this.props.classes.scroll_table_list_item
@@ -445,7 +445,7 @@ class Customize extends React.Component {
                                 variant="caption"
                                 theme={this.state.theme}
                                 onClick={this.togglePromoAll}
-                                rootClassName={this.props.classes.promo_all}
+                                className={this.props.classes.promo_all}
                             >
                                 Promo All
                             </MuiCheckbox>
@@ -468,7 +468,7 @@ class Customize extends React.Component {
                                 listItems={this.promos}
                                 theme={this.state.theme}
                                 key="pawn-promotions-wide"
-                                rootClassName={this.props.classes.scroll_table}
+                                className={this.props.classes.scroll_table}
                                 addedClassName={
                                     this.props.classes.drawer_component
                                 }
@@ -542,7 +542,7 @@ class Customize extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="Customize"
-                            helpText={NewGameHelpText('2.3vh', this.state.theme)}
+                            helpText={CustomizeHelp('2.3vh', this.state.theme)}
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}

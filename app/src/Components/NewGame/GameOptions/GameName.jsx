@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
-import { useStyles as useEvenMoreStyles } from "../Input.jss";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./GameName.jss";
 

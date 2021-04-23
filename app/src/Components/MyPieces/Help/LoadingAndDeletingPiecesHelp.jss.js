@@ -3,17 +3,16 @@ import {makeStyles} from "@material-ui/core/styles";
 export const useStyles = makeStyles({
     buttons: props => ({
         float: 'left',
-        margin: '1.2rem',
+        marginRight: '1.2rem',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        outline: '1px dashed red',
     }),
     button1: props => ({
-        marginBottom: '1rem',
+        marginBottom: '0.5rem',
     }),
     button2: props => ({
-        marginTop: '1rem',
+        marginTop: '0.5rem',
     }),
 }, {index: 1});

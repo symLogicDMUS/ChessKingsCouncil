@@ -1,8 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-const itemSizeSm = '15vw';
-const itemSizeLg = '10vw';
+const itemSizeSm = 150;
+const itemSizeLg = 175;
 
 export const useStyles = makeStyles({
     profile_wb_example: props => ({
@@ -47,5 +47,9 @@ export const useStyles = makeStyles({
     }),
     item3: props => ({
         marginTop: '0.4rem',
+    }),
+    img: props => ({
+       width: '100%',
+       height: '100%',
     }),
 }, {index: 1});

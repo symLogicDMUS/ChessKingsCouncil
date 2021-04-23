@@ -24,24 +24,26 @@ export function PieceProfilesHelp(props) {
                 <Box className={classes.profile_wb_example}>
                     <Typography className={classes2.text} paragraph>
                         <AvatarExample classes={classes} theme={props.theme}/>
-                        The Avatar of a piece can be upload from your device, or chosen from the variety of sample images
-                        that supplied for each user. The Dragon is one of the sample images. To see all sample images,
-                        go the the CreatePiece page and click one of <i>White</i> or <i>Black</i> avatar boxes, or on small screens,
-                        the image icon. More info in <i>Uploading Images For Your Piece</i> section.
+                        The <div className={classes2.emphasis}>Avatar</div> of a piece can be upload from your device,
+                        or chosen from the variety of sample images that supplied for each user. The Dragon is one of the
+                        sample images. To see all sample images, go the the CreatePiece page and click one of <i>White</i>
+                        or <i>Black</i> avatar boxes, or on small screens, the image icon. More info in <i>Uploading
+                        Images For Your Piece</i> section.
                     </Typography>
                     <Typography className={classes2.text} paragraph>
                         <SpansExample classes={classes} theme={props.theme}/>
-                        Spans are how Rooks, Bishops and Queens move. A span moves in 1 of 8 possible directions until a
-                        piece blocks the way or the end of the board is reached. In the example show the Dragon is given
-                        all possible spans, like the Queen. One advantage of spans is you can trap pieces on the path when
-                        moving would put their king in the way of the path.
+                        <div className={classes2.emphasis}>Spans</div> are how Rooks, Bishops and Queens move. A span
+                        moves in 1 of 8 possible directions until a piece blocks the way or the end of the board is reached.
+                        In the example show the Dragon is given all possible spans, like the Queen. One advantage of spans
+                        is you can trap pieces on the path when moving would put their king in the way of the path.
                     </Typography>
                     <Typography className={classes2.text} paragraph>
                         <OffsetsExample classes={classes} theme={props.theme}/>
-                        Offsets are how Knights move. An offset combines moving left or right some number of squares,
-                        with up or down some number of squares. As with the Knight, all offsets 'jump' over any piece,
-                        i.e. it doesn't matter if a piece is in the path of motion. Offsets use + and - for right and left,
-                        an offset of <div className={classes2.emphasis}>+2 -3</div> would be 2 to the right and 3 down.
+                        <div className={classes2.emphasis}>Offsets</div> are how Knights move. An offset combines moving
+                        left or right some number of squares, with up or down some number of squares. As with the Knight,
+                        all offsets 'jump' over any piece, i.e. it doesn't matter if a piece is in the path of motion.
+                        Offsets use + and - for right and left, an offset of <div className={classes2.emphasis}>+2 -3</div>
+                        would be 2 to the right and 3 down.
                     </Typography>
                     <Typography className={classes2.text}>
                         For more about spans and offsets see the <i>Offsets and Spans explained</i> section of the help table.

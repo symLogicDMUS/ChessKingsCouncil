@@ -1,24 +1,22 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes.jss";
 
-const widthLg = '90vw';
-
 export const useStyles = makeStyles((theme) => ({
     window: props => ({
         '@media screen and (max-width: 960px)': {
             width: '100vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: widthLg,
+            width: '90vw',
+            margin: 'auto',
+            borderRadius: '1rem',
         },
         zIndex: 6,
-        margin: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         padding: '0.1rem',
         paddingTop: '1rem',
-        borderRadius: '1rem',
         border: `0.08rem solid ${themes[props.theme].odd_row}`,
         backgroundColor: themes[props.theme].fill,
     }),
@@ -48,11 +46,12 @@ export const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'row',
         '@media screen and (max-width: 960px)': {
+            flexGrow: 2,
             width: '95vw',
             alignItems: 'center',
             justifyContent: 'flex-start',
-            paddingTop: '1rem',
-            paddingBottom: '1rem',
+            paddingTop: '1.2rem',
+            paddingBottom: '1.2rem',
         },
         '@media screen and (min-width: 960px)': {
             width: '85.5vw',

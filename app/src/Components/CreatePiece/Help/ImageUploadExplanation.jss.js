@@ -16,6 +16,6 @@ export const useStyles = makeStyles({
         marginBottom: '1rem',
     }),
     number_list: props => ({
-       marginLeft: '1rem',
+       marginLeft: 180,
     }),
 }, {index: 1});

@@ -1,105 +1,65 @@
-import {button} from "../../Modals/StandardModal.jss";
-import {modal} from "../../../helpers/modal.jss";
 import {themes} from "../../../styles/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {fontSize002} from "../../../styles/fontSizes.jss";
-import {appBarHeight} from "../../Drawers/PersistentDrawer.jss";
-import {viewHeight, viewWidth} from "../../../helpers/windowMeasurments";
 
-const windowHeightthin = () => (viewHeight() - appBarHeight);
+const buttonHeight = '2rem';
+const buttonWidth = '7.5rem';
 
 export const useStyles = makeStyles({
-    modal: props => ({
-        ...modal,
-        fontSize: fontSize002,
-        backgroundColor: 'unset',
-        flexDirection: 'column',
-        zIndex: 10,
-    }),
     window: props => ({
-        fontSize: fontSize002,
-        borderRadius: '0.25em',
+        width: '100vw',
+        height: '100vh',
+        zIndex: 12,
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: themes[props.theme].fill,
-        border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-width: 960px)': {
-            width: '100%',
-            height: windowHeightthin(),
-            marginTop: 'auto',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: viewWidth() * 0.975,
-            height: viewHeight() * 0.975,
-            marginTop: 'auto',
-            marginBottom: 'auto',
-        },
     }),
     top_area: props => ({
-        width: '100%',
-    }),
-    x_symbol_flexbox: props => ({
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'space-between',
     }),
-    title_flexbox: props => ({
-        width: '95%',
-        margin: 'auto',
-        marginBottom: '1vh',
+    title: props => ({
+       color: themes[props.theme].text,
     }),
     content: props => ({
+        flexGrow: 2,
         overflow: 'scroll',
-        fontSize: '1.5vw',
+        marginLeft: 12,
+        marginRight: 12,
+        marginBottom: 12,
         borderRadius: '0.25em',
         border: `0.05em solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
-            width: '95vw',
-            height: windowHeightthin()*0.655,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            marginBottom: 0,
+            padding: '1rem',
         },
         '@media screen and (min-width: 960px)': {
-            width: viewWidth() * 0.975*0.95,
-            height: viewHeight() * 0.975*0.95*0.85,
-            marginLeft: '2.5%',
+            padding: '1.5vw',
         },
     }),
     buttons: props => ({
-        width: '95%',
         display: 'flex',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '1.5vw',
-        /*media query for phones (generalized)*/
-        '@media screen and (max-width: 960px)': {
-            height: windowHeightthin()*0.1,
-        },
+        marginTop: '0.1rem',
+        marginBottom: '1rem',
     }),
     button: props => ({
-        fontSize: fontSize002,
-        width: '7.5em',
-        height: '2em',
+        fontSize: '2vh',
+        width: buttonWidth,
+        height: buttonHeight,
     }),
     previous_button: props => ({
-        marginRight: '0.5em',
-        marginTop: '-0.25em',
+        marginRight: '0.5rem',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     next_button: props => ({
-        marginLeft: '0.5em',
-        marginTop: '-0.25em',
+        marginLeft: '0.5rem',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     done_button: props => ({
-        marginLeft: '1em',
-        marginTop: '-0.25em',
+        marginLeft: '1rem',
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     button_icon: props => ({

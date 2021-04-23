@@ -31,7 +31,7 @@ export function MuiGrid(props) {
                 <Button
                     onClick={props.onOkClick}
                     isDisabled={props.selectedItem === null}
-                    rootClassName={classes.bottom_button}
+                    className={classes.bottom_button}
                     addedClassName={classes.ok_button}
                     size={isThin ? 'small' : 'medium'}
                     startIcon={<CheckCircleOutlineIcon className={classes.icon}/>}
@@ -44,7 +44,7 @@ export function MuiGrid(props) {
                     onAcceptDelete={props.onDeleteClick}
                     modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.selectedItem === null}
-                    rootClassName={classes.bottom_button}
+                    className={classes.bottom_button}
                     startIcon={<DeleteForeverIcon className={classes.icon}/>}
                     size={isThin ? 'small' : 'medium'}
                     theme={props.theme}

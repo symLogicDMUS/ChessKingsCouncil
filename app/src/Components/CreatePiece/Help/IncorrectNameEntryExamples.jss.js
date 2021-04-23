@@ -31,8 +31,9 @@ export const useStyles = makeStyles({
         fontSize: '1.5rem',
     }),
     text_field: props => ({
+
         marginRight: '2.5rem',
-        marginLeft: '2.5rem',
+
         /*root*/
         "& .MuiInputLabel-root": {
             color: darken(themes[props.theme].text, 0.2),
