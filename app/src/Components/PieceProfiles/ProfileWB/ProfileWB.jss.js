@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {modal} from "../../helpers/modal.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {
     marginLg,
     marginMd,

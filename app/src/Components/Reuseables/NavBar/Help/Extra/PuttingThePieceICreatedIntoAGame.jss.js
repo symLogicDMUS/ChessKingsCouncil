@@ -1,1 +1,1 @@
-/** See GifDiagrams.jss */
+/** See HelpText.jss */

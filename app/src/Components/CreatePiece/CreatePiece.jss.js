@@ -1,8 +1,9 @@
 import {modal} from "../helpers/modal.jss";
-import {themes} from "../styles/themes.jss";
-import {lighten, makeStyles} from "@material-ui/core/styles";
-import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {themes} from "../styles/themes/themes.jss";
+import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+
+export const marginBottom = '1.15vw';
 
 export const styles = {
     modal: {
@@ -67,15 +68,6 @@ export const useStyles = makeStyles({
         minHeight: 0,
         color: themes[props.theme].text,
     }),
-    tool_flexbox: props => ({
-        width: '22.5vw',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginBottom: '1.15vw',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    }),
     tool_title: props => ({
         width: '100%',
         fontSize: '1.8vh',
@@ -95,6 +87,7 @@ export const useStyles = makeStyles({
     }),
     four_button_group: props => ({
         width: '22.5vw',
+        marginBottom: marginBottom,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -120,17 +113,6 @@ export const useStyles = makeStyles({
     icon: props => ({
         width: '0.9rem',
         height: '0.9rem',
-    }),
-    modal: props => ({
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
-        backgroundColor: 'rgba(0, 0, 0, 0.15)',
-        position: 'absolute',
-        zIndex: 2,
-        top: 0,
-        left: 0,
     }),
     caption: props => ({
         fontSize: '1.1rem',

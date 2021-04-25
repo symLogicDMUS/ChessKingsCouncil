@@ -1,5 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 /**NOTE: width is a required props!*/
 export const useStyles = makeStyles({

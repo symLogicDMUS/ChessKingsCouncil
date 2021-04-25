@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
+import {marginBottom} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     range_tool: props => ({
@@ -17,9 +18,8 @@ export const useStyles = makeStyles({
             width: '22.5vw',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginBottom: '1.15vw',
+            marginBottom: marginBottom,
         },
-        ...props.styles,
     }),
     divider: props => ({
         /*tablets*/
@@ -47,6 +47,7 @@ export const useStyles = makeStyles({
         width: "10.625vw",
         minHeight: 'unset',
         backgroundColor: themes[props.theme].fill,
+        border: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     top_arrow_button: props => ({
        borderTopLeftRadius: '0.2rem',

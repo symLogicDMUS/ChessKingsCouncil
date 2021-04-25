@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 import {fontSize00301} from "../../styles/fontSizes.jss";
 import {lighten} from "@material-ui/core/styles";
@@ -7,8 +7,8 @@ import {lighten} from "@material-ui/core/styles";
 export const useStyles = makeStyles({
     piece: props => ({
         zIndex: 2,
-        width: '100%',
-        height: '100%',
+        width: '98%',
+        maxHeight: '98%',
         margin: 'auto',
         background: 'none',
         fontSize: fontSize00301,
@@ -29,7 +29,7 @@ export const useStyles = makeStyles({
             fontSize: '3vw',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '3.5vw',
+            fontSize: '1.75vw',
         },
         color: lighten(themes[props.theme].sqr_hover_alt, 0.2),
     }),

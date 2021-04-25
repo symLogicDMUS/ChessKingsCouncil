@@ -364,7 +364,6 @@ class Customize extends React.Component {
                     >
                         <ScrollTable
                             numRows={6}
-                            listItems={this.promos}
                             theme={this.state.theme}
                             key="pawn-promotions-wide"
                             className={this.props.classes.scroll_table}
@@ -387,7 +386,9 @@ class Customize extends React.Component {
                                     Pawn Promotions
                                 </ListTitle>
                             }
-                        />
+                        >
+                            {this.promos}
+                        </ScrollTable>
                     </ToolModal>
                 ) : null}
                 {this.state.miniVariantTool === "Pieces" ? (
@@ -402,7 +403,6 @@ class Customize extends React.Component {
                             numRows={6}
                             key="piece-data"
                             theme={this.state.theme}
-                            listItems={this.getPieceListData()}
                             className={this.props.classes.scroll_table}
                             addedClassName={this.props.classes.drawer_component}
                             listItemClassName={
@@ -423,7 +423,9 @@ class Customize extends React.Component {
                                     All Pieces
                                 </ListTitle>
                             }
-                        />
+                        >
+                            {this.getPieceListData()}
+                        </ScrollTable>
                     </ToolModal>
                 ) : null}
                 <ResponsiveDrawer
@@ -465,7 +467,6 @@ class Customize extends React.Component {
                             />
                             <ScrollTable
                                 numRows={6}
-                                listItems={this.promos}
                                 theme={this.state.theme}
                                 key="pawn-promotions-wide"
                                 className={this.props.classes.scroll_table}
@@ -492,7 +493,9 @@ class Customize extends React.Component {
                                         Pawn Promotions
                                     </ListTitle>
                                 }
-                            />
+                            >
+                                {this.promos}
+                            </ScrollTable>
                             <Button
                                 onClick={this.accept}
                                 className={this.props.classes.ok_button}
@@ -542,7 +545,7 @@ class Customize extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="Customize"
-                            helpText={CustomizeHelp('2.3vh', this.state.theme)}
+                            helpText={CustomizeHelp(this.state.theme)}
                             helpTitle={
                                 <HelpTitle
                                     theme={this.state.theme}

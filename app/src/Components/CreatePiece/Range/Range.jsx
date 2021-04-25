@@ -44,8 +44,9 @@ function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool
                     arrowButtonTopClassName={classes.top_arrow_button}
                     arrowButtonBottomClassName={classes.bottom_arrow_button}
                     arrowButtonClassName={classes.scroll_table_arrow_button}
-                    listItems={[...getSpanTextLabels(), ...getOffsetTextLabels()]}
-                />
+                >
+                    {[...getSpanTextLabels(), ...getOffsetTextLabels()]}
+                </ScrollTable>
                 <div className={classes.divider} />
                 <SpanArrowButtons
                     spans={spans}

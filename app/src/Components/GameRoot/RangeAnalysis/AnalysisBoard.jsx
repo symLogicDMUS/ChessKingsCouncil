@@ -4,9 +4,9 @@ import { AnalysisSquare as Square } from "./AnalysisSquare";
 import { AnalysisPiece as Piece } from "./AnalysisPiece";
 import { isSpecial } from "../../helpers/isSpecial";
 import { getPieceImg } from "../../../API/sampleData/specialThemeImgs/getPieceImg";
-import { specialThemeList } from "../../styles/themes.jss";
 import { getFranchisePieceImg } from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
 import { useStyles } from "./AnalysisBoard.jss";
+import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
 
 export function AnalysisBoard({
     theme,

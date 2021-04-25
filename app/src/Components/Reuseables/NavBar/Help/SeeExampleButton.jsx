@@ -21,12 +21,14 @@ export function SeeExampleButton({lgSrc, smSrc, isText, addedText, theme, childr
                     >
                         Close Example
                     </Button>
-                    <MediaQuery maxWidth={960}>
-                        <img className={classes.src} src={smSrc} alt='a gif or image to help explain.' />
-                    </MediaQuery>
-                    <MediaQuery minWidth={960}>
-                        <img className={classes.src} src={lgSrc} alt='a gif or image to help explain.' />
-                    </MediaQuery>
+                    <Box className={classes.img_area}>
+                        <MediaQuery maxWidth={960}>
+                            <img className={classes.src} src={smSrc} alt='a gif or image to help explain.' />
+                        </MediaQuery>
+                        <MediaQuery minWidth={960}>
+                            <img className={classes.src} src={lgSrc} alt='a gif or image to help explain.' />
+                        </MediaQuery>
+                    </Box>
                 </Box>
             ) : null}
             {! img ? (

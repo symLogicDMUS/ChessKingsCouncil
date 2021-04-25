@@ -1,5 +1,5 @@
 import {modal} from "../../helpers/modal.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 import {darken} from "@material-ui/core/styles";

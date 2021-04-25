@@ -642,6 +642,7 @@ class CreatePiece extends React.Component {
                                         className={
                                             this.props.classes.show_offset
                                         }
+                                        isChecked={this.state.showOffsetText}
                                         control={
                                             <ShowOffsetText
                                                 theme={this.state.theme}
@@ -660,6 +661,7 @@ class CreatePiece extends React.Component {
                                     <MuiSwitch
                                         theme={this.state.theme}
                                         className={this.props.classes.show_span}
+                                        isChecked={this.state.showSpanText}
                                         control={
                                             <ShowSpanText
                                                 theme={this.state.theme}

@@ -1,9 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {fontSize002} from "../styles/fontSizes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     anonymous_login_button: (props) => ({
-        fontSize: fontSize002,
+        fontSize: '2vh',
         width: theme.typography.pxToRem(170),
         height: theme.typography.pxToRem(24),
         margin: "0.25em",

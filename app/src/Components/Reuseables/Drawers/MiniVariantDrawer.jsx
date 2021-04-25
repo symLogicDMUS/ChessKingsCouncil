@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
+import {useMediaQuery} from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -9,6 +10,8 @@ import { useStyles } from "./MiniVariantDrawer.jss";
 
 export default function MiniVariantDrawer({ theme, children }) {
     const classes = useStyles({ theme: theme });
+
+    const xsm = useMediaQuery('(max-width: 321px)');
 
     const [open, setOpen] = useState(false);
 
@@ -39,6 +42,7 @@ export default function MiniVariantDrawer({ theme, children }) {
                         [classes.drawerPaper]: true,
                         [classes.drawerOpen]: open,
                         [classes.drawerClose]: !open,
+                        [classes.minDrawerWidth]: xsm && open,
                     }),
                 }}
             >

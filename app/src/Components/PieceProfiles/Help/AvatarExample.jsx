@@ -7,6 +7,7 @@ export function AvatarExample(props) {
     return <Box
         className={clsx(props.classes.sqr_item_area, {
             [props.classes.item1]: true,
+            [props.classes.float]: true,
         })}
     >
         <Box className={props.classes.sqr_item}>

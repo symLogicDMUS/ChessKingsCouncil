@@ -3,9 +3,9 @@ import { Frame } from "framer";
 import { spanFrame, useStyles } from "./SquareText.jss";
 import { fade, Typography } from "@material-ui/core";
 import clsx from "clsx";
-import { themes } from "../../../styles/themes.jss";
+import { themes } from "../../../styles/themes/themes.jss";
 
-export function SpanLabel({ hasFabChild, theme }) {
+export function SpanLabel({ theme, showSpanText }) {
     const classes = useStyles({ theme: theme });
     return (
         <Frame
@@ -20,9 +20,11 @@ export function SpanLabel({ hasFabChild, theme }) {
             width="100%"
             height="100%"
         >
-            <Typography className={classes.sqr_text}>
-                span
-            </Typography>
+            {showSpanText && (
+                <Typography className={classes.sqr_text}>
+                    span
+                </Typography>
+            )}
         </Frame>
     );
 }

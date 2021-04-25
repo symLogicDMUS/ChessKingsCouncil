@@ -1,4 +1,4 @@
-import {themes} from "../styles/themes.jss";
+import {themes} from "../styles/themes/themes.jss";
 import {fontSize002} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {

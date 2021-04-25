@@ -1,6 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {darken, lighten} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {darken} from "@material-ui/core/styles";
+import {themes} from "../../styles/themes/themes.jss";
+import {marginBottom} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     tool_window: props => ({
@@ -17,7 +18,7 @@ export const useStyles = makeStyles({
             marginBottom: '2.5vw',
         },
         '@media screen and (min-width: 960px)': {
-            marginBottom: '1.15vw',
+            marginBottom: marginBottom,
         },
 
         /*root*/

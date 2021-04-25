@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles"
 import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
 import {viewHeight, viewWidth} from "../helpers/windowMeasurments";
 import {fontSize012, fontSize0018, fontSizeW015,} from "../styles/fontSizes.jss";
-import {themes} from "../styles/themes.jss";
+import {themes} from "../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     new_game: props => ({

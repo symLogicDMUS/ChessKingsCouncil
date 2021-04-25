@@ -1,8 +1,8 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
-const itemSizeSm = 150;
-const itemSizeLg = 175;
+export const itemSizeSm = 150;
+export const itemSizeLg = 175;
 
 export const useStyles = makeStyles({
     profile_wb_example: props => ({
@@ -18,8 +18,6 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             width: itemSizeLg,
         },
-        float: 'left',
-        marginRight: '1rem',
     }),
     sqr_item: props => ({
         '@media screen and (max-width: 960px)': {
@@ -33,9 +31,17 @@ export const useStyles = makeStyles({
         outline: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     sqr_item_header: props => ({
-        width: '100%',
+        '@media screen and (max-width: 960px)': {
+            width: itemSizeSm,
+        },
+        '@media screen and (min-width: 960px)': {
+            width: itemSizeLg,
+        },
         textAlign: 'center',
-        outline: `0.05rem solid ${themes[props.theme].outline}`,
+    }),
+    float: props => ({
+        float: 'left',
+        marginRight: '1rem',
     }),
     item1: props => ({
         marginTop: '0.35rem',

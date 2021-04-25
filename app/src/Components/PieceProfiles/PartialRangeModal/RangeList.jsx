@@ -57,24 +57,25 @@ export function RangeList({
                 <ScrollTable
                     numRows={5}
                     theme={theme}
-                    listItems={getOffsetListItems()}
                     listItemClassName={classes.row_style}
                     className={classes.range_list_style}
                     addedClassName={classes.range_list_style}
                     arrowButtonClassName={classes.button_style}
                 >
+                    {getOffsetListItems()}
                 </ScrollTable>
             ) : null}
             {rangeType === "span" ? (
                 <ScrollTable
                     numRows={5}
                     theme={theme}
-                    listItems={getSpanListItems()}
                     listItemClassName={classes.row_style}
                     className={classes.range_list_style}
                     addedClassName={classes.range_list_style}
                     arrowButtonClassName={classes.button_style}
-                />
+                >
+                    {getSpanListItems()}
+                </ScrollTable>
             ) : null}
         </>
     );

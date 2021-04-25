@@ -1,7 +1,7 @@
 import React from "react";
 import {motion} from "framer-motion";
 import {lighten} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {Typography} from "@material-ui/core";
 import { useStyles } from "./LocationSqrGrow.jss";
 

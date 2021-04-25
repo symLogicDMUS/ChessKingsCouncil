@@ -1,5 +1,5 @@
 import {darken, makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {availHeight} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles({

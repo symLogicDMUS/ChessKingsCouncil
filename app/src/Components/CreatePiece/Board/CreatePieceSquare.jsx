@@ -45,12 +45,13 @@ export const CreatePieceSquare = memo(
                 style={rf === pieceLoc && hover ? pieceLocHover(theme) : null}
                 disableRipple={hasToolChild}
             >
-                {isSpan && showSpanText && !hasToolChild ? (
-                    <SpanLabel theme={theme} hasFabChild={hasFabChild} />
+                {isSpan && !hasToolChild ? (
+                    <SpanLabel theme={theme} hasFabChild={hasFabChild} showSpanText={showSpanText} />
                 ) : null}
-                {isOffset && showOffsetText && !hasToolChild ? (
+                {isOffset &&  !hasToolChild ? (
                     <OffsetLabel
                         offset={getOffset(rf, pieceLoc)}
+                        showOffsetText={showOffsetText}
                         hasFabChild={hasFabChild}
                         theme={theme}
                     />

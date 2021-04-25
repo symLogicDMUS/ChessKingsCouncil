@@ -10,8 +10,6 @@ import PermanentDrawerLeft from "./PermanentDrawerLeft";
 import PersistentDrawerLeft from "./PersistantDrawerLeft";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./ResponsiveDrawer.jss";
-import {MoreHoriz} from "@material-ui/icons";
-import IconButton from "@material-ui/core/IconButton";
 
 
 /**

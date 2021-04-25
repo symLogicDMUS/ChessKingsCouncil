@@ -1,5 +1,5 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({

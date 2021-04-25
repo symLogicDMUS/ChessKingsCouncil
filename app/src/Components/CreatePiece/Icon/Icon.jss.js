@@ -1,23 +1,15 @@
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {marginBottom} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
-    icon_tool: props => ({
-        '@media screen and (max-width: 960px)': {
-            position: 'absolute',
-            width: '100vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: '22.5vw',
-            marginBottom: '1.15vw',
-        },
-    }),
     img_windows_flexbox: props => ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'nowrap',
+        marginBottom: marginBottom,
     }),
     title: props => ({
         fontSize: '1.8vh',

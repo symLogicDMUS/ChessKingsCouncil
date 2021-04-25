@@ -81,7 +81,7 @@ function NewGame() {
                 navBar={
                     <NavBar
                         currentPage="NewGame"
-                        helpText={GameOptionsHelp('4.5vh', theme)}
+                        helpText={GameOptionsHelp(theme)}
                         helpTitle={<HelpTitle theme={theme} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}

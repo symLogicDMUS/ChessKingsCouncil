@@ -1,6 +1,6 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import {fade} from "@material-ui/core";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 /**
  * see ChessKingsCouncil/app/src/Reuseables/Square.jss for more

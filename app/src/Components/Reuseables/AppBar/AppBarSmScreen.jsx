@@ -16,7 +16,7 @@ function AppBarSmScreen({open, handleDrawerToggle, elevation, theme, className, 
             position="fixed"
             elevation={elevation}
             className={clsx(classes2.appBar, {
-                [classes.appBarCompressed]: open,
+                // [classes.appBarCompressed]: open,
                 [classes.appBarRelaxed]: !open,
                 [className]: className,
             })}

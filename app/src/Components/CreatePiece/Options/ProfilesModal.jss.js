@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { modal } from "../../helpers/modal.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({

@@ -1,4 +1,4 @@
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
 

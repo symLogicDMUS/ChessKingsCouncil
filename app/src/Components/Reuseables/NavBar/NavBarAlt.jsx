@@ -1,12 +1,17 @@
 import React from "react";
+import clsx from "clsx";
 import {NavBarButtonAlt} from "./NavBarButtonAlt";
 import { useStyles } from "./NavBarAlt.jss";
 
-export function NavBarAlt({theme}) {
+export function NavBarAlt({theme, className}) {
     const classes = useStyles({theme});
 
     return (
-        <div className={classes.navBarAlt}>
+        <div className={
+            clsx(classes.navBarAlt, {
+                [className]: className,
+            })}
+        >
             <NavBarButtonAlt path="/" isLocalLink={true} theme={theme} pageIcon={'home'}>
                 Home
             </NavBarButtonAlt>

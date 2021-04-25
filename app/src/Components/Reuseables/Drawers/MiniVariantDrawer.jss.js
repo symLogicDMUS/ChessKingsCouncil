@@ -1,9 +1,9 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
-import {rightDrawerWidth} from "./ResponsiveDrawer.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 const z = 6;
 export const miniVariantIconsColumnWidth = 56;
+export const miniVariantOpenWidth = '40vw';
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -21,14 +21,11 @@ export const useStyles = makeStyles((theme) => ({
     }),
     drawerOpen: props => ({
         zIndex: z,
-        width: rightDrawerWidth,
+        width: miniVariantOpenWidth,
         transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
-        '@media screen and (max-width: 780px)': {
-            minWidth: 168,
-        },
     }),
     drawerClose: props => ({
         zIndex: z,
@@ -51,15 +48,15 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         color: themes[props.theme].text,
     }),
-    chevronClosed: props =>  ({
+    chevronClosed: props => ({
         zIndex: z,
         margin: 'auto',
     }),
-    chevronOpen: props =>  ({
+    chevronOpen: props => ({
         zIndex: z,
         marginRight: 'auto',
     }),
-    content: props =>  ({
+    content: props => ({
         zIndex: z,
         flexGrow: 1,
     }),
@@ -75,5 +72,8 @@ export const useStyles = makeStyles((theme) => ({
                 marginRight: 4,
             },
         },
+    }),
+    minDrawerWidth: props => ({
+        minWidth: 180,
     }),
 }), {index: 1});

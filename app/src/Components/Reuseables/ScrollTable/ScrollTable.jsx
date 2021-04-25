@@ -10,9 +10,9 @@ import { reducer } from "./ScrollTable.red";
 import { useStyles } from "./ScrollTable.jss";
 
 function ScrollTable({
-    listItems,
-    title,
     numRows,
+    title,
+    theme,
     className,
     listItemClassName,
     arrowButtonClassName,
@@ -23,14 +23,14 @@ function ScrollTable({
     arrowIconBottomClassName,
     textClassName,
     disableArrows,
-    theme,
+    children,
 }) {
     const classes = useStyles({theme: theme});
 
     const [state, dispatch] = useReducer(reducer, {
-        dataLists: divideList(listItems, numRows),
+        dataLists: divideList(children, numRows),
         componentList: renderList(
-            divideList(listItems, numRows).inView,
+            divideList(children, numRows).inView,
             numRows,
             classes,
             textClassName,
@@ -41,13 +41,13 @@ function ScrollTable({
     useEffect(() => {
         dispatch({
             type: "update",
-            listItems: listItems,
+            listItems: children,
             numRows: numRows,
             classes: classes,
             textClassName: textClassName,
             listItemClassName: listItemClassName,
         });
-    }, [listItems.length, listItemClassName, textClassName, classes, numRows]);
+    }, [children.length, listItemClassName, textClassName, classes, numRows]);
 
     return (
         <Box

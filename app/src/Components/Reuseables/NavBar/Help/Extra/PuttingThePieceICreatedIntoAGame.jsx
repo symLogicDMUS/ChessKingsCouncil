@@ -3,10 +3,8 @@ import {HelpSlide} from "../HelpSlide";
 import {Typography} from "@material-ui/core";
 import {SeeExampleButton} from "../SeeExampleButton";
 import {useStyles as useMoreStyles} from "../HelpText.jss";
-import {useStyles} from "./GifDiagrams.jss";
 
 function PuttingThePieceICreatedIntoAGame(props) {
-    const classes = useStyles({theme: props.theme});
     const classes2 = useMoreStyles({theme: props.theme});
 
     return <HelpSlide
@@ -16,7 +14,7 @@ function PuttingThePieceICreatedIntoAGame(props) {
         updateTheme={props.updateTheme}
     >
         <Typography  className={classes2.text} paragraph>
-            <ol className={classes.ordered_list}>
+            <ol>
                 <li>
                     <div className={classes2.flex}>
                         Go to the New Game Page.
@@ -42,25 +40,31 @@ function PuttingThePieceICreatedIntoAGame(props) {
                 <li>click the OK button.</li>
             </ol>
             <Typography className={classes2.text} paragraph>
-                On large screens the options are 4 icons
+                <SeeExampleButton
+                    isText={true}
+                    theme={props.theme}
+                    lgSrc={"Images/gif/wide/sub buttons.png"}
+                    smSrc={"Images/gif/wide/sub buttons.png"}
+                >
+                    On large screens the sub options are 4 icons: Queen, Rook, Knight, and Bishop.
+                </SeeExampleButton>
+                <SeeExampleButton
+                    isText={true}
+                    theme={props.theme}
+                    lgSrc={"Images/gif/thin/subs dropdown.png"}
+                    smSrc={"Images/gif/thin/subs dropdown.png"}
+                >
+                    On smaller screens the 4 icons are in a dropdown.
+                </SeeExampleButton>
                 <SeeExampleButton
                     theme={props.theme}
-                    smSrc={'/Images/gif/wide/subbing piece.gif'}
+                    smSrc={'/Images/gif/thin/subbing piece.gif'}
                     lgSrc={'/Images/gif/wide/subbing piece.gif'}
                     addedText={'(6-8)'}
                 />
             </Typography>
-            <Typography className={classes2.text} paragraph>
-                On small screens these options are in a dropdown
-                <SeeExampleButton
-                    theme={props.theme}
-                    smSrc={'/Images/gif/thin/select-piece-as-sub.gif'}
-                    lgSrc={'/Images/gif/thin/select-piece-as-sub.gif'}
-                    addedText={'(6-8)'}
-                />
-            </Typography>
         </Typography>
-        <Typography className={classes.text}>
+        <Typography className={classes2.text}>
             The game starts with your piece in place of the piece you subbed for.
             <SeeExampleButton
                 theme={props.theme}

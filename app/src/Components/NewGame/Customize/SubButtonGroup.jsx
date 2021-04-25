@@ -3,7 +3,7 @@ import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import BlockIcon from "@material-ui/icons/Block";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { themes } from "../../styles/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SubButtonGroup.jss";
 

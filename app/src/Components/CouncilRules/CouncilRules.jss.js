@@ -1,122 +1,70 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {availHeight, availWidth} from "../helpers/windowMeasurments";
-import {getTextWidth} from "../helpers/getTextWidth.jss";
-import {
-    fontSize002,
-    fontSize00301,
-    fontSizeW01,
-    fontSize01, fontSize018,
-} from "../styles/fontSizes.jss";
-import {appBarHeight} from "../Reuseables/Drawers/PersistentDrawer.jss";
+import {themes} from "../styles/themes/themes.jss";
 
-export const parchment = () => ({
-    '@media screen and (min-width: 960px)': {
-        width: availWidth() * 0.8,
-        height: availHeight() * 0.8,
-    },
-    '@media screen and (max-width: 960px)': {
-        width: availWidth()*0.95,
-        height: availHeight()*0.88 - appBarHeight,
-        flexGrow: 100,
-    },
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-});
+const drawerWidth = 215;
 
-export const useStyles = makeStyles({
-
-    council_rules: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: '100%',
-            height: availHeight(),
-        },
-        '@media screen and (max-width: 960px)': {
-            width: '99%',
-            height: availHeight() * 0.88,
-        },
+export const useStyles = makeStyles((theme) => ({
+    root: props => ({
         display: 'flex',
-        flexDirection: 'column',
+    }),
+    appBar: props => ({
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        backgroundColor: themes[props.theme].fill,
+        zIndex: 10,
+    }),
+    appBarShift: props => ({
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        transition: theme.transitions.create(['margin', 'width'], {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+    }),
+    menuButton: props => ({
+        marginRight: theme.spacing(2),
+        color: themes[props.theme].text,
+    }),
+    hide: props => ({
+        display: 'none',
+    }),
+    drawer: props => ({
+        width: drawerWidth,
+        flexShrink: 0,
+    }),
+    drawerPaper: props => ({
+        zIndex: 12,
+        width: drawerWidth,
+        backgroundColor: themes[props.theme].fill,
+    }),
+    drawerHeader: props => ({
+        display: 'flex',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
+        justifyContent: 'flex-end',
+    }),
+    content: props => ({
+        flexGrow: 1,
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+        }),
+        marginLeft: -drawerWidth,
+    }),
+    contentShift: props => ({
+        transition: theme.transitions.create('margin', {
+            easing: theme.transitions.easing.easeOut,
+            duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+    }),
+    text: props => ({
+        color: themes[props.theme].text,
     }),
     title: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize018,
-        },
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSizeW01,
-        },
-        color: 'black',
-        fontFamily: 'Garamond',
-        lineHeight: '1.2em',
+        flexGrow: 1,
     }),
-    parchment_wide: props => ({
-        ...parchment(),
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100%, 100%',
-        backgroundImage: 'url("/Images/CouncilRules/parchment.svg")',
-    }),
-    parchment_thin: props => ({
-        ...parchment(),
-        backgroundRepeat: 'repeat-y',
-        backgroundSize: '100%, 100%',
-        backgroundImage: 'url("/Images/CouncilRules/scroll-content.svg")',
-    }),
-    scroll_end_container: props => ({
-        width: availWidth(),
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    }),
-    scroll_end: props => ({
-        flexGrow: 10,
-        height: '100%',
-        minWidth: 'unset',
-    }),
-    kings_flexbox: props => ({
-        fontSize: fontSize002,
-        '@media screen and (min-width: 960px)': {
-            width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
-        },
-        '@media screen and (max-width: 960px)': {
-            width: getTextWidth('Council of Kings', fontSizeW01, 'Garamond'),
-        },
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    }),
-    king_icon: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize01,
-        },
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSize00301,
-        },
-        width: '1em',
-        height: '1em'
-    }),
-    paragraph: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize00301,
-            width: getTextWidth('Council of Kings', fontSize018, 'Garamond'),
-        },
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.5vw',
-            width: getTextWidth('Council of Kings', fontSizeW01, 'Garamond'),
-            flexGrow: 100,
-            height: availHeight() * 0.7,
-        },
-        fontFamily: 'Garamond',
-        color: 'black',
-    }),
-    //child of paragraph
-    rule_list: props => ({
-        marginTop: '-0.1em'
-    }),
-}, {index: 1});
+}), {index: 1});

@@ -1,7 +1,7 @@
 import React from "react";
 import Switch from "@material-ui/core/Switch";
 import {withStyles} from "@material-ui/core/styles";
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 
 export const ShowSpanText = withStyles({
     switchBase: props => ({

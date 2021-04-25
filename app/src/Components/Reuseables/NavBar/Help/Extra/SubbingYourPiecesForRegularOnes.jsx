@@ -1,20 +1,38 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import BlockIcon from "@material-ui/icons/Block";
-import { useStyles } from "./GifDiagrams.jss";
+import { useStyles } from "../HelpText.jss";
+import { SeeExampleButton } from "../SeeExampleButton";
 
-export function SubbingYourPiecesForRegularOnes({theme}) {
-    const classes = useStyles({theme: theme});
+export function SubbingYourPiecesForRegularOnes({ theme }) {
+    const classes = useStyles({ theme: theme });
 
     return (
-        <Box className={classes.flex_row}>
-            <img src={"/Images/gif/choosing a sub.gif"} alt='gif of making sub selections' className={classes.gif} />
-            <Typography className={classes.steps2}>
-                For each piece you would like to start the game, select the icon of the piece you want it to start in place
-                of then click the OK button. The <BlockIcon className={classes.icon} /> means the piece is not subbed for
-                anything, and is default.
-            </Typography>
-        </Box>
+        <Typography className={classes.text} paragraph>
+            For each piece you would like to start the game, select the icon of
+            the piece you want it to start in place of then click the OK button.{" "}
+            <SeeExampleButton
+                isText={true}
+                theme={theme}
+                lgSrc={"Images/gif/wide/sub buttons.png"}
+                smSrc={"Images/gif/wide/sub buttons.png"}
+            >
+                On larger screens the icons are on the right side of a piece's
+                profile header.
+            </SeeExampleButton>
+            <SeeExampleButton
+                isText={true}
+                theme={theme}
+                lgSrc={"Images/gif/thin/subs dropdown.png"}
+                smSrc={"Images/gif/thin/subs dropdown.png"}
+            >
+                On smaller screens the icons are in a dropdown.
+            </SeeExampleButton>
+            <SeeExampleButton
+                smSrc={'/Images/gif/thin/subbing piece.gif'}
+                lgSrc={'/Images/gif/thin/subbing piece.gif'}
+                theme={theme}
+            />
+        </Typography>
     );
 }

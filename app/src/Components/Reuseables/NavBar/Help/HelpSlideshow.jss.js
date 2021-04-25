@@ -1,4 +1,4 @@
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
 const buttonHeight = '2rem';
@@ -6,6 +6,9 @@ const buttonWidth = '7.5rem';
 
 export const useStyles = makeStyles({
     window: props => ({
+        position: 'absolute',
+        top: 0,
+        left: 0,
         width: '100vw',
         height: '100vh',
         zIndex: 12,

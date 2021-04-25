@@ -1,5 +1,6 @@
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import {darken, lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     window: props => ({
@@ -9,33 +10,33 @@ export const useStyles = makeStyles({
         width: '100vw',
         height: '100vh',
         zIndex: 11,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        overflowY: 'scroll',
     }),
-    help_table: props => ({
-        width: '100vw',
-        height: '95vh',
-        zIndex: 11,
+    accordion: props => ({
+        "& .MuiAccordionSummary-root": {
+            backgroundColor: darken(themes[props.theme].fill, 0.035),
+            borderBottom: `0.05rem solid ${themes[props.theme].odd_row}`,
+        },
+        "& .MuiAccordionDetails-root": {
+            backgroundColor: darken(themes[props.theme].fill, 0.02),
+        },
+        "& .MuiSvgIcon-root": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].text,
+        },
+    }),
+    accordion_summary_text: props => ({
+        color: themes[props.theme].text,
+        fontSize: '1rem',
+    }),
+    list: props => ({
+        width: '100%',
     }),
     list_item: props => ({
-        flexGrow: 2,
-        paddingLeft: 12,
-        paddingBottom: '0.1rem'
-    }),
-
-    arrow_button_top: props => ({
-        display: 'none',
-    }),
-    arrow_button_bottom: props => ({
-        height: '2rem',
-        borderRadius: 0,
-        border: `0.075rem solid ${themes[props.theme].outline}`,
-        "& .MuiSvgIcon-root": {
-            display: 'none',
-        },
-    }),
-    text: props => ({
-        '&:hover': {
-            color: themes[props.theme].sqr_hover_alt,
-        },
+        color: themes[props.theme].text,
     }),
     top: props => ({
         width: '100%',
@@ -44,7 +45,7 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: darken(themes[props.theme].fill, 0.035),
         '@media screen and (max-width: 412px)': {
             borderTopLeftRadius: '0.35em',
             borderTopRightRadius: '0.35em',

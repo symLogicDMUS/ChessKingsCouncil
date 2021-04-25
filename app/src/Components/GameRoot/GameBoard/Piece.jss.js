@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
     piece: props => ({
         cursor: 'grab',
         width: props.sqrSize * 0.95,
-        height: props.sqrSize * 0.95,
+        maxHeight: props.sqrSize * 0.95,
         textAlign: 'center',
         verticalAlign: 'center'
     }),

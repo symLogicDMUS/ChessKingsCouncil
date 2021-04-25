@@ -1,145 +1,252 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import {ListItem} from "../../ScrollTable/ListItem";
-import ScrollTable from "../../ScrollTable/ScrollTable";
-import {useStyles} from "./HelpTable.jss";
+import { NavBarAlt } from "../NavBarAlt";
+import { Close } from "../../Modals/Close";
+import { Typography } from "@material-ui/core";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import MuiAccordion from "../../Accordions/MuiAccordion";
 import TemporaryDrawerButton from "../../Drawers/TemporaryDrawerButton";
-import {NavBarAlt} from "../NavBarAlt";
-import {Close} from "../../Modals/Close";
+import { useStyles as useMoreStyles } from "./HelpText.jss";
+import { useStyles } from "./HelpTable.jss";
 
-export function HelpTable({setHelpItem, onClose, theme, updateTheme}) {
-    const classes = useStyles({theme: theme});
+export function HelpTable({ setHelpItem, onClose, theme }) {
+    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({ theme: theme });
 
-    const listItems = [
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("putting created piece into a game")}
-        >
-            Putting the Piece I Created Into a Game
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("New Game (all)")}
-        >
-            New Game Page (all)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("game types")}
-        >
-            Game Types
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("player types")}
-        >
-            Player Types
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("Load Game (all)")}
-        >
-            Load Game Page (all)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("Create Piece (all)")}
-        >
-            Creating Piece Page (all)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("invalid pieces names")}
-        >
-            Invalid Piece Names
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("uploading images for your piece")}
-        >
-            Uploading Images For Your Piece
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("offsets and spans explained")}
-        >
-            Offsets and Spans Explained
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("location of the piece on the board when creating it")}
-        >
-            Location of the Piece on the Board When Creating it
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("create piece page options")}
-        >
-            Create Piece Page Options (Load, Save, Reset, Erase)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("Saved Pieces (all)")}
-        >
-            Saved Pieces Page (all)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("subbing your pieces for regular ones")}
-        >
-            Subbing Your Pieces For Regular ones
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("make your piece a pawn promotion option")}
-        >
-            Making Your Piece an Option for Pawns to Promote to
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("GameRoot (all)")}
-        >
-            Play Game Page (all)
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("range display")}
-        >
-            Range Display
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("piece profiles")}
-        >
-            Piece Profiles
-        </ListItem>,
-        <ListItem
-            theme={theme}
-            onClick={() => setHelpItem("Customize (all)")}
-        >
-            Customize Game Page (all)
-        </ListItem>,
-    ]
     return (
         <div className={classes.window}>
             <Box className={classes.top}>
-                <TemporaryDrawerButton theme={theme}> <NavBarAlt theme={theme} updateTheme={updateTheme} /></TemporaryDrawerButton>
-                <Typography variant='button' className={classes.title}>Help</Typography>
+                <TemporaryDrawerButton theme={theme}>
+                    {" "}
+                    <NavBarAlt theme={theme} />
+                </TemporaryDrawerButton>
+                <Typography variant="button" className={classes.title}>
+                    Help
+                </Typography>
                 <Close onClick={onClose} theme={theme} />
             </Box>
-            <ScrollTable
-                theme={theme}
-                listItems={listItems}
-                numRows={listItems.length}
-                className={classes.help_table}
-                listItemClassName={classes.list_item}
-                arrowButtonTopClassName={classes.arrow_button_top}
-                arrowButtonBottomClassName={classes.arrow_button_bottom}
-                textClassName={classes.text}
-                disableArrows={true}
-            />
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        Creating a Piece
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem("putting created piece into a game")
+                        }
+                    >
+                        Putting the Piece I Created Into a Game
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("naming a piece")}
+                    >
+                        Naming a Piece and Invalid Names
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem("uploading images for your piece")
+                        }
+                    >
+                        Uploading Images For Your Piece
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem("offsets and spans explained")
+                        }
+                    >
+                        Offsets and Spans Explained
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem(
+                                "location of the piece on the board when creating it"
+                            )
+                        }
+                    >
+                        Location of the Piece on the Board When Creating it
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("create piece page options")}
+                    >
+                        Options (Load, Save, Reset, Erase)
+                    </ListItem>
+                </List>
+            </MuiAccordion>
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        Customizing a game
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem("subbing your pieces for regular ones")
+                        }
+                    >
+                        Subbing Your Pieces For Regular ones
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem(
+                                "make your piece a pawn promotion option"
+                            )
+                        }
+                    >
+                        Making Your Piece an Option for Pawns to Promote to
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("piece profiles")}
+                    >
+                        Piece Profiles
+                    </ListItem>
+                </List>
+            </MuiAccordion>
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        Playing a Game
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("range display")}
+                    >
+                        Range Analysis Board
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("playing the game")}
+                    >
+                        Playing a Game
+                    </ListItem>
+                </List>
+            </MuiAccordion>
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        New Game Page
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("game name")}
+                    >
+                        Game Name
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("game types")}
+                    >
+                        Game Types
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("player types")}
+                    >
+                        Player Types
+                    </ListItem>
+                </List>
+            </MuiAccordion>
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        Load Game Page
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("game image grid")}
+                    >
+                        Game Image Grid
+                    </ListItem>
+                </List>
+            </MuiAccordion>
+            <MuiAccordion
+                className={classes.accordion}
+                heading={
+                    <Typography
+                        className={classes.accordion_summary_text}
+                        noWrap
+                    >
+                        Saved Pieces Page
+                    </Typography>
+                }
+            >
+                <List className={classes.list}>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() => setHelpItem("piece profiles")}
+                    >
+                        Piece Profiles
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.list_item}
+                        onClick={() =>
+                            setHelpItem("loading and deleting pieces")
+                        }
+                    >
+                        Loading and Deleting Pieces
+                    </ListItem>
+                </List>
+            </MuiAccordion>
         </div>
     );
 }

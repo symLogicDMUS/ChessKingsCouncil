@@ -1,4 +1,4 @@
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const arrowSizeSm = '100%';
@@ -38,11 +38,9 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button_normal: props => ({
-        '@media screen and (min-width: 960px)': {
-            backgroundColor: themes[props.theme].button_fill,
-            '&:hover': {
-                backgroundColor: themes[props.theme].text_alt,
-            },
+        backgroundColor: themes[props.theme].fill,
+        '&:hover': {
+            backgroundColor: themes[props.theme].text_alt,
         },
     }),
     arrow_button_selected: props => ({
@@ -79,6 +77,18 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             color: themes[props.theme].text,
         },
+    }),
+    vector_sm_active: props => ({
+        color: themes[props.theme].arrow_inactive,
+    }),
+    vector_sm_inactive: props => ({
+        color: themes[props.theme].arrow_inactive,
+    }),
+    vector_lg_active: props => ({
+        color: themes[props.theme].sqr_text,
+    }),
+    vector_lg_inactive: props => ({
+        color: themes[props.theme].text,
     }),
     mid: props => ({
         width: '3.2125vw',

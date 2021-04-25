@@ -1,4 +1,4 @@
-import React, {memo} from "react";
+import React, {memo, useState} from "react";
 import clsx from "clsx";
 import {Frame} from "framer";
 import Box from "@material-ui/core/Box";
@@ -34,7 +34,6 @@ const ArrowButton = memo(
                         <IconButton
                             onClick={() => toggleSpan(angle)}
                             className={clsx(classes.arrow_button, {
-                                [classes.arrow_button_normal]: !isActive,
                                 [classes.arrow_button_selected]: isActive,
                                 [classes.arrow_button_adjust]: isOffset && !isActive,
                                 [classes.hover]: true,
@@ -42,8 +41,8 @@ const ArrowButton = memo(
                         >
                             <SvgIcon
                                 className={clsx(classes.vector, {
-                                    [classes.vector_active]: isActive,
-                                    [classes.vector_inactive]: !isActive,
+                                    [classes.vector_sm_active]: isActive,
+                                    [classes.vector_sm_inactive]: !isActive,
                                 })}
                             >
                                 {icons[screenCase + "-" + angle]}
@@ -66,8 +65,8 @@ const ArrowButton = memo(
                         >
                             <SvgIcon
                                 className={clsx(classes.vector, {
-                                    [classes.vector_active]: isActive,
-                                    [classes.vector_inactive]: !isActive,
+                                    [classes.vector_lg_active]: isActive,
+                                    [classes.vector_lg_inactive]: !isActive,
                                 })}
                             >
                                 {icons[screenCase + "-" + angle]}

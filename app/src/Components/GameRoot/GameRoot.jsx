@@ -20,7 +20,6 @@ import {initPawnIds} from "../../game_logic/JsonRecords/initPawnIds";
 import {update} from "../../game_logic/callHierarchyTop/update";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {updateCountsOnOverwrite} from "../../API/updateCountsOnOverwrite";
-import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
@@ -36,7 +35,7 @@ import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {Fen} from "../../game_logic/fenParser/Fen";
-import {GameRootHelp} from "./Help/GameRootHelp";
+import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
 
@@ -512,12 +511,9 @@ class GameRoot extends React.Component {
                     navBar={
                         <NavBar
                             currentPage="GameRoot"
-                            helpText={GameRootHelp(fontSizeW0045, this.state.theme)}
+                            helpText={PlayingGameHelp(this.state.theme)}
                             helpTitle={
-                                <HelpTitle
-                                    theme={this.state.theme}
-                                    fontSize={fontSize0026}
-                                >
+                                <HelpTitle theme={this.state.theme} fontSize='2.6vh'>
                                     Playing a Game
                                 </HelpTitle>
                             }

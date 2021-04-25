@@ -3,9 +3,10 @@ import {Close} from "../Modals/Close";
 import Box from "@material-ui/core/Box";
 import MenuItem from "@material-ui/core/MenuItem";
 import {MuiDropdown} from "../UserInput/MuiDropdown";
-import {specialThemeList, themesMenuItemList} from "../../styles/themes.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {useStyles} from "./SettingsModal.jss";
+import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import {themesMenuItemList} from "../../styles/themes/themeMenuItemList.jss";
 
 export function SettingsModal(props) {
     const isWide = useMediaQuery("(min-width: 960px)");

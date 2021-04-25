@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../../styles/icons/top/icons.jss";
 import {useStyles} from "./ResolvePieceIcon.jss";

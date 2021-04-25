@@ -1,6 +1,6 @@
 import React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
-import {themeList} from "../../../Components/styles/themes.jss";
+import {themeList} from "../../../Components/styles/themes/themeList.jss";
 
 export const getFranchiseThemeOverride = (theme) => {
     if (themeList.includes(theme)) {

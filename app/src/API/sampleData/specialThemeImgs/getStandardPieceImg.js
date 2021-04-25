@@ -1,6 +1,6 @@
-import {specialThemeList} from "../../../Components/styles/themes.jss";
 import {getFranchisePieceImg} from "./getFranchisePieceImg";
 import {getPieceImg} from "./getPieceImg";
+import {specialThemeList} from "../../../Components/styles/themes/specialThemeList.jss";
 
 export const getStandardPieceImg = (id, idDict, defs, theme) => {
     if (specialThemeList.includes(theme)) {

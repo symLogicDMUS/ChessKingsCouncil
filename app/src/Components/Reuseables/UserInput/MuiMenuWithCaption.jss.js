@@ -1,4 +1,4 @@
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {fade, lighten} from '@material-ui/core/styles';
 
 export const styles = {

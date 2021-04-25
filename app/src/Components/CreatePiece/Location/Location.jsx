@@ -8,18 +8,14 @@ import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 const LocationButton = React.lazy(() => import('./LocationButton'));
 
 function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool }) {
-    const classes2 = useMoreStyles({ theme: theme });
+    const classes = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
 
     return (
         <MediaQuery minWidth={960}>
-            <span
-                className={clsx(classes2.four_button_group, {
-                    [classes2.tool_flexbox]: isWide,
-                })}
-            >
+            <span className={classes.four_button_group}>
                 {isWide ? (
-                    <Typography className={classes2.tool_title}>
+                    <Typography className={classes.tool_title}>
                         Location
                     </Typography>
                 ) : null}

@@ -15,31 +15,32 @@ export function ToolModal({
     className,
     children,
 }) {
-    // const [drag, setDrag] = useState(false);
+    const [drag, setDrag] = useState(false);
 
     const classes = useStyles({ theme: theme });
 
     return (
         <Portal>
-            <ClickAwayListener
-                onClickAway={onClose}
-                mouseEvent="onMouseDown"
-                touchEvent="onTouchStart"
-            >
-                <Slide
-                    in={isIn}
-                    mountOnEnter
-                    unmountOnExit
-                    onExit={onExit}
-                    // onEnter={() => setDrag(true)}
-                    direction={direction}
+            <div className={classes.modal}>
+                <ClickAwayListener
+                    onClickAway={onClose}
+                    mouseEvent="onMouseDown"
+                    touchEvent="onTouchStart"
                 >
-                    <motion.div
-                        // drag={drag}
-                        className={clsx(classes.window, {
-                            [className]: className,
-                        })}
+                    <Slide
+                        in={isIn}
+                        mountOnEnter
+                        unmountOnExit
+                        onExit={onExit}
+                        onEnter={() => setDrag(true)}
+                        direction={direction}
                     >
+                        <motion.div
+                            drag={drag}
+                            className={clsx(classes.window, {
+                                [className]: className,
+                            })}
+                        >
                         <span className={classes.top_area}>
                             <DragIndicator
                                 className={clsx(classes.icon, {
@@ -55,10 +56,11 @@ export function ToolModal({
                                 })}
                             />
                         </span>
-                        {children}
-                    </motion.div>
-                </Slide>
-            </ClickAwayListener>
+                            {children}
+                        </motion.div>
+                    </Slide>
+                </ClickAwayListener>
+            </div>
         </Portal>
     );
 }

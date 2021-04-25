@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { themes } from "../../styles/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";

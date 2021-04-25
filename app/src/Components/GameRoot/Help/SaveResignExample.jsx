@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import {IconButton, SvgIcon} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {icons} from "../../styles/icons/top/icons.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import { useStyles } from "../SaveResignTool/SaveResignTool.jss";
 
 export function SaveResignExample({theme}) {

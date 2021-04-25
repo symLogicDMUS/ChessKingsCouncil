@@ -4,7 +4,7 @@ import { Frame } from "framer";
 import MediaQuery from "react-responsive/src";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-import { themes } from "../../styles/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import {frame, useStyles } from "./LocationButton.jss";
 import {lighten} from "@material-ui/core/styles";

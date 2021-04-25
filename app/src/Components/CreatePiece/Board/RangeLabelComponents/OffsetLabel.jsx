@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core";
 import {offsetFrame, spanFrame, useStyles} from "./SquareText.jss";
 import {Frame} from "framer";
 
-export function OffsetLabel({offset, hasFabChild, theme}) {
+export function OffsetLabel({offset, showOffsetText, theme}) {
 
     const classes = useStyles({theme: theme})
 
@@ -31,11 +31,13 @@ export function OffsetLabel({offset, hasFabChild, theme}) {
             height="100%"
             style={offsetFrame(theme)}
         >
-            <Typography className={classes.sqr_text} nowrap>
-                x {xSign} {Math.abs(offset[0])}
-                < br />
-                y {ySign} {Math.abs(offset[1])}
-            </Typography>
+            {showOffsetText && (
+                <Typography className={classes.sqr_text} nowrap>
+                    x {xSign} {Math.abs(offset[0])}
+                    < br />
+                    y {ySign} {Math.abs(offset[1])}
+                </Typography>
+            )}
         </Frame>
     )
 }

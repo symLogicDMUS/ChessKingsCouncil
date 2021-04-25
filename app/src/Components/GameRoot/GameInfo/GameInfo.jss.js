@@ -1,6 +1,6 @@
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     game_info_modal: props => ({

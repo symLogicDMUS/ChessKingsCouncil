@@ -9,12 +9,12 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    sodipodi:docname="BR.svg"
-   id="svg26"
+   id="svg18"
    height="100"
    width="100"
    version="1.1">
   <metadata
-     id="metadata32">
+     id="metadata24">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -26,19 +26,19 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs30" />
+     id="defs22" />
   <sodipodi:namedview
-     inkscape:current-layer="svg26"
+     inkscape:current-layer="svg18"
      inkscape:window-maximized="1"
      inkscape:window-y="-9"
-     inkscape:window-x="-9"
-     inkscape:cy="12.979182"
-     inkscape:cx="-21.896746"
-     inkscape:zoom="3.0445856"
+     inkscape:window-x="69"
+     inkscape:cy="89.022017"
+     inkscape:cx="-37.000662"
+     inkscape:zoom="3.096503"
      showgrid="false"
-     id="namedview28"
-     inkscape:window-height="1001"
-     inkscape:window-width="1920"
+     id="namedview20"
+     inkscape:window-height="1051"
+     inkscape:window-width="1842"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0"
      guidetolerance="10"
@@ -49,52 +49,42 @@
      pagecolor="#ffffff"
      inkscape:document-rotation="0" />
   <g
-     transform="matrix(2.5396825,0,0,2.5396825,-6.6422323,-10.413381)"
-     id="g24"
-     style="opacity:1;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
-    <path
-       id="path2"
-       style="stroke-linecap:butt"
-       d="M 9,39 H 36 V 36 H 9 Z" />
-    <path
-       id="path4"
-       style="stroke-linecap:butt"
-       d="M 12.5,32 14,29.5 h 17 l 1.5,2.5 z" />
-    <path
-       id="path6"
-       style="stroke-linecap:butt"
-       d="m 12,36 v -4 h 21 v 4 z" />
-    <path
-       id="path8"
-       style="stroke-linecap:butt;stroke-linejoin:miter"
-       d="m 14,29.5 v -13 h 17 v 13 z" />
-    <path
-       id="path10"
-       style="stroke-linecap:butt"
-       d="M 14,16.5 11,14 h 23 l -3,2.5 z" />
-    <path
-       id="path12"
-       style="stroke-linecap:butt"
-       d="M 11,14 V 9 h 4 v 2 h 5 V 9 h 5 v 2 h 5 V 9 h 4 v 5 z" />
-    <path
-       id="path14"
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:miter"
-       d="m 12,35.5 h 21 v 0" />
-    <path
-       id="path16"
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:miter"
-       d="M 13,31.5 H 32" />
-    <path
-       id="path18"
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:miter"
-       d="M 14,29.5 H 31" />
-    <path
-       id="path20"
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:miter"
-       d="M 14,16.5 H 31" />
-    <path
-       id="path22"
-       style="fill:none;stroke:#ffffff;stroke-width:1;stroke-linejoin:miter"
-       d="M 11,14 H 34" />
+     id="g2026">
+    <g
+       id="g2015">
+      <g
+         transform="matrix(2.5399365,0,0,2.5399365,-6.6054761,-10.374965)"
+         id="g16"
+         style="opacity:1;fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#cb001e;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+        <path
+           id="path2"
+           style="stroke-linecap:butt;fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           d="M 9,39 H 36 V 36 H 9 Z" />
+        <path
+           id="path4"
+           style="stroke-linecap:butt;fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           d="m 12,36 v -4 h 21 v 4 z" />
+        <path
+           id="path6"
+           style="stroke-linecap:butt;fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           d="M 11,14 V 9 h 4 v 2 h 5 V 9 h 5 v 2 h 5 V 9 h 4 v 5" />
+        <path
+           style="fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           id="path8"
+           d="m 34,14 -3,3 H 14 l -3,-3" />
+        <path
+           id="path10"
+           style="stroke-linecap:butt;stroke-linejoin:miter;fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           d="M 31,17 V 29.5 H 14 V 17" />
+        <path
+           style="fill:#ff2a00;fill-opacity:1;stroke:#cb001e;stroke-opacity:1"
+           id="path12"
+           d="m 31,29.5 1.5,2.5 h -20 L 14,29.5" />
+        <path
+           id="path14"
+           style="fill:#ff2a00;stroke:#cb001e;stroke-linejoin:miter;fill-opacity:1;stroke-opacity:1"
+           d="M 11,14 H 34" />
+      </g>
+    </g>
   </g>
 </svg>

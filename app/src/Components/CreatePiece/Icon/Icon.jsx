@@ -9,7 +9,7 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggle
     const classes = useStyles({theme: theme});
 
     return (
-        <div className={classes.icon_tool}>
+        <>
             <MediaQuery minWidth={960}>
                 <Typography className={classes.title}>Icon</Typography>
                 <span className={classes.img_windows_flexbox}>
@@ -41,7 +41,7 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggle
                     toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </MediaQuery>
-        </div>
+        </>
     );
 }
 

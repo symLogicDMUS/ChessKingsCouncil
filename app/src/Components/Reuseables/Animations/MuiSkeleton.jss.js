@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import Box from "@material-ui/core/Box";
 import React from "react";
 

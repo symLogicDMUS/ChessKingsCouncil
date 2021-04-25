@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm} from "../PieceProfiles/constants.jss";
-import {themes} from "../styles/themes.jss";
+import {themes} from "../styles/themes/themes.jss";
 
 export const textColor = (theme) => ({color: themes[theme].text});
 

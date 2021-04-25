@@ -1,7 +1,7 @@
 import React from "react";
 import { Hidden, useMediaQuery} from "@material-ui/core";
-import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextField";
 import {ToolModal} from "../../NewGame/Customize/ToolModal";
+import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextField";
 import { useStyles } from "./Name.jss";
 
 function Name({

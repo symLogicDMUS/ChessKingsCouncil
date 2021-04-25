@@ -1,4 +1,4 @@
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 import {binaryBoard} from "../../../helpers/binaryBoard";
 import {fToTop, rToLeft} from "./profileWBCrdCnvrt";
 

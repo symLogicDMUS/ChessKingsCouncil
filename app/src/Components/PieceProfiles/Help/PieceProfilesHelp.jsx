@@ -1,9 +1,9 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import {SpansExample} from "./SpansExample";
 import {AvatarExample} from "./AvatarExample";
-import {OffsetsExample} from "./OffsetsExample";
+import {RangeExample} from "./RangeExample";
+import {dragonSrcStrWhite} from "./dragonSrcStr";
 import {useStyles as useMoreStyles} from
         "../../Reuseables/NavBar/Help/HelpText.jss";
 import {useStyles} from "./ProfileHelpText.jss";
@@ -11,7 +11,26 @@ import {useStyles} from "./ProfileHelpText.jss";
 export function PieceProfilesHelp(props) {
     const classes = useStyles({theme: props.theme});
     const classes2 = useMoreStyles({theme: props.theme});
-
+    const dragonOffsets = [
+        [-2,1],
+        [-1,2],
+        [1,2],
+        [2,1],
+        [2,-1],
+        [1,-2],
+        [-1,-2],
+        [-2,-1],
+    ];
+    const dragonSpans = [
+        "step_1sqr90d",
+        "step_1sqr45d",
+        "step_1sqr0d",
+        "step_1sqr315d",
+        "step_1sqr270d",
+        "step_1sqr225d",
+        "step_1sqr180d",
+        "step_1sqr135d",
+    ];
     return (
         <div>
             <Typography className={classes2.text} paragraph>
@@ -31,14 +50,28 @@ export function PieceProfilesHelp(props) {
                         Images For Your Piece</i> section.
                     </Typography>
                     <Typography className={classes2.text} paragraph>
-                        <SpansExample classes={classes} theme={props.theme}/>
+                        <RangeExample
+                            pieceImgStr={dragonSrcStrWhite}
+                            range={dragonSpans}
+                            rangeType="spans"
+                            theme={props.theme}
+                            item2={true}
+                            float={true}
+                        />
                         <div className={classes2.emphasis}>Spans</div> are how Rooks, Bishops and Queens move. A span
                         moves in 1 of 8 possible directions until a piece blocks the way or the end of the board is reached.
                         In the example show the Dragon is given all possible spans, like the Queen. One advantage of spans
                         is you can trap pieces on the path when moving would put their king in the way of the path.
                     </Typography>
                     <Typography className={classes2.text} paragraph>
-                        <OffsetsExample classes={classes} theme={props.theme}/>
+                        <RangeExample
+                            pieceImgStr={dragonSrcStrWhite}
+                            range={dragonOffsets}
+                            rangeType="offsets"
+                            theme={props.theme}
+                            item3={true}
+                            float={true}
+                        />
                         <div className={classes2.emphasis}>Offsets</div> are how Knights move. An offset combines moving
                         left or right some number of squares, with up or down some number of squares. As with the Knight,
                         all offsets 'jump' over any piece, i.e. it doesn't matter if a piece is in the path of motion.

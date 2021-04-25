@@ -3,7 +3,7 @@ import clsx from "clsx";
 import {MoreVert} from "@material-ui/icons";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import BlockIcon from "@material-ui/icons/Block";
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 import Typography from "@material-ui/core/Typography";
 import {icons} from "../../../styles/icons/top/icons.jss";
 import {InlinePromo} from "./InlinePromo";

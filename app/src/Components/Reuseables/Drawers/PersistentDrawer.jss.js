@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {viewWidth} from "../../helpers/windowMeasurments";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const appBarHeight = 48;
 export const neighborWidth = viewWidth()*0.5;

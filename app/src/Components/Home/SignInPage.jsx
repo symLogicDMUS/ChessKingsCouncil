@@ -27,7 +27,6 @@ function SignInPage(props) {
                             firebaseAuth={firebase.auth()}
                         />
                     </div>
-                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
             <MediaQuery maxWidth={960}>
@@ -43,7 +42,6 @@ function SignInPage(props) {
                             firebaseAuth={firebase.auth()}
                         />
                     </div>
-                    <FirebaseGuestLoginButton onClick={props.anonymousLogin}/>
                 </div>
             </MediaQuery>
         </>

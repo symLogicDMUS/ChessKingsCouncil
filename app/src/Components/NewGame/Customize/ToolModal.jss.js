@@ -1,14 +1,25 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
+    modal: props => ({
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        position: 'fixed',
+        zIndex: 2,
+        top: 0,
+        left: 0,
+    }),
     window: props => ({
         zIndex: 6,
         padding: '0.1rem',
         borderRadius: '0.25rem',
         backgroundColor: themes[props.theme].fill,
         border: `0.065rem solid ${themes[props.theme].odd_row}`,
-        margin: 'auto',
     }),
     top_area: props => ({
         width: '100%',

@@ -1,4 +1,4 @@
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {fontSize0016, fontSize0023} from "../../styles/fontSizes.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
@@ -18,7 +18,13 @@ export const styles = {
         },
     }),
     scroll_table: props => ({
-        '@media screen and (max-width: 960px)': {
+        '@media screen and (max-width: 426px)': {
+            width: `calc(97.5vw - ${miniVariantIconsColumnWidth}px)`,
+            marginLeft: '2.5vw',
+            marginRight: '2.5vw',
+            marginBottom: '2.5vw',
+        },
+        '@media screen and (min-width: 425px) and (max-width: 960px)': {
             width: '50vw',
             marginLeft: '2.5vw',
             marginRight: '2.5vw',
@@ -177,12 +183,13 @@ export const styles = {
     }),
     subs_modal: props => ({
         position: 'absolute',
-        left: '21.5vw',
+        left: `calc(21.5vw - ${miniVariantIconsColumnWidth*0.5}px)`,
         top: `calc(50vh - (2.6rem + 3.5vw))`,
     }),
     promos_modal: props => ({
         position: 'absolute',
-        left: '22.5vw',
+        left: `calc(22.5vw - ${miniVariantIconsColumnWidth*0.5}px)`,
         top: 'calc(50vh - (22.5vh + 3.5vw + 0.875rem))',
     }),
 }
+

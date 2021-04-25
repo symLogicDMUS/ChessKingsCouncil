@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MenuItem, Typography } from "@material-ui/core";
 import BlockIcon from "@material-ui/icons/Block";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { themes } from "../../styles/themes.jss";
+import { themes } from "../../styles/themes/themes.jss";
 import IconButton from "@material-ui/core/IconButton";
 import { ResolvePieceIcon } from "./ResolvePieceIcon";
 import { icons } from "../../styles/icons/top/icons.jss";

@@ -1,6 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     piece_img: props => ({

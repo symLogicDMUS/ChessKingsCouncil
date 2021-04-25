@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../../Drawers/ResponsiveDrawer.jss";
-import {themes} from "../../../styles/themes.jss";
+import {themes} from "../../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     modal: props => ({
@@ -12,12 +12,21 @@ export const useStyles = makeStyles({
         zIndex: 14,
         backgroundColor: '#000',
     }),
-    src: props => ({
-        width: '100%',
-        maxHeight: `calc(100% - ${appBarHeight}px)`,
+    img_area: props => ({
         position: 'absolute',
         top: appBarHeight,
         left: 0,
+        width: `calc(100vw - 1px)`,
+        height: `calc(100vh - ${appBarHeight}px)`,
+        display: 'flex',
+        border: '1px solid #262626',
+    }),
+    src: props => ({
+        maxHeight: '100%',
+        maxWidth: '100%',
+        minHeight: '50%',
+        minWidth: '50%',
+        margin: 'auto',
     }),
     button: props => ({
         color: themes[props.theme].text,
@@ -40,7 +49,7 @@ export const useStyles = makeStyles({
        transform: 'translate(0, -0.05rem)'
     }),
     link: props => ({
-        display: 'inline-block',
+        display: 'inline',
         marginLeft: '0.25rem',
         marginRight: '0.25rem',
         cursor: 'pointer',

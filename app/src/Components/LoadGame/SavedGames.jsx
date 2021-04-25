@@ -29,7 +29,7 @@ export function SavedGames(props) {
                     <NavBar
                         currentPage="LoadGame"
                         redirectMessage={null}
-                        helpText={LoadGameHelp(fontSizeW0045, props.theme)}
+                        helpText={LoadGameHelp(props.theme)}
                         helpTitle={
                             <HelpTitle theme={props.theme} fontSize={fontSize0026}>
                                 Loading a Game

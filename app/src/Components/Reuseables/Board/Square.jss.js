@@ -1,5 +1,5 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
 import {darken, getLuminance, lighten} from "@material-ui/core/styles";
 import {fade} from "@material-ui/core";
@@ -22,13 +22,13 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].light_normal,
     }),
     dark_with_hover: props => ({
-        backgroundColor: fade('#fff', 0.085),
+        backgroundColor: themes[props.theme].dark_normal,
         '&:hover':{
             backgroundColor: themes[props.theme].sqr_hover,
         }
     }),
     light_with_hover: props => ({
-        backgroundColor: fade('#fff', 0.115),
+        backgroundColor: themes[props.theme].light_normal,
         '&:hover':{
             backgroundColor: themes[props.theme].sqr_hover,
         }

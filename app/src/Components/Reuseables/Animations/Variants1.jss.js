@@ -1,5 +1,5 @@
 import {viewWidth} from "../../helpers/windowMeasurments";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const stroke_variants1 = (theme) => ({
     first: {

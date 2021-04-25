@@ -1,5 +1,5 @@
 import {lighten, makeStyles} from "@material-ui/core/styles"
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     button: props => ({

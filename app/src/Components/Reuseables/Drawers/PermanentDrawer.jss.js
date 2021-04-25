@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {viewWidth} from "../../helpers/windowMeasurments";
 import {fontSize002} from "../../styles/fontSizes.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 const z = 5;
 export const drawerWidth = viewWidth() * 0.25;

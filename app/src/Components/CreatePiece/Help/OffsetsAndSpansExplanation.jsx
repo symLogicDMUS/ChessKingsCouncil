@@ -1,27 +1,56 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import { Typography } from "@material-ui/core";
-import { SpansExample } from "../../PieceProfiles/Help/SpansExample";
-import { OffsetsExample } from "../../PieceProfiles/Help/OffsetsExample";
-import { useStyles as useMoreStyles } from "../../Reuseables/NavBar/Help/HelpText.jss";
-import { useStyles } from "../../PieceProfiles/Help/ProfileHelpText.jss";
+import {Typography} from "@material-ui/core";
+import {RangeExample} from "../../PieceProfiles/Help/RangeExample";
 import {SeeExampleButton} from "../../Reuseables/NavBar/Help/SeeExampleButton";
+import {dragonSrcStrWhite} from "../../PieceProfiles/Help/dragonSrcStr";
+import {useStyles as useMoreStyles} from "../../Reuseables/NavBar/Help/HelpText.jss";
+import {useStyles} from "../../PieceProfiles/Help/ProfileHelpText.jss";
+import {BlackRangeMirrorImageExplanation} from "./BlackRangeMirrorImageExplanation";
 
 export function OffsetsAndSpansExplanation(props) {
     const classes = useStyles({ theme: props.theme });
     const classes2 = useMoreStyles({ theme: props.theme });
+
+    const dragonOffsets = [
+        [-2,1],
+        [-1,2],
+        [1,2],
+        [2,1],
+        [2,-1],
+        [1,-2],
+        [-1,-2],
+        [-2,-1],
+    ];
+    const dragonSpans = [
+        "step_1sqr90d",
+        "step_1sqr45d",
+        "step_1sqr0d",
+        "step_1sqr315d",
+        "step_1sqr270d",
+        "step_1sqr225d",
+        "step_1sqr180d",
+        "step_1sqr135d",
+    ];
 
     return (
         <div>
             <Typography className={classes2.text} paragraph>
                 The <div className={classes2.emphasis}>range</div> of a piece is
                 how it can move. I define ranges as 2 separate types,{" "}
-                <div className={classes2.emphasis}>offsets and spans:</div>
+                <div className={classes2.emphasis}>offsets and spans.</div>
             </Typography>
             <Typography className={classes2.text} paragraph>
                 <Box className={classes.profile_wb_example}>
                     <Typography className={classes2.text} paragraph>
-                        <OffsetsExample classes={classes} theme={props.theme} />
+                        <RangeExample
+                            pieceImgStr={dragonSrcStrWhite}
+                            range={dragonOffsets}
+                            rangeType="offsets"
+                            theme={props.theme}
+                            item3={true}
+                            float={true}
+                        />
                         <div className={classes2.emphasis}>
                             Offsets are jumps
                         </div>
@@ -41,7 +70,14 @@ export function OffsetsAndSpansExplanation(props) {
                         />
                     </Typography>
                     <Typography className={classes2.text} paragraph>
-                        <SpansExample classes={classes} theme={props.theme} />
+                        <RangeExample
+                            pieceImgStr={dragonSrcStrWhite}
+                            range={dragonSpans}
+                            rangeType="spans"
+                            theme={props.theme}
+                            float={true}
+                            item1={true}
+                        />
                         <div className={classes2.emphasis}>Spans</div> are how
                         Rooks, Bishops, and Queens move. For example, Rooks and
                         Queens can move in a span of{" "}
@@ -51,17 +87,28 @@ export function OffsetsAndSpansExplanation(props) {
                         range, until another piece blocks the way or the end of
                         the board is reached. The spans listed in clockwise
                         order are: up, upper-right, right, lower-right, down,
-                        lower-left, left, upper-left. On large screens, click
-                        and arrow button to add a span to the piece's range, and
-                        click it again to remove it
+                        lower-left, left, upper-left. On large screens, click an
+                        arrow button to add a span to the piece's range, and
+                        click it again to remove it.
                         <SeeExampleButton
                             theme={props.theme}
                             smSrc={"/Images/gif/wide/arrow buttons.gif"}
                             lgSrc={"/Images/gif/wide/arrow buttons.gif"}
                         />
+                        On smaller screens, the arrow buttons will appear on the
+                        squares themselves by clicking the{" "}
+                        <SeeExampleButton
+                            theme={props.theme}
+                            lgSrc={"/Images/gif/thin/spans icon.png"}
+                            smSrc={"/Images/gif/thin/spans icon.png"}
+                            isText={true}
+                        >
+                            spans button in the right hand side icon column.
+                        </SeeExampleButton>{" "}
                     </Typography>
                 </Box>
             </Typography>
+            <BlackRangeMirrorImageExplanation theme={props.theme} />
         </div>
     );
 }

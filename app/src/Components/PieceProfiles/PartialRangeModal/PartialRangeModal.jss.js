@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {fontSize0025, fontSize00301, fontSize0040} from "../../styles/fontSizes.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const fontSizes = {
     wide: fontSize0040,

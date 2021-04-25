@@ -11,7 +11,6 @@ const Load = React.lazy(() => import('./Load'));
 const Erase = React.lazy(() => import('./Erase'));
 const Reset = React.lazy(() => import('./Reset'));
 
-
 function Options({
     load,
     save,
@@ -28,11 +27,7 @@ function Options({
 
     return (
         <>
-            <Box
-                className={clsx(classes2.four_button_group, {
-                    [classes2.tool_flexbox]: isWide,
-                })}
-            >
+            <Box className={classes2.four_button_group}>
                 <Typography className={classes2.tool_title}>
                     Options
                 </Typography>

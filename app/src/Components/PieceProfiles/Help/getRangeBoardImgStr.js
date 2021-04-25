@@ -1,10 +1,10 @@
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 import {rankfiles} from "../../helpers/rankfiles";
 import {binaryBoard} from "../../helpers/binaryBoard";
 import {getOffsetDisplays} from "../ProfileWB/BoardSvgStr/getOffsetDisplays";
-import {knightSrcStrWhite, knightSrcStrBlack} from "./knightSrcStr";
+import {getSpanDisplays} from "../ProfileWB/BoardSvgStr/getSpanDisplays";
 
-export function getOffsetRangeBoardKnightExample({theme, color}) {
+export function getRangeBoardImgStr(theme, src, range, rangeType) {
     const fToTop = {
         8: 0,
         7: 60,
@@ -25,34 +25,24 @@ export function getOffsetRangeBoardKnightExample({theme, color}) {
         g: 360,
         h: 420,
     };
-    const white_range = [
-        [1, 2],
-        [1, -2],
-        [-1, 2],
-        [-1, -2],
-        [2, 1],
-        [2, -1],
-        [-2, 1],
-        [-2, -1],
-    ]
-    const black_range = [
-        [-1, -2],
-        [-1, 2],
-        [1, -2],
-        [1, 2],
-        [-2, -1],
-        [-2, 1],
-        [2, -1],
-        [2, 1],
-    ]
-    const src = (color === 'W') ? knightSrcStrWhite : knightSrcStrBlack;
-    const range = (color === 'W') ? white_range : black_range;
-    let rangeBoard = getOffsetDisplays(range, 'd4')
+    let rangeBoard;
+    if (rangeType==="offsets") {
+        rangeBoard = getOffsetDisplays(range, 'd4')
+    }
+    else {
+        rangeBoard = getSpanDisplays(range, 'd4')
+    }
     const light_sqr_fill = themes[theme].even_row;
     const dark_sqr_fill = themes[theme].odd_row;
-    const range_fill = themes[theme].offset
+    let range_fill;
+    if (rangeType==="offsets") {
+        range_fill = themes[theme].offset;
+    }
+    else {
+        range_fill = themes[theme].span;
+    }
     let left, top;
-    let imgStr = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480">`
+    let imgStr = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="480" viewBox="0 0 480 480">`;
     for (const rf of rankfiles) {
         left = rToLeft[rf[0]];
         top = fToTop[rf[1]];

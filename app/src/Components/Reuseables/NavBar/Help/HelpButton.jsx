@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from "react";
+import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {Button, Portal} from "@material-ui/core";
+import {Portal} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ContactSupportIcon from '@material-ui/icons/ContactSupport';
-import {
-    findDidUserVisitPage, recordUserVisitedPage
-} from "../../../../API/findRecordDidUserVisitPage";
-import {HelpSlideshow} from "./HelpSlideshow";
+import {findDidUserVisitPage, recordUserVisitedPage}
+        from "../../../../API/findRecordDidUserVisitPage";
 import {HelpModal} from "./HelpModal";
+import {HelpSlideshow} from "./HelpSlideshow";
 import {useStyles} from "../NavBarButton.jss";
-import clsx from "clsx";
-import SvgIcon from "@material-ui/core/SvgIcon";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, children}) {
     const [hover, setHover] = useState(false);

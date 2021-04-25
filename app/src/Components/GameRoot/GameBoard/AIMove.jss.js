@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {boardPos, game_board} from "../../Reuseables/Board/Board.jss";
-import {themes} from "../../styles/themes.jss";
+import {themes} from "../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     animation_plane: props => ({

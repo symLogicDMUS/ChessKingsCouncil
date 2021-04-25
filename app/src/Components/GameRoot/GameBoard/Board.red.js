@@ -1,8 +1,8 @@
 import {copy} from "../../helpers/copy";
 import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
-import {specialThemeList} from "../../styles/themes.jss";
 import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
 import {updateOnResize} from "./updateOnResize";
+import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
 
 export function reducer(state, action) {
     let pieces;

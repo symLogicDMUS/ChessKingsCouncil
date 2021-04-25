@@ -43,7 +43,7 @@ function MyPieces() {
                     screenCase="thin"
                     flexDirection="column"
                     currentPage="MyPieces"
-                    helpText={SavedPiecesHelp('4.5vw', theme)}
+                    helpText={SavedPiecesHelp(theme)}
                     helpTitle={
                         <HelpTitle theme={theme} fontSize={'2.6vh'}>
                             Your Pieces
