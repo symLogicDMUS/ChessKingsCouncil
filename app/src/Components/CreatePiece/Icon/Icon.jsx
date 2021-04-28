@@ -5,7 +5,7 @@ import {Typography} from "@material-ui/core";
 import {ImgWindowsModal} from "./ImgWindowsModal";
 import {useStyles} from "./Icon.jss";
 
-function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, theme}) {
+function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, clientX, clientY, theme}) {
     const classes = useStyles({theme: theme});
 
     return (
@@ -39,6 +39,8 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggle
                     miniVariantTool={miniVariantTool}
                     whiteAndBlackImgs={whiteAndBlackImgs}
                     toggleMiniVariantTool={toggleMiniVariantTool}
+                    clientX={clientX}
+                    clientY={clientY}
                 />
             </MediaQuery>
         </>

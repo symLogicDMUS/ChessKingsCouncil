@@ -9,11 +9,12 @@ import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import {frame, useStyles } from "./LocationButton.jss";
 import {lighten} from "@material-ui/core/styles";
 
-const LocationButton = memo(
-    ({ rf, onClick, selected, theme, children }) => {
+const LocationButton = memo(({ rf, onClick, selected, theme, children }) => {
         const classes = useStyles({ theme: theme, rf: rf });
         const classes2 = useMoreStyles({ theme: theme });
+
         const [animate, setAnimate] = useState(false);
+
         return (
             <>
                 <MediaQuery maxWidth={960}>

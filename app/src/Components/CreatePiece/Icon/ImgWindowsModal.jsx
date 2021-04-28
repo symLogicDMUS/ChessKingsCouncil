@@ -11,6 +11,8 @@ export function ImgWindowsModal({
     resetImg,
     setPieceImg,
     theme,
+    clientX,
+    clientY,
 }) {
     const [white, setWhite] = useState(true);
     const [black, setBlack] = useState(true);
@@ -28,12 +30,16 @@ export function ImgWindowsModal({
     return (
         <>
             <ToolModal
+                clientX={clientX}
+                clientY={clientY}
+                selected={miniVariantTool}
                 isIn={miniVariantTool==="Icon" && (white || black)}
-                onClose={() => toggleMiniVariantTool(null)}
-                onExit={() => toggleMiniVariantTool(null)}
+                toggleMiniVariantTool={toggleMiniVariantTool}
                 className={classes.tool_window}
                 direction='left'
                 theme={theme}
+                key='Icon'
+                name='Icon'
             >
                 <Box className={classes.img_windows}>
                     <ImgWindow

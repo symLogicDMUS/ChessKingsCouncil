@@ -1,6 +1,7 @@
 import {themes} from "../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
     captured_piece_images: props => ({
@@ -30,9 +31,6 @@ export const useStyles = makeStyles({
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
         border: `0.05em solid ${themes[props.theme].outline}`,
-        '@media screen and (max-width: 960px)': {
-            width: '30vw',
-        },
     }),
     white_captured: props => ({
         '@media screen and (max-width: 960px)': {
@@ -72,20 +70,28 @@ export const useStyles = makeStyles({
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        '@media screen and (max-width: 960px)': {
-            width: '25vw',
+        transform: 'translate(0, -0.5em)',
+        '@media screen and (max-width: 350px)': {
+            width: '83%',
             marginLeft: '1vw',
-            transform: 'translate(0, -0.5em)',
+        },
+        '@media screen and (min-width: 350px) and (max-width: 960px)': {
+            width: 250,
+            marginLeft: '1vw',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
             fontSize: '1.75vh',
-            transform: 'translate(0, -0.5em)',
         },
     }),
     empty_list: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: '30vw',
+        '@media screen and (max-width: 350px)': {
+            width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+            fontSize: '2.3vh',
+            height: '1.5em',
+        },
+        '@media screen and (min-width: 350px) and (max-width: 960px)': {
+            width: 300,
             fontSize: '2.3vh',
             height: '1.5em',
         },

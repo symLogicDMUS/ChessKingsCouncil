@@ -1,7 +1,8 @@
 import React from "react";
 import { Hidden, useMediaQuery} from "@material-ui/core";
 import {ToolModal} from "../../NewGame/Customize/ToolModal";
-import { MuiTextField as TextField } from "../../Reuseables/UserInput/MuiTextField";
+import { MuiTextField as TextField } from
+        "../../Reuseables/UserInput/MuiTextField";
 import { useStyles } from "./Name.jss";
 
 function Name({
@@ -10,6 +11,8 @@ function Name({
     toggleMiniVariantTool,
     defaultValue,
     theme,
+    clientX,
+    clientY,
 }) {
     const classes = useStyles({ theme: theme });
     const isThin = useMediaQuery("(max-width: 960px)");
@@ -22,11 +25,15 @@ function Name({
         <>
             <Hidden mdUp>
                 <ToolModal
+                    key='Name'
+                    name='Name'
                     theme={theme}
-                    direction='left'
+                    clientX={clientX}
+                    clientY={clientY}
+                    selected={miniVariantTool}
                     className={classes.tool_window}
                     isIn={miniVariantTool==="Name"}
-                    onClose={() => toggleMiniVariantTool("Name")}
+                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     <TextField
                         theme={theme}

@@ -11,7 +11,7 @@ const SpanArrowButtons = React.lazy(() => import("./SpanArrowButtons/SpanArrowBu
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
 
 
-function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool}) {
+function Range({spans, offsets, toggleSpan, theme, styles}) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
 
@@ -53,7 +53,6 @@ function Range({spans, offsets, toggleSpan, theme, styles, toggleMiniVariantTool
                     theme={theme}
                     screenCase={screenCase}
                     toggleSpan={toggleSpan}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 />
             </span>
         </MediaQuery>

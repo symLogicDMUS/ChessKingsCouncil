@@ -1,7 +1,7 @@
 import React from "react";
 
 const Option = React.lazy(() => import('./Option'));
-const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
 
 function Reset({
     theme,
@@ -19,7 +19,7 @@ function Reset({
                     className={className}
                 />
             ) : (
-                <ToolButton
+                <ToolButtonAlt
                     theme={theme}
                     isActive={false}
                     onClick={reset}

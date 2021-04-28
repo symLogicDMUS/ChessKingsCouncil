@@ -1,8 +1,8 @@
 short:
-    * fix Facebook button not working (still developer mode)
+    * fix Facebook button STILL not working
     * MuiGrid Ok button still active when no game has been selected, leads to error when press ok.
 medium:
-    * you need to redirect all HTTP GET URLs to your index page, besides your API calls,
-      so that React Router can kick in which prevents a 404.
+
 long:
-    code splitting
+    * code splitting
+    * breakpoints for very large screens

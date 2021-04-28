@@ -26,6 +26,7 @@ import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import { textColor, styles } from "./Customize.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
@@ -292,11 +293,11 @@ class Customize extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    toggleMiniVariantTool(toolName) {
+    toggleMiniVariantTool(toolName, clientX, clientY) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null });
+            this.setState({ miniVariantTool: null, clientX: clientX, clientY: clientY });
         } else {
-            this.setState({ miniVariantTool: toolName });
+            this.setState({ miniVariantTool: toolName, clientX: clientX, clientY: clientY });
         }
     }
 
@@ -345,7 +346,12 @@ class Customize extends React.Component {
                 {this.state.redirect ? this.play() : null}
                 {this.state.miniVariantTool === "Subs" ? (
                     <ToolModal
+                        key='Subs'
+                        name='Subs'
                         theme={this.state.theme}
+                        clientX={this.state.clientX}
+                        clientY={this.state.clientY}
+                        selected={this.state.miniVariantTool}
                         isIn={this.state.miniVariantTool==="Subs"}
                         onClose={() => this.toggleMiniVariantTool("Subs")}
                         className={this.props.classes.subs_modal}
@@ -356,8 +362,13 @@ class Customize extends React.Component {
                 ) : null}
                 {this.state.miniVariantTool === "Promos" ? (
                     <ToolModal
+                        key='Promos'
+                        name='Promos'
+                        clientX={this.state.clientX}
+                        clientY={this.state.clientY}
+                        selected={this.state.miniVariantTool}
                         isIn={this.state.miniVariantTool==="Promos"}
-                        onClose={() => this.toggleMiniVariantTool("Promos")}
+                        onClose={() => this.toggleMiniVariantTool("Promos", null, null)}
                         className={this.props.classes.promos_modal}
                         theme={this.state.theme}
                         direction='left'
@@ -393,8 +404,13 @@ class Customize extends React.Component {
                 ) : null}
                 {this.state.miniVariantTool === "Pieces" ? (
                     <ToolModal
+                        key='Pieces'
+                        name='Pieces'
+                        clientX={this.state.clientX}
+                        clientY={this.state.clientY}
+                        selected={this.state.miniVariantTool}
                         isIn={this.state.miniVariantTool==="Pieces"}
-                        onClose={() => this.toggleMiniVariantTool("Pieces")}
+                        onClose={() => this.toggleMiniVariantTool("Pieces", null, null)}
                         className={this.props.classes.promos_modal}
                         theme={this.state.theme}
                         direction='left'
@@ -514,9 +530,7 @@ class Customize extends React.Component {
                                 iconName="subs"
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Subs"}
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Subs")
-                                }
+                                updateParent={this.toggleMiniVariantTool}
                             />
                             <ToolButton
                                 text="Pawn Promotion List"
@@ -525,9 +539,8 @@ class Customize extends React.Component {
                                 isActive={
                                     this.state.miniVariantTool === "Promos"
                                 }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Promos")
-                                }
+                                updateParent={this.toggleMiniVariantTool}
+
                             />
                             <ToolButton
                                 text="All Pieces"
@@ -536,9 +549,7 @@ class Customize extends React.Component {
                                 isActive={
                                     this.state.miniVariantTool === "Pieces"
                                 }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Pieces")
-                                }
+                                updateParent={this.toggleMiniVariantTool}
                             />
                         </>
                     }

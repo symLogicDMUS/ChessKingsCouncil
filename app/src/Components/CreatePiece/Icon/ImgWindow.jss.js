@@ -1,12 +1,13 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
-const windowSizeSm = '30vw';
+const windowSizeSm = '0.42em';
 const windowSizeLg = "10.625vw";
 
 /* Sm */
-const halfMargin = '1.75vw';
-const margin = '3.5vw';
+const halfMargin = '0.022em';
+const margin = '0.04em';
 
 export const borderRadius = {borderRadius: '0.25rem'};
 export const originTransform = {vertical: 'top', horizontal: 'right'};
@@ -21,27 +22,28 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             width: windowSizeSm,
             height: windowSizeSm,
-            border: `0.02em solid ${themes[props.theme].outline}`,
+            fontSize: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+            border: `0.02rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
             width: windowSizeLg,
             height: windowSizeLg,
-            border: `0.005em solid ${themes[props.theme].outline}`,
+            border: `0.005rem solid ${themes[props.theme].outline}`,
         },
     }),
     white_window: props => ({
         '@media screen and (max-width: 960px)': {
             marginRight: halfMargin,
+            marginTop: halfMargin,
             marginLeft: margin,
-            marginTop: '1vw',
             marginBottom: margin,
         },
     }),
     black_window: props => ({
         '@media screen and (max-width: 960px)': {
             marginLeft: halfMargin,
+            marginTop: halfMargin,
             marginRight: margin,
-            marginTop: '1vw',
             marginBottom: margin,
         },
     }),

@@ -16,6 +16,7 @@ export const useStyles = makeStyles({
     }),
     window: props => ({
         zIndex: 6,
+        position: 'fixed',
         padding: '0.1rem',
         borderRadius: '0.25rem',
         backgroundColor: themes[props.theme].fill,

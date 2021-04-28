@@ -1,7 +1,7 @@
 import React from "react";
 
 const Option = React.lazy(() => import('./Option'));
-const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
 
 function Erase({erase, theme, className, buttonType}) {
     return (
@@ -14,7 +14,7 @@ function Erase({erase, theme, className, buttonType}) {
                     className={className}
                 />
             ) : (
-                <ToolButton
+                <ToolButtonAlt
                     theme={theme}
                     onClick={erase}
                     isActive={false}

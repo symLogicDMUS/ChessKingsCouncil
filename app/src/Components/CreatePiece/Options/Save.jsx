@@ -7,7 +7,7 @@ import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 
 const Option = React.lazy(() => import('./Option'));
-const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
 
 function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, justSaved}) {
 
@@ -157,7 +157,7 @@ function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType
                     className={className}
                 />
             ) : (
-                <ToolButton
+                <ToolButtonAlt
                     text="Save"
                     theme={theme}
                     iconName={"save_alt"}

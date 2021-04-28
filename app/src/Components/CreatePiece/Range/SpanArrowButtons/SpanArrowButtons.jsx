@@ -3,7 +3,7 @@ import { useStyles } from "./SpanArrowButtons.jss";
 
 const ArrowButton = React.lazy(() => import('./ArrowButton'));
 
-function SpanArrowButtons({ spans, toggleSpan, screenCase, theme, toggleMiniVariantTool }) {
+function SpanArrowButtons({ spans, toggleSpan, screenCase, theme}) {
     const classes = useStyles({theme: theme})
 
     const getArrowButtons = (angles) => {
@@ -16,7 +16,6 @@ function SpanArrowButtons({ spans, toggleSpan, screenCase, theme, toggleMiniVari
                     isActive={spans[angle]}
                     toggleSpan={toggleSpan}
                     screenCase={screenCase}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                     theme={theme}
                     rf={null}
                 />

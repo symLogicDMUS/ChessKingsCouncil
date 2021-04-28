@@ -7,7 +7,7 @@ import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 
 const LocationButton = React.lazy(() => import('./LocationButton'));
 
-function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool }) {
+function Location({ selectedLoc, setLoc, theme }) {
     const classes = useMoreStyles({ theme: theme });
     const isWide = useMediaQuery("(min-width: 960px)");
 
@@ -21,41 +21,37 @@ function Location({ selectedLoc, setLoc, theme, toggleMiniVariantTool }) {
                 ) : null}
                 <LocationButton
                     rf="d4"
+                    key="location-d4"
                     onClick={() => setLoc("d4")}
                     selected={selectedLoc === "d4"}
                     theme={theme}
-                    key="location-d4"
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     d4
                 </LocationButton>
                 <LocationButton
                     rf="e4"
+                    key="location-e4"
                     onClick={() => setLoc("e4")}
                     selected={selectedLoc === "e4"}
                     theme={theme}
-                    key="location-e4"
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     e4
                 </LocationButton>
                 <LocationButton
                     rf="d5"
+                    key="location-d5"
                     onClick={() => setLoc("d5")}
                     selected={selectedLoc === "d5"}
                     theme={theme}
-                    key="location-d5"
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     d5
                 </LocationButton>
                 <LocationButton
                     rf="e5"
+                    key="location-e5"
                     onClick={() => setLoc("e5")}
                     selected={selectedLoc === "e5"}
                     theme={theme}
-                    key="location-e5"
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     e5
                 </LocationButton>

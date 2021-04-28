@@ -39,6 +39,7 @@ const Location = React.lazy(() => import('./Location/Location'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const CreatePieceBoard = React.lazy(() => import('./Board/CreatePieceBoard'));
 const ToolButton = React.lazy(() => import('../Reuseables/Clickables/ToolButton'));
+const ToolButtonAlt = React.lazy(() => import('../Reuseables/Clickables/ToolButtonAlt'));
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const PieceSavedSuccessfully = React.lazy(() => import('./animations/PieceSavedSuccessfully'));
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import('../Reuseables/NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame'));
@@ -60,6 +61,8 @@ class CreatePiece extends React.Component {
             locSqrAnimate: false,
             isFirstVisit: false,
             miniVariantTool: null,
+            clientX: 0,
+            clientY: 0,
         };
         this.spans = {
             "90d": false,
@@ -135,11 +138,11 @@ class CreatePiece extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     }
 
-    toggleMiniVariantTool(toolName) {
+    toggleMiniVariantTool(toolName, clientX, clientY) {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null });
+            this.setState({ miniVariantTool: null, clientX: clientX, clientY: clientY });
         } else {
-            this.setState({ miniVariantTool: toolName });
+            this.setState({ miniVariantTool: toolName, clientX: clientX, clientY: clientY });
         }
     }
 
@@ -434,27 +437,27 @@ class CreatePiece extends React.Component {
             <>
                 {this.modals()}
                 <div>
-                    {this.state.miniVariantTool === "Name" ? (
-                        <Name
-                            defaultValue={this.name}
-                            theme={this.state.theme}
-                            updateName={this.updateName}
-                            key={`Name-thin${this.state.loadInstance}`}
-                            miniVariantTool={this.state.miniVariantTool}
-                            toggleMiniVariantTool={this.toggleMiniVariantTool}
-                        />
-                    ) : null}
-                    {this.state.miniVariantTool === "Icon" ? (
-                        <Icon
-                            key="Icon-thin"
-                            theme={this.state.theme}
-                            setPieceImg={this.setPieceImg}
-                            resetImg={this.resetImg}
-                            whiteAndBlackImgs={this.whiteAndBlackImgs}
-                            miniVariantTool={this.state.miniVariantTool}
-                            toggleMiniVariantTool={this.toggleMiniVariantTool}
-                        />
-                    ) : null}
+                    <Name
+                        defaultValue={this.name}
+                        theme={this.state.theme}
+                        clientX={this.state.clientX}
+                        clientY={this.state.clientY}
+                        updateName={this.updateName}
+                        key={`Name-thin${this.state.loadInstance}`}
+                        miniVariantTool={this.state.miniVariantTool}
+                        toggleMiniVariantTool={this.toggleMiniVariantTool}
+                    />
+                    <Icon
+                        key="Icon-thin"
+                        theme={this.state.theme}
+                        resetImg={this.resetImg}
+                        clientX={this.state.clientX}
+                        clientY={this.state.clientY}
+                        setPieceImg={this.setPieceImg}
+                        whiteAndBlackImgs={this.whiteAndBlackImgs}
+                        miniVariantTool={this.state.miniVariantTool}
+                        toggleMiniVariantTool={this.toggleMiniVariantTool}
+                    />
                 </div>
                 <ResponsiveDrawer
                     appBarType="title"
@@ -553,23 +556,21 @@ class CreatePiece extends React.Component {
                         <>
                             <ToolButton
                                 text="Name"
+                                name='Name'
                                 iconName={"name_tool"}
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Name"}
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Name")
-                                }
+                                updateParent={this.toggleMiniVariantTool}
                             />
                             <ToolButton
                                 text="Icon"
+                                name='Icon'
                                 iconName={"icon_tool"}
                                 theme={this.state.theme}
                                 isActive={this.state.miniVariantTool === "Icon"}
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Icon")
-                                }
+                                updateParent={this.toggleMiniVariantTool}
                             />
-                            <ToolButton
+                            <ToolButtonAlt
                                 text="Spans"
                                 theme={this.state.theme}
                                 iconName={"range_tool"}
@@ -580,7 +581,7 @@ class CreatePiece extends React.Component {
                                     this.toggleMiniVariantTool("Range")
                                 }
                             />
-                            <ToolButton
+                            <ToolButtonAlt
                                 text="Location"
                                 theme={this.state.theme}
                                 iconName={"location_tool"}

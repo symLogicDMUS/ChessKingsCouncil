@@ -85,10 +85,10 @@ export function ImgWindow({
                     })}
                     style={borderRadius}
                 >
-                    <AddPhotoAlternateIcon className={classes.icon} />
-                    <Typography variant="caption" className={classes.text}>
-                        {color}
-                    </Typography>
+                    {/*<AddPhotoAlternateIcon className={classes.icon} />*/}
+                    {/*<Typography variant="caption" className={classes.text}>*/}
+                    {/*    {color}*/}
+                    {/*</Typography>*/}
                 </Avatar>
             )}
         </>

@@ -2,15 +2,26 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {darken} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
 import {marginBottom} from "../CreatePiece.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
     tool_window: props => ({
         position: 'absolute',
+        top: 50,
         left: '22.5vw',
-        top: 'calc(50vh - (20px + 24px + 2.5vw))',
+        '@media screen and (max-width: 500px)': {
+            left: 0,
+        },
     }),
     name: props => ({
-        '@media screen and (max-width: 960px)': {
+        '@media screen and (max-width: 500px)': {
+            width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
+            marginTop: '0.5vw',
+            marginLeft: '2.5vw',
+            marginRight: '2.5vw',
+            marginBottom: '2.5vw',
+        },
+        '@media screen and (min-width: 500px) and (max-width: 960px)': {
             width: '50vw',
             marginTop: '0.5vw',
             marginLeft: '2.5vw',

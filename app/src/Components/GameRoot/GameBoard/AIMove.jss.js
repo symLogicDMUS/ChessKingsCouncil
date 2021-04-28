@@ -7,14 +7,14 @@ export const useStyles = makeStyles({
         ...game_board(props.boardSize, props.boardPos, 5),
     }),
     piece: props => ({
-        position: 'absolute',
         zIndex: 5,
+        position: 'fixed',
         width: props.sqrSize * 0.95,
         height: props.sqrSize * 0.95,
     }),
     start_sqr: props => ({
         zIndex: 4,
-        position: 'absolute',
+        position: 'fixed',
         width: props.sqrSize,
         height: props.sqrSize,
         '@media screen and (min-width: 960px)': {

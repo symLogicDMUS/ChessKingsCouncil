@@ -1,9 +1,11 @@
 short:
-    add modal wall (can't click board or other) back to miniVariantTools.
+
 medium:
-    finish updating Promo modal.
+    adjust the size of miniVariantTool modals, especially for smaller screens.
+    finish updating Promo modal. (option to view profile)
     loading bar for uploading an image from device.
     fix loading skeleton, if there is nothing returned from api do not have loading skeleton continue indefinitely
     Load game boards alignment seem off for smallest screens (bellow 400px)
+
 long:
     Custom Loading animation. (Loading when switching pages)

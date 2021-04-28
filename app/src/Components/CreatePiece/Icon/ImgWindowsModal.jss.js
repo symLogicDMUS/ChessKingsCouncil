@@ -4,8 +4,9 @@ import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantD
 export const useStyles = makeStyles({
     tool_window: props => ({
         position: 'absolute',
-        top: `calc(50vh - (18.5vw + 24px))`,
-        left: `calc(14.75vw - ${miniVariantIconsColumnWidth*0.5}px)`,
+        top: 100,
+        fontSize: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+        left: '0.015em',
     }),
     img_windows: props => ({
        display: 'flex',

@@ -3,7 +3,7 @@ import { Portal } from "@material-ui/core";
 
 const Option = React.lazy(() => import('./Option'));
 const ProfilesModal = React.lazy(() => import('./ProfilesModal'));
-const ToolButton = React.lazy(() => import('../../Reuseables/Clickables/ToolButton'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
 
 function Load({
     load,
@@ -35,7 +35,7 @@ function Load({
                     onClick={() => setModal(true)}
                 />
             ) : (
-                <ToolButton
+                <ToolButtonAlt
                     theme={theme}
                     onClick={() => setModal(true)}
                     isActive={modal}
