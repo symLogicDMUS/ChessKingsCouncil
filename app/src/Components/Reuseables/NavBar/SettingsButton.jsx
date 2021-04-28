@@ -6,13 +6,13 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import {Portal, Typography} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
-export function SettingsButton({updateTheme, theme, screenCase, currentPage, children}) {
+export function SettingsButton({updateTheme, theme, screenCase, currentPage, touch, children}) {
     const [hover, setHover] = useState(false);
     const [settingsModal, toggleSettingsModal] = useState(false);
 
     const classes = useStyles({
         theme: theme,
-        screenCase: screenCase
+        screenCase: screenCase,
     });
 
     const isRow = () => {
@@ -43,8 +43,9 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, chi
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover,
+                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
+                    [classes.touch_color]: touch,
                     [classes.column_direction]: ! isRow(),
                     [classes.row_direction]: isRow(),
                 })}
@@ -60,8 +61,9 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, chi
                 >
                     <SettingsIcon
                         className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.icon_lg_column]: ! isRow(),
                             [classes.icon_lg_row]: isRow(),
                         })}
@@ -69,8 +71,9 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, chi
                     <Typography
                         variant='button'
                         className={clsx(classes.text, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.parent_column_text]: ! isRow(),
                             [classes.parent_row_text]: isRow(),
                         })}

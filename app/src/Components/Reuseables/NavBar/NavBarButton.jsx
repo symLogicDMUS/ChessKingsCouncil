@@ -19,6 +19,7 @@ export function NavBarButton({
     isUnsavedChanges,
     currentPage,
     theme,
+    touch,
 }) {
     const history = useHistory();
     const [hover, setHover] = useState(false);
@@ -88,7 +89,7 @@ export function NavBarButton({
             <Box
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover,
+                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
                     [classes.column_direction]: ! isRow(),
                     [classes.row_direction]: isRow(),
@@ -109,8 +110,9 @@ export function NavBarButton({
                     <SvgIcon
                         fontVariant="button"
                         className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.parent_column_icon]: ! isRow(),
                             [classes.parent_row_icon]: isRow(),
                         })}
@@ -120,8 +122,9 @@ export function NavBarButton({
                     <Typography
                         variant="button"
                         className={clsx(classes.text, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.parent_column_text]: ! isRow(),
                             [classes.parent_row_text]: isRow(),
                         })}

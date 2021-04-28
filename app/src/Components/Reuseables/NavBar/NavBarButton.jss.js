@@ -77,6 +77,9 @@ export const useStyles = makeStyles({
     hover_color: props => ({
         color: themes[props.theme].button_hover_text,
     }),
+    touch_color: props => ({
+        color: themes[props.theme].text,
+    }),
     marginLeft: props => ({
         marginLeft: 'auto',
     }),

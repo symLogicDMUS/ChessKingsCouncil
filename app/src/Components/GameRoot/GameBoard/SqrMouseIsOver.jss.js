@@ -4,7 +4,7 @@ import {themes} from "../../styles/themes/themes.jss";
 export const useStyles = makeStyles({
     square: props => ({
         zIndex: 3,
-        position: 'absolute',
+        position: 'fixed',
         width: props.sqrSize,
         height: props.sqrSize,
         '@media screen and (max-width: 960px)': {

@@ -13,13 +13,11 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import {NavBarAlt} from "../Reuseables/NavBar/NavBarAlt";
 import {CouncilRulesBody} from "./CouncilRulesBody";
-import {useStyles as useMoreStyles} from "../Reuseables/Background/Background.jss";
 import {useStyles} from "./CouncilRules.jss";
 
 function CouncilRules() {
     const theme = 'tan';
     const classes = useStyles({ theme: theme });
-    const classes2 = useMoreStyles({theme: theme});
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);

@@ -20,5 +20,10 @@ export const useStyles = makeStyles((theme) => ({
     }),
     login_in_buttons: props => ({
        marginBottom: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        flexWrap: '',
+        alignItems: 'center',
+        justifyContent: 'center',
     }),
 }), {index: 1});

@@ -1,12 +1,12 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
+import {dragonSrcStrWhite} from "../../PieceProfiles/Help/dragonSrcStr";
 import {RangeExample} from "../../PieceProfiles/Help/RangeExample";
 import {SeeExampleButton} from "../../Reuseables/NavBar/Help/SeeExampleButton";
-import {dragonSrcStrWhite} from "../../PieceProfiles/Help/dragonSrcStr";
+import {BlackRangeMirrorImageExplanation} from "./BlackRangeMirrorImageExplanation";
 import {useStyles as useMoreStyles} from "../../Reuseables/NavBar/Help/HelpText.jss";
 import {useStyles} from "../../PieceProfiles/Help/ProfileHelpText.jss";
-import {BlackRangeMirrorImageExplanation} from "./BlackRangeMirrorImageExplanation";
 
 export function OffsetsAndSpansExplanation(props) {
     const classes = useStyles({ theme: props.theme });

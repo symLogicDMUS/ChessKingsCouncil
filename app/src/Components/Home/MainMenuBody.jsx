@@ -1,7 +1,8 @@
 import React, {useEffect} from "react";
 import clsx from "clsx";
+import {Link} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import "../Reuseables/Background/_backgrounds.scss";
 import {useStyles as useMoreStyles}
         from "../Reuseables/Background/Background.jss";
@@ -38,7 +39,7 @@ export function MainMenuBody({theme}) {
                 />
                 <Typography paragraph className={classes.paragraph}>
                     Welcome! Create your own game of Chess with pieces that move how you decide! Start out by visiting
-                    the Create Piece page. After you save your piece there, visit the New Game page and choose the Custom
+                    the <Link to='/CreatePiece'>Create Piece page</Link>. After you save your piece there, visit the New Game page and choose the Custom
                     option under game types. Your piece can start the game in place of a normal Chess piece, or be an
                     option for Pawns to be promoted to when they reach the back row.
 

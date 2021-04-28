@@ -3,6 +3,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import {saveUser} from "./API/saveUser";
+import NotFound from "./Components/Home/NotFound";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -109,6 +110,7 @@ export class App extends React.Component {
                             <Route exact path="/Play" render={(props) => <GameRoot {...props} userTouchedScreen={this.state.userTouchedScreen} />}/>
                             <Route exact path="/MyPieces" component={MyPieces} />
                             <Route exact path="/CouncilRules" component={CouncilRules} />
+                            <Route component={NotFound} />
                         </Switch>
                     </Suspense>
                 </Router>

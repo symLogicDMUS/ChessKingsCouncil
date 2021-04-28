@@ -37,38 +37,6 @@ export function CouncilRulesBody({theme}) {
                     alt="Council Rules"
                 />
                 <Typography paragraph className={classes.paragraph}>
-                    <Box className={classes.kings_flexbox}>
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${1}.svg`}
-                            alt="icon of a king"
-                        />
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${2}.svg`}
-                            alt="icon of a king"
-                        />
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${3}.svg`}
-                            alt="icon of a king"
-                        />
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${4}.svg`}
-                            alt="icon of a king"
-                        />
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${5}.svg`}
-                            alt="icon of a king"
-                        />
-                        <img
-                            className={classes.king_icon}
-                            src={`/Images/CouncilRules/king${6}.svg`}
-                            alt="icon of a king"
-                        />
-                    </Box>
                     Council of Kings is 1 of 3 options to play on the
                     site, along with custom and standard Chess. Council
                     of Kings is Chess where Pawns can be promoted to

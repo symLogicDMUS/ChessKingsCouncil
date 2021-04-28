@@ -1,8 +1,8 @@
 import {copy} from "../../helpers/copy";
 import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
 import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
-import {updateOnResize} from "./updateOnResize";
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import {updateOnResize} from "./updateOnResize";
 
 export function reducer(state, action) {
     let pieces;
@@ -27,11 +27,18 @@ export function reducer(state, action) {
         case "begin-promo":
             return {...state, isPromo: true}
         case "promote":
+            let src;
+            if (specialThemeList.includes(action.theme)) {
+                src = getFranchisePieceImg(action.theme, action.newId, action.idDict)
+            }
+            else {
+                src = getPieceImg(action.newId, action.idDict, action.defs);
+            }
             pieces = copy(state.pieces);
             pieces[action.newId] = {
                 left: pieces[action.oldId].left,
                 top: pieces[action.oldId].top,
-                src: getPieceImg(action.newId, action.idDict, action.defs),
+                src: src,
             };
             delete pieces[action.oldId];
             return {...state, isPromo: false, pieces: pieces};

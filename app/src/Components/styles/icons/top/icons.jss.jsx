@@ -54,6 +54,7 @@ import {save_as} from "../options/save_as.jss";
 import {save_as_alt} from "../options/save_as_alt.jss";
 import {resign} from "../options/resign.jss";
 import {resign_alt} from "../options/resign_alt.jss";
+import {resign_alt2} from "../options/resign_alt2.jss";
 import {account_circle} from "../other/account_circle.jss";
 import {icon_tool} from "../create-piece/icon_tool";
 import {range_tool} from "../create-piece/range_tool";
@@ -127,6 +128,7 @@ export const icons = {
     save_as_alt: save_as_alt,
     resign: resign,
     resign_alt: resign_alt,
+    resign_alt2: resign_alt2,
     load: load,
     load_alt: load_alt,
     reset: reset,

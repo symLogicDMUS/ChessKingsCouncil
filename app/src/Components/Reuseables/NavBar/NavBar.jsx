@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { NavBarButton } from "./NavBarButton";
@@ -12,9 +12,18 @@ import { useStyles } from "./NavBar.jss";
  */
 function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
+    const [touch, setTouch] = useState(false);
     const screenCase = isWide ? "wide" : "thin";
 
     const classes = useStyles();
+
+    useEffect(() => {
+        window.addEventListener('touchstart', onFirstTouch, false)
+    }, [touch])
+    const onFirstTouch = () => {
+        setTouch(true);
+        window.removeEventListener('touchstart', onFirstTouch, false);
+    }
 
     return (
         <>
@@ -43,6 +52,7 @@ function NavBar(props) {
                     helpTitle={props.helpTitle}
                     screenCase={screenCase}
                     updateFirstVisit={props.updateFirstVisit}
+                    touch={touch}
                 >
                     {props.helpText}
                 </HelpButton>
@@ -52,6 +62,7 @@ function NavBar(props) {
                     updateTheme={props.updateTheme}
                     currentPage={props.currentPage}
                     screenCase={screenCase}
+                    touch={touch}
                 >
                     {props.additionalSettings}
                 </SettingsButton>
@@ -65,6 +76,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     path="/NewGame"
@@ -75,6 +87,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     path="/LoadGame"
@@ -86,6 +99,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     path="/CreatePiece"
@@ -97,6 +111,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     path="/MyPieces"
@@ -108,6 +123,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     key="chess-dot-com"
@@ -119,6 +135,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     key="/CouncilRules"
@@ -130,6 +147,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
                 <NavBarButton
                     key="github-dot-com"
@@ -141,6 +159,7 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
+                    touch={touch}
                 />
             </Box>
         </>

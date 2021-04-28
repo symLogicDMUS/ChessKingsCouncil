@@ -1,8 +1,7 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes/themes.jss";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
-import {darken, getLuminance, lighten} from "@material-ui/core/styles";
-import {fade} from "@material-ui/core";
+import {lighten} from "@material-ui/core/styles";
 
 
 export const useStyles = makeStyles({

@@ -10,7 +10,7 @@ import {HelpModal} from "./HelpModal";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {useStyles} from "../NavBarButton.jss";
 
-export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, children}) {
+export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, touch, children}) {
     const [hover, setHover] = useState(false);
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);
@@ -63,8 +63,9 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover,
+                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
+                    [classes.touch_color]: touch,
                     [classes.column_direction]: ! isRow(),
                     [classes.row_direction]: isRow(),
                 })}
@@ -80,8 +81,9 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                 >
                     <ContactSupportIcon
                         className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.icon_lg_column]: ! isRow(),
                             [classes.icon_lg_row]: isRow(),
                         })}
@@ -89,8 +91,9 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                     <Typography
                         variant='button'
                         className={clsx(classes.text, {
-                            [classes.normal_color]: !hover,
+                            [classes.normal_color]: !hover && !touch,
                             [classes.hover_color]: hover,
+                            [classes.touch_color]: touch,
                             [classes.parent_column_text]: ! isRow(),
                             [classes.parent_row_text]: isRow(),
                         })}

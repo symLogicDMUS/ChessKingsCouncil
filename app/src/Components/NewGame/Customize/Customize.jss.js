@@ -192,4 +192,3 @@ export const styles = {
         top: 'calc(50vh - (22.5vh + 3.5vw + 0.875rem))',
     }),
 }
-

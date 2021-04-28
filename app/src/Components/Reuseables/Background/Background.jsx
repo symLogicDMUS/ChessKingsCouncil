@@ -5,7 +5,7 @@ import {Portal} from "@material-ui/core";
 import {useStyles} from "./Background.jss";
 
 export function Background(props) {
-    const classes = useStyles({style: props.style})
+    const classes = useStyles()
     return (
         <Portal>
             <div className={classes.background}>

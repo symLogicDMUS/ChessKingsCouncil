@@ -22,6 +22,7 @@ function SignInPage(props) {
                 <div className={classes.login_page}>
                     <img src={`/Images/titles/desktop/title-${theme}.svg`} className={classes.appTitleMd}/>
                     <div className={classes.login_in_buttons}>
+                        <FirebaseGuestLoginButton onClick={props.anonymousLogin} />
                         <StyledFirebaseAuth
                             uiConfig={props.uiConfig}
                             firebaseAuth={firebase.auth()}
@@ -37,6 +38,7 @@ function SignInPage(props) {
                         className={classes.appTitleSm}
                     />
                     <div className={classes.login_in_buttons}>
+                        <FirebaseGuestLoginButton onClick={props.anonymousLogin} />
                         <StyledFirebaseAuth
                             uiConfig={props.uiConfig}
                             firebaseAuth={firebase.auth()}

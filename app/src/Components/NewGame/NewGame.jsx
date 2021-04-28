@@ -24,7 +24,6 @@ function NewGame() {
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
-    const [confirmModal, setConfirmModal] = useState(false);
     const [theme, setTheme] = useState("tan");
 
     useEffect(() => {
@@ -46,11 +45,7 @@ function NewGame() {
     };
 
     const setGameType = (gameType) => {
-        if (gameType === 'Standard') {
-            setConfirmModal(true)
-        } else {
-            updateGameType(gameType);
-        }
+        updateGameType(gameType);
     };
 
     const finish = () => {
@@ -125,19 +120,6 @@ function NewGame() {
                         key='Play-Button-thin'
                     />
                 </Box>
-                {confirmModal ? (
-                    <ConfirmStandard
-                        theme={theme}
-                        closeClick={() => {
-                            updateGameType('Standard')
-                            setConfirmModal(false)
-                        }}
-                        onClick={() => {
-                            updateGameType('Custom')
-                            setConfirmModal(false)
-                        }}
-                    />
-                ) : null}
             </ResponsiveDrawer>
         </>
     );

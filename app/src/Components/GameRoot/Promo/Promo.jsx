@@ -7,16 +7,16 @@ import {IconButton, Portal} from "@material-ui/core";
 import {ArrowLeft, ArrowRight} from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
 import ForwardIcon from '@material-ui/icons/Forward';
+import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import {franchisePieceImgs} from
+        "../../../API/sampleData/specialThemeImgs/prod/franchisePieceImgs";
+import {getPawnImg} from "./getPawnImg";
 import {reducer} from "./Promo.red";
 import {useStyles} from "./Promo.jss";
-import {getPawnImg} from "./getPawnImg";
 
 export function Promo(props) {
 
     const classes = useStyles({theme: props.theme});
-
-    // const pawnImg = useMemo(() => getPawnImg(props.gameType, props.color, props.theme), [])
-    const pawnImg = getPawnImg(props.gameType, props.color, props.theme);
 
     const [state, dispatch] = useReducer(reducer, {
         current: 0,
@@ -31,6 +31,18 @@ export function Promo(props) {
             aiPromote(props.promoDest);
         }
     }, [props.color]);
+
+    const pawnImg = getPawnImg(props.gameType, props.color, props.theme);
+
+    const getPromoImg = () => {
+        const pieceName = props.promoChoices[state.current];
+        if (specialThemeList.includes(props.theme)) {
+            return franchisePieceImgs[props.theme][pieceName][props.color]
+        }
+        else {
+            return props.defs[pieceName][props.color].img;
+        }
+    };
 
     /**
      * Pawn promotion means we are adding another piece,
@@ -71,6 +83,7 @@ export function Promo(props) {
             newId: newId,
             defs: props.defs,
             idDict: props.idDict,
+            theme: props.theme,
         });
         props.finishMove(props.promoStart, pawnLoc);
     };
@@ -116,20 +129,20 @@ export function Promo(props) {
                         onClick={() => dispatch({type: "previous"})}
                     >
                         <ArrowLeft className={classes.arrow_icon}/>
-
                     </IconButton>
                     {props.promoChoices.map((pieceName, i) => (
                         <PromoChoice
                             key={i}
                             onClick={promote}
-                            theme={props.theme}
+                            defs={props.defs}
+                            color={props.color}
                             pieceName={pieceName}
                             pieceId={props.pieceDict[pieceName]}
-                            imgUrl={props.defs[pieceName][props.color].img}
                             isCurrent={props.promoChoices[state.current] === pieceName}
                             isLast={i === props.promoChoices.length - 1}
                             reverseDirection={state.reverseDirection}
                             direction={state.direction}
+                            theme={props.theme}
                         />
                     ))}
                     <IconButton
@@ -147,7 +160,7 @@ export function Promo(props) {
                         <Box className={classes.icons}>
                             <img src={pawnImg} className={classes.piece_img} alt='icon of Pawn'/>
                             <ForwardIcon className={clsx(classes.piece_img, {[classes.icon]: true})} />
-                            <img src={props.defs[props.promoChoices[state.current]][props.color].img}
+                            <img src={getPromoImg()}
                                  className={classes.piece_img}
                                  alt='icon of potential promo'
                             />

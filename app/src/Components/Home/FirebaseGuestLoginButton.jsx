@@ -5,8 +5,8 @@ import { useStyles } from "./FirebaseGuestLoginButton.jss";
 
 export function FirebaseGuestLoginButton(props) {
     const classes = useStyles();
-    return <Box onClick={props.onClick} className={classes.anonymous_login_button}> {/*style={{display: 'none'}}*/}
-        <img src={'/Images/person-outline/person-outline.svg'} className={classes.anonymous_icon}/>
-        <Typography className={classes.anonymous_login_label} noWrap>Continue as guest</Typography>
+    return <Box onClick={props.onClick} className={classes.anonymous_login_button}>
+        {/*<img src={'/Images/person-outline/person-outline.svg'} className={classes.anonymous_icon}/>*/}
+        <Typography className={classes.anonymous_login_label} noWrap style={{marginLeft: 'auto', marginRight: 'auto'}}>Explore without account</Typography>
     </Box>;
 }
