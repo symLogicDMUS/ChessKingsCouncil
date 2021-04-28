@@ -1,30 +1,16 @@
-import React, { useEffect, useMemo, useReducer } from "react";
-import { DndProvider } from "react-dnd";
-import MediaQuery from "react-responsive/src";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { TouchBackend } from "react-dnd-touch-backend";
+import React, {useEffect, useReducer} from "react";
+import { DndProvider } from 'react-dnd-multi-backend';
+import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
 import { GameDisplayBoard } from "./GameDisplayBoard";
-import {updateOnResize} from "./updateOnResize";
-import { reducer} from "./Board.red";
-
-const DropLayer = React.lazy(() => import('./DropLayer'));
-const DragLayer = React.lazy(() => import('./DragLayer'));
+import { updateOnResize } from "./updateOnResize";
+import {useMediaQuery} from "@material-ui/core";
+import DropLayer from "./DropLayer";
+import DragLayer from "./DragLayer";
+import { reducer } from "./Board.red";
 
 const Board = ({ gameRoot }) => {
-    const dndBackend = useMemo(() => {
-        if (gameRoot.touchScreen) {
-            return TouchBackend;
-        } else {
-            return HTML5Backend;
-        }
-    }, [gameRoot.state.userTouchedScreen]);
+    const lg = useMediaQuery("(min-width:960px)");
 
-    const [state, dispatch] = useReducer(reducer, {
-        isPromo: false,
-        aiDisplay: false,
-        hiddenPiece: null,
-        ...updateOnResize(gameRoot),
-    });
     useEffect(() => {
         function handleResize() {
             dispatch({ type: "reposition", gameRoot: gameRoot });
@@ -35,61 +21,38 @@ const Board = ({ gameRoot }) => {
         };
     });
 
+    const [state, dispatch] = useReducer(reducer, {
+        isPromo: false,
+        aiDisplay: false,
+        hiddenPiece: null,
+        ...updateOnResize(gameRoot),
+    });
+
     return (
-        <>
-            <MediaQuery minWidth={960}>
-                <DndProvider backend={dndBackend}>
-                    <DropLayer
-                        state={state}
-                        dispatch={dispatch}
-                        gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.wide}
-                        boardSize={state.boardSizes.wide}
-                        boardPos={state.boardPos.wide}
-                        theme={gameRoot.state.theme}
-                    />
-                    <DragLayer
-                        gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.wide}
-                        boardSize={state.boardSizes.wide}
-                        boardPos={state.boardPos.wide}
-                        theme={gameRoot.state.theme}
-                    />
-                    <GameDisplayBoard
-                        theme={gameRoot.state.theme}
-                        sqrSize={state.sqrSizes.wide}
-                        boardSize={state.boardSizes.wide}
-                        boardPos={state.boardPos.wide}
-                    />
-                </DndProvider>
-            </MediaQuery>
-            <MediaQuery maxWidth={960}>
-                <DndProvider backend={dndBackend}>
-                    <DropLayer
-                        state={state}
-                        dispatch={dispatch}
-                        gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.thin}
-                        boardSize={state.boardSizes.thin}
-                        boardPos={state.boardPos.thin}
-                        theme={gameRoot.state.theme}
-                    />
-                    <DragLayer
-                        gameRoot={gameRoot}
-                        sqrSize={state.sqrSizes.thin}
-                        boardSize={state.boardSizes.thin}
-                        boardPos={state.boardPos.thin}
-                        theme={gameRoot.state.theme}
-                    />
-                    <GameDisplayBoard
-                        theme={gameRoot.state.theme}
-                        sqrSize={state.sqrSizes.thin}
-                        boardSize={state.boardSizes.thin}
-                        boardPos={state.boardPos.thin}
-                    />
-                </DndProvider>
-            </MediaQuery>
-        </>
+        <DndProvider options={HTML5toTouch}>
+            <DropLayer
+                state={state}
+                dispatch={dispatch}
+                gameRoot={gameRoot}
+                theme={gameRoot.state.theme}
+                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
+                boardSize={lg ? state.boardSizes.wide : state.boardSizes.thin}
+                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
+            />
+            <DragLayer
+                gameRoot={gameRoot}
+                theme={gameRoot.state.theme}
+                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
+                boardSize={lg ? state.boardSizes.wide : state.sqrSizes.thin}
+                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
+            />
+            <GameDisplayBoard
+                theme={gameRoot.state.theme}
+                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
+                boardSize={lg ? state.boardSizes.wide : state.boardSizes.thin}
+                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
+            />
+        </DndProvider>
     );
 };
 

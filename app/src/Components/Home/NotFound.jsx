@@ -4,7 +4,6 @@ import {Background} from "../Reuseables/Background/Background";
 import {icons} from "../styles/icons/top/icons.jss";
 import {SvgIcon, Typography} from "@material-ui/core";
 import { useStyles } from "./NotFound.jss";
-import {resign_alt2} from "../styles/icons/options/resign_alt2.jss";
 import {Link} from "react-router-dom";
 
 function NotFound() {

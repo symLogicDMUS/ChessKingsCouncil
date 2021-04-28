@@ -24,7 +24,7 @@ const CouncilRules = lazy(() => import("./Components/CouncilRules/CouncilRules")
 export class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {isSignedIn: false, userTouchedScreen: false, binaryValue: true};
+        this.state = {isSignedIn: false, binaryValue: true};
         this.isAnonymous = false;
         this.uid = null;
         /**
@@ -45,7 +45,6 @@ export class App extends React.Component {
         };
         this.update = this.update.bind(this);
         this.signOut = this.signOut.bind(this);
-        this.onFirstTouch = this.onFirstTouch.bind(this);
         this.anonymousLogin = this.anonymousLogin.bind(this);
     }
 
@@ -66,15 +65,6 @@ export class App extends React.Component {
                 this.setState({isSignedIn: false});
             }
         });
-        window.addEventListener('touchstart', this.onFirstTouch, false)
-    }
-
-    /**
-     * https://codeburst.io/the-only-way-to-detect-touch-with-javascript-7791a3346685
-     */
-    onFirstTouch() {
-        this.setState({userTouchedScreen: true});
-        window.removeEventListener('touchstart', this.onFirstTouch, false);
     }
 
     anonymousLogin() {
@@ -107,7 +97,7 @@ export class App extends React.Component {
                             <Route exact path="/LoadGame" component={LoadGame} />
                             <Route exact path="/CreatePiece" component={CreatePiece} />
                             <Route exact path="/Customize" component={Customize}/>
-                            <Route exact path="/Play" render={(props) => <GameRoot {...props} userTouchedScreen={this.state.userTouchedScreen} />}/>
+                            <Route exact path="/Play" component={GameRoot} />
                             <Route exact path="/MyPieces" component={MyPieces} />
                             <Route exact path="/CouncilRules" component={CouncilRules} />
                             <Route component={NotFound} />
