@@ -1,28 +1,9 @@
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
-    game_info_modal: props => ({
-        margin: 'auto',
-        borderRadius: '0.25rem',
-        border: `0.1rem solid ${themes[props.theme].odd_row}`,
-    }),
-    top_area: props => ({
-        width: '60vw',
-        height: '2.5vh',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        backgroundColor: themes[props.theme].even_row,
-    }),
-    drag_icon: props => ({
-        fontSize: '1.8vh',
-        color: themes[props.theme].text_alt,
-        cursor: 'move',
-    }),
     caption: props => ({
         flexGrow: 2,
         fontSize: '1.65vh',
@@ -36,17 +17,16 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        // width: drawerItemWidth,
         marginBottom: '1em',
-        // marginLeft: '1em',
         alignItems: 'flex-end',
         borderTop: `0.05em solid ${themes[props.theme].outline}`,
         borderBottom: `0.05em solid ${themes[props.theme].outline}`,
     }),
-    /*switch from direction of flow of data from previous*/
+    /*switch direction of flow of data from previous*/
     game_info_table: props => ({
         display: 'grid',
-        gridTemplateColumns: '20vw 20vw 20vw',
+        width: `calc(99.25vw - ${miniVariantIconsColumnWidth}px)`,
+        gridTemplateColumns: '33% 33% 33%',
     }),
     cell: props => ({
         '@media screen and (max-width: 960px)': {

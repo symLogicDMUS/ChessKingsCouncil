@@ -9,12 +9,6 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'flex-start',
     }),
-    captured_piece_images_modal: props => ({
-        margin: 'auto',
-        borderRadius: '0.25rem',
-        backgroundColor: themes[props.theme].fill,
-        border: `0.05rem solid ${themes[props.theme].odd_row}`,
-    }),
     caption: props => ({
         flexGrow: 2,
         fontSize: '1.65vh',

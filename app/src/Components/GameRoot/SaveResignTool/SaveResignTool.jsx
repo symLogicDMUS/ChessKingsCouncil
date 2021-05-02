@@ -6,7 +6,7 @@ import { icons } from "../../styles/icons/top/icons.jss";
 import { useStyles } from "./SaveResignTool.jss";
 
 const SaveAs = React.lazy(() => import('./SaveAs'));
-const ResignModal = React.lazy(() => import('./ResignModal'));
+const ResignWindow = React.lazy(() => import('./ResignWindow'));
 
 function SaveResignTool({
     save,
@@ -67,7 +67,7 @@ function SaveResignTool({
                 </Portal>
             ) : null}
             {resignModal ? (
-                <ResignModal
+                <ResignWindow
                     theme={theme}
                     onYesClick={() => {
                         setResignModal(false);

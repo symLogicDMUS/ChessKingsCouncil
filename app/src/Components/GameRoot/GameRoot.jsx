@@ -38,6 +38,7 @@ import {Fen} from "../../game_logic/fenParser/Fen";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+import GameRootToolbar from "./GameRootToolbar";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -331,61 +332,36 @@ class GameRoot extends React.Component {
         this.setState({ theme: theme });
     }
 
+    modals() {
+        return (
+            <MediaQuery minWidth={960}>
+                {this.state.miniVariantTool === "Save" ? (
+                    <AnimatePresencePortal>
+                        <GameSavedSuccessfully
+                            callback={() =>
+                                this.toggleMiniVariantTool(null)
+                            }
+                            theme={this.state.theme}
+                        />
+                    </AnimatePresencePortal>
+                ) : null}
+                {this.state.miniVariantTool === "Save-As" ? (
+                    <Portal>
+                        <SaveAs
+                            save={this.save}
+                            theme={this.state.theme}
+                            changeName={this.changeName}
+                            close={() => this.toggleMiniVariantTool(null)}
+                        />
+                    </Portal>
+                ) : null}
+            </MediaQuery>
+        )
+    }
+
     render() {
         return (
             <>
-                <div>
-                    {this.state.miniVariantTool === "Save" ? (
-                        <AnimatePresencePortal>
-                            <GameSavedSuccessfully
-                                callback={() =>
-                                    this.toggleMiniVariantTool(null)
-                                }
-                                theme={this.state.theme}
-                            />
-                        </AnimatePresencePortal>
-                    ) : null}
-                    {this.state.miniVariantTool === "Save-As" ? (
-                        <Portal>
-                            <SaveAs
-                                save={this.save}
-                                theme={this.state.theme}
-                                changeName={this.changeName}
-                                close={() => this.toggleMiniVariantTool(null)}
-                            />
-                        </Portal>
-                    ) : null}
-                    {this.state.miniVariantTool === "Captured-Pieces" ? (
-                        <CapturedPieceImages
-                            captured={this.captured}
-                            capturedIds={this.capturedIds}
-                            idDict={this.idDict}
-                            defs={this.defs}
-                            gameType={this.gameType}
-                            theme={this.state.theme}
-                            toggleMiniVariantTool={this.toggleMiniVariantTool}
-                        />
-                    ) : null}
-                    {this.state.miniVariantTool === "Resign" ? (
-                        <ResignModal
-                            theme={this.state.theme}
-                            onYesClick={() => {
-                                this.toggleMiniVariantTool(null);
-                                this.resign();
-                            }}
-                            onNoClick={() => this.toggleMiniVariantTool(null)}
-                        />
-                    ) : null}
-                    {this.state.miniVariantTool === "Game-Info" ? (
-                        <GameInfo
-                            gameName={this.gameName}
-                            gameType={this.gameType}
-                            theme={this.state.theme}
-                            playerType={this.playerType}
-                            toggleMiniVariantTool={this.toggleMiniVariantTool}
-                        />
-                    ) : null}
-                </div>
                 <ResponsiveDrawer
                     theme={this.state.theme}
                     appBarType={"custom"}
@@ -450,62 +426,19 @@ class GameRoot extends React.Component {
                         </>
                     }
                     toolButtons={
-                        <>
-                            <ToolButton
-                                text="save"
-                                iconName={"save_alt"}
-                                theme={this.state.theme}
-                                isActive={this.state.miniVariantTool === "Save"}
-                                onClick={this.save}
-                            />
-                            <ToolButton
-                                text="save as"
-                                iconName={"save_as_alt"}
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Save-As"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Save-As")
-                                }
-                            />
-                            <ToolButton
-                                text="captured pieces"
-                                theme={this.state.theme}
-                                iconName={"captured_pieces"}
-                                isActive={
-                                    this.state.miniVariantTool ===
-                                    "Captured-Pieces"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool(
-                                        "Captured-Pieces"
-                                    )
-                                }
-                            />
-                            <ToolButton
-                                text="game info"
-                                iconName={"game_info"}
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Game-Info"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Game-Info")
-                                }
-                            />
-                            <ToolButton
-                                text="resign game"
-                                iconName={"resign_alt"}
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Resign"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Resign")
-                                }
-                            />
-                        </>
+                        <GameRootToolbar
+                            defs={this.defs}
+                            idDict={this.idDict}
+                            captured={this.captured}
+                            capturedIds={this.capturedIds}
+                            playerType={this.playerType}
+                            gameName={this.gameName}
+                            gameType={this.gameType}
+                            theme={this.state.theme}
+                            changeName={this.changeName}
+                            resign={this.resign}
+                            save={this.save}
+                        />
                     }
                     navBar={
                         <NavBar
