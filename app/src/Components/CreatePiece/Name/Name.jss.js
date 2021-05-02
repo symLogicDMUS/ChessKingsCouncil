@@ -5,7 +5,7 @@ import {marginBottom} from "../CreatePiece.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
-    tool_window: props => ({
+    name_window: props => ({
         position: 'absolute',
         top: 50,
         left: '22.5vw',

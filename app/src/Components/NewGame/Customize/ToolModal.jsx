@@ -71,8 +71,9 @@ export function ToolModal({
                                         })}
                                     />
                                     <Close
-                                        onClick={onClose}
+
                                         theme={theme}
+                                        onClick={onClose}
                                         className={classes.close_button}
                                         iconClassName={clsx(classes.icon, {
                                             [classes.close_icon]: true,

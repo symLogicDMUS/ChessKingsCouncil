@@ -5,7 +5,7 @@ import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantD
 const windowSizeSm = '0.42em';
 const windowSizeLg = "10.625vw";
 
-/* Sm */
+/* sm */
 const halfMargin = '0.022em';
 const margin = '0.04em';
 
@@ -55,12 +55,12 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        fontSize: 'inherit',
+        fontSize: '1.5rem',
         color: themes[props.theme].text,
         marginRight: '0.2rem',
     }),
     text: props => ({
-        fontSize: '2.85vh',
+        fontSize: '1.5rem',
         color: themes[props.theme].text,
     }),
     borderRadius: props => ({

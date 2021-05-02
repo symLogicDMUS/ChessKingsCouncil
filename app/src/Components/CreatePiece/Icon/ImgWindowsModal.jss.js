@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
-    tool_window: props => ({
+    icon_window: props => ({
         position: 'absolute',
         top: 100,
         fontSize: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
@@ -13,4 +13,3 @@ export const useStyles = makeStyles({
        flexDirection: 'row',
     }),
 }, {index: 1});
-

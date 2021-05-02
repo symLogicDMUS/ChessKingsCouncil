@@ -26,6 +26,7 @@ import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { PieceName } from "../PieceProfiles/Header/PieceName";
 import { styles } from "./CreatePiece.jss";
+import CreatePieceToolbar from "./CreatePieceToolbar";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -436,29 +437,6 @@ class CreatePiece extends React.Component {
         return (
             <>
                 {this.modals()}
-                <div>
-                    <Name
-                        defaultValue={this.name}
-                        theme={this.state.theme}
-                        clientX={this.state.clientX}
-                        clientY={this.state.clientY}
-                        updateName={this.updateName}
-                        key={`Name-thin${this.state.loadInstance}`}
-                        miniVariantTool={this.state.miniVariantTool}
-                        toggleMiniVariantTool={this.toggleMiniVariantTool}
-                    />
-                    <Icon
-                        key="Icon-thin"
-                        theme={this.state.theme}
-                        resetImg={this.resetImg}
-                        clientX={this.state.clientX}
-                        clientY={this.state.clientY}
-                        setPieceImg={this.setPieceImg}
-                        whiteAndBlackImgs={this.whiteAndBlackImgs}
-                        miniVariantTool={this.state.miniVariantTool}
-                        toggleMiniVariantTool={this.toggleMiniVariantTool}
-                    />
-                </div>
                 <ResponsiveDrawer
                     appBarType="title"
                     appBarContent={
@@ -554,21 +532,13 @@ class CreatePiece extends React.Component {
                     }
                     toolButtons={
                         <>
-                            <ToolButton
-                                text="Name"
-                                name='Name'
-                                iconName={"name_tool"}
+                            <CreatePieceToolbar
+                                pieceName={this.name}
+                                updateName={this.updateName}
+                                whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                setNewPieceImg={this.setPieceImg}
+                                resetImg={this.resetImg}
                                 theme={this.state.theme}
-                                isActive={this.state.miniVariantTool === "Name"}
-                                updateParent={this.toggleMiniVariantTool}
-                            />
-                            <ToolButton
-                                text="Icon"
-                                name='Icon'
-                                iconName={"icon_tool"}
-                                theme={this.state.theme}
-                                isActive={this.state.miniVariantTool === "Icon"}
-                                updateParent={this.toggleMiniVariantTool}
                             />
                             <ToolButtonAlt
                                 text="Spans"
