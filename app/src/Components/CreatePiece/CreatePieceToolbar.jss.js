@@ -1,6 +1,5 @@
 import {darken, makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
-import {marginBottom} from "./CreatePiece.jss";
 import {themes} from "../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({

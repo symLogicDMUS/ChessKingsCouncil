@@ -27,6 +27,7 @@ import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import { textColor, styles } from "./Customize.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import CustomizeToolbar from "./CustomizeToolbar";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
@@ -344,106 +345,6 @@ class Customize extends React.Component {
         return (
             <>
                 {this.state.redirect ? this.play() : null}
-                {this.state.miniVariantTool === "Subs" ? (
-                    <ToolModal
-                        key='Subs'
-                        name='Subs'
-                        theme={this.state.theme}
-                        clientX={this.state.clientX}
-                        clientY={this.state.clientY}
-                        selected={this.state.miniVariantTool}
-                        isIn={this.state.miniVariantTool==="Subs"}
-                        onClose={() => this.toggleMiniVariantTool("Subs")}
-                        className={this.props.classes.subs_modal}
-                        direction='left'
-                    >
-                        <SubList subs={this.subs} theme={this.state.theme} />
-                    </ToolModal>
-                ) : null}
-                {this.state.miniVariantTool === "Promos" ? (
-                    <ToolModal
-                        key='Promos'
-                        name='Promos'
-                        clientX={this.state.clientX}
-                        clientY={this.state.clientY}
-                        selected={this.state.miniVariantTool}
-                        isIn={this.state.miniVariantTool==="Promos"}
-                        onClose={() => this.toggleMiniVariantTool("Promos", null, null)}
-                        className={this.props.classes.promos_modal}
-                        theme={this.state.theme}
-                        direction='left'
-                    >
-                        <ScrollTable
-                            numRows={6}
-                            theme={this.state.theme}
-                            key="pawn-promotions-wide"
-                            className={this.props.classes.scroll_table}
-                            addedClassName={this.props.classes.drawer_component}
-                            listItemClassName={
-                                this.props.classes.scroll_table_list_item
-                            }
-                            arrowButtonClassName={
-                                this.props.classes.scroll_table_button
-                            }
-                            textClassName={this.props.classes.scroll_table_text}
-                            title={
-                                <ListTitle
-                                    className={
-                                        this.props.classes.scroll_table_title
-                                    }
-                                    variant="h6"
-                                    theme={this.state.theme}
-                                >
-                                    Pawn Promotions
-                                </ListTitle>
-                            }
-                        >
-                            {this.promos}
-                        </ScrollTable>
-                    </ToolModal>
-                ) : null}
-                {this.state.miniVariantTool === "Pieces" ? (
-                    <ToolModal
-                        key='Pieces'
-                        name='Pieces'
-                        clientX={this.state.clientX}
-                        clientY={this.state.clientY}
-                        selected={this.state.miniVariantTool}
-                        isIn={this.state.miniVariantTool==="Pieces"}
-                        onClose={() => this.toggleMiniVariantTool("Pieces", null, null)}
-                        className={this.props.classes.promos_modal}
-                        theme={this.state.theme}
-                        direction='left'
-                    >
-                        <ScrollTable
-                            numRows={6}
-                            key="piece-data"
-                            theme={this.state.theme}
-                            className={this.props.classes.scroll_table}
-                            addedClassName={this.props.classes.drawer_component}
-                            listItemClassName={
-                                this.props.classes.scroll_table_list_item
-                            }
-                            arrowButtonClassName={
-                                this.props.classes.scroll_table_button
-                            }
-                            textClassName={this.props.classes.scroll_table_text}
-                            title={
-                                <ListTitle
-                                    className={
-                                        this.props.classes.scroll_table_title
-                                    }
-                                    variant="h6"
-                                    theme={this.state.theme}
-                                >
-                                    All Pieces
-                                </ListTitle>
-                            }
-                        >
-                            {this.getPieceListData()}
-                        </ScrollTable>
-                    </ToolModal>
-                ) : null}
                 <ResponsiveDrawer
                     elevation={0}
                     appBarType="3item"
@@ -524,34 +425,12 @@ class Customize extends React.Component {
                         </Box>
                     }
                     toolButtons={
-                        <>
-                            <ToolButton
-                                text="Sub List"
-                                iconName="subs"
-                                theme={this.state.theme}
-                                isActive={this.state.miniVariantTool === "Subs"}
-                                updateParent={this.toggleMiniVariantTool}
-                            />
-                            <ToolButton
-                                text="Pawn Promotion List"
-                                iconName="promos"
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Promos"
-                                }
-                                updateParent={this.toggleMiniVariantTool}
-
-                            />
-                            <ToolButton
-                                text="All Pieces"
-                                iconName="piece_list"
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Pieces"
-                                }
-                                updateParent={this.toggleMiniVariantTool}
-                            />
-                        </>
+                        <CustomizeToolbar
+                            subs={this.subs}
+                            promos={this.promos}
+                            // pieceNames={this.getPieceListData()}
+                            theme={this.state.theme}
+                        />
                     }
                     navBar={
                         <NavBar

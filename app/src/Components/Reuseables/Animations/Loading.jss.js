@@ -30,6 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     }),
     animation: props => ({
         width: '25vw',
+        minWidth: 180,
         margin: 'auto',
     }),
 }), {index: 1});

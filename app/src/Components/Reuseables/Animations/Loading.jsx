@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import clsx from "clsx";
+import React from "react";
 import "../Background/_backgrounds.scss";
 import Box from "@material-ui/core/Box";
 import {AnimatePresence} from "framer-motion";

@@ -1,5 +1,4 @@
 import {themes} from "../../styles/themes/themes.jss";
-import {fontSize0016, fontSize0023} from "../../styles/fontSizes.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const drawerItemWidth = '22.4vw';

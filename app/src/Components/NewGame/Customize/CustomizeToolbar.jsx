@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import NameModal from "./Name/NameModal";
-import IconModal from "./Icon/IconModal";
-import { Portal } from "@material-ui/core";
-import { AnimatePresence } from "framer-motion";
-import ToolButton from "../Reuseables/Clickables/ToolButton";
+import React, {useState} from "react";
+import {Portal} from "@material-ui/core";
+import SubsModal from "./SubsModal";
+import PromosModal from "./PromosModal";
+import PiecesModal from "./PiecesModal";
+import {AnimatePresence} from "framer-motion";
+import ToolButton from "../../Reuseables/Clickables/ToolButton";
 
-function CreatePieceToolbar({
-    pieceName,
-    updateName,
-    whiteAndBlackImgs,
-    setNewPieceImg,
-    resetImg,
-    theme,
-}) {
+function CustomizeToolbar({subs, promos, pieceNames, theme}) {
 
     const [state, setState] = useState({
         miniVariantTool: null,
@@ -60,51 +54,51 @@ function CreatePieceToolbar({
         <>
             <Portal>
                 <AnimatePresence>
-                    {state.miniVariantTool === "Name" && (
-                        <NameModal
-                            pieceName={pieceName}
-                            updateName={updateName}
-                            updateParent={toggleMiniVariantTool}
-                            onAnimationComplete={() => setDrag(true)}
-                            variants={variants}
-                            theme={theme}
-                            drag={drag}
-                        />
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {state.miniVariantTool === "Icon" && (
-                        <IconModal
-                            resetImg={resetImg}
-                            setNewPieceImg={setNewPieceImg}
-                            whiteAndBlackImgs={whiteAndBlackImgs}
+                    {state.miniVariantTool === "Subs" && (
+                        <SubsModal
                             toggleMiniVariantTool={toggleMiniVariantTool}
                             onAnimationComplete={() => setDrag(true)}
                             variants={variants}
-                            theme={theme}
                             drag={drag}
-                        />
+                            theme={theme}
+                        >
+                            {subs}
+                        </SubsModal>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {state.miniVariantTool === "Promos" && (
+                        <PromosModal
+                            toggleMiniVariantTool={toggleMiniVariantTool}
+                            onAnimationComplete={() => setDrag(true)}
+                            variants={variants}
+                            drag={drag}
+                            theme={theme}
+                        >
+                            {promos}
+                        </PromosModal>
                     )}
                 </AnimatePresence>
             </Portal>
             <ToolButton
-                text="Name"
-                name="Name"
-                theme={theme}
-                iconName={"name_tool"}
+                name="Subs"
+                iconName="subs"
+                text="Sub List"
+                isActive={state.miniVariantTool === "Subs"}
                 updateParent={toggleMiniVariantTool}
-                isActive={state.miniVariantTool === "Name"}
+                theme={theme}
             />
             <ToolButton
-                text="Icon"
-                name="Icon"
-                theme={theme}
-                iconName={"icon_tool"}
+                name="Promos"
+                iconName="promos"
+                text="Pawn Promotion List"
+                isActive={state.miniVariantTool === "Promos"}
                 updateParent={toggleMiniVariantTool}
-                isActive={state.miniVariantTool === "Icon"}
+                theme={theme}
+
             />
         </>
-    );
+    )
 }
 
-export default CreatePieceToolbar;
+export default CustomizeToolbar;
