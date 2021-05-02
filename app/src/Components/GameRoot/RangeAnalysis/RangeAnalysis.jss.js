@@ -1,6 +1,5 @@
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize002, fontSize00219,} from "../../styles/fontSizes.jss";
 
 export const sqrSize = {
     wide: '2.8vw',
@@ -39,7 +38,7 @@ export const useStyles = makeStyles({
             },
         }),
         title: props => ({
-            fontSize: fontSize00219,
+            fontSize: '2.19vh',
             height: '1em',
             lineHeight: '0.96em',
             fontFamily: 'Roboto-Light, Roboto',
@@ -55,13 +54,7 @@ export const useStyles = makeStyles({
         }),
         checkbox: props => ({
             color: themes[props.theme].text,
-            '@media screen and (min-width: 960px)': {
-                fontSize: fontSize002,
-            },
-            /*media query for phones/tablets (generalized)*/
-            '@media screen and (max-width: 960px)': {
-                fontSize: fontSize002
-            },
+            fontSize: '2vh',
             height: '1.5em',
             width: '1.5em',
         }),

@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { TextField } from "@material-ui/core";
 import { DragIndicator } from "@material-ui/icons";
 import { CloseTool } from "../../Reuseables/Modals/CloseTool";
@@ -24,7 +24,7 @@ function NameModal({
     };
 
     return (
-        <div className={classes2.modal}>
+        <motion.div className={classes2.modal}>
             <motion.div
                 variants={variants}
                 initial={"initial"}
@@ -67,7 +67,7 @@ function NameModal({
                     id="game-name"
                 />
             </motion.div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -3,7 +3,10 @@ import { themes } from "../../styles/themes/themes.jss";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
+import {GameSavedSuccessfully} from
+        "../../CreatePiece/animations/GameSavedSuccessfully";
 import { useStyles } from "./SaveResignTool.jss";
+import {AnimatePresencePortal} from "../../Reuseables/Animations/AnimatePresencePortal";
 
 const SaveAs = React.lazy(() => import('./SaveAs'));
 const ResignWindow = React.lazy(() => import('./ResignWindow'));
@@ -15,6 +18,7 @@ function SaveResignTool({
     theme,
 }) {
     const [saveAs, setSaveAs] = useState(false);
+    const [saveModal, setSaveModal] = useState(false);
     const [resignModal, setResignModal] = useState(false);
     const classes = useStyles({ theme: theme });
 
@@ -24,7 +28,7 @@ function SaveResignTool({
                 <IconButton
                     className={classes.option}
                     classes={{ label: classes.label }}
-                    onClick={save}
+                    onClick={() => setSaveModal(true)}
                 >
                     <SvgIcon className={classes.icon}>
                         {icons.save(themes[theme].button_text)}
@@ -56,12 +60,26 @@ function SaveResignTool({
                     <Typography className={classes.text}>Resign</Typography>
                 </IconButton>
             </span>
+            {saveModal && (
+                <AnimatePresencePortal>
+                    <GameSavedSuccessfully
+                        theme={theme}
+                        callback={() => {
+                            save()
+                            setSaveModal(false)
+                        }}
+                    />
+                </AnimatePresencePortal>
+            )}
             {saveAs ? (
                 <Portal>
                     <SaveAs
-                        save={save}
                         theme={theme}
                         changeName={changeName}
+                        save={() => {
+                            setSaveAs(false)
+                            setSaveModal(true)
+                        }}
                         close={() => setSaveAs(false)}
                     />
                 </Portal>
@@ -70,8 +88,8 @@ function SaveResignTool({
                 <ResignWindow
                     theme={theme}
                     onYesClick={() => {
-                        setResignModal(false);
                         resign();
+                        setResignModal(false);
                     }}
                     onNoClick={() => setResignModal(false)}
                 />

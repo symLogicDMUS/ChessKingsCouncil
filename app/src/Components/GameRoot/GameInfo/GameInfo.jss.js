@@ -26,7 +26,9 @@ export const useStyles = makeStyles({
     game_info_table: props => ({
         display: 'grid',
         width: `calc(99.25vw - ${miniVariantIconsColumnWidth}px)`,
-        gridTemplateColumns: '33% 33% 33%',
+        gridTemplateColumns: '32% 32% 32%',
+        marginLeft: '1.5%',
+        marginBottom: '1.5%',
     }),
     cell: props => ({
         '@media screen and (max-width: 960px)': {

@@ -1,6 +1,5 @@
 import React from "react";
 import {copy} from "../helpers/copy";
-import {Portal} from "@material-ui/core";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
@@ -21,8 +20,6 @@ import {update} from "../../game_logic/callHierarchyTop/update";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {updateCountsOnOverwrite} from "../../API/updateCountsOnOverwrite";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
-import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
-import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs/prod";
 import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
@@ -36,20 +33,17 @@ import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {Fen} from "../../game_logic/fenParser/Fen";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
+import GameRootToolbar from "./GameRootToolbar";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
-import GameRootToolbar from "./GameRootToolbar";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const StatusBar = React.lazy(() => import('./Title/StatusBar'));
 const GameInfo = React.lazy(() => import('./GameInfo/GameInfo'));
-const SaveAs = React.lazy(() => import('./SaveResignTool/SaveAs'));
-const ResignModal = React.lazy(() => import('./SaveResignTool/ResignModal'));
 const SaveResignTool = React.lazy(() => import('./SaveResignTool/SaveResignTool'));
 const RangeAnalysis = React.lazy(() => import('./RangeAnalysis/RangeAnalysis'));
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
-const ToolButton = React.lazy(() => import('../Reuseables/Clickables/ToolButton'));
 
 
 class GameRoot extends React.Component {
@@ -114,7 +108,7 @@ class GameRoot extends React.Component {
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleRangeAnalysis = this.toggleRangeAnalysis.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
-        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.updateTheme = this.updateTheme.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
@@ -291,7 +285,7 @@ class GameRoot extends React.Component {
         return rangeBoard;
     }
 
-    toggleMiniVariantTool(toolName) {
+    toggleModal(toolName) {
         if (this.state.miniVariantTool === toolName) {
             this.setState({ miniVariantTool: null });
         } else {
@@ -332,33 +326,6 @@ class GameRoot extends React.Component {
         this.setState({ theme: theme });
     }
 
-    modals() {
-        return (
-            <MediaQuery minWidth={960}>
-                {this.state.miniVariantTool === "Save" ? (
-                    <AnimatePresencePortal>
-                        <GameSavedSuccessfully
-                            callback={() =>
-                                this.toggleMiniVariantTool(null)
-                            }
-                            theme={this.state.theme}
-                        />
-                    </AnimatePresencePortal>
-                ) : null}
-                {this.state.miniVariantTool === "Save-As" ? (
-                    <Portal>
-                        <SaveAs
-                            save={this.save}
-                            theme={this.state.theme}
-                            changeName={this.changeName}
-                            close={() => this.toggleMiniVariantTool(null)}
-                        />
-                    </Portal>
-                ) : null}
-            </MediaQuery>
-        )
-    }
-
     render() {
         return (
             <>
@@ -382,18 +349,12 @@ class GameRoot extends React.Component {
                                 gameType={this.gameType}
                                 theme={this.state.theme}
                                 playerType={this.playerType}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
                             />
                             <SaveResignTool
                                 save={this.save}
                                 resign={this.resign}
                                 theme={this.state.theme}
                                 changeName={this.changeName}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
                             />
                             <RangeAnalysis
                                 board={this.board}
@@ -413,9 +374,6 @@ class GameRoot extends React.Component {
                                 toggleSecondaryDrawer={doNothing}
                             />
                             <CapturedPieceImages
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
                                 capturedIds={this.capturedIds}
                                 captured={this.captured}
                                 gameType={this.gameType}

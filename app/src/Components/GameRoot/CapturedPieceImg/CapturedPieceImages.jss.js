@@ -29,15 +29,21 @@ export const useStyles = makeStyles({
     white_captured: props => ({
         '@media screen and (max-width: 960px)': {
             marginTop: '1rem',
-            marginBottom: '1.5rem',
+            marginBottom: '1rem',
+            marginLeft: '1rem',
+            marginRight: '1rem',
         },
         '@media screen and (min-width: 960px)': {
+            marginTop: '1.2vh',
             marginBottom: '0.75vw',
         },
     }),
     black_captured: props => ({
         '@media screen and (max-width: 960px)': {
-            marginTop: '1.5rem',
+            marginTop: '1rem',
+            marginBottom: '1rem',
+            marginLeft: '1rem',
+            marginRight: '1rem',
         },
         '@media screen and (min-width: 960px)': {
             marginTop: '0.75vw',
@@ -65,12 +71,8 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-start',
         transform: 'translate(0, -0.5em)',
-        '@media screen and (max-width: 350px)': {
-            width: '83%',
-            marginLeft: '1vw',
-        },
-        '@media screen and (min-width: 350px) and (max-width: 960px)': {
-            width: 250,
+        '@media screen and (max-width: 960px)': {
+            width: '90%',
             marginLeft: '1vw',
         },
         '@media screen and (min-width: 960px)': {
@@ -79,13 +81,8 @@ export const useStyles = makeStyles({
         },
     }),
     empty_list: props => ({
-        '@media screen and (max-width: 350px)': {
-            width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
-            fontSize: '2.3vh',
-            height: '1.5em',
-        },
-        '@media screen and (min-width: 350px) and (max-width: 960px)': {
-            width: 300,
+        '@media screen and (max-width: 960px)': {
+            width: '95%',
             fontSize: '2.3vh',
             height: '1.5em',
         },
