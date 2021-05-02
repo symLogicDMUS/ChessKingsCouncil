@@ -55,12 +55,12 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     icon: (props) => ({
-        fontSize: '1.5rem',
+        fontSize: '1.1rem',
         color: themes[props.theme].text,
         marginRight: '0.2rem',
     }),
     text: props => ({
-        fontSize: '1.5rem',
+        fontSize: '1.1rem',
         color: themes[props.theme].text,
     }),
     borderRadius: props => ({
