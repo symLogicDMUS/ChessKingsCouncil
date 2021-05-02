@@ -69,6 +69,7 @@ import {subs} from "../customize/subs.jss";
 import {promos} from "../customize/promos.jss";
 import {promos_alt} from "../customize/promos_alt";
 import {piece_list} from "../customize/piece_list.jss";
+import {board_icon} from "../load_game/board_icon.jss";
 
 export const icons = {
     home: home,
@@ -140,5 +141,6 @@ export const icons = {
     captured_pieces: captured_pieces,
     captured_pieces_alt: captured_pieces_alt,
     piece_list: piece_list,
+    board_icon: board_icon,
     none: none,
 };

@@ -9,6 +9,8 @@ import { searchBackgroundColor, useStyles} from "../Reuseables/Modals/MuiGridTit
 import SearchIcon from "@material-ui/icons/Search";
 import {MoreVert, Storage} from "@material-ui/icons";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import {icons} from "../styles/icons/top/icons.jss";
 
 export function SavedGamesTitle({updateSearchText, theme}) {
     const classes = useStyles({theme});
@@ -17,7 +19,9 @@ export function SavedGamesTitle({updateSearchText, theme}) {
         <Box className={classes.title_area}>
             <Box className={classes.title_box}>
                 <Typography className={classes.title}>Load Game</Typography>
-                <Storage className={classes.title_icon} size="small" />
+                <SvgIcon className={classes.title_icon}>
+                    {icons.board_icon}
+                </SvgIcon>
             </Box>
             <MediaQuery maxWidth={600}>
                 <SeeMore

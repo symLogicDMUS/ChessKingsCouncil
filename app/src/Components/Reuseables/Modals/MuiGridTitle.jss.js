@@ -42,9 +42,9 @@ export const useStyles = makeStyles({
             transform: 'translate(12.5vw, 0)',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '2em',
-            marginRight: '0.25em',
-            transform: 'translate(8.5vw, 0)',
+            fontSize: '2.5rem',
+            marginRight: '0.25rem',
+            transform: 'translate(8.75vw, 0)',
         },
     }),
     title_icon: props => ({
@@ -52,7 +52,7 @@ export const useStyles = makeStyles({
         marginLeft: '0.25em',
         color: themes[props.theme].text,
         '@media screen and (max-width: 600px)': {
-            fontSize: '1.75rem',
+            fontSize: '2.5rem',
             transform: 'translate(2rem, 0)',
         },
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
@@ -60,8 +60,8 @@ export const useStyles = makeStyles({
             transform: 'translate(12.5vw, 0)',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '2em',
-            transform: 'translate(8.5vw, 0)',
+            fontSize: '1.85rem',
+            transform: 'translate(8.75vw, 0)',
         },
     }),
     search: props => ({
