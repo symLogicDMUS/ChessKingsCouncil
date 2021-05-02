@@ -4,12 +4,13 @@ import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import {Close} from "../../Reuseables/Modals/Close";
 import {getColorName} from "../../helpers/getColorName";
-import ProfileWBAvatar from "./ProfileWBAvatar";
-import ProfileWBRange from "./ProfileWBRange";
-import {useStyles as useMoreStyles} from "./ProfileWB.jss";
 import {boardGridAdjust, useStyles} from "./ProfileWBModal.jss";
+import {useStyles as useMoreStyles} from "./ProfileWB.jss";
 
-export function ProfileWBModal({
+const ProfileWBRange = React.lazy(() => import('./ProfileWBRange'));
+const ProfileWBAvatar = React.lazy(() => import('./ProfileWBAvatar'));
+
+function ProfileWBModal({
     pieceName,
     imgUrl,
     def,
@@ -70,3 +71,5 @@ export function ProfileWBModal({
         </Box>
     );
 }
+
+export default ProfileWBModal;

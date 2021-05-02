@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import {Avatar, Chip, ClickAwayListener} from "@material-ui/core";
 import { useStyles } from "./NoProfile.jss";
 
-export const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
+const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
     const classes = useStyles({ theme: theme });
     return (
         <div className={classes.modal}>
@@ -22,3 +22,5 @@ export const NoProfile = memo(({ pieceName, imgUrl, closeProfile, theme }) => {
         </div>
     );
 });
+
+export default NoProfile;

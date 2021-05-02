@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import { AnalysisBoard } from "./AnalysisBoard";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import { Typography } from "@material-ui/core";
@@ -7,6 +6,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./RangeAnalysis.red";
 import { useStyles } from "./RangeAnalysis.jss";
+
+const AnalysisBoard = React.lazy(() => import('./AnalysisBoard'));
 
 function RangeAnalysis({
     theme,
@@ -72,4 +73,5 @@ function RangeAnalysis({
         </>
     );
 }
+
 export default RangeAnalysis;

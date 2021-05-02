@@ -3,7 +3,7 @@ import clsx from "clsx";
 import {Avatar, Typography} from "@material-ui/core";
 import { useStyles } from "./CreatePiecePiece.jss";
 
-export const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
+const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
     const classes = useStyles({
         theme: theme,
     });
@@ -11,7 +11,7 @@ export const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
     return (
         <>
             {imgUrl ? (
-                <img src={imgUrl} className={classes.img} />
+                <img src={imgUrl} className={classes.img} alt={'avatar of piece being created'} />
             ) : (
                 <Avatar
                     variant="square"
@@ -26,3 +26,5 @@ export const CreatePiecePiece = memo(({ imgUrl, rf, theme, className }) => {
         </>
     );
 });
+
+export default CreatePiecePiece;

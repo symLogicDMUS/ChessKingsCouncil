@@ -5,11 +5,12 @@ import {getHasFabChild} from "./getHasFabChild";
 import { difference } from "../../helpers/setOps";
 import { rankfiles } from "../../helpers/rankfiles";
 import { useMediaQuery } from "@material-ui/core";
-import { getAngleLocations } from "../Range/SpanArrowButtons/getAngleLocations";
-import { CreatePieceSquare as Square } from "./CreatePieceSquare";
-import { CreatePiecePiece as Piece } from "./CreatePiecePiece";
+import { getAngleLocations } from
+        "../Range/SpanArrowButtons/getAngleLocations";
 import { useStyles } from "./CreatePieceBoard.jss";
 
+const CreatePieceSquare = React.lazy(() => import('./CreatePieceSquare'));
+const CreatePiecePiece = React.lazy(() => import('./CreatePiecePiece'));
 const LocationButton = React.lazy(() => import("../Location/LocationButton"));
 const ArrowButton = React.lazy(() => import('../Range/SpanArrowButtons/ArrowButton'));
 
@@ -35,7 +36,7 @@ function CreatePieceBoard({
     const getRegularSquare = (rf) => {
         const hasFabChild = getHasFabChild(rf, pieceLoc, miniVariantTool)
         return (
-            <Square
+            <CreatePieceSquare
                 rf={rf}
                 key={rf}
                 theme={theme}
@@ -55,13 +56,13 @@ function CreatePieceBoard({
                         onClick={() => toggleMiniVariantTool(miniVariantTool)}
                     />
                 ) : null}
-            </Square>
+            </CreatePieceSquare>
         );
     };
 
     const getSquareWithPiece = (rf) => {
         return (
-            <Square
+            <CreatePieceSquare
                 rf={rf}
                 key={rf}
                 theme={theme}
@@ -76,18 +77,18 @@ function CreatePieceBoard({
                 hasFabChild={false}
                 hasToolChild={false}
             >
-                <Piece
+                <CreatePiecePiece
                     rf={rf}
                     theme={theme}
                     imgUrl={imgUrl}
                 />
-            </Square>
+            </CreatePieceSquare>
         );
     };
 
     const getSquareWithArrowButton = (rf, angle) => {
         return (
-            <Square
+            <CreatePieceSquare
                 rf={rf}
                 key={rf}
                 theme={theme}
@@ -114,13 +115,13 @@ function CreatePieceBoard({
                     screenCase="thin"
                     theme={theme}
                 />
-            </Square>
+            </CreatePieceSquare>
         );
     };
 
     const getSquareWithLocationButton = (rf) => {
         return (
-            <Square
+            <CreatePieceSquare
                 rf={rf}
                 key={rf}
                 theme={theme}
@@ -143,14 +144,14 @@ function CreatePieceBoard({
                     toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     {rf===pieceLoc ? (
-                        <Piece
+                        <CreatePiecePiece
                             rf={rf}
                             theme={theme}
                             imgUrl={imgUrl}
                         />
                     ) : rf}
                 </LocationButton>
-            </Square>
+            </CreatePieceSquare>
         );
     };
 

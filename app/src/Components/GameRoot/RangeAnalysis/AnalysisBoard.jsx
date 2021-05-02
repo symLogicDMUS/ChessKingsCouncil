@@ -1,14 +1,15 @@
 import React from "react";
 import { rankfiles } from "../../helpers/rankfiles";
-import { AnalysisSquare as Square } from "./AnalysisSquare";
-import { AnalysisPiece as Piece } from "./AnalysisPiece";
 import { isSpecial } from "../../helpers/isSpecial";
 import { getPieceImg } from "../../../API/sampleData/specialThemeImgs/getPieceImg";
 import { getFranchisePieceImg } from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
-import { useStyles } from "./AnalysisBoard.jss";
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import { useStyles } from "./AnalysisBoard.jss";
 
-export function AnalysisBoard({
+const AnalysisSquare = React.lazy(() => import('./AnalysisSquare'));
+const AnalysisPiece = React.lazy(() => import('./AnalysisPiece'));
+
+function AnalysisBoard({
     theme,
     screenCase,
     gameType,
@@ -33,7 +34,7 @@ export function AnalysisBoard({
         for (const rf of rankfiles) {
             if (board[rf] === "#") {
                 squares.push(
-                    <Square
+                    <AnalysisSquare
                         rf={rf}
                         key={rf}
                         theme={theme}
@@ -41,7 +42,7 @@ export function AnalysisBoard({
                         isHighlight={rangeBoard[rf]}
                     >
                         {null}
-                    </Square>
+                    </AnalysisSquare>
                 );
             } else {
                 id = board[rf];
@@ -56,14 +57,14 @@ export function AnalysisBoard({
                     imgUrl = getPieceImg(id, idDict, pieceDefs);
                 }
                 squares.push(
-                    <Square
+                    <AnalysisSquare
                         rf={rf}
                         key={rf}
                         theme={theme}
                         screenCase={screenCase}
                         isHighlight={rangeBoard[rf]}
                     >
-                        <Piece
+                        <AnalysisPiece
                             rf={rf}
                             key={board[rf]}
                             imgUrl={imgUrl}
@@ -99,7 +100,7 @@ export function AnalysisBoard({
                             screenCase={screenCase}
                             theme={theme}
                         />
-                    </Square>
+                    </AnalysisSquare>
                 );
             }
         }

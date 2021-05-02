@@ -8,7 +8,7 @@ import {OffsetLabel} from "./RangeLabelComponents/OffsetLabel";
 import {useStyles as useMoreStyles} from "../../Reuseables/Board/Square.jss";
 import {pieceLocHover, useStyles} from "./CreatePieceSquare.jss";
 
-export const CreatePieceSquare = memo(
+const CreatePieceSquare = memo(
     ({
          rf,
          theme,
@@ -61,3 +61,5 @@ export const CreatePieceSquare = memo(
         );
     }
 );
+
+export default CreatePieceSquare;

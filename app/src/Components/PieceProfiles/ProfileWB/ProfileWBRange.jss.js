@@ -36,7 +36,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             gridTemplateColumns: 'repeat(8, 1.791625vw)',
             gridTemplateRows: 'repeat(8, 1.791625vw)',
-            top: '-14.667vw',
+            top: '-15vw',
         },
     }),
     /* assumes position of d4*/

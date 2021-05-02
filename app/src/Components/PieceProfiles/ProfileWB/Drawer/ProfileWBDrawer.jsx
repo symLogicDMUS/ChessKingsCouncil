@@ -11,70 +11,70 @@ import Box from "@material-ui/core/Box";
 import {getColorName} from "../../../helpers/getColorName";
 import IconButton from "@material-ui/core/IconButton";
 
-export const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color, pieceName, screenCase}) => {
+const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color, pieceName, screenCase}) => {
 
     const classes = useStyles({theme});
 
     return (
-        <div>
-            <div className={clsx(classes.root, {
-                [classes.root_inactive]: !isActive
-            })}>
-                <div className={classes.wrapper}>
-                    <Slide direction="left" in={isActive} mountOnEnter unmountOnExit>
-                        <Paper elevation={4} className={classes.paper}>
-                            {isActive ? (
-                                <div className={classes.profile_wb_drawer}>
-                                    <Box className={classes.top_area}>
-                                        <IconButton
-                                            edge="end"
-                                            onClick={closeProfile}
-                                            className={classes.chevron_button}
-                                        >
-                                            <ChevronRightIcon className={classes.icon}/>
-                                        </IconButton>
-                                        <Typography
-                                            noWrap
-                                            variant="h6"
-                                            className={classes.name_and_color}
-                                        >
-                                            {getColorName(color)} {pieceName}
-                                        </Typography>
-                                        <Box className={clsx(classes.chevron_button, {
-                                            [classes.invisible]: true,
-                                        })} />
-                                    </Box>
+        <div className={clsx(classes.root, {
+            [classes.root_inactive]: !isActive
+        })}>
+            <div className={classes.wrapper}>
+                <Slide direction="left" in={isActive} mountOnEnter unmountOnExit>
+                    <Paper elevation={4} className={classes.paper}>
+                        {isActive ? (
+                            <div className={classes.profile_wb_drawer}>
+                                <Box className={classes.top_area}>
+                                    <IconButton
+                                        edge="end"
+                                        onClick={closeProfile}
+                                        className={classes.chevron_button}
+                                    >
+                                        <ChevronRightIcon className={classes.icon}/>
+                                    </IconButton>
+                                    <Typography
+                                        noWrap
+                                        variant="h6"
+                                        className={classes.name_and_color}
+                                    >
+                                        {getColorName(color)} {pieceName}
+                                    </Typography>
+                                    <Box className={clsx(classes.chevron_button, {
+                                        [classes.invisible]: true,
+                                    })} />
+                                </Box>
 
-                                    <ProfileWBAvatarVert
-                                        src={imgUrl}
-                                        color={color}
-                                        theme={theme}
-                                        pieceName={pieceName}
-                                    />
-                                    <ProfileWBRangeVert
-                                        pieceName={pieceName}
-                                        pieceImgUrl={imgUrl}
-                                        range={def.spans}
-                                        rangeType='span'
-                                        color={color}
-                                        theme={theme}
-                                        screenCase={screenCase}
-                                    />
-                                    <ProfileWBRangeVert
-                                        pieceName={pieceName}
-                                        pieceImgUrl={imgUrl}
-                                        range={def.offsets}
-                                        rangeType='offset'
-                                        color={color}
-                                        theme={theme}
-                                        screenCase={screenCase}
-                                    />
-                                </div>
-                            ) : null}
-                        </Paper>
-                    </Slide>
-                </div>
+                                <ProfileWBAvatarVert
+                                    src={imgUrl}
+                                    color={color}
+                                    theme={theme}
+                                    pieceName={pieceName}
+                                />
+                                <ProfileWBRangeVert
+                                    pieceName={pieceName}
+                                    pieceImgUrl={imgUrl}
+                                    range={def.spans}
+                                    rangeType='span'
+                                    color={color}
+                                    theme={theme}
+                                    screenCase={screenCase}
+                                />
+                                <ProfileWBRangeVert
+                                    pieceName={pieceName}
+                                    pieceImgUrl={imgUrl}
+                                    range={def.offsets}
+                                    rangeType='offset'
+                                    color={color}
+                                    theme={theme}
+                                    screenCase={screenCase}
+                                />
+                            </div>
+                        ) : null}
+                    </Paper>
+                </Slide>
             </div>
         </div>
     );
 });
+
+export default ProfileWBDrawer;

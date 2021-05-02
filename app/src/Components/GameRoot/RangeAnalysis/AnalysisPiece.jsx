@@ -1,12 +1,13 @@
 import React, { memo } from "react";
-import MediaQuery from "react-responsive/src";
 import { Portal } from "@material-ui/core";
-import { NoProfile } from "../../PieceProfiles/ProfileWB/NoProfile";
-import { ProfileWBDrawer } from "../../PieceProfiles/ProfileWB/Drawer/ProfileWBDrawer";
-import { ProfileWBModal } from "../../PieceProfiles/ProfileWB/ProfileWBModal";
+import MediaQuery from "react-responsive/src";
 import { useStyles } from "./AnalysisPiece.jss";
 
-export const AnalysisPiece = memo(
+const ProfileWBModal = React.lazy(() => import('../../PieceProfiles/ProfileWB/ProfileWBModal'));
+const ProfileWBDrawer = React.lazy(() => import('../../PieceProfiles/ProfileWB/Drawer/ProfileWBDrawer'));
+const NoProfile = React.lazy(() => import("../../PieceProfiles/ProfileWB/NoProfile"));
+
+const AnalysisPiece = memo(
     ({
         rf,
         def,
@@ -86,3 +87,5 @@ export const AnalysisPiece = memo(
         );
     }
 );
+
+export default AnalysisPiece;
