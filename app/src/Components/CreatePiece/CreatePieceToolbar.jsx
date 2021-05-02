@@ -94,6 +94,7 @@ function CreatePieceToolbar({
                 iconName={"name_tool"}
                 updateParent={toggleMiniVariantTool}
                 isActive={state.miniVariantTool === "Name"}
+                clientY={48}
             />
             <ToolButton
                 text="Icon"
@@ -102,6 +103,7 @@ function CreatePieceToolbar({
                 iconName={"icon_tool"}
                 updateParent={toggleMiniVariantTool}
                 isActive={state.miniVariantTool === "Icon"}
+                clientY={0}
             />
         </>
     );

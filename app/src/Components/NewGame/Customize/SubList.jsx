@@ -5,10 +5,12 @@ import {Typography} from "@material-ui/core";
 import {ListTitle} from "./ListTitle";
 import {useStyles} from "./SubList.jss";
 
-export function SubList({subs, theme}) {
+export function SubList({subs, className, theme}) {
     const classes = useStyles({theme: theme})
     return (
-            <Box className={classes.sub_list}>
+            <Box className={clsx(classes.sub_list, {
+                [className]: className,
+            })}>
                 <ListTitle className={classes.header} theme={theme}>
                     Subs
                 </ListTitle>

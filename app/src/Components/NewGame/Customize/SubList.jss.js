@@ -1,16 +1,18 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes/themes.jss";
 import {drawerItemMarginLeft, drawerItemMarginTopBottom, drawerItemWidth} from "./Customize.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
     sub_list: props => ({
         display: 'grid',
-        '@media screen and (min-width: 425px) and (max-width: 960px)': {
+        '@media screen and (max-width: 960px)': {
             marginTop: '0.5vw',
             marginLeft: '2.5vw',
             marginRight: '2.5vw',
             marginBottom: '2.5vw',
-            gridTemplateColumns: '16vw 34vw',
+            width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
+            gridTemplateColumns: '24.5% 74.5%',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,

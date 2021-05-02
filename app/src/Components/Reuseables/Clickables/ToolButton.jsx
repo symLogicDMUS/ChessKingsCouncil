@@ -6,11 +6,22 @@ import { containsDescenders } from "../../helpers/containsDescender";
 import { ListItem, ListItemIcon, ListItemText } from "@material-ui/core";
 import { useStyles } from "./ToolButton.jss";
 
-function ToolButton({ updateParent, isActive, name, iconName, text, theme, children }) {
+function ToolButton({updateParent, clientX, clientY,  isActive, name, iconName, text, theme, children }) {
     const classes = useStyles({ theme });
 
     const onClick = (e) => {
-        updateParent(name, e.clientX, e.clientY)
+        if (clientX && clientY) {
+            updateParent(name, clientX, clientY)
+        }
+        else if (clientX) {
+            updateParent(name, clientX, e.clientY)
+        }
+        else if (clientY) {
+            updateParent(name, e.clientX, clientY)
+        }
+        else {
+            updateParent(name, e.clientX, e.clientY)
+        }
     };
 
     return (

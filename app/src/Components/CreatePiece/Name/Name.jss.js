@@ -6,23 +6,13 @@ import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantD
 
 export const useStyles = makeStyles({
     name_window: props => ({
-        position: 'absolute',
+        position: 'fixed',
         top: 50,
-        left: '22.5vw',
-        '@media screen and (max-width: 500px)': {
-            left: 0,
-        },
+        left: 0,
     }),
     name: props => ({
-        '@media screen and (max-width: 500px)': {
+        '@media screen and (max-width: 960px)': {
             width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
-            marginTop: '0.5vw',
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-        },
-        '@media screen and (min-width: 500px) and (max-width: 960px)': {
-            width: '50vw',
             marginTop: '0.5vw',
             marginLeft: '2.5vw',
             marginRight: '2.5vw',

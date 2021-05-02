@@ -6,8 +6,8 @@ const windowSizeSm = '0.42em';
 const windowSizeLg = "10.625vw";
 
 /* sm */
-const halfMargin = '0.022em';
-const margin = '0.04em';
+const halfMargin = '0.025em';
+const margin = '0.05em';
 
 export const borderRadius = {borderRadius: '0.25rem'};
 export const originTransform = {vertical: 'top', horizontal: 'right'};

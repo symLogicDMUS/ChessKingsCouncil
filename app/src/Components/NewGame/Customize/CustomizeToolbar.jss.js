@@ -48,14 +48,8 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     scroll_table: props => ({
-        '@media screen and (max-width: 426px)': {
-            width: `calc(97.5vw - ${miniVariantIconsColumnWidth}px)`,
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-        },
-        '@media screen and (min-width: 425px) and (max-width: 960px)': {
-            width: '50vw',
+        '@media screen and (max-width: 960px)': {
+            width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
             marginLeft: '2.5vw',
             marginRight: '2.5vw',
             marginBottom: '2.5vw',
