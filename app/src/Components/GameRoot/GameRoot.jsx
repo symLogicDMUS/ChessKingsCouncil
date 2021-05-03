@@ -36,6 +36,8 @@ import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import GameRootToolbar from "./GameRootToolbar";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
+import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -53,7 +55,7 @@ class GameRoot extends React.Component {
             bValue: true,
             theme: "dark",
             rangeAnalysis: false,
-            miniVariantTool: null,
+            saveAnimation: false,
             resignModal: false,
             messageModal: false,
             secondaryDrawer: false,
@@ -108,7 +110,6 @@ class GameRoot extends React.Component {
         this.triggerRender = this.triggerRender.bind(this);
         this.toggleRangeAnalysis = this.toggleRangeAnalysis.bind(this);
         this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
         this.updateTurnData = this.updateTurnData.bind(this);
         this.updateTheme = this.updateTheme.bind(this);
         this.getRangeBoard = this.getRangeBoard.bind(this);
@@ -253,7 +254,7 @@ class GameRoot extends React.Component {
             imgUrlStrs: this.imgUrlStrs,
         }).then(([res]) => {
             this.setUnsavedProgress(false);
-            this.setState({miniVariantTool: 'Save'});
+            this.setState({saveAnimation: true});
         });
     }
 
@@ -283,14 +284,6 @@ class GameRoot extends React.Component {
             rangeBoard[rf] = inRange.includes(rf);
         }
         return rangeBoard;
-    }
-
-    toggleModal(toolName) {
-        if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null });
-        } else {
-            this.setState({ miniVariantTool: toolName });
-        }
     }
 
     toggleSecondaryDrawer(bValue) {
@@ -329,6 +322,14 @@ class GameRoot extends React.Component {
     render() {
         return (
             <>
+                {this.state.saveAnimation && (
+                    <AnimatePresencePortal>
+                        <GameSavedSuccessfully
+                            theme={this.state.theme}
+                            callback={() => this.setState({saveAnimation: false})}
+                        />
+                    </AnimatePresencePortal>
+                )}
                 <ResponsiveDrawer
                     theme={this.state.theme}
                     appBarType={"custom"}

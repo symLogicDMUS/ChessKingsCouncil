@@ -1,18 +1,15 @@
 import React from "react";
 import {ImgWindow} from "./ImgWindow";
-import MediaQuery from "react-responsive/src";
 import {Typography} from "@material-ui/core";
-import {ImgWindowsModal} from "./ImgWindowsModal";
 import {useStyles} from "./Icon.jss";
 
-function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggleMiniVariantTool, clientX, clientY, theme}) {
+function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
     const classes = useStyles({theme: theme});
 
     return (
         <>
-            <MediaQuery minWidth={960}>
-                <Typography className={classes.title}>Icon</Typography>
-                <span className={classes.img_windows_flexbox}>
+            <Typography className={classes.title}>Icon</Typography>
+            <span className={classes.img_windows_flexbox}>
                     <ImgWindow
                         color="white"
                         theme={theme}
@@ -30,19 +27,6 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, miniVariantTool, toggle
                         src={whiteAndBlackImgs.black}
                     />
                 </span>
-            </MediaQuery>
-            <MediaQuery maxWidth={960}>
-                <ImgWindowsModal
-                    theme={theme}
-                    resetImg={resetImg}
-                    setPieceImg={setPieceImg}
-                    miniVariantTool={miniVariantTool}
-                    whiteAndBlackImgs={whiteAndBlackImgs}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
-                    clientX={clientX}
-                    clientY={clientY}
-                />
-            </MediaQuery>
         </>
     );
 }

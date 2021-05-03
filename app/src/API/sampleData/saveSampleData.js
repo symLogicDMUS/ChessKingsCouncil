@@ -1,9 +1,9 @@
 import {saveDefsToDb} from "../saveDefs";
 import {saveImgUrlsToDb} from "../saveImgUrls";
 import {saveGameDictToDb} from "../saveGameDict";
-import {sampleImgUrls} from "./sampleImgUrls/prod";
-import {dbSampleGames} from "./sampleGames/db/prod";
-import {dbSampleDefs} from "./sampleDefs/db/prod";
+import {sampleImgUrls} from "./sampleImgUrls/dev1";
+import {dbSampleGames} from "./sampleGames/dev1";
+import {dbSampleDefs} from "./sampleDefs/dev1";
 import {sampleImgRefCounts} from "./sampleImgRefCounts/prod";
 import {saveUrlRefsToDb} from "../saveUrlRefsToDb";
 

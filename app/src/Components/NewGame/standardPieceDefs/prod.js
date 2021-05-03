@@ -1,7 +1,7 @@
 export const standardPieceDefs = {
     "Bishop": {
         "B": {
-            "img":"https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=3ebbcac2-264f-4eea-9603-5346ce38a5d6",
+            "img":"https://firebasestorage.googleapis.com/v0/b/custom-chess.appspot.com/o/source%2Fstandard%20piece%20images%2FBB.svg?alt=media&token=83f9a121-8183-4bba-9218-e164bd7417c9",
             "spans": [
                 "step_1sqr225d",
                 "step_1sqr315d",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Portal } from "@material-ui/core";
+import {Backdrop, Portal} from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
 import { useStyles } from "../Reuseables/Animations/AnimatePresencePortal.jss";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
@@ -8,6 +8,7 @@ import ToolButton from "../Reuseables/Clickables/ToolButton";
 import ResignModal from "./SaveResignTool/ResignModal";
 import GameInfoModal from "./GameInfo/GameInfoModal";
 import SaveAs from "./SaveResignTool/SaveAs";
+import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 
 function GameRootToolbar({
     defs,
@@ -110,19 +111,17 @@ function GameRootToolbar({
                         />
                     )}
                 </AnimatePresence>
-                <AnimatePresence>
-                    {state.miniVariantTool === "Save" && (
-                        <div className={classes.modal}>
-                            <GameSavedSuccessfully
-                                callback={() => {
-                                    save()
-                                    toggleMiniVariantTool(null, null, null)
-                                }}
-                                theme={theme}
-                            />
-                        </div>
-                    )}
-                </AnimatePresence>
+                {state.miniVariantTool === "Save" && (
+                    <AnimatePresencePortal>
+                        <GameSavedSuccessfully
+                            callback={() => {
+                                toggleMiniVariantTool(null, null, null)
+                                save()
+                            }}
+                            theme={theme}
+                        />
+                    </AnimatePresencePortal>
+                )}
                 {state.miniVariantTool === "Save-As" && (
                     <SaveAs
                         theme={theme}

@@ -109,3 +109,5 @@ function AnalysisBoard({
 
     return <div className={classes.board}>{getBoard()}</div>;
 }
+
+export default AnalysisBoard;

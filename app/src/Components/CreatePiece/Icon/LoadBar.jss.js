@@ -13,13 +13,11 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].fill,
         border: `0.065rem solid ${themes[props.theme].odd_row}`,
         '@media screen and (max-width: 960px)': {
-            // height: '33.333vh',
             width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
             padding: '1.2rem',
         },
         '@media screen and (min-width: 960px)': {
-            // width: '66.6667vw',
-            height: '66.6667vh',
+            width: '66.6667vw',
             padding: '1rem',
         },
     }),

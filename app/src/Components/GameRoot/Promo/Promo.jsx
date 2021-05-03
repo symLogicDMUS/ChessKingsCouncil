@@ -14,7 +14,7 @@ import {getPawnImg} from "./getPawnImg";
 import {reducer} from "./Promo.red";
 import {useStyles} from "./Promo.jss";
 
-export function Promo(props) {
+function Promo(props) {
 
     const classes = useStyles({theme: props.theme});
 
@@ -173,3 +173,5 @@ export function Promo(props) {
         </Portal>
     );
 }
+
+export default Promo;

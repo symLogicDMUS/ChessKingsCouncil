@@ -5,7 +5,7 @@ import { Portal } from "@material-ui/core";
 import { rfToXy, xyToPx } from "./DndCrdCnvrt";
 import { useStyles } from "./AIMove.jss";
 
-export function AIMove({
+function AIMove({
     aiStart,
     aiDest,
     aiMoveComponent,
@@ -57,3 +57,5 @@ export function AIMove({
         </>
     );
 }
+
+export default AIMove;

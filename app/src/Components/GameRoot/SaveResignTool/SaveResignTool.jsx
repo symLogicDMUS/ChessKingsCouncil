@@ -60,17 +60,6 @@ function SaveResignTool({
                     <Typography className={classes.text}>Resign</Typography>
                 </IconButton>
             </span>
-            {saveModal && (
-                <AnimatePresencePortal>
-                    <GameSavedSuccessfully
-                        theme={theme}
-                        callback={() => {
-                            save()
-                            setSaveModal(false)
-                        }}
-                    />
-                </AnimatePresencePortal>
-            )}
             {saveAs ? (
                 <Portal>
                     <SaveAs
@@ -78,7 +67,7 @@ function SaveResignTool({
                         changeName={changeName}
                         save={() => {
                             setSaveAs(false)
-                            setSaveModal(true)
+                            save()
                         }}
                         close={() => setSaveAs(false)}
                     />
