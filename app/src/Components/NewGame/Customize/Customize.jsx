@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
-import { ToolModal } from "./ToolModal";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
@@ -25,9 +24,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import SearchIcon from "@material-ui/icons/Search";
-import { textColor, styles } from "./Customize.jss";
-import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 import CustomizeToolbar from "./CustomizeToolbar";
+import { textColor, styles } from "./Customize.jss";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
@@ -165,7 +163,7 @@ class Customize extends React.Component {
         const imgUrlRefs = []
         for (const pieceName of Object.keys(this.gameData.defs)) {
             for (const color of this.colors) {
-                if (! standardImgUrls.includes(this.gameData.defs[pieceName][color].img)) {
+                if (this.gameData.defs[pieceName][color].img.startsWith("https://")) {
                     imgUrlRefs.push(
                         this.gameData.defs[pieceName][color].img
                     );

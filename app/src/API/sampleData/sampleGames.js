@@ -395,7 +395,7 @@ export const dbSampleGames = {
             },
             "Evil Morty": {
                 "B": {
-                    "img": "/Images/Pieces/Samples/evil-morty-red.svg",
+                    "img": "/Images/Pieces/Samples/evil_morty_red.svg",
                     "offsets": [
                         "0,1",
                         "1,0",
@@ -410,7 +410,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "/Images/Pieces/Samples/evil-morty-white.svg",
+                    "img": "/Images/Pieces/Samples/evil_morty_white.svg",
                     "offsets": [
                         "0,-1",
                         "-1,0",
@@ -455,7 +455,7 @@ export const dbSampleGames = {
             },
             "Node": {
                 "B": {
-                    "img": "/Images/Pieces/Samples/node-red.svg",
+                    "img": "/Images/Pieces/Samples/node-red.png",
                     "offsets": [
                         "0,2",
                         "1,1",
@@ -468,7 +468,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "//Images/Pieces/Samples/node-green.svg",
+                    "img": "//Images/Pieces/Samples/node-green.png",
                     "offsets": [
                         "0,-2",
                         "-1,-1",
@@ -657,7 +657,7 @@ export const dbSampleGames = {
             },
             "Knight": {
                 "B": {
-                    "img": "/Images/Pieces/Standard/WN.svg",
+                    "img": "/Images/Pieces/Standard/BN.svg",
                     "offsets": [
                         "-1,-2",
                         "-1,2",
@@ -670,7 +670,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Standard/WN.svg",
                     "offsets": [
                         "1,2",
                         "1,-2",

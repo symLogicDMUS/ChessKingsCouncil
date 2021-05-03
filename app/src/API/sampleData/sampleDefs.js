@@ -101,7 +101,7 @@ export const dbSampleDefs = {
     },
     "Evil Morty": {
         "B": {
-            "img": "/Images/Pieces/Samples/evil-morty-red.svg",
+            "img": "/Images/Pieces/Samples/evil_morty_red.svg",
             "offsets": [
                 "0,1",
                 "1,0",
@@ -116,7 +116,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Samples/evil-morty-white.svg",
+            "img": "/Images/Pieces/Samples/evil_morty_white.svg",
             "offsets": [
                 "0,-1",
                 "-1,0",
@@ -233,7 +233,7 @@ export const dbSampleDefs = {
     },
     "Node": {
         "B": {
-            "img": "/Images/Pieces/Samples/node-red.svg",
+            "img": "/Images/Pieces/Samples/node-red.png",
             "offsets": [
                 "0,2",
                 "1,1",
@@ -246,7 +246,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "//Images/Pieces/Samples/node-green.svg",
+            "img": "/Images/Pieces/Samples/node-green.png",
             "offsets": [
                 "0,-2",
                 "-1,-1",
