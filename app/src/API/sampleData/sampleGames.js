@@ -23,7 +23,7 @@ export const dbSampleGames = {
             },
             "Docker": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/docker-red.svg",
                     "offsets": [
                         "2,-1",
                         "0,-1",
@@ -38,7 +38,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/docker.svg",
                     "offsets": [
                         "-2,1",
                         "0,1",
@@ -55,7 +55,7 @@ export const dbSampleGames = {
             },
             "Dragon": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/dragon-black.svg",
                     "offsets": [
                         "2,-1",
                         "1,-2",
@@ -78,7 +78,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/dragon-white.svg",
                     "offsets": [
                         "-2,1",
                         "-1,2",
@@ -315,7 +315,7 @@ export const dbSampleGames = {
             },
             "Docker": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/docker-red.svg",
                     "offsets": [
                         "2,-1",
                         "0,-1",
@@ -330,7 +330,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/docker.svg",
                     "offsets": [
                         "-2,1",
                         "0,1",
@@ -347,7 +347,7 @@ export const dbSampleGames = {
             },
             "Dragon": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/dragon-black.svg",
                     "offsets": [
                         "2,-1",
                         "1,-2",
@@ -370,7 +370,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/dragon-white.svg",
                     "offsets": [
                         "-2,1",
                         "-1,2",
@@ -395,7 +395,7 @@ export const dbSampleGames = {
             },
             "Evil Morty": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/evil-morty-red.svg",
                     "offsets": [
                         "0,1",
                         "1,0",
@@ -410,7 +410,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/evil-morty-white.svg",
                     "offsets": [
                         "0,-1",
                         "-1,0",
@@ -455,7 +455,7 @@ export const dbSampleGames = {
             },
             "Node": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/node-red.svg",
                     "offsets": [
                         "0,2",
                         "1,1",
@@ -468,7 +468,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "//Images/Pieces/Samples/node-green.svg",
                     "offsets": [
                         "0,-2",
                         "-1,-1",
@@ -878,7 +878,7 @@ export const dbSampleGames = {
             },
             "Material UI": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/material-ui-red.svg",
                     "offsets": [
                         "2,-3",
                         "1,-2",
@@ -895,7 +895,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/material-ui.svg",
                     "offsets": [
                         "-2,3",
                         "-1,2",
@@ -914,7 +914,7 @@ export const dbSampleGames = {
             },
             "Node": {
                 "B": {
-                    "img": "",
+                    "img": "/Images/Pieces/Samples/node-red.svg",
                     "offsets": [
                         "0,2",
                         "1,1",
@@ -927,7 +927,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "",
+                    "img": "//Images/Pieces/Samples/node-green.svg",
                     "offsets": [
                         "0,-2",
                         "-1,-1",
