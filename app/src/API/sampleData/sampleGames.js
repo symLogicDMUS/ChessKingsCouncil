@@ -440,7 +440,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "/Images/Pieces/Standard/",
+                    "img": "/Images/Pieces/Standard/WN.svg",
                     "offsets": [
                         "1,2",
                         "1,-2",
@@ -468,7 +468,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "//Images/Pieces/Samples/node-green.png",
+                    "img": "/Images/Pieces/Samples/node-green.png",
                     "offsets": [
                         "0,-2",
                         "-1,-1",
@@ -914,7 +914,7 @@ export const dbSampleGames = {
             },
             "Node": {
                 "B": {
-                    "img": "/Images/Pieces/Samples/node-red.svg",
+                    "img": "/Images/Pieces/Samples/node-red.png",
                     "offsets": [
                         "0,2",
                         "1,1",
@@ -927,7 +927,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "//Images/Pieces/Samples/node-green.svg",
+                    "img": "/Images/Pieces/Samples/node-green.png",
                     "offsets": [
                         "0,-2",
                         "-1,-1",
