@@ -39,6 +39,8 @@ import {styles} from "./GameRoot.jss";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import {filterSamples} from "../../API/filterSamples";
+import ToolButton from "../Reuseables/Clickables/ToolButton";
+import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -389,19 +391,29 @@ class GameRoot extends React.Component {
                         </>
                     }
                     toolButtons={
-                        <GameRootToolbar
-                            defs={this.defs}
-                            idDict={this.idDict}
-                            captured={this.captured}
-                            capturedIds={this.capturedIds}
-                            playerType={this.playerType}
-                            gameName={this.gameName}
-                            gameType={this.gameType}
-                            theme={this.state.theme}
-                            changeName={this.changeName}
-                            resign={this.resign}
-                            save={this.save}
-                        />
+                        <>
+                            <ToolButtonAlt
+                                text="save"
+                                name={"Save"}
+                                iconName={"save_alt"}
+                                onClick={this.save}
+                                isActive={false}
+                                theme={this.state.theme}
+                            />
+                            <GameRootToolbar
+                                defs={this.defs}
+                                idDict={this.idDict}
+                                captured={this.captured}
+                                capturedIds={this.capturedIds}
+                                playerType={this.playerType}
+                                gameName={this.gameName}
+                                gameType={this.gameType}
+                                theme={this.state.theme}
+                                changeName={this.changeName}
+                                resign={this.resign}
+                                save={this.save}
+                            />
+                        </>
                     }
                     navBar={
                         <NavBar
@@ -475,3 +487,4 @@ class GameRoot extends React.Component {
 }
 
 export default withStyles(styles)(GameRoot);
+

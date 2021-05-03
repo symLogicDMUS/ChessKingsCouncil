@@ -3,10 +3,7 @@ import { themes } from "../../styles/themes/themes.jss";
 import Typography from "@material-ui/core/Typography";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
-import {GameSavedSuccessfully} from
-        "../../CreatePiece/animations/GameSavedSuccessfully";
 import { useStyles } from "./SaveResignTool.jss";
-import {AnimatePresencePortal} from "../../Reuseables/Animations/AnimatePresencePortal";
 
 const SaveAs = React.lazy(() => import('./SaveAs'));
 const ResignWindow = React.lazy(() => import('./ResignWindow'));
@@ -18,7 +15,6 @@ function SaveResignTool({
     theme,
 }) {
     const [saveAs, setSaveAs] = useState(false);
-    const [saveModal, setSaveModal] = useState(false);
     const [resignModal, setResignModal] = useState(false);
     const classes = useStyles({ theme: theme });
 
@@ -28,7 +24,7 @@ function SaveResignTool({
                 <IconButton
                     className={classes.option}
                     classes={{ label: classes.label }}
-                    onClick={() => setSaveModal(true)}
+                    onClick={save}
                 >
                     <SvgIcon className={classes.icon}>
                         {icons.save(themes[theme].button_text)}
@@ -66,8 +62,8 @@ function SaveResignTool({
                         theme={theme}
                         changeName={changeName}
                         save={() => {
+                            save();
                             setSaveAs(false)
-                            save()
                         }}
                         close={() => setSaveAs(false)}
                     />

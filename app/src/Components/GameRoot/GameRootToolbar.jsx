@@ -111,34 +111,18 @@ function GameRootToolbar({
                         />
                     )}
                 </AnimatePresence>
-                {state.miniVariantTool === "Save" && (
-                    <AnimatePresencePortal>
-                        <GameSavedSuccessfully
-                            callback={() => {
-                                toggleMiniVariantTool(null, null, null)
-                                save()
-                            }}
-                            theme={theme}
-                        />
-                    </AnimatePresencePortal>
-                )}
                 {state.miniVariantTool === "Save-As" && (
                     <SaveAs
                         theme={theme}
                         changeName={changeName}
-                        save={() => toggleMiniVariantTool("Save", null, null)}
-                        close={() => toggleMiniVariantTool("Save-As", null, null)}
+                        save={() => {
+                            save();
+                            toggleMiniVariantTool(null, null, null);
+                        }}
+                        close={() => toggleMiniVariantTool(null, null, null)}
                     />
                 )}
             </Portal>
-            <ToolButton
-                text="save"
-                name={"Save"}
-                iconName={"save_alt"}
-                updateParent={toggleMiniVariantTool}
-                isActive={state.miniVariantTool === "Save"}
-                theme={theme}
-            />
             <ToolButton
                 name={"Save-As"}
                 iconName={"save_as_alt"}
