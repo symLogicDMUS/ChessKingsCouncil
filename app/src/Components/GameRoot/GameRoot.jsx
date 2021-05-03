@@ -20,7 +20,7 @@ import {update} from "../../game_logic/callHierarchyTop/update";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {updateCountsOnOverwrite} from "../../API/updateCountsOnOverwrite";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
-import {standardPieceDefs} from "../NewGame/standardPieceDefs/prod";
+import {standardPieceDefs} from "../NewGame/standardPieceDefs";
 import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";

@@ -1,5 +1,5 @@
 import {specialPieceImg} from "../../API/sampleData/specialThemeImgs/specialPieceImg/prod";
-import {standardPieceDefs} from "../NewGame/standardPieceDefs/prod";
+import {standardPieceDefs} from "../NewGame/standardPieceDefs";
 
 /**
  *

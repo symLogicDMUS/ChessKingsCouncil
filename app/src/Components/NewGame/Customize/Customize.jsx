@@ -11,7 +11,7 @@ import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
 import {newData, standardImgUrls} from "../NewData";
 import { CustomizeHelp } from "./Help/CustomizeHelp";
-import { standardPieceDefs } from "../standardPieceDefs/prod";
+import { standardPieceDefs } from "../standardPieceDefs";
 import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
 import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
 import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";

@@ -8,5 +8,3 @@ export function getInitJumps(offsets, sqr) {
     }
     return jumps;
 }
-
-// module.exports = getInitJumps;
