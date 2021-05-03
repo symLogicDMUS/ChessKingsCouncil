@@ -1,11 +1,11 @@
 import {franchisePieceImgs} from "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
-import {specialPieceImg} from "../../../API/sampleData/specialThemeImgs/specialPieceImg/prod";
+import {specialPieceImgs} from "../../../API/sampleData/specialPieceImgs";
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
 
 export function getPawnImg(gameType, color, theme) {
     if (gameType === 'Standard' && specialThemeList.includes(theme)) {
         return franchisePieceImgs[theme]['Pawn'][color]
     } else {
-        return specialPieceImg['Pawn'][color];
+        return specialPieceImgs['Pawn'][color];
     }
 }

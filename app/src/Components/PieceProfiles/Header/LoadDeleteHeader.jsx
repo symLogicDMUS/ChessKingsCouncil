@@ -10,6 +10,7 @@ import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {useStyles} from "./LoadDeleteHeader.jss";
+import {filterSamples} from "../../../API/filterSamples";
 
 function LoadDeleteHeader({
     def,
@@ -27,7 +28,10 @@ function LoadDeleteHeader({
     const classes2 = useMoreStyles({theme: theme});
 
     const deletePiece = (pieceName) => {
-        decrementImgRefCounts(Array.from(new Set([def.W.img, def.B.img]))).then(r => {
+
+        const imgStrs = filterSamples([def.W.img, def.B.img])
+
+        decrementImgRefCounts(Array.from(new Set(imgStrs))).then(r => {
             deleteDef(pieceName).then(([r]) => {
                 dispatch({type: 'delete', payload: pieceName})
                 if (parentPage === "CreatePiece") {

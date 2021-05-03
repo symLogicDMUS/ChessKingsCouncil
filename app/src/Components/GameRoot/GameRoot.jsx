@@ -38,6 +38,7 @@ import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
+import {filterSamples} from "../../API/filterSamples";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -224,16 +225,19 @@ class GameRoot extends React.Component {
         );
         const defs = gameDefsOffsetListsToStrs(this.defs);
         const status = this.gameStatus.getStatus();
+
+        const imgUrlStrs = filterSamples(this.imgUrlStrs)
+
         getDoesGameExist(this.gameName).then(([gameExists]) => {
             if (gameExists) {
                 getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
-                    updateCountsOnOverwrite(prevImgUrlStrs, this.imgUrlStrs).then(r => {
+                    updateCountsOnOverwrite(prevImgUrlStrs, imgUrlStrs).then(r => {
                         this.saveToDb(fen, records, defs, status);
                     })
                 })
             }
             else {
-                incrementImgRefCounts(this.imgUrlStrs).then((r) => {
+                incrementImgRefCounts(imgUrlStrs).then((r) => {
                     this.saveToDb(fen, records, defs, status);
                 });
             }

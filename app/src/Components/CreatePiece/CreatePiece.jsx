@@ -27,6 +27,7 @@ import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import { PieceName } from "../PieceProfiles/Header/PieceName";
 import { styles } from "./CreatePiece.jss";
 import CreatePieceToolbar from "./CreatePieceToolbar";
+import {filterSamples} from "../../API/filterSamples";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -190,11 +191,14 @@ class CreatePiece extends React.Component {
         newPiece.B.offsets = flipOffsets(this.offsets);
         newPiece.W.img = this.whiteAndBlackImgs.white;
         newPiece.B.img = this.whiteAndBlackImgs.black;
+
+        const imgUrlStrs = filterSamples([newPiece.W.img, newPiece.B.img])
+
         getDef(this.name).then(([oldPieceFromDb]) => {
             if (oldPieceFromDb) {
                 updateCountsOnOverwrite(
                     [oldPieceFromDb.W.img, oldPieceFromDb.B.img],
-                    [newPiece.W.img, newPiece.B.img]
+                    imgUrlStrs
                 ).then((r) => {
                     saveDef(this.name, newPiece).then((r) => {
                         this.setState({
@@ -205,7 +209,7 @@ class CreatePiece extends React.Component {
                 });
             } else {
                 incrementImgRefCounts(
-                    Array.from(new Set([newPiece.W.img, newPiece.B.img]))
+                    Array.from(new Set(imgUrlStrs))
                 ).then((r) => {
                     saveDef(this.name, newPiece).then((r) => {
                         this.setState({

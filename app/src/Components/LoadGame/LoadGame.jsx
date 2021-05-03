@@ -9,6 +9,7 @@ import "../Reuseables/Background/_backgrounds.scss";
 import { getGameSnapshots } from "./getGameSnapshots";
 import { parseData } from "../../API/apiHelpers/parseData";
 import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
+import {filterSamples} from "../../API/filterSamples";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -68,7 +69,10 @@ class LoadGame extends React.Component {
     }
 
     deleteGame(gameName) {
-        decrementImgRefCounts(this.games[gameName].imgUrlStrs).then((r) => {
+
+        const imgUrlStrs = filterSamples(this.games[gameName].imgUrlStrs)
+
+        decrementImgRefCounts(imgUrlStrs).then((r) => {
             deleteGame(gameName).then(([r]) => {
                 delete this.games[gameName];
                 delete this.boardObjs[gameName];

@@ -14,13 +14,3 @@ export function gameDefsOffsetListsToStrs(pieceDefs) {
     }
     return pieceDefsForDb
 }
-
-// module.exports = gameDefsOffsetListsToStrs;
-
-/** for node.js
-if (require.main === module) {
-    //TODO: implement test
-    console.log(gameDefsOffsetListsToStrs({"EvilMorty": evilMorty, "Octocat": octocat}))
-
-}
-*/
