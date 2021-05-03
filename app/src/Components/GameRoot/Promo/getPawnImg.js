@@ -1,4 +1,4 @@
-import {franchisePieceImgs} from "../../../API/sampleData/specialThemeImgs/prod/franchisePieceImgs";
+import {franchisePieceImgs} from "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
 import {specialPieceImg} from "../../../API/sampleData/specialThemeImgs/specialPieceImg/prod";
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
 

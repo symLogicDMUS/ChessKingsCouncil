@@ -3,7 +3,7 @@ import { Slide } from "@material-ui/core";
 import { motion } from "framer-motion";
 import { timeout, style, useStyles } from "./PromoChoice.jss";
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
-import {franchisePieceImgs} from "../../../API/sampleData/specialThemeImgs/prod/franchisePieceImgs";
+import {franchisePieceImgs} from "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
 
 export function PromoChoice({
     onClick,

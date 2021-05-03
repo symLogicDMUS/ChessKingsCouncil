@@ -1,5 +1,5 @@
-import {getFranchisePieceImg} from "./getFranchisePieceImg";
 import {getPieceImg} from "./getPieceImg";
+import {getFranchisePieceImg} from "./getFranchisePieceImg";
 import {specialThemeList} from "../../../Components/styles/themes/specialThemeList.jss";
 
 export const getStandardPieceImg = (id, idDict, defs, theme) => {

@@ -1,4 +1,4 @@
-import {specialPieceImg} from "./specialPieceImg/prod";
+import {specialPieceImg} from "../specialPieceImgs";
 import {getPieceName} from "../../../Components/helpers/getPieceName";
 
 export function getPieceImg(id, idDict, defs) {

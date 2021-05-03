@@ -1,5 +1,5 @@
 import {getPieceName} from "../../../Components/helpers/getPieceName";
-import {franchisePieceImgs} from "./prod/franchisePieceImgs";
+import {franchisePieceImgs} from "./franchisePieceImgs";
 
 /**
  *

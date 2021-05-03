@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import ForwardIcon from '@material-ui/icons/Forward';
 import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
 import {franchisePieceImgs} from
-        "../../../API/sampleData/specialThemeImgs/prod/franchisePieceImgs";
+        "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
 import {getPawnImg} from "./getPawnImg";
 import {reducer} from "./Promo.red";
 import {useStyles} from "./Promo.jss";
