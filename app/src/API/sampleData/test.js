@@ -29,7 +29,8 @@ const sample = [
     "/Images/Pieces/Mechwarrior/A-Team/warhammer-white.svg",
 ]
 
+const uuid = require('uuid');
+
 if (require.main === module) {
-    const newSample = sample.filter(str => str.startsWith("https://"))
-    console.log(newSample)
+    console.log(uuid.v4())
 }

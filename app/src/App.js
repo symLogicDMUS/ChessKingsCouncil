@@ -27,9 +27,7 @@ export class App extends React.Component {
         this.state = {isSignedIn: false, binaryValue: true};
         this.isAnonymous = false;
         this.uid = null;
-        /**
-         * custom-chess.web.app
-         */
+
         this.uiConfig = {
             signInFlow: "popup",
             signInOptions: [
