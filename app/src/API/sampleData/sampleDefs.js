@@ -274,7 +274,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Standard/",
+            "img": "/Images/Pieces/Standard/WQ.svg",
             "spans": [
                 "step_1sqr0d",
                 "step_1sqr45d",

@@ -483,7 +483,7 @@ export const dbSampleGames = {
             },
             "Queen": {
                 "B": {
-                    "img": "/Images/Pieces/Standard/WQ.svg",
+                    "img": "/Images/Pieces/Standard/BQ.svg",
                     "spans": [
                         "step_1sqr180d",
                         "step_1sqr225d",
@@ -496,7 +496,7 @@ export const dbSampleGames = {
                     ]
                 },
                 "W": {
-                    "img": "/Images/Pieces/Standard/",
+                    "img": "/Images/Pieces/Standard/WQ.svg",
                     "spans": [
                         "step_1sqr0d",
                         "step_1sqr45d",
