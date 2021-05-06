@@ -13,7 +13,7 @@ function PermanentDrawerRight({isHidden, theme, ariaLabel, children}) {
         <Drawer
             classes={{
                 paper: clsx(classes.paper, {
-                    [classes2.drawerPaper]: ! isHidden,
+                    [classes2.drawerPaper2]: ! isHidden,
                     [classes2.hidden]: isHidden,
                 }),
             }}

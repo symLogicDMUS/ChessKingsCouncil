@@ -32,9 +32,8 @@ export const useStyles = makeStyles({
             },
             '@media screen and (min-width: 960px)': {
                 height: '3.5vh',
-                width: '22.5vw',
-                fontSize: '1.05vh',
-                outline: `0.025rem solid ${themes[props.theme].outline}`,
+                width: '22.4vw',
+                outline: `0.05rem solid ${themes[props.theme].outline}`,
             },
         }),
         title: props => ({

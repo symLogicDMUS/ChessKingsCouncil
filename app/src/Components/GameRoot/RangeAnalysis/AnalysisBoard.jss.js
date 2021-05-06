@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
             boxShadow: `0 0 1rem ${lighten(themes[props.theme].switch_active, 0.2)}`,
         },
         '@media screen and (min-width: 960px)': {
-            outline: `0.04em solid ${themes[props.theme].outline}`
+            outline: `0.05rem solid ${themes[props.theme].outline}`
         },
     }),
 }, {index: 1})

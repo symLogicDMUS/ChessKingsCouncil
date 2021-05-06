@@ -69,6 +69,10 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: z,
         backgroundColor: themes[props.theme].fill,
     }),
+    drawerPaper2: props => ({
+        zIndex: z,
+        backgroundColor: themes[props.theme].fill2,
+    }),
     hidden: props => ({
         display: 'none',
     }),

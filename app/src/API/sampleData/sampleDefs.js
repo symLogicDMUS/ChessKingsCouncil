@@ -21,7 +21,7 @@ export const dbSampleDefs = {
     },
     "Docker": {
         "B": {
-            "img": "/Images/Pieces/Samples/docker-red.svg",
+            "img": "/Images/Pieces/Samples/docker.svg",
             "offsets": [
                 "2,-1",
                 "0,-1",
@@ -36,7 +36,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Samples/docker.svg",
+            "img": "/Images/Pieces/Samples/docker-red.svg",
             "offsets": [
                 "-2,1",
                 "0,1",
@@ -101,7 +101,7 @@ export const dbSampleDefs = {
     },
     "Evil Morty": {
         "B": {
-            "img": "/Images/Pieces/Samples/evil_morty_red.svg",
+            "img": "/Images/Pieces/Samples/evil_morty_blue.svg",
             "offsets": [
                 "0,1",
                 "1,0",
@@ -116,7 +116,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Samples/evil_morty_white.svg",
+            "img": "/Images/Pieces/Samples/evil_morty_red.svg",
             "offsets": [
                 "0,-1",
                 "-1,0",
@@ -197,7 +197,7 @@ export const dbSampleDefs = {
     },
     "Material UI": {
         "B": {
-            "img": "/Images/Pieces/Samples/material-ui-red.svg",
+            "img": "/Images/Pieces/Samples/material-ui.svg",
             "offsets": [
                 "2,-3",
                 "1,-2",
@@ -214,7 +214,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Samples/material-ui.svg",
+            "img": "/Images/Pieces/Samples/material-ui-red.svg",
             "offsets": [
                 "-2,3",
                 "-1,2",
@@ -233,7 +233,7 @@ export const dbSampleDefs = {
     },
     "Node": {
         "B": {
-            "img": "/Images/Pieces/Samples/node-red.png",
+            "img": "/Images/Pieces/Samples/node-green.png",
             "offsets": [
                 "0,2",
                 "1,1",
@@ -246,7 +246,7 @@ export const dbSampleDefs = {
             ]
         },
         "W": {
-            "img": "/Images/Pieces/Samples/node-green.png",
+            "img": "/Images/Pieces/Samples/node-red.png",
             "offsets": [
                 "0,-2",
                 "-1,-1",
