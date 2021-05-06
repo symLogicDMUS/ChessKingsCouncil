@@ -32,9 +32,9 @@
      inkscape:window-maximized="1"
      inkscape:window-y="-9"
      inkscape:window-x="69"
-     inkscape:cy="89.022017"
-     inkscape:cx="-36.871205"
-     inkscape:zoom="3.096503"
+     inkscape:cy="63.301283"
+     inkscape:cx="193.95098"
+     inkscape:zoom="0.77412576"
      showgrid="false"
      id="namedview20"
      inkscape:window-height="1051"
@@ -50,34 +50,34 @@
      inkscape:document-rotation="0" />
   <g
      id="g843"
-     style="stroke:#000000;stroke-opacity:1">
+     style="stroke:#0081cb;stroke-opacity:1;fill:#000000;fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none">
     <path
        id="path2"
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 16.253952,88.682558 H 84.832238 V 81.062749 H 16.253952 Z" />
     <path
        id="path4"
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 23.873762,81.062749 V 70.903003 h 53.338666 v 10.159746 z" />
     <path
        id="path6"
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 21.333825,25.184146 V 12.484464 h 10.159746 v 5.079872 h 12.699683 v -5.079872 h 12.699682 v 5.079872 h 12.699683 v -5.079872 h 10.159746 v 12.699682" />
     <path
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path8"
        d="m 79.752365,25.184146 -7.61981,7.619809 h -43.17892 l -7.61981,-7.619809" />
     <path
        id="path10"
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 72.132555,32.803955 V 64.553162 H 28.953635 V 32.803955" />
     <path
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path12"
        d="m 72.132555,64.553162 3.809905,6.349841 H 25.14373 l 3.809905,-6.349841" />
     <path
        id="path14"
-       style="fill:#ff2a00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3.8099;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#0081cb;stroke-width:2;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 21.333825,25.184146 h 58.41854" />
   </g>
 </svg>

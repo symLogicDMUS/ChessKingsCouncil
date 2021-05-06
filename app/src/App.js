@@ -7,8 +7,7 @@ import NotFound from "./Components/Home/NotFound";
 import {getDoesUserExists} from "./API/isNewUser";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Loading} from "./Components/Reuseables/Animations/Loading";
-import SignInPage from "./Components/Home/SignInPage";
+import Loading from "./Components/Reuseables/Animations/Loading";
 import {UserContext} from "./UserContext";
 import "./App.scss";
 
@@ -30,21 +29,6 @@ export class App extends React.Component {
             isSignedIn: false,
             isAnonymous: false
         };
-        this.uiConfig = {
-            signInFlow: "popup",
-            signInOptions: [
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                firebase.auth.GithubAuthProvider.PROVIDER_ID,
-                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            ],
-            callbacks: {
-                signInSuccess: () => false,
-            },
-        };
-        this.signOut = this.signOut.bind(this);
-        this.anonymousLogin = this.anonymousLogin.bind(this);
     }
 
     componentDidMount() {
@@ -73,46 +57,25 @@ export class App extends React.Component {
         });
     }
 
-    anonymousLogin() {
-        firebase
-            .auth()
-            .signInAnonymously()
-            .catch(function (error) {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(`error: ${errorMessage} code: ${errorCode}`)
-            })
-    }
-
-    signOut() {
-        firebase.auth().signOut().then(r => this.setState({isSignedIn: true}));
-    }
-
     render() {
-        if (this.state.isSignedIn) {
-            return (
-                <Router>
-                    <Suspense fallback={<Loading />}>
-                        <UserContext.Provider value={this.state.uid}>
-                            <Switch>
-                                <Route exact path="/" render={() => <Home signOut={this.signOut} />}/>
-                                <Route exact path="/NewGame" component={NewGame}/>
-                                <Route exact path="/LoadGame" component={LoadGame} />
-                                <Route exact path="/CreatePiece" component={CreatePiece} />
-                                <Route exact path="/Customize" component={Customize}/>
-                                <Route exact path="/Play" component={GameRoot} />
-                                <Route exact path="/MyPieces" component={MyPieces} />
-                                <Route exact path="/CouncilRules" component={CouncilRules} />
-                                <Route component={NotFound} />
-                            </Switch>
-                        </UserContext.Provider>
-                    </Suspense>
-                </Router>
-            );
-        } else {
-            return (
-                <SignInPage uiConfig={this.uiConfig} anonymousLogin={this.anonymousLogin} />
-            );
-        }
+        return (
+            <Router>
+                <Suspense fallback={<Loading />}>
+                    <UserContext.Provider value={this.state.uid}>
+                        <Switch>
+                            <Route exact path="/" render={() => <Home signOut={this.signOut} />}/>
+                            <Route exact path="/NewGame" component={NewGame}/>
+                            <Route exact path="/LoadGame" component={LoadGame} />
+                            <Route exact path="/CreatePiece" component={CreatePiece} />
+                            <Route exact path="/Customize" component={Customize}/>
+                            <Route exact path="/Play" component={GameRoot} />
+                            <Route exact path="/MyPieces" component={MyPieces} />
+                            <Route exact path="/CouncilRules" component={CouncilRules} />
+                            <Route component={NotFound} />
+                        </Switch>
+                    </UserContext.Provider>
+                </Suspense>
+            </Router>
+        );
     }
 }
