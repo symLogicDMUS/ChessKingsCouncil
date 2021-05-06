@@ -10,6 +10,8 @@ import { getGameSnapshots } from "./getGameSnapshots";
 import { parseData } from "../../API/apiHelpers/parseData";
 import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
 import {filterSamples} from "../../API/filterSamples";
+import {UserContext} from "../../UserContext";
+import {getSampleGames} from "../../API/sampleData/getSampleGames";
 
 class LoadGame extends React.Component {
     constructor(props) {
@@ -24,6 +26,7 @@ class LoadGame extends React.Component {
             showNames: true,
             bValue: true,
         };
+        this.uid = null;
         this.games = {};
         this.boardObjs = {};
         this.loadGame = this.loadGame.bind(this);
@@ -43,23 +46,29 @@ class LoadGame extends React.Component {
 
     componentDidMount() {
         document.body.className = "tan-background";
-        getGames().then(([games]) => {
-            if (games) {
-                this.games = games;
-                this.boardObjs = getBoardObjs(this.games);
-                this.gameSnapshotComponents = getGameSnapshots(
-                    this.boardObjs,
-                    this.setChoice,
-                    this.state.selectedGame,
-                    this.state.searchText,
-                    this.state.showNames,
-                    this.state.theme
-                );
-                this.setState({ loaded: true });
-            } else {
-                this.games = {};
-            }
-        });
+        this.uid = UserContext;
+        if (this.uid) {
+            getGames().then(([games]) => {
+                if (games) {
+                    this.games = games;
+                    this.boardObjs = getBoardObjs(this.games);
+                    this.gameSnapshotComponents = getGameSnapshots(
+                        this.boardObjs,
+                        this.setChoice,
+                        this.state.selectedGame,
+                        this.state.searchText,
+                        this.state.showNames,
+                        this.state.theme
+                    );
+                    this.setState({ loaded: true });
+                } else {
+                    this.games = {};
+                }
+            });
+        }
+        else {
+            this.games = getSampleGames();
+        }
     }
 
     loadGame() {

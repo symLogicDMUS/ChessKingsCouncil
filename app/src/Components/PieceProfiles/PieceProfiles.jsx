@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from "react";
+import React, {useContext, useEffect, useReducer} from "react";
 import clsx from "clsx";
 import {copy} from "../helpers/copy";
 import CustomizeHeader from "./Header/CustomizeHeader";
@@ -8,6 +8,8 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
+import {UserContext} from "../../UserContext";
+import {getSampleDefs} from "../../API/sampleData/getSampleDefs";
 
 const Profile = React.lazy(() => import('./Profile'));
 const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
@@ -15,17 +17,25 @@ const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
 /*children is a header or none, depending on the parent page*/
 function PieceProfiles (props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
+    const uid = useContext(UserContext);
 
     useEffect(() => {
         let defs;
-        getDefs().then(([result]) => {
-            if (!result) {
-                defs = {}
-            } else {
-                defs = result;
-                afterLoaded(defs)
-            }
-        });
+        if (uid) {
+            getDefs().then(([result]) => {
+                if (!result) {
+                    defs = {}
+                } else {
+                    defs = result;
+                    afterLoaded(defs)
+                }
+            });
+        }
+        else {
+            defs = getSampleDefs()
+            afterLoaded(defs)
+        }
+
     }, []);
 
     const isWide = useMediaQuery("(min-width:960px)");

@@ -4,5 +4,6 @@ short:
 medium:
 
 long:
+    * imgUrlStrs array in db should not have elements that are length 0 strings.
     * code splitting
     * breakpoints for very large screens

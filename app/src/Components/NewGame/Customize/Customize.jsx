@@ -1,14 +1,15 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import {newData} from "../NewData";
 import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
 import { isSpecial } from "../../helpers/isSpecial";
-import {newData, standardImgUrls} from "../NewData";
 import { CustomizeHelp } from "./Help/CustomizeHelp";
 import { standardPieceDefs } from "../standardPieceDefs";
 import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
@@ -23,14 +24,12 @@ import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
-import SearchIcon from "@material-ui/icons/Search";
 import CustomizeToolbar from "./CustomizeToolbar";
 import { textColor, styles } from "./Customize.jss";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
 const ResponsiveDrawer = React.lazy(() => import('../../Reuseables/Drawers/ResponsiveDrawer'));
-const ToolButton = React.lazy(() => import("../../Reuseables/Clickables/ToolButton"));
 const NavBar = React.lazy(() => import('../../Reuseables/NavBar/NavBar'));
 
 

@@ -40,7 +40,6 @@ const Options = React.lazy(() => import('./Options/Options'));
 const Location = React.lazy(() => import('./Location/Location'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const CreatePieceBoard = React.lazy(() => import('./Board/CreatePieceBoard'));
-const ToolButton = React.lazy(() => import('../Reuseables/Clickables/ToolButton'));
 const ToolButtonAlt = React.lazy(() => import('../Reuseables/Clickables/ToolButtonAlt'));
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const PieceSavedSuccessfully = React.lazy(() => import('./animations/PieceSavedSuccessfully'));

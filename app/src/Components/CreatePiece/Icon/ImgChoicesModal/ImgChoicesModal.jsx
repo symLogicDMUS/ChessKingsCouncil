@@ -1,12 +1,15 @@
 import React from "react";
+import {copy} from "../../../helpers/copy";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {sampleImgUrls} from "../../../../API/sampleData/sampleImgUrls";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
-import {Close} from "../../../Reuseables/Modals/Close";
 import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
-import withStyles from "@material-ui/core/styles/withStyles";
-import {deleteImg} from "../../../../API/deleteImg";
+import {Close} from "../../../Reuseables/Modals/Close";
 import {getImgDict} from "../../../../API/getImgDict";
+import {deleteImg} from "../../../../API/deleteImg";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
+import {UserContext} from "../../../../UserContext";
 import {styles} from "./ImgChoicesModal.jss";
 
 class ImgChoicesModal extends React.Component {
@@ -19,6 +22,7 @@ class ImgChoicesModal extends React.Component {
             showNames: false,
             bValue: true
         };
+        this.uid  = null;
         this.imgDict = {};
         this.imgItems = []
         this.deleteImg = this.deleteImg.bind(this);
@@ -30,15 +34,21 @@ class ImgChoicesModal extends React.Component {
     }
 
     componentDidMount() {
-        getImgDict().then(([imgDict]) => {
-            if (!imgDict) {
-                this.imgDict = {}
-            } else {
-                this.imgDict = imgDict;
-                this.updateImgComponents();
-                this.setState({loaded: true});
-            }
-        });
+        this.uid = UserContext;
+        if (this.uid) {
+            getImgDict().then(([imgDict]) => {
+                if (!imgDict) {
+                    this.imgDict = {}
+                } else {
+                    this.imgDict = imgDict;
+                    this.updateImgComponents();
+                    this.setState({loaded: true});
+                }
+            });
+        }
+        else {
+            this.imgDict = copy(sampleImgUrls)
+        }
     }
 
     updateImgComponents() {

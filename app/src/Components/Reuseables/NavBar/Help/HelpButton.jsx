@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Portal} from "@material-ui/core";
@@ -8,9 +8,11 @@ import {findDidUserVisitPage, recordUserVisitedPage}
         from "../../../../API/findRecordDidUserVisitPage";
 import {HelpModal} from "./HelpModal";
 import {HelpSlideshow} from "./HelpSlideshow";
+import {UserContext} from "../../../../UserContext";
 import {useStyles} from "../NavBarButton.jss";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, touch, children}) {
+    const uid = useContext(UserContext)
     const [hover, setHover] = useState(false);
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);
@@ -19,15 +21,17 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
     const classes = useStyles({theme: theme, screenCase: screenCase})
 
     useEffect(() => {
-        findDidUserVisitPage(currentPage).then(([exists]) => {
-            recordUserVisitedPage(currentPage).then(([r]) => {
-                const firstTime = !exists;
-                if (updateFirstVisit) {
-                    updateFirstVisit(firstTime)
-                }
-                setIsFirstTime(firstTime);
+        if (uid) {
+            findDidUserVisitPage(currentPage).then(([exists]) => {
+                recordUserVisitedPage(currentPage).then(([r]) => {
+                    const firstTime = !exists;
+                    if (updateFirstVisit) {
+                        updateFirstVisit(firstTime)
+                    }
+                    setIsFirstTime(firstTime);
+                });
             });
-        });
+        }
     }, [currentPage])
 
     const isRow = () => {
