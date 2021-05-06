@@ -5,7 +5,7 @@ import {AnimatePresence} from "framer-motion";
 import {loading_path} from "./loading_path";
 import { useStyles } from "./Loading.jss";
 
-export function Loading() {
+function Loading() {
 
     const classes = useStyles()
 
@@ -19,3 +19,5 @@ export function Loading() {
         </div>
     );
 }
+
+export default Loading;

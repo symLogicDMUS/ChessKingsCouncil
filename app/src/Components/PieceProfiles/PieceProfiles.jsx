@@ -126,7 +126,6 @@ function PieceProfiles (props) {
         }
 
         return profiles;
-
     };
 
     return (

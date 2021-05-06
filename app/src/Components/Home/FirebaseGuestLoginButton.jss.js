@@ -20,6 +20,8 @@ export const useStyles = makeStyles((theme) => ({
     anonymous_login_label: (props) => ({
         color: "#fff",
         display: "inline-block",
+        marginLeft: 'auto',
+        marginRight: 'auto',
         fontSize: theme.typography.pxToRem(14),
         paddingLeft: theme.typography.pxToRem(13.6),
         padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(16)}`,
