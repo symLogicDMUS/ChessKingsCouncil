@@ -33,4 +33,7 @@
 32. no image refs when saving custom game (correct)
 
 33. continue without + sign-in worked for both save and save-as in game-root.
-34.
+
+***
+first round of test for ask modal (sign in and continue without) did not find any issues
+***

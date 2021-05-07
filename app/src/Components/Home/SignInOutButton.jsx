@@ -36,6 +36,7 @@ function SignInOutButton({ theme, className, style, }) {
                 <SignInWindow
                     theme={theme}
                     close={() => setSignInWindow(false)}
+                    goBack={() => setSignInWindow(false)}
                 />
             ) : null}
             <MediaQuery maxWidth={420}>

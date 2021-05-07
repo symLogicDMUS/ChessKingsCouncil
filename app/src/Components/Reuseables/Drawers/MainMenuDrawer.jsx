@@ -13,16 +13,14 @@ import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import { useStyles } from "./MainMenuDrawer.jss";
 import SignInOutButton from "../../Home/SignInOutButton";
+import { useStyles } from "./MainMenuDrawer.jss";
 
 export default function MainMenuDrawer({signOut, theme, updateTheme}) {
     const classes = useStyles({ theme: theme });
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);
-    const [anchorEl, setAnchorEl] = useState(null);
-    const menuOpen = Boolean(anchorEl);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -30,13 +28,6 @@ export default function MainMenuDrawer({signOut, theme, updateTheme}) {
 
     const handleDrawerClose = () => {
         setOpen(false);
-    };
-
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleMenuClose = () => {
-        setAnchorEl(null);
     };
 
     return (
