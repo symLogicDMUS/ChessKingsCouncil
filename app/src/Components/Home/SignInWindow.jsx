@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import clsx from "clsx";
 import * as firebase from "firebase";
 import "firebase/auth";
@@ -15,12 +15,19 @@ import {useStyles} from "./SignInWindow.jss";
 function SignInWindow(props) {
     const sm = useMediaQuery("(max-width:960px)");
     const classes = useStyles({theme: 'tan'});
+    useEffect(() => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                props.close()
+            }
+        })
+    }, [])
 
     return (
         <Portal>
             <div className={classes.login_page}>
                 <img
-                    onClick={props.close}
+                    onClick={props.goBack}
                     className={classes.top_button}
                     src={'/Images/Backgrounds/board-pattern-tan-close.svg'}
                 />
@@ -37,7 +44,7 @@ function SignInWindow(props) {
                         uiConfig={uiConfig}
                         firebaseAuth={firebase.auth()}
                     />
-                    <Button onClick={props.close} className={classes.close} variant='text' startIcon={<KeyboardBackspace />}>
+                    <Button onClick={props.goBack} className={classes.close} variant='text' startIcon={<KeyboardBackspace />}>
                         Go Back
                     </Button>
                 </div>

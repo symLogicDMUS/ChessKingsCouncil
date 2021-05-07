@@ -1,0 +1,31 @@
+1. delete all db data.
+2. visit load game. No change in db
+3. load Docker and Dragon. no change in db.
+4. move some pieces.
+5. hit save button.
+6. ask-sign-in appears. no change db.
+7. (note: when adjusted screen past breakpoint, modal disappears)
+8. hit sign-in
+9. goes to sign in window/page
+10. sign in with google. defs, games, and images, appear in db.
+11. defs looks correct. games looks correct.
+12. Note: no image_refs (correct, because no uploads)
+13. *** try save button again, now that logged in. Error: tried to
+      tried to treat imgUrlStrs as array and called filter but imgStrs
+      was undefined.
+14. ** fix number 13 by initializing empty array in getSampleGames()
+15. repeat 1-10 with fix
+16. get save animation
+17. return to LoadGame page and see updated version. note: still no image refs (correct)
+18. ** repeat 1-10 for GameRoot save-as. save Material UI and Node as "Test"
+19. * get save animation and update to db. "Test" in db
+20. repeat 18 for "continue without signing in" option (didn't delete db this time). name it "Test 2"
+21. note: did not see another id added to newcomers yet.
+22. saved Test 2 and see new ID appear in database (starting with '49')
+23. see updated image in db. id starting with '49' appears in db LoadGame newcomers.
+24. visit every page with id starting '49' and newcomer entry correctly added for each.
+25. sign out and sign in with google.
+26. Google id added in newcomers correctly for each page
+
+29. *** add onAuthStateChanged to SignInWindow
+30. test 1-10 but for creating/loading a piece

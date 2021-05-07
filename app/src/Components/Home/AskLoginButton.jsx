@@ -31,6 +31,10 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
             {signIn ? (
                 <SignInWindow
                     close={() => {
+                        setModal(false)
+                        setSignIn(false)
+                    }}
+                    goBack={() => {
                         setModal(true)
                         setSignIn(false)
                     }}
