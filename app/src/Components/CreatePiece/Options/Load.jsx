@@ -29,6 +29,7 @@ function Load({
             {buttonType === "option" ? (
                 <Option
                     iconType="load"
+                    name={"Load"}
                     theme={theme}
                     key="load-option"
                     className={className}

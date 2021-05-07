@@ -14,20 +14,22 @@ export const useStyles = makeStyles({
             justifyContent: 'space-between',
         },
         '@media screen and (min-width: 960px)': {
-            // width: drawerItemWidth,
             fontSize: '2vh',
-            // marginLeft: '1em',
             marginBottom: '1vw',
             flexWrap: 'nowrap',
             alignItems: 'flex-start',
             justifyContent: 'space-between',
         },
-
     }),
     option: props => ({
         display: 'flex',
         flexDirection: 'column',
         paddingTop: '2.5vh',
+        minWidth: 16,
+        minHeight: 16,
+        borderRadius: '0.25rem',
+        color: themes[props.theme].text,
+        border: `0.05rem solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
             width: '10vw',
             height: '10vw',
@@ -36,11 +38,16 @@ export const useStyles = makeStyles({
             width: '5.5vw',
             height: '5.5vw',
         },
-        minWidth: 16,
-        minHeight: 16,
-        borderRadius: '0.25rem',
-        color: themes[props.theme].text,
-        border: `0.05rem solid ${themes[props.theme].outline}`,
+        "& .MuiSvgIcon-root": {
+            width: '3.25vw',
+            height: '3.25vw',
+            color: themes[props.theme].text,
+        },
+        "& .MuiTypography-root": {
+            fontSize: '1vw',
+            fontFamily: 'Roboto-Light, Roboto',
+            color: themes[props.theme].button_text,
+        },
     }),
     button: props => ({
         '@media screen and (min-width: 600px) and (max-width: 960px)': {

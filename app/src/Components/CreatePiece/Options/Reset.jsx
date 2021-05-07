@@ -15,6 +15,7 @@ function Reset({
                 <Option
                     onClick={reset}
                     iconType="reset"
+                    name={"Reset"}
                     theme={theme}
                     className={className}
                 />

@@ -1,12 +1,12 @@
 import React from "react";
 import clsx from "clsx";
 import {themes} from "../../styles/themes/themes.jss";
-import {IconButton, SvgIcon} from "@material-ui/core";
 import {icons} from "../../styles/icons/top/icons.jss";
+import {IconButton, SvgIcon, Typography} from "@material-ui/core";
 import {useStyles as useMoreStyles} from "../CreatePiece.jss";
 import {useStyles} from "./Option.jss";
 
-function Option({onClick, iconType, theme, className}) {
+function Option({onClick, iconType, name, theme, className}) {
     const classes = useStyles({theme: theme})
     const classes2 = useMoreStyles({theme: theme})
     return (
@@ -21,7 +21,7 @@ function Option({onClick, iconType, theme, className}) {
             <SvgIcon className={classes.icon}>
                 {icons[iconType](themes[theme].button_text)}
             </SvgIcon>
-            <div className={classes.text}>{iconType}</div>
+            <Typography className={classes.text}>{name}</Typography>
         </IconButton>
     );
 }

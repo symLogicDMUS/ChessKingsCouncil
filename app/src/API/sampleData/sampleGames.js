@@ -189,12 +189,6 @@ export const dbSampleGames = {
             "q": "Dragon",
             "r": "Rook"
         },
-        "imgUrlStrs": [
-            "",
-            "",
-            "",
-            ""
-        ],
         "json": {
             "kings_moved": {
                 "e1": true,
@@ -543,16 +537,7 @@ export const dbSampleGames = {
             "q": "Dragon",
             "r": "Evil Morty"
         },
-        "imgUrlStrs": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
+        "imgUrlStrs": [],
         "json": {
             "kings_moved": {
                 "e1": false,
@@ -1000,12 +985,6 @@ export const dbSampleGames = {
             "q": "Queen",
             "r": "Rook"
         },
-        "imgUrlStrs": [
-            "",
-            "",
-            "",
-            ""
-        ],
         "json": {
             "kings_moved": {
                 "e1": true,

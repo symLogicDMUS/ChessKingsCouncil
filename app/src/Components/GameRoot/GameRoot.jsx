@@ -41,6 +41,7 @@ import GameRootToolbar from "./GameRootToolbar";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
 import {UserContext} from "../../UserContext";
+import AskLoginButton from "../Home/AskLoginButton";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -64,7 +65,6 @@ class GameRoot extends React.Component {
             secondaryDrawer: false,
             showProfileOnClick: true,
         };
-        this.uid = UserContext;
         this.unsavedProgress = false;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -108,20 +108,11 @@ class GameRoot extends React.Component {
         this.aiStart = null;
         this.aiDest = null;
         this.aiCapture = null;
-        this.save = this.save.bind(this);
-        this.resign = this.resign.bind(this);
-        this.saveToDb = this.saveToDb.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
-        this.toggleRangeAnalysis = this.toggleRangeAnalysis.bind(this);
-        this.toggleSecondaryDrawer = this.toggleSecondaryDrawer.bind(this);
-        this.updateTurnData = this.updateTurnData.bind(this);
-        this.updateTheme = this.updateTheme.bind(this);
-        this.getRangeBoard = this.getRangeBoard.bind(this);
-        this.changeName = this.changeName.bind(this);
     }
 
+    static contextType = UserContext;
+
     componentDidMount() {
-        this.uid = UserContext;
         document.body.className = "dark-background";
     }
 
@@ -136,7 +127,7 @@ class GameRoot extends React.Component {
     /**
      * called after a move is made. update the game logic so know where other player can now move.
      * */
-    updateTurnData() {
+    updateTurnData = () => {
         let turnData;
         if (this.gameType === "council") {
             turnData = updateCouncil(
@@ -183,7 +174,7 @@ class GameRoot extends React.Component {
      * @param start
      * @param dest
      */
-    updateJsonRecords(start, dest) {
+    updateJsonRecords = (start, dest) => {
         const pieceId = this.board[dest];
         const fenId = pieceId[1].toLowerCase();
 
@@ -208,7 +199,7 @@ class GameRoot extends React.Component {
         }
     }
 
-    updateFen(start, dest) {
+    updateFen = (start, dest) => {
         this.fenObj.update(
             this.specialMoves,
             this.jsonRecords,
@@ -219,38 +210,36 @@ class GameRoot extends React.Component {
         );
     }
 
-    save() {
-        if (this.uid) {
-            const posFen = getFen(this.board);
-            const fenData = this.fenObj.getData();
-            const fen = getFullFen(posFen, fenData);
-            const records = this.jsonRecords.getRecords();
-            records.pawn_histories = replacePawnIdWithCurrentLoc(
-                records.pawn_histories
-            );
-            const defs = gameDefsOffsetListsToStrs(this.defs);
-            const status = this.gameStatus.getStatus();
+    save = () => {
+        const posFen = getFen(this.board);
+        const fenData = this.fenObj.getData();
+        const fen = getFullFen(posFen, fenData);
+        const records = this.jsonRecords.getRecords();
+        records.pawn_histories = replacePawnIdWithCurrentLoc(
+            records.pawn_histories
+        );
+        const defs = gameDefsOffsetListsToStrs(this.defs);
+        const status = this.gameStatus.getStatus();
 
-            const imgUrlStrs = filterSamples(this.imgUrlStrs)
+        const imgUrlStrs = filterSamples(this.imgUrlStrs)
 
-            getDoesGameExist(this.gameName).then(([gameExists]) => {
-                if (gameExists) {
-                    getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
-                        updateCountsOnOverwrite(prevImgUrlStrs, imgUrlStrs).then(r => {
-                            this.saveToDb(fen, records, defs, status);
-                        })
-                    })
-                }
-                else {
-                    incrementImgRefCounts(imgUrlStrs).then((r) => {
+        getDoesGameExist(this.gameName).then(([gameExists]) => {
+            if (gameExists) {
+                getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
+                    updateCountsOnOverwrite(prevImgUrlStrs, imgUrlStrs).then(r => {
                         this.saveToDb(fen, records, defs, status);
-                    });
-                }
-            });
-        }
+                    })
+                })
+            }
+            else {
+                incrementImgRefCounts(imgUrlStrs).then((r) => {
+                    this.saveToDb(fen, records, defs, status);
+                });
+            }
+        });
     }
 
-    saveToDb(fen, records, defs, status) {
+    saveToDb = (fen, records, defs, status) => {
         saveGame(this.gameName, {
             fen: fen,
             status: status,
@@ -268,7 +257,7 @@ class GameRoot extends React.Component {
         });
     }
 
-    resign() {
+    resign = () => {
         if (this.gameStatus.status !== OVER) {
             this.gameStatus.updateByObj({
                 status: OVER,
@@ -283,7 +272,7 @@ class GameRoot extends React.Component {
      * @param pieceId: range of piece with id pieceId
      * @returns binary board where only inRange values set to true
      */
-    getRangeBoard(pieceId) {
+    getRangeBoard = (pieceId) => {
         if (pieceId[0] !== this.turn) {
             return getBinaryBoarAllFalse();
         }
@@ -296,15 +285,15 @@ class GameRoot extends React.Component {
         return rangeBoard;
     }
 
-    toggleSecondaryDrawer(bValue) {
+    toggleSecondaryDrawer = (bValue) => {
         this.setState({ secondaryDrawer: bValue });
     }
 
-    toggleRangeAnalysis() {
+    toggleRangeAnalysis = () => {
         this.setState({rangeAnalysis: ! this.state.rangeAnalysis})
     }
 
-    getColorLastMove() {
+    getColorLastMove = () => {
         if (this.turn === "W") {
             return "B";
         } else {
@@ -312,20 +301,20 @@ class GameRoot extends React.Component {
         }
     }
 
-    changeName(newName) {
+    changeName = (newName) => {
         this.gameName = newName;
     }
 
-    setUnsavedProgress(boolVal) {
+    setUnsavedProgress = (boolVal) => {
         /**Do not make this a state variable*/
         this.unsavedProgress = boolVal;
     }
 
-    triggerRender() {
+    triggerRender = () => {
         this.setState({ bValue: !this.state.bValue });
     }
 
-    updateTheme(theme) {
+    updateTheme = (theme) => {
         this.setState({ theme: theme });
     }
 
@@ -396,14 +385,21 @@ class GameRoot extends React.Component {
                     }
                     toolButtons={
                         <>
-                            <ToolButtonAlt
-                                text="save"
-                                name={"Save"}
-                                iconName={"save_alt"}
-                                onClick={this.save}
-                                isActive={false}
-                                theme={this.state.theme}
-                            />
+                            {this.context ? (
+                                <ToolButtonAlt
+                                    text="Save"
+                                    iconName={"save_alt"}
+                                    onClick={this.save}
+                                    isActive={false}
+                                    theme={this.state.theme}
+                                />
+                            ) : (
+                                <AskLoginButton
+                                    text="Save"
+                                    iconName={"save_alt"}
+                                    theme={this.state.theme}
+                                />
+                            )}
                             <GameRootToolbar
                                 defs={this.defs}
                                 idDict={this.idDict}

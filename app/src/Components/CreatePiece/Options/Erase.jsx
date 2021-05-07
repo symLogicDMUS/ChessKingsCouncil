@@ -10,6 +10,7 @@ function Erase({erase, theme, className, buttonType}) {
                 <Option
                     onClick={erase}
                     iconType="erase"
+                    name={"Erase"}
                     theme={theme}
                     className={className}
                 />

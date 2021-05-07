@@ -1,4 +1,4 @@
-export const sampleImgUrls = {
+export const sampleImgs = {
     "Octocat-black-svg": "/Images/Pieces/Samples/Octocat-black.svg",
     "Octocat-white-svg": "/Images/Pieces/Samples/Octocat-white.svg",
     "black_firehat-svg": "/Images/Pieces/Samples/black_firehat.svg",
@@ -17,7 +17,7 @@ export const sampleImgUrls = {
     "scream-png": "/Images/Pieces/Samples/scream.png",
 };
 
-export const sampleUrlList = [
+export const sampleImgList = [
     "/Images/Pieces/Samples/Octocat-black.svg",
     "/Images/Pieces/Samples/Octocat-white.svg",
     "/Images/Pieces/Samples/black_firehat.svg",

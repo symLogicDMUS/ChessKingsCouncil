@@ -4,10 +4,11 @@ import Box from "@material-ui/core/Box";
 import {MoreVert} from "@material-ui/icons";
 import {SeeMore} from "../../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import SignInOutButton from "../../../Home/SignInOutButton";
 import { useStyles } from "./TwoItemAppBarContent.jss";
 
 export function TwoItemAppBarContent({theme, className, seeMoreIcon, children}) {
-    const sm = useMediaQuery("(max-width: 500px)");
+    const sm = useMediaQuery("(max-width: 600px)");
     const classes = useStyles({theme: theme})
 
     return (
@@ -28,6 +29,7 @@ export function TwoItemAppBarContent({theme, className, seeMoreIcon, children}) 
                     {children[1]}
                 </div>
             )}
+            <SignInOutButton theme={theme} hasNeighbor/>
         </Box>
     );
 }

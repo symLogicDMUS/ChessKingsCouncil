@@ -1,7 +1,6 @@
 import React from "react";
-import {copy} from "../../../helpers/copy";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {sampleImgUrls} from "../../../../API/sampleData/sampleImgUrls";
+import {getSampleImgs} from "../../../../API/sampleData/getSampleImgs";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
 import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
@@ -13,29 +12,20 @@ import {UserContext} from "../../../../UserContext";
 import {styles} from "./ImgChoicesModal.jss";
 
 class ImgChoicesModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            imgNameChoice: null,
-            searchText: "",
-            loaded: false,
-            showNames: false,
-            bValue: true
-        };
-        this.uid  = UserContext;
-        this.imgDict = {};
-        this.imgItems = []
-        this.deleteImg = this.deleteImg.bind(this);
-        this.submitChoice = this.submitChoice.bind(this);
-        this.setChoice = this.setChoice.bind(this);
-        this.updateSearchText = this.updateSearchText.bind(this);
-        this.toggleShowNames = this.toggleShowNames.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
-    }
+    state = {
+        imgNameChoice: null,
+        searchText: "",
+        loaded: false,
+        showNames: false,
+        bValue: true
+    };
+    static contextType = UserContext;
+    imgDict = {};
+    imgItems = []
 
     componentDidMount() {
-        this.uid = UserContext;
-        if (this.uid) {
+        const uid = this.context;
+        if (uid) {
             getImgDict().then(([imgDict]) => {
                 if (!imgDict) {
                     this.imgDict = {}
@@ -47,11 +37,11 @@ class ImgChoicesModal extends React.Component {
             });
         }
         else {
-            this.imgDict = copy(sampleImgUrls)
+            this.imgDict = getSampleImgs();
         }
     }
 
-    updateImgComponents() {
+    updateImgComponents = () => {
         this.imgItems = getImgComponents(
             this.imgDict,
             this.setChoice,
@@ -62,7 +52,7 @@ class ImgChoicesModal extends React.Component {
         );
     }
 
-    deleteImg(imgNameChoice) {
+    deleteImg = (imgNameChoice) => {
         decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
             deleteImg(imgNameChoice).then(([r]) => {
                 this.props.resetImg(this.imgDict[imgNameChoice]);
@@ -75,12 +65,12 @@ class ImgChoicesModal extends React.Component {
         })
     }
 
-    submitChoice(imgNameChoice) {
+    submitChoice = (imgNameChoice) => {
         this.props.setPieceImg(this.props.color, this.imgDict[imgNameChoice]);
         this.props.close();
     }
 
-    setChoice(imgNameChoice) {
+    setChoice = (imgNameChoice) => {
         if (this.state.imgNameChoice === imgNameChoice) {
             this.setState({imgNameChoice: null}, () => {
                 this.updateImgComponents();
@@ -94,21 +84,21 @@ class ImgChoicesModal extends React.Component {
         }
     }
 
-    updateSearchText(searchText) {
+    updateSearchText = (searchText) => {
         this.setState({searchText: searchText}, () => {
             this.updateImgComponents();
             this.triggerRender();
         });
     }
 
-    toggleShowNames() {
+    toggleShowNames = () => {
         this.setState({showNames: !this.state.showNames}, () => {
             this.updateImgComponents();
             this.triggerRender();
         })
     }
 
-    triggerRender() {
+    triggerRender = () => {
         this.setState({bValue: !this.state.bValue})
     }
 

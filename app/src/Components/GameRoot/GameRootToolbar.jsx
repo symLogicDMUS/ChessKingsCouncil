@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import {Backdrop, Portal} from "@material-ui/core";
+import React, { useContext, useState } from "react";
+import { Portal } from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
 import { useStyles } from "../Reuseables/Animations/AnimatePresencePortal.jss";
-import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
 import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
 import ToolButton from "../Reuseables/Clickables/ToolButton";
 import ResignModal from "./SaveResignTool/ResignModal";
 import GameInfoModal from "./GameInfo/GameInfoModal";
+import AskLoginButton from "../Home/AskLoginButton";
+import { UserContext } from "../../UserContext";
 import SaveAs from "./SaveResignTool/SaveAs";
-import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
 
 function GameRootToolbar({
     defs,
@@ -23,6 +23,8 @@ function GameRootToolbar({
     resign,
     theme,
 }) {
+    const uid = useContext(UserContext);
+
     const [state, setState] = useState({
         miniVariantTool: null,
         clientX: 0,
@@ -65,7 +67,7 @@ function GameRootToolbar({
         },
     };
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     return (
         <>
@@ -123,16 +125,18 @@ function GameRootToolbar({
                     />
                 )}
             </Portal>
-            <ToolButton
-                name={"Save-As"}
-                iconName={"save_as_alt"}
-                text="save as"
-                theme={theme}
-                isActive={
-                    state.miniVariantTool === "Save-As"
-                }
-                updateParent={toggleMiniVariantTool}
-            />
+            {uid ? (
+                <ToolButton
+                    name={"Save-As"}
+                    iconName={"save_as_alt"}
+                    text="save as"
+                    theme={theme}
+                    isActive={state.miniVariantTool === "Save-As"}
+                    updateParent={toggleMiniVariantTool}
+                />
+            ) : (
+                <AskLoginButton theme={theme} iconName={"save_as_alt"} text={"Save As"} />
+            )}
             <ToolButton
                 name="Game-Info"
                 text="Game Info"

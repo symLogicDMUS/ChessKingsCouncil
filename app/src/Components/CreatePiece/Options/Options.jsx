@@ -49,7 +49,7 @@ function Options({
                         buttonType='option'
                     />
                 ) : (
-                    <AskLoginButton buttonType='option' theme={theme}/>
+                    <AskLoginButton buttonType='option' iconName={"save"} text={"Save"} theme={theme}/>
                 )}
                 <Reset
                     reset={reset}

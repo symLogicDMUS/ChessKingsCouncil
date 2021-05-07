@@ -1,7 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes/themes.jss";
 import {fade} from "@material-ui/core";
-import {lighten} from "@material-ui/core/styles";
 
 
 export const useStyles = makeStyles((theme) => ({

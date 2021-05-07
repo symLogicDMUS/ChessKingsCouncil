@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { useHistory } from "react-router-dom";
-import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
-import { Portal, Typography } from "@material-ui/core";
-import { icons } from "../../styles/icons/top/icons.jss";
 import { MuiButton } from "../Clickables/MuiButton";
 import { StandardModal } from "../Modals/StandardModal";
+import { icons } from "../../styles/icons/top/icons.jss";
+import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../Modals/StandardModal.jss";
 import { useStyles } from "./NavBarButton.jss";
 
@@ -86,54 +85,44 @@ export function NavBarButton({
                     </StandardModal>
                 </Portal>
             ) : null}
-            <Box
+            <ListItem
+                button
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
-                    [classes.column_direction]: ! isRow(),
+                    [classes.normal_color]: !hover && !touch,
                     [classes.row_direction]: isRow(),
                 })}
                 onMouseEnter={() => setHover(true)}
                 onMouseLeave={() => setHover(false)}
             >
-                <Box
-                    className={clsx(classes.icon_and_text_area, {
-                        [classes.alignCenter]: pageName === "Home",
-                        [classes.alignBaseline]: pageName !== "Hone",
-                        [classes.margin]: isRow(),
-                        [classes.marginRight]: ! isRow(),
-                        [classes.marginTop]: ! isRow(),
-                        [classes.marginBottom]: ! isRow(),
+                <ListItemIcon
+                    className={clsx(null, {
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                        [classes.normal_color]: !hover && !touch,
                     })}
                 >
                     <SvgIcon
                         fontVariant="button"
-                        className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.parent_column_icon]: ! isRow(),
-                            [classes.parent_row_icon]: isRow(),
-                        })}
                     >
                         {icons[pageIcon]}
                     </SvgIcon>
-                    <Typography
-                        variant="button"
-                        className={clsx(classes.text, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.parent_column_text]: ! isRow(),
-                            [classes.parent_row_text]: isRow(),
-                        })}
-                        noWrap
-                    >
-                        {pageName}
-                    </Typography>
-                </Box>
-            </Box>
+                </ListItemIcon>
+                <ListItemText
+                    variant="button"
+                    primary={pageName}
+                    className={clsx(null, {
+                        [classes.normal_color]: !hover && !touch,
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                        [classes.row_direction]: isRow(),
+                    })}
+                    noWrap
+                >
+                    {pageName}
+                </ListItemText>
+            </ListItem>
         </>
     );
 }

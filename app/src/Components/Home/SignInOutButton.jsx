@@ -1,18 +1,18 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as firebase from "firebase";
 import "firebase/auth";
+import clsx from "clsx";
 import SignInWindow from "./SignInWindow";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import IconButton from "@material-ui/core/IconButton";
 import MediaQuery from "react-responsive/src";
-import {MenuItem} from "@material-ui/core";
+import {MenuItem, Typography} from "@material-ui/core";
 import Menu from "@material-ui/core/Menu";
-import { useStyles } from "./SignInOutButton.jss";
 import Button from "@material-ui/core/Button";
-import {UserContext} from "../../UserContext";
-import clsx from "clsx";
+import { UserContext } from "../../UserContext";
+import { useStyles } from "./SignInOutButton.jss";
 
-function SignInOutButton({theme, className}) {
+function SignInOutButton({ theme, className, style, }) {
     const uid = useContext(UserContext);
     const isSignedIn = Boolean(uid);
     const [signInWindow, setSignInWindow] = useState(false);
@@ -28,22 +28,28 @@ function SignInOutButton({theme, className}) {
         setAnchorEl(null);
     };
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
 
     return (
         <>
             {signInWindow ? (
-                <SignInWindow theme={theme} close={() => setSignInWindow(false)}  />
+                <SignInWindow
+                    theme={theme}
+                    close={() => setSignInWindow(false)}
+                />
             ) : null}
             <MediaQuery maxWidth={420}>
                 <IconButton
                     onClick={handleMenu}
-                    className={clsx(classes.text, {[className]:className})}
+                    className={clsx(classes.button, {
+                        [className]: className,
+                    })}
+                    style={style}
                     aria-label="account of current user"
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
                 >
-                    <AccountBoxIcon className={classes.text} />
+                    <AccountBoxIcon />
                 </IconButton>
                 <Menu
                     id="menu-appbar"
@@ -63,11 +69,14 @@ function SignInOutButton({theme, className}) {
                     <MenuItem
                         onClick={() => {
                             handleMenuClose();
-                            firebase.auth().signOut()
+                            firebase.auth().signOut();
                         }}
-                        className={clsx(classes.text, {[className]:className})}
+                        className={clsx(classes.button, {
+                            [className]: className,
+                        })}
+                        style={style}
                     >
-                        Sign Out
+                        <Typography noWrap>Sign Out</Typography>
                     </MenuItem>
                 </Menu>
             </MediaQuery>
@@ -75,18 +84,24 @@ function SignInOutButton({theme, className}) {
                 {isSignedIn ? (
                     <Button
                         onClick={() => firebase.auth().signOut()}
-                        className={clsx(classes.button, {[className]:className})}
+                        className={clsx(classes.button, {
+                            [className]: className,
+                        })}
                         startIcon={<AccountBoxIcon />}
+                        style={style}
                     >
-                        Sign Out
+                        <Typography noWrap>Sign Out</Typography>
                     </Button>
                 ) : (
                     <Button
                         onClick={() => setSignInWindow(true)}
-                        className={clsx(classes.button, {[className]:className})}
+                        className={clsx(classes.button, {
+                            [className]: className,
+                        })}
                         startIcon={<AccountBoxIcon />}
+                        style={style}
                     >
-                        Sign In
+                        <Typography noWrap>Sign In</Typography>
                     </Button>
                 )}
             </MediaQuery>

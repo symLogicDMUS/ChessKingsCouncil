@@ -1,20 +1,20 @@
 import React, {useState} from "react";
 import clsx from "clsx";
-import {ClickAwayListener, Portal, Typography} from "@material-ui/core";
-import Box from "@material-ui/core/Box";
 import SignInWindow from "./SignInWindow";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import Option from "../CreatePiece/Options/Option";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import {IconButton, Portal, SvgIcon, Typography} from "@material-ui/core";
+import {useStyles as useMoreStyles} from "./FirebaseGuestLoginButton.jss"
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import {useStyles as useMoreStyles} from "./FirebaseGuestLoginButton.jss"
+import {icons} from "../styles/icons/top/icons.jss";
+import {themes} from "../styles/themes/themes.jss";
 import { useStyles } from "./AskLoginButton.jss";
 
-function AskLoginButton({theme, buttonType, className}) {
+function AskLoginButton({theme, buttonType, iconName, text, className}) {
     const [modal, setModal] = useState(false);
     const [signIn, setSignIn] = useState(false);
 
@@ -39,6 +39,7 @@ function AskLoginButton({theme, buttonType, className}) {
                             container: classes.container,
                             paper: classes.dialog_window
                         }}
+                        className={className}
                         onBackdropClick={() => setModal(false)}
                     >
                         <DialogTitle className={classes.title}>Do you want to sign in?</DialogTitle>
@@ -91,19 +92,23 @@ function AskLoginButton({theme, buttonType, className}) {
                 </Portal>
             ) : null}
             {buttonType === 'option' ? (
-                <Option
-                    theme={theme}
-                    iconType="save"
-                    key='save-option'
+                <IconButton
                     className={className}
+                    classes={{label: classes.label}}
                     onClick={() => setModal(true)}
-                />
+                >
+                    <SvgIcon className={classes.icon}>
+                        {icons[iconName](themes[theme].button_text)}
+                    </SvgIcon>
+                    <Typography className={classes.text}>{text}</Typography>
+                </IconButton>
             ) : (
                 <ToolButtonAlt
-                    text="Save"
+                    text={text}
                     theme={theme}
                     isActive={modal}
-                    iconName={"save_alt"}
+                    iconName={iconName}
+                    className={className}
                     onClick={() => setModal(true)}
                 />
             )}
@@ -111,7 +116,5 @@ function AskLoginButton({theme, buttonType, className}) {
     );
 }
 
-/*
 
-* */
 export default AskLoginButton;

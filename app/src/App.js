@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Loading from "./Components/Reuseables/Animations/Loading";
 import {UserContext} from "./UserContext";
 import "./App.scss";
+import {queryUserId} from "./API/isNewUser";
+import {saveSampleData} from "./API/sampleData/saveSampleData";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
@@ -19,30 +21,28 @@ const CouncilRules = lazy(() => import("./Components/CouncilRules/CouncilRules")
 
 
 export class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            uid: null,
-            isSignedIn: false,
-            isAnonymous: false
-        };
-    }
+    state = {
+        uid: null,
+        isSignedIn: false,
+        isAnonymous: false
+    };
 
     componentDidMount() {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.setState({
-                    uid: user.uid,
-                    isSignedIn: !!user,
-                    isAnonymous: user.isAnonymous,
+                queryUserId().then(isReturningUser => {
+                    if (isReturningUser) {
+                        this.setState({uid: user.uid, isSignedIn: !!user, isAnonymous: user.isAnonymous})
+                    }
+                    else {
+                        saveSampleData().then(r => {
+                            this.setState({uid: user.uid, isSignedIn: !!user, isAnonymous: user.isAnonymous})
+                        })
+                    }
                 })
             }
             else {
-                this.setState({
-                    uid: null,
-                    isSignedIn: false,
-                    isAnonymous: false
-                })
+                this.setState({uid: null, isSignedIn: false, isAnonymous: false})
             }
         });
     }

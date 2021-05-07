@@ -152,6 +152,7 @@ function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType
                 <Option
                     theme={theme}
                     iconType="save"
+                    name={"Save"}
                     key='save-option'
                     onClick={makeSaveAttempt}
                     className={className}

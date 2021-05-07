@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
 import {SettingsModal} from "./SettingsModal";
 import SettingsIcon from "@material-ui/icons/Settings";
-import {Portal, Typography} from "@material-ui/core";
+import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
 export function SettingsButton({updateTheme, theme, screenCase, currentPage, touch, children}) {
@@ -38,51 +37,39 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, tou
                     </SettingsModal>
                 </Portal>
             ) : null}
-            <Box
+            <ListItem
+                button
                 onClick={toggleSettingsModal}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
-                    [classes.touch_color]: touch,
-                    [classes.column_direction]: ! isRow(),
+                    [classes.normal_color]: !hover && !touch,
                     [classes.row_direction]: isRow(),
                 })}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
             >
-                <Box
-                    className={clsx(classes.icon_and_text_area, {
-                        [classes.alignCenter]: true,
-                        [classes.margin]: isRow(),
-                        [classes.marginRight]: ! isRow(),
-                        [classes.marginTop]: ! isRow(),
-                        [classes.marginBottom]: ! isRow(),
+                <ListItemIcon
+                    className={clsx(null, {
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                        [classes.normal_color]: !hover && !touch,
                     })}
                 >
-                    <SettingsIcon
-                        className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.icon_lg_column]: ! isRow(),
-                            [classes.icon_lg_row]: isRow(),
-                        })}
-                    />
-                    <Typography
-                        variant='button'
-                        className={clsx(classes.text, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.parent_column_text]: ! isRow(),
-                            [classes.parent_row_text]: isRow(),
-                        })}
-                        noWrap
-                    >
-                        Settings
-                    </Typography>
-                </Box>
-            </Box>
+                    <SettingsIcon fontVariant="button" />
+                </ListItemIcon>
+                <ListItemText
+                    variant="button"
+                    primary='Settings'
+                    className={clsx(null, {
+                        [classes.normal_color]: !hover && !touch,
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                    })}
+                    noWrap
+                >
+                    Settings
+                </ListItemText>
+            </ListItem>
         </>
     )
 }

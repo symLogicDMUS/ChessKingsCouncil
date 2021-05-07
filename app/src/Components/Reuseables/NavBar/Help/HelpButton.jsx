@@ -1,14 +1,12 @@
 import React, {useContext, useEffect, useState} from "react";
 import clsx from "clsx";
-import Box from "@material-ui/core/Box";
-import {Portal} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import {findDidUserVisitPage, recordUserVisitedPage}
         from "../../../../API/findRecordDidUserVisitPage";
 import {HelpModal} from "./HelpModal";
 import {HelpSlideshow} from "./HelpSlideshow";
 import {UserContext} from "../../../../UserContext";
+import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import {useStyles} from "../NavBarButton.jss";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, touch, children}) {
@@ -62,51 +60,39 @@ export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFir
                 </Portal>
             ) : null}
             {modal ? (<HelpModal theme={theme} screenCase={screenCase} onClose={() => setModal(false)}/>) : null}
-            <Box
+            <ListItem
+                button
                 onClick={() => setModal(!modal)}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.normal_color]: !hover && !touch,
                     [classes.hover_color]: hover,
-                    [classes.touch_color]: touch,
-                    [classes.column_direction]: ! isRow(),
+                    [classes.normal_color]: !hover && !touch,
                     [classes.row_direction]: isRow(),
                 })}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
             >
-                <Box
-                    className={clsx(classes.icon_and_text_area, {
-                        [classes.alignCenter]: true,
-                        [classes.margin]: isRow(),
-                        [classes.marginRight]: ! isRow(),
-                        [classes.marginTop]: ! isRow(),
-                        [classes.marginBottom]: ! isRow(),
+                <ListItemIcon
+                    className={clsx(classes.icon, {
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                        [classes.normal_color]: !hover && !touch,
                     })}
                 >
-                    <ContactSupportIcon
-                        className={clsx(classes.icon, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.icon_lg_column]: ! isRow(),
-                            [classes.icon_lg_row]: isRow(),
-                        })}
-                    />
-                    <Typography
-                        variant='button'
-                        className={clsx(classes.text, {
-                            [classes.normal_color]: !hover && !touch,
-                            [classes.hover_color]: hover,
-                            [classes.touch_color]: touch,
-                            [classes.parent_column_text]: ! isRow(),
-                            [classes.parent_row_text]: isRow(),
-                        })}
-                        noWrap
-                    >
-                        Help
-                    </Typography>
-                </Box>
-            </Box>
+                    <ContactSupportIcon fontVariant="button" />
+                </ListItemIcon>
+                <ListItemText
+                    variant="button"
+                    primary='Help'
+                    className={clsx(null, {
+                        [classes.normal_color]: !hover && !touch,
+                        [classes.hover_color]: hover,
+                        [classes.touch_color]: touch,
+                    })}
+                    noWrap
+                >
+                    Settings
+                </ListItemText>
+            </ListItem>
         </>
     );
 }

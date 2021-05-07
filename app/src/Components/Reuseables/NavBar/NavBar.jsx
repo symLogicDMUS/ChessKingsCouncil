@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { NavBarButton } from "./NavBarButton";
 import { HelpButton } from "./Help/HelpButton";
 import { SettingsButton } from "./SettingsButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import SignInOutButton from "../../Home/SignInOutButton";
 import { useStyles } from "./NavBar.jss";
 
 /**
@@ -12,18 +13,20 @@ import { useStyles } from "./NavBar.jss";
  */
 function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
-    const [touch, setTouch] = useState(false);
+    const [touch, setTouch] = useState(true);
     const screenCase = isWide ? "wide" : "thin";
 
-    const classes = useStyles();
+    const classes = useStyles({ theme: props.theme });
 
-    useEffect(() => {
-        window.addEventListener('touchstart', onFirstTouch, false)
-    }, [touch])
-    const onFirstTouch = () => {
-        setTouch(true);
-        window.removeEventListener('touchstart', onFirstTouch, false);
-    }
+    /*
+        useEffect(() => {
+            window.addEventListener('touchstart', onFirstTouch, false)
+        }, [touch])
+        const onFirstTouch = () => {
+            setTouch(true);
+            window.removeEventListener('touchstart', onFirstTouch, false);
+        }
+    * */
 
     return (
         <>
@@ -160,6 +163,18 @@ function NavBar(props) {
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
                     touch={touch}
+                />
+                <SignInOutButton
+                    theme={props.theme}
+                    className={clsx(classes.sign_out_button, {
+                        [classes.hide]:
+                        screenCase === "wide" &&
+                        (props.currentPage === "CreatePiece" ||
+                            props.currentPage === "GameRoot" ||
+                            props.currentPage === "Customize" ||
+                            props.currentPage === "MainMenu"),
+                    })}
+                    style={{ marginLeft: 0 }}
                 />
             </Box>
         </>

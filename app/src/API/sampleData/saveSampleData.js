@@ -1,13 +1,13 @@
 import {saveDefsToDb} from "../saveDefs";
 import {saveImgUrlsToDb} from "../saveImgUrls";
 import {saveGameDictToDb} from "../saveGameDict";
-import {sampleImgUrls} from "./sampleImgUrls";
+import {sampleImgs} from "./sampleImgs";
 import {dbSampleGames} from "./sampleGames";
 import {dbSampleDefs} from "./sampleDefs";
 
 export async function saveSampleData() {
     return Promise.all([
-        saveImgUrlsToDb(sampleImgUrls),
+        saveImgUrlsToDb(sampleImgs),
         saveGameDictToDb(dbSampleGames),
         saveDefsToDb(dbSampleDefs)
     ])

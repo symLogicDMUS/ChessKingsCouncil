@@ -74,6 +74,9 @@ export const useStyles = makeStyles({
         marginTop: '-37.665vh',
     }),
     search_box: props => ({
+        '@media screen and (max-width: 960px)': {
+            width: '12.5rem'
+        },
         '@media screen and (min-width: 960px)': {
             alignSelf: 'flex-end',
             marginRight: '2.25vw',

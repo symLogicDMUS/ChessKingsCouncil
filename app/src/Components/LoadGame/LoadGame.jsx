@@ -6,79 +6,72 @@ import { getGames } from "../../API/getGames";
 import { getBoardObjs } from "./getBoardObjs";
 import { deleteGame } from "../../API/deleteGame";
 import "../Reuseables/Background/_backgrounds.scss";
+import {filterSamples} from "../../API/filterSamples";
 import { getGameSnapshots } from "./getGameSnapshots";
 import { parseData } from "../../API/apiHelpers/parseData";
 import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
-import {filterSamples} from "../../API/filterSamples";
-import {UserContext} from "../../UserContext";
 import {getSampleGames} from "../../API/sampleData/getSampleGames";
+import {UserContext} from "../../UserContext";
 
 class LoadGame extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            theme: "tan",
-            selectedGame: null,
-            userChoseGame: false,
-            firstVisit: false,
-            loaded: false,
-            searchText: "",
-            showNames: true,
-            bValue: true,
-        };
-        this.uid = UserContext;
-        this.games = {};
-        this.boardObjs = {};
-        this.loadGame = this.loadGame.bind(this);
-        this.updateTheme = this.updateTheme.bind(this);
-        this.isDisabled = this.isDisabled.bind(this);
-        this.setChoice = this.setChoice.bind(this);
-        this.deleteGame = this.deleteGame.bind(this);
-        this.updateSnapshots = this.updateSnapshots.bind(this);
-        this.updateSearchText = this.updateSearchText.bind(this);
-        this.toggleShowNames = this.toggleShowNames.bind(this);
-        this.triggerRender = this.triggerRender.bind(this);
+    state = {
+        theme: "tan",
+        selectedGame: null,
+        userChoseGame: false,
+        firstVisit: false,
+        loaded: false,
+        searchText: "",
+        showNames: true,
+        bValue: true,
+    };
+    games = {};
+    boardObjs = {};
+
+    static contextType = UserContext;
+
+    componentDidMount() {
+        document.body.className = "tan-background";
+        const uid = this.context;
+        if (uid) {
+            getGames().then(([games]) => {
+                if (! games) {
+                    this.games = {};
+                } else {
+                    this.games = games;
+                }
+                this._initLoad()
+            });
+        }
+        else {
+            this.games = getSampleGames();
+            this._initLoad()
+        }
+    }
+
+    _initLoad = () => {
+        this.boardObjs = getBoardObjs(this.games);
+        this.gameSnapshotComponents = getGameSnapshots(
+            this.boardObjs,
+            this.setChoice,
+            this.state.selectedGame,
+            this.state.searchText,
+            this.state.showNames,
+            this.state.theme
+        );
+        this.setState({ loaded: true });
     }
 
     componentDidUpdate() {
         document.body.className = `${this.state.theme}-background`;
     }
 
-    componentDidMount() {
-        document.body.className = "tan-background";
-        this.uid = UserContext;
-        if (this.uid) {
-            getGames().then(([games]) => {
-                if (games) {
-                    this.games = games;
-                    this.boardObjs = getBoardObjs(this.games);
-                    this.gameSnapshotComponents = getGameSnapshots(
-                        this.boardObjs,
-                        this.setChoice,
-                        this.state.selectedGame,
-                        this.state.searchText,
-                        this.state.showNames,
-                        this.state.theme
-                    );
-                    this.setState({ loaded: true });
-                } else {
-                    this.games = {};
-                }
-            });
-        }
-        else {
-            this.games = getSampleGames();
-        }
-    }
-
-    loadGame() {
+    loadGame = () => {
         this.gameData = this.games[this.state.selectedGame];
         this.gameData = { ...this.gameData, ...parseData(this.gameData) };
         this.setState({ userChoseGame: true });
     }
 
-    deleteGame(gameName) {
-
+    deleteGame = (gameName) => {
         const imgUrlStrs = filterSamples(this.games[gameName].imgUrlStrs)
 
         decrementImgRefCounts(imgUrlStrs).then((r) => {
@@ -101,12 +94,12 @@ class LoadGame extends React.Component {
         });
     }
 
-    isDisabled() {
+    isDisabled = () => {
         //TODO: bug: delete button not disabled when no selection
         return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
-    setChoice(gameName) {
+    setChoice = (gameName) => {
         this.setState({ selectedGame: gameName }, () => {
             this.gameSnapshotComponents = getGameSnapshots(
                 this.boardObjs,
@@ -120,7 +113,7 @@ class LoadGame extends React.Component {
         });
     }
 
-    updateSnapshots() {
+    updateSnapshots = () => {
         this.gameSnapshotComponents = getGameSnapshots(
             this.boardObjs,
             this.setChoice,
@@ -131,28 +124,28 @@ class LoadGame extends React.Component {
         );
     }
 
-    updateTheme(theme) {
+    updateTheme = (theme) => {
         this.setState({ theme: theme }, () => {
             this.updateSnapshots();
             this.triggerRender();
         });
     }
 
-    updateSearchText(newText) {
+    updateSearchText = (newText) => {
         this.setState({ searchText: newText }, () => {
             this.updateSnapshots();
             this.triggerRender();
         });
     }
 
-    toggleShowNames() {
+    toggleShowNames = () => {
         this.setState({ showNames: !this.state.showNames }, () => {
             this.updateSnapshots();
             this.triggerRender();
         });
     }
 
-    triggerRender() {
+    triggerRender = () => {
         this.setState({ bValue: !this.state.bValue });
     }
 

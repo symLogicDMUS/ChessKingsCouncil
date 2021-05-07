@@ -546,8 +546,8 @@ class CreatePiece extends React.Component {
                             />
                             <ToolButtonAlt
                                 text="Spans"
-                                theme={this.state.theme}
                                 iconName={"range_tool"}
+                                theme={this.state.theme}
                                 isActive={
                                     this.state.miniVariantTool === "Range"
                                 }
@@ -583,7 +583,7 @@ class CreatePiece extends React.Component {
                                     buttonType="tool"
                                 />
                             ) : (
-                                <AskLoginButton theme={this.state.theme} />
+                                <AskLoginButton theme={this.state.theme} iconName={"save_alt"} text={"Save"} />
                             )}
                             <Reset
                                 reset={this.reset}

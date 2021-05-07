@@ -11,6 +11,9 @@ export function refactorDefOffsets(defs) {
             } else {
                 newDefs[pieceName][color].offsets = [];
             }
+            if (! newDefs[pieceName][color].spans) {
+                newDefs[pieceName][color].spans = [];
+            }
         }
     }
     return newDefs;

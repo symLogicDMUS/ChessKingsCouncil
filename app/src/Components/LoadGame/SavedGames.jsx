@@ -5,13 +5,13 @@ import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {Background} from "../Reuseables/Background/Background";
-import {fontSize0026, fontSizeW0045} from "../styles/fontSizes.jss";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SavedGamesTitle} from "./SavedGamesTitle";
 import SearchIcon from "@material-ui/icons/Search";
-import {TwoItemAppBarContent} from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
+import {TwoItemAppBarContent} from
+        "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import {useStyles} from "./SavedGames.jss";
 
 export function SavedGames(props) {
@@ -31,7 +31,7 @@ export function SavedGames(props) {
                         redirectMessage={null}
                         helpText={LoadGameHelp(props.theme)}
                         helpTitle={
-                            <HelpTitle theme={props.theme} fontSize={fontSize0026}>
+                            <HelpTitle theme={props.theme} fontSize='2.6vh'>
                                 Loading a Game
                             </HelpTitle>
                         }

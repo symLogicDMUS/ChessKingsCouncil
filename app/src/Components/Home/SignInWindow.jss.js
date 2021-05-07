@@ -38,10 +38,13 @@ export const useStyles = makeStyles((theme) => ({
         color: '#000',
         width: '100%',
         borderRadius: 0,
-        fontSize: '3.5vw',
-        height: '7.5vw',
         '&:hover':{
             color: '#fff'
+        },
+        fontSize: '2rem',
+        "& .MuiSvgIcon-root": {
+            width: '2rem',
+            height: '2rem',
         },
     }),
     top_button: props => ({

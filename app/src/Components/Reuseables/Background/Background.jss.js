@@ -1,4 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {navBarButtonHeight} from "../NavBar/NavBarButton.jss";
 
 export const useStyles = makeStyles ({
     background: props => ({
@@ -30,8 +31,7 @@ export const useStyles = makeStyles ({
         width: '100vw',
     },
     navbar: props => ({
-        fontSize: '1vw',
-        height: '2.35em',
+        height: navBarButtonHeight,
         width: '100vw',
     }),
 }, {index: 1});

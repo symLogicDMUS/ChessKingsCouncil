@@ -40,4 +40,9 @@ export const useStyles = makeStyles({
             flexDirection: 'column',
         },
     }),
+    label: props => ({
+        display: "flex",
+        flexDirection: "column",
+        border: 'black',
+    }),
 }, {index: 1});
