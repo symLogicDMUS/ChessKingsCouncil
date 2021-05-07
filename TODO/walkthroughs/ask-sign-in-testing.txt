@@ -28,4 +28,5 @@
 26. Google id added in newcomers correctly for each page
 
 29. *** add onAuthStateChanged to SignInWindow
-30. test 1-10 but for creating/loading a piece
+30. *** SAVING piece with sample images DID add image ref INCORRECT
+31. after code refactoring, 30 did not re-occur.

@@ -1,0 +1,1 @@
+1. saving piece using sample images did not add img_ref (correct)

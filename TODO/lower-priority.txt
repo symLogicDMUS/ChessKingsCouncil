@@ -1,6 +1,7 @@
 short:
     new icon of a board for Load Game modal
 medium:
+    * use Material UI Dialog component and relatives for StandardModal
     * test different variations with red and blue piece colors.
     * consider making MechWarrior fill a texture, if possible.
 long:
