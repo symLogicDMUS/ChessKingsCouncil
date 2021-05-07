@@ -38,6 +38,8 @@ class ImgChoicesModal extends React.Component {
         }
         else {
             this.imgDict = getSampleImgs();
+            this.updateImgComponents();
+            this.setState({loaded: true});
         }
     }
 

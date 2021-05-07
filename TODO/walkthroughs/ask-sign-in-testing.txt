@@ -30,3 +30,7 @@
 29. *** add onAuthStateChanged to SignInWindow
 30. *** SAVING piece with sample images DID add image ref INCORRECT
 31. after code refactoring, 30 did not re-occur.
+32. no image refs when saving custom game (correct)
+
+33. continue without + sign-in worked for both save and save-as in game-root.
+34.

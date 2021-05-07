@@ -1,4 +1,5 @@
 short:
+    * sign in window on home page doesn't close
     * fix Facebook button STILL not working
     * MuiGrid Ok button still active when no game has been selected, leads to error when press ok.
 medium:
