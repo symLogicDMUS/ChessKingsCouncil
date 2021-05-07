@@ -5,13 +5,17 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import {IconButton, Portal, SvgIcon, Typography} from "@material-ui/core";
-import {useStyles as useMoreStyles} from "./FirebaseGuestLoginButton.jss"
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
 import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
+import Option from "../CreatePiece/Options/Option";
 import {icons} from "../styles/icons/top/icons.jss";
 import {themes} from "../styles/themes/themes.jss";
+import {useStyles as useMoreStyles} from
+        "./FirebaseGuestLoginButton.jss"
+import {useStyles as useEvenMoreStyles} from
+        "../GameRoot/SaveResignTool/SaveResignTool.jss";
 import { useStyles } from "./AskLoginButton.jss";
 
 function AskLoginButton({theme, buttonType, iconName, text, className}) {
@@ -20,6 +24,7 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
 
     const classes = useStyles({theme});
     const classes2 = useMoreStyles();
+    const classes3 = useEvenMoreStyles({theme: theme});
 
     return (
         <>
@@ -44,7 +49,7 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                     >
                         <DialogTitle className={classes.title}>Do you want to sign in?</DialogTitle>
                         <DialogContent className={classes.text}>
-                            You can continue without signing in but it will only be available until you leave the site.
+                            You can save work without signing in but it will only be available until you leave the site.
                         </DialogContent>
                         <DialogActions className={classes.dialog_actions}>
                             <Button
@@ -91,18 +96,30 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                     </Dialog>
                 </Portal>
             ) : null}
-            {buttonType === 'option' ? (
-                <IconButton
+            {buttonType === 'option' && (
+                <Option
+                    name={text}
+                    theme={theme}
+                    iconType={iconName}
                     className={className}
-                    classes={{label: classes.label}}
+                    onClick={() => setModal(true)}
+                />
+            )}
+            {buttonType === 'option_alt' && (
+                <IconButton
+                    className={classes3.option}
+                    classes={{ label: classes3.label }}
                     onClick={() => setModal(true)}
                 >
-                    <SvgIcon className={classes.icon}>
-                        {icons[iconName](themes[theme].button_text)}
+                    <SvgIcon>
+                        {icons.save_as(themes[theme].button_text)}
                     </SvgIcon>
-                    <Typography className={classes.text}>{text}</Typography>
+                    <Typography noWrap className={classes3.text}>
+                        {text}
+                    </Typography>
                 </IconButton>
-            ) : (
+            )}
+            {buttonType !== 'option' && buttonType !== 'option_alt' && (
                 <ToolButtonAlt
                     text={text}
                     theme={theme}

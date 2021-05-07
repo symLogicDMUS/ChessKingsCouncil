@@ -13,20 +13,19 @@ import { useStyles } from "./NavBar.jss";
  */
 function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
-    const [touch, setTouch] = useState(true);
     const screenCase = isWide ? "wide" : "thin";
+    const [touch, setTouch] = useState(true);
 
     const classes = useStyles({ theme: props.theme });
 
-    /*
-        useEffect(() => {
-            window.addEventListener('touchstart', onFirstTouch, false)
-        }, [touch])
-        const onFirstTouch = () => {
-            setTouch(true);
-            window.removeEventListener('touchstart', onFirstTouch, false);
-        }
-    * */
+    useEffect(() => {
+        window.addEventListener('touchstart', onFirstTouch, false)
+    }, [touch])
+    const onFirstTouch = () => {
+        setTouch(true);
+        window.removeEventListener('touchstart', onFirstTouch, false);
+    }
+
 
     return (
         <>
@@ -168,11 +167,11 @@ function NavBar(props) {
                     theme={props.theme}
                     className={clsx(classes.sign_out_button, {
                         [classes.hide]:
-                        screenCase === "wide" &&
                         (props.currentPage === "CreatePiece" ||
                             props.currentPage === "GameRoot" ||
                             props.currentPage === "Customize" ||
-                            props.currentPage === "MainMenu"),
+                            props.currentPage === "MainMenu"
+                        ),
                     })}
                     style={{ marginLeft: 0 }}
                 />

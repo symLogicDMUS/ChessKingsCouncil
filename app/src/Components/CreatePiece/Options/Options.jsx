@@ -1,9 +1,10 @@
 import React, {useContext} from "react";
 import clsx from "clsx";
-import AskLoginButton from "../../Home/AskLoginButton";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import {UserContext} from "../../../UserContext";
+import AskLoginButton from "../../Home/AskLoginButton";
+import {useStyles as useMoreStyles} from "./Option.jss";
 import { useStyles } from "../CreatePiece.jss";
 
 const Save = React.lazy(() => import('./Save'));
@@ -25,6 +26,7 @@ function Options({
     const uid = useContext(UserContext);
 
     const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({theme: theme});
 
     return (
         <>
@@ -49,7 +51,12 @@ function Options({
                         buttonType='option'
                     />
                 ) : (
-                    <AskLoginButton buttonType='option' iconName={"save"} text={"Save"} theme={theme}/>
+                    <AskLoginButton
+                        buttonType='option'
+                        iconName={"save"}
+                        text={"Save"}
+                        theme={theme}
+                    />
                 )}
                 <Reset
                     reset={reset}

@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import { themes } from "../../styles/themes/themes.jss";
 import { IconButton, Portal, SvgIcon } from "@material-ui/core";
 import { icons } from "../../styles/icons/top/icons.jss";
 import AskLoginButton from "../../Home/AskLoginButton";
-import {UserContext} from "../../../UserContext";
+import { UserContext } from "../../../UserContext";
 import { useStyles } from "./SaveResignTool.jss";
 
 const SaveAs = React.lazy(() => import("./SaveAs"));
@@ -32,7 +32,13 @@ function SaveResignTool({ save, resign, changeName, theme }) {
                         <Typography className={classes.text}>Save</Typography>
                     </IconButton>
                 ) : (
-                    <AskLoginButton buttonType="option" iconType={"save"} text={"Save"} className={classes.option} theme={theme} />
+                    <AskLoginButton
+                        text={"Save"}
+                        iconName={"save"}
+                        buttonType="option_alt"
+                        className={classes.option}
+                        theme={theme}
+                    />
                 )}
                 <div className={classes.divider} />
                 {uid ? (
@@ -49,7 +55,13 @@ function SaveResignTool({ save, resign, changeName, theme }) {
                         </Typography>
                     </IconButton>
                 ) : (
-                    <AskLoginButton buttonType="option" iconType={"save_as"} text={"Save As"} className={classes.option} theme={theme} />
+                    <AskLoginButton
+                        text={"Save As"}
+                        buttonType="option_alt"
+                        iconName={"save_as"}
+                        className={classes.option}
+                        theme={theme}
+                    />
                 )}
                 <div className={classes.divider} />
                 <IconButton
@@ -57,9 +69,7 @@ function SaveResignTool({ save, resign, changeName, theme }) {
                     classes={{ label: classes.label }}
                     onClick={() => setResignModal(true)}
                 >
-                    <SvgIcon>
-                        {icons.resign(themes[theme].text)}
-                    </SvgIcon>
+                    <SvgIcon>{icons.resign(themes[theme].text)}</SvgIcon>
                     <Typography className={classes.text}>Resign</Typography>
                 </IconButton>
             </span>

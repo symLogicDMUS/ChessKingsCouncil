@@ -9,9 +9,9 @@ import {OVER} from "../helpers/gStatusTypes";
 import {isPawn} from "../helpers/isPawn";
 import {doNothing} from "../helpers/doNothing";
 import {flipKeysValues} from "../helpers/flipKeysValues";
+import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
-import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {kingStartingRf, rookStartingRf} from "../helpers/castleRankfiles";
 import {updateCouncil} from "../../game_logic/callHierarchyTop/updateCouncil";
 import {getFullFen} from "../../game_logic/fenParser/getFen/getFullFen";
@@ -32,16 +32,16 @@ import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import {Fen} from "../../game_logic/fenParser/Fen";
+import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {filterSamples} from "../../API/filterSamples";
-import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
+import {Fen} from "../../game_logic/fenParser/Fen";
+import AskLoginButton from "../Home/AskLoginButton";
 import GameRootToolbar from "./GameRootToolbar";
+import {UserContext} from "../../UserContext";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
-import {UserContext} from "../../UserContext";
-import AskLoginButton from "../Home/AskLoginButton";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -487,4 +487,3 @@ class GameRoot extends React.Component {
 }
 
 export default withStyles(styles)(GameRoot);
-
