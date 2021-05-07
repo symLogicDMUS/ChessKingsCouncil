@@ -29,10 +29,6 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'flex-end',
     }),
-    sign_out_button: props => ({
-        fontSize: '1rem',
-        marginRight: '0.25vw',
-    }),
     icon: props => ({
         fontSize: '1rem',
     }),

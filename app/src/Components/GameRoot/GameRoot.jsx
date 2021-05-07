@@ -40,6 +40,7 @@ import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 import GameRootToolbar from "./GameRootToolbar";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+import {UserContext} from "../../UserContext";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -63,6 +64,7 @@ class GameRoot extends React.Component {
             secondaryDrawer: false,
             showProfileOnClick: true,
         };
+        this.uid = UserContext;
         this.unsavedProgress = false;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
@@ -119,6 +121,7 @@ class GameRoot extends React.Component {
     }
 
     componentDidMount() {
+        this.uid = UserContext;
         document.body.className = "dark-background";
     }
 
@@ -217,32 +220,34 @@ class GameRoot extends React.Component {
     }
 
     save() {
-        const posFen = getFen(this.board);
-        const fenData = this.fenObj.getData();
-        const fen = getFullFen(posFen, fenData);
-        const records = this.jsonRecords.getRecords();
-        records.pawn_histories = replacePawnIdWithCurrentLoc(
-            records.pawn_histories
-        );
-        const defs = gameDefsOffsetListsToStrs(this.defs);
-        const status = this.gameStatus.getStatus();
+        if (this.uid) {
+            const posFen = getFen(this.board);
+            const fenData = this.fenObj.getData();
+            const fen = getFullFen(posFen, fenData);
+            const records = this.jsonRecords.getRecords();
+            records.pawn_histories = replacePawnIdWithCurrentLoc(
+                records.pawn_histories
+            );
+            const defs = gameDefsOffsetListsToStrs(this.defs);
+            const status = this.gameStatus.getStatus();
 
-        const imgUrlStrs = filterSamples(this.imgUrlStrs)
+            const imgUrlStrs = filterSamples(this.imgUrlStrs)
 
-        getDoesGameExist(this.gameName).then(([gameExists]) => {
-            if (gameExists) {
-                getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
-                    updateCountsOnOverwrite(prevImgUrlStrs, imgUrlStrs).then(r => {
-                        this.saveToDb(fen, records, defs, status);
+            getDoesGameExist(this.gameName).then(([gameExists]) => {
+                if (gameExists) {
+                    getGameImgUrlStrs(this.gameName).then(prevImgUrlStrs => {
+                        updateCountsOnOverwrite(prevImgUrlStrs, imgUrlStrs).then(r => {
+                            this.saveToDb(fen, records, defs, status);
+                        })
                     })
-                })
-            }
-            else {
-                incrementImgRefCounts(imgUrlStrs).then((r) => {
-                    this.saveToDb(fen, records, defs, status);
-                });
-            }
-        });
+                }
+                else {
+                    incrementImgRefCounts(imgUrlStrs).then((r) => {
+                        this.saveToDb(fen, records, defs, status);
+                    });
+                }
+            });
+        }
     }
 
     saveToDb(fen, records, defs, status) {

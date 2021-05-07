@@ -26,7 +26,7 @@ class LoadGame extends React.Component {
             showNames: true,
             bValue: true,
         };
-        this.uid = null;
+        this.uid = UserContext;
         this.games = {};
         this.boardObjs = {};
         this.loadGame = this.loadGame.bind(this);

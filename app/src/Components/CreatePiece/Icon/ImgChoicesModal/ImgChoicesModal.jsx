@@ -22,7 +22,7 @@ class ImgChoicesModal extends React.Component {
             showNames: false,
             bValue: true
         };
-        this.uid  = null;
+        this.uid  = UserContext;
         this.imgDict = {};
         this.imgItems = []
         this.deleteImg = this.deleteImg.bind(this);

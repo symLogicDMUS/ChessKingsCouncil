@@ -19,14 +19,6 @@ export const useStyles = makeStyles({
         ...modal
     },
     dialog_window: props => ({
-        '@media screen and (min-width: 960px)': {
-            width: '27%',
-            height: '27%',
-        },
-        '@media screen and (max-width: 960px)': {
-            width: '100%',
-            height: '40%',
-        },
         backgroundColor: themes[props.theme].modal_fill,
         border: `0.05rem solid ${themes[props.theme].odd_row}`,
     }),
@@ -34,16 +26,7 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
     }),
     dialog_actions: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
-            width: '22em',
-            marginLeft: '1.5em',
-        },
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSize0023,
-            marginRight: '3.5%',
-            width: '97.5%',
-        },
+        paddingRight: 24,
     }),
     text_field: props => ({
 

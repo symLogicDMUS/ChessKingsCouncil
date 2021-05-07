@@ -28,6 +28,7 @@ import { PieceName } from "../PieceProfiles/Header/PieceName";
 import { styles } from "./CreatePiece.jss";
 import CreatePieceToolbar from "./CreatePieceToolbar";
 import {filterSamples} from "../../API/filterSamples";
+import AskLoginButton from "../Home/AskLoginButton";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -570,16 +571,20 @@ class CreatePiece extends React.Component {
                                 className={this.props.classes.smOption}
                                 buttonType="tool"
                             />
-                            <Save
-                                save={this.save}
-                                pieceName={this.name}
-                                className={this.props.classes.smOption}
-                                whiteImg={this.whiteAndBlackImgs.white}
-                                blackImg={this.whiteAndBlackImgs.black}
-                                justSaved={this.state.justSaved}
-                                theme={this.state.theme}
-                                buttonType="tool"
-                            />
+                            {this.uid ? (
+                                <Save
+                                    save={this.save}
+                                    pieceName={this.name}
+                                    className={this.props.classes.smOption}
+                                    whiteImg={this.whiteAndBlackImgs.white}
+                                    blackImg={this.whiteAndBlackImgs.black}
+                                    justSaved={this.state.justSaved}
+                                    theme={this.state.theme}
+                                    buttonType="tool"
+                                />
+                            ) : (
+                                <AskLoginButton theme={this.state.theme} />
+                            )}
                             <Reset
                                 reset={this.reset}
                                 theme={this.state.theme}

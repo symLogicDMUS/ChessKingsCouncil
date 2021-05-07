@@ -6,6 +6,7 @@ import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./MainMenuLg.jss";
+import SignInOutButton from "./SignInOutButton";
 
 
 export function MainMenuLg(props) {
@@ -16,15 +17,7 @@ export function MainMenuLg(props) {
         <>
             <Background theme={props.theme} isFixed={true} />
             <Box className={classes.top_area}>
-                <Button
-                    onClick={props.signOut}
-                    startIcon={<AccountBoxIcon className={classes.icon} />}
-                    classesObj={{root: classes.sign_out_button}}
-                    theme={props.theme}
-                    variant="contained"
-                >
-                    Sign Out
-                </Button>
+                <SignInOutButton theme={props.theme} />
             </Box>
             <Box className={classes.main_menu}>
                 <img src={`/Images/titles/desktop/title-${props.theme}.svg`} className={classes.title} />

@@ -18,46 +18,45 @@ function SaveAs({changeName, save, close, theme}) {
     };
 
     return (
-        <div className={classes.modal}>
-            <Dialog
-                open={true}
-                classes={{
-                    container: classes.container,
-                    paper: classes.dialog_window
-                }}
-                aria-labelledby="title"
-            >
-                <DialogTitle id="title" className={classes.title}>Save As</DialogTitle>
-                <DialogContent>
-                    <MuiTextField
-                        id="name"
-                        fullWidth={true}
-                        autoFocus={true}
-                        margin="dense"
-                        label="Enter new name of game"
-                        variant={"outlined"}
-                        className={classes.text_field}
-                        onChange={handleChange}
-                    />
-                </DialogContent>
-                <DialogActions className={classes.dialog_actions}>
-                    <Button
-                        onClick={save}
-                        style={button(theme)}
-                        startIcon={<CheckCircleOutlineIcon/>}
-                    >
-                        Ok
-                    </Button>
-                    <Button
-                        onClick={close}
-                        style={button(theme)}
-                        startIcon={<HighlightOffIcon/>}
-                    >
-                        Cancel
-                    </Button>
-                </DialogActions>
-            </Dialog>
-        </div>
+        <Dialog
+            open={true}
+            classes={{
+                container: classes.container,
+                paper: classes.dialog_window
+            }}
+            aria-labelledby="title"
+            onBackdropClick={close}
+        >
+            <DialogTitle id="title" className={classes.title}>Save As</DialogTitle>
+            <DialogContent>
+                <MuiTextField
+                    id="name"
+                    fullWidth={true}
+                    autoFocus={true}
+                    margin="dense"
+                    label="Enter new name of game"
+                    variant={"outlined"}
+                    className={classes.text_field}
+                    onChange={handleChange}
+                />
+            </DialogContent>
+            <DialogActions className={classes.dialog_actions}>
+                <Button
+                    onClick={save}
+                    style={button(theme)}
+                    startIcon={<CheckCircleOutlineIcon/>}
+                >
+                    Ok
+                </Button>
+                <Button
+                    onClick={close}
+                    style={button(theme)}
+                    startIcon={<HighlightOffIcon/>}
+                >
+                    Cancel
+                </Button>
+            </DialogActions>
+        </Dialog>
     )
 }
 

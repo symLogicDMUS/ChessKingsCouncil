@@ -3,7 +3,9 @@ import * as firebase from "firebase";
 import "firebase/auth";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 import { useStyles } from "./FirebaseGuestLoginButton.jss";
+import clsx from "clsx";
 
 export function FirebaseGuestLoginButton() {
 
@@ -20,9 +22,9 @@ export function FirebaseGuestLoginButton() {
 
     const classes = useStyles();
 
-    return <Box onClick={anonymousLogin} className={classes.anonymous_login_button}>
-        <Typography className={classes.anonymous_login_label} noWrap>
-            Explore without account
+    return <Button onClick={anonymousLogin} className={clsx(classes.button, {[classes.color1]: true})} variant='contained'>
+        <Typography className={classes.text} noWrap>
+            Continue without sign in
         </Typography>
-    </Box>;
+    </Button>;
 }

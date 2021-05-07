@@ -11,9 +11,9 @@ const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolB
 
 function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, justSaved}) {
 
-    let [pieceNameExists, setPieceNameExists] = useState(false);
-    let [message, setMessage] = useState(null);
-    let [modal, setModal] = useState(null);
+    const [pieceNameExists, setPieceNameExists] = useState(false);
+    const [message, setMessage] = useState(null);
+    const [modal, setModal] = useState(null);
 
     const classes = useStyles({theme});
 

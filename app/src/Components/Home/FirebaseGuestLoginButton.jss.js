@@ -1,37 +1,30 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-    anonymous_login_button: (props) => ({
-        fontSize: '2vh',
-        width: theme.typography.pxToRem(170),
-        height: theme.typography.pxToRem(24),
-        margin: "0.25em",
-        display: "inline-block",
-        lineHeight: "cutouts",
-        textAlign: "left",
-        direction: "ltr",
-        cursor: "pointer",
-        borderRadius: "0.148em",
-        backgroundColor: "#f5b400",
-        fontWeight: theme.typography.pxToRem(500),
-        padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(16)}`,
-        boxShadow: "0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12)",
+    button: (props) => ({
+        width: 220,
+        height: 40,
+        "& .MuiTypography-root": {
+            fontSize: theme.typography.pxToRem(14),
+            paddingTop: `${theme.typography.pxToRem(8)}`,
+            paddingBottom: `${theme.typography.pxToRem(8)}`,
+            lineHeight: theme.typography.pxToRem(10),
+            fontWeight: 500,
+            textAlign: "left",
+            direction: "ltr",
+            textTransform: "none",
+            verticalAlign: "middle",
+            fontFamily: "Roboto,Helvetica,Arial,sans-serif",
+        },
+        '@media screen and (max-width: 600px)': {
+            margin: 8,
+        },
     }),
-    anonymous_login_label: (props) => ({
-        color: "#fff",
+    text: (props) => ({
+        color: '#fff',
         display: "inline-block",
         marginLeft: 'auto',
         marginRight: 'auto',
-        fontSize: theme.typography.pxToRem(14),
-        paddingLeft: theme.typography.pxToRem(13.6),
-        padding: `${theme.typography.pxToRem(8)} ${theme.typography.pxToRem(16)}`,
-        lineHeight: theme.typography.pxToRem(10),
-        fontWeight: 500,
-        textAlign: "left",
-        direction: "ltr",
-        textTransform: "none",
-        verticalAlign: "middle",
-        fontFamily: "Roboto,Helvetica,Arial,sans-serif",
         "@media (max-width:2559px) and (min-width:1920px)": {
             position: 'relative',
             top: '-0.1em'
@@ -45,10 +38,10 @@ export const useStyles = makeStyles((theme) => ({
             top: '-1.275em',
         },
     }),
-    anonymous_icon: (props) => ({
-        fontSize: theme.typography.pxToRem(14),
-        width: theme.typography.pxToRem(18),
-        height: theme.typography.pxToRem(18),
+    icon: (props) => ({
+        fontSize: 14,
+        width: 18,
+        height: 18,
         verticalAlign: "middle",
         "@media (max-width:2559px) and (min-width:1920px)": {
             position: 'relative',
@@ -62,5 +55,18 @@ export const useStyles = makeStyles((theme) => ({
             position: 'relative',
             top: '-1.275em',
         },
+    }),
+    color1: props => ({
+        backgroundColor: "#f5b400",
+        '&:hover':{
+            backgroundColor: "#f5b400",
+        },
+    }),
+    color2: props => ({
+        backgroundColor: "#00b4f5",
+        '&:hover':{
+            backgroundColor: "#00b4f5",
+        },
+
     }),
 }), {index: 1});

@@ -12,7 +12,7 @@ import {UserContext} from "../../../../UserContext";
 import {useStyles} from "../NavBarButton.jss";
 
 export function HelpButton({currentPage, theme, screenCase, helpTitle, updateFirstVisit, touch, children}) {
-    const uid = useContext(UserContext)
+    const uid = useContext(UserContext);
     const [hover, setHover] = useState(false);
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);

@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import clsx from "clsx";
+import AskLoginButton from "../../Home/AskLoginButton";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { useStyles as useMoreStyles } from "../CreatePiece.jss";
-import { useStyles } from "./Options.jss";
+import {UserContext} from "../../../UserContext";
+import { useStyles } from "../CreatePiece.jss";
 
 const Save = React.lazy(() => import('./Save'));
 const Load = React.lazy(() => import('./Load'));
@@ -22,13 +22,14 @@ function Options({
     blackImg,
     justSaved,
 }) {
-    const classes2 = useMoreStyles({ theme: theme });
-    const isWide = useMediaQuery("(min-width: 960px)");
+    const uid = useContext(UserContext);
+
+    const classes = useStyles({ theme: theme });
 
     return (
         <>
-            <Box className={classes2.four_button_group}>
-                <Typography className={classes2.tool_title}>
+            <Box className={classes.four_button_group}>
+                <Typography className={classes.tool_title}>
                     Options
                 </Typography>
                 <Load
@@ -37,15 +38,19 @@ function Options({
                     theme={theme}
                     buttonType='option'
                 />
-                <Save
-                    save={save}
-                    theme={theme}
-                    whiteImg={whiteImg}
-                    blackImg={blackImg}
-                    pieceName={pieceName}
-                    justSaved={justSaved}
-                    buttonType='option'
-                />
+                {uid ? (
+                    <Save
+                        save={save}
+                        theme={theme}
+                        whiteImg={whiteImg}
+                        blackImg={blackImg}
+                        pieceName={pieceName}
+                        justSaved={justSaved}
+                        buttonType='option'
+                    />
+                ) : (
+                    <AskLoginButton buttonType='option' theme={theme}/>
+                )}
                 <Reset
                     reset={reset}
                     theme={theme}

@@ -2,10 +2,7 @@ import React, {Suspense, lazy} from "react";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import {saveUser} from "./API/saveUser";
 import NotFound from "./Components/Home/NotFound";
-import {getDoesUserExists} from "./API/isNewUser";
-import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Loading from "./Components/Reuseables/Animations/Loading";
 import {UserContext} from "./UserContext";
@@ -38,13 +35,6 @@ export class App extends React.Component {
                     uid: user.uid,
                     isSignedIn: !!user,
                     isAnonymous: user.isAnonymous,
-                })
-                getDoesUserExists().then(([userExists]) => {
-                    if (! userExists) {
-                        saveUser().then(async r => {
-                            return await saveSampleData()
-                        })
-                    }
                 })
             }
             else {

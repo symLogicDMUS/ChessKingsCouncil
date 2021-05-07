@@ -1,33 +1,56 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes/themes.jss";
 
 export const useStyles = makeStyles((theme) => ({
     login_page: props => ({
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        zIndex: 16,
         width: '100vw',
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        backgroundColor: '#d7bb99',
+    }),
+    content: props => ({
+        marginTop: 'auto',
     }),
     appTitle: props => ({
-        marginTop: 'auto',
-        marginBottom: '2.5vh',
+        marginTop: '1rem',
+        marginBottom: '1.5vh',
     }),
     appTitleSm: props => ({
-        width:'85vw',
+        width: '85vw',
     }),
     appTitleMd: (props) => ({
         width: '75vw',
     }),
     login_in_buttons: props => ({
-       marginBottom: 'auto',
+        marginBottom: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
     }),
     close: props => ({
-       color: themes[props.theme].text,
-       backgroundColor: themes[props.theme].button_fill,
+        color: '#000',
+        width: '100%',
+        borderRadius: 0,
+        fontSize: '3.5vw',
+        height: '7.5vw',
+        '&:hover':{
+            color: '#fff'
+        },
+    }),
+    top_button: props => ({
+        cursor: 'pointer',
+        width: '7.5vw',
+        height: '7.5vw',
+        borderRadius: 0,
+        position: 'absolute',
+        right: 0,
+        top: 0,
     }),
 }), {index: 1});
