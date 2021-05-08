@@ -68,3 +68,4 @@ first round of test for ask modal (sign in and continue without) did not find an
 2. upload silver and gold nodes
 3. hit save
 4. after bug fix, image urls decrement when deleting piece
+5. sample image successfully deleted

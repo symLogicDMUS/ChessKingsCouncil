@@ -10,6 +10,9 @@ import {deleteImg} from "../../../../API/deleteImg";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {UserContext} from "../../../../UserContext";
 import {styles} from "./ImgChoicesModal.jss";
+import {filterSamples} from "../../../../API/filterSamples";
+import {notFbStorageImg} from "../../../../API/notFbStorageImg";
+import {isFbStorageImg} from "../../../../API/isFbStorageImg";
 
 class ImgChoicesModal extends React.Component {
     state = {
@@ -77,7 +80,19 @@ class ImgChoicesModal extends React.Component {
     }
 
     deleteImg = (imgNameChoice) => {
-        decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
+        if (isFbStorageImg(this.imgDict[imgNameChoice])) {
+            decrementImgRefCount(this.imgDict[imgNameChoice]).then(r => {
+                deleteImg(imgNameChoice).then(([r]) => {
+                    this.props.resetImg(this.imgDict[imgNameChoice]);
+                    delete this.imgDict[imgNameChoice];
+                    this.setState({imgNameChoice: null}, () => {
+                        this.updateImgComponents();
+                        this.triggerRender();
+                    });
+                });
+            })
+        }
+        else {
             deleteImg(imgNameChoice).then(([r]) => {
                 this.props.resetImg(this.imgDict[imgNameChoice]);
                 delete this.imgDict[imgNameChoice];
@@ -86,7 +101,7 @@ class ImgChoicesModal extends React.Component {
                     this.triggerRender();
                 });
             });
-        })
+        }
     }
 
     submitChoice = (imgNameChoice) => {
