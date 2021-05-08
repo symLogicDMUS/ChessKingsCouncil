@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDrop } from "react-dnd";
+import AIMove from "./AIMove";
 import { move } from "../Move/move";
 import { isLegal } from "../Move/isLegal";
 import { ItemTypes } from "./ItemTypes";
@@ -12,8 +13,6 @@ import { OVER } from "../../helpers/gStatusTypes";
 import { useStyles } from "./DropLayer.jss";
 
 const Promo = React.lazy(() => import('../Promo/Promo'));
-const AIMove = React.lazy(() => import('./AIMove'));
-
 
 /**
  * Sits on top of game boards. updated on drop.

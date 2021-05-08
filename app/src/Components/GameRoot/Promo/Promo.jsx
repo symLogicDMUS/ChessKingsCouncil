@@ -1,29 +1,30 @@
-import React, {useEffect,useReducer} from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {PromoChoice} from "./PromoChoice";
-import {shuffle} from "../../helpers/shuffleArray";
-import {IconButton, Portal} from "@material-ui/core";
-import {ArrowLeft, ArrowRight} from "@material-ui/icons";
+import { PromoChoice } from "./PromoChoice";
+import { shuffle } from "../../helpers/shuffleArray";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import { Backdrop, IconButton, Portal } from "@material-ui/core";
+import { ArrowLeft, ArrowRight, MoreVert } from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
-import ForwardIcon from '@material-ui/icons/Forward';
-import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
-import {franchisePieceImgs} from
-        "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
-import {getPawnImg} from "./getPawnImg";
-import {reducer} from "./Promo.red";
-import {useStyles} from "./Promo.jss";
+import ForwardIcon from "@material-ui/icons/Forward";
+import { specialThemeList } from "../../styles/themes/specialThemeList.jss";
+import { franchisePieceImgs } from "../../../API/sampleData/specialThemeImgs/franchisePieceImgs";
+import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { getPawnImg } from "./getPawnImg";
+import { reducer } from "./Promo.red";
+import { useStyles } from "./Promo.jss";
 
 function Promo(props) {
-
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({ theme: props.theme });
 
     const [state, dispatch] = useReducer(reducer, {
         current: 0,
         prev: props.promoChoices.length - 1,
         numPieces: props.promoChoices.length,
-        direction: 'right',
-        reverseDirection: 'left',
+        direction: "right",
+        reverseDirection: "left",
     });
 
     useEffect(() => {
@@ -32,14 +33,18 @@ function Promo(props) {
         }
     }, [props.color]);
 
+    const isWide = useMediaQuery("(min-width:960px)");
+    const screenCase = isWide ? "wide" : "thin";
+
+    const [profileModal, setProfileModal] = useState(false);
+
     const pawnImg = getPawnImg(props.gameType, props.color, props.theme);
 
     const getPromoImg = () => {
         const pieceName = props.promoChoices[state.current];
         if (specialThemeList.includes(props.theme)) {
-            return franchisePieceImgs[props.theme][pieceName][props.color]
-        }
-        else {
+            return franchisePieceImgs[props.theme][pieceName][props.color];
+        } else {
             return props.defs[pieceName][props.color].img;
         }
     };
@@ -70,8 +75,8 @@ function Promo(props) {
 
     const promote = () => {
         const pawnLoc = props.promoDest;
-        const pieceName = props.promoChoices[state.current]
-        const id = props.pieceDict[pieceName]
+        const pieceName = props.promoChoices[state.current];
+        const id = props.pieceDict[pieceName];
         const idNumber = getIdNumber(id);
         const newId = getNewId(id, idNumber);
         const oldId = props.board[pawnLoc];
@@ -119,57 +124,106 @@ function Promo(props) {
         return promoChoices;
     };
 
+    const currentPieceName = props.promoChoices[state.current];
+
     return (
         <Portal>
-            <div className={classes.modal}>
-                    <IconButton
-                        className={clsx(classes.nav_button, {
-                            [classes.prevButton]: true,
-                        })}
-                        onClick={() => dispatch({type: "previous"})}
-                    >
-                        <ArrowLeft className={classes.arrow_icon}/>
-                    </IconButton>
-                    {props.promoChoices.map((pieceName, i) => (
-                        <PromoChoice
-                            key={i}
-                            onClick={promote}
-                            defs={props.defs}
-                            color={props.color}
-                            pieceName={pieceName}
-                            pieceId={props.pieceDict[pieceName]}
-                            isCurrent={props.promoChoices[state.current] === pieceName}
-                            isLast={i === props.promoChoices.length - 1}
-                            reverseDirection={state.reverseDirection}
-                            direction={state.direction}
+            <Backdrop open={true} className={classes.modal}>
+                {profileModal && (
+                    <Portal>
+                        <ProfileWBModal
                             theme={props.theme}
+                            color={props.color}
+                            imgUrl={getPromoImg()}
+                            screenCase={screenCase}
+                            pieceName={currentPieceName}
+                            def={props.defs[currentPieceName][props.color]}
+                            closeProfile={() => setProfileModal(false)}
                         />
-                    ))}
-                    <IconButton
-                        className={clsx(classes.nav_button, {
-                            [classes.nextButton]: true,
+                    </Portal>
+                )}
+                <IconButton
+                    className={clsx(classes.nav_button, {
+                        [classes.prevButton]: true,
+                    })}
+                    onClick={() => dispatch({ type: "previous" })}
+                >
+                    <ArrowLeft className={classes.arrow_icon} />
+                </IconButton>
+                {props.promoChoices.map((pieceName, i) => (
+                    <PromoChoice
+                        key={i}
+                        onClick={promote}
+                        defs={props.defs}
+                        color={props.color}
+                        pieceName={pieceName}
+                        pieceId={props.pieceDict[pieceName]}
+                        isCurrent={
+                            currentPieceName === pieceName
+                        }
+                        isLast={i === props.promoChoices.length - 1}
+                        reverseDirection={state.reverseDirection}
+                        direction={state.direction}
+                        theme={props.theme}
+                    />
+                ))}
+                <IconButton
+                    className={clsx(classes.nav_button, {
+                        [classes.nextButton]: true,
+                    })}
+                    onClick={() => dispatch({ type: "next" })}
+                >
+                    <ArrowRight className={classes.arrow_icon} />
+                </IconButton>
+                <Box className={classes.content}>
+                    <Box
+                        onClick={() => setProfileModal(true)}
+                        className={clsx(classes.promote_button, {
+                            [classes.button1]: true,
                         })}
-                        onClick={() => dispatch({type: "next"})}
                     >
-                        <ArrowRight className={classes.arrow_icon}/>
-                    </IconButton>
+                        <Typography variant="h6" className={classes.piece_name}>
+                            {currentPieceName}
+                        </Typography>
+                        <IconButton
+                            onClick={() => setProfileModal(true)}
+                            className={clsx(classes.icon, {
+                                [classes.icon2]: true,
+                            })}
+                            edge={'end'}
+                        >
+                            <ListAltIcon />
+                        </IconButton>
+                    </Box>
                     <Box
                         onClick={promote}
-                        className={classes.promote_button}
+                        className={clsx(classes.promote_button, {
+                            [classes.button2]: true,
+                        })}
                     >
                         <Box className={classes.icons}>
-                            <img src={pawnImg} className={classes.piece_img} alt='icon of Pawn'/>
-                            <ForwardIcon className={clsx(classes.piece_img, {[classes.icon]: true})} />
-                            <img src={getPromoImg()}
-                                 className={classes.piece_img}
-                                 alt='icon of potential promo'
+                            <img
+                                src={pawnImg}
+                                className={classes.piece_img}
+                                alt="icon of Pawn"
+                            />
+                            <ForwardIcon
+                                className={clsx(classes.piece_img, {
+                                    [classes.icon]: true,
+                                })}
+                            />
+                            <img
+                                src={getPromoImg()}
+                                className={classes.piece_img}
+                                alt="icon of potential promo"
                             />
                         </Box>
-                        <Typography variant='button' className={classes.text}>
+                        <Typography variant="button" className={classes.text}>
                             Promote
                         </Typography>
                     </Box>
-            </div>
+                </Box>
+            </Backdrop>
         </Portal>
     );
 }

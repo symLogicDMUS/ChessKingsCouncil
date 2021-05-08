@@ -5,37 +5,42 @@ import {fade} from "@material-ui/core";
 export const useStyles = makeStyles({
     modal: props => ({
         zIndex: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh',
-        width: '100vw',
-        backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    }),
+    content: props => ({
         position: 'absolute',
-        top: 0,
-        left: 0,
+        '@media screen and (max-width: 960px)': {
+            left: `30vw`,
+            top: `calc(50vh + 20vw)`,
+        },
+        '@media screen and (min-width: 960px)': {
+            left: '40vw',
+            top: `calc(50vh + 10vw)`,
+        },
     }),
     promote_button: props => ({
-        position: 'absolute',
         padding: '0.5vw',
         cursor: 'pointer',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
-        justifyContent: 'space-evenly',
-        '@media screen and (max-width: 960px)': {
-            width: '40vw',
-            left: `30vw`,
-            top: `calc(50vh + 20vw)`,
-        },
-        '@media screen and (min-width: 960px)': {
-            width: '20vw',
-            left: '40vw',
-            top: `calc(50vh + 10vw)`,
-        },
         '&:hover':{
             backgroundColor: fade('#000', 0.1)
         },
+        '@media screen and (max-width: 960px)': {
+            width: '40vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            width: '20vw',
+        },
+    }),
+    button1: props => ({
+        justifyContent: 'center',
+        paddingLeft: 24,
+        paddingRight: 24
+    }),
+    button2: props => ({
+        justifyContent: 'space-evenly',
     }),
     icons: props => ({
         display: 'flex',
@@ -44,9 +49,22 @@ export const useStyles = makeStyles({
     icon: props => ({
         color: themes[props.theme].text,
     }),
+    icon2: props => ({
+        marginLeft: '0.5rem',
+        padding: 0,
+        "& .MuiSvgIcon-root": {
+            width: '2.25rem',
+            height: '2.25rem',
+            transform: 'translate(0, 0.15rem)',
+        },
+    }),
     text: props => ({
         fontSize: '1.25rem',
         color: themes[props.theme].text,
+    }),
+    piece_name: props => ({
+        color: themes[props.theme].text,
+        fontSize: '2.5rem',
     }),
     piece_img: props => ({
         height: '2.5rem',

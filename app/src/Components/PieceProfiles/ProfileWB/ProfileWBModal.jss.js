@@ -7,16 +7,23 @@ export const boardGridAdjust =  {
 
 export const useStyles = makeStyles({
     profile_wb_modal: props => ({
-        zIndex: 7,
-        width: '50vw',
-        height: '47.5vh',
+        zIndex: 10,
+        // height: '47.5vh',
         position: 'absolute',
         left: '22.5vw',
         top: '12.5vw',
-        padding: '0.25vh',
+        paddingTop: '0.25rem',
+        paddingRight: '0.25rem',
+        paddingBottom: '0.5rem',
         borderRadius: '0.5rem',
         backgroundColor: themes[props.theme].fill,
-        border: `0.075em solid ${themes[props.theme].outline}`,
+        border: `0.075rem solid ${themes[props.theme].odd_row}`,
+        '@media screen and (max-width: 500px)': {
+            width: '99.5vw'
+        },
+        '@media screen and (min-width: 500px)': {
+            width: '50vw',
+        },
     }),
     top_area: props => ({
         display: 'flex',

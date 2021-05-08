@@ -1,11 +1,9 @@
 short:
-    * sign in window on home page doesn't close
     * fix Facebook button STILL not working
     * MuiGrid Ok button still active when no game has been selected, leads to error when press ok.
 medium:
-    * Help modals when not signed in with checkbox option to disable, using useContext
+
 long:
-    * imgUrlStrs array in db should not have elements that are length 0 strings.
     * code splitting
     * breakpoints for very large screens
     * Help modals when not signed in with checkbox option to disable, using useContext

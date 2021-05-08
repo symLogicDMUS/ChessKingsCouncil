@@ -1,5 +1,5 @@
 short:
-    CreatePiece page, closing sign-in-window needs to also close ask-sign-in-modal
+
 medium:
     finish updating Promo modal. (option to view profile)
     fix loading skeleton, if there is nothing returned from api do not have loading skeleton continue indefinitely

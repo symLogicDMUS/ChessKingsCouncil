@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     }),
     close: props => ({
-        fontSize: '1.25rem',
+        fontSize: '1rem',
         color: '#000',
         width: '100%',
         borderRadius: 0,
