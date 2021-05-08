@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import * as firebase from "firebase";
 import "firebase/auth";
 import clsx from "clsx";
@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MediaQuery from "react-responsive/src";
 import {MenuItem, Typography} from "@material-ui/core";
 import Menu from "@material-ui/core/Menu";
+import {MuiMenu} from "../Reuseables/UserInput/MuiMenu";
 import Button from "@material-ui/core/Button";
 import { UserContext } from "../../UserContext";
 import { useStyles } from "./SignInOutButton.jss";
@@ -52,20 +53,12 @@ function SignInOutButton({ theme, className, style, variant}) {
                 >
                     <AccountBoxIcon />
                 </IconButton>
-                <Menu
+                <MuiMenu
                     id="menu-appbar"
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                        vertical: "top",
-                        horizontal: "right",
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                        vertical: "top",
-                        horizontal: "right",
-                    }}
                     open={menuOpen}
+                    anchorEl={anchorEl}
                     onClose={handleMenuClose}
+                    theme={theme}
                 >
                     <MenuItem
                         onClick={() => {
@@ -79,7 +72,7 @@ function SignInOutButton({ theme, className, style, variant}) {
                     >
                         <Typography noWrap>Sign Out</Typography>
                     </MenuItem>
-                </Menu>
+                </MuiMenu>
             </MediaQuery>
             <MediaQuery minWidth={480}>
                 {isSignedIn ? (
