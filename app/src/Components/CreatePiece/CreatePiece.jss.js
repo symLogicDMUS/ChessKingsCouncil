@@ -2,6 +2,7 @@ import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const marginBottom = '1.15vw';
 
@@ -37,15 +38,6 @@ export const styles = {
         marginLeft: '2vw',
         marginRight: '2vw',
         marginBottom: '2vw',
-    }),
-    piece_name: props => ({
-        width: '100%',
-        textAlign: 'center',
-    }),
-    app_bar_padding: props => ({
-        "& .MuiToolbar-gutters": {
-            paddingRight: 108,
-        },
     }),
 };
 

@@ -30,6 +30,8 @@ import CreatePieceToolbar from "./CreatePieceToolbar";
 import {filterSamples} from "../../API/filterSamples";
 import AskLoginButton from "../Home/AskLoginButton";
 import {UserContext} from "../../UserContext";
+import SignInOutButton from "../Home/SignInOutButton";
+import CreatePieceTitle from "./CreatePieceTitle";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -424,36 +426,10 @@ class CreatePiece extends React.Component {
                 <ResponsiveDrawer
                     appBarType="title"
                     appBarContent={
-                        <>
-                            <MediaQuery maxWidth={960}>
-                                {this.name ? (
-                                    <PieceName
-                                        theme={this.state.theme}
-                                        className={
-                                            this.props.classes.piece_name
-                                        }
-                                        title={`Piece name: "${this.name}" (Create Piece page)`}
-                                    >
-                                        {this.name}
-                                    </PieceName>
-                                ) : (
-                                    <PageTitle theme={this.state.theme}>
-                                        Create Piece
-                                    </PageTitle>
-                                )}
-                            </MediaQuery>
-                            <MediaQuery minWidth={960}>
-                                <PageTitle theme={this.state.theme}>
-                                    Create Piece
-                                </PageTitle>
-                            </MediaQuery>
-                        </>
+                        <CreatePieceTitle name={this.name} theme={this.state.theme} />
                     }
                     theme={this.state.theme}
                     className={this.props.classes.drawer}
-                    appBarClassName={
-                        this.name ? this.props.classes.app_bar_padding : null
-                    }
                     tools={
                         <>
                             <Name

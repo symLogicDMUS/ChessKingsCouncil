@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
     }),
     appBarCompressed1: props => ({
         "& .MuiToolbar-gutters": {
-            paddingLeft: `calc(${leftDrawerWidth} + 16px)`,
+            paddingLeft: `calc(${leftDrawerWidth} + 28px)`,
             paddingRight: 16,
         }
     }),
@@ -27,7 +27,7 @@ export const useStyles = makeStyles({
     }),
     appBarCompressed2: props => ({
         "& .MuiToolbar-gutters": {
-            paddingLeft: `calc(${leftDrawerWidth} + 16px)`,
+            paddingLeft: `calc(${leftDrawerWidth} + 28px)`,
             paddingRight: miniVariantIconsColumnWidth + 16,
         }
     }),
