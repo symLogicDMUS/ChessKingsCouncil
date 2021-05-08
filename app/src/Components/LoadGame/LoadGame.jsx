@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Redirect } from "react-router-dom";
 import { SavedGames } from "./SavedGames";
 import { copy } from "../helpers/copy";
@@ -62,6 +62,25 @@ class LoadGame extends React.Component {
     }
 
     componentDidUpdate() {
+        const uid = this.context;
+        if (this.state.uid !== uid) {
+            this.setState({uid: uid}, () => {
+                if (uid) {
+                    getGames().then(([games]) => {
+                        if (! games) {
+                            this.games = {};
+                        } else {
+                            this.games = games;
+                        }
+                        this._initLoad()
+                    });
+                }
+                else {
+                    this.games = getSampleGames();
+                    this._initLoad()
+                }
+            })
+        }
         document.body.className = `${this.state.theme}-background`;
     }
 

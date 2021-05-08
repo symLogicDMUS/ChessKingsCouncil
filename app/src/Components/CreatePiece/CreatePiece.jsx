@@ -117,11 +117,11 @@ class CreatePiece extends React.Component {
         if (this.state.saveInstance !== prevState.saveInstance) {
             this.setState({uploadPiece: true})
         }
-        // if (this.state.theme === "tan") {
-        //     document.body.className = "tan-background-alt";
-        // } else {
-        //     document.body.className = `${this.state.theme}-background`;
-        // }
+        if (this.state.theme === "tan") {
+            document.body.className = "tan-background-alt";
+        } else {
+            document.body.className = `${this.state.theme}-background`;
+        }
     }
 
     updateFirstVisit = isFirstVisit => {
@@ -228,10 +228,6 @@ class CreatePiece extends React.Component {
     };
 
     saveCallback = () => {
-        this.imgFileObjs = {
-            white: null,
-            black: null
-        }
         this.setState({
             justSaved: true,
             newUpload: false,
