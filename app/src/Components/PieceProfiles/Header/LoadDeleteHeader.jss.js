@@ -2,6 +2,10 @@ import {themes} from "../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm} from "../constants.jss";
 
+export const marginRight = {
+    marginRight: 'auto',
+}
+
 export const useStyles = makeStyles({
     header: props => ({
         justifyContent: 'space-between',

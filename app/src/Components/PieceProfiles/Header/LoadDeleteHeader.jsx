@@ -1,16 +1,16 @@
 import React from "react";
 import clsx from "clsx";
 import {PieceName} from "./PieceName";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
-import { deleteDef } from "../../../API/deleteDef";
+import {deleteDef} from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
 import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
-import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
+import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
+import {MuiDeleteButton as DeleteButton} from "../../Reuseables/Clickables/MuiDeleteButton";
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
 import {filterSamples} from "../../../API/filterSamples";
-import {useStyles} from "./LoadDeleteHeader.jss";
+import {marginRight, useStyles} from "./LoadDeleteHeader.jss";
 
 function LoadDeleteHeader({
     def,
@@ -72,7 +72,7 @@ function LoadDeleteHeader({
             <div className={clsx(classes.header, {
                 [classes2.header]: true,
             })}>
-                <PieceName theme={theme} tooltipPlacement={'left-start'}>
+                <PieceName style={marginRight} theme={theme} tooltipPlacement={'left-start'}>
                     {pieceName}
                 </PieceName>
                 <Button
