@@ -36,7 +36,6 @@ function SaveResignTool({ save, resign, changeName, theme }) {
                         text={"Save"}
                         iconName={"save"}
                         buttonType="option_alt"
-                        className={classes.option}
                         theme={theme}
                     />
                 )}
@@ -59,7 +58,6 @@ function SaveResignTool({ save, resign, changeName, theme }) {
                         text={"Save As"}
                         buttonType="option_alt"
                         iconName={"save_as"}
-                        className={classes.option}
                         theme={theme}
                     />
                 )}
