@@ -32,14 +32,36 @@ class ImgChoicesModal extends React.Component {
                 } else {
                     this.imgDict = imgDict;
                     this.updateImgComponents();
-                    this.setState({loaded: true});
+                    this.setState({loaded: true, uid: uid});
                 }
             });
         }
         else {
             this.imgDict = getSampleImgs();
             this.updateImgComponents();
-            this.setState({loaded: true});
+            this.setState({loaded: true, uid: null});
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const uid = this.context;
+        if (this.state.uid !== uid) {
+            if (uid) {
+                getImgDict().then(([imgDict]) => {
+                    if (!imgDict) {
+                        this.imgDict = {}
+                    } else {
+                        this.imgDict = imgDict;
+                        this.updateImgComponents();
+                        this.setState({loaded: true, uid: uid});
+                    }
+                });
+            }
+            else {
+                this.imgDict = getSampleImgs();
+                this.updateImgComponents();
+                this.setState({loaded: true, uid: null});
+            }
         }
     }
 
@@ -69,6 +91,7 @@ class ImgChoicesModal extends React.Component {
 
     submitChoice = (imgNameChoice) => {
         this.props.setPieceImg(this.props.color, this.imgDict[imgNameChoice]);
+        this.props.setImgFileObj(this.props.color, null);
         this.props.close();
     }
 

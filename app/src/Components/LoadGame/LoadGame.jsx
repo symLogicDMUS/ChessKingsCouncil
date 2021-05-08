@@ -23,6 +23,7 @@ class LoadGame extends React.Component {
         searchText: "",
         showNames: true,
         bValue: true,
+        uid: null,
     };
     games = {};
     boardObjs = {};
@@ -39,16 +40,16 @@ class LoadGame extends React.Component {
                 } else {
                     this.games = games;
                 }
-                this._initLoad()
+                this._initLoad(uid)
             });
         }
         else {
             this.games = getSampleGames();
-            this._initLoad()
+            this._initLoad(null)
         }
     }
 
-    _initLoad = () => {
+    _initLoad = (uid) => {
         this.boardObjs = getBoardObjs(this.games);
         this.gameSnapshotComponents = getGameSnapshots(
             this.boardObjs,
@@ -58,7 +59,7 @@ class LoadGame extends React.Component {
             this.state.showNames,
             this.state.theme
         );
-        this.setState({ loaded: true });
+        this.setState({uid: uid, loaded: true });
     }
 
     componentDidUpdate() {
@@ -72,12 +73,12 @@ class LoadGame extends React.Component {
                         } else {
                             this.games = games;
                         }
-                        this._initLoad()
+                        this._initLoad(uid)
                     });
                 }
                 else {
                     this.games = getSampleGames();
-                    this._initLoad()
+                    this._initLoad(null)
                 }
             })
         }

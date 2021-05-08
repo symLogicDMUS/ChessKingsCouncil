@@ -46,6 +46,7 @@ export function ImgWindow({
                         color={color}
                         resetImg={resetImg}
                         setPieceImg={setPieceImg}
+                        setImgFileObj={setImgFileObj}
                         handleMobileMenuClose={handleMenuClose}
                         startIcon={
                             <AddPhotoAlternateIcon className={classes.icon} />

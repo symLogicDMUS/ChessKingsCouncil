@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
 import {miniVariantIconsColumnWidth} from "./MiniVariantDrawer.jss";
 
-const z = 5;
+export const z = 5;
 export const appBarHeight = 48;
 export const toolBarPadding = 4;
 export const menuIconWidth = 48;
@@ -55,6 +55,7 @@ export const useStyles = makeStyles((theme) => ({
         borderBottom: `0.07em solid ${themes[props.theme].drawer_outline}`,
     }),
     menuButton: props => ({
+        zIndex: z,
         marginRight: theme.spacing(1),
         [theme.breakpoints.up('md')]: {
             display: 'none',

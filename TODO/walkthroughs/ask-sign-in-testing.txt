@@ -37,3 +37,28 @@
 ***
 first round of test for ask modal (sign in and continue without) did not find any issues
 ***
+
+1. go createPiece not signed in.
+2. upload 2 images no change db
+3. continue without sign-in, temp-id: Eq9ro...
+4. loaded sample images. No uploaded one yet (good)
+5. save piece named "img upload test"
+6. new image ref. correct id. both counts 2. (correct)
+7. * sign out. no change db.
+8. sign in google, google id U5fq.
+9. change 1 image to newly uploaded one (purple-node).
+10. save piece. expect purple node to show in database
+11. saved. new image refs for google account. correct id. refs 2.
+12. **purple node does  appear in image choices
+13. sign out.
+14. sign in facebook. facebook id UDBX
+15. image refs correct
+16. sign in google again. no chage db. (goood)
+17. delete anonomous and puple node.
+18. purple node deleted. image ref decremented to 1
+19. anonomous deleted. image ref decremented to 1
+20. sign in facebook again.
+21. *for facebook purple node and anonomous is there. good!
+22. sign out facebook.
+23. sign in google
+24. anonomous and purple node appear in facebook and NOT google. good!!

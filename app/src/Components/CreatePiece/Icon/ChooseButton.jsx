@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
 import { MuiButton } from "../../Reuseables/Clickables/MuiButton";
-// import ImgChoicesModal from "./ImgChoicesModal/ImgChoicesModal";
 import { useStyles } from "./ChooseButton.jss";
 
 const ImgChoicesModal = React.lazy(() => import('./ImgChoicesModal/ImgChoicesModal'));
 
 export function ChooseButton({
     handleMobileMenuClose,
+    setImgFileObj,
     setPieceImg,
     resetImg,
     color,
@@ -27,6 +27,7 @@ export function ChooseButton({
                         theme={theme}
                         resetImg={resetImg}
                         setPieceImg={setPieceImg}
+                        setImgFileObj={setImgFileObj}
                         close={() => setImgChoicesModal(false)}
                     />
                 </Portal>
