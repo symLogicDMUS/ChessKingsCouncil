@@ -16,6 +16,7 @@ import { incrementImgRefCounts } from "../../../API/incrementImgRefCounts";
 import Typography from "@material-ui/core/Typography";
 import {themes} from "../../styles/themes/themes.jss";
 import { useStyles } from "./LoadBar.jss";
+import {copy} from "../../helpers/copy";
 
 function LoadBar({
     newPiece,
@@ -100,21 +101,25 @@ function LoadBar({
 
     const save = () => {
         let oldUrlStrs, newUrlStrs;
+        const pendingUpload = copy(newPiece);
+        pendingUpload.W.img = whiteImgStr;
+        pendingUpload.B.img = blackImgStr;
+
         getDef(pieceName).then(([oldPieceFromDb]) => {
             if (oldPieceFromDb) {
-                newUrlStrs = filterSamples([whiteImgStr, blackImgStr]);
+                newUrlStrs = filterSamples([pendingUpload.W.img, pendingUpload.B.img]);
                 oldUrlStrs = filterSamples([
                     oldPieceFromDb.W.img,
                     oldPieceFromDb.B.img,
                 ]);
                 updateCountsOnOverwrite(oldUrlStrs, newUrlStrs).then((r) => {
-                    saveDef(pieceName, newPiece).then((r) => {});
+                    saveDef(pieceName, pendingUpload).then((r) => {});
                 });
             } else {
-                newUrlStrs = filterSamples([whiteImgStr, blackImgStr]);
+                newUrlStrs = filterSamples([pendingUpload.W.img, pendingUpload.B.img]);
                 incrementImgRefCounts(Array.from(new Set(newUrlStrs))).then(
                     (r) => {
-                        saveDef(pieceName, newPiece).then((r) => {
+                        saveDef(pieceName, pendingUpload).then((r) => {
                             close()
                         });
                     }

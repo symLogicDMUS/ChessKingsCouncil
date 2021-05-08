@@ -62,3 +62,9 @@ first round of test for ask modal (sign in and continue without) did not find an
 22. sign out facebook.
 23. sign in google
 24. anonomous and purple node appear in facebook and NOT google. good!!
+25. ***deleting piece does not decrement image ref counts
+
+1. sign in anonomous, id is hsU...
+2. upload silver and gold nodes
+3. hit save
+4. after bug fix, image urls decrement when deleting piece

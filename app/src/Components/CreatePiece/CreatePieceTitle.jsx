@@ -33,7 +33,7 @@ function CreatePieceTitle({name, theme, className}) {
                     </Box>
                 </>
             )}
-            {! sm || ! name && (
+            {(! sm || ! name) && (
                 <Box className={clsx(classes.appBar, {
                     [className]: className,
                 })}>
