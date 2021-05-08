@@ -132,6 +132,7 @@ function Promo(props) {
                 {profileModal && (
                     <Portal>
                         <ProfileWBModal
+                            isModal={true}
                             theme={props.theme}
                             color={props.color}
                             imgUrl={getPromoImg()}

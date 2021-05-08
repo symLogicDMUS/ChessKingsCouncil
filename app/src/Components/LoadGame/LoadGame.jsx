@@ -107,16 +107,11 @@ class LoadGame extends React.Component {
                     this.state.theme
                 );
                 this.setState({
-                    selectedGame: "none",
+                    selectedGame: null,
                     userChoseGame: false,
                 });
             });
         });
-    }
-
-    isDisabled = () => {
-        //TODO: bug: delete button not disabled when no selection
-        return this.state.selectedGame === "None" || !this.state.selectedGame;
     }
 
     setChoice = (gameName) => {
@@ -200,7 +195,6 @@ class LoadGame extends React.Component {
                     selectedGame={this.state.selectedGame}
                     toggleShowNames={this.toggleShowNames}
                     showNames={this.state.showNames}
-                    isDisabled={this.isDisabled}
                     updateTheme={this.updateTheme}
                     theme={this.state.theme}
                 >

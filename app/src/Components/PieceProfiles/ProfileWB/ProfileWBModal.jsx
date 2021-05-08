@@ -18,6 +18,7 @@ function ProfileWBModal({
     theme,
     screenCase,
     closeProfile,
+    isModal,
 }) {
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({theme})
@@ -37,8 +38,8 @@ function ProfileWBModal({
             </Box>
             <Box className={classes.wb_container}>
                 <div className={clsx(classes2.profile_wb, {
-                    [classes2.profile_w]: color === 'W',
-                    [classes2.profile_b]: color === 'B',
+                    [classes2.profile_w]: color === 'W' && ! isModal,
+                    [classes2.profile_b]: color === 'B' && ! isModal,
                 })}>
                     <ProfileWBAvatar
                         src={imgUrl}
@@ -54,7 +55,7 @@ function ProfileWBModal({
                         color={color}
                         theme={theme}
                         screenCase={screenCase}
-                        boardGridStyle={boardGridAdjust}
+                        boardGridStyle={! isModal ? boardGridAdjust : null}
                     />
                     <ProfileWBRange
                         pieceName={pieceName}
@@ -64,7 +65,7 @@ function ProfileWBModal({
                         color={color}
                         theme={theme}
                         screenCase={screenCase}
-                        boardGridStyle={boardGridAdjust}
+                        boardGridStyle={! isModal ? boardGridAdjust : null}
                     />
                 </div>
             </Box>

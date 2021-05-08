@@ -1,5 +1,4 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize001725, fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes/themes.jss";
 
 const itemSizeLg = '16vw';
@@ -33,7 +32,7 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: fontSize002,
+        fontSize: '2vh',
         borderRadius: '0.3em',
         '@media screen and (max-width: 960px)': {
             width: itemSizeMd,
@@ -65,7 +64,7 @@ export const useStyles = makeStyles({
         width: '99%',
     }),
     tooltip: props => ({
-        fontSize: fontSize001725
+        fontSize: '1.725vh'
     }),
     item: props => ({
         '@media screen and (max-width: 960px)': {

@@ -8,7 +8,6 @@ export const boardGridAdjust =  {
 export const useStyles = makeStyles({
     profile_wb_modal: props => ({
         zIndex: 10,
-        // height: '47.5vh',
         position: 'absolute',
         left: '22.5vw',
         top: '12.5vw',
