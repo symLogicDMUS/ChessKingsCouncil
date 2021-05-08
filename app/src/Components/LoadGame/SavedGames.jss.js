@@ -10,57 +10,8 @@ export const useStyles = makeStyles({
         ...modal,
         zIndex: 1,
     }),
-    flexbox: props => ({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        marginTop: '0.5em',
-    }),
-    content: props => ({
-        fontSize: fontSize002,
-        height: '16em',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        alignContent: 'space-evenly',
-        '@media screen and (min-width: 960px)': {
-            width: '50em',
-        },
-        '@media screen and (max-width: 960px)': {
-            width: '100%',
-        },
-    }),
-    title_box: props => ({
-        display: 'inline-flex',
-        alignItems: 'center',
-        transform: 'translate(0, 1.4em)',
-    }),
     title: props => ({
-        fontWeight: 500,
-        lineHeight: 1.6,
-        overflow: 'hidden',
-        fontSize: '1.08rem',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
-        letterSpacing: '0.0075em',
-        color: themes[props.theme].text,
-        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-    }),
-    title_icon: props => ({
-        '@media screen and (min-width: 960px)': {
-            fontSize: fontSize0016,
-        },
-        '@media screen and (max-width: 960px)': {
-            fontSize: fontSize0015,
-        },
-        height: '3em',
-        width: '3em',
-        marginLeft: '0.25em',
-        color: themes[props.theme].text,
+        marginRight: 'auto',
     }),
     see_more_icon: props => ({
         color: themes[props.theme].text,
@@ -75,7 +26,8 @@ export const useStyles = makeStyles({
     }),
     search_box: props => ({
         '@media screen and (max-width: 960px)': {
-            width: '12.5rem'
+            width: '16rem',
+            marginLeft: 'auto',
         },
         '@media screen and (min-width: 960px)': {
             alignSelf: 'flex-end',

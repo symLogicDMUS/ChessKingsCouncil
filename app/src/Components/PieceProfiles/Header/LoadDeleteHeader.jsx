@@ -9,8 +9,8 @@ import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
 import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
 import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
 import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
-import {useStyles} from "./LoadDeleteHeader.jss";
 import {filterSamples} from "../../../API/filterSamples";
+import {useStyles} from "./LoadDeleteHeader.jss";
 
 function LoadDeleteHeader({
     def,

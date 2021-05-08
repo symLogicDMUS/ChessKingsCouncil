@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import { NavBarButton } from "./NavBarButton";
-import { HelpButton } from "./Help/HelpButton";
-import { SettingsButton } from "./SettingsButton";
+import {NavBarButton} from "./NavBarButton";
+import {HelpButton} from "./Help/HelpButton";
+import {SettingsButton} from "./SettingsButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SignInOutButton from "../../Home/SignInOutButton";
-import { useStyles } from "./NavBar.jss";
+import {marginLeft0, useStyles} from "./NavBar.jss";
+
 
 /**
  * children is settings content unique to parent page.
@@ -19,31 +20,34 @@ function NavBar(props) {
     const classes = useStyles({ theme: props.theme });
 
     useEffect(() => {
-        window.addEventListener('touchstart', onFirstTouch, false)
-    }, [touch])
+        window.addEventListener("touchstart", onFirstTouch, false);
+    }, [touch]);
     const onFirstTouch = () => {
         setTouch(true);
-        window.removeEventListener('touchstart', onFirstTouch, false);
-    }
+        window.removeEventListener("touchstart", onFirstTouch, false);
+    };
 
+    const isRowDirection =
+        screenCase === "wide" &&
+        (props.currentPage === "NewGame" ||
+            props.currentPage === "LoadGame" ||
+            props.currentPage === "MyPieces" ||
+            props.currentPage === "CouncilRules");
+
+    const isColumnDirection =
+        screenCase === "wide" &&
+        (props.currentPage === "CreatePiece" ||
+            props.currentPage === "GameRoot" ||
+            props.currentPage === "Customize" ||
+            props.currentPage === "MainMenu");
 
     return (
         <>
             <Box
                 className={clsx(classes.nav_bar, {
                     [classes.nav_drawer]: screenCase === "thin",
-                    [classes.row_direction]:
-                        screenCase === "wide" &&
-                        (props.currentPage === "NewGame" ||
-                            props.currentPage === "LoadGame" ||
-                            props.currentPage === "MyPieces" ||
-                            props.currentPage === "CouncilRules"),
-                    [classes.column_direction]:
-                        screenCase === "wide" &&
-                        (props.currentPage === "CreatePiece" ||
-                            props.currentPage === "GameRoot" ||
-                            props.currentPage === "Customize" ||
-                            props.currentPage === "MainMenu"),
+                    [classes.row_direction]: isRowDirection,
+                    [classes.column_direction]: isColumnDirection,
                 })}
             >
                 <HelpButton
@@ -163,18 +167,13 @@ function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                     touch={touch}
                 />
-                <SignInOutButton
-                    theme={props.theme}
-                    className={clsx(classes.sign_out_button, {
-                        [classes.hide]:
-                        (props.currentPage === "CreatePiece" ||
-                            props.currentPage === "GameRoot" ||
-                            props.currentPage === "Customize" ||
-                            props.currentPage === "MainMenu"
-                        ),
-                    })}
-                    style={{ marginLeft: 0 }}
-                />
+                {isRowDirection && (
+                    <SignInOutButton
+                        theme={props.theme}
+                        className={classes.sign_out_button}
+                        style={marginLeft0}
+                    />
+                )}
             </Box>
         </>
     );

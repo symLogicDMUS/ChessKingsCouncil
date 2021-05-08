@@ -14,9 +14,9 @@ export function TwoItemAppBarContent({
     seeMoreIcon,
     children,
 }) {
-    const lg = useMediaQuery("(min-width:600px)");
-    const md = useMediaQuery("(min-width:425px) and (max-width:600px)");
-    const sm = useMediaQuery("(max-width: 425px)");
+    const lg = useMediaQuery("(min-width:768px)");
+    const md = useMediaQuery("(min-width:600px) and (max-width:768px)");
+    const sm = useMediaQuery("(max-width: 600px)");
 
     const classes = useStyles({ theme: theme });
 

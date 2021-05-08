@@ -1,12 +1,10 @@
 import React from "react";
-import Box from "@material-ui/core/Box";
-import "../Reuseables/Background/_backgrounds.scss"
 import {PageLink} from "./PageLink";
-import {MuiButton as Button} from "../Reuseables/Clickables/MuiButton";
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import Box from "@material-ui/core/Box";
+import SignInOutButton from "./SignInOutButton";
+import "../Reuseables/Background/_backgrounds.scss"
 import {Background} from "../Reuseables/Background/Background";
 import {useStyles} from "./MainMenuLg.jss";
-import SignInOutButton from "./SignInOutButton";
 
 
 export function MainMenuLg(props) {
@@ -17,7 +15,7 @@ export function MainMenuLg(props) {
         <>
             <Background theme={props.theme} isFixed={true} />
             <Box className={classes.top_area}>
-                <SignInOutButton theme={props.theme} />
+                <SignInOutButton theme={props.theme} variant={'contained'} className={classes.signOutButton} />
             </Box>
             <Box className={classes.main_menu}>
                 <img src={`/Images/titles/desktop/title-${props.theme}.svg`} className={classes.title} />

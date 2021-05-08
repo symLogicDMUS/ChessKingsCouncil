@@ -2,6 +2,10 @@ import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes/themes.jss";
 import {navBarButtonHeight} from "./NavBarButton.jss";
 
+export const marginLeft0 = {
+    marginLeft: 0,
+}
+
 export const useStyles = makeStyles((theme) => ({
     nav_bar: props => ({
         display: 'flex',

@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {availHeight} from "../helpers/windowMeasurments";
+import {themes} from "../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     main_menu: props => ({
@@ -12,6 +13,10 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         width: '80vw',
+    }),
+    signOutButton: props => ({
+       backgroundColor: themes[props.theme].fill,
+       color: themes[props.theme].text,
     }),
     page_links: props => ({
         width: '66.25%',
@@ -28,6 +33,7 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
+        border: '1px dashed red',
     }),
     icon: props => ({
         fontSize: '1rem',

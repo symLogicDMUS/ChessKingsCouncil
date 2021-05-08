@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 import { UserContext } from "../../UserContext";
 import { useStyles } from "./SignInOutButton.jss";
 
-function SignInOutButton({ theme, className, style}) {
+function SignInOutButton({ theme, className, style, variant}) {
     const uid = useContext(UserContext);
     const isSignedIn = Boolean(uid);
     const [signInWindow, setSignInWindow] = useState(false);
@@ -89,6 +89,7 @@ function SignInOutButton({ theme, className, style}) {
                             [className]: className,
                         })}
                         startIcon={<AccountBoxIcon />}
+                        variant={variant}
                         style={style}
                     >
                         <Typography noWrap>Sign Out</Typography>
@@ -100,6 +101,7 @@ function SignInOutButton({ theme, className, style}) {
                             [className]: className,
                         })}
                         startIcon={<AccountBoxIcon />}
+                        variant={variant}
                         style={style}
                     >
                         <Typography noWrap>Sign In</Typography>

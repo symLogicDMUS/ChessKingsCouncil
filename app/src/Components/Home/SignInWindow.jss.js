@@ -35,13 +35,13 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     }),
     close: props => ({
+        fontSize: '1.25rem',
         color: '#000',
         width: '100%',
         borderRadius: 0,
         '&:hover':{
             color: '#fff'
         },
-        fontSize: '2rem',
         "& .MuiSvgIcon-root": {
             width: '2rem',
             height: '2rem',

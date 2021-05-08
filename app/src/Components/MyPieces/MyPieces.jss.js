@@ -17,34 +17,23 @@ export const useStyles = makeStyles({
         borderRadius: '0.5rem',
     }),
     title: props => ({
-        letterSpacing: '0.0075em',
-        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
-        },
-        '@media screen and (min-width: 960px) and (max-width: 1040px)': {
-            fontSize: '0.9rem'
-        },
-        '@media screen and (min-width: 1040px)': {
-            fontSize: '1rem',
-        },
+        marginRight: 'auto',
     }),
     search: props => ({
         '@media screen and (max-width: 500px)': {
-            width: '100%',
+            width: '70vw',
         },
-        '@media screen and (min-width: 501px) and (max-width: 600px)': {
-            width: sqrItemSizeSm,
-            marginRight: '9.25vw',
+        '@media screen and (min-width: 500px) and (max-width: 769px)': {
+            width: `calc(${sqrItemSizeSm} + 12px)`,
         },
-        '@media screen and (min-width: 600px) and (max-width: 960px)': {
-            width: sqrItemSizeMd,
-            marginRight: '5vw',
+        '@media screen and (min-width: 769px) and (max-width: 960px)': {
+            width: `calc(${sqrItemSizeMd} - 70.6px)`,
         },
         '@media screen and (min-width: 960px)': {
-            width: sqrItemSizeLg,
+            width: `calc(${sqrItemSizeLg} - 70.6px)`,
         },
         height: '1.85rem',
+        marginLeft: 'auto'
     }),
     icon: props => ({
        fontSize: '1.25rem',
