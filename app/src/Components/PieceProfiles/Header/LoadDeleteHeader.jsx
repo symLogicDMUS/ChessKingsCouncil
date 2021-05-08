@@ -1,16 +1,16 @@
 import React from "react";
 import clsx from "clsx";
-import {PieceName} from "./PieceName";
-import {useHistory} from "react-router-dom";
+import { PieceName } from "./PieceName";
+import { useHistory } from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
-import {deleteDef} from "../../../API/deleteDef";
+import { deleteDef } from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
-import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
-import {MuiDeleteButton as DeleteButton} from "../../Reuseables/Clickables/MuiDeleteButton";
-import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss"
-import {filterSamples} from "../../../API/filterSamples";
-import {marginRight, useStyles} from "./LoadDeleteHeader.jss";
+import { decrementImgRefCounts } from "../../../API/decrementImgRefCounts";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
+import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
+import { useStyles as useMoreStyles } from "../../PieceProfiles/Header/ProfileHeader.jss";
+import { filterSamples } from "../../../API/filterSamples";
+import { marginRight, useStyles } from "./LoadDeleteHeader.jss";
 
 function LoadDeleteHeader({
     def,
@@ -24,21 +24,20 @@ function LoadDeleteHeader({
 }) {
     const history = useHistory();
 
-    const classes = useStyles({theme: theme});
-    const classes2 = useMoreStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
+    const classes2 = useMoreStyles({ theme: theme });
 
     const deletePiece = (pieceName) => {
+        const imgStrs = filterSamples([def.W.img, def.B.img]);
 
-        const imgStrs = filterSamples([def.W.img, def.B.img])
-
-        decrementImgRefCounts(Array.from(new Set(imgStrs))).then(r => {
+        decrementImgRefCounts(Array.from(new Set(imgStrs))).then((r) => {
             deleteDef(pieceName).then(([r]) => {
-                dispatch({type: 'delete', payload: pieceName})
+                dispatch({ type: "delete", payload: pieceName });
                 if (parentPage === "CreatePiece") {
-                    erase()
+                    erase();
                 }
             });
-        })
+        });
     };
 
     let loadMethod;
@@ -51,8 +50,8 @@ function LoadDeleteHeader({
                 spans: def.W.spans,
                 offsets: def.W.offsets,
             });
-            toggleModal()
-        }
+            toggleModal();
+        };
     } else {
         loadMethod = () =>
             history.push({
@@ -69,17 +68,23 @@ function LoadDeleteHeader({
 
     return (
         <>
-            <div className={clsx(classes.header, {
-                [classes2.header]: true,
-            })}>
-                <PieceName style={marginRight} theme={theme} tooltipPlacement={'left-start'}>
+            <div
+                className={clsx(classes.header, {
+                    [classes2.header]: true,
+                })}
+            >
+                <PieceName
+                    style={marginRight}
+                    theme={theme}
+                    tooltipPlacement={"left-start"}
+                >
                     {pieceName}
                 </PieceName>
                 <Button
                     theme={theme}
                     className={classes.button}
                     addedClassName={classes.load_button}
-                    startIcon={<StorageIcon className={classes.icon}/>}
+                    startIcon={<StorageIcon className={classes.icon} />}
                     onClick={loadMethod}
                 >
                     Load
@@ -89,10 +94,14 @@ function LoadDeleteHeader({
                     modalTitle={`You are asking to delete piece ${pieceName}.`}
                     modalText={`Game in progress will no be effected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
-                    startIcon={<DeleteForever className={clsx(classes.icon, {
-                        [classes.delete_icon]: true
-                    })}/>}
-                    variant='outlined'
+                    startIcon={
+                        <DeleteForever
+                            className={clsx(classes.icon, {
+                                [classes.delete_icon]: true,
+                            })}
+                        />
+                    }
+                    variant="outlined"
                     className={classes.button}
                     addedClassName={classes.delete_button}
                     isDisabled={false}

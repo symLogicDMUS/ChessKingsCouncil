@@ -1,74 +1,32 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import clsx from "clsx";
+import SignInWindow from "./SignInWindow";
+import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import { MuiButton } from "./MuiButton";
-import {Button} from "@material-ui/core";
-import {Portal,Typography} from "@material-ui/core";
-import SignInWindow from "../../Home/SignInWindow";
-import { StandardModal } from "../Modals/StandardModal";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import {IconButton, Portal, SvgIcon, Typography} from "@material-ui/core";
+import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
+import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import {FirebaseGuestLoginButton} from "../../Home/FirebaseGuestLoginButton";
-import {useStyles as useMoreStyles} from "../../Home/AskLoginButton.jss";
-import {useStyles as useEvenMoreStyles} from "../../Home/FirebaseGuestLoginButton.jss";
-import {UserContext} from "../../../UserContext";
-import { useStyles } from "../Modals/StandardModal.jss";
+import Option from "../CreatePiece/Options/Option";
+import {icons} from "../styles/icons/top/icons.jss";
+import {themes} from "../styles/themes/themes.jss";
+import {useStyles as useEvenMoreStyles} from
+        "./FirebaseGuestLoginButton.jss"
+import {useStyles as useEvenMoreMoreStyles} from
+        "../GameRoot/SaveResignTool/SaveResignTool.jss";
+import { useStyles as useMoreStyles } from "./AskLoginButton.jss";
 
-
-export function MuiDeleteButton(props) {
-    const uid = useContext(UserContext);
-    const [modal, setModal] = useState(false);
+function AskLoginButton({theme, buttonType, iconName, text, className}) {
     const [loginModal, setAskLoginModal] = useState(false);
     const [signIn, setSignIn] = useState(false);
-    const classes = useStyles({ theme: props.theme });
-    const classes2 = useMoreStyles({theme: props.theme});
+    const classes2 = useMoreStyles({theme});
     const classes3 = useEvenMoreStyles();
+    const classes4 = useEvenMoreMoreStyles({theme: theme});
 
-    const onClick = () => {
-        if (! uid) {
-            setAskLoginModal(true)
-        }
-        else {
-            setModal(true)
-        }
-    };
     return (
         <>
-            {modal ? (
-                <Portal>
-                    <StandardModal
-                        title={props.modalTitle}
-                        text={props.modalText}
-                        theme={props.theme}
-                        closeClick={() => setModal(false)}
-                    >
-                        <MuiButton
-                            onClick={() => {
-                                props.onAcceptDelete();
-                                setModal(false);
-                            }}
-                            className={classes.button}
-                            addedClassName={classes.yes_button}
-                            variant={"contained"}
-                            theme={props.theme}
-                            size={props.size}
-                        >
-                            Yes
-                        </MuiButton>
-                        <MuiButton
-                            onClick={() => setModal(false)}
-                            className={classes.button}
-                            addedClassName={classes.no_button}
-                            variant={"contained"}
-                            theme={props.theme}
-                            size={props.size}
-                        >
-                            No
-                        </MuiButton>
-                    </StandardModal>
-                </Portal>
-            ) : null}
             {signIn ? (
                 <SignInWindow
                     close={() => {
@@ -89,12 +47,12 @@ export function MuiDeleteButton(props) {
                             container: classes2.container,
                             paper: classes2.dialog_window
                         }}
-                        // className={className}
+                        className={className}
                         onBackdropClick={() => setAskLoginModal(false)}
                     >
                         <DialogTitle className={classes2.title}>Do you want to sign in?</DialogTitle>
                         <DialogContent className={classes2.text}>
-                            You need to sign in in order to delete images pieces or games.
+                            You can save work without signing in but it will only be available until you leave the site.
                         </DialogContent>
                         <DialogActions className={classes2.dialog_actions}>
                             <Button
@@ -141,20 +99,42 @@ export function MuiDeleteButton(props) {
                     </Dialog>
                 </Portal>
             ) : null}
-            <MuiButton
-                onClick={onClick}
-                isDisabled={props.isDisabled}
-                startIcon={props.startIcon}
-                classesObj={props.classesObj}
-                addedClassName={props.addedClassName}
-                className={props.className}
-                variant={props.variant}
-                style={props.style}
-                theme={props.theme}
-                size={props.size}
-            >
-                {props.altText ? props.altText : "Delete"}
-            </MuiButton>
+            {buttonType === 'option' && (
+                <Option
+                    name={text}
+                    theme={theme}
+                    iconType={iconName}
+                    className={className}
+                    onClick={() => setAskLoginModal(true)}
+                />
+            )}
+            {buttonType === 'option_alt' && (
+                <IconButton
+                    className={classes4.option}
+                    classes={{ label: classes4.label }}
+                    onClick={() => setAskLoginModal(true)}
+                >
+                    <SvgIcon>
+                        {icons.save_as(themes[theme].button_text)}
+                    </SvgIcon>
+                    <Typography noWrap className={classes4.text}>
+                        {text}
+                    </Typography>
+                </IconButton>
+            )}
+            {buttonType !== 'option' && buttonType !== 'option_alt' && (
+                <ToolButtonAlt
+                    text={text}
+                    theme={theme}
+                    isActive={loginModal}
+                    iconName={iconName}
+                    className={className}
+                    onClick={() => setAskLoginModal(true)}
+                />
+            )}
         </>
     );
 }
+
+
+export default AskLoginButton;

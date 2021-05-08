@@ -1,4 +1,3 @@
-import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes/themes.jss";
 

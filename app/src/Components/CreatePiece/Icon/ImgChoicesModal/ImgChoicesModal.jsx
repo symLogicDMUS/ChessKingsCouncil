@@ -1,5 +1,6 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
+import {isFbStorageImg} from "../../../../API/isFbStorageImg";
 import {getSampleImgs} from "../../../../API/sampleData/getSampleImgs";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
@@ -10,9 +11,6 @@ import {deleteImg} from "../../../../API/deleteImg";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {UserContext} from "../../../../UserContext";
 import {styles} from "./ImgChoicesModal.jss";
-import {filterSamples} from "../../../../API/filterSamples";
-import {notFbStorageImg} from "../../../../API/notFbStorageImg";
-import {isFbStorageImg} from "../../../../API/isFbStorageImg";
 
 class ImgChoicesModal extends React.Component {
     state = {
