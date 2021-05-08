@@ -122,12 +122,14 @@ export const styles = {
             maxWidth: '36.5vw',
         },
         marginLeft: 8,
+        marginRight: 16,
+    }),
+    smItem: props => ({
+       marginLeft: 8,
+       marginRight: 8,
     }),
     title: props => ({
-        lineHeight: 1.6,
-        letterSpacing: '0.0075em',
-        fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-        fontSize: '1rem',
+        marginLeft: 36,
     }),
     tools: props => ({
         display: 'flex',

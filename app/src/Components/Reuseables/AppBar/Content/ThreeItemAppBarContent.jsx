@@ -7,13 +7,13 @@ import SignInOutButton from "../../../Home/SignInOutButton";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import {useStyles} from "./ThreeItemAppBarContent.jss";
 
-export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIcon2, children}) {
+export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIcon2, see1, see2, see3, children}) {
 
-    const lg = useMediaQuery("(min-width:960px)");
-    const md = useMediaQuery("(min-width:580px) and (max-width:960px)");
-    const sm = useMediaQuery("(max-width: 580px)");
+    const lg = useMediaQuery("(min-width:1120px)");
+    const md = useMediaQuery("(min-width:600px) and (max-width:1120px)");
+    const sm = useMediaQuery("(max-width: 600px)");
 
-    const classes = useStyles();
+    const classes = useStyles({theme});
 
     return (
         <>
@@ -23,9 +23,9 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className,
                     })}
                 >
-                    <div className={classes.item}>{children[0]}</div>
-                    <div className={classes.item}>{children[1]}</div>
-                    <div className={classes.item}>{children[2]}</div>
+                    {children[0]}
+                    {children[1]}
+                    {children[2]}
                     <SignInOutButton theme={theme} />
                 </Box>
             )}
@@ -35,12 +35,12 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className
                     })}
                 >
-                    <div className={classes.item}>{children[0]}</div>
-                    <div className={classes.item}>{children[1]}</div>
-                    <SeeMore theme={theme} icon={seeMoreIcon2} className={classes.item}>
+                    {children[0]}
+                    {children[1]}
+                    <SeeMore theme={theme} icon={seeMoreIcon2} className={see2} >
                         {children[2]}
                     </SeeMore>
-                    <SeeMore theme={theme} icon={<AccountBoxIcon />}>
+                    <SeeMore theme={theme} icon={<AccountBoxIcon />} className={see3}>
                         <SignInOutButton theme={theme} />
                     </SeeMore>
                 </Box>
@@ -51,14 +51,14 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className
                     })}
                 >
-                    <div className={classes.item}>{children[0]}</div>
-                    <SeeMore theme={theme} icon={seeMoreIcon} className={classes.item} >
+                    {children[0]}
+                    <SeeMore theme={theme} icon={seeMoreIcon} className={see1} >
                         {children[1]}
                     </SeeMore>
-                    <SeeMore theme={theme} icon={seeMoreIcon2} className={classes.item}>
+                    <SeeMore theme={theme} icon={seeMoreIcon2} className={see2}>
                         {children[2]}
                     </SeeMore>
-                    <SeeMore theme={theme} icon={<AccountBoxIcon />}>
+                    <SeeMore theme={theme} icon={<AccountBoxIcon />} className={see3}>
                         <SignInOutButton theme={theme} />
                     </SeeMore>
                 </Box>

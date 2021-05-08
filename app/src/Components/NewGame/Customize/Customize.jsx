@@ -352,7 +352,7 @@ class Customize extends React.Component {
                             theme={this.state.theme}
                             seeMoreIcon2={<SearchIcon style={textColor(this.state.theme)}/>}
                         >
-                            <PageTitle theme={this.state.theme} style={marginRight}>
+                            <PageTitle theme={this.state.theme} className={this.props.classes.title}>
                                 Customize Game
                             </PageTitle>
                             <MuiCheckbox

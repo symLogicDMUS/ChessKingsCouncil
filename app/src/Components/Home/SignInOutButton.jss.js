@@ -9,9 +9,6 @@ export const useStyles = makeStyles({
         "& .MuiButton-label": {
             fontSize: '1rem'
         },
-        '@media screen and (min-width: 600px)': {
-            marginLeft: '1rem',
-        },
     }),
     with_neighbor: props => ({
         zIndex: z + 1,
@@ -19,5 +16,8 @@ export const useStyles = makeStyles({
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'center',
+    }),
+    icon: props => ({
+       color: themes[props.theme].text,
     }),
 }, {index: 1});

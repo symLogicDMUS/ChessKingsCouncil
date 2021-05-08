@@ -1,4 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
+import {themes} from "../../../styles/themes/themes.jss";
 
 export const originTransform = {vertical: 'top', horizontal: 'right'};
 
@@ -10,5 +11,8 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'space-between',
+        "& .MuiSvgIcon-root": {
+            color: themes[props.theme].text,
+        },
     }),
 }, {index: 1});
