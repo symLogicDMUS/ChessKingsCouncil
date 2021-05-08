@@ -12,26 +12,39 @@ function CreatePieceTitle({name, theme, className}) {
     const sm = useMediaQuery("(max-width:960px)");
 
     return (
-        <Box className={clsx(classes.appBar, {
-            [className]: className,
-        })}>
-            {sm && name ? (
-                <PieceName
-                    theme={theme}
-                    className={
-                        classes.piece_name
-                    }
-                    title={`Piece name: "${name}" (Create Piece page)`}
-                >
-                    {name}
-                </PieceName>
-            ) : (
-                <PageTitle theme={theme}>
-                    Create Piece
-                </PageTitle>
+        <>
+            {sm && name && (
+                <>
+                    <Box className={classes.piece_name_bar}>
+                        <PieceName
+                            theme={theme}
+                            className={
+                                classes.piece_name
+                            }
+                            title={`Piece name: "${name}" (Create Piece page)`}
+                        >
+                            {name}
+                        </PieceName>
+                    </Box>
+                    <Box className={clsx(classes.appBar, {
+                        [className]: className,
+                    })}>
+                        <SignInOutButton theme={theme} style={marginLeft} />
+                    </Box>
+                </>
             )}
-            <SignInOutButton theme={theme} style={marginLeft} />
-        </Box>
+            {! sm || ! name && (
+                <Box className={clsx(classes.appBar, {
+                    [className]: className,
+                })}>
+                    <PageTitle theme={theme}>
+                        Create Piece
+                    </PageTitle>
+                    <SignInOutButton theme={theme} style={marginLeft} />
+                </Box>
+            )}
+        </>
+
     );
 }
 

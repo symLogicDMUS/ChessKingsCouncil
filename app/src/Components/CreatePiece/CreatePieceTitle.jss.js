@@ -8,15 +8,20 @@ export const marginLeft = {
 export const useStyles = makeStyles({
     appBar: props => ({
         width: '100%',
-       display: 'flex',
-       alignItems: 'center',
+        display: 'flex',
+        alignItems: 'center',
     }),
-    piece_name: props => ({
-        textAlign: 'center',
+    piece_name_bar: props => ({
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
         position: 'fixed',
         left: 0,
-        fontSize: '1rem',
-        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+    }),
+    piece_name: props => ({
+        width: '40%',
+        textAlign: 'center',
     }),
     sign_out: props => ({
         marginLeft: 'auto',

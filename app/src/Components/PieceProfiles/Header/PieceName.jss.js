@@ -12,7 +12,7 @@ export const useStyles = makeStyles({
         "@media screen and (min-width: 960px)": {
             fontSize: "1.5vw",
         },
-        flexGrow: 10,
+        // flexGrow: 10,
         color: themes[props.theme].text,
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
     }),
