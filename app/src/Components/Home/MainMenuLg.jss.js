@@ -33,7 +33,6 @@ export const useStyles = makeStyles({
         flexWrap: 'no-wrap',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        border: '1px dashed red',
     }),
     icon: props => ({
         fontSize: '1rem',
