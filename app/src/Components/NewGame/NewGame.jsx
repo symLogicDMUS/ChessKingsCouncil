@@ -11,13 +11,15 @@ import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {Background} from "../Reuseables/Background/Background";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import {ConfirmStandard} from "./ConfirmStandard";
 import "../Reuseables/Background/_backgrounds.scss";
 import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {useStyles} from "./NewGame.jss";
+import SignInOutButton from "../Home/SignInOutButton";
+import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
 
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
+
 
 function NewGame() {
     const history = useHistory();
@@ -85,7 +87,7 @@ function NewGame() {
                     />
                 }
                 navHorizontal={isWide}
-                appBarContent={<PageTitle theme={theme}>New Game</PageTitle>}
+                appBarContent={<AppBarTitle theme={theme}>New Game</AppBarTitle>}
                 appBarType="title"
                 toolButtons={null}
                 tools={null}
