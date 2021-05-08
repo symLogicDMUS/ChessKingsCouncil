@@ -48,8 +48,10 @@ function ResponsiveDrawer({
             <CssBaseline />
             <Hidden mdUp>
                 <AppBarSmScreen
+                    open={open}
                     theme={theme}
                     elevation={elevation}
+                    isIconColumn={!!tools}
                     className={appBarClassName}
                     handleDrawerToggle={handleDrawerToggle}
                 >

@@ -9,7 +9,13 @@ import DragLayer from "./DragLayer";
 import { reducer } from "./Board.red";
 
 const Board = ({ gameRoot }) => {
-    const lg = useMediaQuery("(min-width:960px)");
+
+    const [state, dispatch] = useReducer(reducer, {
+        isPromo: false,
+        aiDisplay: false,
+        hiddenPiece: null,
+        ...updateOnResize(gameRoot),
+    });
 
     useEffect(() => {
         function handleResize() {
@@ -21,12 +27,7 @@ const Board = ({ gameRoot }) => {
         };
     });
 
-    const [state, dispatch] = useReducer(reducer, {
-        isPromo: false,
-        aiDisplay: false,
-        hiddenPiece: null,
-        ...updateOnResize(gameRoot),
-    });
+    const lg = useMediaQuery("(min-width:960px)");
 
     return (
         <DndProvider options={HTML5toTouch}>

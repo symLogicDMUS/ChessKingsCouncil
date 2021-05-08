@@ -101,31 +101,13 @@ export const styles = {
         fontFamily: 'Roboto-Light, Roboto',
     }),
     promo_all: props => ({
-        marginLeft: 'unset',
         "& .MuiSvgIcon-root": {
-            '@media screen and (max-width: 960px)': {
-                fontSize: '1.1rem',
-            },
-            '@media screen and (min-width: 960px) and (max-width: 1040px)': {
-                fontSize: '1.1rem',
-            },
-            '@media screen and (min-width: 1040px)': {
-                fontSize: '1.2rem',
-            },
+            fontSize: '1.1rem',
         },
         "& .MuiTypography-root": {
-            marginRight: 'auto',
             letterSpacing: '0.0075em',
             fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-            '@media screen and (max-width: 960px)': {
-                fontSize: '1rem',
-            },
-            '@media screen and (min-width: 960px) and (max-width: 1040px)': {
-                fontSize: '0.9rem'
-            },
-            '@media screen and (min-width: 1040px)': {
-                fontSize: '1rem',
-            },
+            fontSize: '1rem',
         },
     }),
     search: props => ({
@@ -141,18 +123,9 @@ export const styles = {
     }),
     title: props => ({
         lineHeight: 1.6,
-        marginRight: 'auto',
         letterSpacing: '0.0075em',
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
-        },
-        '@media screen and (min-width: 960px) and (max-width: 1040px)': {
-            fontSize: '0.9rem'
-        },
-        '@media screen and (min-width: 1040px)': {
-            fontSize: '1rem',
-        },
+        fontSize: '1rem',
     }),
     tools: props => ({
         display: 'flex',
@@ -161,24 +134,6 @@ export const styles = {
         justifyContent: 'flex-start',
         marginBottom: 'auto',
         marginTop: 24,
-    }),
-    drawer: props => ({
-        "& .MuiToolbar-gutters": {
-            '@media screen and (max-width: 960px)': {
-                paddingLeft: 16,
-                paddingRight: 56,
-            },
-            '@media screen and (min-width: 960px)': {
-                padding: 0
-            },
-        },
-    }),
-    appBar: props => ({
-        '@media screen and (max-width: 340px)': {
-            "& .MuiIconButton-root": {
-                padding: 4,
-            },
-        },
     }),
     subs_modal: props => ({
         position: 'absolute',

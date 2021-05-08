@@ -8,8 +8,9 @@ import { getOppositeColorName } from "../../helpers/getOppositeColorName";
 import {MuiSwitch} from "../../Reuseables/Clickables/MuiSwitch";
 import {RangeAnalysisSwitch} from "./RangeAnalysisSwitch";
 import {Adjuster} from "../../Reuseables/AppBar/Adjuster";
-import { useStyles } from "./StatusBar.jss";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
+import { useStyles } from "./StatusBar.jss";
+import SignInOutButton from "../../Home/SignInOutButton";
 
 function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }) {
 
@@ -37,52 +38,29 @@ function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }
 
     return (
         <>
-            <MediaQuery maxWidth={960}>
-                <Box className={classes.statusBarSm}>
-                    <Box className={classes.statusMessage}>
-                        <MediaQuery minWidth={560}>
-                            <Adjuster>
-                                <Typography className={classes.statusTextSm}>
-                                    Range Analysis
-                                </Typography>
-                            </Adjuster>
-                        </MediaQuery>
-                        <Typography className={classes.statusTextSm} variant='h6'>
-                            {getMessage()}
-                        </Typography>
-                    </Box>
-                    <MediaQuery minWidth={560}>
+            <Box className={classes.status}>
+                <Typography
+                    variant="h6"
+                    noWrap={true}
+                    className={classes.text}
+                >
+                    {getMessage()}
+                </Typography>
+            </Box>
+            <Box className={classes.statusBar}>
+                <MediaQuery maxWidth={960}>
+                    <SeeMore theme={theme} className={classes.range_analysis_switch}>
                         <MuiSwitch
                             theme={theme}
-                            isChecked={isRangeAnalysis}
                             control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
                             labelPlacement={'start'}
                         >
                             Range Analysis
                         </MuiSwitch>
-                    </MediaQuery>
-                    <MediaQuery maxWidth={560}>
-                        <SeeMore theme={theme}>
-                            <MuiSwitch
-                                theme={theme}
-                                control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
-                                labelPlacement={'start'}
-                            >
-                                Range Analysis
-                            </MuiSwitch>
-                        </SeeMore>
-                    </MediaQuery>
-                </Box>
-            </MediaQuery>
-            <MediaQuery minWidth={960}>
-                <Typography
-                    variant="h6"
-                    noWrap={true}
-                    className={classes.statusBarLg}
-                >
-                    {getMessage()}
-                </Typography>
-            </MediaQuery>
+                    </SeeMore>
+                </MediaQuery>
+                <SignInOutButton theme={theme} className={classes.signOut}/>
+            </Box>
         </>
     );
 }

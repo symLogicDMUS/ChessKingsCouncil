@@ -9,11 +9,11 @@ export function MuiSwitch({control, isChecked, className, theme, labelPlacement,
         <FormControlLabel
             control={control}
             label={children}
+            checked={isChecked}
             className={clsx(classes.root, {
                 [className]: className,
             })}
             labelPlacement={labelPlacement}
-            checked={isChecked}
         />
     );
 }

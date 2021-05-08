@@ -1,9 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {rightDrawerWidth} from "../Drawers/ResponsiveDrawer.jss";
+import {leftDrawerWidth, rightDrawerWidth} from "../Drawers/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles({
     appBarLg: props => ({
-        width: '57vw',
-        marginRight: rightDrawerWidth,
+        "& .MuiToolbar-gutters": {
+            paddingLeft: `calc(${leftDrawerWidth} + 16px)`,
+            paddingRight: `calc(${rightDrawerWidth} + 16px)`,
+        },
     }),
 }, {index: 1});

@@ -1,12 +1,34 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
+import {leftDrawerWidth} from "../Drawers/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles({
-    appBarCompressed: props => ({
-        width: `calc(82vw - ${miniVariantIconsColumnWidth}px)`,
-        marginRight: miniVariantIconsColumnWidth,
+
+    /*without miniVariant icon column*/
+    appBarRelaxed1: props => ({
+        "& .MuiToolbar-gutters": {
+            paddingLeft: 16,
+            paddingRight:  16,
+        },
     }),
-    appBarRelaxed: props => ({
-        width: '100vw',
+    appBarCompressed1: props => ({
+        "& .MuiToolbar-gutters": {
+            paddingLeft: `calc(${leftDrawerWidth} + 16px)`,
+            paddingRight: 16,
+        }
+    }),
+
+    /*with miniVariant icon column*/
+    appBarRelaxed2: props => ({
+        "& .MuiToolbar-gutters": {
+            paddingLeft: 16,
+            paddingRight: miniVariantIconsColumnWidth + 16,
+        },
+    }),
+    appBarCompressed2: props => ({
+        "& .MuiToolbar-gutters": {
+            paddingLeft: `calc(${leftDrawerWidth} + 16px)`,
+            paddingRight: miniVariantIconsColumnWidth + 16,
+        }
     }),
 }, {index: 1});

@@ -12,7 +12,7 @@ import Button from "@material-ui/core/Button";
 import { UserContext } from "../../UserContext";
 import { useStyles } from "./SignInOutButton.jss";
 
-function SignInOutButton({ theme, className, style, }) {
+function SignInOutButton({ theme, className, style}) {
     const uid = useContext(UserContext);
     const isSignedIn = Boolean(uid);
     const [signInWindow, setSignInWindow] = useState(false);
@@ -45,7 +45,7 @@ function SignInOutButton({ theme, className, style, }) {
                     className={clsx(classes.button, {
                         [className]: className,
                     })}
-                    style={style}
+                    // style={style}
                     aria-label="account of current user"
                     aria-controls="menu-appbar"
                     aria-haspopup="true"

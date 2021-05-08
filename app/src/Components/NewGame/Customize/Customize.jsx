@@ -346,8 +346,6 @@ class Customize extends React.Component {
                     elevation={0}
                     appBarType="3item"
                     theme={this.state.theme}
-                    className={this.props.classes.drawer}
-                    appBarClassName={this.props.classes.appBar}
                     appBarContent={
                         <ThreeItemAppBarContent
                             theme={this.state.theme}
@@ -425,7 +423,6 @@ class Customize extends React.Component {
                         <CustomizeToolbar
                             subs={this.subs}
                             promos={this.promos}
-                            // pieceNames={this.getPieceListData()}
                             theme={this.state.theme}
                         />
                     }

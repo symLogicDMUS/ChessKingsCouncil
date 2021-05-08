@@ -7,6 +7,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { TwoItemAppBarContent } from "./TwoItemAppBarContent";
 import { ThreeItemAppBarContent } from "./ThreeItemAppBarContent";
 import { useStyles } from "./AppBarContent.jss";
+import SignInOutButton from "../../../Home/SignInOutButton";
 
 export function AppBarContent({
     open,
@@ -22,11 +23,7 @@ export function AppBarContent({
     return (
         <>
             <Hidden mdUp>
-                <Box
-                    className={clsx(classes.content, {
-                        [className]: className,
-                    })}
-                >
+                <>
                     {type === "title" ? (
                         <PageTitle theme={theme} className={className}>
                             {children}
@@ -54,23 +51,22 @@ export function AppBarContent({
                             {children}
                         </ThreeItemAppBarContent>
                     ) : null}
-                </Box>
+                </>
             </Hidden>
             <Hidden smDown>
-                <Box
-                    className={clsx(classes.content, {
-                        [className]: className,
-                    })}
-                >
+                <>
                     {type === "title" ? (
-                        <Typography
-                            variant="h6"
-                            className={clsx(classes.title, {
-                                [className]: className,
-                            })}
-                        >
-                            {children}
-                        </Typography>
+                        <>
+                            <Typography
+                                variant="h6"
+                                className={clsx(classes.title, {
+                                    [className]: className,
+                                })}
+                            >
+                                {children}
+                            </Typography>
+                            <SignInOutButton theme={theme} />
+                        </>
                     ) : null}
                     {type === "2item" ? (
                         <TwoItemAppBarContent
@@ -94,7 +90,7 @@ export function AppBarContent({
                             {children}
                         </ThreeItemAppBarContent>
                     ) : null}
-                </Box>
+                </>
             </Hidden>
             {type === "custom" ? <>{children}</> : null}
         </>

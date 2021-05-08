@@ -12,6 +12,7 @@ export function PageTitle({theme, className, children}) {
                 [className]: className,
             })}
             noWrap
+            style={{marginRight: 'auto'}}
         >
             {children}
         </Typography>

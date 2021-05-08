@@ -3,6 +3,8 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {SeeMore} from "../../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import SignInOutButton from "../../../Home/SignInOutButton";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import {useStyles} from "./ThreeItemAppBarContent.jss";
 
 export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIcon2, children}) {
@@ -13,79 +15,54 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
 
     const classes = useStyles();
 
-    const getComponent = () => {
-        if (lg) {
-            return (
+    return (
+        <>
+            {lg && (
                 <Box
-                    className={clsx(classes.appBar, {
-                        [classes.appBarLg]: true,
+                    className={clsx(classes.content, {
                         [className]: className,
                     })}
                 >
-                    <Box className={clsx(classes.itemBox, {[classes.widthSqrItemSizeLg]: true})}>
-                        {children[0]}
-                    </Box>
-                    <Box className={clsx(classes.itemBox, {[classes.widthSqrItemSizeLg]: true})}>
+                    {children[0]}
+                    {children[1]}
+                    {children[2]}
+                    <SignInOutButton theme={theme} />
+                </Box>
+            )}
+            {md && (
+                <Box
+                    className={clsx(classes.content, {
+                        [className]: className
+                    })}
+                >
+                    {children[0]}
+                    {children[1]}
+                    <SeeMore theme={theme} icon={seeMoreIcon2}>
+                        {children[2]}
+                    </SeeMore>
+                    <SeeMore theme={theme} icon={<AccountBoxIcon />}>
+                        <SignInOutButton theme={theme} />
+                    </SeeMore>
+                </Box>
+            )}
+            {sm && (
+                <Box
+                    className={clsx(classes.content, {
+                        [className]: className
+                    })}
+                >
+                    {children[0]}
+                    <SeeMore theme={theme} icon={seeMoreIcon} >
                         {children[1]}
-                    </Box>
-                    <Box className={clsx(classes.itemBox, {[classes.widthSqrItemSizeLg]: true})}>
+                    </SeeMore>
+                    <SeeMore theme={theme} icon={seeMoreIcon2}>
                         {children[2]}
-                    </Box>
+                    </SeeMore>
+                    <SeeMore theme={theme} icon={<AccountBoxIcon />}>
+                        <SignInOutButton theme={theme} />
+                    </SeeMore>
                 </Box>
-            )
-        }
-
-        if (md) {
-            return (
-                <Box
-                    className={clsx(classes.appBar, {
-                        [classes.appBarMd]: true,
-                        [classes.marginRight]: true,
-                        [className]: className
-                    })}
-                >
-                    <Box className={clsx(classes.itemBox, {[classes.justifyStart]: true})}>
-                        {children[0]}
-                    </Box>
-                    <Box className={clsx(classes.itemBox, {
-                        [classes.justifyEndAndGrow]: true,
-                    })}>
-                        <SeeMore theme={theme} icon={seeMoreIcon}>
-                            {children[1]}
-                        </SeeMore>
-                        {children[2]}
-                    </Box>
-                </Box>
-            )
-        }
-
-        if (sm) {
-            return (
-                <Box
-                    className={clsx(classes.appBar, {
-                        [classes.appBarSm]: true,
-                        [className]: className
-                    })}
-                >
-                    <Box className={clsx(classes.itemBox, {[classes.justifyStart]: true})}>
-                        {children[0]}
-                    </Box>
-                    <Box className={clsx(classes.itemBox, {[classes.marginLeftAuto]: true})} >
-                        <SeeMore theme={theme} icon={seeMoreIcon} >
-                            {children[1]}
-                        </SeeMore>
-                        <SeeMore theme={theme} icon={seeMoreIcon2}>
-                            {children[2]}
-                        </SeeMore>
-                    </Box>
-                </Box>
-            )
-        }
-    };
-
-    return (
-        <>
-            {getComponent()}
+            )}
         </>
     );
 }
