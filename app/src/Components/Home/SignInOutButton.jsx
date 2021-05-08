@@ -39,13 +39,13 @@ function SignInOutButton({ theme, className, style}) {
                     goBack={() => setSignInWindow(false)}
                 />
             ) : null}
-            <MediaQuery maxWidth={420}>
+            <MediaQuery maxWidth={480}>
                 <IconButton
                     onClick={handleMenu}
                     className={clsx(classes.button, {
                         [className]: className,
                     })}
-                    // style={style}
+                    style={style}
                     aria-label="account of current user"
                     aria-controls="menu-appbar"
                     aria-haspopup="true"
@@ -81,7 +81,7 @@ function SignInOutButton({ theme, className, style}) {
                     </MenuItem>
                 </Menu>
             </MediaQuery>
-            <MediaQuery minWidth={420}>
+            <MediaQuery minWidth={480}>
                 {isSignedIn ? (
                     <Button
                         onClick={() => firebase.auth().signOut()}

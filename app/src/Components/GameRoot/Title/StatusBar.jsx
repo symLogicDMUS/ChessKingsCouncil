@@ -7,14 +7,16 @@ import { resolvePlayerType } from "../../helpers/resolvePlayerType";
 import { getOppositeColorName } from "../../helpers/getOppositeColorName";
 import {MuiSwitch} from "../../Reuseables/Clickables/MuiSwitch";
 import {RangeAnalysisSwitch} from "./RangeAnalysisSwitch";
-import {Adjuster} from "../../Reuseables/AppBar/Adjuster";
 import {SeeMore} from "../../Reuseables/UserInput/SeeMore";
-import { useStyles } from "./StatusBar.jss";
 import SignInOutButton from "../../Home/SignInOutButton";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {marginLeft, useStyles} from "./StatusBar.jss";
 
-function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }) {
+function StatusBar({ turn, winner, condition, onChange, theme }) {
 
     const classes = useStyles({theme: theme});
+
+    const lg = useMediaQuery("(min-width:960px)");
 
     const getMessage = () => {
         condition = capitalize(condition);
@@ -59,7 +61,7 @@ function StatusBar({ turn, winner, condition, onChange, isRangeAnalysis, theme }
                         </MuiSwitch>
                     </SeeMore>
                 </MediaQuery>
-                <SignInOutButton theme={theme} className={classes.signOut}/>
+                <SignInOutButton theme={theme} style={lg ? marginLeft : null}/>
             </Box>
         </>
     );

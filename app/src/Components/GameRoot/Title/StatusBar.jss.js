@@ -3,6 +3,10 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {appBarHeight, leftDrawerWidth} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
+export const marginLeft = {
+    marginLeft: 'auto',
+};
+
 export const useStyles = makeStyles({
     statusBar: props => ({
         zIndex: 7,
@@ -38,10 +42,5 @@ export const useStyles = makeStyles({
     }),
     range_analysis_switch: props => ({
         marginLeft: 'auto',
-    }),
-    signOut: props => ({
-       '@media screen and (min-width: 960px)': {
-           marginLeft: 'auto',
-       },
     }),
 }, {index: 1});
