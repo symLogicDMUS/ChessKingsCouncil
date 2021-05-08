@@ -7,24 +7,33 @@ import Button from "@material-ui/core/Button";
 import { useStyles } from "./FirebaseGuestLoginButton.jss";
 import clsx from "clsx";
 
-export function FirebaseGuestLoginButton() {
-
+export function FirebaseGuestLoginButton({callback}) {
     const anonymousLogin = () => {
         firebase
             .auth()
             .signInAnonymously()
-            .catch(function (error) {
+            .then(r => {
+                if (!!callback) {
+                    callback()
+                }
+            }).catch(function (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
-                console.log(`error: ${errorMessage} code: ${errorCode}`)
-            })
-    }
+                console.log(`error: ${errorMessage} code: ${errorCode}`);
+            });
+    };
 
     const classes = useStyles();
 
-    return <Button onClick={anonymousLogin} className={clsx(classes.button, {[classes.color1]: true})} variant='contained'>
-        <Typography className={classes.text} noWrap>
-            Continue without sign in
-        </Typography>
-    </Button>;
+    return (
+        <Button
+            onClick={anonymousLogin}
+            className={clsx(classes.button, { [classes.color1]: true })}
+            variant="contained"
+        >
+            <Typography className={classes.text} noWrap>
+                Continue without sign in
+            </Typography>
+        </Button>
+    );
 }

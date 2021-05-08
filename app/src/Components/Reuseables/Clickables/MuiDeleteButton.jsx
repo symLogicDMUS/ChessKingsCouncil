@@ -89,7 +89,6 @@ export function MuiDeleteButton(props) {
                             container: classes2.container,
                             paper: classes2.dialog_window
                         }}
-                        // className={className}
                         onBackdropClick={() => setAskLoginModal(false)}
                     >
                         <DialogTitle className={classes2.title}>Do you want to sign in?</DialogTitle>
@@ -133,7 +132,7 @@ export function MuiDeleteButton(props) {
                                     className={classes2.icon}
                                 />
                             </Button>
-                            <FirebaseGuestLoginButton />
+                            <FirebaseGuestLoginButton callback={() => setAskLoginModal(false)} />
                             <Button className={classes2.cancel_button} variant='outlined' onClick={() => setAskLoginModal(false)}>
                                 Cancel
                             </Button>
