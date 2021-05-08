@@ -23,9 +23,9 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className,
                     })}
                 >
-                    {children[0]}
-                    {children[1]}
-                    {children[2]}
+                    <div className={classes.item}>{children[0]}</div>
+                    <div className={classes.item}>{children[1]}</div>
+                    <div className={classes.item}>{children[2]}</div>
                     <SignInOutButton theme={theme} />
                 </Box>
             )}
@@ -35,9 +35,9 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className
                     })}
                 >
-                    {children[0]}
-                    {children[1]}
-                    <SeeMore theme={theme} icon={seeMoreIcon2}>
+                    <div className={classes.item}>{children[0]}</div>
+                    <div className={classes.item}>{children[1]}</div>
+                    <SeeMore theme={theme} icon={seeMoreIcon2} className={classes.item}>
                         {children[2]}
                     </SeeMore>
                     <SeeMore theme={theme} icon={<AccountBoxIcon />}>
@@ -51,11 +51,11 @@ export function ThreeItemAppBarContent({className, theme, seeMoreIcon, seeMoreIc
                         [className]: className
                     })}
                 >
-                    {children[0]}
-                    <SeeMore theme={theme} icon={seeMoreIcon} >
+                    <div className={classes.item}>{children[0]}</div>
+                    <SeeMore theme={theme} icon={seeMoreIcon} className={classes.item} >
                         {children[1]}
                     </SeeMore>
-                    <SeeMore theme={theme} icon={seeMoreIcon2}>
+                    <SeeMore theme={theme} icon={seeMoreIcon2} className={classes.item}>
                         {children[2]}
                     </SeeMore>
                     <SeeMore theme={theme} icon={<AccountBoxIcon />}>

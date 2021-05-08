@@ -21,6 +21,7 @@ import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
 import { ThreeItemAppBarContent } from
         "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
 import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
+import {marginRight} from "../../PieceProfiles/Header/LoadDeleteHeader.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
@@ -351,7 +352,7 @@ class Customize extends React.Component {
                             theme={this.state.theme}
                             seeMoreIcon2={<SearchIcon style={textColor(this.state.theme)}/>}
                         >
-                            <PageTitle theme={this.state.theme}>
+                            <PageTitle theme={this.state.theme} style={marginRight}>
                                 Customize Game
                             </PageTitle>
                             <MuiCheckbox

@@ -109,6 +109,7 @@ export const styles = {
             fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
             fontSize: '1rem',
         },
+        marginRight: 8,
     }),
     search: props => ({
         margin: 'unset',
@@ -120,6 +121,7 @@ export const styles = {
             flexGrow: 10,
             maxWidth: '36.5vw',
         },
+        marginLeft: 8,
     }),
     title: props => ({
         lineHeight: 1.6,

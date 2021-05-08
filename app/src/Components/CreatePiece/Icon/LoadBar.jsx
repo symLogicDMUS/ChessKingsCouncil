@@ -47,7 +47,10 @@ function LoadBar({
                 const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 setPercentage(percentage)
             },
-            function error(err) {},
+            function error(err) {
+                setPercentage(100)
+                console.log(err)
+            },
             async function complete() {
                 return await firebase
                     .storage()
@@ -113,7 +116,9 @@ function LoadBar({
                     oldPieceFromDb.B.img,
                 ]);
                 updateCountsOnOverwrite(oldUrlStrs, newUrlStrs).then((r) => {
-                    saveDef(pieceName, pendingUpload).then((r) => {});
+                    saveDef(pieceName, pendingUpload).then((r) => {
+                        close()
+                    });
                 });
             } else {
                 newUrlStrs = filterSamples([pendingUpload.W.img, pendingUpload.B.img]);

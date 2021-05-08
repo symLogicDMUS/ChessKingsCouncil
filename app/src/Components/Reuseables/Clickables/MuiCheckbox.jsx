@@ -18,13 +18,10 @@ export function MuiCheckbox(props) {
             classes={props.classesObj}
             className={clsx(classes.form_control_label_root, {
                 [props.className]: props.className,
-                [props.className]: props.className,
-                [props.addedClassName]: props.addedClassName,
             })}
             label={
                 <Typography
                     className={clsx(classes.text, {
-                        [props.className]: props.className,
                         [props.addedClassName]: props.addedClassName,
                         [props.textClassName]: props.textClassName,
                     })}
@@ -41,7 +38,6 @@ export function MuiCheckbox(props) {
                     icon={
                         <CheckBoxOutlineBlankIcon
                             className={clsx(classes.checkbox, {
-                                [props.className]: props.className,
                                 [props.addedClassName]: props.addedClassName,
                                 [props.checkboxClassName]: props.checkboxClassName,
                             })}
@@ -50,7 +46,6 @@ export function MuiCheckbox(props) {
                     checkedIcon={
                         <CheckBoxIcon
                             className={clsx(classes.checkbox, {
-                                [props.className]: props.className,
                                 [props.addedClassName]: props.addedClassName,
                                 [props.checkboxClassName]: props.checkboxClassName,
                             })}
