@@ -1,1 +1,4 @@
 1. saving piece using sample images did not add img_ref (correct)
+2. uploading an image for Goolge and guest successfully puts storage image in db. However, when switching users after image
+   has been displayed and rendered and then saving the piece results in an increment to an image ref for the new user that points to a location in
+   the old users folder.

@@ -13,29 +13,30 @@ export function ImgWindow({
     color,
     resetImg,
     setPieceImg,
+    setImgFileObj,
     whiteWindow,
     theme,
 }) {
     const classes = useStyles({ theme });
 
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const [moreAnchorEl, setMoreAnchorEl] = useState(null);
+    const isMenuOpen = Boolean(moreAnchorEl);
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
+    const handleMenuOpen = (event) => {
+        setMoreAnchorEl(event.currentTarget);
     };
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
+    const handleMenuClose = () => {
+        setMoreAnchorEl(null);
     };
 
     return (
         <>
             <MuiMenu
                 theme={theme}
-                open={isMobileMenuOpen}
-                anchorEl={mobileMoreAnchorEl}
-                onClose={handleMobileMenuClose}
+                open={isMenuOpen}
+                anchorEl={moreAnchorEl}
+                onClose={handleMenuClose}
                 anchorOrigin={originTransform}
                 transformOrigin={originTransform}
             >
@@ -45,7 +46,7 @@ export function ImgWindow({
                         color={color}
                         resetImg={resetImg}
                         setPieceImg={setPieceImg}
-                        handleMobileMenuClose={handleMobileMenuClose}
+                        handleMobileMenuClose={handleMenuClose}
                         startIcon={
                             <AddPhotoAlternateIcon className={classes.icon} />
                         }
@@ -57,8 +58,9 @@ export function ImgWindow({
                     <UploadImgButton
                         color={color}
                         id="choose-img"
+                        setImgFileObj={setImgFileObj}
                         setPieceImg={setPieceImg}
-                        close={handleMobileMenuClose}
+                        close={handleMenuClose}
                         theme={theme}
                     >
                         Upload
@@ -68,7 +70,7 @@ export function ImgWindow({
             {src ? (
                 <img
                     src={src}
-                    onClick={handleMobileMenuOpen}
+                    onClick={handleMenuOpen}
                     className={clsx(classes.img_window, {
                         [classes.white_window]: whiteWindow,
                         [classes.black_window]: !whiteWindow,
@@ -78,7 +80,7 @@ export function ImgWindow({
             ) : (
                 <Avatar
                     variant="rounded"
-                    onClick={handleMobileMenuOpen}
+                    onClick={handleMenuOpen}
                     className={clsx(classes.img_window, {
                         [classes.white_window]: whiteWindow,
                         [classes.black_window]: !whiteWindow,

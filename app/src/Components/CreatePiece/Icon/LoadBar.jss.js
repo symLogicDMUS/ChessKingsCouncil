@@ -34,9 +34,4 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'flex-start',
     }),
-    load_progress: props => ({
-        height: '3.5rem',
-        width: props.percentage,
-        backgroundColor: themes[props.theme].text,
-    }),
 }, {index: 1});

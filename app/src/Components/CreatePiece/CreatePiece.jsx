@@ -2,7 +2,6 @@ import React from "react";
 import { copy } from "../helpers/copy";
 import { getDef } from "../../API/getDef";
 import { saveDef } from "../../API/saveDef";
-import MediaQuery from "react-responsive/src";
 import "../Reuseables/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
@@ -22,16 +21,14 @@ import { incrementImgRefCounts } from "../../API/incrementImgRefCounts";
 import { updateCountsOnOverwrite } from "../../API/updateCountsOnOverwrite";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
-import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
-import { PieceName } from "../PieceProfiles/Header/PieceName";
-import { styles } from "./CreatePiece.jss";
-import CreatePieceToolbar from "./CreatePieceToolbar";
 import {filterSamples} from "../../API/filterSamples";
 import AskLoginButton from "../Home/AskLoginButton";
-import {UserContext} from "../../UserContext";
-import SignInOutButton from "../Home/SignInOutButton";
 import CreatePieceTitle from "./CreatePieceTitle";
+import CreatePieceToolbar from "./CreatePieceToolbar";
+import {UserContext} from "../../UserContext";
+import { styles } from "./CreatePiece.jss";
+import LoadBar from "./Icon/LoadBar";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -70,6 +67,8 @@ class CreatePiece extends React.Component {
     }
     state = {
         loadInstance: 0,
+        saveInstance: 0,
+        uploadPiece: false,
         theme: "dark",
         binaryValue: 0,
         justSaved: false,
@@ -78,6 +77,8 @@ class CreatePiece extends React.Component {
         locSqrAnimate: false,
         isFirstVisit: false,
         miniVariantTool: null,
+        whiteUrl: null,
+        blackUrl: null,
         clientX: 0,
         clientY: 0,
     };
@@ -94,7 +95,12 @@ class CreatePiece extends React.Component {
     offsets = [];
     spanDisplays = getBinaryBoarAllFalse();
     offsetDisplays = getBinaryBoarAllFalse();
-    whiteAndBlackImgs = { white: null, black: null };
+    whiteAndBlackImgs = {white: null, black: null};
+    imgFileObjs = { white: null, black: null };
+    newPiece = {
+        W: {spans: null, offsets: null, img: null},
+        B: {spans: null, offsets: null, img: null},
+    };
     name = "";
     location = "d4";
     loadedName = "";
@@ -107,12 +113,15 @@ class CreatePiece extends React.Component {
         document.body.className = "dark-background";
     }
 
-    componentDidUpdate() {
-        if (this.state.theme === "tan") {
-            document.body.className = "tan-background-alt";
-        } else {
-            document.body.className = `${this.state.theme}-background`;
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.saveInstance !== prevState.saveInstance) {
+            this.setState({uploadPiece: true})
         }
+        // if (this.state.theme === "tan") {
+        //     document.body.className = "tan-background-alt";
+        // } else {
+        //     document.body.className = `${this.state.theme}-background`;
+        // }
     }
 
     updateFirstVisit = isFirstVisit => {
@@ -145,11 +154,14 @@ class CreatePiece extends React.Component {
         this.name = name;
         this.offsets = offsets;
         this.spans = getSpansDict(spans);
-        this.whiteAndBlackImgs = { white: whiteImg, black: blackImg };
+        this.whiteAndBlackImgs.white = whiteImg;
+        this.whiteAndBlackImgs.black = blackImg;
+        
         this.loadedName = copy(this.name);
         this.loadedSpans = copy(this.spans);
         this.loadedOffsets = copy(this.offsets);
         this.loadedImgs = copy(this.whiteAndBlackImgs);
+
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
@@ -158,52 +170,23 @@ class CreatePiece extends React.Component {
     };
 
     save = () => {
-        const newPiece = {
-            W: { spans: null, offsets: null, img: null },
-            B: { spans: null, offsets: null, img: null },
+         this.newPiece = {
+            W: {spans: null, offsets: null, img: null, imgFileObj: null},
+            B: {spans: null, offsets: null, img: null, imgFileObj: null},
         };
         const angles = [];
         for (const s of Object.keys(this.spans)) {
             if (this.spans[s]) angles.push(s);
         }
-        newPiece.W.offsets = this.offsets;
-        newPiece.W.spans = getStepFuncNames(angles);
-        newPiece.B.spans = getStepFuncNames(getRotations(angles, 180));
-        newPiece.B.offsets = flipOffsets(this.offsets);
-        newPiece.W.img = this.whiteAndBlackImgs.white;
-        newPiece.B.img = this.whiteAndBlackImgs.black;
-
-        let oldUrlStrs, newUrlStrs;
-
-        getDef(this.name).then(([oldPieceFromDb]) => {
-            if (oldPieceFromDb) {
-                newUrlStrs = filterSamples([newPiece.W.img, newPiece.B.img])
-                oldUrlStrs = filterSamples([oldPieceFromDb.W.img, oldPieceFromDb.B.img])
-                updateCountsOnOverwrite(
-                    oldUrlStrs,
-                    newUrlStrs
-                ).then((r) => {
-                    saveDef(this.name, newPiece).then((r) => {
-                        this.setState({
-                            unsavedChanges: false,
-                            justSaved: true,
-                        });
-                    });
-                });
-            } else {
-                newUrlStrs = filterSamples([newPiece.W.img, newPiece.B.img])
-                incrementImgRefCounts(
-                    Array.from(new Set(newUrlStrs))
-                ).then((r) => {
-                    saveDef(this.name, newPiece).then((r) => {
-                        this.setState({
-                            unsavedChanges: false,
-                            justSaved: true,
-                        });
-                    });
-                });
-            }
-        });
+        this.newPiece.W.offsets = this.offsets;
+        this.newPiece.W.spans = getStepFuncNames(angles);
+        this.newPiece.B.spans = getStepFuncNames(getRotations(angles, 180));
+        this.newPiece.B.offsets = flipOffsets(this.offsets);
+        this.newPiece.W.img = this.whiteAndBlackImgs.white;
+        this.newPiece.B.img = this.whiteAndBlackImgs.black;
+        this.newPiece.W.imgFileObj = this.imgFileObjs.white;
+        this.newPiece.B.imgFileObj = this.imgFileObjs.black;
+        this.setState({saveInstance: this.state.saveInstance + 1});
     };
 
     /**
@@ -217,11 +200,12 @@ class CreatePiece extends React.Component {
             this.spans = copy(this.loadedSpans);
             this.offsets = copy(this.loadedOffsets);
             this.whiteAndBlackImgs = copy(this.loadedImgs);
-            this.setLoc("d4");
         }
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
+        }, () => {
+            this.setLoc("d4");
         });
         this.triggerRender();
     };
@@ -233,10 +217,26 @@ class CreatePiece extends React.Component {
     erase = () => {
         this.resetOffsetsAndRange();
         this.name = "";
-        this.whiteAndBlackImgs = { white: null, black: null };
+        this.whiteAndBlackImgs = {
+            white: null,
+            black: null
+        }
         this.setState({
             unsavedChanges: false,
             loadInstance: this.state.loadInstance + 1,
+        });
+    };
+
+    saveCallback = () => {
+        this.imgFileObjs = {
+            white: null,
+            black: null
+        }
+        this.setState({
+            justSaved: true,
+            newUpload: false,
+            uploadPiece: false,
+            unsavedChanges: false,
         });
     };
 
@@ -247,9 +247,17 @@ class CreatePiece extends React.Component {
     };
 
     /**used by Icon tool*/
-    setPieceImg = (color, imgUrl) => {
-        this.whiteAndBlackImgs[color] = imgUrl;
-        this.setState({ unsavedChanges: true });
+    setPieceImg = (color, imgStr) => {
+        this.whiteAndBlackImgs[color] = imgStr;
+        this.setState({unsavedChanges: true});
+        console.log(imgStr)
+    };
+
+    /**used by UploadImgButton from Icon tool*/
+    setImgFileObj = (color, fileObj) => {
+        this.imgFileObjs[color] = fileObj;
+        this.setState({unsavedChanges: true });
+        console.log(fileObj)
     };
 
     /**used by Range tool*/
@@ -375,6 +383,16 @@ class CreatePiece extends React.Component {
 
     modals = () => (
         <>
+            {this.state.uploadPiece && (
+                <LoadBar
+                    pieceName={this.name}
+                    newPiece={this.newPiece}
+                    theme={this.state.theme}
+                    close={this.saveCallback}
+                    saveInstance={this.state.saveInstance}
+                    key={`${this.state.saveInstance}-piece-upload`}
+                />
+            )}
             {this.state.isFirstVisit && this.state.justSaved && (
                 <PuttingThePieceICreatedIntoAGame
                     theme={this.state.theme}
@@ -445,6 +463,7 @@ class CreatePiece extends React.Component {
                             <Icon
                                 key="Icon"
                                 theme={this.state.theme}
+                                setImgFileObj={this.setImgFileObj}
                                 resetImg={this.resetImg}
                                 setPieceImg={this.setPieceImg}
                                 whiteAndBlackImgs={this.whiteAndBlackImgs}
@@ -498,6 +517,7 @@ class CreatePiece extends React.Component {
                                 whiteAndBlackImgs={this.whiteAndBlackImgs}
                                 setNewPieceImg={this.setPieceImg}
                                 resetImg={this.resetImg}
+                                setImgFileObj={this.setImgFileObj}
                                 theme={this.state.theme}
                             />
                             <ToolButtonAlt

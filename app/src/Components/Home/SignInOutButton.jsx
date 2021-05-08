@@ -3,13 +3,12 @@ import * as firebase from "firebase";
 import "firebase/auth";
 import clsx from "clsx";
 import SignInWindow from "./SignInWindow";
+import Button from "@material-ui/core/Button";
+import MediaQuery from "react-responsive/src";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import IconButton from "@material-ui/core/IconButton";
-import MediaQuery from "react-responsive/src";
 import {MenuItem, Typography} from "@material-ui/core";
-import Menu from "@material-ui/core/Menu";
 import {MuiMenu} from "../Reuseables/UserInput/MuiMenu";
-import Button from "@material-ui/core/Button";
 import { UserContext } from "../../UserContext";
 import { useStyles } from "./SignInOutButton.jss";
 
@@ -40,7 +39,7 @@ function SignInOutButton({ theme, className, style, variant}) {
                     goBack={() => setSignInWindow(false)}
                 />
             ) : null}
-            <MediaQuery maxWidth={480}>
+            <MediaQuery maxWidth={501}>
                 <IconButton
                     onClick={handleMenu}
                     className={clsx(classes.button, {
@@ -60,21 +59,36 @@ function SignInOutButton({ theme, className, style, variant}) {
                     onClose={handleMenuClose}
                     theme={theme}
                 >
-                    <MenuItem
-                        onClick={() => {
-                            handleMenuClose();
-                            firebase.auth().signOut();
-                        }}
-                        className={clsx(classes.button, {
-                            [className]: className,
-                        })}
-                        style={style}
-                    >
-                        <Typography noWrap>Sign Out</Typography>
-                    </MenuItem>
+                    {isSignedIn ? (
+                        <MenuItem
+                            onClick={() => {
+                                handleMenuClose();
+                                firebase.auth().signOut();
+                            }}
+                            className={clsx(classes.button, {
+                                [className]: className,
+                            })}
+                            style={style}
+                        >
+                            <Typography noWrap>Sign Out</Typography>
+                        </MenuItem>
+                    ) : (
+                        <MenuItem
+                            onClick={() => {
+                                handleMenuClose();
+                                setSignInWindow(true)
+                            }}
+                            className={clsx(classes.button, {
+                                [className]: className,
+                            })}
+                            style={style}
+                        >
+                            <Typography noWrap>Sign In</Typography>
+                        </MenuItem>
+                    )}
                 </MuiMenu>
             </MediaQuery>
-            <MediaQuery minWidth={480}>
+            <MediaQuery minWidth={501}>
                 {isSignedIn ? (
                     <Button
                         onClick={() => firebase.auth().signOut()}

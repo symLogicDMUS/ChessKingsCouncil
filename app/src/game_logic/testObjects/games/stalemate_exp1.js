@@ -2,14 +2,14 @@ export let stalemate_exp1 = {
     "fen": "3r1k2/8/8/8/b7/2n3nb/r7/4K3 w - - 0 1",
     "json": {
         "rooks_moved": {
-            "h1": True,
-            "a1": True,
-            "h8": True,
-            "a8": True
+            "h1": true,
+            "a1": true,
+            "h8": true,
+            "a8": true
         },
         "kings_moved": {
-            "e1": True,
-            "e8": True
+            "e1": true,
+            "e8": true
         },
         "pawn_histories": {},
         "last_pawn_move": "h5",
@@ -190,4 +190,4 @@ export let stalemate_exp1 = {
         "Bishop",
         "Knight"
     ]
-},
+}

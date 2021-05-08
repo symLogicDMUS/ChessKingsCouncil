@@ -3,7 +3,7 @@ import {ImgWindow} from "./ImgWindow";
 import {Typography} from "@material-ui/core";
 import {useStyles} from "./Icon.jss";
 
-function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
+function Icon({whiteAndBlackImgs, setPieceImg, resetImg, setImgFileObj, theme}) {
     const classes = useStyles({theme: theme});
 
     return (
@@ -16,6 +16,7 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                         whiteWindow={true}
                         resetImg={resetImg}
                         setPieceImg={setPieceImg}
+                        setImgFileObj={setImgFileObj}
                         src={whiteAndBlackImgs.white}
                     />
                     <ImgWindow
@@ -24,6 +25,7 @@ function Icon({whiteAndBlackImgs, setPieceImg, resetImg, theme}) {
                         whiteWindow={false}
                         resetImg={resetImg}
                         setPieceImg={setPieceImg}
+                        setImgFileObj={setImgFileObj}
                         src={whiteAndBlackImgs.black}
                     />
                 </span>

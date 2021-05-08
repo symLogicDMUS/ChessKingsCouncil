@@ -5,7 +5,6 @@ import { MoreVert } from "@material-ui/icons";
 import { SeeMore } from "../../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SignInOutButton from "../../../Home/SignInOutButton";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { useStyles } from "./TwoItemAppBarContent.jss";
 
 export function TwoItemAppBarContent({
@@ -15,8 +14,7 @@ export function TwoItemAppBarContent({
     children,
 }) {
     const lg = useMediaQuery("(min-width:768px)");
-    const md = useMediaQuery("(min-width:600px) and (max-width:768px)");
-    const sm = useMediaQuery("(max-width: 600px)");
+    const sm = useMediaQuery("(max-width: 768px)");
 
     const classes = useStyles({ theme: theme });
 
@@ -41,28 +39,7 @@ export function TwoItemAppBarContent({
                     >
                         {children[1]}
                     </SeeMore>
-                    <SeeMore
-                        theme={theme}
-                        icon={<AccountBoxIcon className={classes.icon} />}
-                    >
-                        <SignInOutButton theme={theme} hasNeighbor />
-                    </SeeMore>
-                </Box>
-            )}
-            {md && (
-                <Box
-                    className={clsx(classes.content, {
-                        [className]: className,
-                    })}
-                >
-                    {children[0]}
-                    {children[1]}
-                    <SeeMore
-                        theme={theme}
-                        icon={<AccountBoxIcon className={classes.icon} />}
-                    >
-                        <SignInOutButton theme={theme} hasNeighbor />
-                    </SeeMore>
+                    <SignInOutButton theme={theme} hasNeighbor />
                 </Box>
             )}
             {lg && (

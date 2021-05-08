@@ -8,6 +8,7 @@ import ToolButton from "../Reuseables/Clickables/ToolButton";
 function CreatePieceToolbar({
     pieceName,
     updateName,
+    setImgFileObj,
     whiteAndBlackImgs,
     setNewPieceImg,
     resetImg,
@@ -76,6 +77,7 @@ function CreatePieceToolbar({
                     {state.miniVariantTool === "Icon" && (
                         <IconModal
                             resetImg={resetImg}
+                            setImgFileObj={setImgFileObj}
                             setNewPieceImg={setNewPieceImg}
                             whiteAndBlackImgs={whiteAndBlackImgs}
                             toggleMiniVariantTool={toggleMiniVariantTool}
@@ -103,6 +105,7 @@ function CreatePieceToolbar({
                 iconName={"icon_tool"}
                 updateParent={toggleMiniVariantTool}
                 isActive={state.miniVariantTool === "Icon"}
+                setImgFileObj={setImgFileObj}
                 clientY={0}
             />
         </>

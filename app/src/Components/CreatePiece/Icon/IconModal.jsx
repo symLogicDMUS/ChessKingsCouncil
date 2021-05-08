@@ -12,6 +12,7 @@ function IconModal({
     whiteAndBlackImgs,
     setNewPieceImg,
     resetImg,
+    setImgFileObj,
     toggleMiniVariantTool,
     onAnimationComplete,
     drag,
@@ -58,6 +59,7 @@ function IconModal({
                         resetImg={resetImg}
                         setPieceImg={setNewPieceImg}
                         src={whiteAndBlackImgs.white}
+                        setImgFileObj={setImgFileObj}
                         theme={theme}
                     />
                     <ImgWindow
@@ -66,6 +68,7 @@ function IconModal({
                         resetImg={resetImg}
                         setPieceImg={setNewPieceImg}
                         src={whiteAndBlackImgs.black}
+                        setImgFileObj={setImgFileObj}
                         theme={theme}
                     />
                 </Box>
