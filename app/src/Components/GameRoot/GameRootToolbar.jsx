@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Portal } from "@material-ui/core";
+import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
-import { useStyles } from "../Reuseables/Animations/AnimatePresencePortal.jss";
 import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
 import ToolButton from "../Reuseables/Clickables/ToolButton";
 import ResignModal from "./SaveResignTool/ResignModal";
@@ -9,6 +8,13 @@ import GameInfoModal from "./GameInfo/GameInfoModal";
 import AskLoginButton from "../Home/AskLoginButton";
 import { UserContext } from "../../UserContext";
 import SaveAs from "./SaveResignTool/SaveAs";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import {icons} from "../styles/icons/top/icons.jss";
+import {SeeMore} from "../Reuseables/UserInput/SeeMore";
+import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
+import {RangeAnalysisSwitch} from "./Title/RangeAnalysisSwitch";
+import { useStyles as useMoreStyles } from "../Reuseables/Animations/AnimatePresencePortal.jss";
+import {useStyles} from "./GameRootToolbar.jss";
 
 function GameRootToolbar({
     defs,
@@ -19,6 +25,7 @@ function GameRootToolbar({
     gameType,
     playerType,
     changeName,
+    onChange,
     save,
     resign,
     theme,
@@ -67,7 +74,8 @@ function GameRootToolbar({
         },
     };
 
-    const classes = useStyles({ theme });
+    const classes = useStyles({theme});
+    const classes2 = useMoreStyles({ theme });
 
     return (
         <>
@@ -153,6 +161,24 @@ function GameRootToolbar({
                 updateParent={toggleMiniVariantTool}
                 theme={theme}
             />
+            <SeeMore
+                theme={theme}
+                icon={
+                    <SvgIcon className={classes.icon2}>
+                        {icons.board_icon}
+                    </SvgIcon>
+                }
+                listItem={true}
+                text='Range Analysis'
+            >
+                <MuiSwitch
+                    theme={theme}
+                    control={<RangeAnalysisSwitch theme={theme} onChange={onChange} />}
+                    labelPlacement={'start'}
+                >
+                    Range Analysis
+                </MuiSwitch>
+            </SeeMore>
             <ToolButton
                 name="Resign"
                 text="Resign"

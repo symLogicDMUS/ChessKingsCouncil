@@ -40,7 +40,9 @@ export const useStyles = makeStyles({
         color: themes[props.theme].text,
         margin: 'auto'
     }),
-    range_analysis_switch: props => ({
-        marginLeft: 'auto',
+    icon: props => ({
+       width: 15,
+       height: 15,
+        color: themes[props.theme].text,
     }),
 }, {index: 1});

@@ -44,7 +44,10 @@ export function SavedGames(props) {
                 toolButtons={null}
                 navHorizontal={isWide}
                 appBarContent={
-                    <TwoItemAppBarContent theme={props.theme} seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}>
+                    <TwoItemAppBarContent
+                        theme={props.theme}
+                        seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
+                    >
                         <PageTitle theme={props.theme} className={classes.title}>
                             Load Game
                         </PageTitle>

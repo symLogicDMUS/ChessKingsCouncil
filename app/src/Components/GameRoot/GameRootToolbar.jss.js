@@ -1,4 +1,4 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 import {themes} from "../styles/themes/themes.jss";
 
@@ -38,6 +38,11 @@ export const useStyles = makeStyles({
             height: '2.25vw',
             width: '2.25vw',
         },
+    }),
+    icon2: props => ({
+        color: themes[props.theme].text,
+        width: 18,
+        height: 18,
     }),
     drag_icon: props => ({
         color: themes[props.theme].text_alt,

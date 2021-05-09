@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useReducer} from "react";
+import React, {useContext, useEffect, useReducer, useState} from "react";
 import clsx from "clsx";
 import {copy} from "../helpers/copy";
 import CustomizeHeader from "./Header/CustomizeHeader";
@@ -17,8 +17,8 @@ const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
 /*children is a header or none, depending on the parent page*/
 function PieceProfiles (props) {
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
-    const uid = useContext(UserContext);
 
+    const uid = useContext(UserContext);
     useEffect(() => {
         let defs;
         if (uid) {
@@ -36,7 +36,7 @@ function PieceProfiles (props) {
             afterLoaded(defs)
         }
 
-    }, []);
+    }, [uid]);
 
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
@@ -146,3 +146,12 @@ function PieceProfiles (props) {
 }
 
 export default PieceProfiles;
+
+/*
+    const contextValue = useContext(SomeContext);
+    const [oldContextValue, saveContextValue] = useState(contextValue);
+    useEffect(() => {
+        console.log(oldContextValue, contextValue);
+        saveContextValue(contextValue);
+    }, [contextValue]);
+* */

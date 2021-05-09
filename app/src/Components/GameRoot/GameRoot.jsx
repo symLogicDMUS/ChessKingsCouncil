@@ -410,6 +410,7 @@ class GameRoot extends React.Component {
                                 gameType={this.gameType}
                                 theme={this.state.theme}
                                 changeName={this.changeName}
+                                onChange={this.toggleRangeAnalysis}
                                 resign={this.resign}
                                 save={this.save}
                             />
