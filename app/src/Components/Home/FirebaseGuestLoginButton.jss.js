@@ -21,7 +21,6 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     text: (props) => ({
-        color: '#fff',
         display: "inline-block",
         marginLeft: 'auto',
         marginRight: 'auto',
@@ -57,15 +56,19 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     color1: props => ({
-        backgroundColor: "#f5b400",
+        "& .MuiTypography-root": {
+            color: '#ffb400',
+        },
+        borderColor: "#ffb400",
         '&:hover':{
-            backgroundColor: "#f5b400",
+            backgroundColor: 'rgba(235, 180, 0, 0.08)',
         },
     }),
     color2: props => ({
-        backgroundColor: "#00b4f5",
+        color: '#fff',
+        backgroundColor: "#3b5998",
         '&:hover':{
-            backgroundColor: "#00b4f5",
+            backgroundColor: "#3b5998",
         },
 
     }),

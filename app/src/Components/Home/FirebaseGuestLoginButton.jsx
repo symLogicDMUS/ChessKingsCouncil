@@ -29,7 +29,7 @@ export function FirebaseGuestLoginButton({callback}) {
         <Button
             onClick={anonymousLogin}
             className={clsx(classes.button, { [classes.color1]: true })}
-            variant="contained"
+            variant="outlined"
         >
             <Typography className={classes.text} noWrap>
                 Continue without sign in

@@ -10,8 +10,14 @@ export const useStyles = makeStyles({
     }),
     cancel_button: props => ({
         height: 40,
-        color: '#f44336',
-        borderColor: '#f44336',
+        fontSize: 14,
+        color: '#ff4336',
+        borderColor: '#ff4336',
+        textTransform: "none",
+        fontWeight: 500,
+        '&:hover':{
+            backgroundColor: 'rgba(245, 67, 54, 0.08)',
+        },
         '@media screen and (max-width: 600px)': {
             margin: 8,
             width: 220,
