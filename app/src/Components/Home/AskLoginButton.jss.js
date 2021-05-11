@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
+import {themes} from "../styles/themes/themes.jss";
 
 export const useStyles = makeStyles({
     backdrop: props => ({
@@ -50,5 +51,12 @@ export const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         border: 'black',
+    }),
+    save_theme_button: props => ({
+        color: themes[props.theme].modal_actions,
+        backgroundColor: themes[props.theme].button_fill,
+        marginTop: '1rem',
+        marginBottom: '1rem',
+        // marginLeft: 'auto',
     }),
 }, {index: 1});

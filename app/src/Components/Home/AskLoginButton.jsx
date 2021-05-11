@@ -123,19 +123,31 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                     </Typography>
                 </IconButton>
             )}
-            {buttonType !== 'option' && buttonType !== 'option_alt' && (
-                <ToolButtonAlt
-                    text={text}
-                    theme={theme}
-                    isActive={modal}
-                    iconName={iconName}
-                    className={className}
+            {buttonType === "theme" && (
+                <Button
                     onClick={() => setModal(true)}
+                    className={classes.save_theme_button}
+                    variant={'contained'}
+                >
+                    Save For next visit
+                </Button>
+            )}
+            {
+                buttonType !== 'option'
+                && buttonType !== 'option_alt'
+                && buttonType !== "theme" && (
+                    <ToolButtonAlt
+                        text={text}
+                        theme={theme}
+                        isActive={modal}
+                        iconName={iconName}
+                        className={className}
+                        onClick={() => setModal(true)}
                 />
             )}
+
         </>
     );
 }
-
 
 export default AskLoginButton;

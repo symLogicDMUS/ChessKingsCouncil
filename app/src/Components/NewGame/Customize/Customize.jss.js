@@ -141,14 +141,4 @@ export const styles = {
         marginBottom: 'auto',
         marginTop: 24,
     }),
-    subs_modal: props => ({
-        position: 'absolute',
-        left: `calc(21.5vw - ${miniVariantIconsColumnWidth*0.5}px)`,
-        top: `calc(50vh - (2.6rem + 3.5vw))`,
-    }),
-    promos_modal: props => ({
-        position: 'absolute',
-        left: `calc(22.5vw - ${miniVariantIconsColumnWidth*0.5}px)`,
-        top: 'calc(50vh - (22.5vh + 3.5vw + 0.875rem))',
-    }),
 }

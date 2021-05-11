@@ -75,7 +75,6 @@ function GameRootToolbar({
     };
 
     const classes = useStyles({theme});
-    const classes2 = useMoreStyles({ theme });
 
     return (
         <>

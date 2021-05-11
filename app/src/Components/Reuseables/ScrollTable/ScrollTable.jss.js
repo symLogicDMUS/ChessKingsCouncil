@@ -26,8 +26,9 @@ export const useStyles = makeStyles({
     }),
     arrow_button: (props) => ({
         width: props.width,
-        background: themes[props.theme].fill,
         color: themes[props.theme].text,
+        background: themes[props.theme].fill,
+        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     arrow_icon: props => ({
         color: themes[props.theme].text,

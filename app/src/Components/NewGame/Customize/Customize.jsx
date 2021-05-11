@@ -5,7 +5,6 @@ import { ListTitle } from "./ListTitle";
 import { SubList } from "./SubList";
 import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import MediaQuery from "react-responsive/src";
 import { difference } from "../../helpers/setOps";
@@ -20,14 +19,14 @@ import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
 import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
 import { ThreeItemAppBarContent } from
         "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
 import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
+import withStyles from "@material-ui/core/styles/withStyles";
 import CustomizeToolbar from "./CustomizeToolbar";
-import { textColor, styles } from "./Customize.jss";
-import {standardPieceNames} from "../../helpers/standardPieceNames";
 import {ThemeContext} from "../../ThemeContext";
+import { textColor, styles } from "./Customize.jss";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
@@ -292,24 +291,6 @@ class Customize extends React.Component {
         />
     );
 
-    updateTheme = theme => {
-        this.setState({ theme: theme });
-    };
-
-    getPieceListData = () => {
-        const pieceNames = Array.from(new Set(
-            [...Object.values(this.subs), ...this.promos]
-        ))
-        return pieceNames.map((pieceName, index) => (
-            <Typography
-                key={index}
-                style={textColor(this.state.theme)}
-            >
-                {pieceName}
-            </Typography>
-        ))
-    };
-
     render() {
         return (
             <ThemeContext.Consumer>
@@ -412,7 +393,6 @@ class Customize extends React.Component {
                                     </HelpTitle>
                                 }
                                 theme={value.themes.customize}
-                                updateTheme={this.updateTheme}
                                 additionalSettings={null}
                             />
                         }
@@ -426,7 +406,6 @@ class Customize extends React.Component {
                             updateParent={this.setDefs}
                             newReplaced={this.newReplaced}
                             togglePromo={this.togglePromo}
-                            updateTheme={this.updateTheme}
                             searchText={this.state.searchText}
                             newReplacement={this.newReplacement}
                             className={this.props.classes.piece_profiles}

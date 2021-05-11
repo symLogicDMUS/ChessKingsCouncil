@@ -25,9 +25,7 @@ function CapturedPiecesModal({
     return (
         <div className={classes2.modal}>
             <motion.div
-                className={clsx(classes2.window, {
-                    [classes.captured_piece_images_modal]: true,
-                })}
+                className={classes.captured_piece_images_modal}
                 variants={variants}
                 initial={"initial"}
                 animate={"animate"}

@@ -1,38 +1,60 @@
 import React, {useContext, useState} from "react";
-import * as firebase from "firebase/app";
-import "firebase/database";
-import "firebase/auth";
+import {saveThemes} from "../../../API/saveThemes";
 import {Close} from "../Modals/Close";
 import Box from "@material-ui/core/Box";
-import {Dialog, Typography} from "@material-ui/core";
-import ThemeDropdown from "../UserInput/ThemeDropdown";
-import MuiAccordion from "../Accordions/MuiAccordion";
-import {ThemeContext} from "../../ThemeContext";
+import {Undo} from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
+import {Dialog, DialogActions, Typography} from "@material-ui/core";
 import {AnimatePresencePortal} from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../../CreatePiece/animations/ThemeSavedSuccessfully";
+import ThemeDropdown from "../UserInput/ThemeDropdown";
+import MuiAccordion from "../Accordions/MuiAccordion";
+import AskLoginButton from "../../Home/AskLoginButton";
+import {ThemeContext} from "../../ThemeContext";
+import {UserContext} from "../../../UserContext";
 import {useStyles} from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
+    const uid = useContext(UserContext)
     const {themes, setThemes} = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
     const classes = useStyles({theme: props.theme});
 
-    const saveTheme = async () => {
-        const user = firebase.auth().currentUser;
-        const uid = user.uid;
-        firebase.database().ref().child(`themes/${uid}`).set(themes).then(r => {
-            setSaveSuccess(true);
-        }).catch((err) => {
-                console.log(`ERROR: ${err}`)
-            })
+    const saveThemesToDb = () => {
+        saveThemes(themes).then(r => {
+            setSaveSuccess(true)
+        })
+    };
+
+    const resetDefaults = () => {
+        saveThemes({
+                newGame: 'tan',
+                loadGame: 'tan',
+                createPiece: 'dark',
+                customize: 'dark',
+                gameRoot: 'dark',
+                myPieces: 'dark',
+                councilRules: 'tan',
+                home: 'tan',
+            }
+        ).then(r => {
+            setSaveSuccess(true)
+        })
     };
 
     return (
         <>
-            <AnimatePresencePortal>
-                <ThemeSavedSuccessfully theme={props.theme} callback={() => setSaveSuccess(false)} />
-            </AnimatePresencePortal>
+            {saveSuccess && (
+                <AnimatePresencePortal>
+                    <ThemeSavedSuccessfully
+                        theme={props.theme}
+                        callback={() => {
+                            setSaveSuccess(false)
+                            props.closeModal()
+                        }}
+                    />
+                </AnimatePresencePortal>
+            )}
             <Dialog
                 open={true}
                 classes={{
@@ -153,16 +175,25 @@ export function SettingsModal(props) {
                     >
                         <ThemeDropdown theme={props.theme} pageName={'councilRules'} defaultValue={themes.councilRules} />
                     </MuiAccordion>
-                    <Button onClick={saveTheme} className={classes.save_theme_button} variant={'contained'}>
-                        Save For next visit
-                    </Button>
+                    <DialogActions className={classes.dialog_actions}>
+                        {uid ? (
+                            <Button onClick={saveThemesToDb} className={classes.save_theme_button} variant={'contained'}>
+                                Save For next visit
+                            </Button>
+                        ) : (
+                            <AskLoginButton theme={props.theme} buttonType='theme' />
+                        )}
+                        <Button onClick={resetDefaults}
+                                startIcon={<Undo />}
+                                className={classes.reset_theme_button}
+                                variant={'contained'}
+                        >
+                            Reset defaults
+                        </Button>
+                    </DialogActions>
                     {props.children}
                 </Box>
             </Dialog>
         </>
     )
 }
-
-/*
-
-* */

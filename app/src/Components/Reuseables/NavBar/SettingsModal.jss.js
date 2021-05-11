@@ -53,8 +53,8 @@ export const useStyles = makeStyles({
         justifyContent: 'flex-end',
     }),
     close: props => ({
-       width: '1.2rem',
-       height: '1.2rem',
+        width: '1.2rem',
+        height: '1.2rem',
     }),
     close_icon: props => ({
         height: '1rem',
@@ -106,10 +106,17 @@ export const useStyles = makeStyles({
         },
     }),
     save_theme_button: props => ({
-       color: themes[props.theme].modal_actions,
-       backgroundColor: themes[props.theme].button_fill,
-        marginTop: '1rem',
-        marginBottom: '1rem',
-        // marginLeft: 'auto',
+        color: themes[props.theme].modal_actions,
+        backgroundColor: themes[props.theme].button_fill,
+        marginTop: '0.5rem',
+        marginBottom: '0.5rem',
+        marginRight: '0.5rem',
+    }),
+    reset_theme_button: props => ({
+        color: themes[props.theme].text,
+        backgroundColor: themes[props.theme].button_fill,
+    }),
+    dialog_actions: props => ({
+       paddingLeft: 0,
     }),
 }, {index: 1});
