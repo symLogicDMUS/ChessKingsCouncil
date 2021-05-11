@@ -104,7 +104,6 @@ export const standardPieceDefs = {
         },
     }
 };
-
 Object.preventExtensions(standardPieceDefs);
 Object.seal(standardPieceDefs);
 Object.freeze(standardPieceDefs);

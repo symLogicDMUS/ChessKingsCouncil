@@ -79,18 +79,18 @@ class Customize extends React.Component {
     clientY = 0;
     first = false;
     
-    setDefs(defs) {
+    setDefs = defs => {
         this.defs = { ...this.standardPieceDefs, ...defs };
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    };
 
-    accept() {
+    accept = () => {
         this.idDict = this.loadIdDict();
         this.addStartingStandardsToPromos();
         this.addBackupStandards();
         this.bundleGameData();
         this.setState({ redirect: true });
-    }
+    };
 
     /**
      * called by this.accept()
@@ -107,17 +107,17 @@ class Customize extends React.Component {
             promos: this.promos,
             ids: this.idDict,
             defs: this.standardPieceDefs,
-        }; //1.
+        }; // 1.
         let name;
         for (const id of Object.keys(this.idDict)) {
-            //2.
+            // 2.
             if (id !== "k" && id !== "p") {
                 name = this.idDict[id];
                 this.gameData.defs[name] = this.defs[name];
             }
         }
 
-        //3.
+        // 3.
         const dataEntry = firstUpdate(
             this.gameData.board,
             this.gameData.json,
@@ -313,24 +313,24 @@ class Customize extends React.Component {
     render() {
         return (
             <ThemeContext.Consumer>
-                {themes => <>
+                {value => <>
                     {this.state.redirect ? this.play() : null}
                     <ResponsiveDrawer
                         elevation={0}
                         appBarType="3item"
-                        theme={themes.customize}
+                        theme={value.themes.customize}
                         appBarContent={
                             <ThreeItemAppBarContent
-                                theme={themes.customize}
-                                seeMoreIcon2={<SearchIcon style={textColor(themes.customize)}/>}
+                                theme={value.themes.customize}
+                                seeMoreIcon2={<SearchIcon style={textColor(value.themes.customize)}/>}
                             >
-                                <PageTitle theme={themes.customize} className={this.props.classes.title}>
+                                <PageTitle theme={value.themes.customize} className={this.props.classes.title}>
                                     Customize Game
                                 </PageTitle>
                                 <MuiCheckbox
                                     noWrap={true}
                                     variant="caption"
-                                    theme={themes.customize}
+                                    theme={value.themes.customize}
                                     onClick={this.togglePromoAll}
                                     className={this.props.classes.promo_all}
                                 >
@@ -339,7 +339,7 @@ class Customize extends React.Component {
                                 <SearchBox
                                     updateSearchText={this.updateSearchText}
                                     className={this.props.classes.search}
-                                    theme={themes.customize}
+                                    theme={value.themes.customize}
                                     isMenuItem={true}
                                 />
                             </ThreeItemAppBarContent>
@@ -348,11 +348,11 @@ class Customize extends React.Component {
                             <Box className={this.props.classes.tools}>
                                 <SubList
                                     subs={this.subs}
-                                    theme={themes.customize}
+                                    theme={value.themes.customize}
                                 />
                                 <ScrollTable
                                     numRows={6}
-                                    theme={themes.customize}
+                                    theme={value.themes.customize}
                                     key="pawn-promotions-wide"
                                     className={this.props.classes.scroll_table}
                                     addedClassName={
@@ -373,7 +373,7 @@ class Customize extends React.Component {
                                                 this.props.classes
                                                     .scroll_table_title
                                             }
-                                            theme={themes.customize}
+                                            theme={value.themes.customize}
                                         >
                                             Pawn Promotions
                                         </ListTitle>
@@ -384,7 +384,7 @@ class Customize extends React.Component {
                                 <Button
                                     onClick={this.accept}
                                     className={this.props.classes.ok_button}
-                                    theme={themes.customize}
+                                    theme={value.themes.customize}
                                     variant={"contained"}
                                     size="large"
                                 >
@@ -396,22 +396,22 @@ class Customize extends React.Component {
                             <CustomizeToolbar
                                 subs={this.subs}
                                 promos={this.promos}
-                                theme={themes.customize}
+                                theme={value.themes.customize}
                             />
                         }
                         navBar={
                             <NavBar
                                 currentPage="Customize"
-                                helpText={CustomizeHelp(themes.customize)}
+                                helpText={CustomizeHelp(value.themes.customize)}
                                 helpTitle={
                                     <HelpTitle
-                                        theme={themes.customize}
+                                        theme={value.themes.customize}
                                         fontSize='2.3vh'
                                     >
                                         Customizing a Game
                                     </HelpTitle>
                                 }
-                                theme={themes.customize}
+                                theme={value.themes.customize}
                                 updateTheme={this.updateTheme}
                                 additionalSettings={null}
                             />
@@ -430,13 +430,13 @@ class Customize extends React.Component {
                             searchText={this.state.searchText}
                             newReplacement={this.newReplacement}
                             className={this.props.classes.piece_profiles}
-                            theme={themes.customize}
+                            theme={value.themes.customize}
                         />
                         <MediaQuery maxWidth={960}>
                             <Button
                                 onClick={this.accept}
                                 className={this.props.classes.ok_button}
-                                theme={themes.customize}
+                                theme={value.themes.customize}
                                 variant={"contained"}
                                 size="large"
                             >

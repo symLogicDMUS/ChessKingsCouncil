@@ -14,7 +14,7 @@ function ProfileWBRange ({
     color,
     range,
     rangeType,
-    boardGridStyle,
+    adjust,
 }) {
     const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [theme])
 
@@ -44,7 +44,7 @@ function ProfileWBRange ({
                     className={classes.board_img}
                     alt={`image of board with ranges for ${pieceName} highlighted`}
                 />
-                <div className={classes.board_grid} style={boardGridStyle}>
+                <div className={clsx(classes.board_grid,{[classes.adjust]:adjust})}>
                     <img src={pieceImgUrl} className={classes.piece_img} alt={`image of piece ${pieceName}`} />
                 </div>
             </Box>

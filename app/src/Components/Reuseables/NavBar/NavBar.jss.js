@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes/themes.jss";
 import {navBarButtonHeight} from "./NavBarButton.jss";
 
-export const marginLeft0 = {
+export const marginLeftZero = {
     marginLeft: 0,
 }
 

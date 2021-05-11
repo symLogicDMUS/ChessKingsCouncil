@@ -6,7 +6,7 @@ import { MainMenuLg } from "./MainMenuLg";
 import {ThemeContext} from "../ThemeContext";
 
 function Home() {
-    const themes = useContext(ThemeContext)
+    const {themes, setThemes} = useContext(ThemeContext)
 
     return (
         <>

@@ -1,31 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Close} from "../Modals/Close";
 import Box from "@material-ui/core/Box";
-import MenuItem from "@material-ui/core/MenuItem";
-import {MuiDropdown} from "../UserInput/MuiDropdown";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {Dialog, Typography} from "@material-ui/core";
+import ThemeDropdown from "../UserInput/ThemeDropdown";
+import MuiAccordion from "../Accordions/MuiAccordion";
 import {useStyles} from "./SettingsModal.jss";
-import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
-import {themesMenuItemList} from "../../styles/themes/themeMenuItemList.jss";
-import {Backdrop, Dialog} from "@material-ui/core";
+import {ThemeContext} from "../../ThemeContext";
 
 export function SettingsModal(props) {
-
-    const isWide = useMediaQuery("(min-width: 960px)");
+    const {themes, setThemes} = useContext(ThemeContext)
     const classes = useStyles({theme: props.theme});
-
-    const getOverrideItem = (theme) => {
-        if (specialThemeList.includes(theme)) {
-            return (
-                <MenuItem value="None">
-                    <em>None</em>
-                </MenuItem>
-            );
-        }
-        else {
-            return props.theme;
-        }
-    };
 
     return (
         <Dialog
@@ -44,20 +28,110 @@ export function SettingsModal(props) {
                 />
             </Box>
             <Box className={classes.settings}>
-                <MuiDropdown
-                    label='theme'
-                    fullWidth={true}
-                    autoFocus={true}
-                    variant='outlined'
-                    inputLabel='theme'
-                    theme={props.theme}
-                    updateParent={props.updateTheme}
-                    size={isWide ? 'medium' : 'small'}
-                    overrideItem={getOverrideItem(props.theme)}
-                    className={classes.select_theme}
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            New Game Page
+                        </Typography>
+                    }
                 >
-                    {themesMenuItemList}
-                </MuiDropdown>
+                    <ThemeDropdown theme={props.theme} pageName={'newGame'} defaultValue={themes.newGame} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Load Game
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'loadGame'} defaultValue={themes.loadGame} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Create Piece
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'createPiece'} defaultValue={themes.createPiece} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Customize Game
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'customize'} defaultValue={themes.customize} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Playing Game page
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'gameRoot'} defaultValue={themes.gameRoot} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Saved Pieces
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'myPieces'} defaultValue={themes.myPieces} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Home Page
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'home'} defaultValue={themes.home} />
+                </MuiAccordion>
+                <MuiAccordion
+                    className={classes.accordion}
+                    heading={
+                        <Typography
+                            className={classes.accordion_summary}
+                            noWrap
+                        >
+                            Council Rules
+                        </Typography>
+                    }
+                >
+                    <ThemeDropdown theme={props.theme} pageName={'councilRules'} defaultValue={themes.councilRules} />
+                </MuiAccordion>
                 {props.children}
             </Box>
         </Dialog>

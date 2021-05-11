@@ -6,7 +6,7 @@ import {HelpButton} from "./Help/HelpButton";
 import {SettingsButton} from "./SettingsButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import SignInOutButton from "../../Home/SignInOutButton";
-import {marginLeft0, useStyles} from "./NavBar.jss";
+import {marginLeftZero, useStyles} from "./NavBar.jss";
 
 
 /**
@@ -15,17 +15,8 @@ import {marginLeft0, useStyles} from "./NavBar.jss";
 function NavBar(props) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? "wide" : "thin";
-    const [touch, setTouch] = useState(true);
 
     const classes = useStyles({ theme: props.theme });
-
-    useEffect(() => {
-        window.addEventListener("touchstart", onFirstTouch, false);
-    }, [touch]);
-    const onFirstTouch = () => {
-        setTouch(true);
-        window.removeEventListener("touchstart", onFirstTouch, false);
-    };
 
     const isRowDirection =
         screenCase === "wide" &&
@@ -58,7 +49,6 @@ function NavBar(props) {
                     helpTitle={props.helpTitle}
                     screenCase={screenCase}
                     updateFirstVisit={props.updateFirstVisit}
-                    touch={touch}
                 >
                     {props.helpText}
                 </HelpButton>
@@ -68,7 +58,6 @@ function NavBar(props) {
                     updateTheme={props.updateTheme}
                     currentPage={props.currentPage}
                     screenCase={screenCase}
-                    touch={touch}
                 >
                     {props.additionalSettings}
                 </SettingsButton>
@@ -82,7 +71,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     path="/NewGame"
@@ -93,7 +81,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     path="/LoadGame"
@@ -105,7 +92,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     path="/CreatePiece"
@@ -117,7 +103,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     path="/MyPieces"
@@ -129,7 +114,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     key="chess-dot-com"
@@ -141,7 +125,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     key="/CouncilRules"
@@ -153,7 +136,6 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 <NavBarButton
                     key="github-dot-com"
@@ -165,13 +147,12 @@ function NavBar(props) {
                     screenCase={screenCase}
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
-                    touch={touch}
                 />
                 {isRowDirection && (
                     <SignInOutButton
                         theme={props.theme}
                         className={classes.sign_out_button}
-                        style={marginLeft0}
+                        style={marginLeftZero}
                     />
                 )}
             </Box>

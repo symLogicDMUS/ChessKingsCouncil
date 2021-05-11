@@ -10,7 +10,7 @@ const ProfileWBAvatar = React.lazy(() => import('./ProfileWBAvatar'));
  * color: is for W or B piece,
  * def: spans, offsets, and img of W or B piece
  * */
-const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
+const ProfileWB = memo(({ pieceName, color, def, theme, screenCase, adjust }) => {
 
     const classes = useStyles({ theme: theme });
 
@@ -33,6 +33,7 @@ const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
                     rangeType='span'
                     color={color}
                     theme={theme}
+                    adjust={adjust}
                     screenCase={screenCase}
                 />
                 <ProfileWBRange
@@ -42,6 +43,7 @@ const ProfileWB = memo(({ pieceName, color, def, theme, screenCase }) => {
                     rangeType='offset'
                     color={color}
                     theme={theme}
+                    adjust={adjust}
                     screenCase={screenCase}
                 />
             </div>

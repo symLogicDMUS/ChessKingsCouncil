@@ -17,7 +17,7 @@ export const useStyles = makeStyles({
         },
         "& .MuiListItemText-primary": {
             fontSize: '1.05rem',
-            height: '1.05rem',
+            height: '1.06rem',
             lineHeight: '1.05rem',
             minWidth: 'unset',
             width: 'auto',

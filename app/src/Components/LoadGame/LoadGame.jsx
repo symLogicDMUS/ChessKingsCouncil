@@ -16,7 +16,6 @@ import {ThemeContext} from "../ThemeContext";
 
 class LoadGame extends React.Component {
     state = {
-        theme: "tan",
         selectedGame: null,
         userChoseGame: false,
         firstVisit: false,
@@ -182,26 +181,21 @@ class LoadGame extends React.Component {
         }
 
         return (
-            <ThemeContext.Consumer>
-                {themes => <>
-                    <SavedGames
-                        load={this.loadGame}
-                        imgDict={this.imgDict}
-                        loaded={this.state.loaded}
-                        searchText={this.state.searchText}
-                        updateSearchText={this.updateSearchText}
-                        confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
-                        deleteGame={() => this.deleteGame(this.state.selectedGame)}
-                        selectedGame={this.state.selectedGame}
-                        toggleShowNames={this.toggleShowNames}
-                        showNames={this.state.showNames}
-                        updateTheme={this.updateTheme}
-                        theme={themes.loadGame}
-                    >
-                        {this.gameSnapshotComponents}
-                    </SavedGames>
-                </>}
-            </ThemeContext.Consumer>
+            <SavedGames
+                load={this.loadGame}
+                imgDict={this.imgDict}
+                loaded={this.state.loaded}
+                searchText={this.state.searchText}
+                updateSearchText={this.updateSearchText}
+                confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
+                deleteGame={() => this.deleteGame(this.state.selectedGame)}
+                selectedGame={this.state.selectedGame}
+                toggleShowNames={this.toggleShowNames}
+                showNames={this.state.showNames}
+                updateTheme={this.updateTheme}
+            >
+                {this.gameSnapshotComponents}
+            </SavedGames>
         );
     }
 }

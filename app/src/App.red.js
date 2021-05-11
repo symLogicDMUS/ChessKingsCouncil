@@ -3,12 +3,14 @@ export function reducer(state, action) {
         case "logged-in":
             const user = action.user;
             return {
+                ...state,
                 uid: user.uid,
                 isSignedIn: !!user,
                 isAnonymous: user.isAnonymous
             }
         case "logged-out":
             return {
+                ...state,
                 uid: null,
                 isSignedIn: false,
                 isAnonymous: false

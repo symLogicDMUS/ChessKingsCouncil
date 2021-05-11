@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import NavBar from "../NavBar/NavBar";
 import {MainMenuBody} from "../../Home/MainMenuBody";
@@ -16,9 +16,13 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SignInOutButton from "../../Home/SignInOutButton";
 import { useStyles } from "./MainMenuDrawer.jss";
 
-export default function MainMenuDrawer({signOut, theme, updateTheme}) {
+export default function MainMenuDrawer({theme, updateTheme}) {
     const classes = useStyles({ theme: theme });
     const muiTheme = useTheme();
+
+    useEffect(() => {
+        document.body.className = `${theme}-background`;
+    }, [theme]);
 
     const [open, setOpen] = useState(false);
 

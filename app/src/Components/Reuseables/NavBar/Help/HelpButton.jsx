@@ -16,7 +16,6 @@ export function HelpButton({
     screenCase,
     helpTitle,
     updateFirstVisit,
-    touch,
     children,
 }) {
     const uid = useContext(UserContext);

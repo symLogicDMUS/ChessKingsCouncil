@@ -107,6 +107,7 @@ function PieceProfiles (props) {
                         expand={props.expand}
                         theme={props.theme}
                         screenCase={screenCase}
+                        adjust={true}
                     >
                         <CustomizeHeader
                             key={`${pieceName}-header`}

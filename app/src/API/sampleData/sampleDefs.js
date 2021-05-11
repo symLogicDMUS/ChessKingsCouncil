@@ -32,7 +32,6 @@ export const dbSampleDefs = {
                 "0,-2",
                 "-1,-2",
                 "-1,-3",
-                "0,1"
             ]
         },
         "W": {
@@ -47,7 +46,6 @@ export const dbSampleDefs = {
                 "0,2",
                 "1,2",
                 "1,3",
-                "0,-1"
             ]
         }
     },

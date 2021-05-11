@@ -1,6 +1,5 @@
 import {themes} from "../../styles/themes/themes.jss";
-import {modal} from "../../helpers/modal.jss";
-import {makeStyles} from "@material-ui/core/styles";
+import {darken, makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     window: props => ({
@@ -26,6 +25,25 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
+    }),
+    accordion: props => ({
+        "& .MuiAccordionSummary-root": {
+            backgroundColor: darken(themes[props.theme].fill, 0.035),
+            borderBottom: `0.05rem solid ${themes[props.theme].odd_row}`,
+        },
+        "& .MuiAccordionDetails-root": {
+            backgroundColor: darken(themes[props.theme].fill, 0.02),
+        },
+        "& .MuiSvgIcon-root": {
+            color: themes[props.theme].text,
+        },
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].text,
+        },
+    }),
+    accordion_summary: props => ({
+        color: themes[props.theme].text,
+        fontSize: '1rem',
     }),
     close_area: props => ({
         width: '100%',

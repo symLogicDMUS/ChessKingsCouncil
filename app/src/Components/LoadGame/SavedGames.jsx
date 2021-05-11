@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {LoadGameHelp} from "./LoadGameHelp";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
@@ -13,29 +13,30 @@ import SearchIcon from "@material-ui/icons/Search";
 import {TwoItemAppBarContent} from
         "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import {useStyles} from "./SavedGames.jss";
+import {ThemeContext} from "../ThemeContext";
 
 export function SavedGames(props) {
+    const {themes, setThemes} = useContext(ThemeContext);
+    const classes = useStyles({theme: themes.loadGame});
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
-
-    const classes = useStyles({theme: props.theme});
-
+    
     return (
         <>
-            <Background theme={props.theme} appBar={isThin} navBar={isWide}/>
+            <Background theme={themes.loadGame} appBar={isThin} navBar={isWide}/>
             <ResponsiveDrawer
-                theme={props.theme}
+                theme={themes.loadGame}
                 navBar={
                     <NavBar
                         currentPage="LoadGame"
                         redirectMessage={null}
-                        helpText={LoadGameHelp(props.theme)}
+                        helpText={LoadGameHelp(themes.loadGame)}
                         helpTitle={
-                            <HelpTitle theme={props.theme} fontSize='2.6vh'>
+                            <HelpTitle theme={themes.loadGame} fontSize='2.6vh'>
                                 Loading a Game
                             </HelpTitle>
                         }
-                        theme={props.theme}
+                        theme={themes.loadGame}
                         updateTheme={props.updateTheme}
                         additionalSettings={null}
                     />
@@ -45,14 +46,14 @@ export function SavedGames(props) {
                 navHorizontal={isWide}
                 appBarContent={
                     <TwoItemAppBarContent
-                        theme={props.theme}
+                        theme={themes.loadGame}
                         seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
                     >
-                        <PageTitle theme={props.theme} className={classes.title}>
+                        <PageTitle theme={themes.loadGame} className={classes.title}>
                             Load Game
                         </PageTitle>
                         <SearchBox
-                            theme={props.theme}
+                            theme={themes.loadGame}
                             className={classes.search_box}
                             updateSearchText={props.updateSearchText}
                         />
@@ -69,12 +70,12 @@ export function SavedGames(props) {
                     toggleShowNames={props.toggleShowNames}
                     defaultChecked={props.showNames}
                     searchText={props.searchText}
-                    theme={props.theme}
+                    theme={themes.loadGame}
                     confirmDeleteMessage={
                         props.confirmDeleteMessage
                     }
                     title={
-                        isWide ? <SavedGamesTitle theme={props.theme} updateSearchText={props.updateSearchText} /> : null
+                        isWide ? <SavedGamesTitle theme={themes.loadGame} updateSearchText={props.updateSearchText} /> : null
                     }
                     topFlexbox={null}
                     onClose={null}

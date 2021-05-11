@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {PageLink} from "./PageLink";
 import Box from "@material-ui/core/Box";
 import SignInOutButton from "./SignInOutButton";
@@ -8,8 +8,11 @@ import {useStyles} from "./MainMenuLg.jss";
 
 
 export function MainMenuLg(props) {
-
     const classes = useStyles({theme: props.theme});
+
+    useEffect(() => {
+        document.body.className = `${props.theme}-background`;
+    }, [props.theme]);
 
     return (
         <>

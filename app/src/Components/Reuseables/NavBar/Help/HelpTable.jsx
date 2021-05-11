@@ -12,7 +12,6 @@ import { useStyles } from "./HelpTable.jss";
 
 export function HelpTable({ setHelpItem, onClose, theme }) {
     const classes = useStyles({ theme: theme });
-    const classes2 = useMoreStyles({ theme: theme });
 
     return (
         <div className={classes.window}>

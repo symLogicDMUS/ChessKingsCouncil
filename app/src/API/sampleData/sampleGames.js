@@ -34,7 +34,6 @@ export const dbSampleGames = {
                         "0,-2",
                         "-1,-2",
                         "-1,-3",
-                        "0,1"
                     ]
                 },
                 "W": {
@@ -49,7 +48,6 @@ export const dbSampleGames = {
                         "0,2",
                         "1,2",
                         "1,3",
-                        "0,-1"
                     ]
                 }
             },
@@ -320,7 +318,6 @@ export const dbSampleGames = {
                         "0,-2",
                         "-1,-2",
                         "-1,-3",
-                        "0,1"
                     ]
                 },
                 "W": {
@@ -335,7 +332,6 @@ export const dbSampleGames = {
                         "0,2",
                         "1,2",
                         "1,3",
-                        "0,-1"
                     ]
                 }
             },

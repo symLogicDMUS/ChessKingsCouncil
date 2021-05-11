@@ -31,12 +31,12 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 600px) and (max-width: 960px)': {
             gridTemplateColumns: 'repeat(8, 5vw)',
             gridTemplateRows: 'repeat(8, 5vw)',
-            top: '-40.65vw',
+            top: '-40.75vw',
         },
         '@media screen and (min-width: 960px)': {
             gridTemplateColumns: 'repeat(8, 1.791625vw)',
             gridTemplateRows: 'repeat(8, 1.791625vw)',
-            top: '-15vw',
+            top: '-14.95vw',
         },
     }),
     /* assumes position of d4*/
@@ -45,5 +45,10 @@ export const useStyles = makeStyles({
         gridColumn: 4,
         width: '95%',
         height: '95%',
+    }),
+    adjust: props => ({
+        '@media screen and (min-width: 500px)': {
+            transform: 'translate(0, 0.35vw)',
+        },
     }),
 }, {index: 1});

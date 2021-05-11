@@ -18,7 +18,6 @@ export function NavBarButton({
     isUnsavedChanges,
     currentPage,
     theme,
-    touch,
 }) {
     const history = useHistory();
     const [redirectModal, toggleRedirectModal] = useState(false);

@@ -39,9 +39,9 @@ import {Fen} from "../../game_logic/fenParser/Fen";
 import AskLoginButton from "../Home/AskLoginButton";
 import GameRootToolbar from "./GameRootToolbar";
 import {UserContext} from "../../UserContext";
+import {ThemeContext} from "../ThemeContext";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
-import {ThemeContext} from "../ThemeContext";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -108,7 +108,8 @@ class GameRoot extends React.Component {
         messageModal: false,
         secondaryDrawer: false,
         showProfileOnClick: true,
-    }; unsavedProgress = false;
+    };
+    unsavedProgress = false;
 
     static contextType = UserContext;
 
@@ -302,29 +303,25 @@ class GameRoot extends React.Component {
         this.setState({ bValue: !this.state.bValue });
     }
 
-    updateTheme = (theme) => {
-        this.setState({ theme: theme });
-    }
-
     render() {
         return (
             <ThemeContext.Consumer>
-                {themes => <>
+                {value => <>
                     {this.state.saveAnimation && (
                         <AnimatePresencePortal>
                             <GameSavedSuccessfully
-                                theme={themes.gameRoot}
+                                theme={value.themes.gameRoot}
                                 callback={() => this.setState({saveAnimation: false})}
                             />
                         </AnimatePresencePortal>
                     )}
                     <ResponsiveDrawer
-                        theme={themes.gameRoot}
+                        theme={value.themes.gameRoot}
                         appBarType={"custom"}
                         appBarContent={
                             <StatusBar
                                 turn={this.turn}
-                                theme={themes.gameRoot}
+                                theme={value.themes.gameRoot}
                                 winner={this.gameStatus.winner}
                                 isRangeAnalysis={this.state.rangeAnalysis}
                                 condition={this.gameStatus.condition}
@@ -336,18 +333,18 @@ class GameRoot extends React.Component {
                                 <GameInfo
                                     gameName={this.gameName}
                                     gameType={this.gameType}
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     playerType={this.playerType}
                                 />
                                 <SaveResignTool
                                     save={this.save}
                                     resign={this.resign}
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     changeName={this.changeName}
                                 />
                                 <RangeAnalysis
                                     board={this.board}
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     gameType={this.gameType}
                                     pieceDefs={this.defs}
                                     idDict={this.idDict}
@@ -366,7 +363,7 @@ class GameRoot extends React.Component {
                                     capturedIds={this.capturedIds}
                                     captured={this.captured}
                                     gameType={this.gameType}
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     idDict={this.idDict}
                                     defs={this.defs}
                                 />
@@ -380,13 +377,13 @@ class GameRoot extends React.Component {
                                         iconName={"save_alt"}
                                         onClick={this.save}
                                         isActive={false}
-                                        theme={themes.gameRoot}
+                                        theme={value.themes.gameRoot}
                                     />
                                 ) : (
                                     <AskLoginButton
                                         text="Save"
                                         iconName={"save_alt"}
-                                        theme={themes.gameRoot}
+                                        theme={value.themes.gameRoot}
                                     />
                                 )}
                                 <GameRootToolbar
@@ -397,7 +394,7 @@ class GameRoot extends React.Component {
                                     playerType={this.playerType}
                                     gameName={this.gameName}
                                     gameType={this.gameType}
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     changeName={this.changeName}
                                     onChange={this.toggleRangeAnalysis}
                                     resign={this.resign}
@@ -408,19 +405,19 @@ class GameRoot extends React.Component {
                         navBar={
                             <NavBar
                                 currentPage="GameRoot"
-                                helpText={PlayingGameHelp(themes.gameRoot)}
+                                helpText={PlayingGameHelp(value.themes.gameRoot)}
                                 helpTitle={
-                                    <HelpTitle theme={themes.gameRoot} fontSize='2.6vh'>
+                                    <HelpTitle theme={value.themes.gameRoot} fontSize='2.6vh'>
                                         Playing a Game
                                     </HelpTitle>
                                 }
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
-                                theme={themes.gameRoot}
+                                theme={value.themes.gameRoot}
                                 additionalSettings={
                                     <>
                                         <MuiSwitch
-                                            theme={themes.gameRoot}
+                                            theme={value.themes.gameRoot}
                                             control={
                                                 <ShowProfileOnClick
                                                     checked={
@@ -432,7 +429,7 @@ class GameRoot extends React.Component {
                                                                 .showProfileOnClick,
                                                         })
                                                     }
-                                                    theme={themes.gameRoot}
+                                                    theme={value.themes.gameRoot}
                                                 />
                                             }
                                         >
@@ -448,7 +445,7 @@ class GameRoot extends React.Component {
                         <MediaQuery maxWidth={960}>
                             {this.state.rangeAnalysis ? (
                                 <RangeAnalysis
-                                    theme={themes.gameRoot}
+                                    theme={value.themes.gameRoot}
                                     board={this.board}
                                     gameType={this.gameType}
                                     allRanges={{

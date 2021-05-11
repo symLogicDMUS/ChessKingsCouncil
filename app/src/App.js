@@ -1,4 +1,4 @@
-import React, {lazy, Suspense, useEffect, useReducer} from "react";
+import React, {lazy, Suspense, useEffect, useMemo, useReducer, useState} from "react";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
@@ -6,6 +6,7 @@ import NotFound from "./Components/Home/NotFound";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Loading from "./Components/Reuseables/Animations/Loading";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
+import {ThemeContext} from "./Components/ThemeContext";
 import {UserContext} from "./UserContext";
 import {queryUserId} from "./API/isNewUser";
 import {reducer} from "./App.red";
@@ -24,8 +25,18 @@ function App() {
     const [state, dispatch] = useReducer(reducer, {
         uid: null,
         isSignedIn: false,
-        isAnonymous: false
+        isAnonymous: false,
     })
+    const [themes, setThemes] = useState({
+        newGame: 'tan',
+        loadGame: 'tan',
+        createPiece: 'dark',
+        customize: 'dark',
+        gameRoot: 'dark',
+        myPieces: 'dark',
+        councilRules: 'tan',
+        home: 'tan',
+    });
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -33,35 +44,37 @@ function App() {
                 queryUserId().then(isReturningUser => {
                     if (isReturningUser) {
                         dispatch({type: 'logged-in', user: user})
-                    }
-                    else {
+                    } else {
                         saveSampleData().then(r => {
                             dispatch({type: 'logged-in', user: user})
                         })
                     }
                 })
-            }
-            else {
+            } else {
                 dispatch({type: 'logged-out'})
             }
         });
     }, [])
 
+    const providerValue = useMemo(() => ({themes, setThemes}), [themes, setThemes])
+
     return (
         <Router>
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={<Loading/>}>
                 <UserContext.Provider value={state.uid}>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/NewGame" component={NewGame}/>
-                        <Route exact path="/LoadGame" component={LoadGame} />
-                        <Route exact path="/CreatePiece" component={CreatePiece} />
-                        <Route exact path="/Customize" component={Customize}/>
-                        <Route exact path="/Play" component={GameRoot} />
-                        <Route exact path="/MyPieces" component={MyPieces} />
-                        <Route exact path="/CouncilRules" component={CouncilRules} />
-                        <Route component={NotFound} />
-                    </Switch>
+                    <ThemeContext.Provider value={providerValue}>
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/NewGame" component={NewGame}/>
+                            <Route exact path="/LoadGame" component={LoadGame}/>
+                            <Route exact path="/CreatePiece" component={CreatePiece}/>
+                            <Route exact path="/Customize" component={Customize}/>
+                            <Route exact path="/Play" component={GameRoot}/>
+                            <Route exact path="/MyPieces" component={MyPieces}/>
+                            <Route exact path="/CouncilRules" component={CouncilRules}/>
+                            <Route component={NotFound}/>
+                        </Switch>
+                    </ThemeContext.Provider>
                 </UserContext.Provider>
             </Suspense>
         </Router>

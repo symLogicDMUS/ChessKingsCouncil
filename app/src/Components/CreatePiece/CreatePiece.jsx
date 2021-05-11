@@ -64,10 +64,9 @@ class CreatePiece extends React.Component {
     state = {
         loadInstance: 0,
         saveInstance: 0,
-        uploadPiece: false,
-        theme: "dark",
         binaryValue: 0,
         justSaved: false,
+        uploadPiece: false,
         showSpanText: true,
         showOffsetText: true,
         locSqrAnimate: false,
@@ -416,29 +415,25 @@ class CreatePiece extends React.Component {
         </>
     );
 
-    updateTheme = theme => {
-        this.setState({ theme: theme });
-    };
-
     render() {
         return (
             <ThemeContext.Consumer>
-                {themes =>
+                {value =>
                     <>
                         {this.modals()}
                         <ResponsiveDrawer
                             appBarType="title"
                             appBarContent={
-                                <CreatePieceTitle name={this.name} theme={themes.createPiece} />
+                                <CreatePieceTitle name={this.name} theme={value.themes.createPiece} />
                             }
                             themeAlt={true}
-                            theme={themes.createPiece}
+                            theme={value.themes.createPiece}
                             className={this.props.classes.drawer}
                             tools={
                                 <>
                                     <Name
                                         defaultValue={this.name}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         updateName={this.updateName}
                                         key={`Name-${this.state.loadInstance}`}
                                         miniVariantTool={this.state.miniVariantTool}
@@ -448,7 +443,7 @@ class CreatePiece extends React.Component {
                                     />
                                     <Icon
                                         key="Icon"
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         setImgFileObj={this.setImgFileObj}
                                         resetImg={this.resetImg}
                                         setPieceImg={this.setPieceImg}
@@ -464,7 +459,7 @@ class CreatePiece extends React.Component {
                                         offsets={this.offsets}
                                         toggleSpan={this.toggleSpan}
                                         pieceLoc={this.location}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         miniVariantTool={this.state.miniVariantTool}
                                         toggleMiniVariantTool={
                                             this.toggleMiniVariantTool
@@ -473,7 +468,7 @@ class CreatePiece extends React.Component {
                                     <Location
                                         key="Location"
                                         setLoc={this.setLoc}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         selectedLoc={this.location}
                                         miniVariantTool={this.state.miniVariantTool}
                                         toggleMiniVariantTool={
@@ -487,7 +482,7 @@ class CreatePiece extends React.Component {
                                         reset={this.reset}
                                         erase={this.erase}
                                         pieceName={this.name}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         resetImg={this.resetImg}
                                         whiteImg={this.whiteAndBlackImgs.white}
                                         blackImg={this.whiteAndBlackImgs.black}
@@ -504,12 +499,12 @@ class CreatePiece extends React.Component {
                                         setNewPieceImg={this.setPieceImg}
                                         resetImg={this.resetImg}
                                         setImgFileObj={this.setImgFileObj}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                     />
                                     <ToolButtonAlt
                                         text="Spans"
                                         iconName={"range_tool"}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         isActive={
                                             this.state.miniVariantTool === "Range"
                                         }
@@ -519,7 +514,7 @@ class CreatePiece extends React.Component {
                                     />
                                     <ToolButtonAlt
                                         text="Location"
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         iconName={"location_tool"}
                                         isActive={
                                             this.state.miniVariantTool === "Location"
@@ -529,7 +524,7 @@ class CreatePiece extends React.Component {
                                     <Load
                                         load={this.load}
                                         erase={this.erase}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         className={this.props.classes.smOption}
                                         buttonType="tool"
                                     />
@@ -541,25 +536,25 @@ class CreatePiece extends React.Component {
                                             whiteImg={this.whiteAndBlackImgs.white}
                                             blackImg={this.whiteAndBlackImgs.black}
                                             justSaved={this.state.justSaved}
-                                            theme={themes.createPiece}
+                                            theme={value.themes.createPiece}
                                             buttonType="tool"
                                         />
                                     ) : (
                                         <AskLoginButton
-                                            theme={themes.createPiece}
+                                            theme={value.themes.createPiece}
                                             iconName={"save_alt"}
                                             text={"Save"}
                                         />
                                     )}
                                     <Reset
                                         reset={this.reset}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         className={this.props.classes.smOption}
                                         buttonType="tool"
                                     />
                                     <Erase
                                         erase={this.erase}
-                                        theme={themes.createPiece}
+                                        theme={value.themes.createPiece}
                                         className={this.props.classes.smOption}
                                         buttonType="tool"
                                     />
@@ -568,29 +563,29 @@ class CreatePiece extends React.Component {
                             navBar={
                                 <NavBar
                                     currentPage="CreatePiece"
-                                    theme={themes.createPiece}
+                                    theme={value.themes.createPiece}
                                     redirectMessage={messageStr}
                                     helpTitle={
                                         <HelpTitle
-                                            theme={themes.createPiece}
+                                            theme={value.themes.createPiece}
                                             fontSize={"2.6vh"}
                                         >
                                             Creating a Piece
                                         </HelpTitle>
                                     }
-                                    helpText={CreatePieceHelp(themes.createPiece)}
+                                    helpText={CreatePieceHelp(value.themes.createPiece)}
                                     updateFirstVisit={this.updateFirstVisit}
                                     additionalSettings={
                                         <>
                                             <MuiSwitch
-                                                theme={themes.createPiece}
+                                                theme={value.themes.createPiece}
                                                 className={
                                                     this.props.classes.show_offset
                                                 }
                                                 isChecked={this.state.showOffsetText}
                                                 control={
                                                     <ShowOffsetText
-                                                        theme={themes.createPiece}
+                                                        theme={value.themes.createPiece}
                                                         onChange={() =>
                                                             this.setState({
                                                                 showOffsetText: !this
@@ -604,12 +599,12 @@ class CreatePiece extends React.Component {
                                                 Show Offset Text
                                             </MuiSwitch>
                                             <MuiSwitch
-                                                theme={themes.createPiece}
+                                                theme={value.themes.createPiece}
                                                 className={this.props.classes.show_span}
                                                 isChecked={this.state.showSpanText}
                                                 control={
                                                     <ShowSpanText
-                                                        theme={themes.createPiece}
+                                                        theme={value.themes.createPiece}
                                                         onChange={() =>
                                                             this.setState({
                                                                 showSpanText: !this
@@ -632,7 +627,7 @@ class CreatePiece extends React.Component {
                         >
                             <CreatePieceBoard
                                 key="Board"
-                                theme={themes.createPiece}
+                                theme={value.themes.createPiece}
                                 pieceLoc={this.location}
                                 setLoc={this.setLoc}
                                 toggleSpan={this.toggleSpan}

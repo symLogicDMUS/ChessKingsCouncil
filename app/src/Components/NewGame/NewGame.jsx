@@ -23,7 +23,7 @@ const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 function NewGame() {
     const history = useHistory();
 
-    const themes = useContext(ThemeContext);
+    const {themes, seThemes} = useContext(ThemeContext);
 
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
@@ -63,11 +63,6 @@ function NewGame() {
         }
     };
 
-    const updateTheme = (theme) => {
-        //setTheme(theme)
-        return null;
-    }
-
     return (
         <>
             <Background theme={themes.newGame} appBar={isThin} navBar={isWide}/>
@@ -79,7 +74,6 @@ function NewGame() {
                         helpText={GameOptionsHelp(themes.newGame)}
                         helpTitle={<HelpTitle theme={themes.newGame} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
-                        updateTheme={updateTheme}
                         additionalSettings={null}
                         theme={themes.newGame}
                     />

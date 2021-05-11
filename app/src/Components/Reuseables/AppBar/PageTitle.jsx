@@ -11,7 +11,6 @@ export function PageTitle({theme, style, className, children}) {
             className={clsx(classes.page_title, {
                 [className]: className,
             })}
-            style={{marginRight: 'auto'}}
             noWrap
         >
             {children}

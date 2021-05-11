@@ -5,7 +5,7 @@ import { useStyles } from "./Profile.jss";
 const ProfileWB = React.lazy(() => import('./ProfileWB/ProfileWB'));
 
 /**children is a header for the profile of the piece */
-function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
+function Profile ({pieceName, expand, defs, theme, screenCase, adjust, children }) {
 
     const classes = useStyles({theme: theme});
 
@@ -18,6 +18,7 @@ function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
                 pieceName={pieceName}
                 def={defs[pieceName]["W"]}
                 screenCase={screenCase}
+                adjust={adjust}
                 theme={theme}
             />
             <ProfileWB
@@ -26,6 +27,7 @@ function Profile ({pieceName, expand, defs, theme, screenCase, children }) {
                 pieceName={pieceName}
                 def={defs[pieceName]["B"]}
                 screenCase={screenCase}
+                adjust={adjust}
                 theme={theme}
             />
         </Box>

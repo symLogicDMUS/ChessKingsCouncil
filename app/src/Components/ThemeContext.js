@@ -1,7 +1,7 @@
 import React, {createContext} from "react";
 
 export const ThemeContext = createContext({
-    newGame: 'dark',
+    newGame: 'tan',
     loadGame: 'tan',
     createPiece: 'dark',
     customize: 'dark',

@@ -17,17 +17,13 @@ const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'))
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 
 function MyPieces() {
-    const themes = useContext(ThemeContext)
+    const {themes, setThemes} = useContext(ThemeContext)
     const [searchText, setSearchText] = useState("");
     const isWide = useMediaQuery("(min-width:960px)");
     const classes = useStyles({theme: themes.myPieces});
 
     const updateSearchText = (searchText) => {
         setSearchText(searchText);
-    };
-
-    const updateTheme = (theme) => {
-        return null;
     };
 
     return (
@@ -46,7 +42,6 @@ function MyPieces() {
                     }
                     theme={themes.myPieces}
                     redirectMessage={null}
-                    updateTheme={updateTheme}
                     additionalSettings={null}
                 />
             }

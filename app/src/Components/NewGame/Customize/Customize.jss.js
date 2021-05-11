@@ -129,7 +129,9 @@ export const styles = {
        marginRight: 8,
     }),
     title: props => ({
-        marginLeft: 36,
+        '@media screen and (max-width: 960px)': {
+            marginLeft: 36,
+        },
     }),
     tools: props => ({
         display: 'flex',
