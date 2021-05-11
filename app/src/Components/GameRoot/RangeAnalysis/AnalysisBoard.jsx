@@ -1,9 +1,9 @@
 import React from "react";
 import { rankfiles } from "../../helpers/rankfiles";
 import { isSpecial } from "../../helpers/isSpecial";
-import { getPieceImg } from "../../../API/sampleData/specialThemeImgs/getPieceImg";
-import { getFranchisePieceImg } from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
-import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import { getPieceImg } from "../../styles/themes/specialThemeImgs/getPieceImg";
+import { getFranchisePieceImg } from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
+import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import { useStyles } from "./AnalysisBoard.jss";
 
 const AnalysisSquare = React.lazy(() => import('./AnalysisSquare'));

@@ -21,7 +21,6 @@ export function NavBarButton({
     touch,
 }) {
     const history = useHistory();
-    const [hover, setHover] = useState(false);
     const [redirectModal, toggleRedirectModal] = useState(false);
 
     const classes = useStyles({
@@ -89,20 +88,10 @@ export function NavBarButton({
                 button
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.hover_color]: hover,
-                    [classes.normal_color]: !hover && !touch,
                     [classes.row_direction]: isRow(),
                 })}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
             >
-                <ListItemIcon
-                    className={clsx(null, {
-                        [classes.hover_color]: hover,
-                        [classes.touch_color]: touch,
-                        [classes.normal_color]: !hover && !touch,
-                    })}
-                >
+                <ListItemIcon>
                     <SvgIcon
                         fontVariant="button"
                     >
@@ -113,9 +102,6 @@ export function NavBarButton({
                     variant="button"
                     primary={pageName}
                     className={clsx(null, {
-                        [classes.normal_color]: !hover && !touch,
-                        [classes.hover_color]: hover,
-                        [classes.touch_color]: touch,
                         [classes.row_direction]: isRow(),
                     })}
                     noWrap

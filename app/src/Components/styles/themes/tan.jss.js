@@ -1,5 +1,6 @@
 export const tan = {
     outline: '#2b2b2b',
+    outline_alt: '#2b2b2b',
     fill: '#000000',
     fill2: '#000000',
     text: '#d7bb99',
@@ -33,6 +34,7 @@ export const tan = {
     page_link_hover: '#ffffff',
     drawer_outline: '#373737',
     switch_active: '#d7bb99',
+    modal_actions: '#90caf9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

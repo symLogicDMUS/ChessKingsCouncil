@@ -21,12 +21,13 @@ import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
 import { ThreeItemAppBarContent } from
         "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
 import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import {marginRight} from "../../PieceProfiles/Header/LoadDeleteHeader.jss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
 import CustomizeToolbar from "./CustomizeToolbar";
 import { textColor, styles } from "./Customize.jss";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
+import {ThemeContext} from "../../ThemeContext";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
@@ -37,75 +38,47 @@ const NavBar = React.lazy(() => import('../../Reuseables/NavBar/NavBar'));
 class Customize extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            theme: "dark",
-            searchText: "",
-            redirect: false,
-            miniVariantTool: null,
-            binaryValue: true,
-        };
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
-        this.subs = {
-            Rook: null,
-            Bishop: null,
-            Queen: null,
-            Knight: null,
-        };
-        this.colors = ["W", "B"];
-        this.standardPieceNames = [
-            "Rook",
-            "Bishop",
-            "Queen",
-            "Knight",
-            "Pawn",
-            "King",
-        ];
-        this.defs = {};
-        this.idDict = {};
-        this.gameData = {};
-        this.promos = [];
-        this.standardPieceDefs = copy(standardPieceDefs);
-        this.newData  = copy(newData);
-        this.firstTime = false;
-        this.promoAll = false;
-        this.newReplacement = null;
-        this.newReplaced = null;
-        this.show = true;
-        this.helpTitle = null;
-        this.helpText = null;
-        this.hmChildName = "none";
-        this.hmChildren = { none: null };
-        this.isTooltip = false;
-        this.nameDisp = null;
-        this.navExpanded = true;
-        this.clientX = 0;
-        this.clientY = 0;
-        this.first = false;
-        this.setDefs = this.setDefs.bind(this);
-        this.accept = this.accept.bind(this);
-        this.toggleSub = this.toggleSub.bind(this);
-        this.togglePromo = this.togglePromo.bind(this);
-        this.togglePromoAll = this.togglePromoAll.bind(this);
-        this.toggleMiniVariantTool = this.toggleMiniVariantTool.bind(this);
-        this.updateSearchText = this.updateSearchText.bind(this);
-        this.updateTheme = this.updateTheme.bind(this);
-        this.loadIdDict = this.loadIdDict.bind(this);
     }
-
-    componentDidMount() {
-        document.body.className = "dark-background";
-    }
-
-    componentDidUpdate() {
-        if (this.state.theme === "tan") {
-            document.body.className = "tan-background-alt";
-        } else {
-            document.body.className = `${this.state.theme}-background`;
-        }
-    }
-
+    state = {
+        theme: "dark",
+        searchText: "",
+        redirect: false,
+        miniVariantTool: null,
+        binaryValue: true,
+    };
+    subs = {
+        Rook: null,
+        Bishop: null,
+        Queen: null,
+        Knight: null,
+    };
+    colors = ["W", "B"];
+    defs = {};
+    idDict = {};
+    gameData = {};
+    promos = [];
+    newData  = copy(newData);
+    standardPieceNames = copy(standardPieceNames);
+    standardPieceDefs = copy(standardPieceDefs);
+    firstTime = false;
+    promoAll = false;
+    newReplacement = null;
+    newReplaced = null;
+    show = true;
+    helpTitle = null;
+    helpText = null;
+    hmChildName = "none";
+    hmChildren = { none: null };
+    isTooltip = false;
+    nameDisp = null;
+    navExpanded = true;
+    clientX = 0;
+    clientY = 0;
+    first = false;
+    
     setDefs(defs) {
         this.defs = { ...this.standardPieceDefs, ...defs };
         this.setState({ binaryValue: !this.state.binaryValue });
@@ -128,7 +101,7 @@ class Customize extends React.Component {
      * 3. because using pieces the user created, need to do a run through of the game logic to know what the starting ranges
      *    are.
      */
-    bundleGameData() {
+    bundleGameData = () => {
         this.gameData = {
             ...this.newData,
             promos: this.promos,
@@ -157,9 +130,9 @@ class Customize extends React.Component {
         this.gameData.enemyRanges = dataEntry.enemyRanges;
 
         this.gameData.imgUrlStrs = this.resolveUrlImgRefs()
-    }
+    };
 
-    resolveUrlImgRefs() {
+    resolveUrlImgRefs = () => {
         const imgUrlRefs = []
         for (const pieceName of Object.keys(this.gameData.defs)) {
             for (const color of this.colors) {
@@ -171,7 +144,7 @@ class Customize extends React.Component {
             }
         }
         return Array.from(new Set(imgUrlRefs))
-    }
+    };
 
     /**
      * sub: name of a piece making sub.
@@ -179,7 +152,7 @@ class Customize extends React.Component {
      * Components use standard:sub dict, and game-logic uses
      * sub:standard dict
      */
-    prepareForIdAssign() {
+    prepareForIdAssign = () => {
         const names = [];
         const subs = {};
 
@@ -204,12 +177,12 @@ class Customize extends React.Component {
         }
 
         return [names, subs];
-    }
+    };
 
     /**
      * for each standard piece check all starting pieces and if found make it a pawn promotion (except pawns and kings)
      */
-    addStartingStandardsToPromos() {
+    addStartingStandardsToPromos = () => {
         for (const [name1, id1] of Object.entries(standardIds)) {
             for (const [id2, name2] of Object.entries(this.idDict)) {
                 if (
@@ -222,9 +195,9 @@ class Customize extends React.Component {
                 }
             }
         }
-    }
+    };
 
-    addBackupStandards() {
+    addBackupStandards = () => {
         let idChoices;
         /* for standard piece names */
         for (const pieceName of this.standardPieceNames) {
@@ -241,14 +214,14 @@ class Customize extends React.Component {
                 this.promos.push(pieceName);
             }
         }
-    }
+    };
 
-    loadIdDict() {
+    loadIdDict = () => {
         const [names, subs] = this.prepareForIdAssign();
         return idAssign(names, subs);
-    }
+    };
 
-    toggleSub(sub, standardPiece) {
+    toggleSub = (sub, standardPiece) => {
         this.subs[standardPiece] =
             this.subs[standardPiece] === sub ? null : sub;
         if (this.subs[standardPiece]) {
@@ -264,17 +237,17 @@ class Customize extends React.Component {
             this.newReplaced = null;
         }
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    };
 
-    togglePromo(pieceName) {
+    togglePromo = pieceName => {
         if (this.promos.includes(pieceName)) {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
         } else this.promos.push(pieceName);
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    };
 
-    togglePromoAll() {
+    togglePromoAll = () => {
         this.promoAll = !this.promoAll;
         // if promoAll now true than add every piece not already a promo to the list
         if (this.promoAll) {
@@ -290,42 +263,40 @@ class Customize extends React.Component {
             this.promos = [];
         }
         this.setState({ binaryValue: !this.state.binaryValue });
-    }
+    };
 
-    toggleMiniVariantTool(toolName, clientX, clientY) {
+    toggleMiniVariantTool = (toolName, clientX, clientY) => {
         if (this.state.miniVariantTool === toolName) {
             this.setState({ miniVariantTool: null, clientX: clientX, clientY: clientY });
         } else {
             this.setState({ miniVariantTool: toolName, clientX: clientX, clientY: clientY });
         }
-    }
+    };
 
-    updateSearchText(searchText) {
+    updateSearchText = searchText => {
         this.setState({ searchText: searchText });
-    }
+    };
 
-    play() {
-        return (
-            <Redirect
-                to={{
-                    pathname: "/Play",
-                    state: {
-                        currentPath: "/Customize",
-                        gameName: copy(this.gameName),
-                        gameType: copy(this.gameType),
-                        playerType: copy(this.playerType),
-                        gameData: copy(this.gameData),
-                    },
-                }}
-            />
-        );
-    }
+    play = () => (
+        <Redirect
+            to={{
+                pathname: "/Play",
+                state: {
+                    currentPath: "/Customize",
+                    gameName: copy(this.gameName),
+                    gameType: copy(this.gameType),
+                    playerType: copy(this.playerType),
+                    gameData: copy(this.gameData),
+                },
+            }}
+        />
+    );
 
-    updateTheme(theme) {
+    updateTheme = theme => {
         this.setState({ theme: theme });
-    }
+    };
 
-    getPieceListData() {
+    getPieceListData = () => {
         const pieceNames = Array.from(new Set(
             [...Object.values(this.subs), ...this.promos]
         ))
@@ -337,142 +308,144 @@ class Customize extends React.Component {
                 {pieceName}
             </Typography>
         ))
-    }
+    };
 
     render() {
         return (
-            <>
-                {this.state.redirect ? this.play() : null}
-                <ResponsiveDrawer
-                    elevation={0}
-                    appBarType="3item"
-                    theme={this.state.theme}
-                    appBarContent={
-                        <ThreeItemAppBarContent
-                            theme={this.state.theme}
-                            seeMoreIcon2={<SearchIcon style={textColor(this.state.theme)}/>}
-                        >
-                            <PageTitle theme={this.state.theme} className={this.props.classes.title}>
-                                Customize Game
-                            </PageTitle>
-                            <MuiCheckbox
-                                noWrap={true}
-                                variant="caption"
-                                theme={this.state.theme}
-                                onClick={this.togglePromoAll}
-                                className={this.props.classes.promo_all}
+            <ThemeContext.Consumer>
+                {themes => <>
+                    {this.state.redirect ? this.play() : null}
+                    <ResponsiveDrawer
+                        elevation={0}
+                        appBarType="3item"
+                        theme={themes.customize}
+                        appBarContent={
+                            <ThreeItemAppBarContent
+                                theme={themes.customize}
+                                seeMoreIcon2={<SearchIcon style={textColor(themes.customize)}/>}
                             >
-                                Promo All
-                            </MuiCheckbox>
-                            <SearchBox
-                                updateSearchText={this.updateSearchText}
-                                className={this.props.classes.search}
-                                theme={this.state.theme}
-                                isMenuItem={true}
-                            />
-                        </ThreeItemAppBarContent>
-                    }
-                    tools={
-                        <Box className={this.props.classes.tools}>
-                            <SubList
+                                <PageTitle theme={themes.customize} className={this.props.classes.title}>
+                                    Customize Game
+                                </PageTitle>
+                                <MuiCheckbox
+                                    noWrap={true}
+                                    variant="caption"
+                                    theme={themes.customize}
+                                    onClick={this.togglePromoAll}
+                                    className={this.props.classes.promo_all}
+                                >
+                                    Promo All
+                                </MuiCheckbox>
+                                <SearchBox
+                                    updateSearchText={this.updateSearchText}
+                                    className={this.props.classes.search}
+                                    theme={themes.customize}
+                                    isMenuItem={true}
+                                />
+                            </ThreeItemAppBarContent>
+                        }
+                        tools={
+                            <Box className={this.props.classes.tools}>
+                                <SubList
+                                    subs={this.subs}
+                                    theme={themes.customize}
+                                />
+                                <ScrollTable
+                                    numRows={6}
+                                    theme={themes.customize}
+                                    key="pawn-promotions-wide"
+                                    className={this.props.classes.scroll_table}
+                                    addedClassName={
+                                        this.props.classes.drawer_component
+                                    }
+                                    listItemClassName={
+                                        this.props.classes.scroll_table_list_item
+                                    }
+                                    arrowButtonClassName={
+                                        this.props.classes.scroll_table_button
+                                    }
+                                    textClassName={
+                                        this.props.classes.scroll_table_text
+                                    }
+                                    title={
+                                        <ListTitle
+                                            className={
+                                                this.props.classes
+                                                    .scroll_table_title
+                                            }
+                                            theme={themes.customize}
+                                        >
+                                            Pawn Promotions
+                                        </ListTitle>
+                                    }
+                                >
+                                    {this.promos}
+                                </ScrollTable>
+                                <Button
+                                    onClick={this.accept}
+                                    className={this.props.classes.ok_button}
+                                    theme={themes.customize}
+                                    variant={"contained"}
+                                    size="large"
+                                >
+                                    Ok
+                                </Button>
+                            </Box>
+                        }
+                        toolButtons={
+                            <CustomizeToolbar
                                 subs={this.subs}
-                                theme={this.state.theme}
+                                promos={this.promos}
+                                theme={themes.customize}
                             />
-                            <ScrollTable
-                                numRows={6}
-                                theme={this.state.theme}
-                                key="pawn-promotions-wide"
-                                className={this.props.classes.scroll_table}
-                                addedClassName={
-                                    this.props.classes.drawer_component
-                                }
-                                listItemClassName={
-                                    this.props.classes.scroll_table_list_item
-                                }
-                                arrowButtonClassName={
-                                    this.props.classes.scroll_table_button
-                                }
-                                textClassName={
-                                    this.props.classes.scroll_table_text
-                                }
-                                title={
-                                    <ListTitle
-                                        className={
-                                            this.props.classes
-                                                .scroll_table_title
-                                        }
-                                        theme={this.state.theme}
+                        }
+                        navBar={
+                            <NavBar
+                                currentPage="Customize"
+                                helpText={CustomizeHelp(themes.customize)}
+                                helpTitle={
+                                    <HelpTitle
+                                        theme={themes.customize}
+                                        fontSize='2.3vh'
                                     >
-                                        Pawn Promotions
-                                    </ListTitle>
+                                        Customizing a Game
+                                    </HelpTitle>
                                 }
-                            >
-                                {this.promos}
-                            </ScrollTable>
+                                theme={themes.customize}
+                                updateTheme={this.updateTheme}
+                                additionalSettings={null}
+                            />
+                        }
+                    >
+                        <PieceProfiles
+                            defs={this.defs}
+                            subs={this.subs}
+                            promos={this.promos}
+                            parentPage="Customize"
+                            toggleSub={this.toggleSub}
+                            updateParent={this.setDefs}
+                            newReplaced={this.newReplaced}
+                            togglePromo={this.togglePromo}
+                            updateTheme={this.updateTheme}
+                            searchText={this.state.searchText}
+                            newReplacement={this.newReplacement}
+                            className={this.props.classes.piece_profiles}
+                            theme={themes.customize}
+                        />
+                        <MediaQuery maxWidth={960}>
                             <Button
                                 onClick={this.accept}
                                 className={this.props.classes.ok_button}
-                                theme={this.state.theme}
+                                theme={themes.customize}
                                 variant={"contained"}
                                 size="large"
                             >
                                 Ok
                             </Button>
-                        </Box>
-                    }
-                    toolButtons={
-                        <CustomizeToolbar
-                            subs={this.subs}
-                            promos={this.promos}
-                            theme={this.state.theme}
-                        />
-                    }
-                    navBar={
-                        <NavBar
-                            currentPage="Customize"
-                            helpText={CustomizeHelp(this.state.theme)}
-                            helpTitle={
-                                <HelpTitle
-                                    theme={this.state.theme}
-                                    fontSize='2.3vh'
-                                >
-                                    Customizing a Game
-                                </HelpTitle>
-                            }
-                            theme={this.state.theme}
-                            updateTheme={this.updateTheme}
-                            additionalSettings={null}
-                        />
-                    }
-                >
-                    <PieceProfiles
-                        defs={this.defs}
-                        subs={this.subs}
-                        promos={this.promos}
-                        parentPage="Customize"
-                        toggleSub={this.toggleSub}
-                        updateParent={this.setDefs}
-                        newReplaced={this.newReplaced}
-                        togglePromo={this.togglePromo}
-                        updateTheme={this.updateTheme}
-                        searchText={this.state.searchText}
-                        newReplacement={this.newReplacement}
-                        className={this.props.classes.piece_profiles}
-                        theme={this.state.theme}
-                    />
-                    <MediaQuery maxWidth={960}>
-                        <Button
-                            onClick={this.accept}
-                            className={this.props.classes.ok_button}
-                            theme={this.state.theme}
-                            variant={"contained"}
-                            size="large"
-                        >
-                            Ok
-                        </Button>
-                    </MediaQuery>
-                </ResponsiveDrawer>
-            </>
+                        </MediaQuery>
+                    </ResponsiveDrawer>
+                </>}
+            </ThemeContext.Consumer>
         );
     }
 }

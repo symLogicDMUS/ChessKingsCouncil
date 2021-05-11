@@ -4,7 +4,7 @@ import NavBar from "../Reuseables/NavBar/NavBar";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {Background} from "../Reuseables/Background/Background";
+import {Background} from "../styles/Background/Background";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";

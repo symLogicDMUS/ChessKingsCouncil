@@ -43,29 +43,31 @@ export function MuiDeleteButton(props) {
                         theme={props.theme}
                         closeClick={() => setModal(false)}
                     >
-                        <MuiButton
+                        <Button
                             onClick={() => {
                                 props.onAcceptDelete();
                                 setModal(false);
                             }}
-                            className={classes.button}
-                            addedClassName={classes.yes_button}
-                            variant={"contained"}
-                            theme={props.theme}
+                            variant={"text"}
                             size={props.size}
+                            theme={props.theme}
+                            className={clsx(classes.button, {
+                                [classes.yes_button]:true
+                            })}
                         >
                             Yes
-                        </MuiButton>
-                        <MuiButton
+                        </Button>
+                        <Button
                             onClick={() => setModal(false)}
-                            className={classes.button}
-                            addedClassName={classes.no_button}
-                            variant={"contained"}
+                            variant={"text"}
                             theme={props.theme}
                             size={props.size}
+                            className={clsx(classes.button, {
+                                [classes.no_button]:true
+                            })}
                         >
                             No
-                        </MuiButton>
+                        </Button>
                     </StandardModal>
                 </Portal>
             ) : null}

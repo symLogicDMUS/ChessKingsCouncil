@@ -2,8 +2,8 @@ import React from "react";
 import {PageLink} from "./PageLink";
 import Box from "@material-ui/core/Box";
 import SignInOutButton from "./SignInOutButton";
-import "../Reuseables/Background/_backgrounds.scss"
-import {Background} from "../Reuseables/Background/Background";
+import "../styles/Background/_backgrounds.scss"
+import {Background} from "../styles/Background/Background";
 import {useStyles} from "./MainMenuLg.jss";
 
 

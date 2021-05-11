@@ -2,9 +2,9 @@ import React, {useEffect} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import {useStyles as useMoreStyles}
-    from "../Reuseables/Background/Background.jss";
+    from "../styles/Background/Background.jss";
 import { useStyles } from "./CouncilRulesBody.jss";
 
 export function CouncilRulesBody({theme}) {

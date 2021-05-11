@@ -6,7 +6,6 @@ import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
 export function SettingsButton({updateTheme, theme, screenCase, currentPage, touch, children}) {
-    const [hover, setHover] = useState(false);
     const [settingsModal, toggleSettingsModal] = useState(false);
 
     const classes = useStyles({
@@ -41,30 +40,15 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, tou
                 button
                 onClick={toggleSettingsModal}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.hover_color]: hover,
-                    [classes.normal_color]: !hover && !touch,
                     [classes.row_direction]: isRow(),
                 })}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
             >
-                <ListItemIcon
-                    className={clsx(null, {
-                        [classes.hover_color]: hover,
-                        [classes.touch_color]: touch,
-                        [classes.normal_color]: !hover && !touch,
-                    })}
-                >
+                <ListItemIcon>
                     <SettingsIcon fontVariant="button" />
                 </ListItemIcon>
                 <ListItemText
                     variant="button"
                     primary='Settings'
-                    className={clsx(null, {
-                        [classes.normal_color]: !hover && !touch,
-                        [classes.hover_color]: hover,
-                        [classes.touch_color]: touch,
-                    })}
                     noWrap
                 >
                     Settings

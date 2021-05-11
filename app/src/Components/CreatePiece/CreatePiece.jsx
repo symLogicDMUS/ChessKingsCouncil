@@ -1,6 +1,6 @@
 import React from "react";
 import { copy } from "../helpers/copy";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { CreatePieceHelp } from "./Help/CreatePieceHelp";
@@ -24,6 +24,7 @@ import CreatePieceToolbar from "./CreatePieceToolbar";
 import {UserContext} from "../../UserContext";
 import { styles } from "./CreatePiece.jss";
 import LoadBar from "./Icon/LoadBar";
+import {ThemeContext} from "../ThemeContext";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -104,18 +105,9 @@ class CreatePiece extends React.Component {
 
     static contextType = UserContext;
 
-    componentDidMount() {
-        document.body.className = "dark-background";
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.saveInstance !== prevState.saveInstance) {
             this.setState({uploadPiece: true})
-        }
-        if (this.state.theme === "tan") {
-            document.body.className = "tan-background-alt";
-        } else {
-            document.body.className = `${this.state.theme}-background`;
         }
     }
 
@@ -430,224 +422,233 @@ class CreatePiece extends React.Component {
 
     render() {
         return (
-            <>
-                {this.modals()}
-                <ResponsiveDrawer
-                    appBarType="title"
-                    appBarContent={
-                        <CreatePieceTitle name={this.name} theme={this.state.theme} />
-                    }
-                    theme={this.state.theme}
-                    className={this.props.classes.drawer}
-                    tools={
-                        <>
-                            <Name
-                                key={`Name-${this.state.loadInstance}`}
-                                updateName={this.updateName}
-                                defaultValue={this.name}
-                                theme={this.state.theme}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
-                            />
-                            <Icon
-                                key="Icon"
-                                theme={this.state.theme}
-                                setImgFileObj={this.setImgFileObj}
-                                resetImg={this.resetImg}
-                                setPieceImg={this.setPieceImg}
-                                whiteAndBlackImgs={this.whiteAndBlackImgs}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
-                            />
-                            <Range
-                                key="Range"
-                                spans={this.spans}
-                                offsets={this.offsets}
-                                toggleSpan={this.toggleSpan}
-                                pieceLoc={this.location}
-                                theme={this.state.theme}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
-                            />
-                            <Location
-                                key="Location"
-                                setLoc={this.setLoc}
-                                theme={this.state.theme}
-                                selectedLoc={this.location}
-                                miniVariantTool={this.state.miniVariantTool}
-                                toggleMiniVariantTool={
-                                    this.toggleMiniVariantTool
-                                }
-                            />
-                            <Options
-                                key="Options"
-                                load={this.load}
-                                save={this.save}
-                                reset={this.reset}
-                                erase={this.erase}
-                                pieceName={this.name}
-                                theme={this.state.theme}
-                                resetImg={this.resetImg}
-                                whiteImg={this.whiteAndBlackImgs.white}
-                                blackImg={this.whiteAndBlackImgs.black}
-                                justSaved={this.state.justSaved}
-                            />
-                        </>
-                    }
-                    toolButtons={
-                        <>
-                            <CreatePieceToolbar
-                                pieceName={this.name}
-                                updateName={this.updateName}
-                                whiteAndBlackImgs={this.whiteAndBlackImgs}
-                                setNewPieceImg={this.setPieceImg}
-                                resetImg={this.resetImg}
-                                setImgFileObj={this.setImgFileObj}
-                                theme={this.state.theme}
-                            />
-                            <ToolButtonAlt
-                                text="Spans"
-                                iconName={"range_tool"}
-                                theme={this.state.theme}
-                                isActive={
-                                    this.state.miniVariantTool === "Range"
-                                }
-                                onClick={() =>
-                                    this.toggleMiniVariantTool("Range")
-                                }
-                            />
-                            <ToolButtonAlt
-                                text="Location"
-                                theme={this.state.theme}
-                                iconName={"location_tool"}
-                                isActive={
-                                    this.state.miniVariantTool === "Location"
-                                }
-                                onClick={this.locationToolClick}
-                            />
-                            <Load
-                                load={this.load}
-                                erase={this.erase}
-                                theme={this.state.theme}
-                                className={this.props.classes.smOption}
-                                buttonType="tool"
-                            />
-                            {this.context ? (
-                                <Save
-                                    save={this.save}
-                                    pieceName={this.name}
-                                    className={this.props.classes.smOption}
-                                    whiteImg={this.whiteAndBlackImgs.white}
-                                    blackImg={this.whiteAndBlackImgs.black}
-                                    justSaved={this.state.justSaved}
-                                    theme={this.state.theme}
-                                    buttonType="tool"
-                                />
-                            ) : (
-                                <AskLoginButton theme={this.state.theme} iconName={"save_alt"} text={"Save"} />
-                            )}
-                            <Reset
-                                reset={this.reset}
-                                theme={this.state.theme}
-                                className={this.props.classes.smOption}
-                                buttonType="tool"
-                            />
-                            <Erase
-                                erase={this.erase}
-                                theme={this.state.theme}
-                                className={this.props.classes.smOption}
-                                buttonType="tool"
-                            />
-                        </>
-                    }
-                    navBar={
-                        <NavBar
-                            currentPage="CreatePiece"
-                            theme={this.state.theme}
-                            redirectMessage={messageStr}
-                            helpTitle={
-                                <HelpTitle
-                                    theme={this.state.theme}
-                                    fontSize={"2.6vh"}
-                                >
-                                    Creating a Piece
-                                </HelpTitle>
+            <ThemeContext.Consumer>
+                {themes =>
+                    <>
+                        {this.modals()}
+                        <ResponsiveDrawer
+                            appBarType="title"
+                            appBarContent={
+                                <CreatePieceTitle name={this.name} theme={themes.createPiece} />
                             }
-                            helpText={CreatePieceHelp(this.state.theme)}
-                            updateFirstVisit={this.updateFirstVisit}
-                            additionalSettings={
+                            themeAlt={true}
+                            theme={themes.createPiece}
+                            className={this.props.classes.drawer}
+                            tools={
                                 <>
-                                    <MuiSwitch
-                                        theme={this.state.theme}
-                                        className={
-                                            this.props.classes.show_offset
+                                    <Name
+                                        defaultValue={this.name}
+                                        theme={themes.createPiece}
+                                        updateName={this.updateName}
+                                        key={`Name-${this.state.loadInstance}`}
+                                        miniVariantTool={this.state.miniVariantTool}
+                                        toggleMiniVariantTool={
+                                            this.toggleMiniVariantTool
                                         }
-                                        isChecked={this.state.showOffsetText}
-                                        control={
-                                            <ShowOffsetText
-                                                theme={this.state.theme}
-                                                onChange={() =>
-                                                    this.setState({
-                                                        showOffsetText: !this
-                                                            .state
-                                                            .showOffsetText,
-                                                    })
-                                                }
-                                            />
+                                    />
+                                    <Icon
+                                        key="Icon"
+                                        theme={themes.createPiece}
+                                        setImgFileObj={this.setImgFileObj}
+                                        resetImg={this.resetImg}
+                                        setPieceImg={this.setPieceImg}
+                                        whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                        miniVariantTool={this.state.miniVariantTool}
+                                        toggleMiniVariantTool={
+                                            this.toggleMiniVariantTool
                                         }
-                                    >
-                                        Show Offset Text
-                                    </MuiSwitch>
-                                    <MuiSwitch
-                                        theme={this.state.theme}
-                                        className={this.props.classes.show_span}
-                                        isChecked={this.state.showSpanText}
-                                        control={
-                                            <ShowSpanText
-                                                theme={this.state.theme}
-                                                onChange={() =>
-                                                    this.setState({
-                                                        showSpanText: !this
-                                                            .state.showSpanText,
-                                                    })
-                                                }
-                                            />
+                                    />
+                                    <Range
+                                        key="Range"
+                                        spans={this.spans}
+                                        offsets={this.offsets}
+                                        toggleSpan={this.toggleSpan}
+                                        pieceLoc={this.location}
+                                        theme={themes.createPiece}
+                                        miniVariantTool={this.state.miniVariantTool}
+                                        toggleMiniVariantTool={
+                                            this.toggleMiniVariantTool
                                         }
-                                    >
-                                        Show Span Text
-                                    </MuiSwitch>
+                                    />
+                                    <Location
+                                        key="Location"
+                                        setLoc={this.setLoc}
+                                        theme={themes.createPiece}
+                                        selectedLoc={this.location}
+                                        miniVariantTool={this.state.miniVariantTool}
+                                        toggleMiniVariantTool={
+                                            this.toggleMiniVariantTool
+                                        }
+                                    />
+                                    <Options
+                                        key="Options"
+                                        load={this.load}
+                                        save={this.save}
+                                        reset={this.reset}
+                                        erase={this.erase}
+                                        pieceName={this.name}
+                                        theme={themes.createPiece}
+                                        resetImg={this.resetImg}
+                                        whiteImg={this.whiteAndBlackImgs.white}
+                                        blackImg={this.whiteAndBlackImgs.black}
+                                        justSaved={this.state.justSaved}
+                                    />
                                 </>
                             }
-                            isUnsavedChanges={this.isUnsavedChanges}
-                            updateTheme={this.updateTheme}
-                        />
-                    }
-                    navHorizontal={false}
-                    contentClassName={this.props.classes.content}
-                >
-                    <CreatePieceBoard
-                        key="Board"
-                        theme={this.state.theme}
-                        pieceLoc={this.location}
-                        setLoc={this.setLoc}
-                        toggleSpan={this.toggleSpan}
-                        toggleOffset={this.toggleOffset}
-                        spanDisplays={this.spanDisplays}
-                        imgUrl={this.whiteAndBlackImgs.white}
-                        offsetDisplays={this.offsetDisplays}
-                        showSpanText={this.state.showSpanText}
-                        showOffsetText={this.state.showOffsetText}
-                        miniVariantTool={this.state.miniVariantTool}
-                        toggleMiniVariantTool={this.toggleMiniVariantTool}
-                    />
-                </ResponsiveDrawer>
-            </>
+                            toolButtons={
+                                <>
+                                    <CreatePieceToolbar
+                                        pieceName={this.name}
+                                        updateName={this.updateName}
+                                        whiteAndBlackImgs={this.whiteAndBlackImgs}
+                                        setNewPieceImg={this.setPieceImg}
+                                        resetImg={this.resetImg}
+                                        setImgFileObj={this.setImgFileObj}
+                                        theme={themes.createPiece}
+                                    />
+                                    <ToolButtonAlt
+                                        text="Spans"
+                                        iconName={"range_tool"}
+                                        theme={themes.createPiece}
+                                        isActive={
+                                            this.state.miniVariantTool === "Range"
+                                        }
+                                        onClick={() =>
+                                            this.toggleMiniVariantTool("Range")
+                                        }
+                                    />
+                                    <ToolButtonAlt
+                                        text="Location"
+                                        theme={themes.createPiece}
+                                        iconName={"location_tool"}
+                                        isActive={
+                                            this.state.miniVariantTool === "Location"
+                                        }
+                                        onClick={this.locationToolClick}
+                                    />
+                                    <Load
+                                        load={this.load}
+                                        erase={this.erase}
+                                        theme={themes.createPiece}
+                                        className={this.props.classes.smOption}
+                                        buttonType="tool"
+                                    />
+                                    {this.context ? (
+                                        <Save
+                                            save={this.save}
+                                            pieceName={this.name}
+                                            className={this.props.classes.smOption}
+                                            whiteImg={this.whiteAndBlackImgs.white}
+                                            blackImg={this.whiteAndBlackImgs.black}
+                                            justSaved={this.state.justSaved}
+                                            theme={themes.createPiece}
+                                            buttonType="tool"
+                                        />
+                                    ) : (
+                                        <AskLoginButton
+                                            theme={themes.createPiece}
+                                            iconName={"save_alt"}
+                                            text={"Save"}
+                                        />
+                                    )}
+                                    <Reset
+                                        reset={this.reset}
+                                        theme={themes.createPiece}
+                                        className={this.props.classes.smOption}
+                                        buttonType="tool"
+                                    />
+                                    <Erase
+                                        erase={this.erase}
+                                        theme={themes.createPiece}
+                                        className={this.props.classes.smOption}
+                                        buttonType="tool"
+                                    />
+                                </>
+                            }
+                            navBar={
+                                <NavBar
+                                    currentPage="CreatePiece"
+                                    theme={themes.createPiece}
+                                    redirectMessage={messageStr}
+                                    helpTitle={
+                                        <HelpTitle
+                                            theme={themes.createPiece}
+                                            fontSize={"2.6vh"}
+                                        >
+                                            Creating a Piece
+                                        </HelpTitle>
+                                    }
+                                    helpText={CreatePieceHelp(themes.createPiece)}
+                                    updateFirstVisit={this.updateFirstVisit}
+                                    additionalSettings={
+                                        <>
+                                            <MuiSwitch
+                                                theme={themes.createPiece}
+                                                className={
+                                                    this.props.classes.show_offset
+                                                }
+                                                isChecked={this.state.showOffsetText}
+                                                control={
+                                                    <ShowOffsetText
+                                                        theme={themes.createPiece}
+                                                        onChange={() =>
+                                                            this.setState({
+                                                                showOffsetText: !this
+                                                                    .state
+                                                                    .showOffsetText,
+                                                            })
+                                                        }
+                                                    />
+                                                }
+                                            >
+                                                Show Offset Text
+                                            </MuiSwitch>
+                                            <MuiSwitch
+                                                theme={themes.createPiece}
+                                                className={this.props.classes.show_span}
+                                                isChecked={this.state.showSpanText}
+                                                control={
+                                                    <ShowSpanText
+                                                        theme={themes.createPiece}
+                                                        onChange={() =>
+                                                            this.setState({
+                                                                showSpanText: !this
+                                                                    .state.showSpanText,
+                                                            })
+                                                        }
+                                                    />
+                                                }
+                                            >
+                                                Show Span Text
+                                            </MuiSwitch>
+                                        </>
+                                    }
+                                    isUnsavedChanges={this.isUnsavedChanges}
+                                    updateTheme={this.updateTheme}
+                                />
+                            }
+                            navHorizontal={false}
+                            contentClassName={this.props.classes.content}
+                        >
+                            <CreatePieceBoard
+                                key="Board"
+                                theme={themes.createPiece}
+                                pieceLoc={this.location}
+                                setLoc={this.setLoc}
+                                toggleSpan={this.toggleSpan}
+                                toggleOffset={this.toggleOffset}
+                                spanDisplays={this.spanDisplays}
+                                imgUrl={this.whiteAndBlackImgs.white}
+                                offsetDisplays={this.offsetDisplays}
+                                showSpanText={this.state.showSpanText}
+                                showOffsetText={this.state.showOffsetText}
+                                miniVariantTool={this.state.miniVariantTool}
+                                toggleMiniVariantTool={this.toggleMiniVariantTool}
+                            />
+                        </ResponsiveDrawer>
+                    </>
+                }
+            </ThemeContext.Consumer>
         );
     }
 }

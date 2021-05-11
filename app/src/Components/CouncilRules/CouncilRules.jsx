@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import clsx from "clsx";
 import Typography from "@material-ui/core/Typography";
 import {useTheme} from "@material-ui/core/styles";
@@ -14,13 +14,15 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import {NavBarAlt} from "../Reuseables/NavBar/NavBarAlt";
 import {CouncilRulesBody} from "./CouncilRulesBody";
 import {useStyles} from "./CouncilRules.jss";
+import {ThemeContext} from "../ThemeContext";
 
 function CouncilRules() {
-    const theme = 'tan';
-    const classes = useStyles({ theme: theme });
+    const themes = useContext(ThemeContext);
+    const classes = useStyles({ theme: themes.councilRules });
     const muiTheme = useTheme();
 
     const [open, setOpen] = useState(false);
+
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -84,7 +86,7 @@ function CouncilRules() {
                 </div>
                 <Divider />
                 <NavBarAlt
-                    theme={theme}
+                    theme={themes.councilRules}
                 />
             </Drawer>
             <main
@@ -93,7 +95,7 @@ function CouncilRules() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <CouncilRulesBody theme={theme} />
+                <CouncilRulesBody theme={themes.councilRules} />
             </main>
         </div>
     );

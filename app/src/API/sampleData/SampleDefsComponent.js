@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import {Typography} from "@material-ui/core";
-import '../../Components/Reuseables/Background/_backgrounds.scss';
+import '../../Components/styles/Background/_backgrounds.scss';
 import {refactorDefOffsets} from "./refactorDefOffsets";
 
 export function SampleDefsComponent() {

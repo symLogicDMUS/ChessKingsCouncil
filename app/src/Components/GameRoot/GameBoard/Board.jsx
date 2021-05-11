@@ -29,29 +29,33 @@ const Board = ({ gameRoot }) => {
 
     const lg = useMediaQuery("(min-width:960px)");
 
+    const sqrSize = lg ? state.sqrSizes.wide : state.sqrSizes.thin
+    const boardSize = lg ? state.boardSizes.wide : state.boardSizes.thin
+    const boardPos = lg ? state.boardPos.wide : state.boardPos.thin
+
     return (
         <DndProvider options={HTML5toTouch}>
             <DropLayer
                 state={state}
                 dispatch={dispatch}
                 gameRoot={gameRoot}
+                sqrSize={sqrSize}
+                boardSize={boardSize}
+                boardPos={boardPos}
                 theme={gameRoot.state.theme}
-                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
-                boardSize={lg ? state.boardSizes.wide : state.boardSizes.thin}
-                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
             />
             <DragLayer
                 gameRoot={gameRoot}
+                sqrSize={sqrSize}
+                boardSize={boardSize}
+                boardPos={boardPos}
                 theme={gameRoot.state.theme}
-                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
-                boardSize={lg ? state.boardSizes.wide : state.sqrSizes.thin}
-                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
             />
             <GameDisplayBoard
+                sqrSize={sqrSize}
+                boardSize={boardSize}
+                boardPos={boardPos}
                 theme={gameRoot.state.theme}
-                sqrSize={lg ? state.sqrSizes.wide : state.sqrSizes.thin}
-                boardSize={lg ? state.boardSizes.wide : state.boardSizes.thin}
-                boardPos={lg ? state.boardPos.wide : state.boardPos.thin}
             />
         </DndProvider>
     );

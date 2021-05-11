@@ -1,4 +1,4 @@
-import {getPieceImg} from "../../API/sampleData/specialThemeImgs/getPieceImg";
+import {getPieceImg} from "../styles/themes/specialThemeImgs/getPieceImg";
 import {rankfiles} from "../helpers/rankfiles";
 
 export function mapIdsToImgUrls(idBoard, idDict, defs) {

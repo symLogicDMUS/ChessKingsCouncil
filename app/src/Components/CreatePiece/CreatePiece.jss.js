@@ -18,10 +18,10 @@ export const styles = {
         display: 'flex',
     }),
     show_offset: props => ({
-       marginTop: 'auto',
+       marginTop: '0.5rem',
     }),
     show_span: props => ({
-        marginBottom: 'auto',
+        marginBottom: '0.1rem',
     }),
     drawer: props => ({
         "& .MuiToolbar-gutters": {

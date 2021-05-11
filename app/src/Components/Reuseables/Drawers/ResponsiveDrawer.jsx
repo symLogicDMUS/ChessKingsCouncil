@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import Hidden from "@material-ui/core/Hidden";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -19,8 +19,8 @@ import { useStyles } from "./ResponsiveDrawer.jss";
  *  this is indicated by the boolean prop 'navHorizontal'.
  */
 function ResponsiveDrawer({
-    theme,
     navBar,
+    theme,
     tools,
     toolButtons,
     navHorizontal,
@@ -38,6 +38,10 @@ function ResponsiveDrawer({
     const handleDrawerToggle = () => {
         setOpen(!open);
     };
+
+    useEffect(() => {
+        document.body.className = `${theme}-background`;
+    }, [theme])
 
     return (
         <div

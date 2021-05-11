@@ -3,9 +3,9 @@ import clsx from "clsx";
 import {Link} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import {useStyles as useMoreStyles}
-        from "../Reuseables/Background/Background.jss";
+        from "../styles/Background/Background.jss";
 import { useStyles } from "./MainMenuBody.jss";
 
 export function MainMenuBody({theme}) {

@@ -4,7 +4,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
 import {configs} from "./configs";
-import { App } from "./App";
+import App from "./App";
 
 firebase.initializeApp(configs.prod);
 

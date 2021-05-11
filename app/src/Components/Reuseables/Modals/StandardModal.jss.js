@@ -1,33 +1,23 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes/themes.jss";
+import {lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
-    modal: props => ({
-        ...modal,
+    root: props => ({
+       "& .MuiDialogTitle-root": {
+           paddingTop: 0,
+       },
+    }),
+    backdrop: props => ({
         zIndex: 7,
     }),
     window: props => ({
-        fontSize: '2vh',
-        padding: '2vh',
-        display: 'flex',
-        borderRadius: '0.35em',
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
         backgroundColor: themes[props.theme].fill,
         border: `0.075em solid ${themes[props.theme].odd_row}`,
-        '@media screen and (min-width: 960px)': {
-            width: '33.333vw',
-            height: '33.333vh',
-        },
-        '@media screen and (max-width: 960px)': {
-            width: '98vw',
-            height: '40vh',
-        },
     }),
     top_area: props => ({
-        fontSize: '2vh',
-        height: '1.5em',
+        fontSize: '0.8rem',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -35,19 +25,12 @@ export const useStyles = makeStyles({
         width: '100%',
     }),
     title: props => ({
-        fontSize: '2vh',
-        textAlign: 'center',
-        marginBottom: '2vh',
-        color: themes[props.theme].text,
+        color: lighten(themes[props.theme].text, 0.35),
     }),
     paragraph: props => ({
-        flexGrow: 100,
-        overflow: 'hidden',
-        marginBottom: '2vh',
         color: themes[props.theme].text,
     }),
     buttons: props => ({
-        fontSize: '2vh',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
@@ -63,14 +46,14 @@ export const useStyles = makeStyles({
        height: '1rem',
     }),
     button: props => ({
-        fontSize: '2vh',
-        width: '7.5em',
-        height: '2em',
+        color: themes[props.theme].modal_actions,
+        backgroundColor: themes[props.theme].button_fill,
+        width: '6.5rem',
     }),
     yes_button: props => ({
-       marginRight: '1em',
+       marginRight: 12,
     }),
     no_button: props => ({
-        marginLeft: '1em',
+        marginLeft: 12,
     }),
 }, {index: 1});

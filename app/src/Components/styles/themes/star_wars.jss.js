@@ -1,5 +1,6 @@
 export const star_wars = {
     outline: '#f6b601',
+    outline_alt: '#ffa012',
     fill: '#000000',
     fill2: '#000000',
     text: '#f6b601',
@@ -9,7 +10,7 @@ export const star_wars = {
     nav_text: 'gold',
     button_fill: '#1b1b1b',
     button_text: '#f6b601',
-    button_hover_fill: '#2b2b2b',
+    button_hover_fill: '#151515',
     button_hover_text: '#28ded3',
     location_button_selected: '#4b6eaf',
     modal_fill: '#111111',
@@ -32,6 +33,7 @@ export const star_wars = {
     page_link_hover: '#60a8f0',
     drawer_outline: '#373737',
     switch_active: '#28ded3',
+    modal_actions: '#90caf9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

@@ -1,11 +1,13 @@
 import {copy} from "../../helpers/copy";
-import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
-import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
-import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import {getPieceImg} from "../../styles/themes/specialThemeImgs/getPieceImg";
+import {getFranchisePieceImg} from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
+import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import {updateOnResize} from "./updateOnResize";
+import {getPieceName} from "../../helpers/getPieceName";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
 
 export function reducer(state, action) {
-    let pieces;
+    let pieces, pieceName;
     switch (action.type) {
         case "reposition":
             return {...state, ...updateOnResize(action.gameRoot)};
@@ -28,7 +30,8 @@ export function reducer(state, action) {
             return {...state, isPromo: true}
         case "promote":
             let src;
-            if (specialThemeList.includes(action.theme)) {
+            pieceName = getPieceName(action.newId, action.idDict);
+            if (standardPieceNames.includes(pieceName) && specialThemeList.includes(action.theme)) {
                 src = getFranchisePieceImg(action.theme, action.newId, action.idDict)
             }
             else {
@@ -47,15 +50,15 @@ export function reducer(state, action) {
         case 'ai-finish':
             return {...state, aiDisplay: false, hiddenPiece: null}
         case 'update-imgs':
-            if (action.gameType !== 'Standard') {
-                return state;
-            }
             pieces = copy(state.pieces);
             if (specialThemeList.includes(action.theme)) {
                 for (const pieceId of Object.keys(pieces)) {
-                    pieces[pieceId] = {
-                        ...pieces[pieceId],
-                        src: getFranchisePieceImg(action.theme, pieceId, action.idDict)
+                    pieceName = getPieceName(pieceId, action.idDict)
+                    if (standardPieceNames.includes(pieceName)) {
+                        pieces[pieceId] = {
+                            ...pieces[pieceId],
+                            src: getFranchisePieceImg(action.theme, pieceId, action.idDict)
+                        }
                     }
                 }
             }

@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
+import clsx from "clsx";
 import {Portal} from "@material-ui/core";
-import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import Button from "@material-ui/core/Button";
 import {StandardModal} from "../../Reuseables/Modals/StandardModal";
 import {getDoesPieceNameExist} from "../../../API/getDoesPieceNameExist";
 import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters";
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
+import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 
 const Option = React.lazy(() => import('./Option'));
 const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
@@ -95,34 +97,34 @@ function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType
             {modal === 'confirm' ? (
                 <Portal>
                     <StandardModal
-                        title={null}
-                        text={message}
+                        title={message}
+                        text={null}
                         theme={theme}
                         closeClick={() => closeModal()}
                     >
-                        <MuiButton
+                        <Button
                             onClick={() => {
                                 save()
                                 closeModal()
                             }}
+                            className={clsx(classes.button, {
+                                [classes.yes_button]: true
+                            })}
                             variant={'contained'}
-                            className={classes.button}
-                            addedClassName={classes.yes_button}
-                            theme={theme}
                         >
                             Yes
-                        </MuiButton>
-                        <MuiButton
+                        </Button>
+                        <Button
                             onClick={() => {
                                 closeModal()
                             }}
+                            className={clsx(classes.button, {
+                                [classes.no_button]: true
+                            })}
                             variant={'contained'}
-                            className={classes.button}
-                            addedClassName={classes.no_button}
-                            theme={theme}
                         >
                             No
-                        </MuiButton>
+                        </Button>
                     </StandardModal>
                 </Portal>
             ) : null}

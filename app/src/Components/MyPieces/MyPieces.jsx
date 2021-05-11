@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useState} from "react";
 import { SavedPiecesHelp } from "./Help/SavedPiecesHelp";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import SearchIcon from "@material-ui/icons/Search";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
@@ -10,46 +10,41 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
 import { textColor, useStyles } from "./MyPieces.jss";
+import {ThemeContext} from "../ThemeContext";
 
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'));
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 
 function MyPieces() {
-    const [theme, setTheme] = useState("dark");
+    const themes = useContext(ThemeContext)
     const [searchText, setSearchText] = useState("");
-
     const isWide = useMediaQuery("(min-width:960px)");
-
-    const classes = useStyles();
-
-    useEffect(() => {
-        document.body.className = `${theme}-background`;
-    }, [theme]);
+    const classes = useStyles({theme: themes.myPieces});
 
     const updateSearchText = (searchText) => {
         setSearchText(searchText);
     };
 
     const updateTheme = (theme) => {
-        setTheme(theme);
+        return null;
     };
 
     return (
         <ResponsiveDrawer
-            theme={theme}
+            theme={themes.myPieces}
             navBar={
                 <NavBar
                     screenCase="thin"
                     flexDirection="column"
                     currentPage="MyPieces"
-                    helpText={SavedPiecesHelp(theme)}
+                    helpText={SavedPiecesHelp(themes.myPieces)}
                     helpTitle={
-                        <HelpTitle theme={theme} fontSize={'2.6vh'}>
+                        <HelpTitle theme={themes.myPieces} fontSize={'2.6vh'}>
                             Your Pieces
                         </HelpTitle>
                     }
-                    theme={theme}
+                    theme={themes.myPieces}
                     redirectMessage={null}
                     updateTheme={updateTheme}
                     additionalSettings={null}
@@ -58,27 +53,27 @@ function MyPieces() {
             navHorizontal={isWide}
             appBarContent={
                 <TwoItemAppBarContent
-                    theme={theme}
+                    theme={themes.myPieces}
                     seeMoreIcon={
                         <SearchIcon
                             className={classes.icon}
-                            style={textColor(theme)}
+                            style={textColor(themes.myPieces)}
                         />
                     }
                 >
-                    <PageTitle theme={theme} className={classes.title}>Saved Pieces</PageTitle>
+                    <PageTitle theme={themes.myPieces} className={classes.title}>Saved Pieces</PageTitle>
                     <SearchBox
-                        theme={theme}
+                        theme={themes.myPieces}
                         className={classes.search}
                         iconClassName={classes.icon}
                         updateSearchText={updateSearchText}
-                        style={textColor(theme)}
+                        style={textColor(themes.myPieces)}
                     />
                 </TwoItemAppBarContent>
             }
             appBarType="2item"
             seeMoreIcon={
-                <SearchIcon className={classes.icon} style={textColor(theme)} />
+                <SearchIcon className={classes.icon} style={textColor(themes.myPieces)} />
             }
             tools={null}
             toolButtons={null}
@@ -87,13 +82,13 @@ function MyPieces() {
                 <PieceProfiles
                     title="My Pieces"
                     parentPage="MyPieces"
-                    theme={theme}
+                    theme={themes.myPieces}
                     searchText={searchText}
                     className={classes.piece_profiles}
                 >
                     {isWide ? (
                         <ProfilesTitle
-                            theme={theme}
+                            theme={themes.myPieces}
                             updateSearchText={updateSearchText}
                         >
                             Saved Pieces

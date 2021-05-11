@@ -2,6 +2,7 @@ import {fade} from "@material-ui/core/styles";
 
 export const dark = {
     outline: '#2b2b2b',
+    outline_alt: '#9f9f9f',
     fill: '#3d3d3d',
     fill2: '#3d3d3d',
     text: '#a9a9a9',
@@ -11,7 +12,7 @@ export const dark = {
     nav_text: '#252525',
     button_fill: '#414141',
     button_text: '#a9a9a9',
-    button_hover_fill: '#444444',
+    button_hover_fill: '#414141',
     button_hover_text: '#a9a9a9',
     modal_fill: '#3f3f3f',
     img_border: '#2b2b2b',
@@ -37,6 +38,7 @@ export const dark = {
     page_link_hover: '#ffffff',
     drawer_outline: '#373737',
     switch_active: '#0081cb',
+    modal_actions: '#90caf9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

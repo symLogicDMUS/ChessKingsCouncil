@@ -16,7 +16,7 @@ function ProfileWBRange ({
     rangeType,
     boardGridStyle,
 }) {
-    const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [])
+    const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [theme])
 
     const classes = useStyles({ theme: theme, board_img: rangeBoardImgStr });
     const classes2 = useMoreStyles({ theme: theme });

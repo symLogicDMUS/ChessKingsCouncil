@@ -92,7 +92,7 @@ function LoadDeleteHeader({
                 <DeleteButton
                     onAcceptDelete={() => deletePiece(pieceName)}
                     modalTitle={`You are asking to delete piece ${pieceName}.`}
-                    modalText={`Game in progress will no be effected but the record of the piece for new games will be 
+                    modalText={`Game in progress will not be affected but the record of the piece for new games will be 
                                     destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
                     startIcon={
                         <DeleteForever

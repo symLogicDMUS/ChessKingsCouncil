@@ -1,5 +1,6 @@
 export const NBA = {
     outline: '#ffffff',
+    outline_alt: '#d9d9d9',
     fill: '#253b73',
     fill2: '#b52532',
     text: '#ffffff',

@@ -1,16 +1,19 @@
 import {rfToXy, xyToPx} from "./DndCrdCnvrt";
-import {getPieceImg} from "../../../API/sampleData/specialThemeImgs/getPieceImg";
-import {getFranchisePieceImg} from "../../../API/sampleData/specialThemeImgs/getFranchisePieceImg";
-import {specialThemeList} from "../../styles/themes/specialThemeList.jss";
+import {getPieceName} from "../../helpers/getPieceName";
+import {getPieceImg} from "../../styles/themes/specialThemeImgs/getPieceImg";
+import {getFranchisePieceImg} from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
+import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
 
-export function getPieceObj(gameRoot, posAndId, sqrSize) {
-    let [x, y] = rfToXy(posAndId[0])
+export function getPieceObj(gameRoot, pos, id, sqrSize) {
+    let [x, y] = rfToXy(pos)
     let [left, top] = xyToPx(x, y, sqrSize)
+    let pieceName = getPieceName(id, gameRoot.idDict);
     let src;
-    if (gameRoot.gameType === 'Standard' && specialThemeList.includes(gameRoot.state.theme)) {
-        src = getFranchisePieceImg(gameRoot.state.theme, posAndId[1], gameRoot.idDict)
+    if (standardPieceNames.includes(pieceName) && specialThemeList.includes(gameRoot.state.theme)) {
+        src = getFranchisePieceImg(gameRoot.state.theme, id, gameRoot.idDict)
     } else {
-        src = getPieceImg(posAndId[1], gameRoot.idDict, gameRoot.defs)
+        src = getPieceImg(id, gameRoot.idDict, gameRoot.defs)
     }
     return {src: src, left: left, top: top}
 }

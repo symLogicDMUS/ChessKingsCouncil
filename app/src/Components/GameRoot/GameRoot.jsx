@@ -1,6 +1,6 @@
 import React from "react";
 import {copy} from "../helpers/copy";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
@@ -27,7 +27,6 @@ import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
 import {getDoesGameExist} from "../../API/getDoesGameExist";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {ShowProfileOnClick} from "./RangeAnalysis/ShowProfileOnClick";
-import {FranchiseThemeDropdown} from "./Theme/FranchiseThemeDropdown";
 import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
@@ -42,6 +41,7 @@ import GameRootToolbar from "./GameRootToolbar";
 import {UserContext} from "../../UserContext";
 import {newData} from "../NewGame/NewData";
 import {styles} from "./GameRoot.jss";
+import {ThemeContext} from "../ThemeContext";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -55,17 +55,6 @@ const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/Responsi
 class GameRoot extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            bValue: true,
-            theme: "dark",
-            rangeAnalysis: false,
-            saveAnimation: false,
-            resignModal: false,
-            messageModal: false,
-            secondaryDrawer: false,
-            showProfileOnClick: true,
-        };
-        this.unsavedProgress = false;
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
@@ -110,19 +99,18 @@ class GameRoot extends React.Component {
         this.aiCapture = null;
     }
 
+    state = {
+        bValue: true,
+        theme: "dark",
+        rangeAnalysis: false,
+        saveAnimation: false,
+        resignModal: false,
+        messageModal: false,
+        secondaryDrawer: false,
+        showProfileOnClick: true,
+    }; unsavedProgress = false;
+
     static contextType = UserContext;
-
-    componentDidMount() {
-        document.body.className = "dark-background";
-    }
-
-    componentDidUpdate() {
-        if (this.state.theme === "tan") {
-            document.body.className = "tan-background-alt";
-        } else {
-            document.body.className = `${this.state.theme}-background`;
-        }
-    }
 
     /**
      * called after a move is made. update the game logic so know where other player can now move.
@@ -320,169 +308,168 @@ class GameRoot extends React.Component {
 
     render() {
         return (
-            <>
-                {this.state.saveAnimation && (
-                    <AnimatePresencePortal>
-                        <GameSavedSuccessfully
-                            theme={this.state.theme}
-                            callback={() => this.setState({saveAnimation: false})}
-                        />
-                    </AnimatePresencePortal>
-                )}
-                <ResponsiveDrawer
-                    theme={this.state.theme}
-                    appBarType={"custom"}
-                    appBarContent={
-                        <StatusBar
-                            turn={this.turn}
-                            theme={this.state.theme}
-                            winner={this.gameStatus.winner}
-                            isRangeAnalysis={this.state.rangeAnalysis}
-                            condition={this.gameStatus.condition}
-                            onChange={this.toggleRangeAnalysis}
-                        />
-                    }
-                    tools={
-                        <>
-                            <GameInfo
-                                gameName={this.gameName}
-                                gameType={this.gameType}
-                                theme={this.state.theme}
-                                playerType={this.playerType}
+            <ThemeContext.Consumer>
+                {themes => <>
+                    {this.state.saveAnimation && (
+                        <AnimatePresencePortal>
+                            <GameSavedSuccessfully
+                                theme={themes.gameRoot}
+                                callback={() => this.setState({saveAnimation: false})}
                             />
-                            <SaveResignTool
-                                save={this.save}
-                                resign={this.resign}
-                                theme={this.state.theme}
-                                changeName={this.changeName}
+                        </AnimatePresencePortal>
+                    )}
+                    <ResponsiveDrawer
+                        theme={themes.gameRoot}
+                        appBarType={"custom"}
+                        appBarContent={
+                            <StatusBar
+                                turn={this.turn}
+                                theme={themes.gameRoot}
+                                winner={this.gameStatus.winner}
+                                isRangeAnalysis={this.state.rangeAnalysis}
+                                condition={this.gameStatus.condition}
+                                onChange={this.toggleRangeAnalysis}
                             />
-                            <RangeAnalysis
-                                board={this.board}
-                                theme={this.state.theme}
-                                gameType={this.gameType}
-                                pieceDefs={this.defs}
-                                idDict={this.idDict}
-                                start={this.aiStart}
-                                allRanges={{
-                                    ...this.ranges,
-                                    ...this.enemyRanges,
-                                }}
-                                showProfileOnClick={
-                                    this.state.showProfileOnClick
+                        }
+                        tools={
+                            <>
+                                <GameInfo
+                                    gameName={this.gameName}
+                                    gameType={this.gameType}
+                                    theme={themes.gameRoot}
+                                    playerType={this.playerType}
+                                />
+                                <SaveResignTool
+                                    save={this.save}
+                                    resign={this.resign}
+                                    theme={themes.gameRoot}
+                                    changeName={this.changeName}
+                                />
+                                <RangeAnalysis
+                                    board={this.board}
+                                    theme={themes.gameRoot}
+                                    gameType={this.gameType}
+                                    pieceDefs={this.defs}
+                                    idDict={this.idDict}
+                                    start={this.aiStart}
+                                    allRanges={{
+                                        ...this.ranges,
+                                        ...this.enemyRanges,
+                                    }}
+                                    showProfileOnClick={
+                                        this.state.showProfileOnClick
+                                    }
+                                    triggerRender={this.triggerRender}
+                                    toggleSecondaryDrawer={doNothing}
+                                />
+                                <CapturedPieceImages
+                                    capturedIds={this.capturedIds}
+                                    captured={this.captured}
+                                    gameType={this.gameType}
+                                    theme={themes.gameRoot}
+                                    idDict={this.idDict}
+                                    defs={this.defs}
+                                />
+                            </>
+                        }
+                        toolButtons={
+                            <>
+                                {this.context ? (
+                                    <ToolButtonAlt
+                                        text="Save"
+                                        iconName={"save_alt"}
+                                        onClick={this.save}
+                                        isActive={false}
+                                        theme={themes.gameRoot}
+                                    />
+                                ) : (
+                                    <AskLoginButton
+                                        text="Save"
+                                        iconName={"save_alt"}
+                                        theme={themes.gameRoot}
+                                    />
+                                )}
+                                <GameRootToolbar
+                                    defs={this.defs}
+                                    idDict={this.idDict}
+                                    captured={this.captured}
+                                    capturedIds={this.capturedIds}
+                                    playerType={this.playerType}
+                                    gameName={this.gameName}
+                                    gameType={this.gameType}
+                                    theme={themes.gameRoot}
+                                    changeName={this.changeName}
+                                    onChange={this.toggleRangeAnalysis}
+                                    resign={this.resign}
+                                    save={this.save}
+                                />
+                            </>
+                        }
+                        navBar={
+                            <NavBar
+                                currentPage="GameRoot"
+                                helpText={PlayingGameHelp(themes.gameRoot)}
+                                helpTitle={
+                                    <HelpTitle theme={themes.gameRoot} fontSize='2.6vh'>
+                                        Playing a Game
+                                    </HelpTitle>
                                 }
-                                triggerRender={this.triggerRender}
-                                toggleSecondaryDrawer={doNothing}
+                                isUnsavedChanges={this.isUnsavedChanges}
+                                updateTheme={this.updateTheme}
+                                theme={themes.gameRoot}
+                                additionalSettings={
+                                    <>
+                                        <MuiSwitch
+                                            theme={themes.gameRoot}
+                                            control={
+                                                <ShowProfileOnClick
+                                                    checked={
+                                                        this.state.showProfileOnClick
+                                                    }
+                                                    onChange={() =>
+                                                        this.setState({
+                                                            showProfileOnClick: !this.state
+                                                                .showProfileOnClick,
+                                                        })
+                                                    }
+                                                    theme={themes.gameRoot}
+                                                />
+                                            }
+                                        >
+                                            Show Piece Profile on Click (Range Board)
+                                        </MuiSwitch>
+                                    </>
+                                }
                             />
-                            <CapturedPieceImages
-                                capturedIds={this.capturedIds}
-                                captured={this.captured}
-                                gameType={this.gameType}
-                                theme={this.state.theme}
-                                idDict={this.idDict}
-                                defs={this.defs}
-                            />
-                        </>
-                    }
-                    toolButtons={
-                        <>
-                            {this.context ? (
-                                <ToolButtonAlt
-                                    text="Save"
-                                    iconName={"save_alt"}
-                                    onClick={this.save}
-                                    isActive={false}
-                                    theme={this.state.theme}
+                        }
+                        navHorizontal={false}
+                        neighborOpen={this.state.secondaryDrawer}
+                    >
+                        <MediaQuery maxWidth={960}>
+                            {this.state.rangeAnalysis ? (
+                                <RangeAnalysis
+                                    theme={themes.gameRoot}
+                                    board={this.board}
+                                    gameType={this.gameType}
+                                    allRanges={{
+                                        ...this.ranges,
+                                        ...this.enemyRanges,
+                                    }}
+                                    pieceDefs={this.defs}
+                                    idDict={this.idDict}
+                                    toggleSecondaryDrawer={this.toggleSecondaryDrawer}
+                                    showProfileOnClick={this.state.showProfileOnClick}
                                 />
                             ) : (
-                                <AskLoginButton
-                                    text="Save"
-                                    iconName={"save_alt"}
-                                    theme={this.state.theme}
-                                />
+                                <Board gameRoot={this} />
                             )}
-                            <GameRootToolbar
-                                defs={this.defs}
-                                idDict={this.idDict}
-                                captured={this.captured}
-                                capturedIds={this.capturedIds}
-                                playerType={this.playerType}
-                                gameName={this.gameName}
-                                gameType={this.gameType}
-                                theme={this.state.theme}
-                                changeName={this.changeName}
-                                onChange={this.toggleRangeAnalysis}
-                                resign={this.resign}
-                                save={this.save}
-                            />
-                        </>
-                    }
-                    navBar={
-                        <NavBar
-                            currentPage="GameRoot"
-                            helpText={PlayingGameHelp(this.state.theme)}
-                            helpTitle={
-                                <HelpTitle theme={this.state.theme} fontSize='2.6vh'>
-                                    Playing a Game
-                                </HelpTitle>
-                            }
-                            isUnsavedChanges={this.isUnsavedChanges}
-                            updateTheme={this.updateTheme}
-                            theme={this.state.theme}
-                            additionalSettings={
-                                <>
-                                    {this.gameType === "Standard" ? (
-                                        <FranchiseThemeDropdown theme={this.state.theme} updateParent={this.updateTheme} />
-                                    ) : null}
-                                    <MuiSwitch
-                                        theme={this.state.theme}
-                                        control={
-                                            <ShowProfileOnClick
-                                                checked={
-                                                    this.state.showProfileOnClick
-                                                }
-                                                onChange={() =>
-                                                    this.setState({
-                                                        showProfileOnClick: !this.state
-                                                            .showProfileOnClick,
-                                                    })
-                                                }
-                                                theme={this.state.theme}
-                                            />
-                                        }
-                                    >
-                                        Show Piece Profile on Click (Range Board)
-                                    </MuiSwitch>
-                                </>
-                            }
-                        />
-                    }
-                    navHorizontal={false}
-                    neighborOpen={this.state.secondaryDrawer}
-                >
-                    <MediaQuery maxWidth={960}>
-                        {this.state.rangeAnalysis ? (
-                            <RangeAnalysis
-                                theme={this.state.theme}
-                                board={this.board}
-                                gameType={this.gameType}
-                                allRanges={{
-                                    ...this.ranges,
-                                    ...this.enemyRanges,
-                                }}
-                                pieceDefs={this.defs}
-                                idDict={this.idDict}
-                                toggleSecondaryDrawer={this.toggleSecondaryDrawer}
-                                showProfileOnClick={this.state.showProfileOnClick}
-                            />
-                        ) : (
+                        </MediaQuery>
+                        <MediaQuery minWidth={960}>
                             <Board gameRoot={this} />
-                        )}
-                    </MediaQuery>
-                    <MediaQuery minWidth={960}>
-                        <Board gameRoot={this} />
-                    </MediaQuery>
-                </ResponsiveDrawer>
-            </>
+                        </MediaQuery>
+                    </ResponsiveDrawer>
+                </>}
+            </ThemeContext.Consumer>
         );
     }
 }

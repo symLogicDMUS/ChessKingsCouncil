@@ -3,20 +3,14 @@ import {modal} from "../../helpers/modal.jss";
 import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
-    modal: props => ({
-       ...modal,
-        zIndex: 13,
-    }),
     window: props => ({
         '@media screen and (max-width: 600px)': {
             width: '100vw',
-            height: '33.333vh',
         },
         '@media screen and (min-width: 600px)': {
             width: '66.667vw',
-            height: '33.667vh',
         },
-        fontSize: '2vh',
+        zIndex: 13,
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '0.3rem',
@@ -25,7 +19,9 @@ export const useStyles = makeStyles({
     }),
     settings: props => ({
         flexGrow: 2,
-        padding: '1rem',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        paddingBottom: '1rem',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
@@ -47,6 +43,10 @@ export const useStyles = makeStyles({
         width: '1rem',
     }),
     select_theme: props => ({
+
+        marginBottom: 16,
+        marginTop: 8,
+
         /*root*/
         "& .MuiInputLabel-root": {
             width: '100%',

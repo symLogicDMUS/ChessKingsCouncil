@@ -1,7 +1,7 @@
 import React, {useMemo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {getRangeBoardImgStr} from "./getRangeBoardImgStr";
+import {getExampleRangeBoardImgStr} from "./getExampleRangeBoardImgStr";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./ProfileHelpText.jss";
 
@@ -9,7 +9,7 @@ export function RangeExample({pieceImgStr, range, rangeType, header, float, item
     const classes = useStyles({theme: theme});
 
     const board_img = useMemo(() =>
-        getRangeBoardImgStr(theme, pieceImgStr, range, rangeType), []
+        getExampleRangeBoardImgStr(theme, pieceImgStr, range, rangeType), []
     )
     return (
         <Box className={clsx(classes.sqr_item_area, {

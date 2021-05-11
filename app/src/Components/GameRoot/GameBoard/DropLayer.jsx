@@ -66,7 +66,7 @@ const DropLayer = ({
     useEffect(() => {
         if (gameRoot.aiColor === gameRoot.turn) {
             if (
-                !noRanges(gameRoot.ranges) &&
+                ! noRanges(gameRoot.ranges) &&
                 gameRoot.gameStatus.status !== OVER
             ) {
                 [
@@ -88,11 +88,6 @@ const DropLayer = ({
         }
     }, [gameRoot.turn]);
 
-    useEffect(() => {
-        if (gameRoot.state.saveProcess) {
-            gameRoot.save();
-        }
-    }, [gameRoot.state.saveProcess]);
 
     useEffect(() => {
         dispatch({

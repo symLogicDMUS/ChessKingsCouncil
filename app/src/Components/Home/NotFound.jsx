@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
-import "../Reuseables/Background/_backgrounds.scss";
-import {Background} from "../Reuseables/Background/Background";
+import "../styles/Background/_backgrounds.scss";
+import {Background} from "../styles/Background/Background";
 import {icons} from "../styles/icons/top/icons.jss";
 import {SvgIcon, Typography} from "@material-ui/core";
 import { useStyles } from "./NotFound.jss";

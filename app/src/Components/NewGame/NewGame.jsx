@@ -1,19 +1,20 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import {Play} from "./Play";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
-import "../Reuseables/Background/_backgrounds.scss";
+import "../styles/Background/_backgrounds.scss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {getColorLetter} from "../helpers/getColorLetter";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {Background} from "../Reuseables/Background/Background";
+import {Background} from "../styles/Background/Background";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
 import {useStyles} from "./NewGame.jss";
+import {ThemeContext} from "../ThemeContext";
 
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -21,19 +22,17 @@ const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 
 function NewGame() {
     const history = useHistory();
+
+    const themes = useContext(ThemeContext);
+
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
-    const [theme, setTheme] = useState("tan");
-
-    useEffect(() => {
-        document.body.className = "tan-background";
-    });
 
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
 
-    const classes = useStyles();
+    const classes = useStyles({theme: themes.newGame});
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
@@ -65,53 +64,54 @@ function NewGame() {
     };
 
     const updateTheme = (theme) => {
-        setTheme(theme)
+        //setTheme(theme)
+        return null;
     }
 
     return (
         <>
-            <Background theme={theme} appBar={isThin} navBar={isWide}/>
+            <Background theme={themes.newGame} appBar={isThin} navBar={isWide}/>
             <ResponsiveDrawer
-                theme={theme}
+                theme={themes.newGame}
                 navBar={
                     <NavBar
                         currentPage="NewGame"
-                        helpText={GameOptionsHelp(theme)}
-                        helpTitle={<HelpTitle theme={theme} fontSize='2.6vh'>New Game</HelpTitle>}
+                        helpText={GameOptionsHelp(themes.newGame)}
+                        helpTitle={<HelpTitle theme={themes.newGame} fontSize='2.6vh'>New Game</HelpTitle>}
                         redirectMessage={null}
                         updateTheme={updateTheme}
                         additionalSettings={null}
-                        theme={theme}
+                        theme={themes.newGame}
                     />
                 }
                 navHorizontal={isWide}
-                appBarContent={<AppBarTitle theme={theme}>New Game</AppBarTitle>}
+                appBarContent={<AppBarTitle theme={themes.newGame}>New Game</AppBarTitle>}
                 appBarType="title"
                 toolButtons={null}
                 tools={null}
             >
                 <Box className={classes.new_game}>
                     <GameName
-                        theme={theme}
+                        theme={themes.newGame}
                         key='GameName'
                         setGameName={setGameName}
                         screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <PickType
-                        theme={theme}
+                        theme={themes.newGame}
                         key="PickType"
                         gameType={gameType}
                         setGameType={setGameType}
                         screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <PlayAs
-                        theme={theme}
+                        theme={themes.newGame}
                         setPlayerType={setPlayerType}
                         key="PlayAs"
                         screenCase={isWide ? 'wide' : 'thin'}
                     />
                     <Play
-                        theme={theme}
+                        theme={themes.newGame}
                         onClick={finish}
                         classes={classes}
                         playerType={playerType}

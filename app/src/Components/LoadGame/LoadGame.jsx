@@ -1,17 +1,18 @@
-import React, {useContext} from "react";
+import React from "react";
 import { Redirect } from "react-router-dom";
+import "../styles/Background/_backgrounds.scss";
 import { SavedGames } from "./SavedGames";
 import { copy } from "../helpers/copy";
 import { getGames } from "../../API/getGames";
 import { getBoardObjs } from "./getBoardObjs";
 import { deleteGame } from "../../API/deleteGame";
-import "../Reuseables/Background/_backgrounds.scss";
 import {filterSamples} from "../../API/filterSamples";
 import { getGameSnapshots } from "./getGameSnapshots";
 import { parseData } from "../../API/apiHelpers/parseData";
 import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
 import {getSampleGames} from "../../API/sampleData/getSampleGames";
 import {UserContext} from "../../UserContext";
+import {ThemeContext} from "../ThemeContext";
 
 class LoadGame extends React.Component {
     state = {
@@ -31,7 +32,6 @@ class LoadGame extends React.Component {
     static contextType = UserContext;
 
     componentDidMount() {
-        document.body.className = "tan-background";
         const uid = this.context;
         if (uid) {
             getGames().then(([games]) => {
@@ -82,7 +82,6 @@ class LoadGame extends React.Component {
                 }
             })
         }
-        document.body.className = `${this.state.theme}-background`;
     }
 
     loadGame = () => {
@@ -183,24 +182,26 @@ class LoadGame extends React.Component {
         }
 
         return (
-            <>
-                <SavedGames
-                    load={this.loadGame}
-                    imgDict={this.imgDict}
-                    loaded={this.state.loaded}
-                    searchText={this.state.searchText}
-                    updateSearchText={this.updateSearchText}
-                    confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
-                    deleteGame={() => this.deleteGame(this.state.selectedGame)}
-                    selectedGame={this.state.selectedGame}
-                    toggleShowNames={this.toggleShowNames}
-                    showNames={this.state.showNames}
-                    updateTheme={this.updateTheme}
-                    theme={this.state.theme}
-                >
-                    {this.gameSnapshotComponents}
-                </SavedGames>
-            </>
+            <ThemeContext.Consumer>
+                {themes => <>
+                    <SavedGames
+                        load={this.loadGame}
+                        imgDict={this.imgDict}
+                        loaded={this.state.loaded}
+                        searchText={this.state.searchText}
+                        updateSearchText={this.updateSearchText}
+                        confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
+                        deleteGame={() => this.deleteGame(this.state.selectedGame)}
+                        selectedGame={this.state.selectedGame}
+                        toggleShowNames={this.toggleShowNames}
+                        showNames={this.state.showNames}
+                        updateTheme={this.updateTheme}
+                        theme={themes.loadGame}
+                    >
+                        {this.gameSnapshotComponents}
+                    </SavedGames>
+                </>}
+            </ThemeContext.Consumer>
         );
     }
 }
