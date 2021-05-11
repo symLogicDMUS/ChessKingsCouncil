@@ -67,7 +67,7 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/NewGame" component={NewGame}/>
-                            <Route exact path="/LoadGames" component={LoadGames}/>
+                            <Route exact path="/LoadGame" component={LoadGames}/>
                             <Route exact path="/CreatePiece" component={CreatePiece}/>
                             <Route exact path="/Customize" component={Customize}/>
                             <Route exact path="/Play" component={GameRoot}/>

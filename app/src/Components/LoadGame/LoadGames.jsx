@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useReducer} from "react";
+import {useHistory} from "react-router-dom";
 import {copy} from "../helpers/copy";
 import {getGames} from "../../API/getGames";
 import "../styles/Background/_backgrounds.scss";
@@ -25,6 +26,7 @@ import {reducer} from "./LoadGames.red";
 import {useStyles} from "./SavedGames.jss";
 
 function LoadGames() {
+    const history = useHistory();
     const uid = useContext(UserContext);
     const {themes, setThemes} = useContext(ThemeContext);
     const classes = useStyles({theme: themes.loadGame});
@@ -41,7 +43,8 @@ function LoadGames() {
         bValue: true,
         uid: null,
         games: {},
-        boardObj: {},
+        boardObjs: {},
+        gameData: null,
     });
     
     useEffect(() => {
@@ -53,12 +56,12 @@ function LoadGames() {
                 } else {
                     games = dbGames;
                 }
-                dispatch({type: 'init-load', uid: uid})
+                dispatch({type: 'init-load', uid: uid, games})
             });
         }
         else {
             games = getSampleGames();
-            dispatch({type: 'init-load', uid: null})
+            dispatch({type: 'init-load', uid: null, games: games,})
         }
     }, [uid])
 
@@ -79,6 +82,16 @@ function LoadGames() {
     const setChoice = (gameName) => {
         dispatch({type: 'set-choice', gameName: gameName})
     };
+
+    if (state.useChoseGame) {
+        history.push("/Play", {
+            currentPath: "/LoadGame",
+            gameName: copy(state.selectedGame),
+            gameType: copy(state.gameData.type),
+            playerType: copy(state.gameData.pt),
+            gameData: copy(state.gameData),
+        });
+    }
 
     return (
         <>
@@ -144,7 +157,7 @@ function LoadGames() {
                             state.selectedGame,
                             state.searchText,
                             state.showNames,
-                            state.theme
+                            themes.loadGame
                         )
                     }
                 </MuiGrid>
