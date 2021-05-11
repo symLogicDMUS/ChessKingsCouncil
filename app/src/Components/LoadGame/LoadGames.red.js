@@ -7,20 +7,20 @@ export function reducer(state, action) {
     switch (action.type) {
         case "init-load":
             const boardObjs = getBoardObjs(state.games);
-            const gameSnapshotComponents = getGameSnapshots(
-                state.boardObjs,
-                dispatch,
-                state.selectedGame,
-                state.searchText,
-                state.showNames,
-                state.theme
-            );
+            // const gameSnapshotComponents = getGameSnapshots(
+            //     state.boardObjs,
+            //     dispatch,
+            //     state.selectedGame,
+            //     state.searchText,
+            //     state.showNames,
+            //     state.theme
+            // );
             return {
                 ...state,
-                uid: uid,
+                uid: action.uid,
                 loaded: true,
-                gameSnapshotComponents: gameSnapshotComponents,
                 boardObjs: boardObjs,
+                // gameSnapshotComponents: gameSnapshotComponents,
             }
         case "load-game":
             let gameData = state.games[state.selectedGame];
@@ -42,59 +42,60 @@ export function reducer(state, action) {
             delete newState.boardObjs[action.gameName];
             return {
                 ...newState,
-                gameSnapshotComponents: getGameSnapshots(
-                    newState.boardObjs,
-                    newState.setChoice,
-                    newState.selectedGame,
-                    newState.searchText,
-                    newState.showNames,
-                    newState.theme
-                ),
                 selectedGame: null,
                 userChoseGame: false,
+                // gameSnapshotComponents: getGameSnapshots(
+                //     newState.boardObjs,
+                //     newState.setChoice,
+                //     newState.selectedGame,
+                //     newState.searchText,
+                //     newState.showNames,
+                //     newState.theme
+                // ),
+
             }
         case 'set-choice':
             return {
                 ...state,
                 selectedGame: action.gameName,
             }
-        case 'update-snapshots':
-            return {
-                ...state,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    state.searchText,
-                    state.showNames,
-                    state.theme
-                ),
-            }
+        // case 'update-snapshots':
+        //     return {
+        //         ...state,
+        //         gameSnapshotComponents: getGameSnapshots(
+        //             state.boardObjs,
+        //             dispatch,
+        //             state.selectedGame,
+        //             state.searchText,
+        //             state.showNames,
+        //             state.theme
+        //         ),
+        //     }
         case 'update-search-text':
             return {
                 ...state,
                 searchText: action.newText,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    action.newText,
-                    state.showNames,
-                    state.theme
-                ),
+                // gameSnapshotComponents: getGameSnapshots(
+                //     state.boardObjs,
+                //     dispatch,
+                //     state.selectedGame,
+                //     action.newText,
+                //     state.showNames,
+                //     state.theme
+                // ),
             }
         case 'toggle-show-names':
             return {
                 ...state,
                 showNames: !state.showNames,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    state.searchText,
-                    state.showNames,
-                    state.theme
-                ),
+                // gameSnapshotComponents: getGameSnapshots(
+                //     state.boardObjs,
+                //     dispatch,
+                //     state.selectedGame,
+                //     state.searchText,
+                //     state.showNames,
+                //     state.theme
+                // ),
             }
         default:
             throw new Error();

@@ -14,7 +14,8 @@ import "./App.scss";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
-const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
+// const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
+const LoadGames = lazy(() => import("./Components/LoadGame/LoadGames"));
 const GameRoot = lazy(() => import("./Components/GameRoot/GameRoot"));
 const MyPieces = lazy(() => import("./Components/MyPieces/MyPieces"));
 const CreatePiece = lazy(() => import("./Components/CreatePiece/CreatePiece"));
@@ -66,7 +67,7 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/NewGame" component={NewGame}/>
-                            <Route exact path="/LoadGame" component={LoadGame}/>
+                            <Route exact path="/LoadGames" component={LoadGames}/>
                             <Route exact path="/CreatePiece" component={CreatePiece}/>
                             <Route exact path="/Customize" component={Customize}/>
                             <Route exact path="/Play" component={GameRoot}/>

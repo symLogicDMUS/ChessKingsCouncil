@@ -4,31 +4,32 @@ import {getGames} from "../../API/getGames";
 import "../styles/Background/_backgrounds.scss";
 import {deleteGame} from "../../API/deleteGame";
 import {filterSamples} from "../../API/filterSamples";
-import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
-import {getSampleGames} from "../../API/sampleData/getSampleGames";
-import {UserContext} from "../../UserContext";
-import {ThemeContext} from "../ThemeContext";
-import {useStyles} from "./SavedGames.jss";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {Background} from "../styles/Background/Background";
+import {getSampleGames} from "../../API/sampleData/getSampleGames";
+import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import NavBar from "../Reuseables/NavBar/NavBar";
-import {LoadGameHelp} from "./LoadGameHelp";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {TwoItemAppBarContent} from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
-import SearchIcon from "@material-ui/icons/Search";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
+import SearchIcon from "@material-ui/icons/Search";
+import {getGameSnapshots} from "./getGameSnapshots";
+import NavBar from "../Reuseables/NavBar/NavBar";
 import {SavedGamesTitle} from "./SavedGamesTitle";
+import {LoadGameHelp} from "./LoadGameHelp";
+import {UserContext} from "../../UserContext";
+import {ThemeContext} from "../ThemeContext";
 import {reducer} from "./LoadGames.red";
+import {useStyles} from "./SavedGames.jss";
 
 function LoadGames() {
     const uid = useContext(UserContext);
     const {themes, setThemes} = useContext(ThemeContext);
+    const classes = useStyles({theme: themes.loadGame});
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
-    const classes = useStyles({theme: themes.loadGame});
 
     const [state, dispatch] = useReducer(reducer, {
         selectedGame: null,
@@ -73,6 +74,10 @@ function LoadGames() {
                 dispatch({type: 'delete-game', gameName: gameName})
             });
         });
+    };
+
+    const setChoice = (gameName) => {
+        dispatch({type: 'set-choice', gameName: gameName})
     };
 
     return (
@@ -132,7 +137,16 @@ function LoadGames() {
                     onClose={null}
                     className={isThin ? classes.mui_grid_padding : null}
                 >
-                    {state.gameSnapshotComponents}
+                    {
+                        getGameSnapshots(
+                            state.boardObjs,
+                            setChoice,
+                            state.selectedGame,
+                            state.searchText,
+                            state.showNames,
+                            state.theme
+                        )
+                    }
                 </MuiGrid>
             </ResponsiveDrawer>
         </>
