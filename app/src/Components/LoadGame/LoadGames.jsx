@@ -1,15 +1,10 @@
 import React, {useContext, useEffect, useReducer} from "react";
-import { Redirect } from "react-router-dom";
+import {copy} from "../helpers/copy";
+import {getGames} from "../../API/getGames";
 import "../styles/Background/_backgrounds.scss";
-import { SavedGames } from "./SavedGames";
-import { copy } from "../helpers/copy";
-import { getGames } from "../../API/getGames";
-import { getBoardObjs } from "./getBoardObjs";
-import { deleteGame } from "../../API/deleteGame";
+import {deleteGame} from "../../API/deleteGame";
 import {filterSamples} from "../../API/filterSamples";
-import { getGameSnapshots } from "./getGameSnapshots";
-import { parseData } from "../../API/apiHelpers/parseData";
-import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
+import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 import {getSampleGames} from "../../API/sampleData/getSampleGames";
 import {UserContext} from "../../UserContext";
 import {ThemeContext} from "../ThemeContext";
@@ -26,104 +21,7 @@ import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import {SavedGamesTitle} from "./SavedGamesTitle";
-
-export function reducer(state, action) {
-    switch (action.type) {
-        case "init-load":
-            const boardObjs = getBoardObjs(state.games);
-            const gameSnapshotComponents = getGameSnapshots(
-                state.boardObjs,
-                dispatch,
-                state.selectedGame,
-                state.searchText,
-                state.showNames,
-                state.theme
-            );
-            return {
-                ...state,
-                uid: uid,
-                loaded: true,
-                gameSnapshotComponents: gameSnapshotComponents,
-                boardObjs: boardObjs,
-            }
-        case "load-game":
-            let gameData = state.games[state.selectedGame];
-            gameData = { ...state.gameData, ...parseData(gameData) };
-            return {
-                ...state,
-                useChoseGame: true
-            }
-            // history.push("/Play", {
-            //     currentPath: "/LoadGame",
-            //     gameName: copy(state.selectedGame),
-            //     gameType: copy(gameData.type),
-            //     playerType: copy(gameData.pt),
-            //     gameData: copy(gameData),
-            // });
-        case 'delete-game':
-            const newState = copy(state)
-            delete newState.games[action.gameName];
-            delete newState.boardObjs[action.gameName];
-            return {
-                ...newState,
-                gameSnapshotComponents: getGameSnapshots(
-                    newState.boardObjs,
-                    newState.setChoice,
-                    newState.selectedGame,
-                    newState.searchText,
-                    newState.showNames,
-                    newState.theme
-                ),
-                selectedGame: null,
-                userChoseGame: false,
-            }
-        case 'set-choice':
-            return {
-                ...state,
-                selectedGame: action.gameName,
-            }
-        case 'update-snapshots':
-            return {
-                ...state,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    state.searchText,
-                    state.showNames,
-                    state.theme
-                ),
-            }
-        case 'update-search-text':
-            return {
-                ...state,
-                searchText: action.newText,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    action.newText,
-                    state.showNames,
-                    state.theme
-                ),
-            }
-        case 'toggle-show-names':
-            return {
-                ...state,
-                showNames: ! state.showNames,
-                gameSnapshotComponents: getGameSnapshots(
-                    state.boardObjs,
-                    dispatch,
-                    state.selectedGame,
-                    state.searchText,
-                    state.showNames,
-                    state.theme
-                ),
-            }
-        default:
-            throw new Error();
-    }
-}
+import {reducer} from "./LoadGames.red";
 
 function LoadGames() {
     const uid = useContext(UserContext);
