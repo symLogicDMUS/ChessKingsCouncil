@@ -7,12 +7,12 @@ import {SeeMore} from "../Reuseables/UserInput/SeeMore";
 import ImageSearchIcon from "@material-ui/icons/ImageSearch";
 import { searchBackgroundColor, useStyles} from "../Reuseables/Modals/MuiGridTitle.jss";
 import SearchIcon from "@material-ui/icons/Search";
-import {MoreVert, Storage} from "@material-ui/icons";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../styles/icons/top/icons.jss";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import {MoreVert} from "@material-ui/icons";
 
-export function SavedGamesTitle({updateSearchText, theme}) {
+export function LoadGameTitle({updateSearchText, theme}) {
     const classes = useStyles({theme});
 
     return (

@@ -7,15 +7,15 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Loading from "./Components/Reuseables/Animations/Loading";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {ThemeContext} from "./Components/ThemeContext";
-import {UserContext} from "./UserContext";
 import {queryUserId} from "./API/isNewUser";
+import {getThemes} from "./API/getThemes";
+import {UserContext} from "./UserContext";
 import {reducer} from "./App.red";
 import "./App.scss";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
-// const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
-const LoadGames = lazy(() => import("./Components/LoadGame/LoadGames"));
+const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
 const GameRoot = lazy(() => import("./Components/GameRoot/GameRoot"));
 const MyPieces = lazy(() => import("./Components/MyPieces/MyPieces"));
 const CreatePiece = lazy(() => import("./Components/CreatePiece/CreatePiece"));
@@ -44,7 +44,12 @@ function App() {
             if (user) {
                 queryUserId().then(isReturningUser => {
                     if (isReturningUser) {
-                        dispatch({type: 'logged-in', user: user})
+                        getThemes().then(themes => {
+                            if (themes) {
+                                setThemes(themes)
+                                dispatch({type: 'logged-in', user: user})
+                            }
+                        })
                     } else {
                         saveSampleData().then(r => {
                             dispatch({type: 'logged-in', user: user})
@@ -67,7 +72,7 @@ function App() {
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/NewGame" component={NewGame}/>
-                            <Route exact path="/LoadGame" component={LoadGames}/>
+                            <Route exact path="/LoadGame" component={LoadGame}/>
                             <Route exact path="/CreatePiece" component={CreatePiece}/>
                             <Route exact path="/Customize" component={Customize}/>
                             <Route exact path="/Play" component={GameRoot}/>

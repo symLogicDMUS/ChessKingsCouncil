@@ -1,21 +1,39 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
+import React, {useContext, useEffect, useReducer} from "react";
+import {useHistory} from "react-router-dom";
+import {copy} from "../helpers/copy";
+import {getGames} from "../../API/getGames";
 import "../styles/Background/_backgrounds.scss";
-import { SavedGames } from "./SavedGames";
-import { copy } from "../helpers/copy";
-import { getGames } from "../../API/getGames";
-import { getBoardObjs } from "./getBoardObjs";
-import { deleteGame } from "../../API/deleteGame";
+import {deleteGame} from "../../API/deleteGame";
 import {filterSamples} from "../../API/filterSamples";
-import { getGameSnapshots } from "./getGameSnapshots";
-import { parseData } from "../../API/apiHelpers/parseData";
-import { decrementImgRefCounts } from "../../API/decrementImgRefCounts";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {Background} from "../styles/Background/Background";
 import {getSampleGames} from "../../API/sampleData/getSampleGames";
+import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
+import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
+import {TwoItemAppBarContent} from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
+import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {PageTitle} from "../Reuseables/AppBar/PageTitle";
+import {SearchBox} from "../Reuseables/UserInput/SearchBox";
+import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
+import SearchIcon from "@material-ui/icons/Search";
+import {getGameSnapshots} from "./getGameSnapshots";
+import NavBar from "../Reuseables/NavBar/NavBar";
+import {LoadGameTitle} from "./LoadGameTitle";
+import {LoadGameHelp} from "./LoadGameHelp";
 import {UserContext} from "../../UserContext";
 import {ThemeContext} from "../ThemeContext";
+import {reducer} from "./LoadGame.red";
+import {useStyles} from "./LoadGame.jss";
 
-class LoadGame extends React.Component {
-    state = {
+function LoadGame() {
+    const history = useHistory();
+    const uid = useContext(UserContext);
+    const {themes, setThemes} = useContext(ThemeContext);
+    const classes = useStyles({theme: themes.loadGame});
+    const isThin = useMediaQuery("(max-width:960px)");
+    const isWide = useMediaQuery("(min-width:960px)");
+
+    const [state, dispatch] = useReducer(reducer, {
         selectedGame: null,
         userChoseGame: false,
         firstVisit: false,
@@ -24,180 +42,128 @@ class LoadGame extends React.Component {
         showNames: true,
         bValue: true,
         uid: null,
-    };
-    games = {};
-    boardObjs = {};
-
-    static contextType = UserContext;
-
-    componentDidMount() {
-        const uid = this.context;
+        games: {},
+        boardObjs: {},
+        gameData: null,
+    });
+    
+    useEffect(() => {
+        let games;
         if (uid) {
-            getGames().then(([games]) => {
-                if (! games) {
-                    this.games = {};
+            getGames().then(([dbGames]) => {
+                if (! dbGames) {
+                    games = {};
                 } else {
-                    this.games = games;
+                    games = dbGames;
                 }
-                this._initLoad(uid)
+                dispatch({type: 'init-load', uid: uid, games})
             });
         }
         else {
-            this.games = getSampleGames();
-            this._initLoad(null)
+            games = getSampleGames();
+            dispatch({type: 'init-load', uid: null, games: games,})
         }
-    }
+    }, [uid])
 
-    _initLoad = (uid) => {
-        this.boardObjs = getBoardObjs(this.games);
-        this.gameSnapshotComponents = getGameSnapshots(
-            this.boardObjs,
-            this.setChoice,
-            this.state.selectedGame,
-            this.state.searchText,
-            this.state.showNames,
-            this.state.theme
-        );
-        this.setState({uid: uid, loaded: true });
-    }
+    const updateSearchText = (e) => {
+        dispatch({type: "update-search-text", newText: e.target.value});
+    };
 
-    componentDidUpdate() {
-        const uid = this.context;
-        if (this.state.uid !== uid) {
-            this.setState({uid: uid}, () => {
-                if (uid) {
-                    getGames().then(([games]) => {
-                        if (! games) {
-                            this.games = {};
-                        } else {
-                            this.games = games;
-                        }
-                        this._initLoad(uid)
-                    });
-                }
-                else {
-                    this.games = getSampleGames();
-                    this._initLoad(null)
-                }
-            })
-        }
-    }
-
-    loadGame = () => {
-        this.gameData = this.games[this.state.selectedGame];
-        this.gameData = { ...this.gameData, ...parseData(this.gameData) };
-        this.setState({ userChoseGame: true });
-    }
-
-    deleteGame = (gameName) => {
-        const imgUrlStrs = filterSamples(this.games[gameName].imgUrlStrs)
-
+    const deleteGameEntry = (gameName) => {
+        const newState = copy(state)
+        const imgUrlStrs = filterSamples(newState.games[gameName].imgUrlStrs)
         decrementImgRefCounts(imgUrlStrs).then((r) => {
             deleteGame(gameName).then(([r]) => {
-                delete this.games[gameName];
-                delete this.boardObjs[gameName];
-                this.gameSnapshotComponents = getGameSnapshots(
-                    this.boardObjs,
-                    this.setChoice,
-                    this.state.selectedGame,
-                    this.state.searchText,
-                    this.state.showNames,
-                    this.state.theme
-                );
-                this.setState({
-                    selectedGame: null,
-                    userChoseGame: false,
-                });
+                dispatch({type: 'delete-game', gameName: gameName})
             });
         });
-    }
+    };
 
-    setChoice = (gameName) => {
-        this.setState({ selectedGame: gameName }, () => {
-            this.gameSnapshotComponents = getGameSnapshots(
-                this.boardObjs,
-                this.setChoice,
-                this.state.selectedGame,
-                this.state.searchText,
-                this.state.showNames,
-                this.state.theme
-            );
-            this.triggerRender();
+    const setChoice = (gameName) => {
+        dispatch({type: 'set-choice', gameName: gameName})
+    };
+
+    if (state.useChoseGame) {
+        history.push("/Play", {
+            currentPath: "/LoadGame",
+            gameName: copy(state.selectedGame),
+            gameType: copy(state.gameData.type),
+            playerType: copy(state.gameData.pt),
+            gameData: copy(state.gameData),
         });
     }
 
-    updateSnapshots = () => {
-        this.gameSnapshotComponents = getGameSnapshots(
-            this.boardObjs,
-            this.setChoice,
-            this.state.selectedGame,
-            this.state.searchText,
-            this.state.showNames,
-            this.state.theme
-        );
-    }
-
-    updateTheme = (theme) => {
-        this.setState({ theme: theme }, () => {
-            this.updateSnapshots();
-            this.triggerRender();
-        });
-    }
-
-    updateSearchText = (newText) => {
-        this.setState({ searchText: newText }, () => {
-            this.updateSnapshots();
-            this.triggerRender();
-        });
-    }
-
-    toggleShowNames = () => {
-        this.setState({ showNames: !this.state.showNames }, () => {
-            this.updateSnapshots();
-            this.triggerRender();
-        });
-    }
-
-    triggerRender = () => {
-        this.setState({ bValue: !this.state.bValue });
-    }
-
-    render() {
-        if (this.state.userChoseGame) {
-            return (
-                <Redirect
-                    to={{
-                        pathname: "/Play",
-                        state: {
-                            currentPath: "/LoadGame",
-                            gameName: copy(this.state.selectedGame),
-                            gameType: copy(this.gameData.type),
-                            playerType: copy(this.gameData.pt),
-                            gameData: copy(this.gameData),
-                        },
-                    }}
-                />
-            );
-        }
-
-        return (
-            <SavedGames
-                load={this.loadGame}
-                imgDict={this.imgDict}
-                loaded={this.state.loaded}
-                searchText={this.state.searchText}
-                updateSearchText={this.updateSearchText}
-                confirmDeleteMessage={`Are you sure you want to delete game ${this.state.selectedGame}?`}
-                deleteGame={() => this.deleteGame(this.state.selectedGame)}
-                selectedGame={this.state.selectedGame}
-                toggleShowNames={this.toggleShowNames}
-                showNames={this.state.showNames}
-                updateTheme={this.updateTheme}
+    return (
+        <>
+            <Background theme={themes.loadGame} appBar={isThin} navBar={isWide}/>
+            <ResponsiveDrawer
+                theme={themes.loadGame}
+                navBar={
+                    <NavBar
+                        currentPage="LoadGame"
+                        redirectMessage={null}
+                        helpText={LoadGameHelp(themes.loadGame)}
+                        helpTitle={
+                            <HelpTitle theme={themes.loadGame} fontSize='2.6vh'>
+                                Loading a Game
+                            </HelpTitle>
+                        }
+                        theme={themes.loadGame}
+                        additionalSettings={null}
+                    />
+                }
+                tools={null}
+                toolButtons={null}
+                navHorizontal={isWide}
+                appBarContent={
+                    <TwoItemAppBarContent
+                        theme={themes.loadGame}
+                        seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
+                    >
+                        <PageTitle theme={themes.loadGame} className={classes.title}>
+                            Load Game
+                        </PageTitle>
+                        <SearchBox
+                            theme={themes.loadGame}
+                            className={classes.search_box}
+                            updateSearchText={updateSearchText}
+                        />
+                    </TwoItemAppBarContent>
+                }
+                appBarType='2item'
+                seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
             >
-                {this.gameSnapshotComponents}
-            </SavedGames>
-        );
-    }
+                <MuiGrid
+                    loaded={state.loaded}
+                    theme={themes.loadGame}
+                    onDeleteClick={deleteGameEntry}
+                    searchText={state.searchText}
+                    selectedItem={state.selectedGame}
+                    defaultChecked={state.showNames}
+                    onOkClick={() => dispatch({type: 'load-game'})}
+                    toggleShowNames={() => dispatch({type: 'toggle-show-names'})}
+                    confirmDeleteMessage={`Are you sure you want to delete game ${state.selectedGame}?`}
+                    title={
+                        isWide ? <LoadGameTitle theme={themes.loadGame} updateSearchText={updateSearchText} /> : null
+                    }
+                    topFlexbox={null}
+                    onClose={null}
+                    className={isThin ? classes.mui_grid_padding : null}
+                >
+                    {
+                        getGameSnapshots(
+                            state.boardObjs,
+                            setChoice,
+                            state.selectedGame,
+                            state.searchText,
+                            state.showNames,
+                            themes.loadGame
+                        )
+                    }
+                </MuiGrid>
+            </ResponsiveDrawer>
+        </>
+    );
 }
 
 export default LoadGame;

@@ -105,4 +105,11 @@ export const useStyles = makeStyles({
             color: themes[props.theme].text,
         },
     }),
+    save_theme_button: props => ({
+       color: themes[props.theme].modal_actions,
+       backgroundColor: themes[props.theme].button_fill,
+        marginTop: '1rem',
+        marginBottom: '1rem',
+        // marginLeft: 'auto',
+    }),
 }, {index: 1});
