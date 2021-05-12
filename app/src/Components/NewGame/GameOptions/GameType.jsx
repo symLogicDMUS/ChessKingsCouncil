@@ -7,7 +7,10 @@ export function GameType({setGameType, gameType, selectedType, theme}) {
     return (
         <motion.img
             className={classes.game_type}
-            src={(gameType === selectedType) ? `/Images/GameTypes/${theme}/hover/${gameType}.svg` : `/Images/GameTypes/${theme}/normal/${gameType}.svg`}
+            src={(gameType === selectedType)
+                ? `/Images/GameTypes/hover/${gameType}-${theme}.svg`
+                : `/Images/GameTypes/normal/${gameType}-${theme}.svg`
+            }
             onClick={() => setGameType(gameType)}
             whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
         />

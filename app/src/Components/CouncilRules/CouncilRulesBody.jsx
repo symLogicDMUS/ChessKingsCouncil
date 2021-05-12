@@ -21,18 +21,18 @@ export function CouncilRulesBody({theme}) {
             <Box className={clsx(classes.board_pattern_area, {
                 [classes.row1]: true,
             })}>
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
             </Box>
             <Box className={classes.content}>
                 <img
-                    src={`/Images/CouncilRules/title.svg`}
+                    src={`/Images/text/CouncilRules.svg`}
                     className={classes.page_title}
                     alt="Council Rules"
                 />
@@ -69,11 +69,11 @@ export function CouncilRulesBody({theme}) {
                 </Typography>
             </Box>
             <Box className={classes.board_pattern_area}>
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />

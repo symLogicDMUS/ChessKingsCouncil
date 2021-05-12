@@ -5,10 +5,10 @@ import clsx from "clsx";
 import SignInWindow from "./SignInWindow";
 import Button from "@material-ui/core/Button";
 import MediaQuery from "react-responsive/src";
-import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import IconButton from "@material-ui/core/IconButton";
 import {MenuItem, Typography} from "@material-ui/core";
 import {MuiMenu} from "../Reuseables/UserInput/MuiMenu";
+import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { UserContext } from "../../UserContext";
 import { useStyles } from "./SignInOutButton.jss";
 

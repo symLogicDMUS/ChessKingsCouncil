@@ -1,6 +1,6 @@
 export const tan = {
     outline: '#2b2b2b',
-    outline_alt: '#2b2b2b',
+    outline_alt: '#d7bb99',
     fill: '#000000',
     fill2: '#000000',
     text: '#d7bb99',

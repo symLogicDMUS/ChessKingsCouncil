@@ -22,18 +22,18 @@ export function MainMenuBody({theme}) {
             <Box className={clsx(classes.board_pattern_area, {
                 [classes.row1]: true,
             })}>
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
             </Box>
             <Box className={classes.content}>
                 <img
-                    src={`/Images/titles/desktop/title-${theme}.svg`}
+                    src={`/Images/text/app title/title-${theme}.svg`}
                     alt="home page text"
                     className={classes.site_title}
                 />
@@ -48,11 +48,11 @@ export function MainMenuBody({theme}) {
                 </Typography>
             </Box>
             <Box className={classes.board_pattern_area}>
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />
-                <img src={`/Images/Backgrounds/board-pattern-${theme}.svg`}
+                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
                      className={classes2.board_pattern}
                      alt="stylistic board pattern"
                 />

@@ -42,4 +42,7 @@ export const useStyles = makeStyles({
         flexGrow: 10,
         minWidth: 'unset',
     }),
+    hidden: props => ({
+       display: 'none',
+    }),
 }, {index: 1});

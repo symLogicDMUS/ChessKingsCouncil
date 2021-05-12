@@ -148,7 +148,7 @@ class Customize extends React.Component {
     /**
      * sub: name of a piece making sub.
      * subs is this.subs with key:value pairs reversed.
-     * Components use standard:sub dict, and game-logic uses
+     * board-pattern use standard:sub dict, and game-logic uses
      * sub:standard dict
      */
     prepareForIdAssign = () => {

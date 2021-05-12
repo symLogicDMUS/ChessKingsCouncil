@@ -7,6 +7,7 @@ import {findDidUserVisitPage, recordUserVisitedPage}
 import { HelpModal } from "./HelpModal";
 import { HelpSlideshow } from "./HelpSlideshow";
 import { UserContext } from "../../../../UserContext";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import { useStyles } from "../NavBarButton.jss";
 
@@ -22,6 +23,7 @@ export function HelpButton({
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);
     const [isFirstTime, setIsFirstTime] = useState(false);
+    const lg = useMediaQuery("(min-width: 1501px)");
 
     const classes = useStyles({ theme: theme, screenCase: screenCase });
 
@@ -78,13 +80,14 @@ export function HelpButton({
                 onClick={() => setModal(!modal)}
                 className={clsx(classes.nav_bar_button, {
                     [classes.row_direction]: isRow(),
+                    [classes.hidden]: isRow() && ! lg,
                 })}
             >
                 <ListItemIcon className={classes.icon}>
                     <ContactSupportIcon fontVariant="button" />
                 </ListItemIcon>
                 <ListItemText variant="button" primary="Help" noWrap>
-                    Settings
+                    Help
                 </ListItemText>
             </ListItem>
         </>

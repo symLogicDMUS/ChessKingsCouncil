@@ -14,7 +14,7 @@ export function PlayAs({setPlayerType, theme, screenCase}) {
         <Box className={clsx(classes2.item, {
             [classes.play_as]:true
         })}>
-            <img src={`/Images/text/new game/subtitles/${theme}/Play As.svg`} className={classes2.title}/>
+            <img src={`/Images/text/new game/Play As-${theme}.svg`} className={classes2.title}/>
             <MuiDropdown
                 theme={theme}
                 label='Play As'

@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {NavBarButton} from "./NavBarButton";
-import {HelpButton} from "./Help/HelpButton";
-import {SettingsButton} from "./SettingsButton";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MediaQuery from "react-responsive/src";
+import { NavBarRowMore } from "./NavBarRowMore";
+import { NavBarButton } from "./NavBarButton";
+import { HelpButton } from "./Help/HelpButton";
+import { SettingsButton } from "./SettingsButton";
 import SignInOutButton from "../../Home/SignInOutButton";
-import {marginLeftZero, useStyles} from "./NavBar.jss";
-
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { marginLeftZero, useStyles } from "./NavBar.jss";
 
 /**
  * children is settings content unique to parent page.
@@ -149,11 +150,28 @@ function NavBar(props) {
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
                 {isRowDirection && (
-                    <SignInOutButton
-                        theme={props.theme}
-                        className={classes.sign_out_button}
-                        style={marginLeftZero}
-                    />
+                    <>
+                        <MediaQuery maxWidth={1501}>
+                            <NavBarRowMore
+                                theme={props.theme}
+                                screenCase={screenCase}
+                                helpText={props.helpText}
+                                helpTitle={props.helpTitle}
+                                currentPage={props.currentPage}
+                                updateTheme={props.updateTheme}
+                                updateFirstVisit={props.updateFirstVisit}
+                                additionalSettings={props.additionalSettings}
+                                classes={classes}
+                            />
+                        </MediaQuery>
+                        <MediaQuery minWidth={1501}>
+                            <SignInOutButton
+                                theme={props.theme}
+                                style={marginLeftZero}
+                                className={classes.sign_out_button}
+                            />
+                        </MediaQuery>
+                    </>
                 )}
             </Box>
         </>

@@ -21,7 +21,7 @@ export function MainMenuLg(props) {
                 <SignInOutButton theme={props.theme} variant={'contained'} className={classes.signOutButton} />
             </Box>
             <Box className={classes.main_menu}>
-                <img src={`/Images/titles/desktop/title-${props.theme}.svg`} className={classes.title} />
+                <img src={`/Images/text/app title/title-${props.theme}.svg`} className={classes.title} />
                 <Box className={classes.page_links}>
                     <PageLink
                         icon='new-game-cutout'

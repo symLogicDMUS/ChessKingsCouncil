@@ -14,7 +14,7 @@ export function GameName({setGameName, theme, screenCase}) {
             <Box className={clsx(classes2.item, {
                 [classes.game_name]:true,
             })}>
-                <img src={`/Images/text/new game/subtitles/${theme}/Game Name.svg`} className={classes2.title} />
+                <img src={`/Images/text/new game/Game Name-${theme}.svg`} className={classes2.title} />
                 <MuiTextField
                     className={classes.game_name}
                     onChange={setGameName}

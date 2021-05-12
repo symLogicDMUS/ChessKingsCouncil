@@ -10,11 +10,11 @@ export function BoardPatternRow(props) {
             [classes.row2]: props.row2,
         })}
     >
-        <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}
+        <img src={`/Images/board-pattern/board-pattern-${props.theme}.svg`}
              className={classes.board_pattern}
              alt="stylistic board pattern"
         />
-        <img src={`/Images/Backgrounds/board-pattern-${props.theme}.svg`}
+        <img src={`/Images/board-pattern/board-pattern-${props.theme}.svg`}
              className={classes.board_pattern}
              alt="stylistic board pattern"
         />

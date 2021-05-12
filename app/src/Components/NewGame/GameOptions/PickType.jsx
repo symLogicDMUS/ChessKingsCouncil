@@ -13,7 +13,7 @@ export function PickType({gameType, setGameType, theme}) {
         <Box className={clsx(classes2.item, {
             [classes.pick_type]: true,
         })}>
-            <img src={`/Images/text/new game/subtitles/${theme}/Pick Type.svg`} className={classes2.title}/>
+            <img src={`/Images/text/new game/Pick Type-${theme}.svg`} className={classes2.title}/>
             <Box className={classes.game_types}>
                 <GameType gameType="Standard" setGameType={setGameType} selectedType={gameType} theme={theme}/>
                 <div className={classes.game_types_divider} />
