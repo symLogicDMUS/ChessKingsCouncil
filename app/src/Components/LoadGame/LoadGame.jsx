@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useReducer} from "react";
+import React, {useContext, useEffect, useMemo, useReducer, useState} from "react";
 import {useHistory} from "react-router-dom";
 import {copy} from "../helpers/copy";
 import {getGames} from "../../API/getGames";
@@ -16,14 +16,15 @@ import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import SearchIcon from "@material-ui/icons/Search";
-import {getGameSnapshots} from "./getGameSnapshots";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import {LoadGameTitle} from "./LoadGameTitle";
 import {LoadGameHelp} from "./LoadGameHelp";
+import GameSnapshots from "./GameSnapshots";
 import {UserContext} from "../../UserContext";
 import {ThemeContext} from "../ThemeContext";
 import {reducer} from "./LoadGame.red";
 import {useStyles} from "./LoadGame.jss";
+import {getBoardObjs} from "./getBoardObjs";
 
 function LoadGame() {
     const history = useHistory();
@@ -40,13 +41,20 @@ function LoadGame() {
         loaded: false,
         searchText: "",
         showNames: true,
-        bValue: true,
         uid: null,
         games: {},
-        boardObjs: {},
         gameData: null,
     });
-    
+
+    const boardObjs = useMemo(() => getBoardObjs(state.games), [
+        Object.keys(state.games).length,
+        state.selectedGame,
+        state.useChoseGame,
+        state.loaded,
+        state.searchText,
+        state.showNames
+    ])
+
     useEffect(() => {
         let games;
         if (uid) {
@@ -69,12 +77,12 @@ function LoadGame() {
         dispatch({type: "update-search-text", newText: e.target.value});
     };
 
-    const deleteGameEntry = (gameName) => {
+    const deleteGameEntry = () => {
         const newState = copy(state)
-        const imgUrlStrs = filterSamples(newState.games[gameName].imgUrlStrs)
+        const imgUrlStrs = filterSamples(newState.games[state.selectedGame].imgUrlStrs)
         decrementImgRefCounts(imgUrlStrs).then((r) => {
-            deleteGame(gameName).then(([r]) => {
-                dispatch({type: 'delete-game', gameName: gameName})
+            deleteGame(state.selectedGame).then(([r]) => {
+                dispatch({type: 'delete-game'})
             });
         });
     };
@@ -150,16 +158,14 @@ function LoadGame() {
                     onClose={null}
                     className={isThin ? classes.mui_grid_padding : null}
                 >
-                    {
-                        getGameSnapshots(
-                            state.boardObjs,
-                            setChoice,
-                            state.selectedGame,
-                            state.searchText,
-                            state.showNames,
-                            themes.loadGame
-                        )
-                    }
+                    <GameSnapshots
+                        setChoice={setChoice}
+                        boardObjs={boardObjs}
+                        selectedGame={state.selectedGame}
+                        searchText={state.searchText}
+                        showNames={state.showNames}
+                        theme={themes.loadGame}
+                    />
                 </MuiGrid>
             </ResponsiveDrawer>
         </>

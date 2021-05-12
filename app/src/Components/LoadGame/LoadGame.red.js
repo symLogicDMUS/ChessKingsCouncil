@@ -1,5 +1,4 @@
 import {getBoardObjs} from "./getBoardObjs";
-import {getGameSnapshots} from "./getGameSnapshots";
 import {parseData} from "../../API/apiHelpers/parseData";
 import {copy} from "../helpers/copy";
 
@@ -24,13 +23,9 @@ export function reducer(state, action) {
             }
         case 'delete-game':
             const newState = copy(state)
-            delete newState.games[action.gameName];
-            delete newState.boardObjs[action.gameName];
-            return {
-                ...newState,
-                selectedGame: null,
-                userChoseGame: false,
-            }
+            delete newState.games[newState.selectedGame];
+            delete newState.boardObjs[newState.gameName];
+            return newState;
         case 'set-choice':
             return {
                 ...state,
