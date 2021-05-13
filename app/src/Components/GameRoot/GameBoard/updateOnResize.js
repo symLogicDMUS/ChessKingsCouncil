@@ -3,7 +3,7 @@ import {viewWidth} from "../../helpers/windowMeasurments";
 import {getSqrSize} from "./getSqrSize";
 import {getBoardPos} from "./getBoardPos";
 
-export const updateOnResize = (gameRoot) => {
+export const updateOnResize = (gameRoot, theme) => {
     let {sqrSizeLg, sqrSizeSm} = getSqrSize();
     let currentSqrSize;
     if (viewWidth() > 960) {
@@ -12,7 +12,7 @@ export const updateOnResize = (gameRoot) => {
         currentSqrSize = sqrSizeSm;
     }
     return {
-        pieces: setStartingPieces(gameRoot, currentSqrSize),
+        pieces: setStartingPieces(gameRoot, currentSqrSize, theme),
         sqrSizes: {
             wide: sqrSizeLg,
             thin: sqrSizeSm

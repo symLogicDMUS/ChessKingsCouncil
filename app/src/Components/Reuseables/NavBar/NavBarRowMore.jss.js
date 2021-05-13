@@ -12,4 +12,9 @@ export const useStyles = makeStyles({
             backgroundColor: lighten(themes[props.theme].fill, 0.1),
         },
     }),
+    button: props => ({
+        '&:hover':{
+            background: themes[props.theme].button_fill,
+        },
+    }),
 }, {index: 1});

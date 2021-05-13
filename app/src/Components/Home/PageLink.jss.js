@@ -15,7 +15,7 @@ export const useStyles = makeStyles({
     }),
     icon: props => ({
         width: '7.8vw',
-        height: '7.8vw'
+        height: '7.8vw',
     }),
     normal_color: props => ({
         color: themes[props.theme].page_link,

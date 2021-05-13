@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {navBarButtonHeight} from "../../Reuseables/NavBar/NavBarButton.jss";
 
-export const useStyles = makeStyles ({
+export const useStyles = makeStyles({
     background: props => ({
         zIndex: -1,
         width: '100%',
@@ -32,6 +32,10 @@ export const useStyles = makeStyles ({
     },
     navbar: props => ({
         height: navBarButtonHeight,
+        width: '100vw',
+    }),
+    lgScreenBar: props => ({
+        height: 37,
         width: '100vw',
     }),
 }, {index: 1});

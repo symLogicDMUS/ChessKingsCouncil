@@ -7,23 +7,23 @@ import {findDidUserVisitPage, recordUserVisitedPage}
 import { HelpModal } from "./HelpModal";
 import { HelpSlideshow } from "./HelpSlideshow";
 import { UserContext } from "../../../../UserContext";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import { useStyles } from "../NavBarButton.jss";
 
 export function HelpButton({
+    updateFirstVisit,
     currentPage,
-    theme,
     screenCase,
     helpTitle,
-    updateFirstVisit,
+    className,
+    style,
+    theme,
     children,
 }) {
     const uid = useContext(UserContext);
     const [slideshow, setSlideshow] = useState(false);
     const [modal, setModal] = useState(false);
     const [isFirstTime, setIsFirstTime] = useState(false);
-    const lg = useMediaQuery("(min-width: 1501px)");
 
     const classes = useStyles({ theme: theme, screenCase: screenCase });
 
@@ -53,6 +53,22 @@ export function HelpButton({
 
     return (
         <>
+            <ListItem
+                button
+                onClick={() => setModal(!modal)}
+                className={clsx(classes.nav_bar_button, {
+                    [classes.row_direction]: isRow(),
+                    [className]: className,
+                })}
+                style={style}
+            >
+                <ListItemIcon className={classes.icon}>
+                    <ContactSupportIcon fontVariant="button" />
+                </ListItemIcon>
+                <ListItemText variant="button" primary="Help" noWrap>
+                    Help
+                </ListItemText>
+            </ListItem>
             {(slideshow || isFirstTime) && children ? (
                 <Portal>
                     <HelpSlideshow
@@ -75,21 +91,6 @@ export function HelpButton({
                     onClose={() => setModal(false)}
                 />
             ) : null}
-            <ListItem
-                button
-                onClick={() => setModal(!modal)}
-                className={clsx(classes.nav_bar_button, {
-                    [classes.row_direction]: isRow(),
-                    [classes.hidden]: isRow() && ! lg,
-                })}
-            >
-                <ListItemIcon className={classes.icon}>
-                    <ContactSupportIcon fontVariant="button" />
-                </ListItemIcon>
-                <ListItemText variant="button" primary="Help" noWrap>
-                    Help
-                </ListItemText>
-            </ListItem>
         </>
     );
 }

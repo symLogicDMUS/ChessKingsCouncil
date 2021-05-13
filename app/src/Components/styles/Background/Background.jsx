@@ -13,7 +13,8 @@ export function Background(props) {
                     className={
                         clsx(null, {
                             [classes.navbar]: props.navBar,
-                            [classes.toolbar]: props.toolbar,
+                            [classes.toolbar]: props.appBar,
+                            [classes.lgScreenBar]: props.lgScreenBar,
                         })}
                 />
                 <BoardPatternRow row2={false} theme={props.theme}/>

@@ -2,13 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdff0bc2-c62b-47ff-9fd8-17f7cfe0ab94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testing/map_url_chars_to_key_chars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/map_url_dict_to_key_dict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/test_res.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testing/url_to_valid_key_char.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing/realtime/dev1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing/update_img_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/update_img_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Author GitHub.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Author GitHub.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Chess Rules.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Chess Rules.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Council Rules.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Council Rules.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Create Piece.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Create Piece.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Load Game.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Load Game.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/New Game.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/New Game.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Saved Pieces.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/hover/Saved Pieces.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Author GitHub.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Author GitHub.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Chess Rules.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Chess Rules.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Council Rules.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Council Rules.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Create Piece.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Create Piece.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Load Game.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Load Game.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/New Game.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/New Game.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Saved Pieces.svg" beforeDir="false" afterPath="$PROJECT_DIR$/../app/public/Images/text/main menu/normal/Saved Pieces.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Home/PageLink.jss.js" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Home/PageLink.jss.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Home/PageLink.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Home/PageLink.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/Help/HelpButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/Help/HelpButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/NavBarRowMore.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/NavBarRowMore.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/SettingsButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/Components/Reuseables/NavBar/SettingsButton.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +42,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Python/Reuseables" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">

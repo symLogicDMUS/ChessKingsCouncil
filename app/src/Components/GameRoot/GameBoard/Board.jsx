@@ -8,18 +8,18 @@ import DropLayer from "./DropLayer";
 import DragLayer from "./DragLayer";
 import { reducer } from "./Board.red";
 
-const Board = ({ gameRoot }) => {
+const Board = ({ gameRoot, theme }) => {
 
     const [state, dispatch] = useReducer(reducer, {
         isPromo: false,
         aiDisplay: false,
         hiddenPiece: null,
-        ...updateOnResize(gameRoot),
+        ...updateOnResize(gameRoot, theme),
     });
 
     useEffect(() => {
         function handleResize() {
-            dispatch({ type: "reposition", gameRoot: gameRoot });
+            dispatch({ type: "reposition", gameRoot: gameRoot, theme: theme });
         }
         window.addEventListener("resize", handleResize);
         return (_) => {
@@ -42,20 +42,20 @@ const Board = ({ gameRoot }) => {
                 sqrSize={sqrSize}
                 boardSize={boardSize}
                 boardPos={boardPos}
-                theme={gameRoot.state.theme}
+                theme={theme}
             />
             <DragLayer
                 gameRoot={gameRoot}
                 sqrSize={sqrSize}
                 boardSize={boardSize}
                 boardPos={boardPos}
-                theme={gameRoot.state.theme}
+                theme={theme}
             />
             <GameDisplayBoard
                 sqrSize={sqrSize}
                 boardSize={boardSize}
                 boardPos={boardPos}
-                theme={gameRoot.state.theme}
+                theme={theme}
             />
         </DndProvider>
     );

@@ -1,11 +1,9 @@
 import React, {useEffect} from "react";
-import clsx from "clsx";
 import {Link} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import "../styles/Background/_backgrounds.scss";
-import {useStyles as useMoreStyles}
-        from "../styles/Background/Background.jss";
+import Typography from "@material-ui/core/Typography";
+import {BoardPatternRow} from "../styles/Background/BoardPatternRow";
 import { useStyles } from "./MainMenuBody.jss";
 
 export function MainMenuBody({theme}) {
@@ -15,22 +13,10 @@ export function MainMenuBody({theme}) {
     }, [])
 
     const classes = useStyles({theme: theme})
-    const classes2 = useMoreStyles({theme})
 
     return (
         <div className={classes.main_menu_body}>
-            <Box className={clsx(classes.board_pattern_area, {
-                [classes.row1]: true,
-            })}>
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-            </Box>
+            <BoardPatternRow theme={theme} className={classes.row1} />
             <Box className={classes.content}>
                 <img
                     src={`/Images/text/app title/title-${theme}.svg`}
@@ -47,17 +33,7 @@ export function MainMenuBody({theme}) {
                     classic Chess. For further help, choose the help option in the side drawer. I hope that you enjoy the site!
                 </Typography>
             </Box>
-            <Box className={classes.board_pattern_area}>
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-            </Box>
-            <div className={classes.toolbar} />
+            <BoardPatternRow theme={theme} className={classes.row2} />
         </div>
     );
 }

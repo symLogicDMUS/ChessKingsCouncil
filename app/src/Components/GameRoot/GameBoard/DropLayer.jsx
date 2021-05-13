@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDrop } from "react-dnd";
-import AIMove from "./AIMove";
 import { move } from "../Move/move";
 import { isLegal } from "../Move/isLegal";
 import { ItemTypes } from "./ItemTypes";
@@ -13,6 +12,7 @@ import { OVER } from "../../helpers/gStatusTypes";
 import { useStyles } from "./DropLayer.jss";
 
 const Promo = React.lazy(() => import('../Promo/Promo'));
+const AIMove = React.lazy(() => import('./AIMove'));
 
 /**
  * Sits on top of game boards. updated on drop.
@@ -54,7 +54,7 @@ const DropLayer = ({
                 gameRoot.specialMoves.promoStart = start;
                 gameRoot.specialMoves.promoDest = dest;
                 gameRoot.specialMoves.removePromo([start, dest]);
-                dispatch({ type: "begin-promo" });
+                dispatch({ type: "begin-promo", theme: theme });
             } else {
                 finishMove(start, dest);
             }
@@ -166,7 +166,7 @@ const DropLayer = ({
                     promoStart={gameRoot.specialMoves.promoStart}
                     promoDest={gameRoot.specialMoves.promoDest}
                     gameType={gameRoot.gameType}
-                    theme={gameRoot.state.theme}
+                    theme={theme}
                     finishMove={finishMove}
                     piecesDispatch={dispatch}
                 />
@@ -181,7 +181,7 @@ const DropLayer = ({
                     sqrSize={sqrSize}
                     boardSize={boardSize}
                     boardPos={boardPos}
-                    theme={gameRoot.state.theme}
+                    theme={theme}
                 />
             ) : null}
         </>

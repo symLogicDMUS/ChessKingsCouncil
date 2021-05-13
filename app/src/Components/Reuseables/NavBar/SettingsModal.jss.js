@@ -42,8 +42,13 @@ export const useStyles = makeStyles({
         },
     }),
     accordion_summary: props => ({
-        color: themes[props.theme].text,
         fontSize: '1rem',
+    }),
+    normal: props => ({
+        color: themes[props.theme].text,
+    }),
+    highlight: props => ({
+        color: themes[props.theme].modal_actions,
     }),
     close_area: props => ({
         width: '100%',

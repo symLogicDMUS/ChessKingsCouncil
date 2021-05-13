@@ -42,26 +42,6 @@ function NavBar(props) {
                     [classes.column_direction]: isColumnDirection,
                 })}
             >
-                <HelpButton
-                    key="Help"
-                    pageIcon="help"
-                    theme={props.theme}
-                    currentPage={props.currentPage}
-                    helpTitle={props.helpTitle}
-                    screenCase={screenCase}
-                    updateFirstVisit={props.updateFirstVisit}
-                >
-                    {props.helpText}
-                </HelpButton>
-                <SettingsButton
-                    key="MuiSettings-Button"
-                    theme={props.theme}
-                    updateTheme={props.updateTheme}
-                    currentPage={props.currentPage}
-                    screenCase={screenCase}
-                >
-                    {props.additionalSettings}
-                </SettingsButton>
                 <NavBarButton
                     path="/"
                     key="/"
@@ -149,28 +129,71 @@ function NavBar(props) {
                     currentPage={props.currentPage}
                     isUnsavedChanges={props.isUnsavedChanges}
                 />
-                {isRowDirection && (
+                {isRowDirection ? (
                     <>
-                        <MediaQuery maxWidth={1501}>
+                        <MediaQuery maxWidth={1440}>
                             <NavBarRowMore
                                 theme={props.theme}
                                 screenCase={screenCase}
                                 helpText={props.helpText}
                                 helpTitle={props.helpTitle}
-                                currentPage={props.currentPage}
                                 updateTheme={props.updateTheme}
+                                currentPage={props.currentPage}
                                 updateFirstVisit={props.updateFirstVisit}
                                 additionalSettings={props.additionalSettings}
                                 classes={classes}
                             />
                         </MediaQuery>
-                        <MediaQuery minWidth={1501}>
+                        <MediaQuery minWidth={1440}>
+                            <HelpButton
+                                key="Help"
+                                pageIcon="help"
+                                theme={props.theme}
+                                currentPage={props.currentPage}
+                                helpTitle={props.helpTitle}
+                                screenCase={screenCase}
+                                updateFirstVisit={props.updateFirstVisit}
+                            >
+                                {props.helpText}
+                            </HelpButton>
+                            <SettingsButton
+                                key="MuiSettings-Button"
+                                theme={props.theme}
+                                updateTheme={props.updateTheme}
+                                currentPage={props.currentPage}
+                                screenCase={screenCase}
+                            >
+                                {props.additionalSettings}
+                            </SettingsButton>
                             <SignInOutButton
                                 theme={props.theme}
                                 style={marginLeftZero}
                                 className={classes.sign_out_button}
                             />
                         </MediaQuery>
+                    </>
+                ) : (
+                    <>
+                        <HelpButton
+                            key="Help"
+                            pageIcon="help"
+                            theme={props.theme}
+                            currentPage={props.currentPage}
+                            helpTitle={props.helpTitle}
+                            screenCase={screenCase}
+                            updateFirstVisit={props.updateFirstVisit}
+                        >
+                            {props.helpText}
+                        </HelpButton>
+                        <SettingsButton
+                            key="MuiSettings-Button"
+                            theme={props.theme}
+                            updateTheme={props.updateTheme}
+                            currentPage={props.currentPage}
+                            screenCase={screenCase}
+                        >
+                            {props.additionalSettings}
+                        </SettingsButton>
                     </>
                 )}
             </Box>

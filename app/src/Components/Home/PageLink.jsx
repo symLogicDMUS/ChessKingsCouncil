@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import clsx from "clsx";
+import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
-import Box from "@material-ui/core/Box";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import {icons} from "../styles/icons/top/icons.jss";
 import {useStyles} from "./PageLink.jss";
@@ -11,9 +11,10 @@ export function PageLink({icon, path, pathType, pageName, theme}) {
     const classes = useStyles({theme: theme});
 
     const linkComponent = (
-        <Box className={classes.page_link}
-             onMouseEnter={() => setHover(true)}
-             onMouseLeave={() => setHover(false)}
+        <motion.div
+            className={classes.page_link}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
         >
             <SvgIcon
                 className={clsx(classes.icon, {
@@ -24,10 +25,10 @@ export function PageLink({icon, path, pathType, pageName, theme}) {
                 {icons[icon]}
             </SvgIcon>
             <img
-                src={`/Images/text/main menu/desktop/${theme}/${hover ? 'hover' : 'normal'}/${pageName}.svg`}
+                src={`/Images/text/main menu/${hover ? 'hover' : 'normal'}/${theme}/${pageName}.svg`}
                 className={classes.page_name}
             />
-        </Box>
+        </motion.div>
     );
     if (pathType === "local") {
         return (

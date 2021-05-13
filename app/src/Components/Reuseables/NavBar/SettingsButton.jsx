@@ -2,13 +2,11 @@ import React, {useState} from "react";
 import clsx from "clsx";
 import {SettingsModal} from "./SettingsModal";
 import SettingsIcon from "@material-ui/icons/Settings";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
-export function SettingsButton({updateTheme, theme, screenCase, currentPage, children}) {
+export function SettingsButton({theme, screenCase, currentPage, className, style, children}) {
     const [settingsModal, toggleSettingsModal] = useState(false);
-    const lg = useMediaQuery("(min-width: 1501px)");
 
     const classes = useStyles({
         theme: theme,
@@ -31,7 +29,7 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, chi
                 <Portal>
                     <SettingsModal
                         theme={theme}
-                        updateTheme={updateTheme}
+                        currentPage={currentPage}
                         closeModal={() => toggleSettingsModal(false)}
                     >
                         {children}
@@ -43,8 +41,9 @@ export function SettingsButton({updateTheme, theme, screenCase, currentPage, chi
                 onClick={toggleSettingsModal}
                 className={clsx(classes.nav_bar_button, {
                     [classes.row_direction]: isRow(),
-                    [classes.hidden]: isRow() && ! lg,
+                    [className]: className,
                 })}
+                style={style}
             >
                 <ListItemIcon>
                     <SettingsIcon fontVariant="button" />

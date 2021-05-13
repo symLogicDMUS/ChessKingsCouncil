@@ -10,7 +10,7 @@ export function reducer(state, action) {
     let pieces, pieceName;
     switch (action.type) {
         case "reposition":
-            return {...state, ...updateOnResize(action.gameRoot)};
+            return {...state, ...updateOnResize(action.gameRoot, action.theme)};
         case "update":
             pieces = copy(state.pieces);
             pieces = {

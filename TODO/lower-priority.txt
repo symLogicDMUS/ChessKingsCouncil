@@ -1,8 +1,8 @@
 short:
-
+    tweak SqrMouseIsOver component styles
 medium:
-    * use Material UI Dialog component and relatives for StandardModal
-    * test different variations with red and blue piece colors.
+    * and red_alt piece theme pieces
+    * convert MuiGrid To Dialog component with DialogActions
     * consider making MechWarrior fill a texture, if possible.
 long:
     * Make functional Components in addition to class components be a default export, to be consistent.

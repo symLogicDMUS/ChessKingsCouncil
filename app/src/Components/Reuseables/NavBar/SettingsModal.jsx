@@ -1,46 +1,47 @@
-import React, {useContext, useState} from "react";
-import {saveThemes} from "../../../API/saveThemes";
-import {Close} from "../Modals/Close";
+import React, { useContext, useState } from "react";
+import clsx from "clsx";
+import { Close } from "../Modals/Close";
 import Box from "@material-ui/core/Box";
-import {Undo} from "@material-ui/icons";
+import { Undo } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
-import {Dialog, DialogActions, Typography} from "@material-ui/core";
-import {AnimatePresencePortal} from "../Animations/AnimatePresencePortal";
+import { saveThemes } from "../../../API/saveThemes";
+import { Dialog, DialogActions, Typography } from "@material-ui/core";
+import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../../CreatePiece/animations/ThemeSavedSuccessfully";
 import ThemeDropdown from "../UserInput/ThemeDropdown";
 import MuiAccordion from "../Accordions/MuiAccordion";
 import AskLoginButton from "../../Home/AskLoginButton";
-import {ThemeContext} from "../../ThemeContext";
-import {UserContext} from "../../../UserContext";
-import {useStyles} from "./SettingsModal.jss";
+import { ThemeContext } from "../../ThemeContext";
+import { UserContext } from "../../../UserContext";
+import { useStyles } from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
-    const uid = useContext(UserContext)
-    const {themes, setThemes} = useContext(ThemeContext);
+    const uid = useContext(UserContext);
+    const { themes, setThemes } = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({ theme: props.theme });
 
     const saveThemesToDb = () => {
-        saveThemes(themes).then(r => {
-            setSaveSuccess(true)
-        })
+        saveThemes(themes).then((r) => {
+            setSaveSuccess(true);
+        });
     };
 
     const resetDefaults = () => {
         saveThemes({
-                newGame: 'tan',
-                loadGame: 'tan',
-                createPiece: 'dark',
-                customize: 'dark',
-                gameRoot: 'dark',
-                myPieces: 'dark',
-                councilRules: 'tan',
-                home: 'tan',
-            }
-        ).then(r => {
-            setSaveSuccess(true)
-        })
+            newGame: "tan",
+            loadGame: "tan",
+            createPiece: "dark",
+            customize: "dark",
+            gameRoot: "dark",
+            myPieces: "dark",
+            councilRules: "tan",
+            home: "tan",
+        }).then((r) => {
+            setSaveSuccess(true);
+        });
     };
+    const added = "(Current Page)";
 
     return (
         <>
@@ -49,8 +50,8 @@ export function SettingsModal(props) {
                     <ThemeSavedSuccessfully
                         theme={props.theme}
                         callback={() => {
-                            setSaveSuccess(false)
-                            props.closeModal()
+                            setSaveSuccess(false);
+                            props.closeModal();
                         }}
                     />
                 </AnimatePresencePortal>
@@ -58,7 +59,7 @@ export function SettingsModal(props) {
             <Dialog
                 open={true}
                 classes={{
-                    paper: classes.window
+                    paper: classes.window,
                 }}
                 onBackdropClick={props.closeModal}
             >
@@ -75,118 +76,198 @@ export function SettingsModal(props) {
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "MainMenu",
+                                    [classes.normal]: props.currentPage !== "MainMenu",
+                                })}
                                 noWrap
                             >
-                                New Game Page
+                                Home Page{" "}
+                                {props.currentPage === "MainMenu" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'newGame'} defaultValue={themes.newGame} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"home"}
+                            defaultValue={themes.home}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "NewGame",
+                                    [classes.normal]: props.currentPage !== "NewGame",
+                                })}
                                 noWrap
                             >
-                                Load Game
+                                New Game{" "}
+                                {props.currentPage === "NewGame" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'loadGame'} defaultValue={themes.loadGame} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"newGame"}
+                            defaultValue={themes.newGame}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "LoadGame",
+                                    [classes.normal]: props.currentPage !== "LoadGame",
+                                })}
                                 noWrap
                             >
-                                Create Piece
+                                Load Game{" "}
+                                {props.currentPage === "LoadGame" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'createPiece'} defaultValue={themes.createPiece} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"loadGame"}
+                            defaultValue={themes.loadGame}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "CreatePiece",
+                                    [classes.normal]: props.currentPage !== "CreatePiece",
+                                })}
                                 noWrap
                             >
-                                Customize Game
+                                Create Piece{" "}
+                                {props.currentPage === "CreatePiece" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'customize'} defaultValue={themes.customize} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"createPiece"}
+                            defaultValue={themes.createPiece}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "Customize",
+                                    [classes.normal]: props.currentPage !== "Customize",
+                                })}
                                 noWrap
                             >
-                                Playing Game page
+                                Customize Game{" "}
+                                {props.currentPage === "Customize" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'gameRoot'} defaultValue={themes.gameRoot} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"customize"}
+                            defaultValue={themes.customize}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "GameRoot",
+                                    [classes.normal]: props.currentPage !== "GameRoot",
+                                })}
                                 noWrap
                             >
-                                Saved Pieces
+                                Playing Game page{" "}
+                                {props.currentPage === "GameRoot" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'myPieces'} defaultValue={themes.myPieces} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"gameRoot"}
+                            defaultValue={themes.gameRoot}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "MyPieces",
+                                    [classes.normal]: props.currentPage !== "MyPieces",
+                                })}
                                 noWrap
                             >
-                                Home Page
+                                Saved Pieces{" "}
+                                {props.currentPage === "MyPieces" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'home'} defaultValue={themes.home} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"myPieces"}
+                            defaultValue={themes.myPieces}
+                        />
                     </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
                             <Typography
-                                className={classes.accordion_summary}
+                                className={clsx(classes.accordion_summary, {
+                                    [classes.highlight]:
+                                        props.currentPage === "CouncilRules",
+                                    [classes.normal]: props.currentPage !== "CouncilRules",
+                                })}
                                 noWrap
                             >
-                                Council Rules
+                                Council Rules{" "}
+                                {props.currentPage === "CouncilRules" && added}
                             </Typography>
                         }
                     >
-                        <ThemeDropdown theme={props.theme} pageName={'councilRules'} defaultValue={themes.councilRules} />
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"councilRules"}
+                            defaultValue={themes.councilRules}
+                        />
                     </MuiAccordion>
                     <DialogActions className={classes.dialog_actions}>
                         {uid ? (
-                            <Button onClick={saveThemesToDb} className={classes.save_theme_button} variant={'contained'}>
+                            <Button
+                                onClick={saveThemesToDb}
+                                className={classes.save_theme_button}
+                                variant={"contained"}
+                            >
                                 Save For next visit
                             </Button>
                         ) : (
-                            <AskLoginButton theme={props.theme} buttonType='theme' />
+                            <AskLoginButton
+                                theme={props.theme}
+                                buttonType="theme"
+                            />
                         )}
-                        <Button onClick={resetDefaults}
-                                startIcon={<Undo />}
-                                className={classes.reset_theme_button}
-                                variant={'contained'}
+                        <Button
+                            onClick={resetDefaults}
+                            startIcon={<Undo />}
+                            className={classes.reset_theme_button}
+                            variant={"contained"}
                         >
                             Reset defaults
                         </Button>
@@ -195,5 +276,5 @@ export function SettingsModal(props) {
                 </Box>
             </Dialog>
         </>
-    )
+    );
 }

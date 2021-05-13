@@ -101,7 +101,6 @@ class GameRoot extends React.Component {
 
     state = {
         bValue: true,
-        theme: "dark",
         rangeAnalysis: false,
         saveAnimation: false,
         resignModal: false,
@@ -458,11 +457,11 @@ class GameRoot extends React.Component {
                                     showProfileOnClick={this.state.showProfileOnClick}
                                 />
                             ) : (
-                                <Board gameRoot={this} />
+                                <Board gameRoot={this} theme={value.themes.gameRoot} />
                             )}
                         </MediaQuery>
                         <MediaQuery minWidth={960}>
-                            <Board gameRoot={this} />
+                            <Board gameRoot={this} theme={value.themes.gameRoot} />
                         </MediaQuery>
                     </ResponsiveDrawer>
                 </>}

@@ -5,6 +5,9 @@ import {navBarButtonHeight} from "./NavBarButton.jss";
 export const marginLeftZero = {
     marginLeft: 0,
 }
+export const buttonFill = (theme) => ({
+    backgroundColor: themes[theme].button_fill,
+});
 
 export const useStyles = makeStyles((theme) => ({
     nav_bar: props => ({

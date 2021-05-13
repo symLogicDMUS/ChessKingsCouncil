@@ -8,6 +8,7 @@ export function BoardPatternRow(props) {
     return <Box className={
         clsx(classes.row, {
             [classes.row2]: props.row2,
+            [props.className]: props.className,
         })}
     >
         <img src={`/Images/board-pattern/board-pattern-${props.theme}.svg`}
