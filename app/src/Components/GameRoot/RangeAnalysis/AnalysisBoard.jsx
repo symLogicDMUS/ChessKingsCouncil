@@ -5,6 +5,7 @@ import { getPieceImg } from "../../styles/themes/specialThemeImgs/getPieceImg";
 import { getFranchisePieceImg } from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
 import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import { useStyles } from "./AnalysisBoard.jss";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
 
 const AnalysisSquare = React.lazy(() => import('./AnalysisSquare'));
 const AnalysisPiece = React.lazy(() => import('./AnalysisPiece'));
@@ -12,7 +13,6 @@ const AnalysisPiece = React.lazy(() => import('./AnalysisPiece'));
 function AnalysisBoard({
     theme,
     screenCase,
-    gameType,
     board,
     idDict,
     pieceDefs,
@@ -49,7 +49,7 @@ function AnalysisBoard({
                 color = id[0];
                 pieceName = idDict[id[1].toLowerCase()];
                 if (
-                    gameType === "Standard" &&
+                    standardPieceNames.includes(pieceName) &&
                     specialThemeList.includes(theme)
                 ) {
                     imgUrl = getFranchisePieceImg(theme, id, idDict);

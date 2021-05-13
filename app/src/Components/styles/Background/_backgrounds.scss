@@ -154,55 +154,11 @@ $length: 0.35rem;
 
 .red_blue-background {
     background-color: #2b2b2b;
-
-    /* width */
-    ::-webkit-scrollbar {
-        @media screen and (max-width: 960px) {
-            width: $length;
-            height: $length;
-        }
-        @media screen and (min-width: 960px) {
-            width: 0.5rem;
-            height: 0.5rem;
-        }
-    }
-
-    /* button */
-    ::-webkit-scrollbar-button {
-        background: #3f3f3f;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        background: #474747;
-        opacity: 0.5%;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: #666666;
-        opacity: 0.5%;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-        background: #3f3f3f;
-    }
-
-    /* Corner */
-    ::-webkit-scrollbar-corner {
-        background: #3f3f3f;
-    }
-
-    /* Resizer */
-    ::-webkit-resizer {
-        background: #111;
-    }
-
+    @include dark;
 }
 
 .star_wars-background {
-    background-image: url("star_wars.jpg");
+    background-image: url("star_wars2.PNG");
     @include tan;
 }
 

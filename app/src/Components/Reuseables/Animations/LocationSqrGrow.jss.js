@@ -1,7 +1,6 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
 import {rfToGridLoc} from "../../helpers/crdCnvrt";
 import {themes} from "../../styles/themes/themes.jss";
-import {sqrSize} from "../../CreatePiece/Board/CreatePieceBoard.jss";
 
 export const useStyles = makeStyles({
     square: props => ({
@@ -11,7 +10,7 @@ export const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         ...rfToGridLoc(props.rf),
-        backgroundColor: themes[props.theme].dark_in_range,
+        backgroundColor: themes[props.theme].location_sqr,
         "& .MuiTouchRipple-root": {
             color: themes[props.theme].sqr_text,
         },
@@ -24,6 +23,6 @@ export const useStyles = makeStyles({
             fontSize: '3.5vw',
         },
         margin: 'auto',
-        color: lighten(themes[props.theme].dark_in_range, 0.5),
+        color: lighten(themes[props.theme].location_sqr, 0.5),
     }),
 }, {index: 1});

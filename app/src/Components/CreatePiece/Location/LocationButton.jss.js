@@ -1,11 +1,20 @@
 import {lighten, makeStyles} from "@material-ui/core/styles"
 import {themes} from "../../styles/themes/themes.jss";
 
-export const frame = (theme) => ({
+export const frame = theme => ({
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: themes[theme].dark_in_range,
+    backgroundColor: themes[theme].location_sqr,
     padding: 0,
+});
+export const clickAnimation = theme => ({
+    backgroundColor: [
+        lighten(themes[theme].location_sqr, 0.75),
+        themes[theme].location_sqr,
+    ],
+});
+export const currentSqr = theme => ({
+    backgroundColor: lighten(themes[theme].location_sqr, 0.4),
 });
 
 export const useStyles = makeStyles({

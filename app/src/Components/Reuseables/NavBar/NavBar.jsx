@@ -23,14 +23,14 @@ function NavBar(props) {
         screenCase === "wide" &&
         (props.currentPage === "NewGame" ||
             props.currentPage === "LoadGame" ||
-            props.currentPage === "MyPieces" ||
-            props.currentPage === "CouncilRules");
+            props.currentPage === "MyPieces");
 
     const isColumnDirection =
         screenCase === "wide" &&
         (props.currentPage === "CreatePiece" ||
             props.currentPage === "GameRoot" ||
             props.currentPage === "Customize" ||
+            props.currentPage === "CouncilRules" ||
             props.currentPage === "MainMenu");
 
     return (

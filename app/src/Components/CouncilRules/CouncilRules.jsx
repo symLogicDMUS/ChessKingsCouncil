@@ -11,13 +11,13 @@ import Drawer from "@material-ui/core/Drawer";
 import Divider from "@material-ui/core/Divider";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import {NavBarAlt} from "../Reuseables/NavBar/NavBarAlt";
 import {CouncilRulesBody} from "./CouncilRulesBody";
 import {useStyles} from "./CouncilRules.jss";
 import {ThemeContext} from "../ThemeContext";
+import NavBar from "../Reuseables/NavBar/NavBar";
 
 function CouncilRules() {
-    const themes = useContext(ThemeContext);
+    const {themes, setThemes} = useContext(ThemeContext);
     const classes = useStyles({ theme: themes.councilRules });
     const muiTheme = useTheme();
 
@@ -85,8 +85,10 @@ function CouncilRules() {
                     </IconButton>
                 </div>
                 <Divider />
-                <NavBarAlt
+                <NavBar
                     theme={themes.councilRules}
+                    currentPage={'CouncilRules'}
+                    helpText={null}
                 />
             </Drawer>
             <main

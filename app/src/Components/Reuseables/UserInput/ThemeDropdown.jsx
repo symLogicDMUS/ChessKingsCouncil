@@ -12,10 +12,24 @@ function ThemeDropdown({theme, pageName, defaultValue}) {
 
     const updateTheme = (e) => {
         const theme = e.target.value;
-        setThemes({
-            ...themes,
-            [pageName]: theme,
-        })
+        if (pageName==='all') {
+            setThemes({
+                newGame: theme,
+                loadGame: theme,
+                createPiece: theme,
+                customize: theme,
+                gameRoot: theme,
+                myPieces: theme,
+                councilRules: theme,
+                home: theme,
+            })
+        }
+        else {
+            setThemes({
+                ...themes,
+                [pageName]: theme,
+            })
+        }
     };
 
     return (

@@ -40,6 +40,7 @@ export const NBA = {
     drawer_outline: '#373737',
     switch_active: '#cdcdcd',
     title: '#253b73',
+    location_sqr: '#253b73',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

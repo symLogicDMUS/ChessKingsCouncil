@@ -363,13 +363,13 @@ class CreatePiece extends React.Component {
         this.triggerRender();
     };
 
-    modals = () => (
+    modals = (theme) => (
         <>
             {this.state.uploadPiece && (
                 <LoadBar
                     pieceName={this.name}
                     newPiece={this.newPiece}
-                    theme={this.state.theme}
+                    theme={theme}
                     close={this.saveCallback}
                     saveInstance={this.state.saveInstance}
                     key={`${this.state.saveInstance}-piece-upload`}
@@ -377,12 +377,12 @@ class CreatePiece extends React.Component {
             )}
             {this.state.isFirstVisit && this.state.justSaved && (
                 <PuttingThePieceICreatedIntoAGame
-                    theme={this.state.theme}
+                    theme={theme}
                     updateTheme={this.updateTheme}
                     onClose={() => this.updateFirstVisit(false)}
                     title={
                         <HelpTitle
-                            theme={this.state.theme}
+                            theme={theme}
                             fontSize={"2.6vh"}
                         >
                             Congratulations on Creating Your First Piece!
@@ -395,13 +395,13 @@ class CreatePiece extends React.Component {
                 <AnimatePresencePortal>
                     <PieceSavedSuccessfully
                         callback={() => this.setState({justSaved: false})}
-                        theme={this.state.theme}
+                        theme={theme}
                     />
                 </AnimatePresencePortal>
             )}
             {this.state.locSqrAnimate && (
                 <LocationSquaresEnter
-                    theme={this.state.theme}
+                    theme={theme}
                     pieceLoc={this.location}
                     isImg={this.whiteAndBlackImgs.white}
                     onAnimationComplete={() =>
@@ -420,7 +420,7 @@ class CreatePiece extends React.Component {
             <ThemeContext.Consumer>
                 {value =>
                     <>
-                        {this.modals()}
+                        {this.modals(value.themes.createPiece)}
                         <ResponsiveDrawer
                             appBarType="title"
                             appBarContent={

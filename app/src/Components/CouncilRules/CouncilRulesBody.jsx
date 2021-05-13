@@ -6,33 +6,22 @@ import "../styles/Background/_backgrounds.scss";
 import {useStyles as useMoreStyles}
     from "../styles/Background/Background.jss";
 import { useStyles } from "./CouncilRulesBody.jss";
+import {BoardPatternRow} from "../styles/Background/BoardPatternRow";
 
 export function CouncilRulesBody({theme}) {
 
     useEffect(() => {
         document.body.className = `${theme}-background`;
-    }, [])
+    }, [theme])
 
     const classes = useStyles({theme: theme})
-    const classes2 = useMoreStyles({theme})
 
     return (
         <div className={classes.main_menu_body}>
-            <Box className={clsx(classes.board_pattern_area, {
-                [classes.row1]: true,
-            })}>
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-            </Box>
+            <BoardPatternRow theme={theme} />
             <Box className={classes.content}>
                 <img
-                    src={`/Images/text/CouncilRules.svg`}
+                    src={`/Images/text/council rules/${theme}/Council Rules.svg`}
                     className={classes.page_title}
                     alt="Council Rules"
                 />
@@ -68,16 +57,7 @@ export function CouncilRulesBody({theme}) {
                     </ul>
                 </Typography>
             </Box>
-            <Box className={classes.board_pattern_area}>
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-                <img src={`/Images/board-pattern/board-pattern-${theme}.svg`}
-                     className={classes2.board_pattern}
-                     alt="stylistic board pattern"
-                />
-            </Box>
+            <BoardPatternRow theme={theme} />
             <div className={classes.toolbar} />
         </div>
     );

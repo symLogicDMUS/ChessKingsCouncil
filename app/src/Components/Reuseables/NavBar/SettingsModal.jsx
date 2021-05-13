@@ -65,13 +65,30 @@ export function SettingsModal(props) {
             >
                 <Box className={classes.close_area}>
                     <Close
-                        onClick={props.closeModal}
                         theme={props.theme}
+                        onClick={props.closeModal}
                         className={classes.close}
                         iconClassName={classes.close_icon}
                     />
                 </Box>
                 <Box className={classes.settings}>
+                    <MuiAccordion
+                        className={classes.accordion}
+                        heading={
+                            <Typography
+                                className={classes.accordion_summary}
+                                variant={'button'}
+                                noWrap
+                            >
+                                All Pages
+                            </Typography>
+                        }
+                    >
+                        <ThemeDropdown
+                            theme={props.theme}
+                            pageName={"all"}
+                        />
+                    </MuiAccordion>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={

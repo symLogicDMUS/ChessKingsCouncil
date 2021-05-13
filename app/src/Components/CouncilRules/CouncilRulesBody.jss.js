@@ -27,7 +27,15 @@ export const useStyles = makeStyles((theme) => ({
     content: props => ({
         width: '100%',
         flexGrow: 100,
-        padding: '7.5vw',
+        paddingTop: '7.5vw',
+        '@media screen and (max-width: 960px)': {
+            paddingLeft: '7.5vw',
+            paddingRight: '7.5vw',
+        },
+        '@media screen and (min-width: 960px)': {
+            paddingLeft: '15vw',
+            paddingRight: '15vw',
+        },
     }),
     page_title: props => ({
         width: '100%',

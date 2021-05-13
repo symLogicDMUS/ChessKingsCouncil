@@ -1,6 +1,7 @@
 short:
 
 medium:
+    locationSquareEnter animation no longer working
     fix loading skeleton, if there is nothing returned from api do not have loading skeleton continue indefinitely
     Load Game  preview boards alignment seem off for smallest screens (bellow 400px)
 long:

@@ -118,7 +118,7 @@ export const franchisePieceImgs = {
             B: red_blue["BP.svg"]
         },
     },
-    tan: {
+    tan_dark: {
         Rook: {
             W: classic["WR.svg"],
             B: classic["BR.svg"]

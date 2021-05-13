@@ -4,6 +4,6 @@ export const specialThemeList = [
     'mechwarrior_a_team',
     'mechwarrior_b_team',
     'classic_dark',
-    'tan',
+    'tan_dark',
     'NBA',
 ]

@@ -58,7 +58,6 @@ function RangeAnalysis({
                         theme={theme}
                         board={board}
                         idDict={idDict}
-                        gameType={gameType}
                         pieceDefs={pieceDefs}
                         allRanges={allRanges}
                         screenCase={screenCase}

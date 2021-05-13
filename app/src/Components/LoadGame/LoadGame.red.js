@@ -5,7 +5,7 @@ import {copy} from "../helpers/copy";
 export function reducer(state, action) {
     switch (action.type) {
         case "init-load":
-            const boardObjs = getBoardObjs(action.games);
+            const boardObjs = getBoardObjs(action.games, action.theme);
             return {
                 ...state,
                 uid: action.uid,

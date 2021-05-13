@@ -24,7 +24,6 @@ import {UserContext} from "../../UserContext";
 import {ThemeContext} from "../ThemeContext";
 import {reducer} from "./LoadGame.red";
 import {useStyles} from "./LoadGame.jss";
-import {getBoardObjs} from "./getBoardObjs";
 
 function LoadGame() {
     const history = useHistory();
@@ -46,15 +45,6 @@ function LoadGame() {
         gameData: null,
     });
 
-    const boardObjs = useMemo(() => getBoardObjs(state.games), [
-        Object.keys(state.games).length,
-        state.selectedGame,
-        state.useChoseGame,
-        state.loaded,
-        state.searchText,
-        state.showNames
-    ])
-
     useEffect(() => {
         let games;
         if (uid) {
@@ -64,12 +54,12 @@ function LoadGame() {
                 } else {
                     games = dbGames;
                 }
-                dispatch({type: 'init-load', uid: uid, games})
+                dispatch({type: 'init-load', uid: uid, games, theme: themes.loadGame})
             });
         }
         else {
             games = getSampleGames();
-            dispatch({type: 'init-load', uid: null, games: games,})
+            dispatch({type: 'init-load', uid: null, games: games, theme: themes.loadGame})
         }
     }, [uid])
 
@@ -159,11 +149,12 @@ function LoadGame() {
                     className={isThin ? classes.mui_grid_padding : null}
                 >
                     <GameSnapshots
+                        games={state.games}
                         setChoice={setChoice}
-                        boardObjs={boardObjs}
                         selectedGame={state.selectedGame}
                         searchText={state.searchText}
                         showNames={state.showNames}
+                        loaded={state.loaded}
                         theme={themes.loadGame}
                     />
                 </MuiGrid>

@@ -1,3 +1,5 @@
+import {lighten} from "@material-ui/core/styles";
+
 export const star_wars = {
     outline: '#f6b601',
     outline_alt: '#ffa012',
@@ -22,18 +24,19 @@ export const star_wars = {
     span_alt: '#c60116',
     arrow_active: '#ff645a',
     arrow_inactive: '#b71c1c',
-    light_normal: '#ffe81e',
+    light_normal: '#ffe81f',
     dark_normal: 'rgba(0, 0, 0, 0)',
     light_in_range: '#fff172',
     dark_in_range: 'rgba(255, 241, 114, 0.5)',
     sqr_hover: '#60a8f0',
     sqr_text: '#ffccbc',
-    sqr_hover_alt: '#60a8f0',
+    sqr_hover_alt: '#fff',
     page_link: '#f6b601',
     page_link_hover: '#28ded3',
     drawer_outline: '#373737',
     switch_active: '#28ded3',
     modal_actions: '#90caf9',
+    location_sqr: '#28ded3',
     title: '#f6b601',
     variant_fill_r0: 157,
     variant_fill_g0: 80,

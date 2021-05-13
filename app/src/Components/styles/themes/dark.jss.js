@@ -39,6 +39,7 @@ export const dark = {
     drawer_outline: '#373737',
     switch_active: '#0081cb',
     modal_actions: '#90caf9',
+    location_sqr: '#0081cb',
     title: '#c9c9c9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
