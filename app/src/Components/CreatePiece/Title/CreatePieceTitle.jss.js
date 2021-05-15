@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
-import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
-import {z} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {z} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const marginLeft = {
     marginLeft: 'auto',

@@ -6,7 +6,7 @@ import { Avatar, MenuItem } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { MuiMenu } from "../../Reuseables/UserInput/MuiMenu";
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate";
-import { borderRadius, originTransform, useStyles } from "./ImgWindow.jss";
+import { originTransform, useStyles } from "./ImgWindow.jss";
 
 export function ImgWindow({
     src,
@@ -76,7 +76,6 @@ export function ImgWindow({
                         [classes.white_window]: whiteWindow,
                         [classes.black_window]: !whiteWindow,
                     })}
-                    style={borderRadius}
                 />
             ) : (
                 <Avatar
@@ -86,7 +85,6 @@ export function ImgWindow({
                         [classes.white_window]: whiteWindow,
                         [classes.black_window]: !whiteWindow,
                     })}
-                    style={borderRadius}
                 >
                     <AddPhotoAlternateIcon className={classes.icon} />
                     <Typography variant="caption" className={classes.text}>

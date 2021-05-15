@@ -1,23 +1,25 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {darken} from "@material-ui/core/styles";
-import {themes} from "../../styles/themes/themes.jss";
 import {marginBottom} from "../CreatePiece.jss";
+import {themes} from "../../styles/themes/themes.jss";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+
+const padding = 16;
 
 export const useStyles = makeStyles({
     name_window: props => ({
+        '--widthA': '100vw',
+        '--widthB': `calc(var(--widthA) - ${miniVariantIconsColumnWidth}px)`,
+        width: 'var(--widthB)',
+        paddingLeft: padding,
+        paddingRight: padding,
+        paddingBottom: padding,
+        paddingTop: padding + 3.5,
         position: 'fixed',
         top: 50,
         left: 0,
     }),
     name: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
-            marginTop: '0.5vw',
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-        },
         '@media screen and (min-width: 960px)': {
             marginBottom: marginBottom,
         },
@@ -55,5 +57,8 @@ export const useStyles = makeStyles({
         "& .MuiInputLabel-root.Mui-focused": {
             color: themes[props.theme].text,
         },
+    }),
+    close_icon: props => ({
+       color: themes[props.theme].text,
     }),
 }, {index: 1});

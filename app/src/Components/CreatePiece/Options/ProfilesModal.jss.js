@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import { modal } from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes/themes.jss";
-import {fontSize002} from "../../styles/fontSizes.jss";
 
 export const useStyles = makeStyles({
     modal: {
@@ -18,12 +17,12 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     title: props => ({
-        fontSize: props.fontSize,
+        fontSize: '2vh',
         color: themes[props.theme].text,
         marginLeft: '1em'
     }),
     close_icon: props => ({
-        fontSize: fontSize002,
+        fontSize: '2vh',
         width: '1em',
         height: '1em',
     }),

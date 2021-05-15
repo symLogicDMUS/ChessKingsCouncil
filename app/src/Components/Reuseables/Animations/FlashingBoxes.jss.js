@@ -1,10 +1,9 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {fontSize002, fontSize0019} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes/themes.jss";
 
 const fontSizes = {
-    wide: fontSize002,
-    thin: fontSize0019,
+    wide: '2vh',
+    thin: '1.9vh',
 }
 
 export const useStyles = makeStyles({

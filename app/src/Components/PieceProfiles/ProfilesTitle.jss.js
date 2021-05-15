@@ -1,10 +1,8 @@
 import {themes} from "../styles/themes/themes.jss";
-import {fontSize002} from "../styles/fontSizes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {
     marginMd,
     headerMarginSm,
-    marginSm2x,
     sqrItemSizeLg,
     sqrItemSizeMd,
     sqrItemSizeSm,
@@ -42,7 +40,7 @@ export const useStyles = makeStyles({
         },
     }),
     title: props => ({
-        fontSize: fontSize002
+        fontSize: '2vh'
     }),
     search: props => ({
         '@media screen and (max-width: 600px)': {

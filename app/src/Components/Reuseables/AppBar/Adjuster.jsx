@@ -1,6 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 import { useStyles } from "./Adjuster.jss";
+import {searchBackgroundColor} from "../Modals/MuiGridTitle.jss";
 
 /**
  * invisible component used to fix alignment by a specific amount

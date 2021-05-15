@@ -1,6 +1,7 @@
 export const mechwarrior_theme = {
     outline: '#2b2b2b',
     outline_alt: '#f5b400',
+    outline_alt2: '#363636',
     fill: '#3f3f3f',
     fill2: '#3f3f3f',
     text: '#ff5309',

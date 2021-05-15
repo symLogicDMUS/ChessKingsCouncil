@@ -3,6 +3,7 @@ import {lighten} from "@material-ui/core/styles";
 export const star_wars = {
     outline: '#f6b601',
     outline_alt: '#ffa012',
+    outline_alt2: '#363636',
     fill: '#000000',
     fill2: '#000000',
     text: '#f6b601',

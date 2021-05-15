@@ -16,63 +16,6 @@ export const styles = {
             margin: 'auto',
         },
     }),
-    scroll_table: props => ({
-        '@media screen and (max-width: 426px)': {
-            width: `calc(97.5vw - ${miniVariantIconsColumnWidth}px)`,
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-        },
-        '@media screen and (min-width: 425px) and (max-width: 960px)': {
-            width: '50vw',
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-            marginLeft: drawerItemMarginLeft,
-            marginTop: drawerItemMarginTopBottom,
-            marginBottom: '1.6vw',
-        },
-    }),
-    scroll_table_added: props => ({
-        '@media screen and (min-width: 960px)': {
-            margin: 'auto',
-        },
-        '@media screen and (max-width: 960px)': {
-            marginBottom: '2em',
-        },
-    }),
-    scroll_table_list_item: props => ({
-        '@media screen and (max-width: 960px)': {
-            height: '7.5vh',
-        },
-        '@media screen and (min-width: 960px)': {
-            height: '2vw',
-        },
-    }),
-    scroll_table_button: props => ({
-        height: '1.2rem',
-        borderRadius: 0,
-    }),
-    scroll_table_text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.75rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1vw',
-        },
-        paddingLeft: '1vw',
-    }),
-    scroll_table_title: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1.2vw',
-        },
-    }),
     drawer_component: props => ({
         '@media screen and (max-width: 960px)': {
             width: '100%',
@@ -100,38 +43,9 @@ export const styles = {
         },
         fontFamily: 'Roboto-Light, Roboto',
     }),
-    promo_all: props => ({
-        "& .MuiSvgIcon-root": {
-            fontSize: '1.1rem',
-        },
-        "& .MuiTypography-root": {
-            letterSpacing: '0.0075em',
-            fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
-            fontSize: '1rem',
-        },
-        marginRight: 8,
-    }),
-    search: props => ({
-        margin: 'unset',
-        height: '1.65rem',
-        '@media screen and (max-width: 580px)': {
-            width: '60vw',
-        },
-        '@media screen and (min-width: 580px) and (max-width: 960px)': {
-            flexGrow: 10,
-            maxWidth: '36.5vw',
-        },
-        marginLeft: 8,
-        marginRight: 16,
-    }),
     smItem: props => ({
        marginLeft: 8,
        marginRight: 8,
-    }),
-    title: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginLeft: 36,
-        },
     }),
     tools: props => ({
         display: 'flex',

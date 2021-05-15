@@ -2,7 +2,7 @@ import { isPiece } from "../../helpers/isPiece";
 import {getColor} from "../../helpers/getColor";
 
 /**
- * update game-logic board and record id of captured piece if there was.
+ * update game-reducers board and record id of captured piece if there was.
  * @param gameRoot
  * @param start: start square rankfile
  * @param dest: destination square rankfile

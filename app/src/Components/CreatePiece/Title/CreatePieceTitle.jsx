@@ -1,9 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import SignInOutButton from "../Home/SignInOutButton";
-import {PieceName} from "../PieceProfiles/Header/PieceName";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
+import SignInOutButton from "../../Home/SignInOutButton";
+import {PieceName} from "../../PieceProfiles/Header/PieceName";
+import {PageTitle} from "../../Reuseables/AppBar/PageTitle";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {marginLeft, useStyles} from "./CreatePieceTitle.jss";
 
@@ -29,7 +29,10 @@ function CreatePieceTitle({name, theme, className}) {
                     <Box className={clsx(classes.appBar, {
                         [className]: className,
                     })}>
-                        <SignInOutButton theme={theme} style={marginLeft} />
+                        <SignInOutButton
+                            theme={theme}
+                            style={marginLeft}
+                        />
                     </Box>
                 </>
             )}

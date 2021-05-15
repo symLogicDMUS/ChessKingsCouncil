@@ -24,27 +24,30 @@ function NewGame() {
     const history = useHistory();
 
     const {themes, seThemes} = useContext(ThemeContext);
+    const isThin = useMediaQuery("(max-width:960px)");
+    const isWide = useMediaQuery("(min-width:960px)");
+    const classes = useStyles({theme: themes.newGame});
 
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
+    const [value, setValue] = React.useState(0);
 
-    const isThin = useMediaQuery("(max-width:960px)");
-    const isWide = useMediaQuery("(min-width:960px)");
-
-    const classes = useStyles({theme: themes.newGame});
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
     };
 
+    const setGameType = (gameType) => {
+        updateGameType(gameType);
+    };
+
     const setPlayerType = (typePlayer) => {
         if (typePlayer !== "Test") updatePlayerType(getColorLetter(typePlayer));
         else updatePlayerType(typePlayer);
-    };
-
-    const setGameType = (gameType) => {
-        updateGameType(gameType);
     };
 
     const finish = () => {
@@ -84,6 +87,19 @@ function NewGame() {
                 toolButtons={null}
                 tools={null}
             >
+                {/*<Paper className={classes.root}>*/}
+                {/*    <Tabs*/}
+                {/*        value={value}*/}
+                {/*        onChange={handleChange}*/}
+                {/*        indicatorColor="primary"*/}
+                {/*        textColor="primary"*/}
+                {/*        centered*/}
+                {/*    >*/}
+                {/*        <Tab label="Item One" />*/}
+                {/*        <Tab label="Item Two" />*/}
+                {/*        <Tab label="Item Three" />*/}
+                {/*    </Tabs>*/}
+                {/*</Paper>*/}
                 <Box className={classes.new_game}>
                     <GameName
                         theme={themes.newGame}

@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import { saveThemes } from "../../../API/saveThemes";
 import { Dialog, DialogActions, Typography } from "@material-ui/core";
 import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
-import ThemeSavedSuccessfully from "../../CreatePiece/animations/ThemeSavedSuccessfully";
+import ThemeSavedSuccessfully from "../Animations/ThemeSavedSuccessfully";
 import ThemeDropdown from "../UserInput/ThemeDropdown";
 import MuiAccordion from "../Accordions/MuiAccordion";
 import AskLoginButton from "../../Home/AskLoginButton";

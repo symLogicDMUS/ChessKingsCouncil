@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../../styles/themes/themes.jss";
-import {neighborWidth as drawerWidth} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
 import {modal} from "../../../helpers/modal.jss";
 
 export const margin = '5vh';

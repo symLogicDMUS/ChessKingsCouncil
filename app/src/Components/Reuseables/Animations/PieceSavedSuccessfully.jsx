@@ -4,8 +4,8 @@ import {
     stroke_variants2,
     fill_variants1,
     fill_variants2,
-} from "../../Reuseables/Animations/Variants1.jss";
-import {piece_saved_successfully} from "../../Reuseables/Animations/piece_saved_successfully";
+} from "./Variants1.jss";
+import {piece_saved_successfully} from "./piece_saved_successfully";
 
 function PieceSavedSuccessfully({callback, theme}) {
 

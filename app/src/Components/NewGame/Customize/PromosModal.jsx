@@ -1,75 +1,79 @@
 import React from "react";
 import clsx from "clsx";
 import {motion} from "framer-motion";
-import {DragIndicator} from "@material-ui/icons";
 import {ListTitle} from "./ListTitle";
-import {CloseTool} from "../../Reuseables/Modals/CloseTool";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import { useStyles } from "./CustomizeToolbar.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/Clickables/ToolWindow.jss";
+import { useStyles } from "./PromosModal.jss";
 
-function PromosModal({toggleMiniVariantTool, onAnimationComplete, variants, drag, className,  theme, children}) {
 
+function PromosModal({className, theme, children}) {
     const classes = useStyles({theme});
+    const classes2 = useMoreStyles({theme});
+    const variants = {
+        initial: {
+            scale: 0,
+            top: 0,
+            left: 'calc(50vw + 12px)',
+        },
+        animate: {
+            scale: 1,
+            top: 48,
+            left: 0,
+        },
+        exit: {
+            scale: 0,
+            top: 0,
+            left: 'calc(50vw + 12px)',
+        },
+    };
 
     return (
-        <div className={classes.modal}>
-            <motion.div
-                className={clsx(classes.window, {
-                    [className]: className,
-                })}
-                variants={variants}
-                initial={"initial"}
-                animate={"animate"}
-                exit={"exit"}
-                transition={{ duration: 0.7 }}
-                onAnimationComplete={onAnimationComplete}
-                drag={drag}
+        <motion.div
+            className={clsx(classes2.window, {
+                [classes2.border2]: true,
+                [className]: className,
+            })}
+            variants={variants}
+            initial={"initial"}
+            animate={"animate"}
+            exit={"exit"}
+            transition={{ duration: 0.7 }}
+        >
+            <ScrollTable
+                numRows={6}
+                theme={theme}
+                key="pawn-promotions-wide"
+                className={classes.scroll_table}
+                addedClassName={classes.drawer_component}
+                listItemClassName={
+                    classes.scroll_table_list_item
+                }
+                arrowButtonClassName={
+                    classes.scroll_table_button
+                }
+                arrowButtonTopClassName={
+                    classes.top_button
+                }
+                arrowButtonBottomClassName={
+                    classes.bottom_button
+                }
+                textClassName={classes.scroll_table_text}
+                title={
+                    <ListTitle
+                        className={
+                            classes.scroll_table_title
+                        }
+                        variant="h6"
+                        theme={theme}
+                    >
+                        Pawn Promotions
+                    </ListTitle>
+                }
             >
-            <span className={classes.top_area}>
-                <DragIndicator
-                    className={clsx(classes.icon, {
-                        [classes.drag_icon]: true,
-                    })}
-                />
-                <CloseTool
-                    name="Promos"
-                    updateParent={toggleMiniVariantTool}
-                    className={classes.close_button}
-                    iconClassName={clsx(classes.icon, {
-                        [classes.close_icon]: true,
-                    })}
-                    theme={theme}
-                />
-            </span>
-                <ScrollTable
-                    numRows={6}
-                    theme={theme}
-                    key="pawn-promotions-wide"
-                    className={classes.scroll_table}
-                    addedClassName={classes.drawer_component}
-                    listItemClassName={
-                        classes.scroll_table_list_item
-                    }
-                    arrowButtonClassName={
-                        classes.scroll_table_button
-                    }
-                    textClassName={classes.scroll_table_text}
-                    title={
-                        <ListTitle
-                            className={
-                                classes.scroll_table_title
-                            }
-                            variant="h6"
-                            theme={theme}
-                        >
-                            Pawn Promotions
-                        </ListTitle>
-                    }
-                >
-                    {children}
-                </ScrollTable>
-            </motion.div>
-        </div>
+                {children}
+            </ScrollTable>
+        </motion.div>
     )
 }
 

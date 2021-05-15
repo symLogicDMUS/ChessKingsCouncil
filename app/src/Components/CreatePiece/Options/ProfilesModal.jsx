@@ -3,11 +3,10 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {Close} from "../../Reuseables/Modals/Close";
 import PieceProfiles from "../../PieceProfiles/PieceProfiles";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {useStyles} from "./ProfilesModal.jss";
 
 function ProfilesModal({load, erase, close, theme}) {
-    const classes = useStyles({theme: theme, fontSize: fontSize002});
+    const classes = useStyles({theme: theme});
 
     return (
         <div className={classes.modal}>

@@ -1,12 +1,9 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../Drawers/ResponsiveDrawer.jss";
 
-export const locSqrEnter = {zIndex: 1};
-
 export const useStyles = makeStyles({
     board: props => ({
-        zIndex: 1,
-        marginTop: appBarHeight*1.5,
+        marginTop: appBarHeight * 1.5,
         marginLeft: 'auto',
         marginRight: 'auto',
         '@media screen and (max-width: 360px)': {

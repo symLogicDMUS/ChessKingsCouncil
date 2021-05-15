@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {fill_variants1, fill_variants2, stroke_variants1, stroke_variants2} from "../../Reuseables/Animations/Variants1.jss";
-import {game_saved_successfully} from "../../Reuseables/Animations/game_saved_successfully";
+import {fill_variants1, fill_variants2, stroke_variants1, stroke_variants2} from "./Variants1.jss";
+import {game_saved_successfully} from "./game_saved_successfully";
 
 export function GameSavedSuccessfully({callback, theme}) {
     let [frame, setFrame] = useState(1);

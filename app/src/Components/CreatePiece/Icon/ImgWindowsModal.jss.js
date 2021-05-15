@@ -5,8 +5,7 @@ export const useStyles = makeStyles({
     icon_window: props => ({
         position: 'absolute',
         top: 100,
-        fontSize: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
-        left: '0.015em',
+        left: 0,
     }),
     img_windows: props => ({
        display: 'flex',

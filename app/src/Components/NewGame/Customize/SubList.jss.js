@@ -7,12 +7,8 @@ export const useStyles = makeStyles({
     sub_list: props => ({
         display: 'grid',
         '@media screen and (max-width: 960px)': {
-            marginTop: '0.5vw',
-            marginLeft: '2.5vw',
-            marginRight: '2.5vw',
-            marginBottom: '2.5vw',
-            width: `calc(94vw - ${miniVariantIconsColumnWidth}px)`,
-            gridTemplateColumns: '24.5% 74.5%',
+            width: `calc(100vw - ${miniVariantIconsColumnWidth+1}px)`,
+            gridTemplateColumns: '25% 75%',
         },
         '@media screen and (min-width: 960px)': {
             width: drawerItemWidth,
@@ -25,25 +21,25 @@ export const useStyles = makeStyles({
     header: props => ({
         gridColumn: '1/3',
         '@media screen and (max-width: 960px)': {
-            fontSize: '1.2rem',
+            height: 32,
+            fontSize: '1.1rem',
+            border: `0.05rem solid ${themes[props.theme].outline_alt2}`,
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: '1.2vw',
+            fontSize: '1.2rem',
+            border: `0.05rem solid ${themes[props.theme].outline}`,
         },
-        borderBottom: `0.05rem solid ${themes[props.theme].outline}`,
     }),
     cell: props => ({
+        height: 26,
         textAlign: 'center',
         color: themes[props.theme].text,
         fontFamily: 'Roboto-Light, Roboto',
-        borderRight: `0.05rem solid ${themes[props.theme].outline}`,
-    }),
-    row: props => ({
         '@media screen and (max-width: 960px)': {
-            height: '1rem',
+            borderRight: `0.05rem solid ${themes[props.theme].outline_alt2}`,
         },
         '@media screen and (min-width: 960px)': {
-            height: '2vw',
+            borderRight: `0.05rem solid ${themes[props.theme].outline}`,
         },
     }),
     even_row: props => ({
@@ -53,11 +49,21 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].odd_row,
     }),
     last_row: props => ({
-        borderBottom: `0.05rem solid ${themes[props.theme].outline}`,
+        '@media screen and (min-width: 960px)': {
+            borderBottom: `0.05rem solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (max-width: 960px)': {
+            borderBottom: 'none',
+        },
     }),
     col1: props => ({
         gridColumn: 1,
-        borderLeft: `0.05rem solid ${themes[props.theme].outline}`,
+        '@media screen and (min-width: 960px)': {
+            borderLeft: `0.05rem solid ${themes[props.theme].outline}`,
+        },
+        '@media screen and (max-width: 960px)': {
+            borderLeft: `0.05rem solid ${themes[props.theme].outline_alt2}`,
+        },
     }),
     col2: props => ({
         gridColumn: 2,

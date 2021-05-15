@@ -15,8 +15,6 @@ export const useStyles = makeStyles({
         alignItems: "flex-end",
         justifyContent: "flex-start",
         color: themes[props.theme].text,
-        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
-        borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     list_item_even: (props) => ({
         backgroundColor: themes[props.theme].even_row,
@@ -28,7 +26,6 @@ export const useStyles = makeStyles({
         width: props.width,
         color: themes[props.theme].text,
         background: themes[props.theme].fill,
-        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     arrow_icon: props => ({
         color: themes[props.theme].text,

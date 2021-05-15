@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
 import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
-import ToolButton from "../Reuseables/Clickables/ToolButton";
+import ToolButtonAlt from "../Reuseables/Clickables/ToolButton";
 import ResignModal from "./SaveResignTool/ResignModal";
 import GameInfoModal from "./GameInfo/GameInfoModal";
 import AskLoginButton from "../Home/AskLoginButton";
@@ -41,7 +41,7 @@ function GameRootToolbar({
     const [drag, setDrag] = useState(false);
 
     const toggleMiniVariantTool = (toolName, clientX, clientY) => {
-        if (state.miniVariantTool === toolName) {
+        if (state.activeTool === toolName) {
             setState({
                 miniVariantTool: null,
                 clientX: clientX,
@@ -80,7 +80,7 @@ function GameRootToolbar({
         <>
             <Portal>
                 <AnimatePresence>
-                    {state.miniVariantTool === "Captured-Pieces" && (
+                    {state.activeTool === "Captured-Pieces" && (
                         <CapturedPiecesModal
                             defs={defs}
                             idDict={idDict}
@@ -95,7 +95,7 @@ function GameRootToolbar({
                     )}
                 </AnimatePresence>
                 <AnimatePresence>
-                    {state.miniVariantTool === "Resign" && (
+                    {state.activeTool === "Resign" && (
                         <ResignModal
                             resign={resign}
                             toggleMiniVariantTool={toggleMiniVariantTool}
@@ -107,7 +107,7 @@ function GameRootToolbar({
                     )}
                 </AnimatePresence>
                 <AnimatePresence>
-                    {state.miniVariantTool === "Game-Info" && (
+                    {state.activeTool === "Game-Info" && (
                         <GameInfoModal
                             gameName={gameName}
                             gameType={gameType}
@@ -120,7 +120,7 @@ function GameRootToolbar({
                         />
                     )}
                 </AnimatePresence>
-                {state.miniVariantTool === "Save-As" && (
+                {state.activeTool === "Save-As" && (
                     <SaveAs
                         theme={theme}
                         changeName={changeName}
@@ -133,30 +133,30 @@ function GameRootToolbar({
                 )}
             </Portal>
             {uid ? (
-                <ToolButton
+                <ToolButtonAlt
                     name={"Save-As"}
                     iconName={"save_as_alt"}
                     text="save as"
                     theme={theme}
-                    isActive={state.miniVariantTool === "Save-As"}
+                    isActive={state.activeTool === "Save-As"}
                     updateParent={toggleMiniVariantTool}
                 />
             ) : (
                 <AskLoginButton theme={theme} iconName={"save_as_alt"} text={"Save As"} />
             )}
-            <ToolButton
+            <ToolButtonAlt
                 name="Game-Info"
                 text="Game Info"
                 iconName={"game_info"}
-                isActive={state.miniVariantTool === "Game-Info"}
+                isActive={state.activeTool === "Game-Info"}
                 updateParent={toggleMiniVariantTool}
                 theme={theme}
             />
-            <ToolButton
+            <ToolButtonAlt
                 name="Captured-Pieces"
                 text="Captured Pieces"
                 iconName={"captured_pieces"}
-                isActive={state.miniVariantTool === "Captured-Pieces"}
+                isActive={state.activeTool === "Captured-Pieces"}
                 updateParent={toggleMiniVariantTool}
                 theme={theme}
             />
@@ -178,11 +178,11 @@ function GameRootToolbar({
                     Range Analysis
                 </MuiSwitch>
             </SeeMore>
-            <ToolButton
+            <ToolButtonAlt
                 name="Resign"
                 text="Resign"
                 iconName={"resign_alt"}
-                isActive={state.miniVariantTool === "Resign"}
+                isActive={state.activeTool === "Resign"}
                 updateParent={toggleMiniVariantTool}
                 theme={theme}
             />

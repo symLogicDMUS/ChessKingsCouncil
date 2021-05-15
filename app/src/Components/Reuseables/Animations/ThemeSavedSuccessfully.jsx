@@ -4,8 +4,8 @@ import {
     stroke_variants2,
     fill_variants1,
     fill_variants2,
-} from "../../Reuseables/Animations/Variants1.jss";
-import {theme_saved_successfully} from "../../Reuseables/Animations/theme_saved_successfully";
+} from "./Variants1.jss";
+import {theme_saved_successfully} from "./theme_saved_successfully";
 
 function ThemeSavedSuccessfully({callback, theme}) {
     const [frame, setFrame] = useState(1);

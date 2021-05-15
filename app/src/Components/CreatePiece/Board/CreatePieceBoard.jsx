@@ -1,18 +1,15 @@
 import React from "react";
 import "../../helpers/stepFuncs";
-import {FabChild} from "./FabChild";
-import {getHasFabChild} from "./getHasFabChild";
-import { difference } from "../../helpers/setOps";
-import { rankfiles } from "../../helpers/rankfiles";
 import { useMediaQuery } from "@material-ui/core";
 import { getAngleLocations } from
         "../Range/SpanArrowButtons/getAngleLocations";
+import { difference } from "../../helpers/setOps";
+import { rankfiles } from "../../helpers/rankfiles";
+import CreatePiecePiece from "./CreatePiecePiece";
+import CreatePieceSquare from "./CreatePieceSquare";
+import LocationButton from "../Location/LocationButton";
+import ArrowButton from "../Range/SpanArrowButtons/ArrowButton";
 import { useStyles } from "./CreatePieceBoard.jss";
-
-const CreatePieceSquare = React.lazy(() => import('./CreatePieceSquare'));
-const CreatePiecePiece = React.lazy(() => import('./CreatePiecePiece'));
-const LocationButton = React.lazy(() => import("../Location/LocationButton"));
-const ArrowButton = React.lazy(() => import('../Range/SpanArrowButtons/ArrowButton'));
 
 function CreatePieceBoard({
     theme,
@@ -25,8 +22,7 @@ function CreatePieceBoard({
     toggleSpan,
     showSpanText,
     showOffsetText,
-    miniVariantTool,
-    toggleMiniVariantTool,
+    activeTool,
 }) {
     const isWide = useMediaQuery("(min-width: 960px)");
     const screenCase = isWide ? "wide" : "thin";
@@ -34,7 +30,6 @@ function CreatePieceBoard({
     const classes = useStyles({theme: theme});
 
     const getRegularSquare = (rf) => {
-        const hasFabChild = getHasFabChild(rf, pieceLoc, miniVariantTool)
         return (
             <CreatePieceSquare
                 rf={rf}
@@ -46,16 +41,9 @@ function CreatePieceBoard({
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
-                hasFabChild={hasFabChild}
                 hasToolChild={false}
             >
-                {hasFabChild ? (
-                    <FabChild
-                        theme={theme}
-                        isHoverRed={miniVariantTool==="Range"}
-                        onClick={() => toggleMiniVariantTool(miniVariantTool)}
-                    />
-                ) : null}
+                {null}
             </CreatePieceSquare>
         );
     };
@@ -72,8 +60,6 @@ function CreatePieceBoard({
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
-                miniVariantTool={miniVariantTool}
-                toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={false}
             >
@@ -98,8 +84,6 @@ function CreatePieceBoard({
                 isOffset={offsetDisplays[rf]}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
-                miniVariantTool={miniVariantTool}
-                toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
             >
@@ -110,7 +94,6 @@ function CreatePieceBoard({
                     toggleSpan={toggleSpan}
                     isActive={spanDisplays[rf]}
                     isOffset={offsetDisplays[rf]}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                     pieceLoc={pieceLoc}
                     screenCase="thin"
                     theme={theme}
@@ -131,8 +114,6 @@ function CreatePieceBoard({
                 toggleOffset={toggleOffset}
                 showSpanText={showSpanText}
                 showOffsetText={showOffsetText}
-                miniVariantTool={miniVariantTool}
-                toggleMiniVariantTool={toggleMiniVariantTool}
                 hasFabChild={false}
                 hasToolChild={true}
             >
@@ -141,7 +122,6 @@ function CreatePieceBoard({
                     theme={theme}
                     onClick={() => setLoc(rf)}
                     hasPieceChild={rf===pieceLoc}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
                 >
                     {rf===pieceLoc ? (
                         <CreatePiecePiece
@@ -204,10 +184,10 @@ function CreatePieceBoard({
 
     const getBoard = () => {
         if (screenCase === "thin") {
-            if (miniVariantTool === "Range") {
+            if (activeTool === "Range") {
                 return getRangToolBoard();
             }
-            if (miniVariantTool === "Location") {
+            if (activeTool === "Location") {
                 return getLocationToolBoard();
             }
         }

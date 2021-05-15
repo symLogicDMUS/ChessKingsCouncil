@@ -1,6 +1,5 @@
 import {modal} from "../../../helpers/modal.jss";
-import {fontSize00175, fontSize002} from "../../../styles/fontSizes.jss";
-import {appBarHeight} from "../../../Reuseables/Drawers/PersistentDrawer.jss";
+import {appBarHeight} from "../../../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const styles = {
     modal: props => ({
@@ -9,13 +8,13 @@ export const styles = {
     }),
     close: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize00175,
+            fontSize: '1.75vh',
             width: "2.2em",
             height: "2.2em",
             marginLeft: 'auto',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '2vh',
             width: '1.5em',
             height: '1.5em',
             alignSelf: 'flex-end',
@@ -24,13 +23,13 @@ export const styles = {
     }),
     close_icon: props => ({
         '@media screen and (max-width: 960px)': {
-            fontSize: fontSize00175,
+            fontSize: '1.75vh',
             width: "1.25em",
             height: "1.25em",
             marginLeft: 'auto',
         },
         '@media screen and (min-width: 960px)': {
-            fontSize: fontSize002,
+            fontSize: '2vh',
             width: '1.15em',
             height: '1.15em',
             alignSelf: 'flex-end',

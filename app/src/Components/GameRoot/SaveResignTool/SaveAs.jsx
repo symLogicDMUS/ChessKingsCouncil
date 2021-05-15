@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
-import {button, useStyles} from "./SaveAs.jss";
+import {useStyles} from "./SaveAs.jss";
 
 function SaveAs({changeName, save, close, theme}) {
 
@@ -43,14 +43,14 @@ function SaveAs({changeName, save, close, theme}) {
             <DialogActions className={classes.dialog_actions}>
                 <Button
                     onClick={save}
-                    style={button(theme)}
+                    className={classes.button}
                     startIcon={<CheckCircleOutlineIcon/>}
                 >
                     Ok
                 </Button>
                 <Button
                     onClick={close}
-                    style={button(theme)}
+                    className={classes.button}
                     startIcon={<HighlightOffIcon/>}
                 >
                     Cancel

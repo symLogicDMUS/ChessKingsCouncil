@@ -1,7 +1,6 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {themes} from "../../styles/themes/themes.jss";
 import {imgFillDiv} from "../../styles/imgFillDiv.jss";
-import {fontSize00301} from "../../styles/fontSizes.jss";
 import {lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
@@ -11,7 +10,7 @@ export const useStyles = makeStyles({
         maxHeight: '98%',
         margin: 'auto',
         background: 'none',
-        fontSize: fontSize00301,
+        fontSize: '3.01vh',
     }),
     img: props => ({
         zIndex: 2,

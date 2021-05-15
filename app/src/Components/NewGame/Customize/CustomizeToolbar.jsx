@@ -1,82 +1,46 @@
 import React, {useState} from "react";
 import {Portal} from "@material-ui/core";
+import {AnimatePresence} from "framer-motion";
 import SubsModal from "./SubsModal";
 import PromosModal from "./PromosModal";
-import PiecesModal from "./PiecesModal";
-import {AnimatePresence} from "framer-motion";
 import ToolButton from "../../Reuseables/Clickables/ToolButton";
+import {ToolBackdrop} from "../../Reuseables/Clickables/ToolBackdrop";
 
-function CustomizeToolbar({subs, promos, pieceNames, theme}) {
 
-    const [state, setState] = useState({
-        miniVariantTool: null,
-        clientX: 0,
-        clientY: 0,
-    });
+function CustomizeToolbar({subs, promos, theme}) {
 
-    const [drag, setDrag] = useState(false);
+    const [activeTool, setActiveTool] = useState(null);
 
-    const toggleMiniVariantTool = (toolName, clientX, clientY) => {
-        if (state.miniVariantTool === toolName) {
-            setState({
-                miniVariantTool: null,
-                clientX: clientX,
-                clientY: clientY,
-            });
+    const toggleActiveTool = (toolName) => {
+        if (activeTool === toolName) {
+            setActiveTool(null);
         } else {
-            setState({
-                miniVariantTool: toolName,
-                clientX: clientX,
-                clientY: clientY,
-            });
+            setActiveTool(toolName);
         }
-    };
-
-    const variants = {
-        initial: {
-            scale: 0,
-            left: state.clientX,
-            top: state.clientY,
-        },
-        animate: {
-            scale: 1,
-            left: 0,
-            top: 48,
-        },
-        exit: {
-            scale: 0,
-            left: state.clientX,
-            top: state.clientY,
-        },
     };
 
     return (
         <>
             <Portal>
                 <AnimatePresence>
-                    {state.miniVariantTool === "Subs" && (
+                    {activeTool === "Subs" && (
                         <SubsModal
-                            toggleMiniVariantTool={toggleMiniVariantTool}
-                            onAnimationComplete={() => setDrag(true)}
-                            variants={variants}
-                            drag={drag}
+                            key='subs-modal'
                             theme={theme}
                         >
                             {subs}
                         </SubsModal>
                     )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {state.miniVariantTool === "Promos" && (
+                    {activeTool === "Promos" && (
                         <PromosModal
-                            toggleMiniVariantTool={toggleMiniVariantTool}
-                            onAnimationComplete={() => setDrag(true)}
-                            variants={variants}
-                            drag={drag}
+                            key='promos-modal'
                             theme={theme}
                         >
                             {promos}
                         </PromosModal>
+                    )}
+                    {!!activeTool && (
+                        <ToolBackdrop onClick={() => setActiveTool(null)} />
                     )}
                 </AnimatePresence>
             </Portal>
@@ -84,18 +48,17 @@ function CustomizeToolbar({subs, promos, pieceNames, theme}) {
                 name="Subs"
                 iconName="subs"
                 text="Sub List"
-                isActive={state.miniVariantTool === "Subs"}
-                updateParent={toggleMiniVariantTool}
+                isActive={activeTool === "Subs"}
+                onClick={() => toggleActiveTool("Subs")}
                 theme={theme}
             />
             <ToolButton
                 name="Promos"
                 iconName="promos"
                 text="Pawn Promotion List"
-                isActive={state.miniVariantTool === "Promos"}
-                updateParent={toggleMiniVariantTool}
+                isActive={activeTool === "Promos"}
+                onClick={() => toggleActiveTool("Promos")}
                 theme={theme}
-
             />
         </>
     )

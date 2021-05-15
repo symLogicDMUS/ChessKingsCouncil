@@ -3,6 +3,7 @@ import {fade} from "@material-ui/core/styles";
 export const dark = {
     outline: '#2b2b2b',
     outline_alt: '#9f9f9f',
+    outline_alt2: '#363636',
     fill: '#3d3d3d',
     fill2: '#3d3d3d',
     text: '#a9a9a9',

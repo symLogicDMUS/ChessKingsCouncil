@@ -6,7 +6,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import {IconButton, Portal, SvgIcon, Typography} from "@material-ui/core";
 import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
-import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
+import ToolButton from "../Reuseables/Clickables/ToolButtonAlt";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Option from "../CreatePiece/Options/Option";
@@ -136,7 +136,7 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                 buttonType !== 'option'
                 && buttonType !== 'option_alt'
                 && buttonType !== "theme" && (
-                    <ToolButtonAlt
+                    <ToolButton
                         text={text}
                         theme={theme}
                         isActive={modal}

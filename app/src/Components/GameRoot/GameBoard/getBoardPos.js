@@ -1,6 +1,6 @@
-import {viewHeight, viewWidth} from "../../helpers/windowMeasurments";
+import {viewWidth} from "../../helpers/windowMeasurments";
 import {getSqrSize} from "./getSqrSize";
-import {appBarHeight} from "../../Reuseables/Drawers/PersistentDrawer.jss";
+import {appBarHeight} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export function getBoardPos() {

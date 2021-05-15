@@ -1,18 +1,7 @@
 import {modal} from "../../helpers/modal.jss";
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {fontSize002, fontSize0023} from "../../styles/fontSizes.jss";
 import {darken} from "@material-ui/core/styles";
-
-export const button = (theme) => ({
-    '@media screen and (min-width: 960px)': {
-        fontSize: fontSize002
-    },
-    '@media screen and (max-width: 960px)': {
-        fontSize: fontSize0023
-    },
-    color: themes[theme].text,
-});
 
 export const useStyles = makeStyles({
     modal: {
@@ -63,5 +52,14 @@ export const useStyles = makeStyles({
         "& .MuiInputLabel-root.Mui-focused": {
             color: themes[props.theme].text,
         },
+    }),
+    button: props => ({
+        '@media screen and (min-width: 960px)': {
+            fontSize: '2vh'
+        },
+        '@media screen and (max-width: 960px)': {
+            fontSize: '2.3vh'
+        },
+        color: themes[props.theme].text,
     }),
 }, {index: 1});

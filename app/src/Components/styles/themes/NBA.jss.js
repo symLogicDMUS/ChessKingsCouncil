@@ -3,6 +3,7 @@ import {lighten} from "@material-ui/core/styles";
 export const NBA = {
     outline: '#ffffff',
     outline_alt: '#d9d9d9',
+    outline_alt2: '#363636',
     fill: '#253b73',
     fill2: '#b52532',
     text: '#ffffff',

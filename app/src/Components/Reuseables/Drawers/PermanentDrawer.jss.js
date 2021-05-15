@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {viewWidth} from "../../helpers/windowMeasurments";
-import {fontSize002} from "../../styles/fontSizes.jss";
 import {themes} from "../../styles/themes/themes.jss";
 
 const z = 5;
@@ -15,7 +14,7 @@ export const useStyles = makeStyles({
     appBar: props => ({
         zIndex: z,
         width: `calc(100% - ${sideBarWidth}px)`,
-        fontSize: fontSize002,
+        fontSize: '2vh',
         height: '3em',
         display: 'flex',
         flexDirection: 'row',
@@ -31,7 +30,7 @@ export const useStyles = makeStyles({
     }),
     // necessary for content to be below app bar
     toolbar: {
-        fontSize: fontSize002,
+        fontSize: '2vh',
         height: '3em',
     },
     drawerContent: props => ({

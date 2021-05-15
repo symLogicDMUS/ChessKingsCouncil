@@ -20,7 +20,7 @@ import {update} from "../../game_logic/callHierarchyTop/update";
 import {incrementImgRefCounts} from "../../API/incrementImgRefCounts";
 import {updateCountsOnOverwrite} from "../../API/updateCountsOnOverwrite";
 import {AnimatePresencePortal} from "../Reuseables/Animations/AnimatePresencePortal";
-import {GameSavedSuccessfully} from "../CreatePiece/animations/GameSavedSuccessfully";
+import {GameSavedSuccessfully} from "../Reuseables/Animations/GameSavedSuccessfully";
 import {gameDefsOffsetListsToStrs} from "../../API/apiHelpers/gameDefsOffsetListsToStrs";
 import {standardPieceDefs} from "../NewGame/standardPieceDefs";
 import {getGameImgUrlStrs} from "../../API/getGameImgUrlStrs";
@@ -31,7 +31,7 @@ import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import ToolButtonAlt from "../Reuseables/Clickables/ToolButtonAlt";
+import ToolButton from "../Reuseables/Clickables/ToolButtonAlt";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {filterSamples} from "../../API/filterSamples";
@@ -113,7 +113,7 @@ class GameRoot extends React.Component {
     static contextType = UserContext;
 
     /**
-     * called after a move is made. update the game logic so know where other player can now move.
+     * called after a move is made. update the game reducers so know where other player can now move.
      * */
     updateTurnData = () => {
         let turnData;
@@ -371,7 +371,7 @@ class GameRoot extends React.Component {
                         toolButtons={
                             <>
                                 {this.context ? (
-                                    <ToolButtonAlt
+                                    <ToolButton
                                         text="Save"
                                         iconName={"save_alt"}
                                         onClick={this.save}

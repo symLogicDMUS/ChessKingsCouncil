@@ -62,7 +62,7 @@ const DropLayer = ({
         },
     });
 
-    /** where the game logic gets updated after each move */
+    /** where the game reducers gets updated after each move */
     useEffect(() => {
         if (gameRoot.aiColor === gameRoot.turn) {
             if (

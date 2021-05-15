@@ -2,14 +2,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
-const windowSizeSm = '0.42em';
 const windowSizeLg = "10.625vw";
-
-/* sm */
-const halfMargin = '0.025em';
-const margin = '0.05em';
-
-export const borderRadius = {borderRadius: '0.25rem'};
 export const originTransform = {vertical: 'top', horizontal: 'right'};
 
 
@@ -20,9 +13,11 @@ export const useStyles = makeStyles({
         cursor: 'pointer',
         backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 960px)': {
-            width: windowSizeSm,
-            height: windowSizeSm,
-            fontSize: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
+            '--widthA': '100vw',
+            '--widthB': `calc(var(--widthA) - ${miniVariantIconsColumnWidth}px)`,
+            '--size': 'calc(var(--widthB) * 0.42)',
+            width: 'var(--size)',
+            height: 'var(--size)',
             border: `0.02rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
@@ -30,21 +25,38 @@ export const useStyles = makeStyles({
             height: windowSizeLg,
             border: `0.005rem solid ${themes[props.theme].outline}`,
         },
+        borderRadius: '0.35rem',
     }),
     white_window: props => ({
+        '--widthA': '100vw',
+        '--widthB': `calc(var(--widthA) - ${miniVariantIconsColumnWidth}px)`,
+        '--size': 'calc(var(--widthB) * 0.42)',
+        '--doubleSize': 'calc(var(--size) * 2)',
+        '--space': 'calc(var(--widthB) - var(--doubleSize))',
+        '--margin': 'calc(var(--space) / 3)',
+        '--halfMargin': 'calc(var(--margin) * 0.5)',
         '@media screen and (max-width: 960px)': {
-            marginRight: halfMargin,
-            marginTop: halfMargin,
-            marginLeft: margin,
-            marginBottom: margin,
+            marginTop: `var(--margin)`,
+            marginBottom: 'var(--margin)',
+            marginLeft: 'var(--margin)',
+            marginRight: 'var(--halfMargin)',
+            transform: 'translate(-0.05rem,  0)',
         },
     }),
     black_window: props => ({
+        '--widthA': '100vw',
+        '--widthB': `calc(var(--widthA) - ${miniVariantIconsColumnWidth}px)`,
+        '--size': 'calc(var(--widthB) * 0.42)',
+        '--doubleSize': 'calc(var(--size) * 2)',
+        '--space': 'calc(var(--widthB) - var(--doubleSize))',
+        '--margin': 'calc(var(--space) / 3)',
+        '--halfMargin': 'calc(var(--margin) * 0.5)',
         '@media screen and (max-width: 960px)': {
-            marginLeft: halfMargin,
-            marginTop: halfMargin,
-            marginRight: margin,
-            marginBottom: margin,
+            marginTop: `var(--margin)`,
+            marginBottom: 'var(--margin)',
+            marginLeft: 'var(--halfMargin)',
+            marginRight: 'var(--margin)',
+            transform: 'translate(0.05rem,  0)',
         },
     }),
     img_label: props => ({
@@ -60,7 +72,7 @@ export const useStyles = makeStyles({
         marginRight: '0.2rem',
     }),
     text: props => ({
-        fontSize: '1.1rem',
+        fontSize: '1.2rem',
         color: themes[props.theme].text,
     }),
     borderRadius: props => ({

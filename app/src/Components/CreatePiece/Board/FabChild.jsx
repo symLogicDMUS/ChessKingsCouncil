@@ -7,7 +7,7 @@ import { useStyles } from "./FabChild.jss";
 /**
  * Close the interactive tools that are displayed on the CreatePiece board for thin screens
  */
-export const FabChild = memo(({
+const FabChild = memo(({
     onClick,
     className,
     style,
@@ -38,3 +38,5 @@ export const FabChild = memo(({
         </Fab>
     );
 });
+
+export default FabChild;

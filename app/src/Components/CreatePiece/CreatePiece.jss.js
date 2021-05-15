@@ -6,41 +6,6 @@ import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDraw
 
 export const marginBottom = '1.15vw';
 
-export const styles = {
-    modal: {
-        ...modal,
-    },
-    save_animation: {
-        width: '33.333%',
-    },
-    box: props => ({
-        fontSize: '1.5vw',
-        display: 'flex',
-    }),
-    show_offset: props => ({
-       marginTop: '0.5rem',
-    }),
-    show_span: props => ({
-        marginBottom: '0.1rem',
-    }),
-    drawer: props => ({
-        "& .MuiToolbar-gutters": {
-            '@media screen and (min-width: 960px)': {
-                paddingLeft: 24,
-            },
-        },
-    }),
-    content: props => ({
-       paddingTop: appBarHeight*0.5,
-    }),
-    smOption: props => ({
-        marinTop: '1vw',
-        marginLeft: '2vw',
-        marginRight: '2vw',
-        marginBottom: '2vw',
-    }),
-};
-
 export const useStyles = makeStyles({
     button: props => ({
         '@media screen and (max-width: 960px)': {
@@ -111,5 +76,37 @@ export const useStyles = makeStyles({
         letterSpacing: '0.0075em',
         color: themes[props.theme].text,
         fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif',
+    }),
+    modal: {
+        ...modal,
+    },
+    save_animation: {
+        width: '33.333%',
+    },
+    box: props => ({
+        fontSize: '1.5vw',
+        display: 'flex',
+    }),
+    show_offset: props => ({
+        marginTop: '0.5rem',
+    }),
+    show_span: props => ({
+        marginBottom: '0.1rem',
+    }),
+    drawer: props => ({
+        "& .MuiToolbar-gutters": {
+            '@media screen and (min-width: 960px)': {
+                paddingLeft: 24,
+            },
+        },
+    }),
+    content: props => ({
+        paddingTop: appBarHeight*0.5,
+    }),
+    smOption: props => ({
+        marinTop: '1vw',
+        marginLeft: '2vw',
+        marginRight: '2vw',
+        marginBottom: '2vw',
     }),
 }, {index: 1});

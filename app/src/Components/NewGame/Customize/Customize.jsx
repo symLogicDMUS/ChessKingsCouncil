@@ -1,38 +1,32 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {newData} from "../NewData";
-import { ListTitle } from "./ListTitle";
-import { SubList } from "./SubList";
-import { copy } from "../../helpers/copy";
+import {SubList} from "./SubList";
+import {copy} from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
-import SearchIcon from "@material-ui/icons/Search";
 import MediaQuery from "react-responsive/src";
-import { difference } from "../../helpers/setOps";
-import { isSpecial } from "../../helpers/isSpecial";
-import { CustomizeHelp } from "./Help/CustomizeHelp";
-import { standardPieceDefs } from "../standardPieceDefs";
-import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
-import { MuiCheckbox } from "../../Reuseables/Clickables/MuiCheckbox";
-import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
-import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
-import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
-import { ThreeItemAppBarContent } from
-        "../../Reuseables/AppBar/Content/ThreeItemAppBarContent";
+import {difference} from "../../helpers/setOps";
+import {isSpecial} from "../../helpers/isSpecial";
+import {CustomizeHelp} from "./Help/CustomizeHelp";
+import {standardPieceDefs} from "../standardPieceDefs";
+import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
+import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
+import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
+import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
+import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
 import {standardPieceNames} from "../../helpers/standardPieceNames";
-import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
-import { SearchBox } from "../../Reuseables/UserInput/SearchBox";
-import { PageTitle } from "../../Reuseables/AppBar/PageTitle";
+import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CustomizeToolbar from "./CustomizeToolbar";
 import {ThemeContext} from "../../ThemeContext";
-import { textColor, styles } from "./Customize.jss";
+import {styles} from "./Customize.jss";
+import * as PropTypes from "prop-types";
+import {PromosList} from "./PromosList";
+import {CustomizeTitle} from "./CustomizeTitle";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
-const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
 const ResponsiveDrawer = React.lazy(() => import('../../Reuseables/Drawers/ResponsiveDrawer'));
 const NavBar = React.lazy(() => import('../../Reuseables/NavBar/NavBar'));
-
 
 class Customize extends React.Component {
     constructor(props) {
@@ -77,7 +71,7 @@ class Customize extends React.Component {
     clientX = 0;
     clientY = 0;
     first = false;
-    
+
     setDefs = defs => {
         this.defs = { ...this.standardPieceDefs, ...defs };
         this.setState({ binaryValue: !this.state.binaryValue });
@@ -97,7 +91,7 @@ class Customize extends React.Component {
      * 1. get new (standard) game data, promos and idDict from what user put, and empty defs
      * 2. for ids not pawn or king, use the id to get the name, then use the name to get the def. Building object of defs
      *    used in this game.
-     * 3. because using pieces the user created, need to do a run through of the game logic to know what the starting ranges
+     * 3. because using pieces the user created, need to do a run through of the game reducers to know what the starting ranges
      *    are.
      */
     bundleGameData = () => {
@@ -148,7 +142,7 @@ class Customize extends React.Component {
     /**
      * sub: name of a piece making sub.
      * subs is this.subs with key:value pairs reversed.
-     * board-pattern use standard:sub dict, and game-logic uses
+     * board-pattern use standard:sub dict, and game-reducers uses
      * sub:standard dict
      */
     prepareForIdAssign = () => {
@@ -301,29 +295,11 @@ class Customize extends React.Component {
                         appBarType="3item"
                         theme={value.themes.customize}
                         appBarContent={
-                            <ThreeItemAppBarContent
+                            <CustomizeTitle
+                                onClick={this.togglePromoAll}
                                 theme={value.themes.customize}
-                                seeMoreIcon2={<SearchIcon style={textColor(value.themes.customize)}/>}
-                            >
-                                <PageTitle theme={value.themes.customize} className={this.props.classes.title}>
-                                    Customize Game
-                                </PageTitle>
-                                <MuiCheckbox
-                                    noWrap={true}
-                                    variant="caption"
-                                    theme={value.themes.customize}
-                                    onClick={this.togglePromoAll}
-                                    className={this.props.classes.promo_all}
-                                >
-                                    Promo All
-                                </MuiCheckbox>
-                                <SearchBox
-                                    updateSearchText={this.updateSearchText}
-                                    className={this.props.classes.search}
-                                    theme={value.themes.customize}
-                                    isMenuItem={true}
-                                />
-                            </ThreeItemAppBarContent>
+                                updateSearchText={this.updateSearchText}
+                            />
                         }
                         tools={
                             <Box className={this.props.classes.tools}>
@@ -331,37 +307,7 @@ class Customize extends React.Component {
                                     subs={this.subs}
                                     theme={value.themes.customize}
                                 />
-                                <ScrollTable
-                                    numRows={6}
-                                    theme={value.themes.customize}
-                                    key="pawn-promotions-wide"
-                                    className={this.props.classes.scroll_table}
-                                    addedClassName={
-                                        this.props.classes.drawer_component
-                                    }
-                                    listItemClassName={
-                                        this.props.classes.scroll_table_list_item
-                                    }
-                                    arrowButtonClassName={
-                                        this.props.classes.scroll_table_button
-                                    }
-                                    textClassName={
-                                        this.props.classes.scroll_table_text
-                                    }
-                                    title={
-                                        <ListTitle
-                                            className={
-                                                this.props.classes
-                                                    .scroll_table_title
-                                            }
-                                            theme={value.themes.customize}
-                                        >
-                                            Pawn Promotions
-                                        </ListTitle>
-                                    }
-                                >
-                                    {this.promos}
-                                </ScrollTable>
+                                <PromosList theme={value.themes.customize} tools={this.promos}/>
                                 <Button
                                     onClick={this.accept}
                                     className={this.props.classes.ok_button}

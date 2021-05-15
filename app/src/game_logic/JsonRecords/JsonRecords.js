@@ -6,8 +6,8 @@ import {getPieceType} from "../pieceType/getPieceType";
 /**
  * Data that need to keep for Castling, En passants, and Pawn promotions.
  *
- * NOTE: game-logic and component rendering have separate instances of this class use them differently. game-logic makes
- *       new instance each turn and component side updates its instance. Most of its methods are used by game-logic side.
+ * NOTE: game-reducers and component rendering have separate instances of this class use them differently. game-reducers makes
+ *       new instance each turn and component side updates its instance. Most of its methods are used by game-reducers side.
  */
 export class JsonRecords {
 

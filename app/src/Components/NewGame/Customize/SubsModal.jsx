@@ -2,47 +2,48 @@ import React from "react";
 import clsx from "clsx";
 import {SubList} from "./SubList";
 import {motion} from "framer-motion";
-import {DragIndicator} from "@material-ui/icons";
-import {CloseTool} from "../../Reuseables/Modals/CloseTool";
-import { useStyles } from "./CustomizeToolbar.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/Clickables/ToolWindow.jss";
+import { useStyles } from "./SubsModal.jss";
 
-function SubsModal({toggleMiniVariantTool, onAnimationComplete, variants, drag, className, theme, children}) {
-
+function SubsModal({className, theme, children}) {
     const classes = useStyles({theme});
+    const classes2 = useMoreStyles({theme});
+
+    const variants = {
+        initial: {
+            scale: 0,
+            top: 0,
+            y: 48,
+            left: 'calc(50vw + 12px)',
+        },
+        animate: {
+            scale: 1,
+            top: 48,
+            left: 0,
+            y: 0,
+        },
+        exit: {
+            scale: 0,
+            top: 0,
+            left: 'calc(50vw + 12px)',
+        },
+    };
 
     return (
-        <div className={classes.modal}>
-            <motion.div
-                className={clsx(classes.window, {
-                    [className]: className,
-                })}
-                variants={variants}
-                initial={"initial"}
-                animate={"animate"}
-                exit={"exit"}
-                transition={{ duration: 0.7 }}
-                onAnimationComplete={onAnimationComplete}
-                drag={drag}
-            >
-            <span className={classes.top_area}>
-                <DragIndicator
-                    className={clsx(classes.icon, {
-                        [classes.drag_icon]: true,
-                    })}
-                />
-                <CloseTool
-                    name="Subs"
-                    updateParent={toggleMiniVariantTool}
-                    className={classes.close_button}
-                    iconClassName={clsx(classes.icon, {
-                        [classes.close_icon]: true,
-                    })}
-                    theme={theme}
-                />
-            </span>
-                <SubList subs={children} theme={theme} />
-            </motion.div>
-        </div>
+        <motion.div
+            className={clsx(classes2.window, {
+                [classes2.border2]: true,
+                [classes.subs_modal]: true,
+                [className]: className,
+            })}
+            variants={variants}
+            initial={"initial"}
+            animate={"animate"}
+            exit={"exit"}
+            transition={{ duration: 0.7 }}
+        >
+            <SubList subs={children} theme={theme} />
+        </motion.div>
     )
 }
 
