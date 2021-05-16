@@ -1,7 +1,7 @@
 import React from "react";
 
-const Option = React.lazy(() => import('./Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
+const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
 
 function Erase({erase, theme, className, buttonType}) {
     return (
@@ -13,6 +13,7 @@ function Erase({erase, theme, className, buttonType}) {
                     name={"Erase"}
                     theme={theme}
                     className={className}
+                    isGameOption={false}
                 />
             ) : (
                 <ToolButtonAlt

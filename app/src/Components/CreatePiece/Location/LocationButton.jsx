@@ -4,7 +4,7 @@ import {Frame} from "framer";
 import MediaQuery from "react-responsive/src";
 import Button from "@material-ui/core/Button";
 import {Typography} from "@material-ui/core";
-import {useStyles as useMoreStyles} from "../CreatePiece.jss";
+import {useStyles as useMoreStyles} from "../../Reuseables/Clickables/Option.jss";
 import {clickAnimation, currentSqr, frame, useStyles} from "./LocationButton.jss";
 
 const LocationButton = memo(({rf, onClick, selected, theme, children}) => {
@@ -36,10 +36,9 @@ const LocationButton = memo(({rf, onClick, selected, theme, children}) => {
                 <MediaQuery minWidth={960}>
                     <Button
                         onClick={onClick}
-                        className={clsx(classes2.button, {
+                        className={clsx(classes2.create_piece_option, {
                             [classes.button_selected]: selected,
                             [classes.button_normal]: !selected,
-                            [classes2.icon_button]: true,
                         })}
                         variant="outlined"
                     >

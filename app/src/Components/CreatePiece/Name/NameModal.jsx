@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { TextField } from "@material-ui/core";
 import { useStyles as useMoreStyles } from
-        "../../Reuseables/Clickables/ToolWindow.jss";
+        "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./Name.jss";
 
 /*Note: if want to add close button or drag indicator back in use TopArea.jsx  */
@@ -19,7 +19,7 @@ function NameModal({
     const variants = {
         initial: {
             scale: 0,
-            left: 'calc(50vw + 12px)',
+            left: 'calc(50vw + 6px)',
         },
         animate: {
             scale: 1,
@@ -29,7 +29,7 @@ function NameModal({
         },
         exit: {
             scale: 0,
-            left: 'calc(50vw + 12px)',
+            left: 'calc(50vw + 6px)',
             y: -16,
         },
     };

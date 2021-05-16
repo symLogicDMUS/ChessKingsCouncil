@@ -1,6 +1,9 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 import {themes} from "../styles/themes/themes.jss";
+
+export const lgScreenItemWidth = '20vw';
+export const marginBottom = '1.15vw';
 
 export const styles = {
     game_root_body: {
@@ -9,9 +12,6 @@ export const styles = {
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center center'
     },
-    settings_dropdown: props => ({
-
-    }),
     title: props => ({
         fontSize: '2.25vh',
         letterSpacing: '0.0075em',

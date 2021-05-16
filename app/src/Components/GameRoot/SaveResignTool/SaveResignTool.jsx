@@ -1,14 +1,12 @@
 import React, { useContext, useState } from "react";
-import Typography from "@material-ui/core/Typography";
-import { themes } from "../../styles/themes/themes.jss";
-import { IconButton, Portal, SvgIcon } from "@material-ui/core";
-import { icons } from "../../styles/icons/top/icons.jss";
+import { Portal } from "@material-ui/core";
 import AskLoginButton from "../../Home/AskLoginButton";
 import { UserContext } from "../../../UserContext";
 import { useStyles } from "./SaveResignTool.jss";
 
 const SaveAs = React.lazy(() => import("./SaveAs"));
 const ResignWindow = React.lazy(() => import("./ResignWindow"));
+const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
 
 function SaveResignTool({ save, resign, changeName, theme }) {
     const uid = useContext(UserContext);
@@ -21,55 +19,48 @@ function SaveResignTool({ save, resign, changeName, theme }) {
         <>
             <span className={classes.save_resign_tool}>
                 {uid ? (
-                    <IconButton
-                        className={classes.option}
-                        classes={{ label: classes.label }}
+                    <Option
+                        name={"Save"}
                         onClick={save}
-                    >
-                        <SvgIcon>
-                            {icons.save(themes[theme].button_text)}
-                        </SvgIcon>
-                        <Typography className={classes.text}>Save</Typography>
-                    </IconButton>
+                        iconType={"save"}
+                        isGameOption={true}
+                        theme={theme}
+                    />
                 ) : (
                     <AskLoginButton
                         text={"Save"}
                         iconName={"save"}
-                        buttonType="option_alt"
+                        buttonType="option"
+                        isGameOption={true}
                         theme={theme}
                     />
                 )}
                 <div className={classes.divider} />
                 {uid ? (
-                    <IconButton
-                        className={classes.option}
-                        classes={{ label: classes.label }}
+                    <Option
+                        name={"Save As"}
+                        iconType={"save_as"}
                         onClick={() => setSaveAs(true)}
-                    >
-                        <SvgIcon>
-                            {icons.save_as(themes[theme].button_text)}
-                        </SvgIcon>
-                        <Typography noWrap className={classes.text}>
-                            Save As
-                        </Typography>
-                    </IconButton>
+                        isGameOption={true}
+                        theme={theme}
+                    />
                 ) : (
                     <AskLoginButton
                         text={"Save As"}
-                        buttonType="option_alt"
+                        buttonType="option"
                         iconName={"save_as"}
+                        isGameOption={true}
                         theme={theme}
                     />
                 )}
                 <div className={classes.divider} />
-                <IconButton
-                    className={classes.option}
-                    classes={{ label: classes.label }}
+                <Option
+                    name={"Resign"}
+                    iconType={"resign"}
                     onClick={() => setResignModal(true)}
-                >
-                    <SvgIcon>{icons.resign(themes[theme].text)}</SvgIcon>
-                    <Typography className={classes.text}>Resign</Typography>
-                </IconButton>
+                    isGameOption={true}
+                    theme={theme}
+                />
             </span>
             {saveAs ? (
                 <Portal>

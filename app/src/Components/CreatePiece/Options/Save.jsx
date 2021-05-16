@@ -8,8 +8,8 @@ import {containsInvalidCharacters} from "../../helpers/containsInvalidCharacters
 import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 
-const Option = React.lazy(() => import('./Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
+const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
 
 function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, justSaved}) {
 
@@ -158,6 +158,7 @@ function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType
                     key='save-option'
                     onClick={makeSaveAttempt}
                     className={className}
+                    isGameOption={false}
                 />
             ) : (
                 <ToolButtonAlt

@@ -3,29 +3,22 @@ import clsx from "clsx";
 import SignInWindow from "./SignInWindow";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
+import Option from "../Reuseables/Clickables/Option";
+import {Portal, Typography} from "@material-ui/core";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import {IconButton, Portal, SvgIcon, Typography} from "@material-ui/core";
-import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
-import ToolButton from "../Reuseables/Clickables/ToolButtonAlt";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
-import Option from "../CreatePiece/Options/Option";
-import {icons} from "../styles/icons/top/icons.jss";
-import {themes} from "../styles/themes/themes.jss";
-import {useStyles as useMoreStyles} from
-        "./FirebaseGuestLoginButton.jss"
-import {useStyles as useEvenMoreStyles} from
-        "../GameRoot/SaveResignTool/SaveResignTool.jss";
+import {FirebaseGuestLoginButton} from "./FirebaseGuestLoginButton";
+import ToolButton from "../Reuseables/MiniVariantTool/ToolButtonAlt";
+import {useStyles as useMoreStyles} from "./FirebaseGuestLoginButton.jss"
 import { useStyles } from "./AskLoginButton.jss";
 
-function AskLoginButton({theme, buttonType, iconName, text, className}) {
+function AskLoginButton({theme, buttonType, iconName, text, className, isGameOption}) {
     const [modal, setModal] = useState(false);
     const [signIn, setSignIn] = useState(false);
 
     const classes = useStyles({theme});
     const classes2 = useMoreStyles();
-    const classes3 = useEvenMoreStyles({theme: theme});
-
     return (
         <>
             {signIn ? (
@@ -106,22 +99,9 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                     theme={theme}
                     iconType={iconName}
                     className={className}
+                    isGameOption={isGameOption}
                     onClick={() => setModal(true)}
                 />
-            )}
-            {buttonType === 'option_alt' && (
-                <IconButton
-                    className={classes3.option}
-                    classes={{ label: classes3.label }}
-                    onClick={() => setModal(true)}
-                >
-                    <SvgIcon>
-                        {icons.save_as(themes[theme].button_text)}
-                    </SvgIcon>
-                    <Typography noWrap className={classes3.text}>
-                        {text}
-                    </Typography>
-                </IconButton>
             )}
             {buttonType === "theme" && (
                 <Button
@@ -132,17 +112,14 @@ function AskLoginButton({theme, buttonType, iconName, text, className}) {
                     Save For next visit
                 </Button>
             )}
-            {
-                buttonType !== 'option'
-                && buttonType !== 'option_alt'
-                && buttonType !== "theme" && (
-                    <ToolButton
-                        text={text}
-                        theme={theme}
-                        isActive={modal}
-                        iconName={iconName}
-                        className={className}
-                        onClick={() => setModal(true)}
+            {buttonType !== 'option' && buttonType !== "theme" && (
+                <ToolButton
+                    text={text}
+                    theme={theme}
+                    isActive={modal}
+                    iconName={iconName}
+                    className={className}
+                    onClick={() => setModal(true)}
                 />
             )}
 

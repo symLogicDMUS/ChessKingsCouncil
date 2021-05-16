@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
-import {leftDrawerWidth} from "../Drawers/ResponsiveDrawer.jss";
+import {leftDrawerWidth} from "../Drawers/PermanentDrawerLeft.jss";
 
 export const useStyles = makeStyles({
 

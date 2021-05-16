@@ -31,7 +31,7 @@ import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import ToolButton from "../Reuseables/Clickables/ToolButtonAlt";
+import ToolButton from "../Reuseables/MiniVariantTool/ToolButtonAlt";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {filterSamples} from "../../API/filterSamples";
@@ -383,6 +383,7 @@ class GameRoot extends React.Component {
                                         text="Save"
                                         iconName={"save_alt"}
                                         theme={value.themes.gameRoot}
+                                        isGameOption={true}
                                     />
                                 )}
                                 <GameRootToolbar

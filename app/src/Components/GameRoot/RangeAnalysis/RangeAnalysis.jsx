@@ -1,9 +1,8 @@
 import React, { useReducer } from "react";
-import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
 import { Typography } from "@material-ui/core";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { getBinaryBoarAllFalse } from "../../helpers/getBinaryBoardAllFalse";
+import { getBinaryBoarAllFalse } from
+        "../../helpers/getBinaryBoardAllFalse";
 import { reducer } from "./RangeAnalysis.red";
 import { useStyles } from "./RangeAnalysis.jss";
 
@@ -19,8 +18,6 @@ function RangeAnalysis({
     toggleSecondaryDrawer,
     showProfileOnClick,
 }) {
-    const isWide = useMediaQuery("(min-width:960px)");
-    const screenCase = isWide ? "wide" : "thin";
 
     const [state, dispatch] = useReducer(reducer, {
         rangeBoard: getBinaryBoarAllFalse(),
@@ -39,7 +36,6 @@ function RangeAnalysis({
                     gameType={gameType}
                     pieceDefs={pieceDefs}
                     allRanges={allRanges}
-                    screenCase={screenCase}
                     parentDispatch={dispatch}
                     rangeBoard={state.rangeBoard}
                     selectedSqr={state.selectedSqr}
@@ -49,18 +45,15 @@ function RangeAnalysis({
             </MediaQuery>
             <MediaQuery minWidth={960}>
                 <span className={classes.board_tool}>
-                    <Box className={classes.flex_header}>
-                        <Typography className={classes.title}>
-                            Range Analysis Board
-                        </Typography>
-                    </Box>
+                    <Typography className={classes.title}>
+                        Range Analysis Board
+                    </Typography>
                     <AnalysisBoard
                         theme={theme}
                         board={board}
                         idDict={idDict}
                         pieceDefs={pieceDefs}
                         allRanges={allRanges}
-                        screenCase={screenCase}
                         parentDispatch={dispatch}
                         rangeBoard={state.rangeBoard}
                         selectedSqr={state.selectedSqr}

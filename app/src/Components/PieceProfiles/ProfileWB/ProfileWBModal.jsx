@@ -16,7 +16,6 @@ function ProfileWBModal({
     def,
     color,
     theme,
-    screenCase,
     closeProfile,
     isModal,
 }) {
@@ -54,7 +53,6 @@ function ProfileWBModal({
                         rangeType='span'
                         color={color}
                         theme={theme}
-                        screenCase={screenCase}
                         boardGridStyle={! isModal ? boardGridAdjust : null}
                     />
                     <ProfileWBRange
@@ -64,7 +62,6 @@ function ProfileWBModal({
                         rangeType='offset'
                         color={color}
                         theme={theme}
-                        screenCase={screenCase}
                         boardGridStyle={! isModal ? boardGridAdjust : null}
                     />
                 </div>

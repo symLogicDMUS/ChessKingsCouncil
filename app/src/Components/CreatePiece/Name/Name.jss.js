@@ -21,6 +21,7 @@ export const useStyles = makeStyles({
     }),
     name: props => ({
         '@media screen and (min-width: 960px)': {
+            width: '100%',
             marginBottom: marginBottom,
         },
 

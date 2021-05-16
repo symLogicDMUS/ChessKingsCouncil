@@ -3,8 +3,8 @@ import {Portal} from "@material-ui/core";
 import {AnimatePresence} from "framer-motion";
 import SubsModal from "./SubsModal";
 import PromosModal from "./PromosModal";
-import ToolButton from "../../Reuseables/Clickables/ToolButton";
-import {ToolBackdrop} from "../../Reuseables/Clickables/ToolBackdrop";
+import ToolButton from "../../Reuseables/MiniVariantTool/ToolButton";
+import {ToolBackdrop} from "../../Reuseables/MiniVariantTool/ToolBackdrop";
 
 
 function CustomizeToolbar({subs, promos, theme}) {

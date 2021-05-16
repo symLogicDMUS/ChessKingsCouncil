@@ -1,6 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
 import {miniVariantIconsColumnWidth} from "./MiniVariantDrawer.jss";
+import {leftDrawerWidth} from "./PermanentDrawerLeft.jss";
 
 export const z = 5;
 export const appBarHeight = 48;
@@ -9,8 +10,6 @@ export const menuIconWidth = 48;
 export const menuIconPadding = 12;
 export const navDrawerSmWidth = 180;
 export const menuIconMarginRight = 8;
-export const rightDrawerWidth = '25vw';
-export const leftDrawerWidth = '18vw';
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({

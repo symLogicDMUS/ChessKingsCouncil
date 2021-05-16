@@ -2,17 +2,17 @@ import React from "react";
 import clsx from "clsx";
 import {themes} from "../../styles/themes/themes.jss";
 import {icons} from "../../styles/icons/top/icons.jss";
-import {IconButton, SvgIcon, Typography} from "@material-ui/core";
-import {useStyles as useMoreStyles} from "../CreatePiece.jss";
+import {IconButton, SvgIcon} from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./Option.jss";
 
-function Option({onClick, iconType, name, theme, className}) {
+function Option({onClick, iconType, name, theme, className, isGameOption}) {
     const classes = useStyles({theme: theme})
-    const classes2 = useMoreStyles({theme: theme})
     return (
         <IconButton
-            className={clsx(classes2.button, {
-                [classes2.icon_button]: true,
+            className={clsx(null, {
+                [classes.game_option]: isGameOption,
+                [classes.create_piece_option]: ! isGameOption,
                 [className]: className,
             })}
             classes={{label: classes.label}}
@@ -21,7 +21,7 @@ function Option({onClick, iconType, name, theme, className}) {
             <SvgIcon className={classes.icon}>
                 {icons[iconType](themes[theme].button_text)}
             </SvgIcon>
-            <Typography className={classes.text}>{name}</Typography>
+            <Typography className={classes.text} noWrap>{name}</Typography>
         </IconButton>
     );
 }

@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import Box from "@material-ui/core/Box";
 import { ImgWindow } from "./ImgWindow";
 import { useStyles as useMoreStyles } from
-        "../../Reuseables/Clickables/ToolWindow.jss";
+        "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import {getIconWindowHeight} from "./getIconWindowHeight";
 import { useStyles } from "./ImgWindowsModal.jss";
 
@@ -31,11 +31,11 @@ function IconModal({
         };
     });
 
-    const variants = {
+    const variants = useMemo(() => ({
         initial: {
             scale: 0,
-            left: 'calc(50vw + 12px)',
-            y: -wh* 0.5 + 80,
+            left: 'calc(50vw + 6px)',
+            y: -wh* 0.5 + 75,
         },
         animate: {
             scale: 1,
@@ -45,10 +45,10 @@ function IconModal({
         },
         exit: {
             scale: 0,
-            y: -wh* 0.5 + 80,
-            left: 'calc(50vw + 12px)',
+            y: -wh* 0.5 + 75,
+            left: 'calc(50vw + 6px)',
         },
-    };
+    }), [wh]);
 
     return (
         <motion.div

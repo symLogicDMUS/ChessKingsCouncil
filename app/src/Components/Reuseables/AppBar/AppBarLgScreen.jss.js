@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-import {leftDrawerWidth, rightDrawerWidth} from "../Drawers/ResponsiveDrawer.jss";
+import {leftDrawerWidth} from "../Drawers/PermanentDrawerLeft.jss";
+import {rightDrawerWidth} from "../Drawers/PermanentDrawerRight.jss";
 
 export const useStyles = makeStyles({
     appBarLg: props => ({

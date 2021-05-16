@@ -1,76 +1,80 @@
 import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { Portal } from "@material-ui/core";
-import { useStyles as useEvenMoreStyles } from "../GameRootToolbar.jss";
-import { useStyles as useMoreStyles } from "../../Reuseables/Modals/StandardModal.jss";
+import { useStyles as useMoreStyles }
+        from "../../Reuseables/Modals/StandardModal.jss";
 import Button from "@material-ui/core/Button";
-import {useStyles} from "./ResignModal.jss";
+import { useStyles } from "./ResignModal.jss";
 
-
-function ResignModal({
-    resign,
-    toggleMiniVariantTool,
-    onAnimationComplete,
-    className,
-    variants,
-    theme,
-    drag,
-}) {
-    const classes = useStyles({theme});
+function ResignModal({ resign, toggleMiniVariantTool, className, theme }) {
+    const classes = useStyles({ theme });
     const classes2 = useMoreStyles({ theme });
-    const classes3 = useEvenMoreStyles({ theme });
 
-    const noClick = (e) => {
-        toggleMiniVariantTool("Resign", e.clientX, e.clientY)
+    const variants = {
+        initial: {
+            scale: 0,
+            top: 0,
+            y: 48,
+            left: "calc(50vw + 12px)",
+        },
+        animate: {
+            scale: 1,
+            top: 48,
+            left: 0,
+            y: 0,
+        },
+        exit: {
+            scale: 0,
+            top: 0,
+            left: "calc(50vw + 12px)",
+        },
     };
 
-    const yesClick = (e) => {
-        resign()
-        toggleMiniVariantTool("Resign", e.clientX, e.clientY)
+    const noClick = () => {
+        toggleMiniVariantTool("Resign");
+    };
+
+    const yesClick = () => {
+        resign();
+        toggleMiniVariantTool("Resign");
     };
 
     return (
-        <Portal>
-            <div className={classes3.modal}>
-                <motion.div
-                    className={clsx(classes.window, {
-                        [className]: className,
+        <motion.div
+            className={clsx(classes.window, {
+                [className]: className,
+            })}
+            variants={variants}
+            initial={"initial"}
+            animate={"animate"}
+            exit={"exit"}
+            transition={{ duration: 0.7 }}
+            drag
+        >
+            <span className={classes2.title}>
+                Are you sure you want to resign?
+            </span>
+            <span className={classes.buttons}>
+                <Button
+                    variant={"contained"}
+                    className={clsx(classes.button, {
+                        [classes.yes_button]: true,
                     })}
-                    variants={variants}
-                    initial={"initial"}
-                    animate={"animate"}
-                    exit={"exit"}
-                    transition={{ duration: 0.7 }}
-                    onAnimationComplete={onAnimationComplete}
-                    drag={drag}
+                    onClick={yesClick}
                 >
-                    <span className={classes2.title}>
-                        Are you sure you want to resign?
-                    </span>
-                    <span className={classes.buttons}>
-                        <Button
-                            variant={"contained"}
-                            className={clsx(classes.button, {
-                                [classes.yes_button]: true,
-                            })}
-                            onClick={yesClick}
-                        >
-                            Yes
-                        </Button>
-                        <Button
-                            variant={"contained"}
-                            className={clsx(classes.button, {
-                                [classes.no_button]: true,
-                            })}
-                            onClick={noClick}
-                        >
-                            No
-                        </Button>
-                    </span>
-                </motion.div>
-            </div>
-        </Portal>
+                    Yes
+                </Button>
+                <Button
+                    variant={"contained"}
+                    className={clsx(classes.button, {
+                        [classes.no_button]: true,
+                    })}
+                    onClick={noClick}
+                >
+                    No
+                </Button>
+            </span>
+        </motion.div>
     );
 }
 

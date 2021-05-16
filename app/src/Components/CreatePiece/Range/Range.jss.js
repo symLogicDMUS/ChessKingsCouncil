@@ -1,31 +1,16 @@
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {drawerWidth} from "../../Reuseables/Drawers/PermanentDrawer.jss";
 import {themes} from "../../styles/themes/themes.jss";
-import {marginBottom} from "../CreatePiece.jss";
+import {lgScreenToolWidth, marginBottom} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     range_tool: props => ({
+        width: lgScreenToolWidth,
         display: 'flex',
-        flexDirection: 'row',
         flexWrap: 'wrap',
-        '@media screen and (max-width: 960px)': {
-            width: '100%',
-            height: '100%',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: '22.5vw',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: marginBottom,
-        },
-    }),
-    divider: props => ({
-        /*tablets*/
-        '@media screen and (max-width: 960px)': {
-            width: 65 * 8 * 0.1,
-        },
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: marginBottom,
     }),
     scroll_table_list_item: props => ({
         height: '1.7vw',
@@ -35,12 +20,7 @@ export const useStyles = makeStyles({
         paddingLeft: '0.5rem',
     }),
     scroll_table_text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '0.9vw',
-        },
+        fontSize: '0.9vw',
     }),
     scroll_table_arrow_button: props => ({
         height: '1.0625vw',

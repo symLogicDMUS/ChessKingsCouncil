@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Portal } from "@material-ui/core";
 
-const Option = React.lazy(() => import('./Option'));
+const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
 const ProfilesModal = React.lazy(() => import('./ProfilesModal'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
 
 function Load({
     load,
@@ -33,6 +33,7 @@ function Load({
                     theme={theme}
                     key="load-option"
                     className={className}
+                    isGameOption={false}
                     onClick={() => setModal(true)}
                 />
             ) : (

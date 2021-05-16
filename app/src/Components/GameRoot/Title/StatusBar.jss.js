@@ -1,7 +1,8 @@
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {appBarHeight, leftDrawerWidth} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
+import {appBarHeight} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {leftDrawerWidth} from "../../Reuseables/Drawers/PermanentDrawerLeft.jss";
 
 export const marginLeft = {
     marginLeft: 'auto',

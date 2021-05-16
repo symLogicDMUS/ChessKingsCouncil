@@ -1,10 +1,9 @@
 import React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { DragIndicator } from "@material-ui/icons";
-import { CloseTool } from "../../Reuseables/Modals/CloseTool";
 import { CapturedPieceImages } from "./CapturedPieceImages";
-import { useStyles as useMoreStyles } from "../GameRootToolbar.jss";
+import { useStyles as useMoreStyles } from
+        "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./CapturedPiecesModal.jss";
 
 function CapturedPiecesModal({
@@ -13,54 +12,54 @@ function CapturedPiecesModal({
     captured,
     capturedIds,
     gameType,
-    toggleMiniVariantTool,
-    onAnimationComplete,
-    variants,
-    drag,
     theme,
 }) {
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
     const classes2 = useMoreStyles({ theme });
 
+    const variants = {
+        initial: {
+            scale: 0,
+            top: 125,
+            y: 25,
+            left: "calc(50vw + 6px)",
+        },
+        animate: {
+            scale: 1,
+            top: 48,
+            y: 0,
+            left: 0,
+        },
+        exit: {
+            scale: 0,
+            top: 150,
+            // y: 25,
+            left: "calc(50vw + 6px)",
+        },
+    };
+
     return (
-        <div className={classes2.modal}>
-            <motion.div
-                className={classes.captured_piece_images_modal}
-                variants={variants}
-                initial={"initial"}
-                animate={"animate"}
-                exit={"exit"}
-                transition={{ duration: 0.7 }}
-                onAnimationComplete={onAnimationComplete}
-                drag={drag}
-            >
-                <span className={classes2.top_area}>
-                    <DragIndicator
-                        className={clsx(classes2.icon, {
-                            [classes2.drag_icon]: true,
-                        })}
-                    />
-                    <CloseTool
-                        name="Subs"
-                        updateParent={toggleMiniVariantTool}
-                        className={classes2.close_button}
-                        iconClassName={clsx(classes2.icon, {
-                            [classes2.close_icon]: true,
-                        })}
-                        theme={theme}
-                    />
-                </span>
-                <CapturedPieceImages
-                    defs={defs}
-                    idDict={idDict}
-                    gameType={gameType}
-                    captured={captured}
-                    capturedIds={capturedIds}
-                    toggleMiniVariantTool={toggleMiniVariantTool}
-                    theme={theme}
-                />
-            </motion.div>
-        </div>
+        <motion.div
+            variants={variants}
+            initial={"initial"}
+            animate={"animate"}
+            exit={"exit"}
+            transition={{ duration: 0.7 }}
+            className={clsx(classes2.window, {
+                [classes.window]: true,
+                [classes2.border1]: true,
+            })}
+            drag
+        >
+            <CapturedPieceImages
+                defs={defs}
+                idDict={idDict}
+                gameType={gameType}
+                captured={captured}
+                capturedIds={capturedIds}
+                theme={theme}
+            />
+        </motion.div>
     );
 }
 

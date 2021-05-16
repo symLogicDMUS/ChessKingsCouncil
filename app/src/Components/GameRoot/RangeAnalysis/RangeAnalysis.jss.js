@@ -1,47 +1,26 @@
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-
-export const sqrSize = {
-    wide: '2.8vw',
-    thin: '10.5vw',
-}
+import {lgScreenItemWidth, marginBottom} from "../GameRoot.jss";
 
 export const useStyles = makeStyles({
         board_tool: props => ({
             display: 'flex',
             justifyContent: 'center',
-            '@media screen and (max-width: 960px)': {
-                flexDirection: 'row',
-                flex: 'nowrap',
-                width: '100%',
-                alignItems: 'center',
-            },
-            '@media screen and (min-width: 960px)': {
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                marginBottom: '1vw',
-            },
-        }),
-        flex_header: props => ({
-            display: 'flex',
             flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            '@media screen and (max-width: 960px)': {
-                flexGrow: 10,
-            },
-            '@media screen and (min-width: 960px)': {
-                height: '3.5vh',
-                width: '22.4vw',
-                outline: `0.05rem solid ${themes[props.theme].outline}`,
-            },
+            flexWrap: 'wrap',
+            marginBottom: marginBottom,
+            width: lgScreenItemWidth,
         }),
         title: props => ({
-            fontSize: '2.19vh',
-            height: '1em',
-            lineHeight: '0.96em',
-            fontFamily: 'Roboto-Light, Roboto',
             color: themes[props.theme].text,
+            fontFamily: 'Roboto-Light, Roboto',
+            outline: `0.05rem solid ${themes[props.theme].outline}`,
+            width: '100%',
+            fontSize: '1rem',
+            padding: '0.5rem',
+            minWidth: 'unset',
+            textAlign: 'center',
+            lineHeight: '0.96em',
         }),
         checkbox_container: props => ({
             flexGrow: 10,

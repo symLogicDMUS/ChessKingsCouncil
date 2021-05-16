@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import {SubList} from "./SubList";
 import {motion} from "framer-motion";
-import { useStyles as useMoreStyles } from "../../Reuseables/Clickables/ToolWindow.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./SubsModal.jss";
 
 function SubsModal({className, theme, children}) {
@@ -13,8 +13,8 @@ function SubsModal({className, theme, children}) {
         initial: {
             scale: 0,
             top: 0,
-            y: 48,
-            left: 'calc(50vw + 12px)',
+            y: 2,
+            left: 'calc(50vw + 2px)',
         },
         animate: {
             scale: 1,
@@ -25,7 +25,8 @@ function SubsModal({className, theme, children}) {
         exit: {
             scale: 0,
             top: 0,
-            left: 'calc(50vw + 12px)',
+            y: 2,
+            left: 'calc(50vw + 2px)',
         },
     };
 
@@ -41,6 +42,7 @@ function SubsModal({className, theme, children}) {
             animate={"animate"}
             exit={"exit"}
             transition={{ duration: 0.7 }}
+            drag
         >
             <SubList subs={children} theme={theme} />
         </motion.div>

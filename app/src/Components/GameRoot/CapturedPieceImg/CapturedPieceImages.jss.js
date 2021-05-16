@@ -2,6 +2,7 @@ import {themes} from "../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {lgScreenItemWidth} from "../GameRoot.jss";
 
 export const useStyles = makeStyles({
     captured_piece_images: props => ({
@@ -11,7 +12,7 @@ export const useStyles = makeStyles({
     }),
     caption: props => ({
         flexGrow: 2,
-        fontSize: '1.65vh',
+        fontSize: '1rem',
         textAlign: 'center',
         transform: 'translate(-0.5em, 0)',
         color: themes[props.theme].text,
@@ -27,27 +28,13 @@ export const useStyles = makeStyles({
         border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     white_captured: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '1rem',
-            marginBottom: '1rem',
-            marginLeft: '1rem',
-            marginRight: '1rem',
-        },
+        marginBottom: '0.65rem',
         '@media screen and (min-width: 960px)': {
-            marginTop: '1.2vh',
-            marginBottom: '0.75vw',
+            marginTop: '0.5vw',
         },
     }),
     black_captured: props => ({
-        '@media screen and (max-width: 960px)': {
-            marginTop: '1rem',
-            marginBottom: '1rem',
-            marginLeft: '1rem',
-            marginRight: '1rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            marginTop: '0.75vw',
-        },
+        marginTop: '0.65rem',
     }),
     label: props => ({
         fontSize: '0.95em',
@@ -73,53 +60,23 @@ export const useStyles = makeStyles({
         transform: 'translate(0, -0.5em)',
         '@media screen and (max-width: 960px)': {
             width: '90%',
-            marginLeft: '1vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-            fontSize: '1.75vh',
+            width: lgScreenItemWidth,
         },
     }),
     empty_list: props => ({
         '@media screen and (max-width: 960px)': {
             width: '95%',
-            fontSize: '2.3vh',
-            height: '1.5em',
         },
         '@media screen and (min-width: 960px)': {
-            width: drawerItemWidth,
-            fontSize: '1.75vh',
-            height: '1.5em',
-            transform: 'translate(0, -0.5em)',
+            width: lgScreenItemWidth,
         },
+        height: 26.5,
     }),
     piece: props => ({
-        fontSize: '2vh',
-        height: '1.5em',
-        marginLeft: '0.2em',
-        marginTop: '0.2em',
-    }),
-    top_area: props => ({
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-    }),
-    close: props => ({
-        minHeight: 'unset',
-        height: '1vh',
-        width: '1vh',
-    }),
-    close_icon: props => ({
-        minHeight: 'unset',
-        height: '1.75vh',
-        width: '1.75vh',
-        color: themes[props.theme].text,
-    }),
-    drag_icon: props => ({
-        fontSize: '1.8vh',
-        color: themes[props.theme].text_alt,
-        cursor: 'move',
+        height: 26,
+        marginLeft: '0.2rem',
+        marginTop: '0.2rem',
     }),
 }, {index: 1});

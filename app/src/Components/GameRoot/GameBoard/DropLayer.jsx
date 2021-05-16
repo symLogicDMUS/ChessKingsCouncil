@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useDrop } from "react-dnd";
-import { move } from "../Move/move";
+import AIMove from "./AIMove";
+import {move} from "../Move/move";
 import { isLegal } from "../Move/isLegal";
-import { ItemTypes } from "./ItemTypes";
-import { getCoords } from "./getCoords";
-import { renderPiece } from "./renderPiece.js";
-import { getAiMove } from "../../../API/apiHelpers/getAiMove";
-import { noRanges } from "../../../game_logic/fenParser/GameStatus/noRanges";
-import { rfToXy, xyToPx } from "./DndCrdCnvrt";
-import { OVER } from "../../helpers/gStatusTypes";
-import { useStyles } from "./DropLayer.jss";
+import {ItemTypes} from "./ItemTypes";
+import {getCoords} from "./getCoords";
+import {renderPiece} from "./renderPiece.js";
+import {getAiMove} from "../../../API/apiHelpers/getAiMove";
+import {noRanges} from "../../../game_logic/fenParser/GameStatus/noRanges";
+import {rfToXy, xyToPx} from "./DndCrdCnvrt";
+import {OVER} from "../../helpers/gStatusTypes";
+import {useStyles} from "./DropLayer.jss";
 
 const Promo = React.lazy(() => import('../Promo/Promo'));
-const AIMove = React.lazy(() => import('./AIMove'));
 
 /**
  * Sits on top of game boards. updated on drop.

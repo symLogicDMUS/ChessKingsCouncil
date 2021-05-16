@@ -2,29 +2,11 @@ import {modal} from "../helpers/modal.jss";
 import {themes} from "../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
-import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 export const marginBottom = '1.15vw';
+export const lgScreenToolWidth = '22.5vw';
 
 export const useStyles = makeStyles({
-    button: props => ({
-        '@media screen and (max-width: 960px)': {
-            width: '15vw',
-            height: '15vw',
-            fontSize: '4.5vw',
-            borderRadius: '0.2rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: '3.875vw',
-            height: '3.875vw',
-            margin: 'unset',
-            fontSize: '1.1625vw',
-            borderRadius: '0.25em',
-        },
-        minWidth: 0,
-        minHeight: 0,
-        color: themes[props.theme].text,
-    }),
     tool_title: props => ({
         width: '100%',
         fontSize: '1.8vh',
@@ -43,18 +25,13 @@ export const useStyles = makeStyles({
         justifyContent: 'space-between',
     }),
     four_button_group: props => ({
-        width: '22.5vw',
+        width: lgScreenToolWidth,
         marginBottom: marginBottom,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-    }),
-    icon_button: props => ({
-        '@media screen and (min-width: 960px)': {
-            border: `0.04em solid ${themes[props.theme].outline}`,
-        },
     }),
     close_area: props => ({
         display: 'flex',

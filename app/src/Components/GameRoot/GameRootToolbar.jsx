@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
-import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
+import { Portal} from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
-import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
-import ToolButtonAlt from "../Reuseables/Clickables/ToolButton";
 import ResignModal from "./SaveResignTool/ResignModal";
 import GameInfoModal from "./GameInfo/GameInfoModal";
 import AskLoginButton from "../Home/AskLoginButton";
@@ -13,7 +11,8 @@ import {icons} from "../styles/icons/top/icons.jss";
 import {SeeMore} from "../Reuseables/UserInput/SeeMore";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {RangeAnalysisSwitch} from "./Title/RangeAnalysisSwitch";
-import { useStyles as useMoreStyles } from "../Reuseables/Animations/AnimatePresencePortal.jss";
+import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
+import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
 import {useStyles} from "./GameRootToolbar.jss";
 
 function GameRootToolbar({
@@ -32,132 +31,92 @@ function GameRootToolbar({
 }) {
     const uid = useContext(UserContext);
 
-    const [state, setState] = useState({
-        miniVariantTool: null,
-        clientX: 0,
-        clientY: 0,
-    });
+    const classes = useStyles({theme});
 
-    const [drag, setDrag] = useState(false);
+    const [activeTool, setActiveTool] = useState(null);
 
-    const toggleMiniVariantTool = (toolName, clientX, clientY) => {
-        if (state.activeTool === toolName) {
-            setState({
-                miniVariantTool: null,
-                clientX: clientX,
-                clientY: clientY,
-            });
+    const toggleMiniVariantTool = (toolName) => {
+        if (activeTool === toolName) {
+            setActiveTool(null);
         } else {
-            setState({
-                miniVariantTool: toolName,
-                clientX: clientX,
-                clientY: clientY,
-            });
+            setActiveTool(toolName);
         }
     };
-
-    const variants = {
-        initial: {
-            scale: 0,
-            left: state.clientX,
-            top: state.clientY,
-        },
-        animate: {
-            scale: 1,
-            left: 0,
-            top: 48,
-        },
-        exit: {
-            scale: 0,
-            left: state.clientX,
-            top: state.clientY,
-        },
-    };
-
-    const classes = useStyles({theme});
 
     return (
         <>
             <Portal>
                 <AnimatePresence>
-                    {state.activeTool === "Captured-Pieces" && (
+                    {activeTool === "Captured-Pieces" && (
                         <CapturedPiecesModal
                             defs={defs}
                             idDict={idDict}
                             gameType={gameType}
                             captured={captured}
                             capturedIds={capturedIds}
-                            onAnimationComplete={() => setDrag(true)}
-                            toggleMiniVariantTool={toggleMiniVariantTool}
-                            variants={variants}
                             theme={theme}
                         />
                     )}
                 </AnimatePresence>
                 <AnimatePresence>
-                    {state.activeTool === "Resign" && (
+                    {activeTool === "Resign" && (
                         <ResignModal
+                            theme={theme}
                             resign={resign}
                             toggleMiniVariantTool={toggleMiniVariantTool}
-                            onAnimationComplete={() => setDrag(true)}
-                            variants={variants}
-                            drag={drag}
-                            theme={theme}
                         />
                     )}
                 </AnimatePresence>
                 <AnimatePresence>
-                    {state.activeTool === "Game-Info" && (
+                    {activeTool === "Game-Info" && (
                         <GameInfoModal
                             gameName={gameName}
                             gameType={gameType}
                             playerType={playerType}
-                            toggleMiniVariantTool={toggleMiniVariantTool}
-                            onAnimationComplete={() => setDrag(true)}
-                            variants={variants}
                             theme={theme}
-                            drag={drag}
                         />
                     )}
                 </AnimatePresence>
-                {state.activeTool === "Save-As" && (
+                {activeTool === "Save-As" && (
                     <SaveAs
                         theme={theme}
                         changeName={changeName}
                         save={() => {
                             save();
-                            toggleMiniVariantTool(null, null, null);
+                            toggleMiniVariantTool(null);
                         }}
-                        close={() => toggleMiniVariantTool(null, null, null)}
+                        close={() => toggleMiniVariantTool(null)}
                     />
                 )}
             </Portal>
             {uid ? (
-                <ToolButtonAlt
-                    name={"Save-As"}
-                    iconName={"save_as_alt"}
+                <ToolButton
                     text="save as"
                     theme={theme}
-                    isActive={state.activeTool === "Save-As"}
+                    iconName={"save_as_alt"}
+                    isActive={activeTool === "Save-As"}
                     updateParent={toggleMiniVariantTool}
                 />
             ) : (
-                <AskLoginButton theme={theme} iconName={"save_as_alt"} text={"Save As"} />
+                <AskLoginButton
+                    theme={theme}
+                    text={"Save As"}
+                    iconName={"save_as_alt"}
+                    isGameOption={true}
+                />
             )}
-            <ToolButtonAlt
-                name="Game-Info"
+            <ToolButton
                 text="Game Info"
                 iconName={"game_info"}
-                isActive={state.activeTool === "Game-Info"}
-                updateParent={toggleMiniVariantTool}
+                isActive={activeTool === "Game-Info"}
+                onClick={() => toggleMiniVariantTool("Game-Info")}
                 theme={theme}
             />
-            <ToolButtonAlt
-                name="Captured-Pieces"
+            <ToolButton
                 text="Captured Pieces"
                 iconName={"captured_pieces"}
-                isActive={state.activeTool === "Captured-Pieces"}
-                updateParent={toggleMiniVariantTool}
+                isActive={activeTool === "Captured-Pieces"}
+                onClick={() => toggleMiniVariantTool("Captured-Pieces")}
                 theme={theme}
             />
             <SeeMore
@@ -178,12 +137,12 @@ function GameRootToolbar({
                     Range Analysis
                 </MuiSwitch>
             </SeeMore>
-            <ToolButtonAlt
+            <ToolButton
                 name="Resign"
                 text="Resign"
                 iconName={"resign_alt"}
-                isActive={state.activeTool === "Resign"}
-                updateParent={toggleMiniVariantTool}
+                isActive={activeTool === "Resign"}
+                onClick={() => toggleMiniVariantTool("Resign")}
                 theme={theme}
             />
         </>

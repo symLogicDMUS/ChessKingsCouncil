@@ -1,7 +1,8 @@
-import { makeStyles } from "@material-ui/core/styles";
-import {leftDrawerWidth} from "./ResponsiveDrawer.jss";
+import {makeStyles} from "@material-ui/core/styles";
 
 const z = 5;
+export const leftDrawerWidth = '18vw';
+
 export const useStyles = makeStyles({
     paper: props => ({
         zIndex: z,

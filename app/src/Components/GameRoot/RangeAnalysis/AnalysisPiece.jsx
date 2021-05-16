@@ -19,7 +19,6 @@ const AnalysisPiece = memo(
         openProfile,
         closeProfile,
         showProfileOnClick,
-        screenCase,
         theme,
         alt,
     }) => {
@@ -34,7 +33,6 @@ const AnalysisPiece = memo(
                                     theme={theme}
                                     imgUrl={imgUrl}
                                     pieceName={pieceName}
-                                    screenCase={screenCase}
                                     closeProfile={closeProfile}
                                 />
                             ) : (
@@ -45,7 +43,6 @@ const AnalysisPiece = memo(
                                     pieceName={pieceName}
                                     isActive={rf === selectedSqr}
                                     closeProfile={closeProfile}
-                                    screenCase={screenCase}
                                     theme={theme}
                                 />
                             )}
@@ -60,7 +57,6 @@ const AnalysisPiece = memo(
                                     theme={theme}
                                     imgUrl={imgUrl}
                                     pieceName={pieceName}
-                                    screenCase={screenCase}
                                     closeProfile={closeProfile}
                                 />
                             ) : (
@@ -70,7 +66,6 @@ const AnalysisPiece = memo(
                                     imgUrl={imgUrl}
                                     pieceName={pieceName}
                                     closeProfile={closeProfile}
-                                    screenCase={screenCase}
                                     theme={theme}
                                 />
                             )}

@@ -4,15 +4,14 @@ import { isSpecial } from "../../helpers/isSpecial";
 import { getPieceImg } from "../../styles/themes/specialThemeImgs/getPieceImg";
 import { getFranchisePieceImg } from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
 import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
-import { useStyles } from "./AnalysisBoard.jss";
 import {standardPieceNames} from "../../helpers/standardPieceNames";
+import { useStyles } from "./AnalysisBoard.jss";
 
 const AnalysisSquare = React.lazy(() => import('./AnalysisSquare'));
 const AnalysisPiece = React.lazy(() => import('./AnalysisPiece'));
 
 function AnalysisBoard({
     theme,
-    screenCase,
     board,
     idDict,
     pieceDefs,
@@ -38,7 +37,6 @@ function AnalysisBoard({
                         rf={rf}
                         key={rf}
                         theme={theme}
-                        screenCase={screenCase}
                         isHighlight={rangeBoard[rf]}
                     >
                         {null}
@@ -61,7 +59,6 @@ function AnalysisBoard({
                         rf={rf}
                         key={rf}
                         theme={theme}
-                        screenCase={screenCase}
                         isHighlight={rangeBoard[rf]}
                     >
                         <AnalysisPiece
@@ -97,7 +94,6 @@ function AnalysisBoard({
                                 toggleSecondaryDrawer(false);
                             }}
                             showProfileOnClick={showProfileOnClick}
-                            screenCase={screenCase}
                             theme={theme}
                         />
                     </AnalysisSquare>

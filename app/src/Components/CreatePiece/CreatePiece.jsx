@@ -14,7 +14,7 @@ import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEn
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
-import { ToolBackdrop } from "../Reuseables/Clickables/ToolBackdrop";
+import { ToolBackdrop } from "../Reuseables/MiniVariantTool/ToolBackdrop";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
 import CreatePieceTitle from "./Title/CreatePieceTitle";
 import AskLoginButton from "../Home/AskLoginButton";
@@ -35,7 +35,7 @@ const Options = React.lazy(() => import("./Options/Options"));
 const Location = React.lazy(() => import("./Location/Location"));
 const NavBar = React.lazy(() => import("../Reuseables/NavBar/NavBar"));
 const CreatePieceBoard = React.lazy(() => import("./Board/CreatePieceBoard"));
-const ToolButton = React.lazy(() => import("../Reuseables/Clickables/ToolButton"));
+const ToolButton = React.lazy(() => import("../Reuseables/MiniVariantTool/ToolButton"));
 const ResponsiveDrawer = React.lazy(() => import("../Reuseables/Drawers/ResponsiveDrawer"));
 const Animations = React.lazy(() => import("../Reuseables/Animations/CreatePiecePageAnimations"));
 

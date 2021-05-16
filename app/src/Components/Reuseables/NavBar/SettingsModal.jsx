@@ -278,6 +278,7 @@ export function SettingsModal(props) {
                             <AskLoginButton
                                 theme={props.theme}
                                 buttonType="theme"
+                                isGameOption={false}
                             />
                         )}
                         <Button

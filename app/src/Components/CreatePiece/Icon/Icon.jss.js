@@ -1,14 +1,15 @@
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {marginBottom} from "../CreatePiece.jss";
+import {lgScreenToolWidth, marginBottom} from "../CreatePiece.jss";
 
 export const useStyles = makeStyles({
     img_windows_flexbox: props => ({
+        width: lgScreenToolWidth,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
         alignItems: 'center',
         flexWrap: 'nowrap',
+        justifyContent: 'space-between',
         marginBottom: marginBottom,
     }),
     title: props => ({

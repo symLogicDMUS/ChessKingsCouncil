@@ -1,7 +1,7 @@
 import React from "react";
 
-const Option = React.lazy(() => import('./Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/Clickables/ToolButtonAlt'));
+const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
+const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
 
 function Reset({
     theme,
@@ -18,6 +18,7 @@ function Reset({
                     name={"Reset"}
                     theme={theme}
                     className={className}
+                    isGameOption={false}
                 />
             ) : (
                 <ToolButtonAlt

@@ -3,9 +3,8 @@ import clsx from "clsx";
 import {motion} from "framer-motion";
 import {ListTitle} from "./ListTitle";
 import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
-import { useStyles as useMoreStyles } from "../../Reuseables/Clickables/ToolWindow.jss";
+import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./PromosModal.jss";
-
 
 function PromosModal({className, theme, children}) {
     const classes = useStyles({theme});
@@ -14,17 +13,20 @@ function PromosModal({className, theme, children}) {
         initial: {
             scale: 0,
             top: 0,
-            left: 'calc(50vw + 12px)',
+            y: 6,
+            left: 'calc(50vw + 2px)',
         },
         animate: {
             scale: 1,
             top: 48,
+            y: 0,
             left: 0,
         },
         exit: {
             scale: 0,
             top: 0,
-            left: 'calc(50vw + 12px)',
+            y: 6,
+            left: 'calc(50vw + 2px)',
         },
     };
 
@@ -39,6 +41,7 @@ function PromosModal({className, theme, children}) {
             animate={"animate"}
             exit={"exit"}
             transition={{ duration: 0.7 }}
+            drag
         >
             <ScrollTable
                 numRows={6}

@@ -1,7 +1,7 @@
 import React from "react";
 import {Portal} from "@material-ui/core";
 import {LocationSqrGrow} from "./LocationSqrGrow";
-import { useStyles as useMoreStyles } from "../Clickables/ToolBackdrop.jss"
+import { useStyles as useMoreStyles } from "../MiniVariantTool/ToolBackdrop.jss"
 import {useStyles} from "./LocationSquaresEnter.jss";
 
 

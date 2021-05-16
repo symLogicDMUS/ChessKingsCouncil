@@ -38,7 +38,7 @@ export const useStyles = makeStyles({
         },
     }),
     arrow_button_normal: props => ({
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: themes[props.theme].button_fill,
         '&:hover': {
             backgroundColor: themes[props.theme].text_alt,
         },

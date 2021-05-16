@@ -11,7 +11,7 @@ import Box from "@material-ui/core/Box";
 import {getColorName} from "../../../helpers/getColorName";
 import IconButton from "@material-ui/core/IconButton";
 
-const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color, pieceName, screenCase}) => {
+const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color, pieceName}) => {
 
     const classes = useStyles({theme});
 
@@ -57,7 +57,6 @@ const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color
                                     rangeType='span'
                                     color={color}
                                     theme={theme}
-                                    screenCase={screenCase}
                                 />
                                 <ProfileWBRangeVert
                                     pieceName={pieceName}
@@ -66,7 +65,6 @@ const ProfileWBDrawer = memo(({imgUrl, theme, closeProfile, isActive, def, color
                                     rangeType='offset'
                                     color={color}
                                     theme={theme}
-                                    screenCase={screenCase}
                                 />
                             </div>
                         ) : null}
