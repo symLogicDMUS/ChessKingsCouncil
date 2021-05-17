@@ -15,6 +15,7 @@ export const useStyles = makeStyles({
         '@media screen and (min-width: 960px)': {
             width: '17.5vw',
         },
+        margin: 'auto',
         ...mui_input(props.theme),
     }),
     player_type: props => ({

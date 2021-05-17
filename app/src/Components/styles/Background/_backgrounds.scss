@@ -187,3 +187,7 @@ $length: 0.35rem;
     background-repeat: repeat;
     @include nba;
 }
+
+.hide-overflow {
+    overflow-y: hidden;
+}

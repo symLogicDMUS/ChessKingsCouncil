@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import Hidden from "@material-ui/core/Hidden";
+import "../../styles/Background/_backgrounds.scss";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBarSmScreen from "../AppBar/AppBarSmScreen";
 import AppBarLgScreen from "../AppBar/AppBarLgScreen";
@@ -29,6 +30,7 @@ function ResponsiveDrawer({
     className,
     appBarClassName,
     contentClassName,
+    noScroll,
     children,
 }) {
     const classes = useStyles({ theme: theme });
@@ -40,7 +42,9 @@ function ResponsiveDrawer({
     };
 
     useEffect(() => {
-        document.body.className = `${theme}-background`;
+        document.body.className = clsx(`${theme}-background`, {
+            'hide-overflow': noScroll
+        });
     }, [theme])
 
     return (

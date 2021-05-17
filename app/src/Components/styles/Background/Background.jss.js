@@ -3,13 +3,13 @@ import {navBarButtonHeight} from "../../Reuseables/NavBar/NavBarButton.jss";
 
 export const useStyles = makeStyles({
     background: props => ({
-        zIndex: -1,
         width: '100%',
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
+        zIndex: -1,
     }),
     board_pattern: props => ({
         width: '7.5vw',

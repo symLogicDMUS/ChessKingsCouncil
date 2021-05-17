@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { Portal} from "@material-ui/core";
 import { AnimatePresence } from "framer-motion";
 import ResignModal from "./SaveResignTool/ResignModal";
 import GameInfoModal from "./GameInfo/GameInfoModal";
@@ -11,8 +10,9 @@ import {icons} from "../styles/icons/top/icons.jss";
 import {SeeMore} from "../Reuseables/UserInput/SeeMore";
 import {MuiSwitch} from "../Reuseables/Clickables/MuiSwitch";
 import {RangeAnalysisSwitch} from "./Title/RangeAnalysisSwitch";
-import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
 import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
+import CapturedPiecesModal from "./CapturedPieceImg/CapturedPiecesModal";
+import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
 import {useStyles} from "./GameRootToolbar.jss";
 
 function GameRootToolbar({
@@ -45,57 +45,61 @@ function GameRootToolbar({
 
     return (
         <>
-            <Portal>
-                <AnimatePresence>
-                    {activeTool === "Captured-Pieces" && (
-                        <CapturedPiecesModal
-                            defs={defs}
-                            idDict={idDict}
-                            gameType={gameType}
-                            captured={captured}
-                            capturedIds={capturedIds}
-                            theme={theme}
-                        />
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {activeTool === "Resign" && (
-                        <ResignModal
-                            theme={theme}
-                            resign={resign}
-                            toggleMiniVariantTool={toggleMiniVariantTool}
-                        />
-                    )}
-                </AnimatePresence>
-                <AnimatePresence>
-                    {activeTool === "Game-Info" && (
-                        <GameInfoModal
-                            gameName={gameName}
-                            gameType={gameType}
-                            playerType={playerType}
-                            theme={theme}
-                        />
-                    )}
-                </AnimatePresence>
-                {activeTool === "Save-As" && (
-                    <SaveAs
+            {(
+                activeTool === "Captured-Pieces"
+                || activeTool === "Resign"
+                || activeTool === "Game-Info"
+            ) && (
+                <ToolBackdrop onClick={() => toggleMiniVariantTool(null)} />
+            )}
+            <AnimatePresence>
+                {activeTool === "Captured-Pieces" && (
+                    <CapturedPiecesModal
+                        key={'captured-pieces'}
+                        defs={defs}
+                        idDict={idDict}
+                        gameType={gameType}
+                        captured={captured}
+                        capturedIds={capturedIds}
                         theme={theme}
-                        changeName={changeName}
-                        save={() => {
-                            save();
-                            toggleMiniVariantTool(null);
-                        }}
-                        close={() => toggleMiniVariantTool(null)}
                     />
                 )}
-            </Portal>
+                {activeTool === "Resign" && (
+                    <ResignModal
+                        key={'resign-modal'}
+                        theme={theme}
+                        resign={resign}
+                        toggleMiniVariantTool={toggleMiniVariantTool}
+                    />
+                )}
+                {activeTool === "Game-Info" && (
+                    <GameInfoModal
+                        key={'game-info-modal'}
+                        gameName={gameName}
+                        gameType={gameType}
+                        playerType={playerType}
+                        theme={theme}
+                    />
+                )}
+            </AnimatePresence>
+            {activeTool === "Save-As" && (
+                <SaveAs
+                    theme={theme}
+                    changeName={changeName}
+                    save={() => {
+                        save();
+                        toggleMiniVariantTool(null);
+                    }}
+                    close={() => toggleMiniVariantTool(null)}
+                />
+            )}
             {uid ? (
                 <ToolButton
                     text="save as"
                     theme={theme}
                     iconName={"save_as_alt"}
                     isActive={activeTool === "Save-As"}
-                    updateParent={toggleMiniVariantTool}
+                    onClick={() => toggleMiniVariantTool("Save-As")}
                 />
             ) : (
                 <AskLoginButton

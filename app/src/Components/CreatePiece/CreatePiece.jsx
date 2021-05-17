@@ -428,7 +428,7 @@ function CreatePiece(props) {
                             key="backdrop"
                             onClick={() =>
                                 toggleMiniVariantTool(
-                                    state.activeTool,
+                                    null,
                                 )
                             }
                         />

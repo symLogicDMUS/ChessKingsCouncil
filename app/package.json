@@ -26,6 +26,7 @@
     "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-swipeable-views": "^0.13.9",
     "rxjs": "^6.6.3",
     "uuid": "^8.3.2"
   },

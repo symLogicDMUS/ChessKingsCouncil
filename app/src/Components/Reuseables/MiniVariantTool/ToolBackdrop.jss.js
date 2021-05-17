@@ -10,6 +10,6 @@ export const useStyles = makeStyles({
         top: appBarHeight,
         height: `calc(100vh - ${appBarHeight}px)`,
         width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
-        backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        backgroundColor: 'rgba(0, 0, 0, 0.075)',
     }),
 }, {index: 1});

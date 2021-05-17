@@ -20,7 +20,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import CustomizeToolbar from "./CustomizeToolbar";
 import {ThemeContext} from "../../ThemeContext";
 import {styles} from "./Customize.jss";
-import * as PropTypes from "prop-types";
 import {PromosList} from "./PromosList";
 import {CustomizeTitle} from "./CustomizeTitle";
 

@@ -1,6 +1,7 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useHistory} from "react-router-dom";
-import Box from "@material-ui/core/Box";
+import {a11yProps} from "./a11yProps";
+import TabPanel from "./TabPanel";
 import {Play} from "./Play";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
@@ -13,11 +14,17 @@ import {Background} from "../styles/Background/Background";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
-import {useStyles} from "./NewGame.jss";
+import SwipeableViews from 'react-swipeable-views';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Box from '@material-ui/core/Box';
 import {ThemeContext} from "../ThemeContext";
+import {useStyles} from "./NewGame.jss";
 
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
+
 
 
 function NewGame() {
@@ -28,13 +35,17 @@ function NewGame() {
     const isWide = useMediaQuery("(min-width:960px)");
     const classes = useStyles({theme: themes.newGame});
 
+    const [value, setValue] = React.useState(0);
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
-    const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleChangeIndex = (index) => {
+        setValue(index);
     };
 
     const setGameName = (e) => {
@@ -84,52 +95,61 @@ function NewGame() {
                 navHorizontal={isWide}
                 appBarContent={<AppBarTitle theme={themes.newGame}>New Game</AppBarTitle>}
                 appBarType="title"
-                toolButtons={null}
                 tools={null}
+                toolButtons={null}
+                noScroll={true}
             >
-                {/*<Paper className={classes.root}>*/}
-                {/*    <Tabs*/}
-                {/*        value={value}*/}
-                {/*        onChange={handleChange}*/}
-                {/*        indicatorColor="primary"*/}
-                {/*        textColor="primary"*/}
-                {/*        centered*/}
-                {/*    >*/}
-                {/*        <Tab label="Item One" />*/}
-                {/*        <Tab label="Item Two" />*/}
-                {/*        <Tab label="Item Three" />*/}
-                {/*    </Tabs>*/}
-                {/*</Paper>*/}
-                <Box className={classes.new_game}>
-                    <GameName
-                        theme={themes.newGame}
-                        key='GameName'
-                        setGameName={setGameName}
-                        screenCase={isWide ? 'wide' : 'thin'}
-                    />
-                    <PickType
-                        theme={themes.newGame}
-                        key="PickType"
-                        gameType={gameType}
-                        setGameType={setGameType}
-                        screenCase={isWide ? 'wide' : 'thin'}
-                    />
-                    <PlayAs
-                        theme={themes.newGame}
-                        setPlayerType={setPlayerType}
-                        key="PlayAs"
-                        screenCase={isWide ? 'wide' : 'thin'}
-                    />
-                    <Play
-                        theme={themes.newGame}
-                        onClick={finish}
-                        classes={classes}
-                        playerType={playerType}
-                        gameType={gameType} gameName={gameName}
-                        predicate={(c) => charNotInStr(c, gameName)}
-                        key='Play-Button-thin'
-                    />
-                </Box>
+                <AppBar className={classes.tab_bar} color="default">
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        variant={"centered"}
+                        // variant={isWide ? 'centered' : 'fullWidth'}
+                    >
+                        <Tab label="Item One" {...a11yProps(0)} />
+                        <Tab label="Item Two" {...a11yProps(1)} />
+                        <Tab label="Item Three" {...a11yProps(2)} />
+                    </Tabs>
+                </AppBar>
+                <SwipeableViews
+                    index={value}
+                    onChangeIndex={handleChangeIndex}
+                >
+                    <TabPanel index={0} value={value} theme={themes.newGame} className={classes.new_game}>
+                        <GameName
+                            key='GameName'
+                            theme={themes.newGame}
+                            setGameName={setGameName}
+                            screenCase={isWide ? 'wide' : 'thin'}
+                        />
+                    </TabPanel>
+                    <TabPanel index={1} value={value} theme={themes.newGame} className={classes.new_game}>
+                        <PickType
+                            key="PickType"
+                            gameType={gameType}
+                            theme={themes.newGame}
+                            setGameType={setGameType}
+                            screenCase={isWide ? 'wide' : 'thin'}
+                        />
+                    </TabPanel>
+                    <TabPanel index={2} value={value} theme={themes.newGame} className={classes.new_game}>
+                        <PlayAs
+                            key="PlayAs"
+                            theme={themes.newGame}
+                            setPlayerType={setPlayerType}
+                            screenCase={isWide ? 'wide' : 'thin'}
+                        />
+                    </TabPanel>
+                </SwipeableViews>
+                {/*<Play*/}
+                {/*    theme={themes.newGame}*/}
+                {/*    onClick={finish}*/}
+                {/*    classes={classes}*/}
+                {/*    playerType={playerType}*/}
+                {/*    gameType={gameType} gameName={gameName}*/}
+                {/*    predicate={(c) => charNotInStr(c, gameName)}*/}
+                {/*    key='Play-Button-thin'*/}
+                {/*/>*/}
             </ResponsiveDrawer>
         </>
     );

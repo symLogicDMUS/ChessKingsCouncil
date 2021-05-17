@@ -21,29 +21,27 @@ function CustomizeToolbar({subs, promos, theme}) {
 
     return (
         <>
-            <Portal>
-                <AnimatePresence>
-                    {activeTool === "Subs" && (
-                        <SubsModal
-                            key='subs-modal'
-                            theme={theme}
-                        >
-                            {subs}
-                        </SubsModal>
-                    )}
-                    {activeTool === "Promos" && (
-                        <PromosModal
-                            key='promos-modal'
-                            theme={theme}
-                        >
-                            {promos}
-                        </PromosModal>
-                    )}
-                    {!!activeTool && (
-                        <ToolBackdrop onClick={() => setActiveTool(null)} />
-                    )}
-                </AnimatePresence>
-            </Portal>
+            <AnimatePresence>
+                {activeTool === "Subs" && (
+                    <SubsModal
+                        key='subs-modal'
+                        theme={theme}
+                    >
+                        {subs}
+                    </SubsModal>
+                )}
+                {activeTool === "Promos" && (
+                    <PromosModal
+                        key='promos-modal'
+                        theme={theme}
+                    >
+                        {promos}
+                    </PromosModal>
+                )}
+            </AnimatePresence>
+            {(activeTool === "Subs" || activeTool === "Promos") && (
+                <ToolBackdrop key="backdrop" onClick={() => setActiveTool(null)} />
+            )}
             <ToolButton
                 name="Subs"
                 iconName="subs"
