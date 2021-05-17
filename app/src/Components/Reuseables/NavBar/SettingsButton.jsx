@@ -16,7 +16,7 @@ function SettingsButton(props) {
     });
 
     return (
-        <div className={classes.root}>
+        <>
             {settingsModal ? (
                 <Portal>
                     <SettingsModal
@@ -48,7 +48,7 @@ function SettingsButton(props) {
                     Settings
                 </ListItemText>
             </ListItem>
-        </div>
+        </>
     )
 }
 

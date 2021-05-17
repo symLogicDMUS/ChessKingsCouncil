@@ -42,7 +42,7 @@ function NavBarButton(props) {
     };
 
     return (
-        <div className={classes.root}>
+        <>
             {redirectModal ? (
                 <Portal>
                     <StandardModal
@@ -75,26 +75,18 @@ function NavBarButton(props) {
             <ListItem
                 button
                 onClick={() => tryRedirect()}
-                className={clsx(classes.nav_bar_button, {
-                    [classes.row_direction]: isRow,
-                })}
+                className={classes.nav_bar_button}
             >
                 <ListItemIcon>
                     <SvgIcon>
                         {icons[pageIcon]}
                     </SvgIcon>
                 </ListItemIcon>
-                <ListItemText
-                    primary={pageName}
-                    className={clsx(null, {
-                        [classes.row_direction]: isRow,
-                    })}
-
-                >
+                <ListItemText primary={pageName}>
                     {pageName}
                 </ListItemText>
             </ListItem>
-        </div>
+        </>
     );
 }
 export default NavBarButton;

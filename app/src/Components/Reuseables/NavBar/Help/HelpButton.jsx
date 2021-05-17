@@ -45,7 +45,7 @@ function HelpButton(props) {
     }, [currentPage]);
 
     return (
-        <div className={classes.root}>
+        <>
             {(slideshow || isFirstTime) && children ? (
                 <Portal>
                     <HelpSlideshow
@@ -84,7 +84,7 @@ function HelpButton(props) {
                     Help
                 </ListItemText>
             </ListItem>
-        </div>
+        </>
     );
 }
 

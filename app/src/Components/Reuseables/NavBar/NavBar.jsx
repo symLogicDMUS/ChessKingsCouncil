@@ -1,7 +1,7 @@
 import React from "react";
-import NavBarColumn from "./NavBarColumn";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import NavTabRow from "./NavTabRow";
+import NavTabColumn from "./NavTabColumn";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 function NavBar(props) {
     const {lgDirection, children, ...other} = props;
@@ -13,7 +13,7 @@ function NavBar(props) {
             {lgDirection==="row" && screenCase==="wide" ? (
                 <NavTabRow screenCase={screenCase} {...other} />
             ) : (
-                <NavBarColumn screenCase={screenCase} {...other} />
+                <NavTabColumn screenCase={screenCase} {...other} />
             )}
         </>
     );

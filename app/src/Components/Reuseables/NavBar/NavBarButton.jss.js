@@ -4,11 +4,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 export const navBarButtonHeight = 48;
 
 export const useStyles = makeStyles({
-    root: props => ({
-        "& .MuiListItem-root": {
-            flexShrink: 1,
-        },
-    }),
     nav_bar_button: props => ({
         height: navBarButtonHeight,
         background: themes[props.theme].fill,
@@ -33,6 +28,11 @@ export const useStyles = makeStyles({
         "& .MuiTypography-root": {
             fontSize: '1rem',
             color: themes[props.theme].text,
+        },
+    }),
+    column_direction: props => ({
+        "& .MuiListItem-root": {
+            width: '100%',
         },
     }),
     row_direction: props => ({
