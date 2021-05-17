@@ -8,9 +8,11 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import { useStyles } from "./SeeMore.jss";
 
-export function SeeMore({ theme, icon, className, style, edge, listItem, text, children }) {
+export function SeeMore(props) {
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+    const { theme, icon, className, style, edge, listItem, text, children } = props;
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);

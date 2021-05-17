@@ -7,7 +7,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import MuiAccordion from "../../Accordions/MuiAccordion";
 import TemporaryDrawerButton from "../../Drawers/TemporaryDrawerButton";
-import { useStyles as useMoreStyles } from "./HelpText.jss";
 import { useStyles } from "./HelpTable.jss";
 
 export function HelpTable({ setHelpItem, onClose, theme }) {

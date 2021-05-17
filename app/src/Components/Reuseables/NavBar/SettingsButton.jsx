@@ -5,7 +5,9 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import {useStyles} from "./NavBarButton.jss";
 
-export function SettingsButton({theme, screenCase, currentPage, className, style, children}) {
+function SettingsButton(props) {
+    const {currentPage, isRow, screenCase, className, theme, style, children} = props;
+
     const [settingsModal, toggleSettingsModal] = useState(false);
 
     const classes = useStyles({
@@ -13,18 +15,8 @@ export function SettingsButton({theme, screenCase, currentPage, className, style
         screenCase: screenCase,
     });
 
-    const isRow = () => {
-        return (
-            screenCase === "wide" &&
-            (currentPage === "NewGame" ||
-                currentPage === "LoadGame" ||
-                currentPage === "MyPieces" ||
-                currentPage === "CouncilRules")
-        );
-    };
-
     return (
-        <>
+        <div className={classes.root}>
             {settingsModal ? (
                 <Portal>
                     <SettingsModal
@@ -40,7 +32,7 @@ export function SettingsButton({theme, screenCase, currentPage, className, style
                 button
                 onClick={toggleSettingsModal}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.row_direction]: isRow(),
+                    [classes.row_direction]: isRow,
                     [className]: className,
                 })}
                 style={style}
@@ -56,6 +48,8 @@ export function SettingsButton({theme, screenCase, currentPage, className, style
                     Settings
                 </ListItemText>
             </ListItem>
-        </>
+        </div>
     )
 }
+
+export default SettingsButton;

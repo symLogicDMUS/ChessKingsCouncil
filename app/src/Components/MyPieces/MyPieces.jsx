@@ -9,8 +9,8 @@ import { TwoItemAppBarContent } from
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { SearchBox } from "../Reuseables/UserInput/SearchBox";
 import { PageTitle } from "../Reuseables/AppBar/PageTitle";
-import { textColor, useStyles } from "./MyPieces.jss";
 import {ThemeContext} from "../ThemeContext";
+import { textColor, useStyles } from "./MyPieces.jss";
 
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'));
@@ -31,8 +31,8 @@ function MyPieces() {
             theme={themes.myPieces}
             navBar={
                 <NavBar
-                    screenCase="thin"
-                    flexDirection="column"
+                    fullWidth={true}
+                    lgDirection={"row"}
                     currentPage="MyPieces"
                     helpText={SavedPiecesHelp(themes.myPieces)}
                     helpTitle={

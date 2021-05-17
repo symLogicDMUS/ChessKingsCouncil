@@ -7,14 +7,16 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { useStyles } from "./MuiAccordion.jss";
 
 
-export default function MuiAccordion({heading, className, classesObj, children}) {
+export default function MuiAccordion(props) {
+    const {heading, className, children, ...other} = props;
+
     const classes = useStyles();
 
     return (
         <div className={clsx(classes.root, {
             [className]: className,
         })}>
-            <Accordion classes={classesObj}>
+            <Accordion {...other}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"

@@ -6,7 +6,7 @@ import SignInWindow from "./SignInWindow";
 import Button from "@material-ui/core/Button";
 import MediaQuery from "react-responsive/src";
 import IconButton from "@material-ui/core/IconButton";
-import {MenuItem, Typography} from "@material-ui/core";
+import {MenuItem, Slide, Typography} from "@material-ui/core";
 import {MuiMenu} from "../Reuseables/UserInput/MuiMenu";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { UserContext } from "../../UserContext";

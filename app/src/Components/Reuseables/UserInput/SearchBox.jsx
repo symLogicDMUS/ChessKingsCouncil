@@ -5,14 +5,17 @@ import { Input } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { useStyles } from "./SearchBox.jss";
 
-export function SearchBox({
-    updateSearchText,
-    iconClassName,
-    className,
-    theme,
-    style,
-    icon,
-}) {
+export function SearchBox(props) {
+    const {
+        updateSearchText,
+        iconClassName,
+        className,
+        theme,
+        style,
+        icon,
+        ...other
+    } = props;
+
     const classes = useStyles({
         theme: theme,
     });
@@ -46,6 +49,7 @@ export function SearchBox({
                 type="search"
                 inputProps={{ "aria-label": "search" }}
                 disableUnderline={true}
+                {...other}
             />
         </Box>
     );

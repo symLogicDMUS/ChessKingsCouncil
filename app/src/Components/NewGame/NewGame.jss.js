@@ -1,28 +1,12 @@
 import {makeStyles} from "@material-ui/core/styles"
-import {navBarButtonHeight} from "../Reuseables/NavBar/NavBarButton.jss";
-import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+
+export const views = {
+    position: 'fixed',
+    left: '7.5vw',
+    top: '7.5vw',
+}
 
 export const useStyles = makeStyles({
-    new_game: props => ({
-        width: '100vw',
-        display: 'flex',
-        flexDirection: 'column',
-        '@media screen and (max-width: 960px)': {
-            height: `calc(100vh - ${appBarHeight}px)`,
-        },
-        '@media screen and (min-width: 960px)': {
-            height: `calc(100vh - ${navBarButtonHeight})`,
-        },
-    }),
-    tab_bar: props => ({
-        position: 'fixed',
-        '@media screen and (max-width: 960px)': {
-            top: appBarHeight,
-        },
-        '@media screen and (min-width: 960px)': {
-            top: navBarButtonHeight,
-        },
-    }),
     item: props => ({
         display: 'flex',
         flexDirection: 'column',

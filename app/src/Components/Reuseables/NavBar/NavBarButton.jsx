@@ -9,23 +9,22 @@ import {ListItem, ListItemIcon, ListItemText, Portal} from "@material-ui/core";
 import { useStyles as useMoreStyles } from "../Modals/StandardModal.jss";
 import { useStyles } from "./NavBarButton.jss";
 
-export function NavBarButton({
-    path,
-    pageName,
-    pageIcon,
-    screenCase,
-    isLocalLink,
-    isUnsavedChanges,
-    currentPage,
-    theme,
-}) {
+function NavBarButton(props) {
+    const {
+        path,
+        isRow,
+        pageName,
+        pageIcon,
+        screenCase,
+        isLocalLink,
+        isUnsavedChanges,
+        theme,
+    } = props;
+
     const history = useHistory();
     const [redirectModal, toggleRedirectModal] = useState(false);
 
-    const classes = useStyles({
-        theme: theme,
-        screenCase: screenCase,
-    });
+    const classes = useStyles({theme: theme, screenCase: screenCase,});
     const classes2 = useMoreStyles({ theme });
 
     const goToPage = () => {
@@ -42,18 +41,8 @@ export function NavBarButton({
         }
     };
 
-    const isRow = () => {
-        return (
-            screenCase === "wide" &&
-            (currentPage === "NewGame" ||
-                currentPage === "LoadGame" ||
-                currentPage === "MyPieces" ||
-                currentPage === "CouncilRules")
-        );
-    };
-
     return (
-        <>
+        <div className={classes.root}>
             {redirectModal ? (
                 <Portal>
                     <StandardModal
@@ -87,27 +76,25 @@ export function NavBarButton({
                 button
                 onClick={() => tryRedirect()}
                 className={clsx(classes.nav_bar_button, {
-                    [classes.row_direction]: isRow(),
+                    [classes.row_direction]: isRow,
                 })}
             >
                 <ListItemIcon>
-                    <SvgIcon
-                        fontVariant="button"
-                    >
+                    <SvgIcon>
                         {icons[pageIcon]}
                     </SvgIcon>
                 </ListItemIcon>
                 <ListItemText
-                    variant="button"
                     primary={pageName}
                     className={clsx(null, {
-                        [classes.row_direction]: isRow(),
+                        [classes.row_direction]: isRow,
                     })}
-                    noWrap
+
                 >
                     {pageName}
                 </ListItemText>
             </ListItem>
-        </>
+        </div>
     );
 }
+export default NavBarButton;

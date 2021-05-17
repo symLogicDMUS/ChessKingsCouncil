@@ -1,19 +1,17 @@
 import React, {useState} from "react";
-import {IconButton, MenuItem} from "@material-ui/core";
+import {MenuItem} from "@material-ui/core";
+import {IconButton} from "@material-ui/core";
 import {MoreVert} from "@material-ui/icons";
 import {MuiMenu} from "../UserInput/MuiMenu";
-import {HelpButton} from "./Help/HelpButton";
-import {SettingsButton} from "./SettingsButton";
+import HelpButton from "./Help/HelpButton";
+import SettingsButton from "./SettingsButton";
 import SignInOutButton from "../../Home/SignInOutButton";
 import {originTransform} from "../AppBar/Content/ThreeItemAppBarContent.jss";
-import {buttonFill, marginLeftZero, useStyles as useMoreStyles} from "./NavBar.jss";
+import {buttonFill, marginLeftZero} from "./NavBarRow.jss";
 import { useStyles } from "./NavBarRowMore.jss";
-import clsx from "clsx";
 
-
-export function NavBarRowMore(props) {
+function NavBarRowMore(props) {
     const classes = useStyles({theme: props.theme});
-    const classes2 = useMoreStyles({theme: props.theme});
 
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -40,6 +38,7 @@ export function NavBarRowMore(props) {
                     <HelpButton
                         key="Help"
                         pageIcon="help"
+                        isRow={true}
                         theme={props.theme}
                         helpTitle={props.helpTitle}
                         style={buttonFill(props.theme)}
@@ -52,8 +51,9 @@ export function NavBarRowMore(props) {
                 </MenuItem>
                 <MenuItem>
                     <SettingsButton
-                        key="MuiSettings-Button"
+                        isRow={true}
                         theme={props.theme}
+                        key="MuiSettings-Button"
                         className={classes.button}
                         style={buttonFill(props.theme)}
                         updateTheme={props.updateTheme}
@@ -77,3 +77,5 @@ export function NavBarRowMore(props) {
         </>
     );
 }
+
+export default NavBarRowMore;

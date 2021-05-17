@@ -7,7 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import {useStyles as useMoreStyles} from "../Drawers/ResponsiveDrawer.jss";
 import { useStyles } from "./AppBarLgScreen.jss";
 
-function AppBarLgScreen({theme, isHidden, onMenuButtonClick, className, children}) {
+function AppBarLgScreen(props) {
+    const {theme, isHidden, onMenuButtonClick, className, children, ...other} = props;
     const classes = useStyles({theme});
     const classes2 = useMoreStyles({theme});
 
@@ -19,6 +20,7 @@ function AppBarLgScreen({theme, isHidden, onMenuButtonClick, className, children
                 [classes2.hidden]: isHidden,
                 [className]: className,
             })}
+            {...other}
         >
             <Toolbar>
                 <IconButton

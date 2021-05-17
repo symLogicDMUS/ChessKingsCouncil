@@ -42,9 +42,7 @@ function ResponsiveDrawer({
     };
 
     useEffect(() => {
-        document.body.className = clsx(`${theme}-background`, {
-            'hide-overflow': noScroll
-        });
+        document.body.className = `${theme}-background`;
     }, [theme])
 
     return (

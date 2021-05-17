@@ -1,7 +1,7 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
-import {a11yProps} from "./a11yProps";
 import TabPanel from "./TabPanel";
+import TabBar from "./TabBar";
 import {Play} from "./Play";
 import {PlayAs} from "./GameOptions/PlayAs";
 import {PickType} from "./GameOptions/PickType";
@@ -15,17 +15,11 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
 import SwipeableViews from 'react-swipeable-views';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
 import {ThemeContext} from "../ThemeContext";
-import {useStyles} from "./NewGame.jss";
+import {views} from "./NewGame.jss";
 
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
-
-
 
 function NewGame() {
     const history = useHistory();
@@ -33,7 +27,6 @@ function NewGame() {
     const {themes, seThemes} = useContext(ThemeContext);
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
-    const classes = useStyles({theme: themes.newGame});
 
     const [value, setValue] = React.useState(0);
     const [gameName, updateGameName] = useState("");
@@ -81,17 +74,8 @@ function NewGame() {
         <>
             <Background theme={themes.newGame} appBar={isThin} navBar={isWide}/>
             <ResponsiveDrawer
+                navBar={null}
                 theme={themes.newGame}
-                navBar={
-                    <NavBar
-                        currentPage="NewGame"
-                        helpText={GameOptionsHelp(themes.newGame)}
-                        helpTitle={<HelpTitle theme={themes.newGame} fontSize='2.6vh'>New Game</HelpTitle>}
-                        redirectMessage={null}
-                        additionalSettings={null}
-                        theme={themes.newGame}
-                    />
-                }
                 navHorizontal={isWide}
                 appBarContent={<AppBarTitle theme={themes.newGame}>New Game</AppBarTitle>}
                 appBarType="title"
@@ -99,23 +83,22 @@ function NewGame() {
                 toolButtons={null}
                 noScroll={true}
             >
-                <AppBar className={classes.tab_bar} color="default">
-                    <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        variant={"centered"}
-                        // variant={isWide ? 'centered' : 'fullWidth'}
-                    >
-                        <Tab label="Item One" {...a11yProps(0)} />
-                        <Tab label="Item Two" {...a11yProps(1)} />
-                        <Tab label="Item Three" {...a11yProps(2)} />
-                    </Tabs>
-                </AppBar>
+                <TabBar
+                    wide={isWide}
+                    value={value}
+                    theme={themes.newGame}
+                    onChange={handleChange}
+                />
                 <SwipeableViews
                     index={value}
+                    style={views}
                     onChangeIndex={handleChangeIndex}
                 >
-                    <TabPanel index={0} value={value} theme={themes.newGame} className={classes.new_game}>
+                    <TabPanel
+                        index={0}
+                        value={value}
+                        theme={themes.newGame}
+                    >
                         <GameName
                             key='GameName'
                             theme={themes.newGame}
@@ -123,7 +106,11 @@ function NewGame() {
                             screenCase={isWide ? 'wide' : 'thin'}
                         />
                     </TabPanel>
-                    <TabPanel index={1} value={value} theme={themes.newGame} className={classes.new_game}>
+                    <TabPanel
+                        index={1}
+                        value={value}
+                        theme={themes.newGame}
+                    >
                         <PickType
                             key="PickType"
                             gameType={gameType}
@@ -132,7 +119,11 @@ function NewGame() {
                             screenCase={isWide ? 'wide' : 'thin'}
                         />
                     </TabPanel>
-                    <TabPanel index={2} value={value} theme={themes.newGame} className={classes.new_game}>
+                    <TabPanel
+                        index={2}
+                        value={value}
+                        theme={themes.newGame}
+                    >
                         <PlayAs
                             key="PlayAs"
                             theme={themes.newGame}

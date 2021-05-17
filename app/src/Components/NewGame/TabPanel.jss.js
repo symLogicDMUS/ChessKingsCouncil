@@ -1,12 +1,10 @@
-import { makeStyles } from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     content: props => ({
-        // position: 'fixed',
-        padding: '7.5vw',
-        height: '100%',
-        width: '100%',
+        width: '85vw',
         display: 'flex',
         flexDirection: 'column',
+        height: 'calc(100vh - 15vw)',
     }),
 }, {index: 1});

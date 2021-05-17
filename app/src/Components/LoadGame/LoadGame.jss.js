@@ -1,11 +1,23 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes/themes.jss";
 import {modal} from "../helpers/modal.jss";
+import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
+import {navBarButtonHeight} from "../Reuseables/NavBar/NavBarButton.jss";
 
 export const useStyles = makeStyles({
-    modal: props => ({
-        ...modal,
-        zIndex: 1,
+    load_game: props => ({
+        position: 'fixed',
+        width: '100vw',
+        display: 'flex',
+        flexDirection: 'column',
+        '@media screen and (max-width: 960px)': {
+            top: appBarHeight,
+            height: `calc(100vh - ${appBarHeight}px)`,
+        },
+        '@media screen and (min-width: 960px)': {
+            top: navBarButtonHeight,
+            height: `calc(100vh - ${navBarButtonHeight}px)`,
+        },
     }),
     title: props => ({
         marginRight: 'auto',

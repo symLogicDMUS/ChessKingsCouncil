@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import Select from "@material-ui/core/Select";
 
 export function MuiSelect(props) {
+
+    const {updateParent, children, overrideItem, ...other} = props;
+
     const [selected, setSelected] = useState("");
 
     const handleChange = (e) => {
@@ -13,20 +16,9 @@ export function MuiSelect(props) {
 
     return (
         <Select
-            id={props.id}
-            size={props.size}
-            label={props.label}
             onChange={handleChange}
-            labelId={props.labelId}
-            variant={props.variant}
-            onFocus={props.onFocus}
-            classes={props.classes}
-            inputRef={props.inputRef}
-            autoFocus={props.autoFocus}
-            fullWidth={props.fullWidth}
-            defaultValue={props.defaultValue}
-            value={props.overrideItem ? props.overrideItem : selected}
-            disableUnderline={props.disableUnderline}
+            value={!!overrideItem ? overrideItem : selected}
+            {...other}
         >
             {props.children}
         </Select>

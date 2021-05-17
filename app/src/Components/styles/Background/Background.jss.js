@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {navBarButtonHeight} from "../../Reuseables/NavBar/NavBarButton.jss";
+import {appBarHeight} from "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles({
     background: props => ({
@@ -27,12 +28,15 @@ export const useStyles = makeStyles({
         marginTop: 'auto',
     }),
     toolbar: {
-        height: 48,
+        height: appBarHeight,
         width: '100vw',
     },
     navbar: props => ({
         height: navBarButtonHeight,
         width: '100vw',
+    }),
+    navWithTabs: props => ({
+        height: `calc(${navBarButtonHeight}px + ${appBarHeight}px)`
     }),
     lgScreenBar: props => ({
         height: 37,

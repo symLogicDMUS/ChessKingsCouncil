@@ -7,8 +7,8 @@ import InfoIcon from '@material-ui/icons/Info';
 import SignInOutButton from "./SignInOutButton";
 import "../styles/Background/_backgrounds.scss"
 import {Background} from "../styles/Background/Background";
-import {HelpButton} from "../Reuseables/NavBar/Help/HelpButton";
-import {SettingsButton} from "../Reuseables/NavBar/SettingsButton";
+import HelpButton from "../Reuseables/NavBar/Help/HelpButton";
+import SettingsButton from "../Reuseables/NavBar/SettingsButton";
 import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
 import {useStyles} from "./MainMenuLg.jss";
 

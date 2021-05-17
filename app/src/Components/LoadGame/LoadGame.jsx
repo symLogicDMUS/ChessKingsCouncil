@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useReducer, useState} from "react";
+import React, {useContext, useEffect, useReducer} from "react";
 import {useHistory} from "react-router-dom";
 import {copy} from "../helpers/copy";
 import {getGames} from "../../API/getGames";
@@ -29,9 +29,9 @@ function LoadGame() {
     const history = useHistory();
     const uid = useContext(UserContext);
     const {themes, setThemes} = useContext(ThemeContext);
-    const classes = useStyles({theme: themes.loadGame});
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
+    const classes = useStyles({theme: themes.loadGame});
 
     const [state, dispatch] = useReducer(reducer, {
         selectedGame: null,
@@ -98,6 +98,8 @@ function LoadGame() {
                 theme={themes.loadGame}
                 navBar={
                     <NavBar
+                        fullWidth={true}
+                        lgDirection={"row"}
                         currentPage="LoadGame"
                         redirectMessage={null}
                         helpText={LoadGameHelp(themes.loadGame)}
@@ -131,33 +133,35 @@ function LoadGame() {
                 appBarType='2item'
                 seeMoreIcon={<SearchIcon className={classes.see_more_icon} />}
             >
-                <MuiGrid
-                    loaded={state.loaded}
-                    theme={themes.loadGame}
-                    onDeleteClick={deleteGameEntry}
-                    searchText={state.searchText}
-                    selectedItem={state.selectedGame}
-                    defaultChecked={state.showNames}
-                    onOkClick={() => dispatch({type: 'load-game'})}
-                    toggleShowNames={() => dispatch({type: 'toggle-show-names'})}
-                    confirmDeleteMessage={`Are you sure you want to delete game ${state.selectedGame}?`}
-                    title={
-                        isWide ? <LoadGameTitle theme={themes.loadGame} updateSearchText={updateSearchText} /> : null
-                    }
-                    topFlexbox={null}
-                    onClose={null}
-                    className={isThin ? classes.mui_grid_padding : null}
-                >
-                    <GameSnapshots
-                        games={state.games}
-                        setChoice={setChoice}
-                        selectedGame={state.selectedGame}
-                        searchText={state.searchText}
-                        showNames={state.showNames}
+                <div className={classes.load_game}>
+                    <MuiGrid
                         loaded={state.loaded}
                         theme={themes.loadGame}
-                    />
-                </MuiGrid>
+                        onDeleteClick={deleteGameEntry}
+                        searchText={state.searchText}
+                        selectedItem={state.selectedGame}
+                        defaultChecked={state.showNames}
+                        onOkClick={() => dispatch({type: 'load-game'})}
+                        toggleShowNames={() => dispatch({type: 'toggle-show-names'})}
+                        confirmDeleteMessage={`Are you sure you want to delete game ${state.selectedGame}?`}
+                        title={
+                            isWide ? <LoadGameTitle theme={themes.loadGame} updateSearchText={updateSearchText} /> : null
+                        }
+                        topFlexbox={null}
+                        onClose={null}
+                        className={isThin ? classes.mui_grid_padding : null}
+                    >
+                        <GameSnapshots
+                            games={state.games}
+                            setChoice={setChoice}
+                            selectedGame={state.selectedGame}
+                            searchText={state.searchText}
+                            showNames={state.showNames}
+                            loaded={state.loaded}
+                            theme={themes.loadGame}
+                        />
+                    </MuiGrid>
+                </div>
             </ResponsiveDrawer>
         </>
     );
