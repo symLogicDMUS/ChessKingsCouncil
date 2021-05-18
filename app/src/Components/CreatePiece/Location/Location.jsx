@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import { Typography } from "@material-ui/core";
 import MediaQuery from "react-responsive/src";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

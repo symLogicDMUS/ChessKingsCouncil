@@ -5,7 +5,8 @@ import {themes} from "../../styles/themes/themes.jss";
 import {Typography} from "@material-ui/core";
 import { useStyles } from "./LocationSqrGrow.jss";
 
-export function LocationSqrGrow({theme, onAnimationComplete, pieceLoc, isImg, children}) {
+export function LocationSqrGrow(props) {
+    const {theme, onAnimationComplete, pieceLoc, children, ...other} = props;
     const classes = useStyles({theme: theme, rf: children});
     return (
             <motion.div
@@ -22,6 +23,7 @@ export function LocationSqrGrow({theme, onAnimationComplete, pieceLoc, isImg, ch
                     duration: 0.7,
                 }}
                 onAnimationComplete={onAnimationComplete}
+                {...other}
             >
                 <Typography className={classes.text} variant='button'>{children===pieceLoc ? null : children}</Typography>
             </motion.div>

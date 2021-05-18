@@ -7,34 +7,35 @@ const PieceSavedSuccessfully = React.lazy(() => import("./PieceSavedSuccessfully
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import("../NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame"));
 
 function CreatePiecePageAnimations(props) {
+    const {state, close, onClose, callback, name, theme} = props;
     return <>
-        {props.state.uploadPiece && (
+        {state.uploadPiece && (
             <LoadBar
-                theme={props.theme}
-                close={props.close}
-                pieceName={props.state.name}
-                newPiece={props.state.newPiece}
-                saveInstance={props.state.saveInstance}
+                theme={theme}
+                close={close}
+                pieceName={name}
+                newPiece={state.newPiece}
+                saveInstance={state.saveInstance}
 
             />
         )}
-        {props.state.isFirstVisit && props.state.justSaved && (
+        {state.isFirstVisit && state.justSaved && (
             <PuttingThePieceICreatedIntoAGame
-                theme={props.theme}
-                onClose={props.onClose}
+                theme={theme}
+                onClose={onClose}
                 title={
-                    <HelpTitle theme={props.theme} fontSize={"2.6vh"}>
+                    <HelpTitle theme={theme} fontSize={"2.6vh"}>
                         Congratulations on Creating Your First Piece!
                         Here's How To Put it Into a Game
                     </HelpTitle>
                 }
             />
         )}
-        {!props.state.isFirstVisit && props.state.justSaved && (
+        {!state.isFirstVisit && state.justSaved && (
             <AnimatePresencePortal>
                 <PieceSavedSuccessfully
-                    callback={props.callback}
-                    theme={props.theme}
+                    callback={callback}
+                    theme={theme}
                 />
             </AnimatePresencePortal>
         )}

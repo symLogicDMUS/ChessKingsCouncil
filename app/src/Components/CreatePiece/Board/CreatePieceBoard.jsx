@@ -11,19 +11,22 @@ import LocationButton from "../Location/LocationButton";
 import ArrowButton from "../Range/SpanArrowButtons/ArrowButton";
 import { useStyles } from "./CreatePieceBoard.jss";
 
-function CreatePieceBoard({
-    theme,
-    imgUrl,
-    setLoc,
-    pieceLoc,
-    spanDisplays,
-    offsetDisplays,
-    toggleOffset,
-    toggleSpan,
-    showSpanText,
-    showOffsetText,
-    activeTool,
-}) {
+function CreatePieceBoard(props) {
+    const {
+        theme,
+        imgUrl,
+        setLoc,
+        pieceLoc,
+        spanDisplays,
+        offsetDisplays,
+        toggleOffset,
+        toggleSpan,
+        showSpanText,
+        showOffsetText,
+        activeTool,
+        ...other
+    } = props;
+
     const isWide = useMediaQuery("(min-width: 960px)");
     const screenCase = isWide ? "wide" : "thin";
 
@@ -196,7 +199,7 @@ function CreatePieceBoard({
 
     return (
         <>
-            <div className={classes.board}>{getBoard()}</div>
+            <div className={classes.board} {...other}>{getBoard()}</div>
         </>
     );
 }
