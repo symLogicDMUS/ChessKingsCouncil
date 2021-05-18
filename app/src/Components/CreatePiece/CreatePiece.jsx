@@ -341,8 +341,8 @@ function CreatePiece(props) {
                 }
                 navBar={
                     <NavBar
-                        currentPage="CreatePiece"
                         theme={theme}
+                        currentPage="CreatePiece"
                         redirectMessage={messageStr}
                         helpTitle={
                             <HelpTitle theme={theme} fontSize={"2.6vh"}>
