@@ -7,12 +7,14 @@ export const frame = theme => ({
     backgroundColor: themes[theme].location_sqr,
     padding: 0,
 });
+
 export const clickAnimation = theme => ({
     backgroundColor: [
         lighten(themes[theme].location_sqr, 0.75),
         themes[theme].location_sqr,
     ],
 });
+
 export const currentSqr = theme => ({
     backgroundColor: lighten(themes[theme].location_sqr, 0.4),
 });
@@ -21,14 +23,13 @@ export const useStyles = makeStyles({
     button: props => ({
         color: themes[props.theme].text,
     }),
-    button_normal: (props) => ({
-        background: themes[props.theme].fill,
-        border: `0.04em solid ${themes[props.theme].outline}`,
+    button_normal: props => ({
+        backgroundColor: themes[props.theme].fill,
     }),
     button_selected: (props) => ({
-        background: themes[props.theme].location_button_selected,
+        backgroundColor: themes[props.theme].location_button_selected,
         '&:hover': {
-            background: themes[props.theme].location_button_selected,
+            backgroundColor: themes[props.theme].location_button_selected,
         },
     }),
     text: props => ({

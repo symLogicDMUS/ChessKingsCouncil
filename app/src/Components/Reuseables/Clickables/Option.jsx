@@ -6,8 +6,11 @@ import {IconButton, SvgIcon} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import {useStyles} from "./Option.jss";
 
-function Option({onClick, iconType, name, theme, className, isGameOption}) {
+function Option(props) {
+    const {onClick, iconType, name, theme, className, isGameOption, ...other} = props;
+
     const classes = useStyles({theme: theme})
+
     return (
         <IconButton
             className={clsx(null, {
@@ -17,6 +20,7 @@ function Option({onClick, iconType, name, theme, className, isGameOption}) {
             })}
             classes={{label: classes.label}}
             onClick={onClick}
+            {...other}
         >
             <SvgIcon className={classes.icon}>
                 {icons[iconType](themes[theme].button_text)}

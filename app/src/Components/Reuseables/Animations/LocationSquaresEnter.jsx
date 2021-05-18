@@ -7,10 +7,10 @@ import {useStyles} from "./LocationSquaresEnter.jss";
 
 export function LocationSquaresEnter({theme, pieceLoc, isImg, onAnimationComplete}) {
     const classes = useStyles();
-    const classes2 = useMoreStyles({theme});
+    // const classes2 = useMoreStyles({theme});
     return (
         <Portal>
-            <div className={classes2.backdrop}>
+            <div className={classes.backdrop}>
                 <div className={classes.board}>
                     <LocationSqrGrow onAnimationComplete={onAnimationComplete} pieceLoc={pieceLoc} isImg={isImg} theme={theme}>
                         d4

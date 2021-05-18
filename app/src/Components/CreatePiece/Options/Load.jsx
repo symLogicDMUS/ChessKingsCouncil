@@ -3,15 +3,17 @@ import { Portal } from "@material-ui/core";
 
 const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
 const ProfilesModal = React.lazy(() => import('./ProfilesModal'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
+const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
 
-function Load({
-    load,
-    erase,
-    theme,
-    className,
-    buttonType,
-}) {
+function Load(props) {
+    const {
+        load,
+        erase,
+        theme,
+        buttonType,
+        className,
+    } = props;
+
     const [modal, setModal] = useState(false);
 
     return (
@@ -37,7 +39,7 @@ function Load({
                     onClick={() => setModal(true)}
                 />
             ) : (
-                <ToolButtonAlt
+                <ToolButton
                     theme={theme}
                     onClick={() => setModal(true)}
                     isActive={modal}

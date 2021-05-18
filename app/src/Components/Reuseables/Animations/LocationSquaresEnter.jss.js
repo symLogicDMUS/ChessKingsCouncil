@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {appBarHeight} from "../Drawers/ResponsiveDrawer.jss";
+import {miniVariantIconsColumnWidth} from "../Drawers/MiniVariantDrawer.jss";
 
 export const useStyles = makeStyles({
     board: props => ({
@@ -19,5 +20,13 @@ export const useStyles = makeStyles({
         display: 'grid',
         gridTemplateColumns: 'repeat(8, 12.5%)',
         gridTemplateRows: 'repeat(8, 12.5%)',
+    }),
+    backdrop: props => ({
+        zIndex: 1,
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        height: '100vh',
+        width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
     }),
 }, {index: 1});

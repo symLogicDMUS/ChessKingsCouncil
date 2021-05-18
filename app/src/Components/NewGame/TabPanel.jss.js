@@ -7,5 +7,6 @@ export const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         height: 'calc(100vh - 15vw)',
+        borderBottom: 'red',
     }),
 }, {index: 1});

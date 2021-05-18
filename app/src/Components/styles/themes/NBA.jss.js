@@ -1,8 +1,8 @@
-import {lighten} from "@material-ui/core/styles";
+import {darken, lighten} from "@material-ui/core/styles";
 
 export const NBA = {
     outline: '#ffffff',
-    outline_alt: '#d9d9d9',
+    outline_alt: '#b52532',
     outline_alt2: '#363636',
     fill: '#253b73',
     fill2: '#b52532',
@@ -15,8 +15,8 @@ export const NBA = {
     button_text: '#ffffff',
     button_hover_fill: '#b52532',
     button_hover_text: '#ffffff',
-    location_button_selected: '#253b73',
-    modal_fill: '#b52532',
+    location_button_selected: '#b52532',
+    modal_fill: darken('#253b73', 0.08),
     modal_actions: '#fff',
     img_border: '#ffffff',
     even_row: '#253b73',
@@ -34,8 +34,8 @@ export const NBA = {
     sqr_text_light: '#ffffff',
     sqr_text_dark: '#ffffff',
     sqr_text: '#ffccbc',
-    sqr_hover: '#ff0000',
-    sqr_hover_alt: '#72e2ff',
+    sqr_hover: '#ec2525',
+    sqr_hover_alt: '#253b73',
     page_link: '#253b73',
     page_link_hover: '#b52532',
     drawer_outline: '#373737',

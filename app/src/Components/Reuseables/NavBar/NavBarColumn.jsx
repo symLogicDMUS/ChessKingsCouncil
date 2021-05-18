@@ -72,6 +72,9 @@ function NavBarColumn(props) {
             >
                 <Tab
                     id={"Home"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             path="/"
@@ -89,6 +92,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"Help"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <HelpButton
                             key="Help"
@@ -106,6 +112,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"Settings"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <SettingsButton
                             theme={theme}
@@ -120,6 +129,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"NewGame"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             path="/NewGame"
@@ -136,6 +148,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"LoadGame"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             path="/LoadGame"
@@ -153,6 +168,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"CreatePiece"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             path="/CreatePiece"
@@ -170,6 +188,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"MyPieces"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             path="/MyPieces"
@@ -187,6 +208,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"ChessRules"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             key="chess-dot-com"
@@ -204,6 +228,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"CouncilRules"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             key="/CouncilRules"
@@ -220,6 +247,9 @@ function NavBarColumn(props) {
                 />
                 <Tab
                     id={"AuthorGithub"}
+                    onClick={(event) => {
+                        event.preventDefault();
+                    }}
                     label={
                         <NavBarButton
                             key="github-dot-com"

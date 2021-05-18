@@ -31,7 +31,6 @@ export const useStyles = makeStyles({
         borderRadius: '0.25em',
         color: themes[props.theme].text,
         border: `0.04em solid ${themes[props.theme].outline}`,
-        backgroundColor: lighten(themes[props.theme].fill, 0.01),
         "& .MuiSvgIcon-root": {
             width: '2.15vw',
             height: '2.15vw',

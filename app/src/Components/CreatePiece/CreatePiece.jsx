@@ -186,7 +186,7 @@ function CreatePiece(props) {
     };
 
     const locationToolClick = () => {
-        if (state.miniVariantTool.activeTool === "Location") {
+        if (state.activeTool === "Location") {
             toggleMiniVariantTool(null);
         } else {
             setLocSqrEntry(true);

@@ -1,7 +1,5 @@
 import {themes} from "../../styles/themes/themes.jss";
 import {makeStyles} from "@material-ui/core/styles";
-import {drawerItemWidth} from "../../NewGame/Customize/Customize.jss";
-import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 import {lgScreenItemWidth} from "../GameRoot.jss";
 
 export const useStyles = makeStyles({

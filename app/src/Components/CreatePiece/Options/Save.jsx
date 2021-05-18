@@ -9,9 +9,20 @@ import { useStyles } from "../../Reuseables/Modals/StandardModal.jss";
 import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
 
 const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
+const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
 
-function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType, justSaved}) {
+function Save(props) {
+    const {
+        save,
+        pieceName,
+        whiteImg,
+        blackImg,
+        theme,
+        className,
+        buttonType,
+        justSaved,
+        ...other
+    } = props;
 
     const [pieceNameExists, setPieceNameExists] = useState(false);
     const [message, setMessage] = useState(null);
@@ -159,14 +170,16 @@ function Save({save, pieceName, whiteImg, blackImg, theme, className, buttonType
                     onClick={makeSaveAttempt}
                     className={className}
                     isGameOption={false}
+                    {...other}
                 />
             ) : (
-                <ToolButtonAlt
+                <ToolButton
                     text="Save"
                     theme={theme}
                     iconName={"save_alt"}
                     isActive={modal || justSaved}
                     onClick={makeSaveAttempt}
+                    {...other}
                 />
             )}
         </>

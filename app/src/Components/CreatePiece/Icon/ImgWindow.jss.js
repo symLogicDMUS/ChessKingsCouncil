@@ -9,8 +9,9 @@ export const originTransform = {vertical: 'top', horizontal: 'right'};
 export const useStyles = makeStyles({
     img_window: props => ({
         display: 'flex',
-        alignItems: 'center',
         cursor: 'pointer',
+        alignItems: 'center',
+        borderRadius: '0.35rem',
         backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 960px)': {
             '--widthA': '100vw',
@@ -25,7 +26,6 @@ export const useStyles = makeStyles({
             height: windowSizeLg,
             border: `0.005rem solid ${themes[props.theme].outline}`,
         },
-        borderRadius: '0.35rem',
     }),
     white_window: props => ({
         '--widthA': '100vw',

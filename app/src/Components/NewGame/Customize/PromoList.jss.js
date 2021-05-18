@@ -22,10 +22,13 @@ export const useStyles = makeStyles({
     }),
     scroll_table_list_item: props => ({
         height: 26,
+        borderLeft: `0.05em solid ${themes[props.theme].outline}`,
+        borderRight: `0.05em solid ${themes[props.theme].outline}`,
     }),
     scroll_table_button: props => ({
         height: 16,
         borderRadius: 0,
+        border: `0.05em solid ${themes[props.theme].outline}`,
     }),
     scroll_table_text: props => ({
         '@media screen and (max-width: 960px)': {
@@ -37,6 +40,7 @@ export const useStyles = makeStyles({
         paddingLeft: '1vw',
     }),
     scroll_table_title: props => ({
+        backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 960px)': {
             fontSize: '1rem',
         },

@@ -7,7 +7,7 @@ export const useStyles = makeStyles({
         zIndex: 6,
         position: 'fixed',
         borderRadius: '0.25rem',
-        backgroundColor: themes[props.theme].fill,
+        backgroundColor: themes[props.theme].fill2,
     }),
     border1: props => ({
         border: `0.065rem solid ${themes[props.theme].odd_row}`,

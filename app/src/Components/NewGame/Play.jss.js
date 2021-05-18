@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
         position: 'fixed',
         width: '85vw',
         left: '7.5vw',
-        bottom: 36,
+        bottom: 45,
         display: 'flex',
         flexDirection: 'column',
         "& .MuiButton-root": {

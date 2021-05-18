@@ -1,14 +1,17 @@
 import React from "react";
 
 const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
+const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
 
-function Reset({
-    theme,
-    reset,
-    className,
-    buttonType,
-}) {
+function Reset(props) {
+    const {
+        theme,
+        reset,
+        className,
+        buttonType,
+        ...other
+    } = props;
+
     return (
         <>
             {buttonType === "option" ? (
@@ -19,14 +22,16 @@ function Reset({
                     theme={theme}
                     className={className}
                     isGameOption={false}
+                    {...other}
                 />
             ) : (
-                <ToolButtonAlt
+                <ToolButton
                     theme={theme}
                     isActive={false}
                     onClick={reset}
                     iconName={"reset_alt"}
                     text={"reset"}
+                    {...other}
                 />
             )}
         </>

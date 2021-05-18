@@ -1,6 +1,6 @@
 import React from "react";
 import clsx from "clsx";
-import {SubList} from "./SubList";
+import {SubsList} from "./SubsList";
 import {motion} from "framer-motion";
 import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./SubsModal.jss";
@@ -44,7 +44,7 @@ function SubsModal({className, theme, children}) {
             transition={{ duration: 0.7 }}
             drag
         >
-            <SubList subs={children} theme={theme} />
+            <SubsList subs={children} theme={theme} />
         </motion.div>
     )
 }

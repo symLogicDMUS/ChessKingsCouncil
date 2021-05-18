@@ -31,7 +31,7 @@ export const useStyles = makeStyles({
             width: '3.2125vw',
             height: '3.2125vw',
             borderRadius: '0.25rem',
-            border: `0.05em solid ${themes[props.theme].outline}`,
+            border: `0.005rem solid ${themes[props.theme].outline}`,
             "& .MuiTouchRipple-root": {
                 color: themes[props.theme].span,
             },

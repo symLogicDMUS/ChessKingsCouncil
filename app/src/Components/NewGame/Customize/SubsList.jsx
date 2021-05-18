@@ -3,9 +3,9 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
 import {ListTitle} from "./ListTitle";
-import {useStyles} from "./SubList.jss";
+import {useStyles} from "./SubsList.jss";
 
-export function SubList({subs, className, theme}) {
+export function SubsList({subs, className, theme}) {
     const classes = useStyles({theme: theme})
     return (
             <Box className={clsx(classes.sub_list, {

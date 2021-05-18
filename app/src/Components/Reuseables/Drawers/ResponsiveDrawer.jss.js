@@ -8,7 +8,7 @@ export const appBarHeight = 48;
 export const toolBarPadding = 4;
 export const menuIconWidth = 48;
 export const menuIconPadding = 12;
-export const navDrawerSmWidth = 180;
+export const navDrawerSmWidth = 200;
 export const menuIconMarginRight = 8;
 
 export const useStyles = makeStyles((theme) => ({

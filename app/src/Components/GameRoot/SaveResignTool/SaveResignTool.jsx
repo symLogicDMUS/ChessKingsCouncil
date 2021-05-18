@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import { Portal } from "@material-ui/core";
+import React, {useContext, useState} from "react";
+import {Portal} from "@material-ui/core";
 import AskLoginButton from "../../Home/AskLoginButton";
-import { UserContext } from "../../../UserContext";
-import { useStyles } from "./SaveResignTool.jss";
+import {UserContext} from "../../../UserContext";
+import {useStyles} from "./SaveResignTool.jss";
 
 const SaveAs = React.lazy(() => import("./SaveAs"));
 const ResignWindow = React.lazy(() => import("./ResignWindow"));

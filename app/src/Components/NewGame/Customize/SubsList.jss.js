@@ -20,6 +20,7 @@ export const useStyles = makeStyles({
     }),
     header: props => ({
         gridColumn: '1/3',
+        backgroundColor: themes[props.theme].fill,
         '@media screen and (max-width: 960px)': {
             height: 32,
             fontSize: '1.1rem',

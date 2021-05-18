@@ -1,9 +1,10 @@
 import React from "react";
 
 const Option = React.lazy(() => import('../../Reuseables/Clickables/Option'));
-const ToolButtonAlt = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButtonAlt'));
+const ToolButton = React.lazy(() => import('../../Reuseables/MiniVariantTool/ToolButton'));
 
-function Erase({erase, theme, className, buttonType}) {
+function Erase(props) {
+    const {erase, theme, className, buttonType, ...other} = props;
     return (
         <>
             {buttonType==="option" ? (
@@ -14,14 +15,16 @@ function Erase({erase, theme, className, buttonType}) {
                     theme={theme}
                     className={className}
                     isGameOption={false}
+                    {...other}
                 />
             ) : (
-                <ToolButtonAlt
+                <ToolButton
                     theme={theme}
                     onClick={erase}
                     isActive={false}
                     iconName='erase_alt'
                     text="Erase"
+                    {...other}
                 />
             )}
         </>

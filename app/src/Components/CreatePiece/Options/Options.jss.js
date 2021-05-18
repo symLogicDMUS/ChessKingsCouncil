@@ -25,6 +25,9 @@ export const useStyles = makeStyles({
         alignItems: 'center',
 
     }),
+    option: props => ({
+        backgroundColor: themes[props.theme].fill,
+    }),
     smOption: props => ({
         marinTop: '1vw',
         marginLeft: '2vw',

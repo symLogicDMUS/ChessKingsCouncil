@@ -1,7 +1,7 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import {newData} from "../NewData";
-import {SubList} from "./SubList";
+import {SubsList} from "./SubsList";
 import {copy} from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
 import MediaQuery from "react-responsive/src";
@@ -302,7 +302,7 @@ class Customize extends React.Component {
                         }
                         tools={
                             <Box className={this.props.classes.tools}>
-                                <SubList
+                                <SubsList
                                     subs={this.subs}
                                     theme={value.themes.customize}
                                 />

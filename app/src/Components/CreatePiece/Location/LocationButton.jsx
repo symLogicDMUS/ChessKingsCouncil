@@ -14,7 +14,9 @@ const LocationButton = memo(({rf, onClick, selected, theme, children}) => {
         const [animate, setAnimate] = useState(false);
 
         let addedStyle = {};
-        if (rf === selected) addedStyle = currentSqr(theme)
+        if (rf === selected) {
+            addedStyle = currentSqr(theme)
+        }
 
         return (
             <>
@@ -37,8 +39,8 @@ const LocationButton = memo(({rf, onClick, selected, theme, children}) => {
                     <Button
                         onClick={onClick}
                         className={clsx(classes2.create_piece_option, {
+                            [classes.button_normal]: ! selected,
                             [classes.button_selected]: selected,
-                            [classes.button_normal]: !selected,
                         })}
                         variant="outlined"
                     >

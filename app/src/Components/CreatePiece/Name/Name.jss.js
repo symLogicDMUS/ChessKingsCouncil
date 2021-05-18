@@ -2,7 +2,8 @@ import {darken} from "@material-ui/core/styles";
 import {marginBottom} from "../CreatePiece.jss";
 import {themes} from "../../styles/themes/themes.jss";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {miniVariantIconsColumnWidth} from
+        "../../Reuseables/Drawers/MiniVariantDrawer.jss";
 
 const padding = 16;
 
@@ -61,5 +62,8 @@ export const useStyles = makeStyles({
     }),
     close_icon: props => ({
        color: themes[props.theme].text,
+    }),
+    special_case_fill: props => ({
+       backgroundColor: themes[props.theme].fill,
     }),
 }, {index: 1});

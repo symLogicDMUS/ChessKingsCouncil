@@ -1,7 +1,8 @@
 import React from "react";
-import { MuiTextField as TextField } from
+import clsx from "clsx";
+import {MuiTextField as TextField} from
         "../../Reuseables/UserInput/MuiTextField";
-import { useStyles } from "./Name.jss";
+import {useStyles} from "./Name.jss";
 
 function Name({
     updateName,
@@ -17,6 +18,8 @@ function Name({
     return (
         <TextField
             theme={theme}
+            id="game-name"
+            size={"medium"}
             fullWidth={true}
             label="Piece Name"
             autoComplete="off"
@@ -24,9 +27,9 @@ function Name({
             variant="outlined"
             onChange={handleInput}
             defaultValue={defaultValue}
-            className={classes.name}
-            size={"medium"}
-            id="game-name"
+            className={clsx(classes.name, {
+                [classes.special_case_fill]: theme==="NBA"
+            })}
         />
     );
 }
