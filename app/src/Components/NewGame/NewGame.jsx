@@ -69,77 +69,66 @@ function NewGame() {
     return (
         <>
             <Background theme={themes.newGame} appBar={isThin} navBar={isWide}/>
-            <ResponsiveDrawer
-                navBar={null}
+            <TabBar
+                wide={isWide}
+                value={value}
+                gameName={gameName}
+                gameType={gameType}
+                playerType={playerType}
                 theme={themes.newGame}
-                navHorizontal={isWide}
-                appBarContent={null}
-                appBarType="title"
-                tools={null}
-                toolButtons={null}
-                noScroll={true}
+                onChange={handleChange}
+            />
+            <SwipeableViews
+                index={value}
+                style={views}
+                onChangeIndex={handleChangeIndex}
             >
-                <TabBar
-                    wide={isWide}
+                <TabPanel
+                    index={0}
                     value={value}
-                    gameName={gameName}
-                    gameType={gameType}
-                    playerType={playerType}
                     theme={themes.newGame}
-                    onChange={handleChange}
-                />
-                <SwipeableViews
-                    index={value}
-                    style={views}
-                    onChangeIndex={handleChangeIndex}
                 >
-                    <TabPanel
-                        index={0}
-                        value={value}
+                    <GameName
+                        key='GameName'
+                        gameName={gameName}
                         theme={themes.newGame}
-                    >
-                        <GameName
-                            key='GameName'
-                            gameName={gameName}
-                            theme={themes.newGame}
-                            setGameName={setGameName}
-                        />
-                    </TabPanel>
-                    <TabPanel
-                        index={1}
-                        value={value}
-                        theme={themes.newGame}
-                    >
-                        <PickType
-                            key="PickType"
-                            gameType={gameType}
-                            theme={themes.newGame}
-                            setGameType={setGameType}
-                        />
-                    </TabPanel>
-                    <TabPanel
-                        index={2}
-                        value={value}
-                        theme={themes.newGame}
-                    >
-                        <PlayAs
-                            key="PlayAs"
-                            theme={themes.newGame}
-                            playerType={playerType}
-                            setPlayerType={setPlayerType}
-                        />
-                    </TabPanel>
-                </SwipeableViews>
-                <Play
-                    finish={finish}
-                    gameName={gameName}
-                    gameType={gameType}
-                    playerType={playerType}
+                        setGameName={setGameName}
+                    />
+                </TabPanel>
+                <TabPanel
+                    index={1}
+                    value={value}
                     theme={themes.newGame}
-                    predicate={(c) => charNotInStr(c, gameName)}
-                    key='Play-Button'
-                />
-            </ResponsiveDrawer>
+                >
+                    <PickType
+                        key="PickType"
+                        gameType={gameType}
+                        theme={themes.newGame}
+                        setGameType={setGameType}
+                    />
+                </TabPanel>
+                <TabPanel
+                    index={2}
+                    value={value}
+                    theme={themes.newGame}
+                >
+                    <PlayAs
+                        key="PlayAs"
+                        theme={themes.newGame}
+                        playerType={playerType}
+                        setPlayerType={setPlayerType}
+                    />
+                </TabPanel>
+            </SwipeableViews>
+            <Play
+                finish={finish}
+                gameName={gameName}
+                gameType={gameType}
+                playerType={playerType}
+                theme={themes.newGame}
+                predicate={(c) => charNotInStr(c, gameName)}
+                key='Play-Button'
+            />
         </>
     );
 }

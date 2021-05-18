@@ -86,4 +86,7 @@ export const useStyles = makeStyles({
         marginRight: '2vw',
         marginBottom: '2vw',
     }),
+    text: props => ({
+        color: themes[props.theme].text,
+    }),
 }, {index: 1});

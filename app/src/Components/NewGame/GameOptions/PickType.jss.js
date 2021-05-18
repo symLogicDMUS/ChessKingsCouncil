@@ -3,11 +3,11 @@ import {mui_input} from "../Input.jss";
 
 export const useStyles = makeStyles({
     pick_type: props => ({
-        "@media screen and (max-width:  640px)":{
-            width: '60vw',
+        "@media screen and (max-width:  600px)":{
+            width: '82.5vw',
         },
-        '@media screen and (min-width: 640px) and (max-width: 912px)': {
-            width: '45vw'
+        '@media screen and (min-width: 600px) and (max-width: 912px)': {
+            width: '50vw'
         },
         '@media screen and (min-width: 912px) and (max-width: 960px)': {
             width: '35vw',

@@ -23,6 +23,7 @@ import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
 import { reducer } from "./CreatePiece.red";
 import { useStyles } from "./CreatePiece.jss";
+import {DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 
 const Load = React.lazy(() => import("./Options/Load"));
 const Save = React.lazy(() => import("./Options/Save"));
@@ -353,40 +354,41 @@ function CreatePiece(props) {
                         updateFirstVisit={updateFirstVisit}
                         additionalSettings={
                             <>
-                                <MuiSwitch
-                                    theme={theme}
-                                    className={classes.show_offset}
-                                    isChecked={state.showOffsetText}
-                                    control={
-                                        <ShowOffsetText
-                                            theme={theme}
-                                            onChange={() =>
-                                                dispatch({
-                                                    type: "toggle-offset-text",
-                                                })
-                                            }
-                                        />
-                                    }
-                                >
-                                    Show Offset Text
-                                </MuiSwitch>
-                                <MuiSwitch
-                                    theme={theme}
-                                    className={classes.show_span}
-                                    isChecked={state.showSpanText}
-                                    control={
-                                        <ShowSpanText
-                                            theme={theme}
-                                            onChange={() =>
-                                                dispatch({
-                                                    type: "toggle-span-text",
-                                                })
-                                            }
-                                        />
-                                    }
-                                >
-                                    Show Span Text
-                                </MuiSwitch>
+                                <DialogTitle className={classes.text}>Square Display Text</DialogTitle>
+                                <DialogActions>
+                                    <MuiSwitch
+                                        theme={theme}
+                                        isChecked={state.showOffsetText}
+                                        control={
+                                            <ShowOffsetText
+                                                theme={theme}
+                                                onChange={() =>
+                                                    dispatch({
+                                                        type: "toggle-offset-text",
+                                                    })
+                                                }
+                                            />
+                                        }
+                                    >
+                                        Show Offset Text
+                                    </MuiSwitch>
+                                    <MuiSwitch
+                                        theme={theme}
+                                        isChecked={state.showSpanText}
+                                        control={
+                                            <ShowSpanText
+                                                theme={theme}
+                                                onChange={() =>
+                                                    dispatch({
+                                                        type: "toggle-span-text",
+                                                    })
+                                                }
+                                            />
+                                        }
+                                    >
+                                        Show Span Text
+                                    </MuiSwitch>
+                                </DialogActions>
                             </>
                         }
                         isUnsavedChanges={state.isUnsavedChanges}

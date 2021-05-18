@@ -13,7 +13,6 @@ import { useStyles } from "./NavBarColumn.jss";
 function NavBarColumn(props) {
     const {
         theme,
-        fullWidth,
         currentPage,
         parentPage,
         helpText,
@@ -21,6 +20,7 @@ function NavBarColumn(props) {
         screenCase,
         isUnsavedChanges,
         additionalSettings,
+        ...other
     } = props;
 
     const classes = useStyles({theme});

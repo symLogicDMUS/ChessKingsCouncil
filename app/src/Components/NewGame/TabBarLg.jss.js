@@ -1,29 +1,26 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../styles/themes/themes.jss";
-import {maxTabWidth} from "./TabBar.jss";
+
+export const maxTabWidth = '25vw';
 
 export const useStyles = makeStyles({
     root1: props => ({
-        '@media screen and (min-width: 960px)': {
-            "& .MuiToolbar-gutters": {
-                paddingTop: 0,
-                paddingBottom: 0,
-                paddingLeft: 0,
-                paddingRight: 0,
-            },
+        "& .MuiToolbar-gutters": {
+            paddingTop: 0,
+            paddingBottom: 0,
+            paddingLeft: 0,
+            paddingRight: 0,
         },
     }),
     root2: props => ({
-        '@media screen and (min-width: 960px)': {
-            "& .MuiToolbar-gutters": {
-                paddingTop: 0,
-                paddingBottom: 0,
-                paddingLeft: 24,
-                paddingRight: 150.5,
-            },
-            "& .MuiTab-root": {
-                maxWidth: maxTabWidth,
-            },
+        "& .MuiToolbar-gutters": {
+            paddingTop: 0,
+            paddingBottom: 0,
+            paddingLeft: 24,
+            paddingRight: 150.5,
+        },
+        "& .MuiTab-root": {
+            maxWidth: maxTabWidth,
         },
     }),
     tab_bar: props => ({
@@ -34,7 +31,7 @@ export const useStyles = makeStyles({
         display: 'flex',
     }),
     tabs: props => ({
-        flexGrow: 10,
+        flexGrow: 1,
     }),
     adjuster: props => ({
         height: 48,

@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import { Undo } from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 import { saveThemes } from "../../../API/saveThemes";
-import { Dialog, DialogActions, Typography } from "@material-ui/core";
+import {Dialog, DialogActions, DialogContentText, DialogTitle, Typography} from "@material-ui/core";
 import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../Animations/ThemeSavedSuccessfully";
 import ThemeDropdown from "../UserInput/ThemeDropdown";
@@ -16,10 +16,12 @@ import { UserContext } from "../../../UserContext";
 import { useStyles } from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
+    const {currentPage, closeModal, theme, children, ...other} = props;
+    
     const uid = useContext(UserContext);
     const { themes, setThemes } = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
-    const classes = useStyles({ theme: props.theme });
+    const classes = useStyles({ theme: theme });
 
     const saveThemesToDb = () => {
         saveThemes(themes).then((r) => {
@@ -48,10 +50,10 @@ export function SettingsModal(props) {
             {saveSuccess && (
                 <AnimatePresencePortal>
                     <ThemeSavedSuccessfully
-                        theme={props.theme}
+                        theme={theme}
                         callback={() => {
                             setSaveSuccess(false);
-                            props.closeModal();
+                            closeModal();
                         }}
                     />
                 </AnimatePresencePortal>
@@ -61,16 +63,18 @@ export function SettingsModal(props) {
                 classes={{
                     paper: classes.window,
                 }}
-                onBackdropClick={props.closeModal}
+                onBackdropClick={closeModal}
+                {...other}
             >
                 <Box className={classes.close_area}>
                     <Close
-                        theme={props.theme}
-                        onClick={props.closeModal}
+                        theme={theme}
+                        onClick={closeModal}
                         className={classes.close}
                         iconClassName={classes.close_icon}
                     />
                 </Box>
+                <DialogTitle className={classes.normal}>Theme</DialogTitle>
                 <Box className={classes.settings}>
                     <MuiAccordion
                         className={classes.accordion}
@@ -85,7 +89,7 @@ export function SettingsModal(props) {
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"all"}
                         />
                     </MuiAccordion>
@@ -95,18 +99,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "MainMenu",
-                                    [classes.normal]: props.currentPage !== "MainMenu",
+                                        currentPage === "MainMenu",
+                                    [classes.normal]: currentPage !== "MainMenu",
                                 })}
                                 noWrap
                             >
                                 Home Page{" "}
-                                {props.currentPage === "MainMenu" && added}
+                                {currentPage === "MainMenu" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"home"}
                             defaultValue={themes.home}
                         />
@@ -117,18 +121,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "NewGame",
-                                    [classes.normal]: props.currentPage !== "NewGame",
+                                        currentPage === "NewGame",
+                                    [classes.normal]: currentPage !== "NewGame",
                                 })}
                                 noWrap
                             >
                                 New Game{" "}
-                                {props.currentPage === "NewGame" && added}
+                                {currentPage === "NewGame" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"newGame"}
                             defaultValue={themes.newGame}
                         />
@@ -139,18 +143,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "LoadGame",
-                                    [classes.normal]: props.currentPage !== "LoadGame",
+                                        currentPage === "LoadGame",
+                                    [classes.normal]: currentPage !== "LoadGame",
                                 })}
                                 noWrap
                             >
                                 Load Game{" "}
-                                {props.currentPage === "LoadGame" && added}
+                                {currentPage === "LoadGame" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"loadGame"}
                             defaultValue={themes.loadGame}
                         />
@@ -161,18 +165,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "CreatePiece",
-                                    [classes.normal]: props.currentPage !== "CreatePiece",
+                                        currentPage === "CreatePiece",
+                                    [classes.normal]: currentPage !== "CreatePiece",
                                 })}
                                 noWrap
                             >
                                 Create Piece{" "}
-                                {props.currentPage === "CreatePiece" && added}
+                                {currentPage === "CreatePiece" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"createPiece"}
                             defaultValue={themes.createPiece}
                         />
@@ -183,18 +187,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "Customize",
-                                    [classes.normal]: props.currentPage !== "Customize",
+                                        currentPage === "Customize",
+                                    [classes.normal]: currentPage !== "Customize",
                                 })}
                                 noWrap
                             >
                                 Customize Game{" "}
-                                {props.currentPage === "Customize" && added}
+                                {currentPage === "Customize" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"customize"}
                             defaultValue={themes.customize}
                         />
@@ -205,18 +209,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "GameRoot",
-                                    [classes.normal]: props.currentPage !== "GameRoot",
+                                        currentPage === "GameRoot",
+                                    [classes.normal]: currentPage !== "GameRoot",
                                 })}
                                 noWrap
                             >
                                 Playing Game page{" "}
-                                {props.currentPage === "GameRoot" && added}
+                                {currentPage === "GameRoot" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"gameRoot"}
                             defaultValue={themes.gameRoot}
                         />
@@ -227,18 +231,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "MyPieces",
-                                    [classes.normal]: props.currentPage !== "MyPieces",
+                                        currentPage === "MyPieces",
+                                    [classes.normal]: currentPage !== "MyPieces",
                                 })}
                                 noWrap
                             >
                                 Saved Pieces{" "}
-                                {props.currentPage === "MyPieces" && added}
+                                {currentPage === "MyPieces" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"myPieces"}
                             defaultValue={themes.myPieces}
                         />
@@ -249,18 +253,18 @@ export function SettingsModal(props) {
                             <Typography
                                 className={clsx(classes.accordion_summary, {
                                     [classes.highlight]:
-                                        props.currentPage === "CouncilRules",
-                                    [classes.normal]: props.currentPage !== "CouncilRules",
+                                        currentPage === "CouncilRules",
+                                    [classes.normal]: currentPage !== "CouncilRules",
                                 })}
                                 noWrap
                             >
                                 Council Rules{" "}
-                                {props.currentPage === "CouncilRules" && added}
+                                {currentPage === "CouncilRules" && added}
                             </Typography>
                         }
                     >
                         <ThemeDropdown
-                            theme={props.theme}
+                            theme={theme}
                             pageName={"councilRules"}
                             defaultValue={themes.councilRules}
                         />
@@ -276,7 +280,7 @@ export function SettingsModal(props) {
                             </Button>
                         ) : (
                             <AskLoginButton
-                                theme={props.theme}
+                                theme={theme}
                                 buttonType="theme"
                                 isGameOption={false}
                             />
@@ -290,8 +294,8 @@ export function SettingsModal(props) {
                             Reset defaults
                         </Button>
                     </DialogActions>
-                    {props.children}
                 </Box>
+                {children}
             </Dialog>
         </>
     );
