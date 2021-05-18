@@ -78,13 +78,24 @@ export const useStyles = makeStyles({
         },
     }),
     content: props => ({
-        paddingTop: appBarHeight*0.5,
+        paddingTop: appBarHeight * 0.5,
     }),
     smOption: props => ({
         marinTop: '1vw',
         marginLeft: '2vw',
         marginRight: '2vw',
         marginBottom: '2vw',
+    }),
+    additional_settings: props => ({
+        "& .MuiDialogTitle-root": {
+            paddingTop: 0,
+            paddingBottom: 12,
+        },
+        "& .MuiDialogActions-root": {
+            paddingTop: 0,
+            paddingLeft: 24,
+            justifyContent: 'flex-start',
+        },
     }),
     text: props => ({
         color: themes[props.theme].text,

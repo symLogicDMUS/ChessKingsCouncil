@@ -12,9 +12,11 @@ import { useStyles } from "./TabBarSm.jss";
 
 export function TabBarSm(props) {
     const {theme, value, onChange, gameName, gameType, playerType, ...other} = props;
+
     const classes = useStyles({theme});
+
     return (
-        <div className={classes.root}>
+        <div className={classes.root} {...other}>
             <Toolbar>
                 <TemporaryDrawerButton theme={theme}>
                     <NavBar

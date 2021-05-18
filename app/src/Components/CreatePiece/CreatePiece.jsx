@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import "../styles/Background/_backgrounds.scss";
 import { messageStr } from "./helpers/messageStr";
 import { CreatePieceHelp } from "./Help/CreatePieceHelp";
+import {DialogActions, DialogTitle} from "@material-ui/core";
 import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
@@ -23,7 +24,6 @@ import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
 import { reducer } from "./CreatePiece.red";
 import { useStyles } from "./CreatePiece.jss";
-import {DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 
 const Load = React.lazy(() => import("./Options/Load"));
 const Save = React.lazy(() => import("./Options/Save"));
@@ -353,7 +353,7 @@ function CreatePiece(props) {
                         helpText={CreatePieceHelp(theme)}
                         updateFirstVisit={updateFirstVisit}
                         additionalSettings={
-                            <>
+                            <div className={classes.additional_settings}>
                                 <DialogTitle className={classes.text}>Square Display Text</DialogTitle>
                                 <DialogActions>
                                     <MuiSwitch
@@ -389,7 +389,7 @@ function CreatePiece(props) {
                                         Show Span Text
                                     </MuiSwitch>
                                 </DialogActions>
-                            </>
+                            </div>
                         }
                         isUnsavedChanges={state.isUnsavedChanges}
                         updateTheme={state.updateTheme}

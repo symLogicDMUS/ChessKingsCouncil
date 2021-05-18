@@ -98,6 +98,7 @@ function LoadGame() {
                 theme={themes.loadGame}
                 navBar={
                     <NavBar
+                        show={true}
                         fullWidth={true}
                         lgDirection={"row"}
                         currentPage="LoadGame"

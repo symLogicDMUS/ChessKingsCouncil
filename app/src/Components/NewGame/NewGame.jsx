@@ -10,13 +10,9 @@ import "../styles/Background/_backgrounds.scss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {Background} from "../styles/Background/Background";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
 import SwipeableViews from 'react-swipeable-views';
 import {ThemeContext} from "../ThemeContext";
 import {views} from "./NewGame.jss";
-
-const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
-const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 
 function NewGame() {
     const history = useHistory();

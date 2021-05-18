@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {themes} from "../styles/themes/themes.jss";
+import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const maxTabWidth = '25vw';
 
@@ -13,17 +14,19 @@ export const useStyles = makeStyles({
         },
     }),
     root2: props => ({
-        "& .MuiToolbar-gutters": {
-            paddingTop: 0,
-            paddingBottom: 0,
-            paddingLeft: 24,
-            paddingRight: 150.5,
+        "& .MuiAppBar-root": {
+            zIndex: 5,
+            height: 49,
+            backgroundColor: themes[props.theme].fill,
         },
         "& .MuiTab-root": {
             maxWidth: maxTabWidth,
+            color: themes[props.theme].text,
         },
     }),
     tab_bar: props => ({
+        height: appBarHeight,
+        minHeight: 'unset',
         width: "100vw",
         backgroundColor: themes[props.theme].fill,
         color: themes[props.theme].text,
@@ -31,7 +34,9 @@ export const useStyles = makeStyles({
         display: 'flex',
     }),
     tabs: props => ({
-        flexGrow: 1,
+        "& .MuiTabs-root": {
+            flexGrow: 1,
+        },
     }),
     adjuster: props => ({
         height: 48,

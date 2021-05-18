@@ -66,14 +66,12 @@ export function SettingsModal(props) {
                 onBackdropClick={closeModal}
                 {...other}
             >
-                <Box className={classes.close_area}>
-                    <Close
-                        theme={theme}
-                        onClick={closeModal}
-                        className={classes.close}
-                        iconClassName={classes.close_icon}
-                    />
-                </Box>
+                <Close
+                    theme={theme}
+                    onClick={closeModal}
+                    className={classes.close}
+                    iconClassName={classes.close_icon}
+                />
                 <DialogTitle className={classes.normal}>Theme</DialogTitle>
                 <Box className={classes.settings}>
                     <MuiAccordion

@@ -31,6 +31,7 @@ function MyPieces() {
             theme={themes.myPieces}
             navBar={
                 <NavBar
+                    show={true}
                     fullWidth={true}
                     lgDirection={"row"}
                     currentPage="MyPieces"

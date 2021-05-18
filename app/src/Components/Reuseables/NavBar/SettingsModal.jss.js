@@ -65,6 +65,8 @@ export const useStyles = makeStyles({
     close: props => ({
         width: '1.2rem',
         height: '1.2rem',
+        position: 'absolute',
+        right: 1,
     }),
     close_icon: props => ({
         height: '1rem',
@@ -118,8 +120,6 @@ export const useStyles = makeStyles({
     save_theme_button: props => ({
         color: themes[props.theme].modal_actions,
         backgroundColor: themes[props.theme].button_fill,
-        marginTop: '0.5rem',
-        marginBottom: '0.5rem',
         marginRight: '0.5rem',
     }),
     reset_theme_button: props => ({
@@ -127,6 +127,8 @@ export const useStyles = makeStyles({
         backgroundColor: themes[props.theme].button_fill,
     }),
     dialog_actions: props => ({
-       paddingLeft: 0,
+        paddingTop: '1rem',
+        paddingLeft: 0,
+        paddingBottom: 0,
     }),
 }, {index: 1});

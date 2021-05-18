@@ -1,17 +1,16 @@
 import React, {useState} from "react";
 import Toolbar from "@material-ui/core/Toolbar";
-import NavBar from "../Reuseables/NavBar/NavBar";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import {AppBar, IconButton, Tooltip} from "@material-ui/core";
 import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
-import {PageTitle} from "../Reuseables/AppBar/PageTitle";
-import MenuIcon from "@material-ui/icons/Menu";
-import Box from "@material-ui/core/Box";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import {TabLabel} from "./TabLabel";
 import {useStyles} from "./TabBarLg.jss";
+import {MenuFab} from "./MenuFab";
+
+const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 
 export function TabBarLg(props) {
 
@@ -33,6 +32,7 @@ export function TabBarLg(props) {
                             <ArrowBackIcon className={classes.close_icon}/>
                         </IconButton>
                         <NavBar
+                            show={rowOpen}
                             fullWidth={false}
                             lgDirection={"row"}
                             currentPage="NewGame"
@@ -50,43 +50,38 @@ export function TabBarLg(props) {
                 </div>
             ) : (
                 <div className={classes.root2} {...other}>
-                    <Toolbar className={classes.tab_bar}>
-                        <IconButton
-                            onClick={() => setRowOpen(true)}
-                            className
-                            edge={"start"}
+                    <MenuFab
+                        onClick={() => setRowOpen(true)}
+                        classes={classes}
+                        theme={theme}
+                    />
+                    <AppBar>
+                        <Tabs
+                            value={value}
+                            onChange={onChange}
+                            indicatorColor={"secondary"}
+                            centered
                         >
-                            <MenuIcon className={classes.menu_icon}/>
-                        </IconButton>
-                        <PageTitle theme={theme}>New Game</PageTitle>
-                        <Box className={classes.tabs}>
-                            <Tabs
-                                value={value}
-                                onChange={onChange}
-                                indicatorColor={"secondary"}
-                                centered
-                            >
-                                <Tooltip title={"Game Name" + " (" + gameName + ")"}>
-                                    <Tab
-                                        id="game-name"
-                                        label={<TabLabel addOn={gameName}>Game Name</TabLabel>}
-                                    />
-                                </Tooltip>
-                                <Tooltip title={"Pick Type" + " (" + gameType + ")"}>
-                                    <Tab
-                                        id="pick-type"
-                                        label={<TabLabel addOn={gameType}>Pick Type</TabLabel>}
-                                    />
-                                </Tooltip>
-                                <Tooltip title={"Play As" + " (" + playerType + ")"}>
-                                    <Tab
-                                        id="play-as"
-                                        label={<TabLabel addOn={playerType}>Play As</TabLabel>}
-                                    />
-                                </Tooltip>
-                            </Tabs>
-                        </Box>
-                    </Toolbar>
+                            <Tooltip title={"Game Name" + " (" + gameName + ")"}>
+                                <Tab
+                                    id="game-name"
+                                    label={<TabLabel addOn={gameName}>Game Name</TabLabel>}
+                                />
+                            </Tooltip>
+                            <Tooltip title={"Pick Type" + " (" + gameType + ")"}>
+                                <Tab
+                                    id="pick-type"
+                                    label={<TabLabel addOn={gameType}>Pick Type</TabLabel>}
+                                />
+                            </Tooltip>
+                            <Tooltip title={"Play As" + " (" + playerType + ")"}>
+                                <Tab
+                                    id="play-as"
+                                    label={<TabLabel addOn={playerType}>Play As</TabLabel>}
+                                />
+                            </Tooltip>
+                        </Tabs>
+                    </AppBar>
                 </div>
             )}
         </>

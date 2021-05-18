@@ -10,9 +10,6 @@ export const useStyles = makeStyles((theme) => ({
     root: props => ({
         "& .MuiTabScrollButton-root": {
             color: '#f50057',
-            backgroundColor: lighten(themes[props.theme].fill, 0.08),
-            opacity: 1,
-            height: navBarButtonHeight,
         },
         "& .MuiTab-wrapper":{
             alignItems: 'center',
