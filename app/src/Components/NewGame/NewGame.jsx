@@ -8,11 +8,8 @@ import {PickType} from "./GameOptions/PickType";
 import {GameName} from "./GameOptions/GameName";
 import "../styles/Background/_backgrounds.scss";
 import {charNotInStr} from "../helpers/charNotInStr";
-import {getColorLetter} from "../helpers/getColorLetter";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {Background} from "../styles/Background/Background";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
 import {AppBarTitle} from "../Reuseables/AppBar/AppBarTitle";
 import SwipeableViews from 'react-swipeable-views';
 import {ThemeContext} from "../ThemeContext";
@@ -49,9 +46,8 @@ function NewGame() {
         updateGameType(gameType);
     };
 
-    const setPlayerType = (typePlayer) => {
-        if (typePlayer !== "Test") updatePlayerType(getColorLetter(typePlayer));
-        else updatePlayerType(typePlayer);
+    const setPlayerType = (e) => {
+        updatePlayerType(e.target.value)
     };
 
     const finish = () => {
@@ -77,7 +73,7 @@ function NewGame() {
                 navBar={null}
                 theme={themes.newGame}
                 navHorizontal={isWide}
-                appBarContent={<AppBarTitle theme={themes.newGame}>New Game</AppBarTitle>}
+                appBarContent={null}
                 appBarType="title"
                 tools={null}
                 toolButtons={null}
@@ -86,6 +82,9 @@ function NewGame() {
                 <TabBar
                     wide={isWide}
                     value={value}
+                    gameName={gameName}
+                    gameType={gameType}
+                    playerType={playerType}
                     theme={themes.newGame}
                     onChange={handleChange}
                 />
@@ -101,9 +100,9 @@ function NewGame() {
                     >
                         <GameName
                             key='GameName'
+                            gameName={gameName}
                             theme={themes.newGame}
                             setGameName={setGameName}
-                            screenCase={isWide ? 'wide' : 'thin'}
                         />
                     </TabPanel>
                     <TabPanel
@@ -116,7 +115,6 @@ function NewGame() {
                             gameType={gameType}
                             theme={themes.newGame}
                             setGameType={setGameType}
-                            screenCase={isWide ? 'wide' : 'thin'}
                         />
                     </TabPanel>
                     <TabPanel
@@ -127,20 +125,20 @@ function NewGame() {
                         <PlayAs
                             key="PlayAs"
                             theme={themes.newGame}
+                            playerType={playerType}
                             setPlayerType={setPlayerType}
-                            screenCase={isWide ? 'wide' : 'thin'}
                         />
                     </TabPanel>
                 </SwipeableViews>
-                {/*<Play*/}
-                {/*    theme={themes.newGame}*/}
-                {/*    onClick={finish}*/}
-                {/*    classes={classes}*/}
-                {/*    playerType={playerType}*/}
-                {/*    gameType={gameType} gameName={gameName}*/}
-                {/*    predicate={(c) => charNotInStr(c, gameName)}*/}
-                {/*    key='Play-Button-thin'*/}
-                {/*/>*/}
+                <Play
+                    finish={finish}
+                    gameName={gameName}
+                    gameType={gameType}
+                    playerType={playerType}
+                    theme={themes.newGame}
+                    predicate={(c) => charNotInStr(c, gameName)}
+                    key='Play-Button'
+                />
             </ResponsiveDrawer>
         </>
     );

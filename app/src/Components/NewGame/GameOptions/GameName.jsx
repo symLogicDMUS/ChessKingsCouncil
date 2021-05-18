@@ -6,24 +6,27 @@ import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./GameName.jss";
 
 
-export function GameName({setGameName, theme, screenCase}) {
+export function GameName(props) {
+    const {gameName, setGameName, theme, ...other} = props;
+
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles();
 
     return (
             <Box className={clsx(classes2.item, {
-                [classes.game_name]:true,
+                [classes.game_name]: true,
             })}>
                 <img src={`/Images/text/new game/Game Name-${theme}.svg`} className={classes2.title} />
                 <MuiTextField
-                    className={classes.game_name}
-                    onChange={setGameName}
+                    {...other}
+                    autoFocus
+                    fullWidth={true}
+                    value={gameName}
+                    variant="outlined"
                     id="pick-game-name"
                     label="Pick game name"
-                    variant="outlined"
-                    fullWidth={true}
-                    size={(screenCase === 'wide') ? 'medium' : 'small'}
-                    root
+                    onChange={setGameName}
+                    className={classes.game_name}
                 />
             </Box>
     );

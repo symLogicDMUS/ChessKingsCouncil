@@ -19,20 +19,22 @@ import { useStyles } from "./ResponsiveDrawer.jss";
  * @some pages have navBar spanning top instead of left and right drawers, which changes how main content is displayed.
  *  this is indicated by the boolean prop 'navHorizontal'.
  */
-function ResponsiveDrawer({
-    navBar,
-    theme,
-    tools,
-    toolButtons,
-    navHorizontal,
-    appBarContent,
-    elevation,
-    className,
-    appBarClassName,
-    contentClassName,
-    noScroll,
-    children,
-}) {
+function ResponsiveDrawer(props) {
+    const {
+        navBar,
+        theme,
+        tools,
+        toolButtons,
+        navHorizontal,
+        appBarContent,
+        elevation,
+        className,
+        appBarClassName,
+        contentClassName,
+        children,
+        ...other
+    } = props;
+
     const classes = useStyles({ theme: theme });
     const lg = useMediaQuery("(min-width:960px)");
     const [open, setOpen] = useState(false);
@@ -50,6 +52,7 @@ function ResponsiveDrawer({
             className={clsx(classes.root, {
                 [className]: className,
             })}
+            {...other}
         >
             <CssBaseline />
             <Hidden mdUp>

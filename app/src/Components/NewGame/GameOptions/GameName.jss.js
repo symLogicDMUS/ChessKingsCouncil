@@ -13,7 +13,7 @@ export const useStyles = makeStyles({
             width: '40vw',
         },
         '@media screen and (min-width: 960px)': {
-            width: '30vw',
+            width: '35vw',
         },
         margin: 'auto',
         ...mui_input(props.theme),

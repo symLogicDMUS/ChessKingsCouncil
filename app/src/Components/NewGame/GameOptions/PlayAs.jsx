@@ -5,32 +5,41 @@ import MenuItem from "@material-ui/core/MenuItem";
 import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./PlayAs.jss";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import {MuiSelect} from "../../Reuseables/UserInput/MuiSelect";
+import {Select} from "@material-ui/core";
 
-export function PlayAs({setPlayerType, theme, screenCase}) {
+export function PlayAs(props) {
+    const {playerType, setPlayerType, theme, ...other} = props;
+
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles();
 
     return (
-        <Box className={clsx(classes2.item, {
-            [classes.play_as]:true
-        })}>
-            <img src={`/Images/text/new game/Play As-${theme}.svg`} className={classes2.title}/>
-            <MuiDropdown
-                theme={theme}
-                label='Play As'
-                variant='outlined'
-                inputLabel='Play As'
-                updateParent={setPlayerType}
-                className={classes.play_as}
-                size={(screenCase === 'wide') ? 'medium' : 'small'}
-            >
-                <MenuItem value="None">
-                    <em>None</em>
-                </MenuItem>,
-                <MenuItem value="White" classes={classes.player_type}>White</MenuItem>,
-                <MenuItem value="Black" classes={classes.player_type}>Black</MenuItem>,
-                <MenuItem value="Test" classes={classes.player_type}>Test</MenuItem>
-            </MuiDropdown>
+        <Box className={clsx(classes.play_as, {[classes2.item]:true})} {...other}>
+            <img
+                src={`/Images/text/new game/Play As-${theme}.svg`}
+                className={classes2.title}
+                alt={"svg text 'Play As'"}
+            />
+            <FormControl variant="outlined" fullWidth>
+                <InputLabel id="demo-simple-select-outlined-label">Play As</InputLabel>
+                <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    onChange={setPlayerType}
+                    value={playerType}
+                    label="Play As"
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"W"}>White</MenuItem>
+                    <MenuItem value={"B"}>Black</MenuItem>
+                    <MenuItem value={"Test"}>Test</MenuItem>
+                </Select>
+            </FormControl>
         </Box>
     );
 }

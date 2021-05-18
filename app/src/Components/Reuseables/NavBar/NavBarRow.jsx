@@ -43,14 +43,16 @@ function NavBarRow(props) {
 
     return (
         <div className={classes.root}>
-            <AppBar className={classes.nav_tab_row}>
+            <AppBar
+                className={clsx(classes.nav_tab_row, {
+                    [classes.full_width]: fullWidth,
+                    [classes.condensed]: ! fullWidth,
+                })}
+            >
                 <Tabs
                     variant="scrollable"
                     value={indexes[currentPage]}
                     indicatorColor={"secondary"}
-                    className={clsx(classes.nav_tab_row, {
-                        [classes.full_width]: fullWidth,
-                    })}
                 >
                     <Tab
                         id={"Home"}

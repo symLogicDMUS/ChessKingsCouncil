@@ -1,25 +1,46 @@
 import {themes} from "../styles/themes/themes.jss";
-import {makeStyles} from "@material-ui/core/styles";
+import {darken, lighten, makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
-    play_button: props => ({
-        "@media screen and (max-width: 640px)":{
-            width: '45vw',
+    root: props => ({
+        position: 'fixed',
+        width: '85vw',
+        left: '7.5vw',
+        bottom: 36,
+        display: 'flex',
+        flexDirection: 'column',
+        "& .MuiButton-root": {
+            margin: 'auto',
+            color: themes[props.theme].text,
+            backgroundColor: themes[props.theme].fill,
+            '@media screen and (min-width: 300px)': {
+                width: 250,
+            },
+            '@media screen and (max-width: 300px)': {
+                width: '85vw',
+            },
         },
-        '@media screen and (min-width: 640px) and (max-width: 912px)': {
-            width: '30vw',
+    }),
+    disabled: props => ({
+        "& .MuiButton-root": {
+            opacity: '0.85',
+            color: darken(themes[props.theme].text, 0.4),
+            backgroundColor: lighten(themes[props.theme].fill, 0.1),
         },
-        '@media screen and (min-width: 912px) and (max-width: 960px)': {
-            width: '22.5vw',
-        },
-        '@media screen and (min-width: 960px)': {
-            width: '17.5vw',
-        },
-        backgroundColor: themes[props.theme].fill,
-        transform: 'translate(0, -3.75vh)',
     }),
     icon: props => ({
         fontSize: 'inherit',
         height: '1.5em',
+    }),
+    dialog: props => ({
+        backgroundColor: themes[props.theme].fill,
+        color: themes[props.theme].text,
+    }),
+    dialog_button: props => ({
+        color: themes[props.theme].modal_actions,
+        backgroundColor: themes[props.theme].fill,
+    }),
+    text: props => ({
+        color: themes[props.theme].text,
     }),
 }, {index: 1});

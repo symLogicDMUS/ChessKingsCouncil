@@ -15,6 +15,7 @@ function NavBarColumn(props) {
         theme,
         fullWidth,
         currentPage,
+        parentPage,
         helpText,
         helpTitle,
         screenCase,
@@ -37,11 +38,35 @@ function NavBarColumn(props) {
         "AuthorGithub": 9,
     }
 
+    let loadGamePageAddedText = "";
+    let newGamePageAddedText = "";
+    const addedText = " (playing)";
+
+    const getIndex = (currentPage) => {
+        if (currentPage==="Customize") {
+            newGamePageAddedText = " (customize)";
+            return indexes["NewGame"];
+        }
+
+        if (currentPage==="GameRoot") {
+            if (parentPage==="/LoadGame") {
+                loadGamePageAddedText = addedText;
+                return indexes["LoadGame"];
+            }
+            else {
+                newGamePageAddedText = addedText;
+                return indexes["NewGame"];
+            }
+        }
+
+        return indexes[currentPage];
+    };
+
     return (
         <div className={classes.root}>
             <Tabs
                 variant="scrollable"
-                value={indexes[currentPage]}
+                value={getIndex(currentPage)}
                 indicatorColor={"secondary"}
                 orientation={"vertical"}
             >
@@ -98,7 +123,7 @@ function NavBarColumn(props) {
                     label={
                         <NavBarButton
                             path="/NewGame"
-                            pageName="New Game"
+                            pageName={"New Game" + newGamePageAddedText}
                             pageIcon="new-game"
                             isRow={false}
                             theme={theme}
@@ -115,7 +140,7 @@ function NavBarColumn(props) {
                         <NavBarButton
                             path="/LoadGame"
                             key="/LoadGame"
-                            pageName="Load Game"
+                            pageName={"Load Game" + loadGamePageAddedText}
                             pageIcon="load-game"
                             isRow={false}
                             theme={theme}

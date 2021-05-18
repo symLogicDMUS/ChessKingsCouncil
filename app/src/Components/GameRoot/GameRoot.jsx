@@ -58,10 +58,11 @@ class GameRoot extends React.Component {
         this.gameName = this.props.location.state.gameName;
         this.gameType = this.props.location.state.gameType;
         this.playerType = this.props.location.state.playerType;
+        this.parentPage = this.props.location.state.currentPath;
         let gameData;
         if (
             this.gameType === "Custom" ||
-            this.props.location.state.currentPath === "/LoadGame"
+            this.parentPage === "/LoadGame"
         ) {
             gameData = this.props.location.state.gameData;
         } else {
@@ -405,6 +406,7 @@ class GameRoot extends React.Component {
                         navBar={
                             <NavBar
                                 currentPage="GameRoot"
+                                parentPage={this.parentPage}
                                 helpText={PlayingGameHelp(value.themes.gameRoot)}
                                 helpTitle={
                                     <HelpTitle theme={value.themes.gameRoot} fontSize='2.6vh'>

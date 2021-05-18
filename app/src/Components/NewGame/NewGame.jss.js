@@ -15,6 +15,6 @@ export const useStyles = makeStyles({
     }),
     title: props => ({
         width: '100%',
-        marginBottom: '2vh',
+        marginBottom: 26,
     }),
 }, {index: 1});

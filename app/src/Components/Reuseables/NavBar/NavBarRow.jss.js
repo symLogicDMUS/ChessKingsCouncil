@@ -27,22 +27,19 @@ export const useStyles = makeStyles((theme) => ({
     }),
     nav_tab_row: props => ({
         display: 'flex',
-        width: '100vw',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         height: navBarButtonHeight,
         backgroundColor: themes[props.theme].fill,
         opacity: 1,
     }),
-    nav_row: props => ({
-        display: 'flex',
-        width: '100vw',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-    }),
     full_width: props => ({
+        width: '100vw',
         position: 'fixed',
         top: 0,
+    }),
+    condensed: props => ({
+        width: `calc(100vw - 48px)`,
     }),
     nav_drawer: props => ({
         width: "100%",
