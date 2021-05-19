@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import { Slide } from "@material-ui/core";
 import { motion } from "framer-motion";
-import { timeout, style, useStyles } from "./PromoChoice.jss";
 import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import {franchisePieceImgs} from "../../styles/themes/specialThemeImgs/franchisePieceImgs";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
+import { timeout, style, useStyles } from "./PromoChoice.jss";
 
 export function PromoChoice({
     onClick,
@@ -21,7 +22,7 @@ export function PromoChoice({
     const [canHover, setCanHover] = useState(false);
 
     const getImgUrl = () => {
-        if (specialThemeList.includes(theme)) {
+        if (standardPieceNames.includes(pieceName) && specialThemeList.includes(theme)) {
             return franchisePieceImgs[theme][pieceName][color]
         }
         else {

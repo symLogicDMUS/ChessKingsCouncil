@@ -1,17 +1,21 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, {
+    useEffect,
+    useReducer,
+    useState } from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import { PromoChoice } from "./PromoChoice";
 import { shuffle } from "../../helpers/shuffleArray";
 import ListAltIcon from "@material-ui/icons/ListAlt";
-import { Backdrop, IconButton, Portal } from "@material-ui/core";
-import { ArrowLeft, ArrowRight, MoreVert } from "@material-ui/icons";
 import Typography from "@material-ui/core/Typography";
 import ForwardIcon from "@material-ui/icons/Forward";
+import { ArrowLeft, ArrowRight } from "@material-ui/icons";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { Backdrop, IconButton, Portal } from "@material-ui/core";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
+import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
 import { specialThemeList } from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
 import { franchisePieceImgs } from "../../styles/themes/specialThemeImgs/franchisePieceImgs";
-import ProfileWBModal from "../../PieceProfiles/ProfileWB/ProfileWBModal";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { getPawnImg } from "./getPawnImg";
 import { reducer } from "./Promo.red";
 import { useStyles } from "./Promo.jss";
@@ -42,7 +46,7 @@ function Promo(props) {
 
     const getPromoImg = () => {
         const pieceName = props.promoChoices[state.current];
-        if (specialThemeList.includes(props.theme)) {
+        if (standardPieceNames.includes(pieceName) && specialThemeList.includes(props.theme)) {
             return franchisePieceImgs[props.theme][pieceName][props.color];
         } else {
             return props.defs[pieceName][props.color].img;

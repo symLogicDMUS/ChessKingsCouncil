@@ -20,6 +20,22 @@ export function TabBarLg(props) {
 
     const classes = useStyles({theme});
 
+    let gameNameTooltipTitle = "";
+    if (gameName) {
+        gameNameTooltipTitle = "Game Name" + " (" + gameName + ")";
+    }
+
+    let gameTypeTooltipTitle = "";
+    if (gameType) {
+        gameTypeTooltipTitle = "Pick Type" + " (" + gameType + ")";
+    }
+
+    let playerTypeTooltipTitle = "";
+    if (playerType) {
+        playerTypeTooltipTitle = "Play As" + " (" + playerType + ")";
+    }
+
+
     return (
         <>
             {rowOpen ? (
@@ -62,19 +78,19 @@ export function TabBarLg(props) {
                             indicatorColor={"secondary"}
                             centered
                         >
-                            <Tooltip title={"Game Name" + " (" + gameName + ")"}>
+                            <Tooltip title={gameNameTooltipTitle}>
                                 <Tab
                                     id="game-name"
                                     label={<TabLabel addOn={gameName}>Game Name</TabLabel>}
                                 />
                             </Tooltip>
-                            <Tooltip title={"Pick Type" + " (" + gameType + ")"}>
+                            <Tooltip title={gameTypeTooltipTitle}>
                                 <Tab
                                     id="pick-type"
                                     label={<TabLabel addOn={gameType}>Pick Type</TabLabel>}
                                 />
                             </Tooltip>
-                            <Tooltip title={"Play As" + " (" + playerType + ")"}>
+                            <Tooltip title={playerTypeTooltipTitle}>
                                 <Tab
                                     id="play-as"
                                     label={<TabLabel addOn={playerType}>Play As</TabLabel>}
