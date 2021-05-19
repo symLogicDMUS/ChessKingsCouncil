@@ -7,10 +7,10 @@ import InfoIcon from '@material-ui/icons/Info';
 import SignInOutButton from "./SignInOutButton";
 import "../styles/Background/_backgrounds.scss"
 import {Background} from "../styles/Background/Background";
-import HelpButton from "../Reuseables/NavBar/Help/HelpButton";
-import SettingsButton from "../Reuseables/NavBar/SettingsButton";
 import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
-import {useStyles} from "./MainMenuLg.jss";
+import MainMenuHelpButton from "./MainMenuHelpButton";
+import MainMenuSettingsButton from "./MainMenuSettingsButton";
+import { useStyles} from "./MainMenuLg.jss";
 
 export function MainMenuLg(props) {
 
@@ -39,14 +39,14 @@ export function MainMenuLg(props) {
                                 About
                             </Typography>
                         </Button>
-                        <HelpButton
+                        <MainMenuHelpButton
                             currentPage={"Home"}
                             theme={props.theme}
                             screenCase='wide'
                             helpTitle={null}
                             updateFirstVisit={null}
                         />
-                        <SettingsButton
+                        <MainMenuSettingsButton
                             theme={props.theme}
                             screenCase='wide'
                             currentPage='Home'

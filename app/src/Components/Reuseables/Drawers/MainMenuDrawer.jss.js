@@ -1,7 +1,7 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
 
-export const drawerWidth = 180;
+export const drawerWidth = 200;
 
 export const useStyles = makeStyles((theme) => ({
     root: props => ({
@@ -16,8 +16,8 @@ export const useStyles = makeStyles((theme) => ({
         zIndex: 10,
     }),
     appBarShift: props => ({
-        width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,

@@ -3,22 +3,25 @@ import clsx from "clsx";
 import * as firebase from "firebase";
 import "firebase/auth";
 import { uiConfig } from "./uiconfig";
+import { Portal } from "@material-ui/core";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { BoardPatternRow } from "../styles/Background/BoardPatternRow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import "../styles/Background/_backgrounds.scss";
 import { KeyboardBackspace } from "@material-ui/icons";
+import "../styles/Background/_backgrounds.scss";
 import Button from "@material-ui/core/Button";
-import { Portal } from "@material-ui/core";
 import { useStyles } from "./SignInWindow.jss";
 
 function SignInWindow(props) {
-    const sm = useMediaQuery("(max-width:960px)");
+    const {close, goBack} = props;
+
     const classes = useStyles({ theme: "tan" });
+    const sm = useMediaQuery("(max-width:960px)");
+
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                props.close();
+                close();
             }
         });
     }, []);
@@ -29,7 +32,7 @@ function SignInWindow(props) {
                 <BoardPatternRow row2={false} theme="tan" />
                 <div className={classes.content}>
                     <img
-                        src={`/Images/titles/desktop/title-tan.svg`}
+                        src={`/Images/text/app title/title-tan.svg`}
                         className={clsx(classes.appTitle, {
                             [classes.appTitleSm]: sm,
                             [classes.appTitleMd]: !sm,
@@ -40,9 +43,9 @@ function SignInWindow(props) {
                         firebaseAuth={firebase.auth()}
                     />
                     <Button
-                        onClick={props.goBack}
-                        className={classes.close}
+                        onClick={goBack}
                         variant="text"
+                        className={classes.close}
                         startIcon={<KeyboardBackspace />}
                     >
                         Go Back

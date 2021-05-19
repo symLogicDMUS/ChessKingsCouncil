@@ -362,7 +362,9 @@ class CreatePiece extends React.Component {
                 {value =>
                     <>
                         <Animations
+                            name={this.name}
                             state={this.state}
+                            newPiece={this.newPiece}
                             close={this.saveCallback}
                             theme={value.themes.createPiece}
                             key={`${this.state.saveInstance}-piece-upload`}
@@ -486,7 +488,7 @@ class CreatePiece extends React.Component {
                                         className={this.props.classes.smOption}
                                         buttonType="tool"
                                     />
-                                    {this.state.context ? (
+                                    {this.context ? (
                                         <Save
                                             save={this.save}
                                             pieceName={this.name}
@@ -621,17 +623,17 @@ class CreatePiece extends React.Component {
                             <AnimatePresence>
                                 {this.state.activeTool === "Name" && (
                                     <NameModal
-                                        theme={value.themes.createPiece}
                                         key={"Name-Tool"}
                                         pieceName={this.state.name}
+                                        theme={value.themes.createPiece}
                                         updateName={this.updateName}
                                     />
                                 )}
                                 {this.state.activeTool === "Icon" && (
                                     <IconModal
-                                        theme={value.themes.createPiece}
                                         key={"Icon-Tool"}
                                         resetImg={this.resetImg}
+                                        theme={value.themes.createPiece}
                                         setImgFileObj={this.setImgFileObj}
                                         setNewPieceImg={this.setPieceImg}
                                         whiteAndBlackImgs={this.whiteAndBlackImgs}

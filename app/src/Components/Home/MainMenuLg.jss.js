@@ -1,6 +1,7 @@
 import {lighten, makeStyles} from "@material-ui/core/styles";
-import {availHeight} from "../helpers/windowMeasurments";
 import {themes} from "../styles/themes/themes.jss";
+
+export const buttonStyle = {maxWidth: 130};
 
 export const useStyles = makeStyles({
     main_menu: props => ({
@@ -18,9 +19,9 @@ export const useStyles = makeStyles({
     }),
     button: props => ({
         borderRadius: 0,
+        margin: '0 0.35rem',
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill,
-        textTransform: 'none',
         '&:hover': {
             backgroundColor: lighten(themes[props.theme].fill, 0.1),
         },

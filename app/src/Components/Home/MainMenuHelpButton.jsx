@@ -1,26 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
 import clsx from "clsx";
-import {ListItem, ListItemIcon, ListItemText, Portal, Slide,}
-    from "@material-ui/core";
+import {Portal} from "@material-ui/core";
 import {findDidUserVisitPage, recordUserVisitedPage}
-        from "../../../../API/findRecordDidUserVisitPage";
-import { HelpModal } from "./HelpModal";
-import { HelpSlideshow } from "./HelpSlideshow";
-import { UserContext } from "../../../../UserContext";
+    from "../../API/findRecordDidUserVisitPage";
+import { HelpModal } from "../Reuseables/NavBar/Help/HelpModal";
+import { HelpSlideshow } from "../Reuseables/NavBar/Help/HelpSlideshow";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
-import { useStyles } from "../NavBarButton.jss";
+import { UserContext } from "../../UserContext";
+import Button from "@material-ui/core/Button";
+import { useStyles} from "./MainMenuLg.jss";
 
-function HelpButton(props) {
+function MainMenuHelpButton(props) {
     const {
         updateFirstVisit,
         currentPage,
         screenCase,
         helpTitle,
         className,
-        style,
         theme,
-        isRow,
         children,
+        ...other
     } = props;
 
     const uid = useContext(UserContext);
@@ -68,24 +67,20 @@ function HelpButton(props) {
                     onClose={() => setModal(false)}
                 />
             ) : null}
-            <ListItem
-                button
+            <Button
                 onClick={() => setModal(!modal)}
-                className={clsx(classes.nav_bar_button, {
-                    // [classes.row_direction]: isRow,
+                className={clsx(classes.button, {
                     [className]: className,
                 })}
-                style={style}
-            >
-                <ListItemIcon className={classes.icon}>
+                {...other}
+                startIcon={
                     <ContactSupportIcon fontVariant="button" />
-                </ListItemIcon>
-                <ListItemText variant="button" primary="Help" noWrap>
-                    Help
-                </ListItemText>
-            </ListItem>
+                }
+            >
+                Help
+            </Button>
         </>
     );
 }
 
-export default HelpButton;
+export default MainMenuHelpButton;

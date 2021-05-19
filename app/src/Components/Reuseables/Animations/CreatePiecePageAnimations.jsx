@@ -7,14 +7,14 @@ const PieceSavedSuccessfully = React.lazy(() => import("./PieceSavedSuccessfully
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import("../NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame"));
 
 function CreatePiecePageAnimations(props) {
-    const {state, close, onClose, callback, name, theme} = props;
+    const {state, newPiece, close, onClose, callback, name, theme} = props;
     return <>
         {state.uploadPiece && (
             <LoadBar
                 theme={theme}
                 close={close}
                 pieceName={name}
-                newPiece={state.newPiece}
+                newPiece={newPiece}
                 saveInstance={state.saveInstance}
 
             />

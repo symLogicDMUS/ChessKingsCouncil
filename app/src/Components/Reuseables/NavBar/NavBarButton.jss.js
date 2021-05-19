@@ -36,8 +36,8 @@ export const useStyles = makeStyles({
         },
     }),
     row_direction: props => ({
-        flexGrow: 10,
-        minWidth: 'unset',
+        // flexGrow: 10,
+        // minWidth: 'unset',
     }),
     hidden: props => ({
        display: 'none',
