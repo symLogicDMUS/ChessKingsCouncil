@@ -2,9 +2,11 @@ import React from "react";
 import clsx from "clsx";
 import {motion} from "framer-motion";
 import {ListTitle} from "./ListTitle";
-import ScrollTable from "../../Reuseables/ScrollTable/ScrollTable";
 import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./PromosModal.jss";
+
+const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
+
 
 function PromosModal({className, theme, children}) {
     const classes = useStyles({theme});

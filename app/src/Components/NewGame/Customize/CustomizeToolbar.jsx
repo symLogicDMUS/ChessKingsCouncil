@@ -1,11 +1,9 @@
 import React, {useState} from "react";
-import {Portal} from "@material-ui/core";
-import {AnimatePresence} from "framer-motion";
 import SubsModal from "./SubsModal";
 import PromosModal from "./PromosModal";
+import {AnimatePresence} from "framer-motion";
 import ToolButton from "../../Reuseables/MiniVariantTool/ToolButton";
 import {ToolBackdrop} from "../../Reuseables/MiniVariantTool/ToolBackdrop";
-
 
 function CustomizeToolbar({subs, promos, theme}) {
 

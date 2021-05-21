@@ -9,10 +9,10 @@ import {ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import { useStyles } from "./SeeMore.jss";
 
 export function SeeMore(props) {
+    const { theme, icon, className, style, edge, listItem, text, children, ...other } = props;
+
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const { theme, icon, className, style, edge, listItem, text, children } = props;
 
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
@@ -50,7 +50,7 @@ export function SeeMore(props) {
                     className={clsx(classes.seeMore, {
                         [className]: className,
                     })}
-                    style={style}
+                    {...other}
                 >
                     <IconButton onClick={handleMobileMenuOpen} edge={edge} >
                         {icon ? icon : <MoreIcon className={classes.icon} />}

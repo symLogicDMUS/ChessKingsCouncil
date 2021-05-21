@@ -10,7 +10,7 @@ import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import {MuiSkeleton} from "../Animations/MuiSkeleton";
 import {useStyles} from "./MuiGrid.jss";
 
-export function MuiGrid(props) {
+function MuiGrid(props) {
     const classes = useStyles({theme: props.theme});
     const isThin = useMediaQuery("(max-width: 720px)");
 
@@ -31,10 +31,9 @@ export function MuiGrid(props) {
                 <Button
                     onClick={props.onOkClick}
                     isDisabled={props.selectedItem === null}
-                    className={classes.bottom_button}
-                    addedClassName={classes.ok_button}
-                    size={isThin ? 'small' : 'medium'}
+                    className={clsx(classes.bottom_button, {[classes.ok_button]: true})}
                     startIcon={<CheckCircleOutlineIcon className={classes.icon}/>}
+                    size={isThin ? 'small' : 'medium'}
                     variant="outlined"
                     theme={props.theme}
                 >
@@ -44,9 +43,9 @@ export function MuiGrid(props) {
                     onAcceptDelete={props.onDeleteClick}
                     modalTitle={props.confirmDeleteMessage}
                     isDisabled={props.selectedItem === null}
-                    className={classes.bottom_button}
                     startIcon={<DeleteForeverIcon className={classes.icon}/>}
                     size={isThin ? 'small' : 'medium'}
+                    className={classes.bottom_button}
                     theme={props.theme}
                     variant="outlined"
                 />
@@ -63,3 +62,5 @@ export function MuiGrid(props) {
         </div>
     );
 }
+
+export default MuiGrid;

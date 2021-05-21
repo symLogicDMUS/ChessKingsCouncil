@@ -15,7 +15,6 @@ export const useStyles = makeStyles({
         '@media screen and (max-width: 960px)': {
             flexDirection: 'column',
         },
-        border: '1px dashed blue',
     }),
     example: props => ({
         width: '100%',

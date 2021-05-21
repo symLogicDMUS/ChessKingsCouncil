@@ -27,10 +27,11 @@ function ResponsiveDrawer(props) {
         toolButtons,
         navHorizontal,
         appBarContent,
-        elevation,
-        className,
         appBarClassName,
         contentClassName,
+        className,
+        elevation,
+        minABPadding,
         children,
         ...other
     } = props;
@@ -68,9 +69,9 @@ function ResponsiveDrawer(props) {
                 </AppBarSmScreen>
                 <PersistentDrawerLeft
                     open={open}
-                    handleDrawerToggle={handleDrawerToggle}
-                    isHidden={navHorizontal}
                     theme={theme}
+                    isHidden={navHorizontal}
+                    handleDrawerToggle={handleDrawerToggle}
                 >
                     {navBar}
                 </PersistentDrawerLeft>
@@ -84,6 +85,7 @@ function ResponsiveDrawer(props) {
                 <AppBarLgScreen
                     theme={theme}
                     isHidden={navHorizontal}
+                    minPadding={minABPadding}
                     className={appBarClassName}
                     onMenuButtonClick={handleDrawerToggle}
                 >

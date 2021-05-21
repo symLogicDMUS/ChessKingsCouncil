@@ -22,13 +22,23 @@ export const useStyles = makeStyles({
     appBarRelaxed2: props => ({
         "& .MuiToolbar-gutters": {
             paddingLeft: 16,
-            paddingRight: miniVariantIconsColumnWidth + 16,
+            '@media screen and (max-width: 426px)': {
+                paddingRight: miniVariantIconsColumnWidth + 4,
+            },
+            '@media screen and (min-width: 426px)': {
+                paddingRight: miniVariantIconsColumnWidth + 16,
+            },
         },
     }),
     appBarCompressed2: props => ({
         "& .MuiToolbar-gutters": {
             paddingLeft: `calc(${leftDrawerWidth} + 28px)`,
-            paddingRight: miniVariantIconsColumnWidth + 16,
+            '@media screen and (max-width: 426px)': {
+                paddingRight: miniVariantIconsColumnWidth + 4,
+            },
+            '@media screen and (min-width: 426px)': {
+                paddingRight: miniVariantIconsColumnWidth + 16,
+            },
         }
     }),
 }, {index: 1});

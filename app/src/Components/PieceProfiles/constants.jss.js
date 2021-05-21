@@ -12,6 +12,7 @@ export const headerMarginMd = "0.85vw";
 
 export const marginMd = '2.25vw';
 export const marginLg = '0.875vw';
+export const marginLg2x = '1.75vw';
 export const marginLgHalf = '0.4375vw';
 
 /*square items (range board and profile image of piece) */

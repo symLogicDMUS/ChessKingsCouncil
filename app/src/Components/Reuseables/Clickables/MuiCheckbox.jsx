@@ -9,50 +9,61 @@ import { useStyles } from "./MuiCheckbox.jss";
 
 
 export function MuiCheckbox(props) {
+    const {
+        onClick,
+        className,
+        textClassName,
+        checkboxClassName,
+        checkmarkState,
+        defaultChecked,
+        classesObj,
+        variant,
+        noWrap,
+        theme,
+        children,
+    } = props;
+
     const classes = useStyles({
-        theme: props.theme,
+        theme: theme,
     });
 
     return (
         <FormControlLabel
-            classes={props.classesObj}
-            className={clsx(classes.form_control_label_root, {
-                [props.className]: props.className,
+            classes={classesObj}
+            className={clsx(classes.root, {
+                [className]: className,
             })}
             label={
                 <Typography
                     className={clsx(classes.text, {
-                        [props.addedClassName]: props.addedClassName,
-                        [props.textClassName]: props.textClassName,
+                        [textClassName]: textClassName,
                     })}
-                    variant={props.variant}
-                    noWrap={props.noWrap}
+                    variant={variant}
+                    noWrap={noWrap}
                 >
-                    {props.children}
+                    {children}
                 </Typography>
             }
             labelPlacement="start"
             control={
                 <Checkbox
-                    onClick={props.onClick}
+                    onClick={onClick}
                     icon={
                         <CheckBoxOutlineBlankIcon
                             className={clsx(classes.checkbox, {
-                                [props.addedClassName]: props.addedClassName,
-                                [props.checkboxClassName]: props.checkboxClassName,
+                                [checkboxClassName]: checkboxClassName,
                             })}
                         />
                     }
                     checkedIcon={
                         <CheckBoxIcon
                             className={clsx(classes.checkbox, {
-                                [props.addedClassName]: props.addedClassName,
-                                [props.checkboxClassName]: props.checkboxClassName,
+                                [checkboxClassName]: checkboxClassName,
                             })}
                         />
                     }
-                    checked={props.checkmarkState}
-                    defaultChecked={props.defaultChecked}
+                    checked={checkmarkState}
+                    defaultChecked={defaultChecked}
                     name="checkbox"
                 />
             }

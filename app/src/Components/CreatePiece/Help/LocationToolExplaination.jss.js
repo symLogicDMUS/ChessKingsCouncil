@@ -17,7 +17,6 @@ export const useStyles = makeStyles({
         flexWrap: 'nowrap',
         alignItems: 'center',
         justifyContent: 'center',
-        border: '1px dashed red',
     }),
     locations_board: props => ({
         width: '30vw',

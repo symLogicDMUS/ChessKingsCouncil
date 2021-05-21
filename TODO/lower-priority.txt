@@ -3,7 +3,6 @@ short:
 medium:
     * and red_alt piece theme pieces
     * convert MuiGrid To Dialog component with DialogActions
-    * consider making MechWarrior fill a texture, if possible.
 long:
     * Make functional Components in addition to class components be a default export, to be consistent.
     * go and through every document and add documentation as well as use the Prettier command in VS code.

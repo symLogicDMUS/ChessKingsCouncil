@@ -14,7 +14,6 @@ import {TwoItemAppBarContent} from "../Reuseables/AppBar/Content/TwoItemAppBarCo
 import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
-import {MuiGrid} from "../Reuseables/Modals/MuiGrid";
 import SearchIcon from "@material-ui/icons/Search";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import {LoadGameTitle} from "./LoadGameTitle";
@@ -24,6 +23,8 @@ import {UserContext} from "../../UserContext";
 import {ThemeContext} from "../ThemeContext";
 import {reducer} from "./LoadGame.red";
 import {useStyles} from "./LoadGame.jss";
+
+const MuiGrid = React.lazy(() => import('../Reuseables/Modals/MuiGrid'));
 
 function LoadGame() {
     const history = useHistory();

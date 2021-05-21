@@ -1,6 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
-import {marginLgHalf, sqrItemSizeLg, sqrItemSizeMd, sqrItemSizeSm, sqrItemSizeXs} from "../constants.jss";
+import {marginLgHalf, sqrItemSizeLg, sqrItemSizeMd} from "../constants.jss";
 
 export const useStyles = makeStyles({
     header: props => ({

@@ -71,7 +71,6 @@ export const useStyles = makeStyles({
     }),
     tool_buttons: props => ({
         width: '100%',
-        outline: '1px dashed red',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',

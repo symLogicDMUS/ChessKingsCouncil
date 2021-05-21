@@ -32,14 +32,14 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: '1.85vw',
         height: `calc(100vh - 1.35em)`,
     }),
-    smMain: props => ({
-        height: `calc(100vh - ${appBarHeight}px)`,
-    }),
     smMainWithMiniVariant: props => ({
         width: `calc(100vw - ${miniVariantIconsColumnWidth}px)`,
     }),
     smMainFull: props => ({
        width: '100vw',
+    }),
+    smMain: props => ({
+        height: `calc(100vh - ${appBarHeight}px)`,
     }),
     drawer: props => ({
         [theme.breakpoints.up('md')]: {

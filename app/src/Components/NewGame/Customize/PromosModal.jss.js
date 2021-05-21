@@ -56,13 +56,8 @@ export const useStyles = makeStyles({
         },
     }),
     scroll_table_text: props => ({
-        '@media screen and (max-width: 960px)': {
-            fontSize: '1.75rem',
-        },
-        '@media screen and (min-width: 960px)': {
-            fontSize: '1rem',
-        },
-        paddingLeft: '1vw',
+        fontSize: '1rem',
+        paddingLeft: '0.3rem',
     }),
     scroll_table_title: props => ({
         '@media screen and (max-width: 960px)': {

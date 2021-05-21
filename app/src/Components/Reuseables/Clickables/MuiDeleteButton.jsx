@@ -147,7 +147,6 @@ export function MuiDeleteButton(props) {
                 isDisabled={props.isDisabled}
                 startIcon={props.startIcon}
                 classesObj={props.classesObj}
-                addedClassName={props.addedClassName}
                 className={props.className}
                 variant={props.variant}
                 style={props.style}

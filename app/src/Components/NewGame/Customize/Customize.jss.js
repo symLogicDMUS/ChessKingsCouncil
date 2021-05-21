@@ -1,5 +1,6 @@
 import {themes} from "../../styles/themes/themes.jss";
 import {miniVariantIconsColumnWidth} from "../../Reuseables/Drawers/MiniVariantDrawer.jss";
+import {marginLg2x} from "../../PieceProfiles/constants.jss";
 
 export const drawerItemWidth = '22.4vw';
 export const arrowButtonBorderRadius = '0.35rem';
@@ -42,10 +43,6 @@ export const styles = {
             marginLeft: drawerItemMarginLeft,
         },
         fontFamily: 'Roboto-Light, Roboto',
-    }),
-    smItem: props => ({
-       marginLeft: 8,
-       marginRight: 8,
     }),
     tools: props => ({
         display: 'flex',

@@ -4,13 +4,14 @@ import {isFbStorageImg} from "../../../../API/isFbStorageImg";
 import {getSampleImgs} from "../../../../API/sampleData/getSampleImgs";
 import {decrementImgRefCount} from "../../../../API/decrementImgRefCount";
 import {getImgComponents} from "../../../Reuseables/Modals/getImgComponents";
-import {MuiGrid} from "../../../Reuseables/Modals/MuiGrid";
 import {Close} from "../../../Reuseables/Modals/Close";
 import {getImgDict} from "../../../../API/getImgDict";
 import {deleteImg} from "../../../../API/deleteImg";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
 import {UserContext} from "../../../../UserContext";
 import {styles} from "./ImgChoicesModal.jss";
+
+const MuiGrid = React.lazy(() => import('../../../Reuseables/Modals/MuiGrid'));
 
 class ImgChoicesModal extends React.Component {
     state = {

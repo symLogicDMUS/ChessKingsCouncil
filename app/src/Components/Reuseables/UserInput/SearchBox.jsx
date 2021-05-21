@@ -41,12 +41,12 @@ export function SearchBox(props) {
                 />
             )}
             <Input
+                type="search"
                 onChange={handleChange}
                 classes={{
                     root: classes.input_root,
                     input: classes.input,
                 }}
-                type="search"
                 inputProps={{ "aria-label": "search" }}
                 disableUnderline={true}
                 {...other}

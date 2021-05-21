@@ -18,10 +18,10 @@ import {standardPieceNames} from "../../helpers/standardPieceNames";
 import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CustomizeToolbar from "./CustomizeToolbar";
+import {CustomizeTitle} from "./CustomizeTitle/CustomizeTitle";
 import {ThemeContext} from "../../ThemeContext";
-import {styles} from "./Customize.jss";
 import {PromosList} from "./PromosList";
-import {CustomizeTitle} from "./CustomizeTitle";
+import {styles} from "./Customize.jss";
 
 const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
 const ResponsiveDrawer = React.lazy(() => import('../../Reuseables/Drawers/ResponsiveDrawer'));
@@ -291,7 +291,7 @@ class Customize extends React.Component {
                     {this.state.redirect ? this.play() : null}
                     <ResponsiveDrawer
                         elevation={0}
-                        appBarType="3item"
+                        minABPadding={true}
                         theme={value.themes.customize}
                         appBarContent={
                             <CustomizeTitle

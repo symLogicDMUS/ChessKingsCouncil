@@ -1,27 +1,31 @@
 import React from "react";
 import clsx from "clsx";
-import { PieceName } from "./PieceName";
-import { useHistory } from "react-router-dom";
+import {PieceName} from "./PieceName";
+import {useHistory} from "react-router-dom";
 import StorageIcon from "@material-ui/icons/Storage";
-import { deleteDef } from "../../../API/deleteDef";
+import {deleteDef} from "../../../API/deleteDef";
 import DeleteForever from "@material-ui/icons/DeleteForever";
-import { decrementImgRefCounts } from "../../../API/decrementImgRefCounts";
-import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
-import { MuiDeleteButton as DeleteButton } from "../../Reuseables/Clickables/MuiDeleteButton";
-import { useStyles as useMoreStyles } from "../../PieceProfiles/Header/ProfileHeader.jss";
-import { filterSamples } from "../../../API/filterSamples";
-import { marginRight, useStyles } from "./LoadDeleteHeader.jss";
+import {decrementImgRefCounts} from "../../../API/decrementImgRefCounts";
+import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
+import {MuiDeleteButton as DeleteButton} from "../../Reuseables/Clickables/MuiDeleteButton";
+import {useStyles as useMoreStyles} from "../../PieceProfiles/Header/ProfileHeader.jss";
+import {filterSamples} from "../../../API/filterSamples";
+import {marginRight, useStyles} from "./LoadDeleteHeader.jss";
+import {getModalText, getModalTitle} from "./deleteModalTitleAndText";
 
-function LoadDeleteHeader({
-    def,
-    load,
-    erase,
-    theme,
-    dispatch,
-    pieceName,
-    parentPage,
-    toggleModal,
-}) {
+
+function LoadDeleteHeader(props) {
+    const {
+        def,
+        load,
+        erase,
+        theme,
+        dispatch,
+        pieceName,
+        parentPage,
+        toggleModal,
+    } = props;
+
     const history = useHistory();
 
     const classes = useStyles({ theme: theme });
@@ -74,16 +78,15 @@ function LoadDeleteHeader({
                 })}
             >
                 <PieceName
-                    style={marginRight}
                     theme={theme}
+                    style={marginRight}
                     tooltipPlacement={"left-start"}
                 >
                     {pieceName}
                 </PieceName>
                 <Button
                     theme={theme}
-                    className={classes.button}
-                    addedClassName={classes.load_button}
+                    className={clsx(classes.button, {[classes.load_button]:true})}
                     startIcon={<StorageIcon className={classes.icon} />}
                     onClick={loadMethod}
                 >
@@ -91,9 +94,8 @@ function LoadDeleteHeader({
                 </Button>
                 <DeleteButton
                     onAcceptDelete={() => deletePiece(pieceName)}
-                    modalTitle={`You are asking to delete piece ${pieceName}.`}
-                    modalText={`Game in progress will not be affected but the record of the piece for new games will be 
-                                    destroyed. This action can not be undone. Are you sure you want to delete piece ${pieceName}?`}
+                    modalTitle={getModalTitle(pieceName)}
+                    modalText={getModalText(pieceName)}
                     startIcon={
                         <DeleteForever
                             className={clsx(classes.icon, {
@@ -102,8 +104,7 @@ function LoadDeleteHeader({
                         />
                     }
                     variant="outlined"
-                    className={classes.button}
-                    addedClassName={classes.delete_button}
+                    className={clsx(classes.button, {[classes.delete_button]:true})}
                     isDisabled={false}
                     theme={theme}
                 />

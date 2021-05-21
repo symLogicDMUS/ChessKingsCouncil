@@ -8,7 +8,6 @@ export const useStyles = makeStyles({
         marginRight: '0.5rem',
         display: 'flex',
         flexDirection: 'column',
-        outline: '1px dashed red',
     }),
     example: props => ({
         '@media screen and (max-width: 960px)': {
