@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {Portal} from "@material-ui/core";
-import AskLoginButton from "../../Home/AskLoginButton";
-import {UserContext} from "../../../UserContext";
+import AskLoginButton from "../../Home/Sign In/AskLoginButton";
+import {UserContext} from "../../../Context/UserContext";
 import {useStyles} from "./SaveResignTool.jss";
 
 const SaveAs = React.lazy(() => import("./SaveAs"));

@@ -16,7 +16,7 @@ import {PieceProfilesHelp} from "../../../PieceProfiles/Help/PieceProfilesHelp";
 import {GameNameText} from "../../../NewGame/GameOptions/Help/GameNameText";
 import {PlayingGameHelp} from "../../../GameRoot/Help/PlayingGameHelp";
 import {useStyles} from "./HelpSlides.jss";
-import {GameImageGridExplained} from "../../../LoadGame/GameImageGridExplained";
+import {GameImageGridExplained} from "../../../LoadGame/GameSnapshot/GameImageGridExplained";
 import {GameplayText} from "../../../GameRoot/Help/GameplayText";
 
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import('./Extra/PuttingThePieceICreatedIntoAGame'));

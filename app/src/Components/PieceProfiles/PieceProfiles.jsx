@@ -8,7 +8,7 @@ import {getSampleDefs} from "../../API/sampleData/getSampleDefs";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {getDefs} from "../../API/getDefs";
 import {reducer} from "./PieceProfiles.red";
-import {UserContext} from "../../UserContext";
+import {UserContext} from "../../Context/UserContext";
 import {useStyles} from "./PieceProfiles.jss";
 
 const Profile = React.lazy(() => import('./Profile'));

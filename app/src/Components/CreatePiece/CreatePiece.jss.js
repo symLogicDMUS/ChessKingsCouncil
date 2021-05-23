@@ -7,6 +7,11 @@ import {miniVariantIconsColumnWidth} from "../Reuseables/Drawers/MiniVariantDraw
 export const marginBottom = '1.15vw';
 export const lgScreenToolWidth = '22.5vw';
 
+export const text = (theme) => ({
+    color: themes[theme].text,
+    marginTop: '1rem',
+});
+
 export const styles = {
     modal: {
         ...modal,

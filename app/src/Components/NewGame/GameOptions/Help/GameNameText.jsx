@@ -13,16 +13,16 @@ export function GameNameText(props) {
         <Typography className={classes.text} paragraph>
             Type the name of the game. Note that the game is not saved until the
             <SeeExampleButton
-                lgSrc='/Images/gif/wide/save.png'
-                smSrc='/Images/gif/thin/save.png'
+                lgSrc='/Images/help/wide/save.png'
+                smSrc='/Images/help/thin/save.png'
                 theme={props.theme}
                 isText={true}
             >
                 Save
             </SeeExampleButton> or
             <SeeExampleButton
-                lgSrc='/Images/gif/wide/save as.png'
-                smSrc='/Images/gif/thin/save as.png'
+                lgSrc='/Images/help/wide/save as.png'
+                smSrc='/Images/help/thin/save as.png'
                 theme={props.theme}
                 isText={true}
             >

@@ -1,8 +1,10 @@
 short:
+    * Council Rules image links missing.
     * MuiGrid Ok button still active when no game has been selected, leads to error when press ok.
 medium:
-
+    * use a React context for Help modals, called HelpContext keeping track of what pages that users visited.
+      Have a checkbox with label "no more help windows". Remove "newcomers" section of database. when a user signs
+      in, give them a reminder of where the help button is.
 long:
-    * code splitting
-    * breakpoints for very large screens
-    * Help modals when not signed in with checkbox option to disable, using useContext
+    * code splitting.
+    * breakpoints for very large screens.

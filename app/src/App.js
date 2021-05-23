@@ -1,16 +1,23 @@
-import React, {lazy, Suspense, useEffect, useMemo, useReducer, useState} from "react";
+import React from "react";
+import {lazy} from "react";
+import {useMemo} from "react";
+import {Suspense} from "react"
+import {useState} from "react";
+import {useEffect} from "react";
+import {useReducer} from "react";
+import {reducer} from "./App.red";
+import {getThemes} from "./API/getThemes";
+import {queryUserId} from "./API/isNewUser";
+import NotFound from "./Components/Home/NotFound";
+import Loading from "./Components/Reuseables/Animations/Loading";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {saveSampleData} from "./API/sampleData/saveSampleData";
+import {ThemeContext} from "./Context/ThemeContext";
+import {HelpContext} from "./Context/HelpContext";
+import {UserContext} from "./Context/UserContext";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-import NotFound from "./Components/Home/NotFound";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Loading from "./Components/Reuseables/Animations/Loading";
-import {saveSampleData} from "./API/sampleData/saveSampleData";
-import {ThemeContext} from "./Components/ThemeContext";
-import {queryUserId} from "./API/isNewUser";
-import {getThemes} from "./API/getThemes";
-import {UserContext} from "./UserContext";
-import {reducer} from "./App.red";
 import "./App.scss";
 
 const Home = lazy(() => import("./Components/Home/Home"));
@@ -38,6 +45,14 @@ function App() {
         councilRules: 'tan',
         home: 'tan',
     });
+    const [help, setHelp] = useState({
+        NewGame: true,
+        LoadGame: true,
+        CreatePiece: true,
+        Customize: true,
+        GameRoot: true,
+        MyPieces: true,
+    });
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -62,24 +77,27 @@ function App() {
         });
     }, [])
 
-    const providerValue = useMemo(() => ({themes, setThemes}), [themes, setThemes])
+    const themeValue = useMemo(() => ({themes, setThemes}), [themes, setThemes]);
+    const helpValue = useMemo(() => ({help, setHelp}), [help, setHelp]);
 
     return (
         <Router>
             <Suspense fallback={<Loading/>}>
                 <UserContext.Provider value={state.uid}>
-                    <ThemeContext.Provider value={providerValue}>
-                        <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route exact path="/NewGame" component={NewGame}/>
-                            <Route exact path="/LoadGame" component={LoadGame}/>
-                            <Route exact path="/CreatePiece" component={CreatePiece}/>
-                            <Route exact path="/Customize" component={Customize}/>
-                            <Route exact path="/Play" component={GameRoot}/>
-                            <Route exact path="/MyPieces" component={MyPieces}/>
-                            <Route exact path="/CouncilRules" component={CouncilRules}/>
-                            <Route component={NotFound}/>
-                        </Switch>
+                    <ThemeContext.Provider value={themeValue}>
+                        <HelpContext.Provider value={helpValue}>
+                            <Switch>
+                                <Route exact path="/" component={Home}/>
+                                <Route exact path="/NewGame" component={NewGame}/>
+                                <Route exact path="/LoadGame" component={LoadGame}/>
+                                <Route exact path="/CreatePiece" component={CreatePiece}/>
+                                <Route exact path="/Customize" component={Customize}/>
+                                <Route exact path="/Play" component={GameRoot}/>
+                                <Route exact path="/MyPieces" component={MyPieces}/>
+                                <Route exact path="/CouncilRules" component={CouncilRules}/>
+                                <Route component={NotFound}/>
+                            </Switch>
+                        </HelpContext.Provider>
                     </ThemeContext.Provider>
                 </UserContext.Provider>
             </Suspense>

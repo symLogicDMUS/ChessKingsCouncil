@@ -4,7 +4,7 @@ import Box from "@material-ui/core/Box";
 import { MoreVert } from "@material-ui/icons";
 import { SeeMore } from "../../UserInput/SeeMore";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import SignInOutButton from "../../../Home/SignInOutButton";
+import SignInOutButton from "../../../Home/Sign In/SignInOutButton";
 import { useStyles } from "./TwoItemAppBarContent.jss";
 
 export function TwoItemAppBarContent({

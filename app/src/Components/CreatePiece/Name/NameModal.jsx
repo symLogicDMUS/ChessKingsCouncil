@@ -8,11 +8,9 @@ import { useStyles } from "./Name.jss";
 
 /*Note: if want to add close button or drag indicator back in use TopArea.jsx  */
 
-function NameModal({
-    pieceName,
-    updateName,
-    theme,
-}) {
+function NameModal(props) {
+    const {pieceName, updateName, theme} = props;
+
     const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles({ theme: theme });
 

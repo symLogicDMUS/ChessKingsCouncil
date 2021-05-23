@@ -1,25 +1,25 @@
 import React from "react";
-import {Redirect} from "react-router-dom";
 import {newData} from "../NewData";
 import {SubsList} from "./SubsList";
 import {copy} from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
+import {Redirect} from "react-router-dom";
 import MediaQuery from "react-responsive/src";
 import {difference} from "../../helpers/setOps";
 import {isSpecial} from "../../helpers/isSpecial";
 import {CustomizeHelp} from "./Help/CustomizeHelp";
 import {standardPieceDefs} from "../standardPieceDefs";
-import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
+import {standardPieceNames} from "../../helpers/standardPieceNames";
 import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
 import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
 import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
 import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
-import {standardPieceNames} from "../../helpers/standardPieceNames";
 import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
-import withStyles from "@material-ui/core/styles/withStyles";
-import CustomizeToolbar from "./CustomizeToolbar";
+import {HelpSlideshow} from "../../Reuseables/NavBar/Help/HelpSlideshow";
 import {CustomizeTitle} from "./CustomizeTitle/CustomizeTitle";
-import {ThemeContext} from "../../ThemeContext";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {ThemeContext} from "../../../Context/ThemeContext";
+import CustomizeToolbar from "./CustomizeToolbar";
 import {PromosList} from "./PromosList";
 import {styles} from "./Customize.jss";
 
@@ -289,6 +289,14 @@ class Customize extends React.Component {
             <ThemeContext.Consumer>
                 {value => <>
                     {this.state.redirect ? this.play() : null}
+                    <HelpSlideshow
+                        title="Customize Game"
+                        currentPage={"Customize"}
+                        theme={value.themes.customize}
+                        initialState={{pos: 0, numSlides: 3}}
+                    >
+                        {CustomizeHelp(value.themes.customize)}
+                    </HelpSlideshow>
                     <ResponsiveDrawer
                         elevation={0}
                         minABPadding={true}
@@ -328,15 +336,6 @@ class Customize extends React.Component {
                         navBar={
                             <NavBar
                                 currentPage="Customize"
-                                helpText={CustomizeHelp(value.themes.customize)}
-                                helpTitle={
-                                    <HelpTitle
-                                        theme={value.themes.customize}
-                                        fontSize='2.3vh'
-                                    >
-                                        Customizing a Game
-                                    </HelpTitle>
-                                }
                                 theme={value.themes.customize}
                                 additionalSettings={null}
                             />

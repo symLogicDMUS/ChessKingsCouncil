@@ -1,19 +1,25 @@
-import React, { useContext, useState } from "react";
 import clsx from "clsx";
+import React from "react";
+import {useState} from "react";
+import {useContext} from "react";
 import { Close } from "../Modals/Close";
-import Box from "@material-ui/core/Box";
 import { Undo } from "@material-ui/icons";
-import Button from "@material-ui/core/Button";
+import {Button} from "@material-ui/core";
+import {Typography} from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
+import {DialogTitle} from "@material-ui/core";
+import {DialogActions} from "@material-ui/core";
+import {DialogContent} from "@material-ui/core";
 import { saveThemes } from "../../../API/saveThemes";
-import {Dialog, DialogActions, DialogContentText, DialogTitle, Typography} from "@material-ui/core";
+import MuiAccordion from "../Accordions/MuiAccordion";
+import ThemeDropdown from "../UserInput/ThemeDropdown";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { UserContext } from "../../../Context/UserContext";
+import { ThemeContext } from "../../../Context/ThemeContext";
+import AskLoginButton from "../../Home/Sign In/AskLoginButton";
 import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../Animations/ThemeSavedSuccessfully";
-import ThemeDropdown from "../UserInput/ThemeDropdown";
-import MuiAccordion from "../Accordions/MuiAccordion";
-import AskLoginButton from "../../Home/AskLoginButton";
-import { ThemeContext } from "../../ThemeContext";
-import { UserContext } from "../../../UserContext";
-import { useStyles } from "./SettingsModal.jss";
+import {smReset, useStyles} from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
     const {currentPage, closeModal, theme, children, ...other} = props;
@@ -21,6 +27,7 @@ export function SettingsModal(props) {
     const uid = useContext(UserContext);
     const { themes, setThemes } = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
+    const sm = useMediaQuery("(max-width: 375px)");
     const classes = useStyles({ theme: theme });
 
     const saveThemesToDb = () => {
@@ -30,7 +37,7 @@ export function SettingsModal(props) {
     };
 
     const resetDefaults = () => {
-        saveThemes({
+        setThemes({
             newGame: "tan",
             loadGame: "tan",
             createPiece: "dark",
@@ -39,10 +46,9 @@ export function SettingsModal(props) {
             myPieces: "dark",
             councilRules: "tan",
             home: "tan",
-        }).then((r) => {
-            setSaveSuccess(true);
-        });
+        })
     };
+
     const added = "(Current Page)";
 
     return (
@@ -72,8 +78,9 @@ export function SettingsModal(props) {
                     className={classes.close}
                     iconClassName={classes.close_icon}
                 />
-                <DialogTitle className={classes.normal}>Theme</DialogTitle>
-                <Box className={classes.settings}>
+                <DialogTitle className={classes.normal}>Settings</DialogTitle>
+                <DialogContent>
+                    <Typography variant={"subtitle1"} className={classes.normal} paragraph>Theme</Typography>
                     <MuiAccordion
                         className={classes.accordion}
                         heading={
@@ -103,7 +110,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Home Page{" "}
-                                {currentPage === "MainMenu" && added}
+                                {! sm && currentPage === "MainMenu" && added}
                             </Typography>
                         }
                     >
@@ -125,7 +132,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 New Game{" "}
-                                {currentPage === "NewGame" && added}
+                                {! sm && currentPage === "NewGame" && added}
                             </Typography>
                         }
                     >
@@ -147,7 +154,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Load Game{" "}
-                                {currentPage === "LoadGame" && added}
+                                {! sm && currentPage === "LoadGame" && added}
                             </Typography>
                         }
                     >
@@ -169,7 +176,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Create Piece{" "}
-                                {currentPage === "CreatePiece" && added}
+                                {! sm && currentPage === "CreatePiece" && added}
                             </Typography>
                         }
                     >
@@ -191,7 +198,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Customize Game{" "}
-                                {currentPage === "Customize" && added}
+                                {! sm && currentPage === "Customize" && added}
                             </Typography>
                         }
                     >
@@ -213,7 +220,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Playing Game page{" "}
-                                {currentPage === "GameRoot" && added}
+                                {! sm && currentPage === "GameRoot" && added}
                             </Typography>
                         }
                     >
@@ -235,7 +242,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Saved Pieces{" "}
-                                {currentPage === "MyPieces" && added}
+                                {! sm && currentPage === "MyPieces" && added}
                             </Typography>
                         }
                     >
@@ -257,7 +264,7 @@ export function SettingsModal(props) {
                                 noWrap
                             >
                                 Council Rules{" "}
-                                {currentPage === "CouncilRules" && added}
+                                {! sm && currentPage === "CouncilRules" && added}
                             </Typography>
                         }
                     >
@@ -267,33 +274,34 @@ export function SettingsModal(props) {
                             defaultValue={themes.councilRules}
                         />
                     </MuiAccordion>
-                    <DialogActions className={classes.dialog_actions}>
-                        {uid ? (
-                            <Button
-                                onClick={saveThemesToDb}
-                                className={classes.save_theme_button}
-                                variant={"contained"}
-                            >
-                                Save For next visit
-                            </Button>
-                        ) : (
-                            <AskLoginButton
-                                theme={theme}
-                                buttonType="theme"
-                                isGameOption={false}
-                            />
-                        )}
+                    {children}
+                </DialogContent>
+                <DialogActions className={classes.dialog_actions}>
+                    {uid ? (
                         <Button
-                            onClick={resetDefaults}
-                            startIcon={<Undo />}
-                            className={classes.reset_theme_button}
+                            onClick={saveThemesToDb}
+                            className={classes.save_theme_button}
                             variant={"contained"}
                         >
-                            Reset defaults
+                            Save For next visit
                         </Button>
-                    </DialogActions>
-                </Box>
-                {children}
+                    ) : (
+                        <AskLoginButton
+                            theme={theme}
+                            buttonType="theme"
+                            isGameOption={false}
+                        />
+                    )}
+                    <Button
+                        onClick={resetDefaults}
+                        variant={"contained"}
+                        startIcon={<Undo />}
+                        className={classes.reset_theme_button}
+                        style={sm ? smReset : null}
+                    >
+                        Reset defaults
+                    </Button>
+                </DialogActions>
             </Dialog>
         </>
     );

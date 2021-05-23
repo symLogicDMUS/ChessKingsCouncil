@@ -7,11 +7,12 @@ import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import { useStyles as useMoreStyles } from "./HelpText.jss";
 import { useStyles } from "./HelpButtonReminder.jss";
 
-export function HelpButtonReminder({theme}) {
+export function HelpButtonReminder(props) {
+    const {theme, ...other} = props;
     const classes = useStyles({theme});
     const classes2 = useMoreStyles({theme});
     return <div>
-        <Typography className={classes2.text} paragraph>
+        <Typography className={classes2.text} paragraph={true} {...other}>
             Remember: You can return to the help menu any time through the Help
             option on the NavBar
             <Button>

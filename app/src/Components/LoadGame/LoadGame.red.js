@@ -25,6 +25,7 @@ export function reducer(state, action) {
             const newState = copy(state)
             delete newState.games[newState.selectedGame];
             delete newState.boardObjs[newState.gameName];
+            newState.selectedGame = null;
             return newState;
         case 'set-choice':
             return {

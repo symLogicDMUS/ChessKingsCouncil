@@ -27,16 +27,17 @@ export const useStyles = makeStyles({
     row2: props => ({
         marginTop: 'auto',
     }),
-    toolbar: {
+    appBar: props =>  ({
         height: appBarHeight,
         width: '100vw',
-    },
+    }),
     navbar: props => ({
         height: navBarButtonHeight,
         width: '100vw',
     }),
-    navWithTabs: props => ({
-        height: `calc(${navBarButtonHeight}px + ${appBarHeight}px)`
+    appWithTabs: props => ({
+        height: appBarHeight * 2,
+        width: '100vw',
     }),
     lgScreenBar: props => ({
         height: 37,

@@ -5,7 +5,7 @@ import Box from "@material-ui/core/Box";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./PickType.jss";
 
-export function PickType({gameType, setGameType, theme}) {
+function PickType({gameType, setGameType, theme}) {
     const classes = useStyles({theme: theme});
     const classes2 = useMoreStyles()
 
@@ -24,3 +24,5 @@ export function PickType({gameType, setGameType, theme}) {
         </Box>
     );
 }
+
+export default PickType;

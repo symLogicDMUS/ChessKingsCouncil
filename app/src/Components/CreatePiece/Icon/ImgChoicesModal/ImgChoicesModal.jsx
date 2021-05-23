@@ -8,7 +8,7 @@ import {Close} from "../../../Reuseables/Modals/Close";
 import {getImgDict} from "../../../../API/getImgDict";
 import {deleteImg} from "../../../../API/deleteImg";
 import {ImgChoicesTitle} from "./ImgChoicesTitle";
-import {UserContext} from "../../../../UserContext";
+import {UserContext} from "../../../../Context/UserContext";
 import {styles} from "./ImgChoicesModal.jss";
 
 const MuiGrid = React.lazy(() => import('../../../Reuseables/Modals/MuiGrid'));

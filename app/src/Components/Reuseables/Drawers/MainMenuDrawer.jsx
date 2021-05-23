@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import clsx from "clsx";
 import NavBar from "../NavBar/NavBar";
-import {MainMenuBody} from "../../Home/MainMenuBody";
+import {MainMenuBody} from "../../Home/Main Menu/MainMenuBody";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -13,10 +13,11 @@ import IconButton from "@material-ui/core/IconButton";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import SignInOutButton from "../../Home/SignInOutButton";
+import SignInOutButton from "../../Home/Sign In/SignInOutButton";
 import { useStyles } from "./MainMenuDrawer.jss";
+import {NavBarHome} from "../NavBar/NavBarHome";
 
-export default function MainMenuDrawer({theme, updateTheme}) {
+export default function MainMenuDrawer({theme, toggleAboutPage}) {
     const classes = useStyles({ theme: theme });
     const muiTheme = useTheme();
 
@@ -90,15 +91,16 @@ export default function MainMenuDrawer({theme, updateTheme}) {
                     </IconButton>
                 </div>
                 <Divider />
-                <NavBar
-                    currentPage="MainMenu"
-                    helpText={null}
-                    helpTitle={null}
-                    redirectMessage={null}
-                    additionalSettings={null}
-                    updateTheme={updateTheme}
-                    theme={theme}
-                />
+                {!!toggleAboutPage ? (
+                    <NavBarHome toggleAboutPage={toggleAboutPage} theme={theme} />
+                ) : (
+                    <NavBar
+                        currentPage="MainMenu"
+                        redirectMessage={null}
+                        additionalSettings={null}
+                        theme={theme}
+                    />
+                )}
             </Drawer>
             <main
                 className={clsx(classes.content, {

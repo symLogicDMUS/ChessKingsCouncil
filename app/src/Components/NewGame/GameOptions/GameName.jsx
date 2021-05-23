@@ -5,8 +5,7 @@ import {MuiTextField} from "../../Reuseables/UserInput/MuiTextField";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./GameName.jss";
 
-
-export function GameName(props) {
+function GameName(props) {
     const {gameName, setGameName, theme, ...other} = props;
 
     const classes = useStyles({theme: theme});
@@ -31,3 +30,5 @@ export function GameName(props) {
             </Box>
     );
 }
+
+export default GameName;

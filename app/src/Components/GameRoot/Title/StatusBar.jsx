@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import { capitalize } from "../../helpers/capitalize";
 import { resolvePlayerType } from "../../helpers/resolvePlayerType";
 import { getOppositeColorName } from "../../helpers/getOppositeColorName";
-import SignInOutButton from "../../Home/SignInOutButton";
+import SignInOutButton from "../../Home/Sign In/SignInOutButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {marginLeft, useStyles} from "./StatusBar.jss";
 

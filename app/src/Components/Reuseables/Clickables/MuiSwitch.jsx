@@ -6,14 +6,15 @@ import { useStyles } from "./MuiSwitch.jss";
 export function MuiSwitch({control, isChecked, className, theme, labelPlacement, children}) {
     const classes = useStyles({theme: theme});
     return (
-        <FormControlLabel
-            control={control}
-            label={children}
-            checked={isChecked}
-            className={clsx(classes.root, {
-                [className]: className,
-            })}
-            labelPlacement={labelPlacement}
-        />
+        <div className={clsx(classes.root, {
+            [className]: className})}
+        >
+            <FormControlLabel
+                control={control}
+                label={children}
+                checked={isChecked}
+                labelPlacement={labelPlacement}
+            />
+        </div>
     );
 }

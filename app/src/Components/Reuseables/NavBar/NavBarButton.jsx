@@ -12,7 +12,6 @@ import { useStyles } from "./NavBarButton.jss";
 function NavBarButton(props) {
     const {
         path,
-        isRow,
         pageName,
         pageIcon,
         screenCase,

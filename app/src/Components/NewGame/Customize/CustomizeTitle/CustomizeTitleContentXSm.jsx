@@ -19,9 +19,9 @@ import {MuiCheckbox} from "../../../Reuseables/Clickables/MuiCheckbox";
 import { useStyles as useMoreStyles } from "../CustomizeTitle.jss";
 import { pawn } from "../../../styles/icons/customize/pawn.jss";
 import { useStyles } from "./CustomizeTitleContentXSm.jss";
-import {UserContext} from "../../../../UserContext";
+import {UserContext} from "../../../../Context/UserContext";
 
-const SignInWindow = React.lazy(() => import("../../../Home/SignInWindow"));
+const SignInWindow = React.lazy(() => import("../../../Home/Sign In/SignInWindow"));
 
 export function CustomizeTitleContentXSm(props) {
     const {theme, className, promoAllClick, updateSearchText, ...other} = props;
@@ -68,7 +68,10 @@ export function CustomizeTitleContentXSm(props) {
                     >
                         Promo All
                     </MuiCheckbox>
-                    <Button startIcon={<KeyboardBackspace />}>
+                    <Button
+                        onClick={() => setAction(null)}
+                        startIcon={<KeyboardBackspace />}
+                    >
                         Go Back
                     </Button>
                 </div>

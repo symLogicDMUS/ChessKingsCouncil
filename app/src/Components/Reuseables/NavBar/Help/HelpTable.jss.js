@@ -3,15 +3,9 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {darken, lighten} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
-    window: props => ({
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        width: '100vw',
-        height: '100vh',
-        zIndex: 11,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        overflowY: 'scroll',
+    color: props => ({
+        backgroundColor: themes[props.theme].fill,
+        color: themes[props.theme].text,
     }),
     accordion: props => ({
         "& .MuiAccordionSummary-root": {
@@ -37,6 +31,7 @@ export const useStyles = makeStyles({
     }),
     list_item: props => ({
         color: themes[props.theme].text,
+        fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     }),
     top: props => ({
         width: '100%',
@@ -67,10 +62,16 @@ export const useStyles = makeStyles({
             border: `0.08em solid ${themes[props.theme].odd_row}`,
         },
     }),
+    menu_button: props => ({
+        width: 48,
+        height: 48,
+        position: 'absolute'
+    }),
     title: props => ({
-        width: '100%',
-        textAlign: 'center',
-        fontSize: '1.1rem',
+        marginRight: 'auto',
         color: themes[props.theme].text,
+    }),
+    toolbar: props => ({
+        backgroundColor: themes[props.theme].fill,
     }),
 }, {index: 1})

@@ -10,17 +10,18 @@ import {Background} from "../styles/Background/Background";
 import {getSampleGames} from "../../API/sampleData/getSampleGames";
 import {decrementImgRefCounts} from "../../API/decrementImgRefCounts";
 import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
-import {TwoItemAppBarContent} from "../Reuseables/AppBar/Content/TwoItemAppBarContent";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
+import {TwoItemAppBarContent} from
+        "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import {PageTitle} from "../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../Reuseables/UserInput/SearchBox";
 import SearchIcon from "@material-ui/icons/Search";
 import NavBar from "../Reuseables/NavBar/NavBar";
 import {LoadGameTitle} from "./LoadGameTitle";
 import {LoadGameHelp} from "./LoadGameHelp";
-import GameSnapshots from "./GameSnapshots";
-import {UserContext} from "../../UserContext";
-import {ThemeContext} from "../ThemeContext";
+import GameSnapshots from "./GameSnapshot/GameSnapshots";
+import {UserContext} from "../../Context/UserContext";
+import {ThemeContext} from "../../Context/ThemeContext";
 import {reducer} from "./LoadGame.red";
 import {useStyles} from "./LoadGame.jss";
 
@@ -95,6 +96,14 @@ function LoadGame() {
     return (
         <>
             <Background theme={themes.loadGame} appBar={isThin} navBar={isWide}/>
+            <HelpSlideshow
+                title={"Load Game"}
+                theme={themes.loadGame}
+                currentPage={"LoadGame"}
+                initialState={{pos: 0, numSlides: 2}}
+            >
+                {LoadGameHelp(themes.loadGame)}
+            </HelpSlideshow>
             <ResponsiveDrawer
                 theme={themes.loadGame}
                 navBar={
@@ -104,12 +113,6 @@ function LoadGame() {
                         lgDirection={"row"}
                         currentPage="LoadGame"
                         redirectMessage={null}
-                        helpText={LoadGameHelp(themes.loadGame)}
-                        helpTitle={
-                            <HelpTitle theme={themes.loadGame} fontSize='2.6vh'>
-                                Loading a Game
-                            </HelpTitle>
-                        }
                         theme={themes.loadGame}
                         additionalSettings={null}
                     />

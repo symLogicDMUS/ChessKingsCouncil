@@ -1,13 +1,15 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import SignInOutButton from "../../Home/SignInOutButton";
+import SignInOutButton from "../../Home/Sign In/SignInOutButton";
 import {PieceName} from "../../PieceProfiles/Header/PieceName";
 import {PageTitle} from "../../Reuseables/AppBar/PageTitle";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {marginLeft, useStyles} from "./CreatePieceTitle.jss";
+import BlackImgAvatar from "./BlackImgAvatar";
+import {marginRight} from "../../PieceProfiles/Header/LoadDeleteHeader.jss";
 
-function CreatePieceTitle({name, theme, className}) {
+function CreatePieceTitle({name, blackImg, theme, className}) {
     const classes = useStyles();
     const sm = useMediaQuery("(max-width:960px)");
 
@@ -29,10 +31,10 @@ function CreatePieceTitle({name, theme, className}) {
                     <Box className={clsx(classes.appBar, {
                         [className]: className,
                     })}>
-                        <SignInOutButton
-                            theme={theme}
-                            style={marginLeft}
-                        />
+                        <BlackImgAvatar theme={theme} style={marginLeft}>
+                            {blackImg}
+                        </BlackImgAvatar>
+                        <SignInOutButton theme={theme} style={! blackImg ? marginLeft : null}/>
                     </Box>
                 </>
             )}
@@ -40,10 +42,13 @@ function CreatePieceTitle({name, theme, className}) {
                 <Box className={clsx(classes.appBar, {
                     [className]: className,
                 })}>
-                    <PageTitle theme={theme}>
+                    <PageTitle theme={theme} style={marginRight}>
                         Create Piece
                     </PageTitle>
-                    <SignInOutButton theme={theme} style={marginLeft} />
+                    <BlackImgAvatar theme={theme} style={marginLeft}>
+                        {blackImg}
+                    </BlackImgAvatar>
+                    <SignInOutButton theme={theme}  />
                 </Box>
             )}
         </>

@@ -13,10 +13,9 @@ import { useStyles } from "./NavBarColumn.jss";
 function NavBarColumn(props) {
     const {
         theme,
+        hideHelp,
         currentPage,
         parentPage,
-        helpText,
-        helpTitle,
         screenCase,
         isUnsavedChanges,
         additionalSettings,
@@ -69,6 +68,7 @@ function NavBarColumn(props) {
                 value={getIndex(currentPage)}
                 indicatorColor={"secondary"}
                 orientation={"vertical"}
+                {...other}
             >
                 <Tab
                     id={"Home"}
@@ -90,26 +90,24 @@ function NavBarColumn(props) {
                         />
                     }
                 />
-                <Tab
-                    id={"Help"}
-                    onClick={(event) => {
-                        event.preventDefault();
-                    }}
-                    label={
-                        <HelpButton
-                            key="Help"
-                            pageIcon="help"
-                            theme={theme}
-                            isRow={true}
-                            currentPage={currentPage}
-                            helpTitle={helpTitle}
-                            screenCase={screenCase}
-                            updateFirstVisit={updateFirstVisit}
-                        >
-                            {helpText}
-                        </HelpButton>
-                    }
-                />
+                {! hideHelp && (
+                    <Tab
+                        id={"Help"}
+                        onClick={(event) => {
+                            event.preventDefault();
+                        }}
+                        label={
+                            <HelpButton
+                                key="Help"
+                                pageIcon="help"
+                                theme={theme}
+                                isRow={true}
+                                screenCase={screenCase}
+                                currentPage={currentPage}
+                            />
+                        }
+                    />
+                )}
                 <Tab
                     id={"Settings"}
                     onClick={(event) => {

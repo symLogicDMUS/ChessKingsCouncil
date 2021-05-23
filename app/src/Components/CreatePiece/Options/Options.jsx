@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
 import Box from "@material-ui/core/Box";
 import {Typography} from "@material-ui/core";
-import {UserContext} from "../../../UserContext";
-import AskLoginButton from "../../Home/AskLoginButton";
+import {UserContext} from "../../../Context/UserContext";
+import AskLoginButton from "../../Home/Sign In/AskLoginButton";
 import { useStyles as useMoreStyles } from "../CreatePiece.jss";
 import { useStyles } from "./Options.jss.js";
 

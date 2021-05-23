@@ -13,7 +13,7 @@ export function LoadingAndDeletingPiecesHelp(props) {
     const classes2 = useMoreStyles({theme: props.theme});
     const classes3 = useEvenMoreStyles({theme: props.theme});
 
-    return <Typography paragraph={true}>
+    return <>
         <Typography className={classes3.text} paragraph>
             <Box className={classes.buttons}>
                 <Button
@@ -39,5 +39,5 @@ export function LoadingAndDeletingPiecesHelp(props) {
             or the Delete button to delete the piece. Pieces that are deleted will not affect games in progress,
             but no new game can be started with that piece.
         </Typography>
-    </Typography>;
+    </>;
 }

@@ -38,7 +38,7 @@ export const useStyles = makeStyles({
             right: miniVariantIconsColumnWidth,
         },
         '@media screen and (min-width: 960px)': {
-            right: rightDrawerWidth,
+            right: `calc(${rightDrawerWidth} + 0.5rem)`,
         },
     }),
     content: props => ({
@@ -53,7 +53,7 @@ export const useStyles = makeStyles({
         },
         '@media screen and (max-width: 960px)': {
             width: '100%',
-            // marginRight: 32,
+            marginRight: 32,
         },
         '@media screen and (min-width: 960px)': {
             width: pieceProfilesLgWidth,

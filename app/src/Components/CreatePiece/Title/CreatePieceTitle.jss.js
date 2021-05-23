@@ -6,6 +6,10 @@ export const marginLeft = {
     marginLeft: 'auto',
 }
 
+export const marginRight = {
+    marginRight: 'auto',
+}
+
 export const useStyles = makeStyles({
     appBar: props => ({
         width: '100%',

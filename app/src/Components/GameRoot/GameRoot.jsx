@@ -1,7 +1,7 @@
 import React from "react";
 import {copy} from "../helpers/copy";
+import {newData} from "../NewGame/NewData";
 import "../styles/Background/_backgrounds.scss";
-import withStyles from "@material-ui/core/styles/withStyles";
 import MediaQuery from "react-responsive/src";
 import {saveGame} from "../../API/saveGame";
 import {rankfiles} from "../helpers/rankfiles";
@@ -9,6 +9,7 @@ import {OVER} from "../helpers/gStatusTypes";
 import {isPawn} from "../helpers/isPawn";
 import {doNothing} from "../helpers/doNothing";
 import {flipKeysValues} from "../helpers/flipKeysValues";
+import withStyles from "@material-ui/core/styles/withStyles";
 import {getFen} from "../../game_logic/fenParser/getFen/top/getFen";
 import {getBinaryBoarAllFalse} from "../helpers/getBinaryBoardAllFalse";
 import {replacePawnIdWithCurrentLoc} from "../helpers/replacePawnIdWithCurrentLoc";
@@ -31,16 +32,16 @@ import {CapturedPieceImages} from "./CapturedPieceImg/CapturedPieceImages";
 import {GameStatus} from "../../game_logic/fenParser/GameStatus/GameStatus";
 import {SpecialMoves} from "../../game_logic/ranges/specialMoves/SpecialMoves";
 import {JsonRecords} from "../../game_logic/JsonRecords/JsonRecords";
-import {HelpTitle} from "../Reuseables/NavBar/Help/HelpTitle";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import {PlayingGameHelp} from "./Help/PlayingGameHelp";
 import {filterSamples} from "../../API/filterSamples";
 import {Fen} from "../../game_logic/fenParser/Fen";
-import AskLoginButton from "../Home/AskLoginButton";
+import AskLoginButton from "../Home/Sign In/AskLoginButton";
 import GameRootToolbar from "./GameRootToolbar";
-import {UserContext} from "../../UserContext";
-import {ThemeContext} from "../ThemeContext";
-import {newData} from "../NewGame/NewData";
-import {styles} from "./GameRoot.jss";
+import {UserContext} from "../../Context/UserContext";
+import {ThemeContext} from "../../Context/ThemeContext";
+import Typography from "@material-ui/core/Typography";
+import {styles, textColor} from "./GameRoot.jss";
 
 const Board = React.lazy(() => import('./GameBoard/Board'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
@@ -307,6 +308,14 @@ class GameRoot extends React.Component {
         return (
             <ThemeContext.Consumer>
                 {value => <>
+                    <HelpSlideshow
+                        title={"Playing a Game"}
+                        currentPage={"GameRoot"}
+                        theme={value.themes.gameRoot}
+                        initialState={{pos: 0, numSlides: 5}}
+                    >
+                        {PlayingGameHelp(value.themes.gameRoot)}
+                    </HelpSlideshow>
                     {this.state.saveAnimation && (
                         <AnimatePresencePortal>
                             <GameSavedSuccessfully
@@ -360,12 +369,12 @@ class GameRoot extends React.Component {
                                     toggleSecondaryDrawer={doNothing}
                                 />
                                 <CapturedPieceImages
-                                    capturedIds={this.capturedIds}
+                                    defs={this.defs}
+                                    idDict={this.idDict}
                                     captured={this.captured}
                                     gameType={this.gameType}
                                     theme={value.themes.gameRoot}
-                                    idDict={this.idDict}
-                                    defs={this.defs}
+                                    capturedIds={this.capturedIds}
                                 />
                             </>
                         }
@@ -374,17 +383,17 @@ class GameRoot extends React.Component {
                                 {this.context ? (
                                     <ToolButton
                                         text="Save"
-                                        iconName={"save_alt"}
-                                        onClick={this.save}
                                         isActive={false}
+                                        onClick={this.save}
+                                        iconName={"save_alt"}
                                         theme={value.themes.gameRoot}
                                     />
                                 ) : (
                                     <AskLoginButton
                                         text="Save"
+                                        isGameOption={true}
                                         iconName={"save_alt"}
                                         theme={value.themes.gameRoot}
-                                        isGameOption={true}
                                     />
                                 )}
                                 <GameRootToolbar
@@ -407,17 +416,21 @@ class GameRoot extends React.Component {
                             <NavBar
                                 currentPage="GameRoot"
                                 parentPage={this.parentPage}
-                                helpText={PlayingGameHelp(value.themes.gameRoot)}
-                                helpTitle={
-                                    <HelpTitle theme={value.themes.gameRoot} fontSize='2.6vh'>
-                                        Playing a Game
-                                    </HelpTitle>
-                                }
                                 isUnsavedChanges={this.isUnsavedChanges}
                                 updateTheme={this.updateTheme}
                                 theme={value.themes.gameRoot}
                                 additionalSettings={
                                     <>
+                                        <Typography
+                                            variant={"subtitle1"}
+                                            style={{
+                                                ...textColor(value.themes.gameRoot),
+                                                marginTop: '1rem',
+                                                marginBottom: '0.5rem'
+                                            }}
+                                        >
+                                            Game Settings
+                                        </Typography>
                                         <MuiSwitch
                                             theme={value.themes.gameRoot}
                                             control={
@@ -447,17 +460,17 @@ class GameRoot extends React.Component {
                         <MediaQuery maxWidth={960}>
                             {this.state.rangeAnalysis ? (
                                 <RangeAnalysis
-                                    theme={value.themes.gameRoot}
                                     board={this.board}
-                                    gameType={this.gameType}
                                     allRanges={{
                                         ...this.ranges,
                                         ...this.enemyRanges,
                                     }}
-                                    pieceDefs={this.defs}
-                                    idDict={this.idDict}
+                                    theme={value.themes.gameRoot}
                                     toggleSecondaryDrawer={this.toggleSecondaryDrawer}
                                     showProfileOnClick={this.state.showProfileOnClick}
+                                    gameType={this.gameType}
+                                    pieceDefs={this.defs}
+                                    idDict={this.idDict}
                                 />
                             ) : (
                                 <Board gameRoot={this} theme={value.themes.gameRoot} />

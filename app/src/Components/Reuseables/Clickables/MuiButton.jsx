@@ -4,20 +4,18 @@ import Button from "@material-ui/core/Button";
 import { useStyles } from "./MuiButton.jss";
 
 export function MuiButton(props) {
-    const {onClick, className, children, ...other} = props;
+    const {onClick, className, theme, children, ...other} = props;
 
-    const classes = useStyles({ theme: props.theme });
+    const classes = useStyles({ theme: theme });
     return (
-        <div className={classes.className}>
-            <Button
-                onClick={props.onClick}
-                className={clsx(classes.button, {
-                    [props.className]: props.className,
-                })}
-                {...other}
-            >
-                {props.children}
-            </Button>
-        </div>
+        <Button
+            onClick={onClick}
+            className={clsx(classes.button, {
+                [className]: className,
+            })}
+            {...other}
+        >
+            {children}
+        </Button>
     );
 }

@@ -10,13 +10,9 @@ import { useStyles } from "./ImgWindowsModal.jss";
 
 /*Note: if want to add close button or drag indicator back in use TopArea.jsx  */
 
-function IconModal({
-    whiteAndBlackImgs,
-    setNewPieceImg,
-    setImgFileObj,
-    resetImg,
-    theme,
-}) {
+function IconModal(props) {
+    const {whiteAndBlackImgs, setNewPieceImg, setImgFileObj, resetImg, theme} = props;
+
     const classes = useStyles({ theme });
     const classes2 = useMoreStyles({ theme });
 
@@ -57,9 +53,9 @@ function IconModal({
                 [classes.icon_window]: true,
             })}
             variants={variants}
-            initial={"initial"}
-            animate={"animate"}
-            exit={"exit"}
+            initial="initial"
+            animate="animate"
+            exit="exit"
             transition={{
                 duration: 0.7
             }}

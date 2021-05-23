@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import SignInOutButton from "../../../Home/SignInOutButton";
+import SignInOutButton from "../../../Home/Sign In/SignInOutButton";
 import {SeeMore} from "../../../Reuseables/UserInput/SeeMore";
 import {PageTitle} from "../../../Reuseables/AppBar/PageTitle";
 import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
@@ -51,7 +51,7 @@ export function CustomizeTitleContentMd(props) {
             className={classes2.sign_out_button}
             icon={<AccountBoxIcon className={classes2.text}/>}
         >
-            <SignInOutButton theme={theme} className={classes2.sign_out_button}/>
+            <SignInOutButton theme={theme}/>
         </SeeMore>
     </>;
 }

@@ -1,35 +1,112 @@
-import React, {useReducer} from "react";
-import Box from "@material-ui/core/Box";
-import {Typography} from "@material-ui/core";
+import React from "react";
+import {useState} from "react";
+import {useEffect} from "react";
+import {useContext} from "react";
+import {useReducer} from "react";
+import {Dialog, Typography} from "@material-ui/core";
+import {Checkbox} from "@material-ui/core";
+import {DialogTitle} from "@material-ui/core";
+import {DialogActions} from "@material-ui/core";
+import {DialogContent} from "@material-ui/core";
+import {FormControlLabel} from "@material-ui/core";
+import {MuiButton} from "../../Clickables/MuiButton";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import TemporaryDrawerButton from "../../Drawers/TemporaryDrawerButton";
-import {MuiButton} from "../../Clickables/MuiButton";
-import {NavBarAlt} from "../NavBarAlt";
-import {Close} from "../../Modals/Close";
+import {HelpContext} from "../../../../Context/HelpContext";
+import {UserContext} from "../../../../Context/UserContext";
 import {reducer} from "./HelpSlideshow.red";
 import {useStyles} from "./HelpSlideshow.jss";
+import MediaQuery from "react-responsive/src";
+import {SeeMore} from "../../UserInput/SeeMore";
 
-export function HelpSlideshow({initialState, title, onClose, theme, updateTheme, children}) {
+export function HelpSlideshow(props) {
+    const {currentPage, initialState, title, theme, children, ...other} = props;
+
+    const uid = useContext(UserContext);
+    const {help, setHelp} = useContext(HelpContext);
+
+    const [slideshow, setSlideshow] = useState(false);
+    useEffect(() => {
+        if (! uid && help[currentPage]) {
+            setSlideshow(true)
+            setHelp({
+                ...help,
+                [currentPage]: false,
+            })
+        }
+    }, [currentPage]);
+
     const [state, dispatch] = useReducer(reducer, initialState);
+
     const classes = useStyles({theme: theme});
+
+    const sm = useMediaQuery("(max-width: 420px)");
+
+    const onClose = () => {
+        setSlideshow(false)
+        setHelp({
+            ...help,
+            [currentPage]: false,
+        })
+    };
+
+    const disablePopupHelp = () => {
+        setHelp({
+            NewGame: false,
+            LoadGame: false,
+            CreatePiece: false,
+            Customize: false,
+            GameRoot: false,
+            MyPieces: false,
+        })
+    };
+    
     return (
-        <div className={classes.window}>
-            <Box className={classes.top_area}>
-                <TemporaryDrawerButton theme={theme}><NavBarAlt theme={theme} updateTheme={updateTheme} /></TemporaryDrawerButton>
-                <Typography className={classes.title} variant='h6' noWrap>{title}</Typography>
-                <Close onClick={onClose} theme={theme} />
-            </Box>
-            <Typography paragraph className={classes.content}>
+        <Dialog
+            className={classes.dialog}
+            onBackdropClick={onClose}
+            open={slideshow && children}
+            fullScreen={sm}
+            {...other}
+        >
+            <DialogTitle className={classes.color}>
+                {title}
+            </DialogTitle>
+            <DialogContent className={classes.color}>
                 {children[state.pos]}
-            </Typography>
-            <Box className={classes.buttons}>
+            </DialogContent>
+            <DialogActions className={classes.color}>
+                {(state.pos === 0 || state.pos === state.numSlides - 1) ? (
+                    <>
+                    <MediaQuery maxWidth={367}>
+                        <SeeMore theme={theme}>
+                            <FormControlLabel
+                                label={<Typography className={classes.text}>No Help Windows</Typography>}
+                                labelPlacement="start"
+                                control={
+                                    <Checkbox onClick={disablePopupHelp} className={classes.text} name="checkbox"/>
+                                }
+                            />
+                        </SeeMore>
+                    </MediaQuery>
+                    <MediaQuery minWidth={367}>
+                        <FormControlLabel
+                            label='No Help'
+                            labelPlacement="start"
+                            control={
+                                <Checkbox onClick={disablePopupHelp} name="checkbox"/>
+                            }
+                        />
+                    </MediaQuery>
+                    </>
+                ) : null}
                 {state.pos !== 0 ? (
                     <MuiButton
                         theme={theme}
-                        classesObj={{root: classes.previous_button}}
-                        startIcon={<NavigateBeforeIcon className={classes.button_icon}/>}
+                        variant={"contained"}
+                        startIcon={<NavigateBeforeIcon className={classes.text}/>}
                         onClick={() => dispatch({type: 'decrement'})}
                     >
                         Previous
@@ -38,8 +115,8 @@ export function HelpSlideshow({initialState, title, onClose, theme, updateTheme,
                 {state.pos !== (state.numSlides - 1) ? (
                     <MuiButton
                         theme={theme}
-                        classesObj={{root: classes.next_button}}
-                        endIcon={<NavigateNextIcon className={classes.button_icon}/>}
+                        variant={"contained"}
+                        endIcon={<NavigateNextIcon className={classes.text}/>}
                         onClick={() => dispatch({type: 'increment'})}
                     >
                         Next
@@ -47,13 +124,13 @@ export function HelpSlideshow({initialState, title, onClose, theme, updateTheme,
                 ) : null}
                 <MuiButton
                     theme={theme}
-                    classesObj={{root: classes.done_button}}
-                    startIcon={<CheckCircleOutlineIcon className={classes.button_icon}/>}
+                    variant={"contained"}
+                    startIcon={<CheckCircleOutlineIcon className={classes.text}/>}
                     onClick={onClose}
                 >
                     Done
                 </MuiButton>
-            </Box>
-        </div>
+            </DialogActions>
+        </Dialog>
     );
 }

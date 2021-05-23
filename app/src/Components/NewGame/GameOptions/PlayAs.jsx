@@ -1,16 +1,14 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
+import {Select} from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
-import {MuiDropdown} from "../../Reuseables/UserInput/MuiDropdown";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
 import { useStyles } from "./PlayAs.jss";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import {MuiSelect} from "../../Reuseables/UserInput/MuiSelect";
-import {Select} from "@material-ui/core";
 
-export function PlayAs(props) {
+function PlayAs(props) {
     const {playerType, setPlayerType, theme, ...other} = props;
 
     const classes = useStyles({theme: theme});
@@ -43,3 +41,5 @@ export function PlayAs(props) {
         </Box>
     );
 }
+
+export default PlayAs;

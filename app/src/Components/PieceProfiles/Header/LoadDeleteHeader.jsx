@@ -105,7 +105,6 @@ function LoadDeleteHeader(props) {
                     }
                     variant="outlined"
                     className={clsx(classes.button, {[classes.delete_button]:true})}
-                    isDisabled={false}
                     theme={theme}
                 />
             </div>

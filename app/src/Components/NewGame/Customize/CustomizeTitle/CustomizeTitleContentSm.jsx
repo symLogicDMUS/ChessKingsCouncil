@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import SignInOutButton from "../../../Home/SignInOutButton";
+import SignInOutButton from "../../../Home/Sign In/SignInOutButton";
 import {PageTitle} from "../../../Reuseables/AppBar/PageTitle";
 import {SeeMore} from "../../../Reuseables/UserInput/SeeMore";
 import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
@@ -45,8 +45,6 @@ export function CustomizeTitleContentSm(props) {
                 theme={theme}
             />
         </SeeMore>
-        <SeeMore theme={theme} icon={<AccountBoxIcon className={classes2.text}/>}>
-            <SignInOutButton theme={theme} className={classes2.sign_out_button}/>
-        </SeeMore>
+        <SignInOutButton theme={theme} />
     </Box>;
 }

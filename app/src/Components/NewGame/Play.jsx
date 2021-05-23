@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 import { useStyles } from "./Play.jss";
 
-export function Play(props) {
+function Play(props) {
     const {
         finish,
         playerType,
@@ -84,3 +84,5 @@ export function Play(props) {
         </>
     );
 }
+
+export default Play;

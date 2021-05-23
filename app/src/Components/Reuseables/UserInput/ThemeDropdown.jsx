@@ -3,7 +3,7 @@ import {Select} from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import {themesMenuItemList}
         from "../../styles/themes/themeMenuItemList.jss";
-import {ThemeContext} from "../../ThemeContext";
+import {ThemeContext} from "../../../Context/ThemeContext";
 import { useStyles } from "./ThemeDropdown.jss";
 
 function ThemeDropdown({theme, pageName, defaultValue}) {

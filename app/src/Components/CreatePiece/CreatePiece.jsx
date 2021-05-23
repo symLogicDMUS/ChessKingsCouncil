@@ -1,34 +1,33 @@
 import React from "react";
 import {copy} from "../helpers/copy";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
-import { CreatePieceHelp } from "./Help/CreatePieceHelp";
+import {Typography} from "@material-ui/core";
+import {AnimatePresence} from "framer-motion";
 import { messageStr } from "./helpers/messageStr";
 import { stepFuncDict } from "../helpers/stepFuncs";
+import { flipOffsets } from "./helpers/flipOffsets";
 import { outOfBounds as oob } from "../helpers/oob";
 import { rfToXy, xyToRf } from "../helpers/crdCnvrt";
 import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
-import { flipOffsets } from "./helpers/flipOffsets";
+import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
+import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
+import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
-import { AnimatePresencePortal } from "../Reuseables/Animations/AnimatePresencePortal";
 import { ShowOffsetText } from "./Board/RangeLabelComponents/ShowOffsetText";
 import { ShowSpanText } from "./Board/RangeLabelComponents/ShowSpanText";
+import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
 import { MuiSwitch } from "../Reuseables/Clickables/MuiSwitch";
-import AskLoginButton from "../Home/AskLoginButton";
-import CreatePieceTitle from "./Title/CreatePieceTitle";
-import {UserContext} from "../../UserContext";
-import LoadBar from "./Icon/LoadBar";
-import {ThemeContext} from "../ThemeContext";
 import withStyles from "@material-ui/core/styles/withStyles";
+import CreatePieceTitle from "./Title/CreatePieceTitle";
+import AskLoginButton from "../Home/Sign In/AskLoginButton";
+import {UserContext} from "../../Context/UserContext";
+import {ThemeContext} from "../../Context/ThemeContext";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
-import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
-import {AnimatePresence} from "framer-motion";
-import ToolButton from "../Reuseables/MiniVariantTool/ToolButton";
-import { styles } from "./CreatePiece.jss";
-import CreatePiecePageAnimations from "../Reuseables/Animations/CreatePiecePageAnimations";
+import {text, styles} from "./CreatePiece.jss";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -361,6 +360,9 @@ class CreatePiece extends React.Component {
             <ThemeContext.Consumer>
                 {value =>
                     <>
+                        <HelpSlideshow initialState={{pos: 0, numSlides: 6}} theme={value.themes.createPiece} currentPage={"CreatePiece"} title={"Create Piece"}>
+                            {CreatePieceHelp(value.themes.createPiece)}
+                        </HelpSlideshow>
                         <Animations
                             name={this.name}
                             state={this.state}
@@ -376,7 +378,11 @@ class CreatePiece extends React.Component {
                         <ResponsiveDrawer
                             appBarType="title"
                             appBarContent={
-                                <CreatePieceTitle name={this.name} theme={value.themes.createPiece} />
+                                <CreatePieceTitle
+                                    name={this.name}
+                                    theme={value.themes.createPiece}
+                                    blackImg={this.whiteAndBlackImgs.black}
+                                />
                             }
                             themeAlt={true}
                             theme={value.themes.createPiece}
@@ -523,20 +529,18 @@ class CreatePiece extends React.Component {
                             navBar={
                                 <NavBar
                                     currentPage="CreatePiece"
-                                    theme={value.themes.createPiece}
                                     redirectMessage={messageStr}
-                                    helpTitle={
-                                        <HelpTitle
-                                            theme={value.themes.createPiece}
-                                            fontSize={"2.6vh"}
-                                        >
-                                            Creating a Piece
-                                        </HelpTitle>
-                                    }
-                                    helpText={CreatePieceHelp(value.themes.createPiece)}
-                                    updateFirstVisit={this.updateFirstVisit}
+                                    theme={value.themes.createPiece}
+                                    // updateFirstVisit={this.updateFirstVisit}
                                     additionalSettings={
                                         <>
+                                            <Typography
+                                                variant={"subtitle1"}
+                                                style={text(value.themes.createPiece)}
+                                            >
+                                                Create Piece Settings
+                                            </Typography>
+
                                             <MuiSwitch
                                                 theme={value.themes.createPiece}
                                                 className={
@@ -587,17 +591,17 @@ class CreatePiece extends React.Component {
                         >
                             <CreatePieceBoard
                                 key="Board"
-                                theme={value.themes.createPiece}
                                 setLoc={this.setLoc}
+                                pieceLoc={this.location}
                                 toggleSpan={this.toggleSpan}
                                 toggleOffset={this.toggleOffset}
-                                pieceLoc={this.location}
                                 spanDisplays={this.spanDisplays}
+                                offsetDisplays={this.offsetDisplays}
                                 showSpanText={this.state.showSpanText}
                                 showOffsetText={this.state.showOffsetText}
                                 imgUrl={this.whiteAndBlackImgs.white}
-                                offsetDisplays={this.offsetDisplays}
                                 activeTool={this.state.activeTool}
+                                theme={value.themes.createPiece}
                             />
                             {this.state.locSqrEntry && (
                                 <LocationSquaresEnter
@@ -624,7 +628,7 @@ class CreatePiece extends React.Component {
                                 {this.state.activeTool === "Name" && (
                                     <NameModal
                                         key={"Name-Tool"}
-                                        pieceName={this.state.name}
+                                        pieceName={this.name}
                                         theme={value.themes.createPiece}
                                         updateName={this.updateName}
                                     />

@@ -19,8 +19,8 @@ export const useStyles = makeStyles({
         justifyContent: 'center',
     }),
     locations_board: props => ({
-        width: '30vw',
-        height: '30vw',
+        width: '40%',
+        height: '40%',
         float: 'left',
         marginRight: '1.2rem',
         marginTop: '0.5rem',

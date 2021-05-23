@@ -6,7 +6,7 @@ import {MuiCheckbox} from "../../../Reuseables/Clickables/MuiCheckbox";
 import {SearchBox} from "../../../Reuseables/UserInput/SearchBox";
 import {SeeMore} from "../../../Reuseables/UserInput/SeeMore";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
-import SignInOutButton from "../../../Home/SignInOutButton";
+import SignInOutButton from "../../../Home/Sign In/SignInOutButton";
 import {useStyles as useMoreStyles} from "../CustomizeTitle.jss";
 import {useStyles} from "./CustomizeTitleContentLg.jss";
 
@@ -44,9 +44,12 @@ export function CustomizeTitleContentLg(props) {
                 />
             </Box>
         </Box>
-        <SeeMore theme={theme} className={classes2.sign_out_button}
-                 icon={<AccountBoxIcon className={classes2.text}/>}>
-            <SignInOutButton theme={theme} className={classes2.sign_out_button}/>
+        <SeeMore
+            theme={theme}
+            className={classes2.sign_out_button}
+            icon={<AccountBoxIcon className={classes2.text}/>}
+        >
+            <SignInOutButton theme={theme} />
         </SeeMore>
     </>;
 }

@@ -1,30 +1,28 @@
 import {themes} from "../../styles/themes/themes.jss";
-import {darken, makeStyles} from "@material-ui/core/styles";
+import {darken, lighten, makeStyles} from "@material-ui/core/styles";
+
+export const smReset = {
+    marginLeft: 0,
+}
 
 export const useStyles = makeStyles({
     window: props => ({
-        '@media screen and (max-width: 600px)': {
-            width: '100vw',
-        },
-        '@media screen and (min-width: 600px)': {
-            width: '66.667vw',
-        },
         zIndex: 13,
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '0.3rem',
         backgroundColor: themes[props.theme].fill,
         border: `0.05em solid ${themes[props.theme].odd_row}`,
-    }),
-    settings: props => ({
-        flexGrow: 2,
-        paddingLeft: '1rem',
-        paddingRight: '1rem',
-        paddingBottom: '1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        '@media screen and (max-width: 600px)': {
+            width: '100vw',
+        },
+        '@media screen and (min-width: 600px)': {
+            width: '66.667vw',
+        },
+        "& .MuiDialogActions-root": {
+            paddingLeft: '1rem',
+            paddingRight: '1rem',
+        },
     }),
     accordion: props => ({
         "& .MuiAccordionSummary-root": {
@@ -120,15 +118,32 @@ export const useStyles = makeStyles({
     save_theme_button: props => ({
         color: themes[props.theme].modal_actions,
         backgroundColor: themes[props.theme].button_fill,
-        marginRight: '0.5rem',
+        '&:hover':{
+            backgroundColor: lighten(themes[props.theme].button_fill, 0.08),
+        },
+        '@media screen and (min-width: 375px)': {
+            marginRight: '0.5rem',
+        },
+        '@media screen and (max-width: 375px)': {
+            width: '100%',
+            marginTop: '1rem',
+        },
     }),
     reset_theme_button: props => ({
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].button_fill,
+        '&:hover':{
+            backgroundColor: lighten(themes[props.theme].button_fill, 0.08),
+        },
+        '@media screen and (max-width: 375px)': {
+            width: '100%',
+            marginTop: '1rem',
+        },
     }),
     dialog_actions: props => ({
-        paddingTop: '1rem',
-        paddingLeft: 0,
-        paddingBottom: 0,
+        '@media screen and (max-width: 375px)': {
+            flexDirection: 'column',
+            alignItems: 'center',
+        },
     }),
 }, {index: 1});

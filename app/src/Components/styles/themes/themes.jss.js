@@ -11,10 +11,12 @@ export const themes = {
     tan: tan,
     tan_dark: {
         ...tan,
-        outline_alt: '#d7bb99',
         title: '#d7bb99',
+        outline_alt: '#d7bb99',
         page_link: '#d7bb99',
         page_link_hover: '#90caf9',
+        light_normal: '#f0d9b5',
+        dark_normal: '#d0bd99',
     },
     red_blue: dark,
     dark_alt: dark,

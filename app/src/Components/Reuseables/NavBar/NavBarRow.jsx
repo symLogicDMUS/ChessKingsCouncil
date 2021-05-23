@@ -6,7 +6,7 @@ import {AppBar} from "@material-ui/core";
 import NavBarButton from "./NavBarButton";
 import HelpButton from "./Help/HelpButton";
 import SettingsButton from "./SettingsButton";
-import SignInOutButton from "../../Home/SignInOutButton";
+import SignInOutButton from "../../Home/Sign In/SignInOutButton";
 import {updateFirstVisit} from "../../CreatePiece/reducers/updateFirstVisit";
 import {marginLeftZero, useStyles} from "./NavBarRow.jss";
 
@@ -19,8 +19,6 @@ function NavBarRow(props) {
         show,
         fullWidth,
         currentPage,
-        helpText,
-        helpTitle,
         screenCase,
         isUnsavedChanges,
         additionalSettings,
@@ -30,16 +28,16 @@ function NavBarRow(props) {
 
     const indexes = {
         "Home": 0,
-        "NewGame": 1,
-        "LoadGame": 2,
-        "CreatePiece": 3,
-        "MyPieces": 4,
-        "ChessRules": 6,
-        "CouncilRules": 7,
-        "AuthorGithub": 8,
-        "Help": 9,
-        "Settings": 10,
-        "SignInOut": 11,
+        "Help": 1,
+        "Settings": 2,
+        "NewGame": 3,
+        "LoadGame": 4,
+        "CreatePiece": 5,
+        "MyPieces": 6,
+        "ChessRules": 7,
+        "CouncilRules": 8,
+        "AuthorGithub": 9,
+        "SignInOut": 10,
     }
 
     return (
@@ -74,13 +72,37 @@ function NavBarRow(props) {
                             }
                         />
                         <Tab
+                            id={"Help"}
+                            label={
+                                <HelpButton
+                                    key="Help"
+                                    pageIcon="help"
+                                    theme={theme}
+                                    screenCase={screenCase}
+                                    currentPage={currentPage}
+                                />
+                            }
+                        />
+                        <Tab
+                            id={"Settings"}
+                            label={
+                                <SettingsButton
+                                    theme={theme}
+                                    key="MuiSettings-Tab"
+                                    currentPage={currentPage}
+                                    screenCase={screenCase}
+                                >
+                                    {additionalSettings}
+                                </SettingsButton>
+                            }
+                        />
+                        <Tab
                             id={"NewGame"}
                             label={
                                 <NavBarButton
                                     path="/NewGame"
                                     pageName="New Game"
                                     pageIcon="new-game"
-                                    isRow={true}
                                     theme={theme}
                                     isLocalLink={true}
                                     screenCase={screenCase}
@@ -97,7 +119,6 @@ function NavBarRow(props) {
                                     key="/LoadGame"
                                     pageName="Load Game"
                                     pageIcon="load-game"
-                                    isRow={true}
                                     theme={theme}
                                     isLocalLink={true}
                                     screenCase={screenCase}
@@ -114,7 +135,6 @@ function NavBarRow(props) {
                                     key="/CreatePiece"
                                     pageName="Create Piece"
                                     pageIcon="create-piece"
-                                    isRow={true}
                                     theme={theme}
                                     isLocalLink={true}
                                     screenCase={screenCase}
@@ -131,7 +151,6 @@ function NavBarRow(props) {
                                     key="/MyPieces"
                                     pageName="Saved Pieces"
                                     pageIcon="my-pieces"
-                                    isRow={true}
                                     theme={theme}
                                     isLocalLink={true}
                                     screenCase={screenCase}
@@ -148,7 +167,6 @@ function NavBarRow(props) {
                                     path="https://www.chess.com/learn-how-to-play-chess"
                                     pageName="Chess Rules"
                                     pageIcon="chess-rules"
-                                    isRow={true}
                                     theme={theme}
                                     isLocalLink={false}
                                     screenCase={screenCase}
@@ -183,42 +201,10 @@ function NavBarRow(props) {
                                     pageIcon="author-github"
                                     isLocalLink={false}
                                     theme={theme}
-                                    isRow={true}
                                     screenCase={screenCase}
                                     currentPage={currentPage}
                                     isUnsavedChanges={isUnsavedChanges}
                                 />
-                            }
-                        />
-                        <Tab
-                            id={"Help"}
-                            label={
-                                <HelpButton
-                                    key="Help"
-                                    pageIcon="help"
-                                    theme={theme}
-                                    isRow={true}
-                                    currentPage={currentPage}
-                                    helpTitle={helpTitle}
-                                    screenCase={screenCase}
-                                    updateFirstVisit={updateFirstVisit}
-                                >
-                                    {helpText}
-                                </HelpButton>
-                            }
-                        />
-                        <Tab
-                            id={"Settings"}
-                            label={
-                                <SettingsButton
-                                    theme={theme}
-                                    isRow={true}
-                                    key="MuiSettings-Tab"
-                                    currentPage={currentPage}
-                                    screenCase={screenCase}
-                                >
-                                    {additionalSettings}
-                                </SettingsButton>
                             }
                         />
                         <Tab

@@ -1,18 +1,21 @@
 import React, {useContext, useState} from "react";
 import {useHistory} from "react-router-dom";
-import TabPanel from "./TabPanel";
-import TabBar from "./TabBar";
-import {Play} from "./Play";
-import {PlayAs} from "./GameOptions/PlayAs";
-import {PickType} from "./GameOptions/PickType";
-import {GameName} from "./GameOptions/GameName";
 import "../styles/Background/_backgrounds.scss";
 import {charNotInStr} from "../helpers/charNotInStr";
 import {Background} from "../styles/Background/Background";
+import {GameOptionsHelp} from "./GameOptions/Help/GameOptionsHelp";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {ThemeContext} from "../../Context/ThemeContext";
 import SwipeableViews from 'react-swipeable-views';
-import {ThemeContext} from "../ThemeContext";
+import GameName from "./GameOptions/GameName";
+import PickType from "./GameOptions/PickType";
+import PlayAs from "./GameOptions/PlayAs";
 import {views} from "./NewGame.jss";
+
+const Play = React.lazy(() => import('./Play'));
+const TabBar = React.lazy(() => import('./Tabs/TabBar'));
+const TabPanel = React.lazy(() => import('./Tabs/TabPanel'));
 
 function NewGame() {
     const history = useHistory();
@@ -64,7 +67,19 @@ function NewGame() {
 
     return (
         <>
-            <Background theme={themes.newGame} appBar={isThin} navBar={isWide}/>
+            <Background
+                navBar={isWide}
+                appWithTabs={isThin}
+                theme={themes.newGame}
+            />
+            <HelpSlideshow
+                title={"New Game"}
+                theme={themes.newGame}
+                currentPage={"NewGame"}
+                initialState={{pos: 0, numSlides: 4}}
+            >
+                {GameOptionsHelp(themes.newGame)}
+            </HelpSlideshow>
             <TabBar
                 wide={isWide}
                 value={value}

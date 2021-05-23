@@ -1,3 +1,5 @@
+import {darken} from "@material-ui/core/styles";
+
 export const tan = {
     outline: '#2b2b2b',
     outline_alt: '#000000',
@@ -23,8 +25,8 @@ export const tan = {
     span_alt: '#c60116',
     arrow_active: '#ff8a80',
     arrow_inactive: '#b71c1c',
-    light_normal: '#f0d9b5',
-    dark_normal: '#d0bd99',
+    light_normal: darken('#d7bb99', 0.15),
+    dark_normal: darken('#d7bb99', 0.25),
     light_in_range: '#fff172',
     dark_in_range: '#fff172',
     sqr_hover: '#60a8f0',

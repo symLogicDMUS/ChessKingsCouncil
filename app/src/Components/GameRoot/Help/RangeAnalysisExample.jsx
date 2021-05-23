@@ -19,30 +19,20 @@ export function RangeAnalysisExample(props) {
                 On larger screens, the Range Analysis Board <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/gif/wide/range analysis.png"}
-                    smSrc={"Images/gif/wide/range analysis.png"}
+                    lgSrc={"Images/help/wide/range analysis.png"}
+                    smSrc={"Images/help/wide/range analysis.png"}
                 >
                     is on the right hand side with other content
                 </SeeExampleButton>, and on smaller screens it replaces the game board when you flip the
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/gif/thin/range analysis.png"}
-                    smSrc={"Images/gif/thin/range analysis.png"}
+                    lgSrc={"Images/help/thin/range analysis.png"}
+                    smSrc={"Images/help/thin/range analysis.png"}
                 >
                     Range Analysis Switch
                 </SeeExampleButton>.
-                For the smallest screens, (usually phone sized) use the
-                <SeeExampleButton
-                    isText={true}
-                    theme={props.theme}
-                    lgSrc={"Images/gif/thin/see more range analysis.png"}
-                    smSrc={"Images/gif/thin/see more range analysis.png"}
-                >
-                    See More Icon <MoreVert className={classes.icon} />
-                </SeeExampleButton>
-                to view the Range Analysis Switch. The small screen Analysis Board has an outer glow to remind you that
-                it's not the game board. Flip the switch again to get the game board back.
+                The small screen Analysis Board has an outer glow to remind you that it's not the game board.
             </Typography>
         </>
     )

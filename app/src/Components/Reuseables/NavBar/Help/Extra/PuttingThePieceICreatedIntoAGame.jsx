@@ -7,6 +7,66 @@ import {useStyles as useMoreStyles} from "../HelpText.jss";
 function PuttingThePieceICreatedIntoAGame(props) {
     const classes2 = useMoreStyles({theme: props.theme});
 
+    const ex1 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/go-new-game.gif'}
+        lgSrc={'/Images/help/wide/go-new-game.gif'}
+    />
+
+    const ex2 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/game name.png'}
+        lgSrc={'/Images/help/wide/game name.png'}
+    />
+
+    const ex3 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/game name text field.png'}
+        lgSrc={'/Images/help/wide/game name text field.png'}
+    />
+
+    const ex4 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/pick type.png'}
+        lgSrc={'/Images/help/wide/pick type.png'}
+    />
+
+    const ex5 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/custom option select.png'}
+        lgSrc={'/Images/help/wide/custom option select.png'}
+    />
+
+    const ex6 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/play as.png'}
+        lgSrc={'/Images/help/wide/play as.png'}
+    />
+
+    const ex7 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/player type dropdown.png'}
+        lgSrc={'/Images/help/wide/player type dropdown.png'}
+    />
+
+    const ex8 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/play button.png'}
+        lgSrc={'/Images/help/wide/play button.png'}
+    />
+
+    const ex9 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/customize.png'}
+        lgSrc={'/Images/help/wide/customize.png'}
+    />
+
+    const ex10 = <SeeExampleButton
+        theme={props.theme}
+        smSrc={'/Images/help/thin/subbing piece.gif'}
+        lgSrc={'/Images/help/wide/subbing piece.gif'}
+    />
+
     return <HelpSlide
         onClose={props.onClose}
         title={props.title}
@@ -15,52 +75,39 @@ function PuttingThePieceICreatedIntoAGame(props) {
     >
         <Typography  className={classes2.text} paragraph>
             <ol>
-                <li>
-                    <div className={classes2.flex}>
-                        Go to the New Game Page.
-                        <SeeExampleButton
-                            theme={props.theme}
-                            lgSrc={'/Images/gif/wide/go-new-game-page.gif'}
-                            smSrc={'/Images/gif/thin/go-new-game-page.gif'}
-                        />
-                    </div>
-                </li>
-                <li>In the Game Name text field, type any name.</li>
-                <li>Under Pick Type, choose Custom option.</li>
-                <li>Under the Play As dropdown, choose White or Black.</li>
-                <li>Click the Play Button.</li>
-                <SeeExampleButton
-                    theme={props.theme}
-                    smSrc={'/Images/gif/thin/new-game-options.gif'}
-                    lgSrc={'/Images/gif/wide/new-game-options.gif'}
-                    addedText={' (2-5)'}
-                />
-                <li>This will bring you to the Customize Game page. Scroll down to find your piece if necessary.</li>
-                <li>Select one of the 4 options for Queen, Rook, Knight, or Bishop. </li>
+                <li>Go to the New Game page. {ex1}</li>
+                <li>The page should be open to the Game Name tab. {ex2}</li>
+                <li>In the Game Name text field, type any name. {ex3}</li>
+                <li>Switch to the Pick Type tab. {ex4}</li>
+                <li>Choose the Custom option. {ex5}</li>
+                <li>Switch to the Player Type Tab. {ex6}</li>
+                <li>Under the dropdown, choose White or Black. {ex7}</li>
+                <li>Click the Play Button. {ex8} </li>
+                <li>This will bring you to the Customize Game page.{ex9}</li>
+                <li>Select one of the 4 options for Queen, Rook, Knight, or Bishop.{ex10}</li>
                 <li>click the OK button.</li>
             </ol>
             <Typography className={classes2.text} paragraph>
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/gif/wide/sub buttons.png"}
-                    smSrc={"Images/gif/wide/sub buttons.png"}
+                    lgSrc={"Images/help/wide/sub buttons.png"}
+                    smSrc={"Images/help/wide/sub buttons.png"}
                 >
                     On large screens the sub options are 4 icons: Queen, Rook, Knight, and Bishop.
                 </SeeExampleButton>
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/gif/thin/subs dropdown.png"}
-                    smSrc={"Images/gif/thin/subs dropdown.png"}
+                    lgSrc={"Images/help/thin/subs dropdown.png"}
+                    smSrc={"Images/help/thin/subs dropdown.png"}
                 >
                     On smaller screens the 4 icons are in a dropdown.
                 </SeeExampleButton>
                 <SeeExampleButton
                     theme={props.theme}
-                    smSrc={'/Images/gif/thin/subbing piece.gif'}
-                    lgSrc={'/Images/gif/wide/subbing piece.gif'}
-                    addedText={'(6-8)'}
+                    smSrc={'/Images/help/thin/subbing piece.gif'}
+                    lgSrc={'/Images/help/wide/subbing piece.gif'}
                 />
             </Typography>
         </Typography>
@@ -68,8 +115,8 @@ function PuttingThePieceICreatedIntoAGame(props) {
             The game starts with your piece in place of the piece you subbed for.
             <SeeExampleButton
                 theme={props.theme}
-                smSrc={'/Images/gif/thin/dragon-sub-queen.jpg'}
-                lgSrc={'/Images/gif/wide/dragon-sub-queen.jpg'}
+                smSrc={'/Images/help/thin/dragon-sub-queen.png'}
+                lgSrc={'/Images/help/wide/dragon-sub-queen.png'}
             />
         </Typography>
     </HelpSlide>;

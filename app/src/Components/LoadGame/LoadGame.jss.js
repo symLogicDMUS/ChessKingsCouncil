@@ -1,6 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../styles/themes/themes.jss";
-import {modal} from "../helpers/modal.jss";
 import {appBarHeight} from "../Reuseables/Drawers/ResponsiveDrawer.jss";
 import {navBarButtonHeight} from "../Reuseables/NavBar/NavBarButton.jss";
 
