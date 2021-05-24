@@ -39,7 +39,7 @@ export function TwoItemAppBarContent({
                     >
                         {children[1]}
                     </SeeMore>
-                    <SignInOutButton theme={theme} hasNeighbor />
+                    <SignInOutButton theme={theme} />
                 </Box>
             )}
             {lg && (
@@ -50,7 +50,7 @@ export function TwoItemAppBarContent({
                 >
                     {children[0]}
                     {children[1]}
-                    <SignInOutButton theme={theme} hasNeighbor />
+                    <SignInOutButton theme={theme} />
                 </Box>
             )}
         </>

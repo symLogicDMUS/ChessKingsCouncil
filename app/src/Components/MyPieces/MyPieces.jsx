@@ -60,7 +60,12 @@ function MyPieces() {
                             />
                         }
                     >
-                        <PageTitle theme={themes.myPieces} className={classes.title}>Saved Pieces</PageTitle>
+                        <PageTitle
+                            theme={themes.myPieces}
+                            className={classes.title}
+                        >
+                            Saved Pieces
+                        </PageTitle>
                         <SearchBox
                             theme={themes.myPieces}
                             className={classes.search}

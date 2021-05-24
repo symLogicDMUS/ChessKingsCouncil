@@ -5,7 +5,6 @@ import {Suspense} from "react"
 import {useState} from "react";
 import {useEffect} from "react";
 import {useReducer} from "react";
-import {reducer} from "./App.red";
 import {getThemes} from "./API/getThemes";
 import {queryUserId} from "./API/isNewUser";
 import NotFound from "./Components/Home/NotFound";
@@ -16,9 +15,11 @@ import {ThemeContext} from "./Context/ThemeContext";
 import {HelpContext} from "./Context/HelpContext";
 import {UserContext} from "./Context/UserContext";
 import * as firebase from "firebase/app";
+import {reducer} from "./App.red";
 import "firebase/database";
 import "firebase/auth";
 import "./App.scss";
+import {recordUser} from "./API/recordUser";
 
 const Home = lazy(() => import("./Components/Home/Home"));
 const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
@@ -63,12 +64,14 @@ function App() {
                         getThemes().then(themes => {
                             if (themes) {
                                 setThemes(themes)
-                                dispatch({type: 'logged-in', user: user})
                             }
+                            dispatch({type: 'logged-in', user: user})
                         })
                     } else {
-                        saveSampleData().then(r => {
-                            dispatch({type: 'logged-in', user: user})
+                        recordUser().then(r => {
+                            saveSampleData().then(r => {
+                                dispatch({type: 'logged-in', user: user})
+                            })
                         })
                     }
                 })

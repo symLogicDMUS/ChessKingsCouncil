@@ -7,7 +7,18 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {useStyles} from "./UploadImgButton.jss";
 
 
-export function UploadImgButton({color, id, setImgFileObj, setPieceImg, close, theme, className, addedClassName, style, children}) {
+export function UploadImgButton(props) {
+    const {color,
+        id,
+        setImgFileObj,
+        setPieceImg,
+        close,
+        theme,
+        className,
+        addedClassName,
+        style,
+        children
+    } = props;
 
     const classes = useStyles({theme});
 

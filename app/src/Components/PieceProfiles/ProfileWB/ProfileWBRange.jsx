@@ -1,22 +1,25 @@
-import React, { useMemo } from "react";
+import React, {useMemo} from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import {getRangeBoardImgStr} from "./BoardSvgStr/getRangeBoardImgStr";
-import { useStyles as useMoreStyles } from "./ProfileWB.jss";
 import {resolvePlayerType} from "../../helpers/resolvePlayerType";
+import { useStyles as useMoreStyles } from "./ProfileWB.jss";
 import { useStyles } from "./ProfileWBRange.jss";
 
-function ProfileWBRange ({
-    pieceName,
-    pieceImgUrl,
-    theme,
-    color,
-    range,
-    rangeType,
-    adjust,
-}) {
-    const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [theme])
+function ProfileWBRange (props) {
+    const {
+        pieceName,
+        pieceImgUrl,
+        theme,
+        color,
+        range,
+        rangeType,
+        adjust,
+    } = props;
+
+
+    const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [theme, range.length])
 
     const classes = useStyles({ theme: theme, board_img: rangeBoardImgStr });
     const classes2 = useMoreStyles({ theme: theme });

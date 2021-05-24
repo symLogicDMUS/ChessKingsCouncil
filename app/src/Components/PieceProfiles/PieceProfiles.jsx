@@ -47,8 +47,8 @@ function PieceProfiles (props) {
                     defs = {}
                 } else {
                     defs = result;
-                    afterLoaded(defs)
                 }
+                afterLoaded(defs)
             });
         }
         else {

@@ -28,10 +28,10 @@ export const useStyles = makeStyles({
     load_bar: props => ({
         width: '100%',
         height: '3.5rem',
-        border: `0.05rem solid ${themes[props.theme].text}`,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'flex-start',
+        border: `0.05rem solid ${themes[props.theme].text}`,
     }),
 }, {index: 1});

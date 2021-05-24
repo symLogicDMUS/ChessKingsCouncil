@@ -8,7 +8,7 @@ const PieceSavedSuccessfully = React.lazy(() => import("./PieceSavedSuccessfully
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import("../NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame"));
 
 function CreatePiecePageAnimations(props) {
-    const {state, newPiece, close, callback, name, theme} = props;
+    const {state, newPiece, close, callback, updateImg, name, theme} = props;
 
     const {help, setHelp} = useContext(HelpContext);
 
@@ -20,7 +20,7 @@ function CreatePiecePageAnimations(props) {
                 pieceName={name}
                 newPiece={newPiece}
                 saveInstance={state.saveInstance}
-
+                updateImg={updateImg}
             />
         )}
         {help.firstSave && state.justSaved && (

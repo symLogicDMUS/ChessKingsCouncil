@@ -9,7 +9,7 @@ import {
     sqrItemSizeSm,
     sqrItemHeaderHeightLg,
 } from "./constants.jss";
-import {pieceProfilesLgHeight, pieceProfilesLgWidth, pieceProfilesSmHeight} from "./PieceProfiles.jss";
+import {pieceProfilesSmHeight} from "./PieceProfiles.jss";
 
 export const box = {
     minHeight: 'unset',
@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
         "& .MuiSkeleton-text": {
             ...box,
             '@media screen and (max-width: 960px)': {
-                marginLeft: '5vw',
+                marginLeft: 'auto',
                 marginRight: '2.5vw',
             },
         },

@@ -350,6 +350,10 @@ class CreatePiece extends React.Component {
         this.triggerRender();
     };
 
+    updateImg = (color, url) => {
+        this.whiteAndBlackImgs[color] = url;
+    }
+
     render() {
         return (
             <ThemeContext.Consumer>
@@ -368,6 +372,7 @@ class CreatePiece extends React.Component {
                             state={this.state}
                             newPiece={this.newPiece}
                             close={this.saveCallback}
+                            updateImg={this.updateImg}
                             theme={value.themes.createPiece}
                             key={`${this.state.saveInstance}-piece-upload`}
                             callback={() =>

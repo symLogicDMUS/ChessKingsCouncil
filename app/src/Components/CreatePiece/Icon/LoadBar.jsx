@@ -15,13 +15,15 @@ import { updateCountsOnOverwrite } from "../../../API/updateCountsOnOverwrite";
 import { incrementImgRefCounts } from "../../../API/incrementImgRefCounts";
 import Typography from "@material-ui/core/Typography";
 import {themes} from "../../styles/themes/themes.jss";
-import { useStyles } from "./LoadBar.jss";
 import {copy} from "../../helpers/copy";
+import {pieceColors} from "./pieceColors";
+import { useStyles } from "./LoadBar.jss";
 
 function LoadBar({
     newPiece,
     pieceName,
     saveInstance,
+    updateImg,
     close,
     theme,
 }) {
@@ -32,9 +34,11 @@ function LoadBar({
 
     const updateImgStr = (color, url) => {
         if (color==='W') {
+            updateImg(pieceColors[color], url);
             setWhiteImgStr(url)
         }
         else {
+            updateImg(pieceColors[color], url);
             setBlackImgStr(url)
         }
     };

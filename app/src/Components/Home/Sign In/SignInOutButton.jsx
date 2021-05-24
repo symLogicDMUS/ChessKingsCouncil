@@ -34,8 +34,6 @@ function SignInOutButton({ theme, className, style, variant}) {
         <>
             {signInWindow ? (
                 <SignInWindow
-                    theme={theme}
-                    close={() => setSignInWindow(false)}
                     goBack={() => setSignInWindow(false)}
                 />
             ) : null}
