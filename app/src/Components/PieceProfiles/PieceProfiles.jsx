@@ -1,14 +1,17 @@
-import React, {useContext, useEffect, useReducer} from "react";
 import clsx from "clsx";
+import React from "react";
+import {useEffect} from "react";
+import {useContext} from "react";
+import {useReducer} from "react";
 import {copy} from "../helpers/copy";
+import {getDefs} from "../../API/getDefs";
 import CustomizeHeader from "./Header/CustomizeHeader";
 import LoadDeleteHeader from "./Header/LoadDeleteHeader";
 import {ProfileHeaderError} from "./Header/ProfileHeaderError";
 import {getSampleDefs} from "../../API/sampleData/getSampleDefs";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import {getDefs} from "../../API/getDefs";
-import {reducer} from "./PieceProfiles.red";
 import {UserContext} from "../../Context/UserContext";
+import {reducer} from "./PieceProfiles.red";
 import {useStyles} from "./PieceProfiles.jss";
 
 const Profile = React.lazy(() => import('./Profile'));
@@ -16,6 +19,23 @@ const ProfileSkeleton = React.lazy(() => import('./ProfileSkeleton'));
 
 /*children is a header or none, depending on the parent page*/
 function PieceProfiles (props) {
+    const {
+        updateParent, 
+        parentPage, 
+        load, 
+        erase, 
+        expand, 
+        subs, 
+        promos, 
+        toggleSub, 
+        togglePromo, 
+        toggleModal, 
+        searchText,
+        className,
+        theme, 
+        children
+    } = props;
+    
     const [state, dispatch] = useReducer(reducer, {defs: {}, loaded: false});
 
     const uid = useContext(UserContext);
@@ -41,25 +61,25 @@ function PieceProfiles (props) {
     const isWide = useMediaQuery("(min-width:960px)");
     const screenCase = isWide ? 'wide' : 'thin';
 
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({theme: theme});
 
     const afterLoaded = (defs) => {
         const standards = ["Rook", "Bishop", "Knight", "Queen", "King", "Pawn"];
-        if (props.updateParent) {
-            props.updateParent(copy(defs));
+        if (updateParent) {
+            updateParent(copy(defs));
         }
         for (const pieceName of standards) {
             if (Object.keys(defs).includes(pieceName)) {
                 delete defs[pieceName];
             }
         }
-        dispatch({type: "load", payload: defs, theme: props.theme});
+        dispatch({type: "load", payload: defs, theme: theme});
     }
 
     const getPieceNames = () => {
-        if (props.searchText && props.searchText !== "") {
+        if (searchText && searchText !== "") {
             return Object.keys(state.defs).filter((pieceName) =>
-                pieceName.toLowerCase().startsWith(props.searchText)
+                pieceName.toLowerCase().startsWith(searchText)
             );
         } else {
             return Object.keys(state.defs);
@@ -70,8 +90,8 @@ function PieceProfiles (props) {
         const profiles = [];
         const pieceNames = getPieceNames();
         if (
-            props.parentPage === "CreatePiece" ||
-            props.parentPage === "MyPieces"
+            parentPage === "CreatePiece" ||
+            parentPage === "MyPieces"
         ) {
             for (let pieceName of pieceNames) {
                 profiles.push(
@@ -79,45 +99,45 @@ function PieceProfiles (props) {
                         key={`${pieceName}-profile`}
                         defs={state.defs}
                         pieceName={pieceName}
-                        expand={props.expand}
-                        theme={props.theme}
+                        expand={expand}
+                        theme={theme}
                         screenCase={screenCase}
                     >
                         <LoadDeleteHeader
-                            load={props.load}
-                            erase={props.erase}
-                            theme={props.theme}
+                            load={load}
+                            erase={erase}
+                            theme={theme}
                             dispatch={dispatch}
                             pieceName={pieceName}
                             key={`${pieceName}-header`}
                             def={state.defs[pieceName]}
-                            parentPage={props.parentPage}
-                            toggleModal={props.toggleModal}
+                            parentPage={parentPage}
+                            toggleModal={toggleModal}
                         />
                     </Profile>
                 );
             }
-        } else if (props.parentPage === "Customize") {
+        } else if (parentPage === "Customize") {
             for (let pieceName of pieceNames) {
                 profiles.push(
                     <Profile
                         defs={state.defs}
                         key={`${pieceName}-profile`}
                         pieceName={pieceName}
-                        expand={props.expand}
-                        theme={props.theme}
+                        expand={expand}
+                        theme={theme}
                         screenCase={screenCase}
                         adjust={true}
                     >
                         <CustomizeHeader
                             key={`${pieceName}-header`}
                             customPieceName={pieceName}
-                            subs={props.subs}
-                            promos={props.promos}
-                            toggleSub={props.toggleSub}
-                            togglePromo={props.togglePromo}
-                            theme={props.theme}
+                            subs={subs}
+                            promos={promos}
+                            toggleSub={toggleSub}
+                            togglePromo={togglePromo}
                             screenCase={screenCase}
+                            theme={theme}
                         />
                     </Profile>
                 );
@@ -131,15 +151,15 @@ function PieceProfiles (props) {
 
     return (
         <div className={clsx(classes.piece_profiles, {
-            [props.className]: props.className,
+            [className]: className,
         })}
         >
-            {props.children}
+            {children}
             <div className={classes.profiles_area}>
                 {state.loaded ? (
                     getProfiles()
                 ) : (
-                    <ProfileSkeleton theme={props.theme}/>
+                    <ProfileSkeleton theme={theme}/>
                 )}
             </div>
         </div>
@@ -147,12 +167,3 @@ function PieceProfiles (props) {
 }
 
 export default PieceProfiles;
-
-/*
-    const contextValue = useContext(SomeContext);
-    const [oldContextValue, saveContextValue] = useState(contextValue);
-    useEffect(() => {
-        console.log(oldContextValue, contextValue);
-        saveContextValue(contextValue);
-    }, [contextValue]);
-* */

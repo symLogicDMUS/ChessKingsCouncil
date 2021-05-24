@@ -7,4 +7,5 @@ export const HelpContext = createContext({
     Customize: true,
     GameRoot: true,
     MyPieces: true,
+    firstSave: true,
 });

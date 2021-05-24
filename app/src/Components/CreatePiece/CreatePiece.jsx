@@ -1,5 +1,6 @@
 import React from "react";
 import {copy} from "../helpers/copy";
+import {text} from "./CreatePiece.jss";
 import {Typography} from "@material-ui/core";
 import {AnimatePresence} from "framer-motion";
 import { messageStr } from "./helpers/messageStr";
@@ -11,7 +12,7 @@ import { getRotations } from "./helpers/getRotations";
 import { getSpansDict } from "./helpers/getSpansDict";
 import { CreatePieceHelp } from "./Help/CreatePieceHelp";
 import { getStepFuncNames } from "./helpers/getStepFuncNames";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import {ToolBackdrop} from "../Reuseables/MiniVariantTool/ToolBackdrop";
 import { getBinaryBoarAllFalse } from "../helpers/getBinaryBoardAllFalse";
 import { LocationSquaresEnter } from "../Reuseables/Animations/LocationSquaresEnter";
@@ -26,8 +27,7 @@ import {UserContext} from "../../Context/UserContext";
 import {ThemeContext} from "../../Context/ThemeContext";
 import NameModal from "./Name/NameModal";
 import IconModal from "./Icon/IconModal";
-import {text, styles} from "./CreatePiece.jss";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
+import {styles} from "./CreatePiece.jss";
 
 const Load = React.lazy(() => import('./Options/Load'));
 const Save = React.lazy(() => import('./Options/Save'));
@@ -70,7 +70,6 @@ class CreatePiece extends React.Component {
         showSpanText: true,
         showOffsetText: true,
         locSqrEntry: false,
-        isFirstVisit: false,
         activeTool: null,
         whiteUrl: null,
         blackUrl: null,
@@ -109,10 +108,6 @@ class CreatePiece extends React.Component {
             this.setState({uploadPiece: true})
         }
     }
-
-    updateFirstVisit = isFirstVisit => {
-        this.setState({ isFirstVisit: isFirstVisit });
-    };
 
     triggerRender = () => {
         this.setState({ binaryValue: !this.state.binaryValue });
@@ -360,7 +355,12 @@ class CreatePiece extends React.Component {
             <ThemeContext.Consumer>
                 {value =>
                     <>
-                        <HelpSlideshow initialState={{pos: 0, numSlides: 6}} theme={value.themes.createPiece} currentPage={"CreatePiece"} title={"Create Piece"}>
+                        <HelpSlideshow
+                            initialState={{pos: 0, numSlides: 6}}
+                            theme={value.themes.createPiece}
+                            currentPage={"CreatePiece"}
+                            title={"Create Piece"}
+                        >
                             {CreatePieceHelp(value.themes.createPiece)}
                         </HelpSlideshow>
                         <Animations
@@ -370,7 +370,6 @@ class CreatePiece extends React.Component {
                             close={this.saveCallback}
                             theme={value.themes.createPiece}
                             key={`${this.state.saveInstance}-piece-upload`}
-                            onClose={() => this.updateFirstVisit(false)}
                             callback={() =>
                                 this.setState({justSaved: false})
                             }
@@ -436,11 +435,11 @@ class CreatePiece extends React.Component {
                                         reset={this.reset}
                                         erase={this.erase}
                                         pieceName={this.name}
-                                        theme={value.themes.createPiece}
                                         resetImg={this.resetImg}
                                         whiteImg={this.whiteAndBlackImgs.white}
                                         blackImg={this.whiteAndBlackImgs.black}
                                         justSaved={this.state.justSaved}
+                                        theme={value.themes.createPiece}
                                     />
                                 </>
                             }
@@ -531,7 +530,6 @@ class CreatePiece extends React.Component {
                                     currentPage="CreatePiece"
                                     redirectMessage={messageStr}
                                     theme={value.themes.createPiece}
-                                    // updateFirstVisit={this.updateFirstVisit}
                                     additionalSettings={
                                         <>
                                             <Typography

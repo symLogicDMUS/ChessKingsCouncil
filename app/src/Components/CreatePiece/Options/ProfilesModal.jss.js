@@ -1,29 +1,41 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { modal } from "../../helpers/modal.jss";
-import {themes} from "../../styles/themes/themes.jss";
+import {makeStyles} from "@material-ui/core/styles";
+import {
+    pieceProfilesLgHeight,
+    pieceProfilesLgWidth
+} from "../../PieceProfiles/PieceProfiles.jss";
+import {appBarHeight} from
+        "../../Reuseables/Drawers/ResponsiveDrawer.jss";
 
 export const useStyles = makeStyles({
-    modal: {
-        ...modal,
+    backdrop: props => ({
+        zIndex: 6,
+    }),
+    profiles_dialog: props => ({
         zIndex: 7,
-    },
-    top_bar: props => ({
-        height: '2em',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        position: 'absolute',
+        '@media screen and (max-width: 960px)': {
+            left: 0,
+            top: appBarHeight,
+        },
+        '@media screen and (min-width: 960px)': {
+            '--heightA': 'calc(100vh * 0.49)',
+            '--widthA': 'calc(100vw * 0.5)',
+            '--heightB': `calc(${pieceProfilesLgHeight} * 0.49)`,
+            '--widthB': `calc(${pieceProfilesLgWidth} * 0.5)`,
+            '--top': 'calc(var(--heightA) - var(--heightB))' ,
+            '--left': 'calc(var(--widthA) - var(--widthB))' ,
+            left: 'var(--left)',
+            top: 'var(--top)',
+        },
     }),
-    title: props => ({
-        fontSize: '2vh',
-        color: themes[props.theme].text,
-        marginLeft: '1em'
-    }),
-    close_icon: props => ({
-        fontSize: '2vh',
-        width: '1em',
-        height: '1em',
+    close: props => ({
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        padding: '0.1rem',
+        "& .MuiSvgIcon-root": {
+            width: '1rem',
+            height: '1rem',
+        },
     }),
 }, {index: 1});

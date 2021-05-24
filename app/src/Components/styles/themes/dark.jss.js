@@ -41,6 +41,7 @@ export const dark = {
     switch_active: '#0081cb',
     modal_actions: '#90caf9',
     location_sqr: '#0081cb',
+    text_link: '#90caf9',
     title: '#c9c9c9',
     variant_fill_r0: 157,
     variant_fill_g0: 80,

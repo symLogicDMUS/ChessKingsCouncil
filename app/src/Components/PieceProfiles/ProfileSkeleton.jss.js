@@ -9,6 +9,7 @@ import {
     sqrItemSizeSm,
     sqrItemHeaderHeightLg,
 } from "./constants.jss";
+import {pieceProfilesLgHeight, pieceProfilesLgWidth, pieceProfilesSmHeight} from "./PieceProfiles.jss";
 
 export const box = {
     minHeight: 'unset',
@@ -83,6 +84,7 @@ export const useStyles = makeStyles({
                 width: sqrItemSizeLg,
                 height: sqrItemSizeLg,
             },
+            backgroundColor: themes[props.theme].odd_row,
         },
     }),
     sqr_item_header: props => ({
@@ -105,6 +107,7 @@ export const useStyles = makeStyles({
                 width: sqrItemSizeLg,
                 height: sqrItemHeaderHeightLg,
             },
+            backgroundColor: themes[props.theme].odd_row,
         },
     }),
     sqr_item_title: props => ({
@@ -170,7 +173,23 @@ export const useStyles = makeStyles({
             },
         },
     }),
-    boxColor: props => ({
-        backgroundColor: themes[props.theme].odd_row,
+    text_link: props => ({
+        color: themes[props.theme].text_link,
+    }),
+    no_pieces: props => ({
+        '@media screen and (max-width: 960px)': {
+            width: '100%',
+            height: pieceProfilesSmHeight,
+        },
+        '@media screen and (min-width: 960px)': {
+            width: '48.5vw',
+            height: '35vw',
+        },
+        display: 'flex',
+        flexDirection: 'column',
+    }),
+    time_ended: props => ({
+        margin: 'auto',
+        color: '#fff'
     }),
 }, {index: 1});

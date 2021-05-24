@@ -40,6 +40,7 @@ export const mechwarrior_theme = {
     modal_actions: '#90caf9',
     location_sqr: '#b80056',
     title: '#f5b400',
+    text_link: '#fff',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

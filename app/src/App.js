@@ -52,6 +52,7 @@ function App() {
         Customize: true,
         GameRoot: true,
         MyPieces: true,
+        firstSave: true,
     });
 
     useEffect(() => {

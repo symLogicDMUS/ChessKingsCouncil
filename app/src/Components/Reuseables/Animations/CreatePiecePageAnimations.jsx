@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import LoadBar from "../../CreatePiece/Icon/LoadBar";
 import {HelpTitle} from "../NavBar/Help/HelpTitle";
+import {HelpContext} from "../../../Context/HelpContext";
 import {AnimatePresencePortal} from "./AnimatePresencePortal";
 
 const PieceSavedSuccessfully = React.lazy(() => import("./PieceSavedSuccessfully"));
 const PuttingThePieceICreatedIntoAGame = React.lazy(() => import("../NavBar/Help/Extra/PuttingThePieceICreatedIntoAGame"));
 
 function CreatePiecePageAnimations(props) {
-    const {state, newPiece, close, onClose, callback, name, theme} = props;
+    const {state, newPiece, close, callback, name, theme} = props;
+
+    const {help, setHelp} = useContext(HelpContext);
+
     return <>
         {state.uploadPiece && (
             <LoadBar
@@ -19,10 +23,15 @@ function CreatePiecePageAnimations(props) {
 
             />
         )}
-        {state.isFirstVisit && state.justSaved && (
+        {help.firstSave && state.justSaved && (
             <PuttingThePieceICreatedIntoAGame
                 theme={theme}
-                onClose={onClose}
+                onClose={() =>
+                    setHelp({
+                        ...help,
+                        firstSave: false,
+                    })
+                }
                 title={
                     <HelpTitle theme={theme} fontSize={"2.6vh"}>
                         Congratulations on Creating Your First Piece!
@@ -31,7 +40,7 @@ function CreatePiecePageAnimations(props) {
                 }
             />
         )}
-        {!state.isFirstVisit && state.justSaved && (
+        {! help.firstSave && state.justSaved && (
             <AnimatePresencePortal>
                 <PieceSavedSuccessfully
                     callback={callback}

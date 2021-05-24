@@ -2,9 +2,8 @@ import React, {useContext, useState} from "react";
 import "../styles/Background/_backgrounds.scss";
 import SearchIcon from "@material-ui/icons/Search";
 import { SavedPiecesHelp } from "./Help/SavedPiecesHelp";
-import { HelpTitle } from "../Reuseables/NavBar/Help/HelpTitle";
-import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import { ProfilesTitle } from "../PieceProfiles/ProfilesTitle";
+import {HelpSlideshow} from "../Reuseables/NavBar/Help/HelpSlideshow";
 import { TwoItemAppBarContent } from
         "../Reuseables/AppBar/Content/TwoItemAppBarContent";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

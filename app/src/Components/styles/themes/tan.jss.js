@@ -40,6 +40,7 @@ export const tan = {
     modal_actions: '#90caf9',
     location_sqr: '#fff172',
     title: '#000000',
+    text_link: '#551a8b',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,
