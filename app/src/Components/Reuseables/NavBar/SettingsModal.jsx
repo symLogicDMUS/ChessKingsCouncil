@@ -25,7 +25,7 @@ export function SettingsModal(props) {
     const {currentPage, closeModal, theme, children, ...other} = props;
     
     const uid = useContext(UserContext);
-    const { themes, setThemes } = useContext(ThemeContext);
+    const { themes, themeDispatch } = useContext(ThemeContext);
     const [saveSuccess, setSaveSuccess] = useState(false);
     const sm = useMediaQuery("(max-width: 375px)");
     const classes = useStyles({ theme: theme });
@@ -37,16 +37,7 @@ export function SettingsModal(props) {
     };
 
     const resetDefaults = () => {
-        setThemes({
-            newGame: "tan",
-            loadGame: "tan",
-            createPiece: "dark",
-            customize: "dark",
-            gameRoot: "dark",
-            myPieces: "dark",
-            councilRules: "tan",
-            home: "tan",
-        })
+        themeDispatch({type: 'reset-default-themes'})
     };
 
     const added = "(Current Page)";

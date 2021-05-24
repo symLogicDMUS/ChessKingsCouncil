@@ -20,7 +20,7 @@ const TabPanel = React.lazy(() => import('./Tabs/TabPanel'));
 function NewGame() {
     const history = useHistory();
 
-    const {themes, seThemes} = useContext(ThemeContext);
+    const {themes, themeDispatch} = useContext(ThemeContext);
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
 

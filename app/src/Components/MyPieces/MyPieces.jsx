@@ -17,7 +17,7 @@ const PieceProfiles = React.lazy(() => import('../PieceProfiles/PieceProfiles'))
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
 
 function MyPieces() {
-    const {themes, setThemes} = useContext(ThemeContext)
+    const {themes, themeDispatch} = useContext(ThemeContext)
     const [searchText, setSearchText] = useState("");
     const isWide = useMediaQuery("(min-width:960px)");
     const classes = useStyles({theme: themes.myPieces});

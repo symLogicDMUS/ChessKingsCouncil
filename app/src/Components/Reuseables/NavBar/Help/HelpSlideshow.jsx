@@ -25,15 +25,16 @@ export function HelpSlideshow(props) {
     const {currentPage, initialState, title, theme, children, ...other} = props;
 
     const uid = useContext(UserContext);
-    const {help, setHelp} = useContext(HelpContext);
+    const {help, helpDispatch} = useContext(HelpContext);
 
     const [slideshow, setSlideshow] = useState(false);
     useEffect(() => {
         if (! uid && help[currentPage]) {
             setSlideshow(true)
-            setHelp({
-                ...help,
-                [currentPage]: false,
+            helpDispatch({
+                type: "update-help",
+                page: currentPage,
+                value: false,
             })
         }
     }, [currentPage]);
@@ -46,21 +47,15 @@ export function HelpSlideshow(props) {
 
     const onClose = () => {
         setSlideshow(false)
-        setHelp({
-            ...help,
-            [currentPage]: false,
+        helpDispatch({
+            type: "update-help",
+            page: currentPage,
+            value: false,
         })
     };
 
     const disablePopupHelp = () => {
-        setHelp({
-            NewGame: false,
-            LoadGame: false,
-            CreatePiece: false,
-            Customize: false,
-            GameRoot: false,
-            MyPieces: false,
-        })
+        helpDispatch({type: "disable-help"})
     };
     
     return (

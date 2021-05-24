@@ -19,7 +19,7 @@ import NavBar from "../Reuseables/NavBar/NavBar";
 import {useStyles} from "./CouncilRules.jss";
 
 function CouncilRules() {
-    const {themes, setThemes} = useContext(ThemeContext);
+    const {themes, themeDispatch} = useContext(ThemeContext);
     const classes = useStyles({ theme: themes.councilRules });
     const muiTheme = useTheme();
 

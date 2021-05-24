@@ -8,7 +8,7 @@ import {Undo} from "@material-ui/icons";
 import clsx from "clsx";
 
 export function SiteDescription({theme}) {
-    const {themes, setThemes} = useContext(ThemeContext);
+    const {themes, themeDispatch} = useContext(ThemeContext);
 
     const [resetDefaults, setResetDefaults] = useState(false);
 

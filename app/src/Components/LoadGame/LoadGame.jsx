@@ -30,7 +30,7 @@ const MuiGrid = React.lazy(() => import('../Reuseables/Modals/MuiGrid'));
 function LoadGame() {
     const history = useHistory();
     const uid = useContext(UserContext);
-    const {themes, setThemes} = useContext(ThemeContext);
+    const {themes, themeDispatch} = useContext(ThemeContext);
     const isThin = useMediaQuery("(max-width:960px)");
     const isWide = useMediaQuery("(min-width:960px)");
     const classes = useStyles({theme: themes.loadGame});

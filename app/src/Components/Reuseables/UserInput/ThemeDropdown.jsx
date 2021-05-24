@@ -7,27 +7,31 @@ import {ThemeContext} from "../../../Context/ThemeContext";
 import { useStyles } from "./ThemeDropdown.jss";
 
 function ThemeDropdown({theme, pageName, defaultValue}) {
-    const {themes, setThemes} = useContext(ThemeContext);
+    const {themes, themeDispatch} = useContext(ThemeContext);
     const classes = useStyles({theme});
 
     const updateTheme = (e) => {
         const theme = e.target.value;
         if (pageName==='all') {
-            setThemes({
-                newGame: theme,
-                loadGame: theme,
-                createPiece: theme,
-                customize: theme,
-                gameRoot: theme,
-                myPieces: theme,
-                councilRules: theme,
-                home: theme,
+            themeDispatch({
+                type: 'set-themes',
+                themes: {
+                    newGame: theme,
+                    loadGame: theme,
+                    createPiece: theme,
+                    customize: theme,
+                    gameRoot: theme,
+                    myPieces: theme,
+                    councilRules: theme,
+                    home: theme,
+                }
             })
         }
         else {
-            setThemes({
-                ...themes,
-                [pageName]: theme,
+            themeDispatch({
+                type: 'update-theme',
+                pageName: pageName,
+                theme: theme,
             })
         }
     };

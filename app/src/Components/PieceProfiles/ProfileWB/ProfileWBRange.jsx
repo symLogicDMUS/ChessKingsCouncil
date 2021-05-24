@@ -19,7 +19,9 @@ function ProfileWBRange (props) {
     } = props;
 
 
-    const rangeBoardImgStr = useMemo(() => getRangeBoardImgStr("d4", rangeType, range, theme), [theme, range.length])
+    const rangeBoardImgStr = useMemo(() =>
+        getRangeBoardImgStr("d4", rangeType, range, theme), [theme, range.length]
+    )
 
     const classes = useStyles({ theme: theme, board_img: rangeBoardImgStr });
     const classes2 = useMoreStyles({ theme: theme });

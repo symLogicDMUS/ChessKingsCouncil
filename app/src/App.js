@@ -1,69 +1,42 @@
 import React from "react";
-import {lazy} from "react";
-import {useMemo} from "react";
-import {Suspense} from "react"
-import {useState} from "react";
-import {useEffect} from "react";
-import {useReducer} from "react";
 import {getThemes} from "./API/getThemes";
+import {recordUser} from "./API/recordUser";
 import {queryUserId} from "./API/isNewUser";
-import NotFound from "./Components/Home/NotFound";
 import Loading from "./Components/Reuseables/Animations/Loading";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {saveSampleData} from "./API/sampleData/saveSampleData";
 import {ThemeContext} from "./Context/ThemeContext";
 import {HelpContext} from "./Context/HelpContext";
 import {UserContext} from "./Context/UserContext";
+import {appDefaultState} from "./appDefaultState";
 import * as firebase from "firebase/app";
 import {reducer} from "./App.red";
 import "firebase/database";
 import "firebase/auth";
 import "./App.scss";
-import {recordUser} from "./API/recordUser";
 
-const Home = lazy(() => import("./Components/Home/Home"));
-const NewGame = lazy(() => import("./Components/NewGame/NewGame"));
-const LoadGame = lazy(() => import("./Components/LoadGame/LoadGame"));
-const GameRoot = lazy(() => import("./Components/GameRoot/GameRoot"));
-const MyPieces = lazy(() => import("./Components/MyPieces/MyPieces"));
-const CreatePiece = lazy(() => import("./Components/CreatePiece/CreatePiece"));
-const Customize = lazy(() => import("./Components/NewGame/Customize/Customize"));
-const CouncilRules = lazy(() => import("./Components/CouncilRules/CouncilRules"));
+const Home = React.lazy(() => import("./Components/Home/Home"));
+const NewGame = React.lazy(() => import("./Components/NewGame/NewGame"));
+const LoadGame = React.lazy(() => import("./Components/LoadGame/LoadGame"));
+const GameRoot = React.lazy(() => import("./Components/GameRoot/GameRoot"));
+const MyPieces = React.lazy(() => import("./Components/MyPieces/MyPieces"));
+const CreatePiece = React.lazy(() => import("./Components/CreatePiece/CreatePiece"));
+const Customize = React.lazy(() => import("./Components/NewGame/Customize/Customize"));
+const CouncilRules = React.lazy(() => import("./Components/CouncilRules/CouncilRules"));
+const NotFound = React.lazy(() => import('./Components/Home/NotFound'));
+
 
 function App() {
-    const [state, dispatch] = useReducer(reducer, {
-        uid: null,
-        isSignedIn: false,
-        isAnonymous: false,
-    })
-    const [themes, setThemes] = useState({
-        newGame: 'tan',
-        loadGame: 'tan',
-        createPiece: 'dark',
-        customize: 'dark',
-        gameRoot: 'dark',
-        myPieces: 'dark',
-        councilRules: 'tan',
-        home: 'tan',
-    });
-    const [help, setHelp] = useState({
-        NewGame: true,
-        LoadGame: true,
-        CreatePiece: true,
-        Customize: true,
-        GameRoot: true,
-        MyPieces: true,
-        firstSave: true,
-    });
+    const [state, dispatch] = React.useReducer(reducer, appDefaultState)
 
-    useEffect(() => {
+    React.useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 queryUserId().then(isReturningUser => {
                     if (isReturningUser) {
                         getThemes().then(themes => {
                             if (themes) {
-                                setThemes(themes)
+                                dispatch({type: 'set-themes', themes: themes})
                             }
                             dispatch({type: 'logged-in', user: user})
                         })
@@ -81,12 +54,19 @@ function App() {
         });
     }, [])
 
-    const themeValue = useMemo(() => ({themes, setThemes}), [themes, setThemes]);
-    const helpValue = useMemo(() => ({help, setHelp}), [help, setHelp]);
+    const themeValue = React.useMemo(() => ({
+        themes: state.themes,
+        themeDispatch: dispatch
+    }), [state.themes, dispatch]);
+
+    const helpValue = React.useMemo(() => ({
+        help: state.help,
+        helpDispatch: dispatch
+    }), [state.help, dispatch]);
 
     return (
         <Router>
-            <Suspense fallback={<Loading/>}>
+            <React.Suspense fallback={<Loading/>}>
                 <UserContext.Provider value={state.uid}>
                     <ThemeContext.Provider value={themeValue}>
                         <HelpContext.Provider value={helpValue}>
@@ -104,7 +84,7 @@ function App() {
                         </HelpContext.Provider>
                     </ThemeContext.Provider>
                 </UserContext.Provider>
-            </Suspense>
+            </React.Suspense>
         </Router>
     );
 }

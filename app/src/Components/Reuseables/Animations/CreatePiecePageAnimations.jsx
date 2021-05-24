@@ -10,7 +10,7 @@ const PuttingThePieceICreatedIntoAGame = React.lazy(() => import("../NavBar/Help
 function CreatePiecePageAnimations(props) {
     const {state, newPiece, close, callback, updateImg, name, theme} = props;
 
-    const {help, setHelp} = useContext(HelpContext);
+    const {help, helpDispatch} = useContext(HelpContext);
 
     return <>
         {state.uploadPiece && (
@@ -27,9 +27,10 @@ function CreatePiecePageAnimations(props) {
             <PuttingThePieceICreatedIntoAGame
                 theme={theme}
                 onClose={() =>
-                    setHelp({
-                        ...help,
-                        firstSave: false,
+                    helpDispatch({
+                        type: 'update-help',
+                        page: "firstSave",
+                        value: false,
                     })
                 }
                 title={
