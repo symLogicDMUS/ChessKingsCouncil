@@ -14,6 +14,9 @@ export const useStyles = makeStyles({
     color: props => ({
         color: themes[props.theme].text,
         backgroundColor: themes[props.theme].fill,
+        "& .MuiTouchRipple-root": {
+            color: themes[props.theme].text,
+        },
     }),
     text: props => ({
         color: themes[props.theme].text,

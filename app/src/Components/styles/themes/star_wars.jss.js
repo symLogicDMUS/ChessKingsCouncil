@@ -1,4 +1,3 @@
-import {lighten} from "@material-ui/core/styles";
 
 export const star_wars = {
     outline: '#f6b601',
@@ -40,6 +39,8 @@ export const star_wars = {
     location_sqr: '#28ded3',
     title: '#f6b601',
     text_link: '#28ded3',
+    site_description_backdrop: '#000',
+    site_description_text: '#f6b601',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

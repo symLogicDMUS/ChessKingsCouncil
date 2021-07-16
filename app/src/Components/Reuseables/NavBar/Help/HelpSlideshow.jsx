@@ -3,13 +3,16 @@ import {useState} from "react";
 import {useEffect} from "react";
 import {useContext} from "react";
 import {useReducer} from "react";
-import {Dialog, Typography} from "@material-ui/core";
-import {Checkbox} from "@material-ui/core";
-import {DialogTitle} from "@material-ui/core";
-import {DialogActions} from "@material-ui/core";
-import {DialogContent} from "@material-ui/core";
-import {FormControlLabel} from "@material-ui/core";
-import {MuiButton} from "../../Clickables/MuiButton";
+import MediaQuery from "react-responsive/src";
+import { Dialog } from "@material-ui/core";
+import { Checkbox } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import { DialogTitle } from "@material-ui/core";
+import { DialogActions } from "@material-ui/core";
+import { DialogContent } from "@material-ui/core";
+import { SeeMore } from "../../UserInput/SeeMore";
+import { FormControlLabel} from "@material-ui/core";
+import { MuiButton } from "../../Clickables/MuiButton";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
@@ -18,8 +21,6 @@ import {HelpContext} from "../../../../Context/HelpContext";
 import {UserContext} from "../../../../Context/UserContext";
 import {reducer} from "./HelpSlideshow.red";
 import {useStyles} from "./HelpSlideshow.jss";
-import MediaQuery from "react-responsive/src";
-import {SeeMore} from "../../UserInput/SeeMore";
 
 export function HelpSlideshow(props) {
     const {currentPage, initialState, title, theme, children, ...other} = props;
@@ -33,7 +34,7 @@ export function HelpSlideshow(props) {
             setSlideshow(true)
             helpDispatch({
                 type: "update-help",
-                page: currentPage,
+                pageName: currentPage,
                 value: false,
             })
         }
@@ -49,7 +50,7 @@ export function HelpSlideshow(props) {
         setSlideshow(false)
         helpDispatch({
             type: "update-help",
-            page: currentPage,
+            pageName: currentPage,
             value: false,
         })
     };
@@ -75,26 +76,26 @@ export function HelpSlideshow(props) {
             <DialogActions className={classes.color}>
                 {(state.pos === 0 || state.pos === state.numSlides - 1) ? (
                     <>
-                    <MediaQuery maxWidth={367}>
-                        <SeeMore theme={theme}>
+                        <MediaQuery maxWidth={367}>
+                            <SeeMore theme={theme}>
+                                <FormControlLabel
+                                    label={<Typography className={classes.text}>No Help Windows</Typography>}
+                                    labelPlacement="start"
+                                    control={
+                                        <Checkbox onClick={disablePopupHelp} className={classes.text} name="checkbox"/>
+                                    }
+                                />
+                            </SeeMore>
+                        </MediaQuery>
+                        <MediaQuery minWidth={367}>
                             <FormControlLabel
-                                label={<Typography className={classes.text}>No Help Windows</Typography>}
+                                label='No Help'
                                 labelPlacement="start"
                                 control={
-                                    <Checkbox onClick={disablePopupHelp} className={classes.text} name="checkbox"/>
+                                    <Checkbox onClick={disablePopupHelp} name="checkbox"/>
                                 }
                             />
-                        </SeeMore>
-                    </MediaQuery>
-                    <MediaQuery minWidth={367}>
-                        <FormControlLabel
-                            label='No Help'
-                            labelPlacement="start"
-                            control={
-                                <Checkbox onClick={disablePopupHelp} name="checkbox"/>
-                            }
-                        />
-                    </MediaQuery>
+                        </MediaQuery>
                     </>
                 ) : null}
                 {state.pos !== 0 ? (

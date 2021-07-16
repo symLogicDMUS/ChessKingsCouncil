@@ -14,12 +14,15 @@ import { KeyboardBackspace } from "@material-ui/icons";
 import "../../styles/Background/_backgrounds.scss";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./SignInWindow.jss";
+import {HelpModal} from "../../Reuseables/NavBar/Help/HelpModal";
 
 function SignInWindow({goBack}) {
 
     const [helpReminder, setHelpReminder] = useState(false);
+    const [helpModal, setHelpModal] = useState(false);
     const classes = useStyles({ theme: "tan" });
     const sm = useMediaQuery("(max-width:960px)");
+    const screenCase = sm ? "thin" : "wide";
 
     useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
@@ -44,12 +47,25 @@ function SignInWindow({goBack}) {
                     {helpReminder ? (
                         <Typography className={classes.help_reminder} variant="h5" paragraph>
                             If you ever need help, see the help button in the nav bar bar or side drawer.
-                            <Button startIcon={<ContactSupportIcon />} size={"large"}>Help</Button>
+                            <Button
+                                onClick={() => setHelpModal(true)}
+                                startIcon={<ContactSupportIcon />}
+                                size={"large"}
+                            >
+                                Help
+                            </Button>
                         </Typography>
                     ) : (
                         <StyledFirebaseAuth
                             uiConfig={uiConfig}
                             firebaseAuth={firebase.auth()}
+                        />
+                    )}
+                    {helpModal && (
+                        <HelpModal
+                            theme="tan"
+                            screenCase={screenCase}
+                            onClose={() => setHelpModal(false)}
                         />
                     )}
                     <Button

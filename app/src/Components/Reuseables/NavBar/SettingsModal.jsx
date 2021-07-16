@@ -19,7 +19,7 @@ import { ThemeContext } from "../../../Context/ThemeContext";
 import AskLoginButton from "../../Home/Sign In/AskLoginButton";
 import { AnimatePresencePortal } from "../Animations/AnimatePresencePortal";
 import ThemeSavedSuccessfully from "../Animations/ThemeSavedSuccessfully";
-import {smReset, useStyles} from "./SettingsModal.jss";
+import {smResetButton, useStyles} from "./SettingsModal.jss";
 
 export function SettingsModal(props) {
     const {currentPage, closeModal, theme, children, ...other} = props;
@@ -288,7 +288,7 @@ export function SettingsModal(props) {
                         variant={"contained"}
                         startIcon={<Undo />}
                         className={classes.reset_theme_button}
-                        style={sm ? smReset : null}
+                        style={sm ? smResetButton : null}
                     >
                         Reset defaults
                     </Button>

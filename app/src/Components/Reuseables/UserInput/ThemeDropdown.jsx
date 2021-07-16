@@ -14,17 +14,8 @@ function ThemeDropdown({theme, pageName, defaultValue}) {
         const theme = e.target.value;
         if (pageName==='all') {
             themeDispatch({
-                type: 'set-themes',
-                themes: {
-                    newGame: theme,
-                    loadGame: theme,
-                    createPiece: theme,
-                    customize: theme,
-                    gameRoot: theme,
-                    myPieces: theme,
-                    councilRules: theme,
-                    home: theme,
-                }
+                type: 'set-unified-theme',
+                theme: theme,
             })
         }
         else {

@@ -1,7 +1,7 @@
 import {themes} from "../../styles/themes/themes.jss";
 import {darken, lighten, makeStyles} from "@material-ui/core/styles";
 
-export const smReset = {
+export const smResetButton = {
     marginLeft: 0,
 }
 

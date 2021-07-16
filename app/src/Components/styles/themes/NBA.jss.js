@@ -43,6 +43,8 @@ export const NBA = {
     title: '#253b73',
     text_link: '#551a8b',
     location_sqr: '#253b73',
+    site_description_text: '#fff',
+    site_description_backdrop: '#253b73',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

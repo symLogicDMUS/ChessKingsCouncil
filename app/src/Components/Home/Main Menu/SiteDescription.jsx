@@ -1,16 +1,16 @@
-import React, {useContext, useState} from "react";
+import clsx from "clsx";
+import React from "react";
+import {useState} from "react";
+import {useContext} from "react";
 import {Link} from "react-router-dom";
+import {Undo} from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {ThemeContext} from "../../../Context/ThemeContext";
 import {useStyles} from "./SiteDescription.jss";
-import {Undo} from "@material-ui/icons";
-import clsx from "clsx";
 
 export function SiteDescription({theme}) {
     const {themes, themeDispatch} = useContext(ThemeContext);
-
-    const [resetDefaults, setResetDefaults] = useState(false);
 
     const classes = useStyles({theme});
 
@@ -21,17 +21,7 @@ export function SiteDescription({theme}) {
             classes.inline_button
         }
         onClick={() => {
-            setThemes({
-                newGame: 'star_wars',
-                loadGame: 'star_wars',
-                createPiece: 'star_wars',
-                customize: 'star_wars',
-                gameRoot: 'star_wars',
-                myPieces: 'star_wars',
-                councilRules: 'star_wars',
-                home: 'star_wars',
-            })
-            setResetDefaults(true)
+            themeDispatch({type: "set-unified-theme", theme: "star_wars"})
         }}
     >
         Star Wars
@@ -42,17 +32,7 @@ export function SiteDescription({theme}) {
             classes.inline_button
         }
         onClick={() => {
-            setThemes({
-                newGame: 'NBA',
-                loadGame: 'NBA',
-                createPiece: 'NBA',
-                customize: 'NBA',
-                gameRoot: 'NBA',
-                myPieces: 'NBA',
-                councilRules: 'NBA',
-                home: 'NBA',
-            })
-            setResetDefaults(true)
+            themeDispatch({type: "set-unified-theme", theme: "NBA"})
         }}
     >
         NBA Basketball
@@ -62,19 +42,10 @@ export function SiteDescription({theme}) {
         className={
             classes.inline_button
         }
-        onClick={() => {
-            setThemes({
-                newGame: 'mechwarrior_a_team',
-                loadGame: 'mechwarrior_a_team',
-                createPiece: 'mechwarrior_a_team',
-                customize: 'mechwarrior_a_team',
-                gameRoot: 'mechwarrior_a_team',
-                myPieces: 'mechwarrior_a_team',
-                councilRules: 'mechwarrior_a_team',
-                home: 'mechwarrior_a_team',
-            })
-            setResetDefaults(true)
-        }}
+        onClick={() =>
+            themeDispatch({
+                type: "set-unified-theme", theme: "mechwarrior_a_team"})
+        }
     >
         MechWarrior
     </Button>;
@@ -86,17 +57,7 @@ export function SiteDescription({theme}) {
             })
         }
         onClick={() => {
-            setThemes({
-                newGame: 'tan',
-                loadGame: 'tan',
-                createPiece: 'dark',
-                customize: 'dark',
-                gameRoot: 'dark',
-                myPieces: 'dark',
-                councilRules: 'tan',
-                home: 'tan',
-            })
-            setResetDefaults(false)
+            themeDispatch({type: "reset-default-themes"})
         }}
         startIcon={<Undo />}
     >
@@ -108,7 +69,8 @@ export function SiteDescription({theme}) {
         the {createPieceLink}. After you save your piece there, visit the New Game page and choose the Custom option
         under game types. Your piece can start the game in place of a normal Chess piece, or be an option for Pawns to
         be promoted to when they reach the back row. You can also play classic Chess. There are a variety of sample
-        images, pieces, and games, for new users. There are cool themes like {starWars}, {NBA}, and {mechWarrior}. For
-        further help, choose the help option in the side drawer. I hope that you enjoy the site! {resetDefaults && resetTheme}
+        images, pieces, and games, for new users. There are cool themes like {starWars}, {NBA} and {mechWarrior} that you can
+        access through the Settings option in the side drawer. For further help, choose the help option in the side drawer.
+        I hope that you enjoy the site!
     </Typography>;
 }

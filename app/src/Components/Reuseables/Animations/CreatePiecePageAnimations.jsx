@@ -29,7 +29,7 @@ function CreatePiecePageAnimations(props) {
                 onClose={() =>
                     helpDispatch({
                         type: 'update-help',
-                        page: "firstSave",
+                        pageName: "firstSave",
                         value: false,
                     })
                 }

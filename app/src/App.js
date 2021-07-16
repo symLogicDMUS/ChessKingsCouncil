@@ -1,14 +1,19 @@
 import React from "react";
+import {useMemo} from "react";
+import {Suspense} from "react";
+import {useEffect} from "react";
+import {useReducer} from "react";
 import {getThemes} from "./API/getThemes";
 import {recordUser} from "./API/recordUser";
 import {queryUserId} from "./API/isNewUser";
-import Loading from "./Components/Reuseables/Animations/Loading";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {saveSampleData} from "./API/sampleData/saveSampleData";
-import {ThemeContext} from "./Context/ThemeContext";
 import {HelpContext} from "./Context/HelpContext";
 import {UserContext} from "./Context/UserContext";
 import {appDefaultState} from "./appDefaultState";
+import {ThemeContext} from "./Context/ThemeContext";
+import {saveSampleData} from "./API/sampleData/saveSampleData";
+import Loading from "./Components/Reuseables/Animations/Loading";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import * as firebase from "firebase/app";
 import {reducer} from "./App.red";
 import "firebase/database";
@@ -27,9 +32,9 @@ const NotFound = React.lazy(() => import('./Components/Home/NotFound'));
 
 
 function App() {
-    const [state, dispatch] = React.useReducer(reducer, appDefaultState)
+    const [state, dispatch] = useReducer(reducer, appDefaultState)
 
-    React.useEffect(() => {
+    useEffect(() => {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 queryUserId().then(isReturningUser => {
@@ -54,19 +59,19 @@ function App() {
         });
     }, [])
 
-    const themeValue = React.useMemo(() => ({
+    const themeValue = useMemo(() => ({
         themes: state.themes,
         themeDispatch: dispatch
     }), [state.themes, dispatch]);
 
-    const helpValue = React.useMemo(() => ({
+    const helpValue = useMemo(() => ({
         help: state.help,
         helpDispatch: dispatch
     }), [state.help, dispatch]);
 
     return (
         <Router>
-            <React.Suspense fallback={<Loading/>}>
+            <Suspense fallback={<Loading/>}>
                 <UserContext.Provider value={state.uid}>
                     <ThemeContext.Provider value={themeValue}>
                         <HelpContext.Provider value={helpValue}>
@@ -84,7 +89,7 @@ function App() {
                         </HelpContext.Provider>
                     </ThemeContext.Provider>
                 </UserContext.Provider>
-            </React.Suspense>
+            </Suspense>
         </Router>
     );
 }

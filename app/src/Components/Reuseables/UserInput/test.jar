@@ -1,0 +1,12 @@
+public int getValue(String input, int numRetries) throws Exception {
+    try {
+      return map.get(input);
+    }
+    catch (Exception e) {
+      if (numRetries > 3) {
+        throw e;
+      }
+      return getValue(input, numRetries + 1);
+    }
+  }
+}

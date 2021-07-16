@@ -157,6 +157,11 @@ $length: 0.35rem;
     @include dark;
 }
 
+.red_blue_alt-background {
+    background-color: #2b2b2b;
+    @include dark;
+}
+
 .star_wars-background {
     background-image: url("star_wars2.png");
     @include tan;
@@ -186,8 +191,4 @@ $length: 0.35rem;
     background-image: url("hardwood.jpg");
     background-repeat: repeat;
     @include nba;
-}
-
-.hide-overflow {
-    overflow-y: hidden;
 }

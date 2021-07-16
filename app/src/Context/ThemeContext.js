@@ -1,12 +1,12 @@
 import React, {createContext} from "react";
 
 export const ThemeContext = createContext({
-    newGame: 'tan',
-    loadGame: 'tan',
+    newGame: 'nba',
+    loadGame: 'nba',
     createPiece: 'dark',
     customize: 'dark',
     gameRoot: 'dark',
     myPieces: 'dark',
     councilRules: 'tan',
-    home: 'tan',
+    home: 'nba',
 });

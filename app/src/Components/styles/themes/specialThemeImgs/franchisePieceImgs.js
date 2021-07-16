@@ -1,9 +1,10 @@
+import {NBA} from "./themes/NBA";
+import {classic} from "./themes/classic";
+import {red_blue} from "./themes/red_blue";
 import {star_wars} from "./themes/star_wars";
+import {red_blue_alt} from "./themes/red_blue_alt";
 import {mechwarrior_a_team} from "./themes/mechwarrior_a_team";
 import {mechwarrior_b_team} from "./themes/mechwarrior_b_team";
-import {NBA} from "./themes/NBA";
-import {red_blue} from "./themes/red_blue";
-import {classic} from "./themes/classic";
 
 export const franchisePieceImgs = {
     star_wars: {
@@ -168,6 +169,32 @@ export const franchisePieceImgs = {
         Pawn: {
             W: classic["WP.svg"],
             B: classic["BP.svg"]
+        },
+    },
+    red_blue_alt: {
+        Rook: {
+            W: red_blue_alt["WR.svg"],
+            B: red_blue_alt["BR.svg"]
+        },
+        Knight: {
+            W: red_blue_alt["WN.svg"],
+            B: red_blue_alt["BN.svg"]
+        },
+        Bishop: {
+            W: red_blue_alt["WB.svg"],
+            B: red_blue_alt["BB.svg"]
+        },
+        King: {
+            W: red_blue_alt["WK.svg"],
+            B: red_blue_alt["BK.svg"]
+        },
+        Queen: {
+            W: red_blue_alt["WQ.svg"],
+            B: red_blue_alt["BQ.svg"]
+        },
+        Pawn: {
+            W: red_blue_alt["WP.svg"],
+            B: red_blue_alt["BP.svg"]
         },
     },
 }

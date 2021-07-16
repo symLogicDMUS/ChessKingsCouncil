@@ -42,6 +42,20 @@ export function reducer(state, action) {
                     home: "tan",
                 }
             }
+        case "set-unified-theme":
+            return {
+                ...state,
+                themes: {
+                    newGame: action.theme,
+                    loadGame: action.theme,
+                    createPiece: action.theme,
+                    customize: action.theme,
+                    gameRoot: action.theme,
+                    myPieces: action.theme,
+                    councilRules: action.theme,
+                    home: action.theme,
+                }
+            }
         case "update-help":
             return {
                 ...state,
@@ -54,13 +68,13 @@ export function reducer(state, action) {
             return {
                 ...state,
                 help: {
-                    NewGame: true,
-                    LoadGame: true,
-                    CreatePiece: true,
-                    Customize: true,
-                    GameRoot: true,
-                    MyPieces: true,
-                    firstSave: true,
+                    NewGame: false,
+                    LoadGame: false,
+                    CreatePiece: false,
+                    Customize: false,
+                    GameRoot: false,
+                    MyPieces: false,
+                    firstSave: false,
                 }
             }
         default:

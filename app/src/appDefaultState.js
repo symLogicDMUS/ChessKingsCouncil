@@ -3,14 +3,14 @@ export const appDefaultState = {
     isSignedIn: false,
     isAnonymous: false,
     themes: {
-        newGame: 'tan',
-        loadGame: 'tan',
+        newGame: 'NBA',
+        loadGame: 'NBA',
         createPiece: 'dark',
         customize: 'dark',
         gameRoot: 'dark',
         myPieces: 'dark',
-        councilRules: 'tan',
-        home: 'tan',
+        councilRules: 'NBA',
+        home: 'NBA',
     },
     help: {
         NewGame: true,

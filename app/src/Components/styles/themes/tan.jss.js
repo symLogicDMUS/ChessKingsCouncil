@@ -41,6 +41,8 @@ export const tan = {
     location_sqr: '#fff172',
     title: '#000000',
     text_link: '#551a8b',
+    site_description_backdrop: 'none',
+    site_description_text: '#000',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

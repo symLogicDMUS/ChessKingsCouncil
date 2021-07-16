@@ -41,7 +41,7 @@ const Location = React.lazy(() => import('./Location/Location'));
 const NavBar = React.lazy(() => import('../Reuseables/NavBar/NavBar'));
 const CreatePieceBoard = React.lazy(() => import('./Board/CreatePieceBoard'));
 const ResponsiveDrawer = React.lazy(() => import('../Reuseables/Drawers/ResponsiveDrawer'));
-const Animations = React.lazy(() => import("../Reuseables/Animations/CreatePiecePageAnimations"))
+const Animations = React.lazy(() => import("../Reuseables/Animations/CreatePiecePageAnimations"));
 
 class CreatePiece extends React.Component {
     constructor(props) {

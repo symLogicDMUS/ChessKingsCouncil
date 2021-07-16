@@ -68,9 +68,9 @@ function PuttingThePieceICreatedIntoAGame(props) {
     />
 
     return <HelpSlide
-        onClose={props.onClose}
         title={props.title}
         theme={props.theme}
+        onClose={props.onClose}
         updateTheme={props.updateTheme}
     >
         <Typography  className={classes2.text} paragraph>

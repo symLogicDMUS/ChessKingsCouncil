@@ -20,6 +20,7 @@ export const themes = {
     },
     red_blue: dark,
     dark_alt: dark,
+    red_blue_alt: dark,
     classic_dark: dark,
     star_wars: star_wars,
     mechwarrior_a_team: mechwarrior_theme,
