@@ -9,6 +9,9 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        marginRight: '1rem',
+        marginLeft: '1rem',
+        // backdropFilter: 'blur(5px)',
     }),
     page_name: props => ({
         width: '100%',

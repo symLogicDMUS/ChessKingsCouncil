@@ -12,10 +12,22 @@ function GameName(props) {
     const classes2 = useMoreStyles();
 
     return (
-            <Box className={clsx(classes2.item, {
-                [classes.game_name]: true,
-            })}>
-                <img src={`/Images/text/new game/Game Name-${theme}.svg`} className={classes2.title} />
+            <Box
+                className={clsx(classes2.item, {
+                    [classes.game_name]: true,
+                })}
+                style={{
+                    // border: '1px dashed red',
+                    borderRadius: '1rem',
+                    padding: '1rem',
+                    // backgroundColor: 'white'
+                }}
+            >
+                <img
+                    src={`/Images/text/new game/Game Name-${theme}.svg`}
+                    alt="svg text that reads 'Game Name'"
+                    className={classes2.title}
+                />
                 <MuiTextField
                     {...other}
                     autoFocus

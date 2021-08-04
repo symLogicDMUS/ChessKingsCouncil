@@ -86,6 +86,52 @@ $length: 0.35rem;
     }
 }
 
+@mixin blue {
+    /* width */
+    ::-webkit-scrollbar {
+        @media screen and (max-width: 960px) {
+            width: $length;
+            height: $length;
+        }
+        @media screen and (min-width: 960px) {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+    }
+
+    /* button */
+    ::-webkit-scrollbar-button {
+        background: #00077a;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #0d47a1;
+        opacity: 0.5%;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #1565c0;
+        opacity: 0.5%;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #003340;
+    }
+
+    /* Corner */
+    ::-webkit-scrollbar-corner {
+        background: #000ad2;
+    }
+
+    /* Resizer */
+    ::-webkit-resizer {
+        background: #2157f5;
+    }
+}
+
 @mixin nba {
     /* width */
     ::-webkit-scrollbar {
@@ -130,6 +176,17 @@ $length: 0.35rem;
     ::-webkit-resizer {
         background: #a20000;
     }
+}
+
+.blue-background {
+    //background-color: #283e76;
+    background-size: cover;
+    background: #283e76 url("wood background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    @include blue;
 }
 
 .tan-background {

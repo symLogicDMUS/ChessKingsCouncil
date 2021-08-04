@@ -543,7 +543,6 @@ class CreatePiece extends React.Component {
                                             >
                                                 Create Piece Settings
                                             </Typography>
-
                                             <MuiSwitch
                                                 theme={value.themes.createPiece}
                                                 className={

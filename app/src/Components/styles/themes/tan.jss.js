@@ -11,6 +11,7 @@ export const tan = {
     text_alt2: '#d7bb99',
     text_alt3: '#111111',
     nav_text: '#d7be9b',
+    text_backdrop: 'rgba(0, 0, 0, 0)',
     button_fill: '#1b1b1b',
     button_text: '#d7bb99',
     button_hover_fill: '#282828',

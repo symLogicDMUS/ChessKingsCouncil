@@ -11,6 +11,7 @@ export const dark = {
     text_alt2: '#252525',
     text_alt3: '#aaaaaa',
     nav_text: '#252525',
+    text_backdrop: 'rgba(0, 0, 0, 0)',
     button_fill: '#414141',
     button_text: '#b6b6b6',
     button_hover_fill: '#414141',

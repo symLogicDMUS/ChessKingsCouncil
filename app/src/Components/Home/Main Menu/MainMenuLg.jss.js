@@ -4,15 +4,24 @@ import {themes} from "../../styles/themes/themes.jss";
 export const buttonStyle = {maxWidth: 130};
 
 export const useStyles = makeStyles({
-    main_menu: props => ({
+    root: props => ({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'center',
-        height: `calc(100vh - 40px)`,
+        height: '100vh',
         width: '100vw',
         position: 'fixed',
-        top: 40,
+        top: 0,
+        backdropFilter: 'blur(5px)',
+        // backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    }),
+    main_menu: props => ({
+        borderRadius: 8,
+        padding: '1rem',
+        zIndex: 1,
+        // backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        // backdropFilter: 'blur(2px)'
     }),
     title: props => ({
         width: '80vw',
@@ -28,13 +37,12 @@ export const useStyles = makeStyles({
         },
     }),
     page_links: props => ({
-        width: '66.25%',
         display: 'flex',
-        flexDirection: 'row',
         flexWrap: 'no-wrap',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
     }),
     top_area: props => ({
+        zIndex: 2,
         position: 'fixed',
         width: '100vw',
         display: 'flex',
