@@ -5,9 +5,8 @@ import Button from "@material-ui/core/Button";
 import InfoIcon from '@material-ui/icons/Info';
 import "../../styles/Background/_backgrounds.scss"
 import SignInOutButton from "../Sign In/SignInOutButton";
-import {Backdrop, Container, Slide, Typography} from "@material-ui/core";
+import {Slide, Typography} from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
-import {Background} from "../../styles/Background/Background";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
 import MainMenuDrawer from "../../Reuseables/Drawers/MainMenuDrawer";
 import { useStyles} from "./MainMenuLg.jss";
@@ -27,8 +26,7 @@ export function MainMenuLg(props) {
             {about ? (
                 <MainMenuDrawer theme={props.theme} toggleAboutPage={() => setAbout(false)} />
             ) : (
-                <>
-                    <Background theme={props.theme} isFixed={true} lgScreenBar={true} />
+                <div className={classes.root}>
                     <Box className={classes.top_area}>
                         <Button
                             onClick={() => setAbout(true)}
@@ -53,73 +51,69 @@ export function MainMenuLg(props) {
                         />
                         <SignInOutButton
                             theme={props.theme}
-                            variant={'contained'}
+                            variant={'text'}
                             className={classes.button}
+                            style={{color: '#d7bb99', marginRight: '0.5rem'}}
                         />
                     </Box>
-                    <Box className={classes.root}>
-                        <Slide in={true} direction={"right"}>
-                            <Box className={classes.main_menu}>
-                                <img src={`/Images/text/app title/title-${props.theme}.svg`}
-                                     className={classes.title}
-                                     alt={"title of app"}
+                    <img className={classes.title} src={'/Images/text/main menu/title.svg'} />
+                    <img className={classes.banner} src={'/Images/banner.jpg'} alt="" />
+                    <Slide direction={"right"} in={true}>
+                        <Box className={classes.main_menu}>
+                            <Box className={classes.page_links}>
+                                <PageLink
+                                    icon='new-game-cutout'
+                                    path="/NewGame"
+                                    pageName="New Game"
+                                    pathType="local"
+                                    theme={props.theme}
                                 />
-                                <Box className={classes.page_links}>
-                                    <PageLink
-                                        icon='new-game-cutout'
-                                        path="/NewGame"
-                                        pageName="New Game"
-                                        pathType="local"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='load-game-cutout'
-                                        path="/LoadGame"
-                                        pageName="Load Game"
-                                        pathType="local"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='create-piece-cutout'
-                                        path="/CreatePiece"
-                                        pageName="Create Piece"
-                                        pathType="local"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='my-pieces-cutout'
-                                        path="/MyPieces"
-                                        pageName="Saved Pieces"
-                                        pathType="local"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='chess-rules-cutout'
-                                        path="https://www.chess.com/learn-how-to-play-chess"
-                                        pageName="Chess Rules"
-                                        pathType="remote"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='council-rules-cutout'
-                                        path="/CouncilRules"
-                                        pageName="Council Rules"
-                                        pathType="local"
-                                        theme={props.theme}
-                                    />
-                                    <PageLink
-                                        icon='author-github-cutout'
-                                        path="https://github.com/symLogicDMUS/ChessKingsCouncil"
-                                        pageName="Author GitHub"
-                                        pathType="remote"
-                                        theme={props.theme}
-                                    />
-                                </Box>
+                                <PageLink
+                                    icon='load-game-cutout'
+                                    path="/LoadGame"
+                                    pageName="Load Game"
+                                    pathType="local"
+                                    theme={props.theme}
+                                />
+                                <PageLink
+                                    icon='create-piece-cutout'
+                                    path="/CreatePiece"
+                                    pageName="Create Piece"
+                                    pathType="local"
+                                    theme={props.theme}
+                                />
+                                <PageLink
+                                    icon='my-pieces-cutout'
+                                    path="/MyPieces"
+                                    pageName="Saved Pieces"
+                                    pathType="local"
+                                    theme={props.theme}
+                                />
+                                <PageLink
+                                    icon='chess-rules-cutout'
+                                    path="https://www.chess.com/learn-how-to-play-chess"
+                                    pageName="Chess Rules"
+                                    pathType="remote"
+                                    theme={props.theme}
+                                />
+                                <PageLink
+                                    icon='council-rules-cutout'
+                                    path="/CouncilRules"
+                                    pageName="Council Rules"
+                                    pathType="local"
+                                    theme={props.theme}
+                                />
+                                <PageLink
+                                    icon='author-github-cutout'
+                                    path="https://github.com/symLogicDMUS/ChessKingsCouncil"
+                                    pageName="Author GitHub"
+                                    pathType="remote"
+                                    theme={props.theme}
+                                />
                             </Box>
-
-                        </Slide>
-                    </Box>
-                </>
+                        </Box>
+                    </Slide>
+                </div>
             )}
         </>
     );

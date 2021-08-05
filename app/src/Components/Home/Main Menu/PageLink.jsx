@@ -25,7 +25,7 @@ function PageLink({icon, path, pathType, pageName, theme}) {
                 {icons[icon]}
             </SvgIcon>
             <img
-                src={`/Images/text/main menu/${hover ? 'hover' : 'normal'}/${theme}/${pageName}.svg`}
+                src={`/Images/text/main menu/${hover ? 'hover' : 'normal'}/${pageName}.svg`}
                 className={classes.page_name}
             />
         </motion.div>

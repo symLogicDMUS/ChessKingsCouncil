@@ -9,9 +9,9 @@ export const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: '1rem',
         marginLeft: '1rem',
-        // backdropFilter: 'blur(5px)',
+        marginRight: '1rem',
+        marginTop: '2rem',
     }),
     page_name: props => ({
         width: '100%',
@@ -21,9 +21,9 @@ export const useStyles = makeStyles({
         height: '7.8vw',
     }),
     normal_color: props => ({
-        color: themes[props.theme].page_link,
+        color: '#000000',
     }),
     hover_color: props => ({
-       color: themes[props.theme].page_link_hover,
+        color: '#253b73',
     }),
 }, {index: 1});
