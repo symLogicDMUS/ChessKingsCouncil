@@ -9,7 +9,7 @@ import {Slide, Typography} from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
 import MainMenuDrawer from "../../Reuseables/Drawers/MainMenuDrawer";
-import { useStyles} from "./MainMenuLg.jss";
+import {signOutStyleOverride, useStyles} from "./MainMenuLg.jss";
 
 export function MainMenuLg(props) {
 
@@ -27,7 +27,7 @@ export function MainMenuLg(props) {
                 <MainMenuDrawer theme={props.theme} toggleAboutPage={() => setAbout(false)} />
             ) : (
                 <div className={classes.root}>
-                    <Box className={classes.top_area}>
+                    <Box className={classes.app_bar}>
                         <Button
                             onClick={() => setAbout(true)}
                             className={classes.button}
@@ -53,66 +53,69 @@ export function MainMenuLg(props) {
                             theme={props.theme}
                             variant={'text'}
                             className={classes.button}
-                            style={{color: '#d7bb99', marginRight: '0.5rem'}}
+                            style={signOutStyleOverride}
                         />
                     </Box>
-                    <img className={classes.title} src={'/Images/text/main menu/title.svg'} />
-                    <img className={classes.banner} src={'/Images/banner.jpg'} alt="" />
-                    <Slide direction={"right"} in={true}>
-                        <Box className={classes.main_menu}>
-                            <Box className={classes.page_links}>
-                                <PageLink
-                                    icon='new-game-cutout'
-                                    path="/NewGame"
-                                    pageName="New Game"
-                                    pathType="local"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='load-game-cutout'
-                                    path="/LoadGame"
-                                    pageName="Load Game"
-                                    pathType="local"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='create-piece-cutout'
-                                    path="/CreatePiece"
-                                    pageName="Create Piece"
-                                    pathType="local"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='my-pieces-cutout'
-                                    path="/MyPieces"
-                                    pageName="Saved Pieces"
-                                    pathType="local"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='chess-rules-cutout'
-                                    path="https://www.chess.com/learn-how-to-play-chess"
-                                    pageName="Chess Rules"
-                                    pathType="remote"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='council-rules-cutout'
-                                    path="/CouncilRules"
-                                    pageName="Council Rules"
-                                    pathType="local"
-                                    theme={props.theme}
-                                />
-                                <PageLink
-                                    icon='author-github-cutout'
-                                    path="https://github.com/symLogicDMUS/ChessKingsCouncil"
-                                    pageName="Author GitHub"
-                                    pathType="remote"
-                                    theme={props.theme}
-                                />
+                    <img className={classes.banner} src={'/Images/main menu banner.jpg'} alt="" />
+                    {/*<div className={classes.banner} />*/}
+                    <Box className={classes.main_menu_container}>
+                        <Slide direction={"right"} in={true}>
+                            <Box className={classes.main_menu}>
+                                <img className={classes.title} src={'/Images/text/main menu/title.svg'} alt="" />
+                                <Box className={classes.page_links}>
+                                    <PageLink
+                                        icon='new-game-cutout'
+                                        path="/NewGame"
+                                        pageName="New Game"
+                                        pathType="local"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='load-game-cutout'
+                                        path="/LoadGame"
+                                        pageName="Load Game"
+                                        pathType="local"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='create-piece-cutout'
+                                        path="/CreatePiece"
+                                        pageName="Create Piece"
+                                        pathType="local"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='my-pieces-cutout'
+                                        path="/MyPieces"
+                                        pageName="Saved Pieces"
+                                        pathType="local"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='chess-rules-cutout'
+                                        path="https://www.chess.com/learn-how-to-play-chess"
+                                        pageName="Chess Rules"
+                                        pathType="remote"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='council-rules-cutout'
+                                        path="/CouncilRules"
+                                        pageName="Council Rules"
+                                        pathType="local"
+                                        theme={props.theme}
+                                    />
+                                    <PageLink
+                                        icon='author-github-cutout'
+                                        path="https://github.com/symLogicDMUS/ChessKingsCouncil"
+                                        pageName="Author GitHub"
+                                        pathType="remote"
+                                        theme={props.theme}
+                                    />
+                                </Box>
                             </Box>
-                        </Box>
-                    </Slide>
+                        </Slide>
+                    </Box>
                 </div>
             )}
         </>

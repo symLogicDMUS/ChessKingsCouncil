@@ -8,7 +8,7 @@ export function printBoard(board, heading, ...highlights) {
     the following are  
     highlights[0] will be printed as red
      highlights[1] will be printed as green
-     highlights[2] will be printed as blue
+     highlights[2] will be printed as blueJss
      highlights[3] will be printed as yellow
     **/
     if (heading)

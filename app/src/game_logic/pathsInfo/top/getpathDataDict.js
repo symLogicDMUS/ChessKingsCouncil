@@ -45,14 +45,14 @@ if (require.main === module) {
 
     let pdDict = getPathdataDict(board, [4, 4], 'W', pieceDefs, idDict)
     for (var angle of Object.keys(pdDict)) {
-        console.log(`---------------- ${angle} ----------------`.blue)
+        console.log(`---------------- ${angle} ----------------`.blueJss)
         coordPath = mapListXyToRf(pdDict[angle].coordPath)
         let pieceLocs = getPieceLocs(board, coordPath)
         var [matchesPath, doesNotMatchPath] = getMatchesPathLists(pieceLocs, pdDict[angle].pieceMatchesPath)
         var [friends, enemies] = getFandR(pieceLocs, pdDict[angle].statuses)
         var emptySqrs = getEmptySqrsOnPath(coordPath, pieceLocs)
-        printBoard(board, "friends: green, enemies: red, start square: blue", enemies, friends, ["d4"], emptySqrs)
-        printBoard(board, "piece ability matches path: green, does not match path: red, start square: blue", doesNotMatchPath, matchesPath, ["d4"], emptySqrs)    
+        printBoard(board, "friends: green, enemies: red, start square: blueJss", enemies, friends, ["d4"], emptySqrs)
+        printBoard(board, "piece ability matches path: green, does not match path: red, start square: blueJss", doesNotMatchPath, matchesPath, ["d4"], emptySqrs)
     }
 
 }

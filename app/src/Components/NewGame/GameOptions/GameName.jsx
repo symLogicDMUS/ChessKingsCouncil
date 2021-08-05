@@ -12,17 +12,7 @@ function GameName(props) {
     const classes2 = useMoreStyles();
 
     return (
-            <Box
-                className={clsx(classes2.item, {
-                    [classes.game_name]: true,
-                })}
-                style={{
-                    // border: '1px dashed red',
-                    borderRadius: '1rem',
-                    padding: '1rem',
-                    // backgroundColor: 'white'
-                }}
-            >
+            <Box className={clsx(classes2.item, {[classes.root]: true})}>
                 <img
                     src={`/Images/text/new game/Game Name-${theme}.svg`}
                     alt="svg text that reads 'Game Name'"
@@ -33,7 +23,7 @@ function GameName(props) {
                     autoFocus
                     fullWidth={true}
                     value={gameName}
-                    variant="outlined"
+                    variant="filled"
                     id="pick-game-name"
                     label="Pick game name"
                     onChange={setGameName}

@@ -35,6 +35,7 @@ export const useStyles = makeStyles({
         alignContent: "center",
         borderRadius: 0,
         padding: 0,
+        backdropFilter: props.theme === 'blue' ? 'blur(2px)' : 'unset',
     }),
 }, {index: 1});
 /**

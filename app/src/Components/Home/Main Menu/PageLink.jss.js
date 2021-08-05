@@ -1,5 +1,4 @@
-import {themes} from "../../styles/themes/themes.jss";
-import {makeStyles} from "@material-ui/core/styles";
+import {darken, lighten, makeStyles} from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
     page_link: props => ({
@@ -21,9 +20,9 @@ export const useStyles = makeStyles({
         height: '7.8vw',
     }),
     normal_color: props => ({
-        color: '#000000',
+        color: '#253b73',
     }),
     hover_color: props => ({
-        color: '#253b73',
+        color: darken('#253b73', 0.3),
     }),
 }, {index: 1});

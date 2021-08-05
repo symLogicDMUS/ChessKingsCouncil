@@ -1,6 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
 import {mui_input} from "../Input.jss";
 
+export const selectFill = (theme) => ({
+    backgroundColor: '#fff',
+})
+
 export const useStyles = makeStyles({
     play_as: props => ({
         "@media screen and (max-width: 600px)":{

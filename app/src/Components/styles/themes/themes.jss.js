@@ -3,14 +3,14 @@ import {NBA} from "./NBA.jss";
 import {tan} from "./tan.jss";
 import {dark} from "./dark.jss";
 import {star_wars} from "./star_wars.jss";
-import {blue} from "./blue";
+import {blueJss} from "./blue.jss";
 import {mechwarrior_theme} from "./mechwarrior_theme.jss";
 
 /**values repeated when theme only differs by color of pieces*/
 export const themes = {
     dark: dark,
     tan: tan,
-    blue: blue,
+    blue: blueJss,
     tan_dark: {
         ...tan,
         title: '#d7bb99',

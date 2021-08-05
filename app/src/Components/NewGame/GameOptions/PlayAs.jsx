@@ -6,7 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import {useStyles as useMoreStyles} from "../NewGame.jss";
-import { useStyles } from "./PlayAs.jss";
+import {selectFill, useStyles} from "./PlayAs.jss";
 
 function PlayAs(props) {
     const {playerType, setPlayerType, theme, ...other} = props;
@@ -21,7 +21,7 @@ function PlayAs(props) {
                 className={classes2.title}
                 alt={"svg text 'Play As'"}
             />
-            <FormControl variant="outlined" fullWidth>
+            <FormControl variant="filled" fullWidth>
                 <InputLabel id="demo-simple-select-outlined-label">Play As</InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
@@ -29,6 +29,7 @@ function PlayAs(props) {
                     onChange={setPlayerType}
                     value={playerType}
                     label="Play As"
+                    style={selectFill(theme)}
                 >
                     <MenuItem value="">
                         <em>None</em>

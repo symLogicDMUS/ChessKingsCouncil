@@ -15,6 +15,7 @@ export const useStyles = makeStyles({
         outline: 'none',
     }),
     dark_normal: props => ({
+        backdropFilter: props.theme === 'blue' ? 'blur(2px)' : 'unset',
         backgroundColor: themes[props.theme].dark_normal,
     }),
     light_normal: props => ({
