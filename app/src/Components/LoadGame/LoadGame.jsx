@@ -65,8 +65,8 @@ function LoadGame() {
         }
     }, [uid])
 
-    const updateSearchText = (e) => {
-        dispatch({type: "update-search-text", newText: e.target.value});
+    const updateSearchText = (searchText) => {
+        dispatch({type: "update-search-text", newText: searchText});
     };
 
     const deleteGameEntry = () => {
