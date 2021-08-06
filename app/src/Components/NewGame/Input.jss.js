@@ -5,14 +5,14 @@ export const mui_input = (theme) => ({
     /*root*/
     "& .MuiInputLabel-root": {
         width: '100%',
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
     /*root when variant is outline*/
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
         borderColor: themes[theme].outline_alt,
     },
     "& .MuiOutlinedInput-root .MuiOutlinedInput-input": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
 
     /*hover*/
@@ -20,26 +20,26 @@ export const mui_input = (theme) => ({
         borderColor: themes[theme].outline_alt,
     },
     "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-input": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
     "&:hover .MuiInputLabel-root": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
 
     /*focused*/
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
     "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
     "& .MuiInputLabel-root.Mui-focused": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
 
     /*arrow icon*/
     "& .MuiSelect-icon": {
-        color: themes[theme].outline_alt,
+        color: '#000',
     },
 });
 
