@@ -41,7 +41,10 @@ export const useStyles = makeStyles((theme) => ({
         width: '100%',
     }),
     paragraph: props => ({
-        color: themes[props.theme].page_link,
+        color: themes[props.theme].site_description_text,
+        backgroundColor: themes[props.theme].site_description_backdrop,
+        padding: '1rem',
+        borderRadius: 6,
     }),
     kings_flexbox: props => ({
        display: 'flex',

@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import React from "react";
-import {useState} from "react";
 import {useContext} from "react";
+import {appTitle} from "./appTitle";
 import {Link} from "react-router-dom";
 import {Undo} from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import {ThemeContext} from "../../../Context/ThemeContext";
-import {useStyles} from "./SiteDescription.jss";
+import {initial, useStyles} from "./SiteDescription.jss";
 
 export function SiteDescription({theme}) {
     const {themes, themeDispatch} = useContext(ThemeContext);
@@ -65,6 +65,7 @@ export function SiteDescription({theme}) {
     </Button>;
 
     return <Typography paragraph className={classes.paragraph}>
+        {appTitle(classes.app_title, initial(theme))}
         Welcome! Create your own game of Chess with pieces that move how you decide! Start out by visiting
         the {createPieceLink}. After you save your piece there, visit the New Game page and choose the Custom option
         under game types. Your piece can start the game in place of a normal Chess piece, or be an option for Pawns to

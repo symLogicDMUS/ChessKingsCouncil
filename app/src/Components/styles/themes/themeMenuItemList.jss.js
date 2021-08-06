@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from "@material-ui/core/MenuItem";
 
 export const themesMenuItemList = [
-    <MenuItem value="blueJss">Default</MenuItem>,
+    <MenuItem value="blue">Blue</MenuItem>,
     <MenuItem value="dark">Dark</MenuItem>,
     <MenuItem value="tan_dark">Tan Dark</MenuItem>,
     <MenuItem value="tan">Tan</MenuItem>,

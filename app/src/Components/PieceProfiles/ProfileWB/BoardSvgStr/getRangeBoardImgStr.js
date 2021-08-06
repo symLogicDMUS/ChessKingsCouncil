@@ -3,7 +3,6 @@ import {getSpanDisplays} from "./getSpanDisplays";
 import {getOffsetDisplays} from "./getOffsetDisplays";
 import {getStandardSqrRectStr} from "./getStandardSqrRectStr";
 import {getRangeSqrRectStr} from "./getRangeSqrRectStr";
-import {board_svg_str} from "../../../styles/icons/board_svg_str";
 
 
 export function getRangeBoardImgStr(location, rangeType, range, theme) {

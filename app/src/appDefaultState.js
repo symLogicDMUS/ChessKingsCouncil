@@ -1,17 +1,10 @@
+import {defaultThemes} from "./defaultThemes";
+
 export const appDefaultState = {
     uid: null,
     isSignedIn: false,
     isAnonymous: false,
-    themes: {
-        newGame: 'blue',
-        loadGame: 'blue',
-        createPiece: 'blue',
-        customize: 'blue',
-        gameRoot: 'blue',
-        myPieces: 'blue',
-        councilRules: 'blue',
-        home: 'blue',
-    },
+    themes: defaultThemes,
     help: {
         NewGame: true,
         LoadGame: true,

@@ -13,18 +13,17 @@ export const useStyles = makeStyles({
         alignItems: 'center',
         borderRadius: '0.35rem',
         backgroundColor: themes[props.theme].fill,
+        border: `0.005rem solid ${themes[props.theme].outline}`,
         '@media screen and (max-width: 960px)': {
             '--widthA': '100vw',
             '--widthB': `calc(var(--widthA) - ${miniVariantIconsColumnWidth}px)`,
             '--size': 'calc(var(--widthB) * 0.42)',
             width: 'var(--size)',
             height: 'var(--size)',
-            border: `0.02rem solid ${themes[props.theme].outline}`,
         },
         '@media screen and (min-width: 960px)': {
             width: windowSizeLg,
             height: windowSizeLg,
-            border: `0.005rem solid ${themes[props.theme].outline}`,
         },
     }),
     white_window: props => ({

@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import MediaQuery from "react-responsive/src";
 import "../styles/Background/_backgrounds.scss";
-import MainMenuDrawer from "../Reuseables/Drawers/MainMenuDrawer";
+import MainMenuSm from "../Reuseables/Drawers/MainMenuSm";
 import { MainMenuLg } from "./Main Menu/MainMenuLg";
 import {ThemeContext} from "../../Context/ThemeContext";
 
@@ -14,7 +14,7 @@ function Home() {
                 <MainMenuLg theme={themes.home} />
             </MediaQuery>
             <MediaQuery maxWidth={960}>
-                <MainMenuDrawer
+                <MainMenuSm
                     theme={themes.home}
                 />
             </MediaQuery>

@@ -1,3 +1,5 @@
+import {defaultThemes} from "./defaultThemes";
+
 export function reducer(state, action) {
     switch (action.type) {
         case "logged-in":
@@ -31,16 +33,7 @@ export function reducer(state, action) {
         case "reset-default-themes":
             return {
                 ...state,
-                themes: {
-                    newGame: "tan",
-                    loadGame: "tan",
-                    createPiece: "dark",
-                    customize: "dark",
-                    gameRoot: "dark",
-                    myPieces: "dark",
-                    councilRules: "tan",
-                    home: "tan",
-                }
+                themes: defaultThemes
             }
         case "set-unified-theme":
             return {

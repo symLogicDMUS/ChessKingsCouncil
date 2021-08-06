@@ -14,10 +14,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import SignInOutButton from "../../Home/Sign In/SignInOutButton";
-import { useStyles } from "./MainMenuDrawer.jss";
+import { useStyles } from "./MainMenuSm.jss";
 import {NavBarHome} from "../NavBar/NavBarHome";
 
-export default function MainMenuDrawer({theme, toggleAboutPage}) {
+export default function MainMenuSm({theme, toggleAboutPage}) {
     const classes = useStyles({ theme: theme });
     const muiTheme = useTheme();
 

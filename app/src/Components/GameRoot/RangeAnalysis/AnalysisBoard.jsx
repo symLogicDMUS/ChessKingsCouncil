@@ -1,6 +1,8 @@
 import React from "react";
+import clsx from "clsx";
 import { rankfiles } from "../../helpers/rankfiles";
 import { isSpecial } from "../../helpers/isSpecial";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { getPieceImg } from "../../styles/themes/specialThemeImgs/getPieceImg";
 import { getFranchisePieceImg } from "../../styles/themes/specialThemeImgs/getFranchisePieceImg";
 import {specialThemeList} from "../../styles/themes/specialThemeImgs/specialThemeList.jss";
@@ -22,6 +24,7 @@ function AnalysisBoard({
     showProfileOnClick,
     toggleSecondaryDrawer,
 }) {
+    const lg = useMediaQuery("(min-width: 960px)");
     const classes = useStyles({ theme: theme });
 
     const getBoard = () => {
@@ -103,7 +106,7 @@ function AnalysisBoard({
         return squares;
     };
 
-    return <div className={classes.board}>{getBoard()}</div>;
+    return <div className={clsx(classes.board, {[classes.outline]: lg})}>{getBoard()}</div>;
 }
 
 export default AnalysisBoard;

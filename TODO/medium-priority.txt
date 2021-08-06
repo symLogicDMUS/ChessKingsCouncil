@@ -1,6 +1,4 @@
 short:
-    * add small avatar for black image, when black image has been chosen, for screen widths below 960px, to appBar on createPiece page.
 medium:
-    * fix loading skeleton, if there is nothing returned from api do not have loading skeleton continue indefinitely.
-    * Load Game  preview boards alignment seem off for smallest screens (bellow 400px)
+    Replace NewGame Tabs with HorizontalLineStepper
 long:

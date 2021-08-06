@@ -19,6 +19,7 @@ export const themes = {
         page_link_hover: '#90caf9',
         light_normal: '#f0d9b5',
         dark_normal: '#d0bd99',
+        site_description_text: '#d7bb99',
     },
     red_blue: dark,
     dark_alt: dark,

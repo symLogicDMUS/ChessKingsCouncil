@@ -33,16 +33,16 @@ const ArrowButton = memo(
                     >
                         <IconButton
                             onClick={() => toggleSpan(angle)}
-                            className={clsx(classes.arrow_button, {
+                            className={clsx(classes.arrow_button_sm, {
                                 [classes.arrow_button_selected]: isActive,
                                 [classes.arrow_button_adjust]: isOffset && !isActive,
                                 [classes.hover]: true,
                             })}
                         >
                             <SvgIcon
-                                className={clsx(classes.vector, {
-                                    [classes.vector_sm_active]: isActive,
-                                    [classes.vector_sm_inactive]: !isActive,
+                                className={clsx(classes.vector_sm, {
+                                    [classes.vector_active_sm]: isActive,
+                                    [classes.vector_inactive_sm]: !isActive,
                                 })}
                             >
                                 {icons[screenCase + "-" + angle]}
@@ -56,7 +56,7 @@ const ArrowButton = memo(
                     ) : (
                         <IconButton
                             onClick={() => toggleSpan(angle)}
-                            className={clsx(classes.arrow_button, {
+                            className={clsx(classes.arrow_button_lg, {
                                 [classes.arrow_button_normal]: !isActive,
                                 [classes.arrow_button_selected]: isActive,
                                 [classes.arrow_button_adjust]:
@@ -64,9 +64,9 @@ const ArrowButton = memo(
                             })}
                         >
                             <SvgIcon
-                                className={clsx(classes.vector, {
-                                    [classes.vector_lg_active]: isActive,
-                                    [classes.vector_lg_inactive]: !isActive,
+                                className={clsx(classes.vector_lg, {
+                                    [classes.vector_active_lg]: isActive,
+                                    [classes.vector_inactive_lg]: !isActive,
                                 })}
                             >
                                 {icons[screenCase + "-" + angle]}

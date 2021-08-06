@@ -1,5 +1,6 @@
 import {makeStyles} from "@material-ui/core/styles";
 import {themes} from "../../styles/themes/themes.jss";
+import {viewWidth} from "../../helpers/windowMeasurments";
 
 export const useStyles = makeStyles((theme) => ({
     main_menu_body: props => ({
@@ -32,8 +33,5 @@ export const useStyles = makeStyles((theme) => ({
             paddingLeft: '11.25vw',
             paddingRight: '11.25vw',
         },
-    }),
-    site_title: props => ({
-        width: '100%',
     }),
 }), {index: 1});

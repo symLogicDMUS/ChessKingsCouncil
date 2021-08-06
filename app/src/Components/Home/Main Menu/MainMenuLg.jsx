@@ -8,7 +8,7 @@ import SignInOutButton from "../Sign In/SignInOutButton";
 import {Slide, Typography} from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
-import MainMenuDrawer from "../../Reuseables/Drawers/MainMenuDrawer";
+import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
 import {signOutStyleOverride, useStyles} from "./MainMenuLg.jss";
 
 export function MainMenuLg(props) {
@@ -24,7 +24,7 @@ export function MainMenuLg(props) {
     return (
         <>
             {about ? (
-                <MainMenuDrawer theme={props.theme} toggleAboutPage={() => setAbout(false)} />
+                <MainMenuSm theme={props.theme} toggleAboutPage={() => setAbout(false)} />
             ) : (
                 <div className={classes.root}>
                     <Box className={classes.app_bar}>

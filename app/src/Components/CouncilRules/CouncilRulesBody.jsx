@@ -23,7 +23,7 @@ export function CouncilRulesBody({theme}) {
                 <img
                     src={`/Images/text/council rules/${theme}/Council Rules.svg`}
                     className={classes.page_title}
-                    alt="Council Rules"
+                    alt=""
                 />
                 <Typography paragraph className={classes.paragraph}>
                     Council of Kings is 1 of 3 options to play on the
