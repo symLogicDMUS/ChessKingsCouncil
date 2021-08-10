@@ -6,15 +6,15 @@ import SignInWindow from "./SignInWindow";
 import Button from "@material-ui/core/Button";
 import MediaQuery from "react-responsive/src";
 import IconButton from "@material-ui/core/IconButton";
-import {MenuItem, Typography} from "@material-ui/core";
-import {MuiMenu} from "../../Reuseables/UserInput/MuiMenu";
+import { MenuItem, Typography } from "@material-ui/core";
+import { MuiMenu } from "../../Reuseables/UserInput/MuiMenu";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { UserContext } from "../../../Context/UserContext";
-import {ThemeContext} from "../../../Context/ThemeContext";
+import { ThemeContext } from "../../../Context/ThemeContext";
 import { useStyles } from "./SignInOutButton.jss";
 
-function SignInOutButton({ theme, className, style, variant}) {
-    const {themeDispatch, themes} = useContext(ThemeContext);
+function SignInOutButton({ theme, className, style, variant }) {
+    const { themeDispatch, themes } = useContext(ThemeContext);
     const uid = useContext(UserContext);
     const isSignedIn = Boolean(uid);
 
@@ -36,9 +36,7 @@ function SignInOutButton({ theme, className, style, variant}) {
     return (
         <>
             {signInWindow ? (
-                <SignInWindow
-                    goBack={() => setSignInWindow(false)}
-                />
+                <SignInWindow goBack={() => setSignInWindow(false)} />
             ) : null}
             <MediaQuery maxWidth={501}>
                 <IconButton
@@ -64,9 +62,14 @@ function SignInOutButton({ theme, className, style, variant}) {
                         <MenuItem
                             onClick={() => {
                                 handleMenuClose();
-                                firebase.auth().signOut().then(r => {
-                                    themeDispatch({type: "reset-default-themes"})
-                                });
+                                firebase
+                                    .auth()
+                                    .signOut()
+                                    .then((r) => {
+                                        themeDispatch({
+                                            type: "reset-default-themes",
+                                        });
+                                    });
                             }}
                             className={clsx(classes.button, {
                                 [className]: className,
@@ -79,7 +82,7 @@ function SignInOutButton({ theme, className, style, variant}) {
                         <MenuItem
                             onClick={() => {
                                 handleMenuClose();
-                                setSignInWindow(true)
+                                setSignInWindow(true);
                             }}
                             className={clsx(classes.button, {
                                 [className]: className,
@@ -94,9 +97,16 @@ function SignInOutButton({ theme, className, style, variant}) {
             <MediaQuery minWidth={501}>
                 {isSignedIn ? (
                     <Button
-                        onClick={() => firebase.auth().signOut().then(r => {
-                            themeDispatch({type: "reset-default-themes"});
-                        })}
+                        onClick={() =>
+                            firebase
+                                .auth()
+                                .signOut()
+                                .then((r) => {
+                                    themeDispatch({
+                                        type: "reset-default-themes",
+                                    });
+                                })
+                        }
                         className={clsx(classes.button, {
                             [className]: className,
                         })}

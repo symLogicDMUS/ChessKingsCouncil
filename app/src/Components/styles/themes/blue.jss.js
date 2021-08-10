@@ -1,11 +1,6 @@
 import {darken, lighten} from "@material-ui/core/styles";
 
-const burgundy = '#800020';
-const emerald = '#50C878';
-const oliveGreen = '#BAB86C';
-const turquoise = '#30D5C8';
-
-export const blueJss = {
+export const blue = {
     outline: '#b0bec5',
     outline_alt: '#253b73',
     outline_alt2: '#363636',
@@ -14,7 +9,7 @@ export const blueJss = {
     text: '#ffffff',
     text_alt: lighten('#253b73', 0.1),
     text_alt2: '#ffffff',
-    text_alt3: '#ffffff',
+    text_alt3: '#253b73',
     nav_text: '#ffffff',
     text_backdrop: '#253b73',
     button_fill: '#253b75',
@@ -28,7 +23,7 @@ export const blueJss = {
     even_row: '#253b73',
     odd_row: lighten('#253b73', 0.08),
     offset: darken('#00ced1', 0.15),
-    span: turquoise,
+    span: '#30D5C8',
     span_alt: '#ff0000',
     arrow_active: '#ff8a80',
     arrow_inactive: '#b71c1c',
@@ -43,7 +38,7 @@ export const blueJss = {
     sqr_hover: 'rgba(255, 255, 255, 0.3)',
     sqr_hover_alt: '#253b73',
     page_link: '#253b73',
-    page_link_hover: '#e3f2fd',
+    page_link_hover: darken('#253b73', 0.4),
     drawer_outline: '#373737',
     switch_active: '#cdcdcd',
     title: '#253b73',
@@ -51,6 +46,7 @@ export const blueJss = {
     location_sqr: '#253b73',
     site_description_text: '#fff',
     site_description_backdrop: '#253b73',
+    menu_container: '#fff',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

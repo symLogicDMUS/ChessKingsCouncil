@@ -95,7 +95,6 @@ function LoadGame() {
 
     return (
         <>
-            <Background theme={themes.loadGame} appBar={isThin} navBar={isWide}/>
             <HelpSlideshow
                 title={"Load Game"}
                 theme={themes.loadGame}

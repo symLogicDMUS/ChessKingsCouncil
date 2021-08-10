@@ -8,7 +8,7 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import { UserContext } from "../../../Context/UserContext";
 import { useStyles } from "./SignInOutButton.jss";
 
-function SignInOutTab({theme, className}) {
+function SignInOutTab({ theme, className }) {
     const uid = useContext(UserContext);
     const isSignedIn = Boolean(uid);
     const [signInWindow, setSignInWindow] = useState(false);

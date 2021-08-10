@@ -46,6 +46,7 @@ export const dark = {
     title: '#c9c9c9',
     site_description_backdrop: 'rgba(0, 0, 0, 0)',
     site_description_text: '#c6c6c6',
+    menu_container: '#313131',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

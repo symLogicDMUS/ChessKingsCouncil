@@ -21,7 +21,6 @@ function MainMenuHelpButton(props) {
 
     const classes = useStyles({ theme: theme, screenCase: screenCase });
 
-
     return (
         <>
             {modal ? (
@@ -37,9 +36,7 @@ function MainMenuHelpButton(props) {
                     [className]: className,
                 })}
                 {...other}
-                startIcon={
-                    <ContactSupportIcon fontVariant="button" />
-                }
+                startIcon={<ContactSupportIcon fontVariant="button" />}
             >
                 Help
             </Button>

@@ -174,7 +174,7 @@ export function HelpTable(props) {
                         <ListItem
                             button
                             className={classes.list_item}
-                            onClick={() => setHelpItem("game types")}
+                            onClick={() => setHelpItem("text")}
                         >
                             Game Types
                         </ListItem>

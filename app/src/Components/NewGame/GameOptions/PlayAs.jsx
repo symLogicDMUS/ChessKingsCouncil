@@ -1,28 +1,36 @@
 import React from "react";
 import clsx from "clsx";
 import Box from "@material-ui/core/Box";
-import {Select} from "@material-ui/core";
+import { Select } from "@material-ui/core";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import {useStyles as useMoreStyles} from "../NewGame.jss";
-import {selectFill, useStyles} from "./PlayAs.jss";
+import { ReactComponent as Title } from "./svg/text/Play As.svg";
+import { useStyles as useMoreStyles } from "../NewGame.jss";
+import { themes } from "../../styles/themes/themes.jss";
+import { svgStyle } from "../../styles/svgStyle.jss";
+import { selectFill, useStyles } from "./PlayAs.jss";
 
 function PlayAs(props) {
-    const {playerType, setPlayerType, theme, ...other} = props;
+    const { playerType, setPlayerType, theme, ...other } = props;
 
-    const classes = useStyles({theme: theme});
+    const classes = useStyles({ theme: theme });
     const classes2 = useMoreStyles();
 
     return (
-        <Box className={clsx(classes.play_as, {[classes2.item]:true})} {...other}>
-            <img
-                src={`/Images/text/new game/Play As-${theme}.svg`}
+        <Box
+            className={clsx(classes.play_as, { [classes2.item]: true })}
+            {...other}
+        >
+            <Title
+                style={svgStyle}
                 className={classes2.title}
-                alt={"svg text 'Play As'"}
+                fill={themes[theme].text_alt3}
             />
             <FormControl variant="filled" fullWidth>
-                <InputLabel id="demo-simple-select-outlined-label">Play As</InputLabel>
+                <InputLabel id="demo-simple-select-outlined-label">
+                    Play As
+                </InputLabel>
                 <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"

@@ -1,30 +1,60 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import PageLink from "./PageLink";
+import SvgBanner from "./SvgBanner";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
-import InfoIcon from '@material-ui/icons/Info';
-import "../../styles/Background/_backgrounds.scss"
-import SignInOutButton from "../Sign In/SignInOutButton";
-import {Slide, Typography} from "@material-ui/core";
+import InfoIcon from "@material-ui/icons/Info";
+import "../../styles/Background/_backgrounds.scss";
+import { svgStyle } from "../../styles/svgStyle.jss";
+import { Slide, Typography } from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
+import SignInOutButton from "../Sign In/SignInOutButton";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
+import { ReactComponent as Title } from "./main menu text/title.svg";
+import { ReactComponent as NewGameText } from "./main menu text/New Game.svg";
+import { ReactComponent as LoadGameText } from "./main menu text/Load Game.svg";
+import { ReactComponent as CreatePieceText } from "./main menu text/Create Piece.svg";
+import { ReactComponent as ChessRulesText } from "./main menu text/Chess Rules.svg";
+import { ReactComponent as CouncilRulesText } from "./main menu text/Council Rules.svg";
+import { ReactComponent as SavedPiecesText } from "./main menu text/Saved Pieces.svg";
+import { ReactComponent as AuthorGitHubText } from "./main menu text/Author GitHub.svg";
 import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
-import {signOutStyleOverride, useStyles} from "./MainMenuLg.jss";
+import { signOutStyleOverride, useStyles } from "./MainMenuLg.jss";
+import { themes } from "../../styles/themes/themes.jss";
+import {darken} from "@material-ui/core/styles";
 
-export function MainMenuLg(props) {
+const svgBannerThemes = [
+    "dark",
+    "tan",
+    "red_blue",
+    "dark_alt",
+    "red_blue_alt",
+    "tan_dark",
+    "classic_dark",
+];
 
+const bannerStyle = (theme) => ({
+    width: "100%",
+    height: "100%",
+    borderBottom: `1px solid ${darken(themes[theme].menu_container, 0.05)}`,
+});
+
+function MainMenuLg(props) {
     useEffect(() => {
         document.body.className = `${props.theme}-background`;
     }, [props.theme]);
 
     const [about, setAbout] = useState(false);
 
-    const classes = useStyles({theme: props.theme});
+    const classes = useStyles({ theme: props.theme });
 
     return (
         <>
             {about ? (
-                <MainMenuSm theme={props.theme} toggleAboutPage={() => setAbout(false)} />
+                <MainMenuSm
+                    theme={props.theme}
+                    toggleAboutPage={() => setAbout(false)}
+                />
             ) : (
                 <div className={classes.root}>
                     <Box className={classes.app_bar}>
@@ -33,85 +63,115 @@ export function MainMenuLg(props) {
                             className={classes.button}
                             startIcon={<InfoIcon />}
                         >
-                            <Typography variant={'body1'}>
-                                About
-                            </Typography>
+                            <Typography variant={"body1"}>About</Typography>
                         </Button>
                         <MainMenuHelpButton
                             currentPage={"Home"}
                             theme={props.theme}
-                            screenCase='wide'
+                            screenCase="wide"
                             helpTitle={null}
                             updateFirstVisit={null}
                         />
                         <MainMenuSettingsButton
                             theme={props.theme}
-                            screenCase='wide'
-                            currentPage='Home'
+                            screenCase="wide"
+                            currentPage="Home"
                         />
                         <SignInOutButton
                             theme={props.theme}
-                            variant={'text'}
+                            variant={"text"}
                             className={classes.button}
-                            style={signOutStyleOverride}
+                            style={signOutStyleOverride(props.theme)}
                         />
                     </Box>
-                    <img className={classes.banner} src={'/Images/main menu banner.jpg'} alt="" />
-                    {/*<div className={classes.banner} />*/}
+                    {svgBannerThemes.includes(props.theme) ? (
+                        <SvgBanner
+                            theme={props.theme}
+                            className={classes.banner}
+                            style={bannerStyle(props.theme)}
+                        />
+                    ) : (
+                        <img
+                            className={classes.banner}
+                            src={`/Images/Banner/main menu banner-${props.theme}.png`}
+                            alt=""
+                        />
+                    )}
                     <Box className={classes.main_menu_container}>
                         <Slide direction={"right"} in={true}>
                             <Box className={classes.main_menu}>
-                                <img className={classes.title} src={'/Images/text/main menu/title.svg'} alt="" />
+                                <Title className={classes.title} />
                                 <Box className={classes.page_links}>
                                     <PageLink
-                                        icon='new-game-cutout'
                                         path="/NewGame"
-                                        pageName="New Game"
                                         pathType="local"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <NewGameText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='load-game-cutout'
                                         path="/LoadGame"
-                                        pageName="Load Game"
                                         pathType="local"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <LoadGameText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='create-piece-cutout'
                                         path="/CreatePiece"
-                                        pageName="Create Piece"
                                         pathType="local"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <CreatePieceText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='my-pieces-cutout'
                                         path="/MyPieces"
-                                        pageName="Saved Pieces"
                                         pathType="local"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <SavedPiecesText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='chess-rules-cutout'
                                         path="https://www.chess.com/learn-how-to-play-chess"
-                                        pageName="Chess Rules"
                                         pathType="remote"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <ChessRulesText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='council-rules-cutout'
                                         path="/CouncilRules"
-                                        pageName="Council Rules"
                                         pathType="local"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <CouncilRulesText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                     <PageLink
-                                        icon='author-github-cutout'
                                         path="https://github.com/symLogicDMUS/ChessKingsCouncil"
-                                        pageName="Author GitHub"
                                         pathType="remote"
                                         theme={props.theme}
-                                    />
+                                    >
+                                        <AuthorGitHubText
+                                            style={svgStyle}
+                                            className={classes.page_link}
+                                        />
+                                    </PageLink>
                                 </Box>
                             </Box>
                         </Slide>
@@ -121,3 +181,5 @@ export function MainMenuLg(props) {
         </>
     );
 }
+
+export default MainMenuLg;

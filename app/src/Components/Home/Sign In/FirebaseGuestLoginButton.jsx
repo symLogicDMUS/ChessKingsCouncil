@@ -7,16 +7,17 @@ import Button from "@material-ui/core/Button";
 import { useStyles } from "./FirebaseGuestLoginButton.jss";
 import clsx from "clsx";
 
-export function FirebaseGuestLoginButton({callback}) {
+export function FirebaseGuestLoginButton({ callback }) {
     const anonymousLogin = () => {
         firebase
             .auth()
             .signInAnonymously()
-            .then(r => {
+            .then((r) => {
                 if (!!callback) {
-                    callback()
+                    callback();
                 }
-            }).catch(function (error) {
+            })
+            .catch(function (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(`error: ${errorMessage} code: ${errorCode}`);

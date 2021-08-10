@@ -1,13 +1,21 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import {Portal} from "@material-ui/core";
-import {SettingsModal} from "../../Reuseables/NavBar/SettingsModal";
+import { Portal } from "@material-ui/core";
+import { SettingsModal } from "../../Reuseables/NavBar/SettingsModal";
 import SettingsIcon from "@material-ui/icons/Settings";
 import Button from "@material-ui/core/Button";
 import { useStyles } from "./MainMenuLg.jss";
 
 function MainMenuSettingsButton(props) {
-    const {currentPage, isRow, screenCase, className, theme, children, ...other} = props;
+    const {
+        currentPage,
+        isRow,
+        screenCase,
+        className,
+        theme,
+        children,
+        ...other
+    } = props;
 
     const [settingsModal, toggleSettingsModal] = useState(false);
 
@@ -35,14 +43,12 @@ function MainMenuSettingsButton(props) {
                     [className]: className,
                 })}
                 {...other}
-                startIcon={
-                    <SettingsIcon fontVariant="button" />
-                }
+                startIcon={<SettingsIcon fontVariant="button" />}
             >
                 Settings
             </Button>
         </>
-    )
+    );
 }
 
 export default MainMenuSettingsButton;

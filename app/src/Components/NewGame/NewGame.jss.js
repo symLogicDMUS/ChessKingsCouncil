@@ -1,4 +1,5 @@
 import {makeStyles} from "@material-ui/core/styles"
+import {themes} from "../styles/themes/themes.jss";
 
 export const views = {
     position: 'fixed',
@@ -14,7 +15,7 @@ export const useStyles = makeStyles({
         alignItems: 'center',
     }),
     title: props => ({
-        width: '100%',
+        width: '50vw',
         marginBottom: 26,
     }),
 }, {index: 1});

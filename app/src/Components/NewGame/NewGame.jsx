@@ -67,11 +67,6 @@ function NewGame() {
 
     return (
         <>
-            <Background
-                navBar={isWide}
-                appWithTabs={isThin}
-                theme={themes.newGame}
-            />
             <HelpSlideshow
                 title={"New Game"}
                 theme={themes.newGame}

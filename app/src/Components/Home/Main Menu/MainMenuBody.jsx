@@ -1,27 +1,25 @@
-import React, {useEffect} from "react";
-import {appTitle} from "./appTitle";
+import React, { useEffect } from "react";
+import { appTitle } from "./appTitle";
 import Box from "@material-ui/core/Box";
 import "../../styles/Background/_backgrounds.scss";
-import {BoardPatternRow} from
-        "../../styles/Background/BoardPatternRow";
-import {SiteDescription} from "./SiteDescription";
-import {useStyles, initial} from "./MainMenuBody.jss";
+import { BoardPatternRow } from "../../styles/Background/BoardPatternRow";
+import { SiteDescription } from "./SiteDescription";
+import { useStyles, initial } from "./MainMenuBody.jss";
 
-export function MainMenuBody({theme}) {
-
+export function MainMenuBody({ theme }) {
     useEffect(() => {
         document.body.className = `${theme}-background`;
-    }, [])
+    }, []);
 
-    const classes = useStyles({theme: theme})
+    const classes = useStyles({ theme: theme });
 
     return (
         <div className={classes.main_menu_body}>
-            <BoardPatternRow theme={theme} className={classes.row1}/>
+            <BoardPatternRow theme={theme} className={classes.row1} />
             <Box className={classes.content}>
                 <SiteDescription theme={theme} />
             </Box>
-            <BoardPatternRow theme={theme} className={classes.row2}/>
+            <BoardPatternRow theme={theme} className={classes.row2} />
         </div>
     );
 }

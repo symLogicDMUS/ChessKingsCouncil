@@ -51,7 +51,7 @@ export function HelpSlides({ helpItem, setHelpItem, theme }) {
                     {<GameNameText key='new-game-help' theme={theme}/>}
                 </HelpSlide>
             ) : null}
-            {helpItem === "game types" ? (
+            {helpItem === "text" ? (
                 <HelpSlide
                     theme={theme}
                     onClose={() => setHelpItem(null)}
