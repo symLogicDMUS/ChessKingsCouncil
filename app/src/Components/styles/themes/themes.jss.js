@@ -14,6 +14,7 @@ export const themes = {
     tan_dark: {
         ...tan,
         title: '#d7bb99',
+        text_alt3: '#d7bb99',
         outline_alt: '#d7bb99',
         page_link: '#d7bb99',
         page_link_hover: '#90caf9',
