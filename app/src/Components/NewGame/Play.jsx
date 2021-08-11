@@ -58,14 +58,13 @@ function Play(props) {
 
     return (
         <>
-            <div className={clsx(classes.root, {[classes.disabled]: isDisabled})} {...other}>
-                <Button
-                    onClick={onClick}
-                    variant={"contained"}
-                >
-                    Play
-                </Button>
-            </div>
+            <Button
+                onClick={onClick}
+                variant={"contained"}
+                className={clsx({[classes.disabled]: isDisabled})}
+            >
+                Play
+            </Button>
             <Dialog open={showMessage} onBackdropClick={() => setShowMessage(false)}>
                 <DialogTitle className={classes.dialog}>
                     You haven't entered all the necessary information.

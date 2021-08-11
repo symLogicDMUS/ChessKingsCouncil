@@ -13,5 +13,9 @@ export function getTooltips(gameName, gameType, playerType) {
     if (playerType) {
         playerTypeTooltipTitle = "Play As" + " (" + playerType + ")";
     }
-    return {gameNameTooltipTitle, gameTypeTooltipTitle, playerTypeTooltipTitle};
+    return {
+        gameNameTooltipTitle,
+        gameTypeTooltipTitle,
+        playerTypeTooltipTitle,
+    };
 }

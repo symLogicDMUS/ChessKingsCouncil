@@ -1,18 +1,12 @@
 import React from "react";
 import MediaQuery from "react-responsive/src";
-import {CustomizeTitleContentLg} from "./CustomizeTitleContentLg";
-import {CustomizeTitleContentMd} from "./CustomizeTitleContentMd";
-import {CustomizeTitleContentXSm} from "./CustomizeTitleContentXSm";
-import {CustomizeTitleContentSm} from "./CustomizeTitleContentSm";
+import { CustomizeTitleContentLg } from "./CustomizeTitleContentLg";
+import { CustomizeTitleContentMd } from "./CustomizeTitleContentMd";
+import { CustomizeTitleContentXSm } from "./CustomizeTitleContentXSm";
+import { CustomizeTitleContentSm } from "./CustomizeTitleContentSm";
 
 export function CustomizeTitle(props) {
-    const {
-        theme,
-        onClick,
-        updateSearchText,
-        className,
-        ...other
-    } = props;
+    const { theme, onClick, updateSearchText, className, ...other } = props;
 
     return (
         <>

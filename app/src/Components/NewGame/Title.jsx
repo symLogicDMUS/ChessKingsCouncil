@@ -2,7 +2,6 @@ import React from "react";
 import "./GameOptions/PickType.style";
 
 export class Title extends React.Component {
-    
     render() {
         return (
             <g transform="translate(685.944 289.289)">

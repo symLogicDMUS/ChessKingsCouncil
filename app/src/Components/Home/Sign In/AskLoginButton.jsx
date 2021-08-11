@@ -40,87 +40,83 @@ function AskLoginButton({
                     }}
                 />
             ) : null}
-            {modal ? (
-                <Portal>
-                    <Dialog
-                        open={true}
-                        classes={{
-                            container: classes.container,
-                            paper: classes.dialog_window,
-                        }}
-                        className={className}
-                        onBackdropClick={() => setModal(false)}
-                    >
-                        <DialogTitle className={classes.title}>
-                            Do you want to sign in?
-                        </DialogTitle>
-                        <DialogContent className={classes.text}>
-                            You can save work without signing in but it will
-                            only be available until you leave the site.
-                        </DialogContent>
-                        <DialogActions className={classes.dialog_actions}>
-                            <Button
-                                onClick={() => {
-                                    setSignIn(true);
-                                    setModal(false);
-                                }}
-                                className={clsx(classes2.button, {
-                                    [classes2.color2]: true,
-                                })}
-                            >
-                                <Typography className={classes2.text}>
-                                    Sign In
-                                </Typography>
-                                <img
-                                    src={
-                                        "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-                                    }
-                                    alt="google social media icon"
-                                    className={classes.icon}
-                                />
-                                <img
-                                    src={
-                                        "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/facebook.svg"
-                                    }
-                                    al
-                                    alt="facebook social media icon"
-                                    className={classes.icon}
-                                />
-                                <img
-                                    src={
-                                        "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg"
-                                    }
-                                    alt="github social media icon"
-                                    className={classes.icon}
-                                />
-                                <img
-                                    src={
-                                        "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg"
-                                    }
-                                    a
-                                    alt="twitter social media icon"
-                                    className={classes.icon}
-                                />
-                                <img
-                                    src={
-                                        "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/mail.svg"
-                                    }
-                                    alt="e-mail social media icon"
-                                    className={classes.icon}
-                                />
-                            </Button>
-                            <FirebaseGuestLoginButton />
-                            <Button
-                                className={classes.cancel_button}
-                                variant="outlined"
-                                onClick={() => setModal(false)}
-                            >
-                                Cancel
-                            </Button>
-                        </DialogActions>
-                    </Dialog>
-                </Portal>
-            ) : null}
+            <Portal>
+                <Dialog
+                    open={modal}
+                    classes={{
+                        container: classes.container,
+                        paper: classes.dialog_window,
+                    }}
+                    className={className}
+                    onBackdropClick={() => setModal(false)}
+                >
+                    <DialogTitle className={classes.title}>
+                        Do you want to sign in?
+                    </DialogTitle>
+                    <DialogContent className={classes.text}>
+                        You can save work without signing in but it will
+                        only be available until you leave the site.
+                    </DialogContent>
+                    <DialogActions className={classes.dialog_actions}>
+                        <Button
+                            onClick={() => {
+                                setSignIn(true);
+                                setModal(false);
+                            }}
+                            className={clsx(classes2.button, {
+                                [classes2.color2]: true,
+                            })}
+                        >
+                            <Typography className={classes2.text}>
+                                Sign In
+                            </Typography>
+                            <img
+                                src={
+                                    "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                                }
+                                alt="google social media icon"
+                                className={classes.icon}
+                            />
+                            <img
+                                src={
+                                    "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/facebook.svg"
+                                }
+                                alt="facebook social media icon"
+                                className={classes.icon}
+                            />
+                            <img
+                                src={
+                                    "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/github.svg"
+                                }
+                                alt="github social media icon"
+                                className={classes.icon}
+                            />
+                            <img
+                                src={
+                                    "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/twitter.svg"
+                                }
+                                alt="twitter social media icon"
+                                className={classes.icon}
+                            />
+                            <img
+                                src={
+                                    "https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/mail.svg"
+                                }
+                                alt="e-mail social media icon"
+                                className={classes.icon}
+                            />
+                        </Button>
+                        <FirebaseGuestLoginButton />
+                        <Button
+                            className={classes.cancel_button}
+                            variant="outlined"
+                            onClick={() => setModal(false)}
+                        >
+                            Cancel
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </Portal>
             {buttonType === "option" && (
                 <Option
                     name={text}

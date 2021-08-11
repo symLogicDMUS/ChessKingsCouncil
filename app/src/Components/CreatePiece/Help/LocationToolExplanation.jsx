@@ -21,8 +21,8 @@ export function LocationToolExplanation(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"/Images/help/wide/location buttons.png"}
-                    smSrc={"/Images/help/wide/location buttons.png"}
+                    lgSrc={"/Images/Help/wide/location buttons.png"}
+                    smSrc={"/Images/Help/wide/location buttons.png"}
                 >
                     location buttons
                 </SeeExampleButton>{" "}
@@ -32,8 +32,8 @@ export function LocationToolExplanation(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"/Images/help/thin/location icon.png"}
-                    smSrc={"/Images/help/thin/location icon.png"}
+                    lgSrc={"/Images/Help/thin/location icon.png"}
+                    smSrc={"/Images/Help/thin/location icon.png"}
                 >
                     location button in the right hand side icon column.
                 </SeeExampleButton>{" "}

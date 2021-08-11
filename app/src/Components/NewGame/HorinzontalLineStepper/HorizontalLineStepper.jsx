@@ -1,120 +1,118 @@
-import React from 'react';
-import {getSteps} from "./getSteps";
-import Step from '@material-ui/core/Step';
-import Button from '@material-ui/core/Button';
+import React, {useEffect, useMemo} from "react";
+import { getSteps } from "./getSteps";
+import Step from "@material-ui/core/Step";
+import Button from "@material-ui/core/Button";
 import {getStepContent} from "./getStepContent";
-import Stepper from '@material-ui/core/Stepper';
-import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
+import {invalids} from "../../helpers/invalids";
+import StepLabel from "@material-ui/core/StepLabel";
+import {charNotInStr} from "../../helpers/charNotInStr";
+import {MuiButton} from "../../Reuseables/Clickables/MuiButton";
+import {MuiThemeProvider, Stepper, Typography} from "@material-ui/core";
+import {getStepperTheme} from "./stepper themes/getMuiStepperTheme";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./HorizontalLineStepper.jss";
 
-export default function HorizontalLinearStepper() {
-    const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const [skipped, setSkipped] = React.useState(new Set());
+
+export default function HorizontalLinearStepper({
+    activeStep,
+    handleNext,
+    handleBack,
+    gameName,
+    gameType,
+    playerType,
+    finish,
+    theme,
+}) {
     const steps = getSteps();
+    const sm = useMediaQuery("(max-width: 600px)");
+    const classes = useStyles({theme});
 
-    const isStepOptional = (step) => {
-        return step === 1;
-    };
-
-    const isStepSkipped = (step) => {
-        return skipped.has(step);
-    };
-
-    const handleNext = () => {
-        let newSkipped = skipped;
-        if (isStepSkipped(activeStep)) {
-            newSkipped = new Set(newSkipped.values());
-            newSkipped.delete(activeStep);
+    const getIsNextDisabled = () => {
+        switch (activeStep) {
+            case 0:
+                return ! gameName
+            case 1:
+                return ! gameType
+            case 2:
+                return ! playerType && playerType !== 'None'
+            default:
+                console.log("ERROR in HorizontalLineStepper.jsx: Unknown step")
+                return false;
         }
+    }; const isNextDisabled = getIsNextDisabled()
 
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped(newSkipped);
-    };
+    const predicate = (c) => charNotInStr(c, gameName)
+    const isPlayDisabled = ! (
+        playerType &&
+        gameType &&
+        gameName !== "" &&
+        invalids.every(predicate)
+    );
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+    const stepperTheme = useMemo(() => getStepperTheme(theme), [theme])
 
-    const handleSkip = () => {
-        if (!isStepOptional(activeStep)) {
-            // You probably want to guard against something like this,
-            // it should never occur unless someone's actively trying to break something.
-            throw new Error("You can't skip a step that isn't optional.");
-        }
-
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setSkipped((prevSkipped) => {
-            const newSkipped = new Set(prevSkipped.values());
-            newSkipped.add(activeStep);
-            return newSkipped;
-        });
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
-    };
+    const instructions =
+    <Typography className={classes.instructions}>
+        {getStepContent(activeStep)}
+    </Typography>
 
     return (
-        <div className={classes.root}>
-            <Stepper activeStep={activeStep}>
-                {steps.map((label, index) => {
-                    const stepProps = {};
-                    const labelProps = {};
-                    if (isStepOptional(index)) {
-                        labelProps.optional = <Typography variant="caption">Optional</Typography>;
-                    }
-                    if (isStepSkipped(index)) {
-                        stepProps.completed = false;
-                    }
-                    return (
-                        <Step key={label} {...stepProps}>
-                            <StepLabel {...labelProps}>{label}</StepLabel>
-                        </Step>
-                    );
-                })}
-            </Stepper>
-            <div>
-                {activeStep === steps.length ? (
-                    <div>
-                        <Typography className={classes.instructions}>
-                            All steps completed - you&apos;re finished
-                        </Typography>
-                        <Button onClick={handleReset} className={classes.button}>
-                            Reset
-                        </Button>
-                    </div>
-                ) : (
-                    <div>
-                        <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-                        <div>
-                            <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                                Back
-                            </Button>
-                            {isStepOptional(activeStep) && (
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={handleSkip}
-                                    className={classes.button}
-                                >
-                                    Skip
-                                </Button>
-                            )}
-
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                onClick={handleNext}
-                                className={classes.button}
-                            >
-                                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                            </Button>
-                        </div>
-                    </div>
+        <>
+            <MuiThemeProvider theme={stepperTheme}>
+                <Stepper
+                    activeStep={activeStep}
+                    alternativeLabel={sm}
+                    className={classes.stepper}
+                >
+                    {steps.map((label, index) => {
+                        const stepProps = {};
+                        const labelProps = {};
+                        return (
+                            <Step key={label} {...stepProps}>
+                                <StepLabel {...labelProps}>{label}</StepLabel>
+                            </Step>
+                        );
+                    })}
+                </Stepper>
+            </MuiThemeProvider>
+            <div className={classes.action_buttons}>
+                <Button
+                    onClick={handleBack}
+                    disabled={activeStep === 0}
+                    className={classes.button}
+                    variant="outlined"
+                    color="primary"
+                    size="large"
+                    theme={theme}
+                >
+                    Back
+                </Button>
+                {activeStep !== steps.length - 1 && (
+                    <MuiButton
+                        onClick={handleNext}
+                        disabled={isNextDisabled}
+                        className={classes.button}
+                        variant="contained"
+                        size="large"
+                        theme={theme}
+                    >
+                        Next
+                    </MuiButton>
                 )}
+                {activeStep === steps.length - 1 && (
+                    <MuiButton
+                        onClick={finish}
+                        disabled={isPlayDisabled}
+                        className={classes.button}
+                        variant="contained"
+                        size="large"
+                        theme={theme}
+                    >
+                        Play
+                    </MuiButton>
+                )}
+
             </div>
-        </div>
+        </>
     );
 }

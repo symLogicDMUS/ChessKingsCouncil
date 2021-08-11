@@ -13,8 +13,8 @@ export function GameImageGridExplained(props) {
         can turn the names on and off with the
         <SeeExampleButton
             theme={props.theme}
-            lgSrc={'/Images/help/wide/show names.png'}
-            smSrc={'/Images/help/thin/show names.png'}
+            lgSrc={'/Images/Help/wide/show names.png'}
+            smSrc={'/Images/Help/thin/show names.png'}
             isText={true}
         >
             Show Names

@@ -1,12 +1,12 @@
 export function getStepContent(step) {
     switch (step) {
         case 0:
-            return 'Select campaign settings...';
+            return "enter name of game...";
         case 1:
-            return 'What is an ad group anyways?';
+            return "pick type of game...";
         case 2:
-            return 'This is the bit I really care about!';
+            return "pick to play as white, black, or test...";
         default:
-            return 'Unknown step';
+            return "Unknown step";
     }
 }

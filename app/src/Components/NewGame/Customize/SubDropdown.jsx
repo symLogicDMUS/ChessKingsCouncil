@@ -8,7 +8,7 @@ import { ResolvePieceIcon } from "./ResolvePieceIcon";
 import { icons } from "../../styles/icons/top/icons.jss";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { originTransform } from "../../Reuseables/AppBar/Content/ThreeItemAppBarContent.jss";
-import {MuiMenuWithCaption} from "../../Reuseables/UserInput/MuiMenuWithCaption";
+import { MuiMenuWithCaption } from "../../Reuseables/UserInput/MuiMenuWithCaption";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useStyles } from "./SubDropdown.jss";
 
@@ -18,7 +18,6 @@ export function SubDropdown({
     toggleSub,
     theme,
 }) {
-
     const md = useMediaQuery("(min-width: 600px)");
 
     const classes = useStyles({ theme: theme });
@@ -57,12 +56,18 @@ export function SubDropdown({
                 anchorOrigin={originTransform}
                 transformOrigin={originTransform}
             >
-                <Typography className={classes.caption} variant='caption' noWrap>
+                <Typography
+                    className={classes.caption}
+                    variant="caption"
+                    noWrap
+                >
                     Sub {customPieceName} in for:
                 </Typography>
                 <MenuItem value="No Sub" onClick={() => handleChange("No Sub")}>
                     <BlockIcon className={classes.piece_icon} />
-                    <Typography className={classes.list_text}>No Sub</Typography>
+                    <Typography className={classes.list_text}>
+                        No Sub
+                    </Typography>
                 </MenuItem>
                 <MenuItem value="Queen" onClick={() => handleChange("Queen")}>
                     <SvgIcon className={classes.piece_icon}>
@@ -80,26 +85,27 @@ export function SubDropdown({
                     <SvgIcon className={classes.piece_icon}>
                         {icons.knight_outline(themes[theme].outline)}
                     </SvgIcon>
-                    <Typography className={classes.list_text}>Knight</Typography>
+                    <Typography className={classes.list_text}>
+                        Knight
+                    </Typography>
                 </MenuItem>
                 <MenuItem value="Bishop" onClick={() => handleChange("Bishop")}>
                     <SvgIcon className={classes.piece_icon}>
                         {icons.bishop_outline(themes[theme].outline)}
                     </SvgIcon>
-                    <Typography className={classes.list_text}>Bishop</Typography>
+                    <Typography className={classes.list_text}>
+                        Bishop
+                    </Typography>
                 </MenuItem>
             </MuiMenuWithCaption>
             <div className={classes.seeMore}>
-                { md ? (
+                {md ? (
                     <Typography className={classes.title}>
                         {pieceName}
                     </Typography>
                 ) : null}
-                <IconButton onClick={handleMobileMenuOpen} edge='end'>
-                    <ResolvePieceIcon
-                        theme={theme}
-                        pieceName={pieceName}
-                    />
+                <IconButton onClick={handleMobileMenuOpen} edge="end">
+                    <ResolvePieceIcon theme={theme} pieceName={pieceName} />
                     <ArrowDropDownIcon className={classes.expand} />
                 </IconButton>
             </div>

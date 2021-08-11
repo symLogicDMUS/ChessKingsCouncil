@@ -23,8 +23,8 @@ export function OptionsToolExplanation(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/wide/options.png"}
-                    smSrc={"Images/help/wide/options.png"}
+                    lgSrc={"Images/Help/wide/options.png"}
+                    smSrc={"Images/Help/wide/options.png"}
                 >
                     at the bottom of the right hand side content
                 </SeeExampleButton>
@@ -46,8 +46,8 @@ export function OptionsToolExplanation(props) {
                         <SeeExampleButton
                             isText={true}
                             theme={props.theme}
-                            lgSrc={"Images/help/thin/load icon.png"}
-                            smSrc={"Images/help/thin/load icon.png"}
+                            lgSrc={"Images/Help/thin/load icon.png"}
+                            smSrc={"Images/Help/thin/load icon.png"}
                         >
                             the load icon
                         </SeeExampleButton>{" "}
@@ -74,8 +74,8 @@ export function OptionsToolExplanation(props) {
                         <SeeExampleButton
                             isText={true}
                             theme={props.theme}
-                            lgSrc={"Images/help/thin/save.png"}
-                            smSrc={"Images/help/thin/save.png"}
+                            lgSrc={"Images/Help/thin/save.png"}
+                            smSrc={"Images/Help/thin/save.png"}
                         >
                             The save icon
                         </SeeExampleButton>
@@ -102,8 +102,8 @@ export function OptionsToolExplanation(props) {
                         <SeeExampleButton
                             isText={true}
                             theme={props.theme}
-                            lgSrc={"Images/help/thin/reset icon.png"}
-                            smSrc={"Images/help/thin/reset icon.png"}
+                            lgSrc={"Images/Help/thin/reset icon.png"}
+                            smSrc={"Images/Help/thin/reset icon.png"}
                         >
                             the reset icon
                         </SeeExampleButton>{" "}
@@ -128,8 +128,8 @@ export function OptionsToolExplanation(props) {
                         <SeeExampleButton
                             isText={true}
                             theme={props.theme}
-                            lgSrc={"Images/help/thin/erase icon.png"}
-                            smSrc={"Images/help/thin/erase icon.png"}
+                            lgSrc={"Images/Help/thin/erase icon.png"}
+                            smSrc={"Images/Help/thin/erase icon.png"}
                         >
                             the erase icon
                         </SeeExampleButton>{" "}

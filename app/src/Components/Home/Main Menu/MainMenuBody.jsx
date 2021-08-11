@@ -15,11 +15,9 @@ export function MainMenuBody({ theme }) {
 
     return (
         <div className={classes.main_menu_body}>
-            <BoardPatternRow theme={theme} className={classes.row1} />
             <Box className={classes.content}>
                 <SiteDescription theme={theme} />
             </Box>
-            <BoardPatternRow theme={theme} className={classes.row2} />
         </div>
     );
 }

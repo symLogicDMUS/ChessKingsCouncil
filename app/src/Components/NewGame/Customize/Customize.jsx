@@ -1,31 +1,35 @@
 import React from "react";
-import {newData} from "../NewData";
-import {SubsList} from "./SubsList";
-import {copy} from "../../helpers/copy";
+import { newData } from "../NewData";
+import { SubsList } from "./SubsList";
+import { copy } from "../../helpers/copy";
 import Box from "@material-ui/core/Box";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import MediaQuery from "react-responsive/src";
-import {difference} from "../../helpers/setOps";
-import {isSpecial} from "../../helpers/isSpecial";
-import {CustomizeHelp} from "./Help/CustomizeHelp";
-import {standardPieceDefs} from "../standardPieceDefs";
-import {standardPieceNames} from "../../helpers/standardPieceNames";
-import {firstUpdate} from "../../../game_logic/callHierarchyTop/firstUpdate";
-import {MuiButton as Button} from "../../Reuseables/Clickables/MuiButton";
-import {idAssign} from "../../../API/apiHelpers/idAssign/top/idAssign";
-import {standardIds} from "../../../API/apiHelpers/idAssign/standardIds";
-import {idsForRent} from "../../../API/apiHelpers/idAssign/idsForRent";
-import {HelpSlideshow} from "../../Reuseables/NavBar/Help/HelpSlideshow";
-import {CustomizeTitle} from "./CustomizeTitle/CustomizeTitle";
+import { difference } from "../../helpers/setOps";
+import { isSpecial } from "../../helpers/isSpecial";
+import { CustomizeHelp } from "./Help/CustomizeHelp";
+import { standardPieceDefs } from "../standardPieceDefs";
+import { standardPieceNames } from "../../helpers/standardPieceNames";
+import { firstUpdate } from "../../../game_logic/callHierarchyTop/firstUpdate";
+import { MuiButton as Button } from "../../Reuseables/Clickables/MuiButton";
+import { idAssign } from "../../../API/apiHelpers/idAssign/top/idAssign";
+import { standardIds } from "../../../API/apiHelpers/idAssign/standardIds";
+import { idsForRent } from "../../../API/apiHelpers/idAssign/idsForRent";
+import { HelpSlideshow } from "../../Reuseables/NavBar/Help/HelpSlideshow";
+import { CustomizeTitle } from "./CustomizeTitle/CustomizeTitle";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {ThemeContext} from "../../../Context/ThemeContext";
+import { ThemeContext } from "../../../Context/ThemeContext";
 import CustomizeToolbar from "./CustomizeToolbar";
-import {PromosList} from "./PromosList";
-import {styles} from "./Customize.jss";
+import { PromosList } from "./PromosList";
+import { styles } from "./Customize.jss";
 
-const PieceProfiles = React.lazy(() => import('../../PieceProfiles/PieceProfiles'));
-const ResponsiveDrawer = React.lazy(() => import('../../Reuseables/Drawers/ResponsiveDrawer'));
-const NavBar = React.lazy(() => import('../../Reuseables/NavBar/NavBar'));
+const PieceProfiles = React.lazy(() =>
+    import("../../PieceProfiles/PieceProfiles")
+);
+const ResponsiveDrawer = React.lazy(() =>
+    import("../../Reuseables/Drawers/ResponsiveDrawer")
+);
+const NavBar = React.lazy(() => import("../../Reuseables/NavBar/NavBar"));
 
 class Customize extends React.Component {
     constructor(props) {
@@ -52,7 +56,7 @@ class Customize extends React.Component {
     idDict = {};
     gameData = {};
     promos = [];
-    newData  = copy(newData);
+    newData = copy(newData);
     standardPieceNames = copy(standardPieceNames);
     standardPieceDefs = copy(standardPieceDefs);
     firstTime = false;
@@ -71,7 +75,7 @@ class Customize extends React.Component {
     clientY = 0;
     first = false;
 
-    setDefs = defs => {
+    setDefs = (defs) => {
         this.defs = { ...this.standardPieceDefs, ...defs };
         this.setState({ binaryValue: !this.state.binaryValue });
     };
@@ -121,21 +125,23 @@ class Customize extends React.Component {
         this.gameData.ranges = dataEntry.ranges;
         this.gameData.enemyRanges = dataEntry.enemyRanges;
 
-        this.gameData.imgUrlStrs = this.resolveUrlImgRefs()
+        this.gameData.imgUrlStrs = this.resolveUrlImgRefs();
     };
 
     resolveUrlImgRefs = () => {
-        const imgUrlRefs = []
+        const imgUrlRefs = [];
         for (const pieceName of Object.keys(this.gameData.defs)) {
             for (const color of this.colors) {
-                if (this.gameData.defs[pieceName][color].img.startsWith("https://")) {
-                    imgUrlRefs.push(
-                        this.gameData.defs[pieceName][color].img
-                    );
+                if (
+                    this.gameData.defs[pieceName][color].img.startsWith(
+                        "https://"
+                    )
+                ) {
+                    imgUrlRefs.push(this.gameData.defs[pieceName][color].img);
                 }
             }
         }
-        return Array.from(new Set(imgUrlRefs))
+        return Array.from(new Set(imgUrlRefs));
     };
 
     /**
@@ -231,7 +237,7 @@ class Customize extends React.Component {
         this.setState({ binaryValue: !this.state.binaryValue });
     };
 
-    togglePromo = pieceName => {
+    togglePromo = (pieceName) => {
         if (this.promos.includes(pieceName)) {
             const index = this.promos.indexOf(pieceName);
             if (index > -1) this.promos.splice(index, 1);
@@ -259,13 +265,21 @@ class Customize extends React.Component {
 
     toggleMiniVariantTool = (toolName, clientX, clientY) => {
         if (this.state.miniVariantTool === toolName) {
-            this.setState({ miniVariantTool: null, clientX: clientX, clientY: clientY });
+            this.setState({
+                miniVariantTool: null,
+                clientX: clientX,
+                clientY: clientY,
+            });
         } else {
-            this.setState({ miniVariantTool: toolName, clientX: clientX, clientY: clientY });
+            this.setState({
+                miniVariantTool: toolName,
+                clientX: clientX,
+                clientY: clientY,
+            });
         }
     };
 
-    updateSearchText = searchText => {
+    updateSearchText = (searchText) => {
         this.setState({ searchText: searchText });
     };
 
@@ -287,34 +301,79 @@ class Customize extends React.Component {
     render() {
         return (
             <ThemeContext.Consumer>
-                {value => <>
-                    {this.state.redirect ? this.play() : null}
-                    <HelpSlideshow
-                        title="Customize Game"
-                        currentPage={"Customize"}
-                        theme={value.themes.customize}
-                        initialState={{pos: 0, numSlides: 3}}
-                    >
-                        {CustomizeHelp(value.themes.customize)}
-                    </HelpSlideshow>
-                    <ResponsiveDrawer
-                        elevation={0}
-                        minABPadding={true}
-                        theme={value.themes.customize}
-                        appBarContent={
-                            <CustomizeTitle
-                                onClick={this.togglePromoAll}
-                                theme={value.themes.customize}
-                                updateSearchText={this.updateSearchText}
-                            />
-                        }
-                        tools={
-                            <Box className={this.props.classes.tools}>
-                                <SubsList
+                {(value) => (
+                    <>
+                        {this.state.redirect ? this.play() : null}
+                        <HelpSlideshow
+                            title="Customize Game"
+                            currentPage={"Customize"}
+                            theme={value.themes.customize}
+                            initialState={{ pos: 0, numSlides: 3 }}
+                        >
+                            {CustomizeHelp(value.themes.customize)}
+                        </HelpSlideshow>
+                        <ResponsiveDrawer
+                            elevation={0}
+                            minABPadding={true}
+                            theme={value.themes.customize}
+                            appBarContent={
+                                <CustomizeTitle
+                                    onClick={this.togglePromoAll}
+                                    theme={value.themes.customize}
+                                    updateSearchText={this.updateSearchText}
+                                />
+                            }
+                            tools={
+                                <Box className={this.props.classes.tools}>
+                                    <SubsList
+                                        subs={this.subs}
+                                        theme={value.themes.customize}
+                                    />
+                                    <PromosList
+                                        theme={value.themes.customize}
+                                        tools={this.promos}
+                                    />
+                                    <Button
+                                        onClick={this.accept}
+                                        className={this.props.classes.ok_button}
+                                        theme={value.themes.customize}
+                                        variant={"contained"}
+                                        size="large"
+                                    >
+                                        Ok
+                                    </Button>
+                                </Box>
+                            }
+                            toolButtons={
+                                <CustomizeToolbar
                                     subs={this.subs}
+                                    promos={this.promos}
                                     theme={value.themes.customize}
                                 />
-                                <PromosList theme={value.themes.customize} tools={this.promos}/>
+                            }
+                            navBar={
+                                <NavBar
+                                    currentPage="Customize"
+                                    theme={value.themes.customize}
+                                    additionalSettings={null}
+                                />
+                            }
+                        >
+                            <PieceProfiles
+                                defs={this.defs}
+                                subs={this.subs}
+                                promos={this.promos}
+                                parentPage="Customize"
+                                toggleSub={this.toggleSub}
+                                updateParent={this.setDefs}
+                                newReplaced={this.newReplaced}
+                                togglePromo={this.togglePromo}
+                                searchText={this.state.searchText}
+                                newReplacement={this.newReplacement}
+                                className={this.props.classes.piece_profiles}
+                                theme={value.themes.customize}
+                            />
+                            <MediaQuery maxWidth={960}>
                                 <Button
                                     onClick={this.accept}
                                     className={this.props.classes.ok_button}
@@ -324,50 +383,10 @@ class Customize extends React.Component {
                                 >
                                     Ok
                                 </Button>
-                            </Box>
-                        }
-                        toolButtons={
-                            <CustomizeToolbar
-                                subs={this.subs}
-                                promos={this.promos}
-                                theme={value.themes.customize}
-                            />
-                        }
-                        navBar={
-                            <NavBar
-                                currentPage="Customize"
-                                theme={value.themes.customize}
-                                additionalSettings={null}
-                            />
-                        }
-                    >
-                        <PieceProfiles
-                            defs={this.defs}
-                            subs={this.subs}
-                            promos={this.promos}
-                            parentPage="Customize"
-                            toggleSub={this.toggleSub}
-                            updateParent={this.setDefs}
-                            newReplaced={this.newReplaced}
-                            togglePromo={this.togglePromo}
-                            searchText={this.state.searchText}
-                            newReplacement={this.newReplacement}
-                            className={this.props.classes.piece_profiles}
-                            theme={value.themes.customize}
-                        />
-                        <MediaQuery maxWidth={960}>
-                            <Button
-                                onClick={this.accept}
-                                className={this.props.classes.ok_button}
-                                theme={value.themes.customize}
-                                variant={"contained"}
-                                size="large"
-                            >
-                                Ok
-                            </Button>
-                        </MediaQuery>
-                    </ResponsiveDrawer>
-                </>}
+                            </MediaQuery>
+                        </ResponsiveDrawer>
+                    </>
+                )}
             </ThemeContext.Consumer>
         );
     }

@@ -13,16 +13,16 @@ export function NamingAPieceExplained(props) {
             On larger screens, the text field for naming a piece is <SeeExampleButton
                 isText={true}
                 theme={props.theme}
-                lgSrc={"Images/help/wide/name.png"}
-                smSrc={"Images/help/wide/name.png"}
+                lgSrc={"Images/Help/wide/name.png"}
+                smSrc={"Images/Help/wide/name.png"}
             >
                 at the top of the right hand side content.
             </SeeExampleButton>
             On smaller screens, the name field is opened by clicking the <SeeExampleButton
                 isText={true}
                 theme={props.theme}
-                lgSrc={"Images/help/thin/name.png"}
-                smSrc={"Images/help/thin/name.png"}
+                lgSrc={"Images/Help/thin/name.png"}
+                smSrc={"Images/Help/thin/name.png"}
             >
                 terminal icon <SvgIcon className={classes2.icon}>{icons.name_tool}</SvgIcon> in the right hand side icon
                 column

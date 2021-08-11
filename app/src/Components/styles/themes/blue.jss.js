@@ -1,4 +1,5 @@
 import {darken, lighten} from "@material-ui/core/styles";
+import {fade} from "@material-ui/core";
 
 export const blue = {
     outline: '#b0bec5',
@@ -29,8 +30,8 @@ export const blue = {
     arrow_inactive: '#b71c1c',
     light_normal: 'rgba(255, 255, 255, 0.65)',
     dark_normal: 'rgba(0, 0, 0, 0)',
-    light_in_range: 'rgba(64, 224, 208, 0.3)',
-    dark_in_range: 'rgba(64, 224, 208, 0.3)',
+    light_in_range: 'rgba(64,224,208, 0.4)',
+    dark_in_range: 'rgba(64, 224, 208, 0.4)',
     sqr_border: 'rgba(255, 0, 0, 0.6)',
     sqr_text_light: '#ffffff',
     sqr_text_dark: '#ffffff',

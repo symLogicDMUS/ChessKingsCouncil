@@ -1,3 +1,4 @@
+import {fade} from "@material-ui/core/styles";
 
 export const star_wars = {
     outline: '#f6b601',
@@ -24,10 +25,10 @@ export const star_wars = {
     span_alt: '#c60116',
     arrow_active: '#ff645a',
     arrow_inactive: '#b71c1c',
-    light_normal: '#ffe81f',
-    dark_normal: 'rgba(0, 0, 0, 0)',
-    light_in_range: '#fff172',
-    dark_in_range: 'rgba(255, 241, 114, 0.5)',
+    light_normal: fade('#fff', 0.125),
+    dark_normal: fade('#fff', 0.1),
+    light_in_range: fade('#28ded3', 0.2),
+    dark_in_range: fade('#28ded3', 0.2),
     sqr_hover: '#60a8f0',
     sqr_text: '#ffccbc',
     sqr_hover_alt: '#fff',

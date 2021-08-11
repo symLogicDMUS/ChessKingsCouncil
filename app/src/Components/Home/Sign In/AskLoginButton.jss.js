@@ -3,13 +3,6 @@ import { themes } from "../../styles/themes/themes.jss";
 
 export const useStyles = makeStyles(
     {
-        backdrop: (props) => ({
-            width: "100vw",
-            height: "100vh",
-            position: "absolute",
-            left: 0,
-            top: 0,
-        }),
         cancel_button: (props) => ({
             height: 40,
             fontSize: 14,
@@ -58,7 +51,6 @@ export const useStyles = makeStyles(
             backgroundColor: themes[props.theme].button_fill,
             marginTop: "1rem",
             marginBottom: "1rem",
-            // marginLeft: 'auto',
         }),
     },
     { index: 1 }

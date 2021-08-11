@@ -19,16 +19,16 @@ export function RangeAnalysisExample(props) {
                 On larger screens, the Range Analysis Board <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/wide/range analysis.png"}
-                    smSrc={"Images/help/wide/range analysis.png"}
+                    lgSrc={"Images/Help/wide/range analysis.png"}
+                    smSrc={"Images/Help/wide/range analysis.png"}
                 >
                     is on the right hand side with other content
                 </SeeExampleButton>, and on smaller screens it replaces the game board when you flip the
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/thin/range analysis.png"}
-                    smSrc={"Images/help/thin/range analysis.png"}
+                    lgSrc={"Images/Help/thin/range analysis.png"}
+                    smSrc={"Images/Help/thin/range analysis.png"}
                 >
                     Range Analysis Switch
                 </SeeExampleButton>.

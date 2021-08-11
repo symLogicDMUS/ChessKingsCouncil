@@ -7,32 +7,40 @@ export const fontColor = {
 export const useStyles = makeStyles(
     (theme) => ({
         login_page: (props) => ({
-            position: "absolute",
+            position: "fixed",
             left: 0,
             top: 0,
-            zIndex: 16,
+            zIndex: 1000,
             width: "100vw",
             height: "100vh",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            backgroundColor: "#d7bb99",
+        }),
+        background: props => ({
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: 999,
+            backgroundColor: '#fff',
         }),
         content: (props) => ({
-            marginTop: "auto",
+            '@media screen and (max-width: 600px)': {
+                width: "90vw",
+            },
+            '@media screen and (min-width: 600px)': {
+                width: "75vw",
+            },
+            margin: "auto",
         }),
-        appTitle: (props) => ({
-            marginTop: "1rem",
-            marginBottom: "1.5vh",
+        title: props => ({
+            width: '100%',
+            height: 'auto',
+            marginBottom: "1rem",
         }),
-        appTitleSm: (props) => ({
-            width: "85vw",
-        }),
-        appTitleMd: (props) => ({
-            width: "75vw",
-        }),
-        login_in_buttons: (props) => ({
-            marginBottom: "auto",
+        buttons: (props) => ({
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -40,8 +48,7 @@ export const useStyles = makeStyles(
         }),
         close: (props) => ({
             fontSize: "1.2rem",
-            color: "#000",
-            width: "100%",
+            color: "#253b73",
             borderRadius: 0,
             "&:hover": {
                 color: "#fff",

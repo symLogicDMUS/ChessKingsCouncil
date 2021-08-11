@@ -1,22 +1,23 @@
 import React from "react";
 import clsx from "clsx";
-import {motion} from "framer-motion";
-import {ListTitle} from "./ListTitle";
+import { motion } from "framer-motion";
+import { ListTitle } from "./ListTitle";
 import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./PromosModal.jss";
 
-const ScrollTable = React.lazy(() => import('../../Reuseables/ScrollTable/ScrollTable'));
+const ScrollTable = React.lazy(() =>
+    import("../../Reuseables/ScrollTable/ScrollTable")
+);
 
-
-function PromosModal({className, theme, children}) {
-    const classes = useStyles({theme});
-    const classes2 = useMoreStyles({theme});
+function PromosModal({ className, theme, children }) {
+    const classes = useStyles({ theme });
+    const classes2 = useMoreStyles({ theme });
     const variants = {
         initial: {
             scale: 0,
             top: 0,
             y: 6,
-            left: 'calc(50vw + 2px)',
+            left: "calc(50vw + 2px)",
         },
         animate: {
             scale: 1,
@@ -28,7 +29,7 @@ function PromosModal({className, theme, children}) {
             scale: 0,
             top: 0,
             y: 6,
-            left: 'calc(50vw + 2px)',
+            left: "calc(50vw + 2px)",
         },
     };
 
@@ -51,24 +52,14 @@ function PromosModal({className, theme, children}) {
                 key="pawn-promotions-wide"
                 className={classes.scroll_table}
                 addedClassName={classes.drawer_component}
-                listItemClassName={
-                    classes.scroll_table_list_item
-                }
-                arrowButtonClassName={
-                    classes.scroll_table_button
-                }
-                arrowButtonTopClassName={
-                    classes.top_button
-                }
-                arrowButtonBottomClassName={
-                    classes.bottom_button
-                }
+                listItemClassName={classes.scroll_table_list_item}
+                arrowButtonClassName={classes.scroll_table_button}
+                arrowButtonTopClassName={classes.top_button}
+                arrowButtonBottomClassName={classes.bottom_button}
                 textClassName={classes.scroll_table_text}
                 title={
                     <ListTitle
-                        className={
-                            classes.scroll_table_title
-                        }
+                        className={classes.scroll_table_title}
                         variant="h6"
                         theme={theme}
                     >
@@ -79,7 +70,7 @@ function PromosModal({className, theme, children}) {
                 {children}
             </ScrollTable>
         </motion.div>
-    )
+    );
 }
 
 export default PromosModal;

@@ -16,6 +16,7 @@ export const useStyles = makeStyles(
             color: themes[props.theme].site_description_text,
             backgroundColor: themes[props.theme].site_description_backdrop,
             padding: "1rem",
+            fontSize: '1.2rem',
             borderRadius: 6,
         }),
         text_link: (props) => ({

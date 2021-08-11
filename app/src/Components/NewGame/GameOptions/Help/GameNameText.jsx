@@ -14,8 +14,8 @@ export function GameNameText(props) {
                 Type the name of the game. Note that the game is not saved until
                 the
                 <SeeExampleButton
-                    lgSrc="/Images/help/wide/save.png"
-                    smSrc="/Images/help/thin/save.png"
+                    lgSrc="/Images/Help/wide/save.png"
+                    smSrc="/Images/Help/thin/save.png"
                     theme={props.theme}
                     isText={true}
                 >
@@ -23,8 +23,8 @@ export function GameNameText(props) {
                 </SeeExampleButton>{" "}
                 or
                 <SeeExampleButton
-                    lgSrc="/Images/help/wide/save as.png"
-                    smSrc="/Images/help/thin/save as.png"
+                    lgSrc="/Images/Help/wide/save as.png"
+                    smSrc="/Images/Help/thin/save as.png"
                     theme={props.theme}
                     isText={true}
                 >

@@ -1,14 +1,13 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import MediaQuery from "react-responsive/src";
 import "../../styles/Background/_backgrounds.scss";
 import TabBarSm from "./TabBarSm";
 import TabBarLg from "./TabBarLg";
 
 function TabBar(props) {
-
     useEffect(() => {
         document.body.className = `${props.theme}-background`;
-    }, [props.theme])
+    }, [props.theme]);
 
     return (
         <>

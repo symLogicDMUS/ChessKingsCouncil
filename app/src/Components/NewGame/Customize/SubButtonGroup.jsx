@@ -21,7 +21,6 @@ export function SubButtonGroup({
     customPieceName,
     standardPieceThatSubbingFor,
 }) {
-
     const classes = useStyles({ theme: theme });
 
     return (
@@ -33,7 +32,8 @@ export function SubButtonGroup({
                 <BlockIcon
                     className={clsx(classes.sub_icon, {
                         [classes.selected]: !standardPieceThatSubbingFor,
-                        [classes.no_sub_unselected]: standardPieceThatSubbingFor,
+                        [classes.no_sub_unselected]:
+                            standardPieceThatSubbingFor,
                     })}
                 />
             </IconButton>

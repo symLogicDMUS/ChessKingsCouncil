@@ -1,4 +1,4 @@
-const textColor = '#ff5c15';
+const textColor = '#ff981a';
 
 export const mechwarrior_theme = {
     outline: '#2b2b2b',
@@ -45,7 +45,7 @@ export const mechwarrior_theme = {
     text_link: '#fff',
     menu_container: '#3f3f3f',
     site_description_backdrop: '#3f3f3f',
-    site_description_text: '#f5b400',
+    site_description_text: '#ff981a',
     variant_fill_r0: 157,
     variant_fill_g0: 80,
     variant_fill_b0: 226,

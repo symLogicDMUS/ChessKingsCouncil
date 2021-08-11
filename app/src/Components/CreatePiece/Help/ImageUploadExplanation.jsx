@@ -15,8 +15,8 @@ export function ImageUploadExplanation(props) {
         <>
             <Typography className={classes3.text} paragraph>Click
                 <SeeExampleButton
-                    lgSrc={'/Images/help/wide/image windows.png'}
-                    smSrc={'/Images/help/wide/image windows.png'}
+                    lgSrc={'/Images/Help/wide/image windows.png'}
+                    smSrc={'/Images/Help/wide/image windows.png'}
                     theme={props.theme}
                     isText={true}
                 >
@@ -24,8 +24,8 @@ export function ImageUploadExplanation(props) {
                 </SeeExampleButton>
                 to choose the white or black image for your piece. On smaller screens
                 <SeeExampleButton
-                    smSrc={'/Images/help/thin/image icon.png'}
-                    lgSrc={'/Images/help/thin/image icon.png'}
+                    smSrc={'/Images/Help/thin/image icon.png'}
+                    lgSrc={'/Images/Help/thin/image icon.png'}
                     theme={props.theme}
                     isText={true}
                 >

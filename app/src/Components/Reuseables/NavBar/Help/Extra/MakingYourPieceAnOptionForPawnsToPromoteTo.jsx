@@ -15,8 +15,8 @@ export function MakingYourPieceAnOptionForPawnsToPromoteTo(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/wide/promo checkboxes.png"}
-                    smSrc={"Images/help/wide/promo checkboxes.png"}
+                    lgSrc={"Images/Help/wide/promo checkboxes.png"}
+                    smSrc={"Images/Help/wide/promo checkboxes.png"}
                 >
                     On larger screens the checkboxes are in plain sight
                 </SeeExampleButton>{", "}
@@ -24,8 +24,8 @@ export function MakingYourPieceAnOptionForPawnsToPromoteTo(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/thin/promo checkboxes.png"}
-                    smSrc={"Images/help/thin/promo checkboxes.png"}
+                    lgSrc={"Images/Help/thin/promo checkboxes.png"}
+                    smSrc={"Images/Help/thin/promo checkboxes.png"}
                 >
                     smaller screens you need to use the{" "}
                     <div className={classes.emphasis}>

@@ -1,31 +1,27 @@
-import React, {useState} from "react";
-import {getTooltips} from "./getTooltips";
+import React, { useState } from "react";
+import { getTooltips } from "./getTooltips";
 import Toolbar from "@material-ui/core/Toolbar";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import {AppBar, IconButton, Tooltip} from "@material-ui/core";
-import {GameOptionsHelp} from "../GameOptions/Help/GameOptionsHelp";
-import {HelpTitle} from "../../Reuseables/NavBar/Help/HelpTitle";
+import { AppBar, IconButton, Tooltip } from "@material-ui/core";
+import { GameOptionsHelp } from "../GameOptions/Help/GameOptionsHelp";
+import { HelpTitle } from "../../Reuseables/NavBar/Help/HelpTitle";
 import NavBar from "../../Reuseables/NavBar/NavBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import {TabLabel} from "./TabLabel";
-import {MenuFab} from "./MenuFab";
-import {useStyles} from "./TabBarLg.jss";
+import { TabLabel } from "./TabLabel";
+import { MenuFab } from "./MenuFab";
+import { useStyles } from "./TabBarLg.jss";
 
 function TabBarLg(props) {
-
-    const {theme, value, onChange, gameName, gameType, playerType, ...other} = props;
+    const { theme, value, onChange, gameName, gameType, playerType, ...other } =
+        props;
 
     const [rowOpen, setRowOpen] = useState(false);
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
-    let {
-        gameNameTooltipTitle,
-        gameTypeTooltipTitle,
-        playerTypeTooltipTitle
-    } = getTooltips(gameName, gameType, playerType);
-
+    let { gameNameTooltipTitle, gameTypeTooltipTitle, playerTypeTooltipTitle } =
+        getTooltips(gameName, gameType, playerType);
 
     return (
         <>
@@ -36,7 +32,7 @@ function TabBarLg(props) {
                             edge="end"
                             onClick={() => setRowOpen(false)}
                         >
-                            <ArrowBackIcon className={classes.close_icon}/>
+                            <ArrowBackIcon className={classes.close_icon} />
                         </IconButton>
                         <NavBar
                             show={rowOpen}
@@ -66,19 +62,31 @@ function TabBarLg(props) {
                             <Tooltip title={gameNameTooltipTitle}>
                                 <Tab
                                     id="game-name"
-                                    label={<TabLabel addOn={gameName}>Game Name</TabLabel>}
+                                    label={
+                                        <TabLabel addOn={gameName}>
+                                            Game Name
+                                        </TabLabel>
+                                    }
                                 />
                             </Tooltip>
                             <Tooltip title={gameTypeTooltipTitle}>
                                 <Tab
                                     id="pick-type"
-                                    label={<TabLabel addOn={gameType}>Pick Type</TabLabel>}
+                                    label={
+                                        <TabLabel addOn={gameType}>
+                                            Pick Type
+                                        </TabLabel>
+                                    }
                                 />
                             </Tooltip>
                             <Tooltip title={playerTypeTooltipTitle}>
                                 <Tab
                                     id="play-as"
-                                    label={<TabLabel addOn={playerType}>Play As</TabLabel>}
+                                    label={
+                                        <TabLabel addOn={playerType}>
+                                            Play As
+                                        </TabLabel>
+                                    }
                                 />
                             </Tooltip>
                         </Tabs>
@@ -86,7 +94,7 @@ function TabBarLg(props) {
                 </div>
             )}
         </>
-    )
+    );
 }
 
 export default TabBarLg;

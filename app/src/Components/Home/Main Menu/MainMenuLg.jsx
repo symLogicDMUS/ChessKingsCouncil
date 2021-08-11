@@ -36,7 +36,7 @@ const svgBannerThemes = [
 const bannerStyle = (theme) => ({
     width: "100%",
     height: "100%",
-    borderBottom: `1px solid ${darken(themes[theme].menu_container, 0.05)}`,
+    borderBottom: `1px solid ${darken(themes[theme].menu_container, 0.1)}`,
 });
 
 function MainMenuLg(props) {

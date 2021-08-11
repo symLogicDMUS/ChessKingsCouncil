@@ -9,62 +9,62 @@ function PuttingThePieceICreatedIntoAGame(props) {
 
     const ex1 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/go-new-game.gif'}
-        lgSrc={'/Images/help/wide/go-new-game.gif'}
+        smSrc={'/Images/Help/thin/go-new-game.gif'}
+        lgSrc={'/Images/Help/wide/go-new-game.gif'}
     />
 
     const ex2 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/game name.png'}
-        lgSrc={'/Images/help/wide/game name.png'}
+        smSrc={'/Images/Help/thin/game name.png'}
+        lgSrc={'/Images/Help/wide/game name.png'}
     />
 
     const ex3 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/game name text field.png'}
-        lgSrc={'/Images/help/wide/game name text field.png'}
+        smSrc={'/Images/Help/thin/game name text field.png'}
+        lgSrc={'/Images/Help/wide/game name text field.png'}
     />
 
     const ex4 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/pick type.png'}
-        lgSrc={'/Images/help/wide/pick type.png'}
+        smSrc={'/Images/Help/thin/pick type.png'}
+        lgSrc={'/Images/Help/wide/pick type.png'}
     />
 
     const ex5 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/custom option select.png'}
-        lgSrc={'/Images/help/wide/custom option select.png'}
+        smSrc={'/Images/Help/thin/custom option select.png'}
+        lgSrc={'/Images/Help/wide/custom option select.png'}
     />
 
     const ex6 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/play as.png'}
-        lgSrc={'/Images/help/wide/play as.png'}
+        smSrc={'/Images/Help/thin/play as.png'}
+        lgSrc={'/Images/Help/wide/play as.png'}
     />
 
     const ex7 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/player type dropdown.png'}
-        lgSrc={'/Images/help/wide/player type dropdown.png'}
+        smSrc={'/Images/Help/thin/player type dropdown.png'}
+        lgSrc={'/Images/Help/wide/player type dropdown.png'}
     />
 
     const ex8 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/play button.png'}
-        lgSrc={'/Images/help/wide/play button.png'}
+        smSrc={'/Images/Help/thin/play button.png'}
+        lgSrc={'/Images/Help/wide/play button.png'}
     />
 
     const ex9 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/customize.png'}
-        lgSrc={'/Images/help/wide/customize.png'}
+        smSrc={'/Images/Help/thin/customize.png'}
+        lgSrc={'/Images/Help/wide/customize.png'}
     />
 
     const ex10 = <SeeExampleButton
         theme={props.theme}
-        smSrc={'/Images/help/thin/subbing piece.gif'}
-        lgSrc={'/Images/help/wide/subbing piece.gif'}
+        smSrc={'/Images/Help/thin/subbing piece.gif'}
+        lgSrc={'/Images/Help/wide/subbing piece.gif'}
     />
 
     return <HelpSlide
@@ -91,23 +91,23 @@ function PuttingThePieceICreatedIntoAGame(props) {
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/wide/sub buttons.png"}
-                    smSrc={"Images/help/wide/sub buttons.png"}
+                    lgSrc={"Images/Help/wide/sub buttons.png"}
+                    smSrc={"Images/Help/wide/sub buttons.png"}
                 >
                     On large screens the sub options are 4 icons: Queen, Rook, Knight, and Bishop.
                 </SeeExampleButton>
                 <SeeExampleButton
                     isText={true}
                     theme={props.theme}
-                    lgSrc={"Images/help/thin/subs dropdown.png"}
-                    smSrc={"Images/help/thin/subs dropdown.png"}
+                    lgSrc={"Images/Help/thin/subs dropdown.png"}
+                    smSrc={"Images/Help/thin/subs dropdown.png"}
                 >
                     On smaller screens the 4 icons are in a dropdown.
                 </SeeExampleButton>
                 <SeeExampleButton
                     theme={props.theme}
-                    smSrc={'/Images/help/thin/subbing piece.gif'}
-                    lgSrc={'/Images/help/wide/subbing piece.gif'}
+                    smSrc={'/Images/Help/thin/subbing piece.gif'}
+                    lgSrc={'/Images/Help/wide/subbing piece.gif'}
                 />
             </Typography>
         </Typography>
@@ -115,8 +115,8 @@ function PuttingThePieceICreatedIntoAGame(props) {
             The game starts with your piece in place of the piece you subbed for.
             <SeeExampleButton
                 theme={props.theme}
-                smSrc={'/Images/help/thin/dragon-sub-queen.png'}
-                lgSrc={'/Images/help/wide/dragon-sub-queen.png'}
+                smSrc={'/Images/Help/thin/dragon-sub-queen.png'}
+                lgSrc={'/Images/Help/wide/dragon-sub-queen.png'}
             />
         </Typography>
     </HelpSlide>;

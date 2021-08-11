@@ -5,7 +5,7 @@ import { useStyles } from "./TabPanel.jss";
 function TabPanel(props) {
     const { children, value, index, theme, ...other } = props;
 
-    const classes = useStyles({theme});
+    const classes = useStyles({ theme });
 
     return (
         <div
@@ -16,9 +16,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box className={classes.content}>
-                    {children}
-                </Box>
+                <Box className={classes.content}>{children}</Box>
             )}
         </div>
     );

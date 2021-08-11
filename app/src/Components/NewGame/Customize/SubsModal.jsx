@@ -1,20 +1,20 @@
 import React from "react";
 import clsx from "clsx";
-import {SubsList} from "./SubsList";
-import {motion} from "framer-motion";
+import { SubsList } from "./SubsList";
+import { motion } from "framer-motion";
 import { useStyles as useMoreStyles } from "../../Reuseables/MiniVariantTool/ToolWindow.jss";
 import { useStyles } from "./SubsModal.jss";
 
-function SubsModal({className, theme, children}) {
-    const classes = useStyles({theme});
-    const classes2 = useMoreStyles({theme});
+function SubsModal({ className, theme, children }) {
+    const classes = useStyles({ theme });
+    const classes2 = useMoreStyles({ theme });
 
     const variants = {
         initial: {
             scale: 0,
             top: 0,
             y: 2,
-            left: 'calc(50vw + 2px)',
+            left: "calc(50vw + 2px)",
         },
         animate: {
             scale: 1,
@@ -26,7 +26,7 @@ function SubsModal({className, theme, children}) {
             scale: 0,
             top: 0,
             y: 2,
-            left: 'calc(50vw + 2px)',
+            left: "calc(50vw + 2px)",
         },
     };
 
@@ -46,7 +46,7 @@ function SubsModal({className, theme, children}) {
         >
             <SubsList subs={children} theme={theme} />
         </motion.div>
-    )
+    );
 }
 
 export default SubsModal;

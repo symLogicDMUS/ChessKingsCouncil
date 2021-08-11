@@ -3,7 +3,7 @@ import Select from "@material-ui/core/Select";
 
 export function MuiSelect(props) {
 
-    const {updateParent, children, overrideItem, ...other} = props;
+    const {updateParent, overrideItem, children, ...other} = props;
 
     const [selected, setSelected] = useState("");
 
@@ -20,7 +20,7 @@ export function MuiSelect(props) {
             value={!!overrideItem ? overrideItem : selected}
             {...other}
         >
-            {props.children}
+            {children}
         </Select>
     );
 }

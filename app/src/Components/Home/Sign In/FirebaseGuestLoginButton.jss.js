@@ -67,9 +67,9 @@ export const useStyles = makeStyles(
         }),
         color2: (props) => ({
             color: "#fff",
-            backgroundColor: "#3b5998",
+            backgroundColor: "#3f51b5",
             "&:hover": {
-                backgroundColor: "#3b5998",
+                backgroundColor: "#3f51b5",
             },
         }),
     }),

@@ -1,25 +1,25 @@
-import * as firebase from "firebase";
 import "firebase/auth";
-import clsx from "clsx";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import * as firebase from "firebase";
 import { uiConfig } from "../uiconfig";
+import Button from "@material-ui/core/Button";
 import { Portal, Typography } from "@material-ui/core";
+import {ReactComponent as Title} from "./Chess Kings Council.svg";
+import { HelpModal } from "../../Reuseables/NavBar/Help/HelpModal";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { BoardPatternRow } from "../../styles/Background/BoardPatternRow";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { KeyboardBackspace } from "@material-ui/icons";
 import "../../styles/Background/_backgrounds.scss";
-import Button from "@material-ui/core/Button";
+import React, {useState, useEffect} from "react";
 import { useStyles } from "./SignInWindow.jss";
-import { HelpModal } from "../../Reuseables/NavBar/Help/HelpModal";
+import Box from "@material-ui/core/Box";
 
 function SignInWindow({ goBack }) {
     const [helpReminder, setHelpReminder] = useState(false);
     const [helpModal, setHelpModal] = useState(false);
+
     const classes = useStyles({ theme: "tan" });
+
     const sm = useMediaQuery("(max-width:960px)");
     const screenCase = sm ? "thin" : "wide";
 
@@ -33,16 +33,10 @@ function SignInWindow({ goBack }) {
 
     return (
         <Portal>
+            <img src={"/Images/wood background.jpg"} className={classes.background} alt="" />
             <div className={classes.login_page}>
-                <BoardPatternRow row2={false} theme="tan" />
                 <div className={classes.content}>
-                    <img
-                        src={`/Images/text/app title/title-tan.svg`}
-                        className={clsx(classes.appTitle, {
-                            [classes.appTitleSm]: sm,
-                            [classes.appTitleMd]: !sm,
-                        })}
-                    />
+                    <Title className={classes.title} fill="#253b73" />
                     {helpReminder ? (
                         <Typography
                             className={classes.help_reminder}
@@ -60,28 +54,30 @@ function SignInWindow({ goBack }) {
                             </Button>
                         </Typography>
                     ) : (
-                        <StyledFirebaseAuth
-                            uiConfig={uiConfig}
-                            firebaseAuth={firebase.auth()}
-                        />
+                        <Box className={classes.buttons}>
+                            <StyledFirebaseAuth
+                                uiConfig={uiConfig}
+                                firebaseAuth={firebase.auth()}
+                            />
+                            <Button
+                                variant="text"
+                                onClick={goBack}
+                                className={classes.close}
+                                startIcon={<KeyboardBackspace />}
+                            >
+                                Go Back
+                            </Button>
+                        </Box>
                     )}
                     {helpModal && (
                         <HelpModal
-                            theme="tan"
+                            theme="blue"
                             screenCase={screenCase}
                             onClose={() => setHelpModal(false)}
                         />
                     )}
-                    <Button
-                        variant="text"
-                        onClick={goBack}
-                        className={classes.close}
-                        startIcon={<KeyboardBackspace />}
-                    >
-                        Go Back
-                    </Button>
+
                 </div>
-                <BoardPatternRow row2={true} theme="tan" />
             </div>
         </Portal>
     );

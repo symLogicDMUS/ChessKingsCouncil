@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import SubsModal from "./SubsModal";
 import PromosModal from "./PromosModal";
-import {AnimatePresence} from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import ToolButton from "../../Reuseables/MiniVariantTool/ToolButton";
-import {ToolBackdrop} from "../../Reuseables/MiniVariantTool/ToolBackdrop";
+import { ToolBackdrop } from "../../Reuseables/MiniVariantTool/ToolBackdrop";
 
-function CustomizeToolbar({subs, promos, theme}) {
-
+function CustomizeToolbar({ subs, promos, theme }) {
     const [activeTool, setActiveTool] = useState(null);
 
     const toggleActiveTool = (toolName) => {
@@ -21,24 +20,21 @@ function CustomizeToolbar({subs, promos, theme}) {
         <>
             <AnimatePresence>
                 {activeTool === "Subs" && (
-                    <SubsModal
-                        key='subs-modal'
-                        theme={theme}
-                    >
+                    <SubsModal key="subs-modal" theme={theme}>
                         {subs}
                     </SubsModal>
                 )}
                 {activeTool === "Promos" && (
-                    <PromosModal
-                        key='promos-modal'
-                        theme={theme}
-                    >
+                    <PromosModal key="promos-modal" theme={theme}>
                         {promos}
                     </PromosModal>
                 )}
             </AnimatePresence>
             {(activeTool === "Subs" || activeTool === "Promos") && (
-                <ToolBackdrop key="backdrop" onClick={() => setActiveTool(null)} />
+                <ToolBackdrop
+                    key="backdrop"
+                    onClick={() => setActiveTool(null)}
+                />
             )}
             <ToolButton
                 name="Subs"
@@ -57,7 +53,7 @@ function CustomizeToolbar({subs, promos, theme}) {
                 theme={theme}
             />
         </>
-    )
+    );
 }
 
 export default CustomizeToolbar;

@@ -14,8 +14,8 @@ export function SubbingYourPiecesForRegularOnes({ theme }) {
             <SeeExampleButton
                 isText={true}
                 theme={theme}
-                lgSrc={"Images/help/wide/sub buttons.png"}
-                smSrc={"Images/help/wide/sub buttons.png"}
+                lgSrc={"Images/Help/wide/sub buttons.png"}
+                smSrc={"Images/Help/wide/sub buttons.png"}
             >
                 On larger screens the icons are on the right side of a piece's
                 profile header.
@@ -23,14 +23,14 @@ export function SubbingYourPiecesForRegularOnes({ theme }) {
             <SeeExampleButton
                 isText={true}
                 theme={theme}
-                lgSrc={"Images/help/thin/subs dropdown.png"}
-                smSrc={"Images/help/thin/subs dropdown.png"}
+                lgSrc={"Images/Help/thin/subs dropdown.png"}
+                smSrc={"Images/Help/thin/subs dropdown.png"}
             >
                 On smaller screens the icons are in a dropdown.
             </SeeExampleButton>
             <SeeExampleButton
-                smSrc={'/Images/help/thin/subbing piece.gif'}
-                lgSrc={'/Images/help/thin/subbing piece.gif'}
+                smSrc={'/Images/Help/thin/subbing piece.gif'}
+                lgSrc={'/Images/Help/thin/subbing piece.gif'}
                 theme={theme}
             />
         </Typography>
