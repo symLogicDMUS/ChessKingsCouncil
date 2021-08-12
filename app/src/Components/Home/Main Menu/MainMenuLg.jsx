@@ -1,52 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import PageLink from "./PageLink";
-import SvgBanner from "./SvgBanner";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import InfoIcon from "@material-ui/icons/Info";
 import "../../styles/Background/_backgrounds.scss";
-import { svgStyle } from "../../styles/svgStyle.jss";
-import { Slide, Typography } from "@material-ui/core";
+import {svgStyle} from "../../styles/svgStyle.jss";
+import {Slide, Typography} from "@material-ui/core";
 import MainMenuHelpButton from "./MainMenuHelpButton";
 import SignInOutButton from "../Sign In/SignInOutButton";
 import MainMenuSettingsButton from "./MainMenuSettingsButton";
-import { ReactComponent as Title } from "./main menu text/title.svg";
-import { ReactComponent as NewGameText } from "./main menu text/New Game.svg";
-import { ReactComponent as LoadGameText } from "./main menu text/Load Game.svg";
-import { ReactComponent as CreatePieceText } from "./main menu text/Create Piece.svg";
-import { ReactComponent as ChessRulesText } from "./main menu text/Chess Rules.svg";
-import { ReactComponent as CouncilRulesText } from "./main menu text/Council Rules.svg";
-import { ReactComponent as SavedPiecesText } from "./main menu text/Saved Pieces.svg";
-import { ReactComponent as AuthorGitHubText } from "./main menu text/Author GitHub.svg";
 import MainMenuSm from "../../Reuseables/Drawers/MainMenuSm";
-import { signOutStyleOverride, useStyles } from "./MainMenuLg.jss";
-import { themes } from "../../styles/themes/themes.jss";
-import {darken} from "@material-ui/core/styles";
-
-const svgBannerThemes = [
-    "dark",
-    "tan",
-    "red_blue",
-    "dark_alt",
-    "red_blue_alt",
-    "tan_dark",
-    "classic_dark",
-];
-
-/* for themes not svgBannerThemes */
-const bannerFileNames = {
-    'blue': "main menu banner-blue.png",
-    'NBA': 'main menu banner-NBA.png',
-    'mechwarrior_a_team': 'main menu banner-mechwarrior_a_team.png',
-    'mechwarrior_b_team': 'main menu banner-mechwarrior_b_team.png',
-    'star_wars': 'star wars banner.svg',
-}
-
-const bannerStyle = (theme) => ({
-    width: "100%",
-    height: "100%",
-    borderBottom: `1px solid ${darken(themes[theme].menu_container, 0.1)}`,
-});
+import {ReactComponent as Title} from "./main menu text/title.svg";
+import {ReactComponent as NewGameText} from "./main menu text/New Game.svg";
+import {ReactComponent as LoadGameText} from "./main menu text/Load Game.svg";
+import {ReactComponent as CreatePieceText} from "./main menu text/Create Piece.svg";
+import {ReactComponent as ChessRulesText} from "./main menu text/Chess Rules.svg";
+import {ReactComponent as CouncilRulesText} from "./main menu text/Council Rules.svg";
+import {ReactComponent as SavedPiecesText} from "./main menu text/Saved Pieces.svg";
+import {ReactComponent as AuthorGitHubText} from "./main menu text/Author GitHub.svg";
+import SvgBanner from "./SvgBanner";
+import {
+    bannerFileNames,
+    bannerStyle,
+    signOutStyleOverride,
+    svgBannerThemes,
+    useStyles
+} from "./MainMenuLg.jss";
 
 function MainMenuLg(props) {
     useEffect(() => {

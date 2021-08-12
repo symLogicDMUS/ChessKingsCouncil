@@ -14,6 +14,7 @@ import ResponsiveDrawer from "../Reuseables/Drawers/ResponsiveDrawer";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {ThemeContext} from "../../Context/ThemeContext";
 import {reducer} from "./NewGame.red";
+import { useStyles } from "./NewGame.jss";
 
 function NewGame() {
     const history = useHistory();
@@ -27,6 +28,8 @@ function NewGame() {
     const [gameName, updateGameName] = useState("");
     const [gameType, updateGameType] = useState(null);
     const [playerType, updatePlayerType] = useState(null);
+
+    const classes = useStyles();
 
     const setGameName = (e) => {
         updateGameName(e.target.value);
@@ -98,45 +101,47 @@ function NewGame() {
                     theme={themes.newGame}
                     finish={finish}
                 />
-                <TabPanel
-                    index={0}
-                    value={state.activeStep}
-                    theme={themes.newGame}
-                    slideDirection={state.slideDirection}
-                >
-                    <GameName
-                        key='GameName'
-                        gameName={gameName}
+                <div className={classes.content}>
+                    <TabPanel
+                        index={0}
+                        value={state.activeStep}
                         theme={themes.newGame}
-                        setGameName={setGameName}
-                    />
-                </TabPanel>
-                <TabPanel
-                    index={1}
-                    value={state.activeStep}
-                    theme={themes.newGame}
-                    slideDirection={state.slideDirection}
-                >
-                    <PickType
-                        key="PickType"
-                        gameType={gameType}
+                        slideDirection={state.slideDirection}
+                    >
+                        <GameName
+                            key='GameName'
+                            gameName={gameName}
+                            theme={themes.newGame}
+                            setGameName={setGameName}
+                        />
+                    </TabPanel>
+                    <TabPanel
+                        index={1}
+                        value={state.activeStep}
                         theme={themes.newGame}
-                        setGameType={setGameType}
-                    />
-                </TabPanel>
-                <TabPanel
-                    index={2}
-                    value={state.activeStep}
-                    theme={themes.newGame}
-                    slideDirection={state.slideDirection}
-                >
-                    <PlayAs
-                        key="PlayAs"
+                        slideDirection={state.slideDirection}
+                    >
+                        <PickType
+                            key="PickType"
+                            gameType={gameType}
+                            theme={themes.newGame}
+                            setGameType={setGameType}
+                        />
+                    </TabPanel>
+                    <TabPanel
+                        index={2}
+                        value={state.activeStep}
                         theme={themes.newGame}
-                        playerType={playerType}
-                        setPlayerType={setPlayerType}
-                    />
-                </TabPanel>
+                        slideDirection={state.slideDirection}
+                    >
+                        <PlayAs
+                            key="PlayAs"
+                            theme={themes.newGame}
+                            playerType={playerType}
+                            setPlayerType={setPlayerType}
+                        />
+                    </TabPanel>
+                </div>
             </ResponsiveDrawer>
         </>
     );

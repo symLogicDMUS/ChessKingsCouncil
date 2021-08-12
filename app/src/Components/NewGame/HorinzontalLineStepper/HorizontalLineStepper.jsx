@@ -111,7 +111,6 @@ export default function HorizontalLinearStepper({
                         Play
                     </MuiButton>
                 )}
-
             </div>
         </>
     );

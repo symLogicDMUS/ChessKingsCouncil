@@ -5,6 +5,7 @@ import {fade} from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
     action_buttons: (props) => ({
+        zIndex: 1,
         position: "fixed",
         bottom: 45,
         width: "100vw",
@@ -12,6 +13,7 @@ export const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     }),
     stepper: props => ({
+        zIndex: 1,
         position: 'fixed',
         top: appBarHeight,
         width: '100vw',
@@ -27,6 +29,7 @@ export const useStyles = makeStyles((theme) => ({
         },
     }),
     instructions: {
+        zIndex: 1,
         position: "fixed",
         bottom: 90,
         width: "100vw",

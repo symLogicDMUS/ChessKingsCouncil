@@ -1,11 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { themes } from "../styles/themes/themes.jss";
-
-export const views = {
-    position: "fixed",
-    left: "7.5vw",
-    top: "7.5vw",
-};
 
 export const useStyles = makeStyles(
     {
@@ -18,6 +11,13 @@ export const useStyles = makeStyles(
         title: (props) => ({
             width: "50vw",
             marginBottom: 26,
+        }),
+        content: props => ({
+            position: 'fixed',
+            width: "100vw",
+            height: '100vh',
+            display: "flex",
+            flexDirection: "column",
         }),
     },
     { index: 1 }

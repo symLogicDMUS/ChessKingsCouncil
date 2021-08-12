@@ -1,5 +1,5 @@
-import { lighten, makeStyles } from "@material-ui/core/styles";
-import { themes } from "../../styles/themes/themes.jss";
+import {darken, makeStyles} from "@material-ui/core/styles";
+import {themes} from "../../styles/themes/themes.jss";
 
 const topAreaHeight = 40;
 
@@ -10,6 +10,31 @@ export const buttonStyle = { maxWidth: 130 };
 export const signOutStyleOverride = (theme) => ({
     color: themes[theme].text,
     marginRight: "0.5rem",
+});
+
+export const svgBannerThemes = [
+    "dark",
+    "tan",
+    "red_blue",
+    "dark_alt",
+    "red_blue_alt",
+    "tan_dark",
+    "classic_dark",
+];
+
+/* for themes not svgBannerThemes */
+export const bannerFileNames = {
+    'blue': "main menu banner-blue.png",
+    'NBA': 'main menu banner-NBA.png',
+    'mechwarrior_a_team': 'main menu banner-mechwarrior_a_team.png',
+    'mechwarrior_b_team': 'main menu banner-mechwarrior_b_team.png',
+    'star_wars': 'a long time ago.svg',
+}
+
+export const bannerStyle = (theme) => ({
+    width: "100%",
+    height: "100%",
+    borderBottom: `1px solid ${darken(themes[theme].menu_container, 0.1)}`,
 });
 
 export const useStyles = makeStyles(
